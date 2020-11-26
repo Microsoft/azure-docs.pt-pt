@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 372ff1dc53f15a1338cad933fec64746b6736f40
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5645a2e0449a1929421f9444bf645f08ad0525e9
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368095"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296816"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja os seus pontos finais com a solução EDR integrada do Security Center: Microsoft Defender for Endpoint
 
@@ -61,7 +61,7 @@ O Microsoft Defender for Endpoint fornece:
 
 Ao integrar o Defender para Endpoint com o Security Center, irá beneficiar das seguintes capacidades adicionais:
 
-- **Embarque automatizado.** O Security Center ativa automaticamente o microsoft Defender para o sensor Endpoint para todos os servidores windows monitorizados pelo Security Center (a menos que estejam a executar o Windows Server 2019).
+- **Embarque automatizado.** O Security Center ativa automaticamente o microsoft Defender para o sensor Endpoint para todos os servidores windows monitorizados pelo Security Center. Exceto aqueles que estão a executar o Windows Server 2019, que deve ser a bordo através de script local, Group Policy Object (GPO) ou [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/) (anteriormente SCCM).
 
 - **Uma única vidraça de vidro.** A consola Do Centro de Segurança apresenta alertas microsoft Defender para endpoint. Para investigar mais aprofundadamente, utilize o Microsoft Defender para as páginas do portal do Endpoint, onde verá informações adicionais, como a árvore do processo de alerta e o gráfico do incidente. Você também pode ver uma linha do tempo de máquina detalhada que mostra todos os comportamentos por um período histórico de até seis meses.
 
@@ -85,9 +85,9 @@ Depois de configurar o local, não pode mudá-lo. Se precisar de mover os seus d
 1. A partir do menu do Centro de Segurança, **selecione definições de preços &**.
 1. Selecione a subscrição que pretende alterar.
 1. Selecione **deteção de ameaças**.
-1. Selecione **Permitir que o Microsoft Defender para o Ponto Final aceda aos meus dados**e selecione **Guardar**.
+1. Selecione **Permitir que o Microsoft Defender para o Ponto Final aceda aos meus dados** e selecione **Guardar**.
 
-    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Microsoft Defender para o próprio Centro de Segurança endpoint":::
+    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Permitir a integração entre o Azure Security Center e a solução EDR da Microsoft, Microsoft Defender for Endpoint":::
 
     O Azure Security Center irá automaticamente embarcar os seus servidores no Microsoft Defender para Endpoint. O embarque pode demorar até 24 horas.
 
@@ -112,7 +112,7 @@ Para gerar um alerta de teste do Microsoft Defender benigno para o ponto final:
     ```powershell
     powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-MDATP-test\\invoice.exe'); Start-Process 'C:\\test-MDATP-test\\invoice.exe'
     ```
-    :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="Microsoft Defender para o próprio Centro de Segurança endpoint":::
+    :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="Uma janela de ordem com o comando para gerar um alerta de teste.":::
 
 1. Se o comando for bem sucedido, verá um novo alerta no painel do Azure Security Center e no Microsoft Defender para o portal Endpoint. Este alerta pode levar alguns minutos a aparecer.
 1. Para rever o alerta no Centro de Segurança, vá a **Alertas de Segurança**  >  **Alertas Suspeitos powerShell CommandLine**.

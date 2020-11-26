@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: 93c35828444ec93a974769ed3a2f1981c0ec4368
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 8195c4d072acce5345fa9752f97713aed22d962f
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96013465"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296959"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Resolução de problemas de integração auto-acolagem
 
@@ -459,6 +459,22 @@ Antes e depois da conversão:
 
 ![Após alteração do certificado](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
 
+### <a name="self-hosted-integration-runtime-version-5x"></a>Integração Auto-hospedada Versão Runtime 5.x
+Para a atualização para a versão 5.x do tempo de integração auto-hospedado da Azure Data Factory, exigimos o **tempo de execução do quadro .NET 4.7.2** ou superior. Na página de download, haverá links de descarregamento para a versão 4.x mais recente e as mais recentes duas versões 5.x. 
+
+
+Para clientes ADF V2:
+- Se a atualização automática estiver acesa e já tiver atualizado o tempo de funcionamento do quadro .Net para 4.7.2 ou superior, então o tempo de integração auto-hospedado será automaticamente atualizado para a versão 5.x mais recente.
+- Se a atualização automática estiver acesa e não tiver atualizado o tempo de funcionamento do quadro .Net para 4.7.2 ou superior, então o tempo de integração auto-hospedado não será atualizado automaticamente para a versão 5.x mais recente. O tempo de integração auto-hospedado permanecerá na versão atual 4.x. Pode ver um aviso para atualização de tempo de funcionamento do quadro .Net no portal e cliente de tempo de execução de integração auto-hospedado.
+- Se a atualização automática estiver desligada e já tiver atualizado o tempo de funcionamento da estrutura .Net para 4.7.2 ou superior, pode descarregar manualmente o mais recente 5.x e instalar na sua máquina.
+- Se a atualização automática estiver desligada e não tiver atualizado o tempo de funcionamento do quadro .Net para 4.7.2 ou superior. Quando tentar instalar manualmente o SHIR 5.x e registar a tecla, será necessário atualizar primeiro o seu tempo de funcionamento da estrutura .Net.
+
+
+Para clientes ADF V1:
+- O tempo de integração auto-hospedado 5.X não suporta a ADF V1.
+- O tempo de integração auto-hospedado será atualizado automaticamente para a versão mais recente de 4.x. E a última versão de 4.x não expirará. 
+- Se tentar instalar manualmente o tempo de execução de integração auto-hospedado 5.x e registar a chave, dir-lhe-á que o tempo de execução de integração auto-hospedado 5.x não suporta V1.
+
 
 ## <a name="self-hosted-ir-connectivity-issues"></a>Problemas de conectividade ir auto-hospedados
 
@@ -757,6 +773,7 @@ Você pode notar outras fábricas de dados (em diferentes inquilinos) enquanto t
 #### <a name="cause"></a>Causa
 
 O IR auto-hospedado não pode ser partilhado entre inquilinos cruzados.
+
 
 
 ## <a name="next-steps"></a>Passos seguintes

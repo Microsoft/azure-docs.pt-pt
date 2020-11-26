@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8fd7562d1f8e38c79f739fdd2db7031e772874bc
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 0e637a09a5305e314a32b1cac34b2da669eec614
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122621"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296204"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Terminologia Azure Synapse Analytics
 
@@ -51,9 +51,9 @@ Há duas maneiras dentro da Sinapse de usar faísca:
 
 Os oleodutos são como o Azure Synapse fornece integração de dados - permitindo-lhe mover dados entre serviços e atividades orquestradas.
 
-* **Os Data Flows** fornecem uma experiência sem codine para fazer a transformação de dados que utiliza a Synapse Spark sub-the-covers.
-* **Pipeline** - Agrupamento lógico de atividades que realizam uma tarefa em conjunto.
-* **Atividade** - Define ações para executar em dados como copiar dados, executar um Caderno ou um script SQL.
+* **Pipeline** são agrupamentos lógicos de atividades que realizam uma tarefa em conjunto.
+* **As atividades** definem ações dentro de um Pipeline para executar dados como copiar dados, executar um Caderno ou um script SQL.
+* **Data Flows** é um tipo específico de atividade que fornece uma experiência sem código para fazer a transformação de dados que usa a Synapse Spark sub-the-covers.
 * **Trigger** - Executa um oleoduto. Pode ser executado manualmente ou automaticamente (agendar, tropeçar na janela ou no evento)
 * **Conjunto de dados** de integração - Visão nomeada de dados que simplesmente apontam ou referenciam os dados a serem utilizados numa atividade como entrada e saída. Pertence a um Serviço Linked.
 

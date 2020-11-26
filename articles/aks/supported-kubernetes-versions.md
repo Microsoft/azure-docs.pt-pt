@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 649f02097a18a141d186434a91539563c64e72ba
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: ecea9dcd28aede92ef255bf002b9195ded43c68b
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042124"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296119"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Versões do Kubernetes suportadas no Azure Kubernetes Service [AKS])
 
@@ -95,7 +95,7 @@ New Supported Version List
 
 Pode utilizar uma versão menor mais antiga ou mais recente em `kubectl` relação à sua versão *kube-apiserver,* que é consistente com a política de [suporte kubernetes para kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
 
-Por exemplo, se o seu *kube-apiserver* estiver a *1.17* , então pode utilizar as versões *1.16* a *1.18* de `kubectl` com aquele *kube-apiserver* .
+Por exemplo, se o seu *kube-apiserver* estiver a *1.17*, então pode utilizar as versões *1.16* a *1.18* de `kubectl` com aquele *kube-apiserver*.
 
 Para instalar ou atualizar a sua versão de `kubectl` , executar `az aks install-cli` .
 
@@ -106,6 +106,9 @@ Pode fazer referência a lançamentos e depreciações da próxima versão no [c
 Para novas **versões menores** de Kubernetes
 1. A AKS publica um pré-anúncio com a data prevista de um lançamento de nova versão e respetiva depreciação da versão antiga nas notas de lançamento da [AKS](https://aka.ms/aks/releasenotes) pelo menos 30 dias antes da remoção.
 2. A AKS publica uma [notificação de saúde](../service-health/service-health-overview.md) de serviço disponível para todos os utilizadores com acesso a AKS e portal, e envia um e-mail aos administradores de subscrição com as datas de remoção da versão planeadas.
+````
+To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#assign-a-subscription-administrator).
+````
 3. Os **utilizadores têm 30 dias** desde a remoção da versão para atualizar para uma versão menor suportada para continuar a receber suporte.
 
 Para novas **versões** de patch de Kubernetes
@@ -121,7 +124,7 @@ As versões específicas do patch podem ser ignoradas ou aceleradas dependendo d
 
 ## <a name="azure-portal-and-cli-versions"></a>Versões do portal Azure e CLI
 
-Quando implementa um cluster AKS no portal ou com o CLI Azure, o cluster é padrão para a versão menor N-1 e para o patch mais recente. Por exemplo, se a AKS suportar *1.17.a* , *1.17.b* , *1.16.c* , *1.16.d* , *1.15.e* , e *1.15.f* , a versão padrão selecionada é *1.16.c* .
+Quando implementa um cluster AKS no portal ou com o CLI Azure, o cluster é padrão para a versão menor N-1 e para o patch mais recente. Por exemplo, se a AKS suportar *1.17.a*, *1.17.b*, *1.16.c*, *1.16.d*, *1.15.e*, e *1.15.f,* a versão padrão selecionada é *1.16.c*.
 
 Para saber quais as versões que estão atualmente disponíveis para a sua subscrição e região, utilize o comando [az aks get-verss.][az-aks-get-versions] O exemplo a seguir lista as versões Kubernetes disponíveis para a região *eastus:*
 
@@ -154,8 +157,8 @@ Afirmando com Kubernetes 1.19, a [comunidade de open source expandiu](https://ku
 
 Se estiver na versão *n-3* ou mais antiga, significa que está fora do suporte e será solicitado para fazer upgrade. Quando a sua atualização da versão n-3 para n-2 tiver sucesso, está de volta às nossas políticas de apoio. Por exemplo:
 
-- Se a versão AKS suportada mais antiga for *1.15.a* e estiver em *1.14.b* ou mais antiga, está fora do suporte.
-- Quando a atualização de *1.14.b* para *1.15.a* ou superior tiver sucesso, está de volta às nossas políticas de apoio.
+- Se a versão AKS suportada mais antiga for *1.15.a* e estiver em *1.14.b* ou mais, está fora do suporte.
+- Quando a atualização de *1,14.b* para *1.15.a* ou superior tiver sucesso, está de volta às nossas políticas de apoio.
 
 As desvalorizações não são apoiadas.
 
@@ -179,7 +182,7 @@ O plano de controlo deve estar dentro de uma janela de versões de todas as pisc
 
 Quando atualiza um cluster AKS suportado, as versões menores de Kubernetes não podem ser ignoradas. Por exemplo, são permitidas atualizações entre *1.12.x*  ->  *1.13.x* ou *1.13.x*  ->  *1.14.x,* no entanto *1.12.x*  ->  *1.14.x* não é.
 
-Para atualizar, a partir de *1.12.x*  ->  *1.14.x,* primeiro upgrade a partir de *1.12.x*  ->  *1.13.x,* em seguida, upgrade a partir de *1.13.x*  ->  *1.14.x* .
+Para atualizar, a partir de *1.12.x*  ->  *1.14.x,* primeiro upgrade a partir de *1.12.x*  ->  *1.13.x,* em seguida, upgrade a partir de *1.13.x*  ->  *1.14.x*.
 
 Saltar várias versões só pode ser feito quando o upgrade de uma versão não suportada de volta para uma versão suportada. Por exemplo, o upgrade a partir de um *1.10.x* não suportado --> um *1.15.x* suportado pode ser concluído.
 

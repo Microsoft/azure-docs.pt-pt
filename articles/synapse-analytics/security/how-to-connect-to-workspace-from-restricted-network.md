@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 55ec8be176dc7274a3b9a1feca53726d57eeb422
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2e96cbf0c1464e27b0a384e8a813118056103b91
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024470"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296718"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Conecte-se aos recursos do espaço de trabalho a partir de uma rede restrita
 
@@ -46,14 +46,11 @@ Para obter mais informações, consulte [a visão geral das etiquetas de serviç
 
 Em seguida, crie centros de ligação privados a partir do portal Azure. Para encontrar isto no portal, procure a *Azure Synapse Analytics (centros de ligação privado)* e, em seguida, preencha as informações necessárias para a criar. 
 
-> [!Note]
-> Certifique-se de que o valor da **Região** é o mesmo que aquele onde é o seu espaço de trabalho Azure Synapse Analytics.
-
 ![Screenshot do centro de ligação privada Create Synapse.](./media/how-to-connect-to-workspace-from-restricted-network/private-links.png)
 
-## <a name="step-3-create-a-private-endpoint-for-your-gateway"></a>Passo 3: Crie um ponto final privado para o seu portal
+## <a name="step-3-create-a-private-endpoint-for-your-synapse-studio"></a>Passo 3: Crie um ponto final privado para o seu Estúdio Synapse
 
-Para aceder ao gateway do Azure Synapse Analytics Studio, tem de criar um ponto final privado a partir do portal Azure. Para encontrar isto no portal, procure *o Private Link*. No **Private Link Center**, selecione **Criar ponto final privado** e, em seguida, preencha as informações necessárias para criá-la. 
+Para aceder ao Azure Synapse Analytics Studio, tem de criar um ponto final privado a partir do portal Azure. Para encontrar isto no portal, procure *o Private Link*. No **Private Link Center**, selecione **Criar ponto final privado** e, em seguida, preencha as informações necessárias para criá-la. 
 
 > [!Note]
 > Certifique-se de que o valor da **Região** é o mesmo que aquele onde é o seu espaço de trabalho Azure Synapse Analytics.
@@ -119,7 +116,44 @@ Depois de criar este ponto final, o estado de aprovação mostra um estado de **
 
 Agora, tudo pronto. Você pode aceder ao seu recurso de espaço de trabalho Azure Synapse Analytics Studio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="appendix-dns-registration-for-private-endpoint"></a>Apêndice: Registo de DNS para ponto final privado
+
+Se a "Integração com a zona privada de DNS" não estiver ativada durante a criação do ponto final privado como screenshot abaixo, deve criar a "**zona privada de DNS**" para cada um dos seus pontos finais privados.
+![Screenshot da zona privada de DNS da Create Synapse 1.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-1.png)
+
+Para encontrar a **zona privada do DNS** no portal, procure a *zona privada do DNS*. Na zona privada do **DNS,** preencha as informações necessárias abaixo para a criar.
+
+* Para **nome**, insira o nome dedicado da zona privada de DNS para o ponto final privado específico como abaixo:
+  * **`privatelink.azuresynapse.net`** é para o ponto final privado de acesso a Azure Synapse Analytics Studio gateway. Veja este tipo de criação de ponto final privado no passo 3.
+  * **`privatelink.sql.azuresynapse.net`** é para este tipo de ponto final privado de execução de consulta sql em piscina SQL e piscina embutido. Veja a criação do ponto final no passo 4.
+  * **`privatelink.dev.azuresynapse.net`** é para este tipo de ponto final privado de acesso a tudo o resto dentro dos espaços de trabalho do Azure Synapse Analytics Studio. Veja este tipo de criação de ponto final privado no passo 4.
+  * **`privatelink.dfs.core.windows.net`** é para o ponto final privado de acesso ao espaço de trabalho ligado Azure Data Lake Storage Gen2. Veja este tipo de criação de ponto final privado no passo 5.
+  * **`privatelink.blob.core.windows.net`** é para o ponto final privado de acesso ao espaço de trabalho ligado Azure Blob Storage. Veja este tipo de criação de ponto final privado no passo 5.
+
+![Screenshot da zona privada de DNS da Create Synapse 2.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-2.png)
+
+Depois da **zona privada de DNS** criada, insira a zona privada de DNS criada e selecione as **ligações de rede Virtual** para adicionar o link à sua rede virtual. 
+
+![Screenshot da zona privada de DNS da Create Synapse 3.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-3.png)
+
+Preencha os campos obrigatórios como abaixo:
+* Para **o nome Link,** insira o nome do link.
+* Para **rede Virtual,** selecione a sua rede virtual.
+
+![Screenshot da zona privada de DNS da Create Synapse 4.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-4.png)
+
+Depois de adicionar o link de rede virtual, é necessário adicionar o registo DNS estabelecido na **zona privada de DNS** que criou anteriormente.
+
+* Para **nome,** insira as cordas de nome dedicadas para diferentes pontos finais privados: 
+  * **web** é para o ponto final privado de acesso Azure Synapse Analytics Studio.
+  * "***YourWorkSpaceName**_" é para o ponto final privado da execução de consultas sql na piscina SQL e também para o ponto final privado de acesso a tudo o resto dentro dos espaços de trabalho do Azure Synapse Analytics Studio.***
+* Para **tipo**, selecione apenas o tipo de registo **DNS.** 
+* Para **o endereço IP,** insira o endereço IP correspondente de cada ponto final privado. Pode obter o endereço IP na **interface da Rede a** partir da sua visão geral do ponto final privado.
+
+![Screenshot da zona privada de DNS da Create Synapse 5.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-5.png)
+
+
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a rede virtual do espaço de trabalho gerido.](./synapse-workspace-managed-vnet.md)
 

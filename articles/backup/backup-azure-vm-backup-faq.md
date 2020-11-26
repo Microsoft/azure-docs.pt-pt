@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o backup 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 74e2facfd9fd6073acc1f939c3d2ba922e3ac931
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e6e14209a8df7160d103cb036d38c9fee29b34dd
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925582"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296068"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-Back up Azure VMs
 
@@ -29,7 +29,7 @@ Apesar de o tempo total das cópias de segurança incrementais ser inferior a 24
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>O custo de reserva está incluído no custo do VM?
 
-N.º Os custos de backup são separados dos custos de um VM. Saiba mais sobre [os preços de backup da Azure.](https://azure.microsoft.com/pricing/details/backup/)
+Não. Os custos de backup são separados dos custos de um VM. Saiba mais sobre [os preços de backup da Azure.](https://azure.microsoft.com/pricing/details/backup/)
 
 ### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Que permissões são necessárias para permitir a cópia de segurança para um VM?
 
@@ -49,7 +49,7 @@ Se o cofre dos Serviços de Recuperação e o VM tiverem diferentes grupos de re
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Um trabalho de reserva a pedido usa o mesmo horário de retenção que os backups programados?
 
-N.º Especifique o intervalo de retenção para um trabalho de backup a pedido. Por padrão, é retido por 30 dias quando disparado do portal.
+Não. Especifique o intervalo de retenção para um trabalho de backup a pedido. Por padrão, é retido por 30 dias quando disparado do portal.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Ativei recentemente o Azure Disk Encryption em algumas VMs. As minhas cópias de segurança vão continuar a funcionar?
 
@@ -87,11 +87,11 @@ Sim, o Azure Backup suporta [discos geridos SSD padrão.](https://docs.microsoft
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Podemos fazer um VM com um disco ativado por Write Accelerator (WA)?
 
-As imagens não podem ser tiradas no disco ativado pela WA. No entanto, o serviço de Backup Azure pode excluir o disco ativado por WA da cópia de segurança.
+As imagens instantâneas podem ser tiradas apenas em discos de dados que são ativados por WA e não discos DE. Assim, apenas os discos de dados que são Ativados por WA podem ser protegidos.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Tenho um VM com discos write Accelerator (WA) e SAP HANA instalados. Como é que eu recuo?
 
-O Azure Backup não pode fazer backup do disco ativado pela WA, mas pode excluí-lo da cópia de segurança. No entanto, a cópia de segurança não fornecerá consistência na base de dados porque a informação no disco ativado pela WA não é apoiada. Pode fazer backup de discos com esta configuração se quiser a cópia de segurança do disco do sistema operativo e a cópia de segurança dos discos que não estão ativados por WA.
+O Azure Backup pode fazer cópia de segurança do disco de dados ativado pela WA. No entanto, a cópia de segurança não fornecerá consistência na base de dados.
 
 O Azure Backup fornece uma solução de backup de streaming para bases de dados SAP HANA com um RPO de 15 minutos. É backint certificado pela SAP para fornecer um suporte de reserva nativo aproveitando as APIs nativas da SAP HANA. Saiba mais [sobre o backup das bases de dados SAP HANA em VMs Azure](./sap-hana-db-about.md).
 
@@ -149,7 +149,7 @@ Sim. Mesmo que apague o VM, pode ir ao item de backup correspondente no cofre e 
 
 ### <a name="how-do-i-restore-a-vm-to-the-same-availability-sets"></a>Como posso restaurar um VM para os mesmos conjuntos de disponibilidade?
 
-Para VMs Azure de Disco Gerido, restaurar os conjuntos de disponibilidade é ativado fornecendo uma opção no modelo enquanto restaura como discos geridos. Este modelo tem o parâmetro de entrada chamado **Availability sets** .
+Para VMs Azure de Disco Gerido, restaurar os conjuntos de disponibilidade é ativado fornecendo uma opção no modelo enquanto restaura como discos geridos. Este modelo tem o parâmetro de entrada chamado **Availability sets**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Como é que vamos obter performances de restauro mais rápidas?
 
@@ -185,7 +185,7 @@ O VM é apoiado utilizando as definições de programação e retenção na pol�
 
    1. Encontre a localização da sua máquina virtual.
    2. Encontre um grupo de recursos com o seguinte padrão de nomeação: `AzureBackupRG_<location of your VM>_1` . Por exemplo, *AzureBackupRG_westus2_1*
-   3. No portal Azure, verifique **os tipos ocultos do Show** .
+   3. No portal Azure, verifique **os tipos ocultos do Show**.
    4. Encontre o recurso com o tipo **Microsoft.Compute/restorePointCollections** que tenha o padrão de nomeação `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Elimine este recurso. Esta operação elimina apenas os pontos de recuperação instantâneos, não os dados de retenção no cofre.
    6. Depois de concluída a operação de eliminação, pode mover a sua máquina virtual.

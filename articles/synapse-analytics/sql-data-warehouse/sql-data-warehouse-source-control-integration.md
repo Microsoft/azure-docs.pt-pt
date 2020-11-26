@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 766837cacb4ef2acf874c2872b347b6d35633faa
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 862fa839c56746042c072ae3100832fb2b78451a
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701002"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296939"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integração de Controlo de Fontes para piscina SQL dedicada em Azure Synapse Analytics
 
@@ -38,11 +38,13 @@ Este tutorial descreve como integrar o seu projeto de base de dados SQL Server D
    ![Gerir Ligações](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Gerir Ligações")
 
 3. Conecte-se ao seu projeto selecionando **Gerir Ligações** e, em seguida, **Ligar a um projeto.**
- ![Ligação1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Ligar")
+ 
+    ![Ligação1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Ligar")
 
 
 4. Encontre o projeto que criou no primeiro passo, selecione **Connect**.
-![Ligação2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Ligar")
+ 
+    ![Ligação2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Ligar")
 
 
 3. Clone o seu repositório Azure DevOps do seu projeto para a sua máquina local.
@@ -85,7 +87,7 @@ Para obter mais informações sobre a ligação de projetos utilizando o Visual 
 
    ![Verificar](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Verificação das alterações")
 
-4. (**Opcional)** Utilize o Schema Compare e atualize as alterações ao seu armazém de dados-alvo utilizando o SSDT para garantir que as definições de objeto no seu repositório de Azure Repositório e repositório local reflitam o seu armazém de dados.
+4. (**Opcional)** Utilize o Schema Compare e atualize as alterações à sua piscina SQL dedicada ao seu alvo utilizando O SSDT para garantir que as definições de objeto no seu repositório de Azure Repositório e repositório local reflitam a sua piscina DE SQL dedicada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

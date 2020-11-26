@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/16/2019
-ms.openlocfilehash: b85e72ae6698cd9fa018c940e158bfcf25279ed5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/26/2020
+ms.openlocfilehash: 11e0d3336f085ccae9a7fb83ed050d69a15ce42b
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81410467"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296510"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-postgresql-by-using-azure-data-factory"></a>Copiar dados de e para a base de dados Azure para PostgreSQL utilizando a Azure Data Factory
 
@@ -49,16 +49,16 @@ As seguintes propriedades são suportadas para a Base de Dados Azure para o serv
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **AzurePostgreSql**. | Sim |
-| conexãoStragem | Um fio de ligação ODBC para ligar à Base de Dados Azure para PostgreSQL.<br/>Também pode colocar uma palavra-passe no Cofre da Chave Azure e retirar a `password` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no Cofre da Chave Azure](store-credentials-in-key-vault.md) para obter mais detalhes. | Sim |
-| connectVia | Esta propriedade representa o [tempo de integração](concepts-integration-runtime.md) a ser usado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada em rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
+| tipo | A propriedade tipo deve ser definida para: **AzurePostgreSql**. | Yes |
+| conexãoStragem | Um fio de ligação ODBC para ligar à Base de Dados Azure para PostgreSQL.<br/>Também pode colocar uma palavra-passe no Cofre da Chave Azure e retirar a `password` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no Cofre da Chave Azure](store-credentials-in-key-vault.md) para obter mais detalhes. | Yes |
+| connectVia | Esta propriedade representa o [tempo de integração](concepts-integration-runtime.md) a ser usado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada em rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
 
 Uma cadeia de ligação típica é `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>` . Aqui estão mais propriedades que pode definir por seu caso:
 
 | Propriedade | Descrição | Opções | Necessário |
 |:--- |:--- |:--- |:--- |
-| Método de Encriptação (EM)| O método que o condutor utiliza para encriptar os dados enviados entre o controlador e o servidor de base de dados. Por exemplo  `EncryptionMethod=<0/1/6>;`| 0 (Sem encriptação) **(Padrão)** / 1 (SSL) / 6 (RequestSSL) | Não |
-| ValidaçãoServerCertificato (VSC) | Determina se o controlador valida o certificado enviado pelo servidor de base de dados quando a encriptação SSL está ativada (Método de Encriptação=1). Por exemplo  `ValidateServerCertificate=<0/1>;`| 0 (Desativado) **(Predefinição)** / 1 (Habilitado) | Não |
+| Método de Encriptação (EM)| O método que o condutor utiliza para encriptar os dados enviados entre o controlador e o servidor de base de dados. Por exemplo  `EncryptionMethod=<0/1/6>;`| 0 (Sem encriptação) **(Padrão)** / 1 (SSL) / 6 (RequestSSL) | No |
+| ValidaçãoServerCertificato (VSC) | Determina se o controlador valida o certificado enviado pelo servidor de base de dados quando a encriptação SSL está ativada (Método de Encriptação=1). Por exemplo  `ValidateServerCertificate=<0/1>;`| 0 (Desativado) **(Predefinição)** / 1 (Habilitado) | No |
 
 **Exemplo:**
 
@@ -76,7 +76,7 @@ Uma cadeia de ligação típica é `Server=<server>.postgres.database.azure.com;
 
 **Exemplo:**
 
-***Guarde a palavra-passe no Cofre da Chave Azure***
+**_Armazenar senha em Azure Key Vault_* _
 
 ```json
 {
@@ -85,13 +85,13 @@ Uma cadeia de ligação típica é `Server=<server>.postgres.database.azure.com;
         "type": "AzurePostgreSql",
         "typeProperties": {
             "connectionString": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         }
     }
@@ -102,11 +102,11 @@ Uma cadeia de ligação típica é `Server=<server>.postgres.database.azure.com;
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte [datasets na Azure Data Factory](concepts-datasets-linked-services.md). Esta secção fornece uma lista de propriedades que a Base de Dados Azure para PostgreSQL suporta em conjuntos de dados.
 
-Para copiar os dados da Base de Dados Azure para PostgreSQL, defina a propriedade tipo do conjunto de dados para **AzurePostgreSqlTable**. As seguintes propriedades são suportadas:
+Para copiar os dados da Base de Dados Azure para PostgreSQL, defina a propriedade tipo do conjunto de dados para _*AzurePostgreSqlTable***. As seguintes propriedades são suportadas:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para **AzurePostgreSqlTable** | Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para **AzurePostgreSqlTable** | Yes |
 | tableName | Nome da mesa | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo:**
@@ -135,8 +135,8 @@ Para copiar os dados da Base de Dados Azure para PostgreSQL, deslote o tipo de o
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para **AzurePostgreSqlSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"` | Não (se a propriedade tableName no conjunto de dados for especificada) |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para **AzurePostgreSqlSource** | Yes |
+| consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `SELECT * FROM mytable` ou `SELECT * FROM "MyTable"` . . Nota em PostgreSQL, o nome da entidade é tratado como caso-insensível se não for citado. | Não (se a propriedade tableName no conjunto de dados for especificada) |
 
 **Exemplo:**
 
@@ -160,7 +160,7 @@ Para copiar os dados da Base de Dados Azure para PostgreSQL, deslote o tipo de o
         "typeProperties": {
             "source": {
                 "type": "AzurePostgreSqlSource",
-                "query": "<custom query e.g. SELECT * FROM MyTable>"
+                "query": "<custom query e.g. SELECT * FROM mytable>"
             },
             "sink": {
                 "type": "<sink type>"
@@ -176,8 +176,8 @@ Para copiar dados para a Base de Dados Azure para PostgreSQL, as seguintes propr
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo do lavatório de atividade de cópia deve ser definida para **AzurePostgreSQLSink**. | Sim |
-| preCopyScript | Especifique uma consulta SQL para a atividade de cópia a executar antes de escrever dados na Base de Dados Azure para PostgreSQL em cada execução. Pode utilizar esta propriedade para limpar os dados pré-carregados. | Não |
+| tipo | A propriedade do tipo do lavatório de atividade de cópia deve ser definida para **AzurePostgreSQLSink**. | Yes |
+| preCopyScript | Especifique uma consulta SQL para a atividade de cópia a executar antes de escrever dados na Base de Dados Azure para PostgreSQL em cada execução. Pode utilizar esta propriedade para limpar os dados pré-carregados. | No |
 | escreverBatchSize | Insere dados na base de dados Azure para a tabela PostgreSQL quando o tamanho do tampão atinge o writeBatchSize.<br>Valor permitido é um número inteiro que representa o número de linhas. | Não (o padrão é 10.000) |
 | escreverBatchTimeout | Tempo de espera para que o funcionamento do encaixe do lote esteja concluído antes de esgotar o tempo.<br>Os valores permitidos são as cordas timespan. Um exemplo é 00:30:00 (30 minutos). | Não (padrão é 00:00:30) |
 
