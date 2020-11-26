@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 846599414c0bca95a3f41e127dc01e06d0fd43f9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 30481fee949df16c70718d0a9cbc6df9ca54d11e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747103"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182551"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux com um contentor personalizado
 
@@ -18,9 +18,9 @@ Neste tutorial, cria e implementa o seu código para Azure Functions como um rec
 
 A implementação do seu código de função num recipiente Linux personalizado requer [um plano Premium](functions-premium-plan.md#features) ou um plano de hospedagem dedicado [(Serviço de Aplicações).](functions-scale.md#app-service-plan) Completar este tutorial incorre em custos de alguns dólares americanos na sua conta Azure, que pode minimizar através da [limpeza de recursos](#clean-up-resources) quando terminar.
 
-Também pode utilizar um recipiente de Serviço de Aplicações Azure padrão, conforme descrito no [Criar a sua primeira função hospedada no Linux](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python). As imagens base suportadas para funções Azure encontram-se nas imagens base do [Azure Functions repo](https://hub.docker.com/_/microsoft-azure-functions-base).
+Também pode utilizar um recipiente de Serviço de Aplicações Azure padrão, conforme descrito no [Criar a sua primeira função hospedada no Linux](./create-first-function-cli-csharp.md?pivots=programming-language-python). As imagens base suportadas para funções Azure encontram-se nas imagens base do [Azure Functions repo](https://hub.docker.com/_/microsoft-azure-functions-base).
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie uma aplicação de função e dockerfile utilizando as Ferramentas Principais de Funções Azure.
@@ -112,7 +112,7 @@ Fornecer os seguintes valores quando solicitado:
 
 Digite `Y` ou prima Enter para confirmar.
 
-A Maven cria os ficheiros do projeto numa nova pasta com o nome de _artifactId_ , que neste exemplo é `fabrikam-functions` . 
+A Maven cria os ficheiros do projeto numa nova pasta com o nome de _artifactId_, que neste exemplo é `fabrikam-functions` . 
 ::: zone-end
 A `--docker` opção gera um `Dockerfile` para o projeto, que define um recipiente personalizado adequado para uso com Funções Azure e o tempo de execução selecionado.
 
@@ -128,7 +128,7 @@ cd fabrikam-functions
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
-Adicione uma função ao seu projeto utilizando o seguinte comando, onde o `--name` argumento é o nome único da sua função e o argumento especifica o gatilho da `--template` função. `func new` criar uma sub-dobradeira que corresponda ao nome da função que contém um ficheiro de código adequado à língua escolhida do projeto e um ficheiro de configuração denominado *function.jsem* .
+Adicione uma função ao seu projeto utilizando o seguinte comando, onde o `--name` argumento é o nome único da sua função e o argumento especifica o gatilho da `--template` função. `func new` criar uma sub-dobradeira que corresponda ao nome da função que contém um ficheiro de código adequado à língua escolhida do projeto e um ficheiro de configuração denominado *function.jsem*.
 
 ```
 func new --name HttpExample --template "HTTP trigger"
@@ -189,7 +189,7 @@ Uma vez que a imagem esteja a ser em execução num recipiente local, abra um br
 Uma vez que a imagem esteja a correr num recipiente local, `http://localhost:8080/api/HttpExample?name=Functions` procure, que deve exibir a mesma mensagem de "olá" da anterior. Como o arquétipo Maven gera uma função http desencadeada que utiliza uma autorização anónima, ainda pode chamar a função mesmo que esteja a funcionar no recipiente. 
 ::: zone-end  
 
-Depois de verificar a aplicação de função no recipiente, pare o estivador com **o Ctrl** + **C** .
+Depois de verificar a aplicação de função no recipiente, pare o estivador com **o Ctrl** + **C**.
 
 ## <a name="push-the-image-to-docker-hub"></a>Empurre a imagem para Docker Hub
 
@@ -311,7 +311,7 @@ Com a imagem implantada na aplicação de função no Azure, pode agora invocar 
         ![Escolha a sua função no portal Azure](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
 
     
-    1. Selecione **Obter Url de função** .
+    1. Selecione **Obter Url de função**.
 
         ![Obtenha o URL de função do portal Azure](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
 
@@ -375,7 +375,7 @@ Pode ativar as Funções Azure para atualizar automaticamente a sua implementaç
 
 1. Copie o URL webhook de implementação para a área de transferência.
 
-1. Abra [o Docker Hub,](https://hub.docker.com/)inscreva-se e selecione **repositórios** na barra de navegação. Localizar e selecionar a imagem, selecionar o separador **Webhooks,** especificar um **nome Webhook,** colar o url no **URL webhook** e, em seguida, selecionar **Criar** :
+1. Abra [o Docker Hub,](https://hub.docker.com/)inscreva-se e selecione **repositórios** na barra de navegação. Localizar e selecionar a imagem, selecionar o separador **Webhooks,** especificar um **nome Webhook,** colar o url no **URL webhook** e, em seguida, selecionar **Criar**:
 
     ![Adicione o webhook no seu repo DockerHub](./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 
@@ -441,7 +441,7 @@ O SSH permite a comunicação segura entre um contentor e um cliente. Com o SSH 
 
 ## <a name="write-to-an-azure-storage-queue"></a>Escreva para uma fila de armazenamento Azure
 
-As Funções Azure permitem-lhe ligar as suas funções a outros serviços e recursos da Azure sem ter de escrever o seu próprio código de integração. Estas *ligações* , que representam tanto a entrada como a saída, são declaradas dentro da definição de função. Os dados de enlaces são fornecidos à função como parâmetros. Um *gatilho* é um tipo especial de encadernação de entrada. Embora uma função tenha apenas um gatilho, pode ter múltiplas ligações de entrada e saída. Para saber mais, consulte [Azure Functions triggers e conceitos de encadernação.](functions-triggers-bindings.md)
+As Funções Azure permitem-lhe ligar as suas funções a outros serviços e recursos da Azure sem ter de escrever o seu próprio código de integração. Estas *ligações*, que representam tanto a entrada como a saída, são declaradas dentro da definição de função. Os dados de enlaces são fornecidos à função como parâmetros. Um *gatilho* é um tipo especial de encadernação de entrada. Embora uma função tenha apenas um gatilho, pode ter múltiplas ligações de entrada e saída. Para saber mais, consulte [Azure Functions triggers e conceitos de encadernação.](functions-triggers-bindings.md)
 
 Esta secção mostra-lhe como integrar a sua função com uma fila de Armazenamento Azure. A vinculação de saída que adiciona a esta função escreve dados de um pedido HTTP para uma mensagem na fila.
 
@@ -510,7 +510,7 @@ Num browser, utilize o mesmo URL de antes para invocar a sua função. O navegad
 
 [!INCLUDE [functions-add-output-binding-view-queue-cli](../../includes/functions-add-output-binding-view-queue-cli.md)]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se quiser continuar a trabalhar com a Azure Function utilizando os recursos que criou neste tutorial, pode deixar todos esses recursos no lugar. Como criou um Plano Premium para Funções Azure, incorrerá num ou dois USD por dia em custos contínuos.
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: 73934521cc68dc8ec2e28f29e35df833651915d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e090b4c3b4ecc3870f060aba4b03be3abe2942ec
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83997014"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180715"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Execução de pipelines e acionadores no Azure Data Factory
 
@@ -179,7 +179,7 @@ Os oleodutos e os gatilhos têm uma relação de muitos a muitos (exceto o gatil
 ## <a name="schedule-trigger"></a>Acionador de Agenda
 Um acionador de agenda executa pipelines com base numa agenda. Este acionador suporta opções de calendário avançadas e periódicas. Por exemplo, o acionador suporta intervalos como "semanalmente" ou "Segunda-feira às 17:00 e quinta-feira às 21:00". O acionador de agenda é flexível porque o padrão do conjunto de dados é agnóstico e o acionador não distingue entre dados de série de tempo e sem ser de série de tempo.
 
-Para obter mais informações sobre os gatilhos de horário e, por exemplo, consulte [Criar um gatilho de agenda](how-to-create-schedule-trigger.md).
+Para obter mais informações sobre os gatilhos de horário e, por exemplo, consulte [Criar um gatilho que executa um pipeline num horário.](how-to-create-schedule-trigger.md)
 
 ## <a name="schedule-trigger-definition"></a>Definição de acionador de agenda
 Quando cria um acionador de agenda, o agendamento e a periodicidade são especificados com uma definição JSON.
@@ -235,14 +235,14 @@ Para que o acionador de agenda desencadeie uma execução de pipeline, inclua um
 ### <a name="schema-overview"></a>Schema overview (Descrição geral do esquema)
 A tabela que se segue fornece uma descrição geral de alto nível dos principais elementos do esquema relacionados com a periodicidade e o agendamento de um acionador:
 
-| Propriedade JSON | Descrição |
+| Propriedade JSON | Description |
 | --- | --- |
 | **horário de início** | Um valor de data/hora. Para agendamentos básicos, o valor da propriedade **startTime** aplica-se à primeira ocorrência. Para agendamentos complexos, o acionador é iniciado imediatamente a seguir ao valor especificado em **startTime**. |
 | **endTime** | A data e hora de fim do acionador. O acionador não é executado após a data e hora de fim especificadas. O valor da propriedade não pode situar-se no passado. <!-- This property is optional. --> |
-| **timeZone** | O fuso horário. Atualmente, o fuso horário UTC é o único suportado. |
+| **timeZone** | O fuso horário. Para obter uma lista de fusos horários suportados, consulte [Criar um gatilho que executa um oleoduto num horário](how-to-create-schedule-trigger.md#time-zone-option). |
 | **recorrência** | Um objeto de periodicidade que especifica as regras de periodicidade do acionador. O objeto de periodicidade suporta os elementos **frequency**, **interval**, **endTime**, **count** e **schedule**. Quando um objeto de periodicidade é definido, o elemento **frequency** é obrigatório. Os outros elementos do objeto de periodicidade são opcionais. |
 | **frequência** | A unidade que se refere à frequência com que o acionador voltar a ocorrer. Os valores suportados incluem "minute", "hour", "day", "week" e "month". |
-| **interval** | Um valor inteiro positivo que indica o intervalo do valor **frequency**. O valor **frequency** determina o número de vezes que o acionador é executado. Por exemplo, se **interval** for 3 e **frequency** for "week", o acionador repete-se de três em três semanas. |
+| **intervalo** | Um valor inteiro positivo que indica o intervalo do valor **frequency**. O valor **frequency** determina o número de vezes que o acionador é executado. Por exemplo, se **interval** for 3 e **frequency** for "week", o acionador repete-se de três em três semanas. |
 | **agendar** | A agenda de periodicidade do acionador. Um acionador que tenha um valor **frequency** especificado modifica a respetiva periodicidade com base numa agenda de periodicidade. A propriedade **schedule** contém modificações da periodicidade baseadas em minutos, horas, dias de semana, dias do mês e número da semana. |
 
 ### <a name="schedule-trigger-example"></a>Exemplo de acionador Schedule
@@ -283,19 +283,19 @@ A tabela que se segue fornece uma descrição geral de alto nível dos principai
 
 | Propriedade JSON | Tipo | Necessário | Valor predefinido | Valores válidos | Exemplo |
 | --- | --- | --- | --- | --- | --- |
-| **horário de início** | string | Sim | Nenhum | Data-horas no formato ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recorrência** | objeto | Sim | Nenhum | Um objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | número | Não | 1 | 1 a 1000 | `"interval":10` |
-| **endTime** | string | Sim | Nenhum | Um valor de data/hora que representa uma hora no futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **agendar** | objeto | Não | Nenhum | Um objeto de agenda | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **horário de início** | string | Yes | Nenhum | Data-horas no formato ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recorrência** | objeto | Yes | Nenhum | Um objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **intervalo** | número | No | 1 | 1 a 1000 | `"interval":10` |
+| **endTime** | string | Yes | Nenhum | Um valor de data/hora que representa uma hora no futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **agendar** | objeto | No | Nenhum | Um objeto de agenda | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propriedade startTime
 A tabela que se segue mostra o modo como a propriedade **startTime** controla a execução de um acionador:
 
 | valor de startTime | Periodicidade sem agenda | Periodicidade com agenda |
 | --- | --- | --- |
-| **A hora de início é no passado** | Calcula a primeira hora de execução no futuro após a hora de início e é executada nessa hora.<br /><br />Executa as execuções subsequentes com base no cálculo da última hora de execução.<br /><br />Veja o exemplo a seguir à tabela. | O acionador é iniciado _imediatamente a seguir _ à hora de início especificada. A primeira ocorrência é baseada na agenda calculada a partir da hora de início.<br /><br />Executa as execuções subsequentes com base na agenda de periodicidade. |
-| **A hora de início é no futuro ou na hora atual** | É executada uma vez na hora de início especificada.<br /><br />Executa as execuções subsequentes com base no cálculo da última hora de execução. | O acionador é iniciado _imediatamente a seguir _ à hora de início especificada. A primeira ocorrência é baseada na agenda calculada a partir da hora de início.<br /><br />Executa as execuções subsequentes com base na agenda de periodicidade. |
+| **A hora de início é no passado** | Calcula a primeira hora de execução no futuro após a hora de início e é executada nessa hora.<br /><br />Executa as execuções subsequentes com base no cálculo da última hora de execução.<br /><br />Veja o exemplo a seguir à tabela. | O gatilho começa _o mais cedo que_ a hora de início especificada. A primeira ocorrência é baseada na agenda calculada a partir da hora de início.<br /><br />Executa as execuções subsequentes com base na agenda de periodicidade. |
+| **A hora de início é no futuro ou na hora atual** | É executada uma vez na hora de início especificada.<br /><br />Executa as execuções subsequentes com base no cálculo da última hora de execução. | O gatilho começa _o mais cedo_ que a hora de início especificada. A primeira ocorrência é baseada na agenda calculada a partir da hora de início.<br /><br />Executa as execuções subsequentes com base na agenda de periodicidade. |
 
 Vejamos um exemplo do que acontece quando a hora de início (startTime) se situa no passado, com periodicidade, mas sem agenda. Parta do princípio de que a hora atual é 2017-04-08 13:00, a hora de início é 2017-04-07 14:00 e a periodicidade é de dois em dois dias. (O valor **de recorrência** é definido definindo a propriedade **de frequência** para "dia" e a propriedade de **intervalo** para 2.) Note que o valor **startTime** está no passado e ocorre antes da hora atual.
 
@@ -314,7 +314,7 @@ Se forem especificados vários elementos de **agenda,** a ordem de avaliação �
 
 A tabela seguinte descreve os elementos de **schedule** de forma detalhada:
 
-| Elemento JSON | Descrição | Valores válidos |
+| Elemento JSON | Description | Valores válidos |
 | --- | --- | --- |
 | **minutos** | Minutos da hora em que o acionador é executado. |- Número inteiro<br />- Matriz de números inteiros |
 | **horas** | Horas do dia em que o acionador é executado. |- Número inteiro<br />- Matriz de números inteiros |
@@ -338,7 +338,7 @@ Esta secção mostra exemplos de agendas de periodicidade. Concentra-se no objet
 
 Os exemplos assumem que o valor do **intervalo** é 1 e que o valor **da frequência** está correto de acordo com a definição do calendário. Por exemplo, não é possível ter um valor de **frequência** de "dia" e também ter uma modificação **mensal** no objeto de **agenda.** Estes tipos de restrições estão descritos na tabela na secção anterior.
 
-| Exemplo | Descrição |
+| Exemplo | Description |
 | --- | --- |
 | `{"hours":[5]}` | Executar todos os dias às 5:00. |
 | `{"minutes":[15], "hours":[5]}` | Executar todos os dias às 5:15. |

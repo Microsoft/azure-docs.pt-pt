@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85da26c9ff302c526ea6210dde776f3a34929ccd
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: fa17a18de8e71b099d6ed717974486203c4379f4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360385"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180511"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de VM do Windows para aceder ao Azure Key Vault 
 
@@ -40,7 +40,7 @@ Saiba como:
 - Uma conta Azure, [inscreva-se para uma conta gratuita.](https://azure.microsoft.com/free/)
 - Permissões "Proprietário" no âmbito apropriado (a sua subscrição ou grupo de recursos) para executar as etapas necessárias de criação de recursos e gestão de funções. Se precisar de assistência com a atribuição de função, veja [Utilizar Controlo de Acesso Baseado em Funções para gerir o acesso aos recursos da sua subscrição do Azure](../../role-based-access-control/role-assignments-portal.md).
 - Também precisa de uma máquina Virtual do Windows que tenha o sistema atribuído a identidades geridas ativadas.
-  - Se precisar de criar uma máquina virtual para este tutorial, pode seguir o artigo intitulado [Criar uma máquina virtual com identidade atribuída ao sistema ativada](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)
+  - Se precisar de criar uma máquina virtual para este tutorial, pode seguir o artigo intitulado [Criar uma máquina virtual com identidade atribuída ao sistema ativada](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
 
 ## <a name="create-a-key-vault"></a>Criar um Key Vault  
 
@@ -74,7 +74,7 @@ A identidade gerida usada pela máquina virtual precisa de ter acesso para ler o
 1. Na secção **de política de acesso adicionar** ao abrigo do **Configure do modelo (opcional)** escolha **Gestão Secreta** no menu pull-down.
 1. Selecione **Selecionar Principal** e, no campo de pesquisa, introduza o nome da VM que criou anteriormente.  Selecione o VM na lista de resultados e escolha **Selecione.**
 1. Selecione **Adicionar**
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
 ## <a name="create-a-secret"></a>Criar um segredo
 
@@ -96,7 +96,7 @@ Esta secção mostra como obter um token de acesso usando a identidade VM e usá
 
 Primeiro, utilizamos a identidade gerida atribuída pelo sistema da VM para obter um token de acesso para autenticação no Key Vault:
  
-1. No portal, navegue para **Máquinas Virtuais** , aceda à sua máquina virtual do Windows e, em **Descrição Geral** , clique em **Ligar**.
+1. No portal, navegue para **Máquinas Virtuais**, aceda à sua máquina virtual do Windows e, em **Descrição Geral**, clique em **Ligar**.
 2. Introduza o seu **nome de utilizador** e **palavra-passe** para o qual adicionou quando criou o **Windows VM**.  
 3. Agora que criou uma **Ligação de Ambiente de Trabalho Remoto** com a máquina virtual, abra o PowerShell na sessão remota.  
 4. No PowerShell, invoca o pedido Web no inquilino para obter o token para o anfitrião local na porta específica para a VM.  
@@ -133,13 +133,13 @@ A resposta terá o seguinte aspeto:
 
 Depois de recuperar o segredo do Key Vault, pode utilizá-lo para autenticação num serviço que requeira um nome e uma palavra-passe.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando pretender limpar os recursos, visite o [portal Azure](https://portal.azure.com), selecione **Grupos de Recursos,** localize e selecione o grupo de recursos que foi criado no processo deste tutorial (como) e, em `mi-test` seguida, utilize o comando do **grupo de recursos Delete.**
 
 Em alternativa, também pode fazê-lo através [do PowerShell ou do CLI](../../azure-resource-manager/management/delete-resource-group.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a usar uma identidade gerida pelo sistema Windows VM para aceder ao Cofre da Chave Azure.  Para saber mais sobre o Azure Key Vault, veja:
 

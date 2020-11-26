@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 2317e61111c3ad328e8f112e7d9567f3f5d47990
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 031b3bfd30e0272589c5c7ee2c546b9459767b33
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997053"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183197"
 ---
 # <a name="tutorial-monitor-published-apis"></a>Tutorial: Monitor publicado APIs
 
@@ -149,7 +149,7 @@ Se ativar a recolha de GatewayLogs ou métricas num espaço de trabalho do Log A
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Screenshot do item de Logs no menu de monitorização":::
 
-Executar consultas para ver os dados. Várias consultas de amostra são [fornecidas,](../azure-monitor/log-query/saved-queries.md) ou executar as suas próprias. Por exemplo, a seguinte consulta recupera as 24 horas mais recentes de dados da tabela GatewayLogs:
+Executar consultas para ver os dados. Várias consultas de amostra são [fornecidas,](../azure-monitor/log-query/example-queries.md) ou executar as suas próprias. Por exemplo, a seguinte consulta recupera as 24 horas mais recentes de dados da tabela GatewayLogs:
 
 ```kusto
 ApiManagementGatewayLogs
@@ -158,7 +158,7 @@ ApiManagementGatewayLogs
 
 Para obter mais informações sobre a utilização de registos de recursos para a Gestão da API, consulte:
 
-* [Começa com o Azure Monitor Log Analytics,](../azure-monitor/log-query/get-started-portal.md)ou experimente o [ambiente de demonstração do Log Analytics](https://portal.loganalytics.io/demo).
+* [Começa com o Azure Monitor Log Analytics,](../azure-monitor/log-query/log-analytics-tutorial.md)ou experimente o [ambiente de demonstração do Log Analytics](https://portal.loganalytics.io/demo).
 
 * [Visão geral das consultas de registo no Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 

@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f82314b0a4e16829b4c192a14fae7f24875365d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a632c0e31de1c2d7e5417656d537e5f9f82ecfbe
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359616"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180494"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configure alertas de segurança para funções de Ad Azure em Gestão de Identidade Privilegiada
 
@@ -186,7 +186,7 @@ Esta secção lista todos os alertas de segurança para as funções Azure AD, j
 | **Como consertar?** | Reveja as contas da lista. Se já não precisarem de acesso, removam-nos dos seus papéis privilegiados. |
 | **Prevenção** | Certifique-se de que as contas que são partilhadas estão a rodar senhas fortes quando há uma alteração nos utilizadores que conhecem a palavra-passe. </br>Reveja regularmente contas com funções privilegiadas usando [revisões de acesso](pim-how-to-start-security-review.md) e remova atribuições de funções que já não são necessárias. |
 | **Ação de mitigação no portal** | Retira a conta do seu papel privilegiado. |
-| **Melhores práticas** | As contas partilhadas, de serviço e de acesso de emergência que autenticam usando uma palavra-passe e que são atribuídas a funções administrativas altamente privilegiadas, como administrador global ou administrador de Segurança, devem ter as suas palavras-passe rotativas para os seguintes casos:<ul><li>Após um incidente de segurança envolvendo uso indevido ou compromisso de direitos de acesso administrativo</li><li>Depois de os privilégios de qualquer utilizador serem alterados para que deixem de ser administradores (por exemplo, depois de um funcionário que foi administrador deixar a TI ou deixar a organização)</li><li>A intervalos regulares (por exemplo, trimestrais ou ano a ano), mesmo que não se tenha sabido violação ou alteração do pessoal de TI</li></ul>Uma vez que várias pessoas têm acesso às credenciais destas contas, as credenciais devem ser giradas para garantir que as pessoas que deixaram as suas funções já não possam aceder às contas. [Saiba mais](../users-groups-roles/directory-admin-roles-secure.md) |
+| **Melhores práticas** | As contas partilhadas, de serviço e de acesso de emergência que autenticam usando uma palavra-passe e que são atribuídas a funções administrativas altamente privilegiadas, como administrador global ou administrador de Segurança, devem ter as suas palavras-passe rotativas para os seguintes casos:<ul><li>Após um incidente de segurança envolvendo uso indevido ou compromisso de direitos de acesso administrativo</li><li>Depois de os privilégios de qualquer utilizador serem alterados para que deixem de ser administradores (por exemplo, depois de um funcionário que foi administrador deixar a TI ou deixar a organização)</li><li>A intervalos regulares (por exemplo, trimestrais ou ano a ano), mesmo que não se tenha sabido violação ou alteração do pessoal de TI</li></ul>Uma vez que várias pessoas têm acesso às credenciais destas contas, as credenciais devem ser giradas para garantir que as pessoas que deixaram as suas funções já não possam aceder às contas. [Saiba mais](../roles/security-planning.md) |
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>As funções estão a ser atribuídas fora da Gestão de Identidade Privilegiada
 

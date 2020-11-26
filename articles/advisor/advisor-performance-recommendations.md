@@ -3,12 +3,12 @@ title: Melhorar o desempenho das aplicações da Azure com o Advisor
 description: Utilize recomendações de desempenho no Azure Advisor para melhorar a rapidez e capacidade de resposta das suas aplicações críticas ao negócio.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 6a008411d4422853e6a98fad59bd4519b42a9548
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 55f5ac6784bf613170fd10060799ab5ad1290a62
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308689"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183350"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Melhorar o desempenho das aplicações da Azure utilizando o Azure Advisor
 
@@ -146,7 +146,7 @@ O advisor deteta contas DB da Azure Cosmos que têm tráfego de uma região que 
 
 ## <a name="configure-your-azure-cosmos-db-indexing-policy-by-using-custom-included-or-excluded-paths"></a>Configure a sua política de indexação Azure Cosmos DB utilizando caminhos personalizados incluídos ou excluídos
 
-O advisor identifica os contentores DB da Azure Cosmos que estão a usar a política de indexação padrão, mas que podem beneficiar de uma política de indexação personalizada. Esta determinação baseia-se no padrão de carga de trabalho. A política de indexação padrão indexa todas as propriedades. Uma política de indexação personalizada com caminhos explícitos incluídos ou excluídos utilizados em filtros de consulta pode reduzir as RUs e o armazenamento consumido para indexação. [Saiba mais sobre a modificação das políticas de índice.](/azure/cosmos-db/index-policy)
+O advisor identifica os contentores DB da Azure Cosmos que estão a usar a política de indexação padrão, mas que podem beneficiar de uma política de indexação personalizada. Esta determinação baseia-se no padrão de carga de trabalho. A política de indexação padrão indexa todas as propriedades. Uma política de indexação personalizada com caminhos explícitos incluídos ou excluídos utilizados em filtros de consulta pode reduzir as RUs e o armazenamento consumido para indexação. [Saiba mais sobre a modificação das políticas de índice.](../cosmos-db/index-policy.md)
 
 ## <a name="set-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Deite o tamanho da página de consulta Azure Cosmos DB (MaxItemCount) para -1 
 

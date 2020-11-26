@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 2102ea1ef4afb6d7f3ce96e4cd7ead0e7af08bf0
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 81a7efea268600e661981b35f79149fe814ef084
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129444"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180681"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Tutorial: Azure Ative Directy integração única (SSO) com 8x8
 
@@ -51,14 +51,14 @@ Para configurar a integração do 8x8 no AD Azure, é necessário adicionar 8x8 
 
 1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações** .
-1. Para adicionar nova aplicação, selecione **Nova aplicação** .
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar da secção **da galeria,** digite **8x8** na caixa de pesquisa.
 1. Selecione **8x8** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-sso-for-8x8"></a>Configurar e testar Azure AD SSO para 8x8
 
-Configure e teste Azure AD SSO com 8x8 usando um utilizador de teste chamado **B.Simon** . Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em 8x8.
+Configure e teste Azure AD SSO com 8x8 usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em 8x8.
 
 Para configurar e testar a Azure AD SSO com 8x8, execute os seguintes passos:
 
@@ -74,7 +74,7 @@ Para configurar e testar a Azure AD SSO com 8x8, execute os seguintes passos:
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No portal Azure, na página de integração de aplicações **8x8,** encontre a secção **Gerir** e selecione **um único sinal de sing.**
-1. Na página de método **de inscrição** única, selecione **SAML** .
+1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
@@ -97,21 +97,21 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome** , introduza `B.Simon`.  
+   1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar** .
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao 8x8.
 
-1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações** .
-1. Na lista de candidaturas, selecione **8x8** .
-1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos** .
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de candidaturas, selecione **8x8**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -131,7 +131,7 @@ A próxima parte do tutorial depende do tipo de subscrição que tem com 8x8.
 
 ### <a name="configure-8x8-admin-console"></a>Configurar consola de administração 8x8
 
-1. Para automatizar a configuração dentro do 8x8, é necessário instalar a extensão do **navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão** .
+1. Para automatizar a configuração dentro do 8x8, é necessário instalar a extensão do **navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
 
     ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
 
@@ -145,7 +145,7 @@ A próxima parte do tutorial depende do tipo de subscrição que tem com 8x8.
 
     ![Screenshot que destaca o azulejo de Gestão de Identidade.](./media/8x8virtualoffice-tutorial/configure1.png)
 
-1. Verifique **o signo único ligado (SSO)** e, em seguida, selecione **Microsoft Azure AD** .
+1. Verifique **o signo único ligado (SSO)** e, em seguida, selecione **Microsoft Azure AD**.
 
     ![Screenshot que realça as opções de Signo Único (SSO) e Microsoft Azure AD.](./media/8x8virtualoffice-tutorial/configure2.png)
 
@@ -153,15 +153,15 @@ A próxima parte do tutorial depende do tipo de subscrição que tem com 8x8.
 
     ![Consola 8x8 Admin](./media/8x8virtualoffice-tutorial/configure3.png)
 
-    a. Copie **URL de login** para URL de login do **IDP** .
+    a. Copie **URL de login** para URL de login do **IDP**.
 
-    b. Copiar **O identificador AD Ad** para **o URL/URN do Emitente IDP** .
+    b. Copiar **O identificador AD Ad** para **o URL/URN do Emitente IDP**.
 
     c. Copiar **URL logout** para **URL de logout IDP.**
 
     d. Baixar **Certificado (Base64)** e fazer o upload para **o Certificado.**
 
-    e. Clique em **Guardar** .
+    e. Clique em **Guardar**.
 
 ### <a name="configure-8x8-account-manager"></a>Configurar gestor de conta 8x8
 
@@ -183,7 +183,7 @@ A próxima parte do tutorial depende do tipo de subscrição que tem com 8x8.
 
     ![Screenshot que realça a opção Single Sign On.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
-1. Selecione **single sign on** sob métodos de autenticação e clique em **SAML** .
+1. Selecione **single sign on** sob métodos de autenticação e clique em **SAML**.
 
     ![Screenshot que realça o SAML sob single sign on.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
 
@@ -199,7 +199,7 @@ A próxima parte do tutorial depende do tipo de subscrição que tem com 8x8.
 
     d. Clique no botão **Browse** para fazer o upload do certificado que descarregou a partir do portal Azure.
 
-    e. Clique no botão **Guardar** .
+    e. Clique no botão **Guardar**.
 
 ### <a name="create-8x8-test-user"></a>Criar utilizador de teste 8x8
 
@@ -219,7 +219,7 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito no 8x8 para o qual configura o SSO 
 
-Também pode utilizar o Microsoft Access Panel para testar a aplicação em qualquer modo. Quando clicar no azulejo 8x8 no Painel de Acesso, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no 8x8 para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Também pode utilizar o Microsoft Access Panel para testar a aplicação em qualquer modo. Quando clicar no azulejo 8x8 no Painel de Acesso, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no 8x8 para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2d0157f3e7ab0ef373235fcc6e188f9caa36eff4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: e07e9035dc55f77a2e76b4f4ee306deab829980a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833304"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182755"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Linha de segurança Azure para Automação
 
@@ -44,7 +44,7 @@ Em alternativa, se tiver um requisito específico, o Azure Firewall também pode
 
 * [Ambiente de execução de runbook](./automation-runbook-execution.md#runbook-execution-environment)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -60,7 +60,7 @@ Embora as regras NSG e as rotas definidas pelo utilizador não se apliquem ao po
 
 * [Como Ativar e utilizar a Análise de Tráfego](../network-watcher/traffic-analytics.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -68,7 +68,7 @@ Embora as regras NSG e as rotas definidas pelo utilizador não se apliquem ao po
 
 **Orientação**: Não aplicável; esta recomendação destina-se a aplicações web em execução no Azure App Service ou recursos de computação.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -80,7 +80,7 @@ Se estiver a utilizar trabalhadores híbridos com apoio de máquinas virtuais Az
 
 Pode utilizar o acesso da Rede Just In Time do Azure Security Center para limitar a exposição das máquinas virtuais do Windows aos endereços IP aprovados por um período limitado de tempo. Além disso, utilize recomendações de endurecimento de rede adaptativa do Azure Security Center para configurações de NSG para limitar portas e IPs de origem com base na inteligência real de tráfego e ameaça.
 
-* [Como configurar a proteção DDoS](../virtual-network/manage-ddos-protection.md)
+* [Como configurar a proteção DDoS](../ddos-protection/manage-ddos-protection.md)
 
 * [Como implantar a Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -90,7 +90,7 @@ Pode utilizar o acesso da Rede Just In Time do Azure Security Center para limita
 
 * [Compreender o Centro de Segurança Azure Mesmo no Tempo Controlo de Acesso à Rede](../security-center/security-center-just-in-time.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -104,7 +104,7 @@ Se estiver a utilizar trabalhadores híbridos com o apoio de máquinas virtuais 
 
 * [Como ativar o Observador de Redes](../network-watcher/network-watcher-create.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -120,7 +120,7 @@ Se estiver a utilizar os Trabalhadores de Runbook Híbridos alojados em máquina
 
 * [Como configurar alertas com a Azure Firewall](../firewall/threat-intel.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -128,7 +128,7 @@ Se estiver a utilizar os Trabalhadores de Runbook Híbridos alojados em máquina
 
 **Orientação**: Não aplicável; esta recomendação destina-se a aplicações web em execução no Azure App Service ou recursos de computação.
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -138,7 +138,7 @@ Se estiver a utilizar os Trabalhadores de Runbook Híbridos alojados em máquina
 
 * [Compreender e utilizar tags de serviço](../virtual-network/service-tags-overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -154,7 +154,7 @@ Também pode usar plantas Azure para simplificar as implementações de Azure em
 
 * [Como criar uma Planta Azure](../governance/blueprints/create-blueprint-portal.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -172,7 +172,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 * [Como criar um NSG com um Config de Segurança](../virtual-network/tutorial-filter-network-traffic.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -184,7 +184,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 * [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -198,7 +198,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 * [Como configurar a sincronização temporal para os recursos computativos do Azure](../virtual-machines/windows/time-sync.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -220,9 +220,9 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 * [Regiões suportadas para a área de trabalho do Log Analytics ligada](./how-to/region-mappings.md)
 
-* [Registos de gestão de atualização de consulta](./update-management/update-mgmt-query-logs.md)
+* [Registos de gestão de atualização de consulta](./update-management/query-logs.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -234,7 +234,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 * [Ver e recuperar eventos de log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -246,7 +246,7 @@ Ao utilizar a funcionalidade Trabalhador do Runbook Híbrido, o Azure Security C
 
 * [Configure o nível de recolha de dados dentro do Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -258,7 +258,7 @@ Ao utilizar a funcionalidade Trabalhador do Runbook Híbrido, o Azure Security C
 
 * [Detalhes da retenção de dados para Contas de Automação](./automation-managing-data.md#data-retention)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -270,11 +270,11 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 * [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Compreenda as consultas de registo no Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+* [Compreenda as consultas de registo no Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -290,7 +290,7 @@ Em alternativa, pode ativar e a bordo dados para a Azure Sentinel.
 
 * [Como alertar os dados de registo do Azure Monitor](../azure-monitor/learn/tutorial-response.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -304,7 +304,7 @@ No entanto, ao utilizar a funcionalidade Trabalhador do Runbook Híbrido, poder�
 
 * [Como permitir a monitorização ao nível dos hóspedes para máquinas virtuais](../cost-management-billing/cloudyn/azure-vm-extended-metrics.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -312,7 +312,7 @@ No entanto, ao utilizar a funcionalidade Trabalhador do Runbook Híbrido, poder�
 
 **Orientação**: Implementar uma solução de terceiros do Azure Marketplace para a solução de registo de DNS conforme as suas organizações precisam.
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -324,7 +324,7 @@ No entanto, ao utilizar a funcionalidade Hybrid Runbook Worker, o Azure Security
 
 * [Data collection in Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier) (Recolha de dados no Centro de Segurança do Azure)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -344,7 +344,7 @@ No entanto, ao utilizar a funcionalidade Hybrid Runbook Worker, o Azure Security
 
 * [Gerir uma execução de automação Azure Como conta](./manage-runas-account.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -352,7 +352,7 @@ No entanto, ao utilizar a funcionalidade Hybrid Runbook Worker, o Azure Security
 
 **Orientação**: A Azure Automation Account não tem o conceito de senhas padrão. Os clientes são responsáveis por aplicações de terceiros e serviços de marketplace que podem usar senhas padrão que funcionam em cima do serviço ou seus Trabalhadores De Runbook Híbridos.
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -368,7 +368,7 @@ Também pode ativar um Just-In-Time / Just-Enough-Access utilizando funções pr
 
 * [Gerir uma execução de automação Azure Como conta](./manage-runas-account.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -382,7 +382,7 @@ Também pode ativar um Just-In-Time / Just-Enough-Access utilizando funções pr
 
 * [Utilizar o Azure AD para autenticar no Azure](./automation-use-azure-ad.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -390,11 +390,11 @@ Também pode ativar um Just-In-Time / Just-Enough-Access utilizando funções pr
 
 **Orientação**: Ativar a autenticação multi-factor Azure AD (MFA) e seguir as recomendações do Azure Security Center Identity and Access Management.
 
-* [Como permitir o MFA em Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+* [Como ativar o MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 * [Como monitorizar a identidade e o acesso dentro do Centro de Segurança Azure](../security-center/security-center-identity-access.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -404,9 +404,9 @@ Também pode ativar um Just-In-Time / Just-Enough-Access utilizando funções pr
 
 * [Saiba mais sobre estações de trabalho de acesso privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Como permitir o MFA em Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+* [Como ativar o MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -420,7 +420,7 @@ Também pode ativar um Just-In-Time / Just-Enough-Access utilizando funções pr
 
 * [Como configurar grupos de ação para alerta e notificação personalizados](../azure-monitor/platform/action-groups.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -430,7 +430,7 @@ Também pode ativar um Just-In-Time / Just-Enough-Access utilizando funções pr
 
 * [Como configurar localizações nomeadas em Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -438,11 +438,11 @@ Também pode ativar um Just-In-Time / Just-Enough-Access utilizando funções pr
 
 **Orientação**: Utilize o Azure AD como sistema central de autenticação e autorização. A Azure AD protege os dados utilizando uma encriptação forte para dados em repouso e em trânsito. A Azure AD também sai, hashes e armazena seguramente as credenciais dos utilizadores. Se utilizar trabalhadores híbridos de runbook, poderá aproveitar as identidades geridas em vez de Executar Como Contas para permitir permissões de segurança mais perfeitas.
 
-* [Como criar e configurar uma instância AD Azure](../active-directory-domain-services/tutorial-create-instance.md)
+* [Como criar e configurar instâncias do Azure AD](../active-directory-domain-services/tutorial-create-instance.md)
 
 * [Utilize a autenticação de runbook com identidades geridas](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -458,7 +458,7 @@ Também pode ativar um Just-In-Time / Just-Enough-Access utilizando funções pr
 
 * [Gerir uma execução de automação Azure Como conta](./manage-runas-account.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -470,7 +470,7 @@ Pode agilizar este processo criando Definições de Diagnóstico para contas de 
 
 * [Como integrar os Registos de Atividades do Azure no Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -478,13 +478,13 @@ Pode agilizar este processo criando Definições de Diagnóstico para contas de 
 
 **Orientação**: Utilize funcionalidades de Proteção de Risco e Identidade Azure AD para configurar respostas automatizadas para detetar ações suspeitas relacionadas com identidades do utilizador para o seu recurso de rede. Você também pode ingerir dados em Azure Sentinel para mais investigação.
 
-* [Como ver a Azure AD a entrar em risco](../active-directory/identity-protection/overview-identity-protection.md)
+* [Como ver os inícios de sessão de risco do Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 * [Como configurar e permitir políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
 * [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -496,7 +496,7 @@ No entanto, ao utilizar os Trabalhadores de Runbook Híbridos apoiados por máqu
 
 * [Compreender o bloqueio do cliente](../security/fundamentals/customer-lockbox-overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -510,7 +510,7 @@ No entanto, ao utilizar os Trabalhadores de Runbook Híbridos apoiados por máqu
 
 * [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -532,7 +532,7 @@ No entanto, ao utilizar os Trabalhadores de Runbook Híbridos apoiados por máqu
 
 * [Como configurar alerta ou alerta e negar com a Azure Firewall](../firewall/threat-intel.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -542,9 +542,9 @@ No entanto, ao utilizar os Trabalhadores de Runbook Híbridos apoiados por máqu
 
 Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os conteúdos do cliente como sensíveis e protege contra a perda e exposição de dados dos clientes. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
 
-* [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md)
+* [Compreender a proteção dos dados dos clientes no Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -558,15 +558,15 @@ Siga as recomendações do Azure Security Center para encriptação em repouso e
 
 * [Aplicação da Azure Automation TLS 1.2](https://azure.microsoft.com/updates/azure-automation-tls12-enforcement/)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: Utilize uma ferramenta de descoberta ativa para identificar dados sensíveis
 
 **Orientação**: Utilize uma ferramenta de descoberta ativa de terceiros para identificar todas as informações sensíveis armazenadas, processadas ou transmitidas pelos sistemas tecnológicos da organização, incluindo as localizadas no local ou num prestador de serviços remotos e atualize o inventário de informações sensíveis da organização.
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -580,7 +580,7 @@ Siga as recomendações do Azure Security Center para encriptação em repouso e
 
 * [Gerir permissões e segurança de funções](./automation-role-based-access-control.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -590,7 +590,7 @@ Siga as recomendações do Azure Security Center para encriptação em repouso e
 
 Se estiver a utilizar trabalhadores híbridos com o apoio de máquinas virtuais Azure, então precisa de utilizar uma solução de prevenção de perda de dados baseada em terceiros para impor controlos de acesso às máquinas virtuais do Trabalhador De Runbook Híbrido.
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -600,7 +600,7 @@ Se estiver a utilizar trabalhadores híbridos com o apoio de máquinas virtuais 
 
 Ao utilizar os Trabalhadores de Runbook Híbridos, os discos virtuais nas máquinas virtuais são encriptados em repouso utilizando a encriptação do lado do servidor ou a encriptação do disco Azure (ADE). A encriptação do disco Azure aproveita a funcionalidade BitLocker do Windows para encriptar discos geridos com chaves geridas pelo cliente dentro do VM do hóspede. A encriptação do lado do servidor com as teclas geridas pelo cliente melhora no ADE, permitindo-lhe utilizar quaisquer tipos e imagens de OS para os seus VMs encriptando dados no serviço de Armazenamento.
 
-* [Encriptação lateral do servidor dos discos geridos pelo Azure](../virtual-machines/windows/disk-encryption.md)
+* [Encriptação lateral do servidor dos discos geridos pelo Azure](../virtual-machines/disk-encryption.md)
 
 * [Encriptação do disco Azure para VMs windows](../virtual-machines/windows/disk-encryption-overview.md)
 
@@ -608,7 +608,7 @@ Ao utilizar os Trabalhadores de Runbook Híbridos, os discos virtuais nas máqui
 
 * [Variáveis geridas na Azure Automation](./shared-resources/variables.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -620,7 +620,7 @@ Ao utilizar os Trabalhadores de Runbook Híbridos, os discos virtuais nas máqui
 
 * [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -636,7 +636,7 @@ Ao utilizar os Trabalhadores de Runbook Híbridos, os discos virtuais nas máqui
 
 * [Referência de recomendação do Centro de Segurança](../security-center/recommendations-reference.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -646,11 +646,11 @@ Ao utilizar os Trabalhadores de Runbook Híbridos, os discos virtuais nas máqui
 
 Se estiver a utilizar trabalhadores híbridos com o apoio de máquinas virtuais Azure, utilize a Azure Update Management para gerir atualizações e patches para as suas máquinas virtuais. A Update Management baseia-se no repositório de atualização configurado localmente para corrigir sistemas Windows suportados. Ferramentas como o System Center Updates Publisher (Editor de Atualizações) permitem-lhe publicar atualizações personalizadas nos Serviços de Atualização do Servidor do Windows (WSUS). Este cenário permite que a Gestão de Atualização remendo máquinas que usam o Gestor de Configuração como repositório de atualização com software de terceiros.
 
-* [Gestão de Atualização em Azure](./update-management/update-mgmt-overview.md)
+* [Gestão de Atualização em Azure](./update-management/overview.md)
 
-* [Gerir atualizações e patches para os seus VMs](./update-management/update-mgmt-manage-updates-for-vm.md)
+* [Gerir atualizações e patches para os seus VMs](./update-management/manage-updates-for-vm.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -660,11 +660,11 @@ Se estiver a utilizar trabalhadores híbridos com o apoio de máquinas virtuais 
 
 Se estiver a utilizar trabalhadores híbridos com o apoio de máquinas virtuais Azure, então pode utilizar o Azure Update Management para gerir atualizações e patches para as suas máquinas virtuais. A Update Management baseia-se no repositório de atualização configurado localmente para corrigir sistemas Windows suportados. Ferramentas como o System Center Updates Publisher (Editor de Atualizações) permite-lhe publicar atualizações personalizadas nos Serviços de Atualização do Servidor do Windows (WSUS). Este cenário permite que a Gestão de Atualização remendo máquinas que usam o Gestor de Configuração como repositório de atualização com software de terceiros.
 
-* [Solução de Gestão de Atualização em Azure](./update-management/update-mgmt-overview.md)
+* [Solução de Gestão de Atualização em Azure](./update-management/overview.md)
 
-* [Gerir atualizações e patches para os seus VMs Azure](./update-management/update-mgmt-manage-updates-for-vm.md)
+* [Gerir atualizações e patches para os seus VMs Azure](./update-management/manage-updates-for-vm.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -672,7 +672,7 @@ Se estiver a utilizar trabalhadores híbridos com o apoio de máquinas virtuais 
 
 **Orientação**: Exportar resultados de digitalização a intervalos consistentes e comparar os resultados para verificar se as vulnerabilidades foram remediadas. Ao utilizar a recomendação de gestão de vulnerabilidades sugerida pelo Azure Security Center, o cliente pode entrar no portal da solução selecionada para visualizar dados históricos de digitalização.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -682,7 +682,7 @@ Se estiver a utilizar trabalhadores híbridos com o apoio de máquinas virtuais 
 
 * [Compreenda a pontuação segura do Centro de Segurança Azure](../security-center/secure-score-security-controls.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -700,7 +700,7 @@ Se estiver a utilizar trabalhadores híbridos com o apoio de máquinas virtuais 
 
 * [Compreender Azure RBAC](../role-based-access-control/overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -710,7 +710,7 @@ Se estiver a utilizar trabalhadores híbridos com o apoio de máquinas virtuais 
 
 * [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -728,7 +728,7 @@ Se estiver a utilizar trabalhadores híbridos com o apoio de máquinas virtuais 
 
 * [Gerir uma execução de automação Azure Como conta](./manage-runas-account.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -736,7 +736,7 @@ Se estiver a utilizar trabalhadores híbridos com o apoio de máquinas virtuais 
 
 **Orientação**: Terá de criar um inventário dos recursos Azure aprovados e software aprovado para obter recursos de computação de acordo com as suas necessidades organizacionais.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -754,7 +754,7 @@ Além disso, utilize o Gráfico de Recursos Azure para consultar/descobrir recur
 
 * [Amostra de política Azure incorporada para a Azure Automation](./policy-reference.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -770,7 +770,7 @@ Se estiver a utilizar trabalhadores híbridos com o apoio da Azure Virtual Machi
 
 * [Gerir módulo em Azure Automation](./shared-resources/modules.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -782,7 +782,7 @@ Se estiver a utilizar trabalhadores híbridos com o apoio da Azure Virtual Machi
 
 * [Gerir módulo em Azure Automation](./shared-resources/modules.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -792,7 +792,7 @@ Se estiver a utilizar trabalhadores híbridos com o apoio da Azure Virtual Machi
 
 * [Como utilizar os controlos de aplicações adaptativos do Centro de Segurança Azure](../security-center/security-center-adaptive-application.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -806,7 +806,7 @@ Se estiver a utilizar trabalhadores híbridos com o apoio da Azure Virtual Machi
 
 * [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/index.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -818,7 +818,7 @@ O controlo de aplicações adaptativas é uma solução inteligente, automatizad
 
 * [Como utilizar os controlos de aplicações adaptativos do Centro de Segurança Azure](../security-center/security-center-adaptive-application.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -828,7 +828,7 @@ O controlo de aplicações adaptativas é uma solução inteligente, automatizad
 
 * [Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recursos Azure](../role-based-access-control/conditional-access-azure-management.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -840,7 +840,7 @@ O controlo de aplicações adaptativas é uma solução inteligente, automatizad
 
 * [Como utilizar os controlos de aplicações adaptativos do Centro de Segurança Azure](../security-center/security-center-adaptive-application.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -862,7 +862,7 @@ O controlo de aplicações adaptativas é uma solução inteligente, automatizad
 
 * [Guia de decisão de subscrição](/azure/cloud-adoption-framework/decision-guides/subscriptions/)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -888,7 +888,7 @@ Também pode utilizar recomendações do Azure Security Center como uma base de 
 
 * [Recomendações de segurança: um guia de referência](../security-center/recommendations-reference.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -902,7 +902,7 @@ Ao utilizar a funcionalidade Trabalhador do Runbook Híbrido, utilize a recomend
 
 * [Como remediar as recomendações do Centro de Segurança Azure](../security-center/security-center-remediate-recommendations.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -922,7 +922,7 @@ Ao utilizar a funcionalidade Trabalhador do Runbook Híbrido, utilize a recomend
 
 * [Amostra de política Azure incorporada para a Azure Automation](./policy-reference.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -944,7 +944,7 @@ Para a maioria dos cenários, os modelos VM base da Microsoft combinados com a C
 
 * [Como carregar um VM VHD personalizado para Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -958,7 +958,7 @@ Para a maioria dos cenários, os modelos VM base da Microsoft combinados com a C
 
 * [Utilizar a integração do controlo de código fonte](./source-control-integration.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -972,7 +972,7 @@ Ao utilizar a funcionalidade Hybrid Runbook Worker, certifique-se de que está a
 
 * [Como configurar o Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -986,7 +986,7 @@ Ao utilizar a funcionalidade Hybrid Runbook Worker, certifique-se de que está a
 
 * [Amostra de política Azure incorporada para a Azure Automation](./policy-reference.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -998,7 +998,7 @@ Ao utilizar a funcionalidade Trabalhador do Runbook Híbrido, utilize a Configur
 
 * [Máquinas de embarque para gestão por Azure Automation State Configuration](./automation-dsc-onboarding.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -1016,7 +1016,7 @@ Ao utilizar a função Trabalhador do Runbook Híbrido, aproveite o Azure Securi
 
 * [Amostra de política Azure incorporada para a Azure Automation](./policy-reference.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1028,7 +1028,7 @@ Ao utilizar a funcionalidade Trabalhador do Runbook Híbrido, utilize a Configur
 
 * [Máquinas de embarque para gestão por Azure Automation State Configuration](./automation-dsc-onboarding.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -1046,7 +1046,7 @@ Ao utilizar a funcionalidade Trabalhador do Runbook Híbrido, utilize a Configur
 
 * [Como atribuir uma política de acesso ao Cofre de Chaves](../key-vault/general/assign-access-policy-portal.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -1058,7 +1058,7 @@ Ao utilizar a funcionalidade Trabalhador do Runbook Híbrido, utilize a Configur
 
 * [Utilização de chaves geridas pelo cliente para uma conta de Automação](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -1068,7 +1068,7 @@ Ao utilizar a funcionalidade Trabalhador do Runbook Híbrido, utilize a Configur
 
 * [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -1084,7 +1084,7 @@ Ao utilizar a funcionalidade Trabalhador do Runbook Híbrido, utilize o Microsof
 
 * [Como configurar o Anti-malware da Microsoft para serviços na Nuvem e Máquinas Virtuais](../security/fundamentals/antimalware.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -1094,7 +1094,7 @@ Ao utilizar a funcionalidade Trabalhador do Runbook Híbrido, utilize o Microsof
 
 * [Compreenda o Antimalware da Microsoft para serviços em nuvem Azure e máquinas virtuais](../security/fundamentals/antimalware.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -1108,7 +1108,7 @@ Ao utilizar a funcionalidade Trabalhador do Runbook Híbrido, utilize o Microsof
 
 * [Proteção Avançada Contra Ameaças do Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/onboard-configure)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -1140,7 +1140,7 @@ Utilize a função de integração do controlo de fonte para manter os seus livr
 
 * [Utilizar a integração do controlo de código fonte](./source-control-integration.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -1166,7 +1166,7 @@ Utilize a função de integração do controlo de fonte para manter os seus livr
 
 * [Backup de dados Azure para Contas de Automação](./automation-managing-data.md#data-backup)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -1180,7 +1180,7 @@ Utilize a função de integração do controlo de fonte para manter os seus livr
 
 * [Utilização de chaves geridas pelo cliente para uma conta de Automação](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -1196,7 +1196,7 @@ Utilize a função de integração do controlo de fonte para manter os seus livr
 
 * [Utilizar a integração do controlo de código fonte](./source-control-integration.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1214,7 +1214,7 @@ Utilize a função de integração do controlo de fonte para manter os seus livr
 
 * [O cliente também pode aproveitar o Guia de Tratamento de Incidentes de Segurança Informática da NIST para ajudar na criação do seu próprio plano de resposta a incidentes](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1222,13 +1222,13 @@ Utilize a função de integração do controlo de fonte para manter os seus livr
 
 **Orientação**: O Centro de Segurança atribui uma gravidade a cada alerta para o ajudar a priorizar quais os alertas que devem ser investigados primeiro. A gravidade baseia-se na confiança que o Centro de Segurança está na descoberta ou no analítico utilizado para emitir o alerta, bem como no nível de confiança de que havia intenção maliciosa por trás da atividade que levou ao alerta.
 
-Além disso, marque claramente as subscrições (para ex. produção, não-prod) usando tags e criar um sistema de nomeação para identificar e categorizar claramente os recursos Azure, especialmente aqueles que processam dados sensíveis. É da sua responsabilidade priorizar a reparação de alertas com base na criticidade dos recursos e ambiente do Azure onde ocorreu o incidente.
+Além disso, marque claramente as subscrições (para ex. produção, não-prod) usando tags e criar um sistema de nomeação para identificar e categorizar claramente os recursos Azure, especialmente aqueles que processam dados sensíveis. É da sua responsabilidade priorizar a remediação dos alertas de acordo com a criticalidade dos recursos do Azure e o ambiente em que os incidentes ocorreram.
 
 * [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
 * [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -1238,7 +1238,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 * [Publicação do NIST - Guia de Testes, Formação e Programas de Exercício para Planos e Capacidades de TI](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1248,7 +1248,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 * [Como definir o Contacto de Segurança do Centro de Segurança Azure](../security-center/security-center-provide-security-contact-details.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -1260,7 +1260,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 * [Como transmitir alertas para o Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -1270,7 +1270,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 * [Como configurar a automatização do fluxo de trabalho e as aplicações lógicas](../security-center/workflow-automation.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -1280,17 +1280,17 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Realizar testes regulares de penetração dos seus recursos Azure e garantir a reparação de todas as conclusões críticas de segurança
 
-**Orientação**: Siga as Regras de Engajamento da Microsoft para garantir que os seus Testes de Penetração não violam as políticas da Microsoft. Use a estratégia da Microsoft e a execução de testes de penetração em red teaming e site ao vivo contra infraestruturas, serviços e aplicações de nuvem geridas pela Microsoft.
+**Orientação**: Siga as Regras de Engajamento da Microsoft para garantir que os seus Testes de Penetração não violam as políticas da Microsoft. Utilize a estratégia e a execução de "Equipas de Ataque" e os testes de penetração no local em direto da Microsoft na infraestrutura, nos serviços e nas aplicações cloud geridas pela Microsoft.
 
-* [Regras de teste de penetração de compromisso](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [Regras de Interação para os Testes de Penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* ["Equipa de Ataque" da Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
-- Saiba mais sobre [as linhas de base de segurança da Azure](../security/benchmarks/security-baselines-overview.md)
+- Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

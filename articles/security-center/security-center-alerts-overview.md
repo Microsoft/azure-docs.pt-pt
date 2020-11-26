@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: 7f5f920f14a556d63f433b36658d7b265d51a28d
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 033f06aa61baf04b5c74fbbe9cc8f925d5d4e3d3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340381"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182313"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança no Centro de Segurança do Azure
 
@@ -25,7 +25,7 @@ Os alertas de segurança são desencadeados por deteções avançadas e estão d
 
 ## <a name="respond-to-todays-threats"></a>Responda às ameaças <a name="respond-threats"> </a> de hoje
 
-Nos últimos 20 anos, ocorreram alterações significativas no campo das ameaças. No passado, as empresas normalmente só tinham de se preocupar com o desfiguramento do site por parte de agressores individuais que estavam maioritariamente interessados em ver "o que podiam fazer". Os agressores de hoje são muito mais sofisticados e organizados. Têm, muitas vezes, objetivos financeiros e estratégicos específicos. Também têm mais recursos disponíveis, uma vez que podem ser financiados por Estados ou pelo crime organizado.
+Nos últimos 20 anos, ocorreram alterações significativas no campo das ameaças. No passado, as empresas normalmente só tinham de se preocupar com o desfiguramento do site por parte de agressores individuais que estavam maioritariamente interessados em ver "o que podiam fazer". Os agressores de hoje são muito mais sofisticados e organizados. Têm, muitas vezes, objetivos financeiros e estratégicos específicos. Também têm mais recursos à sua disposição, uma vez que podem ser financiados por estados-nação ou pelo crime organizado.
 
 Estas realidades em mudança levaram a um nível de profissionalismo sem precedentes nas fileiras dos agressores. Já não estão interessados na desfiguração dos sites. Estão agora interessados em roubar informação, contas financeiras e dados privados – todos eles podem usar para gerar dinheiro no mercado aberto ou para alavancar uma determinada posição comercial, política ou militar. Ainda mais preocupante do que os atacantes com objetivos financeiros, temos os atacantes que entram ilegalmente em redes de forma a prejudicar infraestruturas e pessoas.
 
@@ -72,7 +72,7 @@ A confiança do Centro de Segurança no analítico ou na descoberta é média e 
 - **Baixo:** Isto pode ser um positivo benigno ou um ataque bloqueado.
    * O Centro de Segurança não está confiante o suficiente para que a intenção seja maliciosa e a atividade possa ser inocente. Por exemplo, o log clear é uma ação que pode acontecer quando um intruso tenta esconder os seus rastos, mas em muitos casos é uma operação de rotina realizada por administradores.
    * O Centro de Segurança não costuma dizer-te quando os ataques foram bloqueados, a não ser que seja um caso interessante que sugiramos que investigas. 
-- **Informativo:** Só verá alertas informativos quando perfurar um incidente de segurança, ou se utilizar a API REST com um ID de alerta específico. Um incidente é tipicamente composto por uma série de alertas, alguns dos quais podem aparecer por si sós para serem apenas informativos, mas no contexto dos outros alertas podem ser dignos de um olhar mais atento. 
+- **Informativo:** Só verá alertas informativos quando perfurar um incidente de segurança, ou se utilizar a API REST com um ID de alerta específico. Um incidente é normalmente composto por uma série de alertas, alguns dos quais podem aparecer por si sós como apenas informativos, mas no contexto dos outros alertas podem ser dignos de um olhar mais atento. 
 
 ## <a name="continuous-monitoring-and-assessments"></a>Monitorização e avaliação contínuas
 
@@ -96,6 +96,6 @@ Tem um leque de opções para visualizar os seus alertas fora do Centro de Segur
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu sobre os diferentes tipos de alertas disponíveis no Centro de Segurança. Para obter mais informações, consulte:
+Neste artigo, você aprendeu sobre os diferentes tipos de alertas disponíveis no Centro de Segurança. Para obter mais informações, veja:
 
 - **Alertas de segurança no Registo de Atividades do Azure** - Além de estarem disponíveis no portal Azure ou programáticamente, os alertas de segurança e incidentes são auditados como eventos no [Diário de Atividades do Azure.](../azure-monitor/platform/activity-log.md#view-the-activity-log) Para obter mais informações sobre o esquema do evento, consulte [alertas de segurança no registo de atividades do Azure](https://go.microsoft.com/fwlink/?linkid=2114113)

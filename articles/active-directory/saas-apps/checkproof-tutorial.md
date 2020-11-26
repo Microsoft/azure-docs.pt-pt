@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 5a5b10d61d3381389b08e5df7e9e70c92494dd75
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b0afcf00a95b46472c902b24c6d4b287c1c6a482
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548667"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181025"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-checkproof"></a>Tutorial: Azure Ative Directy integração única (SSO) com CheckProof
 
@@ -45,15 +45,15 @@ Para configurar a integração do CheckProof no Azure AD, é necessário adicion
 
 1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações** .
-1. Para adicionar nova aplicação, selecione **Nova aplicação** .
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **de galeria,** escreva **CheckProof** na caixa de pesquisa.
 1. Selecione **CheckProof** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 
 ## <a name="configure-and-test-azure-ad-sso-for-checkproof"></a>Configure e teste Azure AD SSO para checkproof
 
-Configure e teste Azure AD SSO com CheckProof usando um utilizador de teste chamado **B.Simon** . Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no CheckProof.
+Configure e teste Azure AD SSO com CheckProof usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no CheckProof.
 
 Para configurar e testar o Azure AD SSO com CheckProof, execute os seguintes passos:
 
@@ -68,8 +68,8 @@ Para configurar e testar o Azure AD SSO com CheckProof, execute os seguintes pas
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No portal Azure, na página de integração da aplicação **CheckProof,** encontre a secção **Gerir** e selecione **um único sinal de sação** .
-1. Na página de método **de inscrição** única, selecione **SAML** .
+1. No portal Azure, na página de integração da aplicação **CheckProof,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
@@ -94,21 +94,21 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome** , introduza `B.Simon`.  
+   1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar** .
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso à CheckProof.
 
-1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações** .
-1. Na lista de aplicações, selecione **CheckProof** .
-1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos** .
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **CheckProof**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
@@ -126,13 +126,13 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Numa janela diferente do navegador web, inscreva-se no site CheckProof como administrador.
 
-1. Clique no **Perfil** e selecione **O meu perfil** .
+1. Clique no **Perfil** e selecione **O meu perfil**.
 
     ![Página de utilizador de teste CheckProof](./media/checkproof-tutorial/create-user.png)
 
-1. Clique no **UTILIZADOR CREATE** .
+1. Clique no **UTILIZADOR CREATE**.
 
-1. Na página **CREATE USER,** preencha os campos necessários e clique em **SAVE** .
+1. Na página **CREATE USER,** preencha os campos necessários e clique em **SAVE**.
 
     ![Página do utilizador do teste CheckProof1](./media/checkproof-tutorial/create-user-2.png)
 
@@ -142,11 +142,9 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 1. Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no CheckProof para o qual configura o SSO
 
-1. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo CheckProof no Painel de Acesso, deverá ser automaticamente inscrito no CheckProof para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+1. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo CheckProof no Painel de Acesso, deverá ser automaticamente inscrito no CheckProof para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma vez configurado CheckProof, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Uma vez configurado CheckProof, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

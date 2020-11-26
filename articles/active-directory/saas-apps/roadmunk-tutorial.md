@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 26424106098a8385faff5ab6d3de33d98576ef4e
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: a7f4682be2f7fbf308aba32768efa932f27b7a87
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381308"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181714"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-roadmunk"></a>Tutorial: Azure Ative Directory integração única (SSO) com Roadmunk
 
@@ -110,7 +110,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure. Vai nomear o 
 1. A partir do painel esquerdo no portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
 1. Na parte superior da janela, selecione **Novo utilizador**.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome** , introduza `B.Simon`.  
+   1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, introduza `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
    1. Selecione **Criar**.
@@ -171,12 +171,10 @@ Nesta secção, você permitirá que B.Simon use Azure SSO, concedendo acesso a 
 
 Nesta secção, testa a configuração Azure AD SSO utilizando o painel de acesso.
 
-No portal My Apps, quando selecionar o azulejo **roadmunk,** deverá ser automaticamente inscrito na conta Roadmunk para a qual configura sSO. Para obter mais informações, consulte [iniciar sômis e inicie aplicações a partir do portal My Apps.](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
+No portal My Apps, quando selecionar o azulejo **roadmunk,** deverá ser automaticamente inscrito na conta Roadmunk para a qual configura sSO. Para obter mais informações, consulte [iniciar sômis e inicie aplicações a partir do portal My Apps.](../user-help/my-apps-portal-end-user-access.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de configurar roadmunk, pode impor o controlo da sessão. O controlo da sessão protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o acesso condicional. 
 
-Saiba como [impor o controlo da sessão utilizando](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)o Microsoft Cloud App Security .
-
-
+Saiba como [impor o controlo da sessão utilizando](/cloud-app-security/proxy-deployment-any-app)o Microsoft Cloud App Security .

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: 544e01ef96165cd6c96a97761a3e758b93b1b15b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 79076db9de4122c19fcb03bbfc938214097e19f6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014351"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181599"
 ---
 # <a name="tutorial-configure-rollbar-for-automatic-user-provisioning"></a>Tutorial: Configurar a Barra de Rolo para o fornecimento automático de utilizadores
 
@@ -36,7 +36,7 @@ Este tutorial descreve os passos necessários para realizar tanto no Rollbar com
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
 * [Um inquilino da AD AZure](../develop/quickstart-create-new-tenant.md) 
-* Uma conta de utilizador no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
+* Uma conta de utilizador no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
 * [Um inquilino da Rollbar](https://rollbar.com/pricing/) que tem um plano empresarial.
 * Uma conta de utilizador no Rollbar com permissões de Administração.
 

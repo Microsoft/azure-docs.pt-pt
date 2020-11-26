@@ -14,14 +14,14 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1012ae32f679d23f16a7483415657596d027cc01
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: ab3b655d59e2cb8c6773fa1a34a08638e6926475
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658830"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180664"
 ---
-# <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Autenticação de aplicações móveis dos Serviços da Federação de Diretórios Ativos para o Diretório Ativo do Azure
+# <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Mover a autenticação da aplicação do AD FS para o AAD
 
 [O Azure Ative Directory (Azure AD)](../fundamentals/active-directory-whatis.md) oferece uma plataforma de identidade universal que fornece às suas pessoas, parceiros e clientes uma única identidade para aceder a aplicações e colaborar a partir de qualquer plataforma e dispositivo. A Azure AD tem um [conjunto completo de capacidades de gestão de identidade.](../fundamentals/active-directory-whatis.md) A normalização da autenticação e autorização da Azure AD permite os benefícios que estas capacidades proporcionam.
 
@@ -320,7 +320,7 @@ O seletor de Utilizadores/Grupos é uma regra que lhe permite impor MFA numa bas
 
 Especificar as regras de MFA para um utilizador ou um grupo em Azure AD:
 
-1. Criar uma [nova política de acesso condicional](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Criar uma [nova política de acesso condicional](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 2. Selecione **Atribuições**. Adicione o(s) utilizador(s) ou grupo(s) em que pretende impor MFA.
 
@@ -333,7 +333,7 @@ Especificar as regras de MFA para um utilizador ou um grupo em Azure AD:
 
 Especificar as regras de MFA para dispositivos não registados em Azure AD:
 
-1. Criar uma [nova política de acesso condicional](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Criar uma [nova política de acesso condicional](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 2. Definir as **Atribuições** a **Todos os utilizadores**.
 
@@ -348,7 +348,7 @@ Quando define a opção de controlos para vários controlos para exigir um dos c
 
 Especificar as regras de MFA com base na localização de um utilizador em Azure AD:
 
-1. Criar uma [nova política de acesso condicional](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Criar uma [nova política de acesso condicional](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 1. Definir as **Atribuições** a **Todos os utilizadores**.
 
@@ -386,7 +386,7 @@ A AD FS 2016 tem várias políticas de controlo de acesso incorporadas que pode 
 ![Azure AD construído no controlo de acessos](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-1.png)
 
 
-Para implementar políticas incorporadas em Azure AD, pode utilizar uma [nova política de acesso condicional](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json) e configurar os controlos de acesso, ou pode utilizar o designer de políticas personalizados em AD FS 2016 para configurar políticas de controlo de acesso. O Editor de Regras tem uma lista exaustiva de licenças e opções que podem ajudá-lo a fazer todo o tipo de permutações.
+Para implementar políticas incorporadas em Azure AD, pode utilizar uma [nova política de acesso condicional](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json) e configurar os controlos de acesso, ou pode utilizar o designer de políticas personalizados em AD FS 2016 para configurar políticas de controlo de acesso. O Editor de Regras tem uma lista exaustiva de licenças e opções que podem ajudá-lo a fazer todo o tipo de permutações.
 
 ![Políticas de controlo de acesso AZure AD](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-2.png)
 

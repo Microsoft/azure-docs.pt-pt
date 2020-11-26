@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: fcbfd3eb805e046647a2c28cef8c378b44026bd0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ac6981d998f25b8df7cea553fe152d68cd43fee5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013195"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181429"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Tutorial: Configure Snowflake para o fornecimento automático de utilizadores
 
@@ -39,7 +39,7 @@ O objetivo deste tutorial é demonstrar os passos a serem realizados no Snowflak
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
 * [Um inquilino do Azure AD](../develop/quickstart-create-new-tenant.md).
-* Uma conta de utilizador no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global).
+* Uma conta de utilizador no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global).
 * [Um inquilino de Snowflake.](https://www.Snowflake.com/pricing/)
 * Uma conta de utilizador em Snowflake com permissões de administrador.
 

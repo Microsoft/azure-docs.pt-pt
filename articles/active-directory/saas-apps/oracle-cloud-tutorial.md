@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/04/2020
 ms.author: jeedes
-ms.openlocfilehash: 90623c6fd1c0eba3042688ae6fd6fdc92b088fd4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 914858471432979e5516a1f075ed4fcbb8061a5d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097000"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181860"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Tutorial: Integrar consola de infraestruturas de nuvem oracle com diretório ativo Azure
 
@@ -45,14 +45,14 @@ Para configurar a integração da Consola de Infraestruturas da Oracle Cloud em 
 
 1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações** .
-1. Para adicionar nova aplicação, selecione **Nova aplicação** .
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **de galeria,** **digite consola de infraestruturas de nuvem oracle** na caixa de pesquisa.
 1. Selecione **a Consola de Infraestruturas** oracle Cloud do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar Azure AD SSO
 
-Configure e teste Azure AD SSO com oracle Cloud Infrastructure Console usando um utilizador de teste chamado **B. Simon** . Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na Consola de Infraestruturas da Nuvem oracle.
+Configure e teste Azure AD SSO com oracle Cloud Infrastructure Console usando um utilizador de teste chamado **B. Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na Consola de Infraestruturas da Nuvem oracle.
 
 Para configurar e testar O Azure AD SSO com consola oracle Cloud Infrastructure, execute os seguintes passos:
 
@@ -67,8 +67,8 @@ Para configurar e testar O Azure AD SSO com consola oracle Cloud Infrastructure,
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No portal Azure, na página de integração da aplicação **oracle Cloud Infrastructure Console,** encontre a secção **Gerir** e selecione **Single sign-on** .
-1. Na página **de método de inscrição única,** selecione **SAML** .
+1. No portal Azure, na página de integração da aplicação **oracle Cloud Infrastructure Console,** encontre a secção **Gerir** e selecione **Single sign-on**.
+1. Na página **de método de inscrição única,** selecione **SAML**.
 1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
@@ -78,9 +78,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
    > [!NOTE]
    > Obtém-se o ficheiro metadados do Fornecedor de Serviços na secção de assinatura única única do tutorial da consola de **infraestruturas de nuvem de oráculos.**
     
-   1. Clique **em Carregar o ficheiro de metadados** .
+   1. Clique **em Carregar o ficheiro de metadados**.
 
-   1. Clique no **logotipo da pasta** para selecionar o ficheiro de metadados e clique em **Upload** .
+   1. Clique no **logotipo da pasta** para selecionar o ficheiro de metadados e clique em **Upload**.
 
    1. Uma vez que o ficheiro de metadados é carregado com sucesso, os valores de URL **de identificação** e **resposta** são preenchidos automaticamente na caixa de texto da secção **de configuração SAML básica.**
     
@@ -102,29 +102,29 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Oracle Cloud Infrastructure Console espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **"Atributos & Reclamações** do Utilizador no diálogo **'Pré-visualização)** do Grupo, execute os seguintes passos:
 
-   1. Clique na **caneta** ao lado **do valor do identificador Nome** .
+   1. Clique na **caneta** ao lado **do valor do identificador Nome**.
 
-   1. Selecione **Persistente** como **Escolher o formato do identificador de nomes** .
+   1. Selecione **Persistente** como **Escolher o formato do identificador de nomes**.
  
-   1. Clique em **Guardar** .
+   1. Clique em **Guardar**.
 
       ![image2](./media/oracle-cloud-tutorial/config07.png)
     
       ![image3](./media/oracle-cloud-tutorial/config11.png)
 
-   1. Clique na **caneta** ao lado **de Grupos devolvidos em reivindicação** .
+   1. Clique na **caneta** ao lado **de Grupos devolvidos em reivindicação**.
 
    1. Selecione **grupos** de segurança da lista de rádio.
 
-   1. Selecione **Atributo de Origem** do **ID do Grupo** .
+   1. Selecione **Atributo de Origem** do **ID do Grupo**.
 
-   1. Verifique **personalizar o nome da reclamação do grupo** .
+   1. Verifique **personalizar o nome da reclamação do grupo**.
 
-   1. Na caixa de texto **Name,** **escreva o nome do grupo** .
+   1. Na caixa de texto **Name,** **escreva o nome do grupo**.
 
    1. Na caixa de texto **Namespace (opcional),** escreva `https://auth.oraclecloud.com/saml/claims` .
 
-   1. Clique em **Guardar** .
+   1. Clique em **Guardar**.
 
       ![image4](./media/oracle-cloud-tutorial/config08.png)
 
@@ -136,21 +136,21 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B. Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome** , introduza `B. Simon`.  
+   1. No campo **Nome**, introduza `B. Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B. Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar** .
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permitirá a B. Simon usar o Azure single sign-on, concedendo acesso à Consola de Infraestruturas da Nuvem oracle.
 
-1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações** .
-1. Na lista de aplicações, selecione **Oracle Cloud Infrastructure Console** .
-1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos** .
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **Oracle Cloud Infrastructure Console**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 1. No diálogo **de Utilizadores e grupos,** selecione **B. Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
@@ -164,7 +164,7 @@ Nesta secção, você permitirá a B. Simon usar o Azure single sign-on, concede
 
    ![Configuração1](./media/oracle-cloud-tutorial/config01.png)
 
-1. Guarde o **ficheiro de metadados do Fornecedor de Serviço** clicando no link de **descarregamento deste documento** e faça o upload para a secção de **Configuração SAML Básica** do portal Azure e, em seguida, clique no Fornecedor de Identidade **Adicionar** .
+1. Guarde o **ficheiro de metadados do Fornecedor de Serviço** clicando no link de **descarregamento deste documento** e faça o upload para a secção de **Configuração SAML Básica** do portal Azure e, em seguida, clique no Fornecedor de Identidade **Adicionar**.
 
    ![Configuração2](./media/oracle-cloud-tutorial/config02.png)
 
@@ -176,7 +176,7 @@ Nesta secção, você permitirá a B. Simon usar o Azure single sign-on, concede
 
    1. Na caixa de texto **DESCRIÇÃO,** insira a sua descrição.
 
-   1. Selecione **MICROSOFT ATIVE DIRECTORY FEDERATION SERVICE (ADFS) OU SAML 2.0 FORNECEDOR DE IDENTIDADE CONFORME** COMO **TIPO** .
+   1. Selecione **MICROSOFT ATIVE DIRECTORY FEDERATION SERVICE (ADFS) OU SAML 2.0 FORNECEDOR DE IDENTIDADE CONFORME** COMO **TIPO**.
 
    1. Clique **em Procurar** para carregar o MÍsamo de Metadados da Federação XML, que descarregou a partir do portal Azure.
 
@@ -202,5 +202,4 @@ Quando selecionar o azulejo da Consola de Infraestruturas da Nuvem oracle no Pai
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Assim que configurar a Consola de Infraestruturas da Nuvem oracle pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
-
+Assim que configurar a Consola de Infraestruturas da Nuvem oracle pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

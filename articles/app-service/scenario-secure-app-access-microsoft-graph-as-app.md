@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: a7b8ca309bf5710ddbd88413935bef5e97a1ed9f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: bdd6dbf790bcf2ec97be33504e51ca3db2eb3ef7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95999676"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182993"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>Tutorial: Aceda ao Microsoft Graph a partir de uma aplicação segura como a aplicação
 
@@ -23,7 +23,7 @@ Saiba como aceder ao Microsoft Graph a partir de uma aplicação web em execuç�
 
 :::image type="content" alt-text="Diagrama que mostra o acesso ao Microsoft Graph." source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
-Pretende ligar para o Microsoft Graph para a aplicação web. Uma forma segura de dar acesso à sua aplicação web aos dados é utilizar uma [identidade gerida atribuída pelo sistema.](/azure/active-directory/managed-identities-azure-resources/overview) Uma identidade gerida a partir do Azure Ative Directory permite ao Serviço de Aplicações aceder a recursos através do controlo de acesso baseado em funções (RBAC), sem exigir credenciais de aplicações. Depois de atribuir uma identidade gerida à sua aplicação web, a Azure cuida da criação e distribuição de um certificado. Não tem que se preocupar em gerir segredos ou credenciais de aplicativos.
+Pretende ligar para o Microsoft Graph para a aplicação web. Uma forma segura de dar acesso à sua aplicação web aos dados é utilizar uma [identidade gerida atribuída pelo sistema.](../active-directory/managed-identities-azure-resources/overview.md) Uma identidade gerida a partir do Azure Ative Directory permite ao Serviço de Aplicações aceder a recursos através do controlo de acesso baseado em funções (RBAC), sem exigir credenciais de aplicações. Depois de atribuir uma identidade gerida à sua aplicação web, a Azure cuida da criação e distribuição de um certificado. Não tem que se preocupar em gerir segredos ou credenciais de aplicativos.
 
 Neste tutorial, vai aprender a:
 
@@ -204,7 +204,7 @@ public async Task OnGetAsync()
 }
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se terminou este tutorial e já não precisa da aplicação web ou dos recursos associados, [limpe os recursos que criou.](scenario-secure-app-clean-up-resources.md)
 

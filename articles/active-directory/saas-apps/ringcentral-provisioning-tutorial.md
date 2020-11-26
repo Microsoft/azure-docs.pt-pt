@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 915133210c9797db7446bf30391635fd36b73bf0
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: f57114fc4cb76c500cc422966635273c3a923046
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94352817"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181633"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Tutorial: Configure RingCentral para o fornecimento automático de utilizadores
 
@@ -35,7 +35,7 @@ Este tutorial descreve os passos necessários para realizar tanto no RingCentral
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
 * [Um inquilino da AD AZure](../develop/quickstart-create-new-tenant.md) 
-* Uma conta de utilizador no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
+* Uma conta de utilizador no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
 * [Um inquilino ringCentral](https://www.ringcentral.com/office/plansandpricing.html)
 * Uma conta de utilizador no RingCentral com permissões de Administração.
 
@@ -98,7 +98,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Screenshot dos campos de texto do USSA e Secret Token com a opção de Ligação de Teste chamada.](./media/ringcentral-provisioning-tutorial/provisioning.png)
 
-6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
+6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 

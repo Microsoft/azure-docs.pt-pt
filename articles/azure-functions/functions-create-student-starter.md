@@ -4,12 +4,12 @@ description: Saiba como criar uma função Azure a partir de dentro de uma subsc
 Customer intent: As a student, I want to be able to create an HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: ecb2cc20bec602101d683dbfdd3f82a2e199aa16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f40405c9325743da5d1963e3baea781606d2d8d9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386967"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182534"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Criar uma função usando Azure para iniciação de estudantes
 
@@ -41,7 +41,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 ## <a name="create-an-http-trigger-function"></a><a name="create-function"></a>Criar uma função de gatilho HTTP
 
-1. A partir do menu esquerdo da janela **Funções,** selecione **Funções**e selecione **Adicione** no menu superior. 
+1. A partir do menu esquerdo da janela **Funções,** selecione **Funções** e selecione **Adicione** no menu superior. 
  
 1. A partir da janela **Nova Função,** selecione **'Desír do gatilho'.**
 
@@ -75,7 +75,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
    ![Visualizador de registo de funções no portal do Azure.](./media/functions-create-student-starter/function-view-logs.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
@@ -100,7 +100,7 @@ No Azure for Students Starter, você tem acesso à maioria das funcionalidades d
 Já terminou de criar uma aplicação de função com uma função de gatilho HTTP simples. Em seguida, você pode explorar ferramentas locais, mais idiomas, monitorização e integrações.
 
  * [Criar a sua primeira função com o Visual Studio](./functions-create-your-first-function-visual-studio.md)
- * [Criar a sua primeira função com o Visual Studio Code](./functions-create-first-function-vs-code.md)
+ * [Criar a sua primeira função com o Visual Studio Code](./create-first-function-vs-code-csharp.md)
  * [Azure Functions JavaScript guia de desenvolvedores](./functions-reference-node.md)
  * [Utilize funções Azure para ligar a uma Base de Dados Azure SQL](./functions-scenario-database-table-cleanup.md)
  * [Saiba mais sobre as ligações Azure Functions HTTP](./functions-bindings-http-webhook.md).

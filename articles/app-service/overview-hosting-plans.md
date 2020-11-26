@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5f96b48b8fec07ab207ea3962a201bbff68a5339
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8033235cde5b7ebe298bb1fa8d4222e208df998b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92200853"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183010"
 ---
 # <a name="azure-app-service-plan-overview"></a>Descrição Geral do plano do Serviço de Aplicações do Azure
 
@@ -27,7 +27,7 @@ Quando se cria um plano de Serviço de Aplicações numa determinada região (po
 O _nível_ de preços de um plano de Serviço de Aplicações determina quais as funcionalidades do Serviço de Aplicações que obtém e quanto paga pelo plano. Existem algumas categorias de escalões de preço:
 
 - **Computação partilhada**: **Grátis** e **Partilhadas,** os dois níveis base, executa uma aplicação no mesmo Azure VM que outras aplicações do App Service, incluindo apps de outros clientes. Estes escalões alocam quotas de CPU a cada uma das aplicações que executam nos recursos partilhados e os recursos não podem ser aumentados horizontalmente.
-- **Computação dedicada**: Os níveis **Básico,** **Standard,** **Premium,** **PremiumV2**e **PremiumV3** executam aplicações em VMs Azure dedicados. Apenas as aplicações no mesmo plano do Serviço de Aplicações partilham os mesmos recursos de computação. Quanto maior for o escalão, mais instâncias de VM estarão disponíveis para escalamento horizontal.
+- **Computação dedicada**: Os níveis **Básico,** **Standard,** **Premium,** **PremiumV2** e **PremiumV3** executam aplicações em VMs Azure dedicados. Apenas as aplicações no mesmo plano do Serviço de Aplicações partilham os mesmos recursos de computação. Quanto maior for o escalão, mais instâncias de VM estarão disponíveis para escalamento horizontal.
 - **Isolado**: Este nível executa VMs Azure dedicados em redes virtuais dedicadas Azure. Proporciona isolamento de rede em cima do isolamento computacional às suas aplicações. Fornece as capacidades máximas de escalamento horizontal.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
@@ -37,13 +37,13 @@ Cada nível também fornece um subconjunto específico de funcionalidades do Ser
 <a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> O novo nível de preços **PremiumV3** garante máquinas com processadores mais rápidos (mínimo de 195 [ACU](https://docs.microsoft.com/azure/virtual-machines/acu) por CPU virtual), armazenamento SSD e relação memória-núcleo quádruplo em comparação com o nível **Standard.** **O PremiumV3** também suporta uma maior escala através do aumento da contagem de instâncias, ao mesmo tempo que fornece todas as capacidades avançadas encontradas no nível **Standard.** Todas as funcionalidades disponíveis no nível **PremiumV2** existente estão incluídas no **PremiumV3**.
+> O novo nível de preços **PremiumV3** garante máquinas com processadores mais rápidos (mínimo de 195 [ACU](../virtual-machines/acu.md) por CPU virtual), armazenamento SSD e relação memória-núcleo quádruplo em comparação com o nível **Standard.** **O PremiumV3** também suporta uma maior escala através do aumento da contagem de instâncias, ao mesmo tempo que fornece todas as capacidades avançadas encontradas no nível **Standard.** Todas as funcionalidades disponíveis no nível **PremiumV2** existente estão incluídas no **PremiumV3**.
 >
 > Semelhantes a outros níveis dedicados, estão disponíveis três tamanhos VM para este nível:
 >
 > - Pequeno (núcleo de 2 CPU, 8 GiB de memória) 
 > - Médio (4 núcleos cpu, 16 GiB de memória) 
-> - Grande (8 núcleos de CPU, 32 GiB de memória)  
+> - Grande (8 núcleos de CPU, 32 GiB de memória)  
 >
 > Para obter informações sobre preços **PremiumV3,** consulte [o Preço do Serviço de Aplicações.](https://azure.microsoft.com/pricing/details/app-service/)
 >

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 9bebb11c3a1162a0a7b72140f7d3812f86f793ce
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 9272114dd472717e59680b40c07d8435dea19682
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95791374"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181973"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Tutorial: Integre o Azure AD single sign-on (SSO) com NetSuite
 
@@ -104,7 +104,7 @@ Para ativar o Azure AD SSO no portal Azure, faça o seguinte:
 
 1. Além de acima, a aplicação NetSuite espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Nome | Atributo de origem |
+    | Name | Atributo de origem |
     | ---------------| --------------- |
     | conta  | `account id` |
 
@@ -253,7 +253,7 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 - Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no NetSuite para o qual configura o SSO
 
-- Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo NetSuite nas Minhas Apps, deverá ser automaticamente inscrito no NetSuite para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+- Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo NetSuite nas Minhas Apps, deverá ser automaticamente inscrito no NetSuite para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 168b41534f6ea6055294cc9e9cec139853904fea
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d9fc1592681429998f5082fbadcd45fa068f130e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013038"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180477"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instale e utilize as vistas de análise de registo para o Azure Ative Directory
 
@@ -74,4 +74,4 @@ Para utilizar as vistas de análise de registo, precisa de:
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Como analisar registos de atividade com registos do Azure Monitor](howto-analyze-activity-logs-log-analytics.md)
-* [Começa com registos do Azure Monitor no portal Azure](../../azure-monitor/log-query/get-started-portal.md)
+* [Começa com registos do Azure Monitor no portal Azure](../../azure-monitor/log-query/log-analytics-tutorial.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: df1b3f81c1d8f9ead6d5773de6b6d1cd9517235e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: bbb9b47e42ce195a98801ee08d177efd409c597e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357492"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181669"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Tutorial: Configurar PureCloud by Genesys para fornecimento automático de utilizadores
 
@@ -36,7 +36,7 @@ Este tutorial descreve os passos que precisa de executar tanto no PureCloud da G
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
 * [Um inquilino da AD AZure](../develop/quickstart-create-new-tenant.md) 
-* Uma conta de utilizador no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
+* Uma conta de utilizador no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
 * Uma [organização](https://help.mypurecloud.com/?p=81984)PureCloud.
 * Um Utilizador com [permissões](https://help.mypurecloud.com/?p=24360) para criar um Cliente Oauth.
 
@@ -90,7 +90,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![A screenshot mostra a caixa de diálogo de Admin Credentials, onde pode inserir o seu Inquilino U R L e Secret Token.](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
 
-6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
+6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 

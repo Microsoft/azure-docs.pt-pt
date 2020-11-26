@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/12/2020
 ms.author: jeedes
-ms.openlocfilehash: 0b33bb1f18febe54c3f569ab629c1b1be013cc9d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1e27bd823bd4ad0428773242b5cbc0f9922925ed
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026818"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181769"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-podbean"></a>Tutorial: Azure Ative Directory integração única (SSO) com Podbean
 
@@ -143,10 +143,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 2. Vá diretamente ao URL de inscrição de Podbean e inicie o fluxo de login a partir daí.
 
-3. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo podbean no Painel de Acesso, este irá redirecionar para PODbean Sign-on URL. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+3. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo podbean no Painel de Acesso, este irá redirecionar para PODbean Sign-on URL. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Uma vez configurado Podbean, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Uma vez configurado Podbean, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

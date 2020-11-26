@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/04/2020
 ms.author: jeedes
-ms.openlocfilehash: fc98201ac97409edd9be8522532728d7bb9b15af
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bd62855aef59439ed476a13770f79ce6d3cf68f8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021406"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180800"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Tutorial: Integração do Diretório Ativo Azure com o Marketo
 
@@ -239,9 +239,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 1. Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no Marketo para o qual configura o SSO
 
-1. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo do Marketo no Painel de Acesso, deverá ser automaticamente inscrito no Marketo para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+1. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo do Marketo no Painel de Acesso, deverá ser automaticamente inscrito no Marketo para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma vez configurado Marketo, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
+Uma vez configurado Marketo, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

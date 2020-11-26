@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 8025728ffc40aca27807068eff29f5a889a8d76e
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 3926e98cb55d1afd80caf4af5d67910b66c09cdd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331401"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180343"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Tutorial: Integração do Diretório Ativo Azure com o BambooHR
 
@@ -105,10 +105,10 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome** , introduza `B.Simon`.  
+   1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
    1. Clique em **Criar**.
@@ -165,7 +165,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se no BambooHR, instale-
 
 5. Digite o nome de utilizador, palavra-passe e endereço de e-mail da conta Azure AD válida que pretende configurar.
 
-6. Selecione **Save** (Guardar).
+6. Selecione **Guardar**.
         
 >[!NOTE]
 >Para configurar as contas de utilizador Azure AD, também pode utilizar ferramentas de criação de conta de utilizador bambooHR ou APIs.
@@ -178,9 +178,9 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 2. Vá diretamente ao URL de inscrição do BambooHR e inicie o fluxo de login a partir daí.
 
-3. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo bambooHR no Painel de Acesso, este irá redirecionar para o URL de assinatura de BambooHR. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+3. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo bambooHR no Painel de Acesso, este irá redirecionar para o URL de assinatura de BambooHR. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma vez configurado BambooHR, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Uma vez configurado BambooHR, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

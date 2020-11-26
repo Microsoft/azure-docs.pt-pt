@@ -12,12 +12,12 @@ metadata:
   ms.author: mtillman
   manager: daveba
   ms.date: 10/22/2020
-  ms.openlocfilehash: 10b16a6319f0bc458b5bae98edee39133e66acb4
-  ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+  ms.openlocfilehash: 741fe2c9cb2c4992b8c7b7b1905962b37b527917
+  ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/18/2020
-  ms.locfileid: "94835633"
+  ms.lasthandoff: 11/26/2020
+  ms.locfileid: "96180615"
 highlightedContent:
   items:
   - title: O que é o Azure AD?
@@ -28,7 +28,7 @@ highlightedContent:
     url: ./fundamentals/whats-new.md
   - title: Proteja a sua força de trabalho remota
     itemType: get-started
-    url: https://docs.microsoft.com/enterprise-mobility-security/remote-work/
+    url: /enterprise-mobility-security/remote-work/
   - title: Atribuir funções a utilizadores
     itemType: how-to-guide
     url: ./fundamentals/active-directory-users-assign-role-azure-portal.md
@@ -101,7 +101,7 @@ conceptualContent:
     - url: ./conditional-access/overview.md
       itemType: overview
       text: O que é o Acesso Condicional?
-    - url: ./conditional-access/app-based-mfa.md
+    - url: ./authentication/tutorial-enable-azure-mfa.md
       itemType: quickstart
       text: Exigir o MFA para aplicações específicas
     - url: ./conditional-access/location-condition.md
@@ -126,13 +126,13 @@ conceptualContent:
       text: Ver mais
   - title: Serviços de domínio
     links:
-    - url: ../active-directory-domain-services/active-directory-ds-overview.md
+    - url: ../active-directory-domain-services/overview.md
       itemType: overview
       text: O que são os Serviços de Domínio do Azure AD?
-    - url: ../active-directory-domain-services/active-directory-ds-getting-started.md
+    - url: ../active-directory-domain-services/tutorial-create-instance.md
       itemType: quickstart
       text: Ativar o Azure AD Domain Services
-    - url: ../active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy.md
+    - url: ../active-directory-domain-services/manage-group-policy.md
       itemType: how-to-guide
       text: Administrar políticas de grupo
     footerLink:
@@ -154,17 +154,17 @@ conceptualContent:
       text: Ver mais
   - title: Identidades Externas
     links:
-    - url: ./b2b/compare-with-b2c.md
+    - url: ./external-identities/compare-with-b2c.md
       itemType: overview
       text: Comparar soluções para utilizadores externos
-    - url: ../active-directory-b2c/active-directory-b2c-overview.md
+    - url: ../active-directory-b2c/overview.md
       itemType: overview
       text: Dimensionar as suas aplicações para consumidores (B2C)
-    - url: ./b2b/what-is-b2b.md
+    - url: ./external-identities/what-is-b2b.md
       itemType: overview
       text: Colaborar com utilizadores fora da sua organização (B2B)
     footerLink:
-      url: ./b2b/index.yml
+      url: ./external-identities/index.yml
       text: Ver mais
   - title: Identidade híbrida
     links:
@@ -297,10 +297,10 @@ additionalContent:
   - items:
     - title: Microsoft 365
       summary: Explore o Microsoft 365, uma solução completa que inclui o Azure AD.
-      url: https://docs.microsoft.com/microsoft-365/
+      url: /microsoft-365/
     - title: Azure AD PowerShell
       summary: Saiba como instalar e utilizar o módulo do PowerShell do Azure AD.
-      url: https://docs.microsoft.com/powershell/module/azuread/
+      url: /powershell/module/azuread/
     - title: Comandos da CLI do Azure para o Azure AD
       summary: Encontre os comandos do Azure AD na referência da CLI.
-      url: https://docs.microsoft.com/cli/azure/ad
+      url: /cli/azure/ad

@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: fe347983e2143c7a4bdf00ca0207356c881c66ac
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 72d7a40c38f3629a70260f223074b456dff9ce38
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95891287"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182840"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Guia de resolução de problemas do Microsoft Azure Attestation
 
@@ -95,7 +95,7 @@ b. Verifique as definições de atribuição de funções Azure
  
   ```
 
-c. Se não encontrar uma tarefa adequada na lista, siga as instruções [aqui](/azure/role-based-access-control/role-assignments-powershell)
+c. Se não encontrar uma tarefa adequada na lista, siga as instruções [aqui](../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="2-http--400-errors"></a>2. HTTP – 400 erros
 
@@ -123,7 +123,7 @@ G:\Az\security\Attestation\src\AttestationServices\Instance\Enclave\api.cpp(840)
 
 Envie um pedido para atestar a API fornecendo texto de política no parâmetro "draftPolicyForAttestation". A API AttestSgxEnclave utilizará este documento de política durante a chamada de atesta e este pode ser usado para testar políticas de atestado antes de serem consumidas. A ficha de atestado gerada quando este campo está presente não estará seguro.
 
-Ver [exemplos de política de atestado](/azure/attestation/policy-examples)
+Ver [exemplos de política de atestado](./policy-examples.md)
 
 ### <a name="22-attestation-failure-due-to-invalid-input"></a>2.2. Falha no atestado devido à entrada inválida
 
@@ -163,7 +163,7 @@ Certifique-se de que a extensão das restrições básicas do certificado de rai
 
 Caso contrário, a cadeia de certificados é considerada inválida.
 
-Consulte [o signatário da política](/azure/attestation/policy-signer-examples) e os exemplos de [política](/azure/attestation/policy-examples) 
+Consulte [o signatário da política](./policy-signer-examples.md) e os exemplos de [política](./policy-examples.md) 
 
 ### <a name="24-adddelete-policy-signer-failure"></a>2.4. Adicionar/Eliminar falha do sinaleiro
 
@@ -209,7 +209,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.AddAzureAttestationPolicySigner
 ```
 
-**Etapas de resolução de problemas** Para adicionar/eliminar um novo certificado de sinalizador de política, utilize o RFC7519 JSON Web Token (JWT) com uma reivindicação denominada "x-ms-policyCertificate". O valor da reclamação é uma Chave Web RFC7517 JSON, que contém o certificado a ser adicionado. O JWT deve ser assinado com chave privada de qualquer um dos certificados de sinalização de política válidos associados ao fornecedor. Consulte [exemplos de signatários de políticas](/azure/attestation/policy-signer-examples).
+**Etapas de resolução de problemas** Para adicionar/eliminar um novo certificado de sinalizador de política, utilize o RFC7519 JSON Web Token (JWT) com uma reivindicação denominada "x-ms-policyCertificate". O valor da reclamação é uma Chave Web RFC7517 JSON, que contém o certificado a ser adicionado. O JWT deve ser assinado com chave privada de qualquer um dos certificados de sinalização de política válidos associados ao fornecedor. Consulte [exemplos de signatários de políticas](./policy-signer-examples.md).
 
 ### <a name="25-attestation-policy-configuration-failure"></a>2.5. Falha na configuração da política de atestado
 
@@ -255,7 +255,7 @@ Para configurar uma política em formato de texto, especifique o texto da polít
 
 No PowerShell, especifique o PolicyFormat como JWT para configurar a política no formato JWT. O formato de política predefinido é Texto.
 
-Veja [exemplos de política](/azure/attestation/policy-examples) de atestado e [como autoriar uma política de atestado](/azure/attestation/author-sign-policy) 
+Veja [exemplos de política](./policy-examples.md) de atestado e [como autoriar uma política de atestado](./author-sign-policy.md) 
 
 ## <a name="3-azattestation-installation-issues-in-powershell"></a>3. Problemas de instalação da Az.Attestation na PowerShell
 
@@ -301,4 +301,3 @@ Get-InstalledModule
 Se as versões não corresponderem ao requisito mínimo, executar Update-Module comandos
 
 por exemplo - Update-Module -Nome Az.Attestation
-

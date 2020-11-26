@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 3cae4591a5da53683c965d7c6ba3ec169249c87e
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 43aadee627c7dc12a37a8f3895ba4dfed472808c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566134"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182908"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Tutorial: Ativar o addon do Controlador de Ingress (pré-visualização) para um novo cluster AKS com uma nova instância de Gateway de aplicações
 
@@ -22,7 +22,7 @@ Neste tutorial, você vai criar um cluster AKS com o addon AGIC ativado. A cria�
 
 O addon fornece uma maneira muito mais rápida de implantar a AGIC para o seu cluster AKS do que [anteriormente através do Helm.](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) Também oferece uma experiência totalmente gerida.    
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie um grupo de recursos. 
@@ -36,17 +36,17 @@ Neste tutorial, ficará a saber como:
 
  - Este tutorial requer a versão 2.0.4 ou posterior do CLI Azure. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
- - Registe a bandeira de recurso *AKS-IngressApplicationGatewayAddon* utilizando o comando [de registo de funcionalidades AZ,](https://docs.microsoft.com/cli/azure/feature#az-feature-register) como mostra o exemplo seguinte. Terá de o fazer apenas uma vez por subscrição enquanto o addon ainda estiver em pré-visualização.
+ - Registe a bandeira de recurso *AKS-IngressApplicationGatewayAddon* utilizando o comando [de registo de funcionalidades AZ,](/cli/azure/feature#az-feature-register) como mostra o exemplo seguinte. Terá de o fazer apenas uma vez por subscrição enquanto o addon ainda estiver em pré-visualização.
     ```azurecli-interactive
     az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
     ```
 
-   Pode levar alguns minutos para que o estado `Registered` apareça. Pode verificar o estado de registo utilizando o comando [da lista de funcionalidades AZ:](https://docs.microsoft.com/cli/azure/feature#az-feature-register)
+   Pode levar alguns minutos para que o estado `Registered` apareça. Pode verificar o estado de registo utilizando o comando [da lista de funcionalidades AZ:](/cli/azure/feature#az-feature-register)
     ```azurecli-interactive
     az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
     ```
 
- - Quando estiver pronto, reencaite o registo do fornecedor de recursos Microsoft.ContainerService utilizando o comando [de registo do fornecedor az:](https://docs.microsoft.com/cli/azure/provider#az-provider-register)
+ - Quando estiver pronto, reencaite o registo do fornecedor de recursos Microsoft.ContainerService utilizando o comando [de registo do fornecedor az:](/cli/azure/provider#az-provider-register)
     ```azurecli-interactive
     az provider register --namespace Microsoft.ContainerService
     ```
@@ -71,7 +71,7 @@ Irá agora implantar um novo cluster AKS com o addon AGIC ativado. Se não forne
 
 No exemplo seguinte, você vai implementar um novo cluster AKS chamado *myCluster* usando [Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) e [identidades geridas](../aks/use-managed-identity.md). O addon AGIC será ativado no grupo de recursos que criou, *o myResourceGroup*. 
 
-A implantação de um novo cluster AKS com o addon AGIC ativado sem especificar uma instância de Gateway de aplicação existente significará uma criação automática de uma Standard_v2 instância de Gateway de aplicação SKU. Assim, também irá especificar o nome e o espaço de endereço da sub-rede da instância Application Gateway. O nome da instância Do Gateway de Aplicação será *myApplicationGateway* , e o espaço de endereço da sub-rede que estamos a usar é 10.2.0.0/16. Certifique-se de que adicionou ou atualizou a extensão de pré-visualização de aks no início deste tutorial. 
+A implantação de um novo cluster AKS com o addon AGIC ativado sem especificar uma instância de Gateway de aplicação existente significará uma criação automática de uma Standard_v2 instância de Gateway de aplicação SKU. Assim, também irá especificar o nome e o espaço de endereço da sub-rede da instância Application Gateway. O nome da instância Do Gateway de Aplicação será *myApplicationGateway*, e o espaço de endereço da sub-rede que estamos a usar é 10.2.0.0/16. Certifique-se de que adicionou ou atualizou a extensão de pré-visualização de aks no início deste tutorial. 
 
 ```azurecli-interactive
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" --generate-ssh-keys

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 79fa480e0cca590446a0251f43c45b2e04c97cd5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: aa4e8c2baaaa0c8ccc9bcdda595f040fac72682f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013161"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181448"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Tutorial: Configurar smartsheet para fornecimento automático de utilizadores
 
@@ -38,7 +38,7 @@ O objetivo deste tutorial é demonstrar os passos a serem realizados no Smartshe
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
 * [Um inquilino do Azure AD](../develop/quickstart-create-new-tenant.md).
-* Uma conta de utilizador no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global).
+* Uma conta de utilizador no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global).
 * [Um inquilino da Smartsheet.](https://www.smartsheet.com/pricing)
 * Uma conta de utilizador num plano Smartsheet Enterprise ou Enterprise Premier com permissões de Administrador de Sistema.
 

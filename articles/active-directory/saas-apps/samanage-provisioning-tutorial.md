@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 5cdc36c20cbba148bb68bda700f5fdccbc593caf
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: cca46d47003a1611c861986f8df839de57500db6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94353004"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181490"
 ---
 # <a name="tutorial-configure-solarwinds-service-desk-previously-samanage-for-automatic-user-provisioning"></a>Tutorial: Configure o Balcão de Serviço SolarWinds (anteriormente Samanage) para o fornecimento automático de utilizadores
 
@@ -54,7 +54,7 @@ Quando a sua aplicação é migrada, na secção **Credenciais de Administrador,
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
 * [Um inquilino da AD AZure](../develop/quickstart-create-new-tenant.md) 
-* Uma conta de utilizador em Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o provisionamento (por exemplo, Administrador de Aplicação, Administrador de Aplicação cloud, Proprietário de Aplicações ou Administrador Global). 
+* Uma conta de utilizador em Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento (por exemplo, Administrador de Aplicação, Administrador de Aplicação cloud, Proprietário de Aplicações ou Administrador Global). 
 * Um [inquilino do Balcão de Serviço SolarWinds](https://www.samanage.com/pricing/) com o pacote Profissional.
 * Uma conta de utilizador no SolarWinds Service Desk com permissões de administração.
 
@@ -104,7 +104,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Screenshot que mostra o botão de ligação de teste selecionado.](./media/samanage-provisioning-tutorial/provisioning.png)
 
-6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
+6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 

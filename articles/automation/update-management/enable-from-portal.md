@@ -5,18 +5,18 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 73813ffbb6ac1839a48fc455dec5f6ad26ed0164
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: ac402587c8346c14f34b683ba10832c7779b660b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348794"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182772"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>Ativar a Gestão de Atualizações a partir do portal do Azure
 
 Este artigo descreve como pode ativar a funcionalidade [de Gestão](overview.md) de Atualização para VMs navegando no portal Azure. Para ativar os VMs Azure em escala, tem de ativar um VM Azure existente utilizando a Gestão de Atualização.
 
-O número de grupos de recursos que pode utilizar para gerir os seus VMs é limitado pelos [limites de implementação](../../azure-resource-manager/templates/cross-scope-deployment.md)do Gestor de Recursos. As implementações do Gestor de Recursos, que não devem ser confundidas com as implementações de Atualização, estão limitadas a cinco grupos de recursos por implementação. Dois destes grupos de recursos estão reservados para configurar o espaço de trabalho Log Analytics, a conta de automação e recursos conexos. Isto deixa-lhe três grupos de recursos para selecionar para gestão por Update Management. Este limite aplica-se apenas à configuração simultânea, e não ao número de grupos de recursos que podem ser geridos por uma funcionalidade de Automação.
+O número de grupos de recursos que pode utilizar para gerir os seus VMs é limitado pelos [limites de implementação](../../azure-resource-manager/templates/deploy-to-resource-group.md)do Gestor de Recursos. As implementações do Gestor de Recursos, que não devem ser confundidas com as implementações de Atualização, estão limitadas a cinco grupos de recursos por implementação. Dois destes grupos de recursos estão reservados para configurar o espaço de trabalho Log Analytics, a conta de automação e recursos conexos. Isto deixa-lhe três grupos de recursos para selecionar para gestão por Update Management. Este limite aplica-se apenas à configuração simultânea, e não ao número de grupos de recursos que podem ser geridos por uma funcionalidade de Automação.
 
 > [!NOTE]
 > Ao ativar a Gestão de Atualização, apenas certas regiões são suportadas para ligar um espaço de trabalho log Analytics e uma Conta de Automação. Para obter uma lista dos pares de mapeamento suportados, consulte [o mapeamento da Região para a Conta de Automação e o espaço de trabalho log Analytics.](../how-to/region-mappings.md)
@@ -60,7 +60,7 @@ Inscreva-se no Azure at https://portal.azure.com .
 
 8. **Selecione Ativar** para ativar a funcionalidade. Depois de ter ativado a Gestão de Atualização, pode demorar cerca de 15 minutos até poder ver a avaliação da atualização a partir deles.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para utilizar a Gestão de Atualização para VMs, consulte [Gerir atualizações e patches para os seus VMs](manage-updates-for-vm.md).
 * Para resolver os erros gerais de Gestão de Atualização, consulte [problemas de Gestão de Atualização de Resolução de Problemas](../troubleshoot/update-management.md).

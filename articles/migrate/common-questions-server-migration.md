@@ -4,11 +4,11 @@ description: Obtenha respostas para perguntas comuns sobre a utilização da mig
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.openlocfilehash: b62110e6b2ce97cdd80ed91ee4b1e75d119c7c7d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315242"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180698"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migração do servidor Azure Migrate: Questões comuns
 

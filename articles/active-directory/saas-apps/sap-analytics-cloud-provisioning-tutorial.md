@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: b87b9d9e7cab0334f1b1996feb99dc69396527b7
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 31e5393cb5de627ebf8832e43302583d6eacbf59
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94352970"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181498"
 ---
 # <a name="tutorial-configure-sap-analytics-cloud-for-automatic-user-provisioning"></a>Tutorial: Configurar a Nuvem Analítica SAP para o fornecimento automático de utilizadores
 
@@ -39,7 +39,7 @@ Este tutorial descreve os passos necessários para realizar tanto na SAP Analyti
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
 * [Um inquilino da AD AZure](../develop/quickstart-create-new-tenant.md) 
-* Uma conta de utilizador no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
+* Uma conta de utilizador no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
 * Um inquilino da NUVEM SAP Analytics
 * Uma conta de utilizador na consola de administração DE Fornecimento de Identidade SAP com permissões de administração. Certifique-se de que tem acesso aos sistemas proxy na consola de administração de fornecimento de identidade. Se não vir o azulejo **Proxy Systems,** crie um incidente para o componente **BC-IAM-IPS** solicitar o acesso a este azulejo.
 * Um cliente da OAuth com autorização concede credenciais de cliente na SAP Analytics Cloud. Para saber como, consulte: [Gerir clientes da OAuth e fornecedores de identidade fidedignos](https://help.sap.com/viewer/00f68c2e08b941f081002fd3691d86a7/release/en-US/4f43b54398fc4acaa5efa32badfe3df6.html)
@@ -111,7 +111,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![A screenshot mostra a caixa de diálogo de Admin Credentials, onde pode inserir o seu Inquilino U R L e Secret Token.](./media/sap-analytics-cloud-provisioning-tutorial/provisioning.png)
 
-6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
+6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 

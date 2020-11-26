@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7311f4faf4d8e93c4d3d2724bb9810342a769473
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 7c1e46fd55cd7beda931db2e24cc2210753ee26f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379235"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180409"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Ver atribuições de funções personalizadas no Azure Ative Directory
 
@@ -32,14 +32,14 @@ Este artigo descreve como visualizar funções personalizadas que atribuiu no Az
 Este procedimento descreve atribuições de visualização de um papel com âmbito de organização.
 
 1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com) com o administrador privilegiado ou permissões de administrador global na organização Azure AD.
-1. Selecione **Azure Ative Directory** , selecione **Roles e administradores** , e, em seguida, selecione uma função para abri-lo e ver as suas propriedades.
+1. Selecione **Azure Ative Directory**, selecione **Roles e administradores**, e, em seguida, selecione uma função para abri-lo e ver as suas propriedades.
 1. Selecione **Atribuições** para visualizar as atribuições para o papel.
 
     ![Ver atribuições de funções e permissões quando abrir um papel da lista](./media/custom-view-assignments/role-assignments.png)
 
 ## <a name="view-role-assignments-using-azure-ad-powershell"></a>Ver atribuições de funções usando Azure AD PowerShell
 
-Esta secção descreve atribuições de visualização de um papel com âmbito de organização. Este artigo utiliza o módulo [Azure Ative Directory PowerShell Version 2.](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) Para visualizar as atribuições de âmbito de aplicação única utilizando o PowerShell, pode utilizar os cmdlets em [Atribuir funções personalizadas com PowerShell](../users-groups-roles/roles-assign-powershell.md).
+Esta secção descreve atribuições de visualização de um papel com âmbito de organização. Este artigo utiliza o módulo [Azure Ative Directory PowerShell Version 2.](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) Para visualizar as atribuições de âmbito de aplicação única utilizando o PowerShell, pode utilizar os cmdlets em [Atribuir funções personalizadas com PowerShell](./custom-assign-powershell.md).
 
 ### <a name="prepare-powershell"></a>Preparar PowerShell
 
@@ -78,7 +78,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 
 ## <a name="view-role-assignments-using-microsoft-graph-api"></a>Ver atribuições de funções utilizando a Microsoft Graph API
 
-Esta secção descreve atribuições de visualização de um papel com âmbito de organização.  Para visualizar as atribuições de âmbito de aplicação única utilizando a API do gráfico, pode utilizar as operações em [Atribuir funções personalizadas com API de gráficos.](../users-groups-roles/roles-assign-graph.md)
+Esta secção descreve atribuições de visualização de um papel com âmbito de organização.  Para visualizar as atribuições de âmbito de aplicação única utilizando a API do gráfico, pode utilizar as operações em [Atribuir funções personalizadas com API de gráficos.](./custom-assign-graph.md)
 
 HTTP solicita para obter uma atribuição de papel para uma determinada definição de função.
 
@@ -109,7 +109,7 @@ Esta secção descreve atribuições de visualização de uma função com âmbi
 
     ![Criar ou editar registos de aplicações a partir da página de registos da App](./media/custom-view-assignments/appreg-all-apps.png)
 
-1. No registo da aplicação, selecione **Roles e administradores** , e, em seguida, selecione uma função para ver as suas propriedades.
+1. No registo da aplicação, selecione **Roles e administradores**, e, em seguida, selecione uma função para ver as suas propriedades.
 
     ![Ver atribuições de funções de registo de aplicativos a partir da página de registos da App](./media/custom-view-assignments/appreg-assignments.png)
 

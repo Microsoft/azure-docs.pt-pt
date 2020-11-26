@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: Zhchia
-ms.openlocfilehash: 43b20f2b286bdadbee33555abc1a19845092c64b
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: dbed4eaabda34c1f35c21b8fe69db72c07f6d03f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357509"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180137"
 ---
 # <a name="tutorial-configure-cinode-for-automatic-user-provisioning"></a>Tutorial: Configure Cinode para o fornecimento automático de utilizadores
 
@@ -39,7 +39,7 @@ Este tutorial descreve os passos necessários para realizar tanto no Cinode como
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
 * [Um inquilino da AD AZure](../develop/quickstart-create-new-tenant.md) 
-* Uma conta de utilizador em Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o provisionamento (por exemplo, Administrador de Aplicação, Administrador de Aplicação cloud, Proprietário de Aplicações ou Administrador Global). 
+* Uma conta de utilizador em Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento (por exemplo, Administrador de Aplicação, Administrador de Aplicação cloud, Proprietário de Aplicações ou Administrador Global). 
 * Uma conta de utilizador em Cinode com direitos de administrador.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passo 1. Planear a sua implementação de aprovisionamento
@@ -102,7 +102,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![INQUILINO URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
+6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 

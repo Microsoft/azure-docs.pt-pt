@@ -5,11 +5,11 @@ ms.service: azure-app-configuration
 ms.topic: include
 ms.date: 1/31/2020
 ms.openlocfilehash: 48bf5d5df3c54e8b2894ad28fa08553d5add0437
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001486"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182707"
 ---
 1. Para criar uma nova loja de Configuração de Aplicações, inscreva-se no [portal Azure.](https://portal.azure.com) No canto superior esquerdo da página inicial, selecione **Criar um recurso**. Na **caixa 'Pesquisar o Mercado',** insira *a Configuração da Aplicação* e selecione <kbd>Enter</kbd>.
 

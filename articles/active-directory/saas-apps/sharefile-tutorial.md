@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/04/2020
 ms.author: jeedes
-ms.openlocfilehash: ac7382f60d5c49ac8c784566af4d9db8ea78956b
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: e0cabcbaaf8e84ac1bdfd13c0ef4ab14f326fcf7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331309"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182293"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Tutorial: Integração do Azure Ative Directory com o Citrix ShareFile
 
@@ -109,10 +109,10 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome** , introduza `B.Simon`.  
+   1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
    1. Clique em **Criar**.
@@ -133,7 +133,7 @@ Se estiver à espera que uma função seja atribuída aos utilizadores, pode sel
 
 1. Numa janela diferente do navegador web, inicie sessão no site da empresa **Citrix ShareFile** como administrador.
 
-1. No **painel de instrumentos** , clique em **Definições** e selecione **Definições de Administração**
+1. No **painel de instrumentos**, clique em **Definições** e selecione **Definições de Administração**
 
     ![Administração](./media/sharefile-tutorial/settings.png)
 
@@ -169,7 +169,7 @@ Se estiver à espera que uma função seja atribuída aos utilizadores, pode sel
 
 3. Na secção **informações básicas,** execute abaixo dos passos:
    
-    ![Informação Básica](./media/sharefile-tutorial/user-form.png "Informação Básica")
+    ![Informações Básicas](./media/sharefile-tutorial/user-form.png "Informações Básicas")
    
     a. Na caixa de texto **Name Name,** escreva **o primeiro nome** do utilizador como **Britta**.
    
@@ -190,7 +190,7 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 2. Vá diretamente ao URL de inscrição do Citrix ShareFile e inicie o fluxo de login a partir daí.
 
-3. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo Citrix ShareFile no Painel de Acesso, este irá redirecionar para o URL de inscrição do Citrix ShareFile. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+3. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo Citrix ShareFile no Painel de Acesso, este irá redirecionar para o URL de inscrição do Citrix ShareFile. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes

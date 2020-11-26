@@ -4,12 +4,12 @@ description: Saiba como ativar e ver os registos do nó mestre kubernetes no Ser
 services: container-service
 ms.topic: article
 ms.date: 10/14/2020
-ms.openlocfilehash: a0e58174c38ec19d42f524b9bc94247e05296467
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 59e7259ae352491bddebe054f2c34bdc810ea48a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682235"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183231"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Ativar e rever os registos de nó principal do Kubernetes no Azure Kubernetes Service (AKS)
 
@@ -145,13 +145,13 @@ AKS regista os seguintes eventos:
 
 ## <a name="log-roles"></a>Funções de Registo
 
-| Função                     | Descrição |
+| Função                     | Description |
 |--------------------------|-------------|
 | *aksService*             | O nome de exibição no registo de auditoria para a operação do plano de controlo (a partir do hcpService) |
 | *masterclient*           | O nome de exibição no registo de auditoria do MasterClientCertificate, o certificado que obtém a az aks obter credenciais |
 | *não declarado*             | O nome de exibição para ClientCertificate, que é usado por nós de agente |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a ativar e rever os registos dos componentes principais de Kubernetes no seu cluster AKS. Para monitorizar e resolver mais problemas, também pode [ver os registos de Kubelet][kubelet-logs] e [permitir o acesso ao nó SSH][aks-ssh].
 
@@ -162,7 +162,7 @@ Neste artigo, aprendeu a ativar e rever os registos dos componentes principais d
 [cli-quickstart]: kubernetes-walkthrough.md
 [portal-quickstart]: kubernetes-walkthrough-portal.md
 [log-analytics-overview]: ../azure-monitor/log-query/log-query-overview.md
-[analyze-log-analytics]: ../azure-monitor/log-query/get-started-portal.md
+[analyze-log-analytics]: ../azure-monitor/log-query/log-analytics-tutorial.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
 [az-feature-register]: /cli/azure/feature#az-feature-register

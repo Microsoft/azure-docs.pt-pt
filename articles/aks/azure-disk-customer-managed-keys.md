@@ -4,12 +4,12 @@ description: Traga as suas próprias chaves (BYOK) para encriptar os discos AKS 
 services: container-service
 ms.topic: article
 ms.date: 09/01/2020
-ms.openlocfilehash: 8d0f66d034bb0566674e521ced3e3887e29e3aaa
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 3388b16edee86971b66b3a6b47e08015a6710977
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071732"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183316"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Traga as suas próprias chaves (BYOK) com discos Azure no Serviço Azure Kubernetes (AKS)
 
@@ -152,7 +152,7 @@ Rever [as melhores práticas para a segurança do cluster AKS][best-practices-se
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
 [byok-azure-portal]: ../storage/common/customer-managed-keys-configure-key-vault.md
-[customer-managed-keys-windows]: ../virtual-machines/windows/disk-encryption.md#customer-managed-keys
-[customer-managed-keys-linux]: ../virtual-machines/linux/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-windows]: ../virtual-machines/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-linux]: ../virtual-machines/disk-encryption.md#customer-managed-keys
 [key-vault-generate]: ../key-vault/general/manage-with-cli2.md
 [supported-regions]: ../virtual-machines/windows/disk-encryption.md#supported-regions

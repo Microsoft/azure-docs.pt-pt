@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 92d108304f788279a636b1dc5e1c4e6c103ede3d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 62f163b9ce649cd5ddb52b4325682570633dfb92
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088884"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183163"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>CI/CD para gestão de API usando modelos de Gestor de Recursos Azure
 
@@ -41,14 +41,14 @@ Neste exemplo, existem dois ambientes de implantação: *Desenvolvimento* e *Pro
 * Os desenvolvedores de API têm acesso à instância de Desenvolvimento e podem usá-lo para desenvolver e testar as suas APIs. 
 * Uma equipa designada chamada *API editores* gere a instância de Produção.
 
-A chave nesta abordagem proposta é manter todas as configurações de Gestão da API nos [modelos do Gestor de Recursos Azure](../azure-resource-manager/resource-group-authoring-templates.md). A organização deve manter estes modelos num sistema de controlo de fontes como o Git. Como ilustrado na imagem, um repositório de editores contém todas as configurações da instância de Gestão da API de Produção numa coleção de modelos:
+A chave nesta abordagem proposta é manter todas as configurações de Gestão da API nos [modelos do Gestor de Recursos Azure](../azure-resource-manager/templates/template-syntax.md). A organização deve manter estes modelos num sistema de controlo de fontes como o Git. Como ilustrado na imagem, um repositório de editores contém todas as configurações da instância de Gestão da API de Produção numa coleção de modelos:
 
 |Modelo  |Description  |
 |---------|---------|
 |Modelo de serviço     | Configurações de nível de serviço da instância de Gestão da API, tais como o nível de preços e domínios personalizados.         |
 |Modelos compartilhados     |  Recursos partilhados ao longo de uma instância de Gestão da API, tais como grupos, produtos e madeireiros.    |
 |Modelos de API     |  Configurações de APIs e seus subreufontes: operações, políticas, definições de diagnóstico.        |
-|Modelo principal principal     |   Liga tudo, [ligando-os a](../azure-resource-manager/resource-group-linked-templates.md) todos os modelos e implantando-os em ordem. Para implementar todas as configurações para uma instância de Gestão da API, implemente o modelo principal. Também pode implementar cada modelo individualmente.       |
+|Modelo principal principal     |   Liga tudo, [ligando-os a](../azure-resource-manager/templates/linked-templates.md) todos os modelos e implantando-os em ordem. Para implementar todas as configurações para uma instância de Gestão da API, implemente o modelo principal. Também pode implementar cada modelo individualmente.       |
 
 Os desenvolvedores da API irão recorrer ao repositório do Publisher para um repositório de desenvolvedores e trabalharão nas alterações para as suas APIs. Na maioria dos casos, focam-se nos modelos de API para as suas APIs e não precisam de alterar os modelos partilhados ou de serviço.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/24/2020
 ms.author: Zhchia
-ms.openlocfilehash: e70ee06d696539f0b41c0a070f6f5b43391fda52
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ab261d4ca04fed04c8a3e1046c0a4c563767ad4c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357163"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182007"
 ---
 # <a name="tutorial-configure-mixpanel-for-automatic-user-provisioning"></a>Tutorial: Configurar mixpanel para fornecimento automático de utilizadores
 
@@ -35,7 +35,7 @@ Este tutorial descreve os passos necessários para realizar tanto no Mixpanel co
 
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 * [Um inquilino da AD AZure](../develop/quickstart-create-new-tenant.md) 
-* Uma conta de utilizador no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
+* Uma conta de utilizador no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
 * Uma organização de mixpanel de nível empresarial
 * Uma conta mixpanel com privilégios de administração em dito org
 * SSO ativado dentro do mixpanel com um domínio reclamado
@@ -90,7 +90,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![A screenshot mostra a caixa de diálogo de Admin Credentials, onde pode inserir o seu Inquilino U R L e Secret Token.](./media/mixpanel-provisioning-tutorial/provisioning.png)
 
-6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
+6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 

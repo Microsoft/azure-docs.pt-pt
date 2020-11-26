@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 528ab93d1cf47d64338ef186a120695681f48e55
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 00f713e8d319d7ad8dcea014429c57d7fba40541
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998656"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181225"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>Tutorial: Configurar 15Five para fornecimento automático de utilizadores
 
@@ -39,7 +39,7 @@ O objetivo deste tutorial é demonstrar os passos a serem realizados no Diretór
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
 * [Um inquilino da AD Azure.](../develop/quickstart-create-new-tenant.md)
-* Uma conta de utilizador no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global).
+* Uma conta de utilizador no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global).
 * [Um inquilino de 155.](https://www.15five.com/pricing/)
 * Uma conta de utilizador em 15Five com permissões de Administração.
 

@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7abf61d6b10e22a434c42097bf42183c7b39e352
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a73dea856ee3250eb040f8464ee8703b01003f1f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654954"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180562"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemas de adesão a um pedido no local utilizando o representante de aplicação AZure AD
 
@@ -48,7 +48,7 @@ Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais com
 ## <a name="im-having-a-problem-setting-up-back-end-authentication-to-my-application"></a>Estou a ter problemas ao configurar a autenticação de back-end para a minha aplicação
   Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais comuns nesta categoria.
   * [Não sei configurar a Delegação Restrita de Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-  * [Não sei configurar a minha aplicação com o PingAccess](/azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide)
+  * [Não sei configurar a minha aplicação com o PingAccess](./application-proxy-ping-access-publishing-guide.md)
 
 ## <a name="im-having-a-problem-when-signing-in-to-my-application"></a>Estou a ter problemas ao iniciar sessão na minha aplicação
   Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais comuns nesta categoria.
@@ -58,5 +58,5 @@ Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais com
   Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais comuns nesta categoria.
   * [Estou com problemas na instalação do Conector de Agente de Procuração de Aplicações](application-proxy-connector-installation-problem.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [How to provide secure remote access to on-premises applications](application-proxy.md) (Como fornecer acesso remoto seguro a aplicações no local)

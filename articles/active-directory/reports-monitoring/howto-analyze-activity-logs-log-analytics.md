@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a48a72aa021a17c59adb86bece66cec966e234bd
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0c4fde22b1b8d72ae8ae775c090e0da25ce0665f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056145"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181174"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analise os registos de atividades da AZure com registos do Monitor Azure
 
@@ -49,7 +49,7 @@ Para acompanhar, precisa:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
-2. Selecione **O Diretório Ativo Azure**e, em seguida, selecione **Logs** da secção **de Monitorização** para abrir o seu espaço de trabalho Log Analytics. O espaço de trabalho abrirá com uma consulta padrão.
+2. Selecione **O Diretório Ativo Azure** e, em seguida, selecione **Logs** da secção **de Monitorização** para abrir o seu espaço de trabalho Log Analytics. O espaço de trabalho abrirá com uma consulta padrão.
 
     ![Consulta padrão](./media/howto-analyze-activity-logs-log-analytics/defaultquery.png)
 
@@ -104,9 +104,9 @@ Também pode configurar alertas na sua consulta. Por exemplo, para configurar um
 
 Os livros fornecem vários relatórios relacionados com cenários comuns envolvendo eventos de auditoria, inscrição e provisionamento. Também pode alertar qualquer um dos dados fornecidos nos relatórios, utilizando os passos descritos na secção anterior.
 
-* **Análise do provisionamento**: Este [livro](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) mostra relatórios relacionados com a atividade de fornecimento de auditoria, tais como o número de novos utilizadores a provisionados e falhas no provisionamento, o número de utilizadores atualizados e falhas de atualização e o número de utilizadores desavisionados e falhas correspondentes.    
+* **Análise do provisionamento**: Este [livro](../app-provisioning/application-provisioning-log-analytics.md) mostra relatórios relacionados com a atividade de fornecimento de auditoria, tais como o número de novos utilizadores a provisionados e falhas no provisionamento, o número de utilizadores atualizados e falhas de atualização e o número de utilizadores desavisionados e falhas correspondentes.    
 * **Eventos de início de sposição**: Este livro mostra os relatórios mais relevantes relacionados com a monitorização da atividade de início de sposição, tais como inserções por aplicação, utilizador, dispositivo, bem como uma visão sumária que rastreia o número de ins- ins ao longo do tempo.
-* **Insights de acesso condicional**: Os insights de acesso condicional e [o livro](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting) de relatórios permitem-lhe compreender o impacto das políticas de Acesso Condicional na sua organização ao longo do tempo. 
+* **Insights de acesso condicional**: Os insights de acesso condicional e [o livro](../conditional-access/howto-conditional-access-insights-reporting.md) de relatórios permitem-lhe compreender o impacto das políticas de Acesso Condicional na sua organização ao longo do tempo. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

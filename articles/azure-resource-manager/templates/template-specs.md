@@ -2,15 +2,15 @@
 title: Visão geral das especificações do modelo
 description: Descreve como criar especificações de modelo e partilhá-las com outros utilizadores na sua organização.
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 11/25/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 83d5a210a5af538173ad0ca5e4c718363639c40a
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: e919db24a70b0ed69aca6977865cc76c0c9c5845
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747405"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182466"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Especificações do modelo do Gestor de Recursos Azure (Visualização)
 
@@ -73,7 +73,7 @@ Crie uma especificação de modelo utilizando:
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location westus2 -TemplateFile ./mainTemplate.json
+New-AzTemplateSpec -Name storageSpec -Version 1.0a -ResourceGroupName templateSpecsRg -Location westus2 -TemplateFile ./mainTemplate.json
 ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
@@ -81,7 +81,7 @@ New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpe
 ```azurecli
 az ts create \
   --name storageSpec \
-  --version "1.0" \
+  --version "1.0a" \
   --resource-group templateSpecRG \
   --location "westus2" \
   --template-file "./mainTemplate.json"
@@ -119,7 +119,7 @@ Get-AzTemplateSpec -ResourceGroupName templateSpecsRG -Name storageSpec
 az ts show \
     --name storageSpec \
     --resource-group templateSpecRG \
-    --version "1.0"
+    --version "1.0a"
 ```
 
 ---
@@ -134,14 +134,14 @@ Em vez de passar por um caminho ou URI para um modelo, você implementa uma espe
 
 **/subscrições/{subscrição-id}/resourceGroups/{resource-group}/providers/Microsoft.Resources/templateSpecs/{template-spec-name}/versões/{modelo-versão**
 
-Note que o ID do recurso inclui um número de versão para a especificação do modelo.
+Note que o ID do recurso inclui um nome de versão para a especificação do modelo.
 
 Por exemplo, implementa uma especificação de modelo com o seguinte comando.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0"
+$id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0a"
 
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
@@ -151,7 +151,7 @@ New-AzResourceGroupDeployment `
 # <a name="cli"></a>[CLI](#tab/azure-cli)
 
 ```azurecli
-id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0"
+id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0a"
 
 az deployment group create \
   --resource-group demoRG \
@@ -160,12 +160,12 @@ az deployment group create \
 
 ---
 
-Na prática, normalmente corre `Get-AzTemplateSpec` para obter o ID da especificação do modelo que pretende implementar.
+Na prática, normalmente, você vai correr `Get-AzTemplateSpec` ou `az ts show` obter o ID da especificação do modelo que você deseja implementar.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Versions.Id
+$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0a).Versions.Id
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName demoRG `
@@ -175,7 +175,7 @@ New-AzResourceGroupDeployment `
 # <a name="cli"></a>[CLI](#tab/azure-cli)
 
 ```azurecli
-id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0a" --query "id")
 
 az deployment group create \
   --resource-group demoRG \
@@ -309,7 +309,7 @@ O exemplo a seguir é semelhante ao exemplo anterior, mas você usa a `id` propr
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'networkingSpec', '1.0')]"
+          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'networkingSpec', '1.0a')]"
         }
       }
     },
@@ -321,7 +321,7 @@ O exemplo a seguir é semelhante ao exemplo anterior, mas você usa a `id` propr
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0')]"
+          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0a')]"
         }
       }
     }
@@ -334,7 +334,7 @@ Para obter mais informações sobre as especificações do modelo de ligação, 
 
 ## <a name="versioning"></a>Controlo de versões
 
-Quando cria uma especificação de modelo, fornece-se um número de versão para o mesmo. Ao iterar no código do modelo, pode atualizar uma versão existente (para hotfixes) ou publicar uma nova versão. A versão é uma cadeia de texto. Pode optar por seguir qualquer sistema de versão, incluindo a versão semântica. Os utilizadores da especificação do modelo podem fornecer o número de versão que pretendem utilizar ao implementá-lo.
+Quando cria uma especificação de modelo, fornece-se um nome de versão para o mesmo. Ao iterar no código do modelo, pode atualizar uma versão existente (para hotfixes) ou publicar uma nova versão. A versão é uma cadeia de texto. Pode optar por seguir qualquer sistema de versão, incluindo a versão semântica. Os utilizadores da especificação do modelo podem fornecer o nome da versão que pretendem usar ao implantá-lo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

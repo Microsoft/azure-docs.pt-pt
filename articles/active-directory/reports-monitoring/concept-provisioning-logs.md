@@ -17,12 +17,12 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 675c98e00b7458f326c95741529f7ce41a91dc18
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2408db2d91740350405f11e2a1250ab9b3a4fe31
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319732"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181208"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Relatórios de provisionamento no portal Azure Ative Directory (pré-visualização)
 
@@ -61,7 +61,7 @@ Os registos de provisionamento fornecem respostas às seguintes questões:
 
 Pode aceder aos registos de provisionamento selecionando **Registos de Provisionamento** na secção de **Monitorização** da lâmina do **Diretório Ativo Azure** no [portal Azure](https://portal.azure.com). Pode levar até duas horas para que alguns registos de provisionamento apareçam no portal.
 
-![Registos de aprovisionamento](./media/concept-provisioning-logs/access-provisioning-logs.png "Registos de aprovisionamento")
+![Registos de provisionamento](./media/concept-provisioning-logs/access-provisioning-logs.png "Registos de aprovisionamento")
 
 
 Um registo de provisionamento tem uma visão de lista padrão que mostra:
@@ -95,7 +95,7 @@ Pode filtrar os seus dados de atenção. Alguns valores de filtro são dinamicam
 Na vista predefinitiva, pode selecionar os seguintes filtros:
 
 - Identidade
-- Date
+- Data
 - Estado
 - Ação
 
@@ -132,7 +132,7 @@ O filtro **Action** permite filtrar o:
 - Atualizar
 - Eliminar
 - Desativar
-- Outros
+- Outro
 
 Além disso, para os filtros da vista padrão, também pode definir os seguintes filtros:
 
@@ -211,7 +211,7 @@ O **separador resumo** fornece uma visão geral do que aconteceu e identifica o 
 
 ## <a name="what-you-should-know"></a>O que deve saber
 
-- As lojas do portal Azure reportaram dados de provisionamento durante 30 dias se tiver uma edição premium e 7 dias se tiver uma edição gratuita. Os registos de provisionamento podem ser publicados para [registar análises](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) para retenção além de 30 dias. 
+- As lojas do portal Azure reportaram dados de provisionamento durante 30 dias se tiver uma edição premium e 7 dias se tiver uma edição gratuita. Os registos de provisionamento podem ser publicados para [registar análises](../app-provisioning/application-provisioning-log-analytics.md) para retenção além de 30 dias. 
 
 - Pode utilizar o atributo Change ID como identificador único. Isto é, por exemplo, útil quando interage com o suporte do produto.
 
@@ -225,7 +225,7 @@ O **separador resumo** fornece uma visão geral do que aconteceu e identifica o 
 
 Utilize a tabela abaixo para entender melhor como resolver os erros que pode encontrar nos registos de provisionamento. Para quaisquer códigos de erro que faltem, forneça feedback utilizando o link na parte inferior desta página. 
 
-|Código de Erro|Descrição|
+|Código de Erro|Description|
 |---|---|
 |Conflito, Conflito de Entrada|Corrija os valores de atributos contraditórios em AD ou na aplicação, ou reveja a configuração do seu atributo correspondente se a conta de utilizador conflituosa for correspondida e assumida. Reveja a seguinte [documentação](../app-provisioning/customize-application-attributes.md) para obter mais informações sobre a configuração de atributos correspondentes.|
 |TooManyRequests|A aplicação-alvo rejeitou esta tentativa de atualizar o utilizador por estar sobrecarregado e receber demasiados pedidos. Não há nada a fazer. Esta tentativa será automaticamente retirada. A Microsoft também foi notificada deste problema.|

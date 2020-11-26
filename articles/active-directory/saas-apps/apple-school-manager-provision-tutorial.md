@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: 43b430ffe1eb9b074eedea3d977523589bc4606a
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 00e3b40b0e3f4c799c54308b35ce3e810cde118c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359286"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181098"
 ---
 # <a name="tutorial-configure-apple-school-manager-for-automatic-user-provisioning"></a>Tutorial: Configure Apple School Manager para o fornecimento automático de utilizadores
 
@@ -39,7 +39,7 @@ Este tutorial descreve os passos que precisa de executar tanto no Apple School M
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
 * [Um inquilino da AD AZure](../develop/quickstart-create-new-tenant.md) 
-* Uma conta de utilizador em Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o provisionamento (por exemplo, Administrador de Aplicação, Administrador de Aplicação cloud, Proprietário de Aplicações ou Administrador Global). 
+* Uma conta de utilizador em Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento (por exemplo, Administrador de Aplicação, Administrador de Aplicação cloud, Proprietário de Aplicações ou Administrador Global). 
 * Uma conta apple school manager com o papel de Administrador, Gestor de Sites ou Gestor de Pessoas.
 
 > [!NOTE]

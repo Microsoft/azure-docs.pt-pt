@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 6643ec72ec5126866b0ad6e924a92f02170bd278
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 2ce5ac43af57b82f912b10eeacf285a688888e9d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359668"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180885"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configurar suíte G para fornecimento automático de utilizadores
 
@@ -45,7 +45,7 @@ Este tutorial descreve os passos necessários para realizar tanto na Suíte G co
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
 * [Um inquilino da AD AZure](../develop/quickstart-create-new-tenant.md) 
-* Uma conta de utilizador no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
+* Uma conta de utilizador no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
 * [Um inquilino da Suíte G](https://gsuite.google.com/pricing.html)
 * Uma conta de utilizador numa Suíte G com permissões de Administração.
 
@@ -151,7 +151,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 7. No portal Azure, clique em **Test Connection** para garantir que o Azure AD pode ligar-se à Suite G. Se a ligação falhar, certifique-se de que a sua conta G Suite tem permissões de Administração e tente novamente. Então tente o passo **autorizado** novamente.
 
-6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
+6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 

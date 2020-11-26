@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 280083ccbd732e95796013bf2b2c08e96564c24c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c87c3692d7e1106e0952b85791da663e03c6001d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020488"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182483"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Tutorial: Configure Zoom para o fornecimento automático de utilizadores
 
@@ -35,7 +35,7 @@ Este tutorial descreve os passos necessários para realizar tanto no Zoom como n
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
 * [Um inquilino do Azure AD](../develop/quickstart-create-new-tenant.md).
-* Uma conta de utilizador no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
+* Uma conta de utilizador no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
 * [Um inquilino de Zoom.](https://zoom.us/pricing)
 * Uma conta de utilizador em Zoom com permissões de Administrador.
 

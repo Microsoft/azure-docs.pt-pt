@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: e706649957bf427cd577d7995fb9ce104c687f4b
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: ef1ca41f54a15554a04fa3edf608bb13f5fb3398
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378997"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182024"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday-mobile-application"></a>Tutorial: Azure Ative Directory integração única (SSO) com aplicação móvel workday
 
@@ -33,13 +33,13 @@ Neste tutorial, você vai aprender a integrar O Azure Ative Directy (Azure AD), 
 Para começar:
 
 * Integrar o Workday com a Azure AD.
-* Leia [a integração única do Azure Ative Directory (SSO) com o Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
+* Leia [a integração única do Azure Ative Directory (SSO) com o Workday](./workday-tutorial.md).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, configura e testa as políticas de acesso condicional Azure AD e Intune com aplicação móvel workday.
 
-Para ativar um único sinal de sso, pode configurar a aplicação Federada workday com Azure AD. Para obter mais informações, consulte [a integração única de sign-on (SSO) do Azure Ative Directory com o Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
+Para ativar um único sinal de sso, pode configurar a aplicação Federada workday com Azure AD. Para obter mais informações, consulte [a integração única de sign-on (SSO) do Azure Ative Directory com o Workday](./workday-tutorial.md).
 
 > [!NOTE] 
 > O workday não suporta as políticas de proteção de aplicações do Intune. Tem de utilizar a gestão do dispositivo móvel para utilizar o Acesso Condicional.
@@ -62,7 +62,7 @@ Ativar alterações de política de segurança pendentes executando **Ativar alt
 
 ## <a name="open-workday-sign-in-page-in-workday-mobile-browser"></a>Página de s-in open workday no navegador móvel workday
 
-Para aplicar o Acesso Condicional à Aplicação Móvel workday, tem de abrir a aplicação num browser externo. Na **Configuração do Inquilino de Edição - Segurança** , selecione Enable Mobile Browser **SSO for Native Apps**. Isto requer que um navegador aprovado pelo Intune seja instalado no dispositivo para iOS, e no perfil de trabalho para Android.
+Para aplicar o Acesso Condicional à Aplicação Móvel workday, tem de abrir a aplicação num browser externo. Na **Configuração do Inquilino de Edição - Segurança**, selecione Enable Mobile Browser **SSO for Native Apps**. Isto requer que um navegador aprovado pelo Intune seja instalado no dispositivo para iOS, e no perfil de trabalho para Android.
 
 ![Screenshot do navegador móvel workday.](./media/workday-tutorial/mobile-browser.png)
 
@@ -84,13 +84,13 @@ Para configurar o Workday como um dispositivo gerido, execute os seguintes passo
 
 1. Selecione **Home**  >  **Microsoft Intune**  >  **Conditional Access-Policies**. Em seguida, **selecione Apenas dispositivos geridos**. 
 
-1. Apenas em **Dispositivos Geridos** , em **Nome** , selecione **Apenas dispositivos geridos** e, em seguida, selecione **aplicações ou ações cloud**.
+1. Apenas em **Dispositivos Geridos**, em **Nome**, selecione **Apenas dispositivos geridos** e, em seguida, selecione **aplicações ou ações cloud**.
 
-1. Em **aplicativos ou ações cloud** :
+1. Em **aplicativos ou ações cloud**:
 
     a. Switch **Selecione o que esta política se aplica às** **aplicações Cloud**.
 
-    b. In **Incluir** , escolha **selecione aplicações**.
+    b. In **Incluir**, escolha **selecione aplicações**.
 
     c. Na lista **Select,** escolha **Workday**.
 
@@ -98,7 +98,7 @@ Para configurar o Workday como um dispositivo gerido, execute os seguintes passo
 
 1. Switch **Ativar** a política para **ligar**.
 
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
 Para o acesso **ao Grant,** execute os seguintes passos:
 
@@ -106,7 +106,7 @@ Para o acesso **ao Grant,** execute os seguintes passos:
 
 1. Selecione **Home**  >  **Microsoft Intune**  >  **Conditional Access-Policies**. Em seguida, **selecione Apenas dispositivos geridos**. 
 
-1. Apenas nos **Dispositivos Geridos** , sob **Nome,** **selecione Apenas dispositivos geridos**. Em **Controlos de acesso** , selecione **Concessão**.
+1. Apenas nos **Dispositivos Geridos**, sob **Nome,** **selecione Apenas dispositivos geridos**. Em **Controlos de acesso**, selecione **Concessão**.
 
 1. Em **Grant:**
 
@@ -120,7 +120,7 @@ Para o acesso **ao Grant,** execute os seguintes passos:
 
 1. Switch **Ativar** a política para **ligar**.
 
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
 ## <a name="set-up-device-compliance-policy"></a>Configurar a política de conformidade do dispositivo
 
@@ -147,7 +147,7 @@ Para garantir que os dispositivos iOS só podem iniciar súplica através do Wor
 1. Vá **Client Apps** às Políticas de  >  Configuração de **Aplicativos de Aplicações de Aplicações**  >  **de Aplicativos do** Cliente. Em seguida, **selecione + Adicionar**  >  **Dispositivos Geridos**.
 1. Insira um nome.
 1. Em **Plataforma,** escolha **iOS/iPadOS**.
-1. No âmbito **da App Associated** , escolha o Workday para a aplicação iOS que adicionou.
+1. No âmbito **da App Associated**, escolha o Workday para a aplicação iOS que adicionou.
 1. Selecione **Definições de configuração**. No **formato configuração,** selecione **Introduzir dados XML**.
 1. Aqui está um ficheiro XML exemplo. Adicione as configurações que pretende aplicar. `STRING_VALUE`Substitua-a pela corda que pretende utilizar. `<true /> or <false />` `<true />` Substitua-o por ou `<false />` . Se não adicionar uma configuração, este exemplo funciona como se estivesse definido para `True` .
 
@@ -168,10 +168,10 @@ Para garantir que os dispositivos iOS só podem iniciar súplica através do Wor
     </dict>
 
     ```
-1. Selecione **Add** (Adicionar).
+1. Selecione **Adicionar**.
 1. Refresque a página e selecione a política recém-criada.
 1. Selecione **Atribuições** e escolha a quem pretende que a aplicação se aplique.
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
 ## <a name="android-configuration-policies"></a>Políticas de configuração para Android
 
@@ -181,5 +181,4 @@ Para garantir que os dispositivos iOS só podem iniciar súplica através do Wor
 5. Insira um nome. 
 6. Em **Plataforma,** escolha **Android.**
 7. No âmbito **da App Associated,** escolha o Workday para a aplicação Android que adicionou.
-8. Selecione **Definições de configuração**. No **formato de definições de configuração** , selecione **Introduzir dados JSON**.
-
+8. Selecione **Definições de configuração**. No **formato de definições de configuração**, selecione **Introduzir dados JSON**.

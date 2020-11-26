@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: 250e95b33b985aedcc1b1537f57338d29e848451
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: c596b0d218c0b935fa1f3e971067160e52d87af1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96020216"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183129"
 ---
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>Tutorial: Access Azure Storage a partir de uma aplicação web
 
@@ -23,7 +23,7 @@ Saiba como aceder ao Azure Storage para uma aplicação web (não um utilizador 
 
 :::image type="content" alt-text="Diagrama que mostra como aceder ao armazenamento." source="./media/scenario-secure-app-access-storage/web-app-access-storage.svg" border="false":::
 
-Pretende adicionar acesso ao plano de dados Azure (Azure Storage, Azure SQL Database, Azure Key Vault ou outros serviços) a partir da sua aplicação web. Podes usar uma chave partilhada, mas depois tens de te preocupar com a segurança operacional de quem pode criar, implantar e gerir o segredo. Também é possível que a chave possa ser verificada no GitHub, que os hackers sabem como pesquisar. Uma forma mais segura de dar à sua aplicação web acesso aos dados é usar [identidades geridas.](/azure/active-directory/managed-identities-azure-resources/overview)
+Pretende adicionar acesso ao plano de dados Azure (Azure Storage, Azure SQL Database, Azure Key Vault ou outros serviços) a partir da sua aplicação web. Podes usar uma chave partilhada, mas depois tens de te preocupar com a segurança operacional de quem pode criar, implantar e gerir o segredo. Também é possível que a chave possa ser verificada no GitHub, que os hackers sabem como pesquisar. Uma forma mais segura de dar à sua aplicação web acesso aos dados é usar [identidades geridas.](../active-directory/managed-identities-azure-resources/overview.md)
 
 Uma identidade gerida a partir do Azure Ative Directory (Azure AD) permite ao Serviço de Aplicações aceder aos recursos através do controlo de acesso baseado em funções (RBAC), sem exigir credenciais de aplicações. Depois de atribuir uma identidade gerida à sua aplicação web, a Azure cuida da criação e distribuição de um certificado. As pessoas não têm que se preocupar em gerir segredos ou credenciais de aplicativos.
 
@@ -285,7 +285,7 @@ static public async Task UploadBlob(string accountName, string containerName, st
 }
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se terminou este tutorial e já não precisa da aplicação web ou dos recursos associados, [limpe os recursos que criou.](scenario-secure-app-clean-up-resources.md)
 

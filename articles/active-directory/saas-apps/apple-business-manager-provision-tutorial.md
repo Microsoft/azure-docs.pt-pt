@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: f7fd2337fe496e75ced78215d14d530a853096fd
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b4f24c9beffcd67fb84940c2e159da615496d9aa
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359291"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180375"
 ---
 # <a name="tutorial-configure-apple-business-manager-for-automatic-user-provisioning"></a>Tutorial: Configurar o Apple Business Manager para o fornecimento automático de utilizadores
 
@@ -39,7 +39,7 @@ Este tutorial descreve os passos que precisa de executar tanto no Apple Business
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
 * [Um inquilino do Azure AD](../develop/quickstart-create-new-tenant.md).
-* Uma conta de utilizador em Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o provisionamento (por exemplo, Administrador de Aplicação, Administrador de Aplicação cloud, Proprietário de Aplicações ou Administrador Global).
+* Uma conta de utilizador em Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento (por exemplo, Administrador de Aplicação, Administrador de Aplicação cloud, Proprietário de Aplicações ou Administrador Global).
 * Uma conta Apple Business Manager com o papel de Administrador ou Gestor de Pessoas.
 
 > [!NOTE]

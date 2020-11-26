@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: a51a4a95d3580912d9b727d1580e6f278831f677
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: ffbf3fa3e2d404b7bc5888ef01707cbd816600b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891507"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182857"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage para máquinas virtuais
 
@@ -28,7 +28,7 @@ Este artigo abrange informações sobre a Azure Automanage para máquinas virtua
 
 ## <a name="overview"></a>Descrição geral
 
-A Azure Automanage para máquinas virtuais é um serviço que elimina a necessidade de descobrir, saber a bordo e como configurar determinados serviços em Azure que beneficiariam a sua máquina virtual. Estes serviços ajudam a aumentar a fiabilidade, segurança e gestão de máquinas virtuais e são considerados serviços de boas práticas Azure, tais como [Azure Update Management](../automation/update-management/update-mgmt-overview.md) e [Azure Backup](../backup/backup-overview.md) - apenas para citar alguns.
+A Azure Automanage para máquinas virtuais é um serviço que elimina a necessidade de descobrir, saber a bordo e como configurar determinados serviços em Azure que beneficiariam a sua máquina virtual. Estes serviços ajudam a aumentar a fiabilidade, segurança e gestão de máquinas virtuais e são considerados serviços de boas práticas Azure, tais como [Azure Update Management](../automation/update-management/overview.md) e [Azure Backup](../backup/backup-overview.md) - apenas para citar alguns.
 
 Depois de embarcar as suas máquinas virtuais para a Azure Automanage, configura automaticamente cada serviço de boas práticas para as suas definições recomendadas. As melhores práticas são diferentes para cada um dos serviços. Um exemplo pode ser o Azure Backup, onde a melhor prática pode ser apoiar a máquina virtual uma vez por dia e ter um período de retenção de seis meses.
 
@@ -69,7 +69,7 @@ Para todos estes serviços, iremos automaticamente embarcar, configurar automati
 
 No portal Azure, pode ativar a Automanagem numa máquina virtual existente ou quando estiver a criar uma nova máquina virtual. Para obter passos concisos para este processo, consulte a [Automanage para máquinas virtuais de arranque rápido](quick-create-virtual-machines-portal.md).
 
-Se é a primeira vez que permite a auto-produção para o seu VM, pode pesquisar no portal Azure para **automanage – Azure virtual machine as melhores práticas** . Clique **em Ativar em VM existente,** selecione os VMs que gostaria de embarcar, clique em **Select** , click **Enable** , e está feito.
+Se é a primeira vez que permite a auto-produção para o seu VM, pode pesquisar no portal Azure para **automanage – Azure virtual machine as melhores práticas**. Clique **em Ativar em VM existente,** selecione os VMs que gostaria de embarcar, clique em **Select**, click **Enable**, e está feito.
 
 A única altura em que poderá ter de interagir com este VM para gerir estes serviços é no caso de tentarmos remediar o seu VM, mas não o fizemos. Se remediarmos com sucesso o seu VM, vamos trazê-lo de volta ao cumprimento sem sequer alertá-lo.
 
@@ -114,7 +114,7 @@ Na experiência do portal Azure, quando está a permitir a auto-managem nos seus
 
 No portal Azure, vá à página **de boas práticas da máquina virtual Automanage – Azure** que lista todos os seus VMs geridos automaticamente. Aqui verá o estado geral de cada máquina virtual.
 
-:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Inteligentemente a bordo de serviços.":::
+:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Lista de máquinas virtuais configuradas.":::
 
 Para cada VM listado, são apresentados os seguintes detalhes: Nome, perfil de configuração, preferência de configuração, Estado, Conta, Subscrição e Grupo de Recursos.
 
@@ -123,7 +123,7 @@ A coluna **Status** pode apresentar os seguintes estados:
 - *Configurado* - o VM está configurado e não é detetada nenhuma deriva
 - *Falhado* - o VM tem derivado e nós não fomos capazes de remediar
 
-Se vir o **Estado** como *Falhado,* pode resolver problemas de resolução através do Grupo de Recursos onde se encontra o seu VM. Vá aos **grupos de Recursos** , selecione o seu grupo de recursos, clique em **Implementações** e veja o estado *de Falha* lá juntamente com detalhes de erro.
+Se vir o **Estado** como *Falhado,* pode resolver problemas de resolução através do Grupo de Recursos onde se encontra o seu VM. Vá aos **grupos de Recursos**, selecione o seu grupo de recursos, clique em **Implementações** e veja o estado *de Falha* lá juntamente com detalhes de erro.
 
 
 ## <a name="disabling-automanage-for-vms"></a>Automanagem incapacitante para VMs
@@ -132,9 +132,9 @@ Pode decidir um dia desativar a auto-mutilação em certos VMs. Por exemplo, a s
 
 Para isso no portal Azure, vá à página **de boas práticas da máquina virtual Automanage – Azure** que lista todos os seus VMs geridos automaticamente. Selecione a caixa de verificação ao lado da máquina virtual que pretende desativar a partir da gestão automática e, em seguida, clique no botão **de gestão automática desativada.**
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Inteligentemente a bordo de serviços.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Desativar a auto-produção numa máquina virtual.":::
 
-Leia atentamente através das mensagens no pop-up resultante antes de concordar com o **Desactivamento** .
+Leia atentamente através das mensagens no pop-up resultante antes de concordar com o **Desactivamento**.
 
 > [!NOTE]
 > A desativação da auto-gestão num VM resulta no seguinte comportamento:

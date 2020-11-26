@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 88481346f22176b8e307b53774b42d753838f90b
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 5179a619b1adba432910605c75fae0789efd3397
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554828"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182721"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação core ASP.NET
 
@@ -106,9 +106,9 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-    Com a alteração anterior, o [fornecedor de configuração para configuração de aplicações](https://go.microsoft.com/fwlink/?linkid=2074664) foi registado na API de Configuração de Núcleo .NET.
+    Com a alteração anterior, o [fornecedor de configuração para configuração de aplicações](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) foi registado na API de Configuração de Núcleo .NET.
 
-1. Em *Startup.cs* , adicione uma referência ao gestor de recurso .NET Core:
+1. Em *Startup.cs*, adicione uma referência ao gestor de recurso .NET Core:
 
     ```csharp
     using Microsoft.FeatureManagement;
@@ -235,7 +235,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste quickstart, criou uma nova loja de Configuração de Aplicações e utilizou-a para gerir funcionalidades numa aplicação web core ASP.NET através das [bibliotecas de Gestão de Recursos.](https://go.microsoft.com/fwlink/?linkid=2074664)
+Neste quickstart, criou uma nova loja de Configuração de Aplicações e utilizou-a para gerir funcionalidades numa aplicação web core ASP.NET através das [bibliotecas de Gestão de Recursos.](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)
 
 * Saiba mais sobre [gestão de recursos.](./concept-feature-management.md)
 * [Gerir bandeiras de características](./manage-feature-flags.md).

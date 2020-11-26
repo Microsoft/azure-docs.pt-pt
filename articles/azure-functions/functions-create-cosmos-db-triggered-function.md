@@ -5,12 +5,12 @@ ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: c7dc18d8186d7262154cc0718bb6ad77ebbb5d2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 907836b0e45ccc9e9481e605b1ebf4180f7650d6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85829844"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182585"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Criar uma função acionada pelo Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 1. Na página **Nova Função,** `cosmos` insira no campo de pesquisa e, em seguida, escolha o modelo **de gatilho DB Azure Cosmos.**
 
-   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Código DB Azure Cosmos":::
+   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Página de funções no portal Azure":::
 
 
 1. Configure o novo gatilho com as definições especificadas no quadro seguinte:
@@ -62,9 +62,9 @@ Em seguida, vai criar uma função na aplicação Function App nova.
     | **Nome da base de dados** | Tarefas | Nome da base de dados que inclui a recolha a ser monitorizada. |
     | **Nome da coleção** | Itens | Nome da coleção a ser monitorizado. |
     | **Nome da coleção para concessões** | leases | Nome da coleção para armazenar os arrendamentos. |
-    | **Crie a coleção de arrendamento se não existir** | Sim | Verifica a existência da coleção de arrendamento e cria-a automaticamente. |
+    | **Crie a coleção de arrendamento se não existir** | Yes | Verifica a existência da coleção de arrendamento e cria-a automaticamente. |
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Código DB Azure Cosmos":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Criar a função acionada do Azure Cosmos DB":::
 
 1. Selecione **Criar Função**. 
 
@@ -72,7 +72,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 1. Para exibir o código de função baseado no modelo, selecione **Código + Teste**.
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Código DB Azure Cosmos":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Modelo de função do Cosmos DB em C#":::
 
     Este modelo de função escreve o número de documentos e o primeiro ID de documento nos registos.
 
@@ -100,7 +100,7 @@ Em seguida, ligue-se à sua conta DB Azure Cosmos e crie o `Items` recipiente na
     | ---|---|--- |
     | **ID da Base de Dados** | Tarefas |O nome da base de dados nova. Isto deve corresponder ao nome definido no enlace de função. |
     | **ID do Contentor** | Itens | O nome do novo recipiente. Isto deve corresponder ao nome definido no enlace de função.  |
-    | **[Chave de partição](../cosmos-db/partition-data.md)** | /categoria|Uma chave de partição que distribui uniformemente os dados para cada partição. A seleção da tecla de partição correta é importante para a criação de um recipiente performante. | 
+    | **[Chave de partição](../cosmos-db/partitioning-overview.md)** | /categoria|Uma chave de partição que distribui uniformemente os dados para cada partição. A seleção da tecla de partição correta é importante para a criação de um recipiente performante. | 
     | **Débito** |400 RU| Utilize o valor predefinido. Se pretender reduzir a latência, pode aumentar verticalmente o débito mais tarde. |    
 
 1. Clique **em OK** para criar o recipiente Itens. Pode levar pouco tempo para o recipiente ser criado.
@@ -109,9 +109,17 @@ Depois de existir o recipiente especificado na encadernação da função, pode 
 
 ## <a name="test-the-function"></a>Testar a função
 
-1. Expandir o novo recipiente **de itens** no Data Explorer, escolher **Itens**e, em seguida, selecionar **Novo Item**.
+1. Expandir o novo recipiente **de itens** no Data Explorer, escolher **Itens** e, em seguida, selecionar **Novo Item**.
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Código DB Azure Cosmos"
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Criar um item no recipiente itens":::
+
+1. Substitua o conteúdo do novo item pelo seguinte conteúdo e, em seguida, escolha **Guardar**.
+
+    ```yaml
+    {
+        "id": "task1",
+        "category": "general",
+        "description": "some task"
     }
     ```
 
@@ -121,7 +129,7 @@ Depois de existir o recipiente especificado na encadernação da função, pode 
 
 1. (Opcional) Volte para o seu documento, faça uma alteração e clique em **Atualizar**. Em seguida, volte para os registos de função e certifique-se de que a atualização também acionou a função.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 

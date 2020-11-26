@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: d3706c26d9b15e9ea607996ace222b29ccd84458
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 4125a4493b72fa60203067f3eba1ccebdc820b02
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95999659"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182976"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>Tutorial: Aceda ao Microsoft Graph a partir de uma aplicação segura como utilizador
 
@@ -78,7 +78,7 @@ A sua aplicação web tem agora as permissões necessárias e também adiciona o
 > [!NOTE]
 > A biblioteca Microsoft.Identity.Web não é necessária na sua aplicação web para autenticação/autorização básica ou para autenticar pedidos com o Microsoft Graph. É possível ligar de forma segura para [apis a jusante](tutorial-auth-aad.md#call-api-securely-from-server-code) apenas com o módulo de autenticação/autorização do Serviço de Aplicações ativado.
 > 
-> No entanto, a autenticação/autorização do Serviço de Aplicações destina-se a cenários de autenticação mais básicos. Para cenários mais complexos (manuseamento de reclamações personalizadas, por exemplo), precisa da biblioteca Microsoft.Identity.Web ou [da Microsoft Authentication Library](/azure/active-directory/develop/msal-overview). Há um pouco mais de trabalho de configuração e configuração no início, mas a biblioteca Microsoft.Identity.Web pode funcionar ao lado do módulo de autenticação/autorização do Serviço de Aplicações. Mais tarde, quando a sua aplicação web necessitar de lidar com cenários mais complexos, pode desativar o módulo de autenticação/autorização do Serviço de Aplicações e o Microsoft.Identity.Web já fará parte da sua aplicação.
+> No entanto, a autenticação/autorização do Serviço de Aplicações destina-se a cenários de autenticação mais básicos. Para cenários mais complexos (manuseamento de reclamações personalizadas, por exemplo), precisa da biblioteca Microsoft.Identity.Web ou [da Microsoft Authentication Library](../active-directory/develop/msal-overview.md). Há um pouco mais de trabalho de configuração e configuração no início, mas a biblioteca Microsoft.Identity.Web pode funcionar ao lado do módulo de autenticação/autorização do Serviço de Aplicações. Mais tarde, quando a sua aplicação web necessitar de lidar com cenários mais complexos, pode desativar o módulo de autenticação/autorização do Serviço de Aplicações e o Microsoft.Identity.Web já fará parte da sua aplicação.
 
 ### <a name="install-client-library-packages"></a>Instalar pacotes de bibliotecas de clientes
 
@@ -221,7 +221,7 @@ public class IndexModel : PageModel
 }
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se terminou este tutorial e já não precisa da aplicação web ou dos recursos associados, [limpe os recursos que criou.](scenario-secure-app-clean-up-resources.md)
 

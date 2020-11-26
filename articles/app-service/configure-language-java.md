@@ -10,12 +10,12 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 9abc069c202af425970e46286d88d1c18ece5a20
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: aa3329c3d9e241fb8224ecc69199779d53027474
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616200"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183146"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configure um aplicativo Java para o Azure App Service
 
@@ -437,7 +437,7 @@ Em seguida, determine se a fonte de dados deve estar disponível para uma aplica
 
 1. Crie um ficheiro *context.xml* no *meta-INF/diretório* do seu projeto. Crie o *meta-INF/diretório* se não existir.
 
-2. Em *context.xml* , adicione um `Context` elemento para ligar a fonte de dados a um endereço JNDI. Substitua o `driverClassName` espaço reservado pelo nome da classe do seu condutor na tabela acima.
+2. Em *context.xml*, adicione um `Context` elemento para ligar a fonte de dados a um endereço JNDI. Substitua o `driverClassName` espaço reservado pelo nome da classe do seu condutor na tabela acima.
 
     ```xml
     <Context>
@@ -515,7 +515,7 @@ Em seguida, determine se a fonte de dados deve estar disponível para uma aplica
 
 1. Crie um ficheiro *context.xml* no *meta-INF/diretório* do seu projeto. Crie o *meta-INF/diretório* se não existir.
 
-2. Em *context.xml* , adicione um `Context` elemento para ligar a fonte de dados a um endereço JNDI. Substitua o `driverClassName` espaço reservado pelo nome da classe do seu condutor na tabela acima.
+2. Em *context.xml*, adicione um `Context` elemento para ligar a fonte de dados a um endereço JNDI. Substitua o `driverClassName` espaço reservado pelo nome da classe do seu condutor na tabela acima.
 
     ```xml
     <Context>
@@ -700,7 +700,7 @@ O JBoss EAP só está disponível nas opções de hardware Premium e Isolada. Os
 
 ### <a name="jdk-versions-and-maintenance"></a>Versões e manutenção JDK
 
-O Kit de Desenvolvimento java suportado pela Azure (JDK) é [o Zulu](https://www.azul.com/downloads/azure-only/zulu/) fornecido através [da Azul Systems.](https://www.azul.com/) As construções da Azul Zulu Enterprise da OpenJDK são uma distribuição sem custos, multi-plataforma, pronta para a produção do OpenJDK para Azure e Azure Stack, apoiado pela Microsoft e pela Azul Systems. Contêm todos os componentes para compilar e executar aplicações Java SE. Pode instalar o JDK a partir da [Instalação Java JDK.](https://aka.ms/azure-jdks)
+O Kit de Desenvolvimento java suportado pela Azure (JDK) é [o Zulu](https://www.azul.com/downloads/azure-only/zulu/) fornecido através [da Azul Systems.](https://www.azul.com/) As construções da Azul Zulu Enterprise da OpenJDK são uma distribuição sem custos, multi-plataforma, pronta para a produção do OpenJDK para Azure e Azure Stack, apoiado pela Microsoft e pela Azul Systems. Contêm todos os componentes para compilar e executar aplicações Java SE. Pode instalar o JDK a partir da [Instalação Java JDK.](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 As principais atualizações da versão serão fornecidas através de novas opções de tempo de execução no Azure App Service. Os clientes atualizam estas versões mais recentes da Java configurando a sua implementação do Serviço de Aplicações e são responsáveis por testar e garantir que a grande atualização atende às suas necessidades.
 

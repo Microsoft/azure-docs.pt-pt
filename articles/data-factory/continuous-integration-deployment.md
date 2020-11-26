@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 93aeb088f82cae6dde215792e399997b592a5c14
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 728dda7c702d7fc52c9285c7cb15fc4b6dc3003c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96003978"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182067"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração contínua e entrega na Azure Data Factory
 
@@ -639,7 +639,7 @@ Veja o vídeo abaixo de um tutorial de vídeo aprofundado sobre como corrigir qu
 
 ## <a name="exposure-control-and-feature-flags"></a>Controlo de exposição e bandeiras de características
 
-Ao trabalhar numa equipa, há casos em que pode fundir mudanças, mas não quer que sejam geridas em ambientes elevados como o PROD e o QA. Para lidar com este cenário, a equipa da ADF recomenda [o conceito de DevOps de utilização de bandeiras de características.](https://docs.microsoft.com/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops) Em ADF, você pode combinar [parâmetros globais](author-global-parameters.md) e a [atividade se condicionar](control-flow-if-condition-activity.md) conjuntos de lógica com base nestas bandeiras ambientais.
+Ao trabalhar numa equipa, há casos em que pode fundir alterações, mas não quer que sejam executados em ambientes elevados como PROD e QA. Para lidar com este cenário, a equipa da ADF recomenda [o conceito de DevOps de utilização de bandeiras de características.](https://docs.microsoft.com/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops) Em ADF, você pode combinar [parâmetros globais](author-global-parameters.md) e a [atividade se condicionar](control-flow-if-condition-activity.md) conjuntos de lógica com base nestas bandeiras ambientais.
 
 Para aprender a configurar uma bandeira de recurso, veja o tutorial de vídeo abaixo:
 
