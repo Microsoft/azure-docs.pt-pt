@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: 7bfd951d7cec27e0b8264aaabf9bc3a17875256a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9715724fc0fbd25198dd3244215ac2c12638d2b8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000730"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185968"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente do Azure Monitor 
 
@@ -72,7 +72,7 @@ Aplicam-se as seguintes regras:
 1. Concessão de permissões ao seu Cofre-Chave
 1. Ligação de espaços de trabalho log analytics
 
-Customer-Managed configuração chave não é suportada no portal Azure e o fornecimento é realizado através de pedidos [PowerShell,](https://docs.microsoft.com/powershell/module/az.operationalinsights/) [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics) ou [REST.](https://docs.microsoft.com/rest/api/loganalytics/)
+Customer-Managed configuração chave não é suportada no portal Azure e o fornecimento é realizado através de pedidos [PowerShell,](/powershell/module/az.operationalinsights/) [CLI](/cli/azure/monitor/log-analytics) ou [REST.](/rest/api/loganalytics/)
 
 ### <a name="asynchronous-operations-and-status-check"></a>Operações assíncronos e verificação de estado
 
@@ -107,7 +107,7 @@ Estas definições podem ser atualizadas no Key Vault via CLI e PowerShell:
 
 ### <a name="create-cluster"></a>Criar cluster
 
-Siga o procedimento ilustrado no [artigo de Agrupamentos Dedicados](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#creating-a-cluster). 
+Siga o procedimento ilustrado no [artigo de Agrupamentos Dedicados](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
 > [!IMPORTANT]
 > Copie e guarde a resposta uma vez que necessitará dos detalhes nos próximos passos.
@@ -212,7 +212,7 @@ Você precisa ter permissões de 'escrever' tanto para o seu espaço de trabalho
 
 Esta operação é assíncronea e pode ser concluída.
 
-Siga o procedimento ilustrado no [artigo de Agrupamentos Dedicados](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#link-a-workspace-to-the-cluster).
+Siga o procedimento ilustrado no [artigo de Agrupamentos Dedicados](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-the-cluster).
 
 ## <a name="key-revocation"></a>Revogação de chaves
 

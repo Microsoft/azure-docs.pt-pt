@@ -3,12 +3,12 @@ title: Erros do modelo inválidos
 description: Descreve como resolver erros de modelo inválidos ao implementar modelos do Gestor de Recursos Azure.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: 3e68d4634d0092d05222348ca0db0116422faec3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba19d3c4e72a765e2aaff7393915b77a80daf2ba
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87373815"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185798"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Resolver erros de modelo inválido
 
@@ -130,7 +130,7 @@ Verifique novamente os valores permitidos no modelo e forneça um durante a impl
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>Solução 4 - Demasiados grupos de recursos-alvo
 
-Pode ver este erro em implementações anteriores porque estava limitado a cinco grupos de recursos-alvo numa única implantação. Em maio de 2020, esse limite foi aumentado para 800 grupos de recursos. Para obter mais informações, consulte [os recursos do Deploy Azure para mais de uma subscrição ou grupo de recursos.](cross-scope-deployment.md)
+Pode ver este erro em implementações anteriores porque estava limitado a cinco grupos de recursos-alvo numa única implantação. Em maio de 2020, esse limite foi aumentado para 800 grupos de recursos. Para obter mais informações, consulte [os recursos do Deploy Azure para mais de uma subscrição ou grupo de recursos.](./deploy-to-resource-group.md)
 
 <a id="circular-dependency"></a>
 

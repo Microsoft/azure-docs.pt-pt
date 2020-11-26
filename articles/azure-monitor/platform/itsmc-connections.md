@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: f7980ca7bc6f23c383ea013c2b017b3bd61e2d25
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 410281ce67faf345539701389d4b03351d403b99
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842299"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186070"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar os produtos/serviços do ITSM ao Conector de Gestão de Serviços de TI
 Este artigo fornece informações sobre como configurar a ligação entre o seu produto/serviço ITSM e o It Service Management Connector (ITSMC) no Log Analytics para gerir centralmente os seus itens de trabalho. Para obter mais informações sobre o ITSMC, consulte [a Visão Geral.](./itsmc-overview.md)
@@ -46,7 +46,7 @@ Assegurar que os seguintes pré-requisitos sejam cumpridos:
 > [!NOTE]
 > 
 > - O Conector ITSM só pode ligar-se a instâncias de ServiceNow baseadas na nuvem. As instâncias do ServiceNow no local não são suportadas atualmente.
-> - Para utilizar [modelos personalizados](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) como parte das ações, o parâmetro "ProjectionType" no modelo SCSM deve ser mapeado para "IncidentManagement! System.WorkItem.Incident.ProjectionType"
+> - Para utilizar [modelos personalizados](./itsmc-overview.md#template-definitions) como parte das ações, o parâmetro "ProjectionType" no modelo SCSM deve ser mapeado para "IncidentManagement! System.WorkItem.Incident.ProjectionType"
 
 ### <a name="connection-procedure"></a>Procedimento de ligação
 
@@ -432,4 +432,3 @@ Para gerar o ID/chave do cliente para Cherwell, utilize o seguinte procedimento:
 
 ## <a name="next-steps"></a>Passos seguintes
  - [Crie itens de trabalho ITSM a partir de alertas Azure](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
-

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 52ca879d5a680d0e62cc469e768236eac11f3719
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 2f262b328efcc341c93f1e5c31cab8cbd3ecbf6b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030223"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184642"
 ---
 # <a name="azure-monitor-for-networks"></a>Azure Monitor para Redes
 O Azure Monitor for Networks proporciona uma visão abrangente da [saúde](../../service-health/resource-health-checks-resource-types.md) e métricas para todos os recursos de rede [implantados,](../platform/metrics-supported.md) sem necessidade de qualquer configuração. Também fornece acesso a capacidades de monitorização de rede como [Connection Monitor,](../../network-watcher/connection-monitor-preview.md) [registo de fluxos para grupos de segurança de rede (NSGs)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)e [Traffic Analytics](../../network-watcher/traffic-analytics.md). E fornece outras funcionalidades [de diagnóstico de](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) rede.
@@ -119,11 +119,11 @@ Esta secção irá ajudá-lo a diagnosticar e resolver problemas comuns que pode
 Para saber sobre a resolução de problemas relacionados com a rede que identificar com o Azure Monitor for Networks, consulte a documentação de resolução de problemas para o recurso avariado. 
 
 Aqui estão algumas ligações para artigos de resolução de problemas para serviços frequentemente utilizados. Para obter mais artigos de resolução de problemas sobre estes serviços, consulte os outros artigos na secção de resolução de problemas da tabela de conteúdos para o serviço.
-* [Rede Virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-peering-issues)
-* [Gateway de Aplicação do Azure](https://docs.microsoft.com/azure/application-gateway/create-gateway-internal-load-balancer-app-service-environment)
-* [Gateway de VPN do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-troubleshoot)
-* [Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-expressroute-overview) 
-* [Balanceador de Carga do Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-troubleshoot) 
+* [Rede Virtual do Azure](../../virtual-network/virtual-network-troubleshoot-peering-issues.md)
+* [Gateway de Aplicação do Azure](../../application-gateway/create-gateway-internal-load-balancer-app-service-environment.md)
+* [Gateway de VPN do Azure](../../vpn-gateway/vpn-gateway-troubleshoot.md)
+* [Azure ExpressRoute](../../expressroute/expressroute-troubleshooting-expressroute-overview.md) 
+* [Balanceador de Carga do Azure](../../load-balancer/load-balancer-troubleshoot.md) 
 
 ### <a name="why-dont-i-see-the-resources-for-all-the-subscriptions-ive-selected"></a>Por que não vejo os recursos para todas as assinaturas que selecionei?
 

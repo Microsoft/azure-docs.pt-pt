@@ -4,12 +4,12 @@ description: Saiba como escalar o seu recurso Web App, Cloud Service, Virtual Ma
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 543ecc80abeb9a437a895224de6ade679698c4d7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5af60befeda9f0ed4ed76f7ab8449e94950352fb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020913"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186580"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Começa com a Autoscale em Azure
 Este artigo descreve como configurar as suas definições de Autoscale para o seu recurso no portal Microsoft Azure.
@@ -151,12 +151,12 @@ Esta secção descreve como mover a autoescala do Azure para outra região sob a
 1. Certifique-se de que a autoestama Azure está disponível na [região de Azure para onde pretende mover-se](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all).
 
 ### <a name="move"></a>Mover
-Utilize [a API REST](https://docs.microsoft.com/rest/api/monitor/autoscalesettings/createorupdate) para criar uma definição de autoescala no novo ambiente. A definição de autoescala criada na região de destino será uma cópia da definição de autoescala na região de origem.
+Utilize [a API REST](/rest/api/monitor/autoscalesettings/createorupdate) para criar uma definição de autoescala no novo ambiente. A definição de autoescala criada na região de destino será uma cópia da definição de autoescala na região de origem.
 
-[As definições de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) que foram criadas em associação com a definição de autoescala na região de origem não podem ser movidas. Terá de recriar definições de diagnóstico na região de destino, após a criação de definições de auto-venda. 
+[As definições de diagnóstico](./diagnostic-settings.md) que foram criadas em associação com a definição de autoescala na região de origem não podem ser movidas. Terá de recriar definições de diagnóstico na região de destino, após a criação de definições de auto-venda. 
 
 ### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Saiba mais sobre a movimentação de recursos em todas as regiões de Azure
-Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte a [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
+Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte a [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Crie um Alerta de Registo de Atividade para monitorizar todas as operações do motor de autoescala na sua subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

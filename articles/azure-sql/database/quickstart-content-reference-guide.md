@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/29/2019
-ms.openlocfilehash: 727792b110c3bc486d31214096be1934539f6d11
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 392f361f6fe487a15bdd63c2f3281ccc78b2f86d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790309"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184421"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Começar com bases de dados individuais na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,7 +41,7 @@ Pode utilizar o PowerShell ou o Azure CLI para criar, configurar e escalar a sua
 
 ## <a name="migrating-to-a-single-database-with-minimal-downtime"></a>Migrando para uma única base de dados com tempo mínimo de inatividade
 
-Estes arranques rápidos permitem-lhe criar ou importar rapidamente a sua base de dados para a Azure utilizando um `.bacpac` ficheiro. No `.bacpac` entanto, e `.dacpac` os ficheiros são projetados para mover rapidamente bases de dados em diferentes versões do SQL Server e dentro do Azure SQL, ou para implementar a integração contínua no seu pipeline DevOps. No entanto, este método não foi concebido para a migração das suas bases de dados de produção com tempo mínimo de inatividade, pois teria de parar de adicionar novos dados, aguardar a exportação da base de dados de origem para um `.bacpac` ficheiro a concluir e, em seguida, aguardar que a importação para a Base de Dados Azure SQL esteja concluída. Toda esta espera resulta em tempo de inatividade da sua aplicação, especialmente para grandes bases de dados. Para mover a sua base de dados de produção, precisa de uma forma melhor de migrar que garanta o mínimo tempo de inatividade da migração. Para isso, utilize o [Serviço de Migração de Dados (DMS)](../../dms/tutorial-sql-server-to-azure-sql.md?toc=%252fazure%252fsql-database%252ftoc.json) para migrar a sua base de dados com o tempo de inatividade mínimo. O DMS consegue-o empurrando gradualmente as alterações efetuadas na sua base de dados de origem para a única base de dados que está a ser restaurada. Desta forma, pode mudar rapidamente a sua aplicação de fonte para base de dados alvo com o tempo mínimo de inatividade.
+Estes arranques rápidos permitem-lhe criar ou importar rapidamente a sua base de dados para a Azure utilizando um `.bacpac` ficheiro. No `.bacpac` entanto, e `.dacpac` os ficheiros são projetados para mover rapidamente bases de dados em diferentes versões do SQL Server e dentro do Azure SQL, ou para implementar a integração contínua no seu pipeline DevOps. No entanto, este método não foi concebido para a migração das suas bases de dados de produção com tempo mínimo de inatividade, pois teria de parar de adicionar novos dados, aguardar a exportação da base de dados de origem para um `.bacpac` ficheiro a concluir e, em seguida, aguardar que a importação para a Base de Dados Azure SQL esteja concluída. Toda esta espera resulta em tempo de inatividade da sua aplicação, especialmente para grandes bases de dados. Para mover a sua base de dados de produção, precisa de uma forma melhor de migrar que garanta o mínimo tempo de inatividade da migração. Para isso, utilize o [Serviço de Migração de Dados (DMS)](../../dms/tutorial-sql-server-to-azure-sql.md?toc=%2fazure%2fsql-database%2ftoc.json) para migrar a sua base de dados com o tempo de inatividade mínimo. O DMS consegue-o empurrando gradualmente as alterações efetuadas na sua base de dados de origem para a única base de dados que está a ser restaurada. Desta forma, pode mudar rapidamente a sua aplicação de fonte para base de dados alvo com o tempo mínimo de inatividade.
 
 ## <a name="hands-on-learning-modules"></a>Módulos de aprendizagem práticos
 

@@ -5,12 +5,12 @@ services: automation
 ms.date: 11/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 1ed4ad3e1bae34b5007d13c7d092f46e972ac8a8
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 35feb136ca1fd7ea0be16a906f7d5193cf8570c7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347085"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183554"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Ativar a Gestão de Atualizações a partir de uma VM do Azure
 
@@ -39,13 +39,13 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
     ![Selecione Guest + host updates from left-hand pane](media/enable-from-vm/select-guest-and-os-updates.png)
 
-4. Tem de ter `Microsoft.OperationalInsights/workspaces/read` a permissão para determinar se o VM está ativado para um espaço de trabalho. Para saber mais sobre permissões adicionais necessárias, consulte [permissões necessárias para ativar as máquinas](../automation-role-based-access-control.md#feature-setup-permissions). Para aprender a ativar várias máquinas de uma só vez, consulte [Enable Update Management a partir de uma conta Demôm automação](update-mgmt-enable-automation-account.md).
+4. Tem de ter `Microsoft.OperationalInsights/workspaces/read` a permissão para determinar se o VM está ativado para um espaço de trabalho. Para saber mais sobre permissões adicionais necessárias, consulte [permissões necessárias para ativar as máquinas](../automation-role-based-access-control.md#feature-setup-permissions). Para aprender a ativar várias máquinas de uma só vez, consulte [Enable Update Management a partir de uma conta Demôm automação](./enable-from-automation-account.md).
 
 5. Na página de Gestão de Atualização, escolha o espaço de trabalho do Log Analytics e a conta de Automação e clique em **Ativar** a Gestão de Atualização. Depois de ter ativado a Gestão de Atualização, pode demorar cerca de 15 minutos até poder ver a avaliação da atualização a partir do VM.
 
     ![Ativar a Gestão de Atualizações](media/enable-from-vm/enable-update-management.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para utilizar a Gestão de Atualização para VMs, consulte [Gerir atualizações e patches para os seus VMs Azure](manage-updates-for-vm.md).
 

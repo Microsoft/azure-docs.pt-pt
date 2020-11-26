@@ -3,12 +3,12 @@ title: Limites e quotas de subscrição do Azure
 description: Fornece uma lista de limites comuns de subscrição e serviço da Azure, quotas e constrangimentos. Este artigo inclui informações sobre como aumentar limites, juntamente com valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 54eb25e302d49be9e3ab1febeb5c636d267d7e4f
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 810d503f1abdc14ad2d255a89aebe7c10954a889
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577843"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186206"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limites de subscrição e serviços da Azure, quotas e constrangimentos
 
@@ -96,7 +96,7 @@ Os níveis de preços determinam a capacidade e os limites do seu serviço de pe
 
 * **O** serviço gratuito multi-inquilino, partilhado com outros subscritores do Azure, destina-se a avaliação e pequenos projetos de desenvolvimento.
 * **A Basic** fornece recursos computamento dedicados para cargas de trabalho de produção em menor escala, com até três réplicas para cargas de trabalho de consulta altamente disponíveis.
-* **Standard** , que inclui S1, S2, S3 e S3 High Density, destina-se a maiores cargas de trabalho de produção. Existem vários níveis dentro do nível Standard para que possa escolher uma configuração de recurso que melhor corresponda ao seu perfil de carga de trabalho.
+* **Standard**, que inclui S1, S2, S3 e S3 High Density, destina-se a maiores cargas de trabalho de produção. Existem vários níveis dentro do nível Standard para que possa escolher uma configuração de recurso que melhor corresponda ao seu perfil de carga de trabalho.
 
 **Limites por subscrição**
 
@@ -398,7 +398,7 @@ Para obter mais informações, consulte [os tamanhos da máquina virtual.](../..
 
 #### <a name="disk-encryption-sets"></a>Conjuntos de encriptação de disco
 
-Há uma limitação de 50 conjuntos de encriptação de disco por região, por subscrição. Para obter mais informações, consulte a documentação de encriptação para máquinas virtuais [Linux](../../virtual-machines/linux/disk-encryption.md#restrictions) ou [Windows.](../../virtual-machines/windows/disk-encryption.md#restrictions) Se precisar de aumentar a quota, contacte o suporte da Azure.
+Há uma limitação de 50 conjuntos de encriptação de disco por região, por subscrição. Para obter mais informações, consulte a documentação de encriptação para máquinas virtuais [Linux](../../virtual-machines/disk-encryption.md#restrictions) ou [Windows.](../../virtual-machines/disk-encryption.md#restrictions) Se precisar de aumentar a quota, contacte o suporte da Azure.
 
 ### <a name="managed-virtual-machine-disks"></a>Discos de máquinas virtuais geridos
 

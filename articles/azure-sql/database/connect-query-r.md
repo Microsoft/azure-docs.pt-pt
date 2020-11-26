@@ -14,12 +14,12 @@ ms.reviewer: davidph, sstein
 manager: cgronlun
 ms.date: 05/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 62f1015bc945b5c01f719d7e96e6446c49ac8b8a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2e32a4abeae78aa7105f21ecffbb18c2eae841a4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675150"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185628"
 ---
 # <a name="quickstart-use-r-with-azure-sql-database-machine-learning-services-preview-to-query-a-database"></a>Quickstart: Use R com Azure SQL Database Machine Learning Services (pré-visualização) para consultar uma base de dados 
 
@@ -45,7 +45,7 @@ Machine Learning Services with R é uma característica da Base de Dados Azure S
 
 Obtenha a informação de ligação necessária para ligar à base de dados na Base de Dados Azure SQL. Você precisará do nome do servidor totalmente qualificado ou nome de anfitrião, nome da base de dados e informações de login para os próximos procedimentos.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Navegue para a **página SQL Databases** ou **SQL Managed Instances.**
 
@@ -84,4 +84,4 @@ Obtenha a informação de ligação necessária para ligar à base de dados na B
 
 - [Desenhe a sua primeira base de dados na Base de Dados Azure SQL](design-first-database-tutorial.md)
 - [Azure SQL Database Machine Learning Services (com R)](../managed-instance/machine-learning-services-overview.md)
-- [Criar e executar scripts R simples em Azure SQL Database Machine Learning Services (pré-visualização)](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context)
+- [Criar e executar scripts R simples em Azure SQL Database Machine Learning Services (pré-visualização)](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context)

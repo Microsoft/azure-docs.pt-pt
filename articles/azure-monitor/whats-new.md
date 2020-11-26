@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 4fa00bffc35c4ed67ce70751c8882b74ad6b01a1
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bf15e380eb1a88acc39ca63165d18d04a260b35d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95534505"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185900"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>O que há de novo na documentação do Monitor Azure?
 
@@ -230,7 +230,7 @@ Este artigo fornece listas de artigos do Azure Monitor que são novos ou foram s
 - [Chave gerida pelo cliente Azure Monitor](platform/customer-managed-keys.md) - Mensagem de erro adicionada e configuração cmk da secção para consultas.
 - [Azure Monitor HTTP Data Collector API](platform/data-collector-api.md) - Amostra de Python 3 adicionada.
 - [Otimize as consultas de registo no Azure Monitor](log-query/query-optimization.md) - Secção adicionada para evitar múltiplas verificações de dados ao utilizar subqueries.
-- [Tutorial: Começa com consultas de Log Analytics](log-query/get-started-portal.md) - Vídeo adicionado.
+- [Tutorial: Começa com consultas de Log Analytics](./log-query/log-analytics-tutorial.md) - Vídeo adicionado.
 
 ### <a name="platform-logs"></a>Registos da plataforma
 - [Crie definições de diagnóstico para enviar registos e métricas da plataforma para diferentes destinos](platform/diagnostic-settings.md) - Vídeo adicionado.
@@ -244,7 +244,7 @@ Este artigo fornece listas de artigos do Azure Monitor que são novos ou foram s
 
 Artigos novos e atualizados da reestruturação do Azure Monitor para conteúdos de VMs
 
-- [O que é Azure Monitor para VMs?](insights/vminsights-overview.md)
+- [O que é o Azure Monitor para VMs?](insights/vminsights-overview.md)
 - [Configurar log analytics espaço de trabalho para monitor azure para VMs](insights/vminsights-configure-workspace.md)
 - [Ligue os computadores Linux ao Azure Monitor](platform/agent-linux.md)
 - [Ativar o Azure Monitor para um ambiente híbrido](insights/vminsights-enable-hybrid.md)
@@ -331,7 +331,7 @@ Artigos novos e atualizados da reestruturação e consolidação de conteúdos d
 ### <a name="virtual-machines"></a>Máquinas virtuais
 - [Ativar o Monitor Azure para VMs no portal Azure](./insights/vminsights-enable-portal.md) - Atualizado para incluir O Arco de Azure.
 - [Ativar o Azure Monitor para visão geral dos VMs](insights/vminsights-enable-overview.md) - Atualizado para incluir O Arco de Azure.
-- [O que é Azure Monitor para VMs?](insights/vminsights-overview.md) - Atualizado para incluir Azure Arc.
+- [O que é o Azure Monitor para VMs?](insights/vminsights-overview.md) - Atualizado para incluir Azure Arc.
 
 
 ### <a name="visualizations"></a>Visualizações
@@ -536,7 +536,7 @@ Artigos novos e atualizados da reestruturação e consolidação de conteúdos d
 
 Atualizações gerais para a disponibilidade geral do Monitor Azure para VMs
 
-- [O que é Azure Monitor para VMs?](insights/vminsights-overview.md)
+- [O que é o Azure Monitor para VMs?](insights/vminsights-overview.md)
 - [Monitor Azure para VMs (GA) frequentemente feito perguntas](insights/vminsights-ga-release-faq.md) 
 - [Ativar o Monitor Azure para VMs utilizando a política do Azure](./insights/vminsights-enable-policy.md) 
 - [Como traçar o desempenho com o Azure Monitor para VMs](insights/vminsights-performance.md)

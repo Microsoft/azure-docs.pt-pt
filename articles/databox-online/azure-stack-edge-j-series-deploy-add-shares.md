@@ -10,11 +10,11 @@ ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: cd288926e6f7a3f454be2788479b5c9d414b167a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440282"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185492"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Tutorial: Transferir dados através de ações com a Azure Stack Edge Pro GPU
 
@@ -24,7 +24,7 @@ Este tutorial descreve como adicionar e conectar-se a ações no seu dispositivo
 
 Este procedimento pode demorar cerca de 10 minutos a concluir.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -57,18 +57,18 @@ Para criar uma partilha, faça o seguinte procedimento:
     O nome da partilha só pode ter letras, algarismos e hífenes. Deve ter entre 3 a 63 caracteres e começar com uma letra ou um numeral. Os hífenes devem ser precedidos e seguidos por uma letra ou um numeral.
     
     b. Selecione um **Tipo** para a partilha.  
-    O tipo pode ser **SMB** ou **NFS**, sendo que SMB é a predefinição. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux.  
+    O tipo pode ser **SMB** ou **NFS,** sendo o SMB o padrão. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux.  
     Dependendo se escolhe ações SMB ou NFS, as restantes opções variam ligeiramente. 
 
-    c. Forneça uma conta de armazenamento onde a parte residirá.
+    c. Indique uma conta de armazenamento onde a partilha vai residir.
 
-    d. Na lista de drop-down **do serviço de armazenamento,** selecione **Block Blob**, **Page Blob**ou **Files**.  
+    d. Na lista de drop-down **do serviço de armazenamento,** selecione **Block Blob**, **Page Blob** ou **Files**.  
     O tipo de serviço que seleciona depende do formato que pretende utilizar no Azure. Neste exemplo, porque queremos armazenar os dados como blobs de bloco em Azure, selecionamos **Block Blob**. Se selecionar **Page Blob,** certifique-se de que os seus dados estão alinhados com 512 bytes. Por exemplo, um VHDX tem sempre um alinhamento de 512 bytes.
 
    > [!IMPORTANT]
    > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge Pro ou Data Box Gateway. Para obter mais informações, consulte [Definir e gerir políticas de imutabilidade para armazenamento de bolhas](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
-    e. Crie um novo recipiente blob ou utilize um existente na lista de retiradas. Se criar um recipiente de bolhas, forneça um nome de recipiente. Se um recipiente já não existe, é criado na conta de armazenamento com o nome de ação recém-criado.
+    e. Crie um novo recipiente blob ou utilize um existente na lista de retiradas. Se criar um recipiente de bolhas, forneça um nome de recipiente. Se ainda não existir nenhum contentor, este será criado na conta de armazenamento com o nome da partilha recentemente criada.
    
     f. Dependendo se criou uma participação na SMB ou numa participação da NFS, faça um dos seguintes passos: 
      
@@ -123,7 +123,7 @@ No seu cliente Windows que está a utilizar para se ligar ao dispositivo, tome o
 No seu cliente Windows Server ligado ao seu dispositivo Azure Stack Edge Pro, conecte-se a uma partilha SMB inserindo os comandos:
 
 
-1. Numa janela de comando, escreva:
+1. Numa janela de comandos, escreva: 
 
     `net use \\<Device name>\<share name>  /u:<user name for the share>`
 

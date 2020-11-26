@@ -2,13 +2,13 @@
 title: Mover VMs Azure para novo grupo de subscrição ou recursos
 description: Utilize o Azure Resource Manager para mover máquinas virtuais para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 219a8b438d2715f6e97085a527b386e51759ec2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/25/2020
+ms.openlocfilehash: ace1fb6bf3944df539ec8f7301357e67d2b315a9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317111"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184081"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Mover orientação para máquinas virtuais
 
@@ -19,7 +19,6 @@ Este artigo descreve os cenários que não são suportados atualmente e os passo
 Os seguintes cenários ainda não são apoiados:
 
 * Os conjuntos de balança de máquinas virtuais com o balanceador de carga SKU padrão ou o IP público standard SKU não podem ser movidos.
-* Máquinas virtuais criadas a partir de recursos do Marketplace com planos anexados não podem ser movidas através de subscrições. Desavisar a máquina virtual na subscrição atual, e implementar novamente na nova subscrição.
 * As máquinas virtuais de uma rede virtual existente não podem ser transferidas para uma nova subscrição quando não está a mover todos os recursos da rede virtual.
 * Máquinas virtuais de baixa prioridade e conjuntos de escala de máquina virtual de baixa prioridade não podem ser movidos através de grupos de recursos ou subscrições.
 * As máquinas virtuais num conjunto de disponibilidade não podem ser movidas individualmente.
@@ -36,6 +35,24 @@ az vm encryption disable --resource-group demoRG --name myVm1
 Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
 ```
 
+## <a name="virtual-machines-with-marketplace-plans"></a>Máquinas virtuais com planos de Marketplace
+
+Máquinas virtuais criadas a partir de recursos do Marketplace com planos anexados não podem ser movidas através de subscrições. Para contornar esta limitação, pode desavisionar a máquina virtual na subscrição atual e implantá-la novamente na nova subscrição. Os seguintes passos ajudam-no a recriar a máquina virtual na nova subscrição. No entanto, podem não funcionar para todos os cenários. Se o plano já não estiver disponível no Mercado, estes passos não funcionarão.
+
+1. Copiar informações sobre o plano.
+
+1. Ou clona o disco DE para a subscrição de destino ou move o disco original depois de eliminar a máquina virtual da subscrição de origem.
+
+1. Na subscrição de destino, aceite os termos do Marketplace para o seu plano. Pode aceitar os termos executando o seguinte comando PowerShell:
+
+   ```azurepowershell
+   Get-AzMarketplaceTerms -Publisher {publisher} -Product {product/offer} -Name {name/SKU} | Set-AzMarketplaceTerms -Accept
+   ```
+
+   Ou, pode criar uma nova instância de uma máquina virtual com o plano através do portal. Pode eliminar a máquina virtual depois de aceitar os termos na nova subscrição.
+
+1. Na subscrição de destino, recrie a máquina virtual a partir do disco de OS clonado utilizando o PowerShell, CLI ou um modelo de Gestor de Recursos Azure. Inclua o plano de mercado que está ligado ao disco. As informações sobre o plano devem coincidir com o plano que adquiriu na nova subscrição.
+
 ## <a name="virtual-machines-with-azure-backup"></a>Máquinas virtuais com backup Azure
 
 Para mover máquinas virtuais configuradas com Azure Backup, deve eliminar os pontos de restauro do cofre.
@@ -44,7 +61,7 @@ Se [a eliminação suave](../../../backup/backup-azure-security-feature-cloud.md
 
 ### <a name="portal"></a>Portal
 
-1. Pare temporariamente a cópia de segurança e retenha os dados de backup.
+1. Pare temporariamente a cópia de segurança e guarde os dados de reserva.
 2. Para mover máquinas virtuais configuradas com backup Azure, faça os seguintes passos:
 
    1. Encontre a localização da sua máquina virtual.

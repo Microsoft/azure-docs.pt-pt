@@ -4,12 +4,12 @@ description: Descreve como resolver erros comuns quando implementa recursos para
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 09/09/2020
-ms.openlocfilehash: fb7e476a5b4416282546d321a5e9a0127b7a4364
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 785a74184cae8523b99da7f647ca87fda53c8648
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000713"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185832"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver problemas comuns de erros de implementação do Azure com o Azure Resource Manager
 
@@ -76,10 +76,10 @@ Se procura informações sobre um código de erro e essa informação não é fo
 | ArmazenamentoAccountAlreadyTaken | Indique um nome único para a conta de armazenamento. | [Resolver o nome da conta de armazenamento](error-storage-account-name.md) |
 | ArmazenamentoAccountNotFound | Verifique a subscrição, o grupo de recursos e o nome da conta de armazenamento que está a tentar usar. | |
 | SubnetsNotInSameVnet | Uma máquina virtual só pode ter uma rede virtual. Ao implementar vários NICs, certifique-se de que pertencem à mesma rede virtual. | [Múltiplos NICs](../../virtual-machines/windows/multiple-nics.md) |
-| SubscriçãoNotFound | Uma subscrição especificada para implementação não pode ser acedida. Pode ser que o ID de subscrição esteja errado, o utilizador que implementa o modelo não tem permissões adequadas para implementar na subscrição, ou o ID de subscrição está no formato errado. Ao utilizar implementações aninhadas para [implantar através de âmbitos,](cross-scope-deployment.md)forneça o GUID para a subscrição. | |
+| SubscriçãoNotFound | Uma subscrição especificada para implementação não pode ser acedida. Pode ser que o ID de subscrição esteja errado, o utilizador que implementa o modelo não tem permissões adequadas para implementar na subscrição, ou o ID de subscrição está no formato errado. Ao utilizar implementações aninhadas para [implantar através de âmbitos,](./deploy-to-resource-group.md)forneça o GUID para a subscrição. | |
 | SubscriçãoNotRegista | Ao utilizar um recurso, o fornecedor de recursos deve estar registado para a sua subscrição. Quando utiliza um modelo de Gestor de Recursos Azure para implantação, o fornecedor de recursos é automaticamente registado na subscrição. Às vezes, o registo automático não completa a tempo. Para evitar este erro intermitente, registe o fornecedor de recursos antes da sua utilização. | [Resolver o registo](error-register-resource-provider.md) |
 | ModeloResourceCircularDependency | Remova dependências desnecessárias. | [Resolver dependências circulares](error-invalid-template.md#circular-dependency) |
-| TooManyTargetResourceGroups | Reduza o número de grupos de recursos para uma única implantação. | [Implantação de âmbito transversal](cross-scope-deployment.md) |
+| TooManyTargetResourceGroups | Reduza o número de grupos de recursos para uma única implantação. | [Implantação de âmbito transversal](./deploy-to-resource-group.md) |
 
 ## <a name="find-error-code"></a>Encontrar código de erro
 

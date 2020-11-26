@@ -3,12 +3,12 @@ title: Eliminação completa de modo
 description: Mostra como os tipos de recursos lidam com a eliminação completa do modo nos modelos do Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: b1f7623d6eee1ff629412a4cc0d76e59e6c9e847
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e0c67bfcda81ad128e0018c4ab37c4b0cbe680f0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370129"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184030"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Supressão dos recursos da Azure para implementações completas do modo
 
@@ -18,7 +18,7 @@ Os tipos de recursos marcados com **Sim** são eliminados quando o tipo não est
 
 Os tipos de recursos marcados com **No** não são automaticamente eliminados quando não estão no modelo; no entanto, são eliminados se o recurso dos pais for eliminado. Para obter uma descrição completa do comportamento, consulte os modos de [implementação do Gestor de Recursos Azure](deployment-modes.md).
 
-Se implementar para [mais de um grupo de recursos num modelo,](cross-scope-deployment.md)os recursos do grupo de recursos especificados na operação de implantação podem ser eliminados. Os recursos nos grupos de recursos secundários não são eliminados.
+Se implementar para [mais de um grupo de recursos num modelo,](./deploy-to-resource-group.md)os recursos do grupo de recursos especificados na operação de implantação podem ser eliminados. Os recursos nos grupos de recursos secundários não são eliminados.
 
 Os recursos são listados pelo espaço de nome do fornecedor de recursos. Para combinar um espaço de nome do fornecedor de recursos com o seu nome de serviço Azure, consulte [os fornecedores de recursos para serviços Azure](../management/azure-services-resource-providers.md).
 

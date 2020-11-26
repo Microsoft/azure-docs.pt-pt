@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 61073ce7e8d3abc43d1db031608da72e6d3e0791
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 3f9779d2676d4d2b67efff37118d109664b84bd5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926806"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184608"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utilizar o Azure Private Link para se ligar em segurança a redes do Azure Monitor
 
@@ -90,18 +90,18 @@ Na topologia abaixo:
 
 Comece por criar um recurso Azure Monitor Private Link Scope.
 
-1. Vá para **criar um recurso** no portal Azure e procure o **Azure Monitor Private Link Scope** .
+1. Vá para **criar um recurso** no portal Azure e procure o **Azure Monitor Private Link Scope**.
 
    ![Encontre o âmbito de ligação privada do monitor Azure](./media/private-link-security/ampls-find-1c.png)
 
-2. Clique **em criar** .
+2. Clique **em criar**.
 3. Escolha um Grupo de Subscrição e Recursos.
 4. Dê um nome aos AMPLS. É melhor usar um nome que seja claro para que finalidade e fronteira de segurança o Scope será usado para que alguém não quebre acidentalmente os limites de segurança da rede. Por exemplo, "AppServerProdTelem".
-5. Clique em **Rever + Criar** . 
+5. Clique em **Rever + Criar**. 
 
    ![Criar âmbito de ligação privada do Monitor Azure](./media/private-link-security/ampls-create-1d.png)
 
-6. Deixe passar a validação e, em seguida, clique em **Criar** .
+6. Deixe passar a validação e, em seguida, clique em **Criar**.
 
 ## <a name="connect-azure-monitor-resources"></a>Ligar recursos do Monitor Azure
 
@@ -125,17 +125,17 @@ Agora que tem recursos ligados ao seu AMPLS, crie um ponto final privado para li
 
 2. Escolha a subscrição, o grupo de recursos e o nome do ponto final, e a região em que deve viver. A região tem de ser a mesma região que a rede virtual a que a vais ligar.
 
-3. Clique **em seguida: Recurso** . 
+3. Clique **em seguida: Recurso**. 
 
 4. No ecrã de Recursos,
 
    a. Escolha a **Subscrição** que contém o seu recurso Azure Monitor Private Scope. 
 
-   b. Para **o tipo de recurso,** escolha **Microsoft.insights/privateLinkScopes** . 
+   b. Para **o tipo de recurso,** escolha **Microsoft.insights/privateLinkScopes**. 
 
    c. A partir da entrega de **recursos,** escolha o seu âmbito de Ligação Privada que criou anteriormente. 
 
-   d. Clique **em seguida: configuração >** .
+   d. Clique **em seguida: configuração >**.
       ![Screenshot de selecionar Criar Ponto Final Privado](./media/private-link-security/ampls-select-private-endpoint-create-4.png)
 
 5. No painel de configuração,
@@ -144,13 +144,13 @@ Agora que tem recursos ligados ao seu AMPLS, crie um ponto final privado para li
  
    b.    Escolha **Sim** para **Integrar com a zona privada de DNS,** e deixe-o criar automaticamente uma nova Zona Privada de DNS. As zonas de DNS reais podem ser diferentes das mostradas na imagem abaixo. 
    > [!NOTE]
-   > Se escolher **Não** e preferir gerir os registos DNS manualmente, primeiro complete a configuração do seu Link Privado - incluindo este Ponto final privado e a configuração AMPLS. Em seguida, configuure o seu DNS de acordo com as instruções na [configuração do DNS do Ponto Final Privado Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-dns). Certifique-se de que não cria registos vazios como preparação para a configuração do Link Privado. Os registos DNS que cria podem substituir as definições existentes e impactar a sua conectividade com o Azure Monitor.
+   > Se escolher **Não** e preferir gerir os registos DNS manualmente, primeiro complete a configuração do seu Link Privado - incluindo este Ponto final privado e a configuração AMPLS. Em seguida, configuure o seu DNS de acordo com as instruções na [configuração do DNS do Ponto Final Privado Azure](../../private-link/private-endpoint-dns.md). Certifique-se de que não cria registos vazios como preparação para a configuração do Link Privado. Os registos DNS que cria podem substituir as definições existentes e impactar a sua conectividade com o Azure Monitor.
  
-   c.    Clique em **Rever + criar** .
+   c.    Clique em **Rever + criar**.
  
    d.    Deixe a validação passar. 
  
-   e.    Clique em **Criar** . 
+   e.    Clique em **Criar**. 
 
     ![Screenshot de seleção Criar Ponto Final Privado2](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 
@@ -190,7 +190,7 @@ Aceda ao portal do Azure. No seu recurso componente Azure Monitor Application In
 
 ![Isolamento da Rede AI](./media/private-link-security/ampls-application-insights-lan-network-isolation-6.png)
 
-Em primeiro lugar, pode ligar este recurso Application Insights aos âmbitos de ligação privada do Monitor Azure a que tem acesso. Clique **em Adicionar** e selecione o Âmbito de **Ligação Privada do Monitor Azure** . Clique em Aplicar para conectá-lo. Todos os telescópios conectados aparecem neste ecrã. A realização desta ligação permite que o tráfego de rede nas redes virtuais conectadas atinja este componente. Fazer a ligação tem o mesmo efeito que ligá-la do âmbito que fizemos na [ligação dos recursos do Monitor Azure](#connect-azure-monitor-resources). 
+Em primeiro lugar, pode ligar este recurso Application Insights aos âmbitos de ligação privada do Monitor Azure a que tem acesso. Clique **em Adicionar** e selecione o Âmbito de **Ligação Privada do Monitor Azure**. Clique em Aplicar para conectá-lo. Todos os telescópios conectados aparecem neste ecrã. A realização desta ligação permite que o tráfego de rede nas redes virtuais conectadas atinja este componente. Fazer a ligação tem o mesmo efeito que ligá-la do âmbito que fizemos na [ligação dos recursos do Monitor Azure](#connect-azure-monitor-resources). 
 
 Em segundo lugar, pode controlar como este recurso pode ser alcançado a partir de fora dos âmbitos de ligação privado listados anteriormente. Se definir **Permita o acesso à rede pública para ingestão** a **Nº,** então as máquinas ou SDKs fora dos âmbitos ligados não podem enviar dados para este componente. Se definir **Permitir o acesso à rede pública para consultas** a **Não,** então as máquinas fora dos âmbitos não podem aceder aos dados neste recurso Application Insights. Esses dados incluem acesso a registos APM, métricas e o fluxo de métricas ao vivo, bem como experiências construídas em cima, tais como livros de trabalho, dashboards, experiências de clientes baseadas em consultas com API, insights no portal Azure, e muito mais. 
 
@@ -240,7 +240,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para utilizar experiências do portal Azure Monitor, como Application Insights e Log Analytics, é necessário permitir que as extensões do portal Azure e do Azure Monitor sejam acessíveis nas redes privadas. Adicione [etiquetas](../../firewall/service-tags.md) de serviço **AzureActiveDirectory** , **AzureResourceManager** , **AzureFrontDoor.FirstParty** e **AzureFrontdoor.Frontend** ao seu Grupo de Segurança de Rede.
+Para utilizar experiências do portal Azure Monitor, como Application Insights e Log Analytics, é necessário permitir que as extensões do portal Azure e do Azure Monitor sejam acessíveis nas redes privadas. Adicione [etiquetas](../../firewall/service-tags.md) de serviço **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor.FirstParty** e **AzureFrontdoor.Frontend** ao seu Grupo de Segurança de Rede.
 
 ### <a name="programmatic-access"></a>Acesso programático
 

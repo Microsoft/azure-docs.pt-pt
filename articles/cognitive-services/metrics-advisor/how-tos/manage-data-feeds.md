@@ -10,16 +10,16 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: mbullwin
-ms.openlocfilehash: de8d5d8e9fc5ce1df05cfd4c67ef146760e2c7e9
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: fb6eaf44967732d3a41ea92b0896540a40f694e3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043175"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184727"
 ---
 # <a name="how-to-manage-your-data-feeds"></a>Como: Gerir os feeds de dados
 
-Saiba como gerir os seus feeds de dados a bordo no Metrics Advisor. Este artigo guia-o através da gestão de feeds de dados no Metrics Monitor.
+Saiba como gerir os seus feeds de dados a bordo no Metrics Advisor. Este artigo guia-o através da gestão de feeds de dados no Metrics Advisor.
 
 ## <a name="edit-a-data-feed"></a>Editar um feed de dados
 
@@ -89,7 +89,7 @@ Existem várias configurações avançadas opcionais ao criar um novo feed de da
     | :------------ | :--------------- |
     | Diariamente, Personalizado (>= 1 dia), semanal, mensal     | 30 minutos          |
     | Hora, Costume (< 1 dia)      | 10 minutos |
-    | Anualmente | 1 dia          |
+    | Anual | 1 dia          |
  
 ### <a name="fill-gap-when-detecting"></a>Preencher lacuna ao detetar: 
 
@@ -106,7 +106,7 @@ As opções são:
 
 Os modelos de ligação de ação são usados para pré-finir urls HTTP aactivos, que consistem nos espaços reservados `%datafeed` , , , e `%metric` `%timestamp` `%detect_config` `%tagset` . Pode utilizar o modelo para redirecionar de uma anomalia ou de um incidente para um URL específico para perfurar.
 
-:::image type="content" source="../media/action-link-template.png" alt-text="Feed de dados de enchimento de reenchimento" lightbox="../media/action-link-template.png":::
+:::image type="content" source="../media/action-link-template.png" alt-text="Modelo de ligação de ação" lightbox="../media/action-link-template.png":::
 
 Uma vez preenchido o link de ação, clique em **Ir ao link de ação** na opção de ação da lista de incidentes e no menu de cliques à direita da árvore incidente. Substitua os espaços reservados no modelo de ligação de ação pelos valores correspondentes da anomalia ou incidente.
 

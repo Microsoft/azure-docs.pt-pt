@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 90a5f0f84c72895a8450a42260b07f6dbea15e37
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: b4e35296a999070a6f536f4a52cfb7c3a1d4f42a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428045"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186495"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Ligue o Azure às ferramentas ITSM utilizando o Conector de Gestão de Serviços de TI
 
@@ -50,7 +50,7 @@ Pode começar a utilizar o ITSMC completando os seguintes passos:
 
 Antes de criar uma ligação, tem de adicionar ITSMC.
 
-1. No portal Azure, selecione **Criar um recurso** :
+1. No portal Azure, selecione **Criar um recurso**:
 
    ![Screenshot que mostra o item do menu de recursos Criar.](media/itsmc-overview/azure-add-new-resource.png)
 
@@ -90,11 +90,11 @@ Com base no produto ITSM a que está a ligar, selecione um dos seguintes links p
 
 Depois de ter preparado as suas ferramentas ITSM, complete estes passos para criar uma ligação:
 
-1. Em **Todos os recursos,** procure **o ServiceDesk(o *seu nome de espaço de trabalho)*** :
+1. Em **Todos os recursos,** procure **o ServiceDesk(o *seu nome de espaço de trabalho)***:
 
    ![Screenshot que mostra recursos recentes no portal Azure.](media/itsmc-overview/itsm-connections.png)
 
-1. Em **Fontes de Dados** do Espaço de Trabalho no painel esquerdo, selecione **ItsM Connections** :
+1. Em **Fontes de Dados** do Espaço de Trabalho no painel esquerdo, selecione **ItsM Connections**:
 
    ![Screenshot que mostra o item do menu ITSM Connections.](media/itsmc-overview/add-new-itsm-connection.png)
    Esta página apresenta a lista de ligações.
@@ -129,7 +129,7 @@ Os grupos de ação fornecem uma forma modular e reutilizável de desencadear a�
 Utilize o seguinte procedimento para criar artigos de trabalho:
 
 1. No portal Azure, selecione  **Alertas**.
-2. No menu no topo do ecrã, selecione **Gerir as ações** :
+2. No menu no topo do ecrã, selecione **Gerir as ações**:
 
     ![Screenshot que mostra o item do menu de ações Manage.](media/itsmc-overview/action-groups-selection-big.png)
 
@@ -145,7 +145,7 @@ Utilize o seguinte procedimento para criar artigos de trabalho:
 
 7. Selecione um tipo **de item de trabalho.**
 
-8. Se pretender preencher campos fora da caixa com valores fixos, selecione **Use Custom Template**. Caso contrário, escolha um [modelo](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) existente na lista **de modelos** e introduza os valores fixos nos campos de modelo.
+8. Se pretender preencher campos fora da caixa com valores fixos, selecione **Use Custom Template**. Caso contrário, escolha um [modelo](#template-definitions) existente na lista **de modelos** e introduza os valores fixos nos campos de modelo.
 
 9. Se selecionar **Criar itens de trabalho individuais para cada Item de Configuração,** cada item de configuração terá o seu próprio item de trabalho. Haverá um item de trabalho por item de configuração. Será atualizado de acordo com os alertas que serão criados.
 
@@ -253,7 +253,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Data de fim planeada
 - Data de início do trabalho
 - Data de fim do trabalho
-- Descrição
+- Description
 - Computador
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dados de saída para um incidente do ServiceNow
@@ -300,7 +300,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Data de fim prevista |
 | WorkStartDate_t  | Data de início real |
 | WorkEndDate_t | Data de fim real|
-| Description_s | Descrição |
+| Description_s | Description |
 | Computador  | Item de configuração |
 
 
@@ -329,4 +329,3 @@ Se tiver dúvidas ou feedback sobre o Conector de Gestão de Serviços de TI, co
 
 ## <a name="next-steps"></a>Passos seguintes
 [Adicione produtos/serviços ITSM ao Conector de Gestão de Serviços de TI](./itsmc-connections.md)
-

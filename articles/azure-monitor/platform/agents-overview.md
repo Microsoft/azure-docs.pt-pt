@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2020
-ms.openlocfilehash: 30521e85feda0fc19329364dcb710d322ae8cfc1
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: c6db5a856b127d4549de9597f8157f524a38af79
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95323240"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186665"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes do Monitor Azure
 
@@ -81,8 +81,8 @@ Utilize o agente Log Analytics se for necessário:
 * Recolher registos e dados de desempenho de máquinas virtuais ou físicas dentro ou fora de Azure. 
 * Envie dados para um espaço de trabalho log analytics para tirar partido das funcionalidades suportadas por [Registos do Monitor Azure,](data-platform-logs.md) tais como [consultas de registo .](../log-query/log-query-overview.md)
 * Utilize [o Azure Monitor para VMs](../insights/vminsights-overview.md) que lhe permite monitorizar as suas máquinas virtuais em escala e monitorizar os seus processos e dependências de outros recursos e processos externos..  
-* Gerencie a segurança das suas máquinas virtuais utilizando o [Azure Security Center](../../security-center/security-center-intro.md)  ou [o Azure Sentinel](../../sentinel/overview.md).
-* Utilize [a gestão de Azure Automation Update](../../automation/update-management/update-mgmt-overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md), ou [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md) para fornecer uma gestão abrangente dos seus VMs Azure
+* Gerencie a segurança das suas máquinas virtuais utilizando o [Azure Security Center](../../security-center/security-center-introduction.md)  ou [o Azure Sentinel](../../sentinel/overview.md).
+* Utilize [a gestão de Azure Automation Update](../../automation/update-management/overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md), ou [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md) para fornecer uma gestão abrangente dos seus VMs Azure
 * Utilize [diferentes soluções](../monitor-reference.md#insights-and-core-solutions) para monitorizar um determinado serviço ou aplicação.
 
 As limitações do agente Log Analytics incluem:
@@ -205,7 +205,7 @@ Uma vez que o agente de dependência trabalha ao nível do núcleo, o suporte ta
 | Debian                          | 9      | 4,9  | 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Obtenha mais detalhes sobre cada um dos agentes no seguinte:
 

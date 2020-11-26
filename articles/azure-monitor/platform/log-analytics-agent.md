@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: c09b50272ce73fe084e84d49be7d9d81cbe725aa
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8563f734db8524d6e90171bb2272723f14533055
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207143"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185934"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do agente do Log Analytics
 O agente Azure Log Analytics recolhe telemetria a partir de máquinas virtuais Windows e Linux em qualquer nuvem, máquinas no local, e as monitorizadas pelo [System Center Operations Manager](/system-center/scom/) e envia-os dados recolhidos para o seu espaço de trabalho Log Analytics no Azure Monitor. O agente Log Analytics também suporta insights e outros serviços no Azure Monitor, como [o Azure Monitor para VMs,](../insights/vminsights-enable-overview.md) [Azure Security Center,](../../security-center/index.yml)e [Azure Automation.](../../automation/automation-intro.md) Este artigo fornece uma visão geral detalhada dos requisitos do agente, do sistema e da rede e dos métodos de implantação.
@@ -39,7 +39,7 @@ Não há qualquer custo para o agente Log Analytics, mas pode incorrer em encarg
 ## <a name="data-collected"></a>Dados recolhidos
 A tabela que se segue lista os tipos de dados que pode configurar um espaço de trabalho Log Analytics para recolher de todos os agentes conectados. Ver [O que é monitorizado pelo Azure Monitor?](../monitor-reference.md)
 
-| Origem de dados | Descrição |
+| Origem de dados | Description |
 | --- | --- |
 | [Registos do Evento Windows](data-sources-windows-events.md) | Informação enviada para o sistema de registo de eventos do Windows. |
 | [Syslog](data-sources-syslog.md)                     | Informação enviada para o sistema de registo de eventos Linux. |
@@ -51,7 +51,7 @@ A tabela que se segue lista os tipos de dados que pode configurar um espaço de 
 O agente Log Analytics envia dados para um espaço de trabalho log analytics no Azure Monitor. O agente Windows pode ser multihomed para enviar dados para vários espaços de trabalho e grupos de gestão de Gestão de Operações do System Center. O agente Linux pode enviar apenas para um único destino, seja um espaço de trabalho ou um grupo de gestão.
 
 ## <a name="other-services"></a>Outros serviços
-O agente do Linux e do Windows não é apenas para ligar ao Azure Monitor. Outros serviços como o Azure Security Center e o Azure Sentinel dependem do agente e do seu espaço de trabalho conectado log analytics. O agente também apoia a Azure Automation para acolher o papel de trabalhador do Runbook Híbrido e outros serviços como [Change Tracking,](../../automation/change-tracking/overview.md) [Update Management](../../automation/update-management/update-mgmt-overview.md)e [Azure Security Center](../../security-center/security-center-intro.md). Para obter mais informações sobre o papel de Trabalhador de Runbook Híbrido, consulte [o Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
+O agente do Linux e do Windows não é apenas para ligar ao Azure Monitor. Outros serviços como o Azure Security Center e o Azure Sentinel dependem do agente e do seu espaço de trabalho conectado log analytics. O agente também apoia a Azure Automation para acolher o papel de trabalhador do Runbook Híbrido e outros serviços como [Change Tracking,](../../automation/change-tracking/overview.md) [Update Management](../../automation/update-management/overview.md)e [Azure Security Center](../../security-center/security-center-introduction.md). Para obter mais informações sobre o papel de Trabalhador de Runbook Híbrido, consulte [o Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="workspace-and-management-group-limitations"></a>Espaço de trabalho e limitações do grupo de gestão
 

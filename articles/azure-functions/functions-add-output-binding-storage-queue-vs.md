@@ -4,12 +4,12 @@ description: Saiba como adicionar uma ligação de saída para ligar as funçõe
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 0711516143839dbcdbafec56ab1d9643b4b8cdc7
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 635392212027c73e5aa954eb671be31228796a0d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167126"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185135"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Conecte funções ao Azure Storage usando o Visual Studio
 
@@ -29,7 +29,7 @@ Antes de começar este artigo, deve:
 
 ## <a name="download-the-function-app-settings"></a>Descarregue as definições da aplicação de funções
 
-No [artigo de arranque rápido anterior,](functions-create-first-function-vs-code.md)criou uma aplicação de função em Azure juntamente com a conta de Armazenamento necessária. O fio de ligação desta conta é armazenado de forma segura nas definições de aplicações em Azure. Neste artigo, você escreve mensagens para uma fila de armazenamento na mesma conta. Para se ligar à sua conta de Armazenamento ao executar a função localmente, tem de transferir as definições da aplicação para o *local.settings.jsno* ficheiro. 
+No [artigo de arranque rápido anterior,](./create-first-function-vs-code-csharp.md)criou uma aplicação de função em Azure juntamente com a conta de Armazenamento necessária. O fio de ligação desta conta é armazenado de forma segura nas definições de aplicações em Azure. Neste artigo, você escreve mensagens para uma fila de armazenamento na mesma conta. Para se ligar à sua conta de Armazenamento ao executar a função localmente, tem de transferir as definições da aplicação para o *local.settings.jsno* ficheiro. 
 
 1. No **Explorador de Soluções**, clique com o botão direito do rato no projeto e selecione **Publicar**. 
 
@@ -75,7 +75,7 @@ Uma nova fila nomeada `outqueue` é criada na sua conta de armazenamento pelo te
 
 1. No Estúdio Visual a partir do menu **Ver,** selecione **Cloud Explorer**.
 
-1. No **Cloud Explorer,** expanda as suas contas de subscrição e **armazenamento do**Azure, em seguida, expanda a conta de armazenamento utilizada pela sua função. Se não se lembrar do nome da conta de armazenamento, verifique a `AzureWebJobsStorage` definição do fio de ligação no *local.settings.jsno* ficheiro.  
+1. No **Cloud Explorer,** expanda as suas contas de subscrição e **armazenamento do** Azure, em seguida, expanda a conta de armazenamento utilizada pela sua função. Se não se lembrar do nome da conta de armazenamento, verifique a `AzureWebJobsStorage` definição do fio de ligação no *local.settings.jsno* ficheiro.  
 
 1. Expanda o nó **de Filas** e, em seguida, clique duas vezes na fila **nomeada** para ver o conteúdo da fila no Estúdio Visual. 
 

@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: fa7faf64e1889ef2d1abe644f23f0be363709a6b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b25bae460ff11c3dab84e80524acd2eaf878561c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322719"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184693"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Quickstart: Criar um espaço de trabalho synapse
 Este quickstart descreve os passos para criar um espaço de trabalho Azure Synapse utilizando o portal Azure.
@@ -28,10 +28,13 @@ Este quickstart descreve os passos para criar um espaço de trabalho Azure Synap
 1. Precisa de uma conta ADLSGEN2 para criar um espaço de trabalho. A escolha mais simples é criar uma nova. Se quiser reutilizar uma existente, terá de realizar alguma configuração adicional. 
 1. OPÇÃO 1 Criação de uma nova conta ADLSGEN2 
     1. Em **Select Data Lake Storage Gen 2,** clique em Criar **Novo** e nomeie-o **contosolake**.
-    1. Em **Select Data Lake Storage Gen 2** , clique no Sistema de **Ficheiros** e nomeie os **utilizadores**.
+    1. Em **Select Data Lake Storage Gen 2**, clique no Sistema de **Ficheiros** e nomeie os **utilizadores**.
 1. OPÇÃO 2 Consulte as instruções **da Conta de Armazenamento** na parte inferior deste documento.
 1. O seu espaço de trabalho Azure Synapse utilizará esta conta de armazenamento como a conta de armazenamento "primária" e o recipiente para armazenar dados do espaço de trabalho. O espaço de trabalho armazena dados em tabelas Apache Spark. Armazena registos de aplicações Spark sob uma pasta chamada **/sinapse/workspacename**.
 1. Selecione **Rever + criar** > **Criar**. O seu espaço de trabalho está pronto em poucos minutos.
+
+> [!NOTE]
+> Depois de criar o seu espaço de trabalho Azure Synapse, não poderá mover o espaço de trabalho para outro inquilino do Azure Ative Directory. Se o fizer através da migração por subscrição ou de outras ações, poderá perder o acesso aos artefactos dentro do espaço de trabalho.  
 
 ## <a name="open-synapse-studio"></a>Open Synapse Studio
 
@@ -67,4 +70,4 @@ As identidades geridas para o seu espaço de trabalho Azure Synapse podem já te
 
 * [Crie uma piscina SQL dedicada](quickstart-create-sql-pool-studio.md) 
 * [Crie uma piscina Apache Spark sem servidor](quickstart-create-apache-spark-pool-portal.md)
-* [Use a piscina SQL sem servidor](quickstart-sql-on-demand.md)
+* [Utilizar conjunto de SQL sem servidor](quickstart-sql-on-demand.md)

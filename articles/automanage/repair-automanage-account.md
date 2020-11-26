@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: alsin
-ms.openlocfilehash: 226a23bfdacb0f7423c7dafb8cae36af7333699d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 4694fa679c7bbff309a0452219ff39bacf2488c4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681844"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183707"
 ---
 # <a name="repair-an-automanage-account"></a>Reparar uma Conta De Auto-Produção
 A sua [Conta Azure Automanage](./automanage-virtual-machines.md#automanage-account) é o contexto de segurança ou identidade em que ocorrem as operações automatizadas. Se mudou recentemente uma subscrição que contém uma Conta De Autoadministração para um novo inquilino, precisa de reconfigurar a conta. Para reconfigurá-lo, é necessário redefinir o tipo de identidade e atribuir as funções adequadas para a conta.
@@ -22,8 +22,8 @@ A sua [Conta Azure Automanage](./automanage-virtual-machines.md#automanage-accou
 Reinicie o tipo de identidade de conta de gestão automática utilizando o seguinte modelo Azure Resource Manager (ARM). Guarde o ficheiro localmente como armdeploy.jsou um nome semelhante. Note o nome e localização da sua Conta de Auto-produção porque são necessários parâmetros no modelo ARM.
 
 1. Crie uma implementação de Gestor de Recursos utilizando o seguinte modelo. Utilize `identityType = None`.
-    * Pode criar a implantação no CLI Azure utilizando `az deployment sub create` . Para obter mais informações, consulte o sub de [implantação az](https://docs.microsoft.com/cli/azure/deployment/sub).
-    * Pode criar a implementação no PowerShell utilizando o `New-AzDeployment` módulo. Para mais informações, consulte [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment).
+    * Pode criar a implantação no CLI Azure utilizando `az deployment sub create` . Para obter mais informações, consulte o sub de [implantação az](/cli/azure/deployment/sub).
+    * Pode criar a implementação no PowerShell utilizando o `New-AzDeployment` módulo. Para mais informações, consulte [New-AzDeployment](/powershell/module/az.resources/new-azdeployment).
 
 1. Volte a executar o mesmo modelo ARM com `identityType = SystemAssigned` .
 
@@ -63,7 +63,7 @@ A Conta De Gestão Automática requer as funções de Contribuinte e Contribuint
 
 Se estiver a utilizar um modelo ARM ou o Azure CLI, necessitará do ID principal (também conhecido como ID do Objeto) da sua Conta de Auto-Produção. (Não precisa da identificação se estiver a usar o portal Azure.) Pode encontrar este ID utilizando estes métodos:
 
-- [Azure CLI](https://docs.microsoft.com/cli/azure/ad/sp): Utilize o comando `az ad sp list --display-name <name of your Automanage Account>` .
+- [Azure CLI](/cli/azure/ad/sp): Utilize o comando `az ad sp list --display-name <name of your Automanage Account>` .
 
 - Portal Azure: Vá ao **Azure Ative Directory** e procure a sua Conta de Gestão Automática pelo nome. No âmbito **das Aplicações empresariais,** selecione o nome da Conta De Gestão Automática quando aparecer.
 
@@ -72,7 +72,7 @@ Se estiver a utilizar um modelo ARM ou o Azure CLI, necessitará do ID principal
 1. Ir ao **controlo de acesso (IAM)**.
 1. Selecione **Adicionar atribuições de funções**.
 1. Selecione a função **Contribuinte** e insira o nome da sua Conta de Auto-Produção.
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 1. Repita os passos 3 a 5, desta vez com o papel **de Contribuinte de Política de Recursos.**
 
 ### <a name="arm-template"></a>Modelo ARM
@@ -126,5 +126,5 @@ az role assignment create --assignee-object-id <your Automanage Account Object I
 az role assignment create --assignee-object-id <your Automanage Account Object ID> --role "Resource Policy Contributor" --scope /subscriptions/<your subscription ID>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Saiba mais sobre a Azure Automanage](./automanage-virtual-machines.md)

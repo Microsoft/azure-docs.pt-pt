@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: ed9942fa7b73418e3ef1ddf0651781d32b662995
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 04f1eb0d9db00a2be1a4619cafe38aa18145fc78
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92049950"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186002"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>Arquivar dados do log analytics espaço de trabalho para o armazenamento do Azure usando a Logic App
 Este artigo descreve um método para usar [Azure Logic Apps](../../logic-apps/index.yml) para consultar dados de um espaço de trabalho Log Analytics no Azure Monitor e enviar para o Azure Storage. Utilize este processo quando necessitar de exportar os seus dados de Registo do Monitor Azure para cenários de auditoria e conformidade ou para permitir que outro serviço recupere estes dados.  
@@ -25,7 +25,7 @@ O método descrito neste artigo descreve uma exportação programada de uma cons
 - Uma vez exporta para máquina local usando o script PowerShell. Ver [Invoke-AzOperationalInsightsQueryExport]. https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport)
 
 ## <a name="overview"></a>Descrição geral
-Este procedimento utiliza o [conector Azure Monitor Logs](https://docs.microsoft.com/connectors/azuremonitorlogs/) que permite executar uma consulta de registo a partir de uma aplicação lógica e utilizar a sua saída noutras ações do fluxo de trabalho. O [conector de armazenamento Azure Blob](https://docs.microsoft.com/connectors/azureblob/) é utilizado neste procedimento para enviar a saída de consulta para o armazenamento Azure. As outras ações são descritas nas secções abaixo.
+Este procedimento utiliza o [conector Azure Monitor Logs](/connectors/azuremonitorlogs/) que permite executar uma consulta de registo a partir de uma aplicação lógica e utilizar a sua saída noutras ações do fluxo de trabalho. O [conector de armazenamento Azure Blob](/connectors/azureblob/) é utilizado neste procedimento para enviar a saída de consulta para o armazenamento Azure. As outras ações são descritas nas secções abaixo.
 
 ![Visão geral da aplicação lógica](media/logs-export-logicapp/logic-app-overview.png)
 
@@ -61,7 +61,7 @@ Utilize o procedimento na [Criação de um recipiente](../../storage/blobs/stora
 
 ## <a name="create-logic-app"></a>Criar Aplicação Lógica
 
-Vá a **Aplicações Lógicas** no portal Azure e clique em **Adicionar**. Selecione uma **Subscrição,** **Grupo de Recursos**e **Região** para armazenar a nova aplicação lógica e, em seguida, dar-lhe um nome único. Pode ligar a definição **de Log Analytics** para recolher informações sobre dados e eventos de tempo de execução, conforme descrito nos [registos do Azure Monitor e recolher dados de diagnóstico para apps Azure Logic](../../logic-apps/monitor-logic-apps-log-analytics.md). Esta definição não é necessária para a utilização do conector Azure Monitor Logs.
+Vá a **Aplicações Lógicas** no portal Azure e clique em **Adicionar**. Selecione uma **Subscrição,** **Grupo de Recursos** e **Região** para armazenar a nova aplicação lógica e, em seguida, dar-lhe um nome único. Pode ligar a definição **de Log Analytics** para recolher informações sobre dados e eventos de tempo de execução, conforme descrito nos [registos do Azure Monitor e recolher dados de diagnóstico para apps Azure Logic](../../logic-apps/monitor-logic-apps-log-analytics.md). Esta definição não é necessária para a utilização do conector Azure Monitor Logs.
 
 ![Criar uma aplicação lógica](media/logs-export-logicapp/create-logic-app.png)
 
@@ -131,7 +131,7 @@ A saída da consulta run e a ação **de resultados** da lista é formatada em J
 Pode fornecer um esquema JSON que descreve a carga útil que espera receber. O designer analisa o conteúdo do JSON utilizando este esquema e gera fichas fáceis de utilizar que representam as propriedades no seu conteúdo JSON. Em seguida, pode facilmente referenciar e usar essas propriedades em todo o fluxo de trabalho da sua aplicação lógica. 
 
 
-Clique **+ Novo passo**e, em seguida, clique + Adicione uma **ação**. Em **Escolha uma ação,** escreva **json** e, em seguida, selecione **Parse JSON**.
+Clique **+ Novo passo** e, em seguida, clique + Adicione uma **ação**. Em **Escolha uma ação,** escreva **json** e, em seguida, selecione **Parse JSON**.
 
 ![Selecione atividade de Parse JSON](media/logs-export-logicapp/select-parse-json.png)
 
@@ -166,7 +166,7 @@ Clique na caixa **de Conteúdo** para mostrar uma lista de valores de atividades
 ## <a name="add-the-compose-action"></a>Adicione a ação compor
 A **ação Compose** requer a saída JSON analisada e cria o objeto que precisa de armazenar na bolha.
 
-Clique **+ Novo passo**e, em seguida, clique + Adicione uma **ação**. Em **Escolha uma ação,** **escreva compor** e, em seguida, selecione a ação **Compor.**
+Clique **+ Novo passo** e, em seguida, clique + Adicione uma **ação**. Em **Escolha uma ação,** **escreva compor** e, em seguida, selecione a ação **Compor.**
 
 ![Selecione Compor ação](media/logs-export-logicapp/select-compose.png)
 
@@ -179,7 +179,7 @@ Clique na caixa **de Entradas** mostrar uma lista de valores de atividades anter
 ## <a name="add-the-create-blob-action"></a>Adicione a ação Create Blob
 A ação Create Blob escreve o JSON composto para armazenamento.
 
-Clique **+ Novo passo**e, em seguida, clique + Adicione uma **ação**. Em **Escolha uma ação,** escreva **blob** e, em seguida, selecione a ação **Create Blob.**
+Clique **+ Novo passo** e, em seguida, clique + Adicione uma **ação**. Em **Escolha uma ação,** escreva **blob** e, em seguida, selecione a ação **Create Blob.**
 
 ![Selecione Criar blob](media/logs-export-logicapp/select-create-blob.png)
 

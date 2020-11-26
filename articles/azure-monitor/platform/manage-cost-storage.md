@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 940955c8ace956354a2747f5ad21430620c2a9d1
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: b84d24174771e8395677874c9dac863fa6f27a54
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95744573"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185917"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com Registos do Azure Monitor    
 
@@ -78,7 +78,7 @@ Os custos do Log Analytics são adicionados à sua conta Azure. Pode ver detalhe
 
 ## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Visualização do uso do Log Analytics na sua conta Azure 
 
-O Azure fornece uma grande funcionalidade útil no centro [Azure Cost Management + Billing.](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%252fazure%252fbilling%252fTOC.json) Por exemplo, a funcionalidade "Análise de Custos" permite-lhe visualizar os seus gastos para os recursos Azure. Em primeiro lugar, adicione um filtro por "Tipo de Recurso" (para microsoft.operationalinsights/workspace para Log Analytics e microsoft.operationalinsights/workspace para Log Analytics Clusters) permitir-lhe-á rastrear o seu gasto log Analytics. Em seguida, para "Grupo por" selecione "Categoria de Contador" ou "Medidor".  Note que outros serviços como o Azure Security Center e o Azure Sentinel também faturam o seu uso contra os recursos do espaço de trabalho Log Analytics. Para ver o mapeamento do nome de Serviço, pode selecionar a vista 'Tabela' em vez de um gráfico. 
+O Azure fornece uma grande funcionalidade útil no centro [Azure Cost Management + Billing.](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) Por exemplo, a funcionalidade "Análise de Custos" permite-lhe visualizar os seus gastos para os recursos Azure. Em primeiro lugar, adicione um filtro por "Tipo de Recurso" (para microsoft.operationalinsights/workspace para Log Analytics e microsoft.operationalinsights/workspace para Log Analytics Clusters) permitir-lhe-á rastrear o seu gasto log Analytics. Em seguida, para "Grupo por" selecione "Categoria de Contador" ou "Medidor".  Note que outros serviços como o Azure Security Center e o Azure Sentinel também faturam o seu uso contra os recursos do espaço de trabalho Log Analytics. Para ver o mapeamento do nome de Serviço, pode selecionar a vista 'Tabela' em vez de um gráfico. 
 
 Pode compreender melhor a utilização ao [transferir a utilização a partir do portal do Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). Na folha de cálculo transferida, pode ver a utilização por recurso do Azure (por exemplo, a área de trabalho do Log Analytics) por dia. Nesta folha de cálculo do Excel, a utilização dos seus espaços de trabalho Log Analytics pode ser encontrada através da primeira filtragem na coluna "Meter Category" para mostrar "Log Analytics", "Insights and Analytics" (usado por alguns dos níveis de preços do legado) e "Azure Monitor" (usado pelos níveis de preços da Reserva de Capacidade), e, em seguida, adicionar um filtro na coluna "Instance ID" que é "contém espaço de trabalho" ou "cluster" (este último inclui o Log Analytics). A utilização é mostrada na coluna "Quantidade Consumida" e a unidade para cada entrada é mostrada na coluna "Unidade de Medida".  Estão disponíveis mais detalhes para o ajudar a [entender a fatura do Microsoft Azure](../../cost-management-billing/understand/review-individual-bill.md). 
 
@@ -128,7 +128,7 @@ Nenhum dos níveis de preços antigos tem preços regionais.
 
 ## <a name="log-analytics-and-security-center"></a>Log Analytics e Centro de Segurança
 
-A faturação [do Azure Security Center](https://docs.microsoft.com/azure/security-center/) está intimamente ligada à faturação do Log Analytics. O Security Center fornece uma alocação de 500 MB/nó/dia contra um conjunto de tipos de [dados](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-category#security) de segurança (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) e os tipos de dados Update and UpdateSummary quando a solução de Gestão de Atualização não está a funcionar no espaço de trabalho ou na solução-alvo está ativada. Se o espaço de trabalho estiver no nível de preços per nóleiro legado, as alocações do Security Center e do Log Analytics são combinadas e aplicadas conjuntamente a todos os dados ingeridos.  
+A faturação [do Azure Security Center](../../security-center/index.yml) está intimamente ligada à faturação do Log Analytics. O Security Center fornece uma alocação de 500 MB/nó/dia contra um conjunto de tipos de [dados](/azure/azure-monitor/reference/tables/tables-category#security) de segurança (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) e os tipos de dados Update and UpdateSummary quando a solução de Gestão de Atualização não está a funcionar no espaço de trabalho ou na solução-alvo está ativada. Se o espaço de trabalho estiver no nível de preços per nóleiro legado, as alocações do Security Center e do Log Analytics são combinadas e aplicadas conjuntamente a todos os dados ingeridos.  
 
 ## <a name="change-the-data-retention-period"></a>Change the data retention period (Alterar o período de retenção de dados)
 
@@ -481,7 +481,7 @@ Algumas sugestões para reduzir o volume de registos recolhidos incluem:
 | Contadores de desempenho       | Altere a [configuração do contador de desempenho](data-sources-performance-counters.md) para: <br> - Reduzir a frequência da recolha <br> - Reduzir o número de contadores de desempenho |
 | Registos de eventos                 | Altere a [configuração do registo de eventos](data-sources-windows-events.md) para: <br> - Reduzir o número de registos de eventos recolhidos <br> - Recolher apenas níveis de eventos necessários. Por exemplo, não recolher eventos de nível *Informação* |
 | Syslog                     | Altere a [configuração do syslog](data-sources-syslog.md) para: <br> - Reduzir o número de instalações recolhidas <br> - Recolher apenas níveis de eventos necessários. Por exemplo, não recolher eventos de nível *Informação* e *Depuração* |
-| AzureDiagnostics           | Alterar [a recolha de registos de recursos](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-in-azure-portal) para: <br> - Reduzir o número de registos de envio de recursos do Log Analytics <br> - Recolher apenas registos necessários |
+| AzureDiagnostics           | Alterar [a recolha de registos de recursos](./diagnostic-settings.md#create-in-azure-portal) para: <br> - Reduzir o número de registos de envio de recursos do Log Analytics <br> - Recolher apenas registos necessários |
 | Dados de solução de computadores que não precisam da solução | Utilize [soluções direcionadas](../insights/solution-targeting.md) para recolher dados de grupos de computadores apenas necessários. |
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>Receber os nós como faturado no nível de preços per nódoa

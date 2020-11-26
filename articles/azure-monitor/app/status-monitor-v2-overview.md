@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 0fa0b0d5e3620fc45a104ea31fd3bcbedd673da1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0ce969a4ab016d6a036d33a0e9bf027bb580a20
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318951"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186223"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Implementar o Agente de Insights de Aplicação do Monitor Azure para servidores no local
 
@@ -67,7 +67,7 @@ Cada uma destas opções é descrita nas [instruções detalhadas](status-monito
   - O [get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) cmdlet pode ser utilizado para verificar se a ativação foi bem sucedida.
   - Recomendamos que utilize [métricas vivas](./live-stream.md) para determinar rapidamente se a sua aplicação está a enviar telemetria.
 
-  - Também pode utilizar [o Log Analytics](../log-query/get-started-portal.md) para listar todas as funções em nuvem que estão a enviar telemetria:
+  - Também pode utilizar [o Log Analytics](../log-query/log-analytics-tutorial.md) para listar todas as funções em nuvem que estão a enviar telemetria:
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
@@ -86,4 +86,3 @@ Adicionar mais telemetria:
 * [Criar testes Web](monitor-web-app-availability.md) para se certificar de que mantém o seu site em direto.
 * [Adicione telemetria ao cliente web](./javascript.md) para ver exceções do código da página web e para ativar chamadas de rastreio.
 * [Adicione o SDK de Insights de Aplicação ao seu código para](./asp-net.md) que possa inserir rastreios e chamadas de registo.
-

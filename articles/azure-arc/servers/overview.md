@@ -4,12 +4,12 @@ description: Saiba como usar o Azure Arc habilitado os servidores a gerir servid
 keywords: automação azul, DSC, powershell, configuração de estado desejada, gestão de atualização, rastreio de alterações, inventário, runbooks, python, gráfico, híbrido
 ms.date: 11/12/2020
 ms.topic: overview
-ms.openlocfilehash: 2df970f7c94f1e306243aba1480ee7023b8f76c1
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8368f89b8e471698ede3e9e8eb691e69f494b6e2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578727"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183401"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>O que são servidores preparados para o Azure Arc?
 
@@ -29,7 +29,7 @@ Quando liga a sua máquina a servidores ativados do Azure Arc, permite a capacid
 
 - Simplificar a implementação com outros serviços Azure [Automation State Configuration](../../automation/automation-dsc-overview.md) e Azure Monitor Log Analytics utilizando as [extensões Azure VM](manage-vm-extensions.md) suportadas para as suas janelas não-Azure ou máquina Linux. Isto inclui a realização de configuração pós-implantação ou instalação de software utilizando a extensão de script personalizado.
 
-- Utilize [a Gestão de Atualização](../../automation/update-management/update-mgmt-overview.md) na Azure Automation para gerir as atualizações do sistema operativo para os seus servidores Windows e Linux
+- Utilize [a Gestão de Atualização](../../automation/update-management/overview.md) na Azure Automation para gerir as atualizações do sistema operativo para os seus servidores Windows e Linux
 
     > [!NOTE]
     > Neste momento, não é suportado o modo de ativação da Gestão de Atualização diretamente a partir de um servidor ativado pelo Arc. Consulte [a Gestão de Atualização ativar a partir da sua conta Demômes](../../automation/update-management/enable-from-automation-account.md) para compreender os requisitos e como ativar o seu servidor.

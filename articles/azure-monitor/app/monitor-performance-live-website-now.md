@@ -4,12 +4,12 @@ description: Monitorize o desempenho de um site sem o reimplementar. Funciona co
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6c27c78bf8e3f3b8af342a14a38c9be3821d781a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 53dbcc341fdd4bc194d34d40cdd2a975df496376
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020930"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186308"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Aplicações web de instrumentos em tempo de execução com App Insights Codeless Attach
 
@@ -40,14 +40,14 @@ Segue-se um resumo do que pode usufruir:
 
 |  | Hora da compilação | Tempo de execução |
 | --- | --- | --- |
-| **Pedidos & exceções** |Sim |Sim |
-| **[Exceções mais detalhadas](./asp-net-exceptions.md)** | |Sim |
+| **Pedidos & exceções** |Yes |Yes |
+| **[Exceções mais detalhadas](./asp-net-exceptions.md)** | |Yes |
 | **[Diagnóstico de dependência](./asp-net-dependencies.md)** |Em .NET 4.6+, mas com menos detalhe |Sim, detalhe completo: códigos de resultado, texto do comando do SQL, verbo HTTP|
-| **[Contadores de desempenho do sistema](./performance-counters.md)** |Sim |Sim |
-| **[API para telemetria personalizada][api]** |Sim |Não |
-| **[Integração de registo de rastreio](./asp-net-trace-logs.md)** |Sim |Não |
-| **[Visualização da página & dados do utilizador](./javascript.md)** |Sim |Não |
-| **É necessário reprogramar o código** |Sim | Não |
+| **[Contadores de desempenho do sistema](./performance-counters.md)** |Yes |Yes |
+| **[API para telemetria personalizada][api]** |Yes |No |
+| **[Integração de registo de rastreio](./asp-net-trace-logs.md)** |Yes |No |
+| **[Visualização da página & dados do utilizador](./javascript.md)** |Yes |No |
+| **É necessário reprogramar o código** |Yes | No |
 
 
 
@@ -93,7 +93,7 @@ Estes são alguns passos que pode executar para confirmar que a sua instalação
 
 - Confirme que o ficheiro applicationInsights.config está presente no diretório de aplicações-alvo e contém o seu ikey.
 
-- Se suspeitar que os dados estão em falta, pode fazer uma consulta no [Analytics](../log-query/get-started-portal.md) para listar todas as funções em nuvem que estão atualmente a enviar telemetria.
+- Se suspeitar que os dados estão em falta, pode fazer uma consulta no [Analytics](../log-query/log-analytics-tutorial.md) para listar todas as funções em nuvem que estão atualmente a enviar telemetria.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
@@ -340,4 +340,3 @@ Adicionar mais telemetria:
 [qna]: ../faq.md
 [roles]: ./resources-roles-access-control.md
 [usage]: ./javascript.md
-

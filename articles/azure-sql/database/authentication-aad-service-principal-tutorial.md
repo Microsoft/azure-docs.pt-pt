@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/21/2020
-ms.openlocfilehash: 6231e4631c19aa3595fa85ca0aa7997861de65a3
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e068ad01c07af4e5833399c0053da3362cd6aaa6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675042"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185645"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Tutorial: Criar utilizadores de AD Azure usando aplicações AD Azure
 
@@ -27,7 +27,7 @@ Este artigo leva-o através do processo de criação de utilizadores Azure AD na
 
 Para obter mais informações sobre a autenticação Azure AD para Azure SQL, consulte o artigo Autenticação do [Diretório Ativo Azure](authentication-aad-overview.md).
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > - Atribua uma identidade ao servidor lógico Azure SQL
@@ -82,7 +82,7 @@ Neste tutorial, ficará a saber como:
 
 1. Também pode verificar a identidade indo ao [portal Azure](https://portal.azure.com).
 
-    - Sob o recurso **Azure Ative Directory,** aceda às **aplicações da Enterprise** . Digite o nome do seu servidor lógico SQL. Verá que tem um **ID de objeto** ligado ao recurso.
+    - Sob o recurso **Azure Ative Directory,** aceda às **aplicações da Enterprise**. Digite o nome do seu servidor lógico SQL. Verá que tem um **ID de objeto** ligado ao recurso.
     
     :::image type="content" source="media/authentication-aad-service-principals-tutorial/enterprise-applications-object-id.png" alt-text="objeto-id":::
 
@@ -163,9 +163,9 @@ Para obter uma abordagem semelhante sobre como definir a permissão dos Leitores
 
     Certifique-se de adicionar as **permissões de Aplicação,** bem como as **permissões delegadas.**
 
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="objeto-id":::
+    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="Screenshot mostrando a página de registos da App para O Diretório Ativo Azure. É destacada uma aplicação com o nome display AppSP.":::
 
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="objeto-id":::
+    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="api-permissões":::
 
 2. Também terá de criar um segredo de cliente para se inscrever. Siga o guia aqui para [fazer o upload de um certificado ou criar um segredo para iniciar sessão.](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)
 
@@ -179,9 +179,9 @@ Para obter mais informações sobre como criar uma aplicação AD Azure, consult
 
 ### <a name="permissions-required-to-set-or-unset-the-azure-ad-admin"></a>Permissões necessárias para definir ou desaparasitar o administrador AD Azure
 
-Para que o diretor de serviço desconfiem ou desinteça um administrador AD Azure para o Azure SQL, é necessária uma Autorização API adicional. A permissão da API [de aplicação.Read.All](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) Application terá de ser adicionada à sua aplicação em Azure AD.
+Para que o diretor de serviço desconfiem ou desinteça um administrador AD Azure para o Azure SQL, é necessária uma Autorização API adicional. A permissão da API [de aplicação.Read.All](/graph/permissions-reference#application-permissions-18) Application terá de ser adicionada à sua aplicação em Azure AD.
 
-:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="objeto-id":::
+:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Diretório.Reader.Todas as permissões em Azure AD":::
 
 O diretor de serviço também necessitará da função [**de contribuinte do SQL Server**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) para a Base de Dados SQL, ou da [**função de contribuinte de instância gerida sql**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) para a sql Managed Instance.
 
@@ -223,7 +223,7 @@ Uma vez criado um principal de serviço em Azure AD, crie o utilizador na Base d
 > [!IMPORTANT]
 > O diretor de serviço utilizado para iniciar sessão na SQL Database deve ter um segredo de cliente. Se não tiver um, siga o passo 2 da [Create a principal de serviço (uma aplicação AD Azure) em Azure AD](#create-a-service-principal-an-azure-ad-application-in-azure-ad). Este segredo do cliente precisa de ser adicionado como um parâmetro de entrada no script abaixo.
 
-1. Utilize o seguinte script para criar um *myapp* principal de serviço AZure AD utilizando o serviço principal *AppSP* .
+1. Utilize o seguinte script para criar um *myapp* principal de serviço AZure AD utilizando o serviço principal *AppSP*.
 
     - `<TenantId>`Substitua-a `TenantId` mais cedo.
     - `<ClientId>`Substitua-a `ClientId` mais cedo.

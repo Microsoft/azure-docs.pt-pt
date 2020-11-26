@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
 ms.date: 10/28/2020
-ms.openlocfilehash: c0c925f68e8edbae00f980d9445c59d7213a4b25
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 6b6ae2ffca420dc126d56c0f1cfed9188dec0e47
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901307"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185611"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -52,7 +52,7 @@ Configuração redundante de zona para o nível de serviço de finalidade geral 
 
 A configuração redundante da zona para o nível de finalidade geral tem duas camadas:  
 
-- Uma camada de dados estatal com os ficheiros de base de dados (.mdf/.ldf) que são armazenados em ZRS PFS [(parte de ficheiros premium](../../storage/files/storage-how-to-create-premium-fileshare.md)de armazenamento redundante de zona . Utilizando [o armazenamento redundante de zona,](../../storage/common/storage-redundancy.md) os ficheiros de dados e registos são copiados sincronizadamente em três zonas de disponibilidade de Azure fisicamente isoladas.
+- Uma camada de dados imponente com os ficheiros de base de dados (.mdf/.ldf) que são armazenados em ZRS PFS [(parte de ficheiros premium](../../storage/files/storage-how-to-create-premium-fileshare.md)de armazenamento redundante de zona . Utilizando [o armazenamento redundante de zona,](../../storage/common/storage-redundancy.md) os ficheiros de dados e registos são copiados sincronizadamente em três zonas de disponibilidade de Azure fisicamente isoladas.
 - Uma camada de computação apátrida que executa o processo sqlservr.exe e contém apenas dados transitórios e em cache, tais como TempDB, bases de dados de modelos no SSD anexado, e cache de plano, piscina tampão e piscina de colunas na memória. Este nó apátrida é operado pela Azure Service Fabric que inicializa sqlservr.exe, controla a saúde do nó, e executa falha em outro nó, se necessário. Para bases de dados de finalidades gerais redundantes de zona, os nós com capacidade suplente estão prontamente disponíveis noutras Zonas de Disponibilidade para falha.
 
 A versão redundante da zona da arquitetura de alta disponibilidade para o nível de serviço para fins gerais é ilustrada pelo seguinte diagrama:
@@ -94,7 +94,7 @@ A versão redundante da zona da arquitetura de alta disponibilidade é ilustrada
 
 ## <a name="hyperscale-service-tier-availability"></a>Disponibilidade de nível de serviço de hiperescala
 
-A arquitetura de nível de serviço de hiperescala é descrita na [arquitetura de funções distribuídas](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#distributed-functions-architecture) e só está atualmente disponível para base de dados SQL, e não SQL Managed Instance.
+A arquitetura de nível de serviço de hiperescala é descrita na [arquitetura de funções distribuídas](./service-tier-hyperscale.md#distributed-functions-architecture) e só está atualmente disponível para base de dados SQL, e não SQL Managed Instance.
 
 ![Arquitetura funcional de hiperescala](./media/high-availability-sla/hyperscale-architecture.png)
 
@@ -102,12 +102,12 @@ O modelo de disponibilidade em Hiperescala inclui quatro camadas:
 
 - Uma camada de computação apátrida que executa os `sqlservr.exe` processos e contém apenas dados transitórios e em cache, tais como cache RBPEX não-cobrindo, TempDB, base de dados de modelos, etc. no SSD anexo, e cache de plano, piscina tampão e piscina de colunas na memória. Esta camada apátrida inclui a réplica do cálculo primário e opcionalmente uma série de réplicas de computação secundária que podem servir como alvos de failover.
 - Uma camada de armazenamento apátrida formada por servidores de página. Esta camada é o motor de armazenamento distribuído para os `sqlservr.exe` processos em execução nas réplicas computacional. Cada servidor de página contém apenas dados transitórios e em cache, tais como a cobertura da cache RBPEX no SSD anexado e páginas de dados em cache na memória. Cada servidor de página tem um servidor de página emparelhado numa configuração ativa para fornecer equilíbrio de carga, redundância e alta disponibilidade.
-- Uma camada de armazenamento de registo de transações estatal formada pelo nó de cálculo que executa o processo de serviço log, a zona de aterragem de registo de transações e armazenamento de registo de transações a longo prazo. Zona de aterragem e armazenamento de longo prazo utilizam o Azure Storage, que fornece disponibilidade e [redundância](https://docs.microsoft.com/azure/storage/common/storage-redundancy) para registo de transações, garantindo a durabilidade dos dados para transações comprometidas.
-- Uma camada de armazenamento de dados com os ficheiros de base de dados (.mdf/.ndf) que são armazenados no Azure Storage e são atualizados pelos servidores de página. Esta camada utiliza recursos de disponibilidade de dados e [redundância](https://docs.microsoft.com/azure/storage/common/storage-redundancy) do Azure Storage. Garante que todas as páginas de um ficheiro de dados serão preservadas mesmo que os processos noutras camadas de arquitetura hyperscale caiam, ou se os nós de computação falharem.
+- Uma camada de armazenamento de registo de transações estatal formada pelo nó de cálculo que executa o processo de serviço log, a zona de aterragem de registo de transações e armazenamento de registo de transações a longo prazo. Zona de aterragem e armazenamento de longo prazo utilizam o Azure Storage, que fornece disponibilidade e [redundância](../../storage/common/storage-redundancy.md) para registo de transações, garantindo a durabilidade dos dados para transações comprometidas.
+- Uma camada de armazenamento de dados com os ficheiros de base de dados (.mdf/.ndf) que são armazenados no Azure Storage e são atualizados por servidores de página. Esta camada utiliza recursos de disponibilidade de dados e [redundância](../../storage/common/storage-redundancy.md) do Azure Storage. Garante que todas as páginas de um ficheiro de dados serão preservadas mesmo que os processos noutras camadas de arquitetura hyperscale caiam, ou se os nós de computação falharem.
 
 Os nós computativos em todas as camadas de Hiperescala funcionam no Azure Service Fabric, que controla a saúde de cada nó e executa falhas para os nós saudáveis disponíveis, se necessário.
 
-Para obter mais informações sobre a elevada disponibilidade em Hiperescala, consulte [Base de Dados Alta Disponibilidade em Hiperescala.](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#database-high-availability-in-hyperscale)
+Para obter mais informações sobre a elevada disponibilidade em Hiperescala, consulte [Base de Dados Alta Disponibilidade em Hiperescala.](./service-tier-hyperscale.md#database-high-availability-in-hyperscale)
 
 
 ## <a name="accelerated-database-recovery-adr"></a>Recuperação acelerada da base de dados (ADR)
@@ -133,7 +133,7 @@ Uma falha pode ser iniciada usando PowerShell, REST API ou Azure CLI:
 
 A Azure SQL Database e Azure SQL Managed Instance apresentam uma solução de alta disponibilidade incorporada, que está profundamente integrada com a plataforma Azure. Depende do Tecido de Serviço para deteção e recuperação de falhas, no armazenamento de Azure Blob para proteção de dados, e em Zonas de Disponibilidade para maior tolerância a falhas (como mencionado anteriormente no documento ainda não aplicável ao Azure SQL Managed Instance). Além disso, a SQL Database e a SQL Managed Instance aproveitam a tecnologia de grupo de disponibilidade Always On a partir da instância sql Server para replicação e failover. A combinação destas tecnologias permite que as aplicações percebam plenamente os benefícios de um modelo de armazenamento misto e suportem os SLAs mais exigentes.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [as Zonas de Disponibilidade Azure](../../availability-zones/az-overview.md)
 - Saiba mais sobre [o Tecido de Serviço](../../service-fabric/service-fabric-overview.md)

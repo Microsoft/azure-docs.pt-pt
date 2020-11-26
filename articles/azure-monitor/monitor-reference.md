@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 654d7b4ddb332906aba330da20d42a0e16ec79e6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5be6a2d73be35b3d637df9364364784d373dabb3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021444"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186699"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorizado pelo Azure Monitor?
 Este artigo descreve as diferentes aplicações e serviços que são monitorizados pelo Azure Monitor. 
@@ -23,7 +23,7 @@ Os principais insights e soluções são considerados parte do Azure Monitor e s
 
 Os insights fornecem uma experiência de monitorização personalizada para aplicações e serviços específicos. Recolhem e analisam registos e métricas.
 
-| Informações | Descrição |
+| Informações | Description |
 |:---|:---|
 | [Application Insights](app/app-insights-overview.md) | Serviço extensível de Gestão de Desempenho de Aplicações (APM) para monitorizar a sua aplicação web ao vivo em qualquer plataforma. |
 | [Monitor Azure para contentores](insights/container-insights-overview.md) | Monitoriza o desempenho das cargas de trabalho dos contentores implantadas em instâncias de contentores Azure ou em agrupamentos de Kubernetes geridos alojados no Serviço Azure Kubernetes (AKS). |
@@ -40,7 +40,7 @@ Os insights fornecem uma experiência de monitorização personalizada para apli
 
 As soluções baseiam-se em consultas de registo e vistas personalizadas para uma determinada aplicação ou serviço. Recolhem e analisam apenas registos e estão a ser depreciados ao longo do tempo em favor de insights.
 
-| Solução | Descrição |
+| Solução | Description |
 |:---|:---|
 | [Saúde do agente](insights/solution-agenthealth.md) | Analise a saúde e configuração dos agentes do Log Analytics. |
 | [Gestão de alertas](platform/alert-management-solution.md) | Analise os alertas recolhidos pelo Gestor de Operações do Centro de Sistema, Nagios ou Zabbix. |
@@ -61,7 +61,7 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |Active Directory B2C | No | No | No |  |
 |Active Directory Domain Services | No | Yes | No |  |
 |Registo de atividades | No | Yes | No | |
-|Advanced Threat Protection | No | No | No |  |
+|Proteção Avançada Contra Ameaças | No | No | No |  |
 |Assistente | No | No | No |  |
 |AI Builder | No | No | No |  |
 |Analysis Services | Yes | Yes | No |  |
@@ -73,7 +73,7 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |Serviço de Attestation | No | No | No |  |
 |Automatização | Yes | Yes | No |  |
 |Gestor de Serviços Azure (RDFE) | No | No | No |  |
-|Cópia de segurança | No | Yes | No |  |
+|Backup | No | Yes | No |  |
 |Bastion | No | No | No |  |
 |Batch | Yes | Yes | No |  |
 |Batch AI | No | No | No |  |
@@ -86,8 +86,8 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |Container Instances | Yes | No | No |  |
 |Container Registry | Yes | Yes | No |  |
 |Rede de Entrega de Conteúdos (CDN) | No | Yes | No |  |
-|BD do Cosmos | Yes | Yes | [Sim](insights/cosmosdb-insights-overview.md) |  |
-|Gestão de Custos | No | No | No |  |
+|Cosmos DB | Yes | Yes | [Sim](insights/cosmosdb-insights-overview.md) |  |
+|Cost Management | No | No | No |  |
 |Data Box | No | No | No |  |
 |Catálogo de Dados Gen2 | No | No | No |  |
 |Data Explorer | Yes | Yes | No |  |
@@ -116,12 +116,12 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |HPC Cache | No | No | No |  |
 |Information Protection | No | Yes | No |  |
 |Intune | No | Yes | No |  |
-|Centro de IoT | No | No | No |  |
+|IoT Central | No | No | No |  |
 |IoT Hub | Yes | Yes | No |  |
-|Cofre de Chaves | Yes | Yes | [Sim](./insights/key-vault-insights-overview.md) |  |
+|Key Vault | Yes | Yes | [Sim](./insights/key-vault-insights-overview.md) |  |
 |Serviço do Kubernetes (AKS) | No | No | [Sim](insights/container-insights-overview.md)  |  |
 |Balanceador de Carga | Yes | No | No |  |
-|Aplicações Lógicas | Yes | Yes | No |  |
+|Logic Apps | Yes | Yes | No |  |
 |Serviço Machine Learning | No | No | No |  |
 |Aplicações Geridas  | No | No | No |  |
 |Mapas  | No | No | No |  |
@@ -138,21 +138,21 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |Política | No | No | No |  |
 |Power Automate | No | No | Não |  |
 |Power BI Embedded | Yes | Yes | No |  |
-|Private Link | No | No | No |  |
+|Ligação Privada | No | No | No |  |
 |Plataforma de Comunicação de Spool de Projeto | No | No | No |  |
 |Red Hat OpenShift | No | No | No |  |
 |Cache de Redis | Yes | Yes | [Sim](insights/redis-cache-insights-overview.md) | |
 |Resource Graph | No | No | No |  |
 |Resource Manager | No | No | No |  |
 |Pesquisa de Varejo - por Bing | No | No | No |  |
-|Pesquisa | Yes | Yes | No |  |
+|Pesquisar | Yes | Yes | No |  |
 |Service Bus | Yes | Yes | No |  |
 |Service Fabric | No | Yes | No | Agente necessário para monitorizar o sistema operativo dos hóspedes e os fluxos de trabalho.  |
 |Portal de Inscrição | No | No | No |  |
 |Recuperação de sites | No | Yes | No |  |
 |Serviço cloud de primavera | No | No | No |  |
 |Azure Synapse Analytics | Yes | Yes | No |  |
-|SQL Database | Yes | Yes | No |  |
+|Base de Dados SQL | Yes | Yes | No |  |
 |SQL Server Stretch Database | Yes | Yes | No |  |
 |Pilha | No | No | No |  |
 |Armazenamento | Yes | No | [Sim](insights/storage-insights-overview.md) |  |
@@ -187,16 +187,16 @@ Consulte [a visão geral dos agentes do Azure Monitor](platform/agents-overview.
 ## <a name="product-integrations"></a>Integrações de produtos
 Os serviços e soluções na tabela seguinte armazenam os seus dados num espaço de trabalho do Log Analytics para que possa ser analisado com outros dados de registo recolhidos pelo Azure Monitor.
 
-| Produto/Serviço | Descrição |
+| Produto/Serviço | Description |
 |:---|:---|
-| [Automatização do Azure](../automation/index.yml) | Gerir as atualizações do sistema operativo e rastrear as alterações nos computadores Windows e Linux. Ver [Change Tracking](../automation/change-tracking/overview.md) and Update [Management](../automation/update-management/update-mgmt-overview.md). |
+| [Automatização do Azure](../automation/index.yml) | Gerir as atualizações do sistema operativo e rastrear as alterações nos computadores Windows e Linux. Ver [Change Tracking](../automation/change-tracking/overview.md) and Update [Management](../automation/update-management/overview.md). |
 | [Proteção de Informação Azure ](/azure/information-protection/) | Classifique e proteja opcionalmente documentos e e-mails. Consulte [a Central de Informação para Proteção de Informações Azure](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Centro de Segurança do Azure](../security-center/index.yml) | Recolher e analisar eventos de segurança e realizar análises de ameaças. Ver [recolha de dados no Azure Security Center](../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](../sentinel/index.yml) | Conecta-se a diferentes fontes, incluindo o Office 365 e o Amazon Web Services Cloud Trail. Consulte [as fontes de dados do Connect](../sentinel/connect-data-sources.md). |
 | [Microsoft Intune](/intune/) | Crie uma definição de diagnóstico para enviar registos para o Azure Monitor. Consulte [enviar dados de registo para armazenamento, centros de eventos ou analíticos de registo em Intune (pré-visualização)](/intune/fundamentals/review-logs-using-azure-monitor).  |
 | Rede  | [Monitor de Desempenho da Rede](insights/network-performance-monitor.md) - Monitorizar a conectividade da rede e o desempenho para os pontos finais de serviço e aplicação.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) - Analise os registos e métricas do Gateway de Aplicação Azure.<br>[Traffic Analytics](../network-watcher/traffic-analytics.md) - Analisa os registos de fluxo do grupo de segurança da rede Network Watcher (NSG) para fornecer informações sobre o fluxo de tráfego na sua nuvem Azure. |
 | [Office 365](insights/solution-office-365.md) | Monitorize o ambiente do Seu Escritório 365. Versão atualizada com melhor embarque disponível através do Azure Sentinel. |
-| [Análise de SQL](insights/azure-sql.md) | Monitorize o desempenho das bases de dados Azure SQL e das instâncias geridas sql em escala e em várias subscrições. |
+| [SQL Analytics](insights/azure-sql.md) | Monitorize o desempenho das bases de dados Azure SQL e das instâncias geridas sql em escala e em várias subscrições. |
 | [Surface Hub](insights/surface-hubs.md) | Acompanhe a saúde e a utilização dos dispositivos Surface Hub. |
 | [System Center Operations Manager](/system-center/scom) | Recolher dados de agentes do Gestor de Operações ligando o seu grupo de gestão ao Azure Monitor. Ver [Gestor de Operações de Ligação ao Monitor Azure](platform/om-agents.md)<br> Avalie o risco e a saúde do seu grupo de gestão de operações do System Center Com a solução [de Avaliação do Gestor de Operações.](insights/scom-assessment.md) |
 | [Salas microsoft teams](/microsoftteams/room-systems/azure-monitor-deploy) | Gestão integrada e de ponta a ponta dos dispositivos Microsoft Teams Rooms. |
@@ -208,7 +208,7 @@ Os serviços e soluções na tabela seguinte armazenam os seus dados num espaço
 ## <a name="other-solutions"></a>Outras soluções
 Outras soluções estão disponíveis para monitorizar diferentes aplicações e serviços, mas o desenvolvimento ativo parou e podem não estar disponíveis em todas as regiões. Estão abrangidos pelo acordo de nível de serviço de ingestão de dados Azure Log Analytics.
 
-| Solução | Descrição |
+| Solução | Description |
 |:---|:---|
 | [Verificação de saúde do Diretório Ativo](insights/ad-assessment.md) | Avalie o risco e a saúde dos seus ambientes de Diretório Ativo. |
 | [Estado de replicação do Diretório Ativo](insights/ad-replication-status.md) | Monitoriza regularmente o seu ambiente ative directory para eventuais falhas de replicação. |
@@ -222,7 +222,7 @@ Outras soluções estão disponíveis para monitorizar diferentes aplicações e
 
 ## <a name="third-party-integration"></a>Integração de terceiros
 
-| Solução | Descrição |
+| Solução | Description |
 |:---|:---|
 | [ITSM](platform/itsmc-overview.md) | O Conector de Gestão de Serviços de TI (ITSMC) permite ligar o Azure a um produto/serviço de Gestão de Serviços de TI (ITSM) suportado.  |
 
@@ -238,11 +238,10 @@ O Azure Monitor pode recolher dados de recursos fora de Azure utilizando os mét
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia mais sobre a [plataforma de dados do Azure Monitor que armazena os registos e métricas recolhidos por insights e soluções.](platform/data-platform.md)
 - Preencha um [tutorial sobre a monitorização de um recurso Azure](learn/tutorial-resource-logs.md).
 - Preencha um [tutorial sobre a escrita de uma consulta de registo para analisar dados em Registos do Monitor Azure](learn/tutorial-resource-logs.md).
 - Preencha um [tutorial sobre a criação de um gráfico de métricas para analisar dados em Azure Monitor Metrics](learn/tutorial-metrics-explorer.md).
 
- 

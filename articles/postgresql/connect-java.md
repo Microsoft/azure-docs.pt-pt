@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
 ms.openlocfilehash: 42547338c0f5f2f3105833b12e499d40b6209b05
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341421"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184710"
 ---
 # <a name="quickstart-use-java-and-jdbc-with-azure-database-for-postgresql"></a>Quickstart: Use Java e JDBC com Base de Dados Azure para PostgreSQL
 
@@ -43,11 +43,11 @@ AZ_POSTGRESQL_PASSWORD=<YOUR_POSTGRESQL_PASSWORD>
 AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 ```
 
-Substitua os espaços reservados pelos seguintes valores, que são utilizados ao longo deste artigo:
+Substitua os marcadores de posição pelos seguintes valores, que são utilizados ao longo deste artigo:
 
-- `<YOUR_DATABASE_NAME>`: O nome do seu servidor PostgreSQL. Deve ser único em todo o Azure.
-- `<YOUR_AZURE_REGION>`: A região de Azure que você vai usar. Pode usar `eastus` por defeito, mas recomendamos que configuure uma região mais próxima do local onde vive. Pode ter a lista completa das regiões disponíveis através da `az account list-locations` entrada.
-- `<YOUR_POSTGRESQL_PASSWORD>`: A palavra-passe do seu servidor de base de dados PostgreSQL. Essa senha deve ter um mínimo de oito caracteres. Os caracteres devem ser de três das seguintes categorias: letras maiúsculas inglesas, letras minúsculas inglesas, números (0-9) e caracteres não alfanuméricos (!, $, #, %, e assim por diante).
+- `<YOUR_DATABASE_NAME>`: O nome do seu servidor PostgreSQL. Deve ser um nome exclusivo no Azure.
+- `<YOUR_AZURE_REGION>`: A região de Azure que você vai usar. Pode utilizar a região `eastus` por predefinição, mas recomendamos que configure uma região mais próxima do local onde vive. Pode ter a lista completa das regiões disponíveis através da `az account list-locations` entrada.
+- `<YOUR_POSTGRESQL_PASSWORD>`: A palavra-passe do seu servidor de base de dados PostgreSQL. Essa palavra-passe deve ter pelo menos oito carateres. Os carateres devem enquadrar-se em três das seguintes categorias: letras maiúsculas, letras minúsculas, números (0 a 9) e carateres alfanuméricos (!, $, #, %, entre outros).
 - `<YOUR_LOCAL_IP_ADDRESS>`: O endereço IP do seu computador local, a partir do qual executará a sua aplicação Java. Uma maneira conveniente de encontrá-lo é apontar o seu navegador para [whatismyip.akamai.com.](http://whatismyip.akamai.com/)
 
 Em seguida, crie um grupo de recursos utilizando o seguinte comando:
@@ -60,7 +60,7 @@ az group create \
 ```
 
 > [!NOTE]
-> Utilizamos o `jq` utilitário para exibir dados JSON e torná-lo mais legível. Este utilitário é instalado por padrão na [Azure Cloud Shell](https://shell.azure.com/). Se não gostares desse utilitário, podes remover com segurança a `| jq` parte de todos os comandos que usaremos.
+> Utilizamos o `jq` utilitário para exibir dados JSON e torná-lo mais legível. Este utilitário é instalado por padrão na [Azure Cloud Shell](https://shell.azure.com/). Se não quiser utilizar esse utilitário, pode remover sem problemas a parte `| jq` de todos os comandos que utilizamos.
 
 ## <a name="create-an-azure-database-for-postgresql-instance"></a>Criar uma base de dados de Azure para o caso PostgreSQL
 
@@ -87,7 +87,7 @@ Este comando cria um pequeno servidor PostgreSQL.
 
 ### <a name="configure-a-firewall-rule-for-your-postgresql-server"></a>Configure uma regra de firewall para o seu servidor PostgreSQL
 
-A base de dados Azure para casos postgreSQL são protegidos por padrão. Eles têm uma firewall que não permite qualquer ligação. Para poder utilizar a sua base de dados, é necessário adicionar uma regra de firewall que permita ao endereço IP local aceder ao servidor de base de dados.
+A base de dados Azure para casos postgreSQL são protegidos por padrão. O serviço tem uma firewall que não permite ligações de entrada. Para poder utilizar a sua base de dados, é necessário adicionar uma regra de firewall que permita ao endereço IP local aceder ao servidor de base de dados.
 
 Uma vez que configura o seu endereço IP local no início deste artigo, pode abrir a firewall do servidor executando o seguinte comando:
 
@@ -173,13 +173,13 @@ DROP TABLE IF EXISTS todo;
 CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BOOLEAN);
 ```
 
-## <a name="code-the-application"></a>Código da aplicação
+## <a name="code-the-application"></a>Codificar a aplicação
 
 ### <a name="connect-to-the-database"></a>Ligue-se à base de dados
 
 Em seguida, adicione o código Java que utilizará jDBC para armazenar e obter dados do seu servidor PostgreSQL.
 
-Crie um ficheiro *src/main/java/DemoApplication.java,* que contenha:
+Crie um ficheiro *src/main/java/DemoApplication.java* que contenha:
 
 ```java
 package com.example.demo;
@@ -228,7 +228,7 @@ public class DemoApplication {
 }
 ```
 
-Este código Java utilizará o *ficheiro.propriedades* e os ficheiros *schema.sql* que criámos anteriormente, de forma a ligar ao servidor PostgreSQL e criar um esquema que armazenará os nossos dados.
+Este código Java utilizará o *ficheiro.propriedades* e o *esquema.sql* ficheiros que criámos anteriormente, de forma a ligar ao servidor PostgreSQL e criar um esquema que armazenará os nossos dados.
 
 Neste ficheiro, pode ver que comentámos métodos para inserir, ler, atualizar e apagar dados: codificaremos esses métodos no resto deste artigo, e poderá descomprê-los um após o outro.
 
@@ -318,7 +318,7 @@ public class Todo {
 }
 ```
 
-Esta classe é um modelo de domínio mapeado na `todo` tabela que criou ao executar o script *schema.sql.*
+Esta classe é um modelo de domínio mapeado na `todo` tabela que criou ao executar o script .sql *esquema.*
 
 ### <a name="insert-data-into-azure-database-for-postgresql"></a>Inserir dados na Base de Dados do Azure para PostgreSQL
 
@@ -485,7 +485,7 @@ A execução da classe principal deverá agora produzir a seguinte saída:
 [INFO   ] Closing database connection 
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Parabéns! Criou uma aplicação Java que utiliza o JDBC para armazenar e recuperar dados da Base de Dados Azure para PostgreSQL.
 

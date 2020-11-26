@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: ramakk
-ms.openlocfilehash: 50669dcce044988f2e45acc2a17ae43c140d1ab5
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 96d8ba058a33d408ec2ee2a1adfba9011f393da9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930310"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184489"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Diretrizes para o planeamento de rede dos Azure NetApp Files
 
@@ -56,13 +56,13 @@ A tabela seguinte descreve as topologias de rede suportadas pelos Ficheiros Azur
 
 |    Topologias    |    É apoiado    |     Solução    |
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
-|    Conectividade ao volume num VNet local    |    Sim    |         |
-|    Conectividade ao volume num VNet espremiado (mesma região)    |    Sim    |         |
-|    Conectividade ao volume num VNet espremiado (região cruzada ou persiódia global)    |    Não    |    Nenhum    |
-|    Conectividade a um volume sobre gateway ExpressRoute    |    Sim    |         |
-|    Conectividade desde as instalações até um volume num VNet falado sobre o gateway ExpressRoute e vNet a espreitar com o trânsito de gateway    |    Sim    |        |
-|    Conectividade desde as instalações até um volume num VNet falado sobre o gateway VPN    |    Sim    |         |
-|    Conectividade desde as instalações até um volume num VNet falado sobre gateway VPN e VNet a espreitar com o trânsito de gateway    |    Sim    |         |
+|    Conectividade ao volume num VNet local    |    Yes    |         |
+|    Conectividade ao volume num VNet espremiado (mesma região)    |    Yes    |         |
+|    Conectividade ao volume num VNet espremiado (região cruzada ou persiódia global)    |    No    |    Nenhum    |
+|    Conectividade a um volume sobre gateway ExpressRoute    |    Yes    |         |
+|    Conectividade desde as instalações até um volume num VNet falado sobre o gateway ExpressRoute e vNet a espreitar com o trânsito de gateway    |    Yes    |        |
+|    Conectividade desde as instalações até um volume num VNet falado sobre o gateway VPN    |    Yes    |         |
+|    Conectividade desde as instalações até um volume num VNet falado sobre gateway VPN e VNet a espreitar com o trânsito de gateway    |    Yes    |         |
 
 
 ## <a name="virtual-network-for-azure-netapp-files-volumes"></a>Rede virtual para volumes de ficheiros Azure NetApp
@@ -116,7 +116,7 @@ O seguinte diagrama ilustra um ambiente híbrido:
 
 ![Ambiente de networking híbrido](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
-No cenário híbrido, as aplicações dos datacenters no local precisam de acesso aos recursos em Azure.  É o caso de querer estender o seu datacenter ao Azure, ou se pretende utilizar serviços nativos do Azure ou para a recuperação de desastres. Consulte opções de [planeamento do Gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%252fazure%252fvirtual-network%252ftoc.json#planningtable) para obter informações sobre como ligar vários recursos no local aos recursos em Azure através de uma VPN site-to-site ou um ExpressRoute.
+No cenário híbrido, as aplicações dos datacenters no local precisam de acesso aos recursos em Azure.  É o caso de querer estender o seu datacenter ao Azure, ou se pretende utilizar serviços nativos do Azure ou para a recuperação de desastres. Consulte opções de [planeamento do Gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) para obter informações sobre como ligar vários recursos no local aos recursos em Azure através de uma VPN site-to-site ou um ExpressRoute.
 
 Numa topologia híbrida falada por hub, o hub VNet em Azure funciona como um ponto central de conectividade para a sua rede no local. Os raios são VNets espreitados com o centro, e podem ser usados para isolar cargas de trabalho.
 

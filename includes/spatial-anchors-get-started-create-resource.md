@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/20/2020
 ms.author: parkerra
 ms.openlocfilehash: 131b21ea7bc47df9654dd7c163eb22adb68e6678
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95971471"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185320"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Criar um recurso de âncoras espaciais
 

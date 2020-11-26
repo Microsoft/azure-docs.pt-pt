@@ -6,14 +6,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: d00ffb1cb9b9fd6231322d4ef5bfebfbe242eac7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3c3a20d8401affc519e118c7f2295339990e7dee
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014242"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186512"
 ---
-# <a name="azure-monitor-logs-overview"></a>Visão geral dos registos do monitor Azure
+# <a name="azure-monitor-logs-overview"></a>Descrição geral dos Registos do Azure Monitor
 Azure Monitor Logs é uma característica do Azure Monitor que recolhe e organiza dados de registo e desempenho a partir de [recursos monitorizados.](../monitor-reference.md) Dados de diferentes fontes, como [registos](platform-logs-overview.md) de plataformas a partir de serviços Azure, dados de registo e desempenho de [agentes de máquinas virtuais,](agents-overview.md)e dados de utilização e desempenho de aplicações podem ser consolidados num único espaço de trabalho para que possam ser [analisados](../app/app-insights-overview.md) em conjunto usando uma linguagem de consulta sofisticada que é capaz de analisar rapidamente milhões de registos. Pode realizar uma consulta simples que apenas recupera um conjunto específico de registos ou realiza análises de dados sofisticadas para identificar padrões críticos nos seus dados de monitorização. Trabalhe com consultas de registo e seus resultados interativamente usando Log Analytics, use-os em regras de alerta para br notificou proativamente de problemas, ou visualizar os seus resultados em um livro ou painel de instrumentos.
 
 > [!NOTE]
@@ -25,11 +25,11 @@ A tabela a seguir descreve algumas das diferentes formas de utilização de Regi
 
 |  |  |
 |:---|:---|
-| **Análise** | Use [o Log Analytics](../log-query/get-started-portal.md) no portal Azure para escrever consultas de [registo](../log-query/log-query-overview.md) e analise interativamente dados de registo usando um poderoso motor de análise |
+| **Análise** | Use [o Log Analytics](../log-query/log-analytics-tutorial.md) no portal Azure para escrever consultas de [registo](../log-query/log-query-overview.md) e analise interativamente dados de registo usando um poderoso motor de análise |
 | **Alerta** | Configure uma [regra de alerta de registo](alerts-log.md) que envia uma notificação ou toma [medidas automatizadas](action-groups.md) quando os resultados da consulta correspondem a um resultado específico. |
-| **Visualizar** | Resultados da consulta de pinos renderizados como tabelas ou gráficos para um [painel de instrumentos Azure](../../azure-portal/azure-portal-dashboards.md).<br>Crie um [livro para](../app/usage-workbooks.md) combinar com vários conjuntos de dados num relatório interativo. <br>Exporte os resultados de uma consulta ao [Power BI](powerbi.md) para utilizar diferentes visualizações e partilhar com utilizadores fora do Azure.<br>Exporte os resultados de uma consulta à [Grafana](grafana-plugin.md) para alavancar o seu dashboarding e combinar com outras fontes de dados.|
+| **Visualizar** | Resultados da consulta de pinos renderizados como tabelas ou gráficos para um [painel de instrumentos Azure](../../azure-portal/azure-portal-dashboards.md).<br>Crie um [livro para](./workbooks-overview.md) combinar com vários conjuntos de dados num relatório interativo. <br>Exporte os resultados de uma consulta ao [Power BI](powerbi.md) para utilizar diferentes visualizações e partilhar com utilizadores fora do Azure.<br>Exporte os resultados de uma consulta à [Grafana](grafana-plugin.md) para alavancar o seu dashboarding e combinar com outras fontes de dados.|
 | **Informações** | Informações [de](../monitor-reference.md#insights-and-core-solutions) suporte que proporcionam uma experiência de monitorização personalizada para aplicações e serviços específicos.  |
-| **Recuperar** | Consulta de registo de acesso resulta de uma linha de comando utilizando [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>A consulta de registo de acesso resulta de uma linha de comando utilizando [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>A consulta de registo de acesso resulta de uma aplicação personalizada utilizando [a API REST](https://dev.loganalytics.io/). |
+| **Recuperar** | Consulta de registo de acesso resulta de uma linha de comando utilizando [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>A consulta de registo de acesso resulta de uma linha de comando utilizando [cmdlets PowerShell](/powershell/module/az.operationalinsights).<br>A consulta de registo de acesso resulta de uma aplicação personalizada utilizando [a API REST](https://dev.loganalytics.io/). |
 | **Exportar** | Configure [a exportação automatizada de dados de registo](logs-data-export.md) para a conta de armazenamento Azure ou para a Azure Event Hubs.<br>Construa um fluxo de trabalho para recuperar dados de registo e copiá-los para um local externo usando [As Aplicações Lógicas.](logicapp-flow-connector.md) |
 
 ![Visão geral dos registos](media/data-platform-logs/logs-overview.png)
@@ -75,8 +75,8 @@ Os dados são obtidos a partir de um espaço de trabalho do Log Analytics utiliz
 ## <a name="log-analytics"></a>Log Analytics
 Utilize o Log Analytics, que é uma ferramenta no portal Azure, para editar e executar consultas de registo e analisar interativamente os seus resultados. Em seguida, pode utilizar as consultas que cria para suportar outras funcionalidades no Azure Monitor, tais como alertas de consulta de registos e livros de trabalho. Aceder ao Registo Analytics a partir da opção **Logs** no menu Azure Monitor ou da maioria dos outros serviços no portal Azure.
 
-- Consulte [a visão geral do Log Analytics no Azure Monitor](/azure/azure-monitor/log-query/log-analytics-overview) para obter uma descrição do Log Analytics. 
-- Consulte [o tutorial do Log Analytics](/azure/azure-monitor/log-query/log-analytics-tutorial) para passear através das funcionalidades do Log Analytics para criar uma consulta simples de registo e analisar os seus resultados.
+- Consulte [a visão geral do Log Analytics no Azure Monitor](../log-query/log-analytics-overview.md) para obter uma descrição do Log Analytics. 
+- Consulte [o tutorial do Log Analytics](../log-query/log-analytics-tutorial.md) para passear através das funcionalidades do Log Analytics para criar uma consulta simples de registo e analisar os seus resultados.
 
 
 
@@ -84,7 +84,7 @@ Utilize o Log Analytics, que é uma ferramenta no portal Azure, para editar e ex
 Os Registos do Monitor Azure baseiam-se no Azure Data Explorer. Um espaço de trabalho Log Analytics é aproximadamente o equivalente a uma base de dados no Azure Data Explorer, as tabelas são estruturadas da mesma forma, e ambas usam a mesma linguagem de consulta Kusto (KQL). A experiência de usar o Log Analytics para trabalhar com consultas do Azure Monitor no portal Azure é semelhante à experiência que utiliza o Azure Data Explorer Web UI. Pode [inclusivamente incluir dados de um espaço de trabalho log analytics numa consulta do Azure Data Explorer.](/azure/data-explorer/query-monitor-data) 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para recuperar e analisar dados de um espaço de trabalho log analytics.
 - Saiba mais [sobre as métricas no Azure Monitor](data-platform-metrics.md).

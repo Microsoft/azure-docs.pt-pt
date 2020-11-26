@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 4cc345eda8a8d51fb61cbbbd5cf0bf84633ccf0b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ec40e209d522daf882b8c704c7de6a1fb6aa29f9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676097"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183945"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Azure SQL Database e Azure SQL Managed Instance connect and consultaer artigos
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,10 +26,10 @@ O documento que se segue inclui links para exemplos Azure que mostram como conec
 
 ## <a name="quickstarts"></a>Guias de Início Rápido
 
-| Início Rápido | Descrição |
+| Início Rápido | Description |
 |---|---|
 |[SQL Server Management Studio](connect-query-ssms.md)|Este quickstart demonstra como utilizar o SSMS para ligar a uma base de dados e, em seguida, utilizar declarações Transact-SQL para consultar, inserir, atualizar e apagar dados na base de dados.|
-|[Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%252fazure%252fsql-database%252ftoc.json)|Este quickstart demonstra como usar o Azure Data Studio para se conectar a uma base de dados e, em seguida, usar declarações de Transact-SQL (T-SQL) para criar o TutorialDB usado nos tutoriais do Azure Data Studio.|
+|[Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%2fazure%2fsql-database%2ftoc.json)|Este quickstart demonstra como usar o Azure Data Studio para se conectar a uma base de dados e, em seguida, usar declarações de Transact-SQL (T-SQL) para criar o TutorialDB usado nos tutoriais do Azure Data Studio.|
 |[Portal do Azure](connect-query-portal.md)|Este quickstart demonstra como utilizar o editor de consulta para ligar a uma base de dados (apenas Azure SQL Database), e, em seguida, utilizar declarações Transact-SQL para consultar, inserir, atualizar e apagar dados na base de dados.|
 |[Visual Studio Code](connect-query-vscode.md)|Este quickstart demonstra como usar o Código do Estúdio Visual para ligar a uma base de dados e, em seguida, usar declarações Transact-SQL para consultar, inserir, atualizar e apagar dados na base de dados.|
 |[.NET com o Visual Studio](connect-query-dotnet-visual-studio.md)|Este quickstart demonstra como usar a estrutura .NET para criar um programa C# com o Visual Studio para ligar a uma base de dados e usar declarações Transact-SQL para consultar dados.|

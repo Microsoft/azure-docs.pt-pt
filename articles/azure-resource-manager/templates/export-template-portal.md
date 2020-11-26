@@ -3,12 +3,12 @@ title: Modelo de exportação no portal Azure
 description: Utilize o portal Azure para exportar um modelo de Gestor de Recursos Azure a partir de recursos na sua subscrição.
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 6d0c9adb121372047336d2753df047f54f1e0fa2
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: ee97953a337bbb7cc9a8d1f042a3beae7bccdcae
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951762"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185696"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportação única e multi-recursos para um modelo no portal Azure
 
@@ -51,7 +51,7 @@ Ao exportar de um grupo de recursos ou recurso, o modelo exportado é gerado a p
 
 A funcionalidade do modelo de exportação não suporta a exportação de recursos da Azure Data Factory. Para saber como pode exportar recursos da Data Factory, consulte [Copy ou clone uma fábrica de dados na Azure Data Factory.](../../data-factory/copy-clone-data-factory.md)
 
-Para exportar recursos criados através de um modelo de implementação clássico, deve [migrar para o modelo de implementação do Gestor de Recursos.](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+Para exportar recursos criados através de um modelo de implementação clássico, deve [migrar para o modelo de implementação do Gestor de Recursos.](../../virtual-machines/migration-classic-resource-manager-overview.md)
 
 Se receber um aviso ao exportar um modelo que indique que um tipo de recurso não foi exportado, ainda pode descobrir as propriedades desse recurso. Para saber mais sobre as diferentes opções para visualizar propriedades de recursos, consulte [as propriedades de recursos Discover.](view-resources.md) Também pode olhar para a [API Azure REST](/rest/api/azure/) para o tipo de recurso.
 

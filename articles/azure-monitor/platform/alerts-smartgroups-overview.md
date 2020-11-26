@@ -4,12 +4,12 @@ description: Grupos Inteligentes são agregações de alertas que ajudam a reduz
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
-ms.openlocfilehash: dff59ac207e6078a264d1350d24c9e6f4a461d78
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 743bd1a674c034cd6a0350f959289ac3ecb568de
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012889"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186614"
 ---
 # <a name="smart-groups"></a>Grupos inteligentes
 
@@ -33,7 +33,7 @@ Os seguintes estados inteligentes do grupo são apoiados.
 | Confirmado | Um administrador reviu o grupo inteligente e começou a trabalhar nele. |
 | Fechado | A questão foi resolvida. Depois de um grupo inteligente ter sido fechado, pode reabri-lo mudando-o para outro estado. |
 
-[Aprenda a mudar o estado do seu grupo inteligente.](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+[Aprenda a mudar o estado do seu grupo inteligente.](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
 > [!NOTE]
 >  Mudar o estado de um grupo inteligente não altera o estado dos alertas individuais dos membros.
@@ -47,7 +47,7 @@ A página de detalhes do grupo Smart é apresentada quando seleciona um grupo in
 
 A página de detalhe do grupo inteligente inclui as seguintes secções.
 
-| Section | Descrição |
+| Section | Description |
 |:---|:---|
 | Alertas | Lista os alertas individuais incluídos no grupo inteligente. Selecione um alerta para abrir a sua página de detalhes de alerta. |
 | Histórico | Enumera cada ação tomada pelo grupo inteligente e quaisquer alterações que lhe sejam feitas. Isto está atualmente limitado a alterações de estado e alterações de adesão de alerta. |
@@ -58,5 +58,5 @@ O nome de um grupo inteligente é o nome do seu primeiro alerta. Não se pode cr
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Gerir grupos inteligentes](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
-- [Mude o seu estado de alerta e grupo inteligente](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Gerir grupos inteligentes](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+- [Mude o seu estado de alerta e grupo inteligente](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json)

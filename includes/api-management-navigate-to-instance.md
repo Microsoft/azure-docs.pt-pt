@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/08/2020
 ms.author: vlvinogr
 ms.openlocfilehash: 9f430e38fa25f2a8fab972f106333973a41dac4e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994713"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183831"
 ---
 ## <a name="go-to-your-api-management-instance"></a>Vá para a sua instância de Gestão de API
 

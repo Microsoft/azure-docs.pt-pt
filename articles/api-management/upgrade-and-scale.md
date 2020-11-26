@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: c7f0e98b5ea2fdd13b1daa9fd9737998eb6cfaf1
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 466af29a3f073f73d4a0fc62d74709cd59f82425
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "96010219"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183792"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Atualizar e escalar uma instância de gestão da API Azure  
 
@@ -80,7 +80,7 @@ Pode atualizar e descer de e para qualquer nível. A atualização ou degradaç�
 Se estiver a escalar de ou para o nível de Desenvolvedor, haverá tempo de inatividade. Caso contrário, não há tempo de descanso. 
 
 ## <a name="compute-isolation"></a>Isolamento computacional
-Se os seus requisitos de segurança incluirem [isolamento computacional,](https://docs.microsoft.com/azure/azure-government/azure-secure-isolation-guidance#compute-isolation)pode utilizar o nível de preços **isolado.** Este nível garante que os recursos compute de uma instância de serviço de gestão da API consomem todo o hospedeiro físico e fornecem o nível de isolamento necessário para suportar, por exemplo, cargas de trabalho do Departamento de Impacto do Departamento de Defesa dos EUA 5 (IL5). Para ter acesso ao nível isolado, [crie um bilhete de apoio.](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) 
+Se os seus requisitos de segurança incluirem [isolamento computacional,](../azure-government/azure-secure-isolation-guidance.md#compute-isolation)pode utilizar o nível de preços **isolado.** Este nível garante que os recursos compute de uma instância de serviço de gestão da API consomem todo o hospedeiro físico e fornecem o nível de isolamento necessário para suportar, por exemplo, cargas de trabalho do Departamento de Impacto do Departamento de Defesa dos EUA 5 (IL5). Para ter acesso ao nível isolado, [crie um bilhete de apoio.](../azure-portal/supportability/how-to-create-azure-support-request.md) 
 
 
 

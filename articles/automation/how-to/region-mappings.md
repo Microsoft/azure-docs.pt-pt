@@ -5,12 +5,12 @@ ms.date: 10/19/2020
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: bffd1cc0ce2a6a827c0bc708321a6bd2839aae2d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 23e5293301a2fc311565d0c1c8ec5fd92bebe9b2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207330"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183571"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiões suportadas para a área de trabalho do Log Analytics ligada
 
@@ -87,6 +87,6 @@ Em alternativa, pode desvincular o seu espaço de trabalho da sua conta Automati
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre a Gestão de Atualização na [visão geral da Gestão de Atualização](../update-management/update-mgmt-overview.md).
+* Saiba mais sobre a Gestão de Atualização na [visão geral da Gestão de Atualização](../update-management/overview.md).
 * Saiba mais sobre o Rastreio de Alterações e Inventário na [visão geral do Change Tracking e do Inventário](../change-tracking/overview.md).
 * Saiba mais sobre VMs de início/paragem durante as horas de folga em [VMs de início/paragem durante a visão geral fora de horas](../automation-solution-vm-management.md).

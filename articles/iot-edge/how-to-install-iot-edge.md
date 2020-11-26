@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: kgremban
-ms.openlocfilehash: 7ab62b04f8bea76c7efb587665f87ccaf123da24
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a7794bcdfa4f82698fdc5875bc94dcf52b70166e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109005"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185101"
 ---
 # <a name="install-or-uninstall-the-azure-iot-edge-runtime"></a>Instale ou desinstale o tempo de execução do Azure IoT Edge
 
@@ -51,7 +51,7 @@ Prepare o seu dispositivo para aceder aos pacotes de instalação da Microsoft.
      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
      ```
 
-   * **Estirpe raspbiana:**
+   * **Estiramento de Framboesa Pi OS**:
 
      ```bash
      curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
@@ -270,7 +270,7 @@ Se o seu dispositivo estiver offline durante a instalação ou se pretender inst
 
    Microsoft-Azure-IotEdge-arm32.cab também está disponível a partir de 1.0.9 apenas para fins de teste. O IoT Edge não é suportado atualmente em dispositivos Windows ARM32.
 
-   É importante utilizar o script PowerShell a partir da mesma versão que o ficheiro .cabin que utiliza porque a funcionalidade muda para suportar as funcionalidades em cada versão.
+   É importante utilizar o script PowerShell a partir da mesma versão que o ficheiro .cab que utiliza porque a funcionalidade muda para suportar as funcionalidades em cada versão.
 
 3. Se o ficheiro .cab que descarregou tiver um sufixo de arquitetura, mude o nome do ficheiro para apenas **Microsoft-Azure-IoTEdge.cab**.
 
@@ -285,7 +285,7 @@ Se o seu dispositivo estiver offline durante a instalação ou se pretender inst
    Deploy-IoTEdge -OfflineInstallationPath <path>
    ```
 
-   O comando de implantação utilizará todos os componentes encontrados no diretório de ficheiros local fornecido. Se faltar o ficheiro .cabin ou o instalador Visual C++, tentará descarregá-los.
+   O comando de implantação utilizará todos os componentes encontrados no diretório de ficheiros local fornecido. Se o ficheiro .cab ou o instalador Visual C++ estiver em falta, tentará descarregá-los.
 
 ---
 

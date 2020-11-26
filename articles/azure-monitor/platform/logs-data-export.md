@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 1813da8a8a812eeded235d71c351ec352c42707c
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: bd929d06bca370ffab53ce2023188bc12a1d8bd1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920088"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186444"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportação de dados do espaço de trabalho em Azure Monitor (pré-visualização)
 A exportação de dados do espaço de trabalho do Log Analytics no Azure Monitor permite-lhe exportar continuamente dados de tabelas selecionadas no seu espaço de trabalho Log Analytics para uma conta de armazenamento Azure ou Azure Event Hubs à medida que são recolhidos. Este artigo fornece detalhes sobre esta funcionalidade e passos para configurar a exportação de dados nos seus espaços de trabalho.
@@ -68,7 +68,7 @@ Os dados são enviados para as contas de armazenamento a cada hora. A configura�
 
 O caminho da conta de armazenamento é *WorkspaceResourceId=/subscrições/subscrição-id/grupos de recursos/ \<resource-group\> /providers/microsoft.operationalinsights/workspaces/ \<workspace\> /y= \<four-digit numeric year\> \<two-digit numeric month\> /m= \<two-digit numeric day\> /d= /h= \<two-digit 24-hour clock hour\> /m=00/PT1H.jsem*. Uma vez que as bolhas de apêndice estão limitadas a 50 mil escritos em armazenamento, o número de bolhas exportadas pode estender-se se o número de apêndices for elevado. O padrão de nomeação para bolhas em tal caso seria PT1H_#.json, onde # é a contagem incremental de bolhas.
 
-O formato de dados da conta de armazenamento são [linhas JSON.](diagnostic-logs-append-blobs.md) Isto significa que cada registo é delimitado por uma nova linha, sem matriz de registos externos e sem vírgulas entre os registos da JSON. 
+O formato de dados da conta de armazenamento são [linhas JSON.](./resource-logs-blob-format.md) Isto significa que cada registo é delimitado por uma nova linha, sem matriz de registos externos e sem vírgulas entre os registos da JSON. 
 
 [![Dados da amostra de armazenamento](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
@@ -78,7 +78,7 @@ A exportação de dados do Log Analytics pode escrever blobs de apêndice para c
 Os dados são enviados para o seu centro de eventos em tempo quase real, à medida que chegam ao Azure Monitor. É criado um hub de eventos para cada tipo de dados que exporta com o nome *am-* seguido pelo nome da tabela. Por exemplo, a tabela *SecurityEvent* enviaria para um centro de eventos chamado *am-SecurityEvent*. Se quiser que os dados exportados cheguem a um centro de eventos específico, ou se tiver uma tabela com um nome que exceda o limite de 47 caracteres, pode fornecer o nome do seu próprio centro de eventos e exportar todos os dados para tabelas definidas para ele.
 
 Considerações:
-1. O sku 'Basic' event hub suporta [um limite](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-tiers) de tamanho de evento mais baixo e alguns registos no seu espaço de trabalho podem ultrapassá-lo e ser largados. Recomendamos a utilização do centro de eventos 'Standard' ou 'Dedicado' como destino de exportação.
+1. O sku 'Basic' event hub suporta [um limite](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) de tamanho de evento mais baixo e alguns registos no seu espaço de trabalho podem ultrapassá-lo e ser largados. Recomendamos a utilização do centro de eventos 'Standard' ou 'Dedicado' como destino de exportação.
 2. O volume de dados exportados aumenta frequentemente ao longo do tempo, e a escala do centro de eventos precisa de ser aumentada para lidar com taxas de transferência maiores e evitar cenários de estrangulamento e latência de dados. Deve utilizar a função de insuflado automático dos Centros de Eventos para aumentar automaticamente e aumentar o número de unidades de produção e satisfazer as necessidades de utilização. Consulte automaticamente as unidades de produção do [Azure Event Hubs](../../event-hubs/event-hubs-auto-inflate.md) para obter mais detalhes.
 
 ## <a name="prerequisites"></a>Pré-requisitos

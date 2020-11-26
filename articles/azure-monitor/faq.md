@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 391d9562bc73265a10976f485c78e3966aa4fe83
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: b770e4488b6edb1c2d3749066315b552c0b5b40a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536290"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186172"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -31,7 +31,7 @@ Em setembro de 2018, a Microsoft combinou o Azure Monitor, o Log Analytics e o A
 As funcionalidades do Azure Monitor que são automaticamente ativadas, tais como a recolha de métricas e registos de atividades são fornecidas sem custos. Há um custo associado a outras funcionalidades, tais como consultas de log e alerta. Consulte a página de preços do [Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) para obter informações detalhadas sobre os preços.
 
 ### <a name="how-do-i-enable-azure-monitor"></a>Como posso ativar o Azure Monitor?
-O Azure Monitor está ativado no momento em que cria uma nova subscrição do Azure, e as métricas [de registo](./platform/platform-logs-overview.md) de atividade e plataforma são automaticamente [recolhidas.](platform/data-platform-metrics.md) Crie [configurações de diagnóstico](platform/diagnostic-settings.md) para recolher informações mais detalhadas sobre o funcionamento dos seus recursos Azure e adicione soluções de monitorização e [insights](insights/insights-overview.md) para fornecer [análises](insights/solutions.md) adicionais sobre dados recolhidos para determinados serviços. 
+O Azure Monitor está ativado no momento em que cria uma nova subscrição do Azure, e as métricas [de registo](./platform/platform-logs-overview.md) de atividade e plataforma são automaticamente [recolhidas.](platform/data-platform-metrics.md) Crie [configurações de diagnóstico](platform/diagnostic-settings.md) para recolher informações mais detalhadas sobre o funcionamento dos seus recursos Azure e adicione soluções de monitorização e [insights](./monitor-reference.md) para fornecer [análises](insights/solutions.md) adicionais sobre dados recolhidos para determinados serviços. 
 
 ### <a name="how-do-i-access-azure-monitor"></a>Como acesso ao Monitor Azure?
 Aceda a todas as funcionalidades e dados do Azure Monitor **no** menu Azure. A secção de **Monitorização** do menu de diferentes serviços Azure fornece acesso às mesmas ferramentas com dados filtrados a um determinado recurso. Os dados do Azure Monitor também estão acessíveis para uma variedade de cenários usando CLI, PowerShell e uma API REST.
@@ -65,7 +65,7 @@ Insights e soluções proporcionam uma experiência personalizada para trabalhar
 ## <a name="solutions-and-insights"></a>Soluções e insights
 
 ### <a name="what-is-an-insight-in-azure-monitor"></a>O que é uma visão no Azure Monitor?
-Os insights fornecem uma experiência de monitorização personalizada para determinados serviços Azure. Eles usam as mesmas métricas e registos que outras funcionalidades no Azure Monitor, mas podem recolher dados adicionais e fornecer uma experiência única no portal Azure. Ver [Insights no Monitor Azure](insights/insights-overview.md).
+Os insights fornecem uma experiência de monitorização personalizada para determinados serviços Azure. Eles usam as mesmas métricas e registos que outras funcionalidades no Azure Monitor, mas podem recolher dados adicionais e fornecer uma experiência única no portal Azure. Ver [Insights no Monitor Azure](./monitor-reference.md).
 
 Para visualizar informações no portal Azure, consulte a secção **insights** do menu **Monitor** ou a secção de **Monitorização** do menu do serviço.
 
@@ -77,7 +77,7 @@ Para ver soluções no portal Azure, clique em **Mais** na secção **Insights**
 ## <a name="logs"></a>Registos
 
 ### <a name="whats-the-difference-between-azure-monitor-logs-and-azure-data-explorer"></a>Qual é a diferença entre os Registos monitores Azure e o Azure Data Explorer?
-O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. Os Registos Azure Monitor são construídos em cima do Azure Data Explorer e utilizam a mesma linguagem de consulta Kusto (KQL) com algumas diferenças menores. Consulte [as diferenças linguísticas de consulta de registo do Azure Monitor](log-query/data-explorer-difference.md).
+O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. Os Registos Azure Monitor são construídos em cima do Azure Data Explorer e utilizam a mesma linguagem de consulta Kusto (KQL) com algumas diferenças menores. Consulte [as diferenças linguísticas de consulta de registo do Azure Monitor](/azure/data-explorer/kusto/query/).
 
 ### <a name="how-do-i-retrieve-log-data"></a>Como recupero dados de registo?
 Todos os dados são obtidos a partir de um espaço de trabalho Log Analytics utilizando uma consulta de log escrita usando a Linguagem de Consulta de Kusto (KQL). Pode escrever as suas próprias consultas ou utilizar soluções e insights que incluam consultas de registo para uma determinada aplicação ou serviço. Consulte [a visão geral das consultas de registo no Azure Monitor](log-query/log-query-overview.md).
@@ -224,7 +224,7 @@ O View Designer só está disponível para utilizadores afetados com permissões
 * [Aplicações em Node.js](app/nodejs.md)
 * [Aplicativos web em Azure](app/azure-web-apps.md)
 * [Serviços cloud em Azure](app/cloudservices.md)
-* [Servidores de aplicativos em execução em Docker](app/docker.md)
+* [Servidores de aplicativos em execução em Docker](./azure-monitor-app-hub.yml)
 * [Aplicativos web de página única](app/javascript.md)
 * [SharePoint](app/sharepoint.md)
 * [Aplicativo de ambiente de trabalho do Windows](app/windows-desktop.md)
@@ -401,7 +401,7 @@ Cada item que é transmitido transporta uma `itemCount` propriedade que mostra q
 
 **Atualmente, não** é suportado o movimento dos recursos de Insights de Aplicação existentes de uma região para outra. Os dados históricos que recolheu **não podem ser migrados** para uma nova região. A única solução parcial é:
 
-1. Crie um novo recurso Application Insights[(clássico](app/create-new-resource.md) ou [baseado no espaço de trabalho)](/azure/azure-monitor/app/create-workspace-resource)na nova região.
+1. Crie um novo recurso Application Insights[(clássico](app/create-new-resource.md) ou [baseado no espaço de trabalho)](./app/create-workspace-resource.md)na nova região.
 2. Recrie todas as personalizações únicas específicas ao recurso original no novo recurso.
 3. Modifique a sua aplicação para utilizar a chave de [instrumentação](app/create-new-resource.md#copy-the-instrumentation-key) ou a cadeia de ligação do novo recurso da [região.](app/sdk-connection-string.md)  
 4. Teste para confirmar que tudo continua a funcionar como esperado com o seu novo recurso Application Insights. 
@@ -414,7 +414,7 @@ Personalizações únicas que normalmente precisam de ser recriadas manualmente 
 - Recrie os alertas de disponibilidade.
 - Recrie quaisquer definições personalizadas de controlo de acesso baseado em funções (Azure RBAC) que sejam necessárias para que os seus utilizadores acedam ao novo recurso. 
 - Replicar configurações envolvendo amostragem de ingestão, retenção de dados, tampa diária e ativação de métricas personalizadas. Estas definições são controladas através do **painel de utilização e custos estimados.**
-- Qualquer integração que dependa de chaves API, tais como [anotações de libertação,](/azure/azure-monitor/app/annotations) [métricas ao vivo, canal de controlo seguro,](app/live-stream.md#secure-the-control-channel) etc. Terá de gerar novas teclas API e atualizar a integração associada. 
+- Qualquer integração que dependa de chaves API, tais como [anotações de libertação,](./app/annotations.md) [métricas ao vivo, canal de controlo seguro,](app/live-stream.md#secure-the-control-channel) etc. Terá de gerar novas teclas API e atualizar a integração associada. 
 - As exportações contínuas de recursos clássicos teriam de ser configuradas novamente.
 - As definições de diagnóstico dos recursos baseados no espaço de trabalho teriam de ser configuradas novamente.
 

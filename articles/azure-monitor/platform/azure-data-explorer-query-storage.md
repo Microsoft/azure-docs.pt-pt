@@ -7,12 +7,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 18ece47187e3f83277d7d925ad958d2ede7cb337
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 2735aec0f95f5e282bb1dffba6e4f42f966cf117
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030021"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186546"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Consulta dados exportados do Azure Monitor usando Azure Data Explorer (pré-visualização)
 A exportação de dados do Azure Monitor para uma conta de armazenamento Azure permite a retenção de baixo custo e a capacidade de realocar registos para diferentes regiões. Utilize o Azure Data Explorer para consultar dados que foram exportados dos seus espaços de trabalho Log Analytics. Uma vez configuradas, as tabelas suportadas que são enviadas dos seus espaços de trabalho para uma conta de armazenamento Azure estarão disponíveis como fonte de dados para o Azure Data Explorer.
@@ -136,4 +136,4 @@ external_table("HBTest","map") | take 10000
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Aprenda a [escrever consultas no Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/write-queries)
+- Aprenda a [escrever consultas no Azure Data Explorer](/azure/data-explorer/write-queries)

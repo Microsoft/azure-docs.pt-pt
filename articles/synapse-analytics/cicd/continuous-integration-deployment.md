@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 2f2221ad10a2e07a3443cab9f957c8ec26969a3b
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7b77a47acba6180df4a067887b79d8cdc0f56df6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96031416"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185084"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integração contínua e entrega para o espaço de trabalho Azure Synapse
 
@@ -25,12 +25,12 @@ Para o espaço de trabalho Azure Synapse, a integração contínua e a entrega (
 
 Este artigo irá delinear usando o gasoduto de libertação Azure para automatizar a implantação de um espaço de trabalho synapse para vários ambientes.
 
-## <a name="pre-requirements"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 -   O espaço de trabalho utilizado para o desenvolvimento foi configurado com um repositório git em Studio, ver [controlo de Origem no Synapse Studio](source-control.md).
 -   Um projeto Azure DevOps foi preparado para executar o oleoduto de lançamento.
 
-## <a name="set-up-a-release-pipelines"></a>Configurar um pipeline de lançamento
+## <a name="set-up-a-release-pipelines"></a>Criar um oleoduto de libertação
 
 1.  Em [Azure DevOps,](https://dev.azure.com/)abra o projeto criado para o lançamento.
 
@@ -82,7 +82,7 @@ Adicione uma tarefa de implementação do Gestor de Recursos Azure para criar ou
     
     ![espaço de trabalho e piscinas implantam](media/pools-resource-deploy.png)
 
-1. (Opcional) Adicione **a Azure PowerShell** para a atribuição de funções de espaço de trabalho de concessão e atualização. Se utilizar o gasoduto de desbloqueio para criar um espaço de trabalho synapse, o principal de serviço do oleoduto é necessário para ser adicionado como administrador de espaço de trabalho predefinido. Pode executar o PowerShell para conceder a outras contas acesso ao espaço de trabalho. 
+1. (Opcional) Adicione **a Azure PowerShell** para a atribuição de funções de espaço de trabalho de concessão e atualização. Se utilizar o gasoduto de desbloqueio para criar um espaço de trabalho synapse, o principal de serviço do oleoduto é adicionado como administrador de espaço de trabalho predefinido. Pode executar o PowerShell para conceder a outras contas acesso ao espaço de trabalho. 
     
     ![conceder permissão](media/release-creation-grant-permission.png)
 
@@ -115,12 +115,8 @@ Depois de guardar todas as alterações, pode selecionar **Criar desbloqueio** p
 Se estiver a utilizar a integração do Git com o seu espaço de trabalho synapse e tiver um pipeline CI/CD que move as suas alterações do desenvolvimento para teste e depois para a produção, recomendamos estas boas práticas:
 
 -   **Integração de Git**. Configure apenas o seu espaço de trabalho sinapse de desenvolvimento com integração git. As alterações aos espaços de trabalho de teste e produção são implementadas através de CI/CD e não necessitam de integração do Git.
--   **Prepare piscinas antes da migração de artefactos.** Se você anexar piscinas ao seu script SQL ou caderno no espaço de trabalho de desenvolvimento, é esperado o mesmo nome de piscinas em diferentes ambientes. 
--   **Outros.** Ver [Outras boas práticas](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
+-   **Prepare piscinas antes da migração de artefactos.** Se você tem script SQL ou caderno anexado a piscinas no espaço de trabalho de desenvolvimento, o mesmo nome de piscinas em diferentes ambientes são esperados. 
+-   **Infraestrutura como Código (IAC)**. Gestão de infraestruturas (redes, máquinas virtuais, equilibradores de carga e topologia de ligação) num modelo descritivo, utilize a mesma versão que a equipa de DevOps utiliza para código fonte. 
+-   **Outros.** Ver [as melhores práticas para artefactos ADF](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
 
-## <a name="unsupported-features"></a>Funcionalidades não suportadas
-
-- O Synapse Studio não permite a recolha de cerejas de compromissos ou a publicação seletiva de recursos. 
-- O Synapse Studio não suporta personalizar a mensagem de compromisso.
-- Por design, a ação de eliminação será comprometida a git diretamente
 

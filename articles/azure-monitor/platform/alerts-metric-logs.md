@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 23ebb513e55e6b61f608354ae1cb3bf3864a54ae
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 7c1e1d52b8434db930fcdd05c5c5441ba027abc8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108852"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186019"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Criar alertas métricos para registos no Monitor Azure
 
@@ -25,7 +25,7 @@ Pode utilizar alertas métricos em registos populares do Log Analytics extraído
 
 - [Contadores de desempenho](./data-sources-performance-counters.md) para máquinas Windows & Linux
 - [Registos de batimentos cardíacos para a Agente Saúde](../insights/solution-agenthealth.md)
-- Atualizar registos [de gestão](../../automation/update-management/update-mgmt-overview.md)
+- Atualizar registos [de gestão](../../automation/update-management/overview.md)
 - [Registos](./data-sources-windows-events.md) de dados do evento
 
 Existem muitos benefícios para a utilização **de alertas métricos para registos** em consulta com base em [Alertas de Registo](./alerts-log.md) em Azure; alguns deles estão listados abaixo:
@@ -55,7 +55,7 @@ Antes da métrica de registos recolhidos nos trabalhos de dados do Log Analytics
 
 1. **Ative Log Analytics Workspace**: Um espaço de trabalho válido e ativo do Log Analytics deve estar presente. Para obter mais informações, consulte [Criar um espaço de trabalho de Log Analytics no portal Azure.](../learn/quick-create-workspace.md)
 2. **O agente está configurado para o Log Analytics Workspace**: O agente precisa de ser configurado para VMs (e/ou) VMs no local para enviar dados para o espaço de trabalho log analytics utilizado em passo anterior. Para obter mais informações, consulte [Log Analytics - Visão geral do agente](./agents-overview.md).
-3. **As Soluções de Análise de Log Suportadas estão instaladas**: A solução Log Analytics deve ser configurada e enviar dados para o espaço de trabalho do Log Analytics - as soluções suportadas são [contadores de desempenho para Windows & Linux](./data-sources-performance-counters.md), [Registos de Batimentos Cardíacos para A Saúde do Agente,](../insights/solution-agenthealth.md) [Gestão de Atualização](../../automation/update-management/update-mgmt-overview.md)e [Dados do Evento](./data-sources-windows-events.md).
+3. **As Soluções de Análise de Log Suportadas estão instaladas**: A solução Log Analytics deve ser configurada e enviar dados para o espaço de trabalho do Log Analytics - as soluções suportadas são [contadores de desempenho para Windows & Linux](./data-sources-performance-counters.md), [Registos de Batimentos Cardíacos para A Saúde do Agente,](../insights/solution-agenthealth.md) [Gestão de Atualização](../../automation/update-management/overview.md)e [Dados do Evento](./data-sources-windows-events.md).
 4. **Registar soluções de Analytics configuradas para enviar registos**: A solução Log Analytics deve ter os registos/dados necessários correspondentes às [métricas suportadas para espaços de trabalho do Log Analytics](./metrics-supported.md#microsoftoperationalinsightsworkspaces) ativados. Por exemplo, para % do contador *de memória disponível* deve ser configurado primeiro na solução [de contadores de desempenho.](./data-sources-performance-counters.md)
 
 ## <a name="configuring-metric-alert-for-logs"></a>Configurar alerta métrico para registos
@@ -68,7 +68,7 @@ Para obter detalhes e amostras passo a passo - consulte [a criação e gestão d
 - Sinal escolhido para alerta métrico para o espaço de trabalho do *Log Analytics* selecionado é do tipo **Métrico**
 - Filtrar para condições específicas ou recursos utilizando filtros de dimensão; métricas para troncos são multidimensionais
 - Ao configurar a Lógica de *Sinal,* pode ser criado um único alerta para abranger múltiplos valores de dimensão (como o Computador)
-- Se **não** utilizar o portal Azure para criar um alerta métrico para *o espaço de trabalho*do Log Analytics selecionado; em seguida, o utilizador deve primeiro criar uma regra explícita para converter dados de registo numa métrica utilizando [O Monitor Azure - Regras de Consulta Programadas](/rest/api/monitor/scheduledqueryrules).
+- Se **não** utilizar o portal Azure para criar um alerta métrico para *o espaço de trabalho* do Log Analytics selecionado; em seguida, o utilizador deve primeiro criar uma regra explícita para converter dados de registo numa métrica utilizando [O Monitor Azure - Regras de Consulta Programadas](/rest/api/monitor/scheduledqueryrules).
 
 > [!NOTE]
 > Ao criar um alerta métrico para o log analytics espaço de trabalho através do portal Azure - regra correspondente para converter dados de registo em métrica via [Azure Monitor - As Regras de Consulta Programadas](/rest/api/monitor/scheduledqueryrules) são automaticamente criadas em segundo plano, *sem necessidade de qualquer intervenção ou ação do utilizador*. Para alerta métrico para criação de registos utilizando meios que não o portal Azure, consulte [o Modelo de Recurso para Alertas Métricos para](#resource-template-for-metric-alerts-for-logs) a secção de Registos em meios de amostragem de criação de um registo baseado em Placas de Marcação para regra de conversão métrica antes da criação de alerta métrico - caso contrário, não haverá dados para o alerta métrico nos registos criados.

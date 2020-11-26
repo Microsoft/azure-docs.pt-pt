@@ -8,11 +8,11 @@ ms.topic: overview
 ms.date: 10/13/2020
 ms.author: cherylmc
 ms.openlocfilehash: f4aa1ef29ffb27efb29d969e48af4cf5288e08ae
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014788"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183917"
 ---
 # <a name="what-is-azure-bastion"></a>O que é o Azure Bastion?
 

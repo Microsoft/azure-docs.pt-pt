@@ -7,22 +7,22 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4d74c3607610372fa6cd276dd0d72fa5ba37f391
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 61dc3b9376737f89643473dffc3c915d3e0d9c44
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025802"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183452"
 ---
 # <a name="azure-security-baseline-for-azure-app-configuration"></a>Linha de base de segurança Azure para configuração de aplicativoS Azure
 
-Esta linha de base de segurança aplica orientações da [versão 2.0 do Azure Security Benchmark](../security/benchmarks/overview.md) para a Configuração da Aplicação Azure. O Azure Security Benchmark fornece recomendações sobre como pode proteger as suas soluções em nuvem no Azure. O conteúdo é agrupado pelos controlos de **segurança definidos** pelo Azure Security Benchmark e pela orientação conexa aplicável à Configuração da Aplicação Azure. Foram excluídos **os controlos** não aplicáveis à Configuração da Aplicação Azure.
+Esta linha de base de segurança aplica orientações da [versão 2.0 do Azure Security Benchmark](../security/benchmarks/overview.md) para a Configuração da Aplicação Azure. A Referência de Segurança do Azure disponibiliza recomendações para proteger as suas soluções cloud no Azure. O conteúdo é agrupado pelos controlos de **segurança definidos** pelo Azure Security Benchmark e pela orientação conexa aplicável à Configuração da Aplicação Azure. Foram excluídos **os controlos** não aplicáveis à Configuração da Aplicação Azure.
 
 Para ver como a Configuração da Aplicação Azure mapeia completamente para o Benchmark de Segurança Azure, consulte o [ficheiro de mapeamento de base de base de configuração de segurança da Azure App.](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)
 
 ## <a name="network-security"></a>Segurança de Rede
 
-*Para mais informações, consulte o [Benchmark de Segurança Azure: Segurança da Rede](/azure/security/benchmarks/security-controls-v2-network-security).*
+*Para mais informações, consulte o [Benchmark de Segurança Azure: Segurança da Rede](../security/benchmarks/security-controls-v2-network-security.md).*
 
 ### <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1: Implementar a segurança para o tráfego interno
 
@@ -34,9 +34,9 @@ Utilize o Azure Sentinel para descobrir o uso de protocolos de insegurança como
 
 - [Livro de protocolos inseguros de Azure Sentinel](../sentinel/quickstart-get-visibility.md#use-built-in-workbooks)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="ns-2-connect-private-networks-together"></a>NS-2: Ligar redes privadas em conjunto
 
@@ -50,7 +50,7 @@ Para ligar duas ou mais redes virtuais em Azure, utilize o espreitamento de rede
 
 - [Peering de rede virtual](../virtual-network/virtual-network-peering-overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -64,7 +64,7 @@ O acesso privado é uma medida adicional de defesa aprofundada, além da autenti
 
 - [Como configurar link privado na Configuração de Aplicações Azure](concept-private-endpoint.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -74,13 +74,13 @@ O acesso privado é uma medida adicional de defesa aprofundada, além da autenti
 
 A Configuração de Aplicações Azure não se destina a executar aplicações web, fornece a configuração para estas aplicações web. Não é obrigado a configurar quaisquer configurações adicionais ou a implementar quaisquer serviços de rede extra para protegê-lo de ataques de rede externos direcionados para aplicações web.
 
-- [Documentação da Firewall Azure](/azure/firewall/)
+- [Documentação da Firewall Azure](../firewall/index.yml)
 
-- [Gerir o Padrão de Proteção Azure DDoS utilizando o portal Azure](/azure/virtual-network/manage-ddos-protection)
+- [Gerir o Padrão de Proteção Azure DDoS utilizando o portal Azure](../ddos-protection/manage-ddos-protection.md)
 
 - [Recomendações do Centro de Segurança do Azure](../security-center/recommendations-reference.md#recs-network)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -90,13 +90,13 @@ A Configuração de Aplicações Azure não se destina a executar aplicações w
 
 Nota: Se tiver um requisito regulamentar ou outro para a utilização do IDS/IPS, certifique-se de que está sempre sintonizado para fornecer alertas de alta qualidade à sua solução SIEM.
 
-- [Como implantar a Firewall do Azure](/azure/firewall/tutorial-firewall-deploy-portal)
+- [Como implantar a Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
 - [O Azure Marketplace inclui capacidades de IDS de terceiros](https://azuremarketplace.microsoft.com/marketplace?search=IDS)
 
 - [Capacidade ATP EDR do Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/overviewendpoint-detection-response)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -106,21 +106,21 @@ Nota: Se tiver um requisito regulamentar ou outro para a utilização do IDS/IPS
 
 - [Compreender e utilizar tags de serviço](../virtual-network/service-tags-overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
 ## <a name="identity-management"></a>Gestão de Identidades
 
-*Para mais informações, consulte o [Azure Security Benchmark: Identity Management](/azure/security/benchmarks/security-controls-v2-identity-management).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Gestão de Identidades](../security/benchmarks/security-controls-v2-identity-management.md).*
 
-### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Normalizar o Azure Ative Directory como o sistema central de identidade e autenticação
+### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Uniformizar o Azure Active Directory como o sistema central de identidade e autenticação
 
 **Orientação**: A Azure App Configuration está integrada com o Azure Ative Directory (Azure AD) que é o serviço de gestão de identidade e acesso padrão da Azure. Deve normalizar a Azure AD para governar a gestão de identidade e acesso da sua organização em:
 - Recursos da Microsoft Cloud, como o portal Azure, Azure Storage, Azure Virtual Machine (Linux e Windows), Azure Key Vault, PaaS e SaaS.
-- Os recursos da sua organização, tais como aplicações no Azure ou os recursos da sua rede corporativa.
+- recursos da sua organização, como as aplicações no Azure, ou os recursos da rede empresarial.
 
-Garantir a Azure AD deve ser uma alta prioridade na prática de segurança na nuvem da sua organização. O Azure AD fornece uma pontuação segura de identidade para ajudá-lo a avaliar a postura de segurança de identidade em relação às recomendações de boas práticas da Microsoft. Use a pontuação para avaliar o quão perto a sua configuração corresponde às recomendações de boas práticas e para fazer melhorias na sua postura de segurança.
+A proteção do Azure AD deve ser prioritária na prática de segurança da cloud para a sua organização. O Azure AD fornece uma pontuação segura de identidade para ajudá-lo a avaliar a postura de segurança de identidade em relação às recomendações de boas práticas da Microsoft. Utilize a pontuação para determinar até que ponto é que a sua configuração corresponde às recomendações de melhores práticas e para fazer melhorias à postura de segurança.
 
 O Azure fornece as seguintes funções incorporadas do Azure para autorizar o acesso aos dados de Configuração de Aplicações utilizando Azure AD e OAuth:
 
@@ -132,15 +132,15 @@ O Azure fornece as seguintes funções incorporadas do Azure para autorizar o ac
 
 - Leitor: Utilize esta função para dar acesso à leitura do recurso De configuração da aplicação. Isto não permite o acesso às teclas de acesso do recurso, nem aos dados armazenados na Configuração da Aplicação.
 
-Para mais informações, consulte as seguintes referências:
+Para obter mais informações, veja as seguintes referências:
 
-- [Como criar e configurar uma instância AD Azure](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Como criar e configurar instâncias do Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 - [Qual é a pontuação de segurança de identidade no Azure Ative Directory](../active-directory/fundamentals/identity-secure-score.md)
 
 - [Autorizar o acesso à Configuração de Aplicações Azure usando Azure AD](concept-enable-rbac.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -168,43 +168,43 @@ Quando as identidades geridas não puderem ser alavancadas, crie um principal de
 
 - [Use o cofre da chave Azure para o registo principal de segurança](../key-vault/general/authentication.md#app-identity-and-security-principals)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="im-3-use-azure-ad-single-sign-on-sso-for-application-access"></a>IM-3: Use a Azure AD single sign-on (SSO) para acesso à aplicação
+### <a name="im-3-use-azure-ad-single-sign-on-sso-for-application-access"></a>IM-3: Utilizar o início de sessão único (SSO) do Azure AD para acesso a aplicações
 
-**Orientação**: A Azure App Configuration usa O Azure Ative Directory (Azure AD) para fornecer gestão de identidade e acesso aos recursos Azure, aplicações em nuvem e aplicações no local. Isto inclui identidades empresariais como funcionários, bem como identidades externas, como parceiros, fornecedores e fornecedores. O Azure AD permite que um único sign-on (SSO) gere o serviço de Configuração de Aplicações através do portal Azure utilizando quaisquer identidades sincronizadas do Ative Directory corporativo sincronizado. Ligue todos os seus utilizadores, aplicações e dispositivos ao AD Azure para um acesso sem emenda, acesso seguro e maior visibilidade e controlo.
+**Orientação**: A Azure App Configuration usa O Azure Ative Directory (Azure AD) para fornecer gestão de identidade e acesso aos recursos Azure, aplicações em nuvem e aplicações no local. Essas identidades incluem identidades empresariais, como colaboradores, bem como identidades externas, como parceiros, fornecedores e distribuidores. O Azure AD permite que um único sign-on (SSO) gere o serviço de Configuração de Aplicações através do portal Azure utilizando quaisquer identidades sincronizadas do Ative Directory corporativo sincronizado. Ligue todos os seus utilizadores, aplicações e dispositivos ao Azure AD para beneficiar de acesso seguro e ininterrupto e de mais visibilidade e controlo.
 
-- [Compreender SSO de aplicação com Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
+- [Compreender o SSO de Aplicações com o Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4: Utilize controlos de autenticação forte para todo o acesso baseado no Azure Ative Directory
+### <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4: Utilizar controlos de autenticação fortes para todos os acessos baseados no Azure Active Directory
 
 **Orientação**: A Azure App Configuration usa O Azure Ative Directory que suporta controlos de autenticação forte através da autenticação de vários fatores (MFA) e métodos fortes sem palavras-passe.
-- Autenticação multi-factor - Ative Azure AD MFA e siga as recomendações do Azure Security Center Identity and Access Management para algumas boas práticas na sua configuração de MFA. O MFA pode ser aplicado em todos os utilizadores selecionados ou ao nível por utilizador com base em condições de inscrição e fatores de risco.
-- Autenticação sem palavras-passe – Estão disponíveis três opções de autenticação sem palavras-passe: Windows Hello for Business, Microsoft Authenticator e métodos de autenticação no local, como cartões inteligentes.
+- Autenticação multifator - ative o MFA do Azure AD e siga as recomendações de Gestão de Identidades e Acessos do Centro de Segurança do Azure para obter algumas melhores práticas na configuração do MFA. O MFA pode ser imposto em todos os utilizadores, utilizadores específicos ou utilizador a utilizador com base em condições de início de sessão e fatores de risco.
+- Autenticação sem palavra-passe - estão disponíveis três opções de autenticação sem palavra-passe: Windows Hello para Empresas, aplicação Microsoft Authenticator e métodos de autenticação no local, como cartões inteligentes.
 
 Para os utilizadores de administrador e privilegiados, certifique-se de que é utilizado o mais alto nível de método de autenticação forte, seguindo-se a aplicação da política de autenticação forte adequada a outros utilizadores.
 
 Nota: O MFA pode ser aplicado nas contas de utilizador que estão a aceder e gerir a Configuração de Aplicações, mas não em contas de serviço programático. Utilize a autenticação sem palavras-passe, como identidades geridas, sempre que possível, e aplique MFA em quaisquer contas de utilizador.
 
-- [Como permitir o MFA em Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Como ativar o MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [Introdução a opções de autenticação sem palavras-passe para O Diretório Ativo Azure](../active-directory/authentication/concept-authentication-passwordless.md)
+- [Introdução às opções de autenticação sem palavra-passe para o Azure Active Directory](../active-directory/authentication/concept-authentication-passwordless.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="im-5-monitor-and-alert-on-account-anomalies"></a>IM-5: Monitor e alerta sobre anomalias de conta
+### <a name="im-5-monitor-and-alert-on-account-anomalies"></a>IM-5: Monitorizar e alertar para anomalias em contas
 
 **Orientação**: A configuração da aplicação Azure está integrada com o Azure Ative Directory no qual fornece as seguintes fontes de dados:
 
--   Ins- O relatório de inscrições fornece informações sobre o uso de aplicações geridas e atividades de inscrição do utilizador.
+-   Inícios de sessão – o relatório de inícios de sessão faculta informações sobre a utilização de aplicações geridas e das atividades de início de sessão dos utilizadores.
 
 -   Registos de auditoria - Fornece rastreabilidade através de registos para todas as alterações escoradas através de várias funcionalidades em Azure AD. Exemplos de alterações registadas nos registos de auditoria incluem adicionar ou remover utilizadores, apps, grupos, funções e políticas.
 
@@ -220,13 +220,13 @@ A Azure Advanced Threat Protection (ATP) é uma solução de segurança que pode
 
 - [Relatórios de atividades de auditoria em Azure AD](../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [Como ver a Azure AD a entrar em risco](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Como ver os inícios de sessão de risco do Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Como identificar utilizadores de AD Azure sinalizados para atividade de risco](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Como identificar utilizadores do Azure AD sinalizados por atividade de risco](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Como monitorizar a identidade e a atividade de acesso dos utilizadores no Centro de Segurança Azure](../security-center/security-center-identity-access.md)
+- [Como monitorizar as atividades de identidade e acesso dos utilizadores no Centro de Segurança do Azure](../security-center/security-center-identity-access.md)
 
-- [Alertas no módulo de proteção de ameaças do Centro de Segurança Azure](../security-center/alerts-reference.md)
+- [Alertas no módulo de proteção de informações sobre ameaças do Centro de Segurança do Azure](../security-center/alerts-reference.md)
 
 - [Como integrar os registos de atividade do Azure no Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -234,7 +234,7 @@ A Azure Advanced Threat Protection (ATP) é uma solução de segurança que pode
 
 - [Azure Advanced Threat Protection](/azure-advanced-threat-protection/what-is-atp)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -248,7 +248,7 @@ A Azure Advanced Threat Protection (ATP) é uma solução de segurança que pode
 
 - [Configurar gestão de sessão de autenticação com acesso condicional](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -266,32 +266,32 @@ Para o GitHub, pode utilizar funcionalidades de digitalização secretas nativas
 
 - [Digitalização secreta de GitHub](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
 ## <a name="privileged-access"></a>Acesso Privilegiado
 
-*Para mais informações, consulte o [Azure Security Benchmark: Acesso Privilegiado](/azure/security/benchmarks/security-controls-v2-privileged-access).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Acesso Privilegiado](../security/benchmarks/security-controls-v2-privileged-access.md).*
 
-### <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: Proteger e limitar utilizadores altamente privilegiados
+### <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: Proteger e limitar utilizadores com muitos privilégios
 
 **Orientação**: Limitar o número de contas ou funções altamente privilegiadas e proteger estas contas a um nível elevado, porque os utilizadores com este privilégio podem ler e modificar direta ou indiretamente todos os recursos do seu ambiente Azure.
 
-Você pode ativar o acesso privilegiado just-in-time (JIT) aos recursos Azure e AD Azure usando Azure AD Gestão de Identidade Privilegiada (PIM). O JIT concede permissões temporárias para executar tarefas privilegiadas apenas quando os utilizadores precisam dela. A PIM também pode gerar alertas de segurança quando há atividade suspeita ou insegura na sua organização Azure AD.
+Pode ativar o acesso privilegiado just-in-time (JIT) nos recursos do Azure e no Azure AD com o Azure AD Privileged Identity Management (PIM). O JIT concede permissões temporárias para realizar tarefas privilegiadas apenas quando os utilizadores precisam. O PIM também pode gerar alertas de segurança em caso de atividades suspeitas ou inseguras na sua organização do Azure AD.
 
 As Chaves de Acesso são altamente privilegiadas e devem ser rodadas regularmente como uma melhor prática de segurança. As teclas de acesso contêm cordas de ligação, que contêm informações credenciais e são consideradas segredos. Estes segredos precisam de ser guardados no Cofre da Chave Azure, e o seu código deve autenticar-se no Cofre de Chaves para os recuperar. As Chaves de Acesso podem dar leitura ou apenas ler o acesso a uma aplicação. Certifique-se de que o tipo correto de chave de acesso é emitido para evitar o acesso não autorizado. Para ser mais seguro, utilize as identidades geridas em Azure AD. Isto requer apenas que as aplicações tenham o URL de ponto final de configuração para aceder aos valores de configuração.
 
 - [Configuração de aplicativos Melhores Práticas](howto-best-practices.md#app-configuration-bootstrap)
 
 - [Utilizar identidades geridas para aceder ao App Configuration](howto-integrate-azure-managed-service-identity.md)
-- [Permissões de função de administrador em Azure AD](/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
+- [Permissões das funções de administrador no Azure AD](../active-directory/roles/permissions-reference.md)
 
-- [Use alertas de segurança de gestão de identidade privilegiada Azure](../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md)
+- [Utilizar os alertas de segurança do Azure Privileged Identity Management](../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md)
 
-- [Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)
+- [Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD](../active-directory/roles/security-planning.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -307,11 +307,11 @@ Todos os tipos de controlos de acesso devem ser alinhados com a sua estratégia 
 
 - [Para integrar o RBAC usando AZure AD com configuração de aplicação](concept-enable-rbac.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="pa-3-review-and-reconcile-user-access-regularly"></a>PA-3: Rever e conciliar o acesso dos utilizadores regularmente
+### <a name="pa-3-review-and-reconcile-user-access-regularly"></a>PA-3: Rever e reconciliar o acesso dos utilizadores regularmente
 
 **Orientação**: A Azure App Configuration utiliza contas Azure Ative (Azure AD) para gerir os seus recursos, rever as contas dos utilizadores e aceder regularmente para garantir que as contas e o seu acesso são válidos. 
 
@@ -327,11 +327,11 @@ Nota: As identidades geridas são sugeridas sempre que possível para autentica�
 
 - [Criar uma revisão de acesso das funções de recursos da Azure na Gestão de Identidade Privilegiada (PIM)](../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md) 
 
-- [Como utilizar a identidade AD do Azure e as avaliações de acesso](/azure/active-directory/governance/access-reviews-overvie)
+- [Como utilizar as revisões de identidades e acessos do Azure AD](/azure/active-directory/governance/access-reviews-overvie)
 
 - [Autorizar o acesso à Configuração de Aplicações Azure usando Azure AD](concept-enable-rbac.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -341,9 +341,9 @@ Nota: As identidades geridas são sugeridas sempre que possível para autentica�
 
 Deve certificar-se de que as credenciais (como palavra-passe, certificado ou cartão inteligente) para contas de acesso de emergência são mantidas seguras e conhecidas apenas por indivíduos autorizados a usá-las apenas em caso de emergência.
 
-- [Gerir contas de acesso de emergência em Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Gerir contas de acesso de emergência em Azure AD](../active-directory/roles/security-emergency-access.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -351,11 +351,11 @@ Deve certificar-se de que as credenciais (como palavra-passe, certificado ou car
 
 **Orientação**: A Azure App Configuration está integrada com o Azure Ative Directory para gerir os seus recursos. Utilize funcionalidades de gestão de direitos Azure AD para automatizar fluxos de trabalho de pedidos de acesso, incluindo atribuições de acesso, revisões e expiração. A aprovação dual ou multi-fase também é apoiada.
 
-- [O que são avaliações de acesso AZure AD](/azure/active-directory/governance/access-reviews-overview)
+- [O que são avaliações de acesso AZure AD](../active-directory/governance/access-reviews-overview.md)
 
 - [O que é a gestão de direitos da AD Azure](../active-directory/governance/entitlement-management-overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -367,13 +367,13 @@ Deve certificar-se de que as credenciais (como palavra-passe, certificado ou car
 
 - [Implementar uma estação de trabalho de acesso privilegiada](../active-directory/devices/howto-azure-managed-workstation.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="pa-7-follow-just-enough-administration-least-privilege-principle"></a>PA-7: Siga a administração suficiente (princípio de mínimo privilégio) 
+### <a name="pa-7-follow-just-enough-administration-least-privilege-principle"></a>PA-7: Seguir a abordagem de Administração Suficiente (princípio do privilégio mínimo) 
 
-**Orientação**: A Configuração de aplicações Azure está integrada com o controlo de acesso baseado em funções Azure (RBAC) para gerir os seus recursos. O Azure RBAC permite-lhe gerir o acesso a recursos Azure através de atribuições de funções. Pode atribuir estas funções aos utilizadores, grupos de diretores de serviço e identidades geridas. Existem papéis pré-definidos para configuração de aplicativos Azure, e estes papéis podem ser inventariados ou consultados através de ferramentas como Azure CLI, Azure PowerShell ou o portal Azure. Os privilégios que atribui aos recursos através do RBAC Azure devem estar sempre limitados ao que é exigido pelas funções. Isto complementa a abordagem just in time (JIT) da Azure AD Privileged Identity Management (PIM) e deve ser revisto periodicamente.
+**Orientação**: A Configuração de aplicações Azure está integrada com o controlo de acesso baseado em funções Azure (RBAC) para gerir os seus recursos. O RBAC do Azure permite-lhe gerir o acesso aos recursos do Azure através da atribuição de funções. Pode atribuir estas funções aos utilizadores, grupos de diretores de serviço e identidades geridas. Existem papéis pré-definidos para configuração de aplicativos Azure, e estes papéis podem ser inventariados ou consultados através de ferramentas como Azure CLI, Azure PowerShell ou o portal Azure. Os privilégios que atribuir aos recursos através do RBAC do Azure devem estar sempre limitados àquilo que as funções requerem. Esta abordagem complementa a abordagem just-in-time (JIT) do Azure AD Privileged Identity Management (PIM) e deve ser revista periodicamente.
 
 O Azure fornece as seguintes funções incorporadas do Azure para autorizar o acesso aos dados de Configuração de Aplicações utilizando Azure AD e OAuth:
 - Proprietário de dados de configuração de aplicativos: Utilize esta função para dar acesso de leitura/escrita/exclusão aos dados de Configuração de Aplicações. Isto não permite o acesso ao recurso de Configuração de Aplicações.
@@ -385,13 +385,13 @@ A Configuração da Aplicação suporta a configuração de armazenamento de mú
 
 - [O que é o controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md)
 
-- [Como configurar o RBAC em Azure](../role-based-access-control/role-assignments-portal.md)
+- [Como configurar o RBAC no Azure](../role-based-access-control/role-assignments-portal.md)
 
-- [Como utilizar a identidade AD do Azure e as avaliações de acesso](/azure/active-directory/governance/access-reviews-overview)
+- [Como utilizar as revisões de identidades e acessos do Azure AD](../active-directory/governance/access-reviews-overview.md)
 
 - [Autorizar o acesso à Configuração de Aplicações Azure usando Azure AD](concept-enable-rbac.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -399,29 +399,29 @@ A Configuração da Aplicação suporta a configuração de armazenamento de mú
 
 **Orientação**: Implementar um processo de aprovação organizacional para cenários de suporte onde a Microsoft possa precisar de acesso aos dados de Configuração da aplicação. O Bloqueio do Cliente não está atualmente disponível para cenários de suporte à configuração de aplicações.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
 ## <a name="data-protection"></a>Proteção de Dados
 
-*Para mais informações, consulte o [Benchmark de Segurança Azure: Proteção de Dados](/azure/security/benchmarks/security-controls-v2-data-protection).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Proteção de dados](../security/benchmarks/security-controls-v2-data-protection.md).*
 
 ### <a name="dp-1-discover-classify-and-label-sensitive-data"></a>DP-1: Descubra, classifique e identifique dados sensíveis
 
 **Orientação**: Descubra, classifique e rotule os seus dados sensíveis para que possa conceber os controlos apropriados para garantir que informações sensíveis são armazenadas, processadas e transmitidas de forma segura pelos sistemas tecnológicos da organização. A rotulagem para informações sensíveis, sob a forma de marcação, é suportada para os recursos de Configuração de Aplicações, mas não para valores de configuração contidos dentro deles. Uma vez que uma aplicação tenha lido ou lido/escrito acesso a uma loja de configuração, tem acesso total a qualquer uma das configurações dessa loja.
 
-- [Etiquetar informações sensíveis usando a Proteção de Informações Azure](/azure/information-protection/what-is-information-protection)
+- [Etiquetar informações confidenciais com o Azure Information Protection](/azure/information-protection/what-is-information-protection)
 
 - [Classificação de dados de marcação em Azure](/azure/cloud-adoption-framework/govern/policy-compliance/data-classification#tagging-data-classification-in-azure)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="dp-2-protect-sensitive-data"></a>DP-2: Proteger dados sensíveis
+### <a name="dp-2-protect-sensitive-data"></a>DP-2: Proteger dados confidenciais
 
-**Orientação**: Para a plataforma subjacente, que é gerida pela Microsoft, a Microsoft trata todos os conteúdos do cliente como sensíveis e protege contra a perda e exposição de dados do cliente. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou alguns controlos e capacidades de proteção de dados predefinidos. Certifique-se de que está a rodar regularmente as teclas de acesso aos seus recursos de Configuração de Aplicação. As informações credenciais das cordas de ligação podem ser armazenadas no Cofre da Chave Azure, e o seu código deve autenticar-se no Cofre de Chaves para as recuperar. As Chaves de Acesso podem dar leitura ou apenas ler o acesso a uma aplicação. Certifique-se de que o tipo correto de chave de acesso é emitido para evitar o acesso não autorizado. Para ser mais seguro, utilize as identidades geridas em Azure AD. Isto requer apenas que as aplicações tenham o URL de ponto final de configuração para aceder aos valores de configuração.
+**Orientação**: Para a plataforma subjacente, que é gerida pela Microsoft, a Microsoft trata todos os conteúdos do cliente como sensíveis e protege contra a perda e exposição de dados do cliente. Para assegurar que os dados permanecem seguros no Azure, a Microsoft implementou alguns controlos e capacidades de proteção de dados predefinidos. Certifique-se de que está a rodar regularmente as teclas de acesso aos seus recursos de Configuração de Aplicação. As informações credenciais das cordas de ligação podem ser armazenadas no Cofre da Chave Azure, e o seu código deve autenticar-se no Cofre de Chaves para as recuperar. As Chaves de Acesso podem dar leitura ou apenas ler o acesso a uma aplicação. Certifique-se de que o tipo correto de chave de acesso é emitido para evitar o acesso não autorizado. Para ser mais seguro, utilize as identidades geridas em Azure AD. Isto requer apenas que as aplicações tenham o URL de ponto final de configuração para aceder aos valores de configuração.
 
 Restringir o acesso utilizando o controlo de acesso baseado em funções Azure (Azure RBAC):
 
@@ -431,21 +431,21 @@ Restringir o acesso utilizando o controlo de acesso baseado em funções Azure (
 
 - Controlos específicos nos serviços Azure (como encriptação em SQL e outras bases de dados) e garantir um controlo de acesso consistente, todos os tipos de controlo de acesso devem ser alinhados com a sua estratégia de segmentação da empresa.
 
-- A estratégia de segmentação da empresa também deve ser informada pela localização de dados e sistemas críticos sensíveis ou empresariais.
+- A estratégia de segmentação da empresa também deve ter conhecimento da localização dos dados confidenciais e dos sistemas críticos para a empresa.
 
-Para mais informações, consulte as seguintes referências:
+Para obter mais informações, veja as seguintes referências:
 
 - [Autorizar o acesso à Configuração de Aplicações Azure utilizando o Azure Ative Directory](concept-enable-rbac.md)
 
 - [Encriptação de dados de configuração de aplicativos](faq.md#does-app-configuration-encrypt-my-data)
 
-- [Controlo de Acesso Baseado em Função Azure (RBAC)](../role-based-access-control/overview.md) 
+- [Controlo de Acesso Baseado em Funções do Azure (RBAC)](../role-based-access-control/overview.md) 
 
-- [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md)
+- [Compreender a proteção dos dados dos clientes no Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="dp-4-encrypt-sensitive-information-in-transit"></a>DP-4: Criptografar informações sensíveis em trânsito
 
@@ -453,11 +453,11 @@ Para mais informações, consulte as seguintes referências:
 
 A Configuração de Aplicações Azure utiliza encriptação TLS para todos os pedidos HTTP. A infraestrutura Azure fornece uma camada adicional de encriptação de nível de rede para todos os pedidos entre centros de dados Azure. Certifique-se de que qualquer cliente que se conecte aos seus recursos de Configuração de Aplicações pode negociar TLS v1.2 ou maior.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
-### <a name="dp-5-encrypt-sensitive-data-at-rest"></a>DP-5: Criptografe dados sensíveis em repouso
+### <a name="dp-5-encrypt-sensitive-data-at-rest"></a>DP-5: Encripte os dados confidenciais inativos
 
 **Orientação**: Para complementar os controlos de acesso, os dados em repouso devem ser protegidos contra ataques "fora da banda" (como aceder ao armazenamento subjacente) utilizando encriptação. Isto ajuda a garantir que os atacantes não podem ler ou modificar facilmente os dados.
 
@@ -465,35 +465,35 @@ O Azure fornece dados em repouso encriptação por padrão. Para dados altamente
 
 - [Utilize chaves geridas pelo cliente para encriptar os seus dados na Configuração da Aplicação Azure](concept-customer-managed-keys.md)
 
-- [Compreenda a encriptação em repouso em Azure](../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) 
+- [Compreender a encriptação de dados inativos no Azure](../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) 
 
 - [Modelo de encriptação e tabela de gestão chave](../security/fundamentals/encryption-atrest.md#azure-resource-providers-encryption-model-support)
 
 - [Dados em repouso dupla encriptação em Azure](../security/fundamentals/double-encryption.md#data-at-rest)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
 ## <a name="asset-management"></a>Gestão de Recursos
 
-*Para mais informações, consulte o [Azure Security Benchmark: Gestão de Ativos](/azure/security/benchmarks/security-controls-v2-asset-management).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Gestão de Ativos](../security/benchmarks/security-controls-v2-asset-management.md).*
 
-### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: Garantir que a equipa de segurança tem visibilidade em riscos para os ativos
+### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: Certifique-se de que a equipa de segurança tem visibilidade para os riscos dos ativos
 
-**Orientação**: Certifique-se de que as equipas de segurança recebem permissões de Leitor de Segurança no seu inquilino Estaure e subscrições para que possam monitorizar riscos de segurança utilizando o Centro de Segurança Azure. 
+**Orientação**: Confirme que as equipas de segurança recebem as permissões Leitor de Segurança no seu inquilino e nas suas subscrições do Azure, para que possam monitorizar os riscos de segurança com o Centro de Segurança do Azure. 
 
-Dependendo da forma como as responsabilidades das equipas de segurança são estruturadas, a monitorização dos riscos de segurança pode ser da responsabilidade de uma equipa de segurança central ou de uma equipa local. Dito isto, os conhecimentos de segurança e os riscos devem ser sempre agregados centralmente dentro de uma organização. 
+Dependendo da forma como as responsabilidades destas equipas são estruturadas, a monitorização dos riscos de segurança pode ser da responsabilidade de uma equipa de segurança central ou de uma equipa local. Dito isto, as informações e os riscos de segurança têm de ser sempre agregados centralmente nas organizações. 
 
-As permissões do Security Reader podem ser aplicadas amplamente a um inquilino inteiro (Root Management Group) ou a grupos de gestão ou subscrições específicas. 
+As permissões Leitor de Segurança podem ser aplicadas de um modo amplo em todo um inquilino (Grupo de Gestão Raiz) ou dentro de âmbitos, como grupos de gestão ou subscrições específicas. 
 
-Nota: Podem ser necessárias permissões adicionais para obter visibilidade em cargas de trabalho e serviços. 
+Nota: para obter visibilidade para cargas de trabalho e serviços, poderão ser necessárias permissões adicionais. 
 
-- [Visão geral do papel do leitor de segurança](../role-based-access-control/built-in-roles.md#security-reader)
+- [Descrição Geral da Função de Leitor de Segurança](../role-based-access-control/built-in-roles.md#security-reader)
 
-- [Visão geral dos Grupos de Gestão Azure](../governance/management-groups/overview.md)
+- [Descrição Geral dos Grupos de Gestão do Azure](../governance/management-groups/overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -509,9 +509,9 @@ Aplique etiquetas nos seus recursos Azure, grupos de recursos e subscrições pa
 
 - [Gestão de inventário de ativos do Azure Security Center](../security-center/asset-inventory.md)
 
-- [Para obter mais informações sobre a marcação de ativos, consulte o guia de decisão de nomeação e marcação de recursos](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [Para obter mais informações sobre a marcação de ativos, consulte o guia de decisão de nomeação e marcação de recursos](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -525,19 +525,19 @@ Aplique etiquetas nos seus recursos Azure, grupos de recursos e subscrições pa
 
 - [Como criar consultas com o Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="am-4-ensure-security-of-asset-lifecycle-management"></a>AM-4: Garantir a segurança da gestão do ciclo de vida dos ativos
+### <a name="am-4-ensure-security-of-asset-lifecycle-management"></a>AM-4: Garanta a segurança da gestão do ciclo de vida dos ativos
 
-**Orientação**: Estabeleça ou atualize políticas de segurança que abordem processos de gestão do ciclo de vida dos ativos para modificações de impacto potencialmente elevadas. Estas alterações incluem alterações, mas não se limitam a: fornecedores de identidade e acesso, sensibilidade de dados, configuração de rede e atribuição de privilégios administrativos.
+**Orientação**: Crie um atualize as políticas de segurança que visam os processos de gestão do ciclo de vida dos ativos para modificações com um potencial grande impacto. Estas alterações incluem alterações, mas não se limitam a: fornecedores de identidade e acesso, sensibilidade de dados, configuração de rede e atribuição de privilégios administrativos.
 
-Remova os recursos de Azure quando já não forem necessários. Certifique-se de que os administradores giram regularmente as teclas de acesso para garantir que apenas os utilizadores autenticados tenham acesso ao seu recurso de configuração.
+Quando já não precisar dos recursos do Azure, remova-os. Certifique-se de que os administradores giram regularmente as teclas de acesso para garantir que apenas os utilizadores autenticados tenham acesso ao seu recurso de configuração.
 
 - [Rode as teclas de encriptação utilizadas para a configuração da aplicação](concept-customer-managed-keys.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -547,23 +547,23 @@ Remova os recursos de Azure quando já não forem necessários. Certifique-se de
 
 - [Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recursos Azure](../role-based-access-control/conditional-access-azure-management.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-## <a name="logging-and-threat-detection"></a>Registo e Deteção de Ameaças
+## <a name="logging-and-threat-detection"></a>Registos e Deteção de Ameaças
 
-*Para obter mais informações, consulte o [Benchmark de Segurança Azure: Registo e Deteção de Ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Registos e Deteção de Ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
 
-### <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Permitir a deteção de ameaças para a gestão da identidade e do acesso do Azure
+### <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Ative a deteção de ameaças para a gestão de identidades e acessos do Azure
 
 **Orientação**: A Configuração da Aplicação integra-se com o Azure Ative Directory (Azure AD). Isto fornece os seguintes registos de utilizador que podem ser vistos em relatórios AD Azure ou integrados com Azure Monitor, Azure Sentinel ou outras ferramentas SIEM/monitoring para casos de monitorização e utilização analíticos mais sofisticados:
-- Ins- O relatório de inscrições fornece informações sobre o uso de aplicações geridas e atividades de inscrição do utilizador.
-- Registos de auditoria - Capacidade de rastreio através de registos para todas as alterações efetuadas por várias funcionalidades no Azure AD. Exemplos de registos de auditoria incluem alterações feitas a quaisquer recursos dentro do AD Azure, como adicionar ou remover utilizadores, apps, grupos, papéis e políticas.
+- Inícios de sessão – o relatório de inícios de sessão faculta informações sobre a utilização de aplicações geridas e das atividades de início de sessão dos utilizadores.
+- Registos de auditoria - Capacidade de rastreio através de registos para todas as alterações efetuadas por várias funcionalidades no Azure AD. Os exemplos de registos de auditoria incluem as alterações feitas a quaisquer recursos no Azure AD, como adicionar ou remover utilizadores, aplicações, grupos, funções e políticas.
 - Inícios de sessão de risco – Um início de sessão de risco é um indicador de uma tentativa de início de sessão que pode ter sido efetuada por alguém que não é o proprietário legítimo de uma conta de utilizador.
 - Utilizadores sinalizados para risco – Um utilizador de risco é um indicador de uma conta de utilizador que pode ter sido comprometida.
 
-O Azure Security Center também pode alertar para certas atividades suspeitas, tais como um número excessivo de tentativas de autenticação falhadas, contas prectadas na subscrição. Além da monitorização básica da higiene de segurança, o módulo de Proteção de Ameaças do Azure Security Center também pode recolher alertas de segurança mais aprofundados das camadas de serviço Azure. Esta capacidade dá-lhe visibilidade sobre anomalias de conta dentro dos recursos individuais.
+O Centro de Segurança do Azure também pode alertar para determinadas atividades suspeitas, como tentativas excessivas de autenticações mal-sucedidas ou contas descontinuadas na subscrição. Além da monitorização básica da higiene de segurança, o módulo de Proteção de Ameaças do Azure Security Center também pode recolher alertas de segurança mais aprofundados das camadas de serviço Azure. Esta capacidade dá-lhe visibilidade sobre anomalias de conta dentro dos recursos individuais.
 
 Outro método para aceder ao seu recurso de configuração de configuração de aplicação de aplicações está a utilizar as teclas de acesso. Estes necessitam de ser rodados regularmente para garantir que nenhum agente não autorizado tenha acesso ao seu recurso de configuração. Rodá-las pode ser feita diretamente no portal em "teclas de acesso".
 
@@ -571,13 +571,13 @@ Outro método para aceder ao seu recurso de configuração de configuração de 
 
 - [Utilize identidades geridas com configuração de aplicações Azure](howto-integrate-azure-managed-service-identity.md)
 
-- [Relatórios de atividades de auditoria no Diretório Ativo do Azure](../active-directory/reports-monitoring/concept-audit-logs.md)
+- [Relatórios de atividades de auditoria no Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [Ativar a proteção de identidade Azure](../active-directory/identity-protection/overview-identity-protection.md)
+- [Ativar o Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Autorizar o acesso à configuração de aplicativos Azure usando Azure AD](concept-enable-rbac.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -590,11 +590,11 @@ Ativar o registo nos pontos finais privados de configuração de configuração 
 - Dados tratados pelo serviço Private Link (IN/OUT)
 - Disponibilidade da porta NAT
 
-Para mais informações, consulte as seguintes referências:
+Para obter mais informações, veja as seguintes referências:
 
 - [Monitorização de ligações privadas Azure](../private-link/private-link-overview.md#logging-and-monitoring)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -606,7 +606,7 @@ Para mais informações, consulte as seguintes referências:
 
 - [Compreenda o registo e diferentes tipos de registo em Azure](../azure-monitor/platform/platform-logs-overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -622,7 +622,7 @@ Além disso, ative e a bordo dados para Azure Sentinel ou um SIEM de terceiros. 
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -634,119 +634,119 @@ No Azure Monitor, pode definir o período de retenção do espaço de trabalho d
 
 - [Como configurar o período de retenção do espaço de trabalho do Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
 
-- [Armazenar registos de recursos numa conta de armazenamento Azure](/azure/azure-monitor/platform/resource-logs-collect-storage)
+- [Armazenar registos de recursos numa conta de armazenamento Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
 ## <a name="incident-response"></a>Resposta a Incidentes
 
-*Para mais informações, consulte o [Benchmark de Segurança Azure: Incident Response](/azure/security/benchmarks/security-controls-v2-incident-response).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Resposta a Incidentes](../security/benchmarks/security-controls-v2-incident-response.md).*
 
 ### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: Preparação – atualizar o processo de resposta a incidentes para o Azure
 
-**Orientação**: Certifique-se de que a sua organização tem processos para responder a incidentes de segurança, atualizou estes processos para o Azure, e está regularmente a exercê-los para garantir a prontidão.
+**Orientação**: Certifique-se de que a sua organização tem processos para responder a incidentes de segurança, que atualizou esses processos para o Azure e que os pratica regularmente para garantir a preparação.
 
-- [Implementar segurança em todo o ambiente da empresa](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+- [Implementar a segurança em todo o ambiente empresarial](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-- [Guia de referência de resposta a incidentes](/microsoft-365/downloads/IR-Reference-Guide.pdf)
+- [Guia de referência da resposta a incidentes](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
-
-**Responsabilidade**: Cliente
-
-### <a name="ir-2-preparation--setup-incident-notification"></a>IR-2: Preparação – notificação de incidente de configuração
-
-**Orientação**: Configurar informações de contacto de incidentes de segurança no Centro de Segurança Azure. Estas informações de contacto são utilizadas pela Microsoft para o contactar se o Microsoft Security Response Center (MSRC) descobrir que os seus dados foram acedidos por uma parte ilegal ou não autorizada. Também tem opções para personalizar alerta de incidentes e notificação em diferentes serviços Azure com base nas suas necessidades de resposta a incidentes. 
-
-- [Como definir o contacto de segurança do Centro de Segurança Azure](../security-center/security-center-provide-security-contact-details.md)
-
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="ir-3-detection-and-analysis--create-incidents-based-on-high-quality-alerts"></a>IR-3: Deteção e análise – criar incidentes baseados em alertas de alta qualidade
+### <a name="ir-2-preparation--setup-incident-notification"></a>IR-2: Preparação – configurar a notificação de incidentes
 
-**Orientação**: Certifique-se de que tem um processo para criar alertas de alta qualidade e medir a qualidade dos alertas. Isto permite-lhe aprender lições de incidentes passados e priorizar alertas para analistas, para que não percam tempo com falsos positivos. 
+**Orientação**: Configure as informações de contacto dos incidentes de segurança no Centro de Segurança do Azure. A Microsoft utiliza estas informações de contacto para o contactar caso o Microsoft Security Response Center (MSRC) descobrir que os seus dados foram acedidos de forma ilícita ou não autorizada. Também tem opções para personalizar os alertas e as notificações de incidentes em diferentes serviços do Azure de acordo com as suas necessidades de resposta aos incidentes. 
+
+- [Como definir o contacto de segurança do Centro de Segurança do Azure](../security-center/security-center-provide-security-contact-details.md)
+
+**Monitorização do Centro de Segurança do Azure**: Sim
+
+**Responsabilidade**: Cliente
+
+### <a name="ir-3-detection-and-analysis--create-incidents-based-on-high-quality-alerts"></a>IR-3: Deteção e análise – criar incidentes com base em alertas de alta qualidade
+
+**Orientação**: Certifique-se de que tem um processo para criar alertas de alta qualidade e medir a qualidade dos alertas. Desta forma, pode aprender lições com os incidentes passados e priorizar os alertas para os analistas, para que estes não percam tempo a lidar com falsos positivos. 
 
 Alertas de alta qualidade podem ser construídos com base na experiência de incidentes passados, fontes comunitárias validadas e ferramentas projetadas para gerar e limpar alertas fundindo e correlacionando diversas fontes de sinal. 
 
-O Azure Security Center fornece alertas de alta qualidade em muitos ativos da Azure. Pode utilizar o conector de dados ASC para transmitir os alertas ao Azure Sentinel. O Azure Sentinel permite criar regras avançadas de alerta para gerar incidentes automaticamente para uma investigação. 
+O Azure Security Center fornece alertas de alta qualidade em muitos ativos da Azure. Pode utilizar o conector de dados ASC para transmitir os alertas para o Azure Sentinel. O Azure Sentinel permite-lhe criar regras de alertas avançadas para gerar incidentes automaticamente para investigações. 
 
-Exporte os alertas e recomendações do Centro de Segurança Azure utilizando a funcionalidade de exportação para ajudar a identificar riscos para os recursos da Azure. Alertas e recomendações de exportação, manualmente ou de forma contínua e contínua.
+Exporte os alertas e as recomendações do Centro de Segurança do Azure com a funcionalidade de exportação para ajudar a identificar riscos para os recursos do Azure. Exporte os alertas e as recomendações manualmente ou de forma contínua.
 
 - [Como configurar a exportação](../security-center/continuous-export.md)
 
 - [Como transmitir alertas para o Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
-### <a name="ir-4-detection-and-analysis--investigate-an-incident"></a>IR-4: Deteção e análise – investigue um incidente
+### <a name="ir-4-detection-and-analysis--investigate-an-incident"></a>IR-4: Deteção e análise – investigar incidentes
 
-**Orientação**: Certifique-se de que os analistas podem consultar e usar diversas fontes de dados à medida que investigam potenciais incidentes, para construir uma visão completa do que aconteceu. Devem ser recolhidos registos diversos para rastrear as atividades de um potencial atacante através da cadeia de morte para evitar pontos cegos.  Deve também garantir que os insights e aprendizagens são capturados para outros analistas e para referência histórica futura.  
+**Orientação**: Certifique-se de que os analistas podem consultar e utilizar várias origens de dados para investigar potenciais incidentes e ter uma perspetiva geral do que aconteceu. Para monitorizar as atividades de um potencial atacante em toda a rede do ataque e evitar ângulos mortos, devem ser recolhidos diversos registos.  Também deve assegurar que são apreendidas informações e aprendizagens para outros analistas e para informação histórica futura.  
 
-As fontes de dados para investigação incluem as fontes centralizadas de registo que já estão a ser recolhidas dos serviços de âmbito e dos sistemas de funcionamento, mas também podem incluir:
+As origens de dados para investigação incluem as origens de registos centralizadas que já estão a ser recolhidas pelos serviços dentro do âmbito e pelos sistemas em execução, mas podem também incluir:
 
-- Dados da rede – utilize os registos de fluxo dos grupos de segurança da rede, o Azure Network Watcher e o Azure Monitor para capturar registos de fluxo de rede e outras informações analíticas. 
+- Dados de rede – utilize os registos de fluxos dos grupos de segurança de rede, o Observador de Rede do Azure e o Azure Monitor para capturar os registos de fluxos de rede e outras informações analíticas. 
 
-- Instantâneos dos sistemas de funcionamento: 
+- Instantâneos dos sistemas em execução: 
 
-    - Utilize a capacidade de instantâneo da máquina virtual Azure para criar uma imagem do disco do sistema de funcionamento. 
+    - Utilize a capacidade de instantâneos das Máquinas Virtuais do Azure para criar um instantâneo do disco do sistema em execução. 
 
-    - Utilize a capacidade de despejo de memória nativa do sistema operativo para criar uma imagem da memória do sistema de funcionamento.
+    - Utilize a capacidade de captura da memória nativa do sistema operativo para criar um instantâneo da memória do sistema operativo.
 
-    - Utilize a funcionalidade instantânea dos serviços Azure ou a capacidade do seu próprio software para criar instantâneos dos sistemas de execução.
+    - Utilize a funcionalidade de instantâneos dos serviços do Azure ou a capacidade do seu próprio software para criar instantâneos dos sistemas em execução.
 
-O Azure Sentinel fornece uma análise extensiva de dados em praticamente qualquer fonte de registo e um portal de gestão de casos para gerir todo o ciclo de vida dos incidentes. Informações de inteligência durante uma investigação podem ser associadas a um incidente para rastrear e reportar propósitos. 
+O Azure Sentinel disponibiliza uma grande quantidade de análises de dados em praticamente qualquer origem de registos e um portal de gestão de casos para gerir o ciclo de vida completo dos incidentes. As informações de inteligência durante uma investigação podem ser associadas a um incidente para fins de monitorização e reporte. 
 
-- [Snapshot um disco de máquina do Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+- [Criar um instantâneo de um disco de uma máquina Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 
-- [Snapshot um disco de máquina Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+- [Criar um instantâneo de um disco de uma máquina Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
-- [Microsoft Azure Suporta informações de diagnóstico e recolha de despejo de memória](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
+- [Informações de diagnóstico e recolha da captura da memória do Suporte do Microsoft Azure](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
 
-- [Investigue incidentes com Azure Sentinel](../sentinel/tutorial-investigate-cases.md)
+- [Investigar incidentes com o Azure Sentinel](../sentinel/tutorial-investigate-cases.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
 ### <a name="ir-5-detection-and-analysis--prioritize-incidents"></a>IR-5: Deteção e análise – priorizar incidentes
 
-**Orientação**: Fornecer contexto aos analistas sobre quais incidentes se concentrar em primeiro lugar com base na gravidade do alerta e na sensibilidade do ativo. 
+**Orientação**: Dê contexto aos analistas quanto aos incidentes em que se devem concentrar primeiro tendo por base a gravidade dos alertas e a sensibilidade dos ativos. 
 
-O Centro de Segurança Azure atribui uma gravidade a cada alerta para ajudá-lo a priorizar quais os alertas que devem ser investigados primeiro. A gravidade baseia-se na confiança que o Centro de Segurança está na descoberta ou na análise usada para emitir o alerta, bem como no nível de confiança de que havia intenção maliciosa por trás da atividade que levou ao alerta.
+O Centro de Segurança do Azure atribui uma gravidade a cada alerta para o ajudar a priorizar os que devem ser investigados primeiro. A gravidade baseia-se na confiança que o Centro de Segurança está na descoberta ou na análise usada para emitir o alerta, bem como no nível de confiança de que havia intenção maliciosa por trás da atividade que levou ao alerta.
 
-Além disso, marque recursos usando tags e crie um sistema de nomeação para identificar e categorizar recursos Azure, especialmente aqueles que processam dados sensíveis.  É da sua responsabilidade priorizar a reparação de alertas com base na criticidade dos recursos e ambiente do Azure onde ocorreu o incidente.
+Além disso, marque os recursos com etiquetas e crie um sistema de nomenclatura para identificar e categorizar os recursos do Azure, especialmente aqueles que processam dados confidenciais.  É da sua responsabilidade priorizar a remediação dos alertas de acordo com a criticalidade dos recursos do Azure e o ambiente em que os incidentes ocorreram.
 
 - [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
-- [Utilizar etiquetas para organizar os recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
-
-**Responsabilidade**: Cliente
-
-### <a name="ir-6-containment-eradication-and-recovery--automate-the-incident-handling"></a>IR-6: Contenção, erradicação e recuperação – automatizar o tratamento do incidente
-
-**Orientação**: Automatizar tarefas repetitivas manuais para acelerar o tempo de resposta e reduzir o fardo sobre os analistas. As tarefas manuais demoram mais tempo a ser executadas, abrandando cada incidente e reduzindo quantos incidentes um analista pode lidar. As tarefas manuais também aumentam a fadiga dos analistas, o que aumenta o risco de erro humano que causa atrasos, e degrada a capacidade dos analistas de se concentrarem eficazmente em tarefas complexas. Utilize funcionalidades de automatização de fluxos de trabalho no Azure Security Center e no Azure Sentinel para desencadear automaticamente ações ou executar um livro de jogadas para responder aos alertas de segurança que chegam. O livro de jogadas toma medidas, tais como o envio de notificações, a desativação de contas e a isolação de redes problemáticas. 
-
-- [Configurar automatização de fluxos de trabalho no Centro de Segurança](../security-center/workflow-automation.md)
-
-- [Criar respostas automáticas de ameaças no Centro de Segurança Azure](../security-center/tutorial-security-incident.md#triage-security-alerts)
-
-- [Configurar respostas automáticas de ameaças em Azure Sentinel](../sentinel/tutorial-respond-threats-playbook.md)
-
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
-## <a name="posture-and-vulnerability-management"></a>Gestão de Postura e Vulnerabilidade
+### <a name="ir-6-containment-eradication-and-recovery--automate-the-incident-handling"></a>IR-6: Contenção, erradicação e recuperação – automatizar o processamento dos incidentes
 
-*Para mais informações, consulte o [Azure Security Benchmark: Posture and Vulnerability Management](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
+**Orientação**: Automatize tarefas manuais repetitivas para acelerar o tempo de resposta e reduzir a carga dos analistas. As tarefas manuais são mais morosas e atrasam todos os incidentes, reduzindo o número daqueles com que um analista pode lidar. Estas tarefas também aumentam a fadiga dos analistas, o que aumenta o risco de erro humanos e provoca atrasos, bem como degrada a capacidade de aqueles se concentrarem em tarefas complexas. Utilize as funcionalidades de automatização de fluxos de trabalho do Centro de Segurança do Azure e do Azure Sentinel para acionar automaticamente ações ou executar um manual de procedimentos para responder aos alertas de segurança recebidos. O manual de procedimentos efetua ações, como o envio de notificações, a desativação de contas e o isolamento de redes problemáticas. 
+
+- [Configurar a automatização dos fluxos de trabalho no Centro de Segurança](../security-center/workflow-automation.md)
+
+- [Configurar respostas automatizadas a ameaças no Centro de Segurança do Azure](../security-center/tutorial-security-incident.md#triage-security-alerts)
+
+- [Configurar respostas automatizadas a ameaças no Azure Sentinel](../sentinel/tutorial-respond-threats-playbook.md)
+
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+
+**Responsabilidade**: Cliente
+
+## <a name="posture-and-vulnerability-management"></a>Gestão da Postura e da Vulnerabilidade
+
+*Para obter mais informações, veja [Referência de Segurança do Azure: Gestão da Postura e da Vulnerabilidade](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
 
 ### <a name="pv-1-establish-secure-configurations-for-azure-services"></a>PV-1: Estabelecer configurações seguras para os serviços Azure 
 
@@ -766,9 +766,9 @@ Você pode usar Azure Blueprints para automatizar a implementação e configura�
 
 - [Azure Blueprints](../governance/blueprints/overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="pv-2-sustain-secure-configurations-for-azure-services"></a>PV-2: Sustente configurações seguras para serviços Azure
 
@@ -780,220 +780,220 @@ Você pode usar Azure Blueprints para automatizar a implementação e configura�
 
 - [Criar e gerir políticas para impor a conformidade](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
-### <a name="pv-8-conduct-regular-attack-simulation"></a>PV-8: Realizar simulação regular de ataque
+### <a name="pv-8-conduct-regular-attack-simulation"></a>PV-8: Realizar simulações de ataques regulares
 
-**Orientação**: Conforme necessário, realize testes de penetração ou atividades de equipa vermelha nos seus recursos Azure e garanta a reparação de todos os resultados críticos de segurança.
-Siga as Regras de Teste de Penetração na Nuvem da Microsoft para garantir que os seus testes de penetração não violam as políticas da Microsoft. Use a estratégia da Microsoft e a execução de testes de penetração em red teaming e site ao vivo contra infraestruturas, serviços e aplicações de nuvem geridas pela Microsoft.
+**Orientação**: Conforme necessário, faça testes de penetração ou atividades de "equipa de ataque" nos seus recursos do Azure e assegure a remediação de todas as descobertas de segurança críticas.
+Para ter a certeza de que os seus testes de penetração não infringem as políticas da Microsoft, siga as Regras de Interação para Testes de Penetração da Microsoft Cloud. Utilize a estratégia e a execução de "Equipas de Ataque" e os testes de penetração no local em direto da Microsoft na infraestrutura, nos serviços e nas aplicações cloud geridas pela Microsoft.
 
-- [Testes de penetração em Azure](../security/fundamentals/pen-testing.md)
+- [Testes de Penetração no Azure](../security/fundamentals/pen-testing.md)
 
-- [Regras de teste de penetração de compromisso](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
+- [Regras de Interação para os Testes de Penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
-- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- ["Equipa de Ataque" da Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ## <a name="backup-and-recovery"></a>Cópia de Segurança e Recuperação
 
-*Para mais informações, consulte o [Benchmark de Segurança Azure: Backup and Recovery](/azure/security/benchmarks/security-controls-v2-backup-recovery).*
+*Para mais informações, consulte o [Benchmark de Segurança Azure: Backup and Recovery](../security/benchmarks/security-controls-v2-backup-recovery.md).*
 
 ### <a name="br-4-mitigate-risk-of-lost-keys"></a>BR-4: Mitigar o risco de chaves perdidas
 
 **Orientação**: Certifique-se de que tem medidas para prevenir e recuperar da perda de chaves. Ativar a proteção de eliminação e purga suave no Cofre da Chave Azure para proteger as chaves contra a eliminação acidental ou maliciosa.
 
-- [Como permitir a eliminação suave e a proteção de purga no Cofre de Chaves](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Como permitir a eliminação suave e a proteção de purga no Cofre de Chaves](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
 ## <a name="governance-and-strategy"></a>Governação e Estratégia
 
-*Para mais informações, consulte o [Benchmark de Segurança Azure: Governação e Estratégia](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Governação e Estratégia](../security/benchmarks/security-controls-v2-governance-strategy.md).*
 
-### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: Definir estratégia de gestão de ativos e proteção de dados 
+### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: Definir a gestão dos ativos e a estratégia de proteção de dados 
 
-**Orientação**: Certifique-se de que documenta e comunica uma estratégia clara de monitorização e proteção contínua de sistemas e dados. Priorize a descoberta, a avaliação, a proteção e o acompanhamento de dados e sistemas críticos do negócio. 
+**Orientação**: Certifique-se de que documenta e comunica uma estratégia clara para a monitorização e proteção contínua dos sistemas e dos dados. Priorize a descoberta, a avaliação, a proteção e a monitorização de dados e sistemas críticos para a empresa. 
 
 Esta estratégia deve incluir orientações, políticas e normas documentadas para os seguintes elementos: 
 
--   Norma de classificação de dados de acordo com os riscos empresariais
+-   Norma para a classificação de dados, de acordo com os riscos da atividade
 
--   Visibilidade da organização de segurança em riscos e inventário de ativos 
+-   Visibilidade da organização de segurança para os riscos e inventário de ativos 
 
--   Aprovação da organização de segurança dos serviços da Azure para utilização 
+-   Aprovação da organização de segurança dos serviços do Azure a utilizar 
 
--   Segurança dos bens através do seu ciclo de vida
+-   Segurança dos ativos ao longo do ciclo de vida
 
--   Estratégia de controlo de acesso exigida de acordo com a classificação de dados organizacionais
+-   Estratégia de controlo de acesso obrigatória, de acordo com a classificação dos dados organizacionais
 
 -   Utilização de capacidades de proteção de dados nativas e de terceiros da Azure
 
--   Requisitos de encriptação de dados para casos de utilização em trânsito e em repouso
+-   Requisitos de encriptação de dados para casos de utilização de dados em trânsito e inativos
 
--   Padrões criptográficos adequados
+-   Normas criptográficas adequadas
 
-Para mais informações, consulte as seguintes referências:
-- [Recomendação de arquitetura de segurança Azure - Armazenamento, dados e encriptação](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+Para obter mais informações, veja as seguintes referências:
+- [Recomendação de Arquitetura de Segurança do Azure - Armazenamento, dados e encriptação](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
-- [Fundamentos de Segurança Azure - Segurança de dados Azure, encriptação e armazenamento](../security/fundamentals/encryption-overview.md)
+- [Noções Básicas da Segurança do Azure - Segurança, encriptação e armazenamento de dados do Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adopt Framework - Segurança de dados Azure e melhores práticas de encriptação](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [Cloud Adoption Framework - Melhores práticas de segurança e encriptação de dados do Azure](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
-- [Azure Security Benchmark - Gestão de ativos](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Referência de Segurança do Azure - Gestão de ativos](/azure/security/benchmarks/security-benchmark-v2-asset-management)
 
-- [Benchmark de segurança Azure - Proteção de Dados](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Referência de Segurança do Azure - Proteção de dados](/azure/security/benchmarks/security-benchmark-v2-data-protection)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
-
-**Responsabilidade**: Cliente
-
-### <a name="gs-2-define-enterprise-segmentation-strategy"></a>GS-2: Definir estratégia de segmentação empresarial 
-
-**Orientação**: Estabeleça uma estratégia em toda a empresa para segmentar o acesso a ativos utilizando uma combinação de identidade, rede, aplicação, subscrição, grupo de gestão e outros controlos.
-
-Equilibra cuidadosamente a necessidade de separação de segurança com a necessidade de permitir o funcionamento diário dos sistemas que precisam de comunicar entre si e aceder aos dados.
-
-Certifique-se de que a estratégia de segmentação é implementada de forma consistente em todos os tipos de controlo, incluindo modelos de segurança de rede, identidade e acesso, e modelos de permissão/acesso de aplicações e controlos de processos humanos.
-
-- [Orientação sobre estratégia de segmentação em Azure (vídeo)](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
-
-- [Orientação sobre estratégia de segmentação em Azure (documento)](/security/compass/governance#enterprise-segmentation-strategy)
-
-- [Alinhar a segmentação da rede com a estratégia de segmentação empresarial](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
-
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="gs-3-define-security-posture-management-strategy"></a>GS-3: Definir estratégia de gestão da postura de segurança
+### <a name="gs-2-define-enterprise-segmentation-strategy"></a>GS-2: Definir a estratégia de segmentação da empresa 
 
-**Orientação:** Medir e mitigar continuamente os riscos para os seus ativos individuais e para o ambiente em que estão hospedados. Priorize ativos de alto valor e superfícies de ataque altamente expostas, tais como aplicações publicadas, entradas de rede e pontos de saída, pontos finais de utilizador e administrador, etc.
+**Orientação**: Estabeleça uma estratégia ao nível de toda a empresa para segmentar o acesso aos ativos através de uma combinação de controlos de identidade, rede, aplicações, subscrições, grupos de gestão, entre outros.
 
-- [Azure Security Benchmark - Postura e gestão de vulnerabilidades](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+Equilibre cuidadosamente a necessidade de separação da segurança com a necessidade de permitir o funcionamento diário dos sistemas que têm de comunicar entre si e aceder a dados.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+Certifique-se de que a estratégia de segmentação está implementada de forma consistente em todos os tipos de controlos, incluindo segurança de rede, modelos de identidade e acesso e modelos de permissão/acesso a aplicações e controlos de processos humanos.
 
-**Responsabilidade**: Cliente
+- [Orientação para a estratégia de segmentação no Azure (vídeo)](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
 
-### <a name="gs-4-align-organization-roles-responsibilities-and-accountabilities"></a>GS-4: Alinhar papéis de organização, responsabilidades e responsabilidades
+- [Orientação para a estratégia de segmentação no Azure (documento)](/security/compass/governance#enterprise-segmentation-strategy)
 
-**Orientação**: Certifique-se de que documenta e comunica uma estratégia clara para funções e responsabilidades na sua organização de segurança. Priorizar a prestação de contas claras às decisões de segurança, educar todos no modelo de responsabilidade partilhada e educar as equipas técnicas em tecnologia para garantir a nuvem.
+- [Alinhar a segmentação de rede com a estratégia de segmentação empresarial](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
 
-- [Azure Security Best Practice 1 - Pessoas: Educar equipas na jornada de segurança na nuvem](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
-
-- [Azure Security Best Practice 2 - Pessoas: Educar equipas sobre tecnologia de segurança na nuvem](/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
-
-- [Azure Security Best Practice 3 - Processo: Atribuir responsabilidade para decisões de segurança na nuvem](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
-
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="gs-5-define-network-security-strategy"></a>GS-5: Definir estratégia de segurança de rede
+### <a name="gs-3-define-security-posture-management-strategy"></a>GS-3: Definir a estratégia de gestão da postura de segurança
 
-**Orientação**: Estabeleça uma abordagem de segurança da rede Azure como parte da estratégia global de controlo de acesso à segurança da sua organização.  
+**Orientação**: Meça e mitigue continuamente os riscos para os seus ativos individuais e para o ambiente em que estão alojados. Dê prioridade aos ativos de valor alto e a superfícies de ataque muito expostas, como aplicações publicadas, pontos de entrada e saída de rede, pontos finais de utilizador e administrador, etc.
+
+- [Referência de Segurança do Azure - Gestão da postura e das vulnerabilidades](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
+
+**Responsabilidade**: Cliente
+
+### <a name="gs-4-align-organization-roles-responsibilities-and-accountabilities"></a>GS-4: Alinhar as funções, as responsabilidades e as responsabilizações na organização
+
+**Orientação**: Certifique-se de que documenta e comunica uma estratégia clara para as funções e responsabilidades na sua organização de segurança. Estabeleça prioridades ao indicar de forma clara a responsabilização quanto às decisões de segurança, explicando o modelo de responsabilização partilhada a todos e explicando às equipas técnicas a tecnologia para proteger a cloud.
+
+- [Melhor Prática de Segurança do Azure 1 – Pessoas: Explicar às Equipas o Percurso da Segurança da Cloud](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
+
+- [Melhor Prática de Segurança do Azure 2 – Pessoas: Explicar às Equipas a Tecnologia de Segurança da Cloud](/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
+
+- [Melhor Prática de Segurança do Azure 3 – Processo: Atribuir Responsabilização Quanto às Decisões de Segurança da Cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
+
+**Responsabilidade**: Cliente
+
+### <a name="gs-5-define-network-security-strategy"></a>GS-5: Definir uma estratégia de segurança de rede
+
+**Orientação**: Crie uma abordagem à segurança de rede do Azure como parte da estratégia de controlo de acesso de segurança geral da sua organização.  
 
 Esta estratégia deve incluir orientações, políticas e normas documentadas para os seguintes elementos: 
 
--   Responsabilidade centralizada de gestão de redes e segurança
+-   Gestão centralizada da rede e responsabilidade quanto à segurança
 
--   Modelo de segmentação de rede virtual alinhado com a estratégia de segmentação da empresa
+-   Modelo de segmentação de rede virtual alinhado com a estratégia de segmentação empresarial
 
--   Estratégia de remediação em diferentes cenários de ameaça e ataque
+-   Estratégia de remediação em diferentes cenários de ameaças e ataques
 
--   Internet borda e estratégia de entrada e saída
+-   Estratégia de entrada e saída do edge da Internet
 
--   Estratégia híbrida de interconectividade em nuvem e no local
+-   Estratégia de interconectividade entre a cloud híbrida e o ambiente no local
 
--   Artefactos de segurança da rede atualizados (por exemplo, diagramas de rede, arquitetura de rede de referência)
+-   Artefactos de segurança de rede atualizados (por exemplo, diagramas de rede, arquitetura de rede de referência)
 
-Para mais informações, consulte as seguintes referências:
-- [Azure Security Best Practice 11 - Arquitetura. Estratégia de segurança unificada única](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
+Para obter mais informações, veja as seguintes referências:
+- [Melhor Prática de Segurança do Azure 11 – Arquitetura. Estratégia de segurança única e unificada](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Benchmark de segurança Azure - Segurança de rede](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Referência de Segurança do Azure - Segurança de Rede](/azure/security/benchmarks/security-benchmark-v2-network-security)
 
-- [Visão geral da segurança da rede Azure](../security/fundamentals/network-overview.md)
+- [Descrição geral da segurança de rede do Azure](../security/fundamentals/network-overview.md)
 
-- [Estratégia de arquitetura de rede empresarial](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
+- [Estratégia de arquitetura da rede empresarial](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="gs-6-define-identity-and-privileged-access-strategy"></a>GS-6: Definir estratégia de identidade e acesso privilegiado
+### <a name="gs-6-define-identity-and-privileged-access-strategy"></a>GS-6: Definir a estratégia de identidades e acessos privilegiados
 
-**Orientação**: Estabeleça uma identidade azul e abordagens privilegiadas de acesso como parte da estratégia global de controlo de acesso à segurança da sua organização.  
+**Orientação**: Crie uma abordagem às identidades e aos acessos privilegiados do Azure como parte da estratégia de controlo de acesso de segurança geral da sua organização.  
 
 Esta estratégia deve incluir orientações, políticas e normas documentadas para os seguintes elementos: 
 
--   Um sistema centralizado de identidade e autenticação e a sua interconectividade com outros sistemas de identidade interna e externa
+-   Um sistema de identidades e autenticação centralizado e respetiva interconectividade com outros sistemas de identidades internas e externas
 
--   Métodos de autenticação forte em diferentes casos e condições de utilização
+-   Métodos de autenticação fortes em diferentes casos de utilização e condições
 
--   Proteção de utilizadores altamente privilegiados
+-   Proteção de utilizadores com muitos privilégios
 
--   Monitorização e manuseamento de atividades de utilizadores de anomalias  
+-   Monitorização e processamento de atividades anómalas de utilizadores  
 
--   Revisão e reconciliação da identidade do utilizador e acesso
+-   Processo de revisão e reconciliação de identidades e acessos dos utilizadores
 
-Para mais informações, consulte as seguintes referências:
+Para obter mais informações, veja as seguintes referências:
 
-- [Azure Security Benchmark - Gestão de identidade](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Referência de Segurança do Azure - Gestão de identidades](/azure/security/benchmarks/security-benchmark-v2-identity-management)
 
-- [Benchmark de Segurança Azure - Acesso privilegiado](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Referência de Segurança do Azure - Acesso privilegiado](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
 
-- [Azure Security Best Practice 11 - Arquitetura. Estratégia de segurança unificada única](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
+- [Melhor Prática de Segurança do Azure 11 – Arquitetura. Estratégia de segurança única e unificada](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Visão geral da segurança da gestão de identidade Azure](../security/fundamentals/identity-management-overview.md)
+- [Descrição geral da segurança da gestão de identidades do Azure](../security/fundamentals/identity-management-overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="gs-7-define-logging-and-threat-response-strategy"></a>GS-7: Definir a estratégia de resposta ao abate e à ameaça
+### <a name="gs-7-define-logging-and-threat-response-strategy"></a>GS-7: Definir a estratégia de resposta a ameaças e registos
 
-**Orientação**: Estabeleça uma estratégia de resposta à exploração madeireira e a ameaças para detetar e remediar rapidamente as ameaças, cumprindo os requisitos de conformidade. Priorize fornecer aos analistas alertas de alta qualidade e experiências perfeitas para que se concentrem em ameaças em vez de integração e passos manuais. 
+**Orientação**: Crie uma estratégia de resposta a ameaças e registos para detetar e remediar rapidamente as ameaças e cumprir, em paralelo, os requisitos de conformidade. Estabeleça prioridades ao disponibilizar aos analistas alertas de alta qualidade e experiências práticas para que se possam concentrar nas ameaças e não na integração e em passos manuais. 
 
 Esta estratégia deve incluir orientações, políticas e normas documentadas para os seguintes elementos: 
 
--   O papel e as responsabilidades da organização das operações de segurança (SecOps) 
+-   As funções e as responsabilidades da organização quanto às operações de segurança (SecOps) 
 
--   Um processo de resposta a incidentes bem definido, alinhado com o NIST ou outro quadro da indústria 
+-   Processo de resposta a incidentes bem definido e alinhado com as normas da agência norte-americana NIST ou outro framework da indústria 
 
--   Registar captura e retenção para apoiar a deteção de ameaças, resposta a incidentes e necessidades de conformidade
+-   Captura e retenção de registos para suportar a deteção de ameaças, a resposta a incidentes e as necessidades de conformidade
 
--   Visibilidade centralizada e correlação de informações sobre ameaças, utilizando siem, capacidades nativas de Azure, e outras fontes 
+-   Visibilidade centralizada e correlação de informações sobre ameaças, mediante a utilização de SIEM, das capacidades nativas do Azure e de outras origens 
 
--   Plano de comunicação e notificação com os seus clientes, fornecedores e partes públicas de interesse
+-   Plano de comunicação e notificação com os seus clientes, fornecedores e partes interessadas públicas
 
--   Utilização de plataformas nativas e de terceiros da Azure para o tratamento de incidentes, tais como deteção de registos e ameaças, perícia e remediação e erradicação de ataques
+-   Utilização de plataformas nativas do Azure e de terceiros para processamento de incidentes, como registo e deteção de ameaças, análises forenses e remediação e erradicação de ataques
 
--   Processos de tratamento de incidentes e atividades pós-incidente, tais como lições aprendidas e retenção de provas
+-   Processos para lidar com incidentes e atividades pós-incidentes, como lições aprendidas e retenção de provas
 
-Para mais informações, consulte as seguintes referências:
+Para obter mais informações, veja as seguintes referências:
 
-- [Azure Security Benchmark - Registo e deteção de ameaças](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Referência de Segurança do Azure - Registos e deteção de ameaças](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
 
-- [Azure Security Benchmark - Resposta a incidentes](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Referência de Segurança do Azure - Resposta a incidentes](/azure/security/benchmarks/security-benchmark-v2-incident-response)
 
-- [Azure Security Best Practice 4 - Processo. Atualizar processos de resposta a incidentes para cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+- [Melhor Prática de Segurança do Azure 4 – Processo. Atualizar os Processos de Resposta a Incidentes para a Cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-- [Quadro de adoção Azure, registo e guia de decisão de reporte](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
+- [Azure Adoption Framework, registos e guia de decisão de relatórios](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
 
-- [Escala, gestão e monitorização da empresa Azure](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
+- [Escala, gestão e monitorização empresarial do Azure](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Consulte a [visão geral do Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Saiba mais sobre [as linhas de base de segurança da Azure](/azure/security/benchmarks/security-baselines-overview)
+- Veja a [Descrição geral da Referência de Segurança do Azure v2](../security/benchmarks/overview.md)
+- Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

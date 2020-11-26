@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea2b8deb07a899ab35ddd761df3e3ddb413dd45d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 7bd9560399a2b2b377cb543a4f829883bcbdf7c8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95509083"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183775"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Descrição geral das Funções de Trabalho de Runbook Híbridas (Hybrid Runbook Worker overview)
 
@@ -22,14 +22,14 @@ A imagem a seguir ilustra esta funcionalidade:
 
 Existem dois tipos de Trabalhadores runbook - sistema e utilizador. A tabela a seguir descreve a diferença entre eles.
 
-|Tipo | Descrição |
+|Tipo | Description |
 |-----|-------------|
 |**Sistema** |Suporta um conjunto de livros de execução ocultos utilizados pela funcionalidade De Gestão de Atualização que são projetados para instalar atualizações especificadas pelo utilizador nas máquinas Windows e Linux.<br> Este tipo de Trabalhador de Runbook Híbrido não é membro de um grupo híbrido de trabalhadores runbook, e, portanto, não executam runbooks que visam um grupo de trabalhadores runbook. |
 |**Utilizador** |Suporta livros de execução definidos pelo utilizador destinados a funcionar diretamente na máquina Windows e Linux que são membros de um ou mais grupos de Trabalhadores runbook. |
 
 Um Trabalhador De Runbook Híbrido pode funcionar no Windows ou no sistema operativo Linux, e esta função depende do [agente Log Analytics](../azure-monitor/platform/log-analytics-agent.md) reportando a um espaço de trabalho Azure Monitor Log [Analytics](../azure-monitor/platform/design-logs-deployment.md). O espaço de trabalho não é apenas para monitorizar a máquina para o sistema operativo suportado, mas também para descarregar os componentes necessários para instalar o Trabalhador de Runbook Híbrido.
 
-Quando a Azure Automation [Update Management](update-management/update-mgmt-overview.md) estiver ativada, qualquer máquina ligada ao seu espaço de trabalho Log Analytics é automaticamente configurada como um trabalhador de runbook híbrido do sistema.
+Quando a Azure Automation [Update Management](./update-management/overview.md) estiver ativada, qualquer máquina ligada ao seu espaço de trabalho Log Analytics é automaticamente configurada como um trabalhador de runbook híbrido do sistema.
 
 Cada utilizador Hybrid Runbook Worker é membro de um grupo híbrido de trabalho de runbook que especifica quando instala o trabalhador. Um grupo pode incluir um único trabalhador, mas você pode incluir vários trabalhadores em um grupo para alta disponibilidade. Cada máquina pode hospedar um Trabalhador De Runbook Híbrido reportando a uma conta de Automação; não é possível registar o trabalhador híbrido em várias contas de Automação. Isto porque um trabalhador híbrido só pode ouvir empregos a partir de uma única conta de Automação. Para as máquinas que hospedam o sistema Hybrid Runbook trabalhador gerido pela Update Management, podem ser adicionadas a um grupo híbrido de trabalhador runbook. Mas deve utilizar a mesma conta de Automação tanto para a Gestão de Atualização como para a associação híbrida do grupo de trabalhadores runbook.
 
@@ -99,7 +99,7 @@ O Azure Automation Hybrid Runbook Worker pode ser usado no Governo Azure para su
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Endereços de gestão de atualização para trabalhador de runbook híbrido
 
-Para além dos endereços padrão e portas necessários para o Trabalhador de Runbook Híbrido, a Update Management tem requisitos adicionais de configuração de rede descritos na secção de planeamento da [rede.](update-management/update-mgmt-overview.md#ports)
+Para além dos endereços padrão e portas necessários para o Trabalhador de Runbook Híbrido, a Update Management tem requisitos adicionais de configuração de rede descritos na secção de planeamento da [rede.](./update-management/overview.md#ports)
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Configuração do Estado da Automação Azure em um trabalhador de runbook híbrido
 

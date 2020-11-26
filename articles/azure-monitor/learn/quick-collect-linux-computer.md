@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 04d53dc213d5e992dc79e322b071025bdb447b1b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 4527d871df3667f483efd529d93f044377f34651
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057506"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186189"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Quickstart: Recolher dados de um computador Linux em ambiente híbrido com Azure Monitor
 
@@ -38,7 +38,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
     ![Encontrar log analytics espaço de trabalho no portal Azure](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
-2. Selecione **Criar**e, em seguida, selecione escolhas para os seguintes itens:
+2. Selecione **Criar** e, em seguida, selecione escolhas para os seguintes itens:
 
    * Indique um nome para a nova **Área de trabalho do Log Analytics**, como *DefaultLAWorkspace*.  
    * Selecione uma **Subscrição** à qual ligar ao escolher na lista pendente se a predefinição selecionada não é adequada.
@@ -115,7 +115,7 @@ O Azure Monitor pode recolher eventos a partir do Syslog Linux e dos balcões de
 
 1. No portal Azure, selecione **Todos os serviços**. Na lista de recursos, escreva Log Analytics. À medida que escreve, a lista filtra-se com base na sua entrada. Selecione **log Analytics espaços de trabalho** e na sua lista de espaços de trabalho Log Analytics, selecione o espaço de trabalho que procura e selecione **definições Avançadas** do espaço de trabalho **Log Analytics.**
 
-2. Selecione **Dados**e, em seguida, selecione **Syslog**.  
+2. Selecione **Dados** e, em seguida, selecione **Syslog**.  
 
 3. Adicione syslog digitando o nome do tronco. Introduza **o Syslog** e, em seguida, selecione o sinal de mais **+** .  
 
@@ -166,5 +166,4 @@ Agora que está a recolher dados operacionais e de desempenho do computador com 
 Para saber como ver e analisar os dados, avance para o tutorial.
 
 > [!div class="nextstepaction"]
-> [Ver ou analisar dados no Log Analytics](../log-query/get-started-portal.md)
-
+> [Ver ou analisar dados no Log Analytics](../log-query/log-analytics-tutorial.md)

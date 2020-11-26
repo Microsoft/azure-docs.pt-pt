@@ -3,12 +3,12 @@ title: Funções do modelo - recursos
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para recuperar valores sobre recursos.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 0d118b80439579b0c8be45fdf1180b9a03b54c1d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b7bb726250c6d1ef8a597481b5f7e95f024a56d4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95994145"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183996"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recursos para modelos ARM
 
@@ -37,12 +37,12 @@ Devolve o ID de recurso para um [recurso de extensão](../management/extension-r
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| resourceId |Sim |string |O ID de recurso para o recurso a que o recurso de extensão é aplicado. |
-| resourceType |Sim |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
-| recursoName1 |Sim |string |Nome do recurso. |
-| recursoName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
+| resourceId |Yes |string |O ID de recurso para o recurso a que o recurso de extensão é aplicado. |
+| resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
+| recursoName1 |Yes |string |Nome do recurso. |
+| recursoName2 |No |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue a adicionar nomes de recursos como parâmetros quando o tipo de recurso inclui mais segmentos.
 
@@ -179,11 +179,11 @@ A sintaxe para esta função varia em função do nome das operações da lista.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| recursoName ou identificador de recursos |Sim |string |Identificador único para o recurso. |
-| apiVersion |Sim |string |Versão API do estado de execução de recursos. Tipicamente, no formato, **yyy-mm-dd**. |
-| funçõesValues |Não |objeto | Um objeto que tem valores para a função. Apenas forneça este objeto para funções que suportem a receção de um objeto com valores de parâmetros, como **listAccountSas** numa conta de armazenamento. Neste artigo é mostrado um exemplo de valores de função de passagem. |
+| recursoName ou identificador de recursos |Yes |string |Identificador único para o recurso. |
+| apiVersion |Yes |string |Versão API do estado de execução de recursos. Tipicamente, no formato, **yyy-mm-dd**. |
+| funçõesValues |No |objeto | Um objeto que tem valores para a função. Apenas forneça este objeto para funções que suportem a receção de um objeto com valores de parâmetros, como **listAccountSas** numa conta de armazenamento. Neste artigo é mostrado um exemplo de valores de função de passagem. |
 
 ### <a name="valid-uses"></a>Usos válidos
 
@@ -438,13 +438,13 @@ Determina se um tipo de recurso suporta zonas para uma região.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| providerNamespace | Sim | string | O espaço de nome do fornecedor de recursos para o tipo de recurso para verificar o suporte da zona. |
-| resourceType | Sim | string | O tipo de recurso para verificar o suporte da zona. |
-| localização | Sim | string | A região para verificar o apoio da zona. |
-| númeroOfZones | Não | número inteiro | O número de zonas lógicas para regressar. A predefinição é 1. O número deve ser um número inteiro positivo de 1 a 3.  Utilize 1 para recursos de zona única. No que diz a favor de recursos multi-zonas, o valor deve ser inferior ou igual ao número de zonas apoiadas. |
-| offset | Não | número inteiro | A compensação da zona lógica inicial. A função retorna um erro se o offset plus numberOfZones exceder o número de zonas suportadas. |
+| providerNamespace | Yes | string | O espaço de nome do fornecedor de recursos para o tipo de recurso para verificar o suporte da zona. |
+| resourceType | Yes | string | O tipo de recurso para verificar o suporte da zona. |
+| localização | Yes | string | A região para verificar o apoio da zona. |
+| númeroOfZones | No | número inteiro | O número de zonas lógicas para regressar. A predefinição é 1. O número deve ser um número inteiro positivo de 1 a 3.  Utilize 1 para recursos de zona única. No que diz a favor de recursos multi-zonas, o valor deve ser inferior ou igual ao número de zonas apoiadas. |
+| offset | No | número inteiro | A compensação da zona lógica inicial. A função retorna um erro se o offset plus numberOfZones exceder o número de zonas suportadas. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -547,10 +547,10 @@ Devolve informações sobre um fornecedor de recursos e os seus tipos de recurso
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Sim |string |Espaço de nome do fornecedor |
-| resourceType |Não |string |O tipo de recurso dentro do espaço de nome especificado. |
+| providerNamespace |Yes |string |Espaço de nome do fornecedor |
+| resourceType |No |string |O tipo de recurso dentro do espaço de nome especificado. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -635,11 +635,11 @@ Devolve um objeto que representa o estado de execução de um recurso.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| recursoName ou identificador de recursos |Sim |string |Nome ou identificador único de um recurso. Ao fazer referência a um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Quando se refere a um recurso previamente implantado ou quando o nome do recurso for ambíguo, forneça o ID do recurso. |
-| apiVersion |Não |string |Versão API do recurso especificado. **Este parâmetro é necessário quando o recurso não é aprovisionado dentro do mesmo modelo.** Tipicamente, no formato, **yyy-mm-dd**. Para versões API válidas para o seu recurso, consulte [a referência do modelo](/azure/templates/). |
-| 'Cheio' |Não |string |Valor que especifica se deve devolver o objeto de recurso completo. Se não `'Full'` especificar, apenas o objeto de propriedades do recurso é devolvido. O objeto completo inclui valores como o ID de recurso e a localização. |
+| recursoName ou identificador de recursos |Yes |string |Nome ou identificador único de um recurso. Ao fazer referência a um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Quando se refere a um recurso previamente implantado ou quando o nome do recurso for ambíguo, forneça o ID do recurso. |
+| apiVersion |No |string |Versão API do recurso especificado. **Este parâmetro é necessário quando o recurso não é aprovisionado dentro do mesmo modelo.** Tipicamente, no formato, **yyy-mm-dd**. Para versões API válidas para o seu recurso, consulte [a referência do modelo](/azure/templates/). |
+| 'Cheio' |No |string |Valor que especifica se deve devolver o objeto de recurso completo. Se não `'Full'` especificar, apenas o objeto de propriedades do recurso é devolvido. O objeto completo inclui valores como o ID de recurso e a localização. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1030,7 +1030,7 @@ A propriedade **geridaBy** é devolvida apenas para grupos de recursos que cont�
 
 ### <a name="remarks"></a>Observações
 
-A `resourceGroup()` função não pode ser utilizada num modelo que seja [implantado ao nível de subscrição](deploy-to-subscription.md). Só pode ser usado em modelos que são implantados num grupo de recursos. Pode utilizar a `resourceGroup()` função num [modelo ligado ou aninhado (com âmbito interno)](linked-templates.md) que se destina a um grupo de recursos, mesmo quando o modelo dos pais é implantado na subscrição. Nesse cenário, o modelo ligado ou aninhado é implantado ao nível do grupo de recursos. Para obter mais informações sobre como direcionar um grupo de recursos numa implementação de nível de subscrição, consulte [os recursos do Deploy Azure para mais de uma subscrição ou grupo de recursos](cross-scope-deployment.md).
+A `resourceGroup()` função não pode ser utilizada num modelo que seja [implantado ao nível de subscrição](deploy-to-subscription.md). Só pode ser usado em modelos que são implantados num grupo de recursos. Pode utilizar a `resourceGroup()` função num [modelo ligado ou aninhado (com âmbito interno)](linked-templates.md) que se destina a um grupo de recursos, mesmo quando o modelo dos pais é implantado na subscrição. Nesse cenário, o modelo ligado ou aninhado é implantado ao nível do grupo de recursos. Para obter mais informações sobre como direcionar um grupo de recursos numa implementação de nível de subscrição, consulte [os recursos do Deploy Azure para mais de uma subscrição ou grupo de recursos](./deploy-to-resource-group.md).
 
 Uma utilização comum da função grupo de recursos é criar recursos no mesmo local que o grupo de recursos. O exemplo a seguir utiliza a localização do grupo de recursos para um valor de parâmetro padrão.
 
@@ -1055,7 +1055,7 @@ param location string = resourceGroup().location
 
 Também pode utilizar a função grupo de recursos para aplicar tags do grupo de recursos a um recurso. Para obter mais informações, consulte [aplicar etiquetas do grupo de recursos.](../management/tag-resources.md#apply-tags-from-resource-group)
 
-Ao utilizar modelos aninhados para implantar em vários grupos de recursos, pode especificar o âmbito para avaliar a função Grupo de Recursos. Para obter mais informações, consulte [os recursos do Deploy Azure para mais de uma subscrição ou grupo de recursos.](cross-scope-deployment.md)
+Ao utilizar modelos aninhados para implantar em vários grupos de recursos, pode especificar o âmbito para avaliar a função Grupo de Recursos. Para obter mais informações, consulte [os recursos do Deploy Azure para mais de uma subscrição ou grupo de recursos.](./deploy-to-resource-group.md)
 
 ### <a name="resource-group-example"></a>Exemplo de grupo de recursos
 
@@ -1107,13 +1107,13 @@ Devolve o identificador único de um recurso. Utilize esta função quando o nom
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Não |cadeia (no formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos ou subscrição. |
-| resourceGroupName |Não |string |O valor predefinido é o grupo de recursos corrente. Especifique este valor quando necessitar de recuperar um recurso noutro grupo de recursos. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos. |
-| resourceType |Sim |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
-| recursoName1 |Sim |string |Nome do recurso. |
-| recursoName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
+| subscriptionId |No |cadeia (no formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos ou subscrição. |
+| resourceGroupName |No |string |O valor predefinido é o grupo de recursos corrente. Especifique este valor quando necessitar de recuperar um recurso noutro grupo de recursos. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos. |
+| resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
+| recursoName1 |Yes |string |Nome do recurso. |
+| recursoName2 |No |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue a adicionar nomes de recursos como parâmetros quando o tipo de recurso inclui mais segmentos.
 
@@ -1372,7 +1372,7 @@ A função devolve o seguinte formato:
 
 ### <a name="remarks"></a>Observações
 
-Ao utilizar modelos aninhados para implementar em várias subscrições, pode especificar o âmbito para avaliar a função de subscrição. Para obter mais informações, consulte [os recursos do Deploy Azure para mais de uma subscrição ou grupo de recursos.](cross-scope-deployment.md)
+Ao utilizar modelos aninhados para implementar em várias subscrições, pode especificar o âmbito para avaliar a função de subscrição. Para obter mais informações, consulte [os recursos do Deploy Azure para mais de uma subscrição ou grupo de recursos.](./deploy-to-resource-group.md)
 
 ### <a name="subscription-example"></a>Exemplo de subscrição
 
@@ -1410,12 +1410,12 @@ Devolve o identificador único para um recurso implantado ao nível da subscriç
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Não |cadeia (em formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. |
-| resourceType |Sim |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
-| recursoName1 |Sim |string |Nome do recurso. |
-| recursoName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
+| subscriptionId |No |cadeia (em formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. |
+| resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
+| recursoName1 |Yes |string |Nome do recurso. |
+| recursoName2 |No |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue a adicionar nomes de recursos como parâmetros quando o tipo de recurso inclui mais segmentos.
 
@@ -1542,11 +1542,11 @@ Devolve o identificador único para um recurso implantado ao nível do inquilino
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| resourceType |Sim |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
-| recursoName1 |Sim |string |Nome do recurso. |
-| recursoName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
+| resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
+| recursoName1 |Yes |string |Nome do recurso. |
+| recursoName2 |No |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue a adicionar nomes de recursos como parâmetros quando o tipo de recurso inclui mais segmentos.
 

@@ -4,12 +4,12 @@ description: Monitorizar as funções Web e de trabalho eficazmente com o Applic
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: cae2e4e1d5b5e199e772c5263a46d82289f5d6ac
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 29482403358936b95fc5e814b68238cc8c25f7a8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992841"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186359"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Insights de Aplicação para serviços em nuvem Azure
 [O Application Insights][start] pode monitorizar [as aplicações do serviço de cloud Azure](https://azure.microsoft.com/services/cloud-services/) para disponibilidade, desempenho, falhas e utilização, combinando dados de SDKs app Insights com dados de [Diagnóstico Azure](../platform/diagnostics-extension-overview.md) dos seus serviços na nuvem. Com o feedback que recebe relativamente ao desempenho e à eficácia da sua aplicação no terreno, pode fazer escolhas informadas sobre o rumo do design em cada ciclo de vida do desenvolvimento.
@@ -73,7 +73,7 @@ Aprenda a [definir dinamicamente a chave de instrumentação](./separate-resourc
 
 Se decidiu criar um recurso separado para cada papel, e talvez um conjunto separado para cada configuração de construção, é mais fácil criá-los todos no portal Application Insights. Se criar muitos recursos, pode [automatizar o processo.](./powershell.md)
 
-1. No [portal Azure,][portal]selecione **New**  >  **Developer Services**Application  >  **Insights**.  
+1. No [portal Azure,][portal]selecione **New**  >  **Developer Services** Application  >  **Insights**.  
 
     ![Painel de Insights de Aplicação](./media/cloudservices/01-new.png)
 
@@ -95,7 +95,7 @@ Se tiver optado por utilizar um recurso do Application Insights separado para ca
 
 Isto tem o efeito de inserir as chaves de instrumentação de Insights de Aplicação nos ficheiros denominados *ServiceConfiguration. \* cscfg*. Aqui está o [código de amostra.](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)
 
-Se pretender variar o nível de informação de diagnóstico que é enviado para o Application Insights, pode fazê-lo [editando diretamente os *ficheiros .cscfg* ](../platform/diagnostics-extension-to-application-insights.md).
+Se pretender variar o nível de informação de diagnóstico que é enviado para o Application Insights, pode fazê-lo [editando diretamente os *ficheiros .cscfg*](../platform/diagnostics-extension-to-application-insights.md).
 
 ## <a name="install-the-sdk-in-each-project"></a><a name="sdk"></a>Instalar o SDK em cada projeto
 Com esta opção, pode adicionar telemetria de negócio personalizada a qualquer papel. A opção fornece uma análise mais aprofundada de como a sua aplicação é usada e executa.
@@ -191,7 +191,7 @@ Para ver contadores de desempenho e contagem de eventos, abra [o Metrics Explore
 
 ![Dados do Azure Diagnostics](./media/cloudservices/23-wad.png)
 
-Para pesquisar os vários registos de vestígios enviados pela Azure Diagnostics, utilize [search](./diagnostic-search.md) ou uma [consulta de Analytics](../log-query/get-started-portal.md). Por exemplo, suponha que tem uma exceção sem manipulação que fez com que um papel se despenhe e recicle. Esta informação apareceria no canal Aplicação do Registo de Eventos do Windows. Pode utilizar a Pesquisa para ver o erro do Registo de Eventos do Windows e obter o rastreio completo da pilha para a exceção. Fazê-lo ajuda-o a encontrar a causa principal do problema.
+Para pesquisar os vários registos de vestígios enviados pela Azure Diagnostics, utilize [search](./diagnostic-search.md) ou uma [consulta de Analytics](../log-query/log-analytics-tutorial.md). Por exemplo, suponha que tem uma exceção sem manipulação que fez com que um papel se despenhe e recicle. Esta informação apareceria no canal Aplicação do Registo de Eventos do Windows. Pode utilizar a Pesquisa para ver o erro do Registo de Eventos do Windows e obter o rastreio completo da pilha para a exceção. Fazê-lo ajuda-o a encontrar a causa principal do problema.
 
 ![Pesquisa de Diagnósticos Azure](./media/cloudservices/25-wad.png)
 

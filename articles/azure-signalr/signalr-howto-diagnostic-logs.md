@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: b0c1a91df30ee6a88f055dc47cfdef339e2ee2b2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5ad40ca051677ced0c6d8b5c35e8563272ff598f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151066"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183979"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Registos de recursos para o Serviço Azure SignalR
 
@@ -122,7 +122,7 @@ Para ver registos de recursos, siga estes passos:
 
     ![Item do menu Log Analytics](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
 
-2. Introduza `SignalRServiceDiagnosticLogs` e selecione o intervalo de tempo para consultar registos de recursos. Para consultas avançadas, consulte [Começar com Log Analytics no Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+2. Introduza `SignalRServiceDiagnosticLogs` e selecione o intervalo de tempo para consultar registos de recursos. Para consultas avançadas, consulte [Começar com Log Analytics no Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
 
     ![Início de consulta no Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 
@@ -162,7 +162,7 @@ A diferença entre `ConnectionAborted` e é que é uma `ConnectionEnded` `Connec
 
 As razões do aborto constam da seguinte tabela:
 
-Razão | Descrição
+Razão | Description
 ------- | ------- 
 Contagem de ligação atinge limite | A contagem de ligação atinge o limite do seu nível de preço atual. Considere aumentar a unidade de serviço
 O servidor de aplicações fechou a ligação | O servidor de aplicações desencadeia o aborto. Pode ser considerado como um aborto esperado
@@ -182,7 +182,7 @@ Se receber 401 devolvidos não autorizados para pedidos de clientes, verifique o
 
 #### <a name="throttling"></a>Limitação
 
-Se verificar que não consegue estabelecer ligações do cliente SignalR ao Serviço Azure SignalR, verifique os seus registos de recursos. Se encontrar `Connection count reaches limit` no registo de recursos, estabelece demasiadas ligações ao Serviço SignalR, que atingem o limite da contagem de ligação. Considere aumentar o seu serviço SignalR. Se encontrar `Message count reaches limit` em registo de recursos, significa que usa o nível livre e utiliza a quota de mensagens. Se pretender enviar mais mensagens, considere alterar o serviço SignalR para o nível normal para enviar mensagens adicionais. Para mais informações, consulte [o preço do serviço Azure SignalR](https://azure.microsoft.com/pricing/details/signalr-service/).
+Se verificar que não consegue estabelecer ligações do cliente SignalR ao Serviço Azure SignalR, verifique os seus registos de recursos. Se encontrar `Connection count reaches limit` no registo de recursos, estabelece demasiadas ligações ao Serviço SignalR, que atingem o limite da contagem de ligação. Considere aumentar o seu serviço SignalR. Se encontrar `Message count reaches limit` em registo de recursos, significa que usa o nível livre e utiliza a quota de mensagens. Se pretender enviar mais mensagens, considere alterar o serviço SignalR para o nível normal para enviar mensagens adicionais. Para mais informações, consulte [o preço do serviço Azure SignalR](https://azure.microsoft.com/pricing/details/signalr-service/).
 
 ### <a name="get-help"></a>Obter ajuda
 

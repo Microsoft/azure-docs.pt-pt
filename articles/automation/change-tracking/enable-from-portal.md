@@ -5,18 +5,18 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9d13e19958ce4614db3706845cc6717b77f60c4c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 6ca5b1df05c04937598278378e001f41f08ef23c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209883"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183639"
 ---
 # <a name="enable-change-tracking-and-inventory-from-azure-portal"></a>Ativar o rastreio de alterações e o inventário a partir do portal Azure
 
 Este artigo descreve como pode ativar [o Change Tracking and Inventory](overview.md) para um ou mais VMs Azure no portal Azure. Para ativar os VMs Azure em escala, deve ativar um VM existente utilizando o Change Tracking and Inventory.
 
-O número de grupos de recursos que pode utilizar para gerir os seus VMs é limitado pelos [limites de implementação](../../azure-resource-manager/templates/cross-scope-deployment.md)do Gestor de Recursos. As implementações do Gestor de Recursos estão limitadas a cinco grupos de recursos por implantação. Dois destes grupos de recursos estão reservados para configurar o espaço de trabalho Log Analytics, a conta de automação e recursos conexos. Isto deixa-lhe três grupos de recursos para selecionar para gestão por Change Tracking e Inventory. Este limite aplica-se apenas à configuração simultânea, e não ao número de grupos de recursos que podem ser geridos por uma funcionalidade de Automação.
+O número de grupos de recursos que pode utilizar para gerir os seus VMs é limitado pelos [limites de implementação](../../azure-resource-manager/templates/deploy-to-resource-group.md)do Gestor de Recursos. As implementações do Gestor de Recursos estão limitadas a cinco grupos de recursos por implantação. Dois destes grupos de recursos estão reservados para configurar o espaço de trabalho Log Analytics, a conta de automação e recursos conexos. Isto deixa-lhe três grupos de recursos para selecionar para gestão por Change Tracking e Inventory. Este limite aplica-se apenas à configuração simultânea, e não ao número de grupos de recursos que podem ser geridos por uma funcionalidade de Automação.
 
 > [!NOTE]
 > Ao permitir o Rastreio e Inventário de Alterações, apenas certas regiões são suportadas para ligar um espaço de trabalho Log Analytics e uma Conta de Automação. Para obter uma lista dos pares de mapeamento suportados, consulte [o mapeamento da Região para a Conta de Automação e o espaço de trabalho log Analytics.](../how-to/region-mappings.md)

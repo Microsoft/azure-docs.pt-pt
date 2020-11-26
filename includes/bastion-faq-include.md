@@ -9,11 +9,11 @@ ms.date: 11/05/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 48a7912b1a6375111b6f9af1496cbbd41966202c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95554217"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183928"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Que regiões estão disponíveis?
 

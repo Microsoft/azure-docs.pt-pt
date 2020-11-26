@@ -3,14 +3,14 @@ title: Registos DNS do Azure Datacenter utilizados pela Azure Automation Microso
 description: Este artigo fornece os registos DNS exigidos pela Azure Automation ao restringir a comunicação a uma região específica do Azure que alberga essa conta Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/23/2020
+ms.date: 11/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: 17d0857a8979cfcc632ab8951fb255f97229a665
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4b8f48afc75c0a96937575bdad5bb884d0cb4d8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87117176"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183724"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Registos dns para regiões Azure utilizadas pela Azure Automation
 
@@ -75,7 +75,7 @@ Para suportar o [Private Link](../../private-link/private-link-overview.md) in A
 | Austrália Central |`https://<accountId>.webhook.ac.azure-automation.net`<br>`https://<accountId>.agentsvc.ac.azure-automation.net`<br>`https://<accountId>.jrds.ac.azure-automation.net` |
 | Sul do Reino Unido |`https://<accountId>.webhook.uks.azure-automation.net`<br>`https://<accountId>.agentsvc.uks.azure-automation.net`<br>`https://<accountId>.jrds.uks.azure-automation.net` |
 | França Central |`https://<accountId>.webhook.fc.azure-automation.net`<br>`https://<accountId>.agentsvc.fc.azure-automation.net`<br>`https://<accountId>.jrds.fc.azure-automation.net` |
-| África do Sul Norte |`https://<accountId>.webhook.san.azure-automation.net`<br>`https://<accountId>.agentsvc.san.azure-automation.net`<br>`https://<accountId>.jrds.san.azure-automation.net` |
+| Norte da África do Sul |`https://<accountId>.webhook.san.azure-automation.net`<br>`https://<accountId>.agentsvc.san.azure-automation.net`<br>`https://<accountId>.jrds.san.azure-automation.net` |
 | Sul do Brasil |`https://<accountId>.webhook.brs.azure-automation.net`<br>`https://<accountId>.agentsvc.brs.azure-automation.net`<br>`https://<accountId>.jrds.brs.azure-automation.net` |
 | Norte da China |`https://<accountId>.webhook.bjb.azure-automation.cn`<br>`https://<accountId>.agentsvc.bjb.azure-automation.cn`<br>`https://<accountId>.jrds.bjb.azure-automation.cn` |
 | China Norte 2 |`https://<accountId>.webhook.bjs2.azure-automation.cn`<br>`https://<accountId>.agentsvc.bjs2.azure-automation.cn`<br>`https://<accountId>.jrds.bjs2.azure-automation.cn` |
@@ -84,11 +84,14 @@ Para suportar o [Private Link](../../private-link/private-link-overview.md) in A
 | US Gov - Texas |`https://<accountId>.webhook.ussc.azure-automation.us`<br>`https://<accountId>.agentsvc.ussc.azure-automation.us`<br>`https://<accountId>.jrds.ussc.azure-automation.us` |
 | US Gov - Arizona |`https://<accountId>.webhook.phx.azure-automation.us`<br>`https://<accountId>.agentsvc.phx.azure-automation.us`<br>`https://<accountId>.jrds.phx.azure-automation.us` |
 
-Substitua `<accountId>` no registo DNS pelo GUID representando o seu ID de Conta de Automação a partir do **URL**de valor . Pode obter o ID necessário a partir de **Chaves** em **Definições** de Conta no portal Azure.
+Substitua `<accountId>` no registo DNS pelo GUID representando o seu ID de Conta de Automação a partir do **URL** de valor . Pode obter o ID necessário a partir de **Chaves** em **Definições** de Conta no portal Azure.
 
 ![Página chave primária da conta de automação](./media/automation-region-dns-records/automation-account-keys.png)
 
 Copiar o valor após *contas/* a partir do campo **URL** - `https://<GUID>.agentsvc.<region>.azure-automation.net/accounts/<GUID>`
+
+> [!NOTE]
+> Todos os registos DNS do Webhook e do agentservice foram atualizados para os novos registos DNS de estilo para suportar o Private Link. Para os registos DNS JRDS, os registos DNS de estilo antigo e novo são suportados. Se não estiver a utilizar o Private Link, verá os registos DNS de estilo antigo, enquanto os que usam o Private Link verão um novo estilo de registos DNS.
 
 Recomendamos que utilize os endereços listados ao definir [exceções](../automation-runbook-execution.md#exceptions). Para obter uma lista de endereços IP da região em vez de nomes de região, descarregue o ficheiro JSON do Microsoft Download Center para os seguintes ambientes em nuvem:
 

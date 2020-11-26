@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 35713a2e854cf65054d162ce0191bf2dfde4e90b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 73a12edb4576fe26fbb8e0918566aa8e292e35fc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786144"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184319"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-javascript-v4"></a>Quickstart: Biblioteca de clientes Azure Key Vault para JavaScript (v4)
 
@@ -69,7 +69,7 @@ npm install @azure/identity
 Crie uma política de acesso para o seu cofre-chave que concede permissão secreta à sua conta de utilizador.
 
 ```console
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set purge
 ```
 
 #### <a name="set-environment-variables"></a>Definir variáveis de ambiente
@@ -157,7 +157,7 @@ Pode verificar se o segredo se foi com o comando secreto do [programa az keyvaul
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, pode utilizar o Azure CLI ou o Azure PowerShell para remover o cofre da chave e o grupo de recursos correspondente.
 

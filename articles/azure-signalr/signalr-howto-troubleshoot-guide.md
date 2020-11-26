@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: 11ea348a80bc226b6a96bea1e7c023ee9c06b13a
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: cc17dcef7a554bee2715c79ba7d0c2356db2c6b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684122"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185662"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guia de resolução de problemas para problemas comuns do Serviço Azure SignalR
 
@@ -148,7 +148,7 @@ Para ASP.NET SignalR, quando a ligação do [cliente cai,](#client_connection_dr
 
 Para casos **gratuitos,** o limite de contagem de ligação **simultânea** é de 20 Para instâncias **standard,** o limite de contagem de ligação **simultânea** **por unidade** é de 1 K, o que significa que a Unit100 permite ligações simultâneas de 100 K.
 
-As ligações incluem ligações de cliente e servidor. consulte [aqui](https://docs.microsoft.com/azure/azure-signalr/signalr-concept-messages-and-connections#how-connections-are-counted) como as ligações são contadas.
+As ligações incluem ligações de cliente e servidor. consulte [aqui](./signalr-concept-messages-and-connections.md#how-connections-are-counted) como as ligações são contadas.
 
 ## <a name="500-error-when-negotiate-azure-signalr-service-is-not-connected-yet-please-try-again-later"></a>500 Erro ao negociar: O Serviço Azure SignalR ainda não está ligado, tente novamente mais tarde.
 
@@ -162,7 +162,7 @@ Ativar o rastreio do lado do servidor para descobrir os detalhes de erro quando 
 
 #### <a name="enable-server-side-logging-for-aspnet-core-signalr"></a>Ativar a sessão de registo do lado do servidor para ASP.NET Core SignalR
 
-A sessão de registo do lado do servidor para ASP.NET o Core SignalR integra-se com a `ILogger` [registo baseada](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&tabs=aspnetcore2x) fornecida na estrutura do Núcleo de ASP.NET. Pode ativar a sessão do lado do servidor utilizando `ConfigureLogging` uma utilização da amostra da seguinte forma:
+A sessão de registo do lado do servidor para ASP.NET o Core SignalR integra-se com a `ILogger` [registo baseada](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1) fornecida na estrutura do Núcleo de ASP.NET. Pode ativar a sessão do lado do servidor utilizando `ConfigureLogging` uma utilização da amostra da seguinte forma:
 ```cs
 .ConfigureLogging((hostingContext, logging) =>
         {

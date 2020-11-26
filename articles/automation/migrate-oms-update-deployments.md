@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: dabe914ffd4e84e8ded5c0e3b519036479fe33ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2226f55c829afa4316a92888d16f6dc68e1f931
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987593"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183605"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migrar Azure Monitor regista atualização de implementações para o portal Azure
 
@@ -19,7 +19,7 @@ O portal Da Suite de Gestão de Operações (OMS) está a ser [depreciado.](../a
 ## <a name="key-information"></a>Informações-chave
 
 * As missões existentes continuarão a funcionar. Uma vez recriado a implantação em Azure, pode eliminar a sua antiga implantação.
-* Todas as funcionalidades existentes que tinha no OMS estão disponíveis no Azure. Para saber mais sobre a Gestão de Atualização, consulte [a visão geral da Gestão de Atualização](update-management/update-mgmt-overview.md).
+* Todas as funcionalidades existentes que tinha no OMS estão disponíveis no Azure. Para saber mais sobre a Gestão de Atualização, consulte [a visão geral da Gestão de Atualização](./update-management/overview.md).
 
 ## <a name="access-the-azure-portal"></a>Aceder ao portal do Azure
 
@@ -43,7 +43,7 @@ O portal Da Suite de Gestão de Operações (OMS) está a ser [depreciado.](../a
 
 Todas as implementações de atualização criadas no portal OMS têm uma [pesquisa guardada](../azure-monitor/platform/computer-groups.md) também conhecida como um grupo de computador, com o mesmo nome que a implementação da atualização que existe. A pesquisa guardada contém a lista de máquinas que estavam programadas na implementação da atualização.
 
-:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Screenshot da página de gestão de atualização.":::
+:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Screenshot da página 'Actualização' com os campos Nome e Servidores destacados.":::
 
 Para utilizar esta pesquisa guardada existente, siga estes passos:
 
@@ -74,4 +74,4 @@ Para utilizar esta pesquisa guardada existente, siga estes passos:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre a Gestão de Atualização na Azure Automation, consulte [a visão geral da Gestão de Atualização](update-management/update-mgmt-overview.md).
+Para saber mais sobre a Gestão de Atualização na Azure Automation, consulte [a visão geral da Gestão de Atualização](./update-management/overview.md).

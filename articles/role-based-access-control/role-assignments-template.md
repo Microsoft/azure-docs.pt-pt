@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/13/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 563cd14d0eccdbe6d91ae09029da766dacbceb87
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 9bdd70baa906d9dc03a37eecb0388eee5638f153
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616880"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184285"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Adicione atribuições de funções Azure usando modelos de Gestor de Recursos Azure
 
@@ -380,7 +380,7 @@ No Azure RBAC, para remover o acesso a um recurso Azure, você remove a atribui�
 
 - [Portal do Azure](role-assignments-portal.md#remove-a-role-assignment)
 - [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
-- [CLI do Azure](role-assignments-cli.md#remove-role-assignment)
+- [CLI do Azure](role-assignments-cli.md#remove-a-role-assignment)
 - [API REST](role-assignments-rest.md#remove-a-role-assignment)
 
 ## <a name="next-steps"></a>Passos seguintes

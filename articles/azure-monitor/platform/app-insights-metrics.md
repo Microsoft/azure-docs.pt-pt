@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 9ea98df4b6cd8572412e7082b451feac3736919c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c61287475eb82241aa5c9e1d1649e8b20e3b28c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327077"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185951"
 ---
 # <a name="application-insights-log-based-metrics"></a>Métricas baseadas em registos de insights de aplicação
 
@@ -35,10 +35,10 @@ Quando traça a mesma métrica no [explorador de métricas](metrics-getting-star
 
 - Quaisquer dimensões **de filtro** selecionadas são traduzidas em *cláusulas* adicionais.
 
-- A dimensão do **gráfico split** selecionado é traduzida para uma propriedade de resumo extra. Por exemplo, se dividir o seu gráfico por *localização*, e traçar usando uma granularidade de 5 minutos, a cláusula *resumida* é resumida... * por bin (timetamp, 5 m), localização*.
+- A dimensão do **gráfico split** selecionado é traduzida para uma propriedade de resumo extra. Por exemplo, se dividir o seu gráfico por *localização*, e traçar usando uma granularidade de 5 minutos, a cláusula *resumida* é resumida... *por bin (timetamp, 5 m), localização*.
 
 > [!NOTE]
-> Se é novo no idioma de consulta kusto, começa por copiar e colar declarações de Kusto no painel de consultas log analytics sem fazer modificações. Clique em **Executar** para ver o gráfico básico. À medida que começa a entender a sintaxe da linguagem de consulta, pode começar a fazer pequenas modificações e ver o impacto da sua mudança. Explorar os seus próprios dados é uma ótima maneira de começar a perceber a potência total do [Log Analytics](../log-query/get-started-portal.md) e [do Azure Monitor.](../overview.md)
+> Se é novo no idioma de consulta kusto, começa por copiar e colar declarações de Kusto no painel de consultas log analytics sem fazer modificações. Clique em **Executar** para ver o gráfico básico. À medida que começa a entender a sintaxe da linguagem de consulta, pode começar a fazer pequenas modificações e ver o impacto da sua mudança. Explorar os seus próprios dados é uma ótima maneira de começar a perceber a potência total do [Log Analytics](../log-query/log-analytics-tutorial.md) e [do Azure Monitor.](../overview.md)
 
 ## <a name="availability-metrics"></a>Métricas de disponibilidade
 
@@ -79,7 +79,7 @@ A métrica *dos testes de Disponibilidade* reflete a contagem dos testes web rea
 
 |Unidade de medida|Agregações apoiadas|Dimensões suportadas|
 |---|---|---|---|---|---|
-|Contagem|Contagem|Localização de execução, nome de teste, resultado do teste|
+|de palavras|de palavras|Localização de execução, nome de teste, resultado do teste|
 
 ```Kusto
 availabilityResults
@@ -184,7 +184,7 @@ Esta métrica reflete o número de exceções lançadas do seu código de aplica
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|Notas|
 |---|---|---|---|
-|Contagem|Contagem|Nenhum|A versão baseada em log utiliza a agregação **de Soma**|
+|de palavras|de palavras|Nenhum|A versão baseada em log utiliza a agregação **de Soma**|
 
 ```Kusto
 exceptions
@@ -199,7 +199,7 @@ O número de chamadas de dependência falhadas.
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|Notas|
 |---|---|---|---|
-|Contagem|Contagem|Nenhum|A versão baseada em log utiliza a agregação **de Soma**|
+|de palavras|de palavras|Nenhum|A versão baseada em log utiliza a agregação **de Soma**|
 
 ```Kusto
 dependencies
@@ -214,7 +214,7 @@ Sempre que regista uma exceção ao Application Insights, há uma chamada para o
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|Notas|
 |---|---|---|---|
-|Contagem|Contagem|Nome de função em nuvem, instância de função em nuvem, tipo de dispositivo|A versão baseada em log utiliza a agregação **de Soma**|
+|de palavras|de palavras|Nome de função em nuvem, instância de função em nuvem, tipo de dispositivo|A versão baseada em log utiliza a agregação **de Soma**|
 
 ```Kusto
 exceptions
@@ -228,7 +228,7 @@ A contagem de pedidos de servidor rastreados que foram marcados como *falhados*.
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|Notas|
 |---|---|---|---|
-|Contagem|Contagem|Instância de função em nuvem, nome de função cloud, tráfego real ou sintético, Desempenho do pedido, código de resposta|A versão baseada em log utiliza a agregação **de Soma**|
+|de palavras|de palavras|Instância de função em nuvem, nome de função cloud, tráfego real ou sintético, Desempenho do pedido, código de resposta|A versão baseada em log utiliza a agregação **de Soma**|
 
 ```Kusto
 requests
@@ -243,7 +243,7 @@ Esta métrica mostra o número de exceções do servidor.
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|Notas|
 |---|---|---|---|
-|Contagem|Contagem|Nome de papel em nuvem, instância de papel em nuvem|A versão baseada em log utiliza a agregação **de Soma**|
+|de palavras|de palavras|Nome de papel em nuvem, instância de papel em nuvem|A versão baseada em log utiliza a agregação **de Soma**|
 
 ```Kusto
 exceptions
@@ -492,4 +492,3 @@ union traces, requests, pageViews, dependencies, customEvents, availabilityResul
 | summarize dcount(user_AuthenticatedId) by bin(timestamp, 1h)
 | render barchart
 ```
-

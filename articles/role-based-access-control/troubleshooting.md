@@ -15,12 +15,12 @@ ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: 53628f5aa0bc5ab5dedde5deb9950c7b13fb4bf6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e30af9522d7c8fa81c4d93e11d252aefc4426586
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490751"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184268"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Resolução de problemas Azure RBAC
 
@@ -151,7 +151,7 @@ Da mesma forma, se enumerar esta tarefa de função usando o Azure CLI, poderá 
 }
 ```
 
-Não é um problema deixar estas atribuições de papéis onde o diretor de segurança foi apagado. Se quiser, pode remover estas atribuições de funções usando passos semelhantes a outras atribuições de funções. Para obter informações sobre como remover atribuições de funções, consulte [o portal Azure,](role-assignments-portal.md#remove-a-role-assignment) [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)ou [Azure CLI](role-assignments-cli.md#remove-role-assignment)
+Não é um problema deixar estas atribuições de papéis onde o diretor de segurança foi apagado. Se quiser, pode remover estas atribuições de funções usando passos semelhantes a outras atribuições de funções. Para obter informações sobre como remover atribuições de funções, consulte [o portal Azure,](role-assignments-portal.md#remove-a-role-assignment) [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)ou [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
 
 No PowerShell, se tentar remover as atribuições de funções utilizando o iD do objeto e o nome de definição de função, e mais do que uma atribuição de funções corresponde aos seus parâmetros, receberá a mensagem de erro: "As informações fornecidas não mapeiam para uma atribuição de funções". A seguinte saída mostra um exemplo da mensagem de erro:
 
@@ -212,7 +212,7 @@ Estes itens requerem acesso **por escrito** ao plano do Serviço **de Aplicaçõ
 Estes itens requerem o acesso **por escrito** a todo o grupo **de Recursos** que contém o seu website:  
 
 * Certificados e encadernações TLS/SSL (os certificados TLS/SSL podem ser partilhados entre sites do mesmo grupo de recursos e geolocalização)  
-* Regras de alerta  
+* Regras de alertas  
 * Definições de autoescala  
 * Componentes de insights de aplicação  
 * Testes web  
@@ -234,7 +234,7 @@ Estes requerem o acesso de **escrita** tanto à **máquina Virtual,** como ao **
 
 * Conjunto de disponibilidade  
 * Conjunto equilibrado de carga  
-* Regras de alerta  
+* Regras de alertas  
 
 Se não conseguir aceder a nenhum destes azulejos, peça ao seu administrador acesso ao grupo De recursos.
 

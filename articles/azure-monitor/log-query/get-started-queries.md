@@ -6,17 +6,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 8b3b6a41da6e3100739da920472d582711d1e9b1
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a949c9b34e299e0dc4eccbb62f4b4ebb38d6ccb9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024386"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186716"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introdução às consultas de registos no Azure Monitor
 
 > [!NOTE]
-> Pode trabalhar neste exercício no seu próprio ambiente se estiver a recolher dados de pelo menos uma máquina virtual. Se não, então use o nosso [ambiente Demo,](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade)que inclui muitos dados da amostra.  Se já sabe como consultar em KQL, mas apenas precisa de criar rapidamente consultas úteis com base no tipo de recursos, consulte o [painel de consultas de exemplo guardado.](saved-queries.md)
+> Pode trabalhar neste exercício no seu próprio ambiente se estiver a recolher dados de pelo menos uma máquina virtual. Se não, então use o nosso [ambiente Demo,](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade)que inclui muitos dados da amostra.  Se já sabe como consultar em KQL, mas apenas precisa de criar rapidamente consultas úteis com base no tipo de recursos, consulte o [painel de consultas de exemplo guardado.](./example-queries.md)
 
 Neste tutorial você aprenderá a escrever consultas de log no Azure Monitor. Vai ensinar-te a:
 
@@ -28,7 +28,7 @@ Neste tutorial você aprenderá a escrever consultas de log no Azure Monitor. Va
 - Definir e utilizar campos personalizados
 - Resultados agregados e de grupo
 
-Para obter um tutorial sobre a utilização do Log Analytics no portal Azure, consulte [Começar com a Azure Monitor Log Analytics](get-started-portal.md).<br>
+Para obter um tutorial sobre a utilização do Log Analytics no portal Azure, consulte [Começar com a Azure Monitor Log Analytics](./log-analytics-tutorial.md).<br>
 Para obter mais detalhes sobre as consultas de registo no Azure Monitor, consulte [a visão geral das consultas de registo no Azure Monitor](log-query-overview.md).
 
 Acompanhe uma versão em vídeo deste tutorial abaixo:
@@ -44,7 +44,7 @@ As consultas podem começar com um nome de mesa ou com o comando *de pesquisa.* 
 
 ### <a name="table-based-queries"></a>Consultas à base de mesa
 
-O Azure Monitor organiza dados de registo em tabelas, cada uma composta por várias colunas. Todas as tabelas e colunas são mostradas no painel de esquemas em Log Analytics no portal Analytics. Identifique uma tabela em que esteja interessado e, em seguida, dê uma olhada em alguns dados:
+O Azure Monitor organiza os dados de registo em tabelas, cada uma composta por várias colunas. Todas as tabelas e colunas são mostradas no painel de esquemas em Log Analytics no portal Analytics. Identifique uma tabela em que esteja interessado e, em seguida, dê uma olhada em alguns dados:
 
 ```Kusto
 SecurityEvent
@@ -242,7 +242,7 @@ Para tornar a saída mais clara, seleciona para exibi-la como um gráfico tempor
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a utilização de dados de cadeias numa consulta de log com [Trabalho com cordas em consultas de registo do Azure Monitor](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#string-operations).
 - Saiba mais sobre agregação de dados numa consulta de log com [agregações avançadas em consultas de registo do Azure Monitor](/azure/data-explorer/write-queries#advanced-aggregations).

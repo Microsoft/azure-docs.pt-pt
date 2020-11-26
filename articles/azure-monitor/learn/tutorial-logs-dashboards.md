@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: d38a4ba04529e70ecfd772eef7f60179041f0273
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 880d173c6eef9d267e8860ebad805e071706de42
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927373"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186155"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Criar e partilhar dashboards dos dados do Log Analytics
 
@@ -57,7 +57,7 @@ Quando cria um dashboard, é privado por predefinição, o que significa que é 
 É-lhe pedido para escolher uma subscrição e um grupo de recursos para o seu dashboard ser publicado. Para sua comodidade, a experiência de publicação do portal encaminha-o para um padrão onde coloca dashboards num grupo de recursos designado **dashboards**.  Verifique a subscrição selecionada e, em seguida, clique em **Publicar**.  O acesso às informações apresentadas no painel de instrumentos é controlado com [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).   
 
 ## <a name="visualize-a-log-query"></a>Visualizar uma consulta de registo
-[Log Analytics](../log-query/get-started-portal.md) é um portal dedicado usado para trabalhar com consultas de registo e seus resultados. As funcionalidades incluem a capacidade de editar uma consulta em várias linhas, executar código seletivamente, contexto confidencial do Intellisense e Análise Inteligente. Neste tutorial, você usará o Log Analytics para criar uma visão de desempenho em forma gráfica, guardá-la para uma consulta futura, e fixá-lo no dashboard compartilhado criado anteriormente.
+[Log Analytics](../log-query/log-analytics-tutorial.md) é um portal dedicado usado para trabalhar com consultas de registo e seus resultados. As funcionalidades incluem a capacidade de editar uma consulta em várias linhas, executar código seletivamente, contexto confidencial do Intellisense e Análise Inteligente. Neste tutorial, você usará o Log Analytics para criar uma visão de desempenho em forma gráfica, guardá-la para uma consulta futura, e fixá-lo no dashboard compartilhado criado anteriormente.
 
 Abrir o 'Iniciar **análises'** selecionando Registos no menu Azure Monitor. Começa com uma nova consulta em branco.
 

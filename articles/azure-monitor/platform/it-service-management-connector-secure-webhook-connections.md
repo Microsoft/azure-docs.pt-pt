@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 85ff3bed2a648f852c311fefa8513622c2a48285
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 4d12a7ec76f3390aabc7b45aeb0cd8cedcc6febd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376541"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186478"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Ligue o Azure às ferramentas ITSM utilizando a Secure Export
 
@@ -28,8 +28,8 @@ O ITSMC utiliza o nome de utilizador e as credenciais de senha. A Secure Export 
 
 A arquitetura Secure Export introduz as seguintes novas capacidades:
 
-* **Novo grupo de ação** : Os alertas são enviados para a ferramenta ITSM através do grupo de ação Secure Webhook, em vez do grupo de ação ITSM que o ITSMC utiliza.
-* **Autenticação Azure AD** : A autenticação ocorre através do Azure AD em vez de credenciais de nome de utilizador/palavra-passe.
+* **Novo grupo de ação**: Os alertas são enviados para a ferramenta ITSM através do grupo de ação Secure Webhook, em vez do grupo de ação ITSM que o ITSMC utiliza.
+* **Autenticação Azure AD**: A autenticação ocorre através do Azure AD em vez de credenciais de nome de utilizador/palavra-passe.
 
 ## <a name="secure-export-data-flow"></a>Fluxo seguro de dados de exportação
 
@@ -49,9 +49,9 @@ Os passos do fluxo de dados de exportação segura são:
 
 Os principais benefícios da integração são:
 
-* **Melhor autenticação** : A Azure AD proporciona uma autenticação mais segura sem os intervalos que normalmente ocorrem no ITSMC.
-* **Alertas resolvidos na ferramenta ITSM** : Alertas métricos implementam estados "disparados" e "resolvidos". Quando a condição é satisfeita, o estado de alerta é "disparado". Quando a condição já não é cumprida, o estado de alerta é "resolvido". No ITSMC, os alertas não podem ser resolvidos automaticamente. Com a Secure Export, o estado resolvido flui para a ferramenta ITSM e assim é atualizado automaticamente.
-* **[Esquema comum de alerta](./alerts-common-schema.md)** : No ITSMC, o esquema da carga útil de alerta difere com base no tipo de alerta. Na Exportação Segura, há um esquema comum para todos os tipos de alerta. Este esquema comum contém o CI para todos os tipos de alerta. Todos os tipos de alerta poderão ligar o seu CI ao CMDB.
+* **Melhor autenticação**: A Azure AD proporciona uma autenticação mais segura sem os intervalos que normalmente ocorrem no ITSMC.
+* **Alertas resolvidos na ferramenta ITSM**: Alertas métricos implementam estados "disparados" e "resolvidos". Quando a condição é satisfeita, o estado de alerta é "disparado". Quando a condição já não é cumprida, o estado de alerta é "resolvido". No ITSMC, os alertas não podem ser resolvidos automaticamente. Com a Secure Export, o estado resolvido flui para a ferramenta ITSM e assim é atualizado automaticamente.
+* **[Esquema comum de alerta](./alerts-common-schema.md)**: No ITSMC, o esquema da carga útil de alerta difere com base no tipo de alerta. Na Exportação Segura, há um esquema comum para todos os tipos de alerta. Este esquema comum contém o CI para todos os tipos de alerta. Todos os tipos de alerta poderão ligar o seu CI ao CMDB.
 
 Comece a utilizar a ferramenta ITSM Connector com estes passos:
 
@@ -60,8 +60,8 @@ Comece a utilizar a ferramenta ITSM Connector com estes passos:
 3. Configure o ambiente do seu parceiro. 
 
 A Secure Export suporta ligações com as seguintes ferramentas ITSM:
-* [ServiceNow](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-servicenow-to-azure-monitor)
-* [Hélice BMC](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-bmc-helix-to-azure-monitor)
+* [ServiceNow](#connect-servicenow-to-azure-monitor)
+* [Hélice BMC](#connect-bmc-helix-to-azure-monitor)
 
 ## <a name="register-with-azure-active-directory"></a>Registe-se no Azure Ative Directory
 
@@ -90,7 +90,7 @@ Para adicionar um webhook a uma ação, siga estas instruções para Secure Webh
 5. Selecione **Secure Webhook**.
 6. Selecione estes detalhes:
    1. Selecione o ID do objeto da instância do Diretório Ativo Azure que registou.
-   2. Para o URI, cole no URL webhook que copiou do ambiente de [ferramentas ITSM](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#configure-the-partner-environment).
+   2. Para o URI, cole no URL webhook que copiou do ambiente de [ferramentas ITSM](#configure-the-itsm-tool-environment).
    3. Definir **Ative o esquema de alerta comum** para **Sim**. 
 
    A imagem a seguir mostra a configuração de uma ação Secure Webhook de uma amostra:
@@ -117,7 +117,7 @@ Certifique-se de que cumpriu os seguintes pré-requisitos:
 
 ### <a name="configure-the-servicenow-connection"></a>Configure a ligação ServiceNow
 
-1.Utilize o link https://(nome de instância).service-now.com/api/sn_em_connector/em/inbound_event?source=azuremonitor the URI para a definição de exportação segura.
+1.Utilize o link https://(nome de instância).serviço-agora.com/api/sn_em_connector/em/inbound_event?source=azuremonitor o URI para a definição de exportação segura.
 
 2. Siga as instruções de acordo com a versão:
    * [Paris](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
@@ -157,10 +157,10 @@ Certifique-se de que cumpriu os seguintes pré-requisitos:
    5. Selecione a nova configuração **de ligação adicionar.**
    6. Preencha as informações para a secção de configuração:
       - **Nome:** Faça o seu próprio.
-      - **Tipo de autorização** : **NENHUM**
+      - **Tipo de autorização**: **NENHUM**
       - **Descrição:** Invente o seu próprio.
-      - **Local** : **Nuvem**
-      - **Número de ocorrências** : **2** , o valor predefinido.
+      - **Local**: **Nuvem**
+      - **Número de ocorrências**: **2**, o valor predefinido.
       - **Verifique:** Selecionado por predefinição para ativar a utilização.
       - O ID do inquilino Azure e o ID do pedido Azure são retirados da aplicação que definiu anteriormente.
 

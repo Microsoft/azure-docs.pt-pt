@@ -6,28 +6,28 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 89cec12804f6fd2b8a3885248c42646d6c6dbb13
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995085"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186563"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registo no Monitor Azure
 
 ## <a name="overview"></a>Descrição geral
 
-Os alertas de registo são um dos tipos de alerta que são suportados em [Alertas Azure](./alerts-overview.md). Os alertas de registo permitem que os utilizadores utilizem uma consulta [log Analytics](../log-query/get-started-portal.md) para avaliar os registos de recursos em cada frequência definida e disparem um alerta com base nos resultados. As regras podem desencadear uma ou mais ações utilizando [grupos de ação.](./action-groups.md)
+Os alertas de registo são um dos tipos de alerta que são suportados em [Alertas Azure](./alerts-overview.md). Os alertas de registo permitem que os utilizadores utilizem uma consulta [log Analytics](../log-query/log-analytics-tutorial.md) para avaliar os registos de recursos em cada frequência definida e disparem um alerta com base nos resultados. As regras podem desencadear uma ou mais ações utilizando [grupos de ação.](./action-groups.md)
 
 > [!NOTE]
-> Os dados de registo de um espaço de [trabalho log Analytics](../log-query/get-started-portal.md) podem ser enviados para a loja de métricas do Azure Monitor. Os alertas de métricas têm [um comportamento diferente,](alerts-metric-overview.md)o que pode ser mais desejável dependendo dos dados com que está a trabalhar. Para obter informações sobre o que e como pode encaminhar os registos para métricas, consulte [o Alerta Métrico de Registos](alerts-metric-logs.md).
+> Os dados de registo de um espaço de [trabalho log Analytics](../log-query/log-analytics-tutorial.md) podem ser enviados para a loja de métricas do Azure Monitor. Os alertas de métricas têm [um comportamento diferente,](alerts-metric-overview.md)o que pode ser mais desejável dependendo dos dados com que está a trabalhar. Para obter informações sobre o que e como pode encaminhar os registos para métricas, consulte [o Alerta Métrico de Registos](alerts-metric-logs.md).
 
 > [!NOTE]
 > Atualmente, não existem taxas adicionais para a versão API `2020-05-01-preview` e alertas de registo centrados em recursos.  Os preços das funcionalidades que estão em pré-visualização serão anunciados no futuro e um aviso fornecido antes do início da faturação. Caso opte por continuar a utilizar novas versões API e alertas de registo centrados em recursos após o período de pré-aviso, será faturado à taxa aplicável.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os alertas de registo executam consultas nos dados do Log Analytics. Primeiro deve começar [a recolher dados de registo](resource-logs.md) e consultar os dados de registo para problemas. Pode utilizar o tópico de [exemplos de consulta de alerta](../log-query/saved-queries.md) no Log Analytics para entender o que pode descobrir ou começar a escrever a sua própria [consulta.](../log-query/get-started-portal.md)
+Os alertas de registo executam consultas nos dados do Log Analytics. Primeiro deve começar [a recolher dados de registo](resource-logs.md) e consultar os dados de registo para problemas. Pode utilizar o tópico de [exemplos de consulta de alerta](../log-query/example-queries.md) no Log Analytics para entender o que pode descobrir ou começar a escrever a sua própria [consulta.](../log-query/log-analytics-tutorial.md)
 
 [O Azure Monitoring Contributor](./roles-permissions-security.md) é um papel comum que é necessário para criar, modificar e atualizar alertas de registo. O acesso & direitos de execução de consultas para os registos de recursos também são necessários. O acesso parcial aos registos de recursos pode falhar consultas ou devolver resultados parciais. [Saiba mais sobre a configuração dos alertas de registo em Azure](./alerts-log.md).
 
@@ -44,7 +44,7 @@ Regras de pesquisa de registo a definição de condição começa a partir de:
 As secções seguintes descrevem os diferentes parâmetros que pode utilizar para definir a lógica acima.
 
 ### <a name="log-query"></a>Consulta de registo
-A consulta [Log Analytics](../log-query/get-started-portal.md) usada para avaliar a regra. Os resultados devolvidos por esta consulta são usados para determinar se um alerta deve ser desencadeado. A consulta pode ser consultada para:
+A consulta [Log Analytics](../log-query/log-analytics-tutorial.md) usada para avaliar a regra. Os resultados devolvidos por esta consulta são usados para determinar se um alerta deve ser desencadeado. A consulta pode ser consultada para:
 
 - Um recurso específico, como uma máquina virtual.
 - Um recurso à escala, como um grupo de subscrição ou de recursos.
@@ -209,4 +209,3 @@ As informações sobre preços estão localizadas na página de preços do [Azur
 * Compreenda [os webhooks em alertas de registo em Azure](alerts-log-webhook.md).
 * Saiba mais sobre [alertas Azure](./alerts-overview.md).
 * Saiba mais sobre [o Log Analytics.](../log-query/log-query-overview.md)
-

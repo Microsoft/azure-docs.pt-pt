@@ -7,11 +7,11 @@ ms.service: data-share
 ms.topic: quickstart
 ms.date: 10/30/2020
 ms.openlocfilehash: 1442720fdf48aaa7da76e181b168a04306ff3e33
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577503"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186461"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>Quickstart: Partilhar dados usando a Azure Data Share no portal Azure
 

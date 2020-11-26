@@ -6,18 +6,18 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: yajin1
-ms.openlocfilehash: 4b0b85b08c3f813440d556c61ba5e290ac200049
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 413bb88deac96c1ca12e8a9d25fc9cd16edf4616
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686914"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183962"
 ---
 # <a name="how-to-troubleshoot-connectivity-and-message-delivery-issues"></a>Como resolver problemas de conectividade e problemas de entrega de mensagens
 
 Esta orientação introduz várias formas de ajudar a fazer o auto-diagnóstico para encontrar a causa raiz diretamente ou reduzir a questão. O resultado do autodiagnóstico também é útil ao denunciá-lo para uma investigação mais aprofundada.
 
-Em primeiro lugar, é necessário verificar a partir do portal Azure qual o [ServiceMode](https://docs.microsoft.com/azure/azure-signalr/concept-service-mode) do Serviço Azure SignalR (também conhecido como **ASRS)** configurado para.
+Em primeiro lugar, é necessário verificar a partir do portal Azure qual o [ServiceMode](./concept-service-mode.md) do Serviço Azure SignalR (também conhecido como **ASRS)** configurado para.
 
 :::image type="content" source="./media/signalr-howto-troubleshoot-method/service-mode.png" alt-text="ServiceMode":::
 
@@ -49,13 +49,13 @@ Há várias maneiras que podem ajudá-lo a reduzir a questão.
 
 ### <a name="how-to-view-the-traffic-and-narrow-down-the-issue"></a>Como ver o tráfego e reduzir a questão
 
-Capturar o tráfego em curso é a forma mais direta de reduzir a questão. Pode capturar os [vestígios da Rede](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#network-traces) utilizando as opções descritas abaixo:
+Capturar o tráfego em curso é a forma mais direta de reduzir a questão. Pode capturar os [vestígios da Rede](/aspnet/core/signalr/diagnostics#network-traces) utilizando as opções descritas abaixo:
 
-* [Recolher um traço de rede com o Fiddler](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#network-traces)
+* [Recolher um traço de rede com o Fiddler](/aspnet/core/signalr/diagnostics#network-traces)
 
-* [Recolher um traço de rede com tcpdump](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#collect-a-network-trace-with-tcpdump-macos-and-linux-only)
+* [Recolher um traço de rede com tcpdump](/aspnet/core/signalr/diagnostics#collect-a-network-trace-with-tcpdump-macos-and-linux-only)
 
-* [Recolher vestígios de rede no navegador](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#collect-a-network-trace-in-the-browser)
+* [Recolher vestígios de rede no navegador](/aspnet/core/signalr/diagnostics#collect-a-network-trace-in-the-browser)
 
 <a name="view_traffic_client"></a>
 
@@ -63,7 +63,7 @@ Capturar o tráfego em curso é a forma mais direta de reduzir a questão. Pode 
 
 Para uma ligação persistente signalR, primeiro `/negotiate` para o servidor de aplicações hospedado e depois redirecionado para o serviço Azure SignalR e, em seguida, estabelece a ligação persistente real ao serviço Azure SignalR. Consulte o [Serviço De SinalR Azure](https://github.com/Azure/azure-signalr/blob/dev/docs/internal.md) para obter os passos detalhados.
 
-Com os vestígios de rede do lado do cliente na mão, verifique qual o pedido que falha com que código de estado e que resposta, e procure soluções dentro [do Guia de Resolução de Problemas](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide).
+Com os vestígios de rede do lado do cliente na mão, verifique qual o pedido que falha com que código de estado e que resposta, e procure soluções dentro [do Guia de Resolução de Problemas](./signalr-howto-troubleshoot-guide.md).
 
 #### <a name="server-requests"></a>Pedidos de servidor
 
@@ -71,7 +71,7 @@ O *SignalR Server* mantém a *ligação do servidor* entre *servidor* e *serviç
 
 *A Ligação* do Servidor pode cair devido à instabilidade da rede ou à manutenção regular do Serviço Azure SignalR ou das atualizações/manutenção do servidor de aplicações hospedados. Enquanto o lado do cliente tiver o mecanismo de desconexão/reconexão, o impacto é mínimo como qualquer ligação desconectação causada pelo cliente.
 
-Consulte os vestígios da rede do lado do servidor para descobrir o código de estado e o detalhe de erros por que a *Ligação do Servidor* cai ou é rejeitada pelo *Serviço*, e procure a causa principal dentro do Guia [de Resolução de Problemas](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide).
+Consulte os vestígios da rede do lado do servidor para descobrir o código de estado e o detalhe de erros por que a *Ligação do Servidor* cai ou é rejeitada pelo *Serviço*, e procure a causa principal dentro do Guia [de Resolução de Problemas](./signalr-howto-troubleshoot-guide.md).
 
 
 ### <a name="how-to-add-logs"></a>Como adicionar registos
@@ -86,18 +86,18 @@ A experiência de registo do lado do cliente é exatamente a mesma que quando se
 
 ##### <a name="enable-client-side-logging-for-aspnet-core-signalr"></a>Ativar a sessão do lado do cliente para `ASP.NET Core SignalR`
 
-* [Registo de clientes JavaScript](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#javascript-client-logging)
+* [Registo de clientes JavaScript](/aspnet/core/signalr/diagnostics#javascript-client-logging)
 
-* [Registo de clientes .NET](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#net-client-logging)
+* [Registo de clientes .NET](/aspnet/core/signalr/diagnostics#net-client-logging)
 
 
 ##### <a name="enable-client-side-logging-for-aspnet-signalr"></a>Ativar a sessão do lado do cliente para `ASP.NET SignalR`
 
-* [.NET cliente](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-net-client-windows-desktop-apps)
+* [.NET cliente](/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-net-client-windows-desktop-apps)
 
-* [Habilitação de rastreios em clientes Windows Phone 8](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-windows-phone-8-clients)
+* [Habilitação de rastreios em clientes Windows Phone 8](/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-windows-phone-8-clients)
 
-* [Habilitação no cliente JavaScript](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-javascript-client)
+* [Habilitação no cliente JavaScript](/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-javascript-client)
 
 <a name="add_logs_server"></a>
 
@@ -105,7 +105,7 @@ A experiência de registo do lado do cliente é exatamente a mesma que quando se
 
 ##### <a name="enable-server-side-logging-for-aspnet-core-signalr"></a>Ativar a sessão de sessão do lado do servidor para `ASP.NET Core SignalR`
 
-Registo do lado do servidor para `ASP.NET Core SignalR` integração com a `ILogger` [sessão de registo](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&tabs=aspnetcore2x) baseada fornecida no `ASP.NET Core` quadro. Pode ativar a sessão do lado do servidor utilizando `ConfigureLogging` uma utilização da amostra da seguinte forma:
+Registo do lado do servidor para `ASP.NET Core SignalR` integração com a `ILogger` [sessão de registo](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1) baseada fornecida no `ASP.NET Core` quadro. Pode ativar a sessão do lado do servidor utilizando `ConfigureLogging` uma utilização da amostra da seguinte forma:
 
 ```cs
 .ConfigureLogging((hostingContext, logging) =>
@@ -162,7 +162,7 @@ Verifique se há registos de aviso/erro anormais registados.
 
 #### <a name="how-to-enable-logs-inside-azure-signalr-service"></a>Como ativar registos dentro do serviço Azure SignalR
 
-Também pode [ativar registos de diagnóstico](https://docs.microsoft.com/azure/azure-signalr/signalr-tutorial-diagnostic-logs) para o serviço Azure SignalR, estes registos fornecem informações detalhadas de todas as ligações ligadas ao serviço Azure SignalR.
+Também pode [ativar registos de diagnóstico](./signalr-howto-diagnostic-logs.md) para o serviço Azure SignalR, estes registos fornecem informações detalhadas de todas as ligações ligadas ao serviço Azure SignalR.
 
 <a name="serverless_mode_tsg"></a>
 
@@ -194,9 +194,9 @@ Você pode verificar a api de saúde para a saúde do serviço.
     * Ou reiniciar o exemplo.
     * Se todas as opções acima não funcionarem, contacte-nos adicionando um novo pedido de suporte no portal Azure.
 
-Mais sobre [a recuperação de desastres.](https://docs.microsoft.com/azure/azure-signalr/signalr-concept-disaster-recovery)
+Mais sobre [a recuperação de desastres.](./signalr-concept-disaster-recovery.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia, aprendeu sobre como resolver problemas de conectividade e problemas de entrega de mensagens. Também pode aprender a lidar com as questões comuns. 
 

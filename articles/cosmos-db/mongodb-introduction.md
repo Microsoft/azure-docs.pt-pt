@@ -4,20 +4,23 @@ description: Saiba como pode usar a Azure Cosmos DB para armazenar e consultar q
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 10/1/2019
+ms.date: 11/25/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: a9c4931338635e53054801885e071ad21723dea3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8ae8108c52e150625540c8b13fa66a03f985ba5a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096466"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184625"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>API do Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 O [Azure Cosmos DB](introduction.md) é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft para aplicações críticas para atividades. O Azure Cosmos DB proporciona [distribuição global chave na mão](distribute-data-globally.md), [dimensionamento elástico de débito e de armazenamento](partitioning-overview.md) em todo o mundo, latências de milissegundos de um só dígito no percentil 99 e elevada disponibilidade garantida, tudo com o suporte de [SLA líderes da indústria](https://azure.microsoft.com/support/legal/sla/cosmos-db/). O Azure Cosmos DB [indexa automaticamente os dados](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sem que tenha de lidar com a gestão de esquemas e índices. É multimodal e suporte modelos de dados em documentos, chaves-valores, gráficos e em colunas. O serviço DB da Azure Cosmos implementa protocolos de fios para APIs noSQL comuns, incluindo Cassandra, MongoDB, Gremlin e Azure Table Storage. Isto permite-lhe utilizar os seus familiares controladores e ferramentas de clientes NoSQL para interagir com a sua base de dados Cosmos.
+
+> [!NOTE]
+> O [modo de capacidade sem servidor](serverless.md) está agora disponível na API da Azure Cosmos para o MongoDB.
 
 ## <a name="wire-protocol-compatibility"></a>Compatibilidade do protocolo de arame
 

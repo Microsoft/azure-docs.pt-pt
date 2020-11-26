@@ -3,12 +3,12 @@ title: Ligue máquinas híbridas ao Azure do Windows Admin Center
 description: Neste artigo, aprende-se a instalar o agente e a ligar máquinas ao Azure utilizando servidores ativados pelo Azure Arc do Windows Admin Center.
 ms.date: 10/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: d47e3dd4434d719f890b64e4cdfb12a189c0632a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 8fa118a254689feade2897f083bb3aa2dc9db02c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133794"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183418"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-windows-admin-center"></a>Ligue máquinas híbridas ao Azure do Windows Admin Center
 
@@ -36,20 +36,20 @@ Execute os seguintes passos para configurar o servidor do Windows com servidores
 
 1. A partir da lista de ligações na página **'Vista Geral',** na lista de servidores Windows conectados, selecione um servidor da lista para ligar à sua.
 
-1. A partir do painel de esquerda, selecione **serviços híbridos Azure** .
+1. A partir do painel de esquerda, selecione **serviços híbridos Azure**.
 
-1. Na página de **serviços híbridos Azure,** selecione **Serviços Discover Azure** .
+1. Na página de **serviços híbridos Azure,** selecione **Serviços Discover Azure**.
 
-1. Na página de **serviços Discover Azure,** sob **políticas e soluções do Alavancagem Azure para gerir os seus servidores com o Azure Arc,** selecione **Configurar** .
+1. Na página de **serviços Discover Azure,** sob **políticas e soluções do Alavancagem Azure para gerir os seus servidores com o Azure Arc,** selecione **Configurar**.
 
-1. Na página **Definições\Azure Arc para servidores,** se solicitado autenticar para Azure e, em seguida, selecionar **Iniciar** .
+1. Na página **Definições\Azure Arc para servidores,** se solicitado autenticar para Azure e, em seguida, selecionar **Iniciar**.
 
 1. Na página **'Ligar o servidor', a Azure,** fornecer o seguinte:
 
     1. Na lista de entrega de **assinaturas Azure,** selecione a subscrição Azure.
-    1. Para **o grupo de recursos** , selecione **New** para criar um novo grupo de recursos, ou na lista de down-down do grupo **De recurso,** selecione um grupo de recursos existente para registar e gerir a máquina a partir de.
+    1. Para **o grupo de recursos**, selecione **New** para criar um novo grupo de recursos, ou na lista de down-down do grupo **De recurso,** selecione um grupo de recursos existente para registar e gerir a máquina a partir de.
     1. Na lista de drop-down da **Região,** selecione a região Azure para armazenar os metadados dos servidores.
-    1. Se a máquina ou servidor estiver a comunicar através de um servidor proxy para se ligar à internet, selecione a opção Utilize o **servidor proxy** . Especifique o endereço IP do servidor proxy ou o nome e o número de porta que a máquina utilizará para comunicar com o servidor proxy.
+    1. Se a máquina ou servidor estiver a comunicar através de um servidor proxy para se ligar à internet, selecione a opção Utilize o **servidor proxy**. Especifique o endereço IP do servidor proxy ou o nome e o número de porta que a máquina utilizará para comunicar com o servidor proxy.
 
 1. Selecione **Configurar** para proceder à configuração do servidor do Windows com servidores ativados Azure Arc.
 
@@ -69,4 +69,4 @@ Depois de instalar o agente e configurá-lo para ligar aos servidores ativados d
 
 * Aprenda a gerir a sua máquina utilizando [a Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando se a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Azure Monitor com VMs](../../azure-monitor/insights/vminsights-enable-policy.md), e muito mais.
 
-* Saiba mais sobre o [agente Log Analytics.](../../azure-monitor/platform/log-analytics-agent.md) O agente Log Analytics para Windows e Linux é necessário quando pretende recolher dados de monitorização do sistema operativo e da carga de trabalho, geri-lo utilizando livros de aplicação da Automação ou funcionalidades como Update Management, ou utilizar outros serviços Azure como [o Azure Security Center](../../security-center/security-center-intro.md).
+* Saiba mais sobre o [agente Log Analytics.](../../azure-monitor/platform/log-analytics-agent.md) O agente Log Analytics para Windows e Linux é necessário quando pretende recolher dados de monitorização do sistema operativo e da carga de trabalho, geri-lo utilizando livros de aplicação da Automação ou funcionalidades como Update Management, ou utilizar outros serviços Azure como [o Azure Security Center](../../security-center/security-center-introduction.md).

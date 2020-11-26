@@ -6,16 +6,16 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: b23f1d455610222ffa5713773a0bfb947f23ce34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fb0288d592af8bd23415b31ecf6a6e3448b92ba
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91346074"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186036"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Criar um alerta de registo com um modelo do Resource Manager
 
-Os alertas de registo permitem que os utilizadores utilizem uma consulta [log Analytics](../log-query/get-started-portal.md) para avaliar os registos de recursos em cada frequência definida e disparem um alerta com base nos resultados. As regras podem desencadear uma ou mais ações utilizando [grupos de ação](./action-groups.md). [Saiba mais sobre funcionalidade e terminologia de alertas de registo.](alerts-unified-log.md)
+Os alertas de registo permitem que os utilizadores utilizem uma consulta [log Analytics](../log-query/log-analytics-tutorial.md) para avaliar os registos de recursos em cada frequência definida e disparem um alerta com base nos resultados. As regras podem desencadear uma ou mais ações utilizando [grupos de ação](./action-groups.md). [Saiba mais sobre funcionalidade e terminologia de alertas de registo.](alerts-unified-log.md)
 
 Este artigo mostra como pode utilizar um [modelo de Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para configurar [alertas de registo](alerts-unified-log.md) no Azure Monitor. Os modelos de Gestor de Recursos permitem-lhe configurar programáticamente alertas de forma consistente e reprodutível em todos os seus ambientes. Os alertas de registo são criados no `Microsoft.Insights/scheduledQueryRules` fornecedor de recursos. Consulte a referência da API para [a API de Regras de Consulta Programadas](/rest/api/monitor/scheduledqueryrules/).
 
@@ -26,7 +26,7 @@ Os passos básicos são os seguintes:
 4. Implemente o modelo utilizando qualquer método de implementação.
 
 > [!NOTE]
-> Os dados de registo de um espaço de [trabalho log Analytics](../log-query/get-started-portal.md) podem ser enviados para a loja de métricas do Azure Monitor. Os alertas de métricas têm [um comportamento diferente,](alerts-metric-overview.md)o que pode ser mais desejável dependendo dos dados com que está a trabalhar. Para obter informações sobre o que e como pode encaminhar os registos para métricas, consulte [o Alerta Métrico de Registos](alerts-metric-logs.md).
+> Os dados de registo de um espaço de [trabalho log Analytics](../log-query/log-analytics-tutorial.md) podem ser enviados para a loja de métricas do Azure Monitor. Os alertas de métricas têm [um comportamento diferente,](alerts-metric-overview.md)o que pode ser mais desejável dependendo dos dados com que está a trabalhar. Para obter informações sobre o que e como pode encaminhar os registos para métricas, consulte [o Alerta Métrico de Registos](alerts-metric-logs.md).
 
 > [!NOTE]
 > Os alertas de registo para o Log Analytics costumavam ser geridos utilizando o legado [Log Analytics Alert API](api-alerts.md) e modelos legados de [Log Analytics guardados pesquisas e alertas](../insights/solutions.md). [Saiba mais sobre a mudança para a atual API de Placas DeQueryRules.](alerts-log-api-switch.md)

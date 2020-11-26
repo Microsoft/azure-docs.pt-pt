@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 12/02/2019
 ms.author: alkohli
 ms.openlocfilehash: 203c977fe9109cd8b2b6de561e975e20aacf700e
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375896"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185577"
 ---
 Se esta for a primeira vez que utiliza o Storage Explorer, tem de executar os seguintes passos.
 

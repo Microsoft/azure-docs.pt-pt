@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 066e9cf6c63c9f2073ba869e8b40e25bfc993cd8
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: ddb73de87789934aa66893bdbe6519011cf324b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491380"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186104"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Log consulta e intervalo de tempo em Azure Monitor Log Analytics
-Quando executa uma [consulta de registo](log-query-overview.md) no Log Analytics no portal [Azure,](get-started-portal.md)o conjunto de dados avaliados pela consulta depende do âmbito e do intervalo de tempo que seleciona. Este artigo descreve o âmbito e o intervalo de tempo e como pode definir cada um dependendo dos seus requisitos. Também descreve o comportamento de diferentes tipos de âmbitos.
+Quando executa uma [consulta de registo](log-query-overview.md) no Log Analytics no portal [Azure,](./log-analytics-tutorial.md)o conjunto de dados avaliados pela consulta depende do âmbito e do intervalo de tempo que seleciona. Este artigo descreve o âmbito e o intervalo de tempo e como pode definir cada um dependendo dos seus requisitos. Também descreve o comportamento de diferentes tipos de âmbitos.
 
 
 ## <a name="query-scope"></a>Âmbito de consulta
@@ -48,7 +48,7 @@ Quando o âmbito de consulta é um espaço de trabalho log analytics ou uma apli
 Não é possível utilizar os seguintes comandos numa consulta quando se aplica a um recurso, uma vez que o âmbito de consulta já incluirá quaisquer espaços de trabalho com dados para esse recurso ou conjunto de recursos:
 
 - [app](app-expression.md)
-- [área de trabalho](workspace-expression.md)
+- [espaço de trabalho](workspace-expression.md)
  
 
 ## <a name="query-scope-limits"></a>Limites de âmbito de consulta
@@ -71,11 +71,11 @@ Desacione o intervalo de tempo selecionando-o a partir do seletor de tempos na p
 
 ![Apanhador de tempo](media/scope/time-picker.png)
 
-Se definir um filtro na consulta que utiliza a coluna de tempo padrão, como indicado na tabela acima, o apanhador de tempo muda para **set in consulta** , e o selecionador de tempo está desativado. Neste caso, é mais eficiente colocar o filtro no topo da consulta para que qualquer processamento subsequente apenas precise de funcionar com os registos filtrados.
+Se definir um filtro na consulta que utiliza a coluna de tempo padrão, como indicado na tabela acima, o apanhador de tempo muda para **set in consulta**, e o selecionador de tempo está desativado. Neste caso, é mais eficiente colocar o filtro no topo da consulta para que qualquer processamento subsequente apenas precise de funcionar com os registos filtrados.
 
 ![Consulta filtrada](media/scope/query-filtered.png)
 
-Se utilizar o [espaço de trabalho](workspace-expression.md) ou o comando da [aplicação](app-expression.md) para recuperar dados de outro espaço de trabalho ou aplicação clássica, o selecionador de tempo pode comportar-se de forma diferente. Se o âmbito for um espaço de trabalho do Log Analytics e utilizar **uma aplicação** , ou se o âmbito for uma aplicação clássica de Insights de Aplicação e utilizar **espaço de trabalho,** então o Log Analytics pode não entender que a coluna utilizada no filtro deve determinar o filtro de tempo.
+Se utilizar o [espaço de trabalho](workspace-expression.md) ou o comando da [aplicação](app-expression.md) para recuperar dados de outro espaço de trabalho ou aplicação clássica, o selecionador de tempo pode comportar-se de forma diferente. Se o âmbito for um espaço de trabalho do Log Analytics e utilizar **uma aplicação**, ou se o âmbito for uma aplicação clássica de Insights de Aplicação e utilizar **espaço de trabalho,** então o Log Analytics pode não entender que a coluna utilizada no filtro deve determinar o filtro de tempo.
 
 No exemplo seguinte, o âmbito é definido para um espaço de trabalho Log Analytics.  A consulta utiliza **espaço de trabalho** para obter dados de outro espaço de trabalho do Log Analytics. O apanhador de tempo muda para **Definir em consulta** porque vê um filtro que utiliza a coluna **TimeGenerated** esperada.
 
@@ -87,5 +87,5 @@ Se a consulta utilizar a **aplicação** para obter dados de uma aplicação cl�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Caminhe através de um [tutorial sobre a utilização do Log Analytics no portal Azure](get-started-portal.md).
+- Caminhe através de um [tutorial sobre a utilização do Log Analytics no portal Azure](./log-analytics-tutorial.md).
 - Caminhe por um [tutorial sobre consultas de escrita.](get-started-queries.md)

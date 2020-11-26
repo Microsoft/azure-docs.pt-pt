@@ -9,12 +9,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8874a17b40b60a194811630b2f93d2be9d7faf7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8901847a1c214b257243c4da0a74897061409bee
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494711"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184251"
 ---
 # <a name="get-details-of-an-azure-cache-for-redis"></a>Obtenha detalhes de um Azure Cache para Redis
 
@@ -32,11 +32,11 @@ Este script utiliza os seguintes comandos para recuperar os detalhes de uma Cach
 
 | Comando | Notas |
 |---|---|
-| [az redis show](https://docs.microsoft.com/cli/azure/redis) | Recupere detalhes de uma Cache Azure para o exemplo de Redis. |
+| [az redis show](/cli/azure/redis) | Recupere detalhes de uma Cache Azure para o exemplo de Redis. |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
 Cache Azure adicional para amostras de scripts CLI Redis pode ser encontrado na [Cache Azure para documentação Redis](../cli-samples.md).

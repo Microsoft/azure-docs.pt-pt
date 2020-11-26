@@ -5,12 +5,12 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: b709981e199d63c32426381ba48665402de820ce
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 1729e0b27dd50519359cf6a39bfa81ba7b3b41e9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422710"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185152"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Ligue as funções Azure ao armazenamento do Azure utilizando o Código do Estúdio Visual
 
@@ -55,7 +55,7 @@ Este artigo pressupõe que já assinou a subscrição do Azure do Visual Studio 
 
 ## <a name="download-the-function-app-settings"></a>Descarregue as definições da aplicação de funções
 
-No [artigo de arranque rápido anterior,](functions-create-first-function-vs-code.md)criou uma aplicação de função em Azure juntamente com a conta de Armazenamento necessária. O fio de ligação desta conta é armazenado de forma segura nas definições de aplicações em Azure. Neste artigo, você escreve mensagens para uma fila de armazenamento na mesma conta. Para se ligar à sua conta de Armazenamento ao executar a função localmente, tem de transferir as definições da aplicação para o local.settings.jsno ficheiro. 
+No [artigo de arranque rápido anterior,](./create-first-function-vs-code-csharp.md)criou uma aplicação de função em Azure juntamente com a conta de Armazenamento necessária. O fio de ligação desta conta é armazenado de forma segura nas definições de aplicações em Azure. Neste artigo, você escreve mensagens para uma fila de armazenamento na mesma conta. Para se ligar à sua conta de Armazenamento ao executar a função localmente, tem de transferir as definições da aplicação para o local.settings.jsno ficheiro. 
 
 1. Pressione a tecla F1 para abrir a paleta de comando, em seguida, procure e execute o comando `Azure Functions: Download Remote Settings....` . 
 
@@ -194,7 +194,7 @@ Depois de iniciar seduca na sua conta com sucesso, vê todas as subscrições do
 
 1. Expanda o nó **Filas** nó e, em seguida, selecione a fila com o nome **outqueue**. 
 
-   A fila contém a mensagem que a fila de enlace de saída da fila criou quando executou a função acionada por HTTP. Se invocou a função com o valor predefinido `name` do *Azure* , a mensagem de fila é *Nome transmitido para a função: Azure*.
+   A fila contém a mensagem que a fila de enlace de saída da fila criou quando executou a função acionada por HTTP. Se invocou a função com o valor predefinido `name` do *Azure*, a mensagem de fila é *Nome transmitido para a função: Azure*.
 
     ![Mensagem de fila mostrada no Azure Storage Explorer](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
 
@@ -216,7 +216,7 @@ Agora, é hora de reeditar a aplicação de função atualizada para a Azure.
 
 1. Volte [a ver a mensagem na fila de armazenamento](#examine-the-output-queue) para verificar se a ligação de saída gera novamente uma nova mensagem na fila.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 No Azure, *os recursos* referem-se a apps de função, funções, contas de armazenamento, etc. Estão agrupados em *grupos de recursos,* e podes apagar tudo num grupo, eliminando o grupo.
 

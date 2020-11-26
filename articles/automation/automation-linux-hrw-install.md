@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 07c04274829530942bab0e3267200f6524c4ddc7
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 20683808c81b32560170b175edf1c37c332f47ad
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95793411"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183622"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementar um Trabalhador de Runbook Híbrido Linux
 
@@ -73,7 +73,7 @@ Os requisitos mínimos para um sistema Linux e para o utilizador Hybrid Runbook 
 Pode adicionar a máquina de trabalhadores a um grupo híbrido de trabalhadores numa das suas contas de Automação. Para as máquinas que hospedam o sistema Hybrid Runbook trabalhador gerido pela Update Management, podem ser adicionadas a um grupo híbrido de trabalhador runbook. Mas deve utilizar a mesma conta de Automação tanto para a Gestão de Atualização como para a associação híbrida do grupo de trabalhadores runbook.
 
 >[!NOTE]
->A Azure Automation [Update Management](update-management/update-mgmt-overview.md) instala automaticamente o sistema Hybrid Runbook Worker numa máquina Azure ou não-Azure que está ativada para a Gestão de Atualização. No entanto, este trabalhador não está registado em nenhum grupo híbrido de trabalhadores da runbook na sua conta de Automação. Para executar os seus livros de execução nessas máquinas, precisa adicioná-los a um grupo híbrido de runbook worker. Siga o passo 4 sob a secção [Instale um Trabalhador de Runbook Híbrido Linux](#install-a-linux-hybrid-runbook-worker) para adicioná-lo a um grupo.
+>A Azure Automation [Update Management](./update-management/overview.md) instala automaticamente o sistema Hybrid Runbook Worker numa máquina Azure ou não-Azure que está ativada para a Gestão de Atualização. No entanto, este trabalhador não está registado em nenhum grupo híbrido de trabalhadores da runbook na sua conta de Automação. Para executar os seus livros de execução nessas máquinas, precisa adicioná-los a um grupo híbrido de runbook worker. Siga o passo 4 sob a secção [Instale um Trabalhador de Runbook Híbrido Linux](#install-a-linux-hybrid-runbook-worker) para adicioná-lo a um grupo.
 
 ## <a name="supported-linux-hardening"></a>Endurecimento de Linux apoiado
 
@@ -87,11 +87,11 @@ Os Trabalhadores de Runbook Híbridos Linux suportam um conjunto limitado de tip
 
 |Tipo de livro de execução | Suportado |
 |-------------|-----------|
-|Python 2 |Sim |
+|Python 2 |Yes |
 |PowerShell |Sim<sup>1</sup> |
-|Fluxo de Trabalho do PowerShell |Não |
-|Gráficos |Não |
-|Fluxo de trabalho gráfico powershell |Não |
+|Fluxo de Trabalho do PowerShell |No |
+|Gráficos |No |
+|Fluxo de trabalho gráfico powershell |No |
 
 <sup>1</sup> Os livros powerShell requerem que o PowerShell Core seja instalado na máquina Linux. Consulte [a instalação do PowerShell Core no Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para aprender a instalá-lo.
 

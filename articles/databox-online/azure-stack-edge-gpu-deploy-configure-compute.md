@@ -10,11 +10,11 @@ ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 711da24b3edf08f4867109d0d70165955236c39a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743425"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184659"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-pro-gpu-device"></a>Tutorial: Configurar computação no dispositivo GPU Azure Stack Edge Pro
 
@@ -25,7 +25,7 @@ Este tutorial descreve como configurar um papel de computação e criar um clust
 Este procedimento pode demorar cerca de 20 a 30 minutos para ser concluído.
 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Configure computação
@@ -59,7 +59,7 @@ Para configurar o cálculo no seu Azure Stack Edge Pro, irá criar um recurso Io
     |Campo  |Valor  |
     |---------|---------|
     |IoT Hub     | Escolha entre **Novo** ou **Já.** <br> Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
-    |Nome     |Insira um nome para o seu recurso IoT Hub.         |
+    |Name     |Insira um nome para o seu recurso IoT Hub.         |
 
     ![Começar com o compute 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
@@ -76,7 +76,7 @@ Para configurar o cálculo no seu Azure Stack Edge Pro, irá criar um recurso Io
     
 Quando a função de computação Edge é configurada no dispositivo Edge, cria dois dispositivos: um dispositivo IoT e um dispositivo IoT Edge. Ambos os dispositivos podem ser vistos no recurso IoT Hub. Um IoT Edge Runtime também está a ser executado neste dispositivo IoT Edge. Neste momento, apenas a plataforma Linux está disponível para o seu dispositivo IoT Edge.
 
-Pode levar 20 a 30 minutos para configurar o cálculo, uma vez que nos bastidores, máquinas virtuais e cluster Kubernetes estão sendo criados. 
+Pode levar 20 a 30 minutos para configurar o cálculo, uma vez que nos bastidores, máquinas virtuais e cluster Kubernetes estão sendo criados. 
 
 Depois de configurar com sucesso o computação no portal Azure, existe um cluster Kubernetes e um utilizador padrão associado ao espaço de nome IoT (um espaço de nome do sistema controlado por Azure Stack Edge Pro). 
 
@@ -85,7 +85,7 @@ Depois de configurar com sucesso o computação no portal Azure, existe um clust
 Para configurar um cliente para aceder ao cluster Kubernetes, você precisará do ponto final de Kubernetes. Siga estes passos para obter o ponto final da API da Kubernetes a partir da UI local do seu dispositivo Azure Stack Edge Pro.
 
 1. Na uI web local do seu dispositivo, aceda à página **dispositivos.**
-2. Sob os **pontos finais**do Dispositivo, copie o ponto final de **serviço da API da Kubernetes.** Este ponto final é uma cadeia no seguinte formato: `https://compute.<device-name>.<DNS-domain>[Kubernetes-cluster-IP-address]` . 
+2. Sob os **pontos finais** do Dispositivo, copie o ponto final de **serviço da API da Kubernetes.** Este ponto final é uma cadeia no seguinte formato: `https://compute.<device-name>.<DNS-domain>[Kubernetes-cluster-IP-address]` . 
 
     ![Página do dispositivo na UI local](./media/azure-stack-edge-j-series-create-kubernetes-cluster/device-kubernetes-endpoint-1.png)
 

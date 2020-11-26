@@ -6,11 +6,11 @@ ms.author: dbradish
 manager: barbkess
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: fc18ddcb44a016348baed79ada273416e159aed5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95971396"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185304"
 ---
 - Utilize o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart) com o ambiente do Bash.
 

@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 149f8deb8839b3adce3555300c94b8ebdf587100
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: f12ed42755af64f024fdcb0452173134f7b58482
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873850"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183741"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configure uma aplicação Linux Python para o Azure App Service
 
@@ -126,10 +126,10 @@ O quadro seguinte descreve as definições de produção relevantes para o Azure
 
 | Configuração de Django | Instruções para Azure |
 | --- | --- |
-| `SECRET_KEY` | Armazenar o valor numa definição de Serviço de Aplicações como descrito nas [definições de aplicações do Access como variáveis de ambiente.](#access-app-settings-as-environment-variables) Pode armazenar alternadamente [o valor como um "secrete" no Cofre da Chave Azure.](/azure/key-vault/secrets/quick-create-python) |
+| `SECRET_KEY` | Armazenar o valor numa definição de Serviço de Aplicações como descrito nas [definições de aplicações do Access como variáveis de ambiente.](#access-app-settings-as-environment-variables) Pode armazenar alternadamente [o valor como um "secrete" no Cofre da Chave Azure.](../key-vault/secrets/quick-create-python.md) |
 | `DEBUG` | Crie uma `DEBUG` definição no Serviço de Aplicações com o valor 0 (falso), em seguida, carregue o valor como uma variável ambiental. No seu ambiente de desenvolvimento, crie uma `DEBUG` variável ambiental com o valor 1 (verdadeiro). |
 | `ALLOWED_HOSTS` | Na produção, o Django requer que inclua o URL da aplicação na `ALLOWED_HOSTS` variedade de *settings.py.* Pode recuperar este URL em tempo de execução com o código, `os.environ['WEBSITE_HOSTNAME']` . O Serviço de Aplicações define automaticamente a `WEBSITE_HOSTNAME` variável ambiental para o URL da aplicação. |
-| `DATABASES` | Defina as definições no Serviço de Aplicações para a ligação da base de dados e carregue-as como variáveis ambientais para povoar o [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) dicionário. Pode armazenar alternadamente os valores (especialmente o nome de utilizador e a palavra-passe) como [segredos do Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
+| `DATABASES` | Defina as definições no Serviço de Aplicações para a ligação da base de dados e carregue-as como variáveis ambientais para povoar o [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) dicionário. Pode armazenar alternadamente os valores (especialmente o nome de utilizador e a palavra-passe) como [segredos do Azure Key Vault](../key-vault/secrets/quick-create-python.md). |
 
 ## <a name="container-characteristics"></a>Características do contentor
 

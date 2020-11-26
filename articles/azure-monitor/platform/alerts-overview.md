@@ -4,12 +4,12 @@ description: Visão geral do alerta em Azure. Alertas, alertas clássicos e a in
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: b8d24eab79bdf16e4d883549be00431bd5372af8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d0f71ebf8a7acab6d4b46f59049bf1efd5290284
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536052"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186648"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Descrição geral dos alertas no Microsoft Azure 
 
@@ -84,7 +84,7 @@ Os seguintes estados de alerta são apoiados.
 
 *O estado de alerta* é diferente e independente da condição do *monitor.* O estado de alerta é definido pelo utilizador. A condição do monitor é definida pelo sistema. Quando um alerta dispara, o estado do monitor do alerta é definido para *'disparado',* e quando a condição subjacente que causou o alerta para o incêndio se apaga, a condição do monitor está definida para *"resolvida".* 
 
-O estado de alerta não é alterado até que o utilizador o altere. Saiba [como alterar o estado dos seus alertas e grupos inteligentes.](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+O estado de alerta não é alterado até que o utilizador o altere. Saiba [como alterar o estado dos seus alertas e grupos inteligentes.](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
 ## <a name="alerts-experience"></a>Experiência alerta 
 A página de Alertas predefinidos fornece um resumo dos alertas que são criados dentro de um determinado intervalo de tempo. Apresenta os alertas totais para cada gravidade, com colunas que identificam o número total de alertas em cada estado para cada gravidade. Selecione qualquer uma das severidades para abrir a página [Todos os Alertas](#all-alerts-page) filtrado por essa gravidade.
@@ -167,7 +167,7 @@ Ao selecionar um alerta, esta página fornece detalhes do alerta e permite-lhe a
 
 A página de detalhes do alerta inclui as seguintes secções:
 
-| Section | Descrição |
+| Section | Description |
 |:---|:---|
 | Resumo | Exibe as propriedades e outras informações significativas sobre o alerta. |
 | Histórico | Enumera cada ação tomada pelo alerta e quaisquer alterações feitas ao alerta. Atualmente limitado a alterações de estado. |
@@ -204,12 +204,12 @@ Utilize a [API de Gestão de Alertas](/rest/api/monitor/alertsmanagement/alerts)
 
 ## <a name="smart-groups"></a>Grupos inteligentes
 
-Os grupos inteligentes são agregações de alertas baseados em algoritmos de aprendizagem automática, que podem ajudar a reduzir o ruído de alerta e a ajuda na resolução de problemas. [Saiba mais sobre os Grupos Inteligentes](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json) e [como gerir os seus grupos inteligentes.](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+Os grupos inteligentes são agregações de alertas baseados em algoritmos de aprendizagem automática, que podem ajudar a reduzir o ruído de alerta e a ajuda na resolução de problemas. [Saiba mais sobre os Grupos Inteligentes](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) e [como gerir os seus grupos inteligentes.](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Saiba mais sobre Grupos Inteligentes](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Saiba mais sobre Grupos Inteligentes](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [Conheça os grupos de ação](./action-groups.md)
-- [Gerir as suas instâncias de alerta em Azure](./alerts-managing-alert-instances.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
-- [Gestão de Grupos Inteligentes](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Gerir as suas instâncias de alerta em Azure](./alerts-managing-alert-instances.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+- [Gestão de Grupos Inteligentes](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [Saiba mais sobre os preços dos alertas do Azure](https://azure.microsoft.com/pricing/details/monitor/)

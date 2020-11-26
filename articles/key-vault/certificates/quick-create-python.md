@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 05b1ea8e6daa9fae0588535534c4a8be45ab91d5
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: d9fdfc89c8c02749fdf677ad119f1eed5a4b1fa2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285260"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185186"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Quickstart: Azure Key Vault certificate client library for Python
 
@@ -70,10 +70,10 @@ Este quickstart está a utilizar a biblioteca Azure Identity com o Azure CLI par
 
 ### <a name="grant-access-to-your-key-vault"></a>Conceder acesso ao seu cofre chave
 
-Crie uma política de acesso para o cofre-chave que concede permissão secreta à sua conta de utilizador
+Crie uma política de acesso para o cofre-chave que concede permissão de certificado à sua conta de utilizador
 
 ```console
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --certificate-permissions delete get list create
 ```
 
 #### <a name="set-environment-variables"></a>Definir variáveis de ambiente
@@ -200,7 +200,7 @@ Pode verificar se o certificado é eliminado com o certificado de comando Azure 
 
 Uma vez eliminado, um certificado permanece em estado de aussitado mas recuperável por um tempo. Se voltar a executar o código, utilize um nome de certificado diferente.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se também quiser experimentar [segredos](../secrets/quick-create-python.md) e [chaves,](../keys/quick-create-python.md)pode reutilizar o Key Vault criado neste artigo.
 

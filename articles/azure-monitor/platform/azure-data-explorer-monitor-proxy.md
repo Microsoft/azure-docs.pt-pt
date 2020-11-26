@@ -7,12 +7,12 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 9b434c426264fcfee0dfe663a7d1b21a354badec
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 2a21d7a06e8a92022b620704d1fb51a303da3ae0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491261"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185985"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Dados de consulta no Azure Monitor utilizando o Azure Data Explorer (pré-visualização)
 O cluster de procuração Azure Data Explorer permite-lhe realizar consultas de produtos cruzadas entre o Azure Data Explorer, os espaços de trabalho do Log Analytics e as aplicações clássicas de Insights de Aplicação no Azure Monitor. Pode mapear espaços de trabalho do Log Analytics no Azure Monitor ou aplicações clássicas de App Insights como clusters de procuração. Em seguida, pode consultar o cluster proxy usando ferramentas Azure Data Explorer e encaminhá-lo numa consulta de cluster transversal. O artigo mostra como ligar a um cluster proxy, adicionar um cluster proxy ao Azure Data Explorer Web UI, e executar consultas contra os seus espaços de trabalho Log Analytics ou aplicações clássicas de Insights de Aplicação do Azure Data Explorer.
@@ -60,7 +60,7 @@ Pode executar as consultas utilizando ferramentas de cliente que suportam consul
 > * O nome da base de dados deve ter o mesmo nome que o recurso especificado no cluster proxy. Os nomes são sensíveis às maiúsculas e minúsculas.
 > * Nas consultas de cluster cross, certifique-se de que o nome de aplicações De Insights de Aplicação e espaços de trabalho log Analytics está correto.
 >     * Se os nomes contiverem caracteres especiais, são substituídos por codificação de URL no nome do cluster proxy. 
->     * Se os nomes incluem caracteres que não cumprem [as regras do nome do identificador KQL,](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/entity-names)são substituídos pelo personagem do **-** traço.
+>     * Se os nomes incluem caracteres que não cumprem [as regras do nome do identificador KQL,](/azure/data-explorer/kusto/query/schema-entities/entity-names)são substituídos pelo personagem do **-** traço.
 
 ### <a name="direct-query-from-your-log-analytics-or-application-insights-proxy-cluster"></a>Consulta direta do seu cluster de procuração log Analytics ou Application Insights
 
@@ -93,9 +93,9 @@ Consultas de inquilinos cruzadas não são apoiadas por Azure Data Explorer prox
 
 Se o recurso Azure Data Explorer estiver no espaço de trabalho do Inquilino 'A' e do Log Analytics está no Arrendatário 'B' utilize um dos dois métodos seguintes:
 
-- O Azure Data Explorer permite-lhe adicionar funções para os principais em diferentes inquilinos. Adicione o seu ID de utilizador no Inquilino 'B' como um utilizador autorizado no cluster Azure Data Explorer. Validar a propriedade *['TrustedExternalTenant'](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster)* no cluster Azure Data Explorer contém O Inquilino 'B'. Executar a consulta cruzada completamente no Inquilino 'B'.
+- O Azure Data Explorer permite-lhe adicionar funções para os principais em diferentes inquilinos. Adicione o seu ID de utilizador no Inquilino 'B' como um utilizador autorizado no cluster Azure Data Explorer. Validar a propriedade *['TrustedExternalTenant'](/powershell/module/az.kusto/update-azkustocluster)* no cluster Azure Data Explorer contém O Inquilino 'B'. Executar a consulta cruzada completamente no Inquilino 'B'.
 
-- Utilize o [Farol](/azure/lighthouse/) para projetar o recurso Azure Monitor no Inquilino 'A'.
+- Utilize o [Farol](../../lighthouse/index.yml) para projetar o recurso Azure Monitor no Inquilino 'A'.
 
 ### <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>Ligue-se aos clusters Azure Data Explorer de diferentes inquilinos
 
@@ -132,4 +132,4 @@ As seguintes opções de sintaxe estão disponíveis quando se chama os clusters
 ## <a name="next-steps"></a>Passos seguintes
 
 - Leia mais sobre a [estrutura de dados dos espaços de trabalho do Log Analytics e do Application Insights](data-platform-logs.md).
-- Aprenda a [escrever consultas no Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/write-queries).
+- Aprenda a [escrever consultas no Azure Data Explorer](/azure/data-explorer/write-queries).

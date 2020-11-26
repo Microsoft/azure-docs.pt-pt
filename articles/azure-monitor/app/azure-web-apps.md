@@ -4,12 +4,12 @@ description: Monitorização do desempenho da aplicação para serviços de apli
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: f46d00f97dab18b0c7c1d4a5742a87308f814e9e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c0ee68659f4729ed8f63b9ea990343adf51513bd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832903"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186376"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do Serviço de Aplicações do Azure
 
@@ -372,7 +372,7 @@ Abaixo está o nosso guia de resolução de problemas passo a passo para monitor
 
     * Confirme que não há entradas para `AppAlreadyInstrumented` `AppContainsDiagnosticSourceAssembly` , e `AppContainsAspNetTelemetryCorrelationAssembly` .
         * Se existir alguma destas entradas, retire as seguintes embalagens da sua aplicação: `Microsoft.ApplicationInsights` `System.Diagnostics.DiagnosticSource` , e `Microsoft.AspNet.TelemetryCorrelation` .
-        * Apenas para ASP.NET aplicações Core: caso a sua aplicação se refira a quaisquer pacotes de Insights de Aplicação, por exemplo, se tiver previamente instrumentalizado (ou tentado instrumentar) a sua aplicação com o [ASP.NET Core SDK,](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)permitindo que a integração do Serviço de Aplicações não produza efeitos e os dados podem não aparecer no Application Insights. Para corrigir o problema, no portal ligue "Interop with Application Insights SDK" e começará a ver os dados em Insights de Aplicação 
+        * Apenas para ASP.NET aplicações Core: caso a sua aplicação se refira a quaisquer pacotes de Insights de Aplicação, por exemplo, se tiver previamente instrumentalizado (ou tentado instrumentar) a sua aplicação com o [ASP.NET Core SDK,](./asp-net-core.md)permitindo que a integração do Serviço de Aplicações não produza efeitos e os dados podem não aparecer no Application Insights. Para corrigir o problema, no portal ligue "Interop with Application Insights SDK" e começará a ver os dados em Insights de Aplicação 
         > [!IMPORTANT]
         > Esta funcionalidade está em pré-visualização 
 
@@ -432,4 +432,3 @@ Para obter as últimas atualizações e correções de erro [consulte as notas d
 * [Receber notificações de alertas](../platform/alerts-overview.md) sempre que ocorrem eventos operacionais ou quando as métricas ultrapassam um determinado limiar.
 * Utilizar o [Application Insights para aplicações JavaScript e páginas Web](javascript.md) para obter telemetria de clientes a partir dos browsers que visitam as páginas Web.
 * [Configurar os Testes Web de disponibilidade](monitor-web-app-availability.md) para ser alertado se o seu site estiver em baixo.
-

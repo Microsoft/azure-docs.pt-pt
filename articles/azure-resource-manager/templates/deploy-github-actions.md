@@ -4,12 +4,12 @@ description: Descreve como implementar modelos de Gestor de Recursos Azure utili
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 3dcb246956aae274f17cf938ee3d406562b22941
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cf705f68544c4c4e0db55d4a375e1e50530c8957
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905264"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185713"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Implemente modelos de gestor de recursos Azure usando ações do GitHub
 
@@ -151,10 +151,10 @@ Uma vez que o fluxo de trabalho está configurado para ser acionado pelo ficheir
 1. Selecione o fluxo de trabalho para abri-lo.
 1. Selecione **executar a implementação** DO ARM a partir do menu para verificar a implementação.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Quando o seu grupo de recursos e repositório já não forem necessários, limpe os recursos que implementou eliminando o grupo de recursos e o seu repositório GitHub. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Crie o seu primeiro modelo ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Crie o seu primeiro modelo ARM](./template-tutorial-create-first-template.md)

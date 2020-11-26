@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
-ms.openlocfilehash: 8b9624313716081a039b12c73e54b9f7afc2a323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53277f64c3d1b03572732157756da1fececbcd43
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86505317"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184574"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Import Azure Monitor regista dados de registo em Power BI
 
@@ -28,7 +28,7 @@ Para importar dados de um espaço de [trabalho Log Analytics](manage-access.md) 
 ## <a name="export-query"></a>Consulta de exportação
 Comece por criar uma [consulta de registo](../log-query/log-query-overview.md) que retorne os dados que pretende preencher o conjunto de dados Power BI.  Em seguida, exporta essa consulta para a [linguagem Power Query (M)](/powerquery-m/power-query-m-language-specification) que pode ser usada pelo Power BI Desktop.
 
-1. [Crie a consulta de registo no Log Analytics](../log-query/get-started-portal.md) para extrair os dados para o seu conjunto de dados.
+1. [Crie a consulta de registo no Log Analytics](../log-query/log-analytics-tutorial.md) para extrair os dados para o seu conjunto de dados.
 2. Selecione **Export**  >  **Power BI Consulta (M)**.  Isto exporta a consulta para um ficheiro de texto chamado **PowerBIQuery.txt**. 
 
     ![Pesquisa de registo de exportação](media/powerbi/export-analytics.png)
@@ -39,7 +39,7 @@ Comece por criar uma [consulta de registo](../log-query/log-query-overview.md) q
 Power BI Desktop é uma aplicação de ambiente de trabalho que permite criar conjuntos de dados e relatórios que podem ser publicados no Power BI.  Também pode usá-lo para criar uma consulta utilizando a linguagem Power Query exportada do Azure Monitor. 
 
 1. Instale [o Power BI Desktop](https://powerbi.microsoft.com/desktop/) se ainda não o tiver e, em seguida, abra a aplicação.
-2. **Selecione Obter Consulta**Em Branco para abrir uma nova  >  **Blank Query** consulta.  Em seguida, selecione **Advanced Editor** e cole o conteúdo do ficheiro exportado para a consulta. Clique em **Done** (Concluído).
+2. **Selecione Obter Consulta** Em Branco para abrir uma nova  >  **Blank Query** consulta.  Em seguida, selecione **Advanced Editor** e cole o conteúdo do ficheiro exportado para a consulta. Clique em **Concluído**.
 
     ![Consulta de ambiente de trabalho Power BI](media/powerbi/desktop-new-query.png)
 

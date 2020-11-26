@@ -5,16 +5,16 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: tomfitz
-ms.openlocfilehash: 9d41e41f110e927f436b38d6291719c138defa53
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 2fdbbad467d8c762db485fc7935e9cef78313fd0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745819"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184455"
 ---
 # <a name="microsoftcommonserviceprincipalselector-ui-element"></a>Microsoft.Common.ServicePrincipalSelector UI elemento
 
-Um controlo que permite aos utilizadores selecionarem um [principal de serviço](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) existente ou registarem uma nova aplicação. Quando selecionar **Criar Novo,** siga os passos para registar uma nova aplicação. Quando seleciona uma aplicação existente, o controlo fornece uma caixa de texto para inserir uma palavra-passe ou uma impressão digital de certificado.
+Um controlo que permite aos utilizadores selecionarem um [principal de serviço](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) existente ou registarem uma nova aplicação. Quando selecionar **Criar Novo,** siga os passos para registar uma nova aplicação. Quando seleciona uma aplicação existente, o controlo fornece uma caixa de texto para inserir uma palavra-passe ou uma impressão digital de certificado.
 
 ## <a name="ui-samples"></a>Amostras de UI
 

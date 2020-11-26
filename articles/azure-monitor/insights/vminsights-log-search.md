@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 6b3fdf052ce7f0d6a5c3497aa1ac971d9249546a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 118bdcb6929abfc162ff05e91f1621f087b6c50c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015597"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186733"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Como consultar registos do Azure Monitor para VMs
 
@@ -112,7 +112,7 @@ Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas contra 
 |:--|:--|
 |MaliciousIp |O endereço RemoteIp |
 |IndicadorThreadType |O indicador de ameaça detetado é um dos seguintes valores, *Botnet*, *C2*, *CryptoMining,* *Darknet*, *DDos,* *MaliciousUrl,* *Malware*, *Phishing,* *Proxy,* *PUA,* *Watchlist*.   |
-|Descrição |Descrição da ameaça observada. |
+|Description |Descrição da ameaça observada. |
 |TLPLevel |O nível do Protocolo de Semáforos (TLP) é um dos valores definidos, *Branco,* *Verde,* *Âmbar,* *Vermelho.* |
 |Confiança |Os valores são *0 a 100.* |
 |Gravidade |Os valores são *0 - 5,* onde *5* é o mais grave e *0* não é nada grave. O valor predefinido é *de 3*.  |
@@ -233,7 +233,7 @@ Os registos com um tipo de *VMProcess* têm dados de inventário para processos 
 |Grupo | Processar nome de grupo. Os processos no mesmo grupo estão logicamente relacionados, por exemplo, parte do mesmo produto ou componente do sistema. |
 |StartTime | A hora de início da piscina do processo |
 |FirstPid | O primeiro PID na piscina de processos |
-|Descrição | A descrição do processo |
+|Description | A descrição do processo |
 |CompanyName | O nome da empresa |
 |Nome interno | O nome interno |
 |NomeDoProduto | O nome do produto |
@@ -442,7 +442,7 @@ Os registos com um tipo de *InsightsMetrics* têm dados de desempenho do sistema
 |Computador | O computador FQDN | 
 |Origem | *vm.azm.ms* |
 |Espaço de Nomes | Categoria do contador de desempenho | 
-|Nome | Nome do balcão de performance |
+|Name | Nome do balcão de performance |
 |Val | Valor recolhido | 
 |Etiquetas | Detalhes relacionados sobre o registo. Consulte a tabela abaixo para obter etiquetas utilizadas com diferentes tipos de registo.  |
 |AgentId | Identificador único para o agente de cada computador |
@@ -471,9 +471,8 @@ Os contadores de desempenho atualmente recolhidos na tabela *InsightsMetrics* es
 | LógicaDisk | BytesPerSecond        | Bytes de disco lógico por segundo             | BytesPerSecond | mountId - ID do monte do dispositivo |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Se é novo a escrever consultas de registo no Azure Monitor, [reveja como utilizar](../log-query/get-started-portal.md) o Log Analytics no portal Azure para escrever consultas de registo.
+* Se é novo a escrever consultas de registo no Azure Monitor, [reveja como utilizar](../log-query/log-analytics-tutorial.md) o Log Analytics no portal Azure para escrever consultas de registo.
 
-* Saiba mais sobre [escrever consultas de pesquisa.](/azure/azure-monitor/log-query/get-started-queries)
-
+* Saiba mais sobre [escrever consultas de pesquisa.](../log-query/get-started-queries.md)

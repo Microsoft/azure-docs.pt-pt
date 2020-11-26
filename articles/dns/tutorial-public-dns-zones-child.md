@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 7/16/2020
 ms.author: jonbeck
 ms.openlocfilehash: d805fb926131e047572887758b10506e4edd5944
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94960772"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183384"
 ---
 # <a name="tutorial-creating-a-new-child-dns-zone"></a>Tutorial: Criar uma nova zona de DNS infantil
 
@@ -100,7 +100,7 @@ Agora, neste passo, vamos para a zona de DNS dos pais *contoso.com* e verificar 
 1.  Você vai descobrir que o conjunto de registos de tipo NS e subdomínio de nome já está criado na zona de DNS dos pais. Verifique os valores deste conjunto de registos é semelhante à lista de nomes que recuperamos da zona de DNS infantil em cima do degrau.
 
      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-inline.png" alt-text="Screenshot da validação de conservadores de nomes de zona infantil" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-expanded.png":::
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Quando já não precisar dos recursos que criou neste tutorial, remova-os eliminando o grupo de recursos **MyResourceGroup.** Abra o grupo de recursos **MyResourceGroup** e selecione **Delete resource group**.
 
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 79e5b1ddde0ff5f0d09dc1c20e3b20ec4de3d925
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 234ef58920a9f896d3e8ebcc561562ea7ceb2708
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536681"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186427"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerir o acesso a dados de registo e áreas de trabalho no Azure Monitor
 
@@ -48,7 +48,7 @@ Pode alterar esta definição a partir da página **Propriedades** do espaço de
 
 ![Alterar o modo de acesso ao espaço de trabalho](media/manage-access/change-access-control-mode.png)
 
-### <a name="using-powershell"></a>Com o PowerShell
+### <a name="using-powershell"></a>Utilizar o PowerShell
 
 Utilize o seguinte comando para examinar o modo de controlo de acesso para todos os espaços de trabalho na subscrição:
 
@@ -162,7 +162,7 @@ Os membros da função *Contribuidor do Log Analytics* podem:
 
 A função de Contribuinte Log Analytics inclui as seguintes ações do Azure:
 
-| Permissão | Descrição |
+| Permissão | Description |
 | ---------- | ----------- |
 | `*/read`     | Capacidade para ver todos os recursos e configuração dos mesmos. Inclui ver: <br> o estado da extensão da máquina virtual <br> a configuração dos diagnósticos do Azure nos recursos <br> Todas as propriedades e configurações de todos os recursos. <br> Para espaços de trabalho, permite que permissões completas e ilimitadas leiam a definição do espaço de trabalho e realizem consultas nos dados. Veja mais opções granulares acima. |
 | `Microsoft.Automation/automationAccounts/*` | Capacidade para criar, e configurar contas de Automatização do Azure, incluindo adicionar e editar runbooks |
@@ -189,7 +189,7 @@ Recomendamos a realização de atribuições ao nível dos recursos (espaço de 
 
 Quando os utilizadores consultam os registos de um espaço de trabalho utilizando o acesso ao contexto de recursos, terão as seguintes permissões no recurso:
 
-| Permissão | Descrição |
+| Permissão | Description |
 | ---------- | ----------- |
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Exemplos:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Capacidade de visualizar todos os dados de registo para o recurso.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Capacidade de configurar a definição de diagnósticos para permitir a configuração de registos para este recurso. |
@@ -285,7 +285,7 @@ Os exemplos acima definem uma lista de tabelas que são permitidas. Este exemplo
 
 ### <a name="custom-logs"></a>Registos personalizados
 
- Os registos personalizados são criados a partir de fontes de dados, tais como registos personalizados e API de Colecionador de Dados HTTP. A forma mais fácil de identificar o tipo de registo é verificando as tabelas [listadas nos Registos Personalizados no esquema de registo](../log-query/get-started-portal.md#understand-the-schema).
+ Os registos personalizados são criados a partir de fontes de dados, tais como registos personalizados e API de Colecionador de Dados HTTP. A forma mais fácil de identificar o tipo de registo é verificando as tabelas [listadas nos Registos Personalizados no esquema de registo](../log-query/log-analytics-tutorial.md#table-schema).
 
  Não pode conceder acesso a registos personalizados individuais, mas pode conceder acesso a todos os registos personalizados. Para criar uma função com acesso a todos os registos personalizados, crie um papel personalizado utilizando as seguintes ações:
 

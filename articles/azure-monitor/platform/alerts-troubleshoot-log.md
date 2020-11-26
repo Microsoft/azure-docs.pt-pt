@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: ec2ffe71a32781a855da258f3621738f1a5f6be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9a1bef582053eccdbfef63c2159cf540ffd9bfb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294296"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186597"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Alertas de registo de resolução de problemas no Azure Monitor  
 
 Este artigo mostra-lhe como resolver problemas comuns com alertas de registo no Azure Monitor. Também fornece soluções para problemas comuns com a funcionalidade e configuração de alertas de log.
 
-Os alertas de registo permitem que os utilizadores utilizem uma consulta [log Analytics](../log-query/get-started-portal.md) para avaliar os registos de recursos em cada frequência definida e disparem um alerta com base nos resultados. As regras podem desencadear uma ou mais ações utilizando [grupos de ação.](./action-groups.md) [Saiba mais sobre funcionalidade e terminologia de alertas de registo.](alerts-unified-log.md)
+Os alertas de registo permitem que os utilizadores utilizem uma consulta [log Analytics](../log-query/log-analytics-tutorial.md) para avaliar os registos de recursos em cada frequência definida e disparem um alerta com base nos resultados. As regras podem desencadear uma ou mais ações utilizando [grupos de ação.](./action-groups.md) [Saiba mais sobre funcionalidade e terminologia de alertas de registo.](alerts-unified-log.md)
 
 > [!NOTE]
 > Este artigo não considera casos em que o portal Azure apresente uma regra de alerta desencadeada e uma notificação não seja realizada por um grupo de ação associado. Para estes casos, consulte os detalhes sobre a resolução de problemas [aqui.](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected)

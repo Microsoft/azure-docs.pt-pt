@@ -3,14 +3,14 @@ title: Modos de implementação
 description: Descreve como especificar se deve utilizar um modo de implementação completo ou incremental com o Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: e584acd4af1dc6adb5f5d383acd5d16da0815f32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc499be4185905af7eaf71b3515895de9bee46d3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371588"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184047"
 ---
-# <a name="azure-resource-manager-deployment-modes"></a>Modos de implementação do Gestor de Recursos Azure
+# <a name="azure-resource-manager-deployment-modes"></a>Modos de implementação do Azure Resource Manager
 
 Ao implementar os seus recursos, especifica que a implementação é uma atualização incremental ou uma atualização completa. A diferença entre estes dois modos é a forma como o Gestor de Recursos lida com os recursos existentes no grupo de recursos que não estão no modelo.
 
@@ -29,7 +29,7 @@ Se o seu modelo incluir um recurso que não é implementado porque [a condição
 
 Tenha cuidado ao utilizar o modo completo com [laços de cópia](copy-resources.md). Quaisquer recursos que não sejam especificados no modelo após a resolução do ciclo de cópia são eliminados.
 
-Se implementar para [mais de um grupo de recursos num modelo,](cross-scope-deployment.md)os recursos do grupo de recursos especificados na operação de implantação podem ser eliminados. Os recursos nos grupos de recursos secundários não são eliminados.
+Se implementar para [mais de um grupo de recursos num modelo,](./deploy-to-resource-group.md)os recursos do grupo de recursos especificados na operação de implantação podem ser eliminados. Os recursos nos grupos de recursos secundários não são eliminados.
 
 Existem algumas diferenças na forma como os tipos de recursos lidam com as eliminações completas do modo. Os recursos dos pais são automaticamente eliminados quando não estão num modelo que é implantado em modo completo. Alguns recursos infantis não são automaticamente eliminados quando não estão no modelo. No entanto, estes recursos para crianças são eliminados se o recurso dos pais for eliminado.
 

@@ -3,12 +3,12 @@ title: Botão Implementar no Azure
 description: Utilize o botão para implementar os modelos do Gestor de Recursos Azure a partir de um repositório GitHub.
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 25ec5fd7a0c5b356097412ab6f1765cb0886522a
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 65891cace1cb17614abbfe091e1592d6f13feff4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555271"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185730"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Use um botão de implementação para implementar modelos do repositório GitHub
 
@@ -107,7 +107,7 @@ Para HTML, utilize:
 Para Git com Azure repo, o botão está no formato:
 
 ```markdown
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdev.azure.com%2Forgname%2Fprojectname%2F_apis%2Fgit%2Frepositories%2Freponame%2Fitems%3FscopePath%3D%252Freponame%252Fazuredeploy.json%26api-version%3D6.0)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdev.azure.com%2Forgname%2Fprojectname%2F_apis%2Fgit%2Frepositories%2Freponame%2Fitems%3FscopePath%3D%2freponame%2fazuredeploy.json%26api-version%3D6.0)
 ```
 
 ## <a name="deploy-the-template"></a>Implementar o modelo

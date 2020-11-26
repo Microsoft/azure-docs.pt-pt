@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: jgao
-ms.openlocfilehash: 1e9d44561d79c411bdff167acad4f37c21251e23
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: e5449dc26197a0aa2e2b0da49ad9e5ca4fb19e82
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951745"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185764"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Gerir os grupos de recursos do Azure Resource Manager utilizando o Azure PowerShell
 
@@ -206,7 +206,7 @@ Se utilizar o `-SkipResourceNameParameterization` parâmetro ao exportar o model
 
 A funcionalidade do modelo de exportação não suporta a exportação de recursos da Azure Data Factory. Para saber como pode exportar recursos da Data Factory, consulte [Copy ou clone uma fábrica de dados na Azure Data Factory.](../../data-factory/copy-clone-data-factory.md)
 
-Para exportar recursos criados através de um modelo de implementação clássico, deve [migrar para o modelo de implementação do Gestor de Recursos.](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+Para exportar recursos criados através de um modelo de implementação clássico, deve [migrar para o modelo de implementação do Gestor de Recursos.](../../virtual-machines/migration-classic-resource-manager-overview.md)
 
 Para obter mais informações, consulte [exportação única e multi-recursos para o modelo no portal Azure](../templates/export-template-portal.md).
 

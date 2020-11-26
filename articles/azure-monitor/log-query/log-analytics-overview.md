@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/04/2020
-ms.openlocfilehash: 26d6bcb52099b15aeeb73a36a7144c14bdf481d6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: ba27739ff9e9d992ffe6202629a1db19604b1409
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497343"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186121"
 ---
 # <a name="overview-of-log-analytics-in-azure-monitor"></a>Visão geral do Log Analytics no Azure Monitor
 Log Analytics é uma ferramenta no portal Azure usado para editar e executar consultas de registo com dados em Registos monitores Azure. Pode escrever uma consulta simples que devolve um conjunto de registos e, em seguida, use funcionalidades de Log Analytics para ordenar, filtrar e analisá-los. Ou pode escrever uma consulta mais avançada para realizar análises estatísticas e visualizar os resultados num gráfico para identificar uma determinada tendência. Quer trabalhe com os resultados das suas consultas interativamente ou utilize-as com outras funcionalidades do Azure Monitor, como alertas de consulta de registo ou livros de trabalho, o Log Analytics é a ferramenta que vai utilizar para os escrever e testar. 
 
 
 > [!TIP]
-> Este artigo fornece uma descrição do Log Analytics e de cada uma das suas características. Se quiser entrar num tutorial, consulte o [tutorial do Log Analytics.](get-started-portal.md)
+> Este artigo fornece uma descrição do Log Analytics e de cada uma das suas características. Se quiser entrar num tutorial, consulte o [tutorial do Log Analytics.](./log-analytics-tutorial.md)
 
 
 
@@ -91,5 +91,5 @@ Apresenta os resultados como um dos vários tipos de gráficos disponíveis. Pod
 Se já está familiarizado com a UI web do Azure Data Explorer, então o Log Analytics deve parecer familiar. Isto porque é construído em cima do Azure Data Explorer e usa a mesma linguagem de consulta kusto (KQL). O Log Analytics adiciona funcionalidades específicas do Azure Monitor, tais como a filtragem por intervalo de tempo e a capacidade de criar uma regra de alerta a partir de uma consulta. Ambas as ferramentas incluíam um explorador que permite digitalizar através da estrutura das tabelas disponíveis, mas o Azure Data Explorer Web UI funciona principalmente com tabelas em bases de dados do Azure Data Explorer enquanto o Log Analytics trabalha com tabelas num espaço de trabalho do Log Analytics. 
 
 ## <a name="next-steps"></a>Passos seguintes
-- Caminhe através de um [tutorial sobre a utilização do Log Analytics no portal Azure](get-started-portal.md).
+- Caminhe através de um [tutorial sobre a utilização do Log Analytics no portal Azure](./log-analytics-tutorial.md).
 - Caminhe por um [tutorial sobre consultas de escrita.](get-started-queries.md)

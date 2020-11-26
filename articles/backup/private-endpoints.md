@@ -4,11 +4,11 @@ description: Compreenda o processo de criação de pontos finais privados para o
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.openlocfilehash: 0ca4e7a83e18ac72e25131d320737ce9578b1cf3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172241"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184757"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos finais privados para backup Azure
 
@@ -389,8 +389,8 @@ Precisa de criar três zonas privadas de DNS e ligá-las à sua rede virtual.
 
 | **Zona**                                                     | **Serviço** |
 | ------------------------------------------------------------ | ----------- |
-| `privatelink.<geo>.backup.windowsazure.com`      | Cópia de segurança      |
-| `privatelink.blob.core.windows.net`                            | Blob        |
+| `privatelink.<geo>.backup.windowsazure.com`      | Backup      |
+| `privatelink.blob.core.windows.net`                            | Blobs        |
 | `privatelink.queue.core.windows.net`                           | Fila       |
 
 >[!NOTE]

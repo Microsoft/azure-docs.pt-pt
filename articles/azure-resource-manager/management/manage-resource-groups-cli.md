@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9b5addd9d275e9367988dc10689c27fa035e97dd
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4a9a4ed4ebba7f6f2470bb9e7000a899ebc26323
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951779"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185815"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Gerir grupos de recursos do Azure Resource Manager utilizando o Azure CLI
 
@@ -135,7 +135,7 @@ O script apresenta o modelo na consola.  Copie o JSON e guarde como um ficheiro.
 
 A funcionalidade do modelo de exportação não suporta a exportação de recursos da Azure Data Factory. Para saber como pode exportar recursos da Data Factory, consulte [Copy ou clone uma fábrica de dados na Azure Data Factory.](../../data-factory/copy-clone-data-factory.md)
 
-Para exportar recursos criados através de um modelo de implementação clássico, deve [migrar para o modelo de implementação do Gestor de Recursos.](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+Para exportar recursos criados através de um modelo de implementação clássico, deve [migrar para o modelo de implementação do Gestor de Recursos.](../../virtual-machines/migration-classic-resource-manager-overview.md)
 
 Para obter mais informações, consulte [exportação única e multi-recursos para o modelo no portal Azure](../templates/export-template-portal.md).
 

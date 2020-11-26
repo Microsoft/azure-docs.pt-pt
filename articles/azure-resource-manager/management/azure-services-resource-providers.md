@@ -3,12 +3,12 @@ title: Fornecedores de recursos por serviços Azure
 description: Lista todos os espaços de nome do fornecedor de recursos para O Gestor de Recursos Azure e mostra o serviço Azure para esse espaço de nome.
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: c447a08b4422929f042315370b5888f3db0626e4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 7c8e535978bff38146caee1a3b5177d5befaa6a1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697735"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185866"
 ---
 # <a name="resource-providers-for-azure-services"></a>Resource providers for Azure services (Fornecedor de recursos para serviços do Azure)
 
@@ -84,7 +84,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.DevSpaces | [Azure Dev Spaces](../../dev-spaces/index.yml) |
 | Microsoft.DevTestLab | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.DigitalTwins | [Azure Digital Twins](../../digital-twins/overview.md) |
-| Microsoft.DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
+| Microsoft.DocumentDB | [BD do Cosmos para o Azure](../../cosmos-db/index.yml) |
 | Microsoft.DomainRegistration | [Serviço de Aplicações](../../app-service/index.yml) |
 | Microsoft.DynamicsLcs | [Serviços de ciclo de vida](https://lcs.dynamics.com/Logon/Index ) |
 | Microsoft.EnterpriseKnowledgeGraph | Gráfico de conhecimento da empresa |
@@ -126,7 +126,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Gateway de Aplicação](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Proteção contra DDoS do Azure](../../virtual-network/ddos-protection-overview.md)<br />[DNS do Azure](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Balanceador de Carga](../../load-balancer/index.yml)<br />[Observador de Rede](../../network-watcher/index.yml)<br />[Gestor de Tráfego](../../traffic-manager/index.yml)<br />[Rede Virtual](../../virtual-network/index.yml)<br />[WAN Virtual](../../virtual-wan/index.yml)<br />[Gateway de VPN](../../vpn-gateway/index.yml)<br /> |
+| Microsoft.Network | [Gateway de Aplicação](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Proteção contra DDoS do Azure](../../ddos-protection/ddos-protection-overview.md)<br />[DNS do Azure](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Balanceador de Carga](../../load-balancer/index.yml)<br />[Observador de Rede](../../network-watcher/index.yml)<br />[Gestor de Tráfego](../../traffic-manager/index.yml)<br />[Rede Virtual](../../virtual-network/index.yml)<br />[WAN Virtual](../../virtual-wan/index.yml)<br />[Gateway de VPN](../../vpn-gateway/index.yml)<br /> |
 | Microsoft.Notebooks | [Azure Notebooks](https://notebooks.azure.com/help/introduction) |
 | Microsoft.NotificationHubs | [Hubs de Notificação](../../notification-hubs/index.yml) |
 | Microsoft.ObjectStore | Loja de Objetos |

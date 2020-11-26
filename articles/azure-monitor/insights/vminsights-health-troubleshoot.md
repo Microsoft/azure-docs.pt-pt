@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/08/2020
-ms.openlocfilehash: 048230bb85d2ac599efc6bd3fb326f98038cce57
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 2aa83a861697882127c75eb696807f604c3061f0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94687019"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184557"
 ---
 # <a name="troubleshoot-azure-monitor-for-vms-guest-health-preview"></a>Troubleshoot Azure Monitor para saúde de hóspedes VMs (pré-visualização)
 Este artigo descreve medidas de resolução de problemas que pode tomar quando tem problemas com o Azure Monitor para a saúde dos VMs.
@@ -42,7 +42,7 @@ Verifique se a identidade atribuída ao sistema está ativada na máquina virtua
 Verifique se a regra de recolha de dados especificando a extensão de saúde como fonte de dados está associada à máquina virtual.
 
 ## <a name="error-message-for-bad-request-due-to-insufficient-permissions"></a>Mensagem de erro por mau pedido devido a permissões insuficientes
-Este erro indica que o fornecedor de recursos **Microsoft.WorkloadMonitor** não estava registado na subscrição. Consulte [os fornecedores e tipos de recursos Azure](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) para obter informações sobre o registo deste fornecedor de recursos. 
+Este erro indica que o fornecedor de recursos **Microsoft.WorkloadMonitor** não estava registado na subscrição. Consulte [os fornecedores e tipos de recursos Azure](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) para obter informações sobre o registo deste fornecedor de recursos. 
 
 ![Mau pedido](media/vminsights-health-troubleshoot/bad-request.png)
 
