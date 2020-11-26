@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
 ms.openlocfilehash: 7bb74732074482c12d3bc760e259bb014ccf006f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92454197"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96179332"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ekarda"></a>Tutorial: Azure Ative Directory integração única (SSO) com ekarda
 
@@ -50,7 +50,7 @@ Para configurar a integração da Ekarda no Azure AD, adicione ekarda da galeria
 1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta de trabalho ou escola ou uma conta pessoal da Microsoft.
 
 1. No painel esquerdo, selecione o serviço **Azure Ative Directory.**
-1. Vá a **Aplicações Empresariais**e, em seguida, selecione **Todas as Aplicações**.
+1. Vá a **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar a nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar da secção **da galeria,** **escreva ekarda** na caixa de pesquisa.
 1. Selecione **ekarda** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
@@ -131,7 +131,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
    ![Screenshot da secção Gerir, com utilizadores e grupos em destaque.](common/users-groups-blade.png)
 
-1. **Selecione Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
+1. **Selecione Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
 
     ![Screenshot da secção de Utilizadores e grupos, com o utilizador Add em destaque.](common/add-assign-user.png)
 

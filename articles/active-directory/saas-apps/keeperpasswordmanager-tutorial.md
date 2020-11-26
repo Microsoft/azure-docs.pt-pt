@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/13/2020
 ms.author: jeedes
-ms.openlocfilehash: ef49a8a3ac1779071a4d4906bfd053530063102d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: b70c50e7c2900f884dd4d91c6650205bc626326e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984469"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96178046"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Tutorial: Integração do Diretório Ativo Azure com Keeper Password Manager & Digital Vault
 
@@ -102,7 +102,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além disso, o Keeper Password Manager & aplicação Digital Vault espera que mais alguns atributos sejam repercutidos na resposta SAML. Estes são mostrados na tabela seguinte. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ------------| --------- |
     | Primeiro | user.givenname |
     | Último | utilizador.sobrenome |
@@ -157,9 +157,9 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Pode ir diretamente ao URL de inscrição para a aplicação e iniciar a entrada a partir daí.
 
-* Pode utilizar o Microsoft Access Panel. Quando seleciona o **Gestor de Passwords do Guardião &** o azulejo digital do cofre no Painel de Acesso, este redireciona-o para o URL de inscrição para a aplicação. Para obter mais informações sobre o Painel de Acesso, consulte [iniciar sôr-se e iniciar aplicações a partir do portal My Apps.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar o Microsoft Access Panel. Quando seleciona o **Gestor de Passwords do Guardião &** o azulejo digital do cofre no Painel de Acesso, este redireciona-o para o URL de inscrição para a aplicação. Para obter mais informações sobre o Painel de Acesso, consulte [iniciar sôr-se e iniciar aplicações a partir do portal My Apps.](../user-help/my-apps-portal-end-user-access.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de configurar o Keeper Password Manager & Digital Vault, pode impor o controlo da sessão. Isto protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. Para obter mais informações, consulte [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security.](/cloud-app-security/proxy-deployment-aad)

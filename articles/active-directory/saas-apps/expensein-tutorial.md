@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 07/17/2020
 ms.author: jeedes
 ms.openlocfilehash: eb7062b745ae6eb97dc2cd4ba2051cc221031630
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92453778"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96179168"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Tutorial: Integrar DespesasIn com Diretório Ativo Azure
 
@@ -106,7 +106,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a ExpenseIn.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **ExpenseIn**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -145,7 +145,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     b. Selecione **Sim** para Permitir a **inscrição no fornecedor**.
 
-    c. In the **Target Url** text box, paste the value of **Login URL**, which you have copied from Azure portal.
+    c. Na caixa **de texto's's's's's's's's,** cole o valor do URL de **login,** que copiou do portal Azure.
 
     d. Na caixa de texto **emitente,** cole o valor do **Identificador AD AZure,** que copiou do portal Azure.
 
