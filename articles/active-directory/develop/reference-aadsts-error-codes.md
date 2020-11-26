@@ -12,12 +12,12 @@ ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 59ed397f3bd54a324f8fa375a3ea870860c31142
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: fa6fc11441811589967ddd7728501b521f9f9155
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410934"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169278"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro da Autenticação e autorização do Azure AD
 
@@ -315,7 +315,7 @@ Por exemplo, se recebeu o código de erro "AADSTS50058" então faça uma pesquis
 | AADSTS700022 | InvalidMultipleResourcesScope - O valor fornecido para o âmbito do parâmetro de entrada não é válido porque contém mais do que um recurso. |
 | AADSTS700023 | InvalidResourcelessScope - O valor fornecido para o âmbito do parâmetro de entrada não é válido quando se solicita um token de acesso. |
 | AADSTS7000215 | O segredo do cliente inválido é fornecido. Erro do desenvolvedor - a aplicação está a tentar iniciar sing sem os parâmetros de autenticação necessários ou corretos.|
-| AADSTS700022 | InvalidClientSecretExpiredKeysProvided - As chaves secretas fornecidas pelo cliente estão caducadas. Visite o portal Azure para criar novas chaves para a sua aplicação, ou considere usar credenciais de certificado para maior segurança: [https://aka.ms/certCreds](https://aka.ms/certCreds) |
+| AADSTS700022 | InvalidClientSecretExpiredKeysProvided - As chaves secretas fornecidas pelo cliente estão caducadas. Visite o portal Azure para criar novas chaves para a sua aplicação, ou considere usar credenciais de certificado para maior segurança: [https://aka.ms/certCreds](./active-directory-certificate-credentials.md) |
 | AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant - O Código de Autorização Fornecido destina-se a ser utilizado contra outro inquilino, assim rejeitado. O Código de Autorização OAuth2 deve ser reembolsado contra o mesmo inquilino para o qual foi adquirido (/comum ou /{tenant-ID} conforme apropriado) |
 | AADSTS1000000 | UserNotBoundError - A API Bind exige que o utilizador AZure AD também autentica com um IDP externo, o que ainda não aconteceu. |
 | AADSTS100002 | BindCompleteInterruptError - A ligação foi concluída com sucesso, mas o utilizador deve ser informado. |

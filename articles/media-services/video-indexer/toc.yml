@@ -54,6 +54,7 @@
     - name: Examinar a saída do Video Indexer
       href: video-indexer-output-json-v2.md
     - name: Localizar momentos exatos nos vídeos
+      displayName: search
       href: video-indexer-search.md
     - name: 'Detetar cenas, capturas e keyframes'
       href: scenes-shots-keyframes.md

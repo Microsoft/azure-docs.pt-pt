@@ -4,12 +4,12 @@ description: Saiba as diferentes formas de implantar código para as Funções A
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 3988f30d0e6429a8cac450711d4033e4b2603d46
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 7a75408008a90a2c40553b1f6c5c196775a48e61
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900181"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168105"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação em Funções Azure
 
@@ -86,7 +86,7 @@ Para permitir a construção remota no Linux, devem ser definidas as [seguintes 
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-Por predefinição, tanto [as ferramentas principais do Azure Functions](functions-run-local.md) como a [Extensão de Funções Azure para Código do Estúdio Visual](functions-create-first-function-vs-code.md#publish-the-project-to-azure) executam construções remotas ao implementar em Linux. Por isso, ambas as ferramentas criam automaticamente estas definições para si em Azure.
+Por predefinição, tanto [as ferramentas principais do Azure Functions](functions-run-local.md) como a [Extensão de Funções Azure para Código do Estúdio Visual](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) executam construções remotas ao implementar em Linux. Por isso, ambas as ferramentas criam automaticamente estas definições para si em Azure.
 
 Quando as aplicações são construídas remotamente no Linux, [elas funcionam a partir do pacote de implementação](run-functions-from-deployment-package.md).
 
@@ -104,7 +104,7 @@ Os seguintes métodos de implantação estão disponíveis em Funções Azure.
 
 ### <a name="external-package-url"></a>URL de pacote externo
 
-Pode utilizar um URL de pacote externo para fazer referência a um ficheiro de pacote remoto (.zip) que contém a sua aplicação de função. O ficheiro é descarregado a partir do URL fornecido, e a aplicação é executada no modo [Run From Package.](run-functions-from-deployment-package.md)
+Pode utilizar um URL de pacote externo para fazer referência a um ficheiro de pacote remoto (.zip) que contenha a sua aplicação de função. O ficheiro é descarregado a partir do URL fornecido, e a aplicação é executada no modo [Run From Package.](run-functions-from-deployment-package.md)
 
 >__Como usá-lo:__ Adicione `WEBSITE_RUN_FROM_PACKAGE` às definições da sua aplicação. O valor desta definição deve ser um URL (a localização do ficheiro de pacote específico que pretende executar). Pode adicionar definições [no portal](functions-how-to-use-azure-function-app-settings.md#settings) ou utilizando o [CLI Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 >
@@ -116,7 +116,7 @@ Pode utilizar um URL de pacote externo para fazer referência a um ficheiro de p
 
 Utilize o zip implementar para empurrar um ficheiro .zip que contenha a sua aplicação de função para Azure. Opcionalmente, pode definir a sua aplicação para começar a [correr a partir do pacote,](run-functions-from-deployment-package.md)ou especificar que ocorre uma [construção remota.](#remote-build)
 
->__Como usá-lo:__ Implemente utilizando a sua ferramenta cliente favorita: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), Visual [Studio,](functions-develop-vs.md#publish-to-azure)ou a partir da linha de comando utilizando as [Ferramentas Principais de Funções Azure](functions-run-local.md#project-file-deployment). Por predefinição, estas ferramentas utilizam a implementação de zíper e [funcionam a partir do pacote](run-functions-from-deployment-package.md). As Ferramentas Core e a extensão visual Studio Code permitem a [construção remota](#remote-build) ao implementar em Linux. Para implementar manualmente um ficheiro .zip na sua aplicação de função, siga as instruções em [Implementar a partir de um ficheiro .zip ou URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
+>__Como usá-lo:__ Implemente utilizando a sua ferramenta cliente favorita: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), Visual [Studio,](functions-develop-vs.md#publish-to-azure)ou a partir da linha de comando utilizando as [Ferramentas Principais de Funções Azure](functions-run-local.md#project-file-deployment). Por predefinição, estas ferramentas utilizam a implementação de zíper e [funcionam a partir do pacote](run-functions-from-deployment-package.md). As Ferramentas Core e a extensão visual Studio Code permitem a [construção remota](#remote-build) ao implementar em Linux. Para implementar manualmente um ficheiro .zip na sua aplicação de função, siga as instruções em [Implementar a partir de um ficheiro de .zip ou URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
 >Quando implementar utilizando o zip, pode definir a sua aplicação para executar a [partir do pacote](run-functions-from-deployment-package.md). Para correr a partir da embalagem, defina o valor de definição da `WEBSITE_RUN_FROM_PACKAGE` aplicação para `1` . Recomendamos a colocação de zíper. Produz tempos de carregamento mais rápidos para as suas aplicações, e é o padrão para VS Code, Visual Studio e o Azure CLI.
 
@@ -128,7 +128,7 @@ Pode implantar uma imagem de recipiente Linux que contém a sua aplicação de f
 
 >__Como usá-lo:__ Crie uma aplicação de função Linux no plano Premium ou Dedicado e especifique qual a imagem do recipiente a ser executada. Pode fazê-lo de duas formas:
 >
->* Crie uma aplicação de função Linux num plano de Serviço de Aplicações Azure no portal Azure. Para **publicar** , selecione **Docker Image** , e, em seguida, configurar o recipiente. Entre no local onde a imagem está hospedada.
+>* Crie uma aplicação de função Linux num plano de Serviço de Aplicações Azure no portal Azure. Para **publicar**, selecione **Docker Image**, e, em seguida, configurar o recipiente. Entre no local onde a imagem está hospedada.
 >* Crie uma aplicação de função Linux num plano de Serviço de Aplicações utilizando o CLI Azure. Para aprender como, consulte [Criar uma função no Linux utilizando uma imagem personalizada](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).
 >
 >Para implementar numa aplicação existente utilizando um recipiente personalizado, em [Ferramentas Principais de Funções Azure,](functions-run-local.md)utilize o [`func deploy`](functions-run-local.md#publish) comando.
@@ -185,13 +185,13 @@ No editor baseado no portal, pode editar diretamente os ficheiros que estão na 
 
 >__Quando usá-lo:__ O portal é uma boa maneira de começar com as Funções Azure. Para um trabalho de desenvolvimento mais intenso, recomendamos que utilize uma das seguintes ferramentas de cliente:
 >
->* [Visual Studio Code](functions-create-first-function-vs-code.md)
+>* [Visual Studio Code](./create-first-function-vs-code-csharp.md)
 >* [Ferramentas principais de funções Azure (linha de comando)](functions-run-local.md)
 >* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 
 A tabela a seguir mostra os sistemas operativos e os idiomas que suportam a edição do portal:
 
-| Idioma | Consumo de Janelas | Windows Premium | Windows Dedicado | Consumo de Linux | Linux Premium | Linux Dedicado |
+| Linguagem | Consumo de Janelas | Windows Premium | Windows Dedicado | Consumo de Linux | Linux Premium | Linux Dedicado |
 |-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
 | C# Script |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
@@ -214,7 +214,7 @@ Se precisar de mais controlo sobre esta transição, deve utilizar slots de impl
 
 Quando implementar a sua aplicação de função para Azure, pode implementar para uma ranhura de implementação separada em vez de diretamente para a produção. Para obter mais informações sobre slots de implementação, consulte a documentação das [ranhuras de implantação de funções Azure](functions-deployment-slots.md) para obter mais detalhes.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Leia estes artigos para saber mais sobre a implementação das suas aplicações de função:
 

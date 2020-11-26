@@ -14,19 +14,19 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 646bd2b6a8e22698e6fbcb44d2442e921c7850a5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e7a77c110c12fd6b42e8defbe43a40579b9c6588
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441509"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168768"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas Azure Ative Directy B2B colaboração
 
 Aqui estão alguns remédios para problemas comuns com a colaboração B2B do Azure Ative Directory (Azure AD).
 
    > [!IMPORTANT]
-   > **A partir de 31 de março de 2021, a**Microsoft deixará de apoiar o resgate de convites através da criação de contas Ead AZure não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optar em autenticação de senha única por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
+   > **A partir de 31 de março de 2021, a** Microsoft deixará de apoiar o resgate de convites através da criação de contas Ead AZure não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optar em autenticação de senha única por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
 
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>Adicionei um utilizador externo, mas não os vejo no meu Livro de Endereços Global ou no selecionador de pessoas
 
@@ -64,7 +64,7 @@ Para resolver este problema, o administrador do utilizador externo deve sincroni
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Como é que ' \# ', que normalmente não é um personagem válido, sincroniza com Azure AD?
 
-" \# " é um personagem reservado em UPNs para colaboração Azure AD B2B ou utilizadores externos, porque a conta convidada user@contoso.com torna-se user_contoso.com#EXT# @fabrikam.onmicrosoft.com . Portanto, \# em UPNs vindos de instalações não é permitido entrar no portal Azure. 
+\#" " é um personagem reservado em UPNs para colaboração Azure AD B2B ou utilizadores externos, porque a conta convidada user@contoso.com torna-se user_contoso.com#EXT# @fabrikam.onmicrosoft.com . Portanto, \# em UPNs vindos de instalações não é permitido entrar no portal Azure. 
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Recebo um erro ao adicionar utilizadores externos a um grupo sincronizado
 
@@ -93,11 +93,11 @@ Um utilizador que tenha uma conta de hóspedes não pode iniciar sessão e está
 
 O utilizador tem uma conta de utilizador Azure e é um inquilino viral que foi abandonado ou não gerido. Além disso, não existem administradores globais ou de empresas no arrendatário.
 
-Para resolver este problema, tem de tomar conta do inquilino abandonado. Consulte a  [tomada de posse de um diretório não gerido como administrador no Azure Ative Directory](../users-groups-roles/domains-admin-takeover.md). Também deve aceder ao DNS virado para a Internet para o sufixo de domínio em questão, de modo a fornecer provas diretas de que está a controlar o espaço de nome. Depois de o arrendatário ser devolvido a um estado gerido, por favor discuta com o cliente se deixar os utilizadores e o nome de domínio verificado é a melhor opção para a sua organização.
+Para resolver este problema, tem de tomar conta do inquilino abandonado. Consulte a  [tomada de posse de um diretório não gerido como administrador no Azure Ative Directory](../enterprise-users/domains-admin-takeover.md). Também deve aceder ao DNS virado para a Internet para o sufixo de domínio em questão, de modo a fornecer provas diretas de que está a controlar o espaço de nome. Depois de o arrendatário ser devolvido a um estado gerido, por favor discuta com o cliente se deixar os utilizadores e o nome de domínio verificado é a melhor opção para a sua organização.
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Um utilizador convidado com um inquilino just-in-time ou "viral" é incapaz de redefinir a sua palavra-passe
 
-Se o inquilino de identidade for um inquilino just-in-time (JIT) ou inquilino viral (o que significa que é um inquilino Azure separado e não gerido), apenas o utilizador convidado pode redefinir a sua senha. Por vezes, uma organização [assume a gestão de inquilinos virais](../users-groups-roles/domains-admin-takeover.md) que são criados quando os funcionários usam os seus endereços de e-mail de trabalho para se inscreverem para serviços. Após a organização assumir um inquilino viral, apenas um administrador nessa organização pode redefinir a palavra-passe do utilizador ou ativar o SSPR. Se necessário, como organização convidativa, pode remover a conta de utilizador do seu diretório e reensuitar um convite.
+Se o inquilino de identidade for um inquilino just-in-time (JIT) ou inquilino viral (o que significa que é um inquilino Azure separado e não gerido), apenas o utilizador convidado pode redefinir a sua senha. Por vezes, uma organização [assume a gestão de inquilinos virais](../enterprise-users/domains-admin-takeover.md) que são criados quando os funcionários usam os seus endereços de e-mail de trabalho para se inscreverem para serviços. Após a organização assumir um inquilino viral, apenas um administrador nessa organização pode redefinir a palavra-passe do utilizador ou ativar o SSPR. Se necessário, como organização convidativa, pode remover a conta de utilizador do seu diretório e reensuitar um convite.
 
 ## <a name="a-guest-user-is-unable-to-use-the-azuread-powershell-v1-module"></a>Um utilizador convidado não pode utilizar o módulo AzureAD PowerShell V1
 

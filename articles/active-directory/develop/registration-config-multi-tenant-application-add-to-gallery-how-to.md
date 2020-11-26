@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
-ms.openlocfilehash: 37f305a7564382b9c6c5a031340d81a22cfedbf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0df811f4e8b5d6a95868dfebe192e96fbfa80ed9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120716"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169261"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Adicionar uma aplicação multi-inquilino à galeria da aplicação do Azure AD
 
@@ -29,9 +29,9 @@ Azure Ative Directory (Azure AD) é um serviço de identidade baseado na nuvem. 
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>Se a sua aplicação suportar SAML ou OpenIDConnect
 Se tiver uma aplicação multitenante que pretenda listada na galeria de aplicações AZure AD, deve primeiro certificar-se de que a sua aplicação suporta uma das seguintes tecnologias de inscrição única:
 
-- **OpenID Connect**: Para ter a sua aplicação listada, crie a aplicação multitenante em AZure AD e implemente o [quadro de consentimento Azure AD](./consent-framework.md) para a sua aplicação. Envie o pedido de login para um ponto final comum para que qualquer cliente possa fornecer consentimento para a aplicação. Pode controlar o acesso de um utilizador com base no ID do inquilino e na UPN do utilizador recebida no token. Submeta o pedido utilizando o processo delineado na [Listagem da sua candidatura na galeria de candidaturas Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
+- **OpenID Connect**: Para ter a sua aplicação listada, crie a aplicação multitenante em AZure AD e implemente o [quadro de consentimento Azure AD](./consent-framework.md) para a sua aplicação. Envie o pedido de login para um ponto final comum para que qualquer cliente possa fornecer consentimento para a aplicação. Pode controlar o acesso de um utilizador com base no ID do inquilino e na UPN do utilizador recebida no token. Submeta o pedido utilizando o processo delineado na [Listagem da sua candidatura na galeria de candidaturas Azure Ative.](./v2-howto-app-gallery-listing.md)
 
-- **SAML**: Se a sua aplicação suportar SAML 2.0, a aplicação pode ser listada na galeria. Siga as instruções na [Listagem do seu pedido na galeria de candidaturas do Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
+- **SAML**: Se a sua aplicação suportar SAML 2.0, a aplicação pode ser listada na galeria. Siga as instruções na [Listagem do seu pedido na galeria de candidaturas do Azure Ative.](./v2-howto-app-gallery-listing.md)
 
 ## <a name="if-your-application-does-not-support-saml-or-openidconnect"></a>Se a sua aplicação não suportar SAML ou OpenIDConnect
 As aplicações que não suportam SAML ou OpenIDConnect ainda podem ser integradas na galeria de aplicações através da tecnologia de assinatura única.
@@ -40,11 +40,11 @@ O sismo único de palavra-passe, também chamado de cofre de palavras-passe, per
 
 Se quiser listar a sua aplicação com esta tecnologia:
 1. Crie uma aplicação web que tenha uma página de entrada HTML para configurar [o sign-in único da palavra-passe](../manage-apps/what-is-single-sign-on.md). 
-2. Submeta o pedido conforme descrito na [Listagem do seu pedido na galeria de candidaturas Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
+2. Submeta o pedido conforme descrito na [Listagem do seu pedido na galeria de candidaturas Azure Ative.](./v2-howto-app-gallery-listing.md)
 
 ## <a name="escalations"></a>Escaladas
 
 Para qualquer escalada, envie um e-mail para a [Equipa de Integração SSO da Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) e entraremos em conversações consigo o mais rapidamente possível.
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba como listar a [sua candidatura na galeria de candidaturas do Azure Ative Directory.](../azuread-dev/howto-app-gallery-listing.md)
+Saiba como listar a [sua candidatura na galeria de candidaturas do Azure Ative Directory.](./v2-howto-app-gallery-listing.md)

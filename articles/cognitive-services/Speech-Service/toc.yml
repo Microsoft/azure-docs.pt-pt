@@ -37,6 +37,8 @@
           href: how-to-automatic-language-detection.md
         - name: Utilizar a API da transcrição em lotes
           href: batch-transcription.md
+        - name: Avaliar a pronúncia
+          href: how-to-pronunciation-assessment.md
     - name: Tutoriais
       items:
         - name: Melhorar a precisão com modelos de inquilinos
@@ -494,7 +496,7 @@
           href: 'https://speech.microsoft.com'
         - name: Criar uma aplicação de Comandos Personalizados com o Speech Studio
           href: ./quickstart-custom-commands-application.md
-- name: Implementação
+- name: Implementar
   items:
     - name: Ativar registo
       href: how-to-use-logging.md

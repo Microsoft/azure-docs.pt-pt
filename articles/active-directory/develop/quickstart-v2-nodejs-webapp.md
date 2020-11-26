@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 5cde4b539262c9e20bbcf2e7dd8c8e9de38035c3
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 643305057490cc550a5a8e39a892297b000cbc8e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594254"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169414"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Quickstart: Adicione o sinal na utilização do OpenID Connect a uma aplicação web Node.js
 
@@ -51,7 +51,7 @@ Neste arranque rápido, descarrega e execute uma amostra de código que demonstr
 1. Na lista de páginas da aplicação, selecione **Autenticação**.
     - Na secção **Redirecionar URIs,** selecione **Web** na caixa de combinação e introduza o seguinte redireccionamento URI: `http://localhost:3000/auth/openid/return`
     - Na secção **definições Avançadas,** defina **o URL de logout** para `https://localhost:3000` .
-    - Nas **definições avançadas > secção de subvenção implícita,** verifique **os tokens de identificação,** uma vez que esta amostra requer que o fluxo de [subvenção implícito](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) seja ativado para iniciar a sposição do utilizador.
+    - Nas **definições avançadas > secção de subvenção implícita,** verifique **os tokens de identificação,** uma vez que esta amostra requer que o fluxo de [subvenção implícito](./v2-oauth2-implicit-grant-flow.md) seja ativado para iniciar a sposição do utilizador.
 
 1. Selecione **Guardar**.
 

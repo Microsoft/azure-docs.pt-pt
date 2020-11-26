@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: baa0aa01c94c4deb35db8a59f7b4f81224ae1fd3
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5f529e6148463ae384791985659378cb9d0a5046
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836993"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168870"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guia de referência de operações de gestão de autenticação ativa do Azure Ative Directory
 
@@ -160,7 +160,7 @@ Fornecer um mecanismo de inscrição único padronizado a toda a empresa é cruc
 > [!NOTE]
 > Se não tiver um mecanismo para descobrir aplicações não geridos na sua organização, recomendamos implementar um processo de descoberta utilizando uma solução de corretor de segurança de acesso à nuvem (CASB), como [a Microsoft Cloud App Security](https://www.microsoft.com/enterprise-mobility-security/cloud-app-security).
 
-Finalmente, se tiver uma galeria de aplicações AD Azure e utilizar aplicações que suportem SSO com AD AZure, recomendamos [a listagem da aplicação na galeria de aplicações.](../azuread-dev/howto-app-gallery-listing.md)
+Finalmente, se tiver uma galeria de aplicações AD Azure e utilizar aplicações que suportem SSO com AD AZure, recomendamos [a listagem da aplicação na galeria de aplicações.](../develop/v2-howto-app-gallery-listing.md)
 
 #### <a name="single-sign-on-recommended-reading"></a>Leitura recomendada de inscrição única
 
@@ -255,7 +255,7 @@ O Acesso Condicional é uma ferramenta essencial para melhorar a postura de segu
 
 #### <a name="conditional-access-recommended-reading"></a>Leitura recomendada de acesso condicional
 
-- [Melhores práticas para acesso condicional no Diretório Ativo Azure](../conditional-access/best-practices.md)
+- [Melhores práticas para acesso condicional no Diretório Ativo Azure](../conditional-access/overview.md)
 - [Configurações de acesso aos dispositivos e identidade](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Referência de definições de acesso condicional do Diretório Ativo Azure](../conditional-access/concept-conditional-access-conditions.md)
 - [Políticas de Acesso Condicional comuns](../conditional-access/concept-conditional-access-policy-common.md)

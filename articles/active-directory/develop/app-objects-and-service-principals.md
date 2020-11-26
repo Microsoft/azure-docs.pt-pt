@@ -13,19 +13,19 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: db25e0a9ebe01a45c594fe214efcdd3551cf6c14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fe48cf28ab3004087e2b022d7a9eca69a1e58e2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449367"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169635"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos do principal de serviço e aplicação no Azure Active Directory
 
 Este artigo descreve o registo de pedidos, objetos de aplicação e diretores de serviço no Azure Ative Directory: o que são, como são usados e como estão relacionados uns com os outros. É também apresentado um cenário de exemplo multi-inquilino para ilustrar a relação entre o objeto de aplicação de uma aplicação e os objetos principais de serviço correspondentes.
 
 ## <a name="application-registration"></a>Registo da aplicação
-Para delegar funções de Gestão de Identidade e Acesso à Azure AD, deve ser registado um pedido junto de um [inquilino](developer-glossary.md#tenant)da AD Azure. Quando regista a sua candidatura com Azure AD, está a criar uma configuração de identidade para a sua aplicação que lhe permite integrar-se com a Azure AD. Quando regista uma aplicação no [portal Azure,][AZURE-Portal]você escolhe se é um único inquilino (apenas acessível no seu inquilino) ou multi-inquilino (acessível a outros inquilinos) e pode configurar opcionalmente um URI redirecionador (para onde o token de acesso é enviado).
+Para delegar funções de Gestão de Identidade e Acesso à Azure AD, deve ser registado um pedido junto de um [inquilino](developer-glossary.md#tenant)da AD Azure. Quando regista a sua candidatura com Azure AD, está a criar uma configuração de identidade para a sua aplicação que lhe permite integrar-se com a Azure AD. Quando regista uma aplicação no [portal Azure,][AZURE-Portal]você escolhe se é um único inquilino (apenas acessível no seu inquilino) ou multi-inquilino (acessível em outros inquilinos) e pode configurar opcionalmente um URI redirecionador (para onde o token de acesso é enviado).
 
 :::image type="content" source="media/app-objects-and-service-principals/app-registration.png" alt-text="Screenshot do portal Azure Registrar um painel de aplicação":::
 

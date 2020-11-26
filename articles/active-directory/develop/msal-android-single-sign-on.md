@@ -14,18 +14,18 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: hahamil
 ms.reviewer: marsma
-ms.openlocfilehash: 7e53e21b6d929e2f0ba9a2e23e4e8e1b2278f828
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 3f5791bfcf6547b7fc4e84bee3d4c1c49453af9c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209900"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169499"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-msal"></a>Como: Ativar sSO cross-app no Android usando o MSAL
 
 O único sign-on (SSO) permite que os utilizadores só introduzam as suas credenciais uma vez e tenham essas credenciais automaticamente a trabalhar em todas as aplicações.
 
-A [plataforma de identidade da Microsoft](/azure/active-directory/develop/) e a Microsoft Authentication Library (MSAL) ajudam-no a ativar o SSO através do seu próprio conjunto de aplicações. Com a capacidade do corretor e aplicações Authenticator, pode estender SSO por todo o dispositivo.
+A [plataforma de identidade da Microsoft](./index.yml) e a Microsoft Authentication Library (MSAL) ajudam-no a ativar o SSO através do seu próprio conjunto de aplicações. Com a capacidade do corretor e aplicações Authenticator, pode estender SSO por todo o dispositivo.
 
 Neste como fazer, aprenderá a configurar os SDKs utilizados pela sua aplicação para fornecer SSO aos seus clientes.
 
@@ -33,7 +33,7 @@ Neste como fazer, aprenderá a configurar os SDKs utilizados pela sua aplicaçã
 
 Este como assumir que sabe como:
 
-- Provisão da sua aplicação utilizando o portal Azure. Para mais informações sobre este tema, consulte as instruções para criar uma aplicação [no tutorial Android](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#create-a-project)
+- Provisão da sua aplicação utilizando o portal Azure. Para mais informações sobre este tema, consulte as instruções para criar uma aplicação [no tutorial Android](./tutorial-v2-android.md#create-a-project)
 - Integre a sua aplicação na [Biblioteca de Autenticação da Microsoft para Android.](https://github.com/AzureAD/microsoft-authentication-library-for-android)
 
 ## <a name="methods-for-single-sign-on"></a>Métodos para um único sinal

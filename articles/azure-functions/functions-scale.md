@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88e9d16a205df16a2be63e67f45cdbcf9144b30f
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f41354630f4885a30bd5c036495b216a2cc05599
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108461"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167799"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Dimensionamento e alojamento de Funções do Azure
 
@@ -97,7 +97,7 @@ Mesmo com Always On ativado, o tempo de execução para funções individuais é
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>Determinar o plano de hospedagem de uma aplicação existente
 
-Para determinar o plano de hospedagem utilizado pela sua aplicação de função, consulte o **plano de Serviço de Aplicações** no **separador Visão Geral** para a aplicação de função no portal [Azure.](https://portal.azure.com) Para ver o nível de preços, selecione o nome do Plano de Serviço de **Aplicações**e, em seguida, selecione **Propriedades** a partir do painel esquerdo.
+Para determinar o plano de hospedagem utilizado pela sua aplicação de função, consulte o **plano de Serviço de Aplicações** no **separador Visão Geral** para a aplicação de função no portal [Azure.](https://portal.azure.com) Para ver o nível de preços, selecione o nome do Plano de Serviço de **Aplicações** e, em seguida, selecione **Propriedades** a partir do painel esquerdo.
 
 ![Ver plano de escala no portal](./media/functions-scale/function-app-overview-portal.png)
 
@@ -257,6 +257,6 @@ A tabela de comparação a seguir mostra todos os aspetos importantes para ajuda
 
 ## <a name="next-steps"></a>Passos seguintes
 
-+ [Quickstart: Criar um projeto Azure Functions utilizando o Código do Estúdio Visual](functions-create-first-function-vs-code.md)
++ [Quickstart: Criar um projeto Azure Functions utilizando o Código do Estúdio Visual](./create-first-function-vs-code-csharp.md)
 + [Tecnologias de implantação em Funções Azure](functions-deployment-technologies.md) 
 + [Guia do programador das Funções do Azure](functions-reference.md)

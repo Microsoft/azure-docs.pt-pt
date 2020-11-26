@@ -12,12 +12,12 @@ ms.date: 8/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b65ad1f22d20686a1ee47631f9209e1b15b0ab58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 981ac775e7153cfd03dc1760bbbc4e50fd9ecc57
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88948135"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169550"
 ---
 # <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Assinatura de capotamento de chaves na plataforma de identidade da Microsoft
 Este artigo discute o que precisa de saber sobre as chaves públicas que são usadas pela plataforma de identidade da Microsoft para assinar fichas de segurança. É importante notar que estas teclas rerolam periodicamente e, em caso de emergência, podem ser reviradas imediatamente. Todas as aplicações que utilizam a plataforma de identidade da Microsoft devem ser capazes de lidar programáticamente com o processo de capotamento da chave. Continuar a ler Para entender como funcionam as teclas, como avaliar o impacto da capotamento na sua aplicação e como atualizar a sua aplicação ou estabelecer um processo de capotamento manual periódico para lidar com a capotamento da chave, se necessário.
@@ -138,7 +138,7 @@ Se adicionar a autenticação manual à sua solução, a sua aplicação pode n�
 Os seguintes passos irão ajudá-lo a verificar se a lógica está a funcionar corretamente na sua aplicação.
 
 1. No Visual Studio 2013, abra a solução e, em seguida, clique no **separador Explorador** do Servidor na janela direita.
-2. Expandir **ligações de dados,** **Padrão de Ligação**e, em seguida, **Tabelas**. Localizar a tabela **IssuingAuthorityKeys,** clicar à direita e, em seguida, clicar em **Mostrar Dados da Tabela**.
+2. Expandir **ligações de dados,** **Padrão de Ligação** e, em seguida, **Tabelas**. Localizar a tabela **IssuingAuthorityKeys,** clicar à direita e, em seguida, clicar em **Mostrar Dados da Tabela**.
 3. Na tabela **IssuingAuthorityKeys,** haverá pelo menos uma linha, que corresponde ao valor da impressão digital da chave. Elimine todas as linhas da mesa.
 4. Clique com o botão direito na tabela **dos Inquilinos** e, em seguida, clique em **Mostrar Dados de Tabela**.
 5. Na tabela **dos Inquilinos,** haverá pelo menos uma fila, o que corresponde a um identificador de inquilinos de diretório único. Elimine todas as linhas da mesa. Se não eliminar as linhas na tabela **Dos Inquilinos** e na tabela **IssuingAuthorityKeys,** terá um erro no tempo de execução.
@@ -150,7 +150,7 @@ Se criou uma aplicação web API no Visual Studio 2013 utilizando o modelo da AP
 
 Se configurar manualmente a autenticação, siga as instruções abaixo para aprender a configurar a sua API web para atualizar automaticamente as suas informações-chave.
 
-O seguinte corte de código demonstra como obter as chaves mais recentes do documento de metadados da federação e, em seguida, usar o [Manipulador de Token JWT](https://msdn.microsoft.com/library/dn205065.aspx) para validar o token. O código de corte assume que irá utilizar o seu próprio mecanismo de caching para persistir na chave para validar futuras fichas da plataforma de identidade da Microsoft, seja numa base de dados, ficheiro de configuração ou em qualquer outro lugar.
+O seguinte corte de código demonstra como obter as chaves mais recentes do documento de metadados da federação e, em seguida, usar o [Manipulador de Token JWT](/previous-versions/dotnet/framework/security/json-web-token-handler) para validar o token. O código de corte assume que irá utilizar o seu próprio mecanismo de caching para persistir na chave para validar futuras fichas da plataforma de identidade da Microsoft, seja numa base de dados, ficheiro de configuração ou em qualquer outro lugar.
 
 ```
 using System;
@@ -241,7 +241,7 @@ namespace JWTValidation
 ```
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>Aplicações web que protegem recursos e criadas com o Visual Studio 2012
-Se a sua aplicação foi construída no Visual Studio 2012, provavelmente usou a Ferramenta de Identidade e Acesso para configurar a sua aplicação. Também é provável que esteja a utilizar o [Registo de Nomes emitentes validadores (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). O VINR é responsável pela manutenção de informações sobre fornecedores de identidade fidedignos (plataforma de identidade microsoft) e as chaves utilizadas para validar fichas emitidas por eles. O VINR também facilita a atualização automática das informações-chave armazenadas num ficheiro Web.config, descarregando o mais recente documento de metadados da federação associado ao seu diretório, verificando se a configuração está desatualizada com o documento mais recente e atualizando a aplicação para utilizar a nova chave conforme necessário.
+Se a sua aplicação foi construída no Visual Studio 2012, provavelmente usou a Ferramenta de Identidade e Acesso para configurar a sua aplicação. Também é provável que esteja a utilizar o [Registo de Nomes emitentes validadores (VINR)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry). O VINR é responsável pela manutenção de informações sobre fornecedores de identidade fidedignos (plataforma de identidade microsoft) e as chaves utilizadas para validar fichas emitidas por eles. O VINR também facilita a atualização automática das informações-chave armazenadas num ficheiro Web.config, descarregando o mais recente documento de metadados da federação associado ao seu diretório, verificando se a configuração está desatualizada com o documento mais recente e atualizando a aplicação para utilizar a nova chave conforme necessário.
 
 Se criou a sua aplicação utilizando qualquer uma das amostras de código ou documentação de passagem fornecida pela Microsoft, a lógica de capotamento da chave já está incluída no seu projeto. Você vai notar que o código abaixo já existe no seu projeto. Se a sua aplicação ainda não tiver esta lógica, siga os passos abaixo para adicioná-la e verificar se está a funcionar corretamente.
 
@@ -290,14 +290,14 @@ Siga os passos abaixo para verificar se a lógica de capotamento da chave está 
 Se construiu uma aplicação em WIF v1.0, não existe nenhum mecanismo fornecido para atualizar automaticamente a configuração da sua aplicação para usar uma nova chave.
 
 * *A maneira mais fácil* Utilize a ferramenta FedUtil incluída no WIF SDK, que pode recuperar o documento mais recente de metadados e atualizar a sua configuração.
-* Atualize a sua aplicação para .NET 4.5, que inclui a versão mais recente do WIF localizada no espaço de nomes do Sistema. Em seguida, pode utilizar o [Registo de Nome do Emitente Validador (VINR)](https://msdn.microsoft.com/library/dn205067.aspx) para realizar atualizações automáticas da configuração da aplicação.
+* Atualize a sua aplicação para .NET 4.5, que inclui a versão mais recente do WIF localizada no espaço de nomes do Sistema. Em seguida, pode utilizar o [Registo de Nome do Emitente Validador (VINR)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry) para realizar atualizações automáticas da configuração da aplicação.
 * Efetuar uma capotamento manual de acordo com as instruções no final deste documento de orientação.
 
 Instruções para utilizar o FedUtil para atualizar a sua configuração:
 
 1. Verifique se tem o WIF v1.0 SDK instalado na sua máquina de desenvolvimento para o Visual Studio 2008 ou 2010. Pode [descarregá-lo a partir daqui](https://www.microsoft.com/en-us/download/details.aspx?id=4451) se ainda não o tiver instalado.
 2. No Visual Studio, abra a solução e, em seguida, clique com a direita no projeto aplicável e selecione **Metadados da Federação de Atualização**. Se esta opção não estiver disponível, a FedUtil e/ou a WIF v1.0 SDK não foi instalada.
-3. A partir do pedido, selecione **Update** para começar a atualizar os metadados da federação. Se tiver acesso ao ambiente do servidor onde a aplicação está hospedada, pode utilizar opcionalmente o programador automático de [atualização de metadados](https://msdn.microsoft.com/library/ee517272.aspx)da FedUtil .
+3. A partir do pedido, selecione **Update** para começar a atualizar os metadados da federação. Se tiver acesso ao ambiente do servidor onde a aplicação está hospedada, pode utilizar opcionalmente o programador automático de [atualização de metadados](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10))da FedUtil .
 4. Clique **em Terminar** para concluir o processo de atualização.
 
 ### <a name="web-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>Aplicações web / APIs protegendo recursos usando quaisquer outras bibliotecas ou implementando manualmente qualquer um dos protocolos suportados

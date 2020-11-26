@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperfq2
-ms.openlocfilehash: 6713c0d45a8b5363122c726d1d31e5c479ba8fff
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 514f2e9a82a50f95f9c054c6a54e7b5af3c0af15
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95504639"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167782"
 ---
 # <a name="introduction-to-azure-functions"></a>Introdução às Funções do Azure
 
@@ -38,7 +38,7 @@ Os seguintes são um conjunto comum, _mas de forma alguma exaustivo,_ de cenári
 | --- | --- |
 | **Construir uma API web** | Implementar um ponto final para as suas aplicações web usando o [gatilho HTTP](./functions-bindings-http-webhook.md) |
 | **Uploads de ficheiros de processo** | Executar código quando um ficheiro é carregado ou alterado no [armazenamento de bolhas](./functions-bindings-storage-blob.md) |
-| **Construir um fluxo de trabalho sem servidor** | Acorr um conjunto de funções utilizando [funções duráveis](./durable-functions-overview.md) |
+| **Construir um fluxo de trabalho sem servidor** | Acorr um conjunto de funções utilizando [funções duráveis](./durable/durable-functions-overview.md) |
 | **Responder às alterações da base de dados** | Executar lógica personalizada quando um documento é criado ou atualizado em [Cosmos DB](./functions-bindings-cosmosdb-v2.md) |
 | **Executar tarefas programadas** | Execute o código em [horários definidos](./functions-bindings-timer.md) |
 | **Criar sistemas de fila de mensagens fiáveis** | Processar filas de mensagens usando [armazenamento de fila,](./functions-bindings-storage-queue.md) [ônibus de serviço](./functions-bindings-service-bus.md)ou centros de [eventos](./functions-bindings-event-hubs.md) |

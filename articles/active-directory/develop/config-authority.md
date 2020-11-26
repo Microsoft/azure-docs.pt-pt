@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 4810de772e44be22ee5bd4a9fb6ef0ef756e62f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8a176fff0da932d0fafd40b9ab895b635acc5f6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77085205"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169448"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Como: Configurar a MSAL para iOS e macOS utilizarem diferentes fornecedores de identidade
 
@@ -29,7 +29,7 @@ Este artigo irá mostrar-lhe como configurar a sua app de biblioteca de autentic
 `MSALPublicClientApplication` é configurado com um URL de autoridade padrão de , que é adequado para a maioria dos `https://login.microsoftonline.com/common` cenários do Azure Ative Directory (AAD). A menos que esteja a implementar cenários avançados como nuvens nacionais, ou a trabalhar com b2C, não precisará mudá-lo.
 
 > [!NOTE]
-> A autenticação moderna com serviços da Federação de Diretório Ativo como fornecedor de identidade (ADFS) não é suportada (ver [ADFS para desenvolvedores](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) para mais detalhes). A ADFS é apoiada através da federação.
+> A autenticação moderna com serviços da Federação de Diretório Ativo como fornecedor de identidade (ADFS) não é suportada (ver [ADFS para desenvolvedores](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) para mais detalhes). A ADFS é apoiada através da federação.
 
 ## <a name="change-the-default-authority"></a>Alterar a autoridade padrão
 

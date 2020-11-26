@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5314758acecae2a9d68f2405fc1c3d2196950b4
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: f209d394e1a0c2c4ddde9cbf8df2704647e2822a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577061"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168717"
 ---
 # <a name="ldap-authentication-with-azure-active-directory"></a>Autenticação LDAP com Diretório Ativo Azure
 
@@ -40,32 +40,31 @@ O Azure Ative Directory (Azure AD) suporta este padrão através dos Serviços d
 
 ## <a name="components-of-system"></a>Componentes do sistema
 
-* **Utilizador** : Acede a aplicações dependentes do LDAP através de um browser.
+* **Utilizador**: Acede a aplicações dependentes do LDAP através de um browser.
 
-* **Web Browser** : A interface com a que o utilizador interage para aceder ao URL externo da aplicação.
+* **Web Browser**: A interface com a que o utilizador interage para aceder ao URL externo da aplicação.
 
-* **Rede Virtual** : Uma rede privada em Azure através da qual a aplicação legacy pode consumir serviços LDAP. 
+* **Rede Virtual**: Uma rede privada em Azure através da qual a aplicação legacy pode consumir serviços LDAP. 
 
-* **Aplicações antigas** : Aplicações ou cargas de trabalho de servidor que requerem LDAP implantado numa rede virtual em Azure, ou que tenham visibilidade para IPs de instância de AD por instância através de rotas de rede. 
+* **Aplicações antigas**: Aplicações ou cargas de trabalho de servidor que requerem LDAP implantado numa rede virtual em Azure, ou que tenham visibilidade para IPs de instância de AD por instância através de rotas de rede. 
 
-* **Azure AD** : Sincroniza a informação de identidade do diretório da organização através do Azure AD Connect.
+* **Azure AD**: Sincroniza a informação de identidade do diretório da organização através do Azure AD Connect.
 
-* **Azure AD Domain Services (AD DS)** : Realiza uma sincronização unidirecional a partir da Azure AD para fornecer acesso a um conjunto central de utilizadores, grupos e credenciais. A instância DS da AD é atribuída a uma rede virtual. Aplicações, serviços e VMs em Azure que se conectam à rede virtual atribuída a DS AD podem usar funcionalidades comuns de DS AD tais como LDAP, união de domínio, política de grupo, Kerberos e autenticação NTLM.
+* **Azure AD Domain Services (AD DS)**: Realiza uma sincronização unidirecional a partir da Azure AD para fornecer acesso a um conjunto central de utilizadores, grupos e credenciais. A instância DS da AD é atribuída a uma rede virtual. Aplicações, serviços e VMs em Azure que se conectam à rede virtual atribuída a DS AD podem usar funcionalidades comuns de DS AD tais como LDAP, união de domínio, política de grupo, Kerberos e autenticação NTLM.
    > [!NOTE]
    >  Em ambientes onde a organização não consegue sincronizar hashes de palavra-passe, ou os utilizadores iniciarem a sposição usando cartões inteligentes, recomendamos que utilize uma floresta de recursos em DS AD. 
 
-* **Azure AD Connect** : Uma ferramenta para sincronizar informações de identidade do Microsoft Azure AD. O assistente de implantação e as experiências guiadas ajudam-no a configurar os pré-requisitos e componentes necessários para a ligação, incluindo sincronização e inscrição do Ative Directory para Azure AD. 
+* **Azure AD Connect**: Uma ferramenta para sincronizar informações de identidade do Microsoft Azure AD. O assistente de implantação e as experiências guiadas ajudam-no a configurar os pré-requisitos e componentes necessários para a ligação, incluindo sincronização e inscrição do Ative Directory para Azure AD. 
 
-* **Diretório Ativo** : Serviço de diretório que armazena [no local informações de identidade, tais como informações de utilizador e conta,](https://www.dnsstuff.com/active-directory-service-accounts)e informações de segurança como palavras-passe.
+* **Diretório Ativo**: Serviço de diretório que armazena [no local informações de identidade, tais como informações de utilizador e conta,](https://www.dnsstuff.com/active-directory-service-accounts)e informações de segurança como palavras-passe.
 
 ## <a name="implement-ldap-authentication-with-azure-ad"></a>Implementar a autenticação LDAP com Azure AD
 
-* [Criar e configurar uma instância AD DS Azure](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance) 
+* [Criar e configurar uma instância AD DS Azure](../../active-directory-domain-services/tutorial-create-instance.md) 
 
-* [Configurar a rede virtual para uma instância AD DS Azure](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-networking) 
+* [Configurar a rede virtual para uma instância AD DS Azure](../../active-directory-domain-services/tutorial-configure-networking.md) 
 
-* [Configure Secure LDAP para um domínio gerido Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps) 
+* [Configure Secure LDAP para um domínio gerido Azure AD DS](../../active-directory-domain-services/tutorial-configure-ldaps.md) 
 
-* [Criar uma confiança florestal de saída para um domínio no local em Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-forest-trust)
+* [Criar uma confiança florestal de saída para um domínio no local em Azure AD DS](../../active-directory-domain-services/tutorial-create-forest-trust.md)
 
- 

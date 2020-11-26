@@ -3,12 +3,12 @@ title: Desenvolver e executar Funções Azure localmente
 description: Saiba como codificar e testar funções Azure no seu computador local antes de executá-las em Funções Azure.
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: c011dff9f43de59d3f08445a7bbd5387b27563ad
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 9c37d51abcc8d612b777b845515cf07666369d4f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920037"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168139"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Criar código e testar as Funções do Azure localmente
 
@@ -18,9 +18,9 @@ Enquanto você é capaz de desenvolver e testar Funções Azure no [portal Azure
 
 A forma como desenvolve funções no computador local depende da sua [língua](supported-languages.md) e preferências de ferramentas. Os ambientes da tabela seguinte apoiam o desenvolvimento local:
 
-|Ambiente                              |Idiomas         |Descrição|
+|Ambiente                              |Idiomas         |Description|
 |-----------------------------------------|------------|---|
-|[Visual Studio Code](functions-develop-vs-code.md)| [C. (biblioteca de classes)](functions-dotnet-class-library.md), [C# script (.csx)](functions-reference-csharp.md), [JavaScript,](functions-reference-node.md) [PowerShell,](./create-first-function-vs-code-powershell.md) [Python](functions-reference-python.md) | A [extensão de Funções Azure para código VS](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adiciona suporte de funções ao Código VS. Requer as Ferramentas Centrais. Suporta o desenvolvimento em Linux, MacOS e Windows, ao utilizar a versão 2.x das Ferramentas Core. Para saber mais, consulte [Criar a sua primeira função utilizando o Código do Estúdio Visual.](functions-create-first-function-vs-code.md) |
+|[Visual Studio Code](functions-develop-vs-code.md)| [C. (biblioteca de classes)](functions-dotnet-class-library.md), [C# script (.csx)](functions-reference-csharp.md), [JavaScript,](functions-reference-node.md) [PowerShell,](./create-first-function-vs-code-powershell.md) [Python](functions-reference-python.md) | A [extensão de Funções Azure para código VS](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adiciona suporte de funções ao Código VS. Requer as Ferramentas Centrais. Suporta o desenvolvimento em Linux, MacOS e Windows, ao utilizar a versão 2.x das Ferramentas Core. Para saber mais, consulte [Criar a sua primeira função utilizando o Código do Estúdio Visual.](./create-first-function-vs-code-csharp.md) |
 | [Pedido de comando ou terminal](functions-run-local.md) | [C. (biblioteca de classes)](functions-dotnet-class-library.md), [C# script (.csx)](functions-reference-csharp.md), [JavaScript,](functions-reference-node.md) [PowerShell,](functions-reference-powershell.md) [Python](functions-reference-python.md) | [As Ferramentas Principais das Funções Azure] fornecem o tempo de execução do núcleo e os modelos para a criação de funções, que permitem o desenvolvimento local. A versão 2.x suporta o desenvolvimento em Linux, MacOS e Windows. Todos os ambientes dependem de Ferramentas Centrais para o tempo de funcionamento das funções locais. |
 | [Visual Studio 2019](functions-develop-vs.md) | [C# (biblioteca de classes)](functions-dotnet-class-library.md) | As ferramentas Azure Functions estão incluídas na carga de trabalho de desenvolvimento do **Azure** do [Visual Studio 2019](https://www.visualstudio.com/vs/) e versões posteriores. Permite-lhe compilar funções numa biblioteca de classes e publicar o .dll ao Azure. Inclui as Ferramentas Centrais para testes locais. Para saber mais, consulte [Desenvolver Funções Azure utilizando o Visual Studio](functions-develop-vs.md). |
 | [Maven](./create-first-function-cli-java.md) (vários) | [Java](functions-reference-java.md) | Integra-se com Ferramentas Core para permitir o desenvolvimento de funções java. A versão 2.x suporta o desenvolvimento em Linux, MacOS e Windows. Para saber mais, consulte [Criar a sua primeira função com Java e Maven.](./create-first-function-cli-java.md) Também apoia o desenvolvimento usando [Eclipse](functions-create-maven-eclipse.md) e [IntelliJ IDEA](functions-create-maven-intellij.md) |

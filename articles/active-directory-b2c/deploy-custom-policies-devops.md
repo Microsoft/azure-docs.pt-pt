@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4dd9f98f174144cef455157162694a470aa1065f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2652bd8ed33eb68e228f059fba9daa3c6e7c22da
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951768"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170162"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Implementar políticas personalizadas com gasodutos Azure
 
@@ -29,7 +29,7 @@ Existem três passos primários necessários para permitir que os gasodutos Azur
 1. Configure um Gasoduto Azure
 
 > [!IMPORTANT]
-> Gerir as políticas personalizadas Azure AD B2C com um Gasoduto Azure utiliza atualmente operações **de pré-visualização** disponíveis no ponto final da Microsoft Graph API. `/beta` A utilização destas APIs em aplicações de produção não é suportada. Para obter mais informações, consulte a [referência do ponto final beta API do Microsoft Graph REST](/graph/api/overview?toc=.%252fref%252ftoc.json&view=graph-rest-beta).
+> Gerir as políticas personalizadas Azure AD B2C com um Gasoduto Azure utiliza atualmente operações **de pré-visualização** disponíveis no ponto final da Microsoft Graph API. `/beta` A utilização destas APIs em aplicações de produção não é suportada. Para obter mais informações, consulte a [referência do ponto final beta API do Microsoft Graph REST](/graph/api/overview?toc=.%2fref%2ftoc.json&view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -131,7 +131,7 @@ Com o seu repositório inicializado e povoado com os seus ficheiros de política
 1. Selecione o separador **Variáveis.**
 1. Adicione as seguintes variáveis sob **variáveis pipeline** e desa estalem os seus valores conforme especificado:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
     | `clientId` | **Identificação do pedido (cliente)** do pedido que registou anteriormente. |
     | `clientSecret` | O valor do segredo do **cliente** que criou anteriormente. <br /> Altere o tipo variável para **segredo** (selecione o ícone de bloqueio). |

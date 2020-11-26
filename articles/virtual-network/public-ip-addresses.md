@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 3f2dfb113f4c82dfea422a7c2be1c5fb07ffd60e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ef79844cf2f90ce97ea30a1948a441f909255f98
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358172"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169940"
 ---
 # <a name="public-ip-addresses"></a>Endereços IP públicos
 
@@ -54,7 +54,7 @@ Endereços IP públicos standard SKU:
 - Tenha um tempo de saída de entrada recímido ajustável de 4-30 minutos, com um padrão de 4 minutos, e uma saída fixa originou o tempo de saída inativo de 4 minutos.
 - Seguro por defeito e fechado ao tráfego de entrada. Permitir a lista de tráfego de entrada com um [grupo de segurança de rede](security-overview.md#network-security-groups).
 - Atribuído a interfaces de rede, balanceadores de carga público padrão ou Gateways de aplicação. Para obter mais informações sobre o balanceador de carga Standard, consulte [o Balanceador de Carga Standard Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Pode ser zona redundante ou zonal (pode ser criado zonal e garantido numa zona de disponibilidade específica). Para obter mais informações sobre zonas de disponibilidade, veja [Descrição geral de zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Pode ser redundante de zona (advertizado de todas as 3 zonas) ou zonal (pode ser criado zonal e garantido em uma zona de disponibilidade específica). Para obter mais informações sobre zonas de disponibilidade, veja [Descrição geral de zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Os IPs redundantes da zona só podem ser criados em regiões onde vivem [3 zonas de disponibilidade.](https://docs.microsoft.com/azure/availability-zones/az-region)** Os IPs criados antes de as zonas serem ao vivo não serão redundantes.
  
 > [!NOTE]
 > A comunicação de entrada com um recurso Standard SKU falha até criar e associar um [grupo de segurança de rede](security-overview.md#network-security-groups) e permitir explicitamente o tráfego de entrada pretendido.
@@ -98,7 +98,7 @@ Por exemplo, um recurso IP público é libertado a partir de um recurso chamado 
 O endereço IP é liberado quando o método de atribuição é alterado de **estática** para **dinâmica**. Para garantir que o endereço IP para o recurso associado permanece o mesmo, dedipa o método de atribuição explicitamente para **estático**. É atribuído imediatamente um endereço IP estático.
 
 > [!NOTE]
-> Mesmo se definir o método de alocação como **estático** , não pode especificar o endereço IP real atribuído ao recurso de endereço IP público. O Azure atribui o endereço IP a partir de um conjunto de endereços IP disponíveis na localização do Azure na qual o recurso é criado.
+> Mesmo se definir o método de alocação como **estático**, não pode especificar o endereço IP real atribuído ao recurso de endereço IP público. O Azure atribui o endereço IP a partir de um conjunto de endereços IP disponíveis na localização do Azure na qual o recurso é criado.
 >
 
 Normalmente, os endereços IP públicos são utilizados nos cenários seguintes:

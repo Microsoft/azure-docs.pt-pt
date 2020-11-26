@@ -4,12 +4,12 @@ description: Aprenda os conceitos e técnicas das Funções Azure que precisa pa
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 9a3c0643f4fc965ff64106758320aeb445aaf9ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54bfd770fba9a1766396d66c0c263111c233c9c2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85921730"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167884"
 ---
 # <a name="azure-functions-developer-guide"></a>Guia do programador das Funções do Azure
 Nas Funções Azure, funções específicas partilham alguns conceitos e componentes técnicos fundamentais, independentemente do idioma ou ligação que utilizar. Antes de entrar em detalhes de aprendizagem específicos de uma determinada língua ou ligação, não se esqueça de ler este resumo que se aplica a todos eles.
@@ -55,13 +55,13 @@ Uma aplicação de função fornece um contexto de execução em Azure no qual a
 ## <a name="folder-structure"></a>Estrutura de pasta
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-O acima é a estrutura de pasta padrão (e recomendada) para uma aplicação De função. Se desejar alterar a localização do ficheiro do código de uma função, modifique a `scriptFile` secção dofunction.js_ no_ ficheiro. Recomendamos também a [utilização da implementação do pacote](deployment-zip-push.md) para implementar o seu projeto na sua aplicação de função em Azure. Também pode utilizar ferramentas existentes como [integração contínua e implantação](functions-continuous-deployment.md) e Azure DevOps.
+O acima é a estrutura de pasta padrão (e recomendada) para uma aplicação De função. Se desejar alterar a localização do ficheiro do código de uma função, modifique a `scriptFile` secção dofunction.js _no_ ficheiro. Recomendamos também a [utilização da implementação do pacote](deployment-zip-push.md) para implementar o seu projeto na sua aplicação de função em Azure. Também pode utilizar ferramentas existentes como [integração contínua e implantação](functions-continuous-deployment.md) e Azure DevOps.
 
 > [!NOTE]
 > Se utilizar uma embalagem manualmente, certifique-se de que implanta o seu _host.jsnas_ pastas de ficheiro e função diretamente na `wwwroot` pasta. Não inclua a `wwwroot` pasta nas suas implementações. Caso contrário, acabas com `wwwroot\wwwroot` pastas.
 
 #### <a name="use-local-tools-and-publishing"></a>Use ferramentas locais e publicação
-As aplicações de função podem ser da autoria e publicadas utilizando uma variedade de ferramentas, incluindo [Visual Studio,](./functions-develop-vs.md) [Visual Studio Code,](functions-create-first-function-vs-code.md) [IntelliJ,](./functions-create-maven-intellij.md) [Eclipse,](./functions-create-maven-eclipse.md)e as [Ferramentas Core de Funções Azure.](./functions-develop-local.md) Para obter mais informações, consulte [Código e teste as Funções Azure localmente](./functions-develop-local.md).
+As aplicações de função podem ser da autoria e publicadas utilizando uma variedade de ferramentas, incluindo [Visual Studio,](./functions-develop-vs.md) [Visual Studio Code,](./create-first-function-vs-code-csharp.md) [IntelliJ,](./functions-create-maven-intellij.md) [Eclipse,](./functions-create-maven-eclipse.md)e as [Ferramentas Core de Funções Azure.](./functions-develop-local.md) Para obter mais informações, consulte [Código e teste as Funções Azure localmente](./functions-develop-local.md).
 
 <!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 

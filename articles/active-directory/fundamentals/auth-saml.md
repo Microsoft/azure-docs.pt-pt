@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ab14413de1f999747e5b3fb58b505e0a9258a55
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7cd2aa5e9ff8cbaeead69f11d2e3de7f760b53ec
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441220"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168649"
 ---
 # <a name="saml-authentication-with-azure-active-directory"></a>Autenticação SAML com Diretório Ativo Azure
 
@@ -53,8 +53,8 @@ Embora um dos casos de uso mais importantes que a SAML aborda é o SSO, especial
 
 ## <a name="implement-saml-authentication-with-azure-ad"></a>Implementar a autenticação SAML com Azure AD
 
-* [Tutoriais para integrar aplicações saaS usando diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+* [Tutoriais para integrar aplicações saaS usando diretório ativo Azure](../saas-apps/tutorial-list.md) 
 
-* [Configuração do sign-on único baseado em SAML para aplicações não-galeria](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app) 
+* [Configuração do sign-on único baseado em SAML para aplicações não-galeria](../manage-apps/add-application-portal.md) 
 
-* [Como o Azure AD utiliza o protocolo SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-protocol-reference)
+* [Como o Azure AD utiliza o protocolo SAML](../develop/active-directory-saml-protocol-reference.md)

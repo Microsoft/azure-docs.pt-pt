@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0b54a8227594a81c17dcaaaaa6c599d70217c498
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d899fe7f84a8708bb8ee32cc008567b272a885c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705865"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169380"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Use o MSAL num ambiente de nuvem nacional
 
@@ -49,7 +49,7 @@ Depois de decidir, uma consideração especial é onde realiza o registo da sua 
 
 ### <a name="get-an-azure-government-subscription"></a>Obtenha uma assinatura do Governo Azure
 
-Para obter uma assinatura do Governo Azure, consulte [Managing e connecting à sua subscrição no Governo Azure](../../azure-government/documentation-government-manage-subscriptions.md).
+Para obter uma assinatura do Governo Azure, consulte [Managing e connecting à sua subscrição no Governo Azure](../../azure-government/compare-azure-government-global-azure.md).
 
 Se não tiver uma assinatura do Governo Azure, crie uma [conta gratuita](https://azure.microsoft.com/global-infrastructure/government/request/) antes de começar.
 

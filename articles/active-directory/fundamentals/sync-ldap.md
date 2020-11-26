@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e617d7ccc14e65c18eb86877b1c7fb1aeef74cd0
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 1f34e734b315c7c05ce77f5e168a452fc1c1c547
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578897"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168683"
 ---
 # <a name="ldap-synchronization-with-azure-active-directory"></a>Sincronização LDAP com Diretório Ativo Azure
 
@@ -34,31 +34,30 @@ Precisa de sincronizar dados de identidade entre os seus diretórios LDAP v3 e A
 
 ## <a name="components-of-system"></a>Componentes do sistema
 
-* **Utilizador** : Acede a uma aplicação que se baseia na utilização de um diretório LDAP v3 para classificar utilizadores e senhas.
+* **Utilizador**: Acede a uma aplicação que se baseia na utilização de um diretório LDAP v3 para classificar utilizadores e senhas.
 
-* **Web browser** : O componente com o que o utilizador interage para aceder ao URL externo da aplicação
+* **Web browser**: O componente com o que o utilizador interage para aceder ao URL externo da aplicação
 
-* **Aplicação Web** : Aplicação com dependências de diretórios LDAP v3.
+* **Aplicação Web**: Aplicação com dependências de diretórios LDAP v3.
 
-* **Azure AD** : Azure AD sincroniza informações de identidade (utilizadores, grupos, passwords) dos diretórios LDAP da organização através do Azure AD Connect. 
+* **Azure AD**: Azure AD sincroniza informações de identidade (utilizadores, grupos, passwords) dos diretórios LDAP da organização através do Azure AD Connect. 
 
 * **Azure AD Connect:** é uma ferramenta para ligar em infraestruturas de identidade do Microsoft Azure AD. O assistente e as experiências guiadas ajudam a implementar e configurar os pré-requisitos e componentes necessários para a ligação. 
 
-* **Conector personalizado** : Um Conector LDAP genérico permite-lhe integrar o serviço de sincronização Azure AD Connect com um servidor LDAP v3. Fica no Azure AD Connect.
+* **Conector personalizado**: Um Conector LDAP genérico permite-lhe integrar o serviço de sincronização Azure AD Connect com um servidor LDAP v3. Fica no Azure AD Connect.
 
-* **Ative Directory** : Ative Directory é um serviço de diretório incluído na maioria dos sistemas operativos Windows Server. Os servidores que executam os Serviços de Diretório Ativo são chamados controladores de domínio e autenticam e autorizam todos os utilizadores e computadores num domínio Windows.
+* **Ative Directory**: Ative Directory é um serviço de diretório incluído na maioria dos sistemas operativos Windows Server. Os servidores que executam os Serviços de Diretório Ativo são chamados controladores de domínio e autenticam e autorizam todos os utilizadores e computadores num domínio Windows.
 
-* **Servidor LDAP v3** : Diretório compatível com protocolo lDAP que armazena utilizadores corporativos e palavras-passe utilizadas para autenticação de serviços de diretório.
+* **Servidor LDAP v3**: Diretório compatível com protocolo lDAP que armazena utilizadores corporativos e palavras-passe utilizadas para autenticação de serviços de diretório.
 
 ## <a name="implement-ldap-synchronization-with-azure-ad"></a>Implementar a sincronização LDAP com Azure AD
 
-* [Ferramentas híbridas de integração de diretórios de identidade](https://docs.microsoft.com/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-tools-comparison) 
+* [Ferramentas híbridas de integração de diretórios de identidade](../hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md) 
 
-* [Roteiro de instalação Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-roadmap) 
+* [Roteiro de instalação Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md) 
 
-* [Visão geral e criação de um Conector LDAP](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) 
+* [Visão geral e criação de um Conector LDAP](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) 
 
    > [!NOTE]
    > Os Conectores LDAP são uma configuração avançada que requer alguma familiaridade com o Gestor de Identidade da Vanguarda e/ou o Gestor de Identidade da Microsoft. Se for utilizado na produção, aconselhamos que as perguntas sobre esta configuração passem pelo [Premier Support](https://support.microsoft.com/premier) ou pela Microsoft Partner Network.
 
- 
