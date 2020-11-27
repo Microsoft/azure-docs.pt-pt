@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: 9715724fc0fbd25198dd3244215ac2c12638d2b8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ac785b3ad534e80d4dd240d1a29ba5f6aa75e10a
+ms.sourcegitcommit: 236014c3274b31f03e5fcee5de510f9cacdc27a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185968"
+ms.locfileid: "96299044"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente do Azure Monitor 
 
@@ -538,7 +538,9 @@ Saiba mais sobre [o Lockbox do Cliente para o Microsoft Azure](../../security/fu
   1. ao utilizar o REST, copie o valor de URL Azure-AsyncOperation da resposta e siga a verificação do estado das [operações assíncronos](#asynchronous-operations-and-status-check).
   2. Envie pedido GET para cluster ou espaço de trabalho e observe a resposta. Por exemplo, o espaço de trabalho desvinculado não terá o *clusterResourceId* sob *funcionalidades*.
 
-- [A dupla encriptação](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) é configurada automaticamente para clusters criados a partir de outubro de 2020, quando a dupla encriptação estava na região. Se criar um cluster e obter um erro "<nome da região> não suporta a Dupla Encriptação para clusters.", ainda pode criar o cluster mas com a Double Encryption desativada. Não pode ser ativado ou desativado após a criação do cluster. Para criar um cluster quando a Encriptação Dupla não é suportada na região, adicione `"properties": {"isDoubleEncryptionEnabled": false}` no corpo de pedido REST.
+- [A dupla encriptação](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) é configurada automaticamente para clusters criados a partir de outubro de 2020 em regiões apoiadas. Pode verificar se o seu cluster está configurado para encriptação dupla através de um pedido GET no cluster e observando o `"isDoubleEncryptionEnabled"` valor da propriedade - é para `true` clusters com encriptação dupla ativada. 
+  - Se criar um cluster e obter um erro "<nome da região> não suporta a Dupla Encriptação para clusters.", ainda pode criar o cluster sem a Double Encryption. Adicione `"properties": {"isDoubleEncryptionEnabled": false}` o corpo de pedido DE REST.
+  - A definição de encriptação dupla não pode ser alterada após a criação do cluster.
 
 - Mensagens de erro
   

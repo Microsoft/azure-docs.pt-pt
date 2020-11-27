@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configurar PaperCut Cloud Print Management (Pocket/Hive) para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
-description: Saiba como provisão e desavisagem automática de contas de utilizadores de Azure AD a PaperCut Cloud Print Management (Pocket/Hive).
+title: 'Tutorial: Configurar Gestão de impressão em nuvem PaperCut para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+description: Saiba como provisão e desavisagem automática de contas de utilizadores do Azure AD para PaperCut Cloud Print Management.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2020
 ms.author: Zhchia
-ms.openlocfilehash: d0ecc06cd256dc2fae598e8bc44336d69a9c99df
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 860b880faae9c5fe37a2c7eab2ef3a068ed4da3e
+ms.sourcegitcommit: 236014c3274b31f03e5fcee5de510f9cacdc27a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96031392"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96299095"
 ---
-# <a name="tutorial-configure-papercut-cloud-print-management-pockethive-for-automatic-user-provisioning"></a>Tutorial: Configurar a Gestão de Impressão em Nuvem de PaperCut (Bolso/Colmeia) para o provisionamento automático do utilizador
+# <a name="tutorial-configure-papercut-cloud-print-management-for-automatic-user-provisioning"></a>Tutorial: Configurar a Gestão de Impressão em Nuvem de PaperCut para o provisionamento automático do utilizador
 
-Este tutorial descreve os passos necessários para realizar tanto na PaperCut Cloud Print Management (Pocket/Hive) como no Azure Ative Directory (Azure AD) para configurar o fornecimento automático de utilizadores. Quando configurado, o Azure AD fornece automaticamente e desnegri os utilizadores e grupos para [a PaperCut Cloud Print Management](https://www.papercut.com/products/papercut-pocket/) utilizando o serviço de provisionamento Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../manage-apps/user-provisioning.md).
+Este tutorial descreve os passos necessários para realizar tanto na PaperCut Cloud Print Management como no Azure Ative Directory (Azure AD) para configurar o fornecimento automático do utilizador. Quando configurado, o Azure AD fornece automaticamente e desnegri os utilizadores e grupos para [a PaperCut Cloud Print Management](https://www.papercut.com/products/papercut-pocket/) utilizando o serviço de provisionamento Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../manage-apps/user-provisioning.md).
 
 ## <a name="capabilities-supported"></a>Capacidades Suportadas
 
 > [!div class="checklist"]
-> * Criar utilizadores em Gestão de Impressão em Nuvem paperCut (Bolso/Colmeia)
-> * Remova os utilizadores na Gestão de Impressão em Nuvem paperCut (Pocket/Hive) quando já não necessitam de acesso
-> * Mantenha os atributos do utilizador sincronizados entre Azure AD e PaperCut Cloud Print Management (Pocket/Hive)
+> * Criar utilizadores na Gestão de Impressão em Nuvem de PaperCut
+> * Remova os utilizadores na Gestão de Impressão em Nuvem paperCut quando já não necessitam de acesso
+> * Mantenha os atributos do utilizador sincronizados entre AZure AD e PaperCut Cloud Print Management
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,7 +39,7 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 * [Um inquilino da AD AZure](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * Uma conta de utilizador em Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o provisionamento (por exemplo, Administrador de Aplicação, Administrador de Aplicação cloud, Proprietário de Aplicações ou Administrador Global). 
-* Uma conta de utilizador em PaperCut Cloud Print Management (Pocket/Hive) com permissões de administração
+* Uma conta de utilizador na PaperCut Cloud Print Management com permissões de administração
 
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passo 1. Planear a sua implementação de aprovisionamento
@@ -58,23 +58,23 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 
 
-4. Uma vez instalado, uma página de detalhes do addon será mostrada com o seu **URL de inquilino** e **token secreto.** Estes valores serão introduzidos no campo URL do inquilino \* e no campo Secret Token no \* separador Provisioning da sua aplicação PaperCut Cloud Print Management (Pocket/Hive) no portal Azure.
+4. Uma vez instalado, uma página de detalhes do addon será mostrada com o seu **URL de inquilino** e **token secreto.** Estes valores serão introduzidos no campo URL do Inquilino \* e no campo Secret Token no \* separador Provisioning da sua aplicação PaperCut Cloud Print Management no portal Azure.
 
 
 
-## <a name="step-3-add-papercut-cloud-print-management-pockethive-from-the-azure-ad-application-gallery"></a>Passo 3. Adicione a Gestão de Impressão em Nuvem PaperCut (Pocket/Hive) da galeria de aplicações AZure AD
+## <a name="step-3-add-papercut-cloud-print-management-from-the-azure-ad-application-gallery"></a>Passo 3. Adicione a Gestão de Impressão em Nuvem PaperCut da galeria de aplicações AZure AD
 
-Adicione a PaperCut Cloud Print Management (Pocket/Hive) da galeria de aplicações Azure AD para começar a gerir o fornecimento à PaperCut Cloud Print Management (Pocket/Hive). Se tiver previamente configurado a Gestão de Impressão em Nuvem paperCut (Pocket/Hive) para SSO, pode utilizar a mesma aplicação. No entanto, é recomendável criar uma aplicação separada ao testar a integração inicialmente. Saiba mais sobre como adicionar uma aplicação a partir da galeria [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
+Adicione a PaperCut Cloud Print Management da galeria de aplicações Azure AD para começar a gerir o fornecimento à PaperCut Cloud Print Management. Se tiver configurado previamente a Gestão de Impressão em Nuvem paperCut para SSO, pode utilizar a mesma aplicação. No entanto, é recomendável criar uma aplicação separada ao testar a integração inicialmente. Saiba mais sobre como adicionar uma aplicação a partir da galeria [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passo 4: Determinar quem vai estar no âmbito do aprovisionamento
 
 O serviço de aprovisionamento do Azure AD permite-lhe determinar quem vai ser aprovisionado com base na atribuição à aplicação e/ou com base em atributos do utilizador/grupo. Se optar por determinar quem vai ser aprovisionado na sua aplicação com base na atribuição, pode utilizar os seguintes [passos](../manage-apps/assign-user-or-group-access-portal.md) para atribuir utilizadores e grupos à aplicação. Se escolher determinar quem vai ser aprovisionado com base apenas em atributos do utilizador ou grupo, pode utilizar um filtro de âmbito conforme descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 
-* Ao atribuir utilizadores e grupos à Gestão de Impressão em Nuvem paperCut (Pocket/Hive), deve selecionar uma função diferente do **Acesso Predefinido**. Os utilizadores com a função Acesso Predefinido são excluídos do aprovisionamento e marcados como não autorizados de forma efetiva nos registos de aprovisionamento. Se a única função disponível na aplicação for a função de acesso predefinido, pode [atualizar o manifesto de aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para adicionar funções adicionais.
+* Ao atribuir utilizadores e grupos à Gestão de Impressão em Nuvem paperCut, tem de selecionar outra função que não o **Acesso Predefinido**. Os utilizadores com a função Acesso Predefinido são excluídos do aprovisionamento e marcados como não autorizados de forma efetiva nos registos de aprovisionamento. Se a única função disponível na aplicação for a função de acesso predefinido, pode [atualizar o manifesto de aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para adicionar funções adicionais.
 
 * Comece pequeno. Teste com um pequeno conjunto de utilizadores e grupos antes de implementar para todos. Quando o âmbito do aprovisionamento está definido para os utilizadores e os grupos atribuídos, pode controlar isto ao atribuir um ou dois utilizadores ou grupos à aplicação. Quando o âmbito está definido para todos os utilizadores e grupos, pode especificar um [filtro de âmbito baseado em atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-papercut-cloud-print-management-pockethive"></a>Passo 5. Configure o fornecimento automático de utilizadores para a Gestão de Impressão em Nuvem paperCut (Bolso/Colmeia)
+## <a name="step-5-configure-automatic-user-provisioning-to-papercut-cloud-print-management"></a>Passo 5. Configure o fornecimento automático de utilizadores para a Gestão de Impressão em Nuvem PaperCut
 
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no TestApp com base em atribuições de utilizador e/ou grupo em Azure AD.
 
@@ -84,7 +84,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **PaperCut Cloud Print Management (Pocket/Hive)**.
+2. Na lista de aplicações, selecione **PaperCut Cloud Print Management**.
 
    ![O link de gestão de impressão em nuvem PaperCut na lista de aplicações](common/all-applications.png)
 
@@ -96,7 +96,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
    ![Separador de provisionamento automático](common/provisioning-automatic.png)
 
-5. Na secção **Credenciais de Administração,** insira a sua Url de Impressão em Nuvem paperCut (Pocket/Hive) e o Token Secreto. Clique em **'Testar' Ligação** para garantir que o Azure AD pode ligar-se à Gestão de Impressão em Nuvem paperCut. Se a ligação falhar, certifique-se de que a sua conta de Gestão de Impressão em Nuvem paperCut tem permissões de administração e tente novamente.
+5. Na secção **Credenciais de Administração,** insira o URL do inquilino de gestão de impressão de nuvem paperCut e o token secreto. Clique em **'Testar' Ligação** para garantir que o Azure AD pode ligar-se à Gestão de Impressão em Nuvem paperCut. Se a ligação falhar, certifique-se de que a sua conta de Gestão de Impressão em Nuvem paperCut tem permissões de administração e tente novamente.
 
    ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -118,11 +118,11 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 10. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Para ativar o serviço de provisionamento Azure AD para a Gestão de Impressão em Nuvem paperCut (Pocket/Hive), altere o **Estado de Provisionamento** para **On** na secção **Definições.**
+11. Para ativar o serviço de provisionamento Azure AD para a Gestão de Impressão em Nuvem paperCut, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
     ![Estado do Aprovisionamento Ativado](common/provisioning-toggle-on.png)
 
-12. Defina os utilizadores e/ou grupos que deseja prestar à PaperCut Cloud Print Management (Pocket/Hive) escolhendo os valores desejados no **Âmbito** na secção **Definições.**
+12. Defina os utilizadores e/ou grupos que deseja prestar à PaperCut Cloud Print Management, escolhendo os valores pretendidos no **Âmbito** na secção **Definições.**
 
     ![Âmbito de Aprovisionamento](common/provisioning-scope.png)
 
