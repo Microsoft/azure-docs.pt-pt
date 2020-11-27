@@ -45,6 +45,10 @@
           href: manage-assets-quickstart.md
         - name: Utilizar o portal para encriptar conteúdo
           href: encrypt-content-quickstart.md
+    - name: Utilizar um modelo do Resource Manager
+      items:
+        - name: Criar uma conta com o ARM
+          href: quickstart-arm-template-account.md
 - name: Tutoriais
   items:
     - name: .NET
@@ -401,7 +405,7 @@
           href: /python/api/overview/azure/mediaservices/management
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
-        - name: Ir
+        - name: Go
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.media/allversions

@@ -75,10 +75,14 @@
       href: ../../backup/security-baseline.md
     - name: Linha de base de segurança do Azure Bastion
       href: ../../bastion/security-baseline.md
+    - name: Linha de base de segurança do Azure Bot Network
+      href: /azure/bot-service/security-baseline?view=azure-bot-service-4.0
     - name: Linha de base de segurança da Cache do Azure para Redis
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Linha de base de segurança do Azure Cognitive Search
       href: ../../search/security-baseline.md
+    - name: Linha de base de segurança do Azure Cosmos DB
+      href: ../../cosmos-db/security-baseline.md
     - name: Linha de base de segurança do Azure Data Box
       href: ../../databox/security-baseline.md
     - name: Linha de base de segurança do Azure Data Explorer
@@ -91,18 +95,20 @@
       href: ../../mysql/security-baseline.md
     - name: Linha de base de segurança do Azure Database for MariaDB
       href: ../../mariadb/security-baseline.md
-    - name: Base de Dados do Azure para PostgreSQL - Linha de base de segurança de Servidor Único
-      href: ../../postgresql/security-baseline.md
     - name: Base de Dados do Azure para PostgreSQL - Linha de base de segurança do Hyperscale
       href: ../../postgresql/postgresql-hyperscale-security-baseline.md
+    - name: Base de Dados do Azure para PostgreSQL - Linha de base de segurança de Servidor Único
+      href: ../../postgresql/security-baseline.md
     - name: Linha de base de segurança do Azure Databricks
       href: /azure/databricks/scenarios/security-baseline
+    - name: Linha de base de segurança do Azure DDOS Protection Standard
+      href: ../fundamentals/ddos-protection-security-baseline.md
     - name: Linha de base de segurança do Azure Defender para IoT
       href: ../../defender-for-iot/security-baseline.md
-    - name: Linha de base de segurança do DNS do Azure
-      href: ../../dns/security-baseline.md
     - name: Linha de base de segurança do Azure DevTest Labs
       href: ../../devtest-labs/security-baseline.md
+    - name: Linha de base de segurança do DNS do Azure
+      href: ../../dns/security-baseline.md
     - name: Linha de base de segurança do Azure Firewall
       href: ../../firewall/security-baseline.md
     - name: Linha de base de segurança do Azure Firewall Manager
@@ -115,18 +121,16 @@
       href: ../../hpc-cache/security-baseline.md
     - name: Linha de base de segurança do Azure Information Protection
       href: /azure/information-protection/security-baseline
-    - name: Linha de base de segurança do Hub IoT do Azure
-      href: ../../iot-hub/security-baseline.md
     - name: Linha de base de segurança do Azure Kubernetes Service
       href: ../../aks/security-baseline.md
     - name: Linha de base de segurança do Azure Lighthouse
       href: ../../lighthouse/security-baseline.md
     - name: Linha de base de segurança do Balanceador de Carga do Azure
       href: ../../load-balancer/security-baseline.md
-    - name: Linha de base de segurança do Azure Monitor
-      href: ../../azure-monitor/security-baseline.md
     - name: Linha de base de segurança do Azure Machine Learning
       href: ../../machine-learning/security-baseline.md
+    - name: Linha de base de segurança do Azure Monitor
+      href: ../../azure-monitor/security-baseline.md
     - name: Linha de base de segurança do Azure Migrate
       href: ../../migrate/security-baseline.md
     - name: Linha de base de segurança do Azure Policy
@@ -141,12 +145,12 @@
       href: ../../azure-resource-manager/management/security-baseline.md
     - name: Linha de base de segurança do Azure Sentinel
       href: ../../sentinel/security-baseline.md
+    - name: Linha de base de segurança do Azure SignalR Service
+      href: ../../azure-signalr/security-baseline.md
     - name: Linha de base de segurança da Base de Dados SQL do Azure
       href: ../../azure-sql/database/security-baseline.md
     - name: Linha de base de segurança do Armazenamento do Azure
       href: ../../storage/common/security-baseline.md
-    - name: Linha de base de segurança do Gestor de Tráfego do Azure
-      href: ../../traffic-manager/security-baseline.md
     - name: Linha de base de segurança da Firewall de Aplicações Web do Azure
       href: ../../web-application-firewall/security-baseline.md
     - name: Linha de base de segurança do Batch
@@ -163,16 +167,12 @@
       href: ../../container-registry/security-baseline.md
     - name: Linha de base de segurança da Rede de Entrega de Conteúdos
       href: ../../cdn/security-baseline.md
-    - name: Linha de base de segurança do Cosmos DB
-      href: ../../cosmos-db/security-baseline.md
     - name: Linha de base de segurança do Cost Management
       href: ../../cost-management-billing/security-baseline.md
     - name: Linha de base de segurança do Sistema de Proteção de Dados do Cliente
       href: ../fundamentals/customer-lockbox-security-baseline.md
     - name: Linha de base de segurança do Data Lake Analytics
       href: ../../data-lake-analytics/security-baseline.md
-    - name: Linha de base de segurança do DDoS Protection
-      href: ../fundamentals/ddos-protection-security-baseline.md
     - name: Linha de base de segurança do Event Grid
       href: ../../event-grid/security-baseline.md
     - name: Linha de base de segurança dos Hubs de Eventos
@@ -181,6 +181,8 @@
       href: ../../expressroute/security-baseline.md
     - name: Linha de base de segurança do HDInsight
       href: ../../hdinsight/security-baseline.md
+    - name: Linha de base de segurança do Hub IoT
+      href: ../../iot-hub/security-baseline.md
     - name: Linha de base de segurança do Key Vault
       href: ../../key-vault/general/security-baseline.md
     - name: Linha de base de segurança do Logic Apps
@@ -201,6 +203,8 @@
       href: ../../stream-analytics/security-baseline.md
     - name: Linha de base de segurança do Synapse Analytics
       href: ../../synapse-analytics/security-baseline.md
+    - name: Linha de base de segurança do Gestor de Tráfego
+      href: ../../traffic-manager/security-baseline.md
     - name: Linha de base de segurança dos Conjuntos de Dimensionamento de Máquinas Virtuais
       href: ../../virtual-machine-scale-sets/security-baseline.md
     - name: Linha de base de segurança de Máquinas Virtuais do Linux
