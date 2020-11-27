@@ -66,6 +66,10 @@
       href: signalr-concept-authenticate-oauth.md
     - name: Manipulação de eventos
       href: signalr-concept-event-grid-integration.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
 - name: Guias de procedimentos
   items:
     - name: Escala
