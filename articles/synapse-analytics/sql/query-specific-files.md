@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: e3f0a9f0b7fdef26cf1ef2b145ede1826fda6ebd
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d24ae1f42c685589309506b2d5e0eab157b2bc42
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685601"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299620"
 ---
 # <a name="use-file-metadata-in-serverless-sql-pool-queries"></a>Use metadados de ficheiros em consultas de piscina SQL sem servidor
 
@@ -76,7 +76,7 @@ ORDER BY
 
 A função filepath devolve um caminho completo ou parcial:
 
-- Quando chamado sem parâmetro, devolve o caminho completo do ficheiro de onde a linha se origina.
+- Quando chamado sem parâmetro, devolve o caminho completo do ficheiro de onde a linha se origina. Quando DATA_SOURCE é usado em OPENROWSET, retorna o caminho em relação a DATA_SOURCE. 
 - Quando chamado com um parâmetro, retorna parte do caminho que corresponde ao wildcard na posição especificada no parâmetro. Por exemplo, o valor do parâmetro 1 devolveria parte do caminho que corresponde ao primeiro wildcard.
 
 A amostra a seguir lê os ficheiros de dados do Táxi Amarelo de NYC para os últimos três meses de 2017. Devolve o número de passeios por caminho de arquivo. A parte OPENROWSET da consulta especifica quais os ficheiros que serão lidos.
@@ -132,6 +132,6 @@ ORDER BY
     filepath;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 No próximo artigo, aprenderá a [consultar ficheiros Parquet.](query-parquet-files.md)

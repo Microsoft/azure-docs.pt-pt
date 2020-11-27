@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/05/2020
+ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4f104accad2b23b907d888ce3d0da083f1fa019a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 05b2747dc21e2aedf16c6ca6e6c31af03b38c81f
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964835"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299518"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -80,6 +80,7 @@ Nesta secção, encontra documentos sobre a integração do PowerBI em fontes de
 
 ## <a name="change-log"></a>Alterar Registo
 
+- 11/26/2020: Adaptar [as configurações de armazenamento de máquinas virtuais SAP HANA Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) e [os tipos de Armazenamento Azure para a carga de trabalho SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) para alterar [SLAs VM](https://azure.microsoft.com/support/legal/sla/virtual-machines) individuais
 - 11/05/2020: Alteração da ligação à nova nota SAP sobre os tipos de sistemas de ficheiros suportados pela HANA nas [configurações de armazenamento de máquinas virtuais SAP HANA Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 
 - 10/26/2020: Alterar algumas tabelas para configuração de armazenamento premium Azure para clarificar a produção de reprodução em [instalações de armazenamento de máquinas virtuais SAP HANA Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 - 10/22/2020: Alteração em [HA para SAP NW em Azure VMs em SLES para aplicações SAP](./high-availability-guide-suse.md), HA para SAP NW em [VMs Azure em SLES com ANF](./high-availability-guide-suse-netapp-files.md), [HA para SAP NW em VMs Azure em Azure para aplicações SAP](./high-availability-guide-rhel.md) e HA para SAP NW em [Azure VMs em RHEL com ANF](./high-availability-guide-rhel-netapp-files.md) para ajustar a recomendação para net.ipv4.tcp_keepalive_time  

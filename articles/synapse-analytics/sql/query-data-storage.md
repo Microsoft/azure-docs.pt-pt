@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: c7a8fb63f775a76342849957f070861fd200a9d3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 81a892b10996686cf58d45867e3d889505b5d3d9
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998928"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299586"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Ficheiros de armazenamento de consultas com piscina SQL sem servidor (pré-visualização) no Azure Synapse Analytics
 
@@ -27,7 +27,7 @@ Para obter mais informações sobre o que é vs. o que não é suportado atualme
 - [Desenvolva o acesso](develop-storage-files-overview.md) ao armazenamento onde pode aprender a usar a [função Externa](develop-tables-external-tables.md) e [OPENROWSET](develop-openrowset.md) para ler dados a partir do armazenamento.
 - [Controle o acesso](develop-storage-files-storage-access-control.md) ao armazenamento onde pode aprender a permitir que o Sinaapse SQL aceda ao armazenamento usando a autenticação SAS ou identidade gerida do espaço de trabalho.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para suportar uma experiência suave para a consulta em vigor de dados localizados em ficheiros de armazenamento Azure, o pool SQL sem servidor utiliza a função [OPENROWSET](develop-openrowset.md) com capacidades adicionais:
 
@@ -47,7 +47,7 @@ Para consultar os dados de origem do Parquet, utilize o FORMATO = 'PARQUET'
 ```syntaxsql
 SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net//mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
 Reveja o artigo [de ficheiros Query Parquet](query-parquet-files.md) para obter exemplos de utilização.
@@ -59,7 +59,7 @@ Para consultar os dados de origem CSV, utilize o FORMATO = 'CSV'. Pode especific
 ```sql
 SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.csv', FORMAT = 'CSV', PARSER_VERSION='2.0') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
 Existem algumas opções adicionais que podem ser usadas para ajustar as regras de análise ao formato CSv personalizado:
@@ -85,7 +85,7 @@ OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolde
 WITH (
       C1 int, 
       C2 varchar(20),
-      C3 as varchar(max)
+      C3 varchar(max)
 ) as rows
 ```
 
@@ -248,7 +248,7 @@ Os dados de demonstração contêm os seguintes conjuntos de dados:
 - Amostra de arquivos Parquet com colunas aninhadas
 - Livros em formato JSON
 
-| Folder path                                                  | Descrição                                                  |
+| Folder path                                                  | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | /csv/                                                        | Pasta-mãe para dados em formato CSV                         |
 | /csv/população/<br />/csv/população-unix/<br />/csv/população unix-hdr/<br />/csv/população-unix-hdr-escape<br />/csv/população-unix-hdr-citado | Pastas com ficheiros de dados da População em diferentes formatos CSV. |

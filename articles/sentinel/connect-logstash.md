@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 247abafd7abec38e43794b76268ee52538aee508
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 63b9d74fbbb1a79dd4f3d3e7c5fb094a372282e0
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655685"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299637"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Utilize o Logstash para ligar fontes de dados ao Azure Sentinel
 
@@ -31,7 +31,7 @@ Utilizando o novo plugin de saída do Azure Sentinel para o motor de recolha de 
 
 Para saber mais sobre como trabalhar com o motor de recolha de dados Logstash, consulte [Começar com Logstash.](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 ### <a name="architecture-and-background"></a>Arquitetura e fundo
 
@@ -57,7 +57,7 @@ O plugin de saída Azure Sentinel para Logstash envia dados formatados por JSON 
 
 O plugin de saída Azure Sentinel está disponível na coleção Logstash.
 
-- Siga as instruções no documento Logstash [Working with plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) para instalar o plugin **_microsoft-logstash-output-azure-loganalytics_* _.
+- Siga as instruções no documento Logstash [Working with plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) para instalar o plugin **_[microsoft-logstash-output-azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)_* _.
    
 - Se o seu sistema de Logstash não tiver acesso à Internet, siga as instruções do documento de [Gestão de Plugin Offline](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) de Logstash para preparar e utilizar um pacote de plugin offline. (Isto exigirá que você construa outro sistema logstash com acesso à Internet.)
 
@@ -65,7 +65,7 @@ O plugin de saída Azure Sentinel está disponível na coleção Logstash.
 
 Utilize as informações na Estrutura de Logstash de um documento [de ficheiro config](https://www.elastic.co/guide/en/logstash/current/configuration-file-structure.html) e adicione o plugin de saída Azure Sentinel à configuração com as seguintes teclas e valores. (A sintaxe de ficheiro config adequada é mostrada após a tabela.)
 
-| Nome do campo | Tipo de dados | Descrição |
+| Nome do campo | Tipo de dados | Description |
 |----------------|---------------|-----------------|
 | `workspace_id` | cadeia (de carateres) | Insira o seu espaço de trabalho ID GUID. _ |
 | `workspace_key` | string | Insira a sua chave primária do espaço de trabalho GUID. * |
@@ -170,7 +170,7 @@ Para monitorizar a conectividade e a atividade do plugin de saída Azure Sentine
 
 Se não estiver a ver nenhum dado neste ficheiro de registo, gere e envie alguns eventos localmente (através dos plugins de entrada e filtro) para se certificar de que o plugin de saída está a receber dados. O Azure Sentinel irá suportar apenas questões relacionadas com o plugin de saída.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a usar o Logstash para ligar fontes de dados externas ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
