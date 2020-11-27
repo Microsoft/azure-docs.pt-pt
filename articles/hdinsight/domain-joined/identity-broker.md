@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 9a2bda0a526c307ae17d8415f6f24423ddf51b63
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 8a4f9a5df8def928c06fe95a53c7be0d93ec76c4
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917771"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302670"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Corretor de ID Azure HDInsight (HIB)
 
@@ -140,7 +140,7 @@ Para a utilização da Beeline e da Livy, também pode seguir os códigos de amo
 
 ## <a name="faq"></a>FAQ
 ### <a name="what-app-is-created-by-hdinsight-in-aad"></a>Que aplicação é criada pela HDInsight em AAD?
-Para cada cluster, uma aplicação de terceiros será registada em AAD com o cluster uri como o identifierUri https://clustername.azurehdinsight.net (como).
+Para cada cluster, uma aplicação de terceiros será registada em AAD com o cluster uri como o identifierUri `https://clustername.azurehdinsight.net` (como).
 
 ### <a name="why-are-users-prompted-for-consent-before-using-hib-enabled-clusters"></a>Por que os utilizadores são solicitados a pedir consentimento antes de usar clusters hib habilitados?
 No AAD, é necessário o consentimento para todas as aplicações de terceiros antes de poder autenticar os utilizadores ou aceder aos dados.
@@ -157,7 +157,7 @@ Quando o cluster é eliminado, o HDInsight elimina a aplicação e não há nece
  
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configure um cluster HDInsight com pacote de segurança empresarial utilizando os serviços de domínio do diretório ativo Azure](apache-domain-joined-configure-using-azure-adds.md)
 * [Sincronizar utilizadores do Azure Active Directory num cluster do HDInsight](../hdinsight-sync-aad-users-to-cluster.md)

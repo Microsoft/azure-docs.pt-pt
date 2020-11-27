@@ -4,12 +4,12 @@ description: Saiba como criar uma política de configuração de hóspedes Azure
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1e81d1a5157cc5872ba2628c8d6cb408e35ab9c6
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 1f6308250717d35dc725b097575bf3921646c6a0
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694247"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302709"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de Configuração de Convidado para o Linux
 
@@ -89,6 +89,10 @@ A DSC está a agir como um invólucro para a InSpec uniformizar como é executad
 #### <a name="configuration-requirements"></a>Requisitos de configuração
 
 O nome da configuração personalizada deve ser consistente em todo o lado. O nome do ficheiro .zip para o pacote de conteúdo, o nome de configuração no ficheiro MOF e o nome de atribuição do convidado no modelo Azure Resource Manager (modelo ARM), deve ser o mesmo.
+
+Os cmdlets PowerShell ajudam na criação do pacote.
+Não é necessária nenhuma pasta de nível de raiz ou pasta de versão.
+O formato do pacote deve ser um ficheiro .zip. e não pode exceder um tamanho total de 100MB quando não for comprimido.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Configuração de configuração personalizada do hóspede no Linux
 
@@ -385,7 +389,7 @@ A política de acesso ao Cofre-Chave deve permitir ao fornecedor de recursos com
 
 Após a publicação do seu conteúdo, apedie uma etiqueta com nome `GuestConfigPolicyCertificateValidation` e valor a todas as `enabled` máquinas virtuais onde deve ser necessária a assinatura de código. Consulte as [amostras tags](../samples/built-in-policies.md#tags) de como as etiquetas podem ser entregues em escala usando a Política Azure. Uma vez que esta etiqueta está em vigor, a definição de política gerada através do `New-GuestConfigurationPolicy` cmdlet permite o requisito através da extensão de Configuração do Convidado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre a auditoria de VMs com [configuração de hóspedes.](../concepts/guest-configuration.md)
 - Entenda como [criar políticas programáticas.](./programmatically-create.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: d4d25d8e79c30933546af2b823e328a652f482eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f785f44b88c7f0d5f0b6f43114070888bb23146d
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360536"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302481"
 ---
 # <a name="how-to-use-perfinsights"></a>Como utilizar o PerfInsights
 
@@ -78,7 +78,7 @@ São recolhidas informações sobre a máquina virtual Linux, sistema operativo,
   - Captura de perfis de CPU e processa utilização do CPU em intervalo de 5 segundos
   - Captura de perfis de utilização da memória dos processos com intervalo de 5 segundos
 
-- Redes  
+- Rede  
   - Lista de adaptadores de rede com estatísticas de adaptadores
   - Tabela de encaminhamento de rede
   - Portas abertas e estatuto
@@ -132,7 +132,7 @@ São recolhidas informações sobre a máquina virtual Linux, sistema operativo,
     |----------------------------|-------------------------------------------------|
     | Servidor Oracle Linux        | 6.10 [ `*` ], 7.3, 7.6, 7.5 |
     | CentOS                     | 6.5 `*` [ ], 7.6                                    |
-    | RHEL                       | 7.2, 7.5, 8.0 `*` .                               |
+    | RHEL                       | 7.6, 7.7, 7.8, 7.9                                |
     | Ubuntu                     | 14.04, 16.04, 18.04, 20.04                               |
     | Debian                     | 8, 9, 10 `*` .                                    |
     | SLES                       | 12 SP4 `*` [ ]                                      |
@@ -166,7 +166,7 @@ Para obter mais informações sobre esta opção, consulte [a Azure Performance 
 
 Para executar a ferramenta PerfInsights, siga estes passos:
 
-1. Faça o download [de PerfInsights.tar.gz](https://aka.ms/perfinsightslinuxdownload) para uma pasta na sua máquina virtual e extraia o conteúdo utilizando os comandos abaixo do terminal.
+1. Descarregue [PerfInsights.tar.gz](https://aka.ms/perfinsightslinuxdownload) para uma pasta na sua máquina virtual e extraia o conteúdo utilizando os comandos abaixo do terminal.
 
    ```bash
    wget https://download.microsoft.com/download/9/F/8/9F80419C-D60D-45F1-8A98-718855F25722/PerfInsights.tar.gz
@@ -212,7 +212,7 @@ Quando a execução estiver concluída, aparece uma nova pasta de alcatrão na m
 
 ## <a name="review-the-diagnostics-report"></a>Reveja o relatório de diagnósticos
 
-Dentro do ficheiro **PerformanceDiagnostics \_ yyyy-MM-dd \_ hh-mm-ss-fff.tar.gz,** pode encontrar um relatório HTML que detalha as conclusões do PerfInsights. Para rever o relatório, expanda o ficheiro **PerformanceDiagnostics \_ yyyy-MM-dd \_ hh-mm-ss-fff.tar.gz** e, em seguida, abra o ficheiro **PerfInsights Report.html.**
+Dentro do ficheiro **PerformanceDiagnostics \_ yyyy-MM-dd \_ hh-mm-ss-fff.tar.gz** pode encontrar um relatório HTML que detalha as conclusões do PerfInsights. Para rever o relatório, expanda o ficheiro **PerformanceDiagnostics \_ yyyy-MM-mm-mm-ss-fff.tar.gz \_ e,** em seguida, abra o ficheiro **PerfInsights Report.html.**
 
 ### <a name="overview-tab"></a>Separador de visão geral
 
@@ -236,7 +236,7 @@ O separador **CPU** fornece informações sobre o consumo de CPU em todo o siste
 
 A secção **Resultados** apresenta várias conclusões e recomendações relacionadas com o armazenamento.
 
-Os **dispositivos de bloqueio** e outras secções relacionadas, tais como **partições, separadores** **LVM**e **MDADM** descrevem como os dispositivos de bloqueio são configurados e relacionados entre si.
+Os **dispositivos de bloqueio** e outras secções relacionadas, tais como **partições, separadores** **LVM** e **MDADM** descrevem como os dispositivos de bloqueio são configurados e relacionados entre si.
 
 ![Screenshot do separador de armazenamento](media/how-to-use-perfinsights-linux/perfinsights-linux-storage-tab.png)  
 ![Screenshot do separador MDADM](media/how-to-use-perfinsights-linux/perfinsights-linux-mdadm-config.png)
@@ -247,7 +247,7 @@ O separador **Linux** contém informações sobre o hardware e o sistema operati
 
 ![Screenshot do separador Linux](media/how-to-use-perfinsights-linux/perfinsights-linux-tab.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode fazer o upload de registos e relatórios de diagnóstico para o Microsoft Support para posterior revisão. Quando trabalha com a equipa de Suporte do Microsoft, podem solicitar que transmita a saída gerada pela PerfInsights para ajudar no processo de resolução de problemas.
 
@@ -257,4 +257,4 @@ A imagem que se segue mostra uma mensagem semelhante à que pode receber:
 
 Siga as instruções na mensagem para aceder ao espaço de trabalho de transferência de ficheiros. Para obter segurança adicional, tem de alterar a sua palavra-passe na primeira utilização.
 
-Depois de iniciar s-ss-fff.tar.gz, encontrará uma caixa de diálogo para carregar o ficheiro **PerformanceDiagnostics \_ yyy-MM-dd \_ hh-mm-ss-fff.tar.gz** que foi recolhido pela PerfInsights.
+Depois de iniciar s-ss-fff.tar.gz ficheiro que foi recolhido pela **PerfInsights. \_ \_**

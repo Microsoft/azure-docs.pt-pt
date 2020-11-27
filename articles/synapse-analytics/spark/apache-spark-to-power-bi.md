@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: ea8fcb602f49dec61187260e08d3ccd1b148cee8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9fb8bbffb423031afd31e156183bc4f8be3c147e
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920263"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302542"
 ---
 # <a name="tutorial-create-a-power-bi-report-using-apache-spark-and-azure-synapse-analytics"></a>Tutorial: Criar um relatório Power BI usando Apache Spark e Azure Synapse Analytics
 
@@ -69,6 +69,9 @@ Neste exemplo, você usará Apache Spark para realizar algumas análises sobre d
                                     & (filtered_df.paymentType.isin({"1", "2"})))
     ```
 4. Finalmente, salvaremos o nosso dataframe usando o método Apache ```saveAsTable``` Spark. Isto permitir-lhe-á consultar e ligar-se à mesma mesa utilizando piscinas SQL sem servidor.
+  ```python
+     taxi_df.write.mode("overwrite").saveAsTable("NycTlcTutorial.nyctaxi")
+  ```
    
 ## <a name="query-data-using-serverless-sql-pools"></a>Dados de consulta usando piscinas SQL sem servidor
 O Azure Synapse Analytics permite que os diferentes motores computacionais do espaço de trabalho partilhem bases de dados e tabelas entre as suas piscinas Apache Spark sem servidor (pré-visualização) e piscina SQL sem servidor (pré-visualização). Isto é alimentado através da capacidade [de gestão de metadados partilhados](../metadata/overview.md) da Synapse. Como resultado, o Spark criou bases de dados e as suas tabelas apoiadas por parquet tornam-se visíveis na piscina SQL sem servidores do espaço de trabalho.
@@ -113,7 +116,7 @@ Para ligar a nossa piscina SQL sem servidor ao nosso espaço de trabalho Power B
 
 Para obter mais detalhes sobre como criar um conjunto de dados através de SQL sem servidor e ligar-se ao Power BI, pode visitar este tutorial sobre [a ligação ao ambiente de trabalho Power BI](../../synapse-analytics/sql/tutorial-connect-power-bi-desktop.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Pode continuar a aprender mais sobre as capacidades de visualização de dados no Azure Synapse Analytics visitando os seguintes documentos e tutoriais:
    - [Visualizar dados com piscinas Apache Spark sem servidor](../spark/apache-spark-data-visualization-tutorial.md)
    - [Visão geral da visualização de dados com piscinas Apache Spark](../spark/apache-spark-data-visualization.md)

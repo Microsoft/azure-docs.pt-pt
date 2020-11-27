@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: 217be627f81406f671118d5290cd5f67f52c01d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92603165ac399415ec4fb6daeea1641065671a83
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86112117"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302931"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de computador em consultas de registo do Monitor Azure
 Os grupos informáticos no Azure Monitor permitem-lhe fazer [consultas de registo](../log-query/log-query-overview.md) a um determinado conjunto de computadores.  Cada grupo é preenchido com computadores, quer utilizando uma consulta que define ou importando grupos de diferentes fontes.  Quando o grupo é incluído numa consulta de registo, os resultados limitam-se a registos que correspondem aos computadores do grupo.
@@ -61,7 +61,7 @@ Ao configurar o Azure Monitor para importar membros do grupo Ative Directory, an
 > [!NOTE]
 > Os grupos de Diretório Ativo Importados contêm apenas máquinas Windows.
 
-Configura o Azure Monitor para importar grupos de segurança ative directory a partir de **configurações avançadas** no seu espaço de trabalho Log Analytics no portal Azure.  Selecione **grupos informáticos,** **Ative Directory**e, em seguida, **Import Ative Directory memberships from computers**.  Não há nenhuma configuração adicional.
+Configura o Azure Monitor para importar grupos de segurança ative directory a partir de **configurações avançadas** no seu espaço de trabalho Log Analytics no portal Azure.  Selecione **grupos informáticos,** **Ative Directory** e, em seguida, **Import Ative Directory memberships from computers**.  Não há nenhuma configuração adicional.
 
 ![Grupos informáticos do Ative Directory](media/computer-groups/configure-activedirectory.png)
 
@@ -97,13 +97,13 @@ Clique no **x** na coluna **Remover** para eliminar o grupo de computador.  Cliq
 Utiliza um grupo de Computador criado a partir de uma consulta de log numa consulta, tratando o seu pseudónimo como uma função, tipicamente com a seguinte sintaxe:
 
 ```kusto
-Table | where Computer in (ComputerGroup)`
+Table | where Computer in (ComputerGroup)
 ```
 
 Por exemplo, pode utilizar o seguinte para devolver registos UpdateSummary apenas para computadores num grupo de computador chamado mycomputatergroup.
 
 ```kusto
-UpdateSummary | where Computer in (mycomputergroup)`
+UpdateSummary | where Computer in (mycomputergroup)
 ```
 
 Os grupos informáticos importados e os seus computadores incluídos são armazenados na tabela **Do Grupo de Computadores.**  Por exemplo, a seguinte consulta devolveria uma lista de computadores no grupo De computadores de domínio do Ative Directory. 
@@ -134,6 +134,6 @@ Um registo é criado no espaço de trabalho Log Analytics para cada membro do gr
 | `ManagementGroupName` |O nome do grupo de gestão para agentes do SCOM.  Para outros agentes, este é o AOI...\<workspace ID\> |
 | `TimeGenerated` |Data e hora em que o grupo informático foi criado ou atualizado. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.  
 

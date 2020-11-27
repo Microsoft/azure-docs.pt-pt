@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 2f16ed3c455067ff2fa185bff023a6993ccda58c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a36eb21f681aec1cfc52a000b60bdbc30cab0633
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311978"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302797"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Guia para net# linguagem de especificação de rede neural para Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 Net# é uma linguagem desenvolvida pela Microsoft que é usada para definir arquiteturas complexas de rede neural, tais como redes neuronais profundas ou convoluções de dimensões arbitrárias. Pode utilizar estruturas complexas para melhorar a aprendizagem de dados como imagem, vídeo ou áudio.
 
@@ -194,19 +194,19 @@ Os pacotes convolucionais suportam os seguintes atributos:
 
 Para definir a forma e a localização dos núcleos, utilize os atributos **KernelShape,** **Stride,** **Estofamento,** **LowerPad** e **UpperPad:**
 
-+ **KernelShape** : (obrigatório) Define a dimensionalidade de cada núcleo para o feixe convolucional. O valor deve ser uma amostra de inteiros positivos com um comprimento que seja igual à aridade do feixe. Cada componente deste tuple não deve ser maior do que o componente correspondente do **InputShape**.
++ **KernelShape**: (obrigatório) Define a dimensionalidade de cada núcleo para o feixe convolucional. O valor deve ser uma amostra de inteiros positivos com um comprimento que seja igual à aridade do feixe. Cada componente deste tuple não deve ser maior do que o componente correspondente do **InputShape**.
 
-+ **Passo** : (opcional) Define os tamanhos do passo deslizante da convolução (um passo para cada dimensão), que é a distância entre os nós centrais. O valor deve ser uma amostra de inteiros positivos com um comprimento que é a aridade do feixe. Cada componente deste tuple não deve ser maior do que o componente correspondente da **KernelShape**. O valor predefinido é um tuple com todos os componentes iguais a um.
++ **Passo**: (opcional) Define os tamanhos do passo deslizante da convolução (um passo para cada dimensão), que é a distância entre os nós centrais. O valor deve ser uma amostra de inteiros positivos com um comprimento que é a aridade do feixe. Cada componente deste tuple não deve ser maior do que o componente correspondente da **KernelShape**. O valor predefinido é um tuple com todos os componentes iguais a um.
 
-+ **Partilha:** (opcional) Define a partilha de peso para cada dimensão da convolução. O valor pode ser um único valor Boolean ou um tuple de valores booleanos com um comprimento que é a aridade do pacote. Um único valor Boolean é estendido para ser um tuple do comprimento correto com todos os componentes iguais ao valor especificado. O valor padrão é uma tuple que consiste em todos os valores verdadeiros.
++ **Partilha:**(opcional) Define a partilha de peso para cada dimensão da convolução. O valor pode ser um único valor Boolean ou um tuple de valores booleanos com um comprimento que é a aridade do pacote. Um único valor Boolean é estendido para ser um tuple do comprimento correto com todos os componentes iguais ao valor especificado. O valor padrão é uma tuple que consiste em todos os valores verdadeiros.
 
-+ **MapCount** : (opcional) Define o número de mapas de funcionalidades para o pacote convolucional. O valor pode ser um único inteiro positivo ou um tuple de inteiros positivos com um comprimento que é a aridade do feixe. Um único valor inteiro é estendido para ser um tuple do comprimento correto com os primeiros componentes iguais ao valor especificado e todos os restantes componentes iguais a um. O valor predefinido é um. O número total de mapas de características é o produto dos componentes do tuple. O factoring deste número total através dos componentes determina como os valores do mapa de funcionalidades são agrupados nos nós de destino.
++ **MapCount**: (opcional) Define o número de mapas de funcionalidades para o pacote convolucional. O valor pode ser um único inteiro positivo ou um tuple de inteiros positivos com um comprimento que é a aridade do feixe. Um único valor inteiro é estendido para ser um tuple do comprimento correto com os primeiros componentes iguais ao valor especificado e todos os restantes componentes iguais a um. O valor predefinido é um. O número total de mapas de características é o produto dos componentes do tuple. O factoring deste número total através dos componentes determina como os valores do mapa de funcionalidades são agrupados nos nós de destino.
 
-+ **Pesos** : (opcional) Define os pesos iniciais para o feixe. O valor deve ser um tuple de valores de ponto flutuante com um comprimento que é o número de núcleos vezes o número de pesos por núcleo, tal como definido mais tarde neste artigo. Os pesos predefinidos são gerados aleatoriamente.
++ **Pesos**: (opcional) Define os pesos iniciais para o feixe. O valor deve ser um tuple de valores de ponto flutuante com um comprimento que é o número de núcleos vezes o número de pesos por núcleo, tal como definido mais tarde neste artigo. Os pesos predefinidos são gerados aleatoriamente.
 
 Existem dois conjuntos de propriedades que controlam o acolchoamento, sendo as propriedades mutuamente exclusivas:
 
-+ **Estofamento** : (opcional) Determina se a entrada deve ser acolchoada utilizando um **esquema de enchimento predefinido**. O valor pode ser um único valor Boolean, ou pode ser um tuple de valores booleanos com um comprimento que é a aridade do pacote.
++ **Estofamento**: (opcional) Determina se a entrada deve ser acolchoada utilizando um **esquema de enchimento predefinido**. O valor pode ser um único valor Boolean, ou pode ser um tuple de valores booleanos com um comprimento que é a aridade do pacote.
 
     Um único valor Boolean é estendido para ser um tuple do comprimento correto com todos os componentes iguais ao valor especificado.
 
@@ -214,7 +214,7 @@ Existem dois conjuntos de propriedades que controlam o acolchoamento, sendo as p
 
     Se o valor para uma dimensão for Falso, os núcleos são definidos de modo a que o número de nós de cada lado que são deixados de fora seja o mesmo (até uma diferença de 1). O valor predefinido deste atributo é um tuple com todos os componentes iguais ao Falso.
 
-+ **UpperPad** e **LowerPad** : (opcional) Forneça um maior controlo sobre a quantidade de estofos a utilizar. **Importante:** Estes atributos podem ser definidos se e somente se a propriedade **de enchimento** acima não for **_not_*definida. Os valores devem ser tuples de valor inteiro com comprimentos que são a aridade do feixe. Quando estes atributos são especificados, os nós "manequim" são adicionados às extremidades inferior e superior de cada dimensão da camada de entrada. O número de nós adicionados às extremidades inferior e superior de cada dimensão é determinado por _* LowerPad** [i] e **UpperPad** [i] respectivamente.
++ **UpperPad** e **LowerPad**: (opcional) Forneça um maior controlo sobre a quantidade de estofos a utilizar. **Importante:** Estes atributos podem ser definidos se e somente se a propriedade **de enchimento** acima não for **_not_*definida. Os valores devem ser tuples de valor inteiro com comprimentos que são a aridade do feixe. Quando estes atributos são especificados, os nós "manequim" são adicionados às extremidades inferior e superior de cada dimensão da camada de entrada. O número de nós adicionados às extremidades inferior e superior de cada dimensão é determinado por _* LowerPad**[i] e **UpperPad**[i] respectivamente.
 
     Para garantir que os miolos correspondem apenas aos nóns "reais" e não aos nóns "manequim", devem ser satisfeitas as seguintes condições:
   - Cada componente do **LowerPad** deve ser estritamente inferior `KernelShape[d]/2` .
@@ -225,7 +225,7 @@ Existem dois conjuntos de propriedades que controlam o acolchoamento, sendo as p
 
 Para obter mais informações sobre redes convolucionais e suas aplicações, consulte estes artigos:
 
-+ [http://deeplearning.net/tutorial/lenet.html](http://deeplearning.net/tutorial/lenet.html)
++ [http://d2l.ai/chapter_convolutional-neural-networks/lenet.html ](http://d2l.ai/chapter_convolutional-neural-networks/lenet.html )
 + [https://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
 
 ## <a name="pooling-bundles"></a>Pacotes de piscina
@@ -277,9 +277,9 @@ Como os pacotes de normalização de resposta aplicam uma função predefinida a
 
 Além dos quatro atributos descritos anteriormente, os pacotes de normalização de resposta também suportam os seguintes atributos:
 
-+ **Alpha** : (obrigatório) Especifica um valor de ponto flutuante que corresponde `α` à fórmula anterior.
-+ **Beta** : (obrigatório) Especifica um valor de ponto flutuante que corresponde `β` à fórmula anterior.
-+ **Offset** : (opcional) Especifica um valor de ponto flutuante que corresponde `k` à fórmula anterior. Falha em 1.
++ **Alpha**: (obrigatório) Especifica um valor de ponto flutuante que corresponde `α` à fórmula anterior.
++ **Beta**: (obrigatório) Especifica um valor de ponto flutuante que corresponde `β` à fórmula anterior.
++ **Offset**: (opcional) Especifica um valor de ponto flutuante que corresponde `k` à fórmula anterior. Falha em 1.
 
 O exemplo a seguir define um pacote de normalização de resposta utilizando estes atributos:
 

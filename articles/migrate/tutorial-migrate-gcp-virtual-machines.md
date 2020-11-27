@@ -4,12 +4,12 @@ description: Este artigo descreve como migrar VMs GCP para Azure com Azure Migra
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 2caebb5dda87a34d003f7f2bd208fff427c98431
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0093bb453131eb87172021a976b8019a23e445f1
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315890"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302598"
 ---
 # <a name="discover-assess-and-migrate-google-cloud-platform-gcp-vms-to-azure"></a>Descubra, avalie e emigre os VMs da Google Cloud Platform (GCP) para Azure
 
@@ -74,7 +74,7 @@ Prepare o Azure para a migração com a Azure Migrate: ferramenta de migração 
 
 **Tarefa** | **Detalhes**
 --- | ---
-**Criar um projeto do Azure Migrate** | A sua conta Azure precisa de permissões de Contribuidor ou Proprietário para criar um projeto.
+**Criar um projeto do Azure Migrate** | A sua conta Azure necessita de permissões de Colaborador ou Proprietário para [criar um novo projeto.](https://docs.microsoft.com/azure/migrate/create-manage-projects)
 **Verifique permissões para a sua conta Azure** | A sua conta Azure necessita de permissões para criar um VM e escrever para um disco gerido pelo Azure.
 
 ### <a name="assign-permissions-to-create-project"></a>Atribuir permissões para criar projeto
@@ -106,7 +106,7 @@ Para se preparar para a migração do GCP para o Azure, é necessário preparar 
 Azure Migrate: A migração do servidor utiliza um aparelho de replicação para replicar máquinas para o Azure. O aparelho de replicação executa os seguintes componentes.
 
 - **Servidor de configuração**: O servidor de configuração coordena as comunicações entre os VMs GCP e o Azure e gere a replicação de dados.
-- **Servidor de**processo : O servidor de processo funciona como um gateway de replicação. Recebe dados de replicação, otimiza-os com caching, compressão e encriptação, e envia-os para uma conta de armazenamento de cache em Azure.
+- **Servidor de** processo : O servidor de processo funciona como um gateway de replicação. Recebe dados de replicação, otimiza-os com caching, compressão e encriptação, e envia-os para uma conta de armazenamento de cache em Azure.
 
 Prepare-se para a colocação do aparelho da seguinte forma:
 
@@ -123,30 +123,6 @@ Prepare-se para a colocação do aparelho da seguinte forma:
 - O aparelho de replicação utiliza o MySQL. Reveja as [opções](migrate-replication-appliance.md#mysql-installation) de instalação do MySQL no aparelho.
 - Reveja os URLs Azure necessários para que o aparelho de replicação aceda a nuvens [públicas](migrate-replication-appliance.md#url-access) e [governamentais.](migrate-replication-appliance.md#azure-government-url-access)
 
-## <a name="add-the-server-migration-tool"></a>Adicione a ferramenta de migração do servidor
-
-Crie um projeto Azure Migrate e, em seguida, adicione-lhe a ferramenta de migração do servidor.
-
-1. No portal do Azure > **Todos os serviços**, procure **Azure Migrate**.
-2. Em **Serviços**, selecione **Azure Migrate**.
-3. Em **Descrição geral**, clique em **Avaliar e migrar servidores**.
-4. No **âmbito do Discover, avaliar e migrar servidores,** clique em **Avaliar e migrar servidores**.
-
-    ![Detetar e avaliar servidores](./media/tutorial-migrate-physical-virtual-machines/assess-migrate.png)
-
-5. Em **Detetar, avaliar e migrar servidores**, clique em **Adicionar ferramentas**.
-6. Em **Migrar projeto**, selecione a sua subscrição do Azure e crie um grupo de recursos, caso não tenha um.
-7. Em **Detalhes do Projeto**, especifique o nome do projeto e a geografia na qual pretende criar o projeto e clique em **Seguinte**. Reveja geografias apoiadas para nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais.](migrate-support-matrix.md#supported-geographies-azure-government)
-    - A geografia do projeto é usada apenas para armazenar os metadados recolhidos a partir de máquinas GCP.
-    - Pode selecionar qualquer região de destino ao executar uma migração.
-
-    ![Criar um projeto do Azure Migrate](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
-
-8. Em **Selecionar ferramenta de avaliação**, selecione **Ignorar a adição de uma ferramenta de avaliação por enquanto** > **Seguinte**.
-9. Em **Selecionar ferramenta de migração**, selecione **Azure Migrate: Migração de Servidores** > **Seguinte**.
-10. Em **Analisar + adicionar ferramentas**, analise as definições e clique em **Adicionar ferramentas**
-11. Depois de adicionar a ferramenta, aparece no projeto Azure **Servers**Migrate >  >  **ferramentas de migração**de servidores .
-
 ## <a name="set-up-the-replication-appliance"></a>Configurar o aparelho de replicação
 
 O primeiro passo da migração é configurar o aparelho de replicação. Para configurar o aparelho para a migração de VMs GCP, tem de descarregar o ficheiro do instalador para o aparelho e, em seguida, executá-lo no [VM que preparou](#prepare-a-machine-for-the-replication-appliance).
@@ -159,7 +135,7 @@ O primeiro passo da migração é configurar o aparelho de replicação. Para co
 
 2. In **Discover machines**  >  **Are your machines virtualized?** **Not virtualized/Other**
 3. Na **região Alvo,** selecione a região de Azure para a qual pretende migrar as máquinas.
-4. **Selecione Confirme que a região-alvo para a migração é <>de nome da região **.
+4. **Selecione Confirme que a região-alvo para a migração é <>de nome da região**.
 5. Clique **em Criar recursos.** Isto cria um cofre de recuperação do local de Azure em segundo plano.
     - Se já estabeleceu migração com a Migração do Servidor Azure Migrate, a opção-alvo não pode ser configurada, uma vez que os recursos foram criados anteriormente.
     - Não é possível alterar a região alvo deste projeto depois de clicar neste botão.
@@ -173,9 +149,9 @@ O primeiro passo da migração é configurar o aparelho de replicação. Para co
 8. Copie o ficheiro de configuração do aparelho e o ficheiro chave para o Windows Server 2016 ou Windows Server 2012 GCP VM que criou para o aparelho de replicação.
 9. Executar o ficheiro de instalação do aparelho de replicação, conforme descrito no procedimento seguinte.  
     9.1. Sob **Antes de Começar**, selecione **Instalar o servidor de configuração e o servidor de processos** e depois selecione **Seguinte**.   
-    9.2 Na **Licença de Software de Terceiros,** selecione aceito o contrato de licença de **terceiros**e, em seguida, selecione **Next**.   
+    9.2 Na **Licença de Software de Terceiros,** selecione aceito o contrato de licença de **terceiros** e, em seguida, selecione **Next**.   
     9.3 No **Registo**, selecione **Procurar,** e depois vá para onde coloca o ficheiro da chave de registo do cofre. Selecione **Seguinte**.  
-    9.4 Nas **definições da Internet**, selecione **Connect to Azure Site Recovery sem um servidor proxy**e, em seguida, selecione **Next**.  
+    9.4 Nas **definições da Internet**, selecione **Connect to Azure Site Recovery sem um servidor proxy** e, em seguida, selecione **Next**.  
     9.5 A página **pré-requisitos Verificar** verifica vários itens. Quando terminar, selecione **Seguinte**.  
     9.6 Na **Configuração MySQL,** forneça uma palavra-passe para o DB MySQL e, em seguida, selecione **Next**.  
     9.7 Em **Detalhes ambientais**, selecione **Nº**. Não precisas de proteger os teus VMs. Em seguida, selecione **Seguinte**.  
@@ -185,7 +161,7 @@ O primeiro passo da migração é configurar o aparelho de replicação. Para co
     9.11 **O progresso da instalação** mostra-lhe informações sobre o processo de instalação. Quando terminar, selecione **Concluir**. Uma janela apresenta uma mensagem sobre uma reinicialização. Selecione **OK**.   
     9.12 Em seguida, uma janela apresenta uma mensagem sobre a palavra-passe de ligação do servidor de configuração. Copie a frase-passe para a sua prancheta e guarde a palavra-passe num ficheiro de texto temporário nos VMs de origem. Você precisará desta palavra-passe mais tarde, durante o processo de instalação do serviço de mobilidade.
 10. Após a conclusão da instalação, o assistente de configuração do Aparelho será lançado automaticamente (Também pode lançar o assistente manualmente utilizando o atalho cspsconfigtool que é criado no ambiente de trabalho do aparelho). Utilize o separador 'Contas's Manage do assistente para adicionar detalhes da conta a utilizar para impulsionar a instalação do serviço Mobility. Neste tutorial, vamos instalar manualmente o Serviço de Mobilidade em VMs de origem a serem replicados, por isso crie uma conta falsa neste passo e prossiga. Pode fornecer os seguintes detalhes para criar a conta falsa - "guest" como o nome amigável, "username" como nome de utilizador, e "password" como palavra-passe para a conta. Utilizará esta conta falsa na fase de Replicação ativa. 
-11. Depois de o aparelho ter sido reiniciado após a configuração, nas **máquinas Discover**, selecione o novo aparelho no **Servidor de Configuração Select**e clique em Finalizar o **registo**. Finalizar o registo executa algumas tarefas finais para preparar o aparelho de replicação.
+11. Depois de o aparelho ter sido reiniciado após a configuração, nas **máquinas Discover**, selecione o novo aparelho no **Servidor de Configuração Select** e clique em Finalizar o **registo**. Finalizar o registo executa algumas tarefas finais para preparar o aparelho de replicação.
 
     ![Finalizar o registo](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
@@ -282,7 +258,7 @@ Um agente de serviço de mobilidade deve ser instalado na fonte GCP VMs para ser
 
 ![Definições de cálculo](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-13. Em Discos , **especifique**se os discos VM devem ser replicados para Azure e selecione o tipo de disco (discos geridos padrão SSD/HDD ou discos geridos premium) em Azure. Em seguida, clique em **Seguinte**.
+13. Em Discos , **especifique** se os discos VM devem ser replicados para Azure e selecione o tipo de disco (discos geridos padrão SSD/HDD ou discos geridos premium) em Azure. Em seguida, clique em **Seguinte**.
     - Pode excluir discos da replicação.
     - Se excluir discos, estes não estarão presentes na VM do Azure após a migração. 
 
@@ -402,6 +378,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 - Reveja a secção [de pré-requisitos](#prerequisites) para determinar se existem alterações necessárias para o sistema operativo antes de as migrar para Azure.
 - Recomendamos sempre que faça um teste de migração antes da migração final.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

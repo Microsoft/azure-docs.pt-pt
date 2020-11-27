@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/19/2019
 ms.author: jeedes
-ms.openlocfilehash: b451e1645061d2de1758bf02ff0f59c07a43158e
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0264baf6a8ff107c4a3aa811b9e8639352dca782
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457525"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301802"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Tutorial: Integração do Azure Ative Directory com Backup de Ponto Final autotask
 
@@ -61,7 +61,7 @@ Para configurar a integração do Autotask Endpoint Backup em AZure AD, é neces
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, **digite Cópia**de Segurança Final do ponto de crédito automático , selecione Cópia de Segurança Final automática do painel de **resultados** e clique em **Adicionar** botão adicionar a aplicação.
+4. Na caixa de pesquisa, **digite Cópia** de Segurança Final do ponto de crédito automático , selecione Cópia de Segurança Final automática do painel de **resultados** e clique em **Adicionar** botão adicionar a aplicação.
 
      ![Cópia de segurança do ponto final automática na lista de resultados](common/search-new-app.png)
 
@@ -106,7 +106,7 @@ Para configurar o Azure AD com a Autotask Endpoint Backup, execute os seguintes 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<subdomain>.backup.autotask.net/singlesignon/saml/SSO`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte a equipa de [suporte do cliente de backup da Autotask](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte a equipa de [suporte do cliente de backup da Autotask](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -124,7 +124,7 @@ Para configurar o Azure AD com a Autotask Endpoint Backup, execute os seguintes 
 
 ### <a name="configure-autotask-endpoint-backup-single-sign-on"></a>Configurar o single de backup de ponto final de marca automática Sign-On
 
-Para configurar um único sinal de acesso no lado **de backup de endpoint autotask,** você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a equipa de [suporte de backup de Endpoint Autotask](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Para configurar um único sinal de acesso no lado **de backup de endpoint autotask,** você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a equipa de [suporte de backup de Endpoint Autotask](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
@@ -155,7 +155,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, concedendo acesso a Autotask Endpoint Backup.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Autotask Endpoint Backup**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Autotask Endpoint Backup**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -179,7 +179,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
 
 ### <a name="create-autotask-endpoint-backup-test-user"></a>Criar utilizador de teste de backup de ponto final automático
 
-Nesta secção, cria um utilizador chamado Britta Simon em Autotask Endpoint Backup. Trabalhe com [a equipa de suporte de backup do Ponto Final da Autotask](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm) para adicionar os utilizadores na plataforma de backup de ponto final Autotask. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria um utilizador chamado Britta Simon em Autotask Endpoint Backup. Trabalhe com [a equipa de suporte de backup do Ponto Final da Autotask](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) para adicionar os utilizadores na plataforma de backup de ponto final Autotask. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

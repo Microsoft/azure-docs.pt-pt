@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: b9bcdbdf8bdad0d1ad96fc043f29a84b962318c2
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 9f443b15cd427dd31c2ffa95af8d1124f1169881
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95324023"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302642"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Quickstart: Criar um equilibrador de carga público para carregar VMs de equilíbrio usando Azure PowerShell
 
@@ -618,7 +618,7 @@ Nesta secção, irá criar as máquinas virtuais para o pool de backend do equil
 
 * Criar três interfaces de rede com [o New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface).
 
-* Desconfime de utilizador e palavra-passe para os VMs com [Get-Credential](/powershell/reference/5.1/microsoft.powershell.security/Get-Credential).
+* Desconfime de utilizador e palavra-passe para os VMs com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential).
 
 * Utilize [o New-AzAvailabilitySet](/powershell/module/az.compute/new-azvm) para criar um conjunto de disponibilidade para as máquinas virtuais.
 
@@ -777,7 +777,7 @@ Copie o endereço IP público e cole-o na barra de endereço do browser. A pági
 
 Para ver o balanceador de carga distribuir tráfego através dos três VMs, pode personalizar a página padrão de cada servidor Web IIS de cada VM e, em seguida, refrescar o seu navegador web a partir da máquina do cliente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, o equilibrador de carga e os recursos restantes.
 

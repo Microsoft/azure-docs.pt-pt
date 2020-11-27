@@ -4,12 +4,12 @@ description: Este artigo descreve como migrar máquinas físicas para Azure com 
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 67ea5800885b4edb16581f22c199d139053af495
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c783cb22ce8a31d346e98c53dee365fa59b73b8a
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018941"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302904"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrar máquinas como servidores físicos para Azure
 
@@ -52,7 +52,7 @@ Prepare o Azure para a migração com a Migração do Servidor.
 
 **Tarefa** | **Detalhes**
 --- | ---
-**Criar um projeto do Azure Migrate** | A sua conta Azure precisa de permissões de Contribuidor ou Proprietário para criar um projeto.
+**Criar um projeto do Azure Migrate** | A sua conta Azure necessita de permissões de Colaborador ou Proprietário para [criar um novo projeto.](https://docs.microsoft.com/azure/migrate/create-manage-projects)
 **Verifique permissões para a sua conta Azure** | A sua conta Azure necessita de permissões para criar um VM e escrever para um disco gerido pelo Azure.
 
 
@@ -110,28 +110,6 @@ Prepare-se para a colocação do aparelho da seguinte forma:
 
 > [!NOTE]
 > O aparelho de replicação não deve ser instalado numa máquina de origem que pretende replicar ou no aparelho de deteção e avaliação Azure Migrate que possa ter instalado anteriormente.
-
-## <a name="add-the-server-migration-tool"></a>Adicione a ferramenta de migração do servidor
-
-Crie um projeto Azure Migrate e, em seguida, adicione-lhe a ferramenta de migração do servidor.
-
-1. No portal do Azure > **Todos os serviços**, procure **Azure Migrate**.
-2. Em **Serviços**, selecione **Azure Migrate**.
-3. Em **Descrição geral**, clique em **Avaliar e migrar servidores**.
-4. No **âmbito do Discover, avaliar e migrar servidores,** clique em **Avaliar e migrar servidores**.
-
-    ![Detetar e avaliar servidores](./media/tutorial-migrate-physical-virtual-machines/assess-migrate.png)
-
-5. Em **Detetar, avaliar e migrar servidores**, clique em **Adicionar ferramentas**.
-6. Em **Migrar projeto**, selecione a sua subscrição do Azure e crie um grupo de recursos, caso não tenha um.
-7. Em **Detalhes do Projeto**, especifique o nome do projeto e a geografia na qual pretende criar o projeto e clique em **Seguinte**. Reveja geografias apoiadas para nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais.](migrate-support-matrix.md#supported-geographies-azure-government)
-
-    ![Criar um projeto do Azure Migrate](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
-
-8. Em **Selecionar ferramenta de avaliação**, selecione **Ignorar a adição de uma ferramenta de avaliação por enquanto** > **Seguinte**.
-9. Em **Selecionar ferramenta de migração**, selecione **Azure Migrate: Migração de Servidores** > **Seguinte**.
-10. Em **Analisar + adicionar ferramentas**, analise as definições e clique em **Adicionar ferramentas**
-11. Depois de adicionar a ferramenta, aparece no projeto Azure **Servers** Migrate >  >  **ferramentas de migração** de servidores .
 
 ## <a name="set-up-the-replication-appliance"></a>Configurar o aparelho de replicação
 
@@ -367,6 +345,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
     - Considere implementar o [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para monitorizar a utilização e as despesas do recurso.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

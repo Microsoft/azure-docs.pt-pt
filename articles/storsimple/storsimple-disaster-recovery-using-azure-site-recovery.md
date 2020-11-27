@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 6d98f1a1dfb575f4af8b666d173f9354b5eeac6b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e2d89718d953f05b3e5500db412ac8ac03bfa00b
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966263"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301938"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução automatizada de recuperação de desastres utilizando a recuperação do site Azure para ações de ficheiros hospedadas no StorSimple
 
@@ -44,7 +44,7 @@ Implementar uma solução de recuperação de desastres de um clique que utiliza
    - Dispositivo de armazenamento StorSimple no local registado com gerente da Azure StorSimple
    - StorSimple Cloud Appliance criado no gestor Azure StorSimple. O aparelho pode ser mantido num estado de paragem.
    - Ações de ficheiros acolhidas nos volumes configurados no dispositivo de armazenamento StorSimple
-   - [Cofre de serviços de recuperação de site Azure](/azure/storsimple/hyper-v-vmm-disaster-recovery) criado numa subscrição do Microsoft Azure
+   - [Cofre de serviços de recuperação de site Azure](/azure/site-recovery/hyper-v-vmm-azure-tutorial) criado numa subscrição do Microsoft Azure
 
 Além disso, se o Azure for o seu local de recuperação, execute a [ferramenta de Avaliação de Prontidão virtual da máquina Azure](https://azure.microsoft.com/downloads/vm-readiness-assessment/) em VMs para garantir que são compatíveis com os serviços de VMs Azure e Azure Site Recovery.
 
@@ -112,7 +112,7 @@ Este passo requer que prepare o ambiente do servidor de ficheiros no local, crie
    1. Utilize a função de Serviços de Ficheiros e Armazenamento para criar ações de ficheiros nestes volumes.
 
 #### <a name="to-create-and-prepare-an-azure-site-recovery-vault"></a>Para criar e preparar um cofre de recuperação do local de Azure
-Consulte a [documentação de recuperação do site Azure](/azure/storsimple/hyper-v-azure-tutorial) para começar com a Recuperação do Site Azure antes de proteger o VM do servidor de ficheiros.
+Consulte a [documentação de recuperação do site Azure](/azure/site-recovery/) para começar com a Recuperação do Site Azure antes de proteger o VM do servidor de ficheiros.
 
 #### <a name="to-enable-protection"></a>Para permitir a proteção
 1. Desligue o(s) alvo iSCSI dos VMs no local que pretende proteger através da Recuperação do Sítio azul:
@@ -124,7 +124,7 @@ Consulte a [documentação de recuperação do site Azure](/azure/storsimple/hyp
    > [!NOTE]
    > Isto fará com que as ações dos ficheiros não estejam temporariamente disponíveis.
    
-1. [Ativar a proteção da máquina virtual](/azure/storsimple/hyper-v-azure-tutorial) do servidor de ficheiros VM a partir do portal de recuperação do site Azure.
+1. [Ativar a proteção da máquina virtual](/azure/site-recovery/hyper-v-azure-tutorial) do servidor de ficheiros VM a partir do portal de recuperação do site Azure.
 1. Quando a sincronização inicial começar, pode voltar a ligar o alvo. Vá ao iniciador iSCSI, selecione o dispositivo StorSimple e clique em **Connect**.
 1. Quando a sincronização estiver completa e o estado do VM estiver **protegido,** selecione o VM, selecione o **separador Configure** e atualize a rede do VM em conformidade (esta é a rede da qual a falha sobre VM(s) fará parte). Se a rede não aparecer, significa que a sincronização continua.
 

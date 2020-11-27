@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: a58fa45f47ee8dce4ec96591551abad76c1218ee
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 86c6ea9dded423e7bd513faf73adfd293f2bd38f
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045487"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302601"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Convenções do IoT Plug and Play
 
@@ -43,7 +43,7 @@ A telemetria enviada de um dispositivo sem componentes não requer metadados ext
 
 A telemetria enviada a partir de um dispositivo de vários componentes deve adicionar `$.sub` como propriedade de mensagem. O sistema adiciona as `dt-subject` `dt-dataschema` propriedades e propriedades.
 
-## <a name="read-only-properties"></a>Propriedades apenas de leitura
+## <a name="read-only-properties"></a>Propriedades só de leitura
 
 ### <a name="sample-no-component-read-only-property"></a>Amostra nenhuma propriedade só de leitura de componente
 
@@ -79,7 +79,7 @@ Carga de propriedade reportada por amostra:
 
 O dispositivo ou módulo deve adicionar o `{"__t": "c"}` marcador para indicar que o elemento se refere a um componente.
 
-DTDL:
+DTDL que faz referência a um componente:
 
 ```json
 {
@@ -95,7 +95,11 @@ DTDL:
     }
   ]
 }
+```
 
+DTDL que define o componente:
+
+```json
 {
   "@context": "dtmi:dtdl:context;2",
   "@id": "dtmi:com:example:Thermostat;1",
@@ -255,7 +259,7 @@ Quando um dispositivo recebe várias propriedades relatadas numa única carga ú
 
 O dispositivo ou módulo deve confirmar que recebeu as propriedades enviando propriedades reportadas:
 
-DTDL:
+DTDL que faz referência a um componente:
 
 ```json
 {
@@ -271,7 +275,11 @@ DTDL:
     }
   ]
 }
+```
 
+DTDL que define o componente:
+
+```json
 {
   "@context": "dtmi:dtdl:context;2",
   "@id": "dtmi:com:example:Thermostat;1",
@@ -338,7 +346,7 @@ Nenhuma interface de componente utiliza o nome de comando sem um prefixo.
 
 Num dispositivo ou módulo, várias interfaces de componentes utilizam nomes de comando com o seguinte formato: `componentName*commandName` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu sobre as convenções IoT Plug and Play, aqui estão alguns recursos adicionais:
 

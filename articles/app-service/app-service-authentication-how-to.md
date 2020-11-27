@@ -4,12 +4,12 @@ description: Aprenda a personalizar a funcionalidade de autenticação e autoriz
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: ad83e7ad5e1ffc03bf7c62df9b28512e19a62100
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0e07dc42a45a697b293e2ebc90bdd92aa924f071
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010202"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302024"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado da autenticação e autorização no Serviço de Aplicações Azure
 
@@ -172,7 +172,7 @@ Quando o token de acesso do seu fornecedor (não o token da [sessão)](#extend-s
 
 - **Google**: Apeia um `access_type=offline` parâmetro de cadeia de consulta à sua chamada `/.auth/login/google` API. Se utilizar o SDK de aplicações móveis, pode adicionar o parâmetro a uma das `LogicAsync` sobrecargas (ver [Google Refresh Tokens).](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)
 - **Facebook**: Não fornece fichas de atualização. As fichas de longa duração expiram em 60 dias (ver [Expiração do Facebook e Extensão de Fichas de Acesso).](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)
-- **Twitter**: Os tokens de acesso não expiram (ver [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
+- **Twitter**: Os tokens de acesso não expiram (ver [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/authentication/faq)).
 - **Conta Microsoft**: Ao [configurar as Definições de Autenticação da Conta microsoft,](configure-authentication-provider-microsoft.md)selecione o `wl.offline_access` âmbito.
 - **Diretório Ativo Azure**: Em [https://resources.azure.com](https://resources.azure.com) , faça os seguintes passos:
     1. No topo da página, selecione **Ler/Escrever.**
@@ -533,7 +533,7 @@ az webapp auth update --name <my_app_name> \
 
 Pode executar este comando a partir da [Azure Cloud Shell](../cloud-shell/overview.md) escolhendo-o na amostra de código anterior. **Try it** Também pode utilizar o [Azure CLI localmente](/cli/azure/install-azure-cli) para executar este comando depois de executar [o login az](/cli/azure/reference-index#az-login) para iniciar sessão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Tutorial: Autenticar e autorizar utilizadores ponto a ponto](tutorial-auth-aad.md)

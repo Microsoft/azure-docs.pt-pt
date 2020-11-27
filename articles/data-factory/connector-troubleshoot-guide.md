@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 11/25/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2e54c0b09c3dbe398b0522d0ad9ad2314e29ed26
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dcc84dc252001721a3848a008a3db80dcc7822d2
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023845"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301269"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Resolver Problemas dos Conectores do Azure Data Factory
 
@@ -440,7 +440,7 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 
 - **Mensagem:**`The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
-- **Causa**: Quando definir 'firstRowAsHeader' em atividade, a primeira linha será usada como nome de coluna. Este erro significa que a primeira linha contém valor vazio. Por exemplo: 'ColunaA,, ColunaB'.
+- **Causa**: Quando definir 'firstRowAsHeader' em atividade, a primeira linha será usada como nome de coluna. Este erro significa que a primeira linha contém valor vazio. Por exemplo: 'ColunaA, ColunaB'.
 
 - **Recomendação**: Verifique a primeira linha e fixe o valor se houver valor vazio.
 
@@ -449,7 +449,7 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 
 - **Mensagem:**`Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
 
-- **Causa:** A contagem de colunas problemáticas é grande do que a contagem de colunas da primeira linha. Pode ser causado por problemas de dados ou configurações incorretas de delimiter/citação de colunas.
+- **Causa:** A contagem de colunas problemáticas é maior do que a contagem de colunas da primeira linha. Pode ser causado por problemas de dados ou configurações incorretas de delimiter/citação de colunas.
 
 - **Recomendação**: Obtenha a contagem de linha em mensagem de erro, verifique a coluna da linha e corrija os dados.
 
@@ -646,6 +646,29 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 - **Recomendação**: Remova 'CompressionType' na carga útil.
 
 
+## <a name="rest"></a>REST
+
+### <a name="unexpected-network-response-from-rest-connector"></a>Resposta inesperada da rede do conector REST
+
+- **Sintomas**: O ponto final recebe por vezes uma resposta inesperada (400 / 401 / 403 / 500) do conector REST.
+
+- **Causa**: O conector de fonte REST utiliza o método URL e HTTP/cabeçalho/corpo a partir de serviço/conjunto de dados/fonte de cópia ligado como parâmetros ao construir um pedido HTTP. A questão é provavelmente causada por alguns erros em um ou mais parâmetros especificados.
+
+- **Resolução:** 
+    - Utilize 'caracóis' na janela cmd para verificar se o parâmetro é a causa ou não **(Os** cabeçalhos aceitar e **do agente de utilizador** devem ser sempre incluídos):
+        ```
+        curl -i -X <HTTP method> -H <HTTP header1> -H <HTTP header2> -H "Accept: application/json" -H "User-Agent: azure-data-factory/2.0" -d '<HTTP body>' <URL>
+        ```
+      Se o comando retornar a mesma resposta inesperada, fixe acima dos parâmetros com 'curl' até que retorne a resposta esperada. 
+
+      Também pode usar 'curl --help' para uma utilização mais avançada do comando.
+
+    - Se apenas o conector ADF REST retornar uma resposta inesperada, contacte o suporte da Microsoft para uma resolução de problemas.
+    
+    - Por favor, note que o 'curl' pode não ser adequado para reproduzir a emissão de validação de certificadoS SSL. Em alguns cenários, o comando 'curl' foi executado com sucesso sem atingir qualquer problema de validação de cert SSL. Mas quando o mesmo URL é executado no navegador, nenhum cert SSL é realmente devolvido em primeiro lugar para que o cliente estabeleça confiança com o servidor.
+
+      Ferramentas como **Carteiro** e **Violinista** são recomendadas para o caso acima.
+
 
 ## <a name="general-copy-activity-error"></a>Erro de atividade de cópia geral
 
@@ -687,7 +710,7 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 - **Mensagem:**`Invalid 'ordinal' property for sink column under 'mappings' property. Ordinal: %Ordinal;.`
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais ajuda para resolver problemas, experimente estes recursos:
 

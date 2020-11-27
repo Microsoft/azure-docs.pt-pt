@@ -4,12 +4,12 @@ description: Aprenda a executar uma migração sem agente de VMware VMs com Azur
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 3e263306cf18dfebe4b73f8d940b8eb5c99ed16f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 7eb918a844b1cd542664ac7e5aec2736ceba0e6f
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310623"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301633"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrar VMware VMs para Azure (sem agente)
 
@@ -21,7 +21,7 @@ Este tutorial é o terceiro de uma série que demonstra como avaliar e migrar VM
 > Os tutoriais mostram-lhe o caminho de implantação mais simples para um cenário para que possa configurar rapidamente uma prova de conceito. Os tutoriais utilizam opções predefinidas sempre que possível e não mostram todas as definições e caminhos possíveis. 
 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Adicione a ferramenta Azure Migration:Server Migration.
@@ -38,24 +38,8 @@ Antes de começar este tutorial, tem de:
 
 1. [Complete o primeiro tutorial](./tutorial-discover-vmware.md) para preparar Azure e VMware para migração.
 2. Recomendamos que complete o segundo tutorial para [avaliar VMware VMs](./tutorial-assess-vmware-azure-vm.md) antes de os migrar para Azure, mas não é preciso. 
-
-
-## <a name="add-the-azure-migrate-server-migration-tool"></a>Adicione a ferramenta de migração do servidor Azure Migrate
-
-Se ainda não montou um projeto Azure Migrate, [faça-o](how-to-add-tool-first-time.md) antes de adicionar a ferramenta. Se tiver um projeto configurado, adicione a ferramenta da seguinte forma:
-
-1. No projeto Azure Migrate, clique em **Visão Geral**. 
-2. No **Discover, avaliar e migrar servidores,** clique em **Avaliar e migrar servidores**.
-
-     ![Avaliar e migrar servidores](./media/tutorial-migrate-vmware/assess-migrate.png)
-
-3. Nas **ferramentas de migração,** selecione **Clique aqui para adicionar uma ferramenta de migração quando estiver pronto para migrar**.
-
-    ![Selecione uma ferramenta](./media/tutorial-migrate-vmware/select-migration-tool.png)
-
-4. Na lista de ferramentas, selecione **Azure Migrate: Ferramenta De Migração de Servidor**  >  **Adicionar**
-
-    ![Ferramenta de Migração do Servidor](./media/tutorial-migrate-vmware/server-migration-tool.png)
+3. Vá ao projeto já criado ou [crie um novo projeto](https://docs.microsoft.com/azure/migrate/create-manage-projects)
+4. Verifique permissões para a sua conta Azure - A sua conta Azure necessita de permissões para criar um VM e escreva para um disco gerido azure.
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Configurar o aparelho Azure Migrate
 
@@ -84,7 +68,7 @@ Ative a replicação da seguinte forma:
 
     ![Definições de origem](./media/tutorial-migrate-vmware/source-settings.png)
 
-4. Em **Máquinas virtuais**, selecione aquelas que quer replicar. Para aplicar o tamanho de VM e o tipo de disco a partir de uma avaliação se **Yes**executou um, em **definições de migração de importação a partir de uma avaliação de Azure Migrate?** Se não estiver a utilizar as definições de avaliação, selecione **Nº**.
+4. Em **Máquinas virtuais**, selecione aquelas que quer replicar. Para aplicar o tamanho de VM e o tipo de disco a partir de uma avaliação se **Yes** executou um, em **definições de migração de importação a partir de uma avaliação de Azure Migrate?** Se não estiver a utilizar as definições de avaliação, selecione **Nº**.
    
     ![Selecionar avaliação](./media/tutorial-migrate-vmware/select-assessment.png)
 
@@ -132,9 +116,9 @@ Ative a replicação da seguinte forma:
 
 Se este for o primeiro VM que está a replicar no projeto, a Migração de Servidors fornece automaticamente estes recursos, no mesmo grupo de recursos que o projeto.
 
-- **Autocarro de**serviço : A Migração do Servidor utiliza o autocarro de serviço para enviar mensagens de orquestração de replicação para o aparelho.
+- **Autocarro de** serviço : A Migração do Servidor utiliza o autocarro de serviço para enviar mensagens de orquestração de replicação para o aparelho.
 - **Conta de armazenamento gateway**: A migração do servidor utiliza a conta de armazenamento de gateway para armazenar informações do Estado sobre os VMs que estão a ser replicados.
-- **Conta de armazenamento de**registo : O aparelho Azure Migrate envia registos de replicação de VMs para uma conta de armazenamento de registo. Azure Migrate aplica a informação de replicação aos discos geridos por réplicas.
+- **Conta de armazenamento de** registo : O aparelho Azure Migrate envia registos de replicação de VMs para uma conta de armazenamento de registo. Azure Migrate aplica a informação de replicação aos discos geridos por réplicas.
 - **Cofre chave**: O aparelho Azure Migrate utiliza o cofre-chave para gerir as cordas de ligação do autocarro de serviço e as chaves de acesso para as contas de armazenamento utilizadas na replicação.
 
 ## <a name="track-and-monitor"></a>Rastreio e monitor
@@ -217,6 +201,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 -  Considere implementar o [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para monitorizar a utilização e as despesas do recurso.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

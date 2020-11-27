@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ea834ed874f3011d95f8b924df860576f72bc4ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70a56b7efc34ba2fd3c06521c6e4cac6ea28778f
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88825618"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302476"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Criar um recipiente de perfil com ficheiros Azure e Azure AD DS
 
@@ -27,7 +27,7 @@ Para adicionar administradores adicionais, cria um novo utilizador e concede-lhe
 
 Para adicionar um administrador:
 
-1. Selecione **O Diretório Ativo Azure** a partir da barra lateral e, em seguida, selecione **Todos os utilizadores**e, em seguida, selecione **Novo utilizador**.
+1. Selecione **O Diretório Ativo Azure** a partir da barra lateral e, em seguida, selecione **Todos os utilizadores** e, em seguida, selecione **Novo utilizador**.
 
 2.  Introduza os dados do utilizador nos campos.
 
@@ -99,7 +99,7 @@ Para obter a chave de acesso à Conta de Armazenamento:
 7. Execute o seguinte comando:
 
      ```cmd
-     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
+     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
      ```
 
     - `<desired-drive-letter>`Substitua-a por uma letra de unidade à sua escolha (por exemplo, `y:` ).
@@ -146,7 +146,7 @@ Para configurar um recipiente de perfil FSLogix:
 
 3. Assim que o instalador for lançado, **selecione concordo com os termos e condições da licença.** Se aplicável, forneça uma nova chave.
 
-4. Selecione **Instalar**.
+4. Selecione **Install** (Instalar).
 
 5. Open **Drive C**, em seguida, vá a Program **Files**  >  **FSLogix**  >  **Apps** para se certificar de que o agente FSLogix foi corretamente instalado.
 
@@ -155,16 +155,16 @@ Para configurar um recipiente de perfil FSLogix:
 
 6. Executar **Editor de Registo** (RegEdit) como administrador.
 
-7. Navegue para o software de HKEY_LOCAL_MACHINE **de computador**  >  **HKEY_LOCAL_MACHINE**  >  **software**  >  **FSLogix,** clique à direita no **FSLogix**, selecione **New**e, em seguida, selecione **Key**.
+7. Navegue para o software de HKEY_LOCAL_MACHINE **de computador**  >  **HKEY_LOCAL_MACHINE**  >  **software**  >  **FSLogix,** clique à direita no **FSLogix**, selecione **New** e, em seguida, selecione **Key**.
 
 8. Crie uma nova chave chamada **Profiles**.
 
-9.  Clique com o botão direito em **Perfis,** selecione **Novo**e, em seguida, selecione **DWORD (32-bit) Valor.** Nomeie o valor **Ativado** e desa um valor **de Dados** para **1**.
+9.  Clique com o botão direito em **Perfis,** selecione **Novo** e, em seguida, selecione **DWORD (32-bit) Valor.** Nomeie o valor **Ativado** e desa um valor **de Dados** para **1**.
 
     > [!div class="mx-imgBorder"]
     > ![Uma imagem da chave perfis. O ficheiro REG_DWORD é realçado e o seu valor de Dados está definido para 1.](media/dword-value.png)
 
-10. Clique com o botão direito em **Perfis**, selecione **Novo**e, em seguida, selecione **Multi-String Value**. Nomeie o valor **VHDLocations e insira** o URI para a partilha de Ficheiros Azure `\\fsprofile.file.core.windows.net\share` como o valor de Dados.
+10. Clique com o botão direito em **Perfis**, selecione **Novo** e, em seguida, selecione **Multi-String Value**. Nomeie o valor **VHDLocations e insira** o URI para a partilha de Ficheiros Azure `\\fsprofile.file.core.windows.net\share` como o valor de Dados.
 
     > [!div class="mx-imgBorder"]
     > ![Uma imagem da tecla Perfis mostrando o ficheiro VHDLocations. O seu valor de dados mostra o URI para a partilha de Ficheiros Azure.](media/multi-string-value.png)
@@ -240,7 +240,7 @@ Para verificar o seu perfil:
 
     Se tudo estiver bem montado, deve ver um **Diretório** com um nome formatado assim: `<user SID>-<username>` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se procura formas alternativas de criar recipientes de perfil FSLogix, confira os seguintes artigos:
 

@@ -7,21 +7,21 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: troubleshooting
-ms.date: 11/26/2020
-ms.openlocfilehash: f07cc8e3d5e9d6f59671a3c8c2efd9f5fb9f27b7
-ms.sourcegitcommit: 236014c3274b31f03e5fcee5de510f9cacdc27a0
+ms.date: 11/27/2020
+ms.openlocfilehash: e0b4b31a1d732cbd5cbfaa9b6e5e021caa3adf01
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96299061"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301961"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Problemas de CI-CD, Azure DevOps e GitHub em ADF 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo explora métodos comuns de resolução de problemas para problemas ci-CD, Azure DevOps e GitHub na Azure Data Factory.
+Este artigo explora métodos comuns de resolução de problemas para a implementação contínua de Integration-Continuous (CI-CD), problemas de Azure DevOps e GitHub na Azure Data Factory.
 
-Se tiver dúvidas ou problemas na utilização de técnicas de controlo de fontes ou de devOps, aqui estão alguns artigos que pode achar úteis.:
+Se tiver dúvidas ou problemas na utilização de técnicas de controlo de fontes ou de devOps, aqui estão alguns artigos que poderá achar úteis:
 
 - Consulte o [Controlo de Origem em ADF](source-control.md) para saber como é praticado o controlo de origem na ADF. 
 - Consulte o  [CI-CD em ADF](continuous-integration-deployment.md) para saber mais sobre como o DevOps CI-CD é praticado em ADF.
@@ -151,16 +151,12 @@ Criou um papel de cliente como utilizador e não teve a permissão necessária. 
 
 Para resolver o problema, tem de adicionar a seguinte permissão à sua função: *Microsoft.DataFactory/fábricas/consultasFeaturesValue/action*. Esta permissão deve ser incluída por padrão na função "Data Factory Contributor".
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais ajuda na resolução de problemas, experimente os seguintes recursos:
 
 *  [Blog da Fábrica de Dados](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Pedidos de recursos da Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 *  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Microsoft Q&Uma página de perguntas](/answers/topics/azure-data-factory.html)
 *  [Stack overflow forum para data factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informações do Twitter sobre a Data Factory](https://twitter.com/hashtag/DataFactory)
-
-
- 

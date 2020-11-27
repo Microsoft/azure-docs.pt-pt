@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy, devx-track-azurecli
-ms.openlocfilehash: cfa40332c45eac23d062b83bb789c25f1906ae24
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8e479367a04e105ae2111ce66707999aff7ef960
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831638"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302448"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Serviço de alto desempenho com Servidor de Inferência de Tritão (Pré-visualização) 
 
@@ -53,7 +53,7 @@ Antes de tentar usar Tritão para o seu próprio modelo, é importante entender 
 
 ### <a name="setting-the-number-of-workers"></a>Definição do número de trabalhadores
 
-Para definir o número de trabalhadores na sua implantação, desaprote a variável ambiental `WORKER_COUNT` . Dado que tem um objeto [ambiente](https://docs.microsoft.compython/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) `env` chamado, pode fazer o seguinte:
+Para definir o número de trabalhadores na sua implantação, desaprote a variável ambiental `WORKER_COUNT` . Dado que tem um objeto [ambiente](/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) `env` chamado, pode fazer o seguinte:
 
 ```{py}
 env.environment_variables["WORKER_COUNT"] = "1"
@@ -320,7 +320,7 @@ az ml service delete -n triton-densenet-onnx
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Ver amostras de ponta a ponta de Tritão em Azure Machine Learning](https://aka.ms/aml-triton-sample)
 * Confira os [exemplos do cliente tritão](https://github.com/triton-inference-server/server/tree/master/src/clients/python/examples)

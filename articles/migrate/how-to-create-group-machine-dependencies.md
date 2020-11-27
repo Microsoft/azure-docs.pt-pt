@@ -3,16 +3,16 @@ title: Configurar a análise de dependência baseada em agentes na avaliação d
 description: Este artigo descreve como configurar a análise de dependência baseada em agentes na Avaliação do Servidor migratório Azure.
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 17c6e3e24596727350b11946bdf6896e22d41529
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 58c1aeea00ae033def0f45d220c12d13cc28b4b2
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028967"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302853"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurar visualização de dependência
 
-Este artigo descreve como configurar uma análise de dependência sem agente no Azure Migrate:Server Assessment. [A análise da dependência](concepts-dependency-visualization.md) ajuda-o a identificar e a compreender dependências entre máquinas que pretende avaliar e migrar para Azure.
+Este artigo descreve como configurar a análise de dependência baseada em agentes em Azure Migrate:Server Assessment. [A análise da dependência](concepts-dependency-visualization.md) ajuda-o a identificar e a compreender dependências entre máquinas que pretende avaliar e migrar para Azure.
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -42,7 +42,7 @@ Este artigo descreve como configurar uma análise de dependência sem agente no 
 2. Em **Azure Migrate: Avaliação do servidor,** clique em **Essencial**.
 3. No **espaço de trabalho OMS,** clique requer **configuração**.
 
-     ![Configurar log analytics espaço de trabalho](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   
+     ![Configurar a área de trabalho do Log Analytics](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   
 
 4. No **espaço de trabalho Configure OMS**, especifique se pretende criar um novo espaço de trabalho ou utilizar um existente.
     - Pode selecionar um espaço de trabalho existente a partir de todos os espaços de trabalho na subscrição do projeto migratório.
@@ -205,6 +205,6 @@ VMConnection
 | summarize sum(BytesSent), sum(BytesReceived) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Criar uma avaliação](how-to-create-assessment.md) para um grupo.
