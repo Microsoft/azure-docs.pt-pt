@@ -62,7 +62,7 @@
         - name: Integrar no Azure Sentinel
           href: scenario-onboard-azure-sentinel.md
         - name: Integrar no Centro de Segurança do Azure
-          href: /security-center/quickstart-onboard-machines.md
+          href: /security-center/quickstart-onboard-machines
     - name: Resolução de problemas
       items:
         - name: Problemas de ligação do agente
