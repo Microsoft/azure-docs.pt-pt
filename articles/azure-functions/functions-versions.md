@@ -4,12 +4,12 @@ description: O Azure Functions suporta várias versões do tempo de execução. 
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
-ms.openlocfilehash: c67708b5c23667a7b0a1603b756d564b35fa0c3f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3997c5e79192f4386ee5280350620a748dd1489b
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533740"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309716"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Visão geral das versões de tempo de execução do Azure Functions
 
@@ -27,8 +27,6 @@ Começando pela versão 2.x, o tempo de execução utiliza um modelo de extensib
 A tabela seguinte indica quais as linguagens de programação que são atualmente suportadas em cada versão de tempo de execução.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
-
-Para obter mais informações, veja os [Idiomas suportados](supported-languages.md).
 
 ## <a name="run-on-a-specific-version"></a><a name="creating-1x-apps"></a>Executar em uma versão específica
 
@@ -194,7 +192,7 @@ A tabela a seguir mostra quais as ligações suportadas em cada versão de tempo
 
 [!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, veja os seguintes recursos:
 

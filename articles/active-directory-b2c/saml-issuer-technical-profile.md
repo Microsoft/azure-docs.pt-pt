@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 73c381624b69acb6fe7a6296a3153160812818bf
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: b4fb7c6fb3bbf02e5f1aba25c868e4a44e8507dd
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886418"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309635"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico para um emitente de token SAML numa política personalizada do Azure Ative Directory B2C
 
@@ -60,6 +60,8 @@ Os **elementos InputClaims,** **OutputClaims** e **PersistClaims** estão vazios
 | EmitenteUri | No | O nome do emitente que aparece na resposta SAML. O valor deve ser o mesmo que configurado na aplicação do partido em gestão. |
 | XmlSignatureAlgorithm | No | O método que a Azure AD B2C utiliza para assinar a Afirmação SAML. Valores possíveis: `Sha256` `Sha384` , , ou `Sha512` `Sha1` . Certifique-se de configurar o algoritmo de assinatura em ambos os lados com o mesmo valor. Use apenas o algoritmo que o seu certificado suporta. Para configurar a resposta SAML, consulte [os metadados SAML do partido Relying](relyingparty.md#metadata)|
 |TokenNotBeforeSkewInSeconds| No| Especifica o desvio, como um inteiro, para o carimbo de tempo que marca o início do período de validade. Quanto maior for este número, mais recua no tempo o período de validade começa em relação ao tempo em que os pedidos são emitidos para a parte que conta. Por exemplo, quando o TokenNotBeforeSkewInSegundos está definido para 60 segundos, se o token for emitido às 13:05:10 UTC, o token é válido a partir das 13:04:10 UTC. O valor predefinido é 0. O valor máximo é de 3600 (uma hora). |
+|TokenLifeTimeInSeconds| No| Especifica a vida da Afirmação SAML. Este valor encontra-se em segundos a partir do valor "NotBefore" referido acima. O valor predefinido é de 300 segundos (5 Min). |
+
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 
@@ -74,7 +76,7 @@ O elemento CryptographicKeys contém os seguintes atributos:
 
 Para configurar as sessões Azure AD B2C SAML entre uma aplicação de partido em suporte, o atributo do `UseTechnicalProfileForSessionManagement` elemento, referência à sessão [SSO SSO da SamlSSOSessionProvider.](custom-policy-reference-sso.md#samlssosessionprovider)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o seguinte artigo, por exemplo, utilizando um perfil técnico de emitente SAML:
 

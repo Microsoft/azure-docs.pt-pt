@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: ac785b3ad534e80d4dd240d1a29ba5f6aa75e10a
-ms.sourcegitcommit: 236014c3274b31f03e5fcee5de510f9cacdc27a0
+ms.openlocfilehash: 6264ea50f128764a5213a7a1fd9b8c47ddae8961
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96299044"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309686"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente do Azure Monitor 
 
@@ -76,7 +76,23 @@ Customer-Managed configuração chave não é suportada no portal Azure e o forn
 
 ### <a name="asynchronous-operations-and-status-check"></a>Operações assíncronos e verificação de estado
 
-Alguns dos passos de configuração são assíncronos porque não podem ser concluídos rapidamente. Ao utilizar o REST, a resposta devolve inicialmente um código de estado HTTP 200 (OK) e cabeçalho com propriedade *Azure-AsyncOperation* quando aceite:
+Alguns dos passos de configuração são assíncronos porque não podem ser concluídos rapidamente. A `status` resposta contém um dos seguintes: "InProgress", "Atualizar", "Apagar", "Bem sucedido ou Falhado" incluindo o código de erro.
+
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+N/D
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+N/D
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+N/D
+
+# <a name="rest"></a>[REST](#tab/rest)
+
+Ao utilizar o REST, a resposta devolve inicialmente um código de estado HTTP 200 (OK) e cabeçalho com propriedade *Azure-AsyncOperation* quando aceite:
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
@@ -87,7 +103,7 @@ GET https://management.azure.com/subscriptions/subscription-id/providers/microso
 Authorization: Bearer <token>
 ```
 
-A `status` resposta contém um dos seguintes: "InProgress", "Atualizar", "Apagar", "Bem sucedido ou Falhado" incluindo o código de erro.
+---
 
 ### <a name="allowing-subscription"></a>Permitir a subscrição
 
@@ -137,16 +153,25 @@ Atualize keyVaultProperties em cluster com detalhes do Identificador chave.
 
 A operação é assíncronea e pode demorar um pouco a ser concluída.
 
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+N/D
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
 ```azurecli
 az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --key-name "key-name" --key-vault-uri "key-uri" --key-version "key-version"
 ```
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
 ```
 
+# <a name="rest"></a>[REST](#tab/rest)
+
 ```rst
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name"?api-version=2020-08-01
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2020-08-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -200,6 +225,8 @@ Uma resposta ao pedido GET deve ser assim quando a atualização do identificado
 }
 ```
 
+---
+
 ### <a name="link-workspace-to-cluster"></a>Link espaço de trabalho para cluster
 
 Você precisa ter permissões de 'escrever' tanto para o seu espaço de trabalho como para cluster para realizar esta operação, que incluem estas ações:
@@ -250,15 +277,25 @@ Quando traz o seu próprio armazenamento (BYOS) e o liga ao seu espaço de traba
 
 Ligue uma conta de armazenamento para *consulta* ao seu espaço de trabalho- as consultas *de pesquisa guardadas* são guardadas na sua conta de armazenamento. 
 
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+N/D
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 az monitor log-analytics workspace linked-storage create --type Query --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
 ```
+
+# <a name="rest"></a>[REST](#tab/rest)
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-08-01
@@ -276,21 +313,33 @@ Content-type: application/json
 }
 ```
 
+---
+
 Após a configuração, qualquer nova consulta *de pesquisa guardada* será guardada no seu armazenamento.
 
 **Configure BYOS para consultas de alerta de registo**
 
 Ligue uma conta de armazenamento para *alertas* para o seu espaço de trabalho -- as consultas *de alerta de registo* são guardadas na sua conta de armazenamento. 
 
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+N/D
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 az monitor log-analytics workspace linked-storage create --type ALerts --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccount.Id
 ```
+
+# <a name="rest"></a>[REST](#tab/rest)
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-08-01
@@ -308,9 +357,12 @@ Content-type: application/json
 }
 ```
 
+---
+
 Após a configuração, qualquer nova consulta de alerta será guardada no seu armazenamento.
 
 ## <a name="customer-lockbox-preview"></a>Caixa de bloqueio do cliente (pré-visualização)
+
 O Lockbox dá-lhe o controlo para aprovar ou rejeitar o pedido do engenheiro da Microsoft para aceder aos seus dados durante um pedido de suporte.
 
 No Azure Monitor, você tem este controlo sobre dados em espaços de trabalho ligados ao seu cluster dedicado Log Analytics. O controlo Lockbox aplica-se aos dados armazenados num cluster dedicado ao Log Analytics, onde é mantido isolado nas contas de armazenamento do cluster sob a subscrição protegida do Lockbox.  
@@ -321,13 +373,23 @@ Saiba mais sobre [o Lockbox do Cliente para o Microsoft Azure](../../security/fu
 
 - **Obtenha todos os clusters em um grupo de recursos**
   
+  # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+  N/D
+
+  # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
   ```azurecli
   az monitor log-analytics cluster list --resource-group "resource-group-name"
   ```
 
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
   ```
+
+  # <a name="rest"></a>[REST](#tab/rest)
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
@@ -369,15 +431,27 @@ Saiba mais sobre [o Lockbox do Cliente para o Microsoft Azure](../../security/fu
   }
   ```
 
+  ---
+
 - **Obtenha todos os clusters numa subscrição**
+
+  # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+  N/D
+
+  # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
   ```azurecli
   az monitor log-analytics cluster list
   ```
 
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Get-AzOperationalInsightsCluster
   ```
+
+  # <a name="rest"></a>[REST](#tab/rest)
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
@@ -388,17 +462,29 @@ Saiba mais sobre [o Lockbox do Cliente para o Microsoft Azure](../../security/fu
     
   A mesma resposta que para "cluster num grupo de recursos", mas no âmbito de subscrição.
 
+  ---
+
 - **Atualização *da reserva de capacidade* no cluster**
 
   Quando o volume de dados para os seus espaços de trabalho ligados mudar ao longo do tempo e pretende atualizar adequadamente o nível de reserva de capacidade. Siga o [cluster de atualização](#update-cluster-with-key-identifier-details) e forneça o seu novo valor de capacidade. Pode estar entre 1000 e 3000 GB por dia e em degraus de 100. Para um nível superior a 3000 GB por dia, contacte o seu contacto microsoft para o ativar. Note que não tem de fornecer todo o corpo de pedido de REST, mas deve incluir o sku:
+
+  # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+  N/D
+
+  # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
   ```azurecli
   az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity daily-ingestion-gigabyte
   ```
 
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity daily-ingestion-gigabyte
   ```
+
+  # <a name="rest"></a>[REST](#tab/rest)
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -413,6 +499,8 @@ Saiba mais sobre [o Lockbox do Cliente para o Microsoft Azure](../../security/fu
   }
   ```
 
+  ---
+
 - **Atualizar *a faturaçãoType* no cluster**
 
   A propriedade *de faturaçãoType* determina a atribuição de faturação para o cluster e seus dados:
@@ -420,6 +508,20 @@ Saiba mais sobre [o Lockbox do Cliente para o Microsoft Azure](../../security/fu
   - *espaços de trabalho* - A faturação é atribuída às subscrições que hospedam os seus espaços de trabalho proporcionalmente
   
   Siga o [cluster de atualização](#update-cluster-with-key-identifier-details) e forneça o seu novo valor de faturaçãoType. Note que não tem de fornecer todo o corpo de pedidos DE REST e deve incluir o *'billingType':*
+
+  # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+  N/D
+
+  # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+  N/D
+
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+  N/D
+
+  # <a name="rest"></a>[REST](#tab/rest)
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -433,36 +535,67 @@ Saiba mais sobre [o Lockbox do Cliente para o Microsoft Azure](../../security/fu
   }
   ``` 
 
+  ---
+
 - **Unlink workspace** (Desassociar a área de trabalho)
 
   Você precisa de permissões de "escrever" no espaço de trabalho e cluster para realizar esta operação. Pode desvincular um espaço de trabalho do seu cluster a qualquer momento. Novos dados ingeridos após a operação de unlink são armazenados no armazenamento do Log Analytics e encriptados com a chave Microsoft. Pode consultar os dados que foram ingeridos no seu espaço de trabalho antes e depois do desvinculação sem problemas, desde que o cluster seja aprovisionado e configurado com a chave de cofre de chaves válida.
 
   Esta operação é assíncronea e pode ser concluída.
 
+  # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+  N/D
+
+  # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
   ```azurecli
   az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --name "cluster-name" --workspace-name "workspace-name"
   ```
 
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -Name "workspace-name" -LinkedServiceName cluster
   ```
+
+  # <a name="rest"></a>[REST](#tab/rest)
 
   ```rest
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
 
+  ---
+
   - **Verifique o estado da ligação do espaço de trabalho**
   
   Execute a operação no espaço de trabalho e observe se a propriedade *clusterResourceId* está presente na resposta sob *as funcionalidades*. Um espaço de trabalho ligado terá a propriedade *clusterResourceId.*
+
+  # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+  N/D
+
+  # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
   ```azurecli
   az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
   ```
 
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
   ```
+
+  # <a name="rest"></a>[REST](#tab/rest)
+
+   ```rest
+  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2020-08-01
+  Authorization: Bearer <token>
+  ```
+
+  ---
 
 - **Elimine o seu cluster**
 
@@ -470,18 +603,30 @@ Saiba mais sobre [o Lockbox do Cliente para o Microsoft Azure](../../security/fu
   
   A operação de desvinculação é assíncronea e pode levar até 90 minutos para ser concluída.
 
+  # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+  N/D
+
+  # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
   ```azurecli
   az monitor log-analytics cluster delete --resource-group "resource-group-name" --name "cluster-name"
   ```
- 
+
+  # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
   ```powershell
   Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
   ```
+
+  # <a name="rest"></a>[REST](#tab/rest)
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
+
+  ---
   
 - **Recupere o seu cluster e os seus dados** 
   

@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: bd929d06bca370ffab53ce2023188bc12a1d8bd1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d2e93ccfaf3ff2c5b74ceef1f6a274f71ee52c4e
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186444"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309839"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportação de dados do espaço de trabalho em Azure Monitor (pré-visualização)
 A exportação de dados do espaço de trabalho do Log Analytics no Azure Monitor permite-lhe exportar continuamente dados de tabelas selecionadas no seu espaço de trabalho Log Analytics para uma conta de armazenamento Azure ou Azure Event Hubs à medida que são recolhidos. Este artigo fornece detalhes sobre esta funcionalidade e passos para configurar a exportação de dados nos seus espaços de trabalho.
@@ -58,7 +58,7 @@ Os dados do espaço de trabalho log Analytics exportam continuamente dados de um
 ## <a name="data-completeness"></a>Preencha os dados
 A exportação de dados continuará a tentar o envio de dados por um tempo até 30 minutos no caso de o destino não estar disponível. Se ainda estiver indisponível após 30 minutos, os dados serão descartados até que o destino fique disponível.
 
-## <a name="cost"></a>Custo
+## <a name="cost"></a>Cost
 Atualmente, não existem encargos adicionais para a funcionalidade de exportação de dados. Os preços para a exportação de dados serão anunciados no futuro e um aviso fornecido antes do início da faturação. Se optar por continuar a utilizar a exportação de dados após o período de pré-aviso, será cobrado à taxa aplicável.
 
 ## <a name="export-destinations"></a>Destinos de exportação
@@ -117,6 +117,10 @@ Se configurar a sua Conta de Armazenamento para permitir o acesso a partir de re
 ### <a name="create-or-update-data-export-rule"></a>Criar ou atualizar regra de exportação de dados
 Uma regra de exportação de dados define os dados a exportar para um conjunto de tabelas para um único destino. Pode criar uma regra para cada destino.
 
+
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+N/D
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -203,6 +207,10 @@ Segue-se um corpo de amostra para o pedido DEE para um centro de eventos onde é
 
 ## <a name="view-data-export-configuration"></a>Ver configuração de exportação de dados
 
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+N/D
+
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Utilize o seguinte comando para visualizar a configuração de uma regra de exportação de dados utilizando O LÍI.
@@ -221,6 +229,10 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ---
 
 ## <a name="disable-an-export-rule"></a>Desativar uma regra de exportação
+
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+N/D
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -256,6 +268,10 @@ Content-type: application/json
 
 ## <a name="delete-an-export-rule"></a>Eliminar uma regra de exportação
 
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+N/D
+
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Utilize o seguinte comando para eliminar uma regra de exportação de dados utilizando o CLI.
@@ -274,6 +290,10 @@ DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegrou
 ---
 
 ## <a name="view-all-data-export-rules-in-a-workspace"></a>Ver todas as regras de exportação de dados num espaço de trabalho
+
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+N/D
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -476,6 +496,6 @@ As tabelas suportadas estão atualmente limitadas às especificadas abaixo. Todo
 | WVDManagement | |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Consultar os dados exportados do Azure Data Explorer](azure-data-explorer-query-storage.md).

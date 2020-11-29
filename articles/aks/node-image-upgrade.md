@@ -3,37 +3,69 @@ title: Atualizar imagens do nó do serviço Azure Kubernetes (AKS)
 description: Saiba como atualizar as imagens nos nós de cluster AKS e nas piscinas de nó.
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.openlocfilehash: 211190228c1ea9c98004b55da96ad38808821d67
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.date: 11/25/2020
+ms.author: jpalma
+ms.openlocfilehash: e8214345bd1c328f0996f8aa8a2a8bb402a76e8d
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682388"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309601"
 ---
 # <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>Atualização de imagem do nó de Azure Kubernetes (AKS)
 
-A AKS suporta a atualização das imagens num nó para que esteja atualizado com as mais recentes atualizações de sistemas operativos e de tempo de execução. A AKS fornece uma nova imagem por semana com as mais recentes atualizações, pelo que é benéfico atualizar regularmente as imagens do seu nó para as funcionalidades mais recentes, incluindo patches Linux ou Windows. Este artigo mostra-lhe como atualizar as imagens do nó de cluster AKS, bem como como atualizar as imagens do node pool sem atualizar a versão de Kubernetes.
+A AKS suporta a atualização das imagens num nó para que esteja atualizado com as mais recentes atualizações de sistemas operativos e de tempo de execução. A AKS fornece uma nova imagem por semana com as mais recentes atualizações, pelo que é benéfico atualizar regularmente as imagens do seu nó para as funcionalidades mais recentes, incluindo patches Linux ou Windows. Este artigo mostra-lhe como atualizar as imagens do nó de cluster AKS e como atualizar as imagens do node pool sem atualizar a versão de Kubernetes.
 
-Se estiver interessado em saber mais sobre as imagens mais recentes fornecidas pela AKS, consulte as notas de lançamento da [AKS](https://github.com/Azure/AKS/releases) para mais detalhes.
+Para obter mais informações sobre as imagens mais recentes fornecidas pela AKS, consulte as notas de lançamento da [AKS](https://github.com/Azure/AKS/releases).
 
 Para obter informações sobre a atualização da versão Kubernetes para o seu cluster, consulte [atualizar um cluster AKS][upgrade-cluster].
 
-## <a name="limitations"></a>Limitações
+> [!NOTE]
+> O cluster AKS deve utilizar conjuntos de balança de máquinas virtuais para os nós.
 
-* O cluster AKS deve utilizar conjuntos de balança de máquinas virtuais para os nós.
+## <a name="check-if-your-node-pool-is-on-the-latest-node-image"></a>Verifique se a piscina do nó está na última imagem do nó
 
-## <a name="install-the-aks-cli-extension"></a>Instale a extensão AKS CLI
-
-Antes da próxima versão core CLI ser lançada, precisa da extensão CLI *de pré-visualização aks* para utilizar o upgrade de imagem do nó. Utilize o comando [de adicionar extensão az][az-extension-add] e, em seguida, verifique se há atualizações disponíveis utilizando o comando de atualização de [extensão az:][az-extension-update]
+Pode ver qual é a versão mais recente da imagem do nó disponível para a sua piscina de nó com o seguinte comando: 
 
 ```azurecli
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
+az aks nodepool get-upgrades \
+    --nodepool-name mynodepool \
+    --cluster-name myAKSCluster \
+    --resource-group myResourceGroup
 ```
+
+Na saída pode ver o `latestNodeImageVersion` mesmo no exemplo abaixo:
+
+```output
+{
+  "id": "/subscriptions/XXXX-XXX-XXX-XXX-XXXXX/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/agentPools/nodepool1/upgradeProfiles/default",
+  "kubernetesVersion": "1.17.11",
+  "latestNodeImageVersion": "AKSUbuntu-1604-2020.10.28",
+  "name": "default",
+  "osType": "Linux",
+  "resourceGroup": "myResourceGroup",
+  "type": "Microsoft.ContainerService/managedClusters/agentPools/upgradeProfiles",
+  "upgrades": null
+}
+```
+
+Assim, para `nodepool1` a última imagem do nó disponível é `AKSUbuntu-1604-2020.10.28` . Pode agora compará-lo com a versão atual da imagem do nó em uso pelo seu conjunto de nó saindo:
+
+```azurecli
+az aks nodepool show \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name mynodepool \
+    --query nodeImageVersion
+```
+
+Um exemplo de saída seria:
+
+```output
+"AKSUbuntu-1604-2020.10.08"
+```
+
+Assim, neste exemplo, pode atualizar da versão de imagem atual `AKSUbuntu-1604-2020.10.08` para a versão mais recente `AKSUbuntu-1604-2020.10.28` . 
 
 ## <a name="upgrade-all-nodes-in-all-node-pools"></a>Atualizar todos os nós em todas as piscinas de nós
 
@@ -64,7 +96,7 @@ az aks show \
 
 A atualização da imagem numa piscina de nós é semelhante à melhoria da imagem num cluster.
 
-Para atualizar a imagem de SO do conjunto de nó sem realizar uma atualização do cluster Kubernetes, utilize a `--node-image-only` opção no seguinte exemplo:
+Para atualizar a imagem de SO do conjunto de nó sem fazer uma atualização do cluster Kubernetes, utilize a `--node-image-only` opção no seguinte exemplo:
 
 ```azurecli
 az aks nodepool upgrade \

@@ -12,12 +12,12 @@ ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4426a305d72fdd86ee58b3f4a05153593515d4b5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7c6ba79a82fe3d291008f3317ddce7df4adcda0a
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949654"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309652"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registar um pedido DE SAML em Azure AD B2C
 
@@ -453,11 +453,11 @@ Um token SAML é um símbolo de segurança emitido pela Azure AD B2C após uma s
 |`<Response>` `<Assertion>` `<Subject>` `<NameID>`     |         |O principal sobre o qual o símbolo afirma informações, como o ID do objeto de utilizador. Este valor é imutável e não pode ser reatribuído ou reutilizado. Pode ser usado para efetuar verificações de autorização com segurança, como quando o token é usado para aceder a um recurso. Por predefinição, a reclamação do sujeito é povoada com o ID do objeto do utilizador no diretório.|
 |`<Response>` `<Assertion>` `<Subject>` `<NameID>`     | `Format` | Uma referência URI que representa a classificação das informações do identificador baseado em cadeias. Por padrão, esta propriedade é omitida. Pode definir o subjectnamingInfo do grupo de [cingimento](relyingparty.md#subjectnaminginfo) para especificar o `NameID` formato, tal como `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` . |
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |O momento em que o símbolo se torna válido. O valor do tempo está codificado na UTC. A sua aplicação deve utilizar esta alegação para verificar a validade da vida útil do token. Para alterar as definições das suas vidas simbólicas, defina os `TokenNotBeforeSkewInSeconds` [metadados](saml-issuer-technical-profile.md#metadata) do perfil técnico de emissão de token SAML. |
-|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | O momento em que o símbolo se torna inválido. A sua aplicação deve utilizar esta alegação para verificar a validade da vida útil do token. O valor é de 15 minutos após o `NotBefore` e não pode ser alterado.|
+|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | O momento em que o símbolo se torna inválido. A sua aplicação deve utilizar esta alegação para verificar a validade da vida útil do token. O valor predefinido é de 5 minutos após o `NotBefore` e pode ser atualizado adicionando os `TokenLifeTimeInSeconds` [metadados](saml-issuer-technical-profile.md#metadata) do perfil técnico de emissão de token SAML.|
 |`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |Uma referência URI que identifica um público pretendido. Identifica o destinatário pretendido do símbolo. O valor é idêntico ao pedido da `AssertionConsumerServiceURL` SAML.|
 |`<Response>``<Assertion>` `<AttributeStatement>` coleção de`<Attribute>` | | Recolha de afirmações (reclamações), tal como configurado nas alegações [de produção de perfil técnico](relyingparty.md#technicalprofile) do partido. Pode configurar o nome da afirmação definindo a `PartnerClaimType` reclamação de saída. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Pode encontrar mais informações sobre o [protocolo SAML no site da OASIS.](https://www.oasis-open.org/)
 - Obtenha a aplicação web de teste SAML da [Azure AD B2C GitHub community repo](https://github.com/azure-ad-b2c/saml-sp-tester).
