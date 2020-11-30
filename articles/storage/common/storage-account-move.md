@@ -10,17 +10,17 @@ ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: b70beb90fae794eb5512cb8b466524169c4c7b53
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 11/29/2020
 ms.locfileid: "92792995"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Mover uma conta de Armazenamento Azure para outra região
 
 Para mover uma conta de armazenamento, crie uma cópia da conta de armazenamento noutra região. Em seguida, mova os seus dados para essa conta usando o AzCopy, ou outra ferramenta à sua escolha.
 
-Neste artigo, aprenderá a:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > 
@@ -51,11 +51,11 @@ Este modelo contém definições que descrevem a conta de armazenamento.
 
 Para exportar um modelo com o portal do Azure:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **todos os recursos** e, em seguida, selecione a sua conta de armazenamento.
 
-3. Selecione > **Definições**  >  **Modelo de exportação** .
+3. Selecione > **Definições**  >  **Modelo de exportação**.
 
 4. Escolha **Baixar** na lâmina do **modelo de exportação.**
 
@@ -101,15 +101,15 @@ Modifique o modelo ao alterar o nome e a região da conta de armazenamento.
 
 Para implementar o modelo utilizando o portal Azure:
 
-1. No portal Azure, selecione **Criar um recurso** .
+1. No portal Azure, selecione **Criar um recurso**.
 
-2. Em **Search the Marketplace** , **digitar a implementação do modelo** e, em seguida, premir **ENTER** .
+2. Em **Search the Marketplace**, **digitar a implementação do modelo** e, em seguida, premir **ENTER**.
 
-3. Selecione **a implementação do modelo** .
+3. Selecione **a implementação do modelo**.
 
     ![Biblioteca de modelos do Azure Resource Manager](./media/storage-account-move/azure-resource-manager-template-library.png)
 
-4. Selecione **Criar** .
+4. Selecione **Criar**.
 
 5. Selecione **Construa o seu próprio modelo no editor.**
 
@@ -186,11 +186,11 @@ Implemente o modelo para criar uma nova conta de armazenamento na região de des
 
 2. Insira ou selecione os valores da propriedade:
 
-- **Assinatura** : Selecione uma subscrição Azure.
+- **Assinatura**: Selecione uma subscrição Azure.
 
-- **Grupo de recursos** : selecione **Criar novo** e dê um nome ao grupo de recursos.
+- **Grupo de recursos**: selecione **Criar novo** e dê um nome ao grupo de recursos.
 
-- **Localização** : Selecione uma localização Azure.
+- **Localização**: Selecione uma localização Azure.
 
 3. Clique no **I concorda com os termos e condições indicados acima** da caixa de verificação e, em seguida, clique no botão **'Escolha'.**
 
@@ -255,7 +255,7 @@ Para remover uma conta de armazenamento com o portal do Azure:
 
 1. No portal Azure, expanda o menu do lado esquerdo para abrir o menu de **serviços** e escolha as contas de Armazenamento para exibir a lista das suas contas de armazenamento.
 
-2. Localize a conta de armazenamento do alvo para apagar e clique com o botão **Mais** **(...** ) no lado direito da listagem.
+2. Localize a conta de armazenamento do alvo para apagar e clique com o botão **Mais** **(...**) no lado direito da listagem.
 
 3. **Selecione Eliminar** e confirmar.
 
@@ -268,7 +268,7 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 ```
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você mudou uma conta de armazenamento Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte:
 
