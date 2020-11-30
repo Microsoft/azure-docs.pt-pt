@@ -3,12 +3,12 @@ title: Matriz de suporte para vMware/recuperação de desastres físicos na recu
 description: Resume o suporte para a recuperação de desastres de VMware VMs e servidor físico para Azure usando a Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: e3130242e29b8d3886b585d56d33d0a9a2379ee3
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: cdc9edeb99e02d78b0701e02b157adbee016a566
+ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95800281"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96310340"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para Azure
 
@@ -85,12 +85,12 @@ Windows 7 com SP1 64-bit | Suportado a partir do [rollup 36](https://support.mic
 **Sistema operativo** | **Detalhes**
 --- | ---
 Linux | Apenas um sistema de 64 bits é suportado. Sistema de 32 bits não é suportado.<br/><br/>Todos os servidores Linux devem ter [componentes do Linux Integration Services (LIS) instalados.](https://www.microsoft.com/download/details.aspx?id=55106) É necessário iniciar o servidor em Azure após o teste failover/failover. Se faltarem componentes LIS incorporados, certifique-se de que instala os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de permitir a replicação para as máquinas arrancarem em Azure. <br/><br/> As orquestras de recuperação do site falham em executar servidores Linux em Azure. No entanto, os fornecedores do Linux podem limitar o suporte apenas a versões de distribuição que não tenham atingido o fim de vida.<br/><br/> Nas distribuições linux, apenas os núcleos de stock que fazem parte da versão/atualização da versão menor de distribuição são suportados.<br/><br/> A atualização de máquinas protegidas nas principais versões de distribuição do Linux não é suportada. Para atualizar, desativar a replicação, atualizar o sistema operativo e, em seguida, voltar a ativar a replicação.<br/><br/> [Saiba mais](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sobre o suporte ao Linux e à tecnologia open-source em Azure.
-Linux Red Hat Enterprise | 5.2 a 5.11</b><br/> 6.1 a 6.10</b> </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [Versão 7.9 Beta](https://support.microsoft.com/help/4578241/), [7.9](https://support.microsoft.com/help/4590304/) </br> [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609) <br/> Poucos núcleos mais antigos em servidores com red hat Enterprise Linux 5.2-5.11 & 6.1-6.10 não têm [componentes linux de integração (LIS) pré-instalados.](https://www.microsoft.com/download/details.aspx?id=55106) Se faltarem componentes LIS incorporados, certifique-se de que instala os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de permitir a replicação para as máquinas arrancarem em Azure.
+Linux Red Hat Enterprise | 5.2 a 5.11</b><br/> 6.1 a 6.10</b> </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [Versão Beta 7.9](https://support.microsoft.com/help/4578241/), [7.9](https://support.microsoft.com/help/4590304/), [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609), [8.3](https://support.microsoft.com/help/4597409). <br/><br/> Alguns núcleos mais antigos em servidores que executam Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 não têm [componentes linux de integração (LIS) pré-instalados.](https://www.microsoft.com/download/details.aspx?id=55106) Se faltarem componentes LIS incorporados, instale os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de permitir a replicação da máquina, para garantir o arranque em Azure.
 Linux: CentOS | 5.2 a 5.11</b><br/> 6.1 a 6.10</b><br/> </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [7.9](https://support.microsoft.com/help/4578241/) </br> [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609) <br/><br/> Poucos núcleos mais antigos em servidores que executam CentOS 5.2-5.11 & 6.1-6.10 não possuem [componentes do Linux Integration Services (LIS) pré-instalados.](https://www.microsoft.com/download/details.aspx?id=55106) Se faltarem componentes LIS incorporados, certifique-se de que instala os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de permitir a replicação para as máquinas arrancarem em Azure.
 Ubuntu | Ubuntu 14.04* servidor LTS [(versões de kernel suportadas pela revisão)](#ubuntu-kernel-versions)<br/>Ubuntu 16.04* servidor LTS [(versões de kernel suportadas pela revisão)](#ubuntu-kernel-versions) </br> Ubuntu 18.04* servidor LTS [(versões de kernel suportadas pela revisão)](#ubuntu-kernel-versions) </br> Ubuntu 20.04* servidor LTS [(versões de kernel suportadas pela revisão)](#ubuntu-kernel-versions) </br> (inclui *suporte para todos os 14.04.* x,*16.04.* x,*18.04.* x,*20.04.* versões x*
-Debian | Debian 7/Debian 8 (inclui suporte para todos os 7. *x,* 8. *versões x);* Debian 9 (inclui suporte para 9.1 a 9.13. Debian 9.0 não é suportado.) [(versões de kernel suportadas por revisão)](#debian-kernel-versions)
+Debian | Debian 7/Debian 8 (inclui suporte para todos os 7. *x,* 8. *versões x);* Debian 9 (inclui suporte para 9.1 a 9.13. Debian 9.0 não é suportado.) [(Rever versões de kernel suportadas)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(versões de kernel suportadas pela revisão)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(versões de kernel suportadas pela revisão)](#suse-linux-enterprise-server-15-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 11 SP3. [Certifique-se de baixar o mais recente instalador de agentes de mobilidade no servidor de configuração](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server). </br> SUSE Linux Enterprise Server 11 SP4 </br> **Nota:** Não é suportada a atualização de máquinas replicadas do SUSE Linux Enterprise Server 11 SP3 para SP4. Para atualizar, desative a replicação e reativa após a atualização. <br/>|
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/help/4573888/)  <br/> Executando o núcleo compatível com chapéu vermelho ou desbloqueio de kernel da empresa inquebrável 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Funcionando em todos os núcleos UEK e kernel RedHat <= 3.10.0-1062.* são suportados em [9.35](https://support.microsoft.com/help/4573888/) Suporte para o resto dos núcleos RedHat está disponível em [9.36](https://support.microsoft.com/help/4578241/)
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8,](https://support.microsoft.com/help/4573888/) [7.9](https://support.microsoft.com/help/4597409), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8,2](https://support.microsoft.com/help/4573888/), [8.3](https://support.microsoft.com/help/4597409).  <br/> Executando o núcleo compatível com chapéu vermelho ou desbloqueio de kernel da empresa inquebrável 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Funcionando em todos os núcleos UEK e kernel RedHat <= 3.10.0-1062.* são suportados em [9.35](https://support.microsoft.com/help/4573888/) Suporte para o resto dos núcleos RedHat está disponível em [9.36](https://support.microsoft.com/help/4578241/)
 
 > [!Note]
 >- Para cada uma das versões do Windows, a Azure Site Recovery apenas suporta [construções de Canais de Manutenção a Longo Prazo (LTSC).](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc)  Os lançamentos [semi-anuais do Canal](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) não são atualmente suportados neste momento.
@@ -197,43 +197,43 @@ Acesso de ligação privada ao serviço de Recuperação de Sítios | Sim. [Saib
 
 **Componente** | **Suportado**
 --- | ---
-Azure ExpressRoute | Sim
-ILB | Sim
-ELB | Sim
-Traffic Manager do Azure | Sim
-Multi-NIC | Sim
-Endereço IP reservado | Sim
-IPv4 | Sim
-Reter endereço IP de origem | Sim
-Pontos finais de serviço de rede virtual Azure<br/> | Sim
-Redes aceleradas | Não
+Azure ExpressRoute | Yes
+ILB | Yes
+ELB | Yes
+Traffic Manager do Azure | Yes
+Multi-NIC | Yes
+Endereço IP reservado | Yes
+IPv4 | Yes
+Reter endereço IP de origem | Yes
+Pontos finais de serviço de rede virtual Azure<br/> | Yes
+Redes aceleradas | No
 
 ## <a name="storage"></a>Armazenamento
 **Componente** | **Suportado**
 --- | ---
 Disco dinâmico | O disco de so deve ser um disco básico. <br/><br/>Os discos de dados podem ser discos dinâmicos
-Configuração do disco docker | Não
+Configuração do disco docker | No
 Anfitrião NFS | Sim para VMware<br/><br/> Não para servidores físicos
-Host SAN (iSCSI/FC) | Sim
+Host SAN (iSCSI/FC) | Yes
 Anfitrião vSAN | Sim para VMware<br/><br/> N/A para servidores físicos
 Hospedeiro multipata (MPIO) | Sim, testado com Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON
 Volumes Virtuais de Hospedo (VVols) | Sim para VMware<br/><br/> N/A para servidores físicos
-VMDK de hóspedes/servidor | Sim
-Disco de cluster compartilhado de hóspede/servidor | Não
-Disco encriptado de hóspede/servidor | Não
-NFS de hóspedes/servidores | Não
+VMDK de hóspedes/servidor | Yes
+Disco de cluster compartilhado de hóspede/servidor | No
+Disco encriptado de hóspede/servidor | No
+NFS de hóspedes/servidores | No
 Hóspede/servidor iSCSI | Para a Migração - Sim<br/>Para a recuperação de desastres - Não, o iSCSI falhará como um disco anexado ao VM
-Hóspede/servidor SMB 3.0 | Não
-Hóspede/servidor RDM | Sim<br/><br/> N/A para servidores físicos
+Hóspede/servidor SMB 3.0 | No
+Hóspede/servidor RDM | Yes<br/><br/> N/A para servidores físicos
 Disco de hóspedes/servidor > 1 TB | Sim, o disco deve ser maior que 1024 MB<br/><br/>Até 8.192 GB ao replicar discos geridos (versão 9.26 em diante)<br></br> Até 4.095 GB ao replicar-se em contas de armazenamento
-Disco de hóspede/servidor com tamanho lógico lógico e 4k do setor físico | Não
-Disco de hóspedes/servidor com tamanho lógico lógico de 4K e 512 bytes do setor físico | Não
-Volume de hóspede/servidor com disco listrado >4 TB | Sim
+Disco de hóspede/servidor com tamanho lógico lógico e 4k do setor físico | No
+Disco de hóspedes/servidor com tamanho lógico lógico de 4K e 512 bytes do setor físico | No
+Volume de hóspede/servidor com disco listrado >4 TB | Yes
 Gestão lógica do volume (LVM)| Provisão grossa - Sim <br></br> Provisões finas - Não
-Hóspede/servidor - Espaços de Armazenamento | Não
-Adicionar/remover o disco quente do hóspede/servidor | Não
-Guest/server - excluir o disco | Sim
-Multipata de hóspedes/servidores (MPIO) | Não
+Hóspede/servidor - Espaços de Armazenamento | No
+Adicionar/remover o disco quente do hóspede/servidor | No
+Guest/server - excluir o disco | Yes
+Multipata de hóspedes/servidores (MPIO) | No
 Divisórias GPT de hóspedes/servidor | Cinco divisórias são suportadas a partir do [Update Rollup 37](https://support.microsoft.com/help/4508614/) (versão 9.25 do serviço mobility) em diante. Anteriormente quatro foram apoiados.
 ReFS | O Sistema de Ficheiros Resiliente é suportado com a versão 9.23 ou superior do serviço de mobilidade
 Bota EFI/UEFI de hóspedes/servidor | - Suportado para todos os [OSes uefi do mercado Azure](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) com a versão 9.30 do agente de mobilidade de recuperação do local. <br/> - O tipo de arranque UEFI seguro não é suportado. [Saiba mais.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
@@ -242,26 +242,26 @@ Bota EFI/UEFI de hóspedes/servidor | - Suportado para todos os [OSes uefi do me
 
 |**Tipo de replicação**   |**Suportado**  |
 |---------|---------|
-|Transferências de dados descarregadas (ODX)    |       Não  |
-|Sementeira offline        |   Não      |
-| Azure Data Box | Não
+|Transferências de dados descarregadas (ODX)    |       No  |
+|Sementeira offline        |   No      |
+| Azure Data Box | No
 
 ## <a name="azure-storage"></a>Storage do Azure
 
 **Componente** | **Suportado**
 --- | ---
-Armazenamento localmente redundante | Sim
-Armazenamento georredundante | Sim
-Armazenamento georredundante com acesso de leitura | Sim
-Armazenamento fresco | Não
-Armazenamento quente| Não
-Blobs de blocos | Não
-Encriptação em repouso (SSE)| Sim
+Armazenamento localmente redundante | Yes
+Armazenamento georredundante | Yes
+Armazenamento georredundante com acesso de leitura | Yes
+Armazenamento fresco | No
+Armazenamento quente| No
+Blobs de blocos | No
+Encriptação em repouso (SSE)| Yes
 Encriptação em repouso (CMK)| Sim (via módulo PowerShell Az 3.3.0 em diante)
 Dupla encriptação em repouso | Sim (via módulo PowerShell Az 3.3.0 em diante). Saiba mais sobre regiões apoiadas para [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux.](../virtual-machines/linux/disk-encryption.md)
-Armazenamento Premium | Sim
-Opção de transferência segura | Sim
-Serviço de importação/exportação | Não
+Armazenamento Premium | Yes
+Opção de transferência segura | Yes
+Serviço de importação/exportação | No
 Firewalls de armazenamento Azure para VNets | Sim.<br/> Configurado na conta de armazenamento/cache-alvo (utilizada para armazenar dados de replicação).
 Contas de armazenamento v2 para fins gerais (camadas quentes e frescas) | Sim (Os custos de transação são substancialmente mais elevados para o V2 em comparação com v1)
 
@@ -269,10 +269,10 @@ Contas de armazenamento v2 para fins gerais (camadas quentes e frescas) | Sim (O
 
 **Funcionalidade** | **Suportado**
 --- | ---
-Conjuntos de disponibilidade | Sim
-Zonas de disponibilidade | Não
-HUB | Sim
-Managed disks | Sim
+Conjuntos de disponibilidade | Yes
+Zonas de disponibilidade | No
+HUB | Yes
+Managed disks | Yes
 
 ## <a name="azure-vm-requirements"></a>Requisitos da VM do Azure
 
@@ -326,10 +326,10 @@ Máximo de alterações a dados por dia suportadas por um Servidor de Processos 
 
 **Ação** | **Suportado**
 --- | ---
-Mover cofre através de grupos de recursos | Não
-Mover o cofre dentro e através de subscrições | Não
-Mover armazenamento, rede, VMs Azure em grupos de recursos | Não
-Mover armazenamento, rede, VMs Azure dentro e em todas as subscrições. | Não
+Mover cofre através de grupos de recursos | No
+Mover o cofre dentro e através de subscrições | No
+Mover armazenamento, rede, VMs Azure em grupos de recursos | No
+Mover armazenamento, rede, VMs Azure dentro e em todas as subscrições. | No
 
 
 ## <a name="obtain-latest-components"></a>Obtenha componentes mais recentes
@@ -342,7 +342,7 @@ Serviço de Mobilidade | Instalado em VMware VM ou servidores físicos que prete
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Saiba como](tutorial-prepare-azure.md) preparar o Azure para a recuperação de desastres de VMware VMs.
 
 [9.32 UR]: https://support.microsoft.com/en-in/help/4538187/update-rollup-44-for-azure-site-recovery

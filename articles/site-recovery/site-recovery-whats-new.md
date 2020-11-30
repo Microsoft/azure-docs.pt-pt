@@ -3,12 +3,12 @@ title: Novidades na Recuperação do Local de Azure
 description: Fornece um resumo de novas funcionalidades e as últimas atualizações no serviço de Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 2e85ee19012f6ae13c18e26b3aa0b5ae28bcaade
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 3667f963eac0ebc719872db00ac069c7da70ec91
+ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341353"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96310362"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
 
@@ -22,14 +22,27 @@ Para os componentes de Recuperação de Sítios, apoiamos as versões N-4, onde 
 
 **Atualizar** |  **Configuração Unificada** | **Óvulo do servidor de configuração** | **Agente de serviço de mobilidade** | **Provedor de Recuperação de Sítios** | **Agente dos Serviços de Recuperação**
 --- | --- | --- | --- | --- | ---
+[Rollup 52](https://support.microsoft.com/help/4597409/)  | 9.39.5796.1 | 5.1.6458.0 | 9.39.5796.1 | 5.1.6458.0  | 2.0.9196.0
 [Rollup 51](https://support.microsoft.com/help/4590304)  | 9.38.5761.1 | 5.1.6400.0 | 9.38.5761.1 | 5.1.6400.0  | 2.0.9193.0
 [Rollup 50](https://support.microsoft.com/help/4582666/) | 9.37.5724.1 | 5.1.6347.0 | 9.37.5724.1 | 5.1.6347.0  | 2.0.9192.0
 [Rollup 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
 [Rollup 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
-[Rollup 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | Máquinas HyperV - 2.0.9183.0 <br> Máquinas VMware - 2.0.9177.0
-
 
 [Saiba mais](service-updates-how-to.md) sobre a instalação e suporte de atualização.
+
+
+## <a name="updates-november-2020"></a>Atualizações (novembro 2020)
+
+### <a name="update-rollup-52"></a>Atualização rollup 52
+
+[O rollup de atualização 52](https://support.microsoft.com/help/4597409/update-rollup-52-for-azure-site-recovery) fornece as seguintes atualizações:
+
+**Atualizar** | **Detalhes**
+--- | ---
+**Fornecedores e agentes** | Atualizações para agentes e fornecedores de Recuperação de Locais conforme detalhado no rollup.
+**Correções/melhorias de problemas** | Uma série de correções e melhorias conforme detalhado no rollup, incluindo o novo suporte Linux para o serviço de Mobilidade.
+**Recuperação de desastres em Azure VM** | Agora suportado para VMs executando RHEL 8.3 e Oracle Linux 7.9
+**VMware VM/recuperação de desastres físicos para Azure** | Agora suportado para VMs executando RHEL 8.3, Oracle Linux 7.9/8.3.
 
 ## <a name="updates-october-2020"></a>Atualizações (outubro 2020)
 
@@ -593,6 +606,6 @@ As funcionalidades adicionadas este mês são resumidas na tabela.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Mantenha-se atualizado com as nossas atualizações na página [Azure Updates.](https://azure.microsoft.com/updates/?product=site-recovery)

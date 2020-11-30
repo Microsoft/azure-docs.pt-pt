@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d587c4dbdd8f46d6e098ff96f464d456fffc9ccf
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ad880b7c23c687530a79ca1123474e94c923e150
+ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95529993"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96310396"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introdução ao Azure Defender dos registos de contentores
 
@@ -85,9 +85,11 @@ Sim. Se tiver uma necessidade organizacional de ignorar uma descoberta, em vez d
 
 [Saiba como criar regras para desativar as descobertas da ferramenta integrada de avaliação de vulnerabilidades.](defender-for-container-registries-usage.md#disable-specific-findings-preview)
 
+### <a name="why-is-security-center-alerting-me-to-vulnerabilities-about-an-image-that-isnt-in-my-registry"></a>Porque é que o Centro de Segurança está a alertar-me para as vulnerabilidades sobre uma imagem que não está no meu registo?
+O Centro de Segurança fornece avaliações de vulnerabilidade para cada imagem empurrada ou puxada num registo. Algumas imagens podem reutilizar tags a partir de uma imagem que já foi digitalizada. Por exemplo, pode reatribuir a etiqueta "Mais recente" sempre que adicionar uma imagem a uma digestão. Nesses casos, a imagem 'antiga' ainda existe no registo e ainda pode ser puxada pela sua digestão. Se a imagem tiver descobertas de segurança e for retirada, exporá vulnerabilidades de segurança.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Digitalize as suas imagens para obter vulnerabilidades](defender-for-container-registries-usage.md)
