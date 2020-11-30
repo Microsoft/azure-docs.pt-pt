@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperfq1
-ms.openlocfilehash: edcc94050880544a6c2de54ff27f833f1c60f99f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f18f1184f921aca4f2c1e33ac00dcf14c63b24eb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683650"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95893363"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Azure EA Portal
 
@@ -146,7 +146,7 @@ Antes de realizar a transferência da propriedade, compreenda as seguintes polí
 - Ao fazer transferências de propriedade de subscrições ou contas entre dois IDs organizacionais no mesmo inquilino, as políticas RBAC do Azure, o administrador do serviço atual e as funções de coadministradores são preservadas.
 - As transferências de propriedade entre inquilinos ou contas originam a perda das políticas do RBAC do Azure e das atribuições de funções.
 - As políticas e as funções de administrador não são transferidas entre diretórios diferentes. Os administradores de serviços são atualizados para o proprietário da conta de destino.
-- Para evitar a perda das políticas de RBAC e das atribuições de funções ao transferir subscrições entre inquilinos, confirme que a caixa de verificação **Mover as subscrições para o inquilino do Azure AD do destinatário** permanece **por selecionar**. Desta forma, os serviços, as funções RBAC e as políticas são mantidas no inquilino do Azure AD atual e só é transferida a propriedade de faturação da conta.  
+- Para evitar a perda das políticas de RBAC do Azure e das atribuições de funções ao transferir subscrições entre inquilinos, confirme que a caixa de verificação **Mover as subscrições para o inquilino do Azure AD do destinatário** permanece **por selecionar**. Desta forma, os serviços, as funções do Azure e as políticas são mantidas no inquilino do Azure AD atual e só é transferida a propriedade de faturação da conta.  
     :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Imagem que mostra a caixa de verificação não selecionada para mover subscrições para o inquilino do Azure AD" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 
 
@@ -282,7 +282,7 @@ O Azure EA Portal ajuda a administrar os seus custos e utilização do EA do Azu
 
 Cada função tem um nível diferente de acesso e autoridade.
 
-Para obter mais informações sobre as funções de utilizador, veja [Funções de utilizador do Enterprise](https://docs.microsoft.com/azure/manage/understand-ea-roles#enterprise-user-roles).
+Para obter mais informações sobre as funções de utilizador, veja [Funções de utilizador do Enterprise](/azure/cost-management-billing/manage/understand-ea-roles#enterprise-user-roles).
 
 ## <a name="add-an-azure-ea-account"></a>Adicionar uma conta do EA do Azure
 

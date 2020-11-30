@@ -6,21 +6,21 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 09/15/2020
+ms.topic: how-to
+ms.date: 11/20/2020
 ms.author: banders
-ms.openlocfilehash: f773c964d900c45a51eac433c3616a6e4b8978ae
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: fbb69a4449c32f85cc4be438645b654608aa7489
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "92131144"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026561"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Adicionar ou atualizar um cartão de crédito do Azure
 
 Este documento aplica-se aos clientes que se inscreveram no Azure online com um cartão de crédito.
 
-No portal do Azure, pode alterar o método de pagamento predefinido para um novo cartão de crédito e atualizar os dados do seu cartão de crédito. Tem de ser um [Administrador de Conta](../understand/subscription-transfer.md#whoisaa) para fazer estas alterações.
+No portal do Azure, pode alterar o método de pagamento predefinido para um novo cartão de crédito e atualizar os dados do seu cartão de crédito. Para fazer estas alterações, tem de ser [Administrador de Conta](../understand/subscription-transfer.md#whoisaa) ou ter as [permissões de MCA](understand-mca-roles.md) certas.
 
 Se pretender eliminar um cartão de crédito, consulte [Eliminar um método de pagamento da faturação do Azure](delete-azure-payment-method.md).
 
@@ -82,11 +82,11 @@ Se o cartão de crédito for renovado e o número continuar o mesmo, atualize os
 
 ## <a name="manage-credit-cards-for-a-microsoft-customer-agreement"></a>Gerir cartões de crédito para um Contrato de Cliente Microsoft
 
-As secções seguintes aplicam-se aos clientes que tenham um Contrato de Cliente Microsoft e que se inscreveram no Azure online com um cartão de crédito. [Saiba como verificar se tem um Contrato de Cliente Microsoft](#check-the-type-of-your-account).
+As secções seguintes aplicam-se aos clientes que tenham um Contrato de Cliente Microsoft e que se inscreveram no Azure online com um cartão de crédito e aos que tenham as [permissões de MCA](understand-mca-roles.md) certas. [Saiba como verificar se tem um Contrato de Cliente Microsoft](#check-the-type-of-your-account).
 
 ### <a name="change-default-credit-card"></a>Alterar o cartão de crédito predefinido
 
-Se tiver um Contrato de Cliente Microsoft, o seu cartão de crédito está associado a um perfil de faturação. Para alterar o método de pagamento de um perfil de faturação, tem de ser a pessoa que se inscreveu no Azure e criou a conta de faturação.
+Se tiver um Contrato de Cliente Microsoft, o seu cartão de crédito está associado a um perfil de faturação. Para alterar o método de pagamento de um perfil de faturação, tem de ser a pessoa que se inscreveu no Azure e criou a conta de faturação ou tem de ter as [permissões de MCA](understand-mca-roles.md) certas.
 
 Se quiser alterar o método de pagamento predefinido do seu perfil de faturação para cheque/transferência bancária, veja [Pagamento das suas subscrições do Azure por fatura](pay-by-invoice.md).
 
@@ -98,7 +98,7 @@ Para alterar o seu cartão de crédito, siga estes passos:
 1. Selecione um perfil de faturação.
 1. No menu esquerdo, selecione **Métodos de pagamento**.  
    ![Captura de ecrã que mostra os métodos de pagamento no menu](./media/change-credit-card/payment-methods-tab-mca.png)
-1. Na secção **Método de pagamento predefinido** , selecione **Substituir**.  
+1. Na secção **Método de pagamento predefinido**, selecione **Substituir**.  
     :::image type="content" source="./media/change-credit-card/change-payment-method-mca.png" alt-text="Captura de ecrã que mostra a opção Substituir" :::
 1. Na nova área à direita, selecione um cartão existente na lista pendente ou adicione um novo, clicando na ligação **Adicionar novo método de pagamento** azul.
 
@@ -114,7 +114,7 @@ Para editar um cartão de crédito, siga estes passos:
 1. Selecione um perfil de faturação.
 1. No menu esquerdo, selecione **Métodos de pagamento**.  
    ![Captura de ecrã que mostra os métodos de pagamento no menu](./media/change-credit-card/payment-methods-tab-mca.png)
-1. Na secção **Os seus cartões de crédito** , localize o cartão de crédito que pretende editar.
+1. Na secção **Os seus cartões de crédito**, localize o cartão de crédito que pretende editar.
 1. Selecione as reticências (`...`) no fim da linha.  
     :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="Captura de ecrã que mostra as reticências" :::
 1. Para editar os dados do seu cartão de crédito, selecione **Editar** no menu de contexto.

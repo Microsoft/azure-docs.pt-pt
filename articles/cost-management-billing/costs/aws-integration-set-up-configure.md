@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: e900d63ba7e521cbf7e63d8580d22b08726d1ef6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 2b8a008decc41a5686fb2c8d9fee271f95f0fef3
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517349"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122408"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Definir e configurar a integração do relatório de Custos e Utilização do AWS
 
@@ -32,23 +32,23 @@ A utilização de um relatório de Custos e Utilização é a forma recomendada 
 Utilize a página **Relatórios de Custos e Utilização** da consola Faturação e Cost Management no AWS para criar um relatório de Custos e Utilização com os seguintes passos:
 
 1. Inicie sessão na Consola de Gestão do AWS e abra a [consola Faturação e Cost Management](https://console.aws.amazon.com/billing).
-2. No painel de navegação, selecione **Relatórios de Custos e Utilização** .
-3. Selecione **Criar relatório** .
-4. Em **Nome do relatório** , introduza um nome para o relatório.
-5. Em **Detalhes adicionais do relatório** , selecione **Incluir IDs dos recursos** .
-6. Em **Definições de atualização dos dados** , selecione se quer que o relatório de Custos e Utilização do AWS seja atualizado quando o AWS aplicar reembolsos, créditos ou taxas de suporte na sua conta após finalizar a fatura. Quando um relatório é atualizado, é carregado um novo relatório para o Amazon S3. Recomendamos que deixe esta definição selecionada.
-7. Selecione **Seguinte** .
-8. Para **Registo S3** , escolha **Configurar** .
-9. Na caixa de diálogo de Registo Configurar S3 introduza um nome de registo, a Região onde quer criar o novo registo e escolha **Seguinte** .
-10. Selecione **Confirmei que esta política está correta** e clique em **Guardar** .
+2. No painel de navegação, selecione **Relatórios de Custos e Utilização**.
+3. Selecione **Criar relatório**.
+4. Em **Nome do relatório**, introduza um nome para o relatório.
+5. Em **Detalhes adicionais do relatório**, selecione **Incluir IDs dos recursos**.
+6. Em **Definições de atualização dos dados**, selecione se quer que o relatório de Custos e Utilização do AWS seja atualizado quando o AWS aplicar reembolsos, créditos ou taxas de suporte na sua conta após finalizar a fatura. Quando um relatório é atualizado, é carregado um novo relatório para o Amazon S3. Recomendamos que deixe esta definição selecionada.
+7. Selecione **Seguinte**.
+8. Para **Registo S3**, escolha **Configurar**.
+9. Na caixa de diálogo de Registo Configurar S3 introduza um nome de registo, a Região onde quer criar o novo registo e escolha **Seguinte**.
+10. Selecione **Confirmei que esta política está correta** e clique em **Guardar**.
 11. (Opcional) No prefixo Caminho do Relatório, introduza o prefixo do caminho do relatório que quer adicionar ao nome do relatório.
 Se não especificar um prefixo, o prefixo predefinido é o nome que especificou para o relatório. O intervalo de datas tem o formato `/report-name/date-range/`.
-12. Para **Unidade de tempo** , escolha **Horas** .
-13. Para **Versões do relatório** , escolha se quer que cada versão do relatório substitua a versão anterior ou se quer novos relatórios adicionais.
-14. Para **Permitir integração de dados para** , não é necessária nenhuma seleção.
-15. Para **Compressão** , selecione **GZIP** .
-16. Selecione **Seguinte** .
-17. Após analisar as definições do relatório, selecione **Rever e Concluir** .
+12. Para **Unidade de tempo**, escolha **Horas**.
+13. Para **Versões do relatório**, escolha se quer que cada versão do relatório substitua a versão anterior ou se quer novos relatórios adicionais.
+14. Para **Permitir integração de dados para**, não é necessária nenhuma seleção.
+15. Para **Compressão**, selecione **GZIP**.
+16. Selecione **Seguinte**.
+17. Após analisar as definições do relatório, selecione **Rever e Concluir**.
 
     Anote o nome do relatório. Será utilizado em passos posteriores.
 
@@ -62,54 +62,54 @@ Para ativar o acesso baseado em funções a uma conta do AWS no Cost Management,
 
 Utilize o assistente Criar uma Nova Função:
 
-1. Inicie sessão na consola do AWS e selecione **Serviços** .
-2. Na lista de serviços, selecione **IAM** .
-3. Selecione **Funções** e, em seguida, **Criar Função** .
-4. Na página seguinte, selecione **Outra conta do AWS** .
-5. Em **ID de conta** , introduza **432263259397** .
-6. Em **Opções** , selecione **Exigir ID externo (Melhor prática se a função for assumida por terceiros)** .
-7. Em **ID externo** , introduza o ID externo que é um código de acesso partilhado entre a função do AWS e o Azure Cost Management. O mesmo ID externo é também utilizado na página **Novo Conector** do Cost Management. A Microsoft recomenda que utilize uma política de código de acesso forte ao introduzir o ID externo.
+1. Inicie sessão na consola do AWS e selecione **Serviços**.
+2. Na lista de serviços, selecione **IAM**.
+3. Selecione **Funções** e, em seguida, **Criar Função**.
+4. Na página seguinte, selecione **Outra conta do AWS**.
+5. Em **ID de conta**, introduza **432263259397**.
+6. Em **Opções**, selecione **Exigir ID externo (Melhor prática se a função for assumida por terceiros)** .
+7. Em **ID externo**, introduza o ID externo que é um código de acesso partilhado entre a função do AWS e o Azure Cost Management. O mesmo ID externo é também utilizado na página **Novo Conector** do Cost Management. A Microsoft recomenda que utilize uma política de código de acesso forte ao introduzir o ID externo.
     > [!NOTE]
-    > Não altere a seleção de **Requerer MFA** . Esta opção deve permanecer desmarcada.
-8. Selecione **Seguinte: Permissões** .
-9. Selecione **Criar política** . É aberto um novo separador do browser. É aqui que vai criar a política.
-10. Selecione **Escolher um serviço** .
+    > Não altere a seleção de **Requerer MFA**. Esta opção deve permanecer desmarcada.
+8. Selecione **Seguinte: Permissões**.
+9. Selecione **Criar política**. É aberto um novo separador do browser. É aqui que vai criar a política.
+10. Selecione **Escolher um serviço**.
 
 Configure as permissões para o relatório de Custos e Utilização:
 
-1. Introduza **Relatório de Custos e Utilização** .
-2. Selecione **Nível de acesso** > **Leitura** > **DescribeReportDefinitions** . Este passo permite ao Cost Management ler quais os relatórios CUR definidos e determinar se correspondem ao pré-requisito de definição de relatórios.
-3. Selecione **Adicionar mais permissões** .
+1. Introduza **Relatório de Custos e Utilização**.
+2. Selecione **Nível de acesso** > **Leitura** > **DescribeReportDefinitions**. Este passo permite ao Cost Management ler quais os relatórios CUR definidos e determinar se correspondem ao pré-requisito de definição de relatórios.
+3. Selecione **Adicionar mais permissões**.
 
 Configure a permissão para o registo S3 e os objetos:
 
-1. Selecione **Escolher um serviço** .
-2. Introduza **S3** .
-3. Selecione **Nível de acesso** > **Lista** > **ListBucket** . Esta ação obtém a lista de objetos no Registo S3.
-4. Selecione **Nível de acesso** > **Leitura** > **GetObject** . Esta ação permite a transferência dos ficheiros de faturação.
-5. Selecione **Recursos** .
-6. Selecione **registo – Adicionar ARN** .
-7. Em **Nome do registo** , introduza o registo utilizado para armazenar os ficheiros CUR.
-8. Selecione **objeto – Adicionar ARN** .
-9. Em **Nome do registo** , introduza o registo utilizado para armazenar os ficheiros CUR.
-10. Em **Nome do objeto** , selecione **Qualquer** .
-11. Selecione **Adicionar mais permissões** .
+1. Selecione **Escolher um serviço**.
+2. Introduza **S3**.
+3. Selecione **Nível de acesso** > **Lista** > **ListBucket**. Esta ação obtém a lista de objetos no Registo S3.
+4. Selecione **Nível de acesso** > **Leitura** > **GetObject**. Esta ação permite a transferência dos ficheiros de faturação.
+5. Selecione **Recursos**.
+6. Selecione **registo – Adicionar ARN**.
+7. Em **Nome do registo**, introduza o registo utilizado para armazenar os ficheiros CUR.
+8. Selecione **objeto – Adicionar ARN**.
+9. Em **Nome do registo**, introduza o registo utilizado para armazenar os ficheiros CUR.
+10. Em **Nome do objeto**, selecione **Qualquer**.
+11. Selecione **Adicionar mais permissões**.
 
 Configure a permissão para o Explorador de Custos:
 
-1. Selecione **Escolher um serviço** .
-2. Introduza **Serviço do Explorador de Custos** .
+1. Selecione **Escolher um serviço**.
+2. Introduza **Serviço do Explorador de Custos**.
 3. Selecione **Todas as ações do Serviço do Explorador de Custos (ce:\*)** . Esta ação confirma que a coleção está correta.
-4. Selecione **Adicionar mais permissões** .
+4. Selecione **Adicionar mais permissões**.
 
 Adicionar permissão para as Organizações do AWS:
 
-1. Introduza **Organizações** .
-2. Selecione **Nível de acesso** > **Lista** > **ListAccounts** . Esta ação obtém os nomes das contas.
-3. Em **Política de Revisão** , introduza um nome para a nova política. Confirme se introduziu as informações corretas e selecione **Criar Política** .
+1. Introduza **Organizações**.
+2. Selecione **Nível de acesso** > **Lista** > **ListAccounts**. Esta ação obtém os nomes das contas.
+3. Em **Política de Revisão**, introduza um nome para a nova política. Confirme se introduziu as informações corretas e selecione **Criar Política**.
 4. Volte ao separador anterior e atualize a página Web do browser. Na barra de pesquisa, procure a nova política.
-5. Selecione **Seguinte: Revisão** .
-6. Introduza um nome para a nova função. Confirme se introduziu as informações corretas e selecione **Criar Função** .
+5. Selecione **Seguinte: Revisão**.
+6. Introduza um nome para a nova função. Confirme se introduziu as informações corretas e selecione **Criar Função**.
 
     Anote o ARN da função e o ID externo utilizados nos passos anteriores quando criou a função. Serão utilizados posteriormente quando configurar o conector do Azure Cost Management.
 
@@ -150,18 +150,19 @@ A política JSON deve assemelhar-se ao seguinte exemplo. Substitua _bucketname_ 
 Utilize as seguintes informações para criar um conector AWS e começar a monitorizar os custos do AWS:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Aceda a **Cost Management + Faturação** > **Cost Management** .
-3. Em **Definições** , selecione **Conectores para o AWS** .  
+2. Aceda à home page do Azure ao clicar em **Home** no menu do lado esquerdo (menu de "hambúrguer" com três linhas).
+3. Aceda a **Ferramentas** > **Cost Management** na parte inferior da página.
+3. Em **Definições**, selecione **Conectores para o AWS**.  
 4. Selecione **+Adicionar** na parte superior da página para criar um conector.  
     :::image type="content" source="./media/aws-integration-setup-configure/aws-connector.png" alt-text="Exemplo a mostrar a definição Conectores para o AWS" :::
-1. Na página **Criar um conector** em **Nome a apresentar** , introduza um nome para o conector.  
-    :::image type="content" source="./media/aws-integration-setup-configure/create-aws-connector01.png" alt-text="Exemplo a mostrar a definição Conectores para o AWS" :::
+1. Na página **Criar um conector** em **Nome a apresentar**, introduza um nome para o conector.  
+    :::image type="content" source="./media/aws-integration-setup-configure/create-aws-connector01.png" alt-text="Exemplo da página para criar um conector AWS" :::
 1. Opcionalmente, selecione o grupo de gestão predefinido. Armazenará todas as contas associadas detetadas. Poderá ser configurado mais tarde.
-1. Na secção **Faturação** , selecione **Renovação automática** para **Ativada** se quiser garantir a operação contínua. Se selecionar a opção automática, terá de selecionar uma subscrição de faturação.
-1. Para **ARN da função** , introduza o valor que utilizou quando configurou a função no AWS.
-1. Para **ID externo** , introduza o valor que utilizou quando configurou a função no AWS.
-1. Para **Nome de Relatório** , introduza o nome que criou no AWS.
-1. Selecione **Seguinte** e, em seguida, **Criar** .
+1. Na secção **Faturação**, selecione **Renovação automática** para **Ativada** se quiser garantir a operação contínua. Se selecionar a opção automática, terá de selecionar uma subscrição de faturação.
+1. Para **ARN da função**, introduza o valor que utilizou quando configurou a função no AWS.
+1. Para **ID externo**, introduza o valor que utilizou quando configurou a função no AWS.
+1. Para **Nome de Relatório**, introduza o nome que criou no AWS.
+1. Selecione **Seguinte** e, em seguida, **Criar**.
 
 A apresentação dos novos âmbitos do AWS, da conta consolidada do AWS, das contas associadas do AWS e dos dados dos custos pode demorar algumas horas.
 
@@ -173,21 +174,21 @@ A atribuição das permissões do conetor aos utilizadores após ocorrer a dete�
 
 - [Configure grupos de gestão](../../governance/management-groups/overview.md#initial-setup-of-management-groups) se ainda não o tiver feito.
 - Confirme que são adicionados novos âmbitos ao seletor de âmbito. Selecione **Atualizar** para ver os dados mais recentes.
-- Na página **Conectores da cloud** , selecione o seu conector e selecione **Ir para a conta de faturação** para atribuir a conta associada a grupos de gestão.
+- Na página **Conectores da cloud**, selecione o seu conector e selecione **Ir para a conta de faturação** para atribuir a conta associada a grupos de gestão.
 
 > [!NOTE]
 > Atualmente, os grupos de gestão não são suportados para clientes do Contrato de Cliente Microsoft (MCA). Os clientes do MCA podem criar o conector e ver os respetivos dados do AWS. No entanto, os clientes do MCA não podem ver os custos do Azure e os custos do AWS juntos num grupo de gestão.
 
 ## <a name="manage-aws-connectors"></a>Gerir conectores do AWS
 
-Quando seleciona um conector na página **Conectores para o AWS** , pode:
+Quando seleciona um conector na página **Conectores para o AWS**, pode:
 
 - Selecionar **Ir para Conta de Faturação** para ver as informações da conta consolidada do AWS.
 - Selecionar **Controlo de Acesso** para gerir a atribuição de funções do conector.
 - Selecione **Editar** para atualizar o conector. Não pode alterar o número de conta do AWS, dado que este aparece no ARN da função. Mas, pode criar um novo conector.
 - Selecionar **Verificar** para executar novamente o teste de verificação para garantir que o Cost Management consegue recolher dados com as definições do conector.
 
-:::image type="content" source="./media/aws-integration-setup-configure/aws-connector-details.png" alt-text="Exemplo a mostrar a definição Conectores para o AWS" :::
+:::image type="content" source="./media/aws-integration-setup-configure/aws-connector-details.png" alt-text="Detalhes do conector do AWS de exemplo" :::
 
 ## <a name="set-up-azure-management-groups"></a>Configurar grupos de gestão do Azure
 
@@ -199,7 +200,7 @@ Se quiser separar os custos, poderá criar um grupo de gestão que possua apenas
 
 A conta consolidada do AWS combina a faturação e o pagamento de várias contas AWS. Também age como uma conta associada do AWS. Pode ver os detalhes da sua conta consolidada do AWS através da hiperligação na página do conector do AWS. 
 
-:::image type="content" source="./media/aws-integration-setup-configure/aws-consolidated-account01.png" alt-text="Exemplo a mostrar a definição Conectores para o AWS" :::
+:::image type="content" source="./media/aws-integration-setup-configure/aws-consolidated-account01.png" alt-text="Exemplo que detalha uma conta consolidada do AWS" :::
 
 Nesta página, pode:
 
@@ -221,7 +222,7 @@ Nesta página, pode:
 - Selecionar **Atualizar** para atualizar a associação de uma conta associada do AWS com um grupo de gestão.
 - Selecionar **Controlo de Acesso** para definir uma atribuição de funções do âmbito.
 
-:::image type="content" source="./media/aws-integration-setup-configure/aws-linked-account01.png" alt-text="Exemplo a mostrar a definição Conectores para o AWS" :::
+:::image type="content" source="./media/aws-integration-setup-configure/aws-linked-account01.png" alt-text="Exemplo da página Conta Associada do AWS" :::
 
 ### <a name="permissions-for-an-aws-linked-account"></a>Permissões para uma conta associada do AWS
 

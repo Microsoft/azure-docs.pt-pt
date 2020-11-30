@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d22ab9f028f0491db33d62d0a6dff8d06282f925
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: f22a8f085938f5a3cc3e7a748391a9048129296c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91368724"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888373"
 ---
 # <a name="buy-a-reservation"></a>Comprar uma reserva
 
@@ -21,9 +21,9 @@ O Azure Reservations ajuda-o a poupar ao subscrever planos de um ou três anos d
 
 ## <a name="who-can-buy-a-reservation"></a>Quem pode comprar uma reserva
 
-Para comprar um plano, tem de ter uma função de proprietário da subscrição numa subscrição Enterprise (MS-AZR-0017P ou MS-AZR-0148P), Pay As You Go (MS-AZR-0003P ou MS-AZR-0023P) ou Contrato de Cliente da Microsoft. Os fornecedores de soluções cloud podem utilizar o portal do Azure ou o  [Centro de Parceiros](/partner-center/azure-reservations)  para comprar o Azure Reservations.
+Para comprar uma reserva, tem de ter a função de proprietário ou de comprador da reserva numa subscrição do Azure que seja do tipo Enterprise (MS-AZR-0017P ou MS-AZR-0148P) ou Pay As You Go (MS-AZR-0003P ou MS-AZR-0023P) ou Contrato de Cliente Microsoft. Os fornecedores de soluções cloud podem utilizar o portal do Azure ou o  [Centro de Parceiros](/partner-center/azure-reservations)  para comprar o Azure Reservations.
 
-Os clientes do Contrato Enterprise (EA) podem limitar as compras a administradores do EA ao desativar a opção **Adicionar Instâncias Reservadas** no EA Portal. Os administradores do EA têm de ser o proprietário de, pelo menos, uma subscrição do EA para poderem comprar uma reserva. A opção mencionada é útil para as empresas que pretendem uma equipa centralizada encarregue de comprar reservas para diferentes centros de custos. Após a compra, as equipas centralizadas podem adicionar proprietários de centros de custos às reservas. Posteriormente, os proprietários podem definir o âmbito da reserva para as respetivas subscrições. A equipa centralizada não precisa de ter acesso de proprietário da subscrição nos locais onde a compra da reserva já foi concluída.
+Os clientes do Contrato Enterprise (EA) podem limitar as compras a administradores do EA ao desativar a opção **Adicionar Instâncias Reservadas** no EA Portal. Para comprar uma reserva, os administradores do EA têm de ter acesso de proprietário ou de comprador da reserva em, pelo menos, uma subscrição do EA. A opção é útil para as empresas que pretendem uma equipa centralizada encarregue de comprar as reservas.
 
 Os descontos de reserva só se aplicam a recursos associados a subscrições compradas através do Enterprise, do Fornecedor de Soluções Cloud (CSP), do Contrato de Cliente da Microsoft e de planos individuais com taxas pay as you go.
 

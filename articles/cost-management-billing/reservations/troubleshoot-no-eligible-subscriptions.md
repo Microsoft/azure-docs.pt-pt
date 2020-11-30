@@ -7,13 +7,13 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
-ms.date: 10/14/2020
-ms.openlocfilehash: fd7a2bde47f34a61390082a223409070275b64ce
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 11/16/2020
+ms.openlocfilehash: 1b36577c3c0940687f98394f8ea4faae83f371be
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92115206"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887200"
 ---
 # <a name="troubleshoot-no-eligible-subscriptions"></a>Resolver o erro Nenhuma subscrição elegível
 
@@ -27,7 +27,7 @@ Este artigo ajuda-o a resolver a mensagem de erro *Nenhuma subscrição elegíve
    ```
     No eligible subscriptions
     
-    You do not have any eligible subscriptions to purchase reservations. To purchase a reservation, you should be an owner on at least one subscription of the following type: Pay-as-you-go, CSP, Microsoft Enterprise or Microsoft Customer Agreement.
+    You do not have any eligible subscriptions to purchase reservations. To purchase a reservation, you should have owner or reservation purchaser permission on at least one subscription of the following type: Pay-as-you-go, CSP, Microsoft Enterprise or Microsoft Customer Agreement.
     ```
 1. Na área, **Selecionar o produto que pretende comprar**, expanda a lista **Subscrição de faturação** para ver o motivo pelo qual uma determinada subscrição não é elegível para comprar uma instância reservada. A imagem seguinte mostra exemplos dos motivos pelos quais não é possível comprar uma reserva.  
     :::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png" alt-text="Exemplo que mostra por que motivo não é possível comprar uma reserva" lightbox="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png" :::
@@ -37,7 +37,7 @@ Este artigo ajuda-o a resolver a mensagem de erro *Nenhuma subscrição elegíve
 Para comprar uma instância reservada do Azure, tem de ter, pelo menos, uma subscrição que cumpra os requisitos seguintes:
 
 - A subscrição tem de ser um tipo de oferta suportada. Os tipos de ofertas suportadas são: pay as you go, Fornecedor de Soluções Cloud (CSP), Microsoft Azure Enterprise ou Contrato de Cliente Microsoft.
-- Tem de ser proprietário da subscrição.
+- Tem de ser proprietário ou o comprador da reserva na subscrição.
 
 Se não tiver uma subscrição que cumpra estes requisitos, recebe o erro `No eligible subscriptions`.
 
@@ -51,19 +51,17 @@ Subscription not eligible for purchase
 This subscription is not eligible for reservation benefit an cannot be used to purchase a reservation.
 ```
 
-:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/subscription-not-eligible.png" alt-text="Exemplo que mostra por que motivo não é possível comprar uma reserva" :::
+:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/subscription-not-eligible.png" alt-text="Exemplo que mostra a mensagem de erro Subscrição não elegível para compra" :::
 
 ### <a name="cause-2"></a>Motivo 2
 
-Tem de ser proprietário da subscrição. Não é proprietário da subscrição. Quando seleciona uma subscrição da qual não é proprietário, vê o erro seguinte.
+Tem de ser proprietário ou o comprador da reserva na subscrição. Se não tiver permissões suficientes, verá o erro seguinte.
 
 ```
-You do not have owner access on the subscription
+You do not have owner or reservation purchaser access on the subscription
 
-You can only purchase reservations using subscriptions on which you have owner access.
+You can only purchase reservations using subscriptions on which you have owner or reservation purchaser access.
 ```
-
-:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/no-owner-access.png" alt-text="Exemplo que mostra por que motivo não é possível comprar uma reserva" :::
 
 ## <a name="solution"></a>Solução
 
@@ -89,7 +87,7 @@ Para obter acesso de proprietário a uma reserva, tem de obter acesso:
 O proprietário da encomenda de reserva atual ou o proprietário da reserva pode delegar-lhe o acesso com os passos seguintes.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Selecione**Todos os Serviços** > **Reserva** para listar as reservas às quais tem acesso.
+1. Selecione **Todos os Serviços** > **Reserva** para listar as reservas às quais tem acesso.
 1. Selecione a reserva cujo o acesso quer delegar a outros utilizadores.
 1. Selecione **Controlo de acesso (IAM)** .
 1. Selecione **Adicionar atribuição de função** > **Função** > **Proprietário**. Se preferir dar acesso limitado, selecione uma função diferente.

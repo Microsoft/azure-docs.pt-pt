@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: banders
-ms.openlocfilehash: 0b3cf0c705048d37d422d62b77dc7d94c5ae13bd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7bec455b804d1f4b13ab7e13677092077214a121
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149401"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965855"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Introdução à conta de faturação do Azure atualizada
 
@@ -42,7 +42,7 @@ Quando a conta for atualizada, é criado automaticamente um perfil de faturaçã
 
 As funções nos perfis de faturação têm permissões para ver e gerir faturas e métodos de pagamento. Estas funções devem ser atribuídas a utilizadores que pagam faturas, como membros da equipa de contabilidade numa organização. Para obter mais informações, veja [Funções e tarefas do perfil de faturação](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks). 
 
-Quando a conta for atualizada, para cada subscrição na qual concedeu permissão para [ver faturas](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice), os utilizadores que tiverem uma função RBAC do Azure de proprietário, contribuidor, leitor ou leitor de faturação receberão a função de leitor no respetivo perfil de faturação.
+Quando a conta for atualizada, para cada subscrição na qual concedeu permissão para [ver faturas](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice), os utilizadores que tiverem uma função do Azure de proprietário, contribuidor, leitor ou leitor de faturação receberão a função de leitor no respetivo perfil de faturação.
 
 ## <a name="invoice-sections"></a>Secções de faturação
 
