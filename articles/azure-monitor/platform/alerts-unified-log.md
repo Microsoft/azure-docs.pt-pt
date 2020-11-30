@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 89cec12804f6fd2b8a3885248c42646d6c6dbb13
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9f8004b41e8048dfc97fb61bb67a634963c0c575
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186563"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317559"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registo no Monitor Azure
 
@@ -90,7 +90,7 @@ requests
 | where resultCode == "500"
 ```
 
-- **Período de tempo:** 15 minutos
+- **Período de tempo / Granularidade agregação:** 15 minutos
 - **Frequência de alerta:** 15 minutos
 - **Valor limiar:** Maior que 0
 
@@ -145,7 +145,7 @@ Por exemplo, pretende monitorizar erros para várias máquinas virtuais que exec
 - **Coluna de ID de recursos:** _ResourceId (Dividir por coluna de ID de recursos em regras de alerta só está disponível para subscrições e grupos de recursos atualmente)
 - **Dimensões / Agregadas em:**
   - Computador = VM1, VM2 (Valores de filtragem na definição de regras de alerta não está disponível atualmente para espaços de trabalho e Insights de Aplicação. Filtrar no texto da consulta.)
-- **Período de tempo:** 15 minutos
+- **Período de tempo / Granularidade agregação:** 15 minutos
 - **Frequência de alerta:** 15 minutos
 - **Valor limiar:** Maior que 0
 

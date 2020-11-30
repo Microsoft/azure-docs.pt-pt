@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 7b77a47acba6180df4a067887b79d8cdc0f56df6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5dbd49312b58dc656e2239e8a0a4acea614023de
+ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185084"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96317141"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integração contínua e entrega para o espaço de trabalho Azure Synapse
 
@@ -91,15 +91,25 @@ Adicione uma tarefa de implementação do Gestor de Recursos Azure para criar ou
 
 ## <a name="set-up-a-stage-task-for-artifacts-deployment"></a>Configurar uma tarefa de palco para a implantação de artefactos 
 
-Use [espaços de trabalho Synapse Construa & Tarefa de Libertação](https://marketplace.visualstudio.com/items?itemName=PraveenMathamsetty.synapsecicd-deploy) para implantar outros itens no espaço de trabalho da Sinapse, como conjunto de dados, script SQL, caderno, definição de trabalho de faísca, fluxo de dados, pipeline,serviço ligado, credenciais e IR (Integration Runtime).  
+Utilize a extensão [de implantação do espaço de trabalho synapse](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) para implantar outros itens no espaço de trabalho synapse, como conjunto de dados, script SQL, caderno, definição de trabalho de faísca, fluxo de dados, serviço ligado, serviço ligado e IR (Integration Runtime).  
+
+1. Pesquisa e obtenha a extensão do **mercado Azure DevOps**(https://marketplace.visualstudio.com/azuredevops) 
+
+     ![Obter extensão](media/get-extension-from-market.png)
+
+1. Selecione uma organização para instalar extensão. 
+
+     ![Instalar a extensão](media/install-extension.png)
 
 1. Certifique-se de que o princípio de serviço do gasoduto Azure DevOps foi autorizado a ser atribuído à subscrição e também atribuído como administrador do espaço de trabalho para o espaço de trabalho alvo. 
 
-1. Criar uma nova tarefa. Procure por **espaços de trabalho synapse Construa & Release** e, em seguida, selecione **Add**.
+1. Criar uma nova tarefa. Procure a **implementação do espaço de trabalho synapse** e, em seguida, selecione **Adicionar**.
+
+     ![Adicionar extensão](media/add-extension-task.png)
 
 1.  Na tarefa, forneça informações relacionadas com o repositório de **git de workspace_publish** , e selecione o grupo de recursos, região, nome e ambiente cloud para o espaço de trabalho alvo. Forneça parâmetros e valores se precisar.
 
-    ![sinapse espaço de trabalho implementar](media/create-release-artifacts-deployment.png)
+    ![Implantação do espaço de trabalho da Sinapse](media/create-release-artifacts-deployment.png)
 
 > [!IMPORTANT]
 > Nos cenários ci/CD, o tipo de execução de integração (IR) em diferentes ambientes deve ser o mesmo. Por exemplo, se tiver um IR auto-hospedado no ambiente de desenvolvimento, o mesmo IR também deve ser do tipo auto-hospedado em outros ambientes, como o teste e a produção. Da mesma forma, se estiver a partilhar tempos de integração em várias fases, tem de configurar os tempos de integração como auto-hospedados em todos os ambientes, tais como desenvolvimento, teste e produção.
