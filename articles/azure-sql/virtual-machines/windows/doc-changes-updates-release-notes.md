@@ -11,12 +11,12 @@ ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/15/2020
-ms.openlocfilehash: 262e15754ba481ee37b6af9783e5a3bc82d9450c
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ff4e6e0451b57046fb8f07f5a1051235e1f6d0f5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556361"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325728"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Alterações de documentação para o servidor SQL em máquinas virtuais Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -96,7 +96,7 @@ O Azure permite-lhe implantar uma máquina virtual (VM) com uma imagem do SQL Se
 | **Apoio a instâncias nomeadas** | Pode agora utilizar a [extensão IAAS do SQL Server](sql-server-iaas-agent-extension-automate-management.md#installation) com uma instância nomeada, se a instância padrão tiver sido desinstalada corretamente. | 
 | **Melhoramento do portal** | A experiência do portal Azure para a implementação de um SQL Server VM foi renovada para melhorar a usabilidade. Para obter mais informações, consulte o breve [quickstart](sql-vm-create-portal-quickstart.md) e o guia mais completo [para](create-sql-vm-portal.md) implementar um SQL Server VM.|
 | **Melhoria do portal** | Agora é possível alterar o modelo de licenciamento para um SQL Server VM de pay-as-you-go para trazer a sua própria licença usando o [portal Azure](licensing-model-azure-hybrid-benefit-ahb-change.md#change-license-model).|
-| **Simplificação da implementação do grupo de disponibilidade para um SQL Server VM através do CLI Azure** | É agora mais fácil do que nunca implementar um grupo de disponibilidade para um SQL Server VM em Azure. Pode utilizar o [CLI do Azure](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) para criar o cluster de failover do Windows, o equilibrador de carga interno e os ouvintes do grupo de disponibilidade, todos a partir da linha de comando. Para obter mais informações, consulte [o Azure CLI para configurar um grupo de disponibilidade Always On para O Servidor SQL num VM Azure](availability-group-az-cli-configure.md). | 
+| **Simplificação da implementação do grupo de disponibilidade para um SQL Server VM através do CLI Azure** | É agora mais fácil do que nunca implementar um grupo de disponibilidade para um SQL Server VM em Azure. Pode utilizar o [CLI do Azure](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) para criar o cluster de failover do Windows, o equilibrador de carga interno e os ouvintes do grupo de disponibilidade, todos a partir da linha de comando. Para obter mais informações, consulte [o Azure CLI para configurar um grupo de disponibilidade Always On para O Servidor SQL num VM Azure](./availability-group-az-commandline-configure.md). | 
 | &nbsp; | &nbsp; |
 
 ## <a name="2018"></a>2018 

@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções com Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 9679f6030ac889ac442a40cd852f5cc17f505756
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 1ffbd760ae75605d75652b29d379420d6946aa8f
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422523"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326459"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia de desenvolvedores de Java funções Azure Functions
 
@@ -45,15 +45,27 @@ Os links de artigo acima mostram-lhe como criar as suas primeiras funções util
 
 ### <a name="project-scaffolding"></a>Andaimes do projeto
 
-Se preferir o desenvolvimento da linha de comando a partir do Terminal, a forma mais simples de andaimes projetos de função baseados em Java é usar `Apache Maven` arquétipos. O arquétipo Java Maven para Funções Azure é publicado sob o seguinte _grupoId_ : _artifactId_ : [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
+Se preferir o desenvolvimento da linha de comando a partir do Terminal, a forma mais simples de andaimes projetos de função baseados em Java é usar `Apache Maven` arquétipos. O arquétipo Java Maven para Funções Azure é publicado sob o seguinte _grupoId_:_artifactId_: [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
 
 O seguinte comando gera um novo projeto de função Java utilizando este arquétipo:
+
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```bash
 mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-archetype 
+    -DarchetypeArtifactId=azure-functions-archetype
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+mvn archetype:generate ^
+    -DarchetypeGroupId=com.microsoft.azure ^
+    -DarchetypeArtifactId=azure-functions-archetype
+```
+
+---
 
 Para começar a usar este arquétipo, consulte o [arranque rápido de Java.](./create-first-function-cli-java.md)
 
@@ -153,7 +165,7 @@ Pode controlar a versão de Java visada pelo arquétipo Maven utilizando o `-Dja
 
 O arquétipo maven gera uma pom.xml que visa a versão java especificada. Os seguintes elementos em pom.xml indicam a versão Java a utilizar:
 
-| Elemento |  Valor de Java 8 | Valor de Java 11 | Description |
+| Elemento |  Valor de Java 8 | Valor de Java 11 | Descrição |
 | ---- | ---- | ---- | --- |
 | **`Java.version`** | 1.8 | 11 | Versão de Java usada pelo maven-compilador-plugin. |
 | **`JavaVersion`** | 8 | 11 | Versão Java hospedada pela aplicação de função em Azure. |
@@ -210,19 +222,40 @@ No [portal Azure,](https://portal.azure.com)utilize o [separador Definições de
 
 Pode utilizar o comando de configuração de configuração de apps do [az functionapp para](/cli/azure/functionapp/config/appsettings) definir `JAVA_OPTS` , como no exemplo seguinte:
 
-#### <a name="consumption-plan"></a>[Plano de consumo](#tab/consumption)
+# <a name="consumption-plan"></a>[Plano de consumo](#tab/consumption/bash)
+
 ```azurecli-interactive
 az functionapp config appsettings set \
---settings "JAVA_OPTS=-Djava.awt.headless=true" \
-"WEBSITE_USE_PLACEHOLDER=0" \
---name <APP_NAME> --resource-group <RESOURCE_GROUP>
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" \
+    "WEBSITE_USE_PLACEHOLDER=0" \
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
 ```
-#### <a name="dedicated-plan--premium-plan"></a>[Plano dedicado / Plano Premium](#tab/dedicated+premium)
+
+# <a name="consumption-plan"></a>[Plano de consumo](#tab/consumption/cmd)
+
+```azurecli-interactive
+az functionapp config appsettings set ^
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" ^
+    "WEBSITE_USE_PLACEHOLDER=0" ^
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
+```
+
+# <a name="dedicated-plan--premium-plan"></a>[Plano dedicado / Plano Premium](#tab/dedicated+premium/bash)
+
 ```azurecli-interactive
 az functionapp config appsettings set \
---settings "JAVA_OPTS=-Djava.awt.headless=true" \
---name <APP_NAME> --resource-group <RESOURCE_GROUP>
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" \
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
 ```
+
+# <a name="dedicated-plan--premium-plan"></a>[Plano dedicado / Plano Premium](#tab/dedicated+premium/cmd)
+
+```azurecli-interactive
+az functionapp config appsettings set ^
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" ^
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
+```
+
 ---
 
 Este exemplo permite o modo sem cabeça. `<APP_NAME>`Substitua-o pelo nome da sua aplicação de função e `<RESOURCE_GROUP>` pelo grupo de recursos. 
@@ -460,15 +493,36 @@ Pode utilizar o CLI Azure para transmitir a sessão de stdout de Java e o regist
 
 Aqui está como configurar a sua aplicação de função para escrever o registo de aplicações utilizando o Azure CLI:
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli-interactive
 az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
 ```
 
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli-interactive
+az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
+```
+
+---
+
 Para transmitir a saída de registo para a sua aplicação de função utilizando o CLI Azure, abra uma nova sessão de comando, Bash ou Terminal e introduza o seguinte comando:
+
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```azurecli-interactive
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli-interactive
+az webapp log tail --name webappname --resource-group myResourceGroup
+```
+
+---
+
 O comando [de cauda de log webapp az](/cli/azure/webapp/log) tem opções para filtrar a saída utilizando a `--provider` opção. 
 
 Para descarregar os ficheiros de registo como um único ficheiro ZIP utilizando o CLI Azure, abra uma nova sessão de comando, Bash ou Terminal e introduza o seguinte comando:

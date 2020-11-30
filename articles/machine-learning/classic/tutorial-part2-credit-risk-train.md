@@ -9,17 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 59567cf2dc03952a78852f3288e78ba06aa769ee
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 557c624b6ed683f701b6a8d38854cd8604e05b31
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325679"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325269"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Tutorial 2: Modelos de risco de crédito de comboio - Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
-
+**APLICA-SE A:** ![ Esta é uma marca de verificação, o que significa que este artigo se aplica ao Machine Learning Studio (clássico).  ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico)   ![ Este é um X, o que significa que este artigo se aplica ao Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Neste tutorial, você dá uma olhada alargada no processo de desenvolvimento de uma solução de análise preditiva. Desenvolve-se um modelo simples no Machine Learning Studio (clássico).  Em seguida, implementa o modelo como um serviço web Azure Machine Learning.  Este modelo implementado pode fazer previsões usando novos dados. Este tutorial é **a segunda parte de uma série tutorial em três partes.**
 
@@ -118,7 +117,7 @@ Agora configurar o módulo [de dados normalizar:][normalize-data]
 
 1. Clique para selecionar o módulo [de dados normalizar.][normalize-data] No painel **propriedades,** selecione **Tanh** para o parâmetro **do método de transformação.**
 
-1. Clique no **seletor de colunas de lançamento** , selecione "No columns" para Começar **Com** , selecione **Inclua** no primeiro dropdown, selecione o **tipo de coluna** no segundo dropdown e selecione **Nummérico** no terceiro dropdown. Isto especifica que todas as colunas numéricas (e apenas numéricas) são transformadas.
+1. Clique no **seletor de colunas de lançamento**, selecione "No columns" para Começar **Com**, selecione **Inclua** no primeiro dropdown, selecione o **tipo de coluna** no segundo dropdown e selecione **Nummérico** no terceiro dropdown. Isto especifica que todas as colunas numéricas (e apenas numéricas) são transformadas.
 
 1. Clique no sinal de mais (+) à direita desta linha - isto cria uma linha de dropdowns. **Selecione Excluir** no primeiro dropdown, selecione nomes de **colunas** na segunda redução e introduza "Risco de Crédito" no campo de texto. Isto especifica que a coluna de Risco de Crédito deve ser ignorada (é preciso fazê-lo porque esta coluna é numérica e por isso seria transformada se não a excluísse).
 

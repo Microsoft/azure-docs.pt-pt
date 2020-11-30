@@ -4,12 +4,12 @@ description: Restaurar uma máquina virtual Azure a partir de um ponto de recupe
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 335dfc665cc7fb9727e4eff3e65a18a2aa5c3f94
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1c28de679bd957a472e543489a2dd15b3883aed5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002992"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327190"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar os dados do Azure VM no portal Azure
 
@@ -203,7 +203,7 @@ Há uma série de cenários comuns em que poderá ser necessário restaurar os V
 **Grupo de Segurança de Rede (NSG) em NIC/Subnet** | A cópia de segurança Azure VM suporta backup e restaurar informações NSG no nível Vnet, subnet e NIC.
 **VMs de fixação de zona** | Se você apoiar um Azure VM que está preso a uma zona (com Azure Backup), então você pode restaurá-lo na mesma zona onde foi fixado. [Saiba mais](../availability-zones/az-overview.md)
 **Restaurar VM em qualquer conjunto de disponibilidade** | Ao restaurar um VM do portal, não há opção para escolher um conjunto de disponibilidade. Um VM restaurado não tem um conjunto de disponibilidade. Se utilizar a opção de disco de restauro, poderá [especificar um conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) quando criar um VM a partir do disco utilizando o modelo ou PowerShell fornecido.
-**Restaurar VMs especiais como SQL VMs** | Se estiver a apoiar um SQL VM utilizando a cópia de segurança Azure VM e, em seguida, utilizar a opção de restauro de VM ou criar um VM após a restauração dos discos, então o VM recém-criado deve ser registado com o fornecedor SQL como mencionado [aqui.](../azure-sql/virtual-machines/windows/sql-vm-resource-provider-register.md?tabs=azure-cli%2Cbash) Isto converterá o VM restaurado num SQL VM.
+**Restaurar VMs especiais como SQL VMs** | Se estiver a apoiar um SQL VM utilizando a cópia de segurança Azure VM e, em seguida, utilizar a opção de restauro de VM ou criar um VM após a restauração dos discos, então o VM recém-criado deve ser registado com o fornecedor SQL como mencionado [aqui.](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md?tabs=azure-cli%2cbash) Isto converterá o VM restaurado num SQL VM.
 
 ### <a name="restore-domain-controller-vms"></a>Restaurar vMs controladores de domínio
 

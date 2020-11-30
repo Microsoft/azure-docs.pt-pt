@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 30481fee949df16c70718d0a9cbc6df9ca54d11e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: af63eb68ec82a0725befed723298c079e82bdfdb
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182551"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327105"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux com um contentor personalizado
 
@@ -20,7 +20,7 @@ A implementação do seu código de função num recipiente Linux personalizado 
 
 Também pode utilizar um recipiente de Serviço de Aplicações Azure padrão, conforme descrito no [Criar a sua primeira função hospedada no Linux](./create-first-function-cli-csharp.md?pivots=programming-language-python). As imagens base suportadas para funções Azure encontram-se nas imagens base do [Azure Functions repo](https://hub.docker.com/_/microsoft-azure-functions-base).
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie uma aplicação de função e dockerfile utilizando as Ferramentas Principais de Funções Azure.
@@ -54,34 +54,34 @@ Pode seguir este tutorial em qualquer computador que execute Windows, macOS ou L
 Numa solicitação de terminal ou comando, executar o seguinte comando para o seu idioma escolhido para criar um projeto de aplicação de função numa pasta chamada `LocalFunctionsProject` .  
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime dotnet --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime node --language javascript --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime powershell --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime python --docker
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-```
+```console
 func init LocalFunctionsProject --worker-runtime node --language typescript --docker
 ```
 ::: zone-end
 ::: zone pivot="programming-language-java"  
 Numa pasta vazia, execute o seguinte comando para gerar o projeto das Funções a partir de um [arquétipo do Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
-# <a name="bash"></a>[festa](#tab/bash)
+# <a name="bash"></a>[Bash](#tab/bash)
 ```bash
 mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8 -Ddocker
 ```
@@ -118,41 +118,41 @@ A `--docker` opção gera um `Dockerfile` para o projeto, que define um recipien
 
 Navegue na pasta do projeto:
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-```
+```console
 cd LocalFunctionsProject
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-```
+```console
 cd fabrikam-functions
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
 Adicione uma função ao seu projeto utilizando o seguinte comando, onde o `--name` argumento é o nome único da sua função e o argumento especifica o gatilho da `--template` função. `func new` criar uma sub-dobradeira que corresponda ao nome da função que contém um ficheiro de código adequado à língua escolhida do projeto e um ficheiro de configuração denominado *function.jsem*.
 
-```
+```console
 func new --name HttpExample --template "HTTP trigger"
 ```
 ::: zone-end  
 Para testar a função localmente, inicie o hospedeiro local Azure Functions na raiz da pasta do projeto: 
 ::: zone pivot="programming-language-csharp"  
-```
+```console
 func start --build  
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"   
-```
+```console
 func start  
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-```
+```console
 npm install
 npm start
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-```
+```console
 mvn clean package  
 mvn azure-functions:run
 ```
@@ -167,7 +167,7 @@ Use **ctrl** - **C** para parar o hospedeiro.
     
 Na pasta do projeto raiz, executar o [estivador constroem](https://docs.docker.com/engine/reference/commandline/build/) comando, e fornecer um `azurefunctionsimage` nome, e tag, `v1.0.0` . Substitua `<DOCKER_ID>` pelo ID da sua conta do Docker Hub. Este comando cria a imagem do Docker para o contentor.
 
-```
+```console
 docker build --tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 .
 ```
 
@@ -175,7 +175,7 @@ Quando o comando terminar, pode executar o novo recipiente localmente.
     
 Para testar a construção, coloque a imagem num recipiente local utilizando o comando de execução do [estivador,](https://docs.docker.com/engine/reference/commandline/run/) substituindo novamente `<DOCKER_ID` o seu Estivador de Identificação e adicionando o argumento das portas: `-p 8080:80`
 
-```
+```console
 docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
 ```
 
@@ -197,13 +197,13 @@ Docker Hub é um registo de contentores que acolhe imagens e fornece serviços d
 
 1. Se ainda não assinou contrato com o Docker, [faça-o](https://docs.docker.com/engine/reference/commandline/login/) com o comando de login do docker, substituindo `<docker_id>` o seu Estivador. Este comando solicita-lhe o seu nome de utilizador e senha. Uma mensagem "Login Com sucesso" confirma que está inscrito.
 
-    ```
+    ```console
     docker login
     ```
     
 1. Depois de ter assinado, empurre a imagem para Docker Hub usando o comando [de push docker,](https://docs.docker.com/engine/reference/commandline/push/) substituindo novamente `<docker_id>` com o seu Estivador ID.
 
-    ```
+    ```console
     docker push <docker_id>/azurefunctionsimage:v1.0.0
     ```
 
@@ -279,7 +279,7 @@ Uma aplicação de função no Azure gere a execução das suas funções no seu
 1. A função pode agora utilizar este fio de ligação para aceder à conta de armazenamento.
 
     > [!TIP]
-    > Na bash, pode utilizar uma variável de concha para capturar a cadeia de ligação em vez de usar a prancheta. Primeiro, utilize o seguinte comando para criar uma variável com a cadeia de ligação:
+    > Em Bash, pode utilizar uma variável de concha para capturar a cadeia de ligação em vez de utilizar a área de transferência. Primeiro, utilize o seguinte comando para criar uma variável com a cadeia de ligação:
     > 
     > ```bash
     > storageConnectionString=$(az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv)
@@ -419,13 +419,13 @@ O SSH permite a comunicação segura entre um contentor e um cliente. Com o SSH 
     
 1. Reconstrua a imagem utilizando novamente o `docker build` comando, `<docker_id>` substituindo-a pelo seu Estivador ID:
 
-    ```
+    ```console
     docker build --tag <docker_id>/azurefunctionsimage:v1.0.0 .
     ```
     
 1. Empurre a imagem atualizada para o Docker Hub, que deve demorar consideravelmente menos tempo do que o primeiro impulso apenas os segmentos atualizados da imagem precisam de ser carregados.
 
-    ```
+    ```console
     docker push <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
@@ -492,13 +492,13 @@ Com a ligação da fila definida, pode agora atualizar a sua função para receb
 
 1. Na pasta raiz, volte a correr `docker build` e desta vez atualize a versão na etiqueta para `v1.0.1` . Como antes, `<docker_id>` substitua-o pela sua conta Docker Hub:
 
-    ```
+    ```console
     docker build --tag <docker_id>/azurefunctionsimage:v1.0.1 .
     ```
     
 1. Empurre a imagem atualizada de volta para o repositório `docker push` com:
 
-    ```
+    ```console
     docker push <docker_id>/azurefunctionsimage:v1.0.1
     ```
 
@@ -510,7 +510,7 @@ Num browser, utilize o mesmo URL de antes para invocar a sua função. O navegad
 
 [!INCLUDE [functions-add-output-binding-view-queue-cli](../../includes/functions-add-output-binding-view-queue-cli.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser continuar a trabalhar com a Azure Function utilizando os recursos que criou neste tutorial, pode deixar todos esses recursos no lugar. Como criou um Plano Premium para Funções Azure, incorrerá num ou dois USD por dia em custos contínuos.
 

@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 39f9a5802d7f10753c8ea81bf414da195e137cc6
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: e2e25f2fb806cb6e88745ffdfefe3dd82c0e9a6d
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93234142"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326545"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilizar o serviço Importar/Exportar do Microsoft Azure para exportar dados do Armazenamento de blobs do Azure
 
@@ -53,14 +53,14 @@ Execute os seguintes passos para criar uma função de exportação no portal Az
 
 4. No **Básico:**
 
-    - Selecione **Exportação de Azure** .
+    - Selecione **Exportação de Azure**.
     - Insira um nome descritivo para o trabalho de exportação. Use o nome que escolher para acompanhar o progresso dos seus trabalhos.
         - O nome pode conter apenas letras minúsculas, números, hífens e sublinhados.
         - O nome deve começar com uma letra, e pode não conter espaços.
     - Selecione uma subscrição.
     - Insira ou selecione um grupo de recursos.
 
-        ![Informações básicas](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
+        ![Noções básicas](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
 
 5. Em **detalhes de trabalho:**
 
@@ -109,7 +109,7 @@ Utilize os seguintes passos para criar uma tarefa de exportação no portal Azur
 
 [!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-### <a name="create-a-job"></a>Criar um trabalho
+### <a name="create-a-job"></a>Criar uma tarefa
 
 1. Utilize o comando [de adicionar extensão az](/cli/azure/extension#az_extension_add) para adicionar a extensão [de importação e exportação az:](/cli/azure/ext/import-export/import-export)
 
@@ -147,7 +147,7 @@ Utilize os seguintes passos para criar uma tarefa de exportação no portal Azur
     > [!TIP]
     > Em vez de especificar um endereço de e-mail para um único utilizador, forneça um e-mail de grupo. Isto garante que recebe notificações mesmo que um administrador saia.
 
-   Este trabalho exporta todas as bolhas na sua conta de armazenamento. Pode especificar uma bolha para exportação substituindo este valor para **--exportação** :
+   Este trabalho exporta todas as bolhas na sua conta de armazenamento. Pode especificar uma bolha para exportação substituindo este valor para **--exportação**:
 
     ```azurecli
     --export blob-path=$root/logo.bmp
@@ -191,7 +191,7 @@ Utilize os seguintes passos para criar uma tarefa de exportação na Azure Power
 Install-Module -Name Az.ImportExport
 ```
 
-### <a name="create-a-job"></a>Criar um trabalho
+### <a name="create-a-job"></a>Criar uma tarefa
 
 1. Para obter uma lista das localizações a partir das quais pode receber discos, utilize o cmdlet [Get-AzImportExportLocation:](/powershell/module/az.importexport/get-azimportexportlocation)
 
@@ -234,7 +234,7 @@ Install-Module -Name Az.ImportExport
     > [!TIP]
     > Em vez de especificar um endereço de e-mail para um único utilizador, forneça um e-mail de grupo. Isto garante que recebe notificações mesmo que um administrador saia.
 
-   Este trabalho exporta todas as bolhas na sua conta de armazenamento. Pode especificar uma bolha para exportação substituindo este valor por **-ExportBlobListblobPath** :
+   Este trabalho exporta todas as bolhas na sua conta de armazenamento. Pode especificar uma bolha para exportação substituindo este valor por **-ExportBlobListblobPath**:
 
    ```azurepowershell-interactive
    -ExportBlobListblobPath $root\logo.bmp

@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d23560e8ee387ca8bc9cb4bba4211f6c8272addd
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 07f1a6ff5d15ee552680c59c86a194aeabe5b866
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490887"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326391"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utilizar o serviço Azure Import/Export para importar dados para a Azure Blob Storage
 
@@ -74,7 +74,7 @@ Execute os seguintes passos para preparar as unidades.
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
     ```
 
-    Um ficheiro de diário é criado na mesma pasta onde executou a ferramenta. São também criados dois outros ficheiros - um ficheiro *.xml* (pasta onde executa a ferramenta) e um ficheiro *drive-manifest.xml* (pasta onde os dados residem).
+    Um ficheiro de diário é criado na mesma pasta onde executou a ferramenta. São também criados outros dois ficheiros - um ficheiro *.xml* (pasta onde executa a ferramenta) e um ficheiro *drive-manifest.xml* (pasta onde os dados residem).
 
     Os parâmetros utilizados são descritos no quadro seguinte:
 
@@ -152,7 +152,7 @@ Utilize os seguintes passos para criar um trabalho de importação no Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-### <a name="create-a-job"></a>Criar um trabalho
+### <a name="create-a-job"></a>Criar uma tarefa
 
 1. Utilize o comando [de adicionar extensão az](/cli/azure/extension#az_extension_add) para adicionar a extensão [de importação e exportação az:](/cli/azure/ext/import-export/import-export)
 
@@ -160,7 +160,7 @@ Utilize os seguintes passos para criar um trabalho de importação no Azure CLI.
     az extension add --name import-export
     ```
 
-1. Pode utilizar um grupo de recursos existente ou criar um. Para criar um grupo de recursos, executar o [grupo az criar](/cli/azure/group#az_group_create) comando:
+1. Pode utilizar um grupo de recursos existente ou criar um. Para criar um grupo de recursos, execute o comando [az group create](/cli/azure/group#az_group_create):
 
     ```azurecli
     az group create --name myierg --location "West US"
@@ -236,7 +236,7 @@ Utilize os seguintes passos para criar um trabalho de importação na Azure Powe
 Install-Module -Name Az.ImportExport
 ```
 
-### <a name="create-a-job"></a>Criar um trabalho
+### <a name="create-a-job"></a>Criar uma tarefa
 
 1. Pode utilizar um grupo de recursos existente ou criar um. Para criar um grupo de recursos, executar o cmdlet [New-AzResourceGroup:](/powershell/module/az.resources/new-azresourcegroup)
 

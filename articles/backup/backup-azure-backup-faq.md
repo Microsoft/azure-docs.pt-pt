@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 72a4f805b34ba8a536cd398efd5e6809bd66f0d4
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: d85866e490b2c56abb7de1e94cd0ffaa8f714615
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096628"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327156"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Perguntas frequentes
 
@@ -60,7 +60,7 @@ Se já configurar a cópia de segurança e tiver de passar de GRS para LRS, ent�
 
 ### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Como posso transferir dados do cofre dos Serviços de Recuperação para o local?
 
-Não é suportado a exportação de dados diretamente do cofre dos Serviços de Recuperação para as instalações utilizando a Data Box. Os dados devem ser restaurados numa conta de armazenamento e, em seguida, podem ser transferidos para o local através da [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) ou [da Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+Não é suportado a exportação de dados diretamente do cofre dos Serviços de Recuperação para as instalações utilizando a Data Box. Os dados devem ser restaurados numa conta de armazenamento e, em seguida, podem ser transferidos para o local através da [Data Box](../databox/data-box-overview.md) ou [da Import/Export](../storage/common/storage-import-export-service.md).
 
 ## <a name="azure-backup-agent"></a>Agente do Backup do Azure
 

@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 8881dc3f67ac1c9f699bd2bf7bcf1dbbcd5e9c0c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 40572d50f7653539758ff892019e7e65b0ffa6dd
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905332"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324895"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e o Azure CLI: Ativar a encriptação de dados transparente com a chave gerida pelo cliente a partir do Cofre da Chave Azure
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -46,7 +46,7 @@ Este artigo percorre como usar uma chave do Cofre de Chaves Azure para encripta�
 
 Para obter instruções de instalação do módulo Az, veja [Instalar o Azure PowerShell](/powershell/azure/install-az-ps). Para obter cmdlets específicos, consulte [AzureRM.Sql](/powershell/module/AzureRM.Sql/).
 
-Para obter detalhes no Cofre de Chaves, consulte [as instruções powerShell do Key Vault](../../key-vault/secrets/quick-create-powershell.md) e Como utilizar o Key Vault [soft-delete com PowerShell](../../key-vault/general/soft-delete-powershell.md).
+Para obter detalhes no Cofre de Chaves, consulte [as instruções powerShell do Key Vault](../../key-vault/secrets/quick-create-powershell.md) e Como utilizar o Key Vault [soft-delete com PowerShell](../../key-vault/general/key-vault-recovery.md).
 
 > [!IMPORTANT]
 > O módulo PowerShell Azure Resource Manager (RM) ainda está suportado, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber correções de erros até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre a sua compatibilidade, consulte [a introdução do novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
@@ -136,7 +136,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 Para instalar a versão necessária do Azure CLI (versão 2.0 ou posterior) e ligar-se à sua subscrição Azure, consulte [instalar e configurar a Interface Command-Line Interface 2.0 da Plataforma Cruzada Azure.](/cli/azure/install-azure-cli)
 
-Para obter detalhes no Key Vault, consulte [Gerir o Cofre de Chaves utilizando o CLI 2.0](../../key-vault/general/manage-with-cli2.md) e como utilizar o Key Vault [soft-delete com o CLI](../../key-vault/general/soft-delete-cli.md).
+Para obter detalhes no Key Vault, consulte [Gerir o Cofre de Chaves utilizando o CLI 2.0](../../key-vault/general/manage-with-cli2.md) e como utilizar o Key Vault [soft-delete com o CLI](../../key-vault/general/key-vault-recovery.md).
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>Atribua uma identidade AD Azure ao seu servidor
 

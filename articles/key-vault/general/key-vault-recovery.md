@@ -8,12 +8,12 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
 ms.date: 09/30/2020
-ms.openlocfilehash: fbeb6f5f223642c09183c149188c6717c1f33a8e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 86190fa307133360c411aafc070412e7d527039e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748497"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324963"
 ---
 # <a name="how-to-enable-soft-delete-and-purge-protection"></a>Como permitir a eliminação suave e a proteção de purga
 
@@ -44,7 +44,7 @@ A proteção de eliminação e purga suave são duas características diferentes
 1. Verifique se o botão de rádio ao lado do soft-delete está definido para "Ativar a recuperação".
 1. Se a eliminação suave não estiver ativada no cofre da chave, clique no botão de rádio para ativar a eliminação suave e clique em "Guardar".
 
-:::image type="content" source="../media/key-vault-recovery-1.png" alt-text="<Uma imagem do portal Azure>":::
+:::image type="content" source="../media/key-vault-recovery-1.png" alt-text="Em Propriedades, a eliminação de soft-delete é realçada, assim como o valor para o ativar.":::
 
 ## <a name="grant-access-to-a-service-principal-to-purge-and-recover-deleted-secrets"></a>Conceder acesso a um diretor de serviço para purgar e recuperar segredos apagados
 
@@ -56,7 +56,7 @@ A proteção de eliminação e purga suave são duas características diferentes
 1. Percorra a parte inferior da queda e clique em "Recuperar" e "Purgar"
 1. Os diretores de segurança também precisarão de obter e listar a funcionalidade para executar a maioria das operações.
 
-:::image type="content" source="../media/key-vault-recovery-2.png" alt-text="<Uma imagem do portal Azure>":::
+:::image type="content" source="../media/key-vault-recovery-2.png" alt-text="No painel de navegação à esquerda, destacam-se as políticas de acesso. Nas políticas de Acesso, é apresentada a lista de abandono de Posições Secretas e são selecionados quatro itens: Obter, Lista, Recuperar e Purgar.":::
 
 ## <a name="list-recover-or-purge-a-soft-deleted-key-vault"></a>Liste, recupere ou purgue um cofre de chaves apagado
 
@@ -72,9 +72,9 @@ A proteção de eliminação e purga suave são duas características diferentes
 1. Selecione a opção de recuperação na parte inferior do painel de contexto se quiser recuperar o cofre da chave.
 1. Selecione a opção de purga se quiser eliminar permanentemente o cofre da chave.
 
-:::image type="content" source="../media/key-vault-recovery-3.png" alt-text="<Uma imagem do portal Azure>":::
+:::image type="content" source="../media/key-vault-recovery-3.png" alt-text="Nos cofres key, a opção de cofres eliminados do Manage é realçada.":::
 
-:::image type="content" source="../media/key-vault-recovery-4.png" alt-text="<Uma imagem do portal Azure>":::
+:::image type="content" source="../media/key-vault-recovery-4.png" alt-text="No Manage eliminados cofres-chave, o único cofre de chaves listado é realçado e selecionado, e o botão Recuperar é realçado.":::
 
 ## <a name="list-recover-or-purge-soft-deleted-secrets-keys-and-certificates"></a>Lista, recuperar ou purgar segredos, chaves e certificados suaves apagados
 
@@ -87,7 +87,7 @@ A proteção de eliminação e purga suave são duas características diferentes
 1. Selecione o segredo, chave ou certificado que gostaria de gerir.
 1. Selecione a opção de recuperar ou purgar na parte inferior do painel de contexto.
 
-:::image type="content" source="../media/key-vault-recovery-5.png" alt-text="<Uma imagem do portal Azure>":::
+:::image type="content" source="../media/key-vault-recovery-5.png" alt-text="Em Teclas, destaca-se a opção &quot;Gerir&quot; as teclas eliminadas.":::
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 

@@ -3,12 +3,12 @@ title: Gestão do ciclo de vida da Azure VMware Solution VMs
 description: Aprenda a gerir todos os aspetos do ciclo de vida dos VMS da sua Solução VMware Azure com ferramentas nativas do Microsoft Azure.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 5280d362c1e7b1bf33579d051c4cc11adb1b7e59
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ff1032900fa936895f3adfcb0d8a872f24948aca
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545769"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326816"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Gestão do ciclo de vida da Azure VMware Solution VMs
 
@@ -61,7 +61,7 @@ A Azure Update Management na Azure Automation gere as atualizações do sistema 
 
 2. **Log Analytics workspace** permite a recolha de registos e a recolha do contador de desempenho usando o agente log Analytics ou extensões. Para criar o seu espaço de trabalho Log Analytics, consulte [Criar um espaço de trabalho Log Analytics no portal Azure.](../azure-monitor/learn/quick-create-workspace.md) Se preferir, também pode criar um espaço de trabalho através do [CLI,](../azure-monitor/learn/quick-create-workspace-cli.md) [PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md)ou [modelo Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md).
 
-3. Para ativar a Gestão de Atualizações Azure para os seus VMs, consulte [Enable Update Management a partir de uma conta Dempaça](../automation/update-management/update-mgmt-enable-automation-account.md). No processo, irá ligar o seu espaço de trabalho Log Analytics à sua conta de automação. 
+3. Para ativar a Gestão de Atualizações Azure para os seus VMs, consulte [Enable Update Management a partir de uma conta Dempaça](../automation/update-management/enable-from-automation-account.md). No processo, irá ligar o seu espaço de trabalho Log Analytics à sua conta de automação. 
  
 4. Uma vez adicionadoS VMs à Azure Update Management, pode [implementar atualizações em VMs e rever os resultados](../automation/update-management/deploy-updates.md). 
 

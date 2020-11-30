@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 3bbe704e6223bb04a17af7109c61875ca3b21bf9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0e2e09bc72991330ccdec7a35400460cbeba26fc
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748192"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327037"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Gatilho da grelha de eventos Azure para funções Azure
 
@@ -407,13 +407,13 @@ Para as funções que desenvolve no portal Azure com o gatilho da Grelha de Even
 
 Quando seleciona este link, o portal abre a página **De Subscrição de Eventos** criar com o ponto final do gatilho atual já definido.
 
-:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Ligue uma nova subscrição de eventos para desencadear no portal." :::
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Criar subscrição de evento com ponto final de função já definido" :::
 
 Para obter mais informações sobre como criar subscrições utilizando o portal Azure, consulte [Criar evento personalizado - Portal Azure](../event-grid/custom-event-quickstart-portal.md) na documentação da Grade de Eventos.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para criar uma subscrição utilizando [o Azure CLI,](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)utilize o comando [de criação de eventos az eventgrid.](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create)
+Para criar uma subscrição utilizando [o Azure CLI,](/cli/azure/get-started-with-azure-cli)utilize o comando [de criação de eventos az eventgrid.](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create)
 
 O comando requer o URL do ponto final que invoca a função. O exemplo a seguir mostra o padrão de URL específico da versão:
 
@@ -435,25 +435,55 @@ Aqui está um exemplo que subscreve uma conta de armazenamento blob (com um espa
 
 #### <a name="version-2x-and-higher-runtime"></a>Versão 2.x (e superior) tempo de execução
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
---provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name myblobstorage12345 --name myFuncSub  \
---included-event-types Microsoft.Storage.BlobCreated \
---subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts \
+    --resource-name myblobstorage12345 --name myFuncSub \
+    --included-event-types Microsoft.Storage.BlobCreated \
+    --subject-begins-with /blobServices/default/containers/images/blobs/ \
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup ^
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts ^
+    --resource-name myblobstorage12345 --name myFuncSub ^
+    --included-event-types Microsoft.Storage.BlobCreated ^
+    --subject-begins-with /blobServices/default/containers/images/blobs/ ^
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+```
+
+---
 
 #### <a name="version-1x-runtime"></a>Versão 1.x tempo de execução
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
---provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name myblobstorage12345 --name myFuncSub  \
---included-event-types Microsoft.Storage.BlobCreated \
---subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts \
+    --resource-name myblobstorage12345 --name myFuncSub \
+    --included-event-types Microsoft.Storage.BlobCreated \
+    --subject-begins-with /blobServices/default/containers/images/blobs/ \
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup ^
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts ^
+    --resource-name myblobstorage12345 --name myFuncSub ^
+    --included-event-types Microsoft.Storage.BlobCreated ^
+    --subject-begins-with /blobServices/default/containers/images/blobs/ ^
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
+```
+
+---
 
 Para obter mais informações sobre como criar uma subscrição, consulte [o quickstart de armazenamento de bolhas](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) ou os outros quickstarts da Grade de Eventos.
 
@@ -508,7 +538,7 @@ Para testar um gatilho de Grade de Eventos localmente, tem de obter pedidos HTTP
 1. [Gere um pedido](#generate-a-request) e copie o corpo de pedido da aplicação do espectador.
 1. [Publique manualmente o pedido](#manually-post-the-request) para o URL local da sua função de gatilho de Grelha de Evento.
 
-Quando terminar os testes, pode utilizar a mesma subscrição para produção atualizando o ponto final. Utilize o comando Azure CLI [da atualização de subscrição de eventos](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure.
+Quando terminar os testes, pode utilizar a mesma subscrição para produção atualizando o ponto final. Utilize o comando Azure CLI [da atualização de subscrição de eventos](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update) Azure.
 
 ### <a name="create-a-viewer-web-app"></a>Criar uma aplicação web de espectadores
 

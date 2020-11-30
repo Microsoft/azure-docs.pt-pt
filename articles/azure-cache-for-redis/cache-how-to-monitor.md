@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
-ms.openlocfilehash: 93ac9a0b8766da70a55ac04f864fe48106fe8774
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3d19d8f1b6a44f32e92f82e861471ca9b5c8fa41
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536747"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327343"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Como monitorizar a Cache do Azure para Redis
 
@@ -23,7 +23,7 @@ As métricas da Cache Azure para instâncias Redis são recolhidas utilizando o 
 
 Para ver as métricas de cache, [navegue](cache-configure.md#configure-azure-cache-for-redis-settings) para a sua cache no [portal Azure](https://portal.azure.com).  A azure Cache para Redis fornece alguns gráficos incorporados na lâmina **de visão geral** e na lâmina **de métricas Redis.** Cada gráfico pode ser personalizado adicionando ou removendo métricas e alterando o intervalo de reporte.
 
-![Métricas redis](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
+![Seis gráficos são mostrados. Um deles é Cache Hits e Cache Misses passado a hora.](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
 
 ## <a name="view-pre-configured-metrics-charts"></a>Ver gráficos de métricas pré-configurados
 
@@ -40,7 +40,7 @@ A secção **de monitorização** na lâmina de **visão geral** tem **hits e mi
 
 ### <a name="usage-charts"></a>Gráficos de utilização
 
-A secção **de utilização** na lâmina **de visão geral** tem **redis Server Load** , Memory **Usage** , **Network Bandwidth** e **CPU Use** charts, e também apresenta o **nível de preços** para a instância cache.
+A secção **de utilização** na lâmina **de visão geral** tem **redis Server Load**, Memory **Usage**, **Network Bandwidth** e **CPU Use** charts, e também apresenta o **nível de preços** para a instância cache.
 
 ![Gráficos de utilização](./media/cache-how-to-monitor/redis-cache-usage-part.png)
 
@@ -48,9 +48,9 @@ O **nível de preços** exibe o nível de preços da cache, e pode ser usado par
 
 ## <a name="view-metrics-with-azure-monitor"></a>Ver métricas com monitor Azure
 
-Para ver as métricas do Redis e criar gráficos personalizados utilizando o Azure Monitor, clique em **Métricas** a partir do **menu De recursos** , e personalize o seu gráfico usando as métricas desejadas, intervalo de reporte, tipo de gráfico e muito mais.
+Para ver as métricas do Redis e criar gráficos personalizados utilizando o Azure Monitor, clique em **Métricas** a partir do **menu De recursos**, e personalize o seu gráfico usando as métricas desejadas, intervalo de reporte, tipo de gráfico e muito mais.
 
-![Métricas redis](./media/cache-how-to-monitor/redis-cache-monitor.png)
+![No painel de navegação à esquerda dos contoso55, a Métrica é uma opção em Monitorização e destaca-se. Nas Métricas há uma lista de métricas. São selecionados os acessos de cache e as falhas da Cache.](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
 Para obter mais informações sobre o trabalho com as métricas utilizando o Azure Monitor, consulte [a visão geral das métricas no Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
@@ -62,13 +62,13 @@ Por predefinição, as métricas de cache no Azure Monitor são [armazenadas dur
 
 Para configurar uma conta de armazenamento para as suas métricas de cache:
 
-1. Na **cache Azure para redis,** no título **de monitorização,** selecione **Diagnósticos** .
-2. **Selecione + Adicione a definição de diagnóstico** .
+1. Na **cache Azure para redis,** no título **de monitorização,** selecione **Diagnósticos**.
+2. **Selecione + Adicione a definição de diagnóstico**.
 3. Diga as definições.
 4. Verifique **o Arquivo numa conta de armazenamento.** Serão cobradas taxas normais de dados para armazenamento e transações quando enviar diagnósticos para uma conta de armazenamento.
 4. Selecione **Configurar** para escolher a conta de armazenamento na qual guarde as métricas de cache.
-5. Sob a **métrica** da cabeça da mesa, verifique a caixa ao lado dos itens de linha que pretende armazenar, como **a AllMetrics** . Especificar uma política **de retenção (dias).** A retenção máxima de dias que pode especificar é **de 365 dias.** No entanto, se quiser reter os dados das métricas para sempre, desembarate **a Retenção (dias)** para **0** .
-6. Clique em **Guardar** .
+5. Sob a **métrica** da cabeça da mesa, verifique a caixa ao lado dos itens de linha que pretende armazenar, como **a AllMetrics**. Especificar uma política **de retenção (dias).** A retenção máxima de dias que pode especificar é **de 365 dias.** No entanto, se quiser reter os dados das métricas para sempre, desembarate **a Retenção (dias)** para **0**.
+6. Clique em **Guardar**.
 
 
 ![Diagnósticos de Redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
@@ -85,7 +85,7 @@ Para aceder às suas métricas, pode vê-las no portal Azure, como descrito ante
 
 ## <a name="available-metrics-and-reporting-intervals"></a>Métricas disponíveis e intervalos de reporte
 
-As métricas de cache são reportadas usando vários intervalos de reporte, incluindo **última hora** , **hoje,** **semana passada** , e **personalizado** . A lâmina **métrica** de cada gráfico de métricas apresenta os valores médios, mínimos e máximos para cada métrica no gráfico, e algumas métricas apresentam um total para o intervalo de reporte. 
+As métricas de cache são reportadas usando vários intervalos de reporte, incluindo **última hora**, **hoje,** **semana passada**, e **personalizado**. A lâmina **métrica** de cada gráfico de métricas apresenta os valores médios, mínimos e máximos para cada métrica no gráfico, e algumas métricas apresentam um total para o intervalo de reporte. 
 
 Cada métrica inclui duas versões. Uma métrica mede o desempenho de toda a cache, e para caches que usam [clustering](cache-how-to-premium-clustering.md), uma segunda versão da métrica que inclui `(Shard 0-9)` no nome mede o desempenho para um único fragmento em uma cache. Por exemplo, se uma cache tem quatro fragmentos, `Cache Hits` é o número total de acessos para toda a cache, e é `Cache Hits (Shard 3)` apenas o sucesso para o fragmento da cache.
 
@@ -94,7 +94,7 @@ Cada métrica inclui duas versões. Uma métrica mede o desempenho de toda a cac
 > 
 > 
 
-| Métrica | Descrição |
+| Metric | Descrição |
 | --- | --- |
 | Acertos na Cache |O número de exames de chave bem sucedidos durante o intervalo de reporte especificado. Este número mapeia para `keyspace_hits` a partir do comando REDIS [INFO.](https://redis.io/commands/info) |
 | Latência cache (pré-visualização) | A latência da cache calculada com base na latência internada da cache. Esta métrica é medida em microsegundos, e tem três dimensões: `Avg` , e , que representam a `Min` `Max` média, mínima e a latência máxima da cache, respectivamente durante o intervalo de reporte especificado. |
@@ -125,7 +125,7 @@ Pode configurar a receção de alertas com base em métricas e registos de ativi
 * Chamar um webhook
 * Invocar uma Aplicação Lógica do Azure
 
-Para configurar as regras de alerta para o seu cache, clique nas **regras de alerta** a partir do **menu Recursos** .
+Para configurar as regras de alerta para o seu cache, clique nas **regras de alerta** a partir do **menu Recursos**.
 
 ![Monitorização](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 

@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o backup 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: e6e14209a8df7160d103cb036d38c9fee29b34dd
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 0f4f990654cc23fde7cf1ad2e37ba1ada76d94e3
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296068"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324793"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-Back up Azure VMs
 
@@ -83,7 +83,7 @@ O Azure Backup cria um grupo de recursos separado no formato `AzureBackupRG_<geo
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>O Azure Backup suporta discos geridos por SSD padrão?
 
-Sim, o Azure Backup suporta [discos geridos SSD padrão.](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd)
+Sim, o Azure Backup suporta [discos geridos SSD padrão.](../virtual-machines/disks-types.md#standard-ssd)
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Podemos fazer um VM com um disco ativado por Write Accelerator (WA)?
 

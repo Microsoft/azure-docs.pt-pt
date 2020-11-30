@@ -3,12 +3,12 @@ title: Apoiar o SQL Server para Azure como uma carga de trabalho DPM
 description: Uma introdução para fazer backup das bases de dados do SQL Server utilizando o serviço de backup Azure
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 8130990f86311221ae6d097137a66a6e9b81be73
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 592a51051a0d02a6c1d491db0fe559e2e62babb2
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218090"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327054"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Apoiar o SQL Server para Azure como uma carga de trabalho DPM
 
@@ -24,7 +24,7 @@ Para fazer uma base de dados do SQL Server para Azure e recuperá-la do Azure:
 
 >[!NOTE]
 >DPM 2019 UR2 suporta sql server Failover Cluster Instances (FCI) usando Cluster Shared Volumes (CSV).<br><br>
->A proteção do cluster failover do [SQL Server com espaços de armazenamento diretamente no Azure](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure)  e [no SQL Server falha a instância de cluster com discos partilhados Azure](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure) é suportado com esta funcionalidade. O servidor DPM deve ser implantado na Máquina Virtual Azure para proteger a instância SQL FCI implantada em VMs Azure. 
+>A proteção do cluster failover do [SQL Server com espaços de armazenamento diretamente no Azure](../azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md)  e [no SQL Server falha a instância de cluster com discos partilhados Azure](../azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md) é suportado com esta funcionalidade. O servidor DPM deve ser implantado na Máquina Virtual Azure para proteger a instância SQL FCI implantada em VMs Azure. 
 
 ## <a name="prerequisites-and-limitations"></a>Pré-requisitos e limitações
 
@@ -104,7 +104,7 @@ Para proteger as bases de dados do SQL Server em Azure, primeiro crie uma polít
 
     ![Escolha um método de criação de réplicas](./media/backup-azure-backup-sql/pg-manual.png)
 
-    A cópia de cópia de segurança inicial requer a transferência de toda a fonte de dados (base de dados SQL Server). Os dados de cópia de segurança movem-se do servidor de produção (computador SQL Server) para o servidor DPM. Se esta cópia de segurança for grande, então transferir os dados para a rede pode causar congestionamento da largura de banda. Por esta razão, os administradores podem optar por utilizar suportes amovíveis para transferir **manualmente**a cópia de segurança inicial . Ou podem transferir os dados **automaticamente pela rede** num momento especificado.
+    A cópia de cópia de segurança inicial requer a transferência de toda a fonte de dados (base de dados SQL Server). Os dados de cópia de segurança movem-se do servidor de produção (computador SQL Server) para o servidor DPM. Se esta cópia de segurança for grande, então transferir os dados para a rede pode causar congestionamento da largura de banda. Por esta razão, os administradores podem optar por utilizar suportes amovíveis para transferir **manualmente** a cópia de segurança inicial . Ou podem transferir os dados **automaticamente pela rede** num momento especificado.
 
     Após os acabamentos de backup iniciais, as cópias de backup continuam incrementalmente na cópia inicial de backup. As cópias de segurança incrementais tendem a ser pequenas e são facilmente transferidas através da rede.
 
@@ -157,7 +157,7 @@ Para proteger as bases de dados do SQL Server em Azure, primeiro crie uma polít
 
 Um ponto de recuperação é criado quando ocorre a primeira cópia de segurança. Em vez de esperar que o horário se esgotasse, pode desencadear manualmente a criação de um ponto de recuperação:
 
-1. No grupo de proteção, certifique-se de que o estado da base de **dados**está OK .
+1. No grupo de proteção, certifique-se de que o estado da base de **dados** está OK .
 
     ![Um grupo de proteção, mostrando o estado da base de dados](./media/backup-azure-backup-sql/sqlbackup-recoverypoint.png)
 1. Clique com o botão direito na base de dados e, em seguida, **selecione Criar ponto de recuperação**.

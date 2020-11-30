@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 392cc06c6e0bce7ec2304da61033fc508d940bbb
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 079d5ea0259a436100b81489043b71a81ec1a330
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143766"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327224"
 ---
 # <a name="video-moderation-with-the-review-tool"></a>Moderação de vídeo com a ferramenta Review
 
@@ -26,7 +26,7 @@ Utilize a ferramenta de [moderação](video-moderation-api.md) e [revisão](Revi
 No painel de instrumentos, selecione qualquer uma das filas de revisão dentro do tipo de conteúdo de vídeo. Isto iniciará uma revisão e abrirá a página de moderação de conteúdos de vídeo.
 
 > [!div class="mx-imgBorder"]
-> ![Vista detalhada da moderação de vídeo na ferramenta Review](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
+> ![No Moderador de Conteúdo (Preview), o slider é realçado e definido para 4 avaliações. Os interruptores Blur All e Black e White estão em destaque, e ambos estão definidos.](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
 
 ### <a name="review-count"></a>Rever contagem
 
@@ -55,7 +55,7 @@ Na vista **Detalhe,** o painel direito mostrará vários separadores que lhe dã
 * Selecione o separador **Histórico** para ver o histórico da revisão, como quando foi criado e como foi modificado.
 
 > [!div class="mx-imgBorder"]
-> ![Botão de etiquetas a granel de moderação de vídeo](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
+> ![O painel direito é realçado e o separador Notas é selecionado. Existe uma área de teste rotulada Adicionar uma nota.](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
 
 ## <a name="apply-moderation-tags"></a>Aplicar etiquetas de moderação
 
@@ -63,10 +63,10 @@ A principal tarefa de uma revisão de vídeo é aplicar ou remover etiquetas de 
 
 ### <a name="bulk-tagging"></a>Marcação a granel
 
-A **barra de ferramentas Bulk Tags** permite adicionar tags a vários vídeos selecionados ao mesmo tempo. Selecione um ou mais vídeos e, em seguida, selecione as etiquetas que pretende aplicar e clique **em submeter** . 
+A **barra de ferramentas Bulk Tags** permite adicionar tags a vários vídeos selecionados ao mesmo tempo. Selecione um ou mais vídeos e, em seguida, selecione as etiquetas que pretende aplicar e clique **em submeter**. 
 
 > [!div class="mx-imgBorder"]
-> ![Botão de etiquetas a granel de moderação de vídeo](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
+> ![O botão + é realçado no painel de marcas a granel.](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
 
 
 ### <a name="key-frame-tagging"></a>Marcação do quadro de chaves
@@ -77,7 +77,7 @@ Também pode adicionar etiquetas de moderação a quadros-chave específicos. Se
 > Se o serviço não conseguir extrair quadros-chave, o painel de azulejos do quadro da chave não mostrará **nenhum quadro disponível** e a opção de selecionar quadros-chave será acinzentada. Neste caso, só é possível aplicar tags no vídeo como um todo (utilizando as **etiquetas de vídeo +** botão).
 
 > [!div class="mx-imgBorder"]
-> ![Vista detalhada da moderação de vídeo na ferramenta Review](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
+> ![O painel de azulejos, o leitor de vídeo, o painel de tags keyframe e as vidraças de etiquetas de vídeo são todas mostradas. Destacam-se as tags Keyframe + e video-tags +](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
 
 ## <a name="put-a-review-on-hold"></a>Coloque uma revisão em espera
 
@@ -86,7 +86,7 @@ O botão **Hold** na parte inferior do painel de vídeo permite-lhe colocar uma 
 Pode ver os vídeos em espera clicando no botão **Hold** na parte superior do ecrã. O painel de espera aparece à direita. A partir daqui, pode selecionar várias avaliações em espera e libertá-las de volta na fila ou definir o seu tempo de validade. Após o tempo pré-configurado, as avaliações em espera são libertadas de volta à fila. **Selecione Guardar** para começar a contagem rebationá-lo a partir do tempo de validade atualmente selecionado.
 
 > [!div class="mx-imgBorder"]
-> ![Vista detalhada da moderação de vídeo na ferramenta Review](./Review-Tool-User-Guide/images/video-moderation-hold.png)
+> ![No painel de vídeo, destaca-se o botão Hold. Na parte inferior do painel, destaca-se uma caixa de combinação Hold Time, juntamente com os botões Release e Save.](./Review-Tool-User-Guide/images/video-moderation-hold.png)
 
 ## <a name="submit-a-review"></a>Submeter uma revisão
 

@@ -9,17 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 946435175ea5cd366103bc1254bae0d9afe0926e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 62cecc011980c2d11e6f99895c90b0ced744039a
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325808"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325354"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutorial 1: Prever o risco de crédito - Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
-
+**APLICA-SE A:** ![ Esta é uma marca de verificação, o que significa que este artigo se aplica ao Machine Learning Studio (clássico).  ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico)   ![ Este é um X, o que significa que este artigo se aplica ao Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -119,7 +118,7 @@ Uma vez convertidos os dados para formato CSV, é necessário enviá-lo para o M
 
 1. Abra a página inicial do Machine Learning Studio [https://studio.azureml.net](https://studio.azureml.net) (clássico) (). 
 
-2. Clique ![ no menu Menu no canto superior esquerdo da ](./media/tutorial-part1-credit-risk/menu.png) janela, clique em **Azure Machine Learning,** selecione **Studio** e inscreva-se.
+2. Clique no menu ![ Este é o ícone do menu - três linhas empilhadas.](./media/tutorial-part1-credit-risk/menu.png) no canto superior esquerdo da janela, clique em **Azure Machine Learning,** selecione **Studio**, e inscreva-se.
 
 3. Clique **em +NEW** na parte inferior da janela.
 
@@ -154,7 +153,7 @@ Para obter mais informações sobre a importação de outros tipos de dados numa
 O próximo passo neste tutorial é criar uma experiência no Machine Learning Studio (clássico) que usa o conjunto de dados que carregou.  
 
 1. Em Studio (clássico), clique **em +NEW** na parte inferior da janela.
-1. Selecione **EXPERIMENT** , e, em seguida, selecione "Blank Experiment". 
+1. Selecione **EXPERIMENT**, e, em seguida, selecione "Blank Experiment". 
 
     ![Criar uma nova experimentação](./media/tutorial-part1-credit-risk/create-new-experiment.png)
 
@@ -179,7 +178,7 @@ O próximo passo neste tutorial é criar uma experiência no Machine Learning St
 
 Pode ver as primeiras 100 linhas dos dados e algumas informações estatísticas para todo o conjunto de dados: Clique na porta de saída do conjunto de dados (o pequeno círculo na parte inferior) e **selecione Visualize**.  
 
-Como o ficheiro de dados não veio com títulos de coluna, o Studio (clássico) forneceu títulos genéricos (Col1, Col2, *etc.* ). Os bons títulos não são essenciais para criar um modelo, mas facilitam o trabalho com os dados da experiência. Além disso, quando eventualmente publica este modelo num serviço web, os títulos ajudam a identificar as colunas para o utilizador do serviço.  
+Como o ficheiro de dados não veio com títulos de coluna, o Studio (clássico) forneceu títulos genéricos (Col1, Col2, *etc.*). Os bons títulos não são essenciais para criar um modelo, mas facilitam o trabalho com os dados da experiência. Além disso, quando eventualmente publica este modelo num serviço web, os títulos ajudam a identificar as colunas para o utilizador do serviço.  
 
 Pode adicionar títulos de coluna utilizando o módulo [editar metadados.][edit-metadata]
 

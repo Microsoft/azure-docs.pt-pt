@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 06442e861a247f545ca6f22ecc82e5f5dc910553
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ef3f9f8d75049051ad568abf1163014a78b0cda3
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790241"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324742"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar grupos de disponibilidade para SQL Server em máquinas virtuais RHEL em Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -263,7 +263,7 @@ Deverá obter resultados semelhantes aos seguintes assim que o comando estiver c
 > [!IMPORTANT]
 > A imagem padrão que é criada com o comando acima cria um disco de 32GB de SISTEMA por predefinição. Pode ficar sem espaço com esta instalação predefinida. Pode utilizar o seguinte parâmetro adicionado ao comando acima `az vm create` indicado para criar um disco DE com 128GB como exemplo: `--os-disk-size-gb 128` .
 >
-> Em seguida, pode [configurar o Gestor de Volume Lógico (LVM)](../../../virtual-machines/linux/configure-lvm.md) se precisar de expandir os volumes de pastas apropriados para acomodar a sua instalação.
+> Em seguida, pode [configurar o Gestor de Volume Lógico (LVM)](/previous-versions/azure/virtual-machines/linux/configure-lvm) se precisar de expandir os volumes de pastas apropriados para acomodar a sua instalação.
 
 ### <a name="test-connection-to-the-created-vms"></a>Ligação de teste aos VMs criados
 
@@ -489,11 +489,11 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  3. Clique nos [ **registos da App**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
  4. Clique **em Novo registo**
  5. Insira um **Nome** como `<resourceGroupName>-app` , **selecione Contas neste diretório de organização apenas**
- 6. Selecione Application Type **Web** , insira um URL de entrada de inscrição (por http://localhost) exemplo, e clique em Adicionar. O URL de inscrição não é utilizado e pode ser qualquer URL válido. Uma vez feito, clique **em Registar**
+ 6. Selecione Application Type **Web**, insira um URL de entrada de inscrição (por http://localhost) exemplo, e clique em Adicionar. O URL de inscrição não é utilizado e pode ser qualquer URL válido. Uma vez feito, clique **em Registar**
  7. Selecione **Certificados e segredos** para o seu novo registo de App e, em seguida, clique em **Novo segredo de cliente**
  8. Introduza uma descrição para uma nova chave (segredo de cliente), **selecione Nunca expire** e clique em **Adicionar**
  9. Anota o valor do segredo. É usado como a palavra-passe para o diretor de serviço
-10. Selecione **Descrição geral** . Escreva o ID da aplicação. É usado como nome de utilizador (ID de login nos passos abaixo) do Diretor de Serviço
+10. Selecione **Descrição geral**. Escreva o ID da aplicação. É usado como nome de utilizador (ID de login nos passos abaixo) do Diretor de Serviço
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>Crie um papel personalizado para o agente da cerca
 

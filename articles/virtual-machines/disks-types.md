@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 0a6b6196888aedfd6aa60c9395ff27611907661a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: ef481b73b6dc42bc35252c08ae8d63b9de95b2ba
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413154"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325099"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quais são os tipos de disco disponíveis no Azure?
 
@@ -23,7 +23,7 @@ A azure gere discos atualmente oferece quatro tipos de disco, cada tipo é direc
 
 A tabela seguinte fornece uma comparação de discos ultra, unidades de estado sólido premium (SSD), SSD padrão e drives de disco rígido padrão (HDD) para discos geridos para ajudá-lo a decidir o que usar.
 
-| Detalhes | Disco Ultra | SSD Premium | SSD Standard | HDD Standard |
+| Detalhe | Disco Ultra | SSD Premium | SSD Standard | HDD Standard |
 | ------ | ---------- | ----------- | ------------ | ------------ |
 |Tipo de disco   |SSD   |SSD   |SSD   |HDD   |
 |Cenário   |Cargas de trabalho intensivas em IO, tais como [SAP HANA,](workloads/sap/hana-vm-operations-storage.md)bases de dados de nível superior (por exemplo, SQL, Oráculo) e outras cargas de trabalho pesadas de transações.   |Cargas de trabalho confidenciais de produção e de desempenho   |Servidores Web, aplicações empresariais pouco utilizadas e dev/test   |Cópia de segurança, acesso pouco frequente e não crítico   |
@@ -82,7 +82,7 @@ Ao providenciar um disco de armazenamento premium, ao contrário do armazenament
 
 ## <a name="bursting"></a>Estourando
 
-Os tamanhos Premium SSD inferiores ao P30 oferecem agora o rebentamento do disco e podem rebentar o seu IOPS por disco até 3.500 e a sua largura de banda até 170 Mbps. A explosão é automatizada e funciona com base num sistema de crédito. Os créditos são automaticamente acumulados num balde de rutura quando o tráfego de disco está abaixo do objetivo de desempenho previsto e os créditos são automaticamente consumidos quando o tráfego rebenta para além do objetivo, até ao limite máximo de rajada. O limite máximo de rutura define o teto do disco IOPS & largura de banda mesmo que tenha créditos de rutura para consumir. A explosão do disco proporciona uma melhor tolerância às mudanças imprevisíveis dos padrões de IO. Pode aproveitar melhor para o arranque do disco OS e aplicações com tráfego espinhoso.    
+Os tamanhos Premium SSD inferiores ao P30 oferecem agora o rebentamento do disco e podem rebentar o seu IOPS por disco até 3.500 e a sua largura de banda até 170 MB/s. A explosão é automatizada e funciona com base num sistema de crédito. Os créditos são automaticamente acumulados num balde de rutura quando o tráfego de disco está abaixo do objetivo de desempenho previsto e os créditos são automaticamente consumidos quando o tráfego rebenta para além do objetivo, até ao limite máximo de rajada. O limite máximo de rutura define o teto do disco IOPS & largura de banda mesmo que tenha créditos de rutura para consumir. A explosão do disco proporciona uma melhor tolerância às mudanças imprevisíveis dos padrões de IO. Pode aproveitar melhor para o arranque do disco OS e aplicações com tráfego espinhoso.    
 
 O suporte de rebentamento de discos será ativado em novas implementações de tamanhos de disco aplicáveis por padrão, sem necessidade de ação do utilizador. Para os discos existentes dos tamanhos aplicáveis, pode ativar a explosão com qualquer uma das opções: desprender e recolocar o disco ou parar e reiniciar o VM anexado. Todos os tamanhos de disco originais rebentados começarão com um balde de crédito de rajada completa quando o disco é ligado a uma Máquina Virtual que suporta uma duração máxima no limite máximo de rajada de 30 minutos. Para saber mais sobre como estourar o trabalho em Discos Azure, veja [o Premium SSD a rebentar.](linux/disk-bursting.md) 
 
@@ -124,15 +124,15 @@ Ao utilizar discos geridos, aplicam-se as seguintes considerações de faturaç�
 - Transferências de dados de saída
 - Número de transações
 
-**Tamanho do disco gerido** : os discos geridos são faturados no tamanho previsto. Azure mapeia o tamanho provisionado (arredondado) para o tamanho do disco mais próximo oferecido. Para mais detalhes sobre os tamanhos do disco oferecidos, consulte as tabelas anteriores. Cada disco mapeia para uma oferta de tamanho de disco a provisionada suportada e é faturado em conformidade. Por exemplo, se a provisionou um SSD Standard 200 GiB, ele mapeia a oferta de tamanho do disco de E15 (256 GiB). A faturação de qualquer disco provisionado é prostimada de hora em hora, utilizando o preço mensal da oferta de armazenamento. Por exemplo, se aprovisionou um disco E10 e o apagou após 20 horas, é cobrado pela oferta E10, proserendo 20 horas. Isto é independentemente da quantidade de dados reais escritos no disco.
+**Tamanho do disco gerido**: os discos geridos são faturados no tamanho previsto. Azure mapeia o tamanho provisionado (arredondado) para o tamanho do disco mais próximo oferecido. Para mais detalhes sobre os tamanhos do disco oferecidos, consulte as tabelas anteriores. Cada disco mapeia para uma oferta de tamanho de disco a provisionada suportada e é faturado em conformidade. Por exemplo, se a provisionou um SSD Standard 200 GiB, ele mapeia a oferta de tamanho do disco de E15 (256 GiB). A faturação de qualquer disco provisionado é prostimada de hora em hora, utilizando o preço mensal da oferta de armazenamento. Por exemplo, se aprovisionou um disco E10 e o apagou após 20 horas, é cobrado pela oferta E10, proserendo 20 horas. Isto é independentemente da quantidade de dados reais escritos no disco.
 
-**Snapshots** : As imagens são faturadas com base no tamanho utilizado. Por exemplo, se criar uma imagem instantânea de um disco gerido com capacidade a provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, o instantâneo é faturado apenas para o tamanho de dados usado de 10 GiB.
+**Snapshots**: As imagens são faturadas com base no tamanho utilizado. Por exemplo, se criar uma imagem instantânea de um disco gerido com capacidade a provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, o instantâneo é faturado apenas para o tamanho de dados usado de 10 GiB.
 
 Para obter mais informações sobre instantâneos, consulte a secção de instantâneos na [visão geral](managed-disks-overview.md)do disco gerido .
 
-**Transferências de dados de saída** : [Transferências de dados de saída (dados saídos](https://azure.microsoft.com/pricing/details/bandwidth/) dos centros de dados Azure) incorrem na faturação para utilização da largura de banda.
+**Transferências de dados de saída**: [Transferências de dados de saída (dados saídos](https://azure.microsoft.com/pricing/details/bandwidth/) dos centros de dados Azure) incorrem na faturação para utilização da largura de banda.
 
-**Transações** : É cobrado o número de transações que realiza num disco gerido padrão. Para os SSDs standard, cada operação de E/S inferior ou igual a 256 KiB de produção é considerada uma única operação de E/S. As operações de I/O maiores do que 256 KiB de produção são consideradas múltiplas I/Os do tamanho 256 KiB. Para os HDDs standard, cada operação IO é considerada como uma única transação, independentemente do tamanho de E/S.
+**Transações**: É cobrado o número de transações que realiza num disco gerido padrão. Para os SSDs standard, cada operação de E/S inferior ou igual a 256 KiB de produção é considerada uma única operação de E/S. As operações de I/O maiores do que 256 KiB de produção são consideradas múltiplas I/Os do tamanho 256 KiB. Para os HDDs standard, cada operação IO é considerada como uma única transação, independentemente do tamanho de E/S.
 
 Para obter informações detalhadas sobre os preços dos discos geridos, incluindo os custos de transação, consulte [a fixação dos discos geridos](https://azure.microsoft.com/pricing/details/managed-disks).
 

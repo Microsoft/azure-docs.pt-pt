@@ -4,12 +4,12 @@ description: Instruções sobre como mover um cofre dos Serviços de Recuperaç�
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5a73963970b5fad7b3992d501d9aac5cc7229622
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 12c276b861e7db8e93e60eea7e9cd7f3aba04860
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926687"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325779"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre de serviços de recuperação através de subscrições e grupos de recursos Azure
 
@@ -30,7 +30,7 @@ Todas as regiões públicas e regiões soberanas são apoiadas, exceto França C
 - Se um VM não se mover com o cofre dos Serviços de Recuperação através de subscrições, ou para um novo grupo de recursos, os atuais pontos de recuperação de VM permanecerão intactos no cofre até expirarem.
 - Quer o VM seja movido com o cofre ou não, pode sempre restaurar o VM do histórico de reserva retido no cofre.
 - A Encriptação do Disco Azure requer que o cofre-chave e vMs residam na mesma região de Azure e subscrição.
-- Para mover uma máquina virtual com discos geridos, consulte este [artigo](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription).
+- Para mover uma máquina virtual com discos geridos, consulte este [artigo](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - As opções de movimentação de recursos implementados através do modelo Classic diferem consoante esteja a mover os recursos dentro de uma subscrição ou a uma nova subscrição. Para mais informações, consulte este [artigo.](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 - As políticas de backup definidas para o cofre são mantidas após o cofre se mover através de subscrições ou para um novo grupo de recursos.
 - Só é possível mover um cofre que contenha qualquer um dos seguintes tipos de itens de reserva. Quaisquer itens de backup de tipos não listados abaixo terão de ser interrompidos e os dados permanentemente eliminados antes de mover o cofre.
@@ -99,7 +99,7 @@ Você pode mover um cofre de Serviços de Recuperação e seus recursos associad
 
    ![Adicionar Subscrição](./media/backup-azure-move-recovery-services/add-subscription.png)
 
-7. Selecione **Entendo que as ferramentas e scripts associados aos recursos movidos não funcionarão até que eu os atualize para usar novas iDs de recursos** para confirmar e, em seguida, selecione **OK** .
+7. Selecione **Entendo que as ferramentas e scripts associados aos recursos movidos não funcionarão até que eu os atualize para usar novas iDs de recursos** para confirmar e, em seguida, selecione **OK**.
 
 > [!NOTE]
 > A cópia de segurança de subscrição cruzada (cofre RS e VMs protegidos estão em diferentes subscrições) não é um cenário suportado. Além disso, a opção de redundância de armazenamento de armazenamento local (LRS) para armazenamento redundante global (GRS) e vice-versa não pode ser modificada durante a operação de movimento do cofre.
@@ -157,9 +157,9 @@ Para proteger as cargas de trabalho num novo cofre, a proteção atual e os dado
 
 1. Desative a exclusão suave nas propriedades do cofre. Siga [estes passos](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) para desativar a eliminação suave.
 
-2. Pare a proteção e elimine as cópias de segurança do cofre atual. No menu do painel de instrumentos Vault, selecione **Itens de reserva** . Os itens listados aqui que precisam de ser transferidos para o novo cofre devem ser removidos juntamente com os seus dados de reserva. Veja como [eliminar itens protegidos na nuvem](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) e [elimine itens protegidos no local](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+2. Pare a proteção e elimine as cópias de segurança do cofre atual. No menu do painel de instrumentos Vault, selecione **Itens de reserva**. Os itens listados aqui que precisam de ser transferidos para o novo cofre devem ser removidos juntamente com os seus dados de reserva. Veja como [eliminar itens protegidos na nuvem](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) e [elimine itens protegidos no local](backup-azure-delete-vault.md#delete-protected-items-on-premises).
 
-3. Se está a planear mover as ações de ficheiros AFS (Azure), os servidores SQL ou os servidores SAP HANA, então também terá de os desregistar. No menu do painel de instrumentos do cofre, selecione **Infraestrutura de backup** . Veja como [desregistritar o servidor SQL,](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance) [não registe uma conta de armazenamento associada às ações de ficheiros Azure,](manage-afs-backup.md#unregister-a-storage-account)e [não registe uma instância SAP HANA](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+3. Se está a planear mover as ações de ficheiros AFS (Azure), os servidores SQL ou os servidores SAP HANA, então também terá de os desregistar. No menu do painel de instrumentos do cofre, selecione **Infraestrutura de backup**. Veja como [desregistritar o servidor SQL,](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance) [não registe uma conta de armazenamento associada às ações de ficheiros Azure,](manage-afs-backup.md#unregister-a-storage-account)e [não registe uma instância SAP HANA](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
 
 4. Assim que forem removidos do antigo cofre, continuem a configurar os reforços para a sua carga de trabalho no novo cofre.
 

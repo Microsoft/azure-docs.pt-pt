@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 59eae5303d9eca48fa4cec30fe622faf19ffba1f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8572a73586b01967c8aef7f6c4947b5ce96146b4
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961894"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324861"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Tutorial: Pré-requisitos para criar grupos de disponibilidade no SQL Server em Azure Virtual Machines
 
@@ -144,7 +144,7 @@ A tabela a seguir resume as definições de configuração da rede:
 
 ## <a name="create-availability-sets"></a>Criar conjuntos de disponibilidade
 
-Antes de criar máquinas virtuais, tem de criar conjuntos de disponibilidade. Os conjuntos de disponibilidade reduzem o tempo de inatividade para eventos de manutenção planeados ou não planeados. Um conjunto de disponibilidade de Azure é um grupo lógico de recursos que o Azure coloca em domínios de falhas físicas e domínios de atualização. Um domínio de falha garante que os membros do conjunto de disponibilidade tenham recursos de potência e rede separados. Um domínio de atualização garante que os membros do conjunto de disponibilidade não são reduzidos para manutenção ao mesmo tempo. Para obter mais informações, veja [Gerir a disponibilidade das máquinas virtuais](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
+Antes de criar máquinas virtuais, tem de criar conjuntos de disponibilidade. Os conjuntos de disponibilidade reduzem o tempo de inatividade para eventos de manutenção planeados ou não planeados. Um conjunto de disponibilidade de Azure é um grupo lógico de recursos que o Azure coloca em domínios de falhas físicas e domínios de atualização. Um domínio de falha garante que os membros do conjunto de disponibilidade tenham recursos de potência e rede separados. Um domínio de atualização garante que os membros do conjunto de disponibilidade não são reduzidos para manutenção ao mesmo tempo. Para obter mais informações, veja [Gerir a disponibilidade das máquinas virtuais](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Precisa de dois conjuntos de disponibilidade. Um é para os controladores de domínio. A segunda é para os VMs do SqL Server.
 

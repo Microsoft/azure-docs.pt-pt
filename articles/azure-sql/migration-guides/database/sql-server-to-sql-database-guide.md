@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 55ce3747aaf105c7e2cbb830b1175769a658fd72
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: ee4abaf3c9f6aa70ba14920711c8917994254649
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497050"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326986"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>Guia de migração: SQL Server para SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -114,7 +114,7 @@ Para migrar uma base de dados do SQL Server para a Base de Dados Azure SQL utili
 
 1. Faça o download e instale o [Assistente de Migração da Base de Dados.](https://www.microsoft.com/download/details.aspx?id=53595)
 1. Crie um novo projeto e selecione **a Migração** como o tipo de projeto.
-1. Desconfiem do tipo de servidor de origem para **SQL Server** e o tipo de servidor-alvo para **Azure SQL Database** , selecione o âmbito de migração como **Schema e dados** e selecione **Criar**.
+1. Desconfiem do tipo de servidor de origem para **SQL Server** e o tipo de servidor-alvo para **Azure SQL Database**, selecione o âmbito de migração como **Schema e dados** e selecione **Criar**.
 1. No projeto de migração, especifique os detalhes do servidor de origem, tais como o nome do servidor, credenciais para ligar ao servidor e a base de dados de origem para migrar.
 1. Nos dados do servidor alvo, especifique o nome do servidor do servidor Azure SQL Database, credenciais para ligar ao servidor e à base de dados-alvo para migrar.
 1. Selecione os objetos de esquema e inserte-os na base de dados target Azure SQL.
@@ -165,10 +165,10 @@ Após a migração dos dados para o ambiente alvo, todas as aplicações que ant
 
 A abordagem de ensaio para a migração de bases de dados consiste nas seguintes atividades:
 
-1. **Desenvolver testes de validação** : Para testar a migração da base de dados, é necessário utilizar consultas SQL. Tem de criar as consultas de validação para correr contra a fonte e as bases de dados-alvo. As suas consultas de validação devem abranger o âmbito que definiu.
-1. **Configurar ambiente de teste** : O ambiente de ensaio deve conter uma cópia da base de dados de origem e da base de dados-alvo. Certifique-se de isolar o ambiente de teste.
-1. **Executar testes de validação** : Escada os testes de validação contra a fonte e o alvo e, em seguida, analise os resultados.
-1. **Executar testes de desempenho** : Executar teste de desempenho contra a fonte e o alvo e, em seguida, analisar e comparar os resultados.
+1. **Desenvolver testes de validação**: Para testar a migração da base de dados, é necessário utilizar consultas SQL. Tem de criar as consultas de validação para correr contra a fonte e as bases de dados-alvo. As suas consultas de validação devem abranger o âmbito que definiu.
+1. **Configurar ambiente de teste**: O ambiente de ensaio deve conter uma cópia da base de dados de origem e da base de dados-alvo. Certifique-se de isolar o ambiente de teste.
+1. **Executar testes de validação**: Escada os testes de validação contra a fonte e o alvo e, em seguida, analise os resultados.
+1. **Executar testes de desempenho**: Executar teste de desempenho contra a fonte e o alvo e, em seguida, analisar e comparar os resultados.
 
    > [!NOTE]
    > Para obter assistência para desenvolver e executar testes de validação pós-migração, considere a Solução de Qualidade de Dados disponível a partir do parceiro [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
@@ -176,7 +176,7 @@ A abordagem de ensaio para a migração de bases de dados consiste nas seguintes
 
 ## <a name="leverage-advanced-features"></a>Alavancar recursos avançados 
 
-Certifique-se de que aproveita as funcionalidades avançadas baseadas na nuvem oferecidas pela SQL Database, tais como [alta disponibilidade incorporada,](../../database/high-availability-sla.md) [deteção de ameaças,](../../database/advanced-data-security.md) [monitorização e afinação da sua carga de trabalho.](../../database/monitor-tune-overview.md) 
+Certifique-se de que aproveita as funcionalidades avançadas baseadas na nuvem oferecidas pela SQL Database, tais como [alta disponibilidade incorporada,](../../database/high-availability-sla.md) [deteção de ameaças,](../../database/azure-defender-for-sql.md) [monitorização e afinação da sua carga de trabalho.](../../database/monitor-tune-overview.md) 
 
 Algumas funcionalidades do SQL Server só estão disponíveis quando o [nível de compatibilidade](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) da base de dados for alterado para o nível de compatibilidade mais recente (150). 
 

@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 484a44a7a9840409e3f5770c743e5cd62e0cef66
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 824ae8d39d934ebc58fc75185e36f5faa11109a9
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910309"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325371"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Amostras de código do Azure Ative Directory (ponto final v1.0)
 
@@ -69,7 +69,7 @@ Plataforma | Sample |
 
 ## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>Aplicações de clientes públicos e desktop e móveis que ligam para o Microsoft Graph ou para uma API Web
 
-As seguintes amostras ilustram as aplicações do cliente público (aplicações deskto/pmobile) que acedem ao Microsoft Graph ou a uma API web em nome de um utilizador. Dependendo dos dispositivos e plataformas, as aplicações podem inscrever-se nos utilizadores de diferentes formas (fluxos/subvenções):
+As seguintes amostras ilustram as aplicações do cliente público (aplicações desktop/mobile) que acedem ao Microsoft Graph ou a uma API web em nome de um utilizador. Dependendo dos dispositivos e plataformas, as aplicações podem inscrever-se nos utilizadores de diferentes formas (fluxos/subvenções):
 
 - Interativamente
 - Silenciosamente (com autenticação integrada do Windows no Windows, ou nome de utilizador/palavra-passe)
@@ -102,7 +102,7 @@ ASP.NET Web App  | ![Esta imagem mostra o logótipo .NET Framework](media/sample
 
 A amostra que se segue mostra como proteger uma API web node.js com Azure AD.
 
-Nas secções anteriores deste artigo, também pode encontrar outras amostras que ilustram uma aplicação do cliente **que ASP.NET** ou ASP.NET Core **Web API** . Estas amostras não são mencionadas novamente nesta secção, mas você vai encontrá-las na última coluna das tabelas acima ou abaixo
+Nas secções anteriores deste artigo, também pode encontrar outras amostras que ilustram uma aplicação do cliente **que ASP.NET** ou ASP.NET Core **Web API**. Estas amostras não são mencionadas novamente nesta secção, mas você vai encontrá-las na última coluna das tabelas acima ou abaixo
 
 | Plataforma | Sample |
 |--------|-------------------|

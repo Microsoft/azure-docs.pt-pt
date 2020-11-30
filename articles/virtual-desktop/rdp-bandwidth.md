@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 708ffce014f417f3794e59e1f79a3fcf9cba3f23
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: c9ef72241ac62efd8555de59bb52949321364035
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94639271"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325184"
 ---
 # <a name="remote-desktop-protocol-rdp-bandwidth-requirements"></a>Requisitos de largura de banda do Protocolo remoto de Ambiente de Trabalho (RDP)
 
@@ -78,7 +78,7 @@ A tabela abaixo guia a estimativa dos dados utilizados pelos diferentes cenário
 | Períodos | 0,3 Kbps | 0,3 Kbps |:::image type="content" source="media/idle.png" alt-text="Screenshot da ligação ociosa":::| O utilizador está parado no seu trabalho e não há atualizações de ecrã ativa |
 | Microsoft Word | 100-150 Kbps | 200-300 Kbps |:::image type="content" source="media/word.gif" alt-text="Animação do Microsoft Word":::| O utilizador está a trabalhar ativamente com o Microsoft Word, digitando, colando gráficos e alternando entre documentos |
 | Microsoft Excel | 150-200 Kbps | 400-500 Kbps |:::image type="content" source="media/excel.gif" alt-text="Animação do Microsoft Excel":::| O utilizador está a trabalhar ativamente com o Microsoft Excel, várias células com fórmulas e gráficos são atualizados simultaneamente |
-| Microsoft PowerPoint | 4-4.5 Mbps | 1.6-1.8 Mbps |:::image type="content" source="media/powerpoint.gif" alt-text="Animação do Microsoft PowerPoint":::| O utilizador está a trabalhar ativamente com o Microsoft PowerPoint, digitando, colagem. USer também modifica gráficos ricos, e usando efeitos de transição de slide |
+| Microsoft PowerPoint | 4-4.5 Mbps | 1.6-1.8 Mbps |:::image type="content" source="media/powerpoint.gif" alt-text="Animação do Microsoft PowerPoint":::| O utilizador está a trabalhar ativamente com o Microsoft PowerPoint, digitando, colagem. O utilizador também modifica gráficos ricos e utiliza efeitos de transição de diapositivos |
 | Navegação na Web | 6-6.5 Mbps | 0,9-1 Mbps |:::image type="content" source="media/web.gif" alt-text="Animação da navegação na Web":::| O utilizador está a trabalhar ativamente com um site graficamente rico que contém múltiplas imagens estáticas e animadas. O utilizador percorre as páginas tanto horizontal como verticalmente |
 | Galeria de Imagens | 3.3-3.6 Mbps | 0.7-0.8 Mbps |:::image type="content" source="media/image-gallery.gif" alt-text="Animação da galeria de imagens":::| O utilizador está a trabalhar ativamente com a aplicação da galeria de imagens. navegação, zoom, redimensionamento e rotação de imagens |
 | Reproduzir vídeo | 8.5-9.5 Mbps | 2.5-2.8 Mbps |:::image type="content" source="media/video.gif" alt-text="Animação da reprodução de vídeo":::| O utilizador está a ver um vídeo de 30 FPS que consome 1/2 do ecrã |
@@ -118,17 +118,17 @@ Para criar uma política QoS para anfitriões de sessão ligados ao domínio, em
 
 6. Na caixa de diálogo **QoS baseada em políticas,** na página de abertura, escreva um nome para a nova política na caixa **Nome.** **Selecione Especificar Taxa de Aceleração de Saída** e definir o valor necessário e, em seguida, selecione **Seguinte**.
 
-7. Na página seguinte, selecione **Apenas aplicações com este nome executável** e introduza o nome **svchost.exe** , e, em seguida, selecione **Next**. Esta definição instrui a política para apenas priorizar o tráfego correspondente do Serviço de Ambiente de Trabalho Remoto.
+7. Na página seguinte, selecione **Apenas aplicações com este nome executável** e introduza o nome **svchost.exe**, e, em seguida, selecione **Next**. Esta definição instrui a política para apenas priorizar o tráfego correspondente do Serviço de Ambiente de Trabalho Remoto.
 
 8. Na terceira página, certifique-se de que tanto qualquer **endereço IP de origem** como **qualquer endereço IP de destino** estão selecionados. Selecione **Seguinte**. Estas duas definições garantem que os pacotes serão geridos independentemente do computador (endereço IP) que enviou os pacotes e que computador (endereço IP) receberá os pacotes.
 
 9. Na página quatro, selecione **UDP** do **Select the protocol this QoS policy applie to** drop-down list.
 
-10. Sob a posição **Especifique o número da porta de origem** , selecione **A partir desta porta de origem ou alcance**. Na caixa de texto que o acompanha, tipo **3390**. Selecione **Concluir**.
+10. Sob a posição **Especifique o número da porta de origem**, selecione **A partir desta porta de origem ou alcance**. Na caixa de texto que o acompanha, tipo **3390**. Selecione **Concluir**.
 
 As novas políticas que criou não entrarão em vigor até que a Política de Grupo seja atualizada nos computadores anfitriões da sessão. Embora a Política de Grupo refresque periodicamente por si só, pode forçar uma atualização imediata seguindo estes passos:
 
-1. Em cada anfitrião de sessão para o qual pretende atualizar a Política de Grupo, abra um Aviso de Comando como administrador *(Executar como administrador* ).
+1. Em cada anfitrião de sessão para o qual pretende atualizar a Política de Grupo, abra um Aviso de Comando como administrador *(Executar como administrador*).
 
 2. Na pronta do comando, insira
 

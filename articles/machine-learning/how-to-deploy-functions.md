@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python, devx-track-azurecli
-ms.openlocfilehash: d17967c24fbbb127c1d3eaee5acd5b78c3e3b902
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 901e4d458cc2d77d4e7f13c1782b86c8532ca499
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630350"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327173"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implementar um modelo de aprendizagem automática para funções Azure (pré-visualização)
 
@@ -58,7 +58,7 @@ Antes de implementar, deve definir o que é necessário para executar o modelo c
 
 Para obter mais informações sobre o script de entrada, consulte [o código de pontuação De definir](./how-to-deploy-and-where.md#define-an-entry-script)
 
-* **Dependências** , tais como scripts de ajuda ou pacotes Python/Conda necessários para executar o script de entrada ou modelo
+* **Dependências**, tais como scripts de ajuda ou pacotes Python/Conda necessários para executar o script de entrada ou modelo
 
 Estas entidades são encapsuladas numa __configuração de inferência.__ A configuração de inferência referencia o script de entrada e outras dependências.
 
@@ -277,7 +277,7 @@ Uma vez que a imagem esteja carregada e a aplicação esteja disponível, use os
     }
     ```
 
-3. Para visualizar a saída produzida pela função, utilize o seguinte comando para listar os ficheiros de saída gerados. `<triggerConnectionString>`Substitua-a pela cadeia de ligação devolvida anteriormente. Neste exemplo, `output` é o nome do recipiente de saída criado anteriormente. Se usou um nome diferente, substitua este valor::
+3. Para visualizar a saída produzida pela função, utilize o seguinte comando para listar os ficheiros de saída gerados. `<triggerConnectionString>`Substitua-a pela cadeia de ligação devolvida anteriormente. Neste exemplo, `output` é o nome do recipiente de saída criado anteriormente. Se usou um nome diferente, substitua este valor:
 
     ```azurecli-interactive
     az storage blob list --container-name output --connection-string <triggerConnectionString> --query '[].name' --output tsv

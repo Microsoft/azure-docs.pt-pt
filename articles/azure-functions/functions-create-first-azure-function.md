@@ -5,12 +5,12 @@ ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 8a6f154dc3c7a2984c687d55af2cf51a60169d6b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 746ec7aa3ee41204e051e843ff94ed0771a9d244
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182568"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326187"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar a sua primeira função no portal do Azure
 
@@ -21,7 +21,7 @@ Use um dos seguintes links para começar com o seu ambiente de desenvolvimento l
 
 | Visual Studio Code | Solicitação de terminal/comando | Visual Studio |
 | --- | --- | --- |
-|  &bull;&nbsp;[Começar com C #](./create-first-function-vs-code-csharp.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Começa com a Java.](./create-first-function-vs-code-csharp.md?pivots=programming-language-java)<br/>&bull;&nbsp;[Começar com JavaScript](./create-first-function-vs-code-csharp.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[Começa com o PowerShell](./create-first-function-vs-code-csharp.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Começa com a Python](./create-first-function-vs-code-csharp.md?pivots=programming-language-python) |&bull;&nbsp;[Começar com C #](./create-first-function-cli-csharp.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Começa com a Java.](./create-first-function-cli-csharp.md?pivots=programming-language-java)<br/>&bull;&nbsp;[Começar com JavaScript](./create-first-function-cli-csharp.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[Começa com o PowerShell](./create-first-function-cli-csharp.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Começa com a Python](./create-first-function-cli-csharp.md?pivots=programming-language-python) | [Começar com C #](functions-create-your-first-function-visual-studio.md) |
+|  &bull;&nbsp;[Começar com C #](./create-first-function-vs-code-csharp.md)<br/>&bull;&nbsp;[Começa com a Java.](./create-first-function-vs-code-java.md)<br/>&bull;&nbsp;[Começar com JavaScript](./create-first-function-vs-code-node.md)<br/>&bull;&nbsp;[Começa com o PowerShell](./create-first-function-vs-code-powershell.md)<br/>&bull;&nbsp;[Começa com a Python](./create-first-function-vs-code-python.md) |&bull;&nbsp;[Começar com C #](./create-first-function-cli-csharp.md)<br/>&bull;&nbsp;[Começa com a Java.](./create-first-function-cli-java.md)<br/>&bull;&nbsp;[Começar com JavaScript](./create-first-function-cli-node.md)<br/>&bull;&nbsp;[Começa com o PowerShell](./create-first-function-cli-powershell.md)<br/>&bull;&nbsp;[Começa com a Python](./create-first-function-cli-python.md) | [Começar com C #](functions-create-your-first-function-visual-studio.md) |
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -73,7 +73,7 @@ Em seguida, crie uma função na nova aplicação de função.
 
    ![Visualizador de registo de funções no portal do Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 

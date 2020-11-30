@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 78f228a5e188bc930a9e7484f4c982ba746331dd
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e0a45bde32fed651c4b38d203b3c75a6d928e7c5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357781"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327088"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Chaves, segredos e certificados do Azure Key Vault
 
@@ -46,10 +46,10 @@ Segredos|/segredos|Suportado|Não suportado
 Certificados|/certificados|Suportado|Não suportado
 Chaves de contas de armazenamento|/contagem de armazenamento|Suportado|Não suportado
 |||
-- **Teclas criptográficas** : Suporta vários tipos de chaves e algoritmos e permite a utilização de chaves protegidas por software e protegidas por HSM. Para mais informações, consulte [sobre as teclas.](../keys/about-keys.md)
-- **Segredos** : Fornece armazenamento seguro de segredos, tais como palavras-passe e cadeias de conexão de base de dados. Para mais informações, consulte [Sobre os segredos.](../secrets/about-secrets.md)
-- **Certificados** : Suporta certificados, que são construídos em cima de chaves e segredos e adicionam uma funcionalidade de renovação automatizada. Para mais informações, consulte [sobre os certificados.](../certificates/about-certificates.md)
-- **Chaves da conta Azure Storage** : Pode gerir as chaves de uma conta de armazenamento Azure para si. Internamente, o Key Vault pode listar as teclas (sincronização) com uma Conta de Armazenamento Azure e regenerar (rodar) as teclas periodicamente. Para obter mais informações, consulte [Gerir as chaves da conta de armazenamento com o Key Vault](../secrets/overview-storage-keys.md).
+- **Teclas criptográficas**: Suporta vários tipos de chaves e algoritmos e permite a utilização de chaves protegidas por software e protegidas por HSM. Para mais informações, consulte [sobre as teclas.](../keys/about-keys.md)
+- **Segredos**: Fornece armazenamento seguro de segredos, tais como palavras-passe e cadeias de conexão de base de dados. Para mais informações, consulte [Sobre os segredos.](../secrets/about-secrets.md)
+- **Certificados**: Suporta certificados, que são construídos em cima de chaves e segredos e adicionam uma funcionalidade de renovação automatizada. Para mais informações, consulte [sobre os certificados.](../certificates/about-certificates.md)
+- **Chaves da conta Azure Storage**: Pode gerir as chaves de uma conta de armazenamento Azure para si. Internamente, o Key Vault pode listar as teclas (sincronização) com uma Conta de Armazenamento Azure e regenerar (rodar) as teclas periodicamente. Para obter mais informações, consulte [Gerir as chaves da conta de armazenamento com o Key Vault](../secrets/overview-storage-keys.md).
 
 Para obter informações mais gerais sobre o Key Vault, consulte [About Azure Key Vault](overview.md). Para obter mais informações sobre piscinas geridas de HSM, veja o que é [Azure Key Vault Managed HSM?](../managed-hsm/overview.md)
 
@@ -75,6 +75,7 @@ Os objetos armazenados no Cofre de Chaves são versados sempre que é criada uma
 
 Os objetos no Cofre chave podem ser endereçados especificando uma versão ou omitindo a versão para operações na versão atual do objeto. Por exemplo, dada uma Chave com o nome `MasterKey` , realizar operações sem especificar uma versão faz com que o sistema utilize a versão mais recente disponível. A realização de operações com o identificador específico da versão faz com que o sistema utilize essa versão específica do objeto.  
 
+### <a name="vault-name-and-object-name"></a>Nome do cofre e nome de objeto
 Os objetos são identificados exclusivamente dentro do Key Vault usando um URL. Nenhum dos dois objetos no sistema tem o mesmo URL, independentemente da geolocalização. O URL completo de um objeto é chamado de Identificador de Objetos. O URL consiste num prefixo que identifica o Cofre de Chaves, o tipo de objeto, o nome do objeto fornecido pelo utilizador e uma versão do objeto. O Nome do Objeto é insensível e imutável. Os identificadores que não incluem a versão object são referidos como Identificadores de Base.  
 
 Para mais informações, consulte [Autenticação, pedidos e respostas](authentication-requests-and-responses.md)
@@ -88,7 +89,7 @@ Um identificador de objetos tem o seguinte formato geral (dependendo do tipo de 
 > [!NOTE]
 > Consulte [o suporte do tipo de objeto](#object-types) para tipos de objetos suportados por cada tipo de recipiente.
 
-Em que:  
+Onde:  
 
 | Elemento | Descrição |  
 |-|-|  

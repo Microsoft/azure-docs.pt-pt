@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 76ecd811ab0bffe20b4bddcc4dc2eacaffaed588
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2a7d77579eaebd3ee951d0184e25937783420806
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308338"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325201"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Encriptação de Dados Transparente do SQL do Azure com chave gerida pelo cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -78,7 +78,7 @@ Os auditores podem utilizar o Azure Monitor para rever os registos auditevent do
 
 - O cofre-chave e a base de dados SQL/instância gerida devem pertencer ao mesmo inquilino do Azure Ative Directory. O cofre de chaves de inquilino cruzado e as interações do servidor não são suportadas. Para mover recursos depois, tDE com AKV terá que ser reconfigurado. Saiba mais sobre [a movimentação de recursos.](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 
-- A função [de eliminação suave](../../key-vault/general/soft-delete-overview.md) deve ser ativada no cofre da chave, para proteger contra a perda de dados a eliminação acidental da chave (ou cofre de chaves). Os recursos de soft-deleted são retidos por 90 dias, a menos que entretanto sejam recuperados ou purgados pelo cliente. As ações *de recuperação* e *purga* têm as suas próprias permissões associadas a uma política de acesso ao cofre chave. A função de eliminação suave está desligada por predefinição e pode ser ativada através do [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) ou [do CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). Não pode ser ativado através do portal Azure.  
+- A função [de eliminação suave](../../key-vault/general/soft-delete-overview.md) deve ser ativada no cofre da chave, para proteger contra a perda de dados a eliminação acidental da chave (ou cofre de chaves). Os recursos de soft-deleted são retidos por 90 dias, a menos que entretanto sejam recuperados ou purgados pelo cliente. As ações *de recuperação* e *purga* têm as suas próprias permissões associadas a uma política de acesso ao cofre chave. A função de eliminação suave está desligada por predefinição e pode ser ativada através do [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) ou [do CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli). Não pode ser ativado através do portal Azure.  
 
 - Conceda ao servidor ou ao acesso de instância gerida ao cofre de chaves (obter, wrapKey, desembrulhar aKey) utilizando a sua identidade de Diretório Ativo Azure. Ao utilizar o portal Azure, a identidade Azure AD é criada automaticamente. Ao utilizar o PowerShell ou o CLI, a identidade AZure AD deve ser explicitamente criada e a conclusão deve ser verificada. Consulte [o Configure TDE com BYOK](transparent-data-encryption-byok-configure.md) e [Configure TDE com BYOK para SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) para instruções detalhadas passo a passo ao utilizar o PowerShell.
 
@@ -116,7 +116,7 @@ Os auditores podem utilizar o Azure Monitor para rever os registos auditevent do
 
 - Se a chave for gerada no cofre da chave, crie uma cópia de segurança antes de utilizar a chave em AKV pela primeira vez. A cópia de segurança pode ser restaurada apenas para um Cofre de Chaves Azure. Saiba mais sobre o comando [Backup-AzKeyVaultKey.](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
-- Crie uma nova cópia de segurança sempre que forem feitas alterações à tecla (por exemplo, atributos chave, tags, ACLs).
+- Crie uma nova cópia de segurança sempre que forem feitas alterações à tecla (por exemplo.key atributos, tags, ACLs).
 
 - **Mantenha as versões anteriores** da chave no cofre quando estiver a rodar as chaves, para que as cópias de segurança da base de dados mais antigas possam ser restauradas. Quando o protetor TDE é alterado para uma base de dados, as cópias de segurança antigas da base de dados **não são atualizadas** para utilizar o mais recente protetor TDE. No momento da restauração, cada backup precisa do protetor TDE com o que foi encriptado na hora da criação. As rotações das chaves podem ser efetuadas seguindo as instruções da [Rotação do Protetor de Encriptação de Dados Transparente utilizando o PowerShell](transparent-data-encryption-byok-key-rotation.md).
 
@@ -146,7 +146,7 @@ Abaixo está uma visão dos passos adicionais necessários no portal para coloca
 
 Pode acontecer que alguém com direitos de acesso suficientes ao cofre de chaves desative acidentalmente o acesso do servidor à chave:
 
-- revogando o cofre de chaves *obter* , *wrapKey* , *desembrulhar* permissões Do servidor
+- revogando o cofre de chaves *obter*, *wrapKey*, *desembrulhar* permissões Do servidor
 
 - excluir a chave
 

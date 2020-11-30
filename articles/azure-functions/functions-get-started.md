@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 11/19/2020
 ms.author: cshoe
 zone_pivot_groups: programming-languages-set-functions-lang-workers
-ms.openlocfilehash: d988bb7ef31df518d50ab9e2e8ffc1dcad4454da
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 78fd13825becfa186960a0dfd3dee83c312c9bcf
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168054"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326952"
 ---
 # <a name="getting-started-with-azure-functions"></a>Introdução às Funções do Azure
 
@@ -25,7 +25,7 @@ Use os seguintes recursos para começar.
 
 | Ação | Recursos |
 | --- | --- |
-| **Criar a sua primeira função** | Utilizando uma das seguintes ferramentas:<br><br><li>[Visual Studio Code](./functions-create-your-first-function-visual-studio.md)<li>[Visual Studio](./create-first-function-vs-code-csharp.md)<li>[Linha de comandos](./create-first-function-cli-csharp.md) |
+| **Criar a sua primeira função** | Utilizando uma das seguintes ferramentas:<br><br><li>[Visual Studio](./functions-create-your-first-function-visual-studio.md)<li>[Visual Studio Code](./create-first-function-vs-code-csharp.md)<li>[Linha de comandos](./create-first-function-cli-csharp.md) |
 | **Ver uma função a funcionar** | <li>[Navegador Azure Samples](/samples/browse/?expanded=azure&languages=csharp&products=azure-functions)<li>[Biblioteca Comunitária de Azure](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=C%23) |
 | **Explore um tutorial interativo**| <li>[Escolher a melhor tecnologia sem servidor do Azure para o seu cenário empresarial](/learn/modules/serverless-fundamentals/)<li>[Quadro Bem Architected - Eficiência de desempenho](/learn/modules/azure-well-architected-performance-efficiency/)<li>[Executar uma Função do Azure com acionadores](/learn/modules/execute-azure-function-with-triggers/) <br><br>Consulte o Microsoft Learn para obter uma [lista completa de tutoriais interativos.](/learn/browse/?expanded=azure&products=azure-functions)|
 | **Saiba mais aprofundadamente** | <li>Saiba como as funções [aumentam ou diminuem automaticamente](./functions-scale.md) as instâncias para corresponder à procura<li>Explore os [diferentes métodos](./functions-deployment-technologies.md) de implementação disponíveis<li>Utilize ferramentas de [monitorização incorporadas](./functions-monitoring.md) para ajudar a analisar as suas funções<li>Leia a [referência linguística C#](./functions-dotnet-class-library.md)|

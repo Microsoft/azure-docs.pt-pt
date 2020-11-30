@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: cb55274800b239cf0e1e942647ae0c65b321b862
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 147c507cde9abf2ef97098c6b41fbbd4d67f02d2
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790054"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324810"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configure um ou mais Sempre Na disponibilidade de ouvintes do grupo - Gestor de Recursos
 
@@ -64,7 +64,7 @@ Se estiver a restringir o acesso a um Grupo de Segurança da Rede Azure, certifi
 O [modelo](./availability-group-quickstart-template-configure.md) atual da Microsoft para um grupo de disponibilidade utiliza um equilibrador de carga básico com endereços IP básicos.
 
    > [!NOTE]
-   > Terá de configurar um [ponto final de serviço](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network) se utilizar um equilibrador de carga padrão e um armazenamento Azure para a testemunha em nuvem. 
+   > Terá de configurar um [ponto final de serviço](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network) se utilizar um equilibrador de carga padrão e um armazenamento Azure para a testemunha em nuvem. 
    > 
 
 Os exemplos deste artigo especificam um balanceador de carga padrão. Nos exemplos, o script inclui `-sku Standard` .
@@ -195,11 +195,11 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 
 1. Lance o SQL Server Management Studio e ligue-se à réplica primária.
 
-1. Navigate to **AlwaysOn High Availability**  >  **Availability Groups**  >  **Availability Group Listeners** . 
+1. Navegue para **sempreOn Grupos** de Disponibilidade Disponibilidade  >  **Availability Groups**  >  **Disponibilidade Disponibilidade Ouvintes** do Grupo . 
 
-1. Deve agora ver o nome do ouvinte que criou no Failover Cluster Manager. Clique com o botão direito no nome do ouvinte e selecione **Propriedades** .
+1. Deve agora ver o nome do ouvinte que criou no Failover Cluster Manager. Clique com o botão direito no nome do ouvinte e selecione **Propriedades**.
 
-1. Na caixa **de porta,** especifique o número da porta para o ouvinte do grupo de disponibilidade utilizando o $EndpointPort que usou anteriormente (1433 foi o predefinido), então selecione **OK** .
+1. Na caixa **de porta,** especifique o número da porta para o ouvinte do grupo de disponibilidade utilizando o $EndpointPort que usou anteriormente (1433 foi o predefinido), então selecione **OK**.
 
 ## <a name="test-the-connection-to-the-listener"></a>Teste a ligação ao ouvinte
 
@@ -236,7 +236,7 @@ Note as seguintes diretrizes sobre o ouvinte do grupo de disponibilidade em Azur
   - Os endereços IP flutuantes do balançador de carga para o ouvinte AG
   - O endereço IP do núcleo do cluster, se aplicável.
 
-* Crie um ponto final de serviço quando utilizar um equilibrador de carga padrão com o Azure Storage para a testemunha em nuvem. Para obter mais informações, consulte [o acesso do Grant a partir de uma rede virtual.](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network)
+* Crie um ponto final de serviço quando utilizar um equilibrador de carga padrão com o Azure Storage para a testemunha em nuvem. Para obter mais informações, consulte [o acesso do Grant a partir de uma rede virtual.](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)
 
 ## <a name="for-more-information"></a>Para obter mais informações:
 

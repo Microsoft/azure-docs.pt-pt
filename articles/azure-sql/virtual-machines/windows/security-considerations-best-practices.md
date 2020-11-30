@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e6f6d1960c07dc23c584dec5bb424f91630fc1bb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 92cd20f9e636c50416a72ec974a33c87da1ae2cb
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785073"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327275"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Considerações de segurança para o SQL Server em Máquinas Virtuais do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ As seguintes secções fornecem sugestões sobre a reflexão através destes pon
 
 ## <a name="secure-connections"></a>Ligações seguras
 
-Quando cria uma máquina virtual SQL Server com uma imagem de galeria, a opção **de conectividade do servidor SQL** dá-lhe a escolha de Local **(dentro de VM)** , **Privado (dentro da Rede Virtual)** ou **Público (Internet)** .
+Quando cria uma máquina virtual SQL Server com uma imagem de galeria, a opção **de conectividade do servidor SQL** dá-lhe a escolha de Local **(dentro de VM)**, **Privado (dentro da Rede Virtual)** ou **Público (Internet)**.
 
 ![Conectividade do Servidor SQL](./media/security-considerations-best-practices/sql-vm-connectivity-option.png)
 
@@ -59,7 +59,7 @@ Por fim, considere ativar as ligações encriptadas, por exemplo, o motor de bas
 
 ## <a name="encryption"></a>Encriptação
 
-Os discos geridos oferecem Server-Side encriptação e encriptação do disco Azure. [A Encriptação do Lado do Servidor](../../../virtual-machines/windows/disk-encryption.md) fornece encriptação em repouso e salvaguarda os seus dados para atender aos seus compromissos de segurança organizacional e de conformidade. [A Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) utiliza a tecnologia Bitlocker ou DM-Crypt e integra-se com o Azure Key Vault para encriptar tanto o SISTEMA como os discos de dados. 
+Os discos geridos oferecem Server-Side encriptação e encriptação do disco Azure. [A Encriptação do Lado do Servidor](../../../virtual-machines/disk-encryption.md) fornece encriptação em repouso e salvaguarda os seus dados para atender aos seus compromissos de segurança organizacional e de conformidade. [A Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) utiliza a tecnologia Bitlocker ou DM-Crypt e integra-se com o Azure Key Vault para encriptar tanto o SISTEMA como os discos de dados. 
 
 ## <a name="use-a-non-default-port"></a>Utilize uma porta não padrão
 
@@ -93,7 +93,7 @@ Não quer que os agressores adivinhem facilmente nomes de contas ou palavras-pas
   - Crie uma conta SQL com um nome único que tenha adesão **à Sysadmin.** Pode fazê-lo a partir do portal, permitindo a **autenticação SQL** durante o provisionamento.
 
     > [!TIP] 
-    > Se não ativar a autenticação SQL durante o fornecimento, tem de alterar manualmente o modo de autenticação para **SQL Server e Modo de Autenticação do Windows** . Para obter mais informações, consulte [o Modo de Autenticação do Servidor De Alteração](/sql/database-engine/configure-windows/change-server-authentication-mode).
+    > Se não ativar a autenticação SQL durante o fornecimento, tem de alterar manualmente o modo de autenticação para **SQL Server e Modo de Autenticação do Windows**. Para obter mais informações, consulte [o Modo de Autenticação do Servidor De Alteração](/sql/database-engine/configure-windows/change-server-authentication-mode).
 
   - Se tiver de utilizar o login **SA,** ative o login após o provisionamento e atribua uma nova senha forte.
 

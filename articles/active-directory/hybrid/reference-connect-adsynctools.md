@@ -5,18 +5,18 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 11/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f81af557242503c6380d0ff7bc1dfaed852cd908
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7d0022cd381a6c5d6592e2097f3c1bd4855a3e4
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070688"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326000"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell Reference
 A documentação que se segue fornece informações de referência para o Módulo PowerShell ADSyncTools.psm1 que está incluído no Azure AD Connect.
@@ -27,7 +27,9 @@ Para instalar o Módulo PowerShell ADSyncTools, faça o seguinte:
 1.  Open Windows PowerShell com priviledges administrativos
 2.  Digite ou copie e cole o seguinte: 
     ``` powershell
-    Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        Install-PackageProvider -Name NuGet -MinimumVersion2.8.5.201 -Force
+        Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
     ```
 3.  Acerte entrar.
 4.  Para verificar se o módulo foi instalado, introduza ou copie e cole o seguinte"
@@ -738,7 +740,7 @@ Remove-ADSyncToolsExpiredCertificates [-TargetOU] <String> [[-BackupOnly] <Boole
 Este script retira todos os objetos de uma Unidade Organizacional alvo no seu domínio ative Directory - filtrado pela Classe Object (Utilizador/Computador) e elimina todos os certificados expirados presentes no atributo UserCertificate.
 Por predefinição (modo BackupOnly) apenas irá fazer cópias de segurança de certificados expirados para um ficheiro e não fazer quaisquer alterações em AD.
 Se utilizar -BackupOnly $false então qualquer Certificado Expirado presente no atributo UserCertificate para estes objetos será removido da AD depois de ser copiado para arquivar.
-Cada certificado será suportado até um nome de ficheiro separado: ObjectClass_ObjectGUID_CertThumprint.cer O script também criará um ficheiro de registo em formato CSV mostrando todos os utilizadores com certificados válidos ou expirados, incluindo a ação real tomada (Skipped/Exported/Deleted).
+Cada certificado será suportado até um nome de ficheiro separado: ObjectClass_ObjectGUID_CertThumprint.cer O script também criará um ficheiro de registo em formato CSV mostrando todos os utilizadores com certificados que são válidos ou expirados, incluindo a ação real tomada (Skipped/Exported/Deleted).
 
 ### <a name="examples"></a>EXEMPLOS
 
@@ -1029,7 +1031,7 @@ Trace-ADSyncToolsADImport [[-ADConnectorXML] <String>] [[-dc] <String>] [[-rootD
 ```
 
 ### <a name="description"></a>DESCRIÇÃO
-Rastreia todas as consultas de ldap de uma importação de AAD Connect AD de um determinado ponto de verificação de marca de água AD (cookie de partição). Cria um ficheiro de traços '.\ADimportTrace_yyyyMMddHHmmss.log' na pasta atual.
+Rastreia todas as consultas de ldap de uma importação de AAD Connect AD de um determinado ponto de verificação de marca de água AD (cookie de partição). Cria um ficheiro de rastreio '.\ADimportTrace_yyyyMMddHHmmss.log' na pasta atual.
 
 ### <a name="examples"></a>EXEMPLOS
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: de42230639351c0dc1e7986156a33b178386d1a4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 59784b6e618e875a6eedc947ce75afdf3bd1df74
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357747"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327411"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Tutorial: Configurar Zscaler Beta para fornecimento automático de utilizadores
 
@@ -44,7 +44,7 @@ Antes de configurar a Versão Beta do Zscaler para o fornecimento automático de
 
 **Para adicionar Zscaler Beta da galeria de aplicações AZure, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -56,7 +56,7 @@ Antes de configurar a Versão Beta do Zscaler para o fornecimento automático de
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, tipo **Zscaler Beta** , selecione **Zscaler Beta** do painel de resultados e clique em **Adicionar** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, tipo **Zscaler Beta**, selecione **Zscaler Beta** do painel de resultados e clique em **Adicionar** botão para adicionar a aplicação.
 
     ![Zscaler Beta na lista de resultados](common/search-new-app.png)
 
@@ -83,7 +83,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-beta-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para zscaler Beta em Ad AZure:
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Aplicações empresariais** , selecione **Todas as aplicações** e, em seguida, selecione **Zscaler Beta**.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Zscaler Beta**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -93,63 +93,63 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 3. Selecione o separador **Aprovisionamento**.
 
-    ![Provisão Beta Zscaler](./media/zscaler-beta-provisioning-tutorial/provisioning-tab.png)
+    ![Há uma lista de separadores dispostos em categorias, e intitulado ZScaler Beta - Provisioning /Enterprise Application. É selecionado o separador Provisão da categoria Gestão.](./media/zscaler-beta-provisioning-tutorial/provisioning-tab.png)
 
 4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
-    ![Provisão Beta Zscaler](./media/zscaler-beta-provisioning-tutorial/provisioning-credentials.png)
+    ![O modo Automático foi selecionado a partir da lista de abandono do modo de provisionamento. Existem campos para credenciais de administração, usados para ligar à API da Zscaler Beta, e há um botão de Ligação de Teste.](./media/zscaler-beta-provisioning-tutorial/provisioning-credentials.png)
 
 5. Sob a secção **de Credenciais de Administrador,** insira o URL do **inquilino** e **o Token Secreto** da sua conta Zscaler Beta, conforme descrito no Passo 6.
 
 6. Para obter o URL do **inquilino** e **o Token Secreto,** navegue para **a Administração > Configurações de Autenticação** na interface do portal Zscaler Beta e clique em **SAML** sob **Tipo de Autenticação**.
 
-    ![Provisão Beta Zscaler](./media/zscaler-beta-provisioning-tutorial/secret-token-1.png)
+    ![Nas Definições de Autenticação, no Perfil de Autenticação, o Tipo de Diretório selecionado é Apresentado DB, e o Tipo de Autenticação Selecionado é SAML.](./media/zscaler-beta-provisioning-tutorial/secret-token-1.png)
 
     Clique em **Configurar SAML** para abrir as opções **SAML de configuração.**
 
-    ![Provisão Beta Zscaler](./media/zscaler-beta-provisioning-tutorial/secret-token-2.png)
+    ![No Configure SAML, são selecionadas as opções de Auto-Provisionamento de Ativação SAML e de Enable SCIM-Based Provisioning. As caixas de texto base URL e Bearer Token são destacadas.](./media/zscaler-beta-provisioning-tutorial/secret-token-2.png)
 
     **Selecione Ative SCIM-Based Provisioning** para recuperar **o URL base** e **o Token do portador** e, em seguida, guarde as definições. Copie o **URL base** para o URL **do inquilino,** e **o Bearer Token**  para **Secret Token** no portal Azure.
 
 7. Ao povoar os campos mostrados no Passo 5, clique em **Test Connection** para garantir que a Azure AD pode ligar-se à Zscaler Beta. Se a ligação falhar, certifique-se de que a sua conta Beta Zscaler tem permissões de Administração e tente novamente.
 
-    ![Provisão Beta Zscaler](./media/zscaler-beta-provisioning-tutorial/test-connection.png)
+    ![Nas credenciais de administrador, os campos URL e Secret Token têm valores, e o botão de Ligação de Teste é realçado.](./media/zscaler-beta-provisioning-tutorial/test-connection.png)
 
 8. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e verifique a caixa de verificação **Enviar por e-mail uma notificação de e-mail quando ocorrer uma falha**.
 
-    ![Provisão Beta Zscaler](./media/zscaler-beta-provisioning-tutorial/notification.png)
+    ![A caixa de texto de Email de Notificação está vazia e o Envio de uma notificação por e-mail quando ocorre uma falha na caixa de verificação é apurada.](./media/zscaler-beta-provisioning-tutorial/notification.png)
 
 9. Clique em **Guardar**.
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para Zscaler Beta**.
 
-    ![Provisão Beta Zscaler](./media/zscaler-beta-provisioning-tutorial/user-mappings.png)
+    ![O Synchronize Azure Ative Directory Users para ZScalerBeta está selecionado e habilitado.](./media/zscaler-beta-provisioning-tutorial/user-mappings.png)
 
 11. Reveja os atributos do utilizador que são sincronizados de Azure AD a Zscaler Beta na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para corresponder às contas do utilizador em Zscaler Beta para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    ![Provisão Beta Zscaler](./media/zscaler-beta-provisioning-tutorial/user-attribute-mappings.png)
+    ![Na secção De mapeamentos de Atributos para atributos do utilizador, os atributos Ative Directory são apresentados ao lado dos atributos Zscalar Beta com os quais estão sincronizados. Um par de atributos é mostrado como Matching.](./media/zscaler-beta-provisioning-tutorial/user-attribute-mappings.png)
 
 12. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to Zscaler Beta**.
 
-    ![Provisão Beta Zscaler](./media/zscaler-beta-provisioning-tutorial/group-mappings.png)
+    ![O Synchronize Azure Ative Directory Groups para ZScalerBeta está selecionado e habilitado.](./media/zscaler-beta-provisioning-tutorial/group-mappings.png)
 
-13. Reveja os atributos do grupo que são sincronizados de Azure AD a Zscaler Beta na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para corresponder aos grupos em Zscaler Beta para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
+13. Reveja os atributos do grupo que são sincronizados de Azure AD a Zscaler Beta na secção **De Mapeamentos de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para corresponder aos grupos em Zscaler Beta para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    ![Provisão Beta Zscaler](./media/zscaler-beta-provisioning-tutorial/group-attribute-mappings.png)
+    ![Na secção De mapeamentos de Atributos para atributos de grupo, os atributos Ative Directory são apresentados ao lado dos atributos Zscalar Beta com os quais estão sincronizados. Um par de atributos é mostrado como Matching.](./media/zscaler-beta-provisioning-tutorial/group-attribute-mappings.png)
 
 14. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 15. Para ativar o serviço de fornecimento de Ad Azure para Zscaler Beta, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
-    ![Provisão Beta Zscaler](./media/zscaler-beta-provisioning-tutorial/provisioning-status.png)
+    ![O Estado de Provisionamento é mostrado e definido para On.](./media/zscaler-beta-provisioning-tutorial/provisioning-status.png)
 
 16. Defina os utilizadores e/ou grupos que deseja prestar à Zscaler Beta, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
-    ![Provisão Beta Zscaler](./media/zscaler-beta-provisioning-tutorial/scoping.png)
+    ![A lista de drop-down scope é mostrada e o Sync apenas é selecionado por utilizadores e grupos designados. O outro valor disponível é Sync todos os utilizadores e grupos.](./media/zscaler-beta-provisioning-tutorial/scoping.png)
 
 17. Quando estiver pronto para aprovisionar, clique em **Guardar**.
 
-    ![Provisão Beta Zscaler](./media/zscaler-beta-provisioning-tutorial/save-provisioning.png)
+    ![Destaca-se o botão Guardar no topo da Zscaler Beta - Provisioning. Há também um botão Descartar.](./media/zscaler-beta-provisioning-tutorial/save-provisioning.png)
 
 Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de fornecimento AZure AD esteja em execução. Pode utilizar a secção Detalhes da **Sincronização** para monitorizar o progresso e seguir links para o relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de fornecimento de AD Azure em Zscaler Beta.
 

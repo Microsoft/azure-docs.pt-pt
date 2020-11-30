@@ -15,12 +15,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c64ab815572af0f6c76a5076c9d4cf03586f242d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 57e9c82e5685171cff994aca7985f6a4211f00e7
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785005"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327292"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Orientação de preços para O SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -59,9 +59,9 @@ Se tiver uma carga de trabalho de produção não leve, utilize uma das seguinte
 |-----|-----|
 | Web | Pequenos sites |
 | Standard | Cargas de trabalho pequenas a médias |
-| Grandes Empresas | Cargas de trabalho grandes ou críticas de missão|
+| Enterprise | Cargas de trabalho grandes ou críticas de missão|
 
-Você tem duas opções para pagar o licenciamento SQL Server para estas edições: *pagar por utilização* ou *trazer a sua própria licença (BYOL)* .
+Você tem duas opções para pagar o licenciamento SQL Server para estas edições: *pagar por utilização* ou *trazer a sua própria licença (BYOL)*.
 
 ## <a name="pay-per-usage"></a>Pagamento por utilização
 
@@ -96,7 +96,7 @@ Para criar um Azure VM em execução SQL Server 2017 com uma destas imagens pay-
 
 ## <a name="bring-your-own-license-byol"></a><a id="byol"></a> Traga a sua própria licença (BYOL)
 
-**Trazer a sua própria licença SQL Server através da Mobility License** , também designada por **BYOL,** significa utilizar uma licença de volume de servidor SQL existente com garantia de software num VM Azure. Um SQL Server VM que utiliza apenas o BYOL cobra apenas pelo custo de execução do VM, e não pelo licenciamento do SQL Server, uma vez que já adquiriu licenças e Garantia de Software através de um programa de Licenciamento de Volume.
+**Trazer a sua própria licença SQL Server através da Mobility License**, também designada por **BYOL,** significa utilizar uma licença de volume de servidor SQL existente com garantia de software num VM Azure. Um SQL Server VM que utiliza apenas o BYOL cobra apenas pelo custo de execução do VM, e não pelo licenciamento do SQL Server, uma vez que já adquiriu licenças e Garantia de Software através de um programa de Licenciamento de Volume.
 
 > [!IMPORTANT]
 > As imagens BYOL requerem um Acordo Empresarial com Garantia de Software. Não estão disponíveis como parte do Azure Cloud Solution Partner (CSP) neste momento. Os clientes da CSP podem trazer a sua própria licença através da implementação de uma imagem pay-as-you-go e, em seguida, ativar o [Azure Hybrid Benefit](licensing-model-azure-hybrid-benefit-ahb-change.md).
@@ -136,7 +136,7 @@ Para evitar custos desnecessários, escolha um tamanho de máquina virtual ideal
 
 ### <a name="correctly-size-your-vm"></a><a id="machinesize"></a> Dimensione corretamente o seu VM
 
-O custo de licenciamento do SQL Server está diretamente relacionado com o número de vCPUs. Escolha um tamanho VM que corresponda às necessidades esperadas para CPU, memória, armazenamento e largura de banda de I/O. Para obter uma lista completa das opções de tamanho da máquina, consulte [os tamanhos do Windows VM](../../../virtual-machines/sizes.md) e [os tamanhos Linux VM](../../../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json).
+O custo de licenciamento do SQL Server está diretamente relacionado com o número de vCPUs. Escolha um tamanho VM que corresponda às necessidades esperadas para CPU, memória, armazenamento e largura de banda de I/O. Para obter uma lista completa das opções de tamanho da máquina, consulte [os tamanhos do Windows VM](../../../virtual-machines/sizes.md) e [os tamanhos Linux VM](../../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Existem novos tamanhos de máquina que funcionam bem com certos tipos de cargas de trabalho do SQL Server. Estes tamanhos de máquinas mantêm altos níveis de memória, armazenamento e largura de banda de I/S, mas têm uma contagem de núcleo virtualizada mais baixa. Por exemplo, considere o seguinte exemplo:
 

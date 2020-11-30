@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 10/26/2020
-ms.openlocfilehash: adf454ac697f8cabf4256ebfc5baa5d0d1c76264
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c806c0a13f9f5f13588b780054d1f285beb44802
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782472"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324538"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Principais diferenças entre o Machine Learning Services no SQL Managed Instance e no SQL Server
 
@@ -39,7 +39,7 @@ Em caso de atualização do Objetivo de Nível de Serviço (SLO), atualize a SLO
 
 ## <a name="language-support"></a>Suporte de idiomas
 
-Os serviços de machine learning em SQL Managed Instance e SQL Server suportam a [estrutura de extensibilidade](/sql/advanced-analytics/concepts/extensibility-framework)Python e R. As principais diferenças são:
+Os serviços de machine learning em SQL Managed Instance e SQL Server suportam a [estrutura de extensibilidade](/sql/advanced-analytics/concepts/extensibility-framework)Python e R. As principais diferenças são as seguintes:
 
 - As versões iniciais de Python e R são diferentes entre serviços de machine learning em SQL Managed Instance e SQL Server:
 
@@ -55,7 +55,7 @@ Os serviços de machine learning em SQL Managed Instance e SQL Server suportam a
 A gestão de pacotes Python e R funciona de forma diferente entre o SQL Managed Instance e o SQL Server. Estas diferenças são:
 
 - Não existe suporte para pacotes que dependam de tempos de execução externos (como Java) ou que necessitem de acesso a APIs de OS para instalação ou utilização.
-- Os pacotes podem realizar chamadas de rede de saída (alterar a partir de mais cedo na pré-visualização). Pode definir as regras de segurança de saída corretas ao nível do [Grupo de Segurança](/azure/virtual-network/network-security-groups-overview) da Rede para permitir chamadas de rede de saída.
+- Os pacotes podem realizar chamadas de rede de saída (alterar a partir de mais cedo na pré-visualização). Pode definir as regras de segurança de saída corretas ao nível do [Grupo de Segurança](../../virtual-network/network-security-groups-overview.md) da Rede para permitir chamadas de rede de saída.
 
 Para obter mais informações sobre a gestão de pacotes Python e R, consulte:
 

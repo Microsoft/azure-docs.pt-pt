@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 1558c396566b2fcfc098a749407d5e7a28316b6f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3b0fdccd3eaf6e6bd94b595107022f738bdd8382
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019454"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325927"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Guia de migração: SQL Server para SQL Server em VMs Azure 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -38,8 +38,8 @@ Para obter informações sobre estratégias de migração adicionais, consulte a
 Migrar para o SQL Server em VMs Azure requer o seguinte: 
 
 - [Assistente de Migração de Bases de Dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
-- Um [projeto Azure Migrate.](/azure/migrate/create-manage-projects)
-- Um sql server de alvo preparado [no Azure VM](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal) que é a mesma versão ou maior do que o sql server de origem.
+- Um [projeto Azure Migrate.](../../../migrate/create-manage-projects.md)
+- Um sql server de alvo preparado [no Azure VM](../../virtual-machines/windows/create-sql-vm-portal.md) que é a mesma versão ou maior do que o sql server de origem.
 - [Conectividade entre Azure e no local.](/azure/architecture/reference-architectures/hybrid-networking)
 - [Escolher uma estratégia de migração adequada.](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate)
 
@@ -109,7 +109,7 @@ Recomenda-se vivamente que todas as correções de DMA sejam escritas e aplicada
 > Nem todas as versões SQL Server suportam todos os modos de compatibilidade. Verifique se a [versão do seu servidor SQL alvo](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) suporta a compatibilidade da base de dados escolhida. Por exemplo, o SQL Server 2019 não suporta bases de dados com compatibilidade de nível 90 (que é SQL Server 2005). Estas bases de dados exigiriam, pelo menos, uma atualização para o nível de compatibilidade 100.
 >
 
-## <a name="migrate"></a>Migrar
+## <a name="migrate"></a>Migrate
 
 Depois de ter concluído as etapas de pré-migração, está pronto para migrar as bases de dados e componentes do utilizador. Migrar as suas bases de dados utilizando o seu método de [migração](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate)preferido.  
 
@@ -157,8 +157,8 @@ O quadro que se segue fornece uma lista de componentes e métodos de migração 
 || Bases de dados de utilizadores com Filestream |  Utilize o [Backup e restaure](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#back-up-and-restore) os métodos de migração. A DMA não suporta bases de dados com o Filestream. |
 | **Segurança** | Logins de Servidor SQL e Windows | Utilize o DMA para [migrar os logins dos utilizadores](/sql/dma/dma-migrateserverlogins). |
 || Funções do Servidor SQL | Script com SQL Server Management Studio |
-|| Fornecedores criptográficos | Recomenda [a conversão para utilizar o Serviço de Cofre de Chave Azure](../../virtual-machines/windows/azure-key-vault-integration-configure.md). Este procedimento utiliza o [fornecedor de recursos SQL VM](../../virtual-machines/windows/sql-vm-resource-provider-register.md). |
-| **Objetos de servidor** | Dispositivos de backup | Substitua-o por cópia de segurança de base utilizando [o Serviço de Backup Azure](../../../backup/backup-sql-server-database-azure-vms.md) ou escreva cópias de segurança para o [Azure Storage](../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 CU2 +). Este procedimento utiliza o [fornecedor de recursos SQL VM](../../virtual-machines/windows/sql-vm-resource-provider-register.md).|
+|| Fornecedores criptográficos | Recomenda [a conversão para utilizar o Serviço de Cofre de Chave Azure](../../virtual-machines/windows/azure-key-vault-integration-configure.md). Este procedimento utiliza o [fornecedor de recursos SQL VM](../../virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md). |
+| **Objetos de servidor** | Dispositivos de backup | Substitua-o por cópia de segurança de base utilizando [o Serviço de Backup Azure](../../../backup/backup-sql-server-database-azure-vms.md) ou escreva cópias de segurança para o [Azure Storage](../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 CU2 +). Este procedimento utiliza o [fornecedor de recursos SQL VM](../../virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md).|
 || Servidores Ligados | Script com SQL Server Management Studio. |
 || Desencadeia os gatilhos do servidor | Script com SQL Server Management Studio. |
 | **Replicação** | Publicações Locais | Script com SQL Server Management Studio. |
@@ -205,7 +205,7 @@ Para obter mais informações sobre estas questões e medidas específicas para 
 - [Desempenho de sintonização em Máquinas Virtuais Azure SQL](../../virtual-machines/windows/performance-guidelines-best-practices.md).
 - [Centro de otimização de custos Azure](https://azure.microsoft.com/overview/cost-optimization/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para verificar a disponibilidade de serviços aplicáveis ao SQL Server consulte o centro de [infraestruturas Azure Global](https://azure.microsoft.com/global-infrastructure/services/?regions=all&amp;products=synapse-analytics,virtual-machines,sql-database)
 

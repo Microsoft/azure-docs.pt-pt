@@ -4,12 +4,12 @@ description: Saiba mais sobre as quotas, limites e restrições do Lote Azure pa
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8ca08d43f07633b58cf6f7067c1a8fcd58350678
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b2039794a0c8a13070c9d81b83869ca4097bd02e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107543"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325978"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
 
@@ -23,15 +23,33 @@ Se planeia executar cargas de trabalho de produção em Batch, poderá ter de au
 
 ## <a name="resource-quotas"></a>Quotas de recursos
 
-Uma quota é um limite de crédito, não uma garantia de capacidade. Se tiver necessidades de grande capacidade, contacte o suporte da Azure.
+Uma quota é um limite, não uma garantia de capacidade. Se tiver necessidades de grande capacidade, contacte o suporte da Azure.
 
 Note-se também que as quotas não são valores garantidos. As quotas podem variar com base em alterações do serviço Batch ou de um pedido de utilizador para alterar um valor de quota.
 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+## <a name="core-quotas"></a>Quotas nucleares
+
+### <a name="cores-quotas-in-batch-service-mode"></a>Quotas de núcleos no modo de serviço de lote
+
+A aplicação de quotas nucleares dedicadas está a ser melhorada, com as alterações a serem disponibilizadas por etapas e concluídas para todas as contas do Batch até ao final de dezembro de 2020.
+
+Existem quotas principais para cada série VM suportada pelo Batch e são exibidas na página **Quotas** no portal. Os limites de quota da série VM podem ser atualizados com um pedido de apoio, conforme descrito abaixo.
+
+Com a eliminação progressiva do mecanismo existente, os limites de quota para as séries VM não são verificados, apenas é aplicado o limite total de quota para a conta. Isto significa que pode ser possível atribuir mais núcleos para uma série de VM do que o indicado pela quota da série VM, até ao limite total do contingente de conta.
+
+O mecanismo atualizado aplicará as quotas da série VM, para além da quota total da conta. Como parte da transição para o novo mecanismo, os valores de quota da série VM podem ser atualizados para evitar falhas de atribuição - qualquer série VM utilizada nos últimos meses terá a sua quota de série VM atualizada para corresponder ao contingente total da conta. Esta alteração não permitirá a utilização de mais capacidade do que já estava disponível.
+
+É possível determinar se a execução das quotas da série VM foi habilitada para uma conta batch, verificando:
+
+* A conta Batch deu a propriedade [dedicadaCoreQuotaPerVMFamilyEnforced](/rest/api/batchmanagement/batchaccount/get#batchaccount) API.
+
+* Texto na página **De Quotas** da conta Lote no portal.
+
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Quotas de núcleos no modo de subscrição do utilizador
 
-Se criou uma [conta Batch](accounts.md) com modo de atribuição de piscina definido para **a subscrição do utilizador,** as quotas são aplicadas de forma diferente. Neste modo, os VMs do Lote e outros recursos são criados diretamente na sua subscrição quando um pool é criado. As quotas de núcleos Azure Batch não se aplicam a uma conta criada neste modo. Em vez disso, são aplicadas as quotas na sua subscrição para núcleos de computação regional e outros recursos.
+Se criou uma [conta Batch](accounts.md) com modo de atribuição de piscina definida para **a subscrição do utilizador,** os VMs do lote e outros recursos são criados diretamente na sua subscrição quando um pool é criado ou redimensionado. As quotas centrais do Azure Batch não se aplicam e as quotas na sua subscrição para núcleos de computação regional, núcleos computacional por série, e outros recursos são utilizados e aplicados.
 
 Para saber mais sobre estas quotas, consulte [os limites de subscrição e serviços da Azure, quotas e constrangimentos.](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
@@ -69,11 +87,11 @@ Limites adicionais definidos pelo serviço Batch. Ao contrário das [quotas de r
 
 Para ver as suas quotas de conta Batch no [portal Azure:](https://portal.azure.com)
 
-1. Selecione **as contas De Lote**e, em seguida, selecione a conta Batch em que está interessado.
+1. Selecione **as contas De Lote** e, em seguida, selecione a conta Batch em que está interessado.
 1. Selecione **Quotas** no menu da conta Batch.
 1. Ver as quotas atualmente aplicadas na conta Batch.
 
-    ![Quotas de conta de lote][account_quotas]
+:::image type="content" source="./media/batch-quota-limit/account-quota-portal.png" alt-text="Quotas de conta de lote":::
 
 ## <a name="increase-a-quota"></a>Aumentar uma quota
 

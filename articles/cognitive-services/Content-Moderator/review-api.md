@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: d98f2390be3b3f4b3770125185cb33daa5ff6371
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: e2d87d4322ac6b91a19a4775c23ceec75d528030
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143644"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325337"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Avaliações de moderação de conteúdos, fluxos de trabalho e empregos
 
@@ -26,7 +26,7 @@ O Content Moderator combina moderação assistida por máquinas com capacidades 
 Numa análise, o conteúdo é enviado para a ferramenta 'Avaliação'. Pode vê-lo clicando no seu tipo de conteúdo no **separador 'Rever'** no painel de instrumentos. A partir do ecrã de revisão, pode alterar as etiquetas aplicadas e aplicar as suas próprias etiquetas personalizadas conforme apropriado. Quando submete uma revisão, os resultados são enviados para um ponto final de retorno especificado, e o conteúdo é removido do site.
 
 > [!div class="mx-imgBorder"]
-> ![Rever site de ferramentas com separador de revisão selecionado](./Review-Tool-user-Guide/images/review-tab.png)
+> ![O menu de entrega de comentários está em destaque. Mostra estes tipos de conteúdo: Imagem, Texto e Vídeo.](./Review-Tool-user-Guide/images/review-tab.png)
 
 ### <a name="manage-reviews"></a>Gerir comentários
 
@@ -40,7 +40,7 @@ O botão **Ações** de três pontos em cada revisão permite-lhe ir ao ecrã de
 Utilize a barra de ferramentas **Search** para classificar as avaliações por uma variedade de categorias, tais como estado de revisão, tags, tipo de conteúdo, subtemas, utilizadores designados e data criada/modificada.
 
 > [!div class="mx-imgBorder"]
-> ![Rever site de ferramentas com separador de revisão selecionado](./Review-Tool-user-Guide/images/review-search.png)
+> ![É mostrada a barra de ferramentas Search. Dispõe de várias caixas de combinação para introduzir critérios de pesquisa, tais como Estado de Revisão e Etiquetas.](./Review-Tool-user-Guide/images/review-search.png)
 
 Consulte o guia de [ferramentas Review](./review-tool-user-guide/review-moderated-images.md) para começar a criar avaliações ou consulte o [guia REST API](./try-review-api-review.md) para aprender a fazê-lo programáticamente.
 

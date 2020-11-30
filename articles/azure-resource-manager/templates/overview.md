@@ -3,12 +3,12 @@ title: Descrição geral de modelos
 description: Descreve os benefícios usando modelos de Gestor de Recursos Azure para a implementação de recursos.
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 1873c737d17fc8774ddd1276d1375799ca2da35e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 188fd5782795a4fb5456978a2a596cabc6dfd874
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280038"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325065"
 ---
 # <a name="what-are-arm-templates"></a>O que são modelos do ARM?
 
@@ -38,7 +38,7 @@ Se estiver a tentar decidir entre a utilização de modelos ARM e uma das outras
 
 * **Testes**: Pode certificar-se de que o seu modelo segue as orientações recomendadas testando-as com o kit de ferramentas do modelo ARM (arm-ttk). Este kit de teste é um script PowerShell que pode descarregar a partir do [GitHub](https://github.com/Azure/arm-ttk). O kit de ferramentas facilita o desenvolvimento de conhecimentos especializados utilizando a linguagem do modelo.
 
-* **Alterações de pré-visualização**: Pode utilizar a [operação "e se"](template-deploy-what-if.md) para obter uma pré-visualização das alterações antes de implantar o modelo. Com o "e se", vê quais os recursos que serão criados, atualizados ou eliminados, e quaisquer propriedades de recursos que se alterem. A operação "e se" verifica o estado atual do seu ambiente e elimina a necessidade de gerir o estado.
+* **Alterações de pré-visualização**: Pode utilizar a [operação "e se"](template-deploy-what-if.md) para obter uma pré-visualização das alterações antes de implantar o modelo. Com o "e se", vê quais os recursos que serão criados, atualizados ou eliminados, e quaisquer propriedades de recursos que serão alteradas. A operação "e se" verifica o estado atual do seu ambiente e elimina a necessidade de gerir o estado.
 
 * **Validação incorporada**: O seu modelo é implantado apenas após a validação de passagem. O Gestor de Recursos verifica o modelo antes de iniciar a implementação para se certificar de que a implementação será bem sucedida. A sua implantação é menos provável de parar num estado semi-acabado.
 

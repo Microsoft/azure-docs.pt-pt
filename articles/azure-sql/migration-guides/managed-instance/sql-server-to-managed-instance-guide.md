@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 5c20fbbe25b51160f42f233d30c39ccaec0f5cac
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5d5404537ad107a54bd32110727e5a7d0f74ebea
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026066"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326901"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guia de migração: SQL Server para SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -99,10 +99,10 @@ Se precisar de comparar o desempenho da sua carga de trabalho numa SqL Managed I
 
 ### <a name="create-sql-managed-instance"></a>Criar Instância Gerida do SQL 
 
-Com base nas informações na fase de descoberta e avaliação, crie um alvo de tamanho adequado SQL Managed Instance. Pode fazê-lo utilizando o [portal Azure,](../../managed-instance/instance-create-quickstart.md) [o PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)ou um [Modelo Azure Resource Manager (ARM).](/azure/azure-sql/managed-instance/create-template-quickstart) 
+Com base nas informações na fase de descoberta e avaliação, crie um alvo de tamanho adequado SQL Managed Instance. Pode fazê-lo utilizando o [portal Azure,](../../managed-instance/instance-create-quickstart.md) [o PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)ou um [Modelo Azure Resource Manager (ARM).](../../managed-instance/create-template-quickstart.md) 
 
 
-## <a name="migrate"></a>Migrar
+## <a name="migrate"></a>Migrate
 
 Depois de ter concluído as tarefas associadas à fase de pré-migração, está pronto para executar o esquema e a migração de dados. 
 
@@ -124,7 +124,7 @@ Para realizar migrações utilizando DMS, siga os passos abaixo:
 1. Depois de restaurar a base de dados, escolha **Start cutover**. O processo de migração copia a cópia de segurança do registo traseiro assim que a disponibilizar na partilha da rede SMB e restaurá-la no alvo. 
 1. Pare todo o tráfego de entrada na sua base de dados de origem e atualize o fio de ligação à nova base de dados Azure SQL Managed Instance. 
 
-Para obter um tutorial passo a passo detalhado desta opção de migração, consulte [o Servidor SQL migratório para um Azure SQL Managed Instance on-line utilizando DMS](/azure/dms/tutorial-sql-server-managed-instance-online). 
+Para obter um tutorial passo a passo detalhado desta opção de migração, consulte [o Servidor SQL migratório para um Azure SQL Managed Instance on-line utilizando DMS](../../../dms/tutorial-sql-server-managed-instance-online.md). 
    
 
 
@@ -160,7 +160,7 @@ Para migrar usando cópia de segurança e restaurar, siga estes passos:
 
 1. Assim que a restauração estiver concluída, consulte a base de dados no **Object Explorer** dentro do SQL Server Management Studio. 
 
-Para saber mais sobre esta opção de migração, consulte [Restaurar uma base de dados para Azure SQL Managed Instance com SSMS](https://docs.microsoft.com/azure/azure-sql/managed-instance/restore-sample-database-quickstart).
+Para saber mais sobre esta opção de migração, consulte [Restaurar uma base de dados para Azure SQL Managed Instance com SSMS](../../managed-instance/restore-sample-database-quickstart.md).
 
 > [!NOTE]
 > Uma operação de restauro de base de dados é assíncrol e recímível. Pode obter um erro no SQL Server Management Studio se a ligação se partir ou se expirar uma pausa. A Azure SQL Database continuará a tentar restaurar a base de dados em segundo plano, e pode acompanhar o progresso da restauração utilizando as [vistas sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_operation_status.](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)
@@ -203,14 +203,14 @@ A abordagem de ensaio para a migração de bases de dados consiste nas seguintes
 
 ## <a name="leverage-advanced-features"></a>Alavancar recursos avançados 
 
-Certifique-se de aproveitar as funcionalidades avançadas baseadas na nuvem oferecidas pela SQL Managed Instance, tais como [alta disponibilidade incorporada,](../../database/high-availability-sla.md) [deteção de ameaças,](../../database/advanced-data-security.md) [monitorização e afinação da sua carga de trabalho.](../../database/monitor-tune-overview.md) 
+Certifique-se de aproveitar as funcionalidades avançadas baseadas na nuvem oferecidas pela SQL Managed Instance, tais como [alta disponibilidade incorporada,](../../database/high-availability-sla.md) [deteção de ameaças,](../../database/azure-defender-for-sql.md) [monitorização e afinação da sua carga de trabalho.](../../database/monitor-tune-overview.md) 
 
 [O Azure SQL Analytics](../../../azure-monitor/insights/azure-sql.md) permite-lhe monitorizar um grande conjunto de casos geridos de forma centralizada.
 
 Algumas funcionalidades do SQL Server só estão disponíveis quando o [nível de compatibilidade](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) da base de dados for alterado para o nível de compatibilidade mais recente (150). 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma matriz dos serviços e ferramentas da Microsoft e de terceiros que estão disponíveis para o ajudar com vários cenários de base de dados e migração de dados, bem como tarefas especiais, consulte [o Serviço e ferramentas para a migração de dados.](../../../dms/dms-tools-matrix.md)
 

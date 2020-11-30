@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/02/2019
-ms.custom: mvc
-ms.openlocfilehash: a6923f0a1d568cc695b86d1538ba55a3eb3444da
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 4727fa292a2516f3fa42578cb8ea1709951e0778
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341489"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325150"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Tutorial: Fornecimento de uma base de dados Azure para servidor MySQL usando o modelo do Gestor de Recursos Azure
 

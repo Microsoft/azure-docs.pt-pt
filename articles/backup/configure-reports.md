@@ -3,12 +3,12 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para Azure Backup usando diários de log analytics e Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 11893488c59781bb78cf913a30069e920c66bc71
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 2565fa1183635c10e45b247f723788b6fe371c14
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172456"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325252"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
@@ -18,7 +18,7 @@ Um requisito comum para os administradores de backup é obter insights sobre có
 - Auditoria de backups e restauros.
 - Identificar as principais tendências em diferentes níveis de granularidade.
 
-Hoje, a Azure Backup fornece uma solução de reporte que utiliza [registos do Azure Monitor](../azure-monitor/log-query/get-started-portal.md) e [livros de trabalho Azure](../azure-monitor/platform/workbooks-overview.md). Estes recursos ajudam-no a obter informações ricas sobre os seus backups em toda a sua propriedade de reserva. Este artigo explica como configurar e ver relatórios de Backup da Azure.
+Hoje, a Azure Backup fornece uma solução de reporte que utiliza [registos do Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md) e [livros de trabalho Azure](../azure-monitor/platform/workbooks-overview.md). Estes recursos ajudam-no a obter informações ricas sobre os seus backups em toda a sua propriedade de reserva. Este artigo explica como configurar e ver relatórios de Backup da Azure.
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 

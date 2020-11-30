@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: c5392c822c42c2e0ee3f6ce9edffc6229d572165
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c805bacbd4a2219fb79168ad6426efd8b0a390df
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782421"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324521"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Serviços de Aprendizagem automática em Azure SQL Gestded Instance (pré-visualização)
 
@@ -67,16 +67,16 @@ Se você está interessado em aderir ao programa de pré-visualização e aceita
    - Tipo de problema - **Serviços de aprendizagem automática para exemplo gerido do SQL (Pré-visualização)**
    - Subtipo de problema - **Outras questões ou "Como Fazer"**
 
-1. Clique **em seguida: Soluções** .
+1. Clique **em seguida: Soluções**.
 
-1. Leia as informações sobre a pré-visualização e, em seguida, clique em **Seguinte: Detalhes** .
+1. Leia as informações sobre a pré-visualização e, em seguida, clique em **Seguinte: Detalhes**.
 
 1. Nesta página:
    - Para a pergunta **Está a tentar inscrever-se para a Pré-visualização?** **Yes** 
    - Para **descrição,** insira as especificidades do seu pedido, incluindo o nome do servidor lógico, região e ID de subscrição que pretende inscrever na pré-visualização. Insira outros detalhes conforme apropriado.
    - Selecione o seu método de contacto preferido. 
 
-1. Quando terminar, clique em **Seguinte: Review + create** e, em seguida, clique em **Criar** .
+1. Quando terminar, clique em **Seguinte: Review + create** e, em seguida, clique em **Criar**.
 
 Assim que estiver inscrito no programa, a Microsoft vai incluí-lo na pré-visualização pública e ativar o Machine Learning Services para a base de dados existente ou nova.
 
@@ -85,6 +85,6 @@ Durante a pré-visualização pública, o Machine Learning Services no SQL Mana
 ## <a name="next-steps"></a>Passos seguintes
 
 - Consulte as [principais diferenças dos serviços de aprendizagem automática de servidores SQL.](machine-learning-services-differences.md)
-- Para aprender a usar Python em serviços de machine learning, consulte [os scripts Run Python](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=sql-server-ver15).
-- Para aprender a usar R em Serviços de Aprendizagem Automática, consulte [scripts Run R](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=sql-server-ver15).
+- Para aprender a usar Python em serviços de machine learning, consulte [os scripts Run Python](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15).
+- Para aprender a usar R em Serviços de Aprendizagem Automática, consulte [scripts Run R](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15).
 - Para obter mais informações sobre machine learning em outras plataformas SQL, consulte a [documentação de aprendizagem automática SQL.](/sql/machine-learning/)

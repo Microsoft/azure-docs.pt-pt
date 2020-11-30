@@ -4,12 +4,12 @@ description: As piscinas de imagem personalizadas são uma forma eficiente de co
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: c24da435540f62a793620fe6005d176ce10c7b05
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: eb21a9e0d355274142e34fbb5c90a4d293c88ef1
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917788"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327309"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Utilize a Galeria de Imagens Partilhadas para criar uma piscina de imagens personalizada
 
@@ -58,7 +58,7 @@ Em Azure, pode preparar uma imagem partilhada a partir de uma imagem gerida, que
 - Um VHD generalizado no local enviado para a nuvem
 
 > [!NOTE]
-> Atualmente, o Batch apenas suporta imagens partilhadas generalizadas. Não é possível criar um pool de imagens personalizado a partir de uma imagem partilhada especializada neste momento.
+> O lote só suporta imagens partilhadas generalizadas; uma Imagem Partilhada especializada não pode ser usada para criar uma piscina.
 
 Os passos a seguir mostram como preparar um VM, tirar uma fotografia e criar uma imagem a partir do instantâneo.
 
