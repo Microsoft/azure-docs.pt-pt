@@ -10,19 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: aahi
-ms.openlocfilehash: 1e6fc68a1e48c9c47cc6a76911f947f2d9916a25
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 78a3c3c2936bfcaf58ea9e46bd3d6a610cdfe436
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379515"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341500"
 ---
 # <a name="sending-search-requests-to-the-bing-video-search-api"></a>Envio de pedidos de pesquisa para a API de Pesquisa de Vídeo Bing
 
 > [!WARNING]
-> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource)documentado.
 > Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
-> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](/bing/search-apis/bing-web-search/create-bing-search-service-resource)
 
 Este artigo descreve os parâmetros e atributos dos pedidos enviados para a API de Pesquisa de Vídeo Bing, bem como o objeto de resposta JSON que devolve. 
 
@@ -32,7 +32,7 @@ Este artigo descreve os parâmetros e atributos dos pedidos enviados para a API 
 
 Se disponibilizar uma caixa de pesquisa na qual o utilizador introduz o seu termo de pesquisa, utilize a [API de Sugestão Automática do Bing](../../bing-autosuggest/get-suggested-search-terms.md) para melhorar a experiência. A API devolve cadeias de consulta sugerida com base em termos de pesquisa parcial à medida que o utilizador escreve.
 
-Depois de o utilizador introduzir o seu termo de pesquisa, o URL codifica-o antes de definir o parâmetro de consulta [q.](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query) Por exemplo, se o utilizador introduzir *sailing dinghies* , defina `q` como `sailing+dinghies` ou `sailing%20dinghies`.
+Depois de o utilizador introduzir o seu termo de pesquisa, o URL codifica-o antes de definir o parâmetro de consulta [q.](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query) Por exemplo, se o utilizador introduzir *sailing dinghies*, defina `q` como `sailing+dinghies` ou `sailing%20dinghies`.
 
 ## <a name="sending-a-request"></a>Envio de um pedido
 
@@ -150,7 +150,7 @@ BingAPIs-Market: en-US
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente a API. Aceda a [Consola de Testes da API da Pesquisa de Vídeos](https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8). 
 

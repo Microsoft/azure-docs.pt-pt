@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: db81f8b60cf4883223f6fc084c19c8da1d07bc9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 282d60b1894ffa186a6b5b6b5630aefa9e961572
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388107"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345138"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o sôm-in com uma conta Microsoft utilizando políticas personalizadas no Azure Ative Directory B2C
 
@@ -100,7 +100,7 @@ Pode definir a Azure AD como fornecedor de sinistros adicionando o elemento **Cl
             <Item Key="response_mode">form_post</Item>
             <Item Key="scope">openid profile email</Item>
             <Item Key="HttpBinding">POST</Item>
-            <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="client_id">Your Microsoft application client ID</Item>
           </Metadata>
           <CryptographicKeys>
@@ -138,7 +138,7 @@ Antes de continuar, carre deixe de carregar a política modificada para confirma
 
 1. Navegue até ao seu inquilino Azure AD B2C no portal Azure e selecione **o Quadro de Experiência de Identidade.**
 1. Na página **de políticas personalizadas,** selecione **'Carregar' a política personalizada.**
-1. Ativar **a política em caso de existência**e, em seguida, navegar e selecionar o ficheiro *TrustFrameworkExtensions.xml.*
+1. Ativar **a política em caso de existência** e, em seguida, navegar e selecionar o ficheiro *TrustFrameworkExtensions.xml.*
 1. Clique em **Carregar**.
 
 Se não forem apresentados erros no portal, continue para a secção seguinte.
@@ -157,7 +157,7 @@ Neste momento, criou o fornecedor de identidade, mas ainda não está disponíve
 
 O elemento **ClaimsProviderSelection** é análogo a um botão de fornecedor de identidade num ecrã de inscrição ou de inscrição. Se adicionar um elemento **ClaimsProviderSelection** para uma conta Microsoft, é apresentado um novo botão quando um utilizador aterra na página.
 
-1. No ficheiro *TrustFrameworkExtensions.xml, * encontre o elemento **OrchestrationStep** que inclui `Order="1"` na jornada de utilizador que criou.
+1. No ficheiro *TrustFrameworkExtensions.xml,* encontre o elemento **OrchestrationStep** que inclui `Order="1"` na jornada de utilizador que criou.
 1. Em **ClaimsProviderSelects**, adicione o seguinte elemento. Definir o valor do **TargetClaimsExchangeId** para um valor apropriado, por `MicrosoftAccountExchange` exemplo:
 
     ```xml

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 99594ad5fe07f18f639b4870f4e0faa59a697afc
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: a92802f0b121a332afccf7f6c12e876b3263bd82
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843184"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96343948"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Linha de segurança Azure para ExpressRoute
 
@@ -30,7 +30,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável; O ExpressRoute serve como um par de circuitos redundantes para garantir uma elevada disponibilidade. As ligações do ExpressRoute não passam para a Internet pública.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -40,7 +40,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 * [Compreenda os requisitos do gateway Azure ExpressRoute](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#requirements)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -48,7 +48,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável; esta recomendação destina-se a aplicações web em execução no Azure App Service ou recursos de computação.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -56,11 +56,11 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável; os expressRoutes de cada cliente estão contidos nos seus próprios domínios de encaminhamento e escavados na sua própria rede virtual. Enquanto os ExpressRoutes estão isolados, para uma proteção extra de outros recursos que partilham a mesma rede virtual, pode permitir que o DDoS Protection Standard se proteja contra ataques DDoS.
 
-* [Compreenda os controlos de segurança da Azure ExpressRoute](./expressroute-security-controls.md)
+* [Compreenda os controlos de segurança da Azure ExpressRoute]()
 
-* [Como configurar a proteção DDoS](../virtual-network/manage-ddos-protection.md)
+* [Como configurar a proteção DDoS](../ddos-protection/manage-ddos-protection.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -68,7 +68,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável; a captura de pacotes é suportada apenas para recursos de computação IaaS (máquinas virtuais Azure).
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -76,9 +76,9 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável; os expressRoutes de cada cliente estão contidos nos seus próprios domínios de encaminhamento e escavados na sua própria rede virtual.
 
-* [Compreenda os controlos de segurança da Azure ExpressRoute](./expressroute-security-controls.md)
+* [Compreenda os controlos de segurança da Azure ExpressRoute]()
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -86,7 +86,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável; esta recomendação destina-se a aplicações web em execução no Azure App Service ou recursos de computação.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -94,7 +94,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Não aplicável; O Azure ExpressRoute em si não é um ponto final onde pode filtrar ou permitir tráfego com etiquetas de serviço ou grupos de segurança de rede.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -102,9 +102,9 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Defina e implemente configurações de segurança padrão para Azure ExpressRoute com Azure Policy. Utilize pseudónimos da Azure Policy no espaço de nomes "Microsoft.Network" para criar políticas personalizadas para auditar ou impor a configuração de rede do seu ExpressRoute.
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -118,7 +118,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 * [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -132,7 +132,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 * [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -144,7 +144,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: Não aplicável; A Microsoft mantém a fonte de tempo utilizada para os recursos Azure, como o Azure Sentinel, para os timetamps nos registos.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -154,7 +154,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 * [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/activity-log.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -164,7 +164,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 * [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/activity-log.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -172,7 +172,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -182,7 +182,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 * [Como definir parâmetros de retenção de registos](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -194,7 +194,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 * [Como recolher e analisar registos de atividades do Azure no espaço de trabalho do Log Analytics no Azure Monitor](../azure-monitor/platform/activity-log.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -204,7 +204,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 * [Compreender monitorização e alertas no ExpressRoute](./expressroute-monitoring-metrics-alerts.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -212,7 +212,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: Não aplicável; O Azure ExpressRoute não processa nem produz registos relacionados com anti-malware.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -220,7 +220,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: Não aplicável; A Azure ExpressRoute não processa nem produz registos relacionados com DNS.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -228,7 +228,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -248,7 +248,7 @@ Além disso, os parceiros que usam a API do Gestor de Recursos parceiros Express
 
 * [Alavancagem Azure RBAC na API do Gestor de Recursos parceiros ExpressRoute](./cross-connections-api-development.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -256,7 +256,7 @@ Além disso, os parceiros que usam a API do Gestor de Recursos parceiros Express
 
 **Orientação**: A Azure AD não tem o conceito de senhas padrão. Outros recursos Azure que requerem uma palavra-passe forçam a criação de uma palavra-passe com requisitos de complexidade e um comprimento mínimo de senha, que difere consoante o serviço. É responsável por aplicações de terceiros e serviços de marketplace que possam utilizar senhas padrão.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -273,7 +273,7 @@ Além disso, para ajudá-lo a acompanhar contas administrativas dedicadas, poder
 
 * [Como usar a Política Azure](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -281,7 +281,7 @@ Além disso, para ajudá-lo a acompanhar contas administrativas dedicadas, poder
 
 **Orientação**: Não aplicável; o sign-on único (SSO) adiciona segurança e comodidade quando os utilizadores se inscrevem em aplicações personalizadas no Azure Ative Directory (AD). O acesso ao avião de controlo Azure ExpressRoute (por exemplo, portal Azure) já está integrado com o Azure Ative Directory e é acedido através do portal Azure, bem como do API gestor de recursos Azure.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -289,11 +289,11 @@ Além disso, para ajudá-lo a acompanhar contas administrativas dedicadas, poder
 
 **Orientação**: Ativar a autenticação multi-factor do Diretório Ativo Azure e seguir as recomendações do Azure Security Center Identity and Access Management.
 
-* [Como permitir o MFA em Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+* [Como ativar o MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 * [Como monitorizar a identidade e o acesso dentro do Centro de Segurança Azure](../security-center/security-center-identity-access.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -305,7 +305,7 @@ Além disso, para ajudá-lo a acompanhar contas administrativas dedicadas, poder
 
 * [Planejando uma implementação de autenticação multi-factor Azure AD baseada na nuvem](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -319,7 +319,7 @@ Além disso, utilize deteções de risco Azure AD para visualizar alertas e rela
 
 * [Compreender deteções de risco Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -329,7 +329,7 @@ Além disso, utilize deteções de risco Azure AD para visualizar alertas e rela
 
 * [Como configurar localizações nomeadas em Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -337,9 +337,9 @@ Além disso, utilize deteções de risco Azure AD para visualizar alertas e rela
 
 **Orientação**: Utilize o Azure Ative Directory (AD) como o sistema central de autenticação e autorização para as suas instâncias Azure Sentinel. A Azure AD protege os dados utilizando uma encriptação forte para dados em repouso e em trânsito. A Azure AD também sai, hashes e armazena seguramente as credenciais dos utilizadores.
 
-* [Como criar e configurar uma instância AD Azure](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+* [Como criar e configurar instâncias do Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -351,7 +351,7 @@ Além disso, utilize deteções de risco Azure AD para visualizar alertas e rela
 
 * [Como utilizar comentários sobre acesso à identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -367,7 +367,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 * [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -381,7 +381,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 * [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -391,7 +391,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 * [Lista de serviços suportados pelo Cliente Lockbox](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -405,7 +405,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 * [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -417,7 +417,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 * [Como criar Grupos de Gestão](../governance/management-groups/create-management-group-portal.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -425,9 +425,9 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 **Orientação**: A Microsoft gere a infraestrutura subjacente aos circuitos Azure ExpressRoute e recursos conexos e implementou rigorosos controlos para evitar a perda ou exposição dos dados dos clientes.
 
-* [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md)
+* [Compreender a proteção dos dados dos clientes no Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -439,17 +439,17 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 Como configurar o Site IPSEC sobre o ExpressRoute: https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: Utilize uma ferramenta de descoberta ativa para identificar dados sensíveis
 
 **Orientação**: Não aplicável; A Azure ExpressRoute não armazena dados do cliente.
 
-* [Compreenda os controlos de segurança da Azure ExpressRoute](./expressroute-security-controls.md)
+* [Compreenda os controlos de segurança da Azure ExpressRoute]()
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -467,7 +467,7 @@ Além disso, os parceiros que usam a API do Gestor de Recursos parceiros Express
 
 * [Compreender os papéis da administração no ExpressRoute](./expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -477,7 +477,7 @@ Além disso, os parceiros que usam a API do Gestor de Recursos parceiros Express
 
 * [Proteção de dados do cliente Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -491,7 +491,7 @@ Além disso, os parceiros que usam a API do Gestor de Recursos parceiros Express
 
 * [Linha de segurança Azure para Key Vault](../key-vault/general/security-baseline.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -501,7 +501,7 @@ Além disso, os parceiros que usam a API do Gestor de Recursos parceiros Express
 
 * [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -513,7 +513,7 @@ Além disso, os parceiros que usam a API do Gestor de Recursos parceiros Express
 
 **Orientação**: Não aplicável; A Microsoft realiza uma gestão de vulnerabilidades nos sistemas subjacentes que suportam o Azure ExpressRoute.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -521,7 +521,7 @@ Além disso, os parceiros que usam a API do Gestor de Recursos parceiros Express
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -529,7 +529,7 @@ Além disso, os parceiros que usam a API do Gestor de Recursos parceiros Express
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -537,7 +537,7 @@ Além disso, os parceiros que usam a API do Gestor de Recursos parceiros Express
 
 **Orientação**: Não aplicável; A Microsoft realiza uma gestão de vulnerabilidades nos sistemas subjacentes que suportam o Azure ExpressRoute.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -545,7 +545,7 @@ Além disso, os parceiros que usam a API do Gestor de Recursos parceiros Express
 
 **Orientação**: Não aplicável; A Microsoft realiza uma gestão de vulnerabilidades nos sistemas subjacentes que suportam o Azure ExpressRoute.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -565,7 +565,7 @@ Embora os recursos clássicos do Azure possam ser descobertos através do Gráfi
 
 * [Compreender Azure RBAC](../role-based-access-control/overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -575,7 +575,7 @@ Embora os recursos clássicos do Azure possam ser descobertos através do Gráfi
 
 * [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -593,7 +593,7 @@ Além disso, utilize a Azure Policy para impor restrições ao tipo de recursos 
 
 * [Como criar e usar Tags](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -601,7 +601,7 @@ Além disso, utilize a Azure Policy para impor restrições ao tipo de recursos 
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -611,11 +611,11 @@ Além disso, utilize a Azure Policy para impor restrições ao tipo de recursos 
 
 Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da sua subscrição. Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados.
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [Como criar consultas com gráfico de recursos Azure](../governance/resource-graph/first-query-portal.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -623,7 +623,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -631,7 +631,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -639,7 +639,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -649,11 +649,11 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/index.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -661,7 +661,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -671,7 +671,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 * [Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recursos Azure](../role-based-access-control/conditional-access-azure-management.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -679,7 +679,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -687,7 +687,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Não aplicável; esta recomendação destina-se a aplicações web em execução no Azure App Service ou recursos de computação.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -701,9 +701,9 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 * [Como ver pseudónimos disponíveis da Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -711,7 +711,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Não aplicável; esta orientação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -719,11 +719,11 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Use a Política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [Compreender efeitos da política do Azure](../governance/policy/concepts/effects.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -731,7 +731,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Não aplicável; esta orientação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -743,7 +743,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 * [Documentação de Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -751,7 +751,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Não aplicável; esta orientação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -761,9 +761,9 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 * [Como ver pseudónimos disponíveis da Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -771,7 +771,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Não aplicável; esta orientação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -779,9 +779,9 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Utilize definições de política de Azure incorporadas, bem como pseudónimos da Política Azure no espaço de nomes "Microsoft.Network" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Use a Política Azure [auditoria], [negar], e [implementar se não existir] para impor automaticamente configurações para os seus recursos Azure.
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -789,7 +789,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Não aplicável; esta orientação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -799,7 +799,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 * [Como criar uma instância key vault para armazenar segredos do MACsec num novo grupo de recursos](./expressroute-howto-macsec.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -809,17 +809,17 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 * [Serviços Azure que suportam identidades geridas](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminar a exposição credencial não intencional
 
-**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault.
+**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner de Credenciais também vai incentivar a movimentação das credenciais descobertas para localizações mais seguras, por exemplo, o Azure Key Vault.
 
 * [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -831,7 +831,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Não aplicável; esta orientação destina-se a recursos computacional. O Microsoft Anti-malware está ativado no anfitrião subjacente que suporta os serviços Azure (por exemplo, Azure App Service), no entanto não funciona com conteúdo do cliente.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -841,7 +841,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 É da sua responsabilidade pré-digitalizar qualquer conteúdo que seja enviado para recursos Azure não computados. A Microsoft não pode aceder aos dados dos clientes e, portanto, não pode realizar análises anti-malware do conteúdo do cliente em seu nome.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -849,7 +849,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional. O Microsoft Anti-malware está ativado no anfitrião subjacente que suporta os serviços Azure, no entanto não é executado em conteúdo sonoro do cliente.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -861,9 +861,9 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Não aplicável; A Azure ExpressRoute não armazena dados do cliente.
 
-* [Compreenda os controlos de segurança da Azure ExpressRoute](./expressroute-security-controls.md)
+* [Compreenda os controlos de segurança da Azure ExpressRoute]()
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -873,7 +873,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 * [Como apoiar chaves do cofre](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -885,7 +885,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 * [Como testar a conectividade dos circuitos Azure ExpressRoute após configurar o MACsec](./expressroute-howto-macsec.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -895,7 +895,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 * [Como permitir Soft-Delete em Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -905,7 +905,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Criar um guia de resposta a incidentes
 
-**Orientação**: Crie um guia de resposta a incidentes para a sua organização. Certifique-se de que existem planos escritos de resposta a incidentes que definem todas as funções de pessoal, bem como fases de tratamento/gestão de incidentes, desde a deteção até à revisão pós-incidente.
+**Orientação**: desenvolva um guia de respostas a incidentes para a sua organização. Confirme que existem planos escritos de resposta a incidentes, que definem todas as funções do pessoal, assim como as fases de manipulação/gestão de incidentes desde a deteção até à análise pós-incidente.
 
 * [Como configurar a automatização do fluxo de trabalho dentro do Centro de Segurança Azure](../security-center/security-center-planning-and-operations-guide.md)
 
@@ -915,7 +915,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 * [O cliente também pode aproveitar o Guia de Tratamento de Incidentes de Segurança Informática da NIST para ajudar na criação do seu próprio plano de resposta a incidentes](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -925,17 +925,17 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 Além disso, marque claramente as subscrições (para ex. produção, não-prod) e criar um sistema de nomeação para identificar e categorizar claramente os recursos da Azure.
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Procedimentos de resposta à segurança do teste
 
-**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular. Identifique pontos fracos e lacunas e reveja o plano conforme necessário.
+**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular. Identifique pontos fracos e lacunas e reavalie o plano, conforme necessário.
 
 * [Consulte a publicação do NIST: Guia para testar, treinar e exercitar programas para planos e capacidades de TI](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -945,7 +945,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 * [Como definir o Contacto de Segurança do Centro de Segurança Azure](../security-center/security-center-provide-security-contact-details.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -957,7 +957,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 * [Como transmitir alertas para o Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -967,7 +967,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 * [Como configurar a automatização do fluxo de trabalho e as aplicações lógicas](../security-center/workflow-automation.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -981,11 +981,11 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 * [Você pode encontrar mais informações sobre a estratégia da Microsoft e execução de Red Teaming e testes de penetração em sites ao vivo contra infraestruturas, serviços e aplicações geridas pela Microsoft, aqui](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
-- Saiba mais sobre [as linhas de base de segurança da Azure](../security/benchmarks/security-baselines-overview.md)
+- Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

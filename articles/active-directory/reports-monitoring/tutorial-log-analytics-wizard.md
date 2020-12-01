@@ -11,17 +11,17 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e6b03a2f9dd0089b1112000804e46f3d214cd3c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2bdf3a763dc71eb842496775b6cc91b8ca39b4b3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000764"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96343846"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Tutorial: Configurar o assistente de análise de registo
 
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configure um espaço de trabalho de análise de registo para a sua auditoria e registos de login
@@ -172,7 +172,7 @@ Pivô dos resultados no nome da operação
 
 Misture auditoria e sinal em registos usando uma junção interior:
 
-`AuditLogs |where OperationName contains "Add User" |extend UserPrincipalName = tostring(TargetResources[0].userPrincipalName) | |project TimeGenerated , UserPrincipalName |join kind = inner (SigninLogs) on UserPrincipalName |summarize arg_min(TimeGenerated, *) by UserPrincipalName |extend SigninDate = TimeGenerated` 
+`AuditLogs |where OperationName contains "Add User" |extend UserPrincipalName = tostring(TargetResources[0].userPrincipalName) | |project TimeGenerated, UserPrincipalName |join kind = inner (SigninLogs) on UserPrincipalName |summarize arg_min(TimeGenerated, *) by UserPrincipalName |extend SigninDate = TimeGenerated` 
 
 
 Ver o número de sinais por tipo de aplicação do cliente:

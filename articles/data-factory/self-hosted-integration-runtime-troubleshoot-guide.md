@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: 8195c4d072acce5345fa9752f97713aed22d962f
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 635178999398287649d8630fc5262a385afc48b2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296959"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341789"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Resolução de problemas de integração auto-acolagem
 
@@ -752,7 +752,7 @@ Duas razões possíveis para esta questão:
 - Por razão 1, certifique-se de que o certificado do servidor ADF e a sua cadeia de certificados são fidedignos pela máquina onde o SHIR está instalado.
 - Por razão 2, confie na raiz substituída ca na máquina SHIR, ou configuure o representante para não substituir o certificado de servidor ADF.
 
-Consulte [este artigo](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) para obter mais informações sobre um certificado no Windows.
+Consulte [este artigo](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) para obter mais informações sobre um certificado no Windows.
 
 #### <a name="additional-info"></a>Informações adicionais
 Estamos a lançar um novo certificado SSL, assinado pela DigiCert, por favor, verifique se o DigiCert Global Root G2 está na raiz de confiança CA.

@@ -13,12 +13,12 @@ ms.date: 07/17/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: ea8629e53ec793b4a63c817b6ec83278a2d23871
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6b5093c5a1a45aed3493fabd7a362b0579998171
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674079"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96343591"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inicialize as aplicações do cliente utilizando MSAL.js
 
@@ -36,8 +36,8 @@ Depois de registar a sua aplicação, vai precisar de alguns ou todos os seguint
 
 | Valor | Obrigatório | Descrição |
 |:----- | :------: | :---------- |
-| ID da Aplicação (cliente) | Obrigatório | Um GUID que identifica exclusivamente a sua aplicação dentro da plataforma de identidade da Microsoft. |
-| Autoridade | Opcional | O URL do fornecedor de identidade (o *caso)* e o *público de inscrição* para a sua aplicação. O caso e o público de inscrição, quando concatenated, compõem a *autoridade* . |
+| ID da Aplicação (cliente) | Necessário | Um GUID que identifica exclusivamente a sua aplicação dentro da plataforma de identidade da Microsoft. |
+| Autoridade | Opcional | O URL do fornecedor de identidade (o *caso)* e o *público de inscrição* para a sua aplicação. O caso e o público de inscrição, quando concatenated, compõem a *autoridade*. |
 | ID do Diretório (inquilino) | Opcional | Especifique isto se estiver a construir uma aplicação de linha de negócio exclusivamente para a sua organização, muitas vezes referida como uma *aplicação de um único inquilino.* |
 | URI de Redirecionamento | Opcional | Se estiver a construir uma aplicação web, `redirectUri` especifica onde o fornecedor de identidade (a plataforma de identidade da Microsoft) deve devolver os fichas de segurança que emitiu. |
 
@@ -108,7 +108,7 @@ Invoque [o handleRedirectPromise][msal-js-handleredirectpromise] quando a sua ap
 Há três resultados possíveis da promessa:
 
 - `.then` é invocado e `tokenResponse` é verdade: A aplicação está a regressar de uma operação de redirecionamento que foi bem sucedida.
-- `.then` é invocado e `tokenResponse` é falso `null` (): O pedido não regressa de uma operação de redirecionamento.
+- `.then` é invocado e `tokenResponse` é falsidade `null` (): O pedido não regressa de uma operação de redireccionamento.
 - `.catch` é invocado: A aplicação está a regressar de uma operação de redirecionamento e houve um erro.
 
 ## <a name="initialize-msaljs-1x-apps"></a>Inicialize MSAL.js aplicações 1.x

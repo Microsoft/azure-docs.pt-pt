@@ -10,19 +10,19 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: ef3f7cde226d7246b1de3ae23cd9b4340b012b33
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 9c7fd03c2239cea05dc79ad4dd1965fe253a2ce9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366371"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341602"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Suporte linguístico e regional para a API de Pesquisa de Notícias Bing
 
 > [!WARNING]
-> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource)documentado.
 > Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
-> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](/bing/search-apis/bing-web-search/create-bing-search-service-resource)
 
 A API Bing News Search suporta inúmeros países/regiões, muitos com mais de uma língua. Especificar um país/região com uma consulta serve principalmente para refinar os resultados da pesquisa com base em interesses nesse país/região. Além disso, os resultados podem conter ligações com Bing, e estas ligações podem localizar a experiência do utilizador Bing de acordo com o país/região ou idioma especificado.
 

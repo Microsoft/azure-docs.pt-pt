@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/25/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5cbedad360e5270238225503e7802d571820c871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 084a8e247ab8bb3e6e6c75cf8cfe8e204384f549
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388158"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345155"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o sº de saúde com uma conta LinkedIn utilizando políticas personalizadas no Azure Ative Directory B2C
 
@@ -77,8 +77,8 @@ Se quiser que os utilizadores assinem através de uma conta LinkedIn, tem de def
 
 Defina uma conta LinkedIn como fornecedor de sinistros adicionando-a ao elemento **ClaimsProviders** no ficheiro de extensão da sua política.
 
-1. Abra o ficheiro *SocialAndLocalAccounts/**TrustFrameworkExtensions.xml*** no seu editor. Este ficheiro está no [pacote de arranque de política personalizado][starter-pack] que descarregou como parte de um dos pré-requisitos.
-1. Encontre o elemento **ClaimsProviders.** Se não existir, adicione-o sob o elemento raiz.
+1. Abra o ficheiro *SocialAndLocalAccounts/**TrustFrameworkExtensions.xml** _ no seu editor. Este ficheiro está no [pacote de arranque de política personalizado][starter-pack] que descarregou como parte de um dos pré-requisitos.
+1. Encontre o elemento _ *ClaimsProviders** . Se não existir, adicione-o sob o elemento raiz.
 1. Adicione um novo **Provider de Reclamações** da seguinte forma:
 
     ```xml
@@ -99,7 +99,7 @@ Defina uma conta LinkedIn como fornecedor de sinistros adicionando-a ao elemento
             <Item Key="external_user_identity_claim_id">id</Item>
             <Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>
             <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
-            <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="client_id">Your LinkedIn application client ID</Item>
           </Metadata>
           <CryptographicKeys>
@@ -177,7 +177,7 @@ Adicione o elemento **BuildingBlocks** perto da parte superior do ficheiro *Trus
 Tem agora uma política configurada para que o Azure AD B2C saiba comunicar com a sua conta LinkedIn. Tente carregar o ficheiro de extensão da sua apólice para confirmar que não tem quaisquer problemas até agora.
 
 1. Na página **'Políticas Personalizadas'** no seu inquilino Azure AD B2C, selecione **'Política de Upload'.**
-2. Ativar **a política em caso de existência**e, em seguida, navegar e selecionar o ficheiro *TrustFrameworkExtensions.xml.*
+2. Ativar **a política em caso de existência** e, em seguida, navegar e selecionar o ficheiro *TrustFrameworkExtensions.xml.*
 3. Clique em **Carregar**.
 
 ## <a name="register-the-claims-provider"></a>Registar o fornecedor de sinistros
@@ -239,7 +239,7 @@ O LinkedIn atualizou recentemente [as suas APIs de v1.0 a v2.0](https://engineer
 
 ### <a name="replace-items-in-the-metadata"></a>Substitua os itens nos Metadados
 
-No elemento **metadados** existente do **Ficheiro Técnico, atualize**os seguintes elementos **do Item** a partir de:
+No elemento **metadados** existente do **Ficheiro Técnico, atualize** os seguintes elementos **do Item** a partir de:
 
 ```xml
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,headline)</Item>

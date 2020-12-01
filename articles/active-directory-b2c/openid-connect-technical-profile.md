@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f06ae55dc48152c2c10183cc60cb098b6c3786fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8273d4bbb0b58a256521cf11cacf6d1fed67e10d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433760"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345121"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico OpenID Connect numa política personalizada do Azure Ative Directory B2C
 
@@ -90,7 +90,7 @@ O perfil técnico também devolve alegações que não são devolvidas pelo forn
 | UsePolicyInRedirectUri | Não | Indica se deve utilizar uma política ao construir o URI de redirecionamento. Ao configurar a sua aplicação no fornecedor de identidade, tem de especificar o URI de redirecionamento. O redirecionamento URI aponta para Azure AD B2C, `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp` .  Se `false` especificar, tem de adicionar um URI de redirecionamento para cada apólice que utilizar. Por exemplo: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
 | MarkAsFailureOnStatusCode5xx | Não | Indica se um pedido a um serviço externo deve ser marcado como uma falha se o código de estado http estiver na gama 5xx. A predefinição é `false`. |
 | DiscoverMetadataByTokenIssuer | Não | Indica se os metadados OIDC devem ser descobertos utilizando o emitente no token JWT. |
-| IncluirClaimResolvingInClaimsHandling  | Não | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false`   (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
+| IncluirClaimResolvingInClaimsHandling  | Não | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false` (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
 |token_endpoint_auth_method| Não| Especifica como a Azure AD B2C envia o cabeçalho de autenticação para o ponto final simbólico. Valores possíveis: `client_secret_post` (padrão) e `client_secret_basic` (visualização pública). Para mais informações, consulte [a secção de autenticação do cliente OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
 
 
@@ -102,7 +102,7 @@ O perfil técnico também devolve alegações que não são devolvidas pelo forn
   <Item Key="response_mode">form_post</Item>
   <Item Key="scope">openid profile email</Item>
   <Item Key="HttpBinding">POST</Item>
-  <Item Key="UsePolicyInRedirectUri">0</Item>
+  <Item Key="UsePolicyInRedirectUri">false</Item>
   <Item Key="client_id">Your Microsoft application client ID</Item>
 </Metadata>
 ```

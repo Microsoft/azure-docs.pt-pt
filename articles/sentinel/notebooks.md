@@ -10,14 +10,14 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: ded332813a840892f640aa6f6e48debbfe381b4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5d182276cd77493be5184503a1afc47934bf8ea
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90889336"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344198"
 ---
-# <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Use cadernos Jupyter para caçar ameaças à segurança
+# <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Use o Caderno Jupyter para caçar ameaças à segurança
 
 A fundação do Azure Sentinel é a loja de dados; combina consulta de alto desempenho, esquema dinâmico e escalas a volumes de dados maciços. O portal Azure e todas as ferramentas Azure Sentinel utilizam uma API comum para aceder a esta loja de dados. A mesma API também está disponível para ferramentas externas, como cadernos [Jupyter](https://jupyter.org/) e Python. Embora muitas tarefas comuns possam ser realizadas no portal, Jupyter alarga o âmbito do que você pode fazer com estes dados. Combina a programabilidade total com uma enorme coleção de bibliotecas para machine learning, visualização e análise de dados. Estes atributos fazem de Jupyter uma ferramenta convincente para a investigação de segurança e caça.
 
@@ -66,7 +66,7 @@ Para utilizar os cadernos, tem primeiro de criar um espaço de trabalho para apr
     |Subscrição|Selecione a subscrição do Azure que pretende utilizar.|
     |Grupo de recursos|Utilize um grupo de recursos já existente na sua subscrição ou introduza um nome para criar um grupo de recursos novo. Um grupo de recursos detém recursos relacionados para uma solução Azure. Neste exemplo, utilizamos **a AzureMLRG.**|
     |Nome da área de trabalho|Insira um nome único que identifique o seu espaço de trabalho. Neste exemplo, utilizamos **o espaço de testes1.** Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de recordar e diferenciar dos espaços de trabalho criados por outros.|
-    |Region|Selecione a localização mais próxima dos seus utilizadores e os recursos de dados para criar o seu espaço de trabalho.|
+    |Região|Selecione a localização mais próxima dos seus utilizadores e os recursos de dados para criar o seu espaço de trabalho.|
     |Edição do espaço de trabalho|Selecione **Basic** como o tipo de espaço de trabalho neste exemplo. O tipo de espaço de trabalho (Basic & Enterprise) determina as funcionalidades a que terá acesso e preços.|
 
     > [!div class="mx-imgBorder"]
@@ -140,7 +140,7 @@ Congratulamo-nos com o feedback, sejam sugestões, pedidos de funcionalidades, C
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu a usar cadernos Jupyter em Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
+Neste artigo, aprendeu a usar o Jupyter Notebook em Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 
 - [Caça proativamente por ameaças](hunting.md)
 - [Use marcadores para guardar informações interessantes durante a caça](bookmarks.md)

@@ -8,12 +8,12 @@ keywords: hadoop alta disponibilidade
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: c322380d6a41e69baa8f753b84c0bc074f334647
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0275fa4cc46dff8781d73563fd250b1ec62ddd56
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547032"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344118"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Azure HDInsight arquiteturas de continuidade de negócios
 
@@ -50,13 +50,13 @@ O aglomerado secundário é geralmente apenas de leitura. Pode fazer a leitura d
 
 Numa primária ativa com arquitetura *secundária a pedido,* as aplicações escrevem para a região primária ativa, enquanto não é atado nenhum cluster na região secundária durante as operações normais. A Metastaria e armazenamento SQL na região secundária são persistentes, enquanto o cluster HDInsight é scriptado e implantado a pedido apenas antes da replicação programada da Colmeia.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary.png" alt-text="Colmeia e arquitetura de consulta interativa":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary.png" alt-text="primário ativo com on-demand secundário":::
 
 #### <a name="hive-active-primary-with-standby-secondary"></a>Colmeia ativa primária com standby secundário
 
 Numa *primária ativa com suporte secundário,* as aplicações escrevem para a região primária ativa, enquanto um aglomerado secundário de espera diminuiu em modo de leitura apenas durante as operações normais. Durante as operações normais, pode optar por descarregar operações de leitura específicas da região para secundárias.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="Colmeia e arquitetura de consulta interativa":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="primário ativo com standby secundário":::
 
 Para obter mais informações sobre a replicação da Colmeia e as amostras de código refere-se [a replicação da Colmeia Apache em clusters Azure HDInsight](./interactive-query/apache-hive-replication.md)
 
@@ -85,13 +85,13 @@ Se existirem bibliotecas específicas do cliente que estão para além do que o 
 
 As aplicações lêem e escrevem para os Agrupamentos de Faíscas e Colmeias na região primária, enquanto não são a provisionados aglomerados na região secundária durante as operações normais. SqL Metastore, Hive Storage e Spark Storage são persistentes na região secundária. Os aglomerados spark e Hive são scriptados e implantados a pedido. A replicação da colmeia é usada para replicar o armazenamento de colmeias e as metástases de colmeia, enquanto a Azure Data Factory `DistCP` pode ser usada para copiar o armazenamento autónomo de Faíscas. Os aglomerados de colmeias precisam de ser implantados antes que cada replicação da Colmeia corra por causa da computação de `DistCp` dependência.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary-spark.png" alt-text="Colmeia e arquitetura de consulta interativa":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary-spark.png" alt-text="primária ativa com a pedido de arquitetura Apache Spark secundária":::
 
 #### <a name="spark-active-primary-with-standby-secondary"></a>Faísca primária ativa com standby secundário
 
 As aplicações lêem e escrevem para os agrupamentos spark e colmeia na região primária, enquanto os agrupamentos de colmeia e faísca escalaram em modo de leitura apenas executados na região secundária durante as operações normais. Durante as operações normais, pode optar por descarregar as operações específicas da Hive e da Spark para o secundário.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary-spark.png" alt-text="Colmeia e arquitetura de consulta interativa":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary-spark.png" alt-text="ativo primário primário estágio secundário Apache Spark ":::
 
 ## <a name="apache-hbase"></a>Apache HBase
 
@@ -131,19 +131,19 @@ Nesta região inter-região criada, a replicação é unidirecional da região p
 
 O cluster secundário funciona como um cluster HBase normal que pode hospedar as suas próprias mesas e pode servir leituras e escritos de aplicações regionais. No entanto, as escritas nas tabelas replicadas ou nas tabelas nativas a secundárias não são replicadas de volta às primárias.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-follower.png" alt-text="Colmeia e arquitetura de consulta interativa":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-follower.png" alt-text="Modelo de seguidor líder HBase":::
 
 #### <a name="hbase-replication--leader--leader-model"></a>Replicação HBase: Leader – Modelo líder
 
 Esta região inter-região é muito semelhante à configuração unidirecional, exceto que a replicação ocorre bidirecionalmente entre a região primária e a região secundária. As aplicações podem utilizar ambos os clusters em modos de leitura e atualizações são trocas assíncroneas entre eles.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-leader.png" alt-text="Colmeia e arquitetura de consulta interativa":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-leader.png" alt-text="Modelo líder hBase":::
 
 #### <a name="hbase-replication-multi-region-or-cyclic"></a>Replicação HBase: Multi-Região ou Cíclica
 
 O modelo de replicação multi-região/cíclica é uma extensão da replicação HBase e poderia ser usado para criar uma arquitetura HBase globalmente redundante com múltiplas aplicações que lêem e escrevem para agrupamentos específicos de HBase da região. Os clusters podem ser configurado em várias combinações de Leader/Leader ou Leader/Follower, dependendo dos requisitos do negócio.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-cyclic.png" alt-text="Colmeia e arquitetura de consulta interativa":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-cyclic.png" alt-text="Modelo cíclico HBase":::
 
 ## <a name="apache-kafka"></a>Apache Kafka
 
@@ -151,7 +151,7 @@ Para permitir a disponibilidade de região cruzada HDInsight 4.0 suporta Kafka M
 
 Dependendo da vida útil do tópico quando a replicação começou, a replicação do tópico MirrorMaker pode levar a diferentes compensações entre tópicos de origem e réplica. Os clusters HDInsight Kafka também suportam a replicação da partição de tópicos, que é uma característica de alta disponibilidade a nível de cluster individual.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-replication.png" alt-text="Colmeia e arquitetura de consulta interativa":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-replication.png" alt-text="Replicação de Apache Kafka":::
 
 ### <a name="apache-kafka-architectures"></a>Arquiteturas Apache Kafka
 
@@ -172,7 +172,7 @@ Desvantagens:
 * Eventual consistência entre tópicos entre clusters ativos e passivos.
 * Falhas nas primárias podem levar a inconsistência de mensagens em tópicos.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-passive.png" alt-text="Colmeia e arquitetura de consulta interativa":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-passive.png" alt-text="Apache Kafka modelo passivo ativo":::
 
 #### <a name="kafka-replication-active--active"></a>Replicação kafka: Ativo – Ativo
 
@@ -188,7 +188,7 @@ Desvantagens:
 * O problema da replicação circular tem de ser resolvido.  
 * A replicação bidirecional conduz a custos regionais mais elevados de saída de dados.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-active.png" alt-text="Colmeia e arquitetura de consulta interativa":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-active.png" alt-text="Apache Kafka modelo ativo":::
 
 ## <a name="hdinsight-enterprise-security-package"></a>Pacote de segurança da empresa HDInsight
 
@@ -198,11 +198,11 @@ Replicação da Metastore Ranger:
 
 Ranger Metastore é usado para armazenar e servir persistentemente as políticas ranger para controlar a autorização de dados. Recomendamos que mantenha políticas ranger independentes em primária e secundária e mantenha o secundário como uma réplica de leitura.
   
-Se a exigência for manter as políticas ranger sincronizadas entre o primário e o secundário, utilize [a Importação/Exportação da Ranger](https://cwiki.apache.org/confluence/display/RANGER/User+Guide+For+Import-Export#:~:text=Ranger%20has%20introduced%20a%20new,can%20import%20and%20export%20policies.&text=Also%20can%20export%2Fimport%20a,repositories\)%20via%20Ranger%20Admin%20UI) para apoiar periodicamente e importar as políticas ranger do primário ao secundário.
+Se a exigência for manter as políticas ranger sincronizadas entre o primário e o secundário, utilize [a Importação/Exportação da Ranger](https://cwiki.apache.org/confluence/display/RANGER/User+Guide+For+Import-Export) para apoiar periodicamente e importar as políticas ranger do primário ao secundário.
 
 Replicar as políticas dos Rangers entre o primário e o secundário pode fazer com que o secundário se torne ativado por escrito, o que pode levar a gravações inadvertidas sobre o secundário, levando a inconsistências de dados.  
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hdinsight-enterprise-security-package.png" alt-text="Colmeia e arquitetura de consulta interativa":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hdinsight-enterprise-security-package.png" alt-text="HdInsight Enterprise Security Package arquitetura":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 349f57299387b616373bb5fb4d295da8df8ee493
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: d62e7566038af6647cab2992b02184a4ea5ba30b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279889"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344152"
 ---
 # <a name="secure-azure-digital-twins"></a>Secure Azure Digital Twins
 
@@ -49,7 +49,7 @@ Com identidades geridas, a plataforma Azure gere esta identidade de tempo de exe
 
 A Azure fornece **duas funções incorporadas para** autorizar o acesso ao plano de dados Azure Digital Twins [APIs](how-to-use-apis-sdks.md#overview-data-plane-apis). Pode consultar as funções pelo nome ou por ID:
 
-| Papel incorporado | Description | ID | 
+| Papel incorporado | Descrição | ID | 
 | --- | --- | --- |
 | Proprietário de dados Azure Digital Twins | Dá acesso total sobre os recursos da Azure Digital Twins | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 | Leitor de dados de gémeos digitais Azure | Dá acesso apenas à leitura dos recursos da Azure Digital Twins | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
@@ -99,7 +99,7 @@ Abaixo estão os detalhes da etiqueta de serviço **AzureDigitalTwins.**
 
 | Etiqueta | Objetivo | Pode usar entrada ou saída? | Pode ser regional? | Pode usar com Azure Firewall? |
 | --- | --- | --- | --- | --- |
-| AzureDigitalTwins | Azure Digital Twins<br>Nota: Esta etiqueta ou os endereços IP abrangidos por esta etiqueta podem ser utilizados para restringir o acesso aos pontos finais configurados para [as rotas do evento](concepts-route-events.md). | Entrada | No | Yes |
+| AzureDigitalTwins | Azure Digital Twins<br>Nota: Esta etiqueta ou os endereços IP abrangidos por esta etiqueta podem ser utilizados para restringir o acesso aos pontos finais configurados para [as rotas do evento](concepts-route-events.md). | Entrada | Não | Sim |
 
 ### <a name="using-service-tags-for-accessing-event-route-endpoints"></a>Utilização de etiquetas de serviço para aceder aos pontos finais da rota do evento 
 
@@ -121,7 +121,7 @@ A Azure Digital Twins fornece encriptação de dados em repouso e em trânsito, 
 
 ## <a name="cross-origin-resource-sharing-cors"></a>Partilha de Recursos Transversais à Origem (CORS)
 
-A Azure Digital Twins não suporta atualmente **a partilha de recursos cross-origin (CORS)**. Como resultado, se estiver a chamar uma API REST a partir de uma aplicação de navegador, uma interface [de Gestão API (APIM)](../api-management/api-management-key-concepts.md) ou um conector [Power Apps,](https://docs.microsoft.com/powerapps/powerapps-overview) poderá ver um erro de política.
+A Azure Digital Twins não suporta atualmente **a partilha de recursos cross-origin (CORS)**. Como resultado, se estiver a chamar uma API REST a partir de uma aplicação de navegador, uma interface [de Gestão API (APIM)](../api-management/api-management-key-concepts.md) ou um conector [Power Apps,](/powerapps/powerapps-overview) poderá ver um erro de política.
 
 Para resolver este erro, pode fazer um dos seguintes:
 * Retire o cabeçalho CORS `Access-Control-Allow-Origin` da mensagem. Este cabeçalho indica se a resposta pode ser partilhada. 

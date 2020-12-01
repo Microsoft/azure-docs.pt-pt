@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 9305ff5904588241ff8319f28eab2ce20ad77876
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 483ae81f22358e41f252dd8090c01d5b4cad7fb1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125120"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344169"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Disco de caixa de dados Azure: Perguntas frequentes
 
@@ -66,7 +66,7 @@ Por exemplo, se quiser transferir dados na sua localização no Canadá para uma
 
 ### <a name="option-1"></a>Opção 1: 
 
-Envie um [disco suportado](../storage/common/storage-import-export-requirements.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#supported-disks) contendo dados utilizando o [serviço Azure Import/Export](../storage/common/storage-import-export-service.md) da localização de origem no Canadá para o centro de dados Azure WestUS.
+Envie um [disco suportado](../storage/common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) contendo dados utilizando o [serviço Azure Import/Export](../storage/common/storage-import-export-service.md) da localização de origem no Canadá para o centro de dados Azure WestUS.
 
 ### <a name="option-2"></a>Opção 2:
 

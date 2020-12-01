@@ -13,12 +13,12 @@ ms.date: 11/07/2019
 ms.author: sagonzal
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 6267c2118b7bac9befb42102d1118faac639bf49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc039e06c8c9d75608b60c2f48e86bc5503e5aec
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87312559"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344866"
 ---
 # <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java"></a>Obtenha e remova as contas da cache simbólica usando MSAL para Java
 
@@ -39,7 +39,7 @@ Set<IAccount> accounts = pca.getAccounts().join();
 
 ## <a name="remove-accounts-from-the-cache"></a>Remover contas da cache
 
-Para remover uma conta da cache, encontre a conta que precisa de ser removida e, em seguida, ligue `PublicClientApplicatoin.removeAccount()` como mostrado no exemplo seguinte:
+Para remover uma conta da cache, encontre a conta que precisa de ser removida e, em seguida, ligue `PublicClientApplication.removeAccount()` como mostrado no exemplo seguinte:
 
 ```java
 Set<IAccount> accounts = pca.getAccounts().join();

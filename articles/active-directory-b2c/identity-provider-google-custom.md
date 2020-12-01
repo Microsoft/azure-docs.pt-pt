@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/20/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 91a55782492c1b2612652b147e0aca37941bf4db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 635e33223b054aafb1d91c217a44fdd6d9b369b9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388209"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345172"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o sôm-in com uma conta google utilizando políticas personalizadas no Azure Ative Directory B2C
 
@@ -34,10 +34,10 @@ Este artigo mostra-lhe como ativar o início de saúde para utilizadores com uma
 Para ativar o sessão de utilizadores a partir de uma conta da Google, é necessário criar um projeto de aplicação da Google.
 
 1. Inscreva-se na Consola do [Google Developers](https://console.developers.google.com/) com as credenciais da sua conta.
-2. Introduza um **Nome de Projeto,** clique em **Criar**e, em seguida, certifique-se de que está a usar o novo projeto.
+2. Introduza um **Nome de Projeto,** clique em **Criar** e, em seguida, certifique-se de que está a usar o novo projeto.
 3. Selecione **Credenciais** no menu esquerdo e, em seguida, **selecione Criar credenciais > ID do cliente de Oauth**.
 4. Selecione **o ecrã de consentimento configurar**.
-5. Selecione ou especifique um **endereço de e-mail**válido , forneça um **nome de Produto** mostrado aos utilizadores, `b2clogin.com` introduza em **domínios Autorizados**e, em seguida, clique em **Guardar**.
+5. Selecione ou especifique um **endereço de e-mail** válido , forneça um **nome de Produto** mostrado aos utilizadores, `b2clogin.com` introduza em **domínios Autorizados** e, em seguida, clique em **Guardar**.
 6. Sob **o tipo de aplicação**, selecione **aplicação Web**.
 7. Insira um **Nome** para a sua inscrição.
 8. Nas **origens JavaScript autorizadas,** insira `https://your-tenant-name.b2clogin.com` e em **URIs de redirecionamento autorizado,** insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Substitua o nome do seu inquilino pelo nome do seu inquilino. Você precisa usar todas as letras minúsculas ao introduzir o seu nome de inquilino, mesmo que o inquilino seja definido com letras maiúsculas em Azure AD B2C.
@@ -65,7 +65,7 @@ Se quiser que os utilizadores entrem através de uma conta google, tem de defini
 
 Pode definir uma conta Google como um fornecedor de sinistros adicionando-a ao elemento **ClaimsProviders** no ficheiro de extensão da sua política.
 
-1. Abra a *TrustFrameworkExtensions.xml. *
+1. Abra a *TrustFrameworkExtensions.xml.*
 2. Encontre o elemento **ClaimsProviders.** Se não existir, adicione-o sob o elemento raiz.
 3. Adicione um novo **Provider de Reclamações** da seguinte forma:
 
@@ -84,7 +84,7 @@ Pode definir uma conta Google como um fornecedor de sinistros adicionando-a ao e
             <Item Key="ClaimsEndpoint">https://www.googleapis.com/oauth2/v1/userinfo</Item>
             <Item Key="scope">email profile</Item>
             <Item Key="HttpBinding">POST</Item>
-            <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="client_id">Your Google application ID</Item>
           </Metadata>
           <CryptographicKeys>
@@ -119,7 +119,7 @@ Pode definir uma conta Google como um fornecedor de sinistros adicionando-a ao e
 Por esta altura, já configuraste a tua política para que o Azure AD B2C saiba comunicar com o teu diretório AD Azure. Tente carregar o ficheiro de extensão da sua apólice apenas para confirmar que não tem quaisquer problemas até agora.
 
 1. Na página **'Políticas Personalizadas'** no seu inquilino Azure AD B2C, selecione **'Política de Upload'.**
-2. Ativar **a política em caso de existência**e, em seguida, navegar e selecionar o ficheiro *TrustFrameworkExtensions.xml.*
+2. Ativar **a política em caso de existência** e, em seguida, navegar e selecionar o ficheiro *TrustFrameworkExtensions.xml.*
 3. Clique em **Carregar**.
 
 ## <a name="register-the-claims-provider"></a>Registar o fornecedor de sinistros
