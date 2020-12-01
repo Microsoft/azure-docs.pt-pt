@@ -11,12 +11,12 @@ metadata:
   author: hrasheed-msft
   ms.author: hrasheed
   ms.date: 10/20/2020
-  ms.openlocfilehash: cd1e23d464baa593ed5f63683664ca355e467168
-  ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+  ms.openlocfilehash: 893386d441c8e1b5d247231c57c53f8ea90a7b19
+  ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/21/2020
-  ms.locfileid: "92311705"
+  ms.lasthandoff: 11/30/2020
+  ms.locfileid: "96350811"
 landingContent:
 - title: Sobre o Azure Data Share
   linkLists:
@@ -49,7 +49,7 @@ landingContent:
     - text: Partilhar a partir da Base de Dados SQL do Azure ou do Synapse Analytics
       url: how-to-share-from-sql.md
     - text: Partilhar a partir do Azure Data Explorer
-      url: https://docs.microsoft.com/azure/data-explorer/data-share
+      url: /azure/data-explorer/data-share
 - title: Monitorizar e gerir
   linkLists:
   - linkListType: how-to-guide

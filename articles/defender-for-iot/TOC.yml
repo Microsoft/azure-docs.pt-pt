@@ -122,11 +122,11 @@
 - name: Recursos
   items:
     - name: Desenvolver as suas competências de segurança com o Microsoft Learn
-      href: 'https://docs.microsoft.com/learn/browse/?term=securityS&terms=securityS'
+      href: /learn/browse/?term=securityS&terms=securityS
     - name: Documentação do Centro de Segurança do Azure
-      href: 'https://docs.microsoft.com/azure/security-center/'
+      href: ../security-center/index.yml
     - name: Documentação da segurança do Azure
-      href: 'https://docs.microsoft.com/azure/security/'
+      href: ../security/index.yml
     - name: Módulo de segurança para Azure RTOS no Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module'
     - name: 'Blogue sobre Segurança de IoT, Privacidade e Conformidade do Azure'

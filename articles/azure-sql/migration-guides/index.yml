@@ -14,12 +14,12 @@ metadata:
   ms.author: mathoma
   ms.reviewer: sstein
   ms.date: 11/06/2020
-  ms.openlocfilehash: 66742b89eac90f707ec156472d7b1f5ebf9fe467
-  ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+  ms.openlocfilehash: ad10f236ed042d0935e01d056ef1a56de1054835
+  ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/11/2020
-  ms.locfileid: "94505959"
+  ms.lasthandoff: 11/30/2020
+  ms.locfileid: "96327445"
 landingContent:
 - title: Base de Dados SQL do Azure
   linkLists:
@@ -56,9 +56,9 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Azure Migrate
-      url: /azure/migrate/migrate-services-overview
+      url: ../../migrate/migrate-services-overview.md
     - text: Azure Database Migration Service (DMS)
-      url: /azure/dms/dms-overview
+      url: ../../dms/dms-overview.md
     - text: Assistente de Migração de Dados (DMA)
       url: /sql/dma/dma-migrateonpremsqltosqldb
     - text: Replicação transacional
@@ -68,6 +68,6 @@ landingContent:
     - text: Cópia em massa
       url: /sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server
     - text: Azure Data Factory
-      url: /azure/data-factory/connector-azure-sql-database
+      url: ../../data-factory/connector-azure-sql-database.md
     - text: Sincronização de Dados SQL
       url: ../database/sql-data-sync-data-sql-server-sql-database.md

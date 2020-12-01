@@ -120,15 +120,15 @@
     - name: Referência da API REST
       items:
         - name: Criador de FAQ 4.0
-          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/alterations'
+          href: /rest/api/cognitiveservices/qnamaker4.0/alterations
         - name: Criador de FAQ 5.0 Pré-visualização 1
-          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerv5.0-preview.1/alterations'
+          href: /rest/api/cognitiveservices/qnamakerv5.0-preview.1/alterations
     - name: SDKs
       items:
         - name: C#
           items:
             - name: Documentação de Referência
-              href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet'
+              href: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
             - name: Pacote NuGet
               href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/'
             - name: Amostras
@@ -144,7 +144,7 @@
         - name: JavaScript
           items:
             - name: Documentação de Referência
-              href: 'https://docs.microsoft.com/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest'
+              href: /javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest
             - name: NPM - Criação
               href: 'https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker'
             - name: NPM - Runtime de consulta
@@ -154,7 +154,7 @@
         - name: Python
           items:
             - name: Documentação de Referência
-              href: 'https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python'
+              href: /python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python
             - name: Pip
               href: 'https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/'
             - name: Amostras
@@ -176,7 +176,7 @@
     - name: Preços e limites
       href: 'https://aka.ms/qnamaker-pricing'
     - name: Pesquisa
-      href: 'https://docs.microsoft.com/search/index?search=QnAMaker'
+      href: /search/index?search=QnAMaker
     - name: Blogue
       href: 'https://blog.botframework.com/category/QnAMaker/'
 - name: Portal do Criador de FAQ
