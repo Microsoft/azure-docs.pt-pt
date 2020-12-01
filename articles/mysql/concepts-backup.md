@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 4438ceaa7bb4e9c29a05de0481acdad571e3bb64
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 05cc6579d83fe0cd861f3f91b8d44297963f8101
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542342"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433279"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauro na Base de Dados Azure para o MySQL
 
@@ -43,8 +43,6 @@ O armazenamento para fins gerais é o armazenamento de backend suportando o serv
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Servidores de armazenamento de finalidade geral com armazenamento até 16-TB
 
 Num subconjunto de [regiões Azure,](/azure/mysql/concepts-pricing-tiers#storage)todos os servidores recém-abastados podem suportar o armazenamento de fins gerais até 16-TB. Por outras palavras, o armazenamento até 16-TB é o armazenamento geral padrão para todas as [regiões](concepts-pricing-tiers.md#storage) onde é suportado. As cópias de segurança nestes servidores de armazenamento de 16 TB são baseadas em instantâneos. A primeira cópia de segurança de instantâneos completa é agendada imediatamente após a criação do servidor. A primeira cópia de segurança total do instantâneo é mantida como a cópia de segurança base do servidor. As cópias de segurança de instantâneos subsequentes são apenas cópias de segurança diferenciais.
-
-Num subconjunto de [regiões Azure,](concepts-pricing-tiers.md#storage)todos os servidores recém-abastados podem suportar o armazenamento de fins gerais até 16-TB. Por outras palavras, o armazenamento até 16-TB é o armazenamento geral padrão para todas as [regiões](concepts-pricing-tiers.md#storage) onde é suportado. As cópias de segurança nestes servidores de armazenamento de 16 TB são baseadas em instantâneos. A primeira cópia de segurança de instantâneos completa é agendada imediatamente após a criação do servidor. A primeira cópia de segurança total do instantâneo é mantida como a cópia de segurança base do servidor. As cópias de segurança de instantâneos subsequentes são apenas cópias de segurança diferenciais.
 
 As cópias de segurança de instantâneos diferenciais ocorrem, pelo menos, uma vez por dia. As cópias de segurança de instantâneos diferenciais não ocorrem num agendamento fixo. As cópias de segurança instantânea diferenciais ocorrem a cada 24 horas, a menos que o registo de transação (binlog no MySQL) exceda 50 GB desde a última cópia de segurança diferencial. Num dia, são permitidos, no máximo, seis instantâneos diferenciais.
 

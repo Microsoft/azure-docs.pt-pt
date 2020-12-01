@@ -7,15 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: 4125a4493b72fa60203067f3eba1ccebdc820b02
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.custom: azureday1
+ms.openlocfilehash: e07ec17a4e14f0099d82bd444f2ee8d37abe9908
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182976"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435013"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>Tutorial: Aceda ao Microsoft Graph a partir de uma aplicação segura como utilizador
 
@@ -25,7 +26,7 @@ Saiba como aceder ao Microsoft Graph a partir de uma aplicação web em execuç�
 
 Pretende adicionar acesso ao Microsoft Graph a partir da sua aplicação web e realizar alguma ação como utilizador inscrito. Esta secção descreve como conceder permissões delegadas à aplicação web e obter as informações de perfil do utilizador inscrito a partir do Azure Ative Directory (Azure AD).
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -74,6 +75,8 @@ Guarde as suas definições selecionando **PUT**. Esta definição pode demorar 
 ## <a name="call-microsoft-graph-net"></a>Ligue para o Microsoft Graph (.NET)
 
 A sua aplicação web tem agora as permissões necessárias e também adiciona o ID do cliente do Microsoft Graph aos parâmetros de login. Utilizando a [biblioteca Microsoft.Identity.Web,](https://github.com/AzureAD/microsoft-identity-web/)a aplicação web obtém um token de acesso para autenticação com o Microsoft Graph. Na versão 1.2.0 e posterior, a biblioteca Microsoft.Identity.Web integra-se e pode funcionar ao lado do módulo de autenticação/autorização do Serviço de Aplicações. Microsoft.Identity.Web deteta que a aplicação web está hospedada no Serviço de Aplicações e obtém o sinal de acesso do módulo de autenticação/autorização do Serviço de Aplicações. O token de acesso é então transmitido para pedidos autenticados com a API do Gráfico microsoft.
+
+Para ver este código como parte de uma aplicação de amostra, consulte a [amostra no GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf).
 
 > [!NOTE]
 > A biblioteca Microsoft.Identity.Web não é necessária na sua aplicação web para autenticação/autorização básica ou para autenticar pedidos com o Microsoft Graph. É possível ligar de forma segura para [apis a jusante](tutorial-auth-aad.md#call-api-securely-from-server-code) apenas com o módulo de autenticação/autorização do Serviço de Aplicações ativado.
@@ -221,7 +224,7 @@ public class IndexModel : PageModel
 }
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se terminou este tutorial e já não precisa da aplicação web ou dos recursos associados, [limpe os recursos que criou.](scenario-secure-app-clean-up-resources.md)
 

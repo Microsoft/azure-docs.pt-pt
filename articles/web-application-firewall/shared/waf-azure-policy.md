@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: 6f05bd5a9798f2feec4424474a63625f812e7148
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fd474a32b4a517230a82615065d7815c04140045
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100597"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432973"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Firewall de aplicação web Azure e Política Azure
 
@@ -22,38 +22,32 @@ O Azure Web Application Firewall (WAF) combinado com a Azure Policy pode ajudar 
 
 Existem várias definições de Política Azure incorporadas para gerir os recursos da WAF. Uma repartição das definições políticas e das suas funcionalidades são as seguintes:
 
-1. **A Firewall de Aplicação Web (WAF) deve ser ativada para o Serviço de Porta Frontal Azure** : Os serviços da porta frontal azure são avaliados se houver um WAF presente na criação de recursos. A apólice tem três efeitos: Auditoria, Negação e Deficiente. A auditoria rastreia quando um Serviço de Porta Frontal Azure não tem um WAF e permite que os utilizadores vejam o que o Serviço de Porta Frontal Azure não cumpre. O Deny impede que qualquer Serviço de Porta Frontal Azure seja criado se um WAF não estiver ligado. Os deficientes desligam esta apólice.
+1. **A Firewall de Aplicação Web (WAF) deve ser ativada para o Serviço de Porta Frontal Azure**: Os serviços da porta frontal azure são avaliados se houver um WAF presente na criação de recursos. A apólice tem três efeitos: Auditoria, Negação e Deficiente. A auditoria rastreia quando um Serviço de Porta Frontal Azure não tem um WAF e permite que os utilizadores vejam o que o Serviço de Porta Frontal Azure não cumpre. O Deny impede que qualquer Serviço de Porta Frontal Azure seja criado se um WAF não estiver ligado. Os deficientes desligam esta apólice.
 
-2. **A Firewall de Aplicação Web (WAF) deve ser ativada para o Gateway de Aplicação** : Os gateways de aplicações são avaliados se houver um WAF presente na criação de recursos. A apólice tem três efeitos: Auditoria, Negação e Deficiente. A auditoria rastreia quando um Gateway de aplicações não tem um WAF e permite que os utilizadores vejam o que o Gateway de Aplicação não cumpre. O Deny impede que qualquer Gateway de aplicação seja criado se um WAF não estiver ligado. Os deficientes desligam esta apólice.
+2. **A Firewall de Aplicação Web (WAF) deve ser ativada para o Gateway de Aplicação**: Os gateways de aplicações são avaliados se houver um WAF presente na criação de recursos. A apólice tem três efeitos: Auditoria, Negação e Deficiente. A auditoria rastreia quando um Gateway de aplicações não tem um WAF e permite que os utilizadores vejam o que o Gateway de Aplicação não cumpre. O Deny impede que qualquer Gateway de aplicação seja criado se um WAF não estiver ligado. Os deficientes desligam esta apólice.
 
-3. **A Firewall de Aplicação Web (WAF) deve utilizar o modo especificado para o Serviço de Porta Frontal Azure** : Determina a utilização do modo 'Detecção' ou 'Prevenção' para estar ativo em todas as políticas de Firewall de Aplicações Web para o Serviço de Porta Frontal Azure. A apólice tem três efeitos: Auditoria, Negação e Deficiente. A auditoria rastreia quando um WAF não se encaixa no modo especificado. O Deny impede que qualquer WAF seja criado se não estiver no modo correto. Os deficientes desligam esta apólice.
+3. **A Firewall de Aplicação Web (WAF) deve utilizar o modo especificado para o Serviço de Porta Frontal Azure**: Determina a utilização do modo 'Detecção' ou 'Prevenção' para estar ativo em todas as políticas de Firewall de Aplicações Web para o Serviço de Porta Frontal Azure. A apólice tem três efeitos: Auditoria, Negação e Deficiente. A auditoria rastreia quando um WAF não se encaixa no modo especificado. O Deny impede que qualquer WAF seja criado se não estiver no modo correto. Os deficientes desligam esta apólice.
 
 4. **O Firewall de Aplicação Web (WAF) deve utilizar o modo especificado para o Gateway** de Aplicação : Obriga à utilização do modo 'Detecção' ou 'Prevenção' para estar ativo em todas as políticas de Firewall de Aplicação Web para Gateway de aplicações. A apólice tem três efeitos: Auditoria, Negação e Deficiente. A auditoria rastreia quando um WAF não se encaixa no modo especificado. O Deny impede que qualquer WAF seja criado se não estiver no modo correto. Os deficientes desligam esta apólice.
 
-
 ## <a name="launch-an-azure-policy"></a>Lançar uma Política Azure
-
 
 1.  Na página inicial do Azure, escreva Política na barra de pesquisa e clique no ícone Azure Policy
 
-2.  No serviço Azure Policy, em **Autoria,** selecione **Atribuições** .
+2.  No serviço Azure Policy, em **Autoria,** selecione **Atribuições**.
 
-[!div class="mx-imgBorder"]
-![Firewall de aplicação web Azure](../media/waf-azure-policy/policy-home.png)
+:::image type="content" source="../media/waf-azure-policy/policy-home.png" alt-text="Separador de atribuições dentro da Política Azure":::
 
 3.  Na página Atribuições, selecione o ícone **de política de atribuir** no topo.
 
-[!div class="mx-imgBorder"]
-![Screenshot que mostra o separador Básico na página de política de Atribuir.](../media/waf-azure-policy/assign-policy.png)
+:::image type="content" source="../media/waf-azure-policy/assign-policy.png" alt-text="Separador básico na página 'Política de Atribuir'":::
 
 4.  No separador básicos da página 'Atribuir', atualize os seguintes campos:
-    1.  **Âmbito** : Selecione o que as assinaturas E os grupos de recursos do Azure devem ser impactados pela definição de política.
-    2.  **Exclusões** : Selecione quaisquer recursos do âmbito de aplicação para excluir da atribuição de políticas.
-    3.  **Definição de Política** : Selecione a definição de política para aplicar ao âmbito com exclusões. Digite "Firewall de aplicação web" na barra de pesquisa para escolher a política de Azure de Firewall de Aplicação Web relevante.
+    1.  **Âmbito**: Selecione o que as assinaturas E os grupos de recursos do Azure devem ser impactados pela definição de política.
+    2.  **Exclusões**: Selecione quaisquer recursos do âmbito de aplicação para excluir da atribuição de políticas.
+    3.  **Definição de Política**: Selecione a definição de política para aplicar ao âmbito com exclusões. Digite "Firewall de aplicação web" na barra de pesquisa para escolher a política de Azure de Firewall de Aplicação Web relevante.
 
-[!div class="mx-imgBorder"]
-![Screenshot que mostra as definições de política disponíveis.](../media/waf-azure-policy/policy-listing.png)
-
+:::image type="content" source="../media/waf-azure-policy/policy-listing.png" alt-text="Separador básico na página 'Política de Atribuir'":::
 
 5.  Selecione o **separador Parâmetros** e atualize os parâmetros de atribuição de políticas. Para clarificar melhor o que o parâmetro faz, paire sobre o ícone de informação ao lado do nome do parâmetro para mais esclarecimentos.
 

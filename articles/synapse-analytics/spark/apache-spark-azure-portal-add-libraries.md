@@ -1,5 +1,5 @@
 ---
-title: Gerir bibliotecas para Apache Spark em Azure Synapse Analytics
+title: Gerir bibliotecas para Apache Spark
 description: Saiba como adicionar e gerir bibliotecas usadas pela Apache Spark em Azure Synapse Analytics.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.date: 10/16/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 8d478b35b702e02f303358972526c091ceb3657e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 27881b048a738d4de2acb57dcc4c2dad1f4d5b24
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95917130"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435370"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gerir bibliotecas para Apache Spark em Azure Synapse Analytics
 
@@ -36,7 +36,7 @@ Uma vez identificadas as bibliotecas que gostaria de utilizar para a sua aplica�
 
 > [!IMPORTANT]
 > - Se a embalagem que está a instalar for grande ou demorar muito tempo a ser instalada, isto afeta o tempo de arranque da instância Spark.
-> - Os pacotes que requerem suporte do compilador no momento da instalação, como o CCG, não são suportados.
+> - Os pacotes que exijam o suporte de compilador no momento da instalação, como o GCC, não são suportados.
 > - Os pacotes não podem ser desclassificados, apenas adicionados ou atualizados.
 > - Para instalar bibliotecas, tem de ter permissões do Fornecedor de dados blob de armazenamento ou do proprietário de dados da blob de armazenamento na conta primária de Armazenamento Gen2 ligada ao espaço de trabalho synapse.
 

@@ -3,19 +3,19 @@ title: Configure o encerramento automático de VMs para um laboratório nos Serv
 description: Saiba como ativar ou desativar o encerramento automático de VMs quando uma ligação remota do ambiente de trabalho estiver desligada.
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 67b51941207fdd4913df9a92362959bbd468d336
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f9080f3b7b762d3b9fa448a903a4167cd2cec4a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649886"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433943"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab"></a>Configure o encerramento automático de VMs para um laboratório
 
 Este artigo mostra-lhe como pode configurar o encerramento automático de VMs para um laboratório.
 
 Pode ativar várias funcionalidades de controlo de custos de paragem automática para evitar custos adicionais quando as máquinas virtuais não estão a ser utilizadas ativamente. A combinação das três funcionalidades de paragem e desconexão automáticas que se seguem captura a maioria dos casos em que os utilizadores deixam acidentalmente as suas máquinas virtuais em funcionamento:
- 
+ 
 * Desconectar automaticamente os utilizadores de máquinas virtuais que o SISTEMA considera inativas.
 * Desligue automaticamente as máquinas virtuais quando os utilizadores se desligam.
 * Desligue automaticamente as máquinas virtuais que são iniciadas mas os utilizadores não se conectam.
@@ -40,4 +40,4 @@ Certifique-se de rever os detalhes sobre a paragem automática no controlo de cu
 > Se desligar o sistema operativo Linux ou Windows (OS) num VM antes de desligar uma sessão DE PDR para o VM, a função de autoshutdown não funcionará corretamente.  
 ## <a name="next-steps"></a>Passos seguintes
 
-[Painel para laboratórios de sala de aula](use-dashboard.md)
+[Painel de instrumentos para laboratórios](use-dashboard.md)

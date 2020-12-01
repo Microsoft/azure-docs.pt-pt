@@ -10,16 +10,16 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 1ace40098e1d53c6199accea755ffb6969781663
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: ecb034ae621c935c3ebcd5b480e116c2cb1d864f
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015668"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435540"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publicar e subscrever com a Azure IoT Edge
 
-Pode utilizar o corretor MQTT Azure IoT Edge para publicar e subscrever mensagens. Este artigo mostra-lhe como ligar a este corretor, publicar e subscrever mensagens sobre tópicos definidos pelo utilizador e usar primitivos de mensagens IoT Hub. O corretor IoT Edge MQTT é incorporado no hub IoT Edge. Para obter mais informações, consulte [as capacidades de corretagem do hub IoT Edge](iot-edge-runtime.md).
+Pode utilizar o corretor MQTT Azure IoT Edge para publicar e subscrever mensagens. Este artigo mostra-lhe como ligar a este corretor, publicar e subscrever mensagens sobre tópicos definidos pelo utilizador, e usar primitivos de mensagens IoT Hub. O corretor IoT Edge MQTT é incorporado no hub IoT Edge. Para obter mais informações, consulte [as capacidades de corretagem do hub IoT Edge](iot-edge-runtime.md).
 
 > [!NOTE]
 > O corretor IoT Edge MQTT está atualmente em pré-visualização pública.
@@ -27,16 +27,16 @@ Pode utilizar o corretor MQTT Azure IoT Edge para publicar e subscrever mensagen
 ## <a name="pre-requisites"></a>Pré-requisitos
 
 - Uma conta Azure com uma subscrição válida
-- [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) com a `azure-iot` extensão CLI instalada. Para mais informações, consulte [os passos de instalação da extensão Azure IoT para Azure Azure CLI](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-iot).
-- Um **hub IoT** da SKU, F1, S1, S2 ou S3.
+- [Azure CLI](/cli/azure/) com a `azure-iot` extensão CLI instalada. Para mais informações, consulte [os passos de instalação da extensão Azure IoT para Azure Azure CLI](/cli/azure/azure-cli-reference-for-iot).
+- Um **hub IoT** de SKU ou F1, S1, S2 ou S3.
 - Tenha um **dispositivo IoT Edge com a versão 1.2 ou superior**. Uma vez que o corretor MQTT IoT Edge está atualmente em pré-visualização pública, deite as seguintes variáveis ambientais para verdade no recipiente edgeHub para permitir o corretor MQTT:
 
-   | Nome | Valor |
+   | Name | Valor |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__mqttBrokerEnabled` | `true` |
 
-- **Clientes Mosquitto instalados** no dispositivo IoT Edge. Este artigo utiliza os populares clientes Mosquitto que inclui [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) e [MOSQUITTO_SUB.](https://mosquitto.org/man/mosquitto_sub-1.html) Outros clientes MQTT poderiam ser usados em vez disso. Para instalar os clientes Mosquitto num dispositivo Ubuntu, executar o seguinte comando:
+- **Clientes Mosquitto instalados** no dispositivo IoT Edge. Este artigo usa os populares clientes Mosquitto [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) e [MOSQUITTO_SUB.](https://mosquitto.org/man/mosquitto_sub-1.html) Outros clientes MQTT poderiam ser usados em vez disso. Para instalar os clientes Mosquitto num dispositivo Ubuntu, executar o seguinte comando:
 
     ```cmd
     sudo apt-get update && sudo apt-get install mosquitto-clients
@@ -62,28 +62,28 @@ Para ativar o TLS, se um cliente ligar na porta 8883 (MQTTS) ao corretor MQTT, s
 
 ### <a name="authentication"></a>Autenticação
 
-Para que um cliente MQTT se autense, primeiro precisa enviar um pacote CONNECT para o corretor MQTT para iniciar uma ligação em seu nome. Este pacote fornece três peças de informação de autenticação: `client identifier` a, a `username` e `password` :
+Para que um cliente MQTT se autense, primeiro precisa enviar um pacote CONNECT para o corretor MQTT para iniciar uma ligação em seu nome. Este pacote fornece três peças de informação de autenticação: `client identifier` a, `username` a, e a `password` :
 
--   O `client identifier` campo é o nome do dispositivo ou nome do módulo no IoT Hub. Utiliza a seguinte sintaxe:
+- O `client identifier` campo é o nome do dispositivo ou nome do módulo no IoT Hub. Utiliza a seguinte sintaxe:
 
-    - Para um dispositivo: `<device_name>`
+  - Para um dispositivo: `<device_name>`
 
-    - Para um módulo: `<device_name>/<module_name>`
+  - Para um módulo: `<device_name>/<module_name>`
 
    Para se ligar ao corretor MQTT, um dispositivo ou um módulo devem ser registados no IoT Hub.
 
-   Note que o corretor não permitirá ligar dois clientes usando as mesmas credenciais. O corretor desligará o cliente já ligado se um segundo cliente ligar usando as mesmas credenciais.
+   O corretor não permitirá ligações de vários clientes usando as mesmas credenciais. O corretor desligará o cliente já ligado se um segundo cliente ligar usando as mesmas credenciais.
 
 - O `username` campo é derivado do nome do dispositivo ou módulo, e o nome IoTHub do dispositivo pertence à utilização da seguinte sintaxe:
 
-    - Para um dispositivo: `<iot_hub_name>.azure-devices.net/<device_name>/?api-version=2018-06-30`
+  - Para um dispositivo: `<iot_hub_name>.azure-devices.net/<device_name>/?api-version=2018-06-30`
 
-    - Para um módulo: `<iot_hub_name>.azure-devices.net/<device_name>/<module_name>/?api-version=2018-06-30`
+  - Para um módulo: `<iot_hub_name>.azure-devices.net/<device_name>/<module_name>/?api-version=2018-06-30`
 
 - O `password` campo do pacote CONNECT depende do modo de autenticação:
 
-    - Em caso de [autenticação das teclas simétricas,](how-to-authenticate-downstream-device.md#symmetric-key-authentication)o `password` campo é um símbolo SAS.
-    - Em caso de [autenticação auto-assinada X.509,](how-to-authenticate-downstream-device.md#x509-self-signed-authentication)o `password` campo não está presente. Neste modo de autenticação, é necessário um canal TLS. O cliente precisa de ligar à porta 8883 para estabelecer uma ligação TLS. Durante o aperto de mão TLS, o corretor MQTT solicita um certificado de cliente. Este certificado é utilizado para verificar a identidade do cliente e, portanto, o `password` campo não é necessário mais tarde quando o pacote CONNECT é enviado. O envio de um certificado de cliente e do campo de palavra-passe levará a um erro e a ligação será encerrada. As bibliotecas MQTT e as bibliotecas de clientes TLS geralmente têm uma maneira de enviar um certificado de cliente ao iniciar uma ligação. Pode ver um exemplo passo a passo na secção [Usando o Certificado X509 para a autenticação do cliente.](how-to-authenticate-downstream-device.md#x509-self-signed-authentication)
+  - Ao utilizar [a autenticação de teclas simétricas,](how-to-authenticate-downstream-device.md#symmetric-key-authentication)o `password` campo é um símbolo SAS.
+  - Ao utilizar a [autenticação auto-assinada X.509,](how-to-authenticate-downstream-device.md#x509-self-signed-authentication)o `password` campo não está presente. Neste modo de autenticação, é necessário um canal TLS. O cliente precisa de ligar à porta 8883 para estabelecer uma ligação TLS. Durante o aperto de mão TLS, o corretor MQTT solicita um certificado de cliente. Este certificado é utilizado para verificar a identidade do cliente e, portanto, o `password` campo não é necessário mais tarde quando o pacote CONNECT é enviado. O envio de um certificado de cliente e do campo de palavra-passe levará a um erro e a ligação será encerrada. As bibliotecas MQTT e as bibliotecas de clientes TLS geralmente têm uma maneira de enviar um certificado de cliente ao iniciar uma ligação. Pode ver um exemplo passo a passo na secção [Usando o Certificado X509 para a autenticação do cliente.](how-to-authenticate-downstream-device.md#x509-self-signed-authentication)
 
 Os módulos implantados pelo IoT Edge utilizam [a autenticação de chaves simétricas](how-to-authenticate-downstream-device.md#symmetric-key-authentication) e podem chamar a API de [carga de trabalho de IoT Edge](https://github.com/Azure/iotedge/blob/40f10950dc65dd955e20f51f35d69dd4882e1618/edgelet/workload/README.md) local para obter programáticamente um token SAS mesmo quando offline.
 
@@ -92,12 +92,12 @@ Os módulos implantados pelo IoT Edge utilizam [a autenticação de chaves simé
 Uma vez que um cliente MQTT é autenticado no hub IoT Edge, ele precisa ser autorizado a ligar. Uma vez ligado, tem de ser autorizado a publicar ou subscrever tópicos específicos. Estas autorizações são concedidas pelo hub IoT Edge com base na sua política de autorização. A política de autorização é um conjunto de declarações expressas como uma estrutura JSON que é enviada para o hub IoT Edge através do seu gémeo. Editar um hub twin IoT Edge para configurar a sua política de autorização.
 
 > [!NOTE]
-> Para a pré-visualização pública, a edição das políticas de autorização do corretor MQTT só está disponível através do Visual Studio, Visual Studio Code ou Azure CLI. O portal Azure não suporta atualmente a edição do hub twin IoT Edge e a sua política de autorização.
+> Para a pré-visualização pública, a edição das políticas de autorização do corretor MQTT só está disponível através do Visual Studio, Visual Studio Code ou do Azure CLI. O portal Azure não suporta atualmente a edição do hub twin IoT Edge e a sua política de autorização.
 
-Cada declaração de política de autorização consiste na combinação `identities` de, `allow` ou `deny` efeito, `operations` e `resources` :
+Cada declaração de política de autorização consiste na combinação `identities` de, `allow` ou `deny` `operations` efeitos, e `resources` :
 
 - `identities` descrever o tema da política. Deve mapear para o `client identifier` enviado pelos clientes no seu pacote CONNECT.
-- `allow` ou `deny` efeito definir se permite ou nega operações.
+- `allow` ou `deny` os efeitos definem se permite ou nega operações.
 - `operations` definir as ações para autorizar. `mqtt:connect`, `mqtt:publish` e são as três `mqtt:subscribe` ações apoiadas hoje.
 - `resources` definir o objeto da política. Pode ser um tópico ou um padrão tópico definido com [wildcards MQTT.](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718107)
 
@@ -163,16 +163,18 @@ Abaixo está um exemplo de uma política de autorização que explicitamente nã
 ```
 
 Algumas coisas a ter em mente ao escrever a sua política de autorização:
+
 - Requer `$edgeHub` dois esquemas versão 1.2
 - Por defeito, todas as operações são negadas.
-- As declarações de autorização são avaliadas na ordem do que aparecem na definição JSON. Começa por olhar `identities` e, em seguida, selecione o primeiro permitir ou negar declarações que correspondam ao pedido. Em caso de conflitos entre permitir e negar declarações, a declaração de negação vence.
+- As declarações de autorização são avaliadas na ordem em que aparecem na definição JSON. Começa por olhar `identities` e, em seguida, selecione o primeiro permitir ou negar declarações que correspondam ao pedido. Em caso de conflitos entre permitir e negar declarações, a declaração de negação vence.
 - Várias variáveis (por exemplo, substituições) podem ser utilizadas na política de autorização:
-    - `{{iot:identity}}` representa a identidade do cliente atualmente ligado. Por `myDevice` exemplo, no caso de um dispositivo, `myEdgeDevice/SampleModule` no caso de um módulo.
-    - `{{iot:device_id}}` representa a identidade do dispositivo atualmente ligado. Por `myDevice` exemplo, no caso de um dispositivo, `myEdgeDevice` no caso de um módulo.
-    - `{{iot:module_id}}` representa a identidade do módulo atualmente ligado. Por exemplo, '' no caso de um dispositivo, `SampleModule` no caso de um módulo.
+    - `{{iot:identity}}` representa a identidade do cliente atualmente ligado. Por exemplo, uma identidade do dispositivo ou `myDevice` uma identidade de módulo como `myEdgeDevice/SampleModule` .
+    - `{{iot:device_id}}` representa a identidade do dispositivo atualmente ligado. Por exemplo, uma identidade do dispositivo ou `myDevice` a identidade do dispositivo onde um módulo está a funcionar como `myEdgeDevice` .
+    - `{{iot:module_id}}` representa a identidade do módulo atualmente ligado. Esta variável está em branco para dispositivos conectados, ou uma identidade de módulo como `SampleModule` .
     - `{{iot:this_device_id}}` representa a identidade do dispositivo IoT Edge que executa a política de autorização. Por exemplo, `myIoTEdgeDevice`.
 
-A autorização para tópicos de hub IoT é tratada de forma ligeiramente diferente dos tópicos definidos pelo utilizador. Aqui estão os pontos-chave a lembrar:
+As autorizações para tópicos de hub IoT são tratadas de forma ligeiramente diferente dos tópicos definidos pelo utilizador. Aqui estão os pontos-chave a lembrar:
+
 - Os dispositivos ou módulos Azure IoT precisam de uma regra de autorização explícita para se ligarem ao corretor MQTT do hub IoT Edge. Uma política de autorização de ligação por defeito é fornecida abaixo.
 - Os dispositivos ou módulos Azure IoT podem aceder aos seus próprios tópicos de hub IoT por padrão sem qualquer regra de autorização explícita. No entanto, as autorizações decorrem das relações entre pais e filhos neste caso e essas relações devem ser definidas. Os módulos IoT Edge são automaticamente definidos como crianças do seu dispositivo IoT Edge, mas os dispositivos precisam de ser explicitamente definidos como crianças do seu gateway IoT Edge.
 - Os dispositivos ou módulos Azure IoT podem aceder aos tópicos, incluindo tópicos do hub IoT, de outros dispositivos ou módulos que preveem que sejam definidas regras de autorização explícitas adequadas.
@@ -240,7 +242,7 @@ Crie dois dispositivos IoT no IoT Hub e obtenha as suas palavras-passe. Utilizan
     
        onde 3600 é a duração do token SAS em segundos (por exemplo, 3600 = 1 hora).
 
-3. Copie o token SAS que é o valor correspondente à tecla "sas" da saída. Aqui está um exemplo de saída do comando Azure CLI acima:
+3. Copie o token SAS, que é o valor correspondente à tecla "sas" da saída. Aqui está um exemplo de saída do comando Azure CLI acima:
 
     ```
     {
@@ -327,7 +329,7 @@ mosquitto_sub \
 
 onde `<edge_device_address>`  =  `localhost` neste exemplo desde que o cliente está a funcionar no mesmo dispositivo que o IoT Edge.
 
-Note que a porta 1883 (MQTT), por exemplo, sem TLS, é utilizada neste primeiro exemplo. Outro exemplo com a porta 8883 (MQTTS), por exemplo, com TLS ativado, é mostrado na secção seguinte.
+Note que a porta 1883 (MQTT), sem TLS, é utilizada neste primeiro exemplo. Outro exemplo com a porta 8883 (MQTTS), com TLS ativado, é mostrado na secção seguinte.
 
 O **sub_client** cliente MQTT já começou e está à espera de mensagens `test_topic` recebidas.
 
@@ -384,7 +386,7 @@ Para receber patches duplos, um cliente precisa subscrever o tópico especial Io
 
 ### <a name="receive-direct-methods"></a>Receber métodos diretos
 
-Receber um método direto é muito semelhante a receber gémeos completos com a adição de que o cliente precisa para confirmar que recebeu a chamada. Primeiro, o cliente subscreve o tópico especial do hub `$iothub/methods/POST/#` IoT. Em seguida, uma vez que um método direto é recebido sobre este tópico, o cliente precisa extrair o identificador de pedido `rid` do sub-tópico em que o método direto é recebido e finalmente publicar uma mensagem de confirmação sobre o tópico especial do hub IoT `$iothub/methods/res/200/<request_id>` .
+Receber um método direto é semelhante a receber gémeos completos com a adição de que o cliente precisa confirmar que recebeu a chamada. Em primeiro lugar, o cliente subscreve o tópico especial do hub `$iothub/methods/POST/#` IoT. Em seguida, uma vez que um método direto é recebido sobre este tópico, o cliente precisa extrair o identificador de pedido `rid` do sub-tópico em que o método direto é recebido e finalmente publicar uma mensagem de confirmação sobre o tópico especial do hub IoT `$iothub/methods/res/200/<request_id>` .
 
 ### <a name="send-direct-methods"></a>Enviar métodos diretos
 
@@ -439,6 +441,6 @@ Abaixo está um exemplo de uma configuração de ponte IoT Edge MQTT que republi
 Outras notas sobre a ponte MQTT do hub IoT Edge:
 - O protocolo MQTT será automaticamente utilizado como protocolo a montante quando o corretor MQTT for utilizado e que o IoT Edge é utilizado numa configuração aninhada, por exemplo, com um `parent_hostname` especificado. Para saber mais sobre os protocolos a montante, consulte [a comunicação cloud](iot-edge-runtime.md#cloud-communication). Para saber mais sobre configurações aninhadas, consulte [ligar um dispositivo IoT Edge a jusante a um gateway Azure IoT Edge](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Compreenda o hub IoT Edge](iot-edge-runtime.md#iot-edge-hub)

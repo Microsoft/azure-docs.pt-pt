@@ -3,12 +3,12 @@ title: Serviços Azure Lab dentro das equipas da Microsoft
 description: Fornece uma visão geral da utilização dos serviços do Azure Lab dentro das Equipas microsoft.
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 0c7defdb6f801a10c5fadfdca805381a31f39378
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f39613427ed174dfca80d4a48be9473ab7025e79
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047833"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433916"
 ---
 # <a name="azure-lab-services-within-microsoft-teams"></a>Serviços Azure Lab dentro das equipas da Microsoft
 
@@ -23,7 +23,7 @@ Este artigo descreve os benefícios da utilização dos Serviços Azure Lab dent
 
 A integração dos Serviços Azure Lab com as Equipas microsoft ajudará os educadores a criar um ambiente de sala de aula e fornecer ambientes de laboratório virtuais dentro da equipa(classe): 
 
-* Os educadores podem criar laboratórios de sala de aula para que os alunos possam aceder aos seus VMs de dentro das Equipas, sem sair das Equipas e ter de navegar até ao [site dos Serviços de Laboratório Azure.](https://labs.azure.com)
+* Os educadores podem criar laboratórios para que os alunos possam aceder aos seus VMs de dentro das Equipas, sem sair das Equipas e ter de navegar até ao site dos [Serviços de Laboratório Azure.](https://labs.azure.com)
 * Único Sign-on (SSO) de Equipas para Serviços de Laboratório Azure.
 * Os proprietários da Equipa e do Lab não precisam de manter as listas de classes em dois sistemas diferentes - A lista de utilizadores do laboratório é autopovoada da associação team e uma sincronização é realizada automaticamente a cada 24 horas. 
 * Após a publicação inicial do Modelo VM, a Capacidade de Laboratório (isto é, o número de VMs no laboratório) seria automaticamente ajustada com base na adição/eliminação dos utilizadores da associação team. 

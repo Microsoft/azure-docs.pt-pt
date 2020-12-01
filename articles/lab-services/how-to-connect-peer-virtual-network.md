@@ -3,12 +3,12 @@ title: Ligue-se a uma rede de pares nos Serviços Azure Lab [ Microsoft Docs
 description: Saiba como ligar a sua rede de laboratório a outra rede como um par. Por exemplo, ligue a sua organização/rede universitária no local com a rede virtual do Lab em Azure.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 169160005b27f6ab9575749e4a72a26d2df4000b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 99ea72f11c8f389a15171a1fe3b376646494903a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647992"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434248"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Ligue a rede do seu laboratório a uma rede virtual de pares nos Serviços Azure Lab
 
@@ -26,7 +26,7 @@ Poderá ter de ligar a rede do seu laboratório a uma rede virtual de pares em a
 Algumas redes no local estão ligadas à Rede Virtual Azure, através do [ExpressRoute](../expressroute/expressroute-introduction.md) ou [do Virtual Network Gateway.](../vpn-gateway/vpn-gateway-about-vpngateways.md) Estes serviços devem ser criados fora dos Serviços de Laboratório Azure. Para saber mais sobre a ligação de uma rede no local ao Azure utilizando o ExpressRoute, consulte a [visão geral do ExpressRoute](../expressroute/expressroute-introduction.md). Para a conectividade no local usando um Gateway de rede virtual, o gateway, rede virtual especificada, e a conta de laboratório devem estar todos na mesma região.
 
 > [!NOTE]
-> Ao criar uma Rede Virtual Azure que será espreitada com uma conta de laboratório, é importante entender como a região da rede virtual impacta onde os laboratórios de sala de aula são criados.  Para mais informações, consulte a secção do guia do administrador sobre [as regiões\localizações](./administrator-guide.md#regionslocations).
+> Ao criar uma Rede Virtual Azure que será espreitada com uma conta de laboratório, é importante entender como a região da rede virtual impacta onde os laboratórios são criados.  Para mais informações, consulte a secção do guia do administrador sobre [as regiões\localizações](./administrator-guide.md#regionslocations).
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Configurar no momento da criação de conta de laboratório
 
@@ -71,7 +71,7 @@ Aqui estão algumas restrições ao especificar o intervalo de endereços que de
 
     ![Gama de endereços configurar](./media/how-to-manage-lab-accounts/labs-configuration-page-address-range.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos:
 

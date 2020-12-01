@@ -1,17 +1,17 @@
 ---
 title: Azure Quickstart - Criar um centro de eventos utilizando o portal Azure
-description: Neste início rápido, irá aprender a criar um hub de eventos do Azure com o portal do Azure e, em seguida, enviar e receber eventos com o SDK .NET Standard.
+description: Neste arranque rápido, você aprende a criar um hub de eventos Azure usando o portal Azure.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 84cafcc86142cb9b97639c023971e7d290fc79fc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c1244317655815da91429585eff9ffbcc16662d4
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88927889"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435506"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Início Rápido: Criar um hub de eventos com o portal do Azure
-Os Hubs de Eventos do Azure são uma plataforma de fluxo de Macrodados e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).
+O Azure Event Hubs é uma plataforma de streaming big data e serviço de ingestão de eventos que pode receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).
 
 Neste início rápido, vai criar um hub de eventos com o [portal do Azure](https://portal.azure.com).
 
@@ -26,7 +26,7 @@ Para concluir este início rápido, certifique-se de que tem:
 Um grupo de recursos é uma coleção lógica de recursos do Azure. Todos os recursos são implementados e geridos num grupo de recursos. Para criar um grupo de recursos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Na navegação à esquerda, clique em **Grupos de recursos**. Em seguida, clique em **Adicionar**.
+1. Na navegação à esquerda, selecione **grupos de recursos.** Em seguida, selecione **Adicionar**.
 
    ![Grupos de recursos - Botão Adicionar](./media/event-hubs-quickstart-portal/resource-groups1.png)
 
@@ -40,9 +40,9 @@ Um grupo de recursos é uma coleção lógica de recursos do Azure. Todos os rec
 
 ## <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos
 
-Um espaço de nomes dos Hubs de Eventos fornece um contentor de âmbito exclusivo, referenciado pelo respetivo nome de domínio completamente qualificado, no qual cria um ou mais hubs de eventos. Para criar um espaço de nomes no seu grupo de recursos com o portal, faça as ações seguintes:
+Um espaço de nomes do Event Hubs fornece um recipiente de scoping único, no qual você cria um ou mais centros de eventos. Para criar um espaço de nomes no seu grupo de recursos com o portal, faça as ações seguintes:
 
-1. No portal do Azure, clique em **Criar um recurso** na parte superior esquerda do ecrã.
+1. No portal do Azure, selecione **Criar um recurso** na parte superior esquerda do ecrã.
 1. Selecione **todos os serviços** no menu esquerdo e selecione **star `*` ()** ao lado **de Event Hubs** na categoria **Analytics.** Confirme que **os Hubs de Evento são adicionados** aos **FAVORITOS** no menu de navegação à esquerda. 
     
    ![Pesquisa rumo aos Centros de Eventos](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
@@ -53,9 +53,9 @@ Um espaço de nomes dos Hubs de Eventos fornece um contentor de âmbito exclusiv
    1. Selecione a **subscrição** na qual pretende criar o espaço de nomes.  
    1. Selecione o **grupo de recursos** que criou no passo anterior.   
    1. Insira um **nome** para o espaço de nomes. O sistema verifica imediatamente a disponibilidade do nome.  
-   1. Selecione um **local** para o espaço de nomes.      
-   1. Escolha o **nível de preços** (Básico ou Standard).    
-   1. Deixe as definições das unidades de **produção** como estão. Para conhecer as unidades de produção, consulte [a escalabilidade do Event Hubs](event-hubs-scalability.md#throughput-units).  
+   1. Selecione um **local** para o espaço de nomes.
+   1. Escolha o **nível de preços** (Básico ou Standard). Para conhecer algumas das diferenças entre os níveis básicos e padrão, consulte [os preços dos Event Hubs,](https://azure.microsoft.com/pricing/details/event-hubs/) [diferenças entre níveis](event-hubs-faq.md#what-is-the-difference-between-event-hubs-basic-and-standard-tiers)e [quotas e limites.](event-hubs-quotas.md) 
+   1. Deixe as definições das unidades de **produção** como estão. As unidades de débito são unidades de capacidade previamente compradas. Para conhecer as unidades de produção, consulte [a escalabilidade do Event Hubs](event-hubs-scalability.md#throughput-units).  
    1. Selecione **'Rever + Criar** na parte inferior da página'.
       
       ![Crie um espaço de nomes do Hub de Eventos](./media/event-hubs-quickstart-portal/create-event-hub1.png)
@@ -78,19 +78,23 @@ Um espaço de nomes dos Hubs de Eventos fornece um contentor de âmbito exclusiv
 Para criar um hub de eventos no espaço de nomes, faça as ações seguintes:
 
 1. Na página De Evento Hubs Namespace, selecione **'Centros de Eventos'** no menu esquerdo.
-1. Na parte superior da janela, clique em **+ Hub de Eventos**.
+1. Na parte superior da janela, selecione **+ Centro de Eventos.**
    
     ![Adicionar Hub de Eventos - botão](./media/event-hubs-quickstart-portal/create-event-hub4.png)
-1. Escreva um nome para o seu hub de eventos e, em seguida, clique em **Criar**.
+1. Digite um nome para o seu centro de eventos e, em seguida, **selecione Criar**.
    
     ![Criar hub de eventos](./media/event-hubs-quickstart-portal/create-event-hub5.png)
-1. Pode verificar o estado da criação do centro de eventos em alertas. Após a criação do centro de eventos, vê-o na lista de centros de eventos, como mostrado na seguinte imagem:
+
+    A **definição de contagem de divisórias** permite-lhe paralelizar o consumo entre muitos consumidores. Para mais informações, consulte [As Divisórias.](event-hubs-scalability.md#partitions)
+
+    A **definição de retenção de mensagens** especifica quanto tempo o serviço 'Centros de Eventos' mantém os dados. Para os limites máximos para esta definição, consulte [quotas e limites](event-hubs-quotas.md).
+1. Pode verificar o estado da criação do centro de eventos em alertas. Depois de o centro de eventos ser criado, vê-lo na lista de centros de eventos.
 
     ![Centro de eventos criado](./media/event-hubs-quickstart-portal/event-hub-created.png)
-
+    
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, criou um grupo de recursos, um espaço de nomes de Hubs de Eventos e um hub de eventos. Para instruções passo a passo para enviar eventos para (ou) receber eventos de um centro de eventos, consulte os tutoriais **de Envio e receber eventos:** 
+Neste artigo, criou um grupo de recursos, um espaço de nomes de Hubs de Eventos e um hub de eventos. Para instruções passo a passo para enviar eventos para (ou) receber eventos de um centro de eventos, consulte estes tutoriais: 
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [Java](event-hubs-java-get-started-send.md)

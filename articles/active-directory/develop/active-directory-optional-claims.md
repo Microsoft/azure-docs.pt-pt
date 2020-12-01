@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/30/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 7eedb9ce30be236e8d47152f0e114b7bc5ae2304
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e71ab0293dade56c14dce7318fc96021a040b102
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348097"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433304"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: Fornecer reclamações opcionais à sua app
 

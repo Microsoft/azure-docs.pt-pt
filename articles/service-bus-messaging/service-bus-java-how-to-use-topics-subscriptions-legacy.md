@@ -5,12 +5,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: ff52e4c8056d25f2577d077ca0499236a78adc02
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5005bcad6a11d31dde8ce44556af2c3db30a6a5f
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95909463"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432990"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Quickstart: Use tópicos e subscrições de Service Bus com a Java
 Neste quickstart, você escreve código Java para enviar mensagens para um tópico Azure Service Bus e, em seguida, receber mensagens de subscrições para esse tópico. 
@@ -119,62 +119,69 @@ Os tópicos do Service Bus suportam um tamanho da mensagem máximo de 256 KB no
 Atualize o método **principal** para criar três objetos **SubscriptionClient** para três subscrições e invoque um método de ajuda que recebe assincroticamente mensagens do tópico Service Bus. O código de amostra assume que criou um tópico chamado **BasicTopic** e três subscrições **denominada Subscrição1**, **Subscrição2** e **Subscrição3**. Se utilizou nomes diferentes para eles, atualize o código antes de o testar. 
 
 ```java
-public class MyServiceBusTopicClient {
+import com.microsoft.azure.servicebus.*;
+import com.microsoft.azure.servicebus.primitives.ConnectionStringBuilder;
+import com.microsoft.azure.servicebus.primitives.ServiceBusException;
+import com.google.gson.Gson;
+import static java.nio.charset.StandardCharsets.*;
+import java.time.Duration;
+import java.util.*;
+import java.util.concurrent.*;
 
+public class MyServiceBusSubscriptionClient {
     static final Gson GSON = new Gson();
     
     public static void main(String[] args) throws Exception, ServiceBusException {
+        String connectionString = "Endpoint=sb://<NameOfServiceBusNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<AccessKey>";
+        
         SubscriptionClient subscription1Client = new SubscriptionClient(new ConnectionStringBuilder(connectionString, "BasicTopic/subscriptions/Subscription1"), ReceiveMode.PEEKLOCK);
         SubscriptionClient subscription2Client = new SubscriptionClient(new ConnectionStringBuilder(connectionString, "BasicTopic/subscriptions/Subscription2"), ReceiveMode.PEEKLOCK);
         SubscriptionClient subscription3Client = new SubscriptionClient(new ConnectionStringBuilder(connectionString, "BasicTopic/subscriptions/Subscription3"), ReceiveMode.PEEKLOCK);        
 
-        registerMessageHandlerOnClient(subscription1Client);
-        registerMessageHandlerOnClient(subscription2Client);
-        registerMessageHandlerOnClient(subscription3Client);
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        registerMessageHandlerOnClient(subscription1Client, executorService);
+        registerMessageHandlerOnClient(subscription2Client, executorService);
+        registerMessageHandlerOnClient(subscription3Client, executorService);
     }
     
-    static void registerMessageHandlerOnClient(SubscriptionClient receiveClient) throws Exception {
-
+    static void registerMessageHandlerOnClient(SubscriptionClient receiveClient, ExecutorService executorService) throws Exception {
         // register the RegisterMessageHandler callback
-        IMessageHandler messageHandler = new IMessageHandler() {
-            // callback invoked when the message handler loop has obtained a message
-            public CompletableFuture<Void> onMessageAsync(IMessage message) {
-                // receives message is passed to callback
-                if (message.getLabel() != null &&
-                        message.getContentType() != null &&
-                        message.getLabel().contentEquals("Scientist") &&
-                        message.getContentType().contentEquals("application/json")) {
-
-                    byte[] body = message.getBody();
-                    Map scientist = GSON.fromJson(new String(body, UTF_8), Map.class);
-
-                    System.out.printf(
-                            "\n\t\t\t\t%s Message received: \n\t\t\t\t\t\tMessageId = %s, \n\t\t\t\t\t\tSequenceNumber = %s, \n\t\t\t\t\t\tEnqueuedTimeUtc = %s," +
-                                    "\n\t\t\t\t\t\tExpiresAtUtc = %s, \n\t\t\t\t\t\tContentType = \"%s\",  \n\t\t\t\t\t\tContent: [ firstName = %s, name = %s ]\n",
-                            receiveClient.getEntityPath(),
-                            message.getMessageId(),
-                            message.getSequenceNumber(),
-                            message.getEnqueuedTimeUtc(),
-                            message.getExpiresAtUtc(),
-                            message.getContentType(),
-                            scientist != null ? scientist.get("firstName") : "",
-                            scientist != null ? scientist.get("name") : "");
-                }
-                return receiveClient.completeAsync(message.getLockToken());
-            }
-            
-            public void notifyException(Throwable throwable, ExceptionPhase exceptionPhase) {
-                System.out.printf(exceptionPhase + "-" + throwable.getMessage());
-            }
-        };
-
- 
         receiveClient.registerMessageHandler(
-                    messageHandler,
-                    // callback invoked when the message handler has an exception to report
-                // 1 concurrent call, messages aren't auto-completed, auto-renew duration
-                new MessageHandlerOptions(1, false, Duration.ofMinutes(1)));
+                new IMessageHandler() {
+                    // callback invoked when the message handler loop has obtained a message
+                    public CompletableFuture<Void> onMessageAsync(IMessage message) {
+                        // receives message is passed to callback
+                        if (message.getLabel() != null &&
+                                message.getContentType() != null &&
+                                message.getLabel().contentEquals("Scientist") &&
+                                message.getContentType().contentEquals("application/json")) {
 
+                            byte[] body = message.getBody();
+                            Map scientist = GSON.fromJson(new String(body, UTF_8), Map.class);
+
+                            System.out.printf(
+                                    "\n\t\t\t\t%s Message received: \n\t\t\t\t\t\tMessageId = %s, \n\t\t\t\t\t\tSequenceNumber = %s, \n\t\t\t\t\t\tEnqueuedTimeUtc = %s," +
+                                            "\n\t\t\t\t\t\tExpiresAtUtc = %s, \n\t\t\t\t\t\tContentType = \"%s\",  \n\t\t\t\t\t\tContent: [ firstName = %s, name = %s ]\n",
+                                    receiveClient.getEntityPath(),
+                                    message.getMessageId(),
+                                    message.getSequenceNumber(),
+                                    message.getEnqueuedTimeUtc(),
+                                    message.getExpiresAtUtc(),
+                                    message.getContentType(),
+                                    scientist != null ? scientist.get("firstName") : "",
+                                    scientist != null ? scientist.get("name") : "");
+                        }
+                        return receiveClient.completeAsync(message.getLockToken());
+                    }
+
+                    // callback invoked when the message handler has an exception to report
+                    public void notifyException(Throwable throwable, ExceptionPhase exceptionPhase) {
+                        System.out.printf(exceptionPhase + "-" + throwable.getMessage());
+                    }
+                },
+                // 1 concurrent call, messages are auto-completed, auto-renew duration
+                new MessageHandlerOptions(1, false, Duration.ofMinutes(1)),
+                executorService);
     }
 }
 ```

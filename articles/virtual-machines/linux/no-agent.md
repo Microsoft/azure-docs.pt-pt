@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 30e76ec3085922ec2a1d4693681eb97c9052c026
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9f0309f4e8273c2ef19ea86636de8e3aa6b6c4bc
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978735"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435105"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Criação de imagens generalizadas sem um agente de provisionamento
 
@@ -199,7 +199,7 @@ WantedBy=multi-user.target
 Este serviço sistemado faz três coisas para o fornecimento básico:
 
 1. Relatórios prontos para Azure (para indicar que surgiu com sucesso).
-1. Rebatiza o VM com base no nome VM fornecido pelo utilizador, retirando estes dados do [Azure Instance Medata Service (IMDS)](./instance-metadata-service.md). **Nota** O IMDS também fornece outros [metadados de exemplo,](./instance-metadata-service.md#accessing-azure-instance-metadata-service)como as Chaves Públicas SSH, para que possa definir mais do que o nome de anfitrião.
+1. Rebatiza o VM com base no nome VM fornecido pelo utilizador, retirando estes dados do [Azure Instance Medata Service (IMDS)](./instance-metadata-service.md). **Nota** O IMDS também fornece outros [metadados de exemplo,](./instance-metadata-service.md#access-azure-instance-metadata-service)como as Chaves Públicas SSH, para que possa definir mais do que o nome de anfitrião.
 1. Desativa-se por si só para que corra apenas na primeira bota e não em reboots subsequentes.
 
 Com a unidade no sistema de ficheiros, execute o seguinte para o ativar:

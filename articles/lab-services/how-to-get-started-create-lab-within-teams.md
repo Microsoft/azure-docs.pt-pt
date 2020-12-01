@@ -3,12 +3,12 @@ title: Começar e criar um laboratório de Azure Lab Services dentro de equipas
 description: Aprenda a começar e crie um laboratório de Azure Lab Services dentro das equipas.
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: e17b0be223a1630402fc4f32c692d7ecfe184783
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: cc4ad604bdf250cc6e4ba2c50c2f7143c921e906
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217087"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433976"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>Começar e criar um laboratório de serviços de laboratório dentro de equipas
 
@@ -40,18 +40,18 @@ Você, como dono de uma equipa, pode adicionar a aplicação **Azure Lab Service
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/integrate-with-teams/add.png" alt-text="Adicione um separador":::
-1. Selecione uma conta lab services, que você gostaria de usar para criar laboratórios de sala de aula nesta equipa. 
+1. Selecione uma conta lab services, que você gostaria de usar para criar laboratórios nesta equipa. 
 
     A Azure Lab Services usa um único sinal no site da [Azure Lab Services](https://labs.azure.com) e puxa todas as contas de laboratório a que tem acesso. 
 
-    São apresentadas as contas que estão no mesmo arrendatário que as Equipas e para as quais tem **o Proprietário,** **Colaborador**ou **Creator.** 
+    São apresentadas as contas que estão no mesmo arrendatário que as Equipas e para as quais tem **o Proprietário,** **Colaborador** ou **Creator.** 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Adicione um separador":::
+    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Bem-vindo à ALS":::
 1. Pressione **Save** e a aba é adicionada ao canal.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="Adicione um separador":::
+    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="Criei o separador ALS":::
 
     Agora pode selecionar o separador **Azure Lab Services** a partir do seu canal e começar a gerir laboratórios como descrito nos seguintes artigos.
 

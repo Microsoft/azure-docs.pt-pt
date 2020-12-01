@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: d2db8eb5b93d84a5ece182fffbca5870762ee89e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e4f002d038820edf128e3fefb229a0918a8ac55
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84703932"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433511"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Adicionar ou remover uma delegação de sub-redes
 
@@ -33,7 +33,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 Nesta secção, cria-se uma rede virtual e a sub-rede que mais tarde irá delegar num serviço Azure.
 
-1. No lado superior esquerdo do ecrã, **selecione Criar uma**rede virtual  >  **de rede de rede de**recursos  >  **Virtual network**.
+1. No lado superior esquerdo do ecrã, **selecione Criar uma** rede virtual  >  **de rede de rede de** recursos  >  **Virtual network**.
 1. Na **Criar rede virtual,** insira ou selecione esta informação:
 
     | Definição | Valor |
@@ -41,7 +41,7 @@ Nesta secção, cria-se uma rede virtual e a sub-rede que mais tarde irá delega
     | Nome | Insira *a MyVirtualNetwork*. |
     | Espaço de endereços | Insira *10.0.0.0/16*. |
     | Subscrição | Selecione a sua subscrição.|
-    | Grupo de recursos | **Selecione Criar novo,** insira *o myResourceGroup*e, em seguida, selecione **OK**. |
+    | Grupo de recursos | **Selecione Criar novo,** insira *o myResourceGroup* e, em seguida, selecione **OK**. |
     | Localização | **Selecione Eastus**.|
     | Sub-rede - Nome | Insira *o mySubnet.* |
     | Sub-rede - Intervalo de endereços | Insira *10.0.0.0/24*. |
@@ -60,21 +60,23 @@ Nesta secção, delega a sub-rede que criou na secção anterior a um serviço A
 
 1. Na barra de pesquisa do portal, *insira a myVirtualNetwork*. Quando **myVirtualNetwork** aparecer nos resultados da pesquisa, selecione-a.
 2. Nos resultados da pesquisa, selecione *myVirtualNetwork*.
-3. Selecione **sub-redes**, em **DEFINIÇÕES**e, em seguida, selecione **mySubnet**.
+3. Selecione **sub-redes**, em **DEFINIÇÕES** e, em seguida, selecione **mySubnet**.
 4. Na página *mySubnet,* para a lista de delegações da **Sub-rede,** selecione dos serviços listados na **sub-rede Delegado para um serviço** (por exemplo, **Microsoft.DBforPostgreSQL/serversv2).**  
 
 ### <a name="remove-subnet-delegation-from-an-azure-service"></a>Remover a delegação de sub-redes de um serviço Azure
 
 1. Na barra de pesquisa do portal, *insira a myVirtualNetwork*. Quando **myVirtualNetwork** aparecer nos resultados da pesquisa, selecione-a.
 2. Nos resultados da pesquisa, selecione *myVirtualNetwork*.
-3. Selecione **sub-redes**, em **DEFINIÇÕES**e, em seguida, selecione **mySubnet**.
+3. Selecione **sub-redes**, em **DEFINIÇÕES** e, em seguida, selecione **mySubnet**.
 4. Na página *mySubnet,* para a lista de delegações da **Sub-rede,** selecione **Nenhum** dos serviços listados na **sub-rede delegado para um serviço**. 
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Prepare o seu ambiente para o Azure CLI.
 
-Se decidir instalar e utilizar o Azure CLI localmente, este artigo requer que utilize a versão 2.0.28 ou posterior do Azure CLI. Para encontrar a sua versão instalada, corra `az --version` . Consulte [o Azure CLI](/cli/azure/install-azure-cli) para obter informações de instalação ou atualização.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Este artigo requer a versão 2.0.28 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 Crie um grupo de recursos com [az group create](https://docs.microsoft.com/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.

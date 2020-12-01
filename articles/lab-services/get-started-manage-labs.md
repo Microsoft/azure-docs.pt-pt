@@ -3,12 +3,12 @@ title: Começar com os Serviços de Laboratório Azure
 description: Este artigo descreve como começar com os Serviços Azure Lab.
 ms.topic: article
 ms.date: 11/18/2020
-ms.openlocfilehash: bdc4f4af06d70a1798e7409b78f6b47530ddd7f4
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 6fb0da7f91e0eecdeefecdb6635b657245fda9af
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917108"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434435"
 ---
 # <a name="get-started-with-lab-services"></a>Começar com os Serviços de Laboratório 
 
@@ -48,7 +48,7 @@ A coisa mais importante a lembrar na gestão dos VMs é que sempre que uma máqu
 
 ### <a name="overview"></a>Descrição geral
 
-Os dashboards para laboratórios de sala de aula em Azure Lab Services fornecem uma imagem de diferentes aspetos de um determinado laboratório, incluindo informações VM, número de VMs atribuídos e não atribuídos, número de utilizadores registados e não registados e informações sobre horários de laboratório. 
+Os dashboards para laboratórios em Azure Lab Services fornecem uma imagem instantânea de diferentes aspetos de um determinado laboratório, incluindo informações VM, número de VMs atribuídos e não atribuídos, número de utilizadores registados e não registados e informações sobre horários de laboratório. 
 
 > [!NOTE]
 > Embora a maioria dos aspetos administrativos do dashboard e do [website Azure Lab Services](https://labs.azure.com/) sejam visíveis para os professores, permissões específicas ao seu papel podem afetar a sua capacidade de modificar determinados critérios no painel de instrumentos. Se encontrar algum problema com a sua configuração de laboratório em particular, contacte o administrador do CTE.

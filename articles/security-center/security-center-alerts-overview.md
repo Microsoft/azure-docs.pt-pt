@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: 033f06aa61baf04b5c74fbbe9cc8f925d5d4e3d3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c1406e6a1f2f36c5d42544c52ade3f991fe2ba0a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182313"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433024"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança no Centro de Segurança do Azure
 
@@ -91,11 +91,11 @@ Tem um leque de opções para visualizar os seus alertas fora do Centro de Segur
 
 - **O relatório CSV** sobre o painel de alertas fornece uma exportação única para o CSV.
 - **A exportação contínua** de definições de preços & permite-lhe configurar fluxos de alertas de segurança e recomendações para log analytics workspaces e Centros de Eventos. [Saiba mais sobre a exportação contínua](continuous-export.md)
-- **O conector Azure Sentinel** transmite alertas do Azure Defender do Azure Security Center para o Azure Sentinel. [Saiba mais sobre a ligação do Centro de Segurança Azure com o Sentinel](../sentinel/connect-azure-security-center.md)
+- **O conector Azure Sentinel** transmite alertas de segurança do Centro de Segurança Azure para o Azure Sentinel. [Saiba mais sobre a ligação do Centro de Segurança Azure com o Sentinel](../sentinel/connect-azure-security-center.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu sobre os diferentes tipos de alertas disponíveis no Centro de Segurança. Para obter mais informações, veja:
+Neste artigo, você aprendeu sobre os diferentes tipos de alertas disponíveis no Centro de Segurança. Para obter mais informações, consulte:
 
 - **Alertas de segurança no Registo de Atividades do Azure** - Além de estarem disponíveis no portal Azure ou programáticamente, os alertas de segurança e incidentes são auditados como eventos no [Diário de Atividades do Azure.](../azure-monitor/platform/activity-log.md#view-the-activity-log) Para obter mais informações sobre o esquema do evento, consulte [alertas de segurança no registo de atividades do Azure](https://go.microsoft.com/fwlink/?linkid=2114113)

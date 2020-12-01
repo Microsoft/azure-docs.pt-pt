@@ -1,14 +1,14 @@
 ---
 title: Definir palavras-passe para VMs nos Serviços de Laboratório Azure Microsoft Docs
-description: Saiba como definir e redefinir palavras-passe para máquinas virtuais (VMs) em laboratórios de sala de aula dos Serviços Azure Lab.
+description: Saiba como definir e redefinir palavras-passe para máquinas virtuais (VMs) em laboratórios da Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e24fee26670a664012ec5f0216b0638d6149453f
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 6ae577ee4c0c7e31760e0fb12afeaeac1ef8b7e2
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379694"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434231"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurar e gerir o conjunto de máquinas virtuais 
 Este artigo mostra-lhe como fazer as seguintes tarefas:
@@ -102,4 +102,4 @@ O criador do laboratório (educador) pode ligar-se a um aluno VM se estiverem re
 ## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre outras opções de utilização do aluno que você (como proprietário de laboratório) pode configurar, consulte o seguinte artigo: [Configurar](how-to-configure-student-usage.md)o uso do aluno .
 
-Para saber como os alunos podem redefinir palavras-passe para os seus VMs, consulte [set ou redefinir a palavra-passe para máquinas virtuais em laboratórios de sala de aula (alunos)](how-to-set-virtual-machine-passwords-student.md).
+Para saber como os alunos podem redefinir palavras-passe para os seus VMs, consulte [set ou redefinir a palavra-passe para máquinas virtuais em laboratórios (estudantes)](how-to-set-virtual-machine-passwords-student.md).

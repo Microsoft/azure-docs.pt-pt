@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7641c1e3bc3620b294c2953b993e9179a4875536
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 65b8c21251f092311150a50480f5abecb1ad7c17
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951813"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434571"
 ---
 # <a name="azure-managed-applications-overview"></a>Descrição geral das aplicações geridas do Azure
 
@@ -49,7 +49,7 @@ Para obter informações sobre como publicar uma aplicação gerida do Catálogo
 
 Os fornecedores que pretendam faturar os serviços que oferecem podem disponibilizar uma aplicação gerida através do Azure Marketplace. Depois de o fornecedor publicar uma aplicação, a mesma fica disponível para os utilizadores externos à organização. Com esta abordagem, os fornecedores de serviços geridos (MSP), os fornecedores de software independentes (ISVs) e os integradores de sistemas (SIs) podem oferecer as respetivas soluções a todos os clientes do Azure.
 
-Para obter informações sobre a publicação de aplicações geridas no Marketplace, veja [Criar aplicação do Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
+Para obter informações sobre a publicação de aplicações geridas no Marketplace, veja [Criar aplicação do Marketplace](../../marketplace/create-new-azure-apps-offer.md).
 
 ## <a name="resource-groups-for-managed-applications"></a>Grupos de recursos para aplicações geridas
 
@@ -71,7 +71,7 @@ O consumidor tem acesso total ao grupo de recursos e utiliza-o para gerir o cicl
 
 Este grupo de recursos contém todos os recursos de que a aplicação gerida precisa. Por exemplo, este grupo de recursos contém as máquinas virtuais, as contas de armazenamento e as redes virtuais da solução. O consumidor tem acesso limitado a este grupo de recursos porque não gere os recursos individuais da aplicação gerida. O acesso do editor a este grupo de recursos corresponde à função especificada na definição da aplicação gerida. Por exemplo, o editor pode pedir a função Proprietário ou Contribuidor para este grupo de recursos. O acesso é permanente ou limitado a um tempo específico.
 
-Ao publicar a [aplicação gerida no mercado,](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)a editora pode conceder aos consumidores a capacidade de realizarem ações específicas sobre recursos no grupo de recursos geridos. Por exemplo, o editor pode especificar que os consumidores podem reiniciar máquinas virtuais. Todas as outras ações para além da leitura ainda são negadas. As alterações aos recursos de um grupo de recursos geridos por um consumidor com ações concedidas estão sujeitas às atribuições [da Política Azure](../../governance/policy/overview.md) no âmbito do arrendatário dos consumidores, a incluir o grupo de recursos geridos.
+Ao publicar a [aplicação gerida no mercado,](../../marketplace/create-new-azure-apps-offer.md)a editora pode conceder aos consumidores a capacidade de realizarem ações específicas sobre recursos no grupo de recursos geridos. Por exemplo, o editor pode especificar que os consumidores podem reiniciar máquinas virtuais. Todas as outras ações para além da leitura ainda são negadas. As alterações aos recursos de um grupo de recursos geridos por um consumidor com ações concedidas estão sujeitas às atribuições [da Política Azure](../../governance/policy/overview.md) no âmbito do arrendatário dos consumidores, a incluir o grupo de recursos geridos.
 
 Quando o consumidor elimina a aplicação gerida, o grupo de recursos gerido também é eliminado.
 

@@ -3,12 +3,12 @@ title: Use serviços de laboratório Azure para hackathon
 description: Este artigo descreve como usar os Serviços Azure Lab para criar laboratórios que pode usar para executar hackathons.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8727fad6f37d1365983127a1a514e87e3a5003b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 561351636a37c2cd5c3070dbfef2a3122e5c29b0
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445887"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434265"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>Use os serviços de laboratório da Azure para o seu próximo hackathon
 O Azure Lab Services foi concebido para ser leve e fácil de usar para que possa rapidamente girar um novo laboratório de máquinas virtuais (VMs) para o seu hackathon.  Utilize a seguinte lista de verificação para garantir que o seu hackathon corra o mais suavemente possível. Esta lista de verificação deve ser completada pelo seu departamento de TI ou pelo seu corpo docente responsável pela criação e gestão do seu laboratório de hackathon. 
@@ -86,4 +86,4 @@ Esta secção descreve os passos para completar o dia do seu hackathon.
         Para mais informações, consulte [o guia sobre o envio de convites aos utilizadores](how-to-configure-student-usage.md?branch=master#send-invitations-to-users) e a [ligação aos VMs do Linux.](how-to-use-remote-desktop-linux-student.md?branch=master) 
 
 ## <a name="next-steps"></a>Passos seguintes
-Comece por criar uma conta de laboratório em Classroom Labs seguindo as instruções do artigo: [Tutorial: Configurar uma conta de laboratório com os Serviços Azure Lab](tutorial-setup-lab-account.md).
+Comece por criar uma conta de laboratório em laboratório seguindo as instruções do artigo: [Tutorial: Configurar uma conta de laboratório com os Serviços Azure Lab](tutorial-setup-lab-account.md).

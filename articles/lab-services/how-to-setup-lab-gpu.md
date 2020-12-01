@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 3cbca82ba88baf5ddda2a6d7a6cdd35b62f28b8e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 264d103cd5f1459a6d29a35a1ecefc595285587a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647941"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433993"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Criar um laboratório com máquinas virtuais gpu
 
@@ -112,9 +112,9 @@ Esta secção descreve como validar que os seus controladores de GPU estão corr
 #### <a name="linux-images"></a>Imagens linux
 Siga as instruções na secção "Verificar a instalação do controlador" dos [controladores da Instalação NVIDIA GPU em VMs da série N que executam o Linux](../virtual-machines/linux/n-series-driver-setup.md#verify-driver-installation).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
-- [Criar e gerir laboratórios de sala de aula](how-to-manage-classroom-labs.md)
+- [Criar e gerir laboratórios](how-to-manage-classroom-labs.md)
 - [Tipo de classe assistido por computador SOLIDWORKS (CAD)](class-type-solidworks.md)
 - [Tipo de classe MATLAB (laboratório de matriz)](class-type-matlab.md)

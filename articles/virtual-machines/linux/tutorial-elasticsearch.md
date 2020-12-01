@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 48fc9f7e021ba5158182344ddfdba3c8eafaf781
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 54ef051b7d8778e2eecd85bef2e57b62239ba114
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659221"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435319"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Instalar a Pilha Elástica numa VM do Azure
 
@@ -35,9 +35,9 @@ Neste tutorial, ficará a saber como:
 
  Esta implementação é adequada para o desenvolvimento básico com a Pilha Elástica. Para obter mais informações sobre a Pilha Elástica, incluindo as recomendações para um ambiente de produção, veja a [Documentação elástica](https://www.elastic.co/guide/index.html) e o [Centro de Arquitetura do Azure](/azure/architecture/elasticsearch/).
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli). 
+- Este artigo requer a versão 2.0.4 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -234,7 +234,7 @@ Selecione **Detetar** na consola do Kibana para pesquisar, procurar e filtrar no
 
 ![Procurar eventos do Syslog no Kibana](media/elasticsearch-install/kibana-search-filter.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, implementou a Pilha Elástica numa VM de desenvolvimento no Azure. Aprendeu a:
 

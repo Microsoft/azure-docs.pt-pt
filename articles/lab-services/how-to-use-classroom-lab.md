@@ -3,12 +3,12 @@ title: Como aceder a um laboratório de sala de aula no Azure Lab Services | Mic
 description: Aprenda a registar-se num laboratório de sala de aula, veja todos os laboratórios a que pode aceder, inicie/pare um VM no laboratório e ligue-se ao VM.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 0c2f0ba5e6a47e00f47a31e08c036ea17ff2507a
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 6d5585082473a363df5f25f331475536544ae828
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946115"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433143"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Como aceder a um laboratório de sala de aula no Azure Lab Services
 Este artigo descreve como se registar num laboratório de sala de aula, ver todos os laboratórios a que pode aceder, iniciar/parar um VM no laboratório e ligar-se ao VM. 
@@ -70,8 +70,8 @@ A barra de progresso no azulejo mostra o número de horas usadas contra o númer
     ![Barra de progresso na cor azul](./media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png)
 
 
-## <a name="view-all-the-classroom-labs"></a>Ver todos os laboratórios de sala de aula
-Depois de se registar nos laboratórios, pode ver todos os laboratórios de sala de aula, tomando os seguintes passos: 
+## <a name="view-all-the-labs"></a>Ver todos os laboratórios
+Depois de se registar nos laboratórios, pode ver todos os laboratórios tomando os seguintes passos: 
 
 1. Navegue para [https://labs.azure.com](https://labs.azure.com) . O Internet Explorer 11 ainda não está suportado. 
 2. Inscreva-se no serviço utilizando a conta de utilizador que usou para se registar no laboratório. 
@@ -80,7 +80,7 @@ Depois de se registar nos laboratórios, pode ver todos os laboratórios de sala
     ![Ver todos os laboratórios](./media/how-to-manage-classroom-labs/all-labs.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 - [Como administrador, crie e gere contas de laboratório](how-to-manage-lab-accounts.md)

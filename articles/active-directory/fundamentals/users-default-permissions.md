@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 019501eef0857c9dc7cd7f63a656eccf61608f1b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 29580564ffa2fed579065e6a8551a6f44597e41a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367827"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433262"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quais são as permissões de utilizador predefinidas no Azure Ative Directory?
 No Azure Active Directory (Azure AD), é concedido a todos os utilizadores um conjunto de permissões predefinidas. O acesso de um utilizador consiste no tipo de utilizador, nas suas [atribuições de papel](active-directory-users-assign-role-azure-portal.md)e na sua propriedade de objetos individuais. Este artigo descreve essas permissões predefinidas e contém uma comparação entre as predefinições do utilizador membro e convidado. As permissões do utilizador predefinidas só podem ser alteradas nas definições do utilizador em Azure AD.
@@ -63,7 +63,7 @@ As permissões por predefinição para utilizadores convidados podem ser restrin
 
 Permissão | Explicação da definição
 ---------- | ------------
-Restrições de acesso ao utilizador dos hóspedes (Pré-visualização) | Definir esta opção para **os utilizadores do Guest tem o mesmo acesso que os membros** concedem todas as permissões do utilizador membro aos utilizadores convidados por padrão.<p>Definir esta opção para **o acesso do utilizador do Hóspede está restrito a propriedades e membros dos seus próprios objetos de diretório** restringem o acesso do hóspede apenas ao seu próprio perfil de utilizador por padrão. O acesso a outros utilizadores já não é permitido mesmo quando pesquisa por Nome Principal do Utilizador, ObjectId ou Nome de Exibição. O acesso a informações de grupos, incluindo membros de grupos, também já não é permitido.<p>**Nota:** Esta definição não impede o acesso a grupos unidos em alguns serviços da Microsoft 365, como o Microsoft Teams. Consulte [o acesso do Microsoft Teams Guest]() para saber mais.<p>Os utilizadores convidados ainda podem ser adicionados às funções de administrador, independentemente destas definições de permissão.
+Restrições de acesso ao utilizador dos hóspedes (Pré-visualização) | Definir esta opção para **os utilizadores do Guest tem o mesmo acesso que os membros** concedem todas as permissões do utilizador membro aos utilizadores convidados por padrão.<p>Definir esta opção para **o acesso do utilizador do Hóspede está restrito a propriedades e membros dos seus próprios objetos de diretório** restringem o acesso do hóspede apenas ao seu próprio perfil de utilizador por padrão. O acesso a outros utilizadores já não é permitido mesmo quando pesquisa por Nome Principal do Utilizador, ObjectId ou Nome de Exibição. O acesso a informações de grupos, incluindo membros de grupos, também já não é permitido.<p>**Nota:** Esta definição não impede o acesso a grupos unidos em alguns serviços da Microsoft 365, como o Microsoft Teams. Consulte [o acesso do Microsoft Teams Guest](https://docs.microsoft.com/MicrosoftTeams/guest-access) para saber mais.<p>Os utilizadores convidados ainda podem ser adicionados às funções de administrador, independentemente destas definições de permissão.
 Os convidados podem convidar | Definir esta opção para Sim permite que os hóspedes convidem outros hóspedes. Consulte [os convites do Delegado para a colaboração B2B](../external-identities/delegate-invitations.md#configure-b2b-external-collaboration-settings) para saber mais.
 Os membros podem convidar | Definir esta opção para Sim permite que membros não administrativos do seu diretório convidem os hóspedes. Consulte [os convites do Delegado para a colaboração B2B](../external-identities/delegate-invitations.md#configure-b2b-external-collaboration-settings) para saber mais.
 Os administradores e utilizadores na função de autor de convite podem convidar | Definir esta opção para Sim permite que administradores e utilizadores no papel de "Convidado Convidado" convidem os hóspedes. Quando definido para Sim, os utilizadores no papel de convidado convidado ainda poderão convidar os hóspedes, independentemente dos Membros podem convidar a configuração. Consulte [os convites do Delegado para a colaboração B2B](../external-identities/delegate-invitations.md#assign-the-guest-inviter-role-to-a-user) para saber mais.

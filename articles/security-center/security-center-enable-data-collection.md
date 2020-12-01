@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 53130e395995b3533a45a96f897a0c6bcf1e4c71
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 2b4710fec43e27235ef6c05abb6018e1af4310d3
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187192"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434945"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Agentes de fornecimento automático e extensões do Azure Security Center
 
@@ -138,7 +138,7 @@ O Azure Defender é necessário para armazenar dados de eventos de segurança do
 Armazenar dados no Log Analytics pode incorrer em encargos adicionais para o armazenamento de dados. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 ### <a name="information-for-azure-sentinel-users"></a>Informações para utilizadores do Azure Sentinel 
-Utilizadores de Azure Sentinel: note que a recolha de eventos de segurança no contexto de um único espaço de trabalho pode ser configurada a partir do Azure Security Center ou Azure Sentinel, mas não ambos. Se está a planear adicionar o Azure Sentinel a um espaço de trabalho que já está a receber alertas do Azure Defender do Azure Security Center, e está preparado para recolher Eventos de Segurança, tem duas opções:
+Utilizadores de Azure Sentinel: note que a recolha de eventos de segurança no contexto de um único espaço de trabalho pode ser configurada a partir do Azure Security Center ou Azure Sentinel, mas não ambos. Se está a planear adicionar o Azure Sentinel a um espaço de trabalho que já está a receber alertas do Azure Security Center, e está pronto para recolher Eventos de Segurança, tem duas opções:
 - Deixe a coleção de Eventos de Segurança no Centro de Segurança Azure como está. Poderá consultar e analisar estes eventos em Azure Sentinel, bem como no Azure Defender. No entanto, não será capaz de monitorizar o estado de conectividade do conector ou alterar a sua configuração no Azure Sentinel. Se isto é importante para si, considere a segunda opção.
 - Desativar a recolha de Eventos de Segurança no Azure Security Center (definindo **eventos** de segurança do Windows a **Nenhum** na configuração do seu agente Log Analytics). Em seguida, adicione o conector Eventos de Segurança em Azure Sentinel. Tal como na primeira opção, poderá consultar e analisar eventos tanto no Azure Sentinel como no Azure Defender/ASC, mas agora poderá monitorizar o estado de conectividade do conector ou alterar a sua configuração em - e apenas em - Azure Sentinel.
 

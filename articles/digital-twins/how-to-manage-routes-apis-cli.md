@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6b767a2cf4739a0b36b9f5c5c960e3e3ead58262
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: fc260736a740362db2c19730afc93dd4f3d22c2e
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353090"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435422"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)
 
@@ -90,18 +90,31 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 Quando um ponto final não consegue entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um certo número de vezes, pode enviar o evento não entregue para uma conta de armazenamento. Este processo é conhecido como **letra morta.**
 
-Para criar um ponto final com letras mortas ativadas, deve utilizar as [APIs ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para criar o seu ponto final. 
-
-Antes de definir o local da letra morta, deve ter uma conta de armazenamento com um recipiente. Forneça o URL para este recipiente ao criar o ponto final. A letra morta é fornecida como URL de contentor com um token SAS. Esse símbolo só precisa de `write` permissão para o contentor de destino dentro da conta de armazenamento. O URL totalmente formado será no formato de: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
-
-Para saber mais sobre fichas SAS, consulte: [Conceder acesso limitado aos recursos de Armazenamento Azure usando assinaturas de acesso partilhado (SAS)](../storage/common/storage-sas-overview.md)
-
 Para saber mais sobre letras [*mortas, consulte Conceitos: Rotas do evento.*](concepts-route-events.md#dead-letter-events)
 
-#### <a name="configuring-the-endpoint"></a>Configurar o ponto final
+#### <a name="set-up-storage-resources"></a>Criar recursos de armazenamento
 
-Ao criar um ponto final, adicione um `deadLetterSecret` ao objeto no corpo do `properties` pedido, que contém um URL de contentor e um símbolo SAS para a sua conta de armazenamento.
+Antes de definir o local da letra morta, deve ter uma [conta de armazenamento](../storage/common/storage-account-create.md?tabs=azure-portal) com um [recipiente](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) configurado na sua conta Azure. Você fornecerá o URL para este recipiente ao criar o ponto final mais tarde.
+A carta morta é fornecida como URL de contentor com um [token SAS](../storage/common/storage-sas-overview.md). Esse símbolo só precisa de `write` permissão para o contentor de destino dentro da conta de armazenamento. O URL totalmente formado será no formato de: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
+Siga os passos abaixo para configurar estes recursos de armazenamento na sua conta Azure, para preparar a configuração da ligação de ponto final na secção seguinte.
+
+1. Siga [este artigo](../storage/common/storage-account-create.md?tabs=azure-portal) para criar uma conta de armazenamento e guarde o nome da conta de armazenamento para usá-lo mais tarde.
+2. Crie um recipiente utilizando [este artigo](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) e guarde o nome do recipiente para o utilizar mais tarde, ao configurar a ligação entre o recipiente e o ponto final.
+3. Em seguida, crie um símbolo SAS para a sua conta de armazenamento. Comece por navegar na sua conta de armazenamento no [portal Azure](https://ms.portal.azure.com/#home) (pode encontrá-la pelo nome com a barra de pesquisa do portal).
+4. Na página da conta de armazenamento, escolha o link _de assinatura de acesso partilhado_ na barra de navegação esquerda para selecionar as permissões certas para gerar token SAS.
+5. Para _serviços permitidos_ e _tipos de recursos permitidos,_ selecione as definições que quiser. Terá de selecionar pelo menos uma caixa em cada categoria. Para permissões permitidas, escolha **Escrever** (também pode selecionar outras permissões se quiser).
+Defina as definições restantes como quiser.
+6. Em seguida, selecione o _botão de cadeia Generate SAS e de ligação_ para gerar o token SAS. Isto irá gerar vários valores de cadeia sas e de ligação na parte inferior da mesma página, por baixo das seleções de definição. Desloque-se para baixo para ver os valores e use a cópia para o ícone de área de transferência para copiar o valor **simbólico SAS.** Guarde-o para usar mais tarde.
+
+:::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token.png" alt-text="Página de conta de armazenamento no portal Azure mostrando toda a seleção de definição para gerar um token SAS." lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token.png":::
+
+:::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Copiar o símbolo da SAS para usar no segredo da letra morta." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
+
+#### <a name="configure-the-endpoint"></a>Configure o ponto final
+
+Os pontos finais de letra morta são criados usando APIs do Gestor de Recursos Azure. Ao criar um ponto final, utilize a [documentação APIs do Gestor de Recursos Azure](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para preencher os parâmetros de pedido necessários. Além disso, adicione o `deadLetterSecret` objeto de propriedades no **corpo** do pedido, que contém um URL de contentor e um símbolo SAS para a sua conta de armazenamento.
+      
 ```json
 {
   "properties": {
@@ -113,8 +126,7 @@ Ao criar um ponto final, adicione um `deadLetterSecret` ao objeto no corpo do `p
   }
 }
 ```
-
-Para mais informações, consulte a documentação AZure Digital Twins REST API: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+Para obter mais informações sobre a estruturação deste pedido, consulte a documentação API do Azure Digital Twins REST: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
 ### <a name="message-storage-schema"></a>Esquema de armazenamento de mensagens
 

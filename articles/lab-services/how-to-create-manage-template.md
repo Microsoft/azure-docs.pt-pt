@@ -3,12 +3,12 @@ title: Gerir um modelo de um laboratório de sala de aula nos Serviços de Labor
 description: Aprenda a criar e gerir um modelo de laboratório em Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0f7c74f75de3d24acd01330910bf6ee3f8f18533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be84a05fd8b278f5176cd768191d10a20fc719e6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445802"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434282"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Criar e gerir um modelo de sala de aula em Azure Lab Services
 Um modelo num laboratório é a imagem de máquina virtual de base da qual todas as máquinas virtuais dos utilizadores são criadas. Configure a máquina virtual do modelo para que seja configurado com exatamente o que pretende fornecer aos utilizadores do laboratório. Pode fornecer um nome e descrição do modelo que os utilizadores do laboratório vão ver. Em seguida, publica o modelo para disponibilizar os casos do modelo VM aos utilizadores do laboratório. Ao publicar um modelo, o Azure Lab Services cria VMs no laboratório através do modelo. O número de VMs criadas neste processo é igual ao número máximo de utilizadores permitidos no laboratório, o que pode configurar na política de utilização do laboratório. Todas as máquinas virtuais têm a mesma configuração do modelo.
@@ -67,4 +67,4 @@ Consulte os seguintes artigos:
 - [Como administrador, crie e gere contas de laboratório](how-to-manage-lab-accounts.md)
 - [Como dono de laboratório, crie e gere laboratórios](how-to-manage-classroom-labs.md)
 - [Como dono de laboratório, configurar e controlar o uso de um laboratório](how-to-configure-student-usage.md)
-- [Como utilizador de laboratório, aceda aos laboratórios de sala de aula](how-to-use-classroom-lab.md)
+- [Como utilizador de laboratório, aceder a laboratórios](how-to-use-classroom-lab.md)

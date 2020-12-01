@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
 ms.date: 09/04/2020
-ms.openlocfilehash: 10ca7602dd3cf5a80e371ceda845977bcd8f218a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4fb3354b7035149b80191528b2f5335b593b764
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484244"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433553"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Guia de publicação de aplicações geridas pela Azure
 
@@ -34,7 +34,7 @@ Utilize o tipo de oferta de aplicação gerida nas seguintes condições:
 |---------|---------|
 |Uma subscrição do Azure | As aplicações geridas devem ser implementadas na subscrição de um cliente, mas podem ser geridas por terceiros. |
 |Faturação e medição    |  Os recursos são fornecidos na subscrição Azure de um cliente. Os VMs que utilizam o modelo de pagamento pay-as-you-go são transacionados com o cliente através da Microsoft e faturados através da subscrição Azure do cliente. <br><br> Para os VMs de sua própria licença, a Microsoft fatura quaisquer custos de infraestrutura que sejam incorridos na subscrição do cliente, mas você transaciona diretamente as taxas de licenciamento de software com o cliente.        |
-|Um disco rígido virtual compatível com Azure (VHD)    |   Os VMs devem ser construídos em Windows ou Linux.<br><br>Para obter mais informações sobre a criação de um Linux VHD, consulte [as distribuições linux endossadas no Azure](../virtual-machines/linux/endorsed-distros.md).<br><br>Para obter mais informações sobre a criação de um VHD do Windows, consulte [criar uma oferta de aplicação Azure.](./partner-center-portal/create-new-azure-apps-offer.md) |
+|Um disco rígido virtual compatível com Azure (VHD)    |   Os VMs devem ser construídos em Windows ou Linux.<br><br>Para obter mais informações sobre a criação de um Linux VHD, consulte [as distribuições linux endossadas no Azure](../virtual-machines/linux/endorsed-distros.md).<br><br>Para obter mais informações sobre a criação de um VHD do Windows, consulte [criar uma oferta de aplicação Azure.](./create-new-azure-apps-offer.md) |
 
 ---
 
@@ -51,4 +51,4 @@ Se ainda não o fez, aprenda a [fazer crescer o seu negócio na nuvem com o Azur
 Para se inscrever e começar a trabalhar no Partner Center:
 
 - [Inscreva-se no Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar ou completar a sua oferta.
-- Consulte [Criar uma oferta de aplicação Azure](./partner-center-portal/create-new-azure-apps-offer.md) para mais informações.
+- Consulte [Criar uma oferta de aplicação Azure](./create-new-azure-apps-offer.md) para mais informações.

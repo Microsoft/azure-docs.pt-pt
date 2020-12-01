@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2020
+ms.date: 11/30/2020
 ms.author: memildin
-ms.openlocfilehash: 9b715ea890c7c85161a9e360bc16f9a2a608d64b
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: f26fffe8e6b2be6ede064b4750d012b3e4535c66
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95320990"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433323"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -41,6 +41,7 @@ As atualizações em novembro incluem:
 - [Experiência de provisionamento automático melhorada e expandida](#auto-provisioning-experience-improved-and-expanded)
 - [A pontuação segura está agora disponível em exportação contínua (pré-visualização)](#secure-score-is-now-available-in-continuous-export-preview)
 - [Recomendação "Atualizações do sistema devem ser instaladas nas suas máquinas" agora inclui sub-recomendações](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations)
+- [Página de gestão de políticas no portal Azure mostra agora o estado das atribuições de política padrão](#policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments)
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>29 recomendações de pré-visualização adicionadas para aumentar a cobertura do Benchmark de Segurança Azure
 
@@ -139,7 +140,11 @@ As **atualizações do Sistema devem ser instaladas na** recomendação das suas
     | where properties.status.code == "Unhealthy"
     ```
 
+### <a name="policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments"></a>Página de gestão de políticas no portal Azure mostra agora o estado das atribuições de política padrão
 
+Pode agora ver se as suas subscrições têm ou não a política padrão do Centro de Segurança atribuída, na página de política de segurança do Portal Azure do Centro de **Segurança.**
+
+:::image type="content" source="media/release-notes/policy-assignment-info-per-subscription.png" alt-text="A página de gestão de políticas do Azure Security Center mostrando as atribuições de política padrão":::
 
 ## <a name="october-2020"></a>Outubro de 2020
 
@@ -289,7 +294,7 @@ extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
 ```
 
 Saiba mais nos seguintes links:
-- [Como criar consultas com o Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
+- [Como criar consultas com o Explorador do Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 - [Linguagem de Consulta Kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
 
 

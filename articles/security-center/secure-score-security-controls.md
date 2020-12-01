@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2020
+ms.date: 11/10/2020
 ms.author: memildin
-ms.openlocfilehash: b7c4c0565d17e62226a518bc443223df8339faec
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0e853a4ce1e3891ddffd2f9fb1315da49a896933
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949382"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433227"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Pontuação de segurança no Centro de Segurança do Azure
 
@@ -70,8 +70,6 @@ Para recapitular, a sua pontuação segura é mostrada nos seguintes locais nas 
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="A pontuação segura na página de recomendações do Centro de Segurança":::
 
-
-
 ### <a name="get-your-secure-score-from-the-rest-api"></a>Obtenha a sua pontuação segura na API REST
 
 Pode aceder à sua pontuação através da pontuação segura API (atualmente em pré-visualização). Os métodos API fornecem a flexibilidade para consultar os dados e construir o seu próprio mecanismo de reporte das suas pontuações seguras ao longo do tempo. Por exemplo, pode utilizar a [API de Pontuações Seguras](/rest/api/securitycenter/securescores) para obter a pontuação de uma subscrição específica. Além disso, pode utilizar a [API de Controlos de Pontuação Segura](/rest/api/securitycenter/securescorecontrols) para listar os controlos de segurança e a pontuação atual das suas subscrições.
@@ -79,8 +77,6 @@ Pode aceder à sua pontuação através da pontuação segura API (atualmente em
 ![Recuperação de uma única pontuação segura através da API](media/secure-score-security-controls/single-secure-score-via-api.png)
 
 Por exemplo, ferramentas construídas em cima da pontuação segura API, consulte [a área de pontuação segura da nossa comunidade GitHub.](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score) 
-
-
 
 ### <a name="get-your-secure-score-from-azure-resource-graph-arg"></a>Obtenha a sua pontuação segura a partir do Azure Resource Graph (ARG)
 
@@ -114,13 +110,34 @@ Para aceder à pontuação segura para várias subscrições com ARG:
 
 1. Selecione **Consulta de execução**.
 
+
+
+
+## <a name="tracking-your-secure-score-over-time"></a>Rastreando a sua pontuação segura ao longo do tempo
+
+Se for um utilizador de Power BI com uma conta Pro, pode utilizar o painel **DeSema** para rastrear a sua pontuação segura ao longo do tempo e investigar quaisquer alterações.
+
+> [!TIP]
+> Você pode encontrar este dashboard, bem como outras ferramentas para trabalhar programaticamente com pontuação segura, na área dedicada da comunidade do Centro de Segurança Azure no GitHub: https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score
+
+O painel contém os seguintes dois relatórios para ajudá-lo a analisar o seu estado de segurança:
+
+- **Resumo de Recursos** - fornece dados resumidos sobre a saúde dos seus recursos.
+- **Secure Score Summary** - fornece dados resumidos sobre o progresso da sua pontuação. Utilize o gráfico "Obter pontuação segura ao longo do tempo por subscrição" para ver as alterações na pontuação. Se notar uma alteração dramática na sua pontuação, verifique a tabela "alterações detetadas que podem afetar a sua pontuação segura" para eventuais alterações que possam ter causado a alteração. Este quadro apresenta recursos eliminados, recursos recém-utilizados ou recursos que o seu estatuto de segurança mudou para uma das recomendações.
+
+:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="O painel de pontuação secure secure opcional durante o tempo PowerBI para rastrear a sua pontuação segura ao longo do tempo e investigar alterações":::
+
+
+
+
+
 ## <a name="how-your-secure-score-is-calculated"></a>Como a sua pontuação segura é calculada 
 
 A contribuição de cada controlo de segurança para a pontuação máxima segura global é claramente indicada na página de recomendações.
 
 [![A pontuação de segurança reforçada introduz controlos de segurança](media/secure-score-security-controls/security-controls.png)](media/secure-score-security-controls/security-controls.png#lightbox)
 
-Para obter todos os pontos possíveis para um controlo de segurança, todos os seus recursos devem cumprir todas as recomendações de segurança dentro do controlo de segurança. Por exemplo, o Security Center tem várias recomendações sobre como proteger as suas portas de gestão. No passado, poderia remediar algumas dessas recomendações relacionadas e interdependentes, deixando outras por resolver, e a sua pontuação segura melhoraria. Quando olhado objectivamente, é fácil argumentar que a sua segurança não tinha melhorado até que os resolveu a todos. Agora, tens de remediar todos para fazeres a diferença na tua pontuação segura.
+Para obter todos os pontos possíveis para um controlo de segurança, todos os seus recursos devem cumprir todas as recomendações de segurança dentro do controlo de segurança. Por exemplo, o Security Center tem várias recomendações sobre como proteger as suas portas de gestão. Tens de os remediar a todos para fazer a diferença na tua pontuação segura.
 
 Por exemplo, o controlo de segurança chamado "Aplicar atualizações do sistema" tem uma pontuação máxima de seis pontos, que pode ver na ponta da ferramenta sobre o valor potencial de aumento do controlo:
 
@@ -135,11 +152,11 @@ A pontuação máxima para este controlo, Aplicar atualizações do sistema, é 
 
 ### <a name="calculations---understanding-your-score"></a>Cálculos - compreender a sua pontuação
 
-|Métrica|Fórmula e exemplo|
+|Metric|Fórmula e exemplo|
 |-|-|
-|**Pontuação atual do controlo de segurança**|<br>![Equação para calcular a pontuação atual de um controlo de segurança](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Cada controlo de segurança individual contribui para a Pontuação de Segurança. Cada recurso afetado por uma recomendação dentro do controlo, contribui para a pontuação atual do controlo. A pontuação atual para cada controlo é uma medida do estado dos recursos *sob* controlo.<br>![Dicas de ferramentas que mostram os valores utilizados no cálculo da pontuação atual do controlo de segurança](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>Neste exemplo, a pontuação máxima de 6 seria dividida por 78 porque essa é a soma dos recursos saudáveis e insalubres.<br>6 / 78 = 0,0769<br>Multiplicar-se pelo número de recursos saudáveis (4) resulta na pontuação atual:<br>0,0769 * 4 = **0,31**<br><br>|
-|**Classificação de segurança**<br>Subscrição individual|<br>![Equação para calcular a pontuação segura atual](media/secure-score-security-controls/secure-score-equation.png)<br><br>![Pontuação segura de subscrição única com todos os controlos ativados](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>Neste exemplo, existe uma única subscrição com todos os controlos de segurança disponíveis (uma pontuação máxima potencial de 60 pontos). A pontuação mostra 28 pontos de um possível 60 e os restantes 32 pontos refletem-se nos números de "Potencial aumento de pontuação" dos controlos de segurança.<br>![Lista de controlos e o aumento potencial da pontuação](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
-|**Classificação de segurança**<br>Múltiplas subscrições|<br>As pontuações atuais para todos os recursos em todas as subscrições são adicionadas e o cálculo é então o mesmo que para uma única subscrição<br><br>Ao visualizar várias subscrições, a pontuação segura avalia todos os recursos dentro de todas as políticas ativadas e agrupam o seu impacto combinado na pontuação máxima de cada controlo de segurança.<br>![Pontuação segura para várias subscrições com todos os controlos ativados](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>A pontuação combinada **não** é uma média; em vez disso, é a postura avaliada do estado de todos os recursos em todas as subscrições.<br>Também aqui, se for à página de recomendações e somar os pontos potenciais disponíveis, verá que é a diferença entre a pontuação atual (24) e a pontuação máxima disponível (60).|
+|**Pontuação atual do controlo de segurança**|<br>![Equação para calcular a pontuação de um controlo de segurança](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>Cada controlo de segurança individual contribui para a Pontuação de Segurança. Cada recurso afetado por uma recomendação dentro do controlo, contribui para a pontuação atual do controlo. A pontuação atual para cada controlo é uma medida do estado dos recursos *sob* controlo.<br>![Dicas de ferramentas que mostram os valores utilizados no cálculo da pontuação atual do controlo de segurança](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>Neste exemplo, a pontuação máxima de 6 seria dividida por 78 porque essa é a soma dos recursos saudáveis e insalubres.<br>6 / 78 = 0,0769<br>Multiplicar-se pelo número de recursos saudáveis (4) resulta na pontuação atual:<br>0,0769 * 4 = **0,31**<br><br>|
+|**Classificação de segurança**<br>Subscrição individual|<br>![Equação para calcular a pontuação segura de uma subscrição](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Pontuação segura de subscrição única com todos os controlos ativados](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>Neste exemplo, existe uma única subscrição com todos os controlos de segurança disponíveis (uma pontuação máxima potencial de 60 pontos). A pontuação mostra 28 pontos de um possível 60 e os restantes 32 pontos refletem-se nos números de "Potencial aumento de pontuação" dos controlos de segurança.<br>![Lista de controlos e o aumento potencial da pontuação](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
+|**Classificação de segurança**<br>Múltiplas subscrições|<br>![Equação para calcular a pontuação segura para várias subscrições](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>Ao calcular a pontuação combinada para várias subscrições, o Security Center inclui um *peso* para cada subscrição. Os pesos relativos para as suas subscrições são determinados pelo Security Center com base em fatores como o número de recursos.<br>A pontuação atual para cada subscrição é calculada da mesma forma que para uma única subscrição, mas então o peso é aplicado como mostrado na equação.<br>Ao visualizar várias subscrições, a pontuação segura avalia todos os recursos dentro de todas as políticas ativadas e agrupam o seu impacto combinado na pontuação máxima de cada controlo de segurança.<br>![Pontuação segura para várias subscrições com todos os controlos ativados](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>A pontuação combinada **não** é uma média; em vez disso, é a postura avaliada do estado de todos os recursos em todas as subscrições.<br>Também aqui, se for à página de recomendações e somar os pontos potenciais disponíveis, verá que é a diferença entre a pontuação atual (24) e a pontuação máxima disponível (60).|
 ||||
 
 ### <a name="which-recommendations-are-included-in-the-secure-score-calculations"></a>Que recomendações estão incluídas nos cálculos de pontuação segura?
@@ -271,3 +288,4 @@ Este artigo descreveu a pontuação segura e os controlos de segurança que intr
 
 - [Conheça os diferentes elementos de uma recomendação](security-center-recommendations.md)
 - [Saiba como remediar recomendações](security-center-remediate-recommendations.md)
+- [Veja as ferramentas baseadas no GitHub para trabalhar programáticamente com pontuação segura](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)

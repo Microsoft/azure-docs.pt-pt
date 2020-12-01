@@ -1,14 +1,14 @@
 ---
-title: Configurar configurações de utilização em laboratórios de sala de aula dos Serviços de Laboratório Azure
+title: Configurar configurações de utilização em laboratórios de Serviços de Laboratório Azure
 description: Aprenda a configurar o número de alunos para um laboratório, registei-os no laboratório, controle o número de horas que podem usar o VM, e muito mais.
 ms.topic: article
 ms.date: 11/11/2020
-ms.openlocfilehash: d3100f1a7e67e3b0d403375de02cb3daf5fcfb31
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: e768c74d338cf21eb56660fe3790fc1f0f3ec80d
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555724"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434554"
 ---
 # <a name="add-and-manage-lab-users"></a>Adicionar e gerir utilizadores de laboratório
 
@@ -81,7 +81,7 @@ Este método mostra-lhe como enviar e-mail com um link de registo e uma mensagem
 
 1. Na janela **de envio por e-mail,** introduza uma mensagem opcional e, em seguida, selecione **Enviar**. 
 
-    O e-mail inclui automaticamente o link de registo. Para obter e guardar o link de registo separadamente, selecione a elipse **(...** ) no topo do painel de **Utilizadores** e, em seguida, selecione **o link de registo**. 
+    O e-mail inclui automaticamente o link de registo. Para obter e guardar o link de registo separadamente, selecione a elipse **(...**) no topo do painel de **Utilizadores** e, em seguida, selecione **o link de registo**. 
 
     ![A janela "Enviar link de registo por e-mail"](./media/tutorial-setup-classroom-lab/send-email.png)
 
@@ -156,7 +156,7 @@ Para fixar quotas adicionais, faça o seguinte:
 
     ![O botão "Ajustar quota"](./media/how-to-configure-student-usage/adjust-quota-button.png)
 
-1. Na **quota ajustar \<selected user or users email address> para** , insira o número de horas de laboratório adicionais que pretende conceder ao aluno ou estudantes selecionados e, em seguida, selecione **Aplicar**. 
+1. Na **quota ajustar \<selected user or users email address> para**, insira o número de horas de laboratório adicionais que pretende conceder ao aluno ou estudantes selecionados e, em seguida, selecione **Aplicar**. 
 
     ![A "Quota de Ajuste..." janela](./media/how-to-configure-student-usage/additional-quota.png)
 
@@ -207,7 +207,7 @@ Se ainda não ligaram a sua conta GitHub a uma conta da Microsoft, podem fazer o
 ## <a name="export-a-list-of-users-to-a-csv-file"></a>Exportar uma lista de utilizadores para um ficheiro CSV
 
 1. Vá ao painel **de utilizadores.**
-1. Na barra de ferramentas, selecione a elipse **(...** ) e, em seguida, selecione **Export CSV**. 
+1. Na barra de ferramentas, selecione a elipse **(...**) e, em seguida, selecione **Export CSV**. 
 
     ![O botão "Exportação CSV"](./media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
 
@@ -218,4 +218,4 @@ Consulte os seguintes artigos:
 
 - Para administradores: [Criar e gerir contas de laboratório](how-to-manage-lab-accounts.md)
 - Para os proprietários de laboratórios: [Criar e gerir laboratórios](how-to-manage-classroom-labs.md) e [configurar e publicar modelos](how-to-create-manage-template.md)
-- Para utilizadores de laboratório: [Aceder a laboratórios de sala de aula](how-to-use-classroom-lab.md)
+- Para utilizadores de laboratório: [Laboratórios de acesso](how-to-use-classroom-lab.md)
