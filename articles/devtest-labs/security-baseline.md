@@ -3,12 +3,12 @@ title: Linha de Base de Segurança Azure para Azure DevTest Labs
 description: Linha de Base de Segurança Azure para Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 64e5ac46fbeb71706f7b1ae2d3682260e3cbc651
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4ae3886e1c47b1d6835dc348b474e3d9e82a8f41
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993657"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348828"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Linha de Base de Segurança Azure para Azure DevTest Labs
 
@@ -379,7 +379,7 @@ A Microsoft realiza a gestão de vulnerabilidades nos recursos subjacentes que s
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: Implementar solução automatizada de gestão de correção do sistema operativo
 **Orientação:** Utilize o Azure Update Management para garantir que as atualizações de segurança mais recentes são instaladas nos seus VMs Windows e Linux alojados nos Laboratórios DevTest. Para os VMs do Windows, certifique-se de que o Windows Update foi ativado e definido para atualizar automaticamente. Esta definição não está atualmente disponível para configurar através da DevTest Labs, no entanto a administração de administração/subscrição de laboratório pode configurar esta definição nos VMs de computação subjacentes na sua subscrição. 
 
-- [Como configurar a Gestão de Atualização para VMs em Azure](../automation/update-management/update-mgmt-overview.md)
+- [Como configurar a Gestão de Atualização para VMs em Azure](../automation/update-management/overview.md)
 - [Compreenda as políticas de segurança do Azure monitorizadas pelo Security Center](../security-center/policy-reference.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
@@ -393,8 +393,8 @@ Saiba mais sobre [a DevTest Labs Image Factory](image-factory-create.md), que é
 
 Como administrador de subscrição, também pode utilizar a solução Azure Update Management para gerir atualizações e patches para VMs da DevTest Labs. A Update Management baseia-se no repositório de atualização configurado localmente para corrigir sistemas Windows suportados. Ferramentas como o System Center Updates Publisher (Editor de Atualizações) permitem-lhe publicar atualizações personalizadas nos Serviços de Atualização do Servidor do Windows (WSUS). Este cenário permite que a Gestão de Atualização remendo máquinas que usam o Gestor de Configuração como repositório de atualização com software de terceiros.
 
-- [Solução de Gestão de Atualização em Azure](../automation/update-management/update-mgmt-overview.md)
-- [Gerir atualizações e patches para os seus VMs](../automation/update-management/update-mgmt-overview.md)
+- [Solução de Gestão de Atualização em Azure](../automation/update-management/overview.md)
+- [Gerir atualizações e patches para os seus VMs](../automation/update-management/overview.md)
 
 _ *Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -468,7 +468,7 @@ _ *Monitorização do Centro de Segurança Azure:** Não aplicável
 
 Além disso, utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da subscrição(s). Pode ajudar em ambientes de alta segurança, como os que têm contas de Armazenamento.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 - [Como criar consultas com Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
@@ -516,7 +516,7 @@ Além de utilizar o Change Tracking para monitorização de aplicações de soft
 - Tipos de recursos permitidos
 
 Consulte os seguintes artigos: 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 - [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/index.md)
 
 **Monitorização do Centro de Segurança Azure:** Sim, é o seu
@@ -652,7 +652,7 @@ Além disso, as imagens de máquina virtual do Azure Marketplace publicadas pela
 ### <a name="77-deploy-system-configuration-management-tools"></a>7.7: Implementar ferramentas de gestão de configuração do sistema
 **Orientação:** Defina e implemente configurações de segurança padrão para recursos Azure utilizando a Política Azure. Use pseudónimos da Azure Policy para criar políticas personalizadas para auditar ou impor a configuração de rede dos seus recursos Azure criados no âmbito da DevTest Labs. Você também pode fazer uso de definições políticas incorporadas relacionadas com os seus recursos específicos. Além disso, pode utilizar a Azure Automation para implementar alterações de configuração.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 - [Como usar pseudónimos](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
@@ -711,7 +711,7 @@ Além disso, as imagens de máquina virtual do Azure Marketplace publicadas pela
 **Responsabilidade:** Cliente
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminar a exposição credencial não intencional
-**Orientação:** Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault.
+**Orientação:** Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner de Credenciais também vai incentivar a movimentação das credenciais descobertas para localizações mais seguras, por exemplo, o Azure Key Vault.
 
 - Como configurar o Scanner Credencial
 
@@ -835,7 +835,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 **Responsabilidade:** Cliente
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Procedimentos de resposta à segurança do teste
-**Orientação:** Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular para ajudar a proteger os seus recursos Azure. Identifique pontos fracos e lacunas e reveja o plano conforme necessário.
+**Orientação:** Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular para ajudar a proteger os seus recursos Azure. Identifique pontos fracos e lacunas e reavalie o plano, conforme necessário.
 
 - [Publicação do NIST - guia para testar, treinar e exercitar programas para planos e capacidades de TI](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 

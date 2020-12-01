@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: a93e2a88201f32ed99698f2bfbab631c81ed8b35
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: da3ad4f70e0cc41fe95327eb74093c1471c877bd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357713"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351576"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Tutorial: Configurar zscaler acesso privado (ZPA) para fornecimento automático de utilizadores
 
@@ -105,7 +105,7 @@ Antes de configurar o Zscaler Private Access (ZPA) para o fornecimento automáti
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **zscaler Private Access (ZPA)** , selecione **Zscaler Private Access (ZPA)** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, insira **zscaler Private Access (ZPA)**, selecione **Zscaler Private Access (ZPA)** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![Zscaler Private Access (ZPA) na lista de resultados](common/search-new-app.png)
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: thvankra
 ms.reviewer: thvankra
-ms.openlocfilehash: 877aa96b189de47d158721df6585cb94ace4a855
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 827abcdb9eb2eb8b7328eb3e3a78f49d51e87e6b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94932917"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349185"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Migrar dados de Cassandra para Azure Cosmos DB Cassandra Conta API usando Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -114,7 +114,7 @@ DFfromNativeCassandra
 ```
 
 > [!NOTE]
-> As `spark.cassandra.output.concurrent.writes` `connections_per_executor_max` configurações e configurações são importantes para evitar a [limitação da taxa,](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/)o que acontece quando os pedidos à Cosmos DB excedem o rendimento previsto[(unidades de pedido).](https://docs.microsoft.com/azure/cosmos-db/request-units) Poderá ser necessário ajustar estas definições dependendo do número de executores no cluster Spark, e potencialmente o tamanho (e, portanto, o custo RU) de cada registo ser escrito nas tabelas-alvo.
+> As `spark.cassandra.output.concurrent.writes` `connections_per_executor_max` configurações e configurações são importantes para evitar a [limitação da taxa,](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/)o que acontece quando os pedidos à Cosmos DB excedem o rendimento previsto[(unidades de pedido).](./request-units.md) Poderá ser necessário ajustar estas definições dependendo do número de executores no cluster Spark, e potencialmente o tamanho (e, portanto, o custo RU) de cada registo ser escrito nas tabelas-alvo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

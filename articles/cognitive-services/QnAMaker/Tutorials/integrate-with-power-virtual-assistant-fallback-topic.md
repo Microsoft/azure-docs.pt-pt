@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 11/09/2020
-ms.openlocfilehash: 322db4e1535e763f4c3e7c87afaa370471ba0b66
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 3801bb44fed6bf24788957c41de77c89b3025ae8
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376303"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351117"
 ---
 # <a name="tutorial-add-your-knowledge-base-to-power-virtual-agents"></a>Tutorial: Adicione a sua base de conhecimentos a Agentes Virtuais de Energia
 Crie e estenda um bot [de Agentes Virtuais de Energia](https://powervirtualagents.microsoft.com/) para fornecer respostas a partir da sua base de conhecimento.
@@ -53,7 +53,7 @@ Aqui está uma visão geral dos passos para ligar um agente em Agentes Virtuais 
     * Chame uma ação (para o fluxo de automatização de energia).
 * No portal [Power Automamate:](https://us.flow.microsoft.com/)
     * Pesquisa rumo à resposta Generate usando o modelo _do Criador QnA_
-    * Use o modelo para configurar o fluxo para utilizar o [GenerateAnswer do Criador QnA](https://docs.microsoft.com/connectors/cognitiveservicesqnamaker/).
+    * Use o modelo para configurar o fluxo para utilizar o [GenerateAnswer do Criador QnA](/connectors/cognitiveservicesqnamaker/).
         * QnA Maker publicou informações sobre base de conhecimento:
             * ID da base de conhecimento
             * Anfitrião de ponto final de recursos QnA Maker
@@ -146,7 +146,7 @@ O procedimento a seguir cria um fluxo power-automatização que:
 * Pega no texto do utilizador que está a chegar e envia-o para o QnA Maker.
 * Devolve a resposta máxima ao seu agente.
 
-1. Na **Power Automamate** , selecione **Modelos** da navegação à esquerda. Se lhe perguntarem se deseja sair da página do navegador, aceite o Leave.
+1. Na **Power Automamate**, selecione **Modelos** da navegação à esquerda. Se lhe perguntarem se deseja sair da página do navegador, aceite o Leave.
 
 1. Na página de modelos, procure o modelo **Gerar resposta usando o QnA Maker** e, em seguida, selecione o modelo. Este modelo tem todos os passos para ligar para o QnA Maker com as definições da base de conhecimento e devolver a resposta superior.
 
@@ -202,7 +202,7 @@ Para que o agente encontre e ligue ao fluxo, o fluxo deve ser incluído numa sol
 
 1. Para definir corretamente a variável de saída para a ação do QnA Maker, na ação **Message,** selecione **UnrecognizedTriggerPhrase,** em seguida, selecione o ícone para inserir uma variável, `{x}` em seguida, selecione **FinalAnswer**.
 
-1. A partir da barra de ferramentas de contexto, **selecione Save** , para guardar os detalhes de tela de autoria para o tópico.
+1. A partir da barra de ferramentas de contexto, **selecione Save**, para guardar os detalhes de tela de autoria para o tópico.
 
 Aqui está o que o último agente tela parece.
 
@@ -219,9 +219,9 @@ Aqui está o que o último agente tela parece.
     |--|--|--|
     |1|Hello|Começar a conversa|
     |2|Horário de loja|Tópico da amostra. Isto está configurado para si sem qualquer trabalho adicional da sua parte.|
-    |3|Yes|Em resposta a `Did that answer your question?`|
+    |3|Sim|Em resposta a `Did that answer your question?`|
     |4|Excelente|Em resposta a `Please rate your experience.`|
-    |5|Yes|Em resposta a `Can I help with anything else?`|
+    |5|Sim|Em resposta a `Can I help with anything else?`|
     |6|Como posso melhorar o desempenho da produção para previsões de consulta?|Esta pergunta desencadeia a ação de recuo, que envia o texto para a sua base de conhecimento para responder. Então a resposta é mostrada. as marcas verdes de verificação das ações individuais indicam o sucesso de cada ação.|
 
     :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test-tracked.png" alt-text="Screenshot do chat bot com tela indicando marcas verdes para ações bem sucedidas.":::
@@ -249,7 +249,7 @@ Para partilhar o site de demonstração, configuure-o como um canal.
 
 1. Copie o link e **selecione Guardar**. Cole o link para o seu site de demonstração num e-mail para a sua escola ou membros da organização.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar a base de conhecimento, remova os recursos do QnA Maker no portal Azure.
 
@@ -258,6 +258,6 @@ Quando terminar a base de conhecimento, remova os recursos do QnA Maker no porta
 [Obter análises da base de dados de conhecimento](../How-To/get-analytics-knowledge-base.md)
 
 Saiba mais sobre:
-* [Power Virtual Agents](https://docs.microsoft.com/power-virtual-agents/)
-* [Power Automate](https://docs.microsoft.com/power-automate/)
-* [Conector QnA Maker](https://us.flow.microsoft.com/connectors/shared_cognitiveservicesqnamaker/qna-maker/) e as [definições para o conector](https://docs.microsoft.com/connectors/cognitiveservicesqnamaker/)
+* [Power Virtual Agents](/power-virtual-agents/)
+* [Power Automate](/power-automate/)
+* [Conector QnA Maker](https://us.flow.microsoft.com/connectors/shared_cognitiveservicesqnamaker/qna-maker/) e as [definições para o conector](/connectors/cognitiveservicesqnamaker/)

@@ -10,19 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: aba990914ea193a7246a24b1502522f6144a0a9c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 986a7c8f1282b76c2ae94eebcc2c31dc3b3e7cad
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94367595"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352019"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configure a sua experiência autosuggest personalizada
 
 > [!WARNING]
-> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource)documentado.
 > Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
-> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](/bing/search-apis/bing-web-search/create-bing-search-service-resource)
 
 Custom Autosuggest devolve uma lista de cadeias de consulta de pesquisa sugeridas que são relevantes para a sua experiência de pesquisa. As cadeias de consulta sugeridas baseiam-se numa cadeia de consulta parcial que o utilizador fornece na caixa de pesquisa. A lista conterá um máximo de 10 sugestões. 
 
@@ -65,7 +65,7 @@ Se incluir sugestões de Bing, pode adicionar uma lista de cadeias de consulta d
 
 ## <a name="enabling-autosuggest-in-hosted-ui"></a>Permitir a Autosuggest em UI hospedado
 
-Para ativar sugestões de cadeias de consulta para a UI hospedada, clique em **UI anfitrião**. Desloque-se para baixo para a secção **de Configuração Adicional.** Em **pesquisa na Web** , selecione **On** for **Enable autosuggest**. Para ativar o Autosuggest, tem de selecionar um layout que inclua uma caixa de pesquisa.
+Para ativar sugestões de cadeias de consulta para a UI hospedada, clique em **UI anfitrião**. Desloque-se para baixo para a secção **de Configuração Adicional.** Em **pesquisa na Web**, selecione **On** for **Enable autosuggest**. Para ativar o Autosuggest, tem de selecionar um layout que inclua uma caixa de pesquisa.
 
 
 ## <a name="calling-the-autosuggest-api"></a>Chamando a API autosuggest

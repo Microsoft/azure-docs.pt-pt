@@ -1,20 +1,20 @@
 ---
 title: Modelo de implementação - Portal Azure
-description: Saiba como criar o seu primeiro modelo do Azure Resource Manager com o portal do Azure e como implementá-lo.
+description: Saiba como criar o seu primeiro modelo de Gestor de Recursos Azure (modelo ARM) utilizando o portal Azure e como implementá-lo.
 author: mumian
 ms.date: 06/29/2020
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: c132d8337ccb46824b32ab4a6bcfc73bf5d0818b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bdbcecc247a4b5318ba44b92befa7e90ac47aa8c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95978561"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349627"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Quickstart: Criar e implementar modelos ARM utilizando o portal Azure
 
-Saiba como gerar um modelo de Gestor de Recursos Azure (ARM) utilizando o portal Azure e o processo de edição e implementação do modelo a partir do portal. Os modelos ARM são ficheiros JSON que definem os recursos necessários para a sua solução. Para compreender os conceitos associados à implementação e gestão das suas soluções Azure, consulte a [visão geral da implementação do modelo.](overview.md)
+Aprenda a gerar um modelo de Gestor de Recursos Azure (modelo ARM) utilizando o portal Azure e o processo de edição e implementação do modelo a partir do portal. Os modelos ARM são ficheiros JSON que definem os recursos necessários para a sua solução. Para compreender os conceitos associados à implementação e gestão das suas soluções Azure, consulte a [visão geral da implementação do modelo.](overview.md)
 
 ![Diagrama do portal quickstart do gestor de recursos](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
@@ -38,7 +38,7 @@ Muitos desenvolvedores de modelos experientes usam este método para gerar model
     ![Criar uma conta de armazenamento do Azure](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 1. Introduza as seguintes informações:
 
-    |Nome|Valor|
+    |Name|Valor|
     |----|----|
     |**Grupo de recursos**|Selecione **Criar novo**, e especifique um nome de grupo de recursos à sua escolha. Na captura de ecrã, o nome do grupo de recursos é *mystorage1016rg*. O grupo de recursos é um contentor para os recursos da Azure. O grupo de recursos facilita a gestão dos recursos da Azure. |
     |**Name**|Dê à sua conta de armazenamento um nome único. O nome da conta de armazenamento deve ser único em todo o Azure, e contém apenas letras minúsculas e números. O nome deve estar entre 3 e 24 caracteres. Se receber uma mensagem de erro a dizer "O nome da conta de armazenamento 'mystorage1016' já está tomado", tente usar **&lt; o seu nome>armazenamento A data de &lt; hoje em MMDD>**, por **exemplo, johndolestorage1016**. Para obter mais informações, consulte [as regras e restrições de nomeação.](/azure/architecture/best-practices/resource-naming)|
@@ -160,7 +160,7 @@ O Azure exige que cada serviço do Azure tenha um nome exclusivo. A implementaç
 1. Selecione **Guardar**.
 1. Introduza os seguintes valores:
 
-    |Nome|Valor|
+    |Name|Valor|
     |----|----|
     |**Grupo de recursos**|Selecione o nome do grupo de recursos que criou na última secção. |
     |**Região**|Selecione uma localização para o grupo de recursos. Por exemplo, **E.U.A. Central**. |

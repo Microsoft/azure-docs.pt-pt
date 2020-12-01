@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 96cca89b1206aaa7890648def694074a18b2aa17
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 4ab32cd37d732cd9f177363da547edd22bd5af77
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368870"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349270"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Serviços Cognitivos e aprendizagem automática
 
@@ -23,8 +23,8 @@ Os Serviços Cognitivos fornecem capacidades de aprendizagem automática para re
 |Categoria de serviço|Objetivo|
 |--|--|
 |[Decisão](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Crie aplicações que obtenham recomendações para assegurar uma tomada de decisões informada e eficiente.|
-|[Idioma](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Permita às suas aplicações processar linguagem natural com scripts pré-criados, avaliar sentimentos e aprender a reconhecer o que os utilizadores pretendem.|
-|[Pesquisa](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Adicione APIs da Pesquisa do Bing às suas aplicações e tire partida da capacidade de lidar com milhares de milhões de páginas Web, imagens, vídeos e notícias com uma única chamada à API.|
+|[Idioma](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Permita que as suas aplicações processem linguagem natural através de scripts pré-criados, avalie sentimentos e saiba como reconhecer aquilo que os utilizadores pretendem.|
+|[Pesquisa](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Adicione APIs de Pesquisa do Bing às suas aplicações e explore a capacidade de combinar inúmeras páginas Web, imagens, vídeos e notícias numa única chamada à API.|
 |[Voz](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Converta voz em texto e texto em voz natural. Traduza de um idioma para outro e ative o reconhecimento e a verificação de orador.|
 |[Visão](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Reconheça, identifique, legende, indexe e modere as suas imagens, vídeos e conteúdo com tinta digital.|
 ||||
@@ -44,7 +44,7 @@ Machine learning é um conceito em que se reúnem dados e um algoritmo para reso
 
 O processo de construção de um sistema de aprendizagem automática requer algum conhecimento de aprendizagem automática ou ciência de dados.
 
-O machine learning é fornecido utilizando [produtos e serviços de Aprendizagem automática Azure (AML).](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%252fmachine-learning%252fstudio%252fcontext%252fml-context)
+O machine learning é fornecido utilizando [produtos e serviços de Aprendizagem automática Azure (AML).](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%2fmachine-learning%2fstudio%2fcontext%2fml-context)
 
 ## <a name="what-is-a-cognitive-service"></a>O que é um Serviço Cognitivo?
 
@@ -104,7 +104,7 @@ Os dados a seguir categorizam cada serviço pelo tipo de dados que permite ou re
 |[Orador Reconhecedor](./speech-service/speaker-recognition-overview.md)||x||
 |[Discurso Texto-a-discurso (TTS)](speech-service/text-to-speech.md)|x|x||
 |[Discurso Discurso-a-texto (STT)](speech-service/speech-to-text.md)|x|x||
-|[Tradução da fala](speech-service/speech-translation.md)|x|||
+|[Tradução de Voz](speech-service/speech-translation.md)|x|||
 |[Análise de Texto](./text-analytics/overview.md)|x|||
 |[Tradutor](./translator/translator-info-overview.md)|x|||
 |[Tradutor - tradutor personalizado](./translator/custom-translator/overview.md)||x||
@@ -129,7 +129,7 @@ Serviços Cognitivos que fornecem modelos exportados para outras ferramentas de 
 |--|--|
 |[Visão Personalizada](./custom-vision-service/overview.md)|[Exportação](./Custom-Vision-Service/export-model-python.md) para Tensorflow para Android, CoreML para iOS11, ONNX para Windows ML|
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 * [Guia de Arquitetura - Quais são os produtos de aprendizagem automática na Microsoft?](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 * [Machine learning - Introdução à aprendizagem profunda vs. aprendizagem automática](../machine-learning/concept-deep-learning-vs-machine-learning.md)

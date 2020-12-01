@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: 4378a648b8b7a545c9e4b638d08592aa32fff3aa
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: c89ab375cb02824a08ff57e6b5278dd9299126ff
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427671"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350930"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar uma base de conhecimentos utilizando a importação de exportação
 
@@ -34,7 +34,7 @@ Migrar uma base de conhecimento requer exportar de uma base de conhecimento exis
 1. Inscreva-se no [portal QnA Maker](https://qnamaker.ai).
 1. Selecione a base de conhecimento de origem que pretende migrar.
 
-1. Na página **Definições,** selecione **Base de conhecimentos de exportação** para descarregar um ficheiro .tsv que contenha o conteúdo da sua base de conhecimentos de origem - perguntas, respostas, metadados, pedidos de seguimento e os nomes de origem de dados a partir dos quais foram extraídos. Os IDs QnA que são exportados com as perguntas e respostas podem ser usados para atualizar um par QnA específico usando a [API de atualização](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). O QnA ID para um par QnA específico permanece inalterado em várias operações de exportação.
+1. Na página **Definições,** selecione **Base de conhecimentos de exportação** para descarregar um ficheiro .tsv que contenha o conteúdo da sua base de conhecimentos de origem - perguntas, respostas, metadados, pedidos de seguimento e os nomes de origem de dados a partir dos quais foram extraídos. Os IDs QnA que são exportados com as perguntas e respostas podem ser usados para atualizar um par QnA específico usando a [API de atualização](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). O QnA ID para um par QnA específico permanece inalterado em várias operações de exportação.
 
 1. Selecione **Criar uma base** de conhecimento a partir do menu superior e, em seguida, criar uma base de conhecimento _vazia._ Está vazio porque quando o crias, não vais adicionar URLs ou ficheiros. Estes são adicionados durante o passo de importação, após a criação.
 
@@ -59,16 +59,16 @@ O processo de migração está programáticamente disponível utilizando as segu
 
 **Exportar**
 
-* [Baixar base de conhecimento API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
+* [Baixar base de conhecimento API](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
 
 **Importar**
 
-* [Substituir a API (recarregar com o mesmo ID de base de conhecimento)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
-* [Criar API (carregar com novo ID de base de conhecimento)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
+* [Substituir a API (recarregar com o mesmo ID de base de conhecimento)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
+* [Criar API (carregar com novo ID de base de conhecimento)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
 
 
 ## <a name="chat-logs-and-alterations"></a>Registos de chat e alterações
-Alterações insensíveis a casos (sinónimos) não são importadas automaticamente. Utilize as [APIs V4](https://go.microsoft.com/fwlink/?linkid=2092179) para mover as alterações na nova base de conhecimento.
+Alterações insensíveis a casos (sinónimos) não são importadas automaticamente. Utilize as [APIs V4](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) para mover as alterações na nova base de conhecimento.
 
 Não há forma de migrar registos de chat, uma vez que a nova base de conhecimento utiliza Insights de Aplicação para armazenar registos de chat.
 

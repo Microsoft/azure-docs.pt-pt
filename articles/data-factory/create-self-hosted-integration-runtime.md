@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 11/25/2020
-ms.openlocfilehash: 22155083a71a9cbf615293a4f86a179aaefce2a9
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 4a58f25e6183c674990d1d7722ce3196cce0f47c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96023363"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350471"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Create and configure a self-hosted integration runtime (Criar e configurar um runtime de integração autoalojado)
 
@@ -150,7 +150,7 @@ Aqui está um resumo de alto nível dos passos de fluxo de dados para copiar com
 - Utilize um tempo de integração auto-hospedado para suportar a integração de dados dentro de uma rede virtual Azure.
 - Trate a sua fonte de dados como uma fonte de dados no local que está por trás de uma firewall, mesmo quando utiliza o Azure ExpressRoute. Utilize o tempo de funcionação da integração auto-hospedada para ligar o serviço à fonte de dados.
 - Utilize o tempo de integração auto-hospedado mesmo que a loja de dados esteja na nuvem de uma infraestrutura Azure como máquina virtual de Serviço (IaaS).
-- As tarefas podem falhar num tempo de integração auto-hospedado que instalou num servidor Windows para o qual a encriptação compatível com FIPS está ativada. Para resolver este problema, tem duas opções: armazenar credenciais/valores secretos num Cofre de Chaves Azure ou desativar a encriptação compatível com FIPS no servidor. Para desativar a encriptação compatível com o FIPS, altere o valor do sub-chave do registo seguinte de 1 (ativado) para 0 (desativado): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` . Se utilizar o [tempo de integração auto-hospedado como proxy para o tempo de execução da integração SSIS,](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)a encriptação compatível com FIPS pode ser ativada e será usada ao mover dados de instalações para Azure Blob Storage como uma área de preparação.
+- As tarefas podem falhar num tempo de integração auto-hospedado que instalou num servidor Windows para o qual a encriptação compatível com FIPS está ativada. Para resolver este problema, tem duas opções: armazenar credenciais/valores secretos num Cofre de Chaves Azure ou desativar a encriptação compatível com FIPS no servidor. Para desativar a encriptação compatível com o FIPS, altere o valor do sub-chave do registo seguinte de 1 (ativado) para 0 (desativado): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` . Se utilizar o [tempo de integração auto-hospedado como proxy para o tempo de execução da integração SSIS,](./self-hosted-integration-runtime-proxy-ssis.md)a encriptação compatível com FIPS pode ser ativada e será usada ao mover dados de instalações para Azure Blob Storage como uma área de preparação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -4,15 +4,15 @@ description: Este artigo descreve como gerir os administradores de servidores pa
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8c876e27165eba30b17874eca600ba81be2e9354
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 9fdd6b6a195d0c6d4c4bf0489a037cb138a23a42
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019444"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351729"
 ---
 # <a name="manage-server-administrators"></a>Gerir administradores de servidor
 
@@ -20,10 +20,12 @@ Os administradores do servidor devem ser um utilizador válido, principal de ser
 
 Ao adicionar um **grupo de segurança,** utilize `obj:groupid@tenantid` . Os principais de serviço não são suportados em grupos de segurança adicionados à função de administrador do servidor.
 
+Se a firewall do servidor estiver ativada, os endereços IP do computador do cliente do administrador do servidor devem ser incluídos numa regra de firewall. Para saber mais, consulte [a firewall do servidor Configure](analysis-services-qs-firewall.md).
+
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Para adicionar administradores de servidores utilizando o portal Azure
 
 1. No portal, para o seu servidor, clique em **Administração de Serviços de Análise**.
-2. In ** \<servername> - Departamentos de Serviços de Análise,** clique em **Adicionar**.
+2. In **\<servername> - Departamentos de Serviços de Análise,** clique em **Adicionar**.
 3. No **Add Server Administrators**, selecione as contas de utilizador do seu AD Azure ou convide utilizadores externos por endereço de e-mail.
 
     ![Administradores de servidores no portal Azure](./media/analysis-services-server-admins/aas-manage-users-admins.png)
@@ -32,7 +34,7 @@ Ao adicionar um **grupo de segurança,** utilize `obj:groupid@tenantid` . Os pri
 
 1. Clique com o botão direito no servidor > **Propriedades**.
 2. Nas **propriedades do servidor de análise,** clique em **Segurança**.
-3. Clique em **Adicionar**e, em seguida, insira o endereço de e-mail para um utilizador ou grupo no seu AD Azure.
+3. Clique em **Adicionar** e, em seguida, insira o endereço de e-mail para um utilizador ou grupo no seu AD Azure.
    
     ![Adicionar administradores de servidores em SSMS](./media/analysis-services-server-admins/aas-manage-users-ssms.png)
 

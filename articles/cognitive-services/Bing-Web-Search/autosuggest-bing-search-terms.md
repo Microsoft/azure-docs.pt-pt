@@ -10,23 +10,23 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/03/2019
 ms.author: aahi
-ms.openlocfilehash: 5bd5ff0e49b125277255ec8e5c216583d75043a0
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 1a3f479fbbe68c8880cd7fefb3b57c77d4cfbbfe
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381138"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349576"
 ---
 # <a name="autosuggest-bing-search-terms-in-your-application"></a>Termos de pesquisa autosusuest Bing na sua aplicação
 
 > [!WARNING]
-> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource)documentado.
 > Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
-> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](/bing/search-apis/bing-web-search/create-bing-search-service-resource)
 
 Se disponibilizar uma caixa de pesquisa na qual o utilizador introduz o seu termo de pesquisa, utilize a [API de Sugestão Automática do Bing](../bing-autosuggest/get-suggested-search-terms.md) para melhorar a experiência. A API devolve cadeias de consulta sugerida com base em termos de pesquisa parcial à medida que o utilizador escreve.
 
-Depois de o utilizador introduzir um termo de pesquisa, deve ser codificado URL antes do parâmetro de consulta [q](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query) ser definido. Por exemplo, se o utilizador introduzir *sailing dinghies* , defina `q` como `sailing+dinghies` ou `sailing%20dinghies`.
+Depois de o utilizador introduzir um termo de pesquisa, deve ser codificado URL antes do parâmetro de consulta [q](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query) ser definido. Por exemplo, se o utilizador introduzir *sailing dinghies*, defina `q` como `sailing+dinghies` ou `sailing%20dinghies`.
 
 Se o termo de consulta contiver um erro ortográfico, a resposta de pesquisa inclui um objeto [QueryContext.](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#querycontext) O objeto mostra a ortografia original e a ortografia corrigida que o Bing utilizou para a pesquisa.
 
@@ -42,10 +42,10 @@ Pode utilizar estas informações para informar o utilizador de que modificou a 
 
 ![Exemplo UX de contexto de consulta](./media/cognitive-services-bing-web-api/bing-query-context.PNG)  
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 * Rever as [respostas da API de pesquisa web Bing.](search-responses.md)  
 
-## <a name="see-also"></a>Veja também  
+## <a name="see-also"></a>Ver também  
 
 * [Bing Web Search API referência](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

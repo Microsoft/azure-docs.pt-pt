@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/17/2020
-ms.openlocfilehash: fa048473f0f285b793dad88c7defdb6189ca1ccd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 63be912986542741359cd5e88227f06905d42647
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023011"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350879"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do sumidouro no fluxo de dados de mapeamento
 
@@ -100,7 +100,7 @@ Por predefinição, os dados são escritos a vários lavatórios numa ordem não
 ![Screenshot que mostra pedido de pia personalizada.](media/data-flow/custom-sink-ordering.png "Screenshot que mostra pedido de pia personalizada.")
 
 > [!NOTE]
-> Ao utilizar [pesquisas em cache,](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup)certifique-se de que o seu pedido de pia tem os lavatórios em cache definidos para 1, o mais baixo (ou primeiro) na encomenda.
+> Ao utilizar [pesquisas em cache,](./concepts-data-flow-expression-builder.md#cached-lookup)certifique-se de que o seu pedido de pia tem os lavatórios em cache definidos para 1, o mais baixo (ou primeiro) na encomenda.
 
 ![Pedido de pia personalizado](media/data-flow/cache-2.png "Pedido de pia personalizado")
 

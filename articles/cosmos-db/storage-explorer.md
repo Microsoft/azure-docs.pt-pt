@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/23/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 61ae446d180a86b42bc52ac3244b96b7b347b68f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5b09ce48226b3c31efce4966ec776c10931cc391
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010576"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348658"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Gerir os recursos DB da Azure Cosmos utilizando o Azure Storage Explorer
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -22,7 +22,7 @@ Você pode usar o explorador de armazenamento Azure para ligar-se ao Azure Cosmo
 Use a mesma ferramenta para gerir as suas diferentes entidades Azure num só local. Pode gerir entidades DB da Azure Cosmos, manipular dados, atualizar procedimentos armazenados e gatilhos, juntamente com outras entidades da Azure, como bolhas de armazenamento e filas. O Azure Storage Explorer suporta contas cosmos configuradas para SQL, MongoDB, Graph e Table APIs.
 
 > [!NOTE]
-> A integração do Azure Cosmos DB com o Explorador de Armazenamento foi preterida. As funcionalidades existentes não serão removidas durante, pelo menos, um ano a partir desta versão. Em alternativa, deve utilizar o [portal do Azure](https://portal.azure.com/), a [aplicação de ambiente de trabalho do portal do Azure](https://portal.azure.com/App/Download) ou o [Azure Cosmos Explorer](data-explorer.md) autónomo. As opções alternativas incluem muitas funcionalidades novas que não são atualmente suportadas no Explorador de Armazenamento.
+> A integração do Azure Cosmos DB com o Explorador de Armazenamento foi preterida. As funcionalidades existentes não serão removidas durante, pelo menos, um ano a partir desta versão. Deverá utilizar a aplicação de desktop [Azure](https://portal.azure.com/)Portal , [Azure Portal](https://portal.azure.com/App/Download) ou o autónomo [Azure Cosmos DB Explorer.](data-explorer.md) As opções alternativas incluem muitas funcionalidades novas que não são atualmente suportadas no Explorador de Armazenamento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

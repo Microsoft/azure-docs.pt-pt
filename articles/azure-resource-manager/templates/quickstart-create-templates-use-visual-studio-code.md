@@ -1,20 +1,20 @@
 ---
 title: Criar modelo - Código de Estúdio Visual
-description: Utilize o Visual Studio Code e a extensão Azure Resource Manager Tools para trabalhar em modelos do Resource Manager.
+description: Utilize o Código do Estúdio Visual e a extensão de ferramentas do Gestor de Recursos Azure para trabalhar nos modelos do Gestor de Recursos Azure (modelos ARM).
 author: neilpeterson
 ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: 5375fedcd05aefa5d23ee872325373ce631d43bb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d8fd44a1e4c1ddfd78b2afa3280bb05c8fde91e3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88034991"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350148"
 ---
-# <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Quickstart: Criar modelos de gestor de recursos Azure com Código de Estúdio Visual
+# <a name="quickstart-create-arm-templates-with-visual-studio-code"></a>Quickstart: Criar modelos ARM com Código de Estúdio Visual
 
-As Ferramentas de Gestor de Recursos Azure para Código do Estúdio Visual fornecem suporte linguístico, snippets de recursos e auto-preconização de recursos. Estas ferramentas ajudam a criar e validar modelos do Gestor de Recursos Azure. Neste arranque rápido, você usa a extensão para criar um modelo de Gestor de Recursos Azure de raiz. Ao fazê-lo, experimenta as capacidades de extensões tais como snippets de modelo ARM, validação, conclusão e suporte de ficheiros de parâmetros.
+As Ferramentas de Gestor de Recursos Azure para Código do Estúdio Visual fornecem suporte linguístico, snippets de recursos e auto-preconização de recursos. Estas ferramentas ajudam a criar e validar modelos de Gestor de Recursos Azure (modelos ARM). Neste arranque rápido, utiliza-se a extensão para criar um modelo ARM de raiz. Ao fazê-lo, experimenta as capacidades de extensões tais como snippets de modelo ARM, validação, conclusão e suporte de ficheiros de parâmetros.
 
 Para completar este arranque rápido, precisa do [Código do Estúdio Visual,](https://code.visualstudio.com/)com a extensão de [ferramentas Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) instalada. Também precisa do [Azure CLI](/cli/azure/?view=azure-cli-latest) ou do [módulo Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) instalado e autenticado.
 
@@ -54,7 +54,7 @@ A **tecla do separador** pode ser usada para abasar através de propriedades con
 
 ## <a name="completion-and-validation"></a>Conclusão e validação
 
-Uma das capacidades mais poderosas da extensão é a sua integração com os esquemas Azure. Os esquemas Azure fornecem a extensão com capacidades de validação e de conclusão conscientes do recurso. Vamos modificar a conta de armazenamento para ver validação e conclusão em ação. 
+Uma das capacidades mais poderosas da extensão é a sua integração com os esquemas Azure. Os esquemas Azure fornecem a extensão com capacidades de validação e de conclusão conscientes do recurso. Vamos modificar a conta de armazenamento para ver validação e conclusão em ação.
 
 Em primeiro lugar, atualize o tipo de conta de armazenamento para um valor inválido, como `megaStorage` . Note que esta ação produz um aviso indicando que `megaStorage` não é um valor válido.
 
@@ -80,7 +80,7 @@ Os nomes da conta de armazenamento Azure têm um comprimento mínimo de 3 caract
 
 ![Imagem mostrando minLength e maxLength sendo adicionados a um parâmetro do modelo ARM](./media/quickstart-create-templates-use-visual-studio-code/11.png)
 
-Agora, no recurso de armazenamento, atualize a propriedade do nome para usar o parâmetro. Para tal, retire o nome atual. Introduza uma cotação dupla e um suporte quadrado de `[` abertura, que produz uma lista de funções do modelo ARM. Selecione *parâmetros* da lista. 
+Agora, no recurso de armazenamento, atualize a propriedade do nome para usar o parâmetro. Para tal, retire o nome atual. Introduza uma cotação dupla e um suporte quadrado de `[` abertura, que produz uma lista de funções do modelo ARM. Selecione *parâmetros* da lista.
 
 ![Imagem mostrando a conclusão automática ao usar parâmetros nos recursos do modelo ARM](./media/quickstart-create-templates-use-visual-studio-code/12.png)
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: aeb5bceca11f595c1582596aeea401fe5f9b239f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64fe65019a66013323b1c6d27055051badb47cee
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883483"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350318"
 ---
 # <a name="tutorial-transfer-data-with-azure-stack-edge-pro"></a>Tutorial: Dados de transferência com Azure Stack Edge Pro
 
@@ -56,18 +56,18 @@ Para criar uma partilha, faça o seguinte procedimento:
     O nome da partilha só pode ter letras minúsculas, algarismos e hífenes. Deve ter entre 3 a 63 caracteres e começar com uma letra ou um numeral. Os hífenes devem ser precedidos e seguidos por uma letra ou um numeral.
     
     b. Selecione um **Tipo** para a partilha.  
-    O tipo pode ser **SMB** ou **NFS**, sendo que SMB é a predefinição. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux.  
+    O tipo pode ser **SMB** ou **NFS,** sendo o SMB o padrão. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux.  
     Dependendo se escolhe ações SMB ou NFS, as restantes opções variam ligeiramente. 
 
-    c. Forneça uma conta de armazenamento onde a parte residirá. 
+    c. Indique uma conta de armazenamento onde a partilha vai residir. 
 
     > [!IMPORTANT]
-    > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge Pro ou Data Box Gateway. Para obter mais informações, consulte [Definir e gerir políticas de imutabilidade para armazenamento de bolhas](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+    > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge Pro ou Data Box Gateway. Para obter mais informações, consulte [Definir e gerir políticas de imutabilidade para armazenamento de bolhas](../storage/blobs/storage-blob-immutability-policies-manage.md).
     
-    d. Na lista de drop-down **do serviço de armazenamento,** selecione **Block Blob**, **Page Blob**ou **Files**.  
+    d. Na lista de drop-down **do serviço de armazenamento,** selecione **Block Blob**, **Page Blob** ou **Files**.  
     O tipo de serviço que seleciona depende do formato que pretende utilizar no Azure. Neste exemplo, porque queremos armazenar os dados como blobs de bloco em Azure, selecionamos **Block Blob**. Se selecionar **Page Blob,** certifique-se de que os seus dados estão alinhados com 512 bytes. Por exemplo, um VHDX tem sempre um alinhamento de 512 bytes.
 
-    e. Crie um novo recipiente blob ou utilize um existente na lista de retiradas. Se criar um recipiente de bolhas, forneça um nome de recipiente. Se um recipiente já não existe, é criado na conta de armazenamento com o nome de ação recém-criado.
+    e. Crie um novo recipiente blob ou utilize um existente na lista de retiradas. Se criar um recipiente de bolhas, forneça um nome de recipiente. Se ainda não existir nenhum contentor, este será criado na conta de armazenamento com o nome da partilha recentemente criada.
    
     f. Dependendo se criou uma participação na SMB ou numa participação da NFS, faça um dos seguintes passos: 
      
@@ -95,7 +95,7 @@ Agora pode ligar-se a uma ou mais das ações que criou no último passo. Depend
 No seu cliente Windows Server ligado ao seu dispositivo Azure Stack Edge Pro, conecte-se a uma partilha SMB inserindo os comandos:
 
 
-1. Numa janela de comando, escreva:
+1. Numa janela de comandos, escreva: 
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -162,5 +162,3 @@ Para aprender a transformar os seus dados utilizando o Azure Stack Edge Pro, ava
 
 > [!div class="nextstepaction"]
 > [Transforme dados com Azure Stack Edge Pro](./azure-stack-edge-deploy-configure-compute.md)
-
-

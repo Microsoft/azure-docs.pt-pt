@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 3d17d4dd88e29440304989b8c37eaa81125d1812
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 8eccc3be7da201ee1e2af046c6b515871ef05adc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357560"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350794"
 ---
 # <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>Tutorial: Configurar BitaBIZ para o provisionamento automático do utilizador
 
@@ -151,7 +151,7 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
-* O BitaBIZ requer **userName** , **email** , **firstName** e **lastName** como atributos obrigatórios. 
+* O BitaBIZ requer **userName**, **email**, **firstName** e **lastName** como atributos obrigatórios. 
 * O BitaBIZ não suporta eliminações duras atualmente.
 
 ## <a name="additional-resources"></a>Recursos adicionais

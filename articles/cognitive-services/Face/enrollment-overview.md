@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 11/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 2f7d2df8561efe7188fc2d070c57dcb0236fefb1
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: ac5106aa661cb2baea31ee15d57e9c6fac8c7192
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026838"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350335"
 ---
 # <a name="face-api-enrollment"></a>Inscrição de API face
 
@@ -44,10 +44,10 @@ Antes de desenhar um fluxo de inscrição, pense em como a aplicação que está
 |---|---|
 |Hardware | Considere a qualidade da câmara do dispositivo de inscrição. |
 |Características de inscrição recomendadas | Inclua um passo de login com autenticação multi-factor.</br></br>Ligue as informações do utilizador como um pseudónimo ou número de identificação com o seu ID do modelo de rosto da API facial (conhecida como ID da pessoa). Este mapeamento é necessário para recuperar e gerir a inscrição de um utilizador. Nota: a identificação da pessoa deve ser tratada como um segredo na aplicação.</br></br>Crie um processo automatizado para eliminar todos os dados de inscrição, incluindo os modelos de rosto e fotos de inscrição de pessoas que já não são utilizadores de tecnologia de reconhecimento facial, como antigos funcionários.</br></br>Evite a inscrição automática, uma vez que não dá ao utilizador a consciência, compreensão, liberdade de escolha ou controlo recomendado para obter o consentimento. </br></br>Peça permissão aos utilizadores para guardar as imagens utilizadas para a inscrição. Isto é útil quando há uma atualização de modelo, uma vez que novas fotos de inscrição serão necessárias para se inscrever no novo modelo a cada 10 meses. Se as imagens originais não forem guardadas, os utilizadores terão de passar pelo processo de inscrição desde o início.</br></br>Permitir que os utilizadores optem por não armazenar fotografias no sistema. Para tornar a escolha mais clara, pode adicionar um segundo ecrã de pedido de consentimento para guardar as fotos de inscrição. </br></br>Se as fotos forem guardadas, crie um processo automatizado para reinscreva todos os utilizadores quando houver uma atualização de modelo. Aqueles que salvaram as suas fotos de inscrição não terão que se inscrever novamente. </br></br>Crie uma funcionalidade de aplicação que permita aos administradores designados sobrepor certos filtros de qualidade se um utilizador tiver problemas em inscrever-se. |
-|Segurança | Os Serviços Cognitivos seguem [as melhores práticas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal) para encriptar os dados dos utilizadores em repouso e em trânsito. Seguem-se práticas adicionais que podem ajudar a cumprir as promessas de segurança que faz aos utilizadores durante a experiência de inscrição. </br></br>Tome medidas de segurança para garantir que ninguém tenha acesso à identificação da pessoa em qualquer ponto durante a inscrição. Nota: O PersonID deve ser tratado como um segredo no sistema de inscrição. </br></br>Use [o controlo de acesso baseado em funções](https://docs.microsoft.com/azure/role-based-access-control/overview) com serviços cognitivos. </br></br>Utilize autenticação baseada em símbolos e/ou assinaturas de acesso partilhado (SAS) sobre chaves e segredos para aceder a recursos como bases de dados. Ao utilizar o pedido ou fichas SAS, pode conceder acesso limitado aos dados sem comprometer as chaves da sua conta, e pode especificar um prazo de validade no token. </br></br>Nunca guarde segredos, chaves ou senhas na sua aplicação. |
+|Segurança | Os Serviços Cognitivos seguem [as melhores práticas](../cognitive-services-virtual-networks.md?tabs=portal) para encriptar os dados dos utilizadores em repouso e em trânsito. Seguem-se práticas adicionais que podem ajudar a cumprir as promessas de segurança que faz aos utilizadores durante a experiência de inscrição. </br></br>Tome medidas de segurança para garantir que ninguém tenha acesso à identificação da pessoa em qualquer ponto durante a inscrição. Nota: O PersonID deve ser tratado como um segredo no sistema de inscrição. </br></br>Use [o controlo de acesso baseado em funções](../../role-based-access-control/overview.md) com serviços cognitivos. </br></br>Utilize autenticação baseada em símbolos e/ou assinaturas de acesso partilhado (SAS) sobre chaves e segredos para aceder a recursos como bases de dados. Ao utilizar o pedido ou fichas SAS, pode conceder acesso limitado aos dados sem comprometer as chaves da sua conta, e pode especificar um prazo de validade no token. </br></br>Nunca guarde segredos, chaves ou senhas na sua aplicação. |
 |Privacidade do utilizador |Fornecer um leque de opções de inscrição para abordar diferentes níveis de preocupações de privacidade. Não maneça que as pessoas utilizem os seus dispositivos pessoais para se inscreverem num sistema de reconhecimento facial. </br></br>Permitir que os utilizadores se reinscrevam, revoguem o consentimento e apaguem os dados da aplicação de inscrição a qualquer momento e por qualquer motivo. |
 |Acessibilidade |Siga as normas de acessibilidade (por exemplo, [ADA](https://www.ada.gov/regs2010/2010ADAStandards/2010ADAstandards.htm) ou [W3C)](https://www.w3.org/TR/WCAG21/)para garantir que a aplicação é utilizável por pessoas com mobilidade ou deficiências visuais. |
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 Siga o Guia [de Aplicações de Inscrição](build-enrollment-app.md) para começar com uma aplicação de inscrição de amostras. Em seguida, personalize-o ou escreva a sua própria app de acordo com as necessidades do seu produto.

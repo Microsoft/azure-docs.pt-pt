@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: Monitorização do desempenho da aplicação para aplicações Java em qualquer ambiente sem necessidade de modificação de código. Mapa de rastreio e aplicação distribuídos.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 8423443abac90b87349a4a80fce0ec33a8b686da
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 36e2b419da2bccdf2f5f13227457172cf644994c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444746"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351542"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java aplicação codificada monitorizando Azure Monitor Application Insights
 
@@ -139,13 +139,13 @@ O quadro abaixo representa os tipos de telemetria personalizados atualmente supo
 
 |                     | Micrometer | Log4j, logback, JUL | 2.x SDK |
 |---------------------|------------|---------------------|---------|
-| **Eventos Personalizados**   |            |                     |  Yes    |
-| **Métricas Personalizadas**  |  Yes       |                     |  Yes    |
-| **Dependências**    |            |                     |  Yes    |
-| **Exceções**      |            |  Yes                |  Yes    |
-| **Vistas de página**      |            |                     |  Yes    |
-| **Pedidos**        |            |                     |  Yes    |
-| **Rastreios**          |            |  Yes                |  Yes    |
+| **Eventos Personalizados**   |            |                     |  Sim    |
+| **Métricas Personalizadas**  |  Sim       |                     |  Sim    |
+| **Dependências**    |            |                     |  Sim    |
+| **Exceções**      |            |  Sim                |  Sim    |
+| **Vistas de página**      |            |                     |  Sim    |
+| **Pedidos**        |            |                     |  Sim    |
+| **Rastreios**          |            |  Sim                |  Sim    |
 
 Não estamos a planear lançar um SDK com o Application Insights 3.0 neste momento.
 
@@ -228,17 +228,3 @@ Ou também pode utilizar a Aplicação Insights Java SDK 2.x:
       telemetryClient.trackException(e);
   }
 ```
-
-## <a name="upgrading-from-application-insights-java-sdk-2x"></a>Upgrade a partir de Application Insights Java SDK 2.x
-
-Se já estiver a utilizar o Application Insights Java SDK 2.x na sua aplicação, não há necessidade de a remover.
-O agente Java 3.0 irá detetá-lo e capturar e correlacionar qualquer telemetria personalizada que está a enviar através do Java SDK 2.x, enquanto suprimiu qualquer auto-recolha realizada pelo Java SDK 2.x para evitar a telemetria duplicada.
-
-Se estava a usar o agente Application Insights 2.x, tem de remover o `-javaagent:` arg JVM que estava a apontar para o agente 2.x.
-
-> [!NOTE]
-> Java SDK 2.x TelemetriaInitializadores e TelemetriaProcessadores não serão executados quando utilizar o agente 3.0.
-> Muitos dos casos de utilização anteriormente necessários podem ser resolvidos em 3.0 configurando [dimensões personalizadas](./java-standalone-config.md#custom-dimensions) ou configurando processadores de [telemetria](./java-standalone-telemetry-processors.md).
-
-> [!NOTE]
-> 3.0 ainda não suporta várias teclas de instrumentação num único JVM.

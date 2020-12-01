@@ -2,14 +2,14 @@
 title: Fornecedores de recursos e tipos de recursos
 description: Descreve os fornecedores de recursos que suportam o Gestor de Recursos Azure. Descreve os seus esquemas, versões API disponíveis e as regiões que podem acolher os recursos.
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 702836e0dc98b06ccf6e0eeb0d0f373374c4e783
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a8adbce80d5e8f9ee9df2050d8f43363cbf57dc3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972543"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352104"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos e fornecedores de recursos do Azure
 
@@ -36,6 +36,9 @@ Antes de utilizar um fornecedor de recursos, a sua assinatura Azure deve ser reg
 
 Este artigo mostra-lhe como verificar o estado de registo de um fornecedor de recursos e registá-lo conforme necessário. Tem de ter autorização para fazer a `/register/action` operação para o fornecedor de recursos. A permissão está incluída nas funções de Contribuinte e Proprietário.
 
+> [!IMPORTANT]
+> Só registe um fornecedor de recursos quando estiver pronto para o utilizar. O passo de registo permite-lhe manter os privilégios mínimos dentro da sua subscrição. Um utilizador malicioso não pode usar fornecedores de recursos que não estejam registados.
+
 O seu código de aplicação não deve bloquear a criação de recursos para um fornecedor de recursos que se encontra no estado **de registo.** Quando regista o fornecedor de recursos, a operação é feita individualmente para cada região apoiada. Para criar recursos numa região, o registo só precisa de ser concluído naquela região. Ao não bloquear o fornecedor de recursos no estado de registo, a sua aplicação pode continuar muito mais cedo do que esperar que todas as regiões completem.
 
 Não é possível desregistar um fornecedor de recursos quando ainda tem tipos de recursos desse fornecedor de recursos na sua subscrição.
@@ -55,7 +58,7 @@ Para ver todos os fornecedores de recursos e o estado de registo da sua subscri�
 
     ![mostrar fornecedores de recursos](./media/resource-providers-and-types/show-resource-providers.png)
 
-6. Para registar um fornecedor de recursos, **selecione Registar-se.** Na imagem anterior, o link **Register** é destacado para **microsoft.Blueprint**.
+6. Para registar um fornecedor de recursos, **selecione Registar-se.** Na imagem anterior, o link **Register** é destacado para **microsoft.Blueprint**. Para manter os privilégios mínimos na sua subscrição, registe apenas os fornecedores de recursos que está pronto a utilizar.
 
 Para ver informações para um determinado fornecedor de recursos:
 
@@ -107,7 +110,7 @@ Para consultar todos os fornecedores de recursos registados para a sua subscriç
  Get-AzResourceProvider -ListAvailable | Where-Object RegistrationState -eq "Registered" | Select-Object ProviderNamespace, RegistrationState | Sort-Object ProviderNamespace
 ```
 
-Para registar um fornecedor de recursos, utilize:
+Para manter os privilégios mínimos na sua subscrição, registe apenas os fornecedores de recursos que está pronto a utilizar. Para registar um fornecedor de recursos, utilize:
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -216,7 +219,7 @@ Para consultar todos os fornecedores de recursos registados para a sua subscriç
 az provider list --query "sort_by([?registrationState=='Registered'].{Provider:namespace, Status:registrationState}, &Provider)" --out table
 ```
 
-Para registar um fornecedor de recursos, utilize:
+Para manter os privilégios mínimos na sua subscrição, registe apenas os fornecedores de recursos que está pronto a utilizar. Para registar um fornecedor de recursos, utilize:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Batch

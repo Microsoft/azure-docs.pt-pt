@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 111b2b5b660133c20afdb3c56e1c3e3ed607398c
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: b6cadbf5c3a33c1a954a47f37b33ad8703f40b69
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96297054"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350743"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Controlo de fontes no Azure Synapse Studio
 
@@ -192,7 +192,7 @@ Depois de remover a associação com o repo atual, pode configurar as suas defin
 
 ## <a name="best-practices-for-git-integration"></a>Melhores práticas para integração de Git
 
--   **Permissões.** Depois de ter um repositório de git ligado ao seu espaço de trabalho, qualquer pessoa que possa aceder ao seu git repo com qualquer papel no seu espaço de trabalho será capaz de atualizar artefactos, como script sql, caderno, definição de trabalho de faísca, conjunto de dados, fluxo de dados e pipeline em modo git. Normalmente, não quer que todos os membros da equipa tenham permissões para atualizar o espaço de trabalho. Apenas conceda permissão de repositório git para autores de artefactos do espaço de trabalho sinapse. 
+-   **Permissões.** Depois de ter um repositório de git ligado ao seu espaço de trabalho, qualquer pessoa que tenha acesso ao seu git repo com qualquer papel no seu espaço de trabalho será capaz de atualizar artefactos, como script sql, caderno, definição de trabalho de faísca, conjunto de dados, fluxo de dados e pipeline em modo git. Normalmente, não quer que todos os membros da equipa tenham permissões para atualizar o espaço de trabalho. Apenas conceda permissão de repositório git para autores de artefactos do espaço de trabalho sinapse. 
 -   **Colaboração**. Recomenda-se não permitir check-ins diretos no ramo da colaboração. Esta restrição pode ajudar a prevenir bugs, uma vez que cada check-in passará por um processo de revisão de pedidos de pull descrito na [Criação de ramos de funcionalidades.](source-control.md#creating-feature-branches)
 -   Modo ao vivo da **sinapse**. Após a publicação no modo git, todas as alterações serão refletidas no modo ao vivo da Synapse. No modo ao vivo da Synapse, a publicação é desativada. E podes ver, executar artefactos em modo ao vivo se te for dada a permissão certa. 
 -   **Editar artefactos em Estúdio.** O estúdio Synapse é o único local onde pode ativar o controlo de fontes de espaço de trabalho e alterar automaticamente o git. Qualquer alteração via SDK, PowerShell, não será sincronizada para git. Recomendamos que edite sempre artefacto em Studio quando o git estiver ativado.
@@ -215,7 +215,7 @@ Se a sucursal de publicação estiver dessincronizada com o ramo de colaboraçã
 
 1. Reconfigure Git com as mesmas definições, mas certifique-se de que **importar os recursos existentes para repositório** é verificado e escolher o mesmo ramo.  
 
-1. Criar um pedido de puxar para fundir as alterações ao ramo de colaboração 
+1. Criar um pedido Pull para unir as alterações no ramo de colaboração 
 
 ## <a name="unsupported-features"></a>Funcionalidades não suportadas
 

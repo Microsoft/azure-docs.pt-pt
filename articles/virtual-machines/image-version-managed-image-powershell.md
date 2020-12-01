@@ -1,6 +1,6 @@
 ---
-title: Migrar uma imagem gerida para uma Galeria de Imagens Partilhadas
-description: Aprenda a usar a Azure PowerShell para migrar uma imagem gerida para uma versão de imagem numa Galeria de Imagens Partilhadas.
+title: Clone uma imagem gerida para uma Galeria de Imagens Partilhadas
+description: Aprenda a usar a Azure PowerShell para clonar uma imagem gerida para uma versão de imagem numa Galeria de Imagens Partilhadas.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 1c57d9d283714da6905335fd3167c4f8a69292f8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 92cae59978b172993c779e9a486ff67d82309800
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964886"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349927"
 ---
-# <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Migrar de uma imagem gerida para uma imagem da Galeria de Imagens Partilhada
+# <a name="clone-a-managed-image-to-a-shared-image-gallery-image"></a>Clone uma imagem gerida para uma imagem da Galeria de Imagens Partilhada
 
-Se tiver uma imagem gerida existente que gostaria de migrar para uma Galeria de Imagens Partilhadas, pode criar uma imagem da Galeria de Imagens Partilhada diretamente a partir da imagem gerida. Depois de ter testado a sua nova imagem, pode eliminar a imagem gerida pela fonte. Também pode migrar de uma imagem gerida para uma Galeria de Imagens Partilhadas utilizando o [Azure CLI](image-version-managed-image-cli.md).
+Se tiver uma imagem gerida que gostaria de clonar e se mudar para uma Galeria de Imagens Partilhadas, pode criar uma imagem da Galeria de Imagens Partilhada diretamente a partir da imagem gerida. Depois de ter testado a sua nova imagem, pode eliminar a imagem gerida pela fonte. Também pode migrar de uma imagem gerida para uma Galeria de Imagens Partilhadas utilizando o [Azure CLI](image-version-managed-image-cli.md).
 
 As imagens numa galeria de imagens têm dois componentes, que iremos criar neste exemplo:
 - Uma **definição de Imagem** transporta informações sobre a imagem e requisitos para a sua utilização. Isto inclui se a imagem é Windows ou Linux, especializada ou generalizada, notas de lançamento e requisitos mínimos e máximo de memória. É uma definição de um tipo de imagem. 

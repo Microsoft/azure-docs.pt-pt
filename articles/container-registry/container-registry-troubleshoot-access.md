@@ -3,12 +3,12 @@ title: Problemas de rede de resolução de problemas com registo
 description: Sintomas, causas e resolução de problemas comuns ao aceder a um registo de contentores Azure numa rede virtual ou atrás de uma firewall
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 5f2cf2d72e6641d4871b7acccdbd7cc37c653f74
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 95b32b839d1b3b804a2035b797e1146a09d5236a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148467"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351798"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Problemas de rede de resolução de problemas com registo
 
@@ -103,7 +103,7 @@ Links relacionados:
 
 ### <a name="configure-service-access"></a>Configure acesso ao serviço
 
-Atualmente, o Azure Security Center não pode realizar [a verificação de vulnerabilidade de imagem](../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json) num registo que restringe o acesso a pontos finais privados, sub-redes selecionadas ou endereços IP. Além disso, os recursos dos seguintes serviços não podem aceder a um registo de contentores com restrições de rede:
+Atualmente, o Azure Security Center não pode realizar [a verificação de vulnerabilidade de imagem](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) num registo que restringe o acesso a pontos finais privados, sub-redes selecionadas ou endereços IP. Além disso, os recursos dos seguintes serviços não podem aceder a um registo de contentores com restrições de rede:
 
 * Azure DevOps Services 
 * Azure Container Instances

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: e56cf54e1bf1483309cb7aac8519bb281ca2bc06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 677ab3327f2357ce7b242c314b44702370779def
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938717"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351678"
 ---
 # <a name="access-your-security-data"></a>Aceda aos seus dados de segurança
 
@@ -30,14 +30,14 @@ Para configurar qual o espaço de trabalho log Analytics é utilizado:
 
 1. Abra o seu hub IoT.
 1. Clique na lâmina **Definições** sob a secção **De Segurança.**
-1. Clique em **Data Collection**e altere a configuração do espaço de trabalho do Log Analytics.
+1. Clique em **Data Collection** e altere a configuração do espaço de trabalho do Log Analytics.
 
 Para aceder aos seus alertas e recomendações no seu espaço de trabalho Log Analytics após a configuração:
 
 1. Escolha um alerta ou recomendação no Defender para IoT.
 1. Clique **em mais investigação,** em seguida, clique **em ver quais os dispositivos que têm este clique de alerta aqui e ver a coluna DeviceId**.
 
-Para obter detalhes sobre a consulta de dados do Log Analytics, consulte [Começar com consultas no Log Analytics](https://docs.microsoft.com//azure/log-analytics/query-language/get-started-queries).
+Para obter detalhes sobre a consulta de dados do Log Analytics, consulte [Começar com consultas no Log Analytics](//azure/log-analytics/query-language/get-started-queries).
 
 ## <a name="security-alerts"></a>Alertas de segurança
 
@@ -87,7 +87,7 @@ SecurityAlert
     DisplayName
 ```
 
-| IoTHubId                                                                                                       | DeviceId      | Alertaseverity | DisplayName                           | Contagem |
+| IoTHubId                                                                                                       | DeviceId      | Alertaseverity | DisplayName                           | de palavras |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|-----|
 | /subscrições/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Ataque de força bruta conseguiu           | 9   |
 | /subscrições/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio        | Tentativa de login local falhada no dispositivo  | 242 |
@@ -146,8 +146,8 @@ SecurityRecommendation
 
 | TimeGenerated | IoTHubId | DeviceId | RecomendaçõesEverity | Estado de Recomendação | RecomendaçãoDisplayName | Descrição | RecomendaçõesAdditionalData |
 |---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
-| 2019-03-22T10:21:06.060 |    /subscrições/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio | Ativa | Foi encontrada regra de firewall permissiva na cadeia de entrada | Foi encontrada uma regra na firewall que contém um padrão permissivo para uma ampla gama de endereços IP ou portos | {"Rules":"[{ \" SourceAddress \" : , \" \" \" SourcePort : , \" \" \" \" DestinationAddress \" : , \" \" \" DestinationPort : \" \" 1337 \" }}"} |
-| 2019-03-22T10:50:27.237 | /subscrições/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio | Ativa | Foi encontrada regra de firewall permissiva na cadeia de entrada | Foi encontrada uma regra na firewall que contém um padrão permissivo para uma ampla gama de endereços IP ou portos | {"Rules":"[{ \" SourceAddress \" : , \" \" \" SourcePort : , \" \" \" \" DestinationAddress \" : , \" \" \" DestinationPort : \" \" 1337 \" }}"} |
+| 2019-03-22T10:21:06.060 |    /subscrições/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio | Ativo | Foi encontrada regra de firewall permissiva na cadeia de entrada | Foi encontrada uma regra na firewall que contém um padrão permissivo para uma ampla gama de endereços IP ou portos | {"Rules":"[{ \" SourceAddress \" : , \" \" \" SourcePort : , \" \" \" \" DestinationAddress \" : , \" \" \" DestinationPort : \" \" 1337 \" }}"} |
+| 2019-03-22T10:50:27.237 | /subscrições/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio | Ativo | Foi encontrada regra de firewall permissiva na cadeia de entrada | Foi encontrada uma regra na firewall que contém um padrão permissivo para uma ampla gama de endereços IP ou portos | {"Rules":"[{ \" SourceAddress \" : , \" \" \" SourcePort : , \" \" \" \" DestinationAddress \" : , \" \" \" DestinationPort : \" \" 1337 \" }}"} |
 
 ### <a name="device-summary"></a>Resumo do dispositivo
 
@@ -164,7 +164,7 @@ SecurityRecommendation
 | summarize Cnt=count() by IoTHubId, DeviceId, RecommendationSeverity
 ```
 
-| IoTHubId                                                                                                       | DeviceId      | RecomendaçõesEverity | Contagem |
+| IoTHubId                                                                                                       | DeviceId      | RecomendaçõesEverity | de palavras |
 |----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----|
 | /subscrições/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | 2   |
 | /subscrições/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio        | 1 |

@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: b97ae5d4ba4295ebbb51c960e4cbb76c53dc88a8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f941c394c3dab0e5e6997898a48a248f6a0cfe42
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009688"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352444"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>How to use the Azure WebJobs SDK for event-driven background processing (Como utilizar o SDK de WebJobs do Azure para processamento em segundo plano condicionado por eventos)
 
@@ -66,7 +66,8 @@ static void Main(string[] args)
 }
 ```
 
-Porque a versão 3. *x* utiliza as APIs de configuração de núcleo padrão.NET, não existe API para alterar nomes de cadeias de ligação.
+> [!NOTE]
+> Porque a versão 3. *x* utiliza as APIs de configuração de núcleo padrão.NET, não existe API para alterar nomes de cadeias de ligação. Ver [Desenvolver e implementar WebJobs usando o Visual Studio](webjobs-dotnet-deploy-vs.md)
 
 ### <a name="host-development-settings"></a>Configurações de desenvolvimento do anfitrião
 

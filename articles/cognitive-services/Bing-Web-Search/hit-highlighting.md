@@ -11,19 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: 5c0bed04fccfba1ac06a54d5ddba9033ef05761b
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 32c3279cacddf10e77e8d245ba525ab766efd6fd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380713"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351883"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Usando marcadores de decoração para destacar texto
 
 > [!WARNING]
-> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource)documentado.
 > Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
-> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](/bing/search-apis/bing-web-search/create-bing-search-service-resource)
 
 Bing suporta o destaque do sucesso, que marca termos de consulta (ou outros termos que Bing considera relevantes) nas cadeias de exibição de algumas respostas. Por exemplo, um resultado de página web `name` , e campos podem conter termos de consulta `displayUrl` `snippet` marcados. 
 
@@ -81,7 +81,7 @@ Se `textDecorations` for `true` , Bing pode incluir os seguintes marcadores nas 
 |U+E018|\<sup>|Marca o início do conteúdo sobrescrito
 |U+E019|\</sup>|Marca o fim do conteúdo sobrescrito
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [O que é a API de Pesquisa Web Bing?](overview.md) 
 * [Redimensionar e recortar miniaturas](resize-and-crop-thumbnails.md)

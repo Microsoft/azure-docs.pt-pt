@@ -12,12 +12,12 @@ ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0c5abf345fda9db4cc5123360245e42ea0ef40e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94c34e6f7cb24ff749e5de95f1c28a496700af80
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115038"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348726"
 ---
 # <a name="whats-new-for-authentication"></a>O que há de novo para a autenticação?
 
@@ -98,7 +98,7 @@ Quando uma resposta de autenticação é enviada de login.microsoftonline.com pa
 
 **Pontos finais impactados**: V1.0 e v2.0
 
-**Protocolo impactado**: Qualquer posto de correio é utilizado[(credenciais de cliente,](./v2-oauth2-client-creds-grant-flow.md) [resgate de código de autorização,](./v2-oauth2-auth-code-flow.md) [ROPC,](./v2-oauth-ropc.md) [OBO,](./v2-oauth2-on-behalf-of-flow.md)e [resgate de fichas de atualização)](./v2-oauth2-auth-code-flow.md#refresh-the-access-token)
+**Protocolo impactado**: Qualquer posto de correio é utilizado [(credenciais de cliente,](./v2-oauth2-client-creds-grant-flow.md) [resgate de código de autorização,](./v2-oauth2-auth-code-flow.md) [ROPC,](./v2-oauth-ropc.md) [OBO,](./v2-oauth2-on-behalf-of-flow.md)e [resgate de fichas de atualização)](./v2-oauth2-auth-code-flow.md#refresh-the-access-token)
 
 A partir da semana de 9/2, os pedidos de autenticação que utilizem o método POST serão validados com normas HTTP mais rigorosas.  Especificamente, os espaços e as cotações duplas (") deixarão de ser removidos dos valores do formulário de pedido. Não se espera que estas alterações quebrem os clientes existentes, e garantirão que os pedidos enviados para a Azure AD são manuseados de forma fiável todas as vezes. No futuro (ver acima) planeamos rejeitar adicionalmente duplicar parâmetros e ignorar o BOM dentro dos pedidos.
 

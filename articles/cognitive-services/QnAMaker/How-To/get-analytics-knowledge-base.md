@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: f58fe342d66c328bdadf41fc965c2952605aea8e
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5f149dd6db82b66b45a4c995e2004936481af786
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376580"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352427"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Obter análises da base de dados de conhecimento
 
@@ -52,7 +52,7 @@ A QnA Maker armazena todos os registos de chat e outras telemetrias, se tiver at
 
 QnA Maker gerido (Preview) utiliza registo de diagnóstico Azure para armazenar os dados de telemetria e registos de chat. Siga os passos abaixo para executar consultas de amostra para obter análises sobre o uso da sua base de conhecimentos QnA Maker.
 
-1. [Ativar o registo de diagnósticos](https://docs.microsoft.com/azure/cognitive-services/diagnostic-logging) para o seu serviço gerido (Preview) do Seu QnA Maker.
+1. [Ativar o registo de diagnósticos](../../diagnostic-logging.md) para o seu serviço gerido (Preview) do Seu QnA Maker.
 
 2. Na etapa anterior, selecione **Trace** para além **da Auditoria, Resposta de Pedidos e AllMetrics** para registo de registo
 

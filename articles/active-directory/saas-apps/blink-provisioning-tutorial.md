@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 717500050aff89964ff959a4741aed01533ada70
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 886d6ff1d3437a9d45bdabc68b2bf3ab8cdaa3ef
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357135"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349978"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Tutorial: Configure Blink para o fornecimento automático do utilizador
 
@@ -72,7 +72,7 @@ Antes de configurar o Blink para o fornecimento automático de utilizadores com 
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, **introduza o Blink** , selecione **Blink** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, **introduza o Blink**, selecione **Blink** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![Piscar na lista de resultados](common/search-new-app.png)
 
@@ -81,7 +81,7 @@ Antes de configurar o Blink para o fornecimento automático de utilizadores com 
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar os utilizadores em Blink com base nas atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Pode também optar por ativar o único sinal de sinalização baseado em SAML para blink , seguindo as instruções fornecidas no [tutorial de inscrição único do Blink .](./blink-tutorial.md) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
+> Pode também optar por ativar o único sinal de sinalização baseado em SAML para blink, seguindo as instruções fornecidas no [tutorial de inscrição único do Blink .](./blink-tutorial.md) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
 
 ### <a name="to-configure-automatic-user-provisioning-for-blink-in-azure-ad"></a>Para configurar o fornecimento automático do utilizador para blink in Azure AD:
 

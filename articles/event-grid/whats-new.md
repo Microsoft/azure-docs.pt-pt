@@ -1,14 +1,14 @@
 ---
-title: Novidades Notas de lançamento - Azure Event Grid
+title: Novidades? Notas de lançamento - Azure Event Grid
 description: Saiba quais as novidades com a Azure Event Grid, como as últimas notas de lançamento, problemas conhecidos, correções de bugs, funcionalidades preprecadas e próximas alterações.
 ms.topic: overview
 ms.date: 07/23/2020
-ms.openlocfilehash: 1edfa3e2bc4c8adae113b2215b7fb0483fba4c02
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7528cef7007704bbf434f16622707da8920eec2b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87172787"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350012"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Quais as novidades na Grelha de Eventos Azure?
 
@@ -40,7 +40,7 @@ A Azure Event Grid recebe melhorias continuadamente. Para se manter atualizado c
 - Esta versão inclui correções adicionais de bugs para melhorar a qualidade.
 - Como versão 5.3.1-pré-visualização, esta versão corresponde à versão API de pré-visualização 2020-04-01-Preview, que inclui as seguintes novas funcionalidades: 
     - [Suporte para filtragem ip ao publicar eventos em domínios e tópicos](configure-firewall.md)
-    - [Tópicos para parceiros](partner-topics-overview.md)
+    - [Tópicos para parceiros](./partner-events-overview.md)
     - [Tópicos do sistema como recursos rastreados no portal Azure](system-topics.md)
     - [Entrega de eventos com identidade de serviço gerido](managed-service-identity.md) 
     - [Suporte ao Serviço de Ligação Privada](configure-private-endpoints.md)
@@ -49,7 +49,7 @@ A Azure Event Grid recebe melhorias continuadamente. Para se manter atualizado c
 - Esta versão inclui várias correções de bugs para melhorar a qualidade.
 - Como versão 5.3.0-pré-visualização, esta versão corresponde à versão API de pré-visualização 2020-04-01-Preview, que inclui as seguintes novas funcionalidades: 
     - [Suporte para filtragem ip ao publicar eventos em domínios e tópicos](configure-firewall.md)
-    - [Tópicos para parceiros](partner-topics-overview.md)
+    - [Tópicos para parceiros](./partner-events-overview.md)
     - [Tópicos do sistema como recursos rastreados no portal Azure](system-topics.md)
     - [Entrega de eventos com identidade de serviço gerido](managed-service-identity.md) 
     - [Suporte ao Serviço de Ligação Privada](configure-private-endpoints.md)
@@ -59,7 +59,7 @@ A Azure Event Grid recebe melhorias continuadamente. Para se manter atualizado c
 - Como versão 5.2.0-pré-visualização, esta versão corresponde à versão API de pré-visualização 2020-04-01-Preview.
 - Adiciona suportes às seguintes novas funcionalidades: 
     - [Suporte para filtragem ip ao publicar eventos em domínios e tópicos](configure-firewall.md)
-    - [Tópicos para parceiros](partner-topics-overview.md)
+    - [Tópicos para parceiros](./partner-events-overview.md)
     - [Tópicos do sistema como recursos rastreados no portal Azure](system-topics.md)
     - [Entrega de eventos com identidade de serviço gerido](managed-service-identity.md) 
     - [Suporte ao Serviço de Ligação Privada](configure-private-endpoints.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/12/2019
 ms.author: Zhchia
-ms.openlocfilehash: 6ef4558cc0cbbacb372fc4a4c2b52859517a2635
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 83af1c3bc323546534613e6ff99c731010b103d7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94353531"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352138"
 ---
 # <a name="tutorial-configure-robin-for-automatic-user-provisioning"></a>Tutorial: Configure Robin para o fornecimento automático de utilizadores
 
@@ -89,7 +89,7 @@ Antes de configurar a Robin para o fornecimento automático de utilizadores com 
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Robin com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Pode também optar por ativar o sign-on único baseado em SAML para a Robin, seguindo as instruções fornecidas no [tutorial de inscrição](./robin-tutorial.md)robin single . O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
+> Pode também optar por ativar o sign-on único baseado em SAML para a Robin, seguindo as instruções fornecidas no [tutorial de inscrição](./robin-tutorial.md)de Robin Single . O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
 
 ### <a name="to-configure-automatic-user-provisioning-for-robin-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para a Robin em Azure AD:
 

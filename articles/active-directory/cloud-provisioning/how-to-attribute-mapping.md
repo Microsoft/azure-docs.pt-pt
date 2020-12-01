@@ -11,14 +11,14 @@ ms.date: 09/22/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b7aa0bf8c82990a00b4e41041145a67ee2f02b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e272c402cac803d10d9998298ce6d3370d0e000
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91637363"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348808"
 ---
-# <a name="azure-ad-connect-cloud-provisioning-attibute-mapping"></a>Azure AD Connect nuvem de provisão de attibute
+# <a name="azure-ad-connect-cloud-provisioning-attribute-mapping"></a>Azure AD Connect cloud provisioning mapping
 
 O fornecimento de nuvem AD Connect Azure ad connect introduziu uma nova funcionalidade, que lhe permitirá mapear facilmente atributos entre os objetos do utilizador/grupo no local e os objetos em Azure AD.  Esta funcionalidade foi adicionada à configuração de provisionamento em nuvem.
 
@@ -54,7 +54,7 @@ Juntamente com esta propriedade, os mapeamentos de atributos também suportam os
 ## <a name="using-attribute-mapping"></a>Usando o mapeamento de atributos
 Para utilizar a nova funcionalidade, siga os passos abaixo.
 
- 1.  No portal Azure, selecione **Azure Ative Directory**.
+ 1.  No portal do Azure, selecione **Azure Active Directory**.
  2.  Selecione **Azure Ad Connect**.
  3.  **Selecione Gerir o provisionamento**.
 
@@ -82,7 +82,7 @@ Para utilizar a nova funcionalidade, siga os passos abaixo.
 ## <a name="test-your-attribute-mapping"></a>Teste o mapeamento do seu atributo
 Para testar o mapeamento do seu atributo, pode utilizar [o provisionamento a pedido](how-to-on-demand-provision.md).  Do 
 
-1.  No portal Azure, selecione **Azure Ative Directory**.
+1.  No portal do Azure, selecione **Azure Active Directory**.
 2.  Selecione **Azure Ad Connect**.
 3.  **Selecione Gerir o provisionamento**.
 4. Em **Configuração,** selecione a sua configuração.

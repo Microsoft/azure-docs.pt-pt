@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 09/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 0afd8fab6072e1563d2b2f277e8a53b56a8161c2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5dbf98d363429e6d22a0b7719cdc669deebd21a0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048241"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348641"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Quickstart: Monitorize a sua primeira métrica utilizando o portal web
 
@@ -70,7 +70,7 @@ Adicione o feed de dados ligando-o à sua fonte de dados da série de tempo. Com
 * **Ingerir dados desde (UTC)**: A hora de início para a primeira hora de tempo a ser ingerida. 
 
 
-Em seguida, especifique a **cadeia de ligação** com as credenciais para a sua fonte de dados e uma **consulta**personalizada . A consulta é usada para especificar os dados a ingerir e convertido no esquema necessário.
+Em seguida, especifique a **cadeia de ligação** com as credenciais para a sua fonte de dados e uma **consulta** personalizada . A consulta é usada para especificar os dados a ingerir e convertido no esquema necessário.
 
 [!INCLUDE [query requirements](../includes/query-requirements.md)]
 
@@ -92,12 +92,12 @@ Uma vez carregado e mostrado o esquema de dados como abaixo, selecione os campos
 |Seleção  |Descrição  |Notas  |
 |---------|---------|---------|
 |**Timestamp**     | O tempo de datata de um ponto de dados. Se omitido, o Metrics Advisor utilizará a estamp de tempo quando o ponto de dados for ingerido. Para cada feed de dados, pode especificar no máximo uma coluna como se o timetamp.        | Opcional. Deve ser especificado com no máximo uma coluna.       |
-|**Medir**     |  Os valores numéricos no feed de dados. Para cada feed de dados, pode especificar várias medidas, mas pelo menos uma coluna deve ser selecionada como medida.        | Deve ser especificado com pelo menos uma coluna.        |
-|**Dimensão**     | Valores categóricos. Uma combinação de diferentes valores identifica uma série de tempo de dimensão única específica, por exemplo: país, língua, inquilino. Pode selecionar nenhum número ou número arbitrário de colunas como dimensões. Nota: se estiver a selecionar uma coluna não-string como dimensão, tenha cuidado com a explosão de dimensão. | Opcional.        |
+|**Medida**     |  Os valores numéricos no feed de dados. Para cada feed de dados, pode especificar várias medidas, mas pelo menos uma coluna deve ser selecionada como medida.        | Deve ser especificado com pelo menos uma coluna.        |
+|**dimensão**     | Valores categóricos. Uma combinação de diferentes valores identifica uma série de tempo de dimensão única específica, por exemplo: país, língua, inquilino. Pode selecionar nenhum número ou número arbitrário de colunas como dimensões. Nota: se estiver a selecionar uma coluna não-string como dimensão, tenha cuidado com a explosão de dimensão. | Opcional.        |
 |**Ignorar**     | Ignore a coluna selecionada.        |         |
 
 
-:::image type="content" source="../media/schema-configuration.png" alt-text="Definições de ligação" lightbox="../media/schema-configuration.png":::
+:::image type="content" source="../media/schema-configuration.png" alt-text="Configuração de Schema" lightbox="../media/schema-configuration.png":::
 
 ### <a name="automatic-roll-up-settings"></a>Configurações de roll-up automática
 
@@ -117,7 +117,7 @@ Quando a deteção for aplicada, clique numa das métricas listadas no feed de d
 - Atualizar a configuração de deteção para atender os resultados esperados
 - Configurar notificação para anomalias detetadas
 
-:::image type="content" source="../media/metric-details.png" alt-text="Definições de ligação" lightbox="../media/metric-details.png":::
+:::image type="content" source="../media/metric-details.png" alt-text="Detalhes métricos" lightbox="../media/metric-details.png":::
 
 ## <a name="view-the-diagnostic-insights"></a>Ver os insights de diagnóstico
 
@@ -125,13 +125,13 @@ Após afinação da configuração de deteção, as anomalias encontradas devem 
 
 Para visualizar os conhecimentos de diagnóstico, clique nos pontos vermelhos nas visualizações da série de tempo, que representam anomalias detetadas. Aparecerá uma janela com uma página de análise de incidentes. 
 
-:::image type="content" source="../media/incident-link.png" alt-text="Definições de ligação" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="Ligação incidente" lightbox="../media/incident-link.png":::
 
 Depois de clicar no link, você será apostado na página de análise de incidentes que analisa sobre a anomalia correspondente, com um monte de insights de diagnóstico. No topo, haverá estatísticas sobre o incidente, como **Severidade,** **Anomalias envolvidas,** e cronometrado **hora de início** e **fim.** 
 
 Em seguida, verá a anomalia ancestral do incidente, e conselhos automatizados de causa-raiz. Este aconselhamento de causa de raiz automatizada é gerado através da análise da árvore incidente de todas as anomalias relacionadas, incluindo: desvio, distribuição e contribuição para as anomalias dos pais. 
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="Definições de ligação" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="Diagnóstico de incidentes" lightbox="../media/incident-diagnostic.png":::
 
 Com base nestes, já pode ter uma visão direta do que está a acontecer e do impacto do incidente, bem como da causa de raiz mais potencial. Para que se tomassem medidas imediatas para resolver o incidente o mais rapidamente possível. 
 
@@ -155,5 +155,5 @@ Após a criação de um gancho, uma definição de alerta determina como e quais
 - [A bordo dos feeds dos seus dados](../how-tos/onboard-your-data.md)
     - [Gerir feeds de dados](../how-tos/manage-data-feeds.md)
     - [Configurações para diferentes fontes de dados](../data-feeds-from-different-sources.md)
-- [Utilize as bibliotecas REST API ou Cliente](rest-api.md)
+- [Utilize as bibliotecas REST API ou Cliente](./rest-api-and-client-library.md)
 - [Configurar métricas e otimizar a configuração da deteção](../how-tos/configure-metrics.md)

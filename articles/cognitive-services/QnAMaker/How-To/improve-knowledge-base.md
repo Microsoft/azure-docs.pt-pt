@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: dcf912f431d578a6e678801d3dc8f4e11484ea78
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a77083c721328a8df9facd2f4b320b863aa03c68
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997023"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352410"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar aprendizagem ativa sugerida questões na base de conhecimento
 
@@ -22,7 +22,7 @@ Ative Learning altera a Base de Conhecimento ou Serviço de Pesquisa depois de a
 
 ## <a name="turn-on-active-learning"></a>Ativar a aprendizagem ativa
 
-Para ver as perguntas sugeridas, deve [ligar a aprendizagem ativa](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/active-learning-suggestions) para o seu recurso QnA Maker.
+Para ver as perguntas sugeridas, deve [ligar a aprendizagem ativa](../concepts/active-learning-suggestions.md) para o seu recurso QnA Maker.
 
 ## <a name="view-suggested-questions"></a>Ver perguntas sugeridas
 

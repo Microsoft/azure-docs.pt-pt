@@ -10,19 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 2fab4a57a939f9516140562cb8b8508b2ba69dc0
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 10277efe1f06de3633b2d614e2ee5ec0cc351c76
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379893"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351934"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Pesquisa de vídeos com a API de Pesquisa de Vídeo Bing
 
 > [!WARNING]
-> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource)documentado.
 > Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
-> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](/bing/search-apis/bing-web-search/create-bing-search-service-resource)
 
 A API de Pesquisa de Vídeo Bing facilita a integração das capacidades de pesquisa de notícias cognitivas de Bing nas suas aplicações. Embora a API encontre e devolva vídeos relevantes da web, fornece várias funcionalidades para a recuperação de vídeo inteligente e focada na web.
 
@@ -149,7 +149,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>Expandir a consulta
 
-Se o Bing conseguir expandir a consulta para restringir a pesquisa original, o objeto [Vídeos](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) irá conter o campo `queryExpansions`. Por exemplo, se a consulta tiver sido *Limpeza de Algeroz* , as consultas expandidas poderão ser: **Ferramentas** de Limpeza de Algerozes, Limpeza de Algerozes **a Partir do Chão** , **Máquina** de Limpeza de Algerozes e **Fácil** Limpeza de Algerozes.
+Se o Bing conseguir expandir a consulta para restringir a pesquisa original, o objeto [Vídeos](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) irá conter o campo `queryExpansions`. Por exemplo, se a consulta tiver sido *Limpeza de Algeroz*, as consultas expandidas poderão ser: **Ferramentas** de Limpeza de Algerozes, Limpeza de Algerozes **a Partir do Chão**, **Máquina** de Limpeza de Algerozes e **Fácil** Limpeza de Algerozes.
 
 O exemplo seguinte mostra as consultas expandidas para *Limpeza de Algerozes*.
 
@@ -180,7 +180,7 @@ O campo `queryExpansions` contém uma lista de objetos de [Consulta](/rest/api/c
 
 ## <a name="pivoting-the-query"></a>Dinamizar a consulta
 
-Se o Bing puder segmentar a consulta de pesquisa original, o objeto [Vídeos](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contém o campo `pivotSuggestions`. Por exemplo, se a consulta original era *Limpeza de Algerozes* , o Bing poderá segmentar a consulta em *Limpeza* e *Algerozes*.
+Se o Bing puder segmentar a consulta de pesquisa original, o objeto [Vídeos](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contém o campo `pivotSuggestions`. Por exemplo, se a consulta original era *Limpeza de Algerozes*, o Bing poderá segmentar a consulta em *Limpeza* e *Algerozes*.
 
 O exemplo seguinte mostra as sugestões de dinamização para *Limpeza de Algerozes*.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 19137f3384a1b97ae1ae7e3faeb4dc2e0e4fd3bd
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 550418761e91a8292761d7595ff32d939c0d542e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96017802"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350403"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorizar o Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -90,10 +90,10 @@ Todas as métricas para Azure Cosmos DB estão no nome **cosmos DB métricas pad
 * CollectionName
 * DatabaseName
 * Tipo de Operação
-* Region
+* Região
 * Código de Estado
 
-Para referência, pode ver uma lista de [todas as métricas de recursos suportadas no Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+Para referência, pode ver uma lista de [todas as métricas de recursos suportadas no Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
 ### <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Ver métricas de nível de operação para Azure Cosmos DB
 
@@ -127,7 +127,7 @@ Pode agrupar métricas utilizando a opção **de divisão De aplicar.** Por exem
 
 Os dados em Registos monitores Azure são armazenados em tabelas que cada mesa tem o seu próprio conjunto de propriedades únicas.
 
-Todos os registos de recursos no Azure Monitor têm os mesmos campos seguidos por campos específicos de serviço. O esquema comum é delineado no [esquema de registo de recursos do Azure Monitor](../azure-monitor/platform/diagnostic-logs-schema.md#top-level-resource-logs-schema). Para obter uma lista dos tipos de registos de recursos recolhidos para a Azure Cosmos DB, consulte [Monitorização da referência de dados DB do Azure Cosmos](monitor-cosmos-db-reference.md#resource-logs)  
+Todos os registos de recursos no Azure Monitor têm os mesmos campos seguidos por campos específicos de serviço. O esquema comum é delineado no [esquema de registo de recursos do Azure Monitor](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). Para obter uma lista dos tipos de registos de recursos recolhidos para a Azure Cosmos DB, consulte [a referência de dados DB do Azure Cosmos](monitor-cosmos-db-reference.md#resource-logs).
 
 O [registo de Atividades](/azure/azure-monitor/platform/activity-log) é um Azure de login de plataforma que fornece informações sobre eventos de nível de subscrição. Pode vê-lo de forma independente ou encaminhá-lo para Registos do Monitor Azure, onde pode fazer consultas muito mais complexas usando o Log Analytics.  
 
@@ -172,7 +172,7 @@ Aqui ficam algumas consultas que pode introduzir na barra **de pesquisa de regis
 
 ## <a name="alerts"></a>Alertas
 
-Os alertas do Azure Monitor notificam-no proativamente quando forem encontradas condições importantes nos seus dados de monitorização. Permitem identificar e resolver problemas no seu sistema antes que os seus clientes os percebam. Pode definir alertas em [métricas,](/azure/azure-monitor/platform/alerts-metric-overview) [registos](/azure/azure-monitor/platform/alerts-unified-log)e no registo de [atividades](/azure/azure-monitor/platform/activity-log-alerts). Diferentes tipos de alertas têm benefícios e inconvenientes
+Os alertas do Azure Monitor notificam-no proativamente quando forem encontradas condições importantes nos seus dados de monitorização. Permitem identificar e resolver problemas no seu sistema antes que os seus clientes os percebam. Pode definir alertas em [métricas,](../azure-monitor/platform/alerts-metric-overview.md) [registos](../azure-monitor/platform/alerts-unified-log.md)e no registo de [atividades](../azure-monitor/platform/activity-log-alerts.md). Diferentes tipos de alertas têm benefícios e inconvenientes
 
 Por exemplo, a tabela que se segue lista poucas regras de alerta para os seus recursos. Pode encontrar uma lista detalhada de regras de alerta do portal Azure. Para saber mais, veja como configurar o artigo [alertas.](create-alerts.md)  
 

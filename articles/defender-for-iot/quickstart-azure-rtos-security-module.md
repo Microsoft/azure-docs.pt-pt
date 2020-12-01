@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2020
 ms.author: rkarlin
-ms.openlocfilehash: 38e78b80fd14aec7557b563b2b33faf7d51bd114
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 321c8d2b9e58aba943c5bf19adf54d6359c5be96
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759737"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351781"
 ---
 # <a name="quickstart-security-module-for-azure-rtos-preview"></a>Quickstart: Módulo de segurança para Azure RTOS (pré-visualização)
 
-Este artigo fornece uma explicação dos pré-requisitos antes de começar e explica como ativar o módulo de segurança para o serviço Azure RTOS num Hub IoT. Se não tiver atualmente um Hub IoT, consulte [Criar um Hub IoT utilizando o portal Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) para começar.
+Este artigo fornece uma explicação dos pré-requisitos antes de começar e explica como ativar o módulo de segurança para o serviço Azure RTOS num Hub IoT. Se não tiver atualmente um Hub IoT, consulte [Criar um Hub IoT utilizando o portal Azure](../iot-hub/iot-hub-create-through-portal.md) para começar.
 
 > [!NOTE]
 > O Módulo de Segurança para Azure RTOS só é suportado em hubs IoT de nível padrão.
@@ -35,7 +35,7 @@ Este artigo fornece uma explicação dos pré-requisitos antes de começar e exp
 - NXP i.MX RT1060 EVK
 - Microchip SAM E54 Xplained Pro EVK
 
-Faça o download, compile e execute um dos ficheiros .zip para a placa e ferramenta específicas (IAR, semi's IDE ou PC) da sua escolha a partir do Módulo de Segurança para recurso [Azure RTOS GitHub](https://github.com/azure-rtos/azure-iot-preview/releases).
+Faça o download, compile e execute um dos ficheiros .zip para o quadro e ferramenta específicos (IAR, semi's IDE ou PC) da sua escolha a partir do Módulo de [Segurança para O recurso Azure RTOS GitHub](https://github.com/azure-rtos/azure-iot-preview/releases).
 
 ### <a name="azure-resources"></a>Recursos do Azure
 
@@ -49,7 +49,7 @@ A próxima fase para começar é preparar os seus recursos Azure. Você vai prec
 1. Copie o fio de ligação IoT para o [ficheiro de configuração](how-to-azure-rtos-security-module.md).
 
 
-As credenciais de ligação são retiradas da configuração da aplicação do utilizador **HOST_NAME**, **DEVICE_ID**e **DEVICE_SYMMETRIC_KEY**.
+As credenciais de ligação são retiradas da configuração da aplicação do utilizador **HOST_NAME**, **DEVICE_ID** e **DEVICE_SYMMETRIC_KEY**.
 
 O Módulo de Segurança para Azure RTOS utiliza ligações de middleware Azure IoT com base no protocolo **MQTT.**
 
@@ -63,10 +63,10 @@ Log Analytics ingestão no IoT Hub está desligado por padrão Defender para sol
 1. Selecione **a recolha de dados.** 
 1. A partir da opção **de configuração do Espaço de Trabalho,** mude o toggle para **On**. 
 1. Crie um novo espaço de trabalho Log Analytics ou anexe um existente. Certifique-se de que a opção **De Acesso a dados de segurança bruta** está selecionada. 
- :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Opção de recolha de dados de acesso para Azure RTOS":::
+ :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Configuração Azure RTOS mostrando opção de recolha de dados e opções de dados de segurança bruta ambos selecionados":::
 1. Selecione **Guardar**
 1. Volte à sua lista de recursos Azure e confirme que vê o espaço de trabalho log Analytics que criou ou anexo está ativado para o Hub IoT.
-    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Opção de recolha de dados de acesso para Azure RTOS"::: 
+    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Consulte a sua lista de recursos Azure para confirmar a adição do espaço de trabalho de Log Analytics correto adicionado para um Hub IoT"::: 
 
 ## <a name="next-steps"></a>Passos seguintes
 

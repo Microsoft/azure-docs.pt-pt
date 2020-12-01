@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: de74d7e3cf854f36d122be6a32c7fb4d449c5fe5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f591a9781cb81ec735d22f4f687f8d413923dc93
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175921"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349134"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço DB da Azure Cosmos
 
@@ -78,8 +78,8 @@ Em resumo, aqui estão os limites mínimos previstos para a RU.
 
 | Recurso | Limite predefinido |
 | --- | --- |
-| RUs mínimos por contentor[(modo dedicado a produção)](databases-containers-items.md#azure-cosmos-containers) | 400 |
-| RUs mínimos por base de dados[(modo de produção partilhado)](databases-containers-items.md#azure-cosmos-containers) | 400 RU/s para os primeiros 25 contentores. Mais 100 RU/s para cada recipiente posteriormente. |
+| RUs mínimos por contentor[(modo dedicado a produção)](./account-databases-containers-items.md#azure-cosmos-containers) | 400 |
+| RUs mínimos por base de dados[(modo de produção partilhado)](./account-databases-containers-items.md#azure-cosmos-containers) | 400 RU/s para os primeiros 25 contentores. Mais 100 RU/s para cada recipiente posteriormente. |
 
 Cosmos DB suporta a escala programática de produção (RU/s) por contentor ou base de dados através dos SDKs ou portal.    
 

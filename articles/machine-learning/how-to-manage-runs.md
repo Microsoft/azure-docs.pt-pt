@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 0da4127960450a13b64ec23908b4a4fd4c69bd7e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 921c88f4771fedb910dc41983d559987a8cdfb0c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542019"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349338"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Iniciar, monitorizar e cancelar treinos em Python
 
@@ -278,7 +278,7 @@ Para criar muitas crianças funciona de forma eficiente, use o [`create_children
 
 ### <a name="submit-child-runs"></a>Submeter corridas de crianças
 
-As corridas para crianças também podem ser submetidas a partir de uma corrida de pais. Isto permite-lhe criar hierarquias de pais e filhos. 
+As corridas para crianças também podem ser submetidas a partir de uma corrida de pais. Isto permite-lhe criar hierarquias de pais e filhos. Não é possível criar uma corrida sem filhos: mesmo que a corrida dos pais não faça nada a não ser lançar a criança, ainda é necessário criar a hierarquia. O estatuto de todas as corridas é independente: um progenitor pode estar no `"Completed"` estado de sucesso, mesmo que uma ou mais crianças sejam canceladas ou falhadas.  
 
 Pode desejar que o seu filho corra para utilizar uma configuração de execução diferente da execução dos pais. Por exemplo, pode utilizar uma configuração menos potente e baseada em CPU para o progenitor, enquanto utiliza configurações baseadas em GPU para os seus filhos. Outro desejo comum é passar a cada criança diferentes argumentos e dados. Para personalizar uma corrida de crianças, crie um `ScriptRunConfig` objeto para a corrida da criança. O código abaixo faz o seguinte:
 
@@ -327,6 +327,24 @@ Para consultar a criança de um progenitor específico, utilize o [`get_children
 ```python
 print(parent_run.get_children())
 ```
+
+### <a name="log-to-parent-or-root-run"></a>Faça login para pai ou raiz
+
+Pode utilizar o `Run.parent` campo para aceder à corrida que lançou a atual corrida infantil. Um caso comum de utilização para este caso é quando deseja consolidar os resultados do registo num único local. Note que as corridas de crianças executam assíncronia e não há garantia de encomenda ou sincronização para além da capacidade do progenitor de esperar que o seu filho esteja completo.
+
+```python
+# in child (or even grandchild) run
+
+def root_run(self : Run) -> Run :
+    if self.parent is None : 
+        return self
+    return root_run(self.parent)
+
+current_child_run = Run.get_context()
+root_run(current_child_run).log("MyMetric", f"Data from child run {current_child_run.id}")
+
+```
+
 
 ## <a name="tag-and-find-runs"></a>Etiquetar e encontrar corridas
 

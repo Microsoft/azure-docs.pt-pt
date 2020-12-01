@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 6e7e4dd6383b1f264ff2da7893d9f86a3708217d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47b036f558628d51242a78c00d2ee17332816d25
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89227921"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348764"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Plataforma de identidade microsoft e fluxo de afirmação do portador de OAuth 2.0 SAML
 O fluxo de afirmação do portador da OAuth 2.0 SAML permite-lhe solicitar um token de acesso OAuth usando uma afirmação SAML quando um cliente precisa de usar uma relação de confiança existente. A assinatura aplicada à afirmação SAML fornece a autenticação da aplicação autorizada. Uma afirmação SAML é um símbolo de segurança XML emitido por um fornecedor de identidade e consumido por um prestador de serviços. O prestador de serviços conta com o seu conteúdo para identificar o tema da afirmação para fins relacionados com a segurança.
@@ -32,7 +32,7 @@ O fluxo de afirmação do portador da OAuth SAML só é suportado para utilizado
 ![Fluxo de Oauth](./media/v2-saml-bearer-assertion/1.png)
 
 ## <a name="call-graph-using-saml-bearer-assertion"></a>Gráfico de chamada usando afirmação do portador do SAML
-Agora vamos entender como podemos realmente obter a afirmação SAML programaticamente. Esta abordagem é testada com a ADFS. No entanto, isto funciona com qualquer fornecedor de identidade que apoie o regresso da afirmação da SAML de forma programatical. O processo básico é: obter uma afirmação SAML, obter um token de acesso e aceder ao Microsoft Graph.
+Agora vamos entender como podemos realmente obter afirmação SAML programáticamente. Esta abordagem é testada com a ADFS. No entanto, isto funciona com qualquer fornecedor de identidade que apoie o retorno da afirmação SAML programáticamente. O processo básico é: obter uma afirmação SAML, obter um token de acesso e aceder ao Microsoft Graph.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 

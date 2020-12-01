@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 08/06/2020
-ms.openlocfilehash: bcfd14572b632cdc455babf7b9f8d67be904406c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: a001f3a13daf40a1af712f09e35d93fd045ea133
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629959"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350250"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Use external metadata stores in Azure HDInsight (Utilizar arquivos de metadados externos no Azure HDInsight)
 
@@ -41,7 +41,7 @@ Por padrão, o HDInsight cria uma meta-loja com cada tipo de cluster. Em vez dis
 * A metástore predefinido é recomendada apenas para cargas de trabalho simples. Cargas de trabalho que não requerem múltiplos clusters e não precisam de metadados preservados para além do ciclo de vida do cluster.
 
 > [!IMPORTANT]
-> A metástore predefinida fornece uma Base de Dados Azure SQL com um **limite básico de DTU de nível 5 (não atualizável)** ! Adequado para fins básicos de teste. Para cargas de trabalho grandes ou de produção, recomendamos migrar para uma meta-loja externa.
+> A metástore predefinida fornece uma Base de Dados Azure SQL com um **limite básico de DTU de nível 5 (não atualizável)**! Adequado para fins básicos de teste. Para cargas de trabalho grandes ou de produção, recomendamos migrar para uma meta-loja externa.
 
 ## <a name="custom-metastore"></a>Metástases personalizadas
 
@@ -65,9 +65,9 @@ O HDInsight também suporta metastões personalizadas, que são recomendadas par
 
 Crie ou tenha uma Base de Dados Azure SQL existente antes de configurar uma metásta de Hive personalizada para um cluster HDInsight.  Para obter mais informações, consulte [Quickstart: Crie uma única base de dados na Base de Dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal).
 
-Ao criar o cluster, o serviço HDInsight precisa de se conectar à metásta externa e verificar as suas credenciais. Configure as regras de firewall da Base de Dados Azure SQL para permitir que os serviços e recursos da Azure acedam ao servidor. Ative esta opção no portal Azure selecionando **a firewall do servidor set**. Em seguida, **selecione No** under **Deny public network access** , e **Yes** under **Allow Azure services and resources to access this server** for Azure SQL Database. Para obter mais informações, consulte [Criar e gerir as regras de firewall IP](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+Ao criar o cluster, o serviço HDInsight precisa de se conectar à metásta externa e verificar as suas credenciais. Configure as regras de firewall da Base de Dados Azure SQL para permitir que os serviços e recursos da Azure acedam ao servidor. Ative esta opção no portal Azure selecionando **a firewall do servidor set**. Em seguida, **selecione No** under **Deny public network access**, e **Yes** under **Allow Azure services and resources to access this server** for Azure SQL Database. Para obter mais informações, consulte [Criar e gerir as regras de firewall IP](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
-Os pontos finais privados para lojas SQL só são suportados nos clusters criados com `outbound` o ResourceProviderConnection. Para saber mais, consulte esta [documentação.](https://docs.microsoft.com/azure/hdinsight/hdinsight-private-link)
+Os pontos finais privados para lojas SQL só são suportados nos clusters criados com `outbound` o ResourceProviderConnection. Para saber mais, consulte esta [documentação.](./hdinsight-private-link.md)
 
 ![definir botão de firewall do servidor](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
 

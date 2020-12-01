@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: jodowns
-ms.openlocfilehash: 58efeaebcc9f643c725cde54fcbda6f65c4bd700
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 24a8a559d72eae4dab0b6e740b34890f1d7ff114
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94415169"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350788"
 ---
 # <a name="ddos-protection-on-front-door"></a>Proteção DDoS na porta da frente
 
@@ -36,7 +36,7 @@ Front Door é um serviço massivamente dimensionado e distribuído globalmente. 
 
 ## <a name="caching"></a>Colocação em cache
 
-[As capacidades de caching da Porta da Frente](./front-door-caching.md) podem ser usadas para proteger os backends de grandes volumes de tráfego gerados por um ataque. Os recursos em cache serão devolvidos dos nós da porta da frente para que não sejam encaminhados para o seu backend. Mesmo os tempos de validade da cache curtos (segundos ou minutos) em respostas dinâmicas podem reduzir consideravelmente a carga nos serviços de backend. Para obter mais informações sobre conceitos e padrões de cache, consulte [considerações de Cache](https://docs.microsoft.com/azure/architecture/best-practices/caching) e [padrão cache-aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside).
+[As capacidades de caching da Porta da Frente](./front-door-caching.md) podem ser usadas para proteger os backends de grandes volumes de tráfego gerados por um ataque. Os recursos em cache serão devolvidos dos nós da porta da frente para que não sejam encaminhados para o seu backend. Mesmo os tempos de validade da cache curtos (segundos ou minutos) em respostas dinâmicas podem reduzir consideravelmente a carga nos serviços de backend. Para obter mais informações sobre conceitos e padrões de cache, consulte [considerações de Cache](/azure/architecture/best-practices/caching) e [padrão cache-aside](/azure/architecture/patterns/cache-aside).
 
 ## <a name="web-application-firewall-waf"></a>Firewall de Aplicações Web (WAF)
 

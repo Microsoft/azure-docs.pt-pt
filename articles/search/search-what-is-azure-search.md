@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/24/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 19be1155476ca7c295e2d0311e8285bc2128dd1d
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 1e0294e3d0ec727b8e6a11c5443d413aadca9184
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030769"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352529"
 ---
 # <a name="what-is-azure-cognitive-search"></a>O que é o Azure Cognitive Search?
 
@@ -70,7 +70,7 @@ Uma exploração de ponta a ponta das funcionalidades de pesquisa do núcleo pod
 1. [**Consultar um índice**](search-query-overview.md) utilizando o [Explorador de Pesquisa](search-explorer.md) no portal, REST [API](search-get-started-rest.md), [.NET SDK,](/dotnet/api/azure.search.documents.searchclient.search)ou outro SDK.
 
 > [!TIP]
-> Consolidar passos começando com o [**assistente de dados de importação**](search-get-started-portal.md) e uma fonte de dados Azure para criar, carregar e consultar um índice em minutos.
+> Minimize os passos começando com o [**assistente de dados de importação**](search-get-started-portal.md) e uma fonte de dados Azure para criar, carregar e consultar um índice em minutos.
 
 ## <a name="how-it-compares"></a>Como se compara
 

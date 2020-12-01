@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 754e23a7d3f4bdf27f273927a5bc3b3658940d90
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: dc4ef937a032a5156164eaee59908c9ee0319fdb
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359246"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350165"
 ---
 # <a name="tutorial-configure-templafy-for-automatic-user-provisioning"></a>Tutorial: Configurar templafy para fornecimento automático de utilizadores
 
@@ -91,7 +91,7 @@ Para configurar o Templafy para o fornecimento automático de utilizadores com A
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Templafy com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Pode também optar por ativar o sign-on único baseado em SAML para templafy, seguindo as instruções fornecidas no [tutorial de inscrição único templário](templafy-tutorial.md). O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente.
+> Pode também optar por ativar o sign-on único baseado em SAML para templário, seguindo as instruções fornecidas no [tutorial de inscrição único templário](templafy-tutorial.md). O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente.
 
 ### <a name="to-configure-automatic-user-provisioning-for-templafy-in-azure-ad"></a>Para configurar o fornecimento automático do utilizador para o Templafy em Azure AD:
 

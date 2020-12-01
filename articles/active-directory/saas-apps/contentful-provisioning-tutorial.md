@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: a473ecc21a5f8a0eb427f01ffba785732f0151e9
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4ff08e51f6e3b2ae72da43052c25046be8bb5397
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181055"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352155"
 ---
 # <a name="tutorial-configure-contentful-for-automatic-user-provisioning"></a>Tutorial: Configurar Conteúdo para o fornecimento automático de utilizadores
 

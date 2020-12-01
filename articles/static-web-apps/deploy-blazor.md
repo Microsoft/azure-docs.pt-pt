@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: cshoe
-ms.openlocfilehash: 80a48a948c70db7344ac9cbc20474177309bd909
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0086f7f68fd05d6925d19c7ab457fbc125e36be4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024233"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350233"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>Tutorial: Construção de uma aplicação web estática com Blazor em Azure Static Web Apps
 
@@ -64,7 +64,7 @@ A configuração acima garante que os pedidos para qualquer rota na aplicação 
 Este artigo usa um repositório de modelos GitHub para facilitar o seu início. O modelo apresenta uma aplicação inicial implantada para Azure Static Web Apps.
 
 1. Certifique-se de que está inscrito no GitHub e navegue para o seguinte local para criar um novo repositório:
-    - https://github.com/staticwebdev/blazor-starter/generate
+    - [https://github.com/staticwebdev/blazor-starter/generate](https://github.com/login?return_to=/staticwebdev/blazor-starter/generate)
 1. Nomeie o seu repositório **my-first-static-blazor-app**
 
 ## <a name="create-a-static-web-app"></a>Criar uma aplicação Web estática
@@ -129,7 +129,7 @@ A janela de visão geral das Aplicações Web Estáticas exibe uma série de lin
 
 2. Assim que o fluxo de trabalho das Ações GitHub estiver concluído, pode selecionar o link _URL_ para abrir o website em novo separador.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar a utilizar esta aplicação, pode eliminar a instância Azure Static Web Apps através dos seguintes passos:
 
@@ -139,7 +139,7 @@ Se não continuar a utilizar esta aplicação, pode eliminar a instância Azure 
 1. Selecione no botão **Eliminar**
 1. Selecione **Sim** para confirmar a ação de eliminação
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Autenticação e autorização](./authentication-authorization.md)

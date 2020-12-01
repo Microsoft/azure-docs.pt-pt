@@ -12,19 +12,19 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c6b6aea6a3b0856b3db345e20b87d2a12ad055e1
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 077c715616e377d8b296e53fdd5a861f944ab940
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380335"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349508"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Construa um cliente de pesquisa de aplicativos de consola em C #
 
 > [!WARNING]
-> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource)documentado.
 > Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
-> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](/bing/search-apis/bing-web-search/create-bing-search-service-resource)
 
 Este tutorial mostra como construir uma simples aplicação de consola .NET Core que permite aos utilizadores consultar a API de Pesquisa Web Bing e exibir resultados classificados.
 
@@ -77,7 +77,7 @@ using System.Net.Http;
 
 ## <a name="ask-the-user-for-a-query"></a>Peça ao utilizador uma consulta
 
-In **Solution Explorer** , open **Program.cs**. Atualizar o `Main()` método:
+In **Solution Explorer**, open **Program.cs**. Atualizar o `Main()` método:
 
 ```csharp
 static void Main()
@@ -236,7 +236,7 @@ O `rankingResponse` objeto JSON[(documentação)](/rest/api/cognitiveservices-bi
 
 A resposta do ranking JSON pode incluir um ou mais grupos.
 
-Em **Program.cs** , adicione o seguinte método para visualizar os resultados em ordem devidamente classificada:
+Em **Program.cs**, adicione o seguinte método para visualizar os resultados em ordem devidamente classificada:
 
 ```csharp
 static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects)
@@ -283,7 +283,7 @@ Este método:
 - Loops sobre os `rankingResponse` grupos que a resposta contém
 - Exibe os itens em cada grupo chamando `DisplaySpecificResults(...)`
 
-Em **Program.cs** , adicione os seguintes dois métodos:
+Em **Program.cs**, adicione os seguintes dois métodos:
 
 ```csharp
 static void DisplaySpecificResults(Newtonsoft.Json.Linq.JToken resultIndex, Newtonsoft.Json.Linq.JToken items, string title, params string[] fields)
@@ -336,6 +336,6 @@ WebPage:
 ...
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre [a utilização do ranking para apresentar resultados](rank-results.md).

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: d35ea57a68e500deffa99033b83114ec518dd5e3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1bf6eebcfc43452dd9a62e4a49f9aacbcd517ffc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993810"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352240"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Diretrizes de formato para documentos e URLs importados
 
@@ -22,7 +22,7 @@ Depois de importar um ficheiro ou URL, o QnA Maker converte e armazena o seu con
 
 Se adicionar ou editar o seu conteúdo diretamente na sua base de conhecimento, utilize **a formatação de marcação** para criar conteúdo de texto rico ou alterar o conteúdo do formato de marcação que já está na resposta. O QnA Maker suporta grande parte do formato de marcação para trazer capacidades de texto ricas para o seu conteúdo. No entanto, a aplicação do cliente, como um chat bot, pode não suportar o mesmo conjunto de formatos de marcação. É importante testar a exibição de respostas da aplicação do cliente.
 
-Consulte uma lista completa de [tipos e exemplos](./Concepts/content-types.md#file-and-url-data-types)de conteúdo.
+Consulte uma lista completa de [tipos e exemplos](./concepts/data-sources-and-content.md#content-types-of-documents-you-can-add-to-a-knowledge-base)de conteúdo.
 
 ## <a name="basic-document-formatting"></a>Formatação de documentos básicos
 
@@ -118,4 +118,4 @@ Importar uma base de conhecimento substitui o conteúdo da base de conhecimento 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte uma lista completa de [tipos e exemplos](./Concepts/content-types.md#file-and-url-data-types) de conteúdo
+Consulte uma lista completa de [tipos e exemplos](./concepts/data-sources-and-content.md#content-types-of-documents-you-can-add-to-a-knowledge-base) de conteúdo

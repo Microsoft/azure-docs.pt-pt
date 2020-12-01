@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 890b555703f922168a820a0535296b9f55218752
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8c13dc0854fb29467b0fe8a1ce5f2dfc1c19bd78
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011052"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352342"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Criar base de conhecimento e gerir definições
 
@@ -107,7 +107,7 @@ Se partilhar a sua base de conhecimento com os colaboradores,](colaborar-conheci
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como [gerir a linguagem](language-knowledge-base.md) de todas as bases de conhecimento num recurso.
+Saiba como [gerir a linguagem](../index.yml) de todas as bases de conhecimento num recurso.
 
 * Editar pares QnA
 * Gerir os recursos do Azure utilizados pela QnA Maker

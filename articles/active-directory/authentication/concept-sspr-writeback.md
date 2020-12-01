@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9781196690c689036bfb69e1fa769112b5f69b2b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: af41f03a1ac0ea65d72d9af47b175bb78f9e1bc2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964983"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348784"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Como funciona a redefinição da palavra-passe de autosserviço no Azure Ative Directory?
 
@@ -58,7 +58,7 @@ Quando um utilizador sincronizado de haxixe federado ou de palavra-passe tenta r
    * Se o serviço de reversão estiver em baixo, o utilizador é informado de que a sua palavra-passe não pode ser reiniciada neste momento.
 1. Em seguida, o utilizador passa pelos portões de autenticação apropriados e chega à página **de palavra-passe Reset.**
 1. O utilizador seleciona uma nova palavra-passe e confirma-a.
-1. Quando o utilizador seleciona **Enviar**por palavra-passe, a palavra-passe de texto simples é encriptada com uma chave simétrica criada durante o processo de configuração do writeback.
+1. Quando o utilizador seleciona **Enviar** por palavra-passe, a palavra-passe de texto simples é encriptada com uma chave simétrica criada durante o processo de configuração do writeback.
 1. A palavra-passe encriptada está incluída numa carga útil que é enviada através de um canal HTTPS para o seu relé de autocarro de serviço específico para o arrendatário (que é configurado para si durante o processo de configuração do writeback). Este relé está protegido por uma senha gerada aleatoriamente que só a instalação no local sabe.
 1. Depois de a mensagem chegar ao autocarro de serviço, o ponto final de reset de palavra-passe acorda automaticamente e vê que tem um pedido de reset pendente.
 1. Em seguida, o serviço procura o utilizador utilizando o atributo âncora de nuvem. Para que esta procura tenha êxito, devem ser satisfeitas as seguintes condições:
@@ -90,7 +90,7 @@ A gravação de palavras-passe é um serviço altamente seguro. Para garantir qu
 * **Retransmissor de serviço-autocarro específico para inquilinos**
    * Quando configura o serviço, é criado um retransmissor de autocarro de serviço específico para inquilinos que é protegido por uma senha forte gerada aleatoriamente que a Microsoft nunca tem acesso.
 * **Chave de encriptação de palavras-passe bloqueada, criptograficamente forte**
-   * Após a criação do retransmissor do autocarro de serviço, é criada uma chave simétrica forte que é usada para encriptar a palavra-passe à medida que passa pelo fio. Esta chave só vive na loja secreta da sua empresa na nuvem, que está fortemente fechada e auditada, como qualquer outra palavra-passe no diretório.
+   * Após a criação do retransmissor do autocarro de serviço, é criada uma chave simétrica forte que é usada para encriptar a palavra-passe à medida que passa por cima do fio. Esta chave só vive na loja secreta da sua empresa na nuvem, que está fortemente fechada e auditada, como qualquer outra palavra-passe no diretório.
 * **Segurança padrão da camada de transporte da indústria (TLS)**
    1. Quando uma operação de reset ou alteração de palavra-passe ocorre na nuvem, a palavra-passe de texto simples é encriptada com a sua chave pública.
    1. A palavra-passe encriptada é colocada numa mensagem HTTPS que é enviada através de um canal encriptado utilizando certificados microsoft TLS/SSL para o seu retransmissor de autocarro de serviço.

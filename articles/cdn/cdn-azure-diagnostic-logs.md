@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: e5d84616e70d2a28abf3937b485f4fcf5258c43e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fdb609a243656e2c75159cd2d4e70e2f965ae896
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779412"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352121"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Registos de diagnóstico - Rede de Entrega de Conteúdos Azure
 
@@ -42,7 +42,7 @@ Os registos de diagnóstico permitem exportar métricas básicas de utilização
 
 Siga estes passos para ativar o seu ponto final Azure CDN:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
 2. No portal Azure, navegue para **Todos os recursos** o seu perfil de  ->  **cdn**
 
@@ -52,26 +52,26 @@ Siga estes passos para ativar o seu ponto final Azure CDN:
 
 3. Selecione **registos de diagnóstico** na secção **de Monitorização:**
 
-    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Selecione o ponto final do CDN." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Selecione registos de diagnóstico." border="true":::
 
 ### <a name="enable-logging-with-azure-storage"></a>Ativar o registo com o armazenamento Azure
 
 Para utilizar uma conta de armazenamento para armazenar os registos, siga estes passos:
 
  >[!NOTE] 
- >É necessária uma conta de armazenamento para completar estes passos. Consulte a: **[Criar uma conta de Armazenamento Azure](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%252fazure%252fstorage%252fblobs%252ftoc.json)** para obter mais informações.
+ >É necessária uma conta de armazenamento para completar estes passos. Consulte a: **[Criar uma conta de Armazenamento Azure](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)** para obter mais informações.
     
 1. Para **o nome de definição de diagnóstico,** insira um nome para as definições de registo de diagnóstico.
  
-2. Selecione **Archive para uma conta de armazenamento** e, em seguida, selecione **CoreAnalytics** . 
+2. Selecione **Archive para uma conta de armazenamento** e, em seguida, selecione **CoreAnalytics**. 
 
-3. Para **retenção (dias)** , escolha o número de dias de retenção. Uma retenção de zero dias armazena os registos indefinidamente. 
+3. Para **retenção (dias)**, escolha o número de dias de retenção. Uma retenção de zero dias armazena os registos indefinidamente. 
 
 4. Selecione a conta de subscrição e armazenamento para os registos.
 
-    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Selecione o ponto final do CDN." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Registos de diagnóstico - Armazenamento." border="true":::
 
-3. Selecione **Guardar** .
+3. Selecione **Guardar**.
 
 ### <a name="send-to-log-analytics"></a>Enviar para o Log Analytics
 
@@ -82,13 +82,13 @@ Para utilizar o Log Analytics para os registos, siga estes passos:
     
 1. Para **o nome de definição de diagnóstico,** insira um nome para as definições de registo de diagnóstico.
 
-2. Selecione **Enviar para Registar Análise** e, em seguida, selecione **CoreAnalytics** . 
+2. Selecione **Enviar para Registar Análise** e, em seguida, selecione **CoreAnalytics**. 
 
 3. Selecione a subscrição e log Analytics espaço de trabalho para os registos.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Selecione o ponto final do CDN." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Registos de diagnóstico - Log Analytics." border="true":::
 
-4. Selecione **Guardar** .
+4. Selecione **Guardar**.
 
 ### <a name="stream-to-an-event-hub"></a>Transmitir em fluxo para um hub de eventos
 
@@ -99,13 +99,13 @@ Para utilizar um centro de eventos para os registos, siga estes passos:
     
 1. Para **o nome de definição de diagnóstico,** insira um nome para as definições de registo de diagnóstico.
 
-2. Selecione **Stream para um centro de eventos** e, em seguida, selecione **CoreAnalytics** . 
+2. Selecione **Stream para um centro de eventos** e, em seguida, selecione **CoreAnalytics**. 
 
 3. Selecione o espaço de nome de subscrição e de centro de eventos para os registos.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Selecione o ponto final do CDN." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Registos de diagnóstico - Centro de eventos." border="true":::
 
-4. Selecione **Guardar** .
+4. Selecione **Guardar**.
 
 
 ## <a name="enable-logging-with-powershell"></a>Ativar registo com o PowerShell
@@ -190,8 +190,8 @@ Para descarregar a ferramenta, consulte o [Azure Storage Explorer](https://stora
 1.  Abrir **o Microsoft Azure Storage Explorer**
 2.  Localizar a conta de armazenamento
 3.  Expanda o nó **de recipientes Blob** nesta conta de armazenamento.
-4.  Selecione o recipiente denominado *insights-logs-coreanalytics* .
-5.  Os resultados aparecem no painel direito, começando pelo primeiro nível, como *recursosId=* . Continue a selecionar cada nível até encontrar o ficheiro *PT1H.jsligado* . Para obter uma explicação do caminho, consulte o [formato do caminho blob](cdn-azure-diagnostic-logs.md#blob-path-format).
+4.  Selecione o recipiente denominado *insights-logs-coreanalytics*.
+5.  Os resultados aparecem no painel direito, começando pelo primeiro nível, como *recursosId=*. Continue a selecionar cada nível até encontrar o ficheiro *PT1H.jsligado*. Para obter uma explicação do caminho, consulte o [formato do caminho blob](cdn-azure-diagnostic-logs.md#blob-path-format).
 6.  CadaPT1H.js *blob no* ficheiro representa os registos de análise durante uma hora para um ponto final específico do CDN ou para o seu domínio personalizado.
 7.  O esquema do conteúdo deste ficheiro JSON é descrito no esquema de secção dos registos de análise do núcleo.
 
@@ -229,7 +229,7 @@ Eis como pode usar a ferramenta:
 
 ## <a name="log-data-delays"></a>Registar atrasos nos dados
 
-A tabela seguinte mostra atrasos de dados de registo para **Azure CDN Standard da Microsoft** , **Azure CDN Standard da Akamai** , e **Azure CDN Standard/Premium da Verizon** .
+A tabela seguinte mostra atrasos de dados de registo para **Azure CDN Standard da Microsoft**, **Azure CDN Standard da Akamai**, e **Azure CDN Standard/Premium da Verizon**.
 
 Atrasos nos dados de registo da Microsoft | Atrasos nos dados de registo de Verizon | Atrasos nos dados do registo da Akamai
 --- | --- | ---
@@ -249,7 +249,7 @@ A tabela a seguir mostra uma lista de métricas disponíveis nos registos de an�
 Nem todas as métricas estão disponíveis de todos os fornecedores, embora tais diferenças sejam mínimas. A tabela também mostra se uma determinada métrica está disponível de um fornecedor. As métricas estão disponíveis apenas para os pontos finais da CDN que têm tráfego sobre eles.
 
 
-|Métrica                     | Descrição | Microsoft | Verizon | Akamai |
+|Metric                     | Descrição | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
 | PedidoCountTotal         | O número total de pedidos é atingido durante este período. | Sim | Sim |Sim |
 | PedidoCountHttpStatus2xx | Contagem de todos os pedidos que resultaram num código HTTP 2xx (por exemplo, 200, 202). | Sim | Sim |Sim |

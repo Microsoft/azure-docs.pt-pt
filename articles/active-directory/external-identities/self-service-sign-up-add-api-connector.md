@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de255836cb269f5077a417a203e136f9e903f05d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d121e6280b83265a742736f9b8dd3aee96a8b32e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441679"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351764"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adicione um conector API a um fluxo de utilizador
 
@@ -75,9 +75,9 @@ Content-type: application/json
 }
 ```
 
-Apenas as propriedades do utilizador e os atributos personalizados listados no **Azure Ative**  >  **Directory External Identities**Custom user  >  **experience** estão disponíveis para serem enviados no pedido.
+Apenas as propriedades do utilizador e os atributos personalizados listados no **Azure Ative**  >  **Directory External Identities** Custom user  >  **experience** estão disponíveis para serem enviados no pedido.
 
-Os atributos personalizados existem no formato ** \<extensions-app-id> _AttributeName extension_**  no diretório. A sua API deverá esperar receber reclamações neste mesmo formato serializado. Para obter mais informações sobre atributos personalizados, consulte [definir atributos personalizados para fluxos de inscrição de autosserviço](user-flow-add-custom-attributes.md).
+Os atributos personalizados existem no formato **\<extensions-app-id> _AttributeName extension_**  no diretório. A sua API deverá esperar receber reclamações neste mesmo formato serializado. Para obter mais informações sobre atributos personalizados, consulte [definir atributos personalizados para fluxos de inscrição de autosserviço](user-flow-add-custom-attributes.md).
 
 Além disso, a reclamação **UI Locales ('ui_locales')** é enviada por padrão em todos os pedidos. Fornece a localização(s) de um utilizador como configurado no seu dispositivo que pode ser usado pela API para devolver respostas internacionalizadas.
 
@@ -95,7 +95,7 @@ Siga estes passos para adicionar um conector API a um fluxo de utilizador de ins
 2. Ao abrigo **dos serviços Azure,** selecione **Azure Ative Directory**.
 3. No menu esquerdo, selecione **Identidades Externas.**
 4. Selecione **os fluxos do Utilizador (Pré-visualização)** e, em seguida, selecione o fluxo do utilizador a que pretende adicionar o conector API.
-5. Selecione **conectores API**e, em seguida, selecione os pontos finais da API que pretende invocar nos seguintes passos no fluxo do utilizador:
+5. Selecione **conectores API** e, em seguida, selecione os pontos finais da API que pretende invocar nos seguintes passos no fluxo do utilizador:
 
    - **Depois de iniciar sessão com um fornecedor de identidade**
    - **Antes de criar o utilizador**
@@ -106,7 +106,7 @@ Siga estes passos para adicionar um conector API a um fluxo de utilizador de ins
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Depois de iniciar sessão com um fornecedor de identidade
 
-Um conector API neste passo no processo de inscrição é invocado imediatamente após o utilizador autenticar com um fornecedor de identidade (Google, Facebook, Azure AD). Este passo precede a página de*_recolha *atributo_*_, que é o formulário apresentado ao utilizador para recolher os atributos do utilizador. 
+Um conector API neste passo no processo de inscrição é invocado imediatamente após o utilizador autenticar com um fornecedor de identidade (Google, Facebook, Azure AD). Este passo precede a página de *_recolha *atributo_* _, que é o formulário apresentado ao utilizador para recolher os atributos do utilizador. 
 
 <!-- The following are examples of API connector scenarios you may enable at this step:
 - Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
@@ -244,11 +244,11 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro                                          | Tipo              | Obrigatório | Descrição                                                                                                                                                                                                                                                                            |
+| Parâmetro                                          | Tipo              | Necessário | Descrição                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | versão                                            | String            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
 | ação                                             | String            | Sim      | O valor deve `Continue` ser.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores podem ser armazenados no diretório se forem selecionados como a _*Claim to receive** na configuração do conector API e **atributos do Utilizador** para um fluxo de utilizador. Os valores podem ser devolvidos no token se forem selecionados como **reclamação de Candidatura.**                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores podem ser armazenados no diretório se forem selecionados como a _ *Claim to receive** na configuração do conector API e **atributos do Utilizador** para um fluxo de utilizador. Os valores podem ser devolvidos no token se forem selecionados como **reclamação de Candidatura.**                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Não       | A reclamação devolvida não precisa de `_<extensions-app-id>_` conter. Os valores são armazenados no diretório se forem selecionados como Uma **Reivindicação a receber** na configuração do conector API e **no atributo do Utilizador** para um fluxo de utilizador. Os atributos personalizados não podem ser enviados de volta no token. |
 
 ### <a name="example-of-a-blocking-response"></a>Exemplo de uma resposta de bloqueio
@@ -266,7 +266,7 @@ Content-type: application/json
 
 ```
 
-| Parâmetro   | Tipo   | Obrigatório | Descrição                                                                |
+| Parâmetro   | Tipo   | Necessário | Descrição                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | versão     | String | Sim      | A versão da API.                                                    |
 | ação      | String | Sim      | Valor deve ser `ShowBlockPage`                                              |
@@ -292,7 +292,7 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro   | Tipo    | Obrigatório | Descrição                                                                |
+| Parâmetro   | Tipo    | Necessário | Descrição                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | versão     | String  | Sim      | A versão da API.                                                    |
 | ação      | String  | Sim      | O valor deve `ValidationError` ser.                                           |

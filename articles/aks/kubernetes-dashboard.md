@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: a80082ac524a4777b3b5ee32d946e9db8ec6e7f5
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 85f0a42cdfcbea2223d202a9dc35f58746580e85
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681623"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350131"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Aceda ao painel web Kubernetes no Serviço Azure Kubernetes (AKS)
 
@@ -41,6 +41,10 @@ az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
 ```
 
 ## <a name="start-the-kubernetes-dashboard"></a>Inicie o painel kubernetes
+
+> [!WARNING]
+> O addon do dashboard AKS é prectado para as versões 1.19+. Utilize a [vista de recursos kubernetes no portal Azure (pré-visualização)][kubernetes-portal] em vez disso. 
+> * O seguinte comando irá agora abrir a vista de recursos do Portal Azure em vez do painel de instrumentos kubernetes para as versões 1.19 ou acima.
 
 Para iniciar o painel kubernetes num cluster, utilize o comando [de navegação az aks.][az-aks-browse] Este comando requer a instalação do addon kube-dashboard no cluster, que é incluído por padrão em clusters que executam qualquer versão mais antiga que Kubernetes 1.18.
 
@@ -190,7 +194,7 @@ Leva alguns momentos para que as novas cápsulas sejam criadas dentro de um conj
 
 ![Ver informações sobre o conjunto de réplicas](./media/kubernetes-dashboard/view-replica-set.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o dashboard Kubernetes, consulte o [Painel de Instrumentos web da Kubernetes.][kubernetes-dashboard]
 

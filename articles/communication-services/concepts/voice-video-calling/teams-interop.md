@@ -9,12 +9,12 @@ ms.author: chpalm
 ms.date: 10/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 028e7f9764cbf75263736471f434e04bc6daca0f
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 914581e6610e027d9440495f56f4facfb1fb9a9a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886826"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349440"
 ---
 # <a name="teams-interoperability"></a>Interoperabilidade com o Teams
 
@@ -39,7 +39,8 @@ Quando um utilizador dos Serviços de Comunicação se juntar à reunião de Equ
 
 Os utilizadores dos Serviços de Comunicação podem participar em reuniões agendadas de equipas desde que as junções anónimas estejam ativadas nas definições de [reunião](/microsoftteams/meeting-settings-in-teams).
 
-
+## <a name="teams-in-government-clouds-gcc"></a>Equipas em Nuvens do Governo (GCC)
+A interoperabilidade dos Serviços de Comunicação Azure não é permitida às implementações das equipas usando [as nuvens governamentais do Microsoft 365 (GCC)](https://docs.microsoft.com/MicrosoftTeams/plan-for-government-gcc) neste momento. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

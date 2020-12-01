@@ -2,13 +2,13 @@
 title: Tutorial - Implementar e configurar VMware HCX
 description: Aprenda a implementar e configurar uma solução VMware HCX para a sua nuvem privada Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 11/18/2020
-ms.openlocfilehash: afb5c653ce7c4b4a453a4031c5664042357de6c0
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.date: 11/25/2020
+ms.openlocfilehash: e50454c2299ed0f7e249563eecac1935a29a9c47
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95999637"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352473"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Implementar e configurar o VMware HCX
 
@@ -16,8 +16,8 @@ Este artigo mostra-lhe como implantar e configurar o Conector VMware HCX no loca
 
 O VMware HCX Advanced Connector está pré-implantado na Solução VMware Azure. Suporta até três ligações do local (no local para nuvem, ou nuvem para nuvem). Se precisar de mais de três ligações de site, envie um pedido de [suporte](https://portal.azure.com/#create/Microsoft.Support) para ativar o addon [VMware HCX Enterprise.](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) O addon está atualmente em pré-visualização. 
 
->[!Note]
->Embora a ferramenta VMware Configuration Maximum descreva os pares máximos do site para ser de 25 entre o Conector pré-m e o Cloud Manager, o licenciamento volta a limitar este a 3 para Advanced e 10 para Enterprise Edition.
+>[!TIP]
+>Embora a ferramenta VMware Configuration Maximum descreva os pares máximos do site para ser de 25 entre o Conector e o Cloud Manager, o licenciamento limita-o a três para Advanced e 10 para Enterprise Edition.
 
 >[!NOTE]
 >A VMware HCX Enterprise está disponível com a Azure VMware Solution como um serviço de pré-visualização. É gratuito e está sujeito a termos e condições para um serviço de pré-visualização. Depois de o serviço VMware HCX Enterprise estar geralmente disponível, receberá um aviso de 30 dias de que a faturação irá mudar. Também terá a opção de desligar ou excluir o serviço. Não existe um caminho simples de downgrade da VMware HCX Enterprise para a VMware HCX Advanced. Se decidir desvalorizar, terá de se redistribuir, incorrendo tempo de inativo.
@@ -79,7 +79,7 @@ Antes de colocar o aparelho virtual no seu vCenter no local, tem de descarregar 
 1. Selecione **Gerir**  >  **identidade** e selecione **a palavra-passe de administração vCenter** para identificar a palavra-passe.
 
    > [!TIP]
-   > A palavra-passe vCenter foi definida quando configura a nuvem privada, é a mesma palavra-passe que vai usar para iniciar sposição no Azure VMware Solution HCX Manager.
+   > A palavra-passe vCenter foi definida quando configura a nuvem privada. É a mesma palavra-passe que vai usar para iniciar sposição no Azure VMware Solution HCX Manager.
 
    :::image type="content" source="media/tutorial-vmware-hcx/hcx-admin-password.png" alt-text="encontrar a palavra-passe hcx." lightbox="media/tutorial-vmware-hcx/hcx-admin-password.png":::
 
@@ -91,7 +91,7 @@ Antes de colocar o aparelho virtual no seu vCenter no local, tem de descarregar 
 
 ## <a name="deploy-the-vmware-hcx-connector-ova-on-premises"></a>Implementar o Conector VMware HCX OVA no local
 
-1. No seu vCenter no local, selecione um [modelo OVF](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-17BEDA21-43F6-41F4-8FB2-E01D275FE9B4.html) para implantar o Conector HCX no seu vCenter no local. 
+1. No seu vCenter no local, selecione um [modelo OVF](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-17BEDA21-43F6-41F4-8FB2-E01D275FE9B4.html) para implementar o Conector VMware HCX no seu vCenter no local. 
 
    > [!TIP]
    > Selecione o ficheiro OVA que descarregou na secção anterior.  
@@ -111,12 +111,12 @@ Antes de colocar o aparelho virtual no seu vCenter no local, tem de descarregar 
 
    :::image type="content" source="media/tutorial-vmware-hcx/customize-template.png" alt-text="Screenshot das caixas para personalizar um modelo." lightbox="media/tutorial-vmware-hcx/customize-template.png":::
 
-1. Verifique a configuração e, em seguida, **selecione Finish** para implementar o OVA do Conector HCX.
+1. Verifique a configuração e, em seguida, **selecione Acabamento** para implementar o Conector VMware HCX OVA.
    
    > [!IMPORTANT]
    > Terá de ligar o aparelho virtual manualmente.  Depois de ligar, aguarde 10-15 minutos antes de avançar para o passo seguinte.
 
-Para obter uma visão geral deste procedimento, consulte a [Solução Azure VMware: HCX Appliance Deployment](https://www.youtube.com/embed/BwSnQeefnso) Video. 
+Para obter uma visão geral deste procedimento, consulte a [Solução Azure VMware: HCX Appliance Deployment](https://www.youtube.com/embed/UKmSTYrL6AY) Video. 
 
 
 ## <a name="activate-vmware-hcx"></a>Ativar VMware HCX
@@ -152,7 +152,7 @@ Depois de colocar o VMware HCX Connector OVA no local e ligar o aparelho, está 
 1. Em **Configurar SSO/PSC,** forneça o endereço FQDN ou IP do seu Controlador de Serviços de Plataforma e, em seguida, selecione **Continue**.
    
    > [!NOTE]
-   > Normalmente, esta entrada é a mesma que o seu endereço FQDN ou IP do vCenter.
+   > Normalmente, é o mesmo que o seu endereço FQDN ou IP do vCenter.
 
 1. Verifique se as informações inseridas estão corretas e **selecione Restart**.
     
@@ -163,7 +163,7 @@ Após o reinício dos serviços, verá o vCenter a mostrar-se como verde no ecr�
 
 :::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="Screenshot do painel de instrumentos com o estado do vCenter verde." lightbox="media/tutorial-vmware-hcx/activation-done.png":::  
 
-Para uma visão geral deste procedimento, consulte a [Solução Azure VMware: Ativar](https://www.youtube.com/embed/BkAV_TNYxdE) o vídeo HCX.
+Para uma visão geral deste procedimento, consulte a [Solução Azure VMware: Ativar](https://www.youtube.com/embed/jzQZawslF8w) o vídeo HCX.
 
    > [!IMPORTANT]
    > Quer esteja a utilizar a VMware HCX Advanced ou a VMware HCX Enterprise, poderá ter de instalar o patch a partir do [artigo KB 81558](https://kb.vmware.com/s/article/81558)da VMware . 
@@ -174,7 +174,7 @@ Agora está pronto para adicionar um emparelhamento de site, criar uma rede e pe
 
 ### <a name="add-a-site-pairing"></a>Adicione um emparelhamento de site
 
-Pode ligar (emparelhamento) o VMware HCX Cloud Manager na Solução VMware Azure com o Conector VMware HCX no seu datacenter. 
+Pode ligar ou emparelhar o VMware HCX Cloud Manager em Azure VMware Solution com o Conector VMware HCX no seu datacenter. 
 
 1. Inscreva-se no seu vCenter no local, e em **Casa,** selecione **HCX**.
 
@@ -183,15 +183,16 @@ Pode ligar (emparelhamento) o VMware HCX Cloud Manager na Solução VMware Azure
 1. Introduza o URL ou endereço IP do Azure VMware Solution HCX Cloud Manager que observou anteriormente `https://x.x.x.9` , o nome de utilizador Azure VMware Solution e a cloudadmin@vsphere.local palavra-passe. Em seguida, selecione **Ligar**.
 
    > [!NOTE]
-   > Para estabelecer um par de site com sucesso, o seu conector HCX deve ser capaz de encaminhar para o seu HCX Cloud Manager IP sobre a porta 443.
+   > Para estabelecer com sucesso um par de site:
+   > * O seu Conector VMware HCX deve ser capaz de encaminhar para o seu HCX Cloud Manager IP sobre a porta 443.
    >
-   > A palavra-passe é a mesma palavra-passe que usou para iniciar súm no vCenter. Definiu esta palavra-passe no ecrã inicial de implantação.
+   > * Use a mesma palavra-passe que usou para iniciar súm no vCenter. Definiu esta palavra-passe no ecrã inicial de implantação.
 
-   Vê um ecrã que mostra que o seu HCX Cloud Manager na Solução VMware Azure e os seus conectores HCX no local estão ligados (emparelhado).
+   Verá um ecrã que mostra que o seu VMware HCX Cloud Manager na Azure VMware Solution e o seu Conector VMware HCX no local estão ligados (emparelhado).
 
-   :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Screenshot que mostra o emparelhamento do HCX Manager em Azure VMware Solution e o Conector HCX.":::
+   :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Screenshot que mostra o emparelhamento do HCX Manager em Azure VMware Solution e o VMware HCX Connector.":::
 
-Para uma visão geral deste procedimento, consulte a [Solução Azure VMware: HCX Site Pairing.](https://www.youtube.com/embed/sKizDCRHOko)
+Para uma visão geral deste procedimento, consulte a [Solução Azure VMware: HCX Site Pairing.](https://www.youtube.com/embed/iTJtjbiwvsw)
 
 ### <a name="create-network-profiles"></a>Criar perfis de rede
 
@@ -212,7 +213,7 @@ Criará quatro perfis de rede:
 
    :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="Screenshot de detalhes para um novo perfil de rede.":::
 
-Para uma visão geral deste procedimento, consulte a [Solução Azure VMware: HCX Network Profile](https://www.youtube.com/embed/NhyEcLco4JY) video.
+Para uma visão geral deste procedimento, consulte a [Solução Azure VMware: HCX Network Profile](https://www.youtube.com/embed/O0rU4jtXUxc) video.
 
 
 ### <a name="create-a-compute-profile"></a>Criar um perfil computacional
@@ -274,18 +275,20 @@ Para uma visão geral deste procedimento, consulte a [Solução Azure VMware: HC
 
    :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-done.png" alt-text="Screenshot que mostra informações de perfil computacional." lightbox="media/tutorial-vmware-hcx/compute-profile-done.png":::
 
-Para uma visão geral deste procedimento, consulte o [vídeo Azure VMware Solution: Compute Profile.](https://www.youtube.com/embed/qASXi5xrFzM)
+Para uma visão geral deste procedimento, consulte o [vídeo Azure VMware Solution: Compute Profile.](https://www.youtube.com/embed/e02hsChI3b8)
 
 ### <a name="create-a-service-mesh"></a>Criar uma malha de serviço
 
 Agora é hora de configurar uma malha de serviço entre as instalações e a Azure VMware Solution SDDC.
 
-   > [!NOTE]
-   > Para estabelecer com sucesso uma malha de serviço com a Solução Azure VMware:
-   >
-   > As portas UDP 500/4500 estão abertas entre os endereços de perfil de rede definidos pelo conector HCX no local e os endereços de perfil de rede 'uplink' da Solução VMware Azure VCX Cloud.
-   >
-   > Certifique-se de rever as portas necessárias ao [HCX](https://ports.vmware.com/home/VMware-HCX).
+
+
+> [!NOTE]
+> Para estabelecer com sucesso uma malha de serviço com a Solução Azure VMware:
+>
+> * As portas UDP 500/4500 estão abertas entre os endereços de perfil de rede 'uplink' do VMware HCX Connector VMware E os endereços de perfil de rede 'uplink' da Solução VMware HCX Cloud da Azure.
+>
+> * Certifique-se de rever as [portas HCX necessárias vMware](https://ports.vmware.com/home/VMware-HCX).
 
 1. Em **Infraestruturas**, selecione **Interconnect**  >  **Service Mesh** Create Service  >  **Mesh**.    
 
@@ -312,6 +315,10 @@ Agora é hora de configurar uma malha de serviço entre as instalações e a Azu
   
 1. Em **Configuração Avançada - Escala de aparelho de extensão de rede para fora,** reveja e selecione **Continue**. 
 
+   Pode ter até oito VLANs por aparelho, mas pode utilizar outro aparelho para adicionar mais oito VLANs. Você também deve ter espaço IP para explicar os aparelhos adicionais, e é um IP por aparelho.  Para obter mais informações, consulte [os limites de configuração do VMware HCX](https://configmax.vmware.com/guest?vmwareproduct=VMware%20HCX&release=VMware%20HCX&categories=41-0,42-0,43-0,44-0,45-0).
+   
+   :::image type="content" source="media/tutorial-vmware-hcx/extend-networks-increase-vlan.png" alt-text="Screenshot que mostra onde aumentar a contagem de VLAN." lightbox="media/tutorial-vmware-hcx/extend-networks-increase-vlan.png":::
+
 1. Em **Configuração Avançada - Engenharia de Tráfego,** reveja e faça quaisquer modificações que assentes que assesse ser necessárias e, em seguida, selecione **Continue**.
 
 1. Reveja a pré-visualização da topologia e **selecione Continue**.
@@ -332,7 +339,7 @@ Agora é hora de configurar uma malha de serviço entre as instalações e a Azu
 
    :::image type="content" source="media/tutorial-vmware-hcx/interconnect-appliance-state.png" alt-text="Screenshot que mostra seleções para verificar o estado do aparelho." lightbox="media/tutorial-vmware-hcx/interconnect-appliance-state.png":::
 
-Para uma visão geral deste procedimento, consulte a [Solução Azure VMware: Vídeo de malha](https://www.youtube.com/embed/FyZ0d3P_T24) de serviço.
+Para uma visão geral deste procedimento, consulte a [Solução Azure VMware: Vídeo de malha](https://www.youtube.com/embed/COY3oIws108) de serviço.
 
 ### <a name="optional-create-a-network-extension"></a>(Opcional) Criar uma extensão de rede
 
@@ -354,7 +361,7 @@ Se pretender estender quaisquer redes do seu ambiente no local até à Azure VMw
 
    :::image type="content" source="media/tutorial-vmware-hcx/extension-complete.png" alt-text="Screenshot que mostra o estado da extensão completa." lightbox="media/tutorial-vmware-hcx/extension-complete.png":::
 
-Para uma visão geral deste procedimento, consulte a [Solução Azure VMware: Vídeo de extensão de rede.](https://www.youtube.com/embed/cNlp0f_tTr0)
+Para uma visão geral deste procedimento, consulte a [Solução Azure VMware: Vídeo de extensão de rede.](https://www.youtube.com/embed/gYR0nftKui0)
 
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -364,5 +371,5 @@ Se o estado do túnel de interligação do aparelho for **UP** e verde, pode mig
 Para obter mais informações sobre a utilização do HCX, aceda à documentação técnica da VMware:
 
 * [Documentação VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html)
-* [Máquinas virtuais migratórias com VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g).
+* [Máquinas virtuais migratórias com VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)
 * [Portas necessárias de HCX](https://ports.vmware.com/home/VMware-HCX)

@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: 3d21aadd8174bf933e55320c8596c57274140582
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3c78ad6605e927015d35df12cadf0347dd0337cf
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096398"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349049"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Como distribuir globalmente leituras usando AZure Cosmos DB's API para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -146,7 +146,7 @@ Além do modo Leitura Preferência, o protocolo MongoDB permite a utilização d
       }
 ```
 
-Assim, a MongoClient pode usar a `region` etiqueta juntamente com o nome da região para direcionar as operações de leitura para regiões específicas. Para as contas cosmos, os nomes da região podem ser encontrados no portal Azure à esquerda sob **os dados de Replica De Definições->a nível global** . Esta configuração é útil para alcançar **o isolamento da leitura** - casos em que a aplicação do cliente quer dirigir operações de leitura apenas para uma região específica. Esta configuração é ideal para cenários de tipo não-produção/analítico, que funcionam em segundo plano e não são serviços críticos de produção.
+Assim, a MongoClient pode usar a `region` etiqueta juntamente com o nome da região para direcionar as operações de leitura para regiões específicas. Para as contas cosmos, os nomes da região podem ser encontrados no portal Azure à esquerda sob **os dados de Replica De Definições->a nível global**. Esta configuração é útil para alcançar **o isolamento da leitura** - casos em que a aplicação do cliente quer dirigir operações de leitura apenas para uma região específica. Esta configuração é ideal para cenários de tipo não-produção/analítico, que funcionam em segundo plano e não são serviços críticos de produção.
 
 O seguinte corte da aplicação da amostra mostra como configurar a Preferência de Leitura com etiquetas em NodeJS:
 
@@ -163,15 +163,15 @@ Consulte os repos de aplicação da amostra correspondentes para outras platafor
 
 Neste artigo, aprendeu a distribuir globalmente operações de leitura usando a Read Preference com a API da Azure Cosmos DB para a MongoDB.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não vai continuar a utilizar esta aplicação, elimine todos os recursos criados por este artigo no portal Azure com os seguintes passos:
 
 1. No menu do lado esquerdo do portal do Azure, clique em **Grupos de recursos** e, em seguida, clique no nome de recurso que criou. 
-2. Na página do grupo de recursos, clique em **Eliminar** , escreva o nome do recurso a eliminar na caixa de texto e, em seguida, clique em **Eliminar** .
+2. Na página do grupo de recursos, clique em **Eliminar**, escreva o nome do recurso a eliminar na caixa de texto e, em seguida, clique em **Eliminar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Import MongoDB data into Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) (Importar dados do MongoDB para o Azure Cosmos DB)
+* [Import MongoDB data into Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) (Importar dados do MongoDB para o Azure Cosmos DB)
 * [Configurar uma base de dados distribuída globalmente com a API da Azure Cosmos para a MongoDB](tutorial-global-distribution-mongodb.md)
 * [Desenvolva-se localmente com o emulador Azure Cosmos DB](local-emulator.md)

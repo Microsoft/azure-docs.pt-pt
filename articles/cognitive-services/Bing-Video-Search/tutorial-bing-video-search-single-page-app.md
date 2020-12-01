@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: b6d9ec0760cc8d95f712cfc7a5478de1a99465ef
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 76d7f4e31934480be57cd5ac133c1c7e6a9dd364
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379876"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349610"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Tutorial: aplicação de página única da Pesquisa de Vídeos
 
 > [!WARNING]
-> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource)documentado.
 > Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
-> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](/bing/search-apis/bing-web-search/create-bing-search-service-resource)
 A API de Pesquisa de Vídeos do Bing permite-lhe pesquisar na Web e obter resultados de vídeos relevantes para uma consulta de pesquisa. Neste tutorial, vamos compilar uma aplicação Web de página única que utiliza a API de Pesquisa do Bing para apresentar resultados da pesquisa na página. A aplicação inclui componentes HTML, CSS e JavaScript.
 
 <!-- Remove until it can be replaced with a sanitized version.
@@ -312,7 +312,7 @@ Os resultados da pesquisa são devolvidos como o objeto `value` de nível superi
 }
 ```
 
-A API de Pesquisa de Notícias do Bing devolve até quatro tipos diferentes de resultados relacionados, cada um no seu próprio objeto de nível superior. A saber:
+A API de Pesquisa de Notícias do Bing devolve até quatro tipos diferentes de resultados relacionados, cada um no seu próprio objeto de nível superior. São:
 
 |Relação|Descrição|
 |-|-|
@@ -325,7 +325,7 @@ Conforme vimos anteriormente em `renderSearchResults()`, só convertermos as sug
 
 ## <a name="rendering-result-items"></a>Compor os itens dos resultados
 
-No código JavaScript, o objeto `searchItemRenderers` pode conter *compositores* , funções que geram o HTML de cada tipo de resultado da pesquisa. A página da pesquisa de vídeo só utiliza `videos`. Relativamente aos diversos tipos de compositores, veja os outros tutoriais.
+No código JavaScript, o objeto `searchItemRenderers` pode conter *compositores*, funções que geram o HTML de cada tipo de resultado da pesquisa. A página da pesquisa de vídeo só utiliza `videos`. Relativamente aos diversos tipos de compositores, veja os outros tutoriais.
 
 ```javascript
 searchItemRenderers = {
@@ -414,6 +414,6 @@ cors-proxy-server
 
 Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Bing Video Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) (Referência da API de Pesquisa de Vídeos do Bing)

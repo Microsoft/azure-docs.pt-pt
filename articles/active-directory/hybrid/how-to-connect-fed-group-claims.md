@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: cb828eeb408a170b93ffc73b58f14b3f7a883cc4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: bef5942707c1ded22ba82bdb0d945b9fdb23fffa
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95247239"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349355"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configure pedidos de pedidos de candidaturas com a Azure Ative Directory
 
@@ -58,7 +58,7 @@ No entanto, se uma aplicação existente espera consumir informações de grupo 
 
 - Ao utilizar a filiação do grupo para efeitos de autorização de inscrição, é preferível utilizar o Grupo ObjectID. O Grupo ObjectID é imutável e único no Azure Ative Directory e está disponível para todos os grupos.
 - Se utilizar o grupo no local sAMAccountName para autorização, utilize nomes qualificados de domínio;  há menos hipóteses de os nomes colidirem. sAMAccountName pode ser único dentro de um domínio de Diretório Ativo, mas se mais de um domínio de Diretório Ativo for sincronizado com um inquilino do Azure Ative Directory existe a possibilidade de mais de um grupo ter o mesmo nome.
-- Considere usar [as Funções de Aplicação](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) para fornecer uma camada de indireção entre a filiação do grupo e a aplicação.   O pedido toma então decisões de autorização interna com base em amêijoas de papel no token.
+- Considere usar [as Funções de Aplicação](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) para fornecer uma camada de indireção entre a filiação do grupo e a aplicação.   O pedido toma então decisões de autorização interna com base em reivindicações de papel no token.
 - Se a aplicação estiver configurada para obter atributos de grupo sincronizados com o Ative Directory e um Grupo não contiver esses atributos, não será incluído nas alegações.
 - As reclamações do grupo em tokens incluem grupos aninhados, exceto quando se utiliza a opção de restringir as reclamações do grupo aos grupos atribuídos à aplicação.  Se um utilizador for membro do GrupoB e o GrupoB for membro do GrupoA, então as alegações do grupo para o utilizador conterão tanto o GrupoA como o GrupoB. Quando os utilizadores de uma organização têm um grande número de membros do grupo, o número de grupos listados no símbolo pode aumentar o tamanho do símbolo.  O Azure Ative Directory limita o número de grupos que emitirá num token a 150 para afirmações SAML e 200 para o JWT.  Se um utilizador for membro de um maior número de grupos, os grupos são omitidos e um link para o ponto final do Gráfico para obter informações de grupo é incluído.
 
@@ -221,7 +221,7 @@ Para emitir nomes de grupo a serem devolvidos no formato netbiosDomain\samAccoun
  }
  ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Adicionar autorização usando grupos & grupos reclamam a uma aplicação web core ASP.NET (amostra de código)](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/5-WebApp-AuthZ/5-2-Groups/README.md)
 - [Atribuir um utilizador ou grupo a uma aplicação empresarial](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)

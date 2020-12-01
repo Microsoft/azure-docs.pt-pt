@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/18/2019
 ms.author: Zhchia
-ms.openlocfilehash: 3bfcd652572b989e98bf4c7cb717cb314dfbaaeb
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: c1bab9b40766fe22baa94497d71d3f8757e1c210
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359889"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348794"
 ---
 # <a name="tutorial-configure-airstack-for-automatic-user-provisioning"></a>Tutorial: Configure Airstack para o provisionamento automático do utilizador
 
@@ -89,7 +89,7 @@ Antes de configurar o Airstack para o fornecimento automático de utilizadores c
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no Airstack com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Pode também optar por ativar o sign-on único baseado em SAML para airstack, seguindo as instruções fornecidas no [tutorial de inscrição única da Airstack .](./airstack-tutorial.md) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
+> Pode também optar por ativar o sign-on único baseado em SAML para airstack, seguindo as instruções fornecidas no [tutorial de assinatura single-on da Airstack](./airstack-tutorial.md). O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
 
 ### <a name="to-configure-automatic-user-provisioning-for-airstack-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para airstack em Azure AD:
 

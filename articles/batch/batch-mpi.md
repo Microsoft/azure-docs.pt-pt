@@ -4,12 +4,12 @@ description: Saiba como executar aplicações de Interface de Passagem de Mensag
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: 3dc52d13cf41347e7382872e887d87fc9b25a95b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 6aa6a910dd57a255d9ec9292119bc692edf4946f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108087"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351525"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Utilize tarefas de várias instâncias para executar aplicações de Interface de Passagem de Mensagens (MPI) em Batch
 
@@ -21,7 +21,7 @@ As tarefas de várias instâncias permitem executar uma tarefa do Azure Batch em
 >
 
 ## <a name="multi-instance-task-overview"></a>Visão geral da tarefa em várias instâncias
-Em Batch, cada tarefa é normalmente executada num único nó de computação-- você submete várias tarefas a um trabalho, e o serviço Batch agenda cada tarefa para execução em um nó. No entanto, ao configurar **as definições de várias instâncias**de uma tarefa, diga ao Batch para criar uma tarefa primária e vários subtarefas que são depois executados em múltiplos nós.
+Em Batch, cada tarefa é normalmente executada num único nó de computação-- você submete várias tarefas a um trabalho, e o serviço Batch agenda cada tarefa para execução em um nó. No entanto, ao configurar **as definições de várias instâncias** de uma tarefa, diga ao Batch para criar uma tarefa primária e vários subtarefas que são depois executados em múltiplos nós.
 
 ![Visão geral da tarefa em várias instâncias][1]
 
@@ -95,8 +95,8 @@ Procure os tamanhos especificados como "RDMA capaz" nos seguintes artigos:
   * [Tamanhos para serviços em nuvem](../cloud-services/cloud-services-sizes-specs.md) (apenas windows)
 * **Piscinas de configuração virtual**
 
-  * [Tamanhos para máquinas virtuais em Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) (Linux)
-  * [Tamanhos para máquinas virtuais em Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) (Windows)
+  * [Tamanhos para máquinas virtuais em Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
+  * [Tamanhos para máquinas virtuais em Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
 > Para tirar partido do RDMA nos [nós de computação Linux,](batch-linux-nodes.md)tem de utilizar **o Intel MPI** nos nós.
@@ -153,7 +153,7 @@ cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
 Note a utilização deste comando de `start` coordenação. Isto é necessário porque o `smpd.exe` pedido não regressa imediatamente após a execução. Sem a utilização do comando [inicial,][cmd_start] este comando de coordenação não regressaria, pelo que impediria o comando de aplicação de funcionar.
 
 ## <a name="application-command"></a>Comando de aplicação
-Uma vez terminada a tarefa primária e todos os subtarefas que terminaram de executar o comando de coordenação, a linha de comando da tarefa de várias instâncias é executada *apenas*pela tarefa principal . Chamamos a isto o comando de **aplicação** para distingui-lo do comando de coordenação.
+Uma vez terminada a tarefa primária e todos os subtarefas que terminaram de executar o comando de coordenação, a linha de comando da tarefa de várias instâncias é executada *apenas* pela tarefa principal . Chamamos a isto o comando de **aplicação** para distingui-lo do comando de coordenação.
 
 Para aplicações MS-MPI, utilize o comando de aplicação para executar a sua aplicação ativada por MPI com `mpiexec.exe` . Por exemplo, aqui está um comando de aplicação para uma solução utilizando a versão MS-MPI 7:
 

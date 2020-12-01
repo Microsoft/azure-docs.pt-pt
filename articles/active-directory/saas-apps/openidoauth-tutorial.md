@@ -12,20 +12,20 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: ce4cccba678a934780dc987f1441ea658a70f8eb
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 17d78b4d6db9e65868995d8ea7835a0d911e8589
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996626"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348704"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configure uma aplicação OpenID/OAuth da galeria de aplicações AZure AD
 
 ## <a name="process-of-adding-an-openid-application-from-the-gallery"></a>Processo de adição de uma aplicação OpenID da galeria
 
-1. No [portal Azure,](https://portal.azure.com)no painel esquerdo, selecione **Azure Ative Directory**.
+1. No [portal do Azure](https://portal.azure.com), selecione **Azure Active Directory**.
 
-    ![O botão Azure Ative Directory](common/select-azuread.png))
+    ![O botão Azure Ative Directory](common/select-azuread.png)
 
 2. Ir para **aplicações da Enterprise**  >  **Todas as aplicações.**
 
@@ -39,17 +39,23 @@ ms.locfileid: "91996626"
 
     ![Openid na lista de resultados](common/search-new-app.png)
 
-    > [!NOTE]
-    > Para as aplicações OpenID Connect e OAuth, o botão **Adicionar** é desativado por predefinição. Aqui o administrador do inquilino deve selecionar o botão de inscrição e fornecer o consentimento para o pedido. A aplicação é então adicionada ao inquilino do cliente, onde pode fazer as configurações. Não há necessidade de adicionar a aplicação explicitamente.
+
+1. Na página nome da Aplicação, clique no botão **Iniciar S-seção.**
 
     ![Botão Adicionar](./media/openidoauth-tutorial/addbutton.png)
 
-5. Quando seleciona o link de inscrição, é redirecionado para a página Azure Ative Directory (Azure AD) para obter credenciais de inscrição.
+    > [!NOTE]
+    > Aqui o administrador do inquilino deve selecionar o botão de inscrição e fornecer o consentimento para o pedido. A aplicação é então adicionada ao inquilino do cliente, onde pode fazer as configurações. Não há necessidade de adicionar a aplicação explicitamente.
+
+5. Você é redirecionado para a página de Login de Aplicação ou página de Diretório Ativo Azure (Azure AD) para obter credenciais de login.
 
 6. Após a autenticação bem sucedida, aceita o consentimento da página de consentimento. Depois disso, aparece a página inicial da aplicação.
 
     > [!NOTE]
     > Pode adicionar apenas uma instância da aplicação. Se já adicionou um e tentou dar o consentimento novamente, não voltará a ser adicionado ao arrendatário. Logicamente, você pode usar apenas uma instância de aplicação no inquilino.
+
+1. Siga o vídeo abaixo para adicionar uma aplicação OpenID da galeria.
+    >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## <a name="authentication-flow-using-openid-connect"></a>Fluxo de autenticação utilizando o OpenID Connect
 
@@ -151,3 +157,7 @@ Um administrador de inquilino pode desativar a capacidade de os utilizadores reg
 O parâmetro *prompt=admin_consent* também pode ser usado por aplicações que solicitam permissões que não requerem consentimento administrativo. Um exemplo é uma aplicação que requer uma experiência em que o administrador do arrendatário "inscreve-se" uma vez, e nenhum outro utilizadores é solicitado a consentir a partir desse ponto.
 
 Imagine que uma aplicação requer consentimento administrativo, e um sinal de administração sem o parâmetro *de prompt=admin_consent* sendo enviado. Quando o administrador consente com sucesso na aplicação, aplica-se apenas à sua conta de utilizador. Os utilizadores regulares continuarão a não conseguir iniciar sê-lo ou consentir a aplicação. Esta funcionalidade é útil se quiser dar ao administrador inquilino a capacidade de explorar a sua aplicação antes de permitir o acesso de outros utilizadores.
+
+## <a name="next-steps"></a>Passos seguintes
+
+[Configurar um único sign-on (SSO) baseado no OIDC para uma aplicação no seu inquilino Azure Ative Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)

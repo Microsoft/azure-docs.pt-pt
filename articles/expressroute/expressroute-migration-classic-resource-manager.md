@@ -7,18 +7,18 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: duau
-ms.openlocfilehash: ac6fe619fc1c65b9ced18227d08cde50997eb7d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57c439cf8ac52d93d231d6ff33f72a5a942dec6a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395286"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351610"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>Migrar redes virtuais associadas à ExpressRoute do clássico ao Gestor de Recursos
 
 Este artigo explica como migrar redes virtuais associadas ao ExpressRoute do modelo clássico de implementação para o modelo de implementação do Azure Resource Manager depois de mover o circuito ExpressRoute. 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -29,10 +29,10 @@ Este artigo explica como migrar redes virtuais associadas ao ExpressRoute do mod
 * Certifique-se de que tem um grupo de recursos criado no modelo de implementação do Gestor de Recursos.
 * Reveja a seguinte documentação de migração de recursos:
 
-    * [Migração suportada por plataforma dos recursos IaaS clássicos para o Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+    * [Migração suportada por plataforma dos recursos IaaS clássicos para o Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md)
     * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-deep-dive.md) (Análise detalhada técnica sobre a migração suportada por plataforma da clássica para Azure Resource Manager)
     * [FAQs: Migração suportada por plataformas de recursos iaas do clássico para o Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-faq.md)
-    * [Reveja os erros e mitigações de migração mais comuns](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+    * [Reveja os erros e mitigações de migração mais comuns](../virtual-machines/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="supported-and-unsupported-scenarios"></a>Cenários suportados e não suportados
 
@@ -82,7 +82,7 @@ Esta secção descreve os passos a seguir para migrar uma rede virtual, gateway 
    ```
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Migração suportada por plataforma dos recursos IaaS clássicos para o Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+* [Migração suportada por plataforma dos recursos IaaS clássicos para o Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md)
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-deep-dive.md) (Análise detalhada técnica sobre a migração suportada por plataforma da clássica para Azure Resource Manager)
 * [FAQs: Migração suportada por plataformas de recursos iaas do clássico para o Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-faq.md)
-* [Reveja os erros e mitigações de migração mais comuns](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Reveja os erros e mitigações de migração mais comuns](../virtual-machines/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

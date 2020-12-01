@@ -9,17 +9,17 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: 74cfabff22074ee405d7b417e306da62ef69ae19
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: b1f95cf0a62aa68fe86f37cea137251553458a1d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927129"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348884"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Excel formato na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Siga este artigo quando quiser **analisar os ficheiros Excel** . A Azure Data Factory suporta ".xls" e ".xlsx".
+Siga este artigo quando quiser **analisar os ficheiros Excel**. A Azure Data Factory suporta ".xls" e ".xlsx".
 
 O formato Excel é suportado para os seguintes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), Azure File Storage Gen2 , [Azure File Storage](connector-azure-file-storage.md), FILE [System,](connector-file-system.md) [FTP,](connector-ftp.md) [Google Cloud Storage,](connector-google-cloud-storage.md) [HDFS](connector-hdfs.md), [HTTP](connector-http.md)e [SFTP](connector-sftp.md). É suportado como fonte, mas não afundado. 
 
@@ -31,15 +31,15 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 | Propriedade         | Descrição                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| tipo             | A propriedade tipo do conjunto de dados deve ser definida para **Excel** .   | Yes      |
-| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . | Yes      |
-| nome de folhaName        | O nome da folha de cálculo do Excel para ler dados.                       | Yes      |
-| gama            | A gama de células na folha de cálculo dada para localizar os dados seletivos, por exemplo:<br>- Não especificado: lê toda a folha de cálculo como uma tabela da primeira linha e coluna não vazias<br>- `A3`: lê uma tabela a partir da célula dada, deteta dinamicamente todas as linhas abaixo e todas as colunas à direita<br>- `A3:H5`: lê esta gama fixa como uma tabela<br>- `A3:A3`: lê esta única célula | No       |
-| firstRowAsHeader | Especifica se deve tratar a primeira linha na folha/intervalo dada como uma linha de cabeçalho com nomes de colunas.<br>Os valores permitidos são **verdadeiros** e **falsos** (padrão). | No       |
-| nullValue        | Especifica a representação de cadeia de valor nulo. <br>O valor predefinido é **a corda vazia.** | No       |
-| compressão | Grupo de propriedades para configurar a compressão do ficheiro. Configure esta secção quando pretender fazer compressão/descompressão durante a execução da atividade. | No |
-| tipo<br/>*(em) `compression`* | O códice de compressão usado para ler/escrever ficheiros JSON. <br>Os valores permitidos são **bzip2** , **gzip,** **deflate,** **ZipDeflate,** **TarGzip,** **Tar,** **snappy,** ou **lz4** . O padrão não é comprimido.<br>**Nota** atualmente A atividade copy não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate", "TarGzip" e "Tar".<br>**Note** que ao utilizar a atividade de cópia para descomprimir ficheiros **ZipDeflate** e escrever para a loja de dados da pia baseada em ficheiros, os ficheiros são extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/` . | N.º  |
-| nível<br/>*(em) `compression`* | A relação de compressão. <br>Os valores permitidos são **ótimos** ou **mais rápidos.**<br>- **Mais rápido:** O funcionamento da compressão deve ser concluído o mais rapidamente possível, mesmo que o ficheiro resultante não seja perfeitamente comprimido.<br>- **Ótimo** : O funcionamento da compressão deve ser perfeitamente comprimido, mesmo que a operação leve mais tempo a ser concluída. Para mais informações, consulte o tópico [nível de compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | No       |
+| tipo             | A propriedade tipo do conjunto de dados deve ser definida para **Excel**.   | Sim      |
+| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . | Sim      |
+| nome de folhaName        | O nome da folha de cálculo do Excel para ler dados.                       | Sim      |
+| gama            | A gama de células na folha de cálculo dada para localizar os dados seletivos, por exemplo:<br>- Não especificado: lê toda a folha de cálculo como uma tabela da primeira linha e coluna não vazias<br>- `A3`: lê uma tabela a partir da célula dada, deteta dinamicamente todas as linhas abaixo e todas as colunas à direita<br>- `A3:H5`: lê esta gama fixa como uma tabela<br>- `A3:A3`: lê esta única célula | Não       |
+| firstRowAsHeader | Especifica se deve tratar a primeira linha na folha/intervalo dada como uma linha de cabeçalho com nomes de colunas.<br>Os valores permitidos são **verdadeiros** e **falsos** (padrão). | Não       |
+| nullValue        | Especifica a representação de cadeia de valor nulo. <br>O valor predefinido é **a corda vazia.** | Não       |
+| compressão | Grupo de propriedades para configurar a compressão do ficheiro. Configure esta secção quando pretender fazer compressão/descompressão durante a execução da atividade. | Não |
+| tipo<br/>*(em) `compression`* | O códice de compressão usado para ler/escrever ficheiros JSON. <br>Os valores permitidos são **bzip2**, **gzip,** **deflate,** **ZipDeflate,** **TarGzip,** **Tar,** **snappy,** ou **lz4**. O padrão não é comprimido.<br>**Nota** atualmente A atividade copy não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate", "TarGzip" e "Tar".<br>**Note** que ao utilizar a atividade de cópia para descomprimir ficheiros **ZipDeflate** e escrever para a loja de dados da pia baseada em ficheiros, os ficheiros são extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/` . | Não.  |
+| nível<br/>*(em) `compression`* | A relação de compressão. <br>Os valores permitidos são **ótimos** ou **mais rápidos.**<br>- **Mais rápido:** O funcionamento da compressão deve ser concluído o mais rapidamente possível, mesmo que o ficheiro resultante não seja perfeitamente comprimido.<br>- **Ótimo**: O funcionamento da compressão deve ser perfeitamente comprimido, mesmo que a operação leve mais tempo a ser concluída. Para mais informações, consulte o tópico [nível de compressão.](/dotnet/api/system.io.compression.compressionlevel) | Não       |
 
 Abaixo está um exemplo do conjunto de dados do Excel no Azure Blob Storage:
 
@@ -73,12 +73,12 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 ### <a name="excel-as-source"></a>Excel como fonte 
 
-As seguintes propriedades são suportadas na atividade de cópia **_ \_ secção \* fonte** * .
+As seguintes propriedades são suportadas na atividade de cópia **_ \_ secção \* fonte*** .
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida para **ExcelSource** . | Yes      |
-| lojaSs | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . | No       |
+| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida para **ExcelSource**. | Sim      |
+| lojaSs | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . | Não       |
 
 ```json
 "activities": [

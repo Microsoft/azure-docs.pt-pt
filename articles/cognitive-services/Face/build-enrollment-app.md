@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: pafarley
-ms.openlocfilehash: bd2032d565f5bd1fb430449be8b8c08e222f531d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 085dd18214f795566669fb862bba63b67eb9115d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025787"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350369"
 ---
 # <a name="build-an-enrollment-app-for-android-with-react"></a>Construa um aplicativo de inscrição para Android com React
 
@@ -74,7 +74,7 @@ Para alargar a funcionalidade da aplicação para cobrir toda a experiência de 
 
 ### <a name="android"></a>Android
 
-Em primeiro lugar, certifique-se de que a sua aplicação está pronta para a implementação da produção: remova quaisquer chaves ou segredos do código da aplicação e certifique-se de que seguiu as [melhores práticas de segurança.](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp)
+Em primeiro lugar, certifique-se de que a sua aplicação está pronta para a implementação da produção: remova quaisquer chaves ou segredos do código da aplicação e certifique-se de que seguiu as [melhores práticas de segurança.](../cognitive-services-security.md?tabs=command-line%2ccsharp)
 
 Quando estiver pronto para lançar a sua app para produção, irá gerar um ficheiro APK pronto para lançamento, que é o formato de ficheiros pacote para aplicações Android. Este ficheiro APK deve ser assinado com uma chave privada. Com esta construção de lançamento, pode começar a distribuir a aplicação diretamente para os seus dispositivos. 
 
@@ -82,6 +82,6 @@ Siga o <a href="https://developer.android.com/studio/publish/preparing#publishin
 
 Assim que tiver criado um APK assinado, consulte a Publicação da <a href="https://developer.android.com/studio/publish"  title=" sua app Publicar a "  target="_blank"> documentação da sua aplicação <span class="docon docon-navigate-external x-hidden-focus"></span> </a> para saber mais sobre como lançar a sua aplicação.
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 Neste guia, aprendeu a configurar o seu ambiente de desenvolvimento e a começar com a aplicação de inscrição da amostra. Se é novo em Reagir Nativo, pode ler os seus médicos para aprender mais informações sobre [antecedentes.](https://reactnative.dev/docs/getting-started) Também pode ser útil familiarizar-se com [a Face API.](Overview.md) Leia as outras secções sobre a documentação da aplicação de inscrição antes de começar a ser desenvolvimento.

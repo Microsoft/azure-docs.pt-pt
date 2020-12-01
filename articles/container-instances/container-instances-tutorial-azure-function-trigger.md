@@ -4,12 +4,12 @@ description: Criar uma função PowerShell acionada por HTTP para automatizar a 
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ec4b2273f6be6ea4aabed2b660e0b7553f861d0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b94d583ca26b88d093810528d3193f20d765f1d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072048"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349253"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Tutorial: Utilize uma função Azure acionada por HTTP para criar um grupo de contentores
 
@@ -27,13 +27,13 @@ Saiba como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Consulte [Criar a sua primeira função em Azure utilizando o Código do Estúdio Visual](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell#configure-your-environment) para pré-requisitos para instalar e utilizar o Código do Estúdio Visual com a extensão de Funções Azure no seu SISTEMA.
+Consulte [Criar a sua primeira função em Azure utilizando o Código do Estúdio Visual](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell#configure-your-environment) para pré-requisitos para instalar e utilizar o Código do Estúdio Visual com a extensão de Funções Azure no seu SISTEMA.
 
 Passos adicionais neste artigo use Azure PowerShell. Se precisar de instalar ou atualizar, consulte [instalar a Azure PowerShell][azure-powershell-install] e [iniciar súm em Azure](/powershell/azure/get-started-azureps#sign-in-to-azure).
 
 ## <a name="create-a-basic-powershell-function"></a>Criar uma função básica PowerShell
 
-Siga os passos na [Criar a sua primeira função PowerShell em Azure](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell) para criar uma função PowerShell utilizando o modelo de gatilho HTTP. Utilize o nome de função Azure padrão **HttpTrigger**. Como mostrado no quickstart, teste a função localmente e publique o projeto numa aplicação de função em Azure. Este exemplo é uma função básica desencadeada por HTTP que devolve uma cadeia de texto. Em etapas posteriores neste artigo, modifica a função para criar um grupo de contentores.
+Siga os passos na [Criar a sua primeira função PowerShell em Azure](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell) para criar uma função PowerShell utilizando o modelo de gatilho HTTP. Utilize o nome de função Azure padrão **HttpTrigger**. Como mostrado no quickstart, teste a função localmente e publique o projeto numa aplicação de função em Azure. Este exemplo é uma função básica desencadeada por HTTP que devolve uma cadeia de texto. Em etapas posteriores neste artigo, modifica a função para criar um grupo de contentores.
 
 Este artigo pressupõe que publique o projeto usando o nome *myfunctionapp,* num grupo de recursos Azure automaticamente nomeado de acordo com o nome da aplicação de funções (também *myfunctionapp).* Substitua o nome da aplicação de funções única e o nome do grupo de recursos em etapas posteriores.
 
@@ -97,7 +97,7 @@ Certifique-se de que a função funciona localmente antes de republicar o projet
 
 Depois de verificar que a função funciona localmente, reedita o projeto para a aplicação de função existente em Azure.
 
-1. No Código do Estúdio Visual, abra a Paleta de Comando. Procure e selecione `Azure Functions: Deploy to Function App...` .
+1. No Visual Studio Code, abra a Paleta de Comandos. Procure e selecione `Azure Functions: Deploy to Function App...` .
 1. Selecione a pasta de trabalho atual para fechar e implementar.
 1. Selecione a subscrição e, em seguida, o nome da app de função existente *(myfunctionapp*). Confirme se pretende substituir a colocação anterior.
 

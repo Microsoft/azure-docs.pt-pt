@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: mbullwin
-ms.openlocfilehash: b304986bd75a6d48401e2cf466320c893ec865d7
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: c4d1d23da5fd9678cc5b9477ddeed0daf4f5ac36
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909590"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348624"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Adicione feeds de dados de diferentes fontes de dados ao Metrics Advisor
 
@@ -37,13 +37,13 @@ Utilize este artigo para encontrar as configurações e requisitos para ligar di
 
 | Origens de dados | Tipos de autenticação |
 |-------------| ---------------------|
-|[**Insights de Aplicação Azure**](#appinsights)|  Básico |
+|[**Azure Application Insights**](#appinsights)|  Básico |
 |[**Armazenamento Azure Blob (JSON)**](#blob) | Básico<br>ManagedIdentity|
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Básico |
 |[**Azure Data Explorer (Kusto)**](#kusto) | Básico<br>ManagedIdentity|
-|[**Armazenamento do Azure Data Lake Ger2**](#adl) | Básico<br>DataLakeGen2SharedKey<br>Service principal (Principal de serviço)<br>Diretor de serviço do cofre chave<br> |
+|[**Azure Data Lake Storage Gen2**](#adl) | Básico<br>DataLakeGen2SharedKey<br>Service principal (Principal de serviço)<br>Diretor de serviço do cofre chave<br> |
 |[**Base de Dados Azure SQL / Servidor SQL**](#sql) | Básico<br>ManagedIdentity<br>Service principal (Principal de serviço)<br>Diretor de serviço do cofre chave<br>AzuresQLConnectionString
-|[**Armazenamento de Tabelas do Azure**](#table) | Básico | 
+|[**Table Storage do Azure**](#table) | Básico | 
 |[**Elasticsearch**](#es) | Básico |
 |[**Solicitar**](#http) | Básico | 
 |[**InfluxDB (InfluxQL)**](#influxdb) | Básico |
@@ -53,9 +53,9 @@ Utilize este artigo para encontrar as configurações e requisitos para ligar di
 
 Crie uma **entidade credencial** e utilize-a para autenticar as suas fontes de dados. As seguintes secções especificam os parâmetros exigidos para a autenticação *básica.* 
 
-## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Insights de Aplicação Azure</span>
+## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Azure Application Insights</span>
 
-* **ID de aplicação** : Este é usado para identificar esta aplicação ao utilizar a API de Insights de Aplicação. Para obter o ID da aplicação, faça o seguinte:
+* **ID de aplicação**: Este é usado para identificar esta aplicação ao utilizar a API de Insights de Aplicação. Para obter o ID da aplicação, faça o seguinte:
 
     1. A partir do seu recurso Application Insights, clique em Acesso API.
 
@@ -63,7 +63,7 @@ Crie uma **entidade credencial** e utilize-a para autenticar as suas fontes de d
     
     Consulte a documentação do [Serviço Azure Bot](/azure/bot-service/bot-service-resources-app-insights-keys#application-id) para obter mais informações.
 
-* **Chave API** : As teclas API são utilizadas por aplicações fora do navegador para aceder a este recurso. Para obter a chave API, faça o seguinte:
+* **Chave API**: As teclas API são utilizadas por aplicações fora do navegador para aceder a este recurso. Para obter a chave API, faça o seguinte:
 
     1. A partir do recurso Application Insights, clique em Acesso API.
 
@@ -73,23 +73,23 @@ Crie uma **entidade credencial** e utilize-a para autenticar as suas fontes de d
 
     4. Copie a chave API para o campo **chave API** no Metrics Advisor.
 
-* **Consulta** : Os registos Azure Application Insights são construídos no Azure Data Explorer e as consultas de registo do Azure Monitor utilizam uma versão da mesma língua de consulta Kusto. A documentação linguística de [consulta de Kusto](/azure/data-explorer/kusto/query/) tem todos os detalhes para o idioma e deve ser o seu principal recurso para escrever uma consulta contra a Application Insights. 
+* **Consulta**: Os registos Azure Application Insights são construídos no Azure Data Explorer e as consultas de registo do Azure Monitor utilizam uma versão da mesma língua de consulta Kusto. A documentação linguística de [consulta de Kusto](/azure/data-explorer/kusto/query/) tem todos os detalhes para o idioma e deve ser o seu principal recurso para escrever uma consulta contra a Application Insights. 
 
 
 ## <a name="span-idblobazure-blob-storage-jsonspan"></a><span id="blob">Armazenamento Azure Blob (JSON)</span>
 
-* **Cadeia de ligação** : Consulte o artigo [de cadeia de ligação](../../storage/common/storage-configure-connection-string.md#configure-a-connection-string-for-an-azure-storage-account) Azure Blob Storage para obter informações sobre a recuperação desta cadeia.
+* **Cadeia de ligação**: Consulte o artigo [de cadeia de ligação](../../storage/common/storage-configure-connection-string.md#configure-a-connection-string-for-an-azure-storage-account) Azure Blob Storage para obter informações sobre a recuperação desta cadeia.
 
-* **Recipiente** : O Metrics Advisor espera que os dados da série de tempos armazenados como ficheiros Blob (um Blob por timetamp) num único recipiente. Este é o campo de nomes de contentores.
+* **Recipiente**: O Metrics Advisor espera que os dados da série de tempos armazenados como ficheiros Blob (um Blob por timetamp) num único recipiente. Este é o campo de nomes de contentores.
 
-* **Modelo blob** : Este é o modelo dos nomes de ficheiros Blob. Por exemplo: `/%Y/%m/X_%Y-%m-%d-%h-%M.json`. São suportados os seguintes parâmetros:
+* **Modelo blob**: Este é o modelo dos nomes de ficheiros Blob. Por exemplo: `/%Y/%m/X_%Y-%m-%d-%h-%M.json`. São suportados os seguintes parâmetros:
   * `%Y` é o ano formatado como `yyyy`
   * `%m` é o mês formatado como `MM`
   * `%d` é o dia formatado como `dd`
   * `%h` é a hora formatada como `HH`
   * `%M` é o minuto formatado como `mm`
 
-* **Versão em formato JSON** : Define o esquema de dados nos ficheiros JSON. Atualmente o Metrics Advisor suporta duas versões:
+* **Versão em formato JSON**: Define o esquema de dados nos ficheiros JSON. Atualmente o Metrics Advisor suporta duas versões:
   
   * v1 (Valor Padrão)
 
@@ -114,10 +114,10 @@ Apenas um calibre de tempo é permitido por ficheiro JSON.
 
 ## <a name="span-idcosmosdbazure-cosmos-db-sqlspan"></a><span id="cosmosdb">Azure Cosmos DB (SQL)</span>
 
-* **Cadeia de ligação** : O fio de ligação para aceder ao seu Azure Cosmos DB. Isto pode ser encontrado no recurso Cosmos DB, em **Keys.** 
-* **Base de dados** : A base de dados para consulta. Isto pode ser encontrado na página **Browse** na secção **Contentores.**
-* **ID de coleção** : O ID de coleção para consulta contra. Isto pode ser encontrado na página **Browse** na secção **Contentores.**
-* **CONSULTA SQL** : Uma consulta SQL para obter e formular dados em dados multidimensionais de séries de tempo. Pode usar as `@StartTime` variáveis e `@EndTime` variáveis na sua consulta. Devem ser formatados: `yyyy-MM-dd HH:mm:ss` .
+* **Cadeia de ligação**: O fio de ligação para aceder ao seu Azure Cosmos DB. Isto pode ser encontrado no recurso Cosmos DB, em **Keys.** 
+* **Base de dados**: A base de dados para consulta. Isto pode ser encontrado na página **Browse** na secção **Contentores.**
+* **ID de coleção**: O ID de coleção para consulta contra. Isto pode ser encontrado na página **Browse** na secção **Contentores.**
+* **CONSULTA SQL**: Uma consulta SQL para obter e formular dados em dados multidimensionais de séries de tempo. Pode usar as `@StartTime` variáveis e `@EndTime` variáveis na sua consulta. Devem ser formatados: `yyyy-MM-dd HH:mm:ss` .
 
     Consulta de amostras:
     
@@ -133,26 +133,26 @@ Apenas um calibre de tempo é permitido por ficheiro JSON.
 
 ## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Azure Data Explorer (Kusto)</span>
 
-* **Cadeia de ligação** : O Advisor de métricas suporta o acesso ao Azure Data Explorer (Kusto) utilizando a autenticação da aplicação Azure. Terá de criar e registar uma aplicação AD Azure e, em seguida, autorizá-la para aceder a uma base de dados do Azure Data Explorer. Para obter a sua cadeia de ligação, consulte a documentação do [Azure Data Explorer.](/azure/data-explorer/provision-azure-ad-app)
+* **Cadeia de ligação**: O Advisor de métricas suporta o acesso ao Azure Data Explorer (Kusto) utilizando a autenticação da aplicação Azure. Terá de criar e registar uma aplicação AD Azure e, em seguida, autorizá-la para aceder a uma base de dados do Azure Data Explorer. Para obter a sua cadeia de ligação, consulte a documentação do [Azure Data Explorer.](/azure/data-explorer/provision-azure-ad-app)
 
-* **Consulta** : Consulte [a Linguagem de Consulta de Kusto](/azure/data-explorer/kusto/query) para obter e formular dados em dados multidimensionais da série temporal. Pode usar as `@StartTime` variáveis e `@EndTime` variáveis na sua consulta. Devem ser formatados: `yyyy-MM-dd HH:mm:ss` .
+* **Consulta**: Consulte [a Linguagem de Consulta de Kusto](/azure/data-explorer/kusto/query) para obter e formular dados em dados multidimensionais da série temporal. Pode usar as `@StartTime` variáveis e `@EndTime` variáveis na sua consulta. Devem ser formatados: `yyyy-MM-dd HH:mm:ss` .
 
 ## <a name="span-idadlazure-data-lake-storage-gen2span"></a><span id="adl">Azure Data Lake Storage Gen2</span> (Armazenamento do Azure Data Lake Gen2)
 
-* **Nome da conta** : O nome da conta do seu Azure Data Lake Storage Gen2. Isto pode ser encontrado no seu recurso Azure Storage Account (Azure Data Lake Storage Gen2) nas **teclas Access** .
+* **Nome da conta**: O nome da conta do seu Azure Data Lake Storage Gen2. Isto pode ser encontrado no seu recurso Azure Storage Account (Azure Data Lake Storage Gen2) nas **teclas Access**.
 
-* **Tecla de conta** : Por favor, especifique o nome da conta para aceder ao seu Azure Data Lake Storage Gen2. Isto pode ser encontrado no recurso Azure Storage Account (Azure Data Lake Storage Gen2) na definição **das teclas de acesso.**
+* **Tecla de conta**: Por favor, especifique o nome da conta para aceder ao seu Azure Data Lake Storage Gen2. Isto pode ser encontrado no recurso Azure Storage Account (Azure Data Lake Storage Gen2) na definição **das teclas de acesso.**
 
-* **Nome do sistema de ficheiros (Recipiente)** : O Advisor de métricas espera que os dados da série de tempo sejam armazenados como ficheiros Blob (uma bolha por relógio) debaixo de um único recipiente. Este é o campo de nomes de contentores. Isto pode ser encontrado na sua conta de armazenamento Azure (Azure Data Lake Storage Gen2) e clique em 'Contentores' na secção 'Blob Service'.
+* **Nome do sistema de ficheiros (Recipiente)**: O Advisor de métricas espera que os dados da série de tempo sejam armazenados como ficheiros Blob (uma bolha por relógio) debaixo de um único recipiente. Este é o campo de nomes de contentores. Isto pode ser encontrado na sua conta de armazenamento Azure (Azure Data Lake Storage Gen2) e clique em 'Contentores' na secção 'Blob Service'.
 
-* **Modelo de diretório** : Este é o modelo de diretório do ficheiro Blob. Por exemplo: */%Y/%m/%d* . São suportados os seguintes parâmetros:
+* **Modelo de diretório**: Este é o modelo de diretório do ficheiro Blob. Por exemplo: */%Y/%m/%d*. São suportados os seguintes parâmetros:
   * `%Y` é o ano formatado como `yyyy`
   * `%m` é o mês formatado como `MM`
   * `%d` é o dia formatado como `dd`
   * `%h` é a hora formatada como `HH`
   * `%M` é o minuto formatado como `mm`
 
-* **Modelo de ficheiro** : Este é o modelo de ficheiro do ficheiro Blob. Por exemplo: *X_%Y-%m-%d-%h-%M.jsem* . São suportados os seguintes parâmetros:
+* **Modelo de ficheiro**: Este é o modelo de ficheiro do ficheiro Blob. Por exemplo: *X_%Y-%m-%d-%h-%M.jsem*. São suportados os seguintes parâmetros:
   * `%Y` é o ano formatado como `yyyy`
   * `%m` é o mês formatado como `MM`
   * `%d` é o dia formatado como `dd`
@@ -186,7 +186,7 @@ The timestamp field must match one of these two formats:
 -->
 ## <a name="span-idsqlazure-sql-database--sql-serverspan"></a><span id="sql">Base de Dados Azure SQL / Servidor SQL</span>
 
-* **Cadeia de ligação** : O Metrics Advisor aceita uma [ADO.NET Cadeia de Ligação de Estilo](/dotnet/framework/data/adonet/connection-string-syntax) para fonte de dados do servidor sql.
+* **Cadeia de ligação**: O Metrics Advisor aceita uma [ADO.NET Cadeia de Ligação de Estilo](/dotnet/framework/data/adonet/connection-string-syntax) para fonte de dados do servidor sql.
 
     Cadeia de ligação da amostra:
 
@@ -194,7 +194,7 @@ The timestamp field must match one of these two formats:
     Data Source=db-server.database.windows.net:[port];initial catalog=[database];User ID=[username];Password=[password];Connection Timeout=10ms;
     ```
 
-* **Consulta** : Uma consulta SQL para obter e formular dados em dados multidimensionais da série de tempo. Pode utilizar uma `@StartTime` variável na sua consulta para ajudar a obter o valor esperado das métricas.
+* **Consulta**: Uma consulta SQL para obter e formular dados em dados multidimensionais da série de tempo. Pode utilizar uma `@StartTime` variável na sua consulta para ajudar a obter o valor esperado das métricas.
 
   * `@StartTime`: uma data no formato de `yyyy-MM-dd HH:mm:ss`
 
@@ -210,11 +210,11 @@ The timestamp field must match one of these two formats:
     select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE and StartDate = '2019-12-12 00:00:00'
     ```
 
-## <a name="span-idtableazure-table-storagespan"></a><span id="table">Armazenamento de Tabelas do Azure</span>
+## <a name="span-idtableazure-table-storagespan"></a><span id="table">Table Storage do Azure</span>
 
-* **Cadeia de ligação** : Consulte a [Visualização e copie uma cadeia de ligação](../../storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%252fazure%252fstorage%252ftables%252ftoc.json#view-account-access-keys) para obter informações sobre como recuperar a cadeia de ligação do Azure Table Storage.
+* **Cadeia de ligação**: Consulte a [Visualização e copie uma cadeia de ligação](../../storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%2fazure%2fstorage%2ftables%2ftoc.json#view-account-access-keys) para obter informações sobre como recuperar a cadeia de ligação do Azure Table Storage.
 
-* **Nome da tabela** : Especifique uma tabela para consultar. Isto pode ser encontrado na sua conta de armazenamento Azure. Clique em **Tabelas** na secção **Serviço de Tabelas.**
+* **Nome da tabela**: Especifique uma tabela para consultar. Isto pode ser encontrado na sua conta de armazenamento Azure. Clique em **Tabelas** na secção **Serviço de Tabelas.**
 
 * **Consulta** Pode usar a `@StartTime` sua consulta. `@StartTime` é substituído por uma cadeia de formato yyy-MM-ddTHH:mm no script.
 
@@ -225,41 +225,41 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-ideselasticsearchspan"></a><span id="es">Elástico</span>
 
-* **Anfitrião** :Especifique o anfitrião principal do Agrupamento de Elasticsearch.
-* **Porta** :Especificar a porta principal do Cluster elasticsearch.
-* **Cabeçalho de autorização** :Especifique o valor do cabeçalho de autorização do Cluster elasticsearch.
-* **Consulta** :Especificar a consulta para obter dados. O espaço reservado @StartTime é suportado. por exemplo, quando os dados de 2020-06-21T00:00:00Z são ingeridos, @StartTime = 2020-06-21T00:00:00
+* **Anfitrião**:Especifique o anfitrião principal do Agrupamento de Elasticsearch.
+* **Porta**:Especificar a porta principal do Cluster elasticsearch.
+* **Cabeçalho de autorização**:Especifique o valor do cabeçalho de autorização do Cluster elasticsearch.
+* **Consulta**:Especificar a consulta para obter dados. O espaço reservado @StartTime é suportado. por exemplo, quando os dados de 2020-06-21T00:00:00Z são ingeridos, @StartTime = 2020-06-21T00:00:00
 
 ## <a name="span-idhttphttp-requestspan"></a><span id="http">Pedido HTTP</span>
 
-* **Solicitação URL** : um url HTTP que pode devolver um JSON. Os espaços reservados %Y,%m,%d,%h,%M são suportados: %Y=ano em formato yyyyy, %m=mês em formato MM, %d=dia em formato dd, %h=hora no formato HH, %M=minuto em formato mm. Por exemplo: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
-* **Pedido método HTTP** : Use GET ou POST.
-* **Cabeçalho de pedido** : Pode adicionar autenticação básica. 
-* **Solicitação útil** : Apenas a carga útil JSON é suportada. O espaço reservado @StartTime é suportado na carga útil. A resposta deve estar no seguinte formato JSON: [{"timestamp": "2018-01-01T00:00:00Z", "market":"en-us", "count":11, "receita":1.23}, {"timestamp": "2018-01-01T00:00:00Z", "mercado":"zh-cn", "count":22, "receita":4.56}. (por exemplo, quando os dados de 2020-06-21T00:00:00Z são ingeridos, @StartTime = 2020-06-21T00:00:00.0000000+00:00)
+* **Solicitação URL**: um url HTTP que pode devolver um JSON. Os espaços reservados %Y,%m,%d,%h,%M são suportados: %Y=ano em formato yyyyy, %m=mês em formato MM, %d=dia em formato dd, %h=hora no formato HH, %M=minuto em formato mm. Por exemplo: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
+* **Pedido método HTTP**: Use GET ou POST.
+* **Cabeçalho de pedido**: Pode adicionar autenticação básica. 
+* **Solicitação útil**: Apenas a carga útil JSON é suportada. O espaço reservado @StartTime é suportado na carga útil. A resposta deve estar no seguinte formato JSON: [{"timestamp": "2018-01-01T00:00:00Z", "market":"en-us", "count":11, "receita":1.23}, {"timestamp": "2018-01-01T00:00:00Z", "mercado":"zh-cn", "count":22, "receita":4.56}. (por exemplo, quando os dados de 2020-06-21T00:00:00Z são ingeridos, @StartTime = 2020-06-21T00:00:00.0000000+00:00)
 
 ## <a name="span-idinfluxdbinfluxdb-influxqlspan"></a><span id="influxdb">InfluxDB (InfluxQL)</span>
 
-* **Cadeia de ligação** : O fio de ligação para aceder ao seu InfluxDB.
-* **Base de dados** : A base de dados para consulta.
-* **Consulta** : Uma consulta para obter e formular dados em dados multidimensionais de séries de tempo para ingestão.
-* **Nome do utilizador** : Isto é opcional para autenticação. 
-* **Senha** : Isto é opcional para autenticação. 
+* **Cadeia de ligação**: O fio de ligação para aceder ao seu InfluxDB.
+* **Base de dados**: A base de dados para consulta.
+* **Consulta**: Uma consulta para obter e formular dados em dados multidimensionais de séries de tempo para ingestão.
+* **Nome do utilizador**: Isto é opcional para autenticação. 
+* **Senha**: Isto é opcional para autenticação. 
 
 ## <a name="span-idmongodbmongodbspan"></a><span id="mongodb">MongoDB</span>
 
-* **Cadeia de ligação** : O fio de ligação para aceder ao seu MongoDB.
-* **Base de dados** : A base de dados para consulta.
-* **Comando** : Um comando para obter e formular dados em dados multidimensionais de séries de tempo para ingestão.
+* **Cadeia de ligação**: O fio de ligação para aceder ao seu MongoDB.
+* **Base de dados**: A base de dados para consulta.
+* **Comando**: Um comando para obter e formular dados em dados multidimensionais de séries de tempo para ingestão.
 
 ## <a name="span-idmysqlmysqlspan"></a><span id="mysql">MySQL</span>
 
-* **Cadeia de ligação** : O fio de ligação para aceder ao seu MySQL DB.
-* **Consulta** : Uma consulta para obter e formular dados em dados multidimensionais de séries de tempo para ingestão.
+* **Cadeia de ligação**: O fio de ligação para aceder ao seu MySQL DB.
+* **Consulta**: Uma consulta para obter e formular dados em dados multidimensionais de séries de tempo para ingestão.
 
 ## <a name="span-idpgsqlpostgresqlspan"></a><span id="pgsql">PostgreSQL</span>
 
-* **Cadeia de ligação** : O fio de ligação para aceder ao seu DB PostgreSQL.
-* **Consulta** : Uma consulta para obter e formular dados em dados multidimensionais de séries de tempo para ingestão.
+* **Cadeia de ligação**: O fio de ligação para aceder ao seu DB PostgreSQL.
+* **Consulta**: Uma consulta para obter e formular dados em dados multidimensionais de séries de tempo para ingestão.
 
 ## <a name="next-steps"></a>Passos seguintes
 

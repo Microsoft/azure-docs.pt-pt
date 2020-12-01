@@ -10,19 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 93be72f2afcda90dde1b74c5ee317a7ad3350be1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4300860039b76bd076f19acfc252f59ef10d462b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075692"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351849"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Requisitos de utilização e apresentação da API de Pesquisa do Bing
 
 > [!WARNING]
-> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource)documentado.
 > Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
-> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](/bing/search-apis/bing-web-search/create-bing-search-service-resource)
 
 Estes requisitos de utilização e exibição aplicam-se a qualquer implementação do conteúdo e informações associadas das seguintes APIs de Pesquisa de Bing, incluindo relações, metadados e outros sinais.
 
@@ -104,7 +104,7 @@ Não:
 ### <a name="notices-and-branding"></a>Avisos e marca 
 Fazer:
 
-- De forma proeminente, inclui-se uma hiperligação funcional para a Declaração de Privacidade da [Microsoft,](https://go.microsoft.com/fwlink/?LinkId=521839)perto de cada ponto da experiência do utilizador (UX) que oferece a um utilizador a capacidade de inserir uma consulta de pesquisa. Rotular a hiperligação **Microsoft Privacy Statement** .
+- De forma proeminente, inclui-se uma hiperligação funcional para a Declaração de Privacidade da [Microsoft,](https://go.microsoft.com/fwlink/?LinkId=521839)perto de cada ponto da experiência do utilizador (UX) que oferece a um utilizador a capacidade de inserir uma consulta de pesquisa. Rotular a hiperligação **Microsoft Privacy Statement**.
 
 - Exibir de forma proeminente a marca Bing, consistente com as [Diretrizes de Utilização da Marca Bing,](https://go.microsoft.com/fwlink/?linkid=833278)perto de cada ponto do UX que oferece a um utilizador a capacidade de inserir uma consulta de pesquisa. Esta marca deve indicar claramente ao utilizador que a Microsoft está a alimentar a experiência de pesquisa na Internet.
 
@@ -172,5 +172,4 @@ As secções anteriores de requisitos de utilização e visualização de APIs d
 
 ## <a name="gdpr-compliance"></a>Conformidade com o RGPD  
 
-No que diz respeito a quaisquer dados pessoais sujeitos ao Regulamento Geral de Proteção de Dados (RGPD) da União Europeia e que seja processado em conexão com chamadas para as APIs de pesquisa, Bing Spell Check API ou Bing Autosuggest API, entende que você e a Microsoft são controladores de dados independentes ao abrigo do RGPD. É independentemente responsável pela sua conformidade com o RGPD.  
-
+No que diz respeito a quaisquer dados pessoais sujeitos ao Regulamento Geral de Proteção de Dados (RGPD) da União Europeia e que seja processado em conexão com chamadas para as APIs de pesquisa, Bing Spell Check API ou Bing Autosuggest API, entende que você e a Microsoft são controladores de dados independentes ao abrigo do RGPD. É independentemente responsável pela sua conformidade com o RGPD.

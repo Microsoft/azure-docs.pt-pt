@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: c7d3dae2b7da2fcc14e86eb4965ebd99fd7bf681
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f1a7bffc05d83b30fe9e5bcd6e17bf6bc0192e1d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88650587"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348947"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Encrypt Azure Data Factory com chaves geridas pelo cliente
 
@@ -47,8 +47,8 @@ A lista seguinte explica os passos numerados no diagrama:
 
 A utilização de chaves geridas pelo cliente com a Data Factory requer duas propriedades a serem definidas no Cofre da Chave, __Eliminação Suave__ e __Não Purga__. Estas propriedades podem ser ativadas utilizando o PowerShell ou o Azure CLI num cofre de chaves novo ou existente. Para saber como ativar estas propriedades num cofre de chaves existente, consulte as secções intituladas _Permitir a eliminação suave_ e permitir a _proteção contra purgas_ num dos seguintes artigos:
 
-- [Como utilizar soft-delete com PowerShell](../key-vault/general/soft-delete-powershell.md)
-- [Como usar soft-delete com CLI](../key-vault/general/soft-delete-cli.md)
+- [Como utilizar soft-delete com PowerShell](../key-vault/general/key-vault-recovery.md)
+- [Como usar soft-delete com CLI](../key-vault/general/key-vault-recovery.md)
 
 Se estiver a criar um novo Cofre de Chaves Azure através do portal Azure, __o Soft Delete__ e o Não __Purga__ pode ser ativado da seguinte forma:
 
@@ -56,7 +56,7 @@ Se estiver a criar um novo Cofre de Chaves Azure através do portal Azure, __o S
 
 ### <a name="grant-data-factory-access-to-azure-key-vault"></a>Grant Data Factory acesso ao Cofre de Chaves Azure
 
-Certifique-se de que a Azure Key Vault e a Azure Data Factory estão no mesmo inquilino do Azure Ative Directory (Azure AD) e na _mesma região._ A partir do controlo de acesso do Azure Key Vault, conceder a Identidade de Serviço Gerido (MSI) da fábrica de dados seguintes permissões: _Obter_, _Desembrulhar a Chave_e A Chave de _Embrulho_. Estas permissões são necessárias para permitir chaves geridas pelo cliente na Data Factory.
+Certifique-se de que a Azure Key Vault e a Azure Data Factory estão no mesmo inquilino do Azure Ative Directory (Azure AD) e na _mesma região._ A partir do controlo de acesso do Azure Key Vault, conceder a Identidade de Serviço Gerido (MSI) da fábrica de dados seguintes permissões: _Obter_, _Desembrulhar a Chave_ e A Chave de _Embrulho_. Estas permissões são necessárias para permitir chaves geridas pelo cliente na Data Factory.
 
   ![Screenshot permite o acesso da fábrica de dados ao cofre de chaves](media/enable-customer-managed-key/02-access-policy-factory-managed-identities.png)
 
@@ -110,7 +110,7 @@ Para alterar a chave utilizada para a encriptação da Data Factory, tem de atua
 
 1. Click __Save__ and Data Factory irá agora encriptar com a nova chave
 
-## <a name="disable-customer-managed-keys"></a>Desativar as chaves geridas pelo cliente
+## <a name="disable-customer-managed-keys"></a>Desativar chaves de Customer-Managed
 
 Por design, uma vez ativada a função-chave gerida pelo cliente, não é possível remover o passo de segurança extra. Esperamos sempre que um cliente tenha a chave para encriptar a fábrica e os dados.
 

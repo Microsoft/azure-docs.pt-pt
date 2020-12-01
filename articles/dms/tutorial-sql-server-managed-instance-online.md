@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 3674c6a0579eb901cc490d08bb8a4893296884c4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0041779abcd97901fb9315125a287a1d45cff133
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020658"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350114"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Tutorial: Migrar o SQL Server para um Azure SQL Managed Instance on-line usando DMS
 
@@ -25,7 +25,7 @@ Pode utilizar o Azure Database Migration Service para migrar as bases de dados d
 
 Neste tutorial, migra a base de dados **Adventureworks2012** de uma instância no local do SQL Server para uma SQL Managed Instance com tempo mínimo de inatividade utilizando o Azure Database Migration Service.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
 > * Crie uma instância do Azure Database Migration Service.
@@ -220,7 +220,7 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
     ![Configurar as Definições da Migração](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
     > [!NOTE]
-    > Se o Serviço de Migração da Base de Dados Azure apresentar erro 'Erro do Sistema 53' ou 'Erro do Sistema 57', a causa pode resultar de uma incapacidade do Serviço de Migração de Bases de Dados Azure para aceder à partilha de ficheiros Azure. Se encontrar um destes erros, por favor, conceda acesso à conta de armazenamento a partir da rede virtual utilizando as instruções [aqui](../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network).
+    > Se o Serviço de Migração da Base de Dados Azure apresentar erro 'Erro do Sistema 53' ou 'Erro do Sistema 57', a causa pode resultar de uma incapacidade do Serviço de Migração de Bases de Dados Azure para aceder à partilha de ficheiros Azure. Se encontrar um destes erros, por favor, conceda acesso à conta de armazenamento a partir da rede virtual utilizando as instruções [aqui](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
     > [!IMPORTANT]
     > Se a funcionalidade de verificação de loopback estiver ativada e o sql server de origem e a partilha de ficheiros estiverem no mesmo computador, então a fonte não será capaz de aceder à lebre de ficheiros usando fQDN. Para corrigir este problema, desative a funcionalidade de verificação do loopback utilizando as instruções [aqui](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd).
