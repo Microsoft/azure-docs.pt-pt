@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 81d0bddbd62f9f2d15d8404fee63b15c8ab2c0a3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 194c6a5cead400e1bac78ba42cb7238b64bd3b7b
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102280"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327479"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuidade de negócios e HADR para SQL Server em Máquinas Virtuais Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -90,7 +90,7 @@ Na imagem a seguir, a configuração utiliza o SQL Server em execução numa má
 
 Para mais informações, consulte as [condições de licenciamento](https://www.microsoft.com/licensing/product-licensing/products)do produto. 
 
-Para ativar este benefício, aceda ao [recurso de máquina virtual SQL Server](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Selecione **Configurar** em **Definições** e, em seguida, escolha a opção **de recuperação de desastres** sob **licença de servidor SQL** . Selecione a caixa de verificação para confirmar que este SQL Server VM será usado como uma réplica passiva e, em seguida, selecione **Aplicar** para guardar as suas definições. 
+Para ativar este benefício, aceda ao [recurso de máquina virtual SQL Server](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Selecione **Configurar** em **Definições** e, em seguida, escolha a opção **de recuperação de desastres** sob **licença de servidor SQL**. Selecione a caixa de verificação para confirmar que este SQL Server VM será usado como uma réplica passiva e, em seguida, selecione **Aplicar** para guardar as suas definições. 
 
 ![Configurar uma réplica de recuperação de desastres em Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/dr-replica-in-portal.png)
 
@@ -101,7 +101,7 @@ Os VMs, armazenamento e networking azure têm características operacionais dife
 ### <a name="high-availability-nodes-in-an-availability-set"></a>Nódes de alta disponibilidade num conjunto de disponibilidade
 Os conjuntos de disponibilidade em Azure permitem-lhe colocar os nós de alta disponibilidade em domínios de avaria separados e a atualizar domínios. A plataforma Azure atribui um domínio de atualização e um domínio de avaria a cada máquina virtual no seu conjunto de disponibilidade. Esta configuração dentro de um datacenter garante que durante um evento de manutenção planeada ou não planeada, pelo menos uma máquina virtual está disponível e cumpre o Azure SLA de 99,95 por cento. 
 
-Para configurar uma configuração de alta disponibilidade, coloque todas as máquinas virtuais do SQL Server participantes no mesmo conjunto de disponibilidade para evitar a aplicação ou perda de dados durante um evento de manutenção. Apenas os nós no mesmo serviço de nuvem podem participar no mesmo conjunto de disponibilidade. Para obter mais informações, veja [Gerir a disponibilidade das máquinas virtuais](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
+Para configurar uma configuração de alta disponibilidade, coloque todas as máquinas virtuais do SQL Server participantes no mesmo conjunto de disponibilidade para evitar a aplicação ou perda de dados durante um evento de manutenção. Apenas os nós no mesmo serviço de nuvem podem participar no mesmo conjunto de disponibilidade. Para obter mais informações, veja [Gerir a disponibilidade das máquinas virtuais](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="high-availability-nodes-in-an-availability-zone"></a>Nódes de alta disponibilidade numa zona de disponibilidade
 As zonas de disponibilidade são localizações físicas únicas dentro de uma região de Azure. Cada zona é constituída por um ou mais datacenters equipados com potência, arrefecimento e networking independentes. A separação física das zonas de disponibilidade dentro de uma região ajuda a proteger aplicações e dados de falhas do datacenter, garantindo que pelo menos uma máquina virtual está disponível e cumpre o Azure SLA de 99,99 por cento. 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: db270224a753f815a2d94e6a1fa79ebbedf49278
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: f3723c792dfe962f2cbf16e3b167faf66c50a92e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94991575"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327462"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Backup e restauro para SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -93,7 +93,7 @@ As secções seguintes descrevem várias opções de backup manual e restauro em
 
 ### <a name="backup-to-attached-disks"></a>Backup para discos anexados
 
-Para o SQL Server em VMs Azure, pode utilizar técnicas de backup e restauro nativas utilizando discos anexados no VM para o destino dos ficheiros de cópia de segurança. No entanto, existe um limite para o número de discos que pode anexar a uma máquina virtual Azure, com base no [tamanho da máquina virtual](../../../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json). Há também a sobrecarga da gestão do disco a considerar.
+Para o SQL Server em VMs Azure, pode utilizar técnicas de backup e restauro nativas utilizando discos anexados no VM para o destino dos ficheiros de cópia de segurança. No entanto, existe um limite para o número de discos que pode anexar a uma máquina virtual Azure, com base no [tamanho da máquina virtual](../../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Há também a sobrecarga da gestão do disco a considerar.
 
 Para obter um exemplo de como criar manualmente uma cópia de segurança completa da base de dados utilizando o SQL Server Management Studio (SSMS) ou o Transact-SQL, consulte [Criar uma cópia de segurança completa da base de dados](/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server).
 
@@ -147,7 +147,7 @@ A tabela seguinte resume as capacidades de cada opção de backup e restauro par
 | Monitorize trabalhos de backup com scripts SSMS ou Transact-SQL | ![Marca verde.](./media/backup-restore/yes.png) | ![Marca verde.](./media/backup-restore/yes.png) | ![Marca verde.](./media/backup-restore/yes.png) |
 | Restaurar bases de dados com scripts SSMS ou Transact-SQL | ![Marca verde.](./media/backup-restore/yes.png) |   | ![Marca verde.](./media/backup-restore/yes.png) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se estiver a planear a sua implantação do SQL Server em Azure VM, pode encontrar orientações de provisionamento no seguinte guia: [Como providenciar uma máquina virtual do Windows SQL Server no portal Azure](create-sql-vm-portal.md).
 

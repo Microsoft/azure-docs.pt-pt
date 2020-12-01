@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: e8bb1457bbf5d610518c3bc84768186972734099
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 9ee3b447b2b5f6dfa8972749c3c46ae01f79bfdc
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536866"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327513"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Dados de importação e exportação em Azure Cache para Redis
 Import/Export é uma operação de gestão de dados Azure Cache para Redis, que permite importar dados para a Azure Cache para Redis ou exportar dados da Azure Cache para Redis importando e exportando uma cache Azure para Redis Database (RDB) de uma cache premium para uma bolha numa Conta de Armazenamento Azure.
@@ -45,7 +45,7 @@ A importação pode ser usada para trazer ficheiros RDB compatíveis com Redis d
 3. Clique no recipiente que contém os dados para importar.
 
     ![Escolha o recipiente](./media/cache-how-to-import-export-data/cache-import-choose-container.png)
-4. Selecione uma ou mais bolhas para importar clicando na área à esquerda do nome blob e, em seguida, clique em **Select** .
+4. Selecione uma ou mais bolhas para importar clicando na área à esquerda do nome blob e, em seguida, clique em **Select**.
 
     ![Escolha bolhas](./media/cache-how-to-import-export-data/cache-import-choose-blobs.png)
 5. Clique **em Importar** para iniciar o processo de importação.
@@ -66,7 +66,7 @@ A exportação permite exportar os dados armazenados em Cache Azure para Redis p
 
 1. Para exportar o conteúdo atual da cache para armazenamento, [navegue até à sua cache](cache-configure.md#configure-azure-cache-for-redis-settings) no portal Azure e clique em Ler os dados de **Exportação** do **menu Recursos.**
 
-    ![Escolha o recipiente de armazenamento](./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png)
+    ![No painel de navegação para contoso5premium, destaca-se a opção de dados de exportação na lista da Administração.](./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png)
 2. Clique **em Escolher o Recipiente de Armazenamento** e selecione a conta de armazenamento desejada. A conta de armazenamento deve estar na mesma subscrição e região que o seu cache.
 
    > [!IMPORTANT]
@@ -74,9 +74,9 @@ A exportação permite exportar os dados armazenados em Cache Azure para Redis p
    >
 
     ![Conta de armazenamento](./media/cache-how-to-import-export-data/cache-export-data-choose-account.png)
-3. Escolha o recipiente blob desejado e clique em **Select** . Para utilizar um novo recipiente, clique em **Adicionar Recipiente** para o adicionar primeiro e, em seguida, selecione-o da lista.
+3. Escolha o recipiente blob desejado e clique em **Select**. Para utilizar um novo recipiente, clique em **Adicionar Recipiente** para o adicionar primeiro e, em seguida, selecione-o da lista.
 
-    ![Escolha o recipiente de armazenamento](./media/cache-how-to-import-export-data/cache-export-data-container.png)
+    ![Em Recipientes para contoso55, destaca-se a opção + Contentor. Há um contentor na lista, cachesaves, e é selecionado e destacado. A opção Seleção é selecionada e destacada.](./media/cache-how-to-import-export-data/cache-export-data-container.png)
 4. Digite um **prefixo de nome Blob** e clique em **Exportar** para iniciar o processo de exportação. O prefixo do nome blob é utilizado para pré-fixar os nomes dos ficheiros gerados por esta operação de exportação.
 
     ![Exportar](./media/cache-how-to-import-export-data/cache-export-data.png)

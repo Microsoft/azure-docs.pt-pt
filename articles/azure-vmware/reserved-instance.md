@@ -3,12 +3,12 @@ title: Economize custos com a Azure VMware Solution reservado instância
 description: Saiba como comprar uma instância reservada para a Azure VMware Solution.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: b57e985068adabccecbbdb43dd11bcf6596bf422
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 80780e9718001893b6960220b5004c1c29b2fec5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578970"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327402"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Economize custos com a Azure VMware Solution
 
@@ -22,7 +22,7 @@ Casos reservados estão disponíveis com algumas exceções.
 
 -   **Contingente insuficiente** - Uma reserva a uma subscrição única/partilhada deve ter quota de anfitriões disponível na subscrição para o novo caso reservado. Pode [criar um pedido de aumento de quota](enable-azure-vmware-solution.md) para resolver esta questão.
 
--   **Oferecer elegibilidade** - Vai precisar de um [Acordo de Empresa Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
+-   **Oferecer elegibilidade**- Vai precisar de um [Acordo de Empresa Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
 
 -   **Restrições de capacidade** - Em circunstâncias raras, o Azure limita a compra de novas reservas para a Azure VMware Solution host SKUs devido à baixa capacidade numa região.
 
@@ -63,7 +63,7 @@ Estes requisitos aplicam-se à compra de um caso de anfitrião dedicado reservad
 
 ### <a name="buy-reserved-instances-for-a-csp-subscription"></a>Comprar instâncias reservadas para uma subscrição de CSP
 
-Os CSPs que pretendam adquirir instâncias reservadas para os seus clientes devem utilizar o procedimento **Admin Em nome da** [documentação](https://docs.microsoft.com/partner-center/azure-plan-manage)do Centro parceiro . Para mais informações, consulte o Administrador em nome do vídeo [(AOBO).](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO)
+Os CSPs que pretendam adquirir instâncias reservadas para os seus clientes devem utilizar o procedimento **Admin Em nome da** [documentação](/partner-center/azure-plan-manage)do Centro parceiro . Para mais informações, consulte o Administrador em nome do vídeo [(AOBO).](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO)
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com).
 
@@ -113,7 +113,7 @@ Pode efetuar estas alterações a uma reserva após a compra:
 
 Você também pode dividir uma reserva em pedaços menores ou fundir reservas. Nenhuma das alterações causa uma nova transação comercial ou altera a data de fim da reserva.
 
-Para mais informações sobre reservas geridas pela CSP, consulte [as reservas do Microsoft Azure para clientes que utilizem o Partner Center, o portal Azure ou APIs](https://docs.microsoft.com/partner-center/azure-reservations).
+Para mais informações sobre reservas geridas pela CSP, consulte [as reservas do Microsoft Azure para clientes que utilizem o Partner Center, o portal Azure ou APIs](/partner-center/azure-reservations).
 
 
 
@@ -131,4 +131,4 @@ Para mais informações sobre reservas geridas pela CSP, consulte [as reservas d
 
 Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
-Os CSPs podem cancelar, trocar ou reembolsar reservas, com determinadas limitações, adquiridas para o seu cliente. Para mais informações, consulte [Gerir, cancelar, trocar ou reembolsar reservas do Microsoft Azure para os clientes.](https://docs.microsoft.com/partner-center/azure-reservations-manage)
+Os CSPs podem cancelar, trocar ou reembolsar reservas, com determinadas limitações, adquiridas para o seu cliente. Para mais informações, consulte [Gerir, cancelar, trocar ou reembolsar reservas do Microsoft Azure para os clientes.](/partner-center/azure-reservations-manage)

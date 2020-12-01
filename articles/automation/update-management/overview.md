@@ -3,14 +3,14 @@ title: Visão geral da Azure Automation Update Management
 description: Este artigo fornece uma visão geral da funcionalidade de Gestão de Atualização que implementa atualizações para as suas máquinas Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 11/23/2020
+ms.date: 11/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: eadceb17d01b40deab656bdd6223cb8f0844f54f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 37ab05ce7e963ab7fdc4d2b02e254adaa205446c
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95528249"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327496"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
@@ -79,7 +79,7 @@ A tabela que se segue lista os sistemas operativos suportados para avaliações 
 |CentOS 6 e 7 (x64)      | Os agentes linux requerem acesso a um repositório de atualização. O patching baseado na classificação requer `yum` a devolução de dados de segurança que o CentOS não tem nas suas versões RTM. Para obter mais informações sobre patching baseado na classificação no CentOS, consulte [as classificações de Atualização no Linux](view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6 e 7 (x64)     | Os agentes linux requerem acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 12 (x64)     | Os agentes linux requerem acesso a um repositório de atualização.        |
-|Ubuntu 14.04 LTS, 16.04 LTS e 18.04 (x64)      |Os agentes linux requerem acesso a um repositório de atualização.         |
+|Ubuntu 14.04 LTS, 16.04 LTS e 18.04 LTS (x64)      |Os agentes linux requerem acesso a um repositório de atualização.         |
 
 > [!NOTE]
 > Os conjuntos de escala de máquina virtual Azure podem ser geridos através da Gestão de Atualização. A Atualização Gestão trabalha nos próprios casos e não na imagem base. Terá de agendar as atualizações de forma incremental, para que nem todas as instâncias VM sejam atualizadas de uma só vez. Pode adicionar nós para conjuntos de balanças de máquinas virtuais seguindo os passos sob [Adicionar uma máquina não-Azure para alterar o tracking e o inventário](../automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).
