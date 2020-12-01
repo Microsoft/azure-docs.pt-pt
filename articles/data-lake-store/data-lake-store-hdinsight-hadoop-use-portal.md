@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: e901009063afa81c98dd86268ac8c9c6de725e5d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 666b39e2a600fe6ca004798ed4f8371cdd1dfe5f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521021"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340259"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Criar clusters HDInsight com Azure Data Lake Storage Gen1 utilizando o portal Azure
 
@@ -56,7 +56,7 @@ Para criar um cluster HDInsight com uma Data Lake Storage Gen1 como conta de arm
     * **Data Lake Store acesso**: Configure o acesso entre a conta Dese de Armazenamento de Dados Gen1 e o cluster HDInsight. Para obter instruções, consulte [o acesso à Gen1 de armazenamento de dados configure.](#configure-data-lake-storage-gen1-access)
     * **Contas de armazenamento adicionais**: Adicione as contas de armazenamento Azure como contas de armazenamento adicionais para o cluster. Para adicionar contas adicionais de Data Lake Storage Gen1 é feito dando ao cluster permissões de dados em mais contas de Data Lake Storage Gen1 enquanto configura uma conta Desagure de Armazenamento de Dados Gen1 como o tipo de armazenamento primário. Consulte o [acesso Configure Data Lake Storage Gen1](#configure-data-lake-storage-gen1-access).
 
-4. No **acesso**à Data Lake Store , clique **em Select**, e, em seguida, continue com a criação de clusters como descrito nos [clusters Create Hadoop em HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
+4. No **acesso** à Data Lake Store , clique **em Select**, e, em seguida, continue com a criação de clusters como descrito nos [clusters Create Hadoop em HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ### <a name="create-a-cluster-with-data-lake-storage-gen1-as-additional-storage"></a>Criar um cluster com data lake storage gen1 como armazenamento adicional
 
@@ -70,7 +70,7 @@ Para criar um cluster HDInsight com data lake storage gen1 como uma conta de arm
 
     ![Definições de conta de armazenamento HDInsight armazenamento adicional](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png)
 
-    * **Método de seleção** - Para especificar uma conta de armazenamento que faça parte da sua subscrição Azure, selecione **As Minhas subscrições**e, em seguida, selecione a conta de armazenamento. Para especificar uma conta de armazenamento que esteja fora da sua subscrição Azure, selecione **a chave de acesso**e, em seguida, forneça as informações para a conta de armazenamento exterior.
+    * **Método de seleção** - Para especificar uma conta de armazenamento que faça parte da sua subscrição Azure, selecione **As Minhas subscrições** e, em seguida, selecione a conta de armazenamento. Para especificar uma conta de armazenamento que esteja fora da sua subscrição Azure, selecione **a chave de acesso** e, em seguida, forneça as informações para a conta de armazenamento exterior.
 
     * **Recipiente predefinido** - Utilize o valor predefinido ou especifique o seu próprio nome.
     * **Contas de armazenamento adicionais** - Adicione mais contas de armazenamento Azure como armazenamento adicional.
@@ -85,14 +85,14 @@ Nesta secção, configura o acesso da Data Lake Storage Gen1 a partir de cluster
 A partir do portal Azure, você pode usar um principal de serviço existente ou criar um novo.
 
 Para criar um diretor de serviço a partir do portal Azure:
-1. Consulte [Criar O Título de Serviço e Certificados](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) utilizando o Diretório Ativo Azure.
+1. Consulte [Criar O Título de Serviço e Certificados](../active-directory/develop/howto-create-service-principal-portal.md) utilizando o Diretório Ativo Azure.
 
 Para utilizar um principal de serviço existente a partir do portal Azure:
 
 1. O diretor de serviço deve ter permissões do proprietário na conta de Armazenamento. Consulte [as permissões de configuração para que o Diretor de Serviço seja proprietário na conta de armazenamento.](#configure-serviceprincipal-permissions)
 1. Selecione **data lake store acesso**.
 1. Na lâmina de **acesso Gen1 de armazenamento de data lake,** selecione **Utilize a lâmina existente**.
-1. Selecione **o diretor de serviço**e, em seguida, selecione um principal de serviço.
+1. Selecione **o diretor de serviço** e, em seguida, selecione um principal de serviço.
 1. Faça o upload do certificado (.pfx file) que está associado ao seu principal de serviço selecionado e, em seguida, introduza a senha de certificado.
 
     ![Adicione o principal do serviço ao cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png)
@@ -123,7 +123,7 @@ Para atribuir permissão na conta de armazenamento com data lake storage gen1 ao
 
     ![Selecione permissões de ficheiros](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png)
 
-   Por predefinição, __LEIA,__ __ESCREVa__e __EXECUTE__ todos.
+   Por predefinição, __LEIA,__ __ESCREVa__ e __EXECUTE__ todos.
 
 1. Clique em **Selecionar** na parte inferior da página.
 1. Selecione **Executar** para atribuir permissão.
@@ -200,4 +200,4 @@ Você pode usar a conta de armazenamento com Data Lake Storage Gen1 para escreve
 * [PowerShell: Criar um cluster HDInsight para utilizar a Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 [makecert]: /windows-hardware/drivers/devtest/makecert
-[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
+[pvk2pfx]: /windows-hardware/drivers/devtest/pvk2pfx

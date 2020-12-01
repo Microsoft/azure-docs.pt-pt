@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb0223b338457ad5eeea0b0bb40593f57a0d3aa
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a23056445331c82aded878a77d1e0e730e4e2ceb
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442087"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339477"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com FS AD e fornecedores de terceiros para utilizadores convidados (pré-visualização)
 
@@ -45,7 +45,7 @@ Com a federação direta, os utilizadores convidados inscrevem-se no seu inquili
 ## <a name="limitations"></a>Limitações
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Domínios verificados pelo DNS em Azure AD
-O domínio com o que pretende federar deve ***não**_ ser verificado em DNS-verificado em Azure AD. Você está autorizado a criar uma federação direta com inquilinos não geridos (verificados por e-mail ou "virais") Azure AD porque eles não são verificados PELO DNS.
+O domínio com o que pretende federar deve ***não** _ ser verificado em DNS-verificado em Azure AD. Você está autorizado a criar uma federação direta com inquilinos não geridos (verificados por e-mail ou "virais") Azure AD porque eles não são verificados PELO DNS.
 
 ### <a name="authentication-url"></a>URL de autenticação
 A federação direta só é permitida para políticas em que o domínio do URL de autenticação corresponda ao domínio alvo, ou quando o URL de autenticação é um desses fornecedores de identidade permitidos (esta lista está sujeita a alterações):
@@ -60,7 +60,7 @@ A federação direta só é permitida para políticas em que o domínio do URL d
 -   federation.exostar.com
 -   federation.exostartest.com
 
-Por exemplo, ao configurar a federação direta para _*fabrikam.com**, o URL de autenticação `https://fabrikam.com/adfs` passará a validação. Um hospedeiro no mesmo domínio também passará, por `https://sts.fabrikam.com/adfs` exemplo. No entanto, o URL de autenticação `https://fabrikamconglomerate.com/adfs` ou para o mesmo domínio não `https://fabrikam.com.uk/adfs` passará.
+Por exemplo, ao configurar a federação direta para _*fabrikam.com***, o URL de autenticação `https://fabrikam.com/adfs` passará a validação. Um hospedeiro no mesmo domínio também passará, por `https://sts.fabrikam.com/adfs` exemplo. No entanto, o URL de autenticação `https://fabrikamconglomerate.com/adfs` ou para o mesmo domínio não `https://fabrikam.com.uk/adfs` passará.
 
 ### <a name="signing-certificate-renewal"></a>Assinatura de renovação de certificado
 Se especificar o URL dos metadados nas definições do fornecedor de identidade, o Azure AD renovará automaticamente o certificado de assinatura quando expirar. No entanto, se o certificado for rotativo por qualquer motivo antes do prazo de validade, ou se não fornecer um URL de metadados, a Azure AD não poderá renová-lo. Neste caso, terá de atualizar manualmente o certificado de assinatura.

@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d54c939f0ecc78d7734345b23fd2b75f150243c1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b5c81d8b2e6d7eac2dcd9070bf1f448340ea1a18
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148501"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341270"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introdução aos registos privados de contentores Docker no Azure
 
@@ -45,7 +45,7 @@ O Azure fornece ferramentas incluindo interface de Command-Line Azure, portal Az
 
   Você [controla o acesso](container-registry-authentication.md) a um registo de contentores usando uma identidade Azure, um principal de [serviço](../active-directory/develop/app-objects-and-service-principals.md)apoiado pelo Azure Ative Directory , ou uma conta de administração fornecida. Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para atribuir aos utilizadores ou sistemas permissões de grãos finos a um registo.
 
-  As funcionalidades de segurança do nível de serviço Premium incluem [a confiança de conteúdo](container-registry-content-trust.md) para a assinatura de etiquetas de imagem, e [firewalls e redes virtuais (pré-visualização)](container-registry-vnet.md) para restringir o acesso ao registo. O Azure Security Center integra opcionalmente o Registo de Contentores Azure para [digitalizar imagens](../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json) sempre que uma imagem é empurrada para um registo.
+  As funcionalidades de segurança do nível de serviço Premium incluem [a confiança de conteúdo](container-registry-content-trust.md) para a assinatura de etiquetas de imagem, e [firewalls e redes virtuais (pré-visualização)](container-registry-vnet.md) para restringir o acesso ao registo. O Azure Security Center integra opcionalmente o Registo de Contentores Azure para [digitalizar imagens](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) sempre que uma imagem é empurrada para um registo.
 
 * **Imagens e artefactos suportados** - Agrupados num repositório, cada imagem é uma imagem apenas de leitura de um recipiente compatível com Docker. O registo de contentores do Azure pode incluir imagens do Windows e do Linux. O utilizador controla os nomes de todas as implementações de contentores. Utilize os [comandos do Docker](https://docs.docker.com/engine/reference/commandline/) padrão para enviar imagens para um repositório ou extrair imagens de um repositório. Para além das imagens do contentor Docker, o Registo de Contentores Azure armazena [formatos de conteúdo relacionados,](container-registry-image-formats.md) tais como [gráficos Helm](container-registry-helm-repos.md) e imagens construídas para a Especificação do [Formato de Imagem da Iniciativa de Contentor Aberto (OCI).](https://github.com/opencontainers/image-spec/blob/master/spec.md)
 

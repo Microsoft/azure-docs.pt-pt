@@ -3,12 +3,12 @@ title: Azure Event Hubs - exceções (legado)
 description: Este artigo fornece uma lista de exceções de mensagens Azure Event Hubs e ações sugeridas.
 ms.topic: article
 ms.date: 11/02/2020
-ms.openlocfilehash: adaf7242530727a1f77a9662110a43341e57e80a
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 357a87c53023962dd9195a616bd9ce9e01c55bf9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289340"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340972"
 ---
 # <a name="event-hubs-messaging-exceptions---net-legacy"></a>Event Hubs exceções de mensagens -.NET (legado)
 Esta secção enumera as exceções .NET geradas por .NET Framework APIs. 
@@ -107,11 +107,11 @@ Este erro pode ocorrer por uma de duas razões:
 
 - A carga não é distribuída uniformemente em todas as divisórias do centro do evento, e uma partição atinge a limitação da unidade de produção local.
     
-    **Resolução** : Rever a estratégia de distribuição de divisórias ou experimentar [o EventHubClient.Send (eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) pode ajudar.
+    **Resolução**: Rever a estratégia de distribuição de divisórias ou experimentar [o EventHubClient.Send (eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) pode ajudar.
 
 - O espaço de nomes Do Event Hubs não tem unidades de produção suficientes (pode verificar o ecrã **Métricas** na janela de espaço de nomes Do Event Hubs no [portal Azure](https://portal.azure.com) para confirmar). O portal mostra informação agregada (1 minuto), mas medimos a produção em tempo real – por isso é apenas uma estimativa.
 
-    **Resolução** : Aumentar as unidades de produção no espaço de nomes pode ajudar. 
+    **Resolução**: Aumentar as unidades de produção no espaço de nomes pode ajudar. 
 
     Pode configurar unidades de produção na página **Escala** ou página **geral** da página de **espaço de nomes** do Event Hubs no portal Azure. Ou, pode utilizar [o Auto-insuflado,](event-hubs-auto-inflate.md)que aumenta automaticamente aumentando o número de unidades de produção, para satisfazer as necessidades de utilização.
 
@@ -123,13 +123,13 @@ Este erro pode ocorrer por uma de duas razões:
     
     Na página **'Vista Geral',** na secção **métricas 'Mostrar',** muda para o **separador 'Produção'.** Selecione a tabela para abri-la numa janela maior com intervalos de 1 minuto no eixo x. Olhe para os valores de pico e divida-os por 60 para obter bytes de entrada/segundo ou bytes de saída/segundo. Utilize uma abordagem semelhante para calcular o número de pedidos por segundo em momentos de pico no separador **Pedidos.** 
 
-    Se vir valores superiores ao número de TUs * limites (1 MB por segundo para entrada ou 1000 pedidos de entrada/segundo, 2 MB por segundo para saídas), aumente o número de TUs utilizando a página **scale** (no menu esquerdo) de um espaço de nome Desinsulado de Eventos para uma escala manual ou para utilizar a função [de auto-inflação](event-hubs-auto-inflate.md) de Centros de Eventos. Note que o auto-insuflado só pode aumentar até 20 TUS. Para elevar a 40 TUs, apresente um pedido de [apoio.](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)
+    Se vir valores superiores ao número de TUs * limites (1 MB por segundo para entrada ou 1000 pedidos de entrada/segundo, 2 MB por segundo para saídas), aumente o número de TUs utilizando a página **scale** (no menu esquerdo) de um espaço de nome Desinsulado de Eventos para uma escala manual ou para utilizar a função [de auto-inflação](event-hubs-auto-inflate.md) de Centros de Eventos. Note que o auto-insuflado só pode aumentar até 20 TUS. Para elevar a 40 TUs, apresente um pedido de [apoio.](../azure-portal/supportability/how-to-create-azure-support-request.md)
 
 ### <a name="error-code-50001"></a>Código de erro 50001
 
 Este erro raramente deve ocorrer. Acontece quando o código de funcionamento do contentor para o seu espaço de identificação é baixo na CPU – não mais do que alguns segundos antes do início do balançor de carga do Event Hubs.
 
-**Resolução** : Limite das chamadas para o método GetRuntimeInformation. O Azure Event Hubs suporta até 50 chamadas por segundo para o GetRuntimeInfo por segundo. Poderá receber uma exceção semelhante à seguinte assim que o limite for atingido:
+**Resolução**: Limite das chamadas para o método GetRuntimeInformation. O Azure Event Hubs suporta até 50 chamadas por segundo para o GetRuntimeInfo por segundo. Poderá receber uma exceção semelhante à seguinte assim que o limite for atingido:
 
 ```
 ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.

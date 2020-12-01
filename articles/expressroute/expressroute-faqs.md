@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: b8ef1c14089744defaf6de5b3cf9e72d281452b6
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 7b7362d9315d8228e56dc85b2da22e0d507fa8ae
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027113"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339794"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -42,11 +42,11 @@ Sim, a largura de banda do circuito ExpressRoute é duplex. Por exemplo, se comp
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Se eu pagar por um circuito ExpressRoute de uma determinada largura de banda, a ligação VPN que compro ao meu fornecedor de serviços de rede tem de ser a mesma velocidade?
 
-N.º Pode adquirir uma ligação VPN de qualquer velocidade do seu prestador de serviços. No entanto, a sua ligação ao Azure está limitada à largura de banda do circuito ExpressRoute que compra.
+Não. Pode adquirir uma ligação VPN de qualquer velocidade do seu prestador de serviços. No entanto, a sua ligação ao Azure está limitada à largura de banda do circuito ExpressRoute que compra.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>Se eu pagar por um circuito ExpressRoute de uma determinada largura de banda, tenho a capacidade de usar mais do que a minha largura de banda?
 
-Sim, pode utilizar até duas vezes o limite de largura de banda que adquiriu utilizando a largura de banda disponível na ligação secundária do seu circuito ExpressRoute. A redundância incorporada do seu circuito é configurada utilizando ligações primárias e secundárias, cada uma das larguras de banda adquiridas, a dois routers Microsoft Enterprise Edge (MSEEs). A largura de banda disponível através da sua ligação secundária pode ser utilizada para tráfego adicional, se necessário. No entanto, uma vez que a ligação secundária se destina a despedimentos, não está garantida e não deve ser utilizada para tráfego adicional durante um período de tempo prolongado. Para saber mais sobre como usar ambas as connneções para transmitir tráfego, consulte [aqui.](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending)
+Sim, pode utilizar até duas vezes o limite de largura de banda que adquiriu utilizando a largura de banda disponível na ligação secundária do seu circuito ExpressRoute. A redundância incorporada do seu circuito é configurada utilizando ligações primárias e secundárias, cada uma das larguras de banda adquiridas, a dois routers Microsoft Enterprise Edge (MSEEs). A largura de banda disponível através da sua ligação secundária pode ser utilizada para tráfego adicional, se necessário. No entanto, uma vez que a ligação secundária se destina a despedimentos, não está garantida e não deve ser utilizada para tráfego adicional durante um período de tempo prolongado. Para saber mais sobre como usar ambas as connneções para transmitir tráfego, consulte [aqui.](./expressroute-optimize-routing.md#solution-use-as-path-prepending)
 Se pretender utilizar apenas a sua ligação primária para transmitir tráfego, a largura de banda para a ligação é fixada e tentar subscrever-se excessivamente resultará em quedas de pacotes aumentadas. Se o tráfego fluir através de um Portal ExpressRoute, a largura de banda para o SKU é fixa e não é reprovada.
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Posso utilizar simultaneamente a mesma ligação de rede privada com rede virtual e outros serviços Azure?
@@ -185,7 +185,7 @@ Se o seu fornecedor de serviços pode estabelecer dois circuitos virtuais Ethern
 
 ### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute"></a>Posso estender um dos meus VLANs a Azure usando o ExpressRoute?
 
-N.º Não suportamos extensões de conectividade de camada 2 em Azure.
+Não. Não suportamos extensões de conectividade de camada 2 em Azure.
 
 ### <a name="can-i-have-more-than-one-expressroute-circuit-in-my-subscription"></a>Posso ter mais do que um circuito ExpressRoute na minha assinatura?
 
@@ -234,7 +234,7 @@ Para obter mais informações, consulte [partilhar um circuito ExpressRoute em v
 
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>As redes virtuais estão ligadas ao mesmo circuito isoladas umas das outras?
 
-N.º Do ponto de vista do encaminhamento, todas as redes virtuais ligadas ao mesmo circuito ExpressRoute fazem parte do mesmo domínio de encaminhamento e não estão isoladas umas das outras. Se precisar de isolamento de rotas, precisa de criar um circuito ExpressRoute separado.
+Não. Do ponto de vista do encaminhamento, todas as redes virtuais ligadas ao mesmo circuito ExpressRoute fazem parte do mesmo domínio de encaminhamento e não estão isoladas umas das outras. Se precisar de isolamento de rotas, precisa de criar um circuito ExpressRoute separado.
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>Posso ter uma rede virtual ligada a mais de um circuito ExpressRoute?
 
@@ -325,7 +325,7 @@ Pode desativar o prémio ExpressRoute ligando para o CMDE REST ou PowerShell. Te
 
 ### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>Posso escolher as funcionalidades que quero do conjunto de funcionalidades premium?
 
-N.º Não pode escolher as características. Ativamos todas as funcionalidades quando liga o Prémio ExpressRoute.
+Não. Não pode escolher as características. Ativamos todas as funcionalidades quando liga o Prémio ExpressRoute.
 
 ### <a name="how-much-does-expressroute-premium-cost"></a>Quanto custa o Prémio ExpressRoute?
 
@@ -427,4 +427,4 @@ O circuito existente continuará a publicitar os prefixos para o Microsoft 365. 
 
 ### <a name="does-the-expressroute-service-store-customer-data"></a>O serviço ExpressRoute armazena os dados do cliente?
 
-N.º
+Não.

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: a39b6973767b72e69a82750ab8d0d487c733eda0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e525fc0705dffcd4765e6a1f6c5235bdef260fcd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657113"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339681"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configurar o espaço de nome agregado
 
@@ -83,7 +83,7 @@ Esta lista mostra o número máximo de caminhos de espaço de nome por configura
   * Cache 6 TB - 10 caminhos de espaço de nome
   * Cache 23 TB - 20 caminhos de espaço de nome
 
-* Até 5 GB/s de produção:
+* Até 4 GB/s de produção:
 
   * Cache 6 TB - 10 caminhos de espaço de nome
   * 12 Cache TB - 10 caminhos de espaço de nome
@@ -129,7 +129,7 @@ As opções utilizadas para o comando de atualização são semelhantes ao coman
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de criar o espaço de nome agregado para os seus alvos de armazenamento, pode montar clientes na cache. Leia estes artigos para saber mais.
 

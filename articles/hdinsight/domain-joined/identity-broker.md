@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 8a4f9a5df8def928c06fe95a53c7be0d93ec76c4
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: c6bc5ca748a35b17c61d314e96f7284d30e7fc3b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302670"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338134"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Corretor de ID Azure HDInsight (HIB)
 
@@ -146,7 +146,7 @@ Para cada cluster, uma aplicação de terceiros será registada em AAD com o clu
 No AAD, é necessário o consentimento para todas as aplicações de terceiros antes de poder autenticar os utilizadores ou aceder aos dados.
 
 ### <a name="can-the-consent-be-approved-programatically"></a>O consentimento pode ser aprovado de forma programaticamente?
-Microsoft Graph api permite automatizar o consentimento, ver a documentação da [API](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0) A sequência para automatizar o consentimento é:
+Microsoft Graph api permite automatizar o consentimento, ver a documentação da [API](/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0) A sequência para automatizar o consentimento é:
 
 * Registe uma aplicação e conceda a Aplicação.ReadWrite.Todas as permissões à aplicação, para aceder ao Microsoft Graph
 * Após a criação de um cluster, consulta para a app cluster com base no identificador uri
@@ -157,7 +157,7 @@ Quando o cluster é eliminado, o HDInsight elimina a aplicação e não há nece
  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configure um cluster HDInsight com pacote de segurança empresarial utilizando os serviços de domínio do diretório ativo Azure](apache-domain-joined-configure-using-azure-adds.md)
 * [Sincronizar utilizadores do Azure Active Directory num cluster do HDInsight](../hdinsight-sync-aad-users-to-cluster.md)

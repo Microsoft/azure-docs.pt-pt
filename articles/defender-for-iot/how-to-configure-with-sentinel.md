@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 12f65d0e7f9c380f77fe4189d26fdeafd426295b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: c5c0f74ed8a5688b20eea4e74f747d3ff6dd0e63
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090799"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340004"
 ---
 # <a name="connect-your-data-from-defender-for-iot-to-azure-sentinel-preview"></a>Ligue os seus dados do Defender para IoT a Azure Sentinel (pré-visualização)
 
-O Azure Defender para o conector de dados IoT em Azure Sentinel está atualmente em pré-visualização pública. Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
+O Azure Defender para o conector de dados IoT em Azure Sentinel está atualmente em pré-visualização pública. Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
 
 Neste guia, saiba como ligar o seu Defender para dados IoT ao Azure Sentinel.
 
@@ -72,6 +72,6 @@ Depois de ligar um Hub IoT, os dados do hub estão disponíveis no Azure Sentine
 
 Neste documento, aprendeu a ligar o Defender por IoT ao Azure Sentinel. Para saber mais sobre a deteção de ameaças e acesso a dados de segurança, consulte os seguintes artigos:
 
-- Saiba como usar o Azure Sentinel para [obter visibilidade nos seus dados e ameaças potenciais.](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+- Saiba como usar o Azure Sentinel para [obter visibilidade nos seus dados e ameaças potenciais.](../sentinel/quickstart-get-visibility.md)
 
 - Saiba como aceder aos [seus dados de segurança IoT](how-to-security-data-access.md)

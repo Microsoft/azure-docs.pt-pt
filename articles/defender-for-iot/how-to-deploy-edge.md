@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: dd68fd79d25e839876180ff25cacfa1ddf64eb2b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 75a9d1267a8824801e3c24fc25c687f29a808187
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368813"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339936"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implemente um módulo de segurança no seu dispositivo IoT Edge
 
@@ -34,7 +34,7 @@ Utilize os seguintes passos para implantar um módulo de segurança Defender par
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. No seu Hub IoT, certifique-se de que o seu dispositivo está [registado como um dispositivo IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-manual-provision-symmetric-key#register-a-new-device).
+1. No seu Hub IoT, certifique-se de que o seu dispositivo está [registado como um dispositivo IoT Edge](../iot-edge/how-to-manual-provision-symmetric-key.md#register-a-new-device).
 
 1. O módulo Defender for IoT Edge requer que a [estrutura AuditD](https://linux.die.net/man/8/auditd) esteja instalada no dispositivo IoT Edge.
 
@@ -51,13 +51,13 @@ Utilize os seguintes passos para implantar um módulo de segurança Defender par
 
 1. A partir do portal Azure, **open Marketplace**.
 
-1. Selecione **Internet of Things**e, em seguida, procure por Defender para **IoT** e selecione-o.
+1. Selecione **Internet of Things** e, em seguida, procure por Defender para **IoT** e selecione-o.
 
    ![Selecione Defender para IoT](media/howto/edge-onboarding-8.png)
 
 1. Clique em **Criar** para configurar a implementação.
 
-1. Escolha a **Assinatura** Azure do seu Hub IoT e, em seguida, selecione o seu **Hub IoT**.<br>Selecione **Implementar para um dispositivo** para direcionar um único dispositivo ou selecione Implementar na **Escala** para atingir vários dispositivos e clique em **Criar**. Para obter mais informações sobre a implantação em escala, consulte [Como implementar](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor).
+1. Escolha a **Assinatura** Azure do seu Hub IoT e, em seguida, selecione o seu **Hub IoT**.<br>Selecione **Implementar para um dispositivo** para direcionar um único dispositivo ou selecione Implementar na **Escala** para atingir vários dispositivos e clique em **Criar**. Para obter mais informações sobre a implantação em escala, consulte [Como implementar](../iot-edge/how-to-deploy-at-scale.md).
 
     >[!Note]
     >Se selecionar **Implementar à Escala,** adicione o nome do dispositivo e os detalhes antes de continuar no separador **'Adicionar Módulos'** nas seguintes instruções.
@@ -105,7 +105,7 @@ Complete cada passo para completar a sua implementação IoT Edge para Defender 
      }
    ```
     
-   Para obter mais informações sobre a configuração do agente, consulte [os agentes de segurança Configure](https://docs.microsoft.com/azure/defender-for-iot/how-to-agent-configuration).
+   Para obter mais informações sobre a configuração do agente, consulte [os agentes de segurança Configure](./how-to-agent-configuration.md).
 
 1. Selecione **Atualizar**.
 

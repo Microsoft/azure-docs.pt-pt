@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ccc39513505f299e85cbc270e2daeafeac6ca6fd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 575742ab0d886a69dc5acccf4a65ac8c91b5a871
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94845191"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341040"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Linha de base de segurança Azure para a Grade de Eventos
 
@@ -38,7 +38,7 @@ A Azure Event Grid também suporta controlos de acesso baseados em IP públicos 
 
 - [Grupo de Segurança da Rede Azure](../virtual-network/network-security-groups-overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -52,7 +52,7 @@ auditoria.
 
 - [Compreender a Segurança da Rede fornecida pelo Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -74,11 +74,11 @@ Ativar a Norma de Proteção DDoS nestas redes virtuais para evitar ataques de n
 
 - [Como configurar pontos finais privados para tópicos ou domínios da Grelha de Eventos Azure](configure-private-endpoints.md)
 
-- [Como configurar a proteção DDoS](../virtual-network/manage-ddos-protection.md)
+- [Como configurar a proteção DDoS](../ddos-protection/manage-ddos-protection.md)
 
 - [Para mais informações sobre o Centro de Segurança Azure Integrado De Ameaças](../security-center/azure-defender.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -96,7 +96,7 @@ Se necessário para investigar a atividade anómala, ative a captura de pacotes 
 
 - [Como ativar o Observador de Redes](../network-watcher/network-watcher-create.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -143,7 +143,7 @@ Implemente a solução de firewall à sua escolha em cada um dos limites de rede
 Você também pode usar definições de política incorporadas relacionadas com Azure Event Grid, tais como:- Os domínios da grelha de eventos Azure devem usar links privados - Os tópicos da Grelha de Eventos Azure devem usar links privadosAzure
 - [políticas incorporadas para recursos da Grade de Eventos](../governance/policy/samples/built-in-policies.md#event-grid)
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -183,7 +183,7 @@ Você também pode usar definições de política incorporadas relacionadas com 
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -193,7 +193,7 @@ Você também pode usar definições de política incorporadas relacionadas com 
 
 - [Ativar registos de diagnóstico para tópicos ou domínios da grelha de eventos Azure](enable-diagnostic-logs-topic.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -227,7 +227,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Começando com consultas log analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Começando com consultas log analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -253,7 +253,7 @@ Além disso, pode embarcar no seu espaço de trabalho Log Analytics para Azure S
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -289,7 +289,7 @@ Além disso, pode embarcar no seu espaço de trabalho Log Analytics para Azure S
 
 **Orientação**: A Azure Event Grid permite-lhe controlar o nível de acesso dado a diferentes utilizadores para fazer várias operações de gestão, tais como subscrições de eventos de lista, criar novas e gerar chaves. A Grade de Eventos utiliza o controlo de acesso baseado em funções Azure (Azure RBAC). A Grade de Eventos suporta funções incorporadas, bem como funções personalizadas.
 
-O controlo de acesso baseado em funções (Azure RBAC) permite-lhe gerir o acesso aos recursos Azure através de atribuições de funções. Pode atribuir estas funções aos utilizadores, grupos de diretores de serviço e identidades geridas. Existem funções incorporadas pré-definidas para determinados recursos, e estas funções podem ser inventariadas ou consultadas através de ferramentas como Azure CLI, Azure PowerShell ou o portal Azure.
+O controlo de acesso baseado em funções (Azure RBAC) permite-lhe gerir o acesso aos recursos Azure através de atribuições de funções. Pode atribuir estas funções aos utilizadores, grupos de diretores de serviço e identidades geridas. Existem funções incorporadas predefinidas para determinados recursos, que podem ser inventariadas ou consultadas com ferramentas como a CLI do Azure, o Azure PowerShell ou o portal do Azure.
 
 - [Autorizar o acesso aos recursos da Grade de Eventos](security-authorization.md)
 
@@ -297,7 +297,7 @@ O controlo de acesso baseado em funções (Azure RBAC) permite-lhe gerir o acess
 
 - [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -323,7 +323,7 @@ O Event Grid pode permitir uma identidade de serviço gerida para tópicos ou do
 
 - [Saiba mais sobre Gestão de Identidade Privilegiada](../active-directory/privileged-identity-management/index.yml)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -355,11 +355,11 @@ O Event Grid pode permitir uma identidade de serviço gerida para tópicos ou do
 
 **Orientação**: Utilize relatórios de segurança do Azure Ative Directory e monitoriem para detetar quando ocorrem atividades suspeitas ou inseguras no ambiente. Utilize o Centro de Segurança Azure para monitorizar a atividade de identidade e acesso.
 
-- [Como identificar utilizadores de AD Azure sinalizados para atividade de risco](../active-directory/identity-protection/overview-identity-protection.md)
+- [Como identificar utilizadores do Azure AD sinalizados por atividade de risco](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Como monitorizar a identidade e a atividade de acesso dos utilizadores no Centro de Segurança Azure](../security-center/security-center-identity-access.md)
+- [Como monitorizar as atividades de identidade e acesso dos utilizadores no Centro de Segurança do Azure](../security-center/security-center-identity-access.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -381,7 +381,7 @@ O Event Grid pode permitir uma identidade de serviço gerida para tópicos ou do
 
 - [Autenticar clientes editoriais (Azure Event Grid)](security-authenticate-publishing-clients.md)
 
-- [Como criar e configurar uma instância AD Azure](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Como criar e configurar instâncias do Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -395,11 +395,11 @@ Utilize o Azure Ative Directory (AD) Gestão de Identidade Privilegiada (PIM) pa
 
 - [Compreenda a Azure AD reportando](../active-directory/reports-monitoring/index.yml)
 
-- [Como utilizar a identidade AD do Azure e as avaliações de acesso](../active-directory/governance/access-reviews-overview.md)
+- [Como utilizar as revisões de identidades e acessos do Azure AD](../active-directory/governance/access-reviews-overview.md)
 
 - [Implementar gestão de identidade privilegiada da Azure AD (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -421,7 +421,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
  
  
  
-- [Como ver a Azure AD a entrar em risco](../active-directory/identity-protection/overview-identity-protection.md)
+- [Como ver os inícios de sessão de risco do Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como configurar e permitir políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -473,11 +473,11 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 **Orientação**: Para a plataforma subjacente, que é gerida pela Microsoft, a Microsoft trata todos os conteúdos do cliente como sensíveis e faz grandes esforços para se proteger contra a perda e exposição de dados dos clientes. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
 
-- [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md)
+- [Compreender a proteção dos dados dos clientes no Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Criptografar todas as informações sensíveis em trânsito
 
@@ -493,7 +493,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 Para a plataforma subjacente, que é gerida pela Microsoft, a Microsoft trata todos os conteúdos dos clientes como sensíveis e faz grandes esforços para se proteger contra a perda e exposição de dados dos clientes. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
 
-- [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md)
+- [Compreender a proteção dos dados dos clientes no Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -602,7 +602,7 @@ Para a plataforma subjacente, que é gerida pela Microsoft, a Microsoft trata to
 
 Além disso, utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da(s) subscrição.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 - [Como criar consultas com Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
@@ -642,7 +642,7 @@ Além disso, utilize o Gráfico de Recursos Azure para consultar/descobrir recur
 
 Além disso, utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da(s) subscrição.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Como criar consultas com Azure Graph](../governance/resource-graph/first-query-portal.md)
 
@@ -698,7 +698,7 @@ O Azure Resource Manager tem a capacidade de exportar o modelo na Notação de O
 
 - [Como ver pseudónimos disponíveis da Política Azure](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -758,7 +758,7 @@ O Azure Resource Manager tem a capacidade de exportar o modelo na Notação de O
 
 **Orientação**: Use pseudónimos da Política Azure no espaço de nomes "Microsoft.EventGrid" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Além disso, desenvolva um processo e um oleoduto para gerir exceções políticas.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Como usar pseudónimos](../governance/policy/concepts/definition-structure.md#aliases)
 
@@ -780,7 +780,7 @@ O Azure Resource Manager tem a capacidade de exportar o modelo na Notação de O
 
 - [Como remediar recomendações no Centro de Segurança Azure](../security-center/security-center-remediate-recommendations.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -808,7 +808,7 @@ Use identidades geridas em conjunto com o Azure Key Vault para simplificar a ges
 
 - [Como atribuir uma política de acesso ao Cofre de Chaves](../key-vault/general/assign-access-policy-portal.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -824,7 +824,7 @@ Use identidades geridas em conjunto com o Azure Key Vault para simplificar a ges
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminar a exposição credencial não intencional
 
-**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault. 
+**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner de Credenciais também vai incentivar a movimentação das credenciais descobertas para localizações mais seguras, por exemplo, o Azure Key Vault. 
 
 - [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
@@ -928,7 +928,7 @@ Atualmente, a Event Grid não suporta chaves geridas pelo cliente.
 
 - [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -984,17 +984,17 @@ Atualmente, a Event Grid não suporta chaves geridas pelo cliente.
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Realizar testes regulares de penetração dos seus recursos Azure e garantir a reparação de todas as conclusões críticas de segurança
 
-**Orientação**: Siga as regras de teste de penetração da Microsoft cloud para garantir que os seus testes de penetração não violam as políticas da Microsoft. Use a estratégia da Microsoft e a execução de testes de penetração em red teaming e site ao vivo contra infraestruturas, serviços e aplicações de nuvem geridas pela Microsoft.
+**Orientação**: Siga as regras de teste de penetração da Microsoft cloud para garantir que os seus testes de penetração não violam as políticas da Microsoft. Utilize a estratégia e a execução de "Equipas de Ataque" e os testes de penetração no local em direto da Microsoft na infraestrutura, nos serviços e nas aplicações cloud geridas pela Microsoft.
 
-- [Regras de teste de penetração de compromisso](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [Regras de Interação para os Testes de Penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- ["Equipa de Ataque" da Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
-- Saiba mais sobre [as linhas de base de segurança da Azure](../security/benchmarks/security-baselines-overview.md)
+- Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/05/2020
 ms.author: thweiss
-ms.openlocfilehash: 21bb594f4e374d41cfc4184f3a72aea1717c85d8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e87f6f158265fd8ac210a0a071e35b0bb77df4d9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086147"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338287"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configure chaves geridas pelo cliente para a sua conta do Azure Cosmos com o Azure Key Vault
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -29,38 +29,40 @@ Tem de armazenar chaves geridas pelo cliente no [Azure Key Vault](../key-vault/g
 
 1. Inscreva-se no [portal Azure,](https://portal.azure.com/)aceda à subscrição do Azure e selecione **fornecedores de Recursos** no separador **Definições:**
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-rp.png" alt-text="Camadas de encriptação em torno dos dados do cliente":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-rp.png" alt-text="Entrada de fornecedores de recursos a partir do menu esquerdo":::
 
 1. Procure o fornecedor de recursos **Microsoft.DocumentDB.** Verifique se o fornecedor de recursos já está marcado como registado. Caso contrário, escolha o fornecedor de recursos e **selecione Registar-se:**
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-rp-register.png" alt-text="Camadas de encriptação em torno dos dados do cliente":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-rp-register.png" alt-text="Registo do Microsoft.Docfornecedor de recursos umentDB":::
 
 ## <a name="configure-your-azure-key-vault-instance"></a>Configure o seu exemplo de Cofre de Chave Azure
 
-A utilização de chaves geridas pelo cliente com a Azure Cosmos DB requer que você descreva duas propriedades no abobadador Azure Key Vault que planeia utilizar para hospedar as suas chaves de encriptação: **Soft Delete** and **Purpur Protection** .
+A utilização de chaves geridas pelo cliente com a Azure Cosmos DB requer que você descreva duas propriedades no abobadador Azure Key Vault que planeia utilizar para hospedar as suas chaves de encriptação: **Soft Delete** and **Purpur Protection**.
 
 Se criar uma nova instância Azure Key Vault, ative estas propriedades durante a criação:
 
-:::image type="content" source="./media/how-to-setup-cmk/portal-akv-prop.png" alt-text="Camadas de encriptação em torno dos dados do cliente" num dos seguintes artigos:
+:::image type="content" source="./media/how-to-setup-cmk/portal-akv-prop.png" alt-text="Permitir a eliminação suave e a proteção de purga para uma nova instância Azure Key Vault":::
 
-- [Como utilizar soft-delete com PowerShell](../key-vault/general/soft-delete-powershell.md)
-- [Como utilizar soft-delete com Azure CLI](../key-vault/general/soft-delete-cli.md)
+Se estiver a utilizar uma instância Azure Key Vault existente, pode verificar se estas propriedades estão ativadas olhando para a secção **Propriedades** no portal Azure. Se alguma destas propriedades não estiver ativada, consulte as secções "Habilitar a eliminação suave" e "Habilitar a proteção da purga" num dos seguintes artigos:
+
+- [Como utilizar soft-delete com PowerShell](../key-vault/general/key-vault-recovery.md)
+- [Como utilizar soft-delete com Azure CLI](../key-vault/general/key-vault-recovery.md)
 
 ## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>Adicione uma política de acesso ao seu Azure Key Vault
 
 1. A partir do portal Azure, vá ao Azure Key Vault que planeia usar para hospedar as suas chaves de encriptação. Selecione Políticas de **Acesso** a partir do menu esquerdo:
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-ap.png" alt-text="Camadas de encriptação em torno dos dados do cliente":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-ap.png" alt-text="Políticas de acesso a partir do menu à esquerda":::
 
-1. Selecione **+ Adicionar Política de Acesso** .
+1. Selecione **+ Adicionar Política de Acesso**.
 
 1. No menu de permissões de perguntas à **chave,** selecione **Obter,** **Desembrulhar a chave** e as permissões de Tecla de **Embrulho:**
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png" alt-text="Camadas de encriptação em torno dos dados do cliente":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png" alt-text="Selecionando as permissões certas":::
 
-1. Em **Select principal** , selecione Nenhum **selecionado** . Em seguida, procure o diretor da **Azure Cosmos DB** e selecione-o (para facilitar a sua posição, também pode pesquisar por ID principal: `a232010e-820c-4083-83bb-3ace5fc29d0b` para qualquer região de Azure, exceto regiões do Governo Azure onde o ID principal `57506a73-e302-42a9-b869-6f12d9ec29e9` é). Por fim, escolha **Selecione** na parte inferior. Se o diretor da **Azure Cosmos** não estiver na lista, poderá ter de voltar a registar o fornecedor de recursos **Microsoft.DocumentDB,** conforme descrito no [Registo da](#register-resource-provider) secção fornecedora de recursos deste artigo.
+1. Em **Select principal**, selecione Nenhum **selecionado**. Em seguida, procure o diretor da **Azure Cosmos DB** e selecione-o (para facilitar a sua posição, também pode pesquisar por ID principal: `a232010e-820c-4083-83bb-3ace5fc29d0b` para qualquer região de Azure, exceto regiões do Governo Azure onde o ID principal `57506a73-e302-42a9-b869-6f12d9ec29e9` é). Por fim, escolha **Selecione** na parte inferior. Se o diretor da **Azure Cosmos** não estiver na lista, poderá ter de voltar a registar o fornecedor de recursos **Microsoft.DocumentDB,** conforme descrito no [Registo da](#register-resource-provider) secção fornecedora de recursos deste artigo.
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Camadas de encriptação em torno dos dados do cliente":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Selecione o principal da Azure Cosmos DB":::
 
 1. **Selecione Adicionar** para adicionar a nova política de acesso.
 
@@ -70,17 +72,17 @@ Se criar uma nova instância Azure Key Vault, ative estas propriedades durante a
 
 1. A partir do portal Azure, vá ao Azure Key Vault que planeia usar para hospedar as suas chaves de encriptação. Em seguida, selecione **Chaves** do menu esquerdo:
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keys.png" alt-text="Camadas de encriptação em torno dos dados do cliente":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keys.png" alt-text="Entrada de chaves do menu esquerdo":::
 
-1. **Selecione Gerar/Importar,** forneça um nome para a nova chave e selecione um tamanho da chave RSA. Recomenda-se um mínimo de 3072 para a melhor segurança. Em seguida, **selecione Criar** :
+1. **Selecione Gerar/Importar,** forneça um nome para a nova chave e selecione um tamanho da chave RSA. Recomenda-se um mínimo de 3072 para a melhor segurança. Em seguida, **selecione Criar**:
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-gen.png" alt-text="Camadas de encriptação em torno dos dados do cliente":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-gen.png" alt-text="Criar uma nova chave":::
 
 1. Após a criação da chave, selecione a chave recém-criada e, em seguida, a sua versão atual.
 
 1. Copie o **identificador** chave da chave, exceto a parte após o último corte dianteiro:
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keyid.png" alt-text="Camadas de encriptação em torno dos dados do cliente":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keyid.png" alt-text="Copiar o identificador chave da chave":::
 
 ## <a name="create-a-new-azure-cosmos-account"></a>Criar uma nova conta Azure Cosmos
 
@@ -88,13 +90,13 @@ Se criar uma nova instância Azure Key Vault, ative estas propriedades durante a
 
 Quando criar uma nova conta DB Azure Cosmos a partir do portal Azure, escolha a **chave gerida pelo Cliente** no passo de **Encriptação.** No campo **Key URI,** cole o identificador URI/chave da chave Azure Key Vault que copiou do passo anterior:
 
-:::image type="content" source="./media/how-to-setup-cmk/portal-cosmos-enc.png" alt-text="Camadas de encriptação em torno dos dados do cliente":::
+:::image type="content" source="./media/how-to-setup-cmk/portal-cosmos-enc.png" alt-text="Definição de parâmetros CMK no portal Azure":::
 
 ### <a name="using-azure-powershell"></a><a id="using-powershell"></a> Usando a Azure PowerShell
 
 Quando crias uma nova conta DB da Azure Cosmos com a PowerShell:
 
-- Passe o URI da chave Azure Key Vault copiada anteriormente sob a propriedade **KeyVaultKeyUri** em **PropertyObject** .
+- Passe o URI da chave Azure Key Vault copiada anteriormente sob a propriedade **KeyVaultKeyUri** em **PropertyObject**.
 
 - Utilize **2019-12-12** ou mais tarde como versão API.
 
@@ -227,15 +229,15 @@ A rotação da chave gerida pelo cliente utilizada pela sua conta Azure Cosmos p
 
 - Criar uma nova versão da chave atualmente utilizada a partir do Cofre da Chave Azure:
 
-  :::image type="content" source="./media/how-to-setup-cmk/portal-akv-rot.png" alt-text="Camadas de encriptação em torno dos dados do cliente":::
+  :::image type="content" source="./media/how-to-setup-cmk/portal-akv-rot.png" alt-text="Criar uma nova versão chave":::
 
 - Troque a chave atualmente utilizada por uma totalmente diferente, atualizando a chave URI na sua conta. A partir do portal Azure, aceda à sua conta Azure Cosmos e selecione Encriptação de **Dados** a partir do menu esquerdo:
 
-    :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Camadas de encriptação em torno dos dados do cliente":::
+    :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="A entrada do menu de encriptação de dados":::
 
-    Em seguida, substitua o **Key URI** pela nova chave que pretende utilizar e selecione **Guardar** :
+    Em seguida, substitua o **Key URI** pela nova chave que pretende utilizar e selecione **Guardar**:
 
-    :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="Camadas de encriptação em torno dos dados do cliente":::
+    :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="Atualizar a chave URI":::
 
     Aqui está como fazer para obter o mesmo resultado em PowerShell:
 
@@ -298,7 +300,7 @@ Atualmente não, mas as chaves ao nível do contentor estão a ser consideradas.
 
 A partir do portal Azure, vá à sua conta Azure Cosmos e assista à entrada de Encriptação de **Dados** no menu esquerdo; se esta entrada existir, as chaves geridas pelo cliente estão ativadas na sua conta:
 
-:::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Camadas de encriptação em torno dos dados do cliente":::
+:::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="A entrada do menu de encriptação de dados":::
 
 Você também pode buscar programáticamente os detalhes da sua conta Azure Cosmos e procurar a presença da `keyVaultKeyUri` propriedade. Veja acima as formas de o fazer [em PowerShell](#using-powershell) e [utilizando o Azure CLI](#using-azure-cli).
 
@@ -310,11 +312,11 @@ A Azure Cosmos DB faz [cópias de segurança regulares e automáticas dos dados 
 
 A revogação da chave é feita desativando a versão mais recente da chave:
 
-:::image type="content" source="./media/how-to-setup-cmk/portal-akv-rev2.png" alt-text="Camadas de encriptação em torno dos dados do cliente":::
+:::image type="content" source="./media/how-to-setup-cmk/portal-akv-rev2.png" alt-text="Desativar a versão de uma chave":::
 
 Em alternativa, para revogar todas as chaves de uma instância do Cofre da Chave Azure, pode eliminar a política de acesso concedida ao diretor da Azure Cosmos DB:
 
-:::image type="content" source="./media/how-to-setup-cmk/portal-akv-rev.png" alt-text="Camadas de encriptação em torno dos dados do cliente":::
+:::image type="content" source="./media/how-to-setup-cmk/portal-akv-rev.png" alt-text="Eliminação da política de acesso ao diretor da Azure Cosmos DB":::
 
 ### <a name="what-operations-are-available-after-a-customer-managed-key-is-revoked"></a>Que operações estão disponíveis após a revogação de uma chave gerida pelo cliente?
 

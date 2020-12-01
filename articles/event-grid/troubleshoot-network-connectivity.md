@@ -5,12 +5,12 @@ author: batrived
 ms.topic: article
 ms.date: 06/21/2020
 ms.author: batrived
-ms.openlocfilehash: 7b93d7a110889192bb5be6fffa56a73758d6faa2
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: fa119784715b8c88ef3c9f2700b2cac1cc467234
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892320"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339750"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>Problemas de conectividade resolução de problemas - Azure Event Grid
 
@@ -50,7 +50,7 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 Quando está a trabalhar com o Azure, por vezes tem de permitir que intervalos de endereços IP específicos ou URLs na sua firewall corporativa ou procuração acedam a todos os serviços Azure que está a usar ou a tentar utilizar. Verifique se o tráfego é permitido nos endereços IP utilizados pela Grade de Eventos. Para endereços IP utilizados pela Azure Event Grid: ver [Gamas IP Azure e Tags de Serviço - Cloud e](https://www.microsoft.com/download/details.aspx?id=56519) Service tag público - [AzureEventGrid](network-security.md#service-tags).
 
-O [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) document também lista endereços IP por **região** . Você pode permitir intervalos de endereços para a **região do tópico** e a **região emparelhada** na sua firewall corporativa ou proxy. Para uma região emparelhada para uma região, consulte [a continuidade do Negócio e a recuperação de desastres (BCDR): Regiões Emparelhadas Azure](/azure/best-practices-availability-paired-regions). 
+O [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) document também lista endereços IP por **região**. Você pode permitir intervalos de endereços para a **região do tópico** e a **região emparelhada** na sua firewall corporativa ou proxy. Para uma região emparelhada para uma região, consulte [a continuidade do Negócio e a recuperação de desastres (BCDR): Regiões Emparelhadas Azure](../best-practices-availability-paired-regions.md). 
 
 > [!NOTE]
 > Novos endereços IP podem ser adicionados à etiqueta de serviço AzureEventGrid, embora não seja habitual. Então é bom fazer uma verificação semanal nas etiquetas de serviço.

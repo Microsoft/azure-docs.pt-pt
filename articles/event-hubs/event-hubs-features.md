@@ -3,12 +3,12 @@ title: Visão geral das funcionalidades - Azure Event Hubs Microsoft Docs
 description: Este artigo fornece detalhes sobre funcionalidades e terminologia dos Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: db7c0244fd4e9e04f9cfbcbba8748ec8190fc5c5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a38cf4ba6a06dc6e977f9ea168fcf67ce83ff5de
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96007443"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339987"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funcionalidades e terminologia nos Hubs de Eventos do Azure
 
@@ -33,7 +33,7 @@ Qualquer entidade que envie dados para um centro de eventos é um produtor de ev
 
 ### <a name="publishing-an-event"></a>Publicar um evento
 
-Pode publicar um evento via AMQP 1.0, Kafka 1.0 (e mais tarde) ou HTTPS. O serviço Event Hubs fornece bibliotecas de clientes [REST API](https://docs.microsoft.com/rest/api/eventhub/) e [.NET,](event-hubs-dotnet-standard-getstarted-send.md) [Java,](event-hubs-java-get-started-send.md) [Python,](event-hubs-python-get-started-send.md) [JavaScript](event-hubs-node-get-started-send.md)e [Go](event-hubs-go-get-started-send.md) para a publicação de eventos num centro de eventos. Para outros tempos de execução e plataformas, pode utilizar qualquer cliente AMQP 1.0, como o [Apache Qpid](https://qpid.apache.org/). 
+Pode publicar um evento via AMQP 1.0, Kafka 1.0 (e mais tarde) ou HTTPS. O serviço Event Hubs fornece bibliotecas de clientes [REST API](/rest/api/eventhub/) e [.NET,](event-hubs-dotnet-standard-getstarted-send.md) [Java,](event-hubs-java-get-started-send.md) [Python,](event-hubs-python-get-started-send.md) [JavaScript](event-hubs-node-get-started-send.md)e [Go](event-hubs-go-get-started-send.md) para a publicação de eventos num centro de eventos. Para outros tempos de execução e plataformas, pode utilizar qualquer cliente AMQP 1.0, como o [Apache Qpid](https://qpid.apache.org/). 
 
 Pode publicar eventos individualmente ou em lotes. Uma única publicação (instância de dados de eventos) tem um limite de 1 MB, independentemente de se trate de um único evento ou de um lote. Publicar eventos maiores do que este limiar resulta num erro. É preferível os publicadores não terem conhecimento das partições dentro do hub de eventos e apenas especificarem uma *chave de partição* (apresentada na secção seguinte) ou a sua identidade através do respetivo token SAS.
 

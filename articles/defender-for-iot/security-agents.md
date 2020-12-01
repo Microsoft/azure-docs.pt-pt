@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 888fdbb2352c4ac972eac8b24c29d22ce973e04d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3fe3e910134080f6620023f539913454670d093
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939745"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339919"
 ---
 # <a name="get-started-with-azure-defender-for-iot-device-security-agents"></a>Começa com o Azure Defender para agentes de segurança de dispositivos IoT
 
@@ -31,9 +31,9 @@ O Defender para os agentes de segurança IoT lida com a recolha de eventos bruto
 Utilize o seguinte fluxo de trabalho para implantar e testar o seu Defender para agentes de segurança IoT:
 
 1. [Ativar o serviço Defender para IoT no seu IoT Hub](quickstart-onboard-iot-hub.md)
-1. Se o seu Hub IoT não tiver dispositivos registados, [registe um novo dispositivo](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
+1. Se o seu Hub IoT não tiver dispositivos registados, [registe um novo dispositivo](../iot-accelerators/quickstart-device-simulation-deploy.md).
 1. [Crie um módulo de segurança azureiot para](quickstart-create-security-twin.md) os seus dispositivos.
-1. Para instalar o agente num dispositivo simulado Azure em vez de instalar num dispositivo real, [rode uma nova Máquina Virtual Azure (VM)](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) numa zona disponível.
+1. Para instalar o agente num dispositivo simulado Azure em vez de instalar num dispositivo real, [rode uma nova Máquina Virtual Azure (VM)](../virtual-machines/linux/quick-create-portal.md) numa zona disponível.
 1. [Coloque um Defender para agente de segurança IoT](how-to-deploy-linux-cs.md) no seu dispositivo IoT ou novo VM.
 1. Siga as instruções para [trigger_events](https://aka.ms/iot-security-github-trigger-events) executar uma simulação inofensiva de um ataque.
 1. Verifique os alertas do Defender para IoT em resposta ao ataque simulado no passo anterior. Comece a verificação cinco minutos depois de executar o script.

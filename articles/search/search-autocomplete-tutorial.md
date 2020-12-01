@@ -1,5 +1,5 @@
 ---
-title: Adicione autocompleto e sugestões numa caixa de pesquisa
+title: Adicione autocompleto a uma caixa de pesquisa
 titleSuffix: Azure Cognitive Search
 description: Ativar as ações de consulta do tipo de pesquisa no Azure Cognitive Search, criando sugestivos e formulando pedidos que precontam automaticamente uma caixa de pesquisa com termos ou frases acabados. Também pode devolver os jogos sugeridos.
 manager: nitinme
@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5b498b8f49f2f0636b010e3c4d86f13ad44ac090
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 25c87971455ed3c5f59c92748794720d61e599e3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029018"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339613"
 ---
-# <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Adicionar autocompleto e sugestões a aplicativos clientes
+# <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Adicionar autocompleto e sugestões a aplicativos de clientes usando Azure Cognitive Search
 
 O search-as-you-type é uma técnica comum para melhorar a produtividade das consultas iniciadas pelo utilizador. Na Pesquisa Cognitiva Azure, esta experiência é suportada através de *autocomplete,* que termina um termo ou frase com base na entrada parcial (completando "micro" com "microsoft"). Uma segunda experiência de utilizador são *sugestões,* ou uma pequena lista de documentos correspondentes (devolvendo títulos de livro com um ID para que possa ligar a uma página detalhada sobre esse livro). Tanto o autocompleto como as sugestões são baseadas numa correspondência no índice. O serviço não oferece consultas que devolvam zero resultados.
 

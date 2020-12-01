@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 0b0e198075455f697c87ad48741a770e6f78b5a5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: a42b07254deaf19d253f7523631018bfe7166a57
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542155"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339596"
 ---
 # <a name="azure-dedicated-hosts"></a>Anfitriões Dedicados Azure
 
@@ -165,13 +165,15 @@ O *tipo* é a geração de hardware. Diferentes tipos de hardware para a mesma s
 
 Os tamanhos e os tipos de hardware variam por região. Consulte a [página de preços do](https://aka.ms/ADHPricing) anfitrião para saber mais.
 
+> [!NOTE]
+> Uma vez que um hospedeiro dedicado é provisonado, você não pode mudar o tamanho ou o tipo. Se precisar de um tipo diferente, terá de criar um novo hospedeiro.  
 
 ## <a name="host-life-cycle"></a>Ciclo de vida do anfitrião
 
 
 Azure monitoriza e gere o estado de saúde dos seus anfitriões. Os seguintes estados serão devolvidos quando consultar o seu anfitrião:
 
-| Estado da Saúde   | Description       |
+| Estado da Saúde   | Descrição       |
 |----------|----------------|
 | Anfitrião Disponível     | Não há problemas conhecidos com o seu anfitrião.   |
 | Hospedeiro sob investigação  | Estamos tendo alguns problemas com o anfitrião que estamos procurando. Este é um estado transitório necessário para que a Azure tente identificar o âmbito e a causa principal para a questão identificada. As máquinas virtuais que estão a funcionar no hospedeiro podem ser afetadas. |

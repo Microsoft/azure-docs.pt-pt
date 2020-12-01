@@ -3,12 +3,12 @@ title: Ativar a ligação do navegador em máquinas virtuais Azure DevTest Labs
 description: A DevTest Labs integra-se agora com o Azure Bastion, como proprietário do laboratório, podendo aceder a todas as máquinas virtuais de laboratório através de um browser.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 28a3c11f3df578265f9746a173fcb3029a132b26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d9d631c79c22f1f713cfc4ee7cdd766a4ad8f06
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870498"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341177"
 ---
 # <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Ativar a ligação do navegador em máquinas virtuais Azure DevTest Labs 
 A DevTest Labs integra-se com [o Azure Bastion,](../bastion/index.yml)que permite ligar-se às suas máquinas virtuais através de um browser. Primeiro, tem de ativar a ligação do navegador em máquinas virtuais de laboratório.
@@ -20,7 +20,7 @@ Este artigo mostra como ativar a ligação do navegador em máquinas virtuais de
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 - Ou implantar um anfitrião bastonário na rede virtual **(OR)** do seu laboratório existente, ligue o seu laboratório a uma rede virtual configurada pelo Bastião.
-Para aprender a implantar um anfitrião bastonário numa rede virtual, consulte  [Criar um hospedeiro Azure Bastion](../bastion/bastion-create-host-portal.md). Ao criar o anfitrião do Bastião, selecione a rede virtual do laboratório. 
+Para aprender a implantar um anfitrião bastonário numa rede virtual, consulte  [Criar um hospedeiro Azure Bastion](../bastion/tutorial-create-host-portal.md). Ao criar o anfitrião do Bastião, selecione a rede virtual do laboratório. 
 - O utilizador do laboratório precisa de ter um papel **de Leitor** no anfitrião do Bastião e na rede virtual que tem o Bastião configurado. 
 
 ## <a name="create-a-second-sub-net-in-the-bastion-virtual-network"></a>Criar uma segunda sub-rede na rede virtual De Bastião

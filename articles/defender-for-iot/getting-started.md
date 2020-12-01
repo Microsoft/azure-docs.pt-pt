@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: e3de253ee6f45f9296d6b09189fe4bc488be36ad
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 6aa525fd7f2d82194baa2e2a0c910cb71509c2d5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090068"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340021"
 ---
 # <a name="getting-started-with-azure-defender-for-iot"></a>Começando com Azure Defender para IoT
 
@@ -30,9 +30,9 @@ Complete os seguintes passos para obter Azure Defender para IoT em funcionamento
 
 ## <a name="1-set-up-azure"></a>1. Configurar o Azure
 
-- Crie uma conta Azure. Para mais informações, consulte [Criar uma conta Azure.](https://docs.microsoft.com/learn/modules/create-an-azure-account/)
+- Crie uma conta Azure. Para mais informações, consulte [Criar uma conta Azure.](/learn/modules/create-an-azure-account/)
 
-- Firewall ou proxy: Se tiver uma firewall ou um dispositivo de rede de intervenção semelhante configurado para permitir ligações específicas, verifique se ou *.azure-devices.net:443 é aberta para a firewall ou proxy. Se os wildcards não forem suportados ou se quiser mais controlo, o IoT Hub FQDN específico deve ser aberto no seu FW ou proxy. Para obter mais informações, consulte [pontos finais reference - IoT Hub](/azure/iot-hub/iot-hub-devguide-endpoints).
+- Firewall ou proxy: Se tiver uma firewall ou um dispositivo de rede de intervenção semelhante configurado para permitir ligações específicas, verifique se ou *.azure-devices.net:443 é aberta para a firewall ou proxy. Se os wildcards não forem suportados ou se quiser mais controlo, o IoT Hub FQDN específico deve ser aberto no seu FW ou proxy. Para obter mais informações, consulte [pontos finais reference - IoT Hub](../iot-hub/iot-hub-devguide-endpoints.md).
 
 ## <a name="2-deploy-hardware-software-and-onboard-to-sensor"></a>2. Implementar hardware, software e a bordo para sensor
 

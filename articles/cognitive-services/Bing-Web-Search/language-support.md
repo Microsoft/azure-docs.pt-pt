@@ -10,19 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: b3ce1fdc0b52db2706f81950fff735cf7f95e52b
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 6de01d2c12454f43a2802b4a7a979b5f74b46f0e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379685"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340276"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Suporte linguístico e regional para a API de Pesquisa Web de Bing
 
 > [!WARNING]
-> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource)documentado.
 > Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
-> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](/bing/search-apis/bing-web-search/create-bing-search-service-resource)
 
 A API de Pesquisa Web Bing suporta mais de três dezenas de países ou regiões, muitos com mais de uma língua. Especificar um país ou região com uma consulta ajuda a refinar os resultados da pesquisa com base nesse país ou regiões interesses. Os resultados podem incluir ligações a Bing, e estas ligações podem localizar a experiência do utilizador Bing de acordo com o país/região ou idioma especificado.
 
@@ -69,7 +69,7 @@ Em alternativa, pode especificar o mercado com o `mkt` parâmetro de consulta e 
 |Taiwan|TW|
 |Turquia|TR|
 |Reino Unido|GB|
-|Estados Unidos|EUA|
+|Estados Unidos da América|EUA|
 
 ## <a name="markets"></a>Mercados
 
@@ -113,9 +113,9 @@ Em alternativa, pode especificar o mercado com o `mkt` parâmetro de consulta e 
 |Taiwan|Chinês Tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
 |Reino Unido|Inglês|en-GB|
-|Estados Unidos|Inglês|en-PT|
-|Estados Unidos|Espanhol|es-EUA|
+|Estados Unidos da América|Inglês|en-PT|
+|Estados Unidos da América|Espanhol|es-EUA|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 11/04/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: cdda14bb579fc94414f9da89b8b1f1aa04ec3bf5
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: fd341a4f6e2402ce934bdffd4f024e0ef569eec1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628106"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340922"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicativo de desktop que chama APIs web: Adquirir um token
 
@@ -183,7 +183,7 @@ No Android, também é necessário especificar a atividade dos pais utilizando `
 
 #### <a name="withparentactivityorwindow"></a>ComParentActivityOrWindow
 
-A UI é importante porque é interativa. `AcquireTokenInteractive` tem um parâmetro opcional específico que pode especificar, para plataformas que o suportam, a UI principal. Quando usado numa aplicação de desktop, `.WithParentActivityOrWindow` tem um tipo diferente, que depende da plataforma. Em alternativa, pode omitir o parâmetro opcional da janela dos pais para criar uma janela, se não quiser controlar onde o diálogo de entrada aparece no ecrã. Isto seria aplicável para aplicações baseadas em linha de comando , usadas para passar chamadas para qualquer outro serviço de backend e não precisam de janelas para a interação do utilizador.
+A UI é importante porque é interativa. `AcquireTokenInteractive` tem um parâmetro opcional específico que pode especificar, para plataformas que o suportam, a UI principal. Quando usado numa aplicação de desktop, `.WithParentActivityOrWindow` tem um tipo diferente, que depende da plataforma. Em alternativa, pode omitir o parâmetro opcional da janela dos pais para criar uma janela, se não quiser controlar onde o diálogo de entrada aparece no ecrã. Isto seria aplicável para aplicações baseadas em linha de comando, usadas para passar chamadas para qualquer outro serviço de backend e não precisam de janelas para a interação do utilizador.
 
 ```csharp
 // net45

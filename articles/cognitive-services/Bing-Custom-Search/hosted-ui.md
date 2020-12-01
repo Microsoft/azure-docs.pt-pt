@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: d5caa9b4168307bb27022b59415e43b37f30bf67
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: ca3f9da681c60608b5b196b17191f0b4d549f305
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94367391"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338372"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurar a sua experiência de IU alojada
 
 > [!WARNING]
-> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource)documentado.
 > Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
-> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](/bing/search-apis/bing-web-search/create-bing-search-service-resource)
 
 Bing Custom Search fornece um UI hospedado que você pode facilmente integrar nas suas páginas web e aplicações web como um snippet de código JavaScript. Utilizando o portal Bing Custom Search, pode configurar as opções de layout, cor e pesquisa da UI.
 
@@ -105,7 +105,7 @@ Pode configurar o comportamento da UI hospedada clicando em **Configurações Ad
 - Resultados da Web por página: Número de resultados de pesquisa web a exibir de cada vez (o máximo é de 50 resultados por página).
 - Legenda da imagem: Determina se as imagens são exibidas com resultados de pesquisa.
 
-As seguintes configurações são mostradas se clicar **em Mostrar configurações avançadas** :
+As seguintes configurações são mostradas se clicar **em Mostrar configurações avançadas**:
 
 - Realce as palavras: Determina se os resultados são apresentados com termos de pesquisa em negrito.
 - Link target: Determine se a página web abre em um novo separador de navegador (Blank) ou no mesmo separador de navegador (self) quando o utilizador clica num resultado de pesquisa.

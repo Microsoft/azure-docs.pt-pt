@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: d1d62d36d5cc48edc198e5d7bfc49f7f31b89a2c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 4516bbddd3fda593021288a440e1b354d4d7f1e3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025621"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340242"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Como criar transcrições com rótulo humano
 
@@ -168,4 +168,4 @@ Aqui estão alguns exemplos de normalização realizadas automaticamente na tran
 - [Fiscalizar os seus dados](how-to-custom-speech-inspect-data.md)
 - [Avaliar os seus dados](how-to-custom-speech-evaluate-data.md)
 - [Preparar o seu modelo](how-to-custom-speech-train-model.md)
-- [Implemente o seu modelo](how-to-custom-speech-deploy-model.md)
+- [Implemente o seu modelo](./how-to-custom-speech-train-model.md)

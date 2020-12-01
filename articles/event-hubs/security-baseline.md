@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 007409d755da2d879297b4b898663dcbd9fd6d7f
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 9386b154148cf5b5b6b7cd0b43f5a4b4aa741059
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329632"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339698"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Linha de base de segurança Azure para centros de eventos
 
@@ -44,7 +44,7 @@ Ativar a integração de redes virtuais e firewalls no espaço de nomes de Centr
 
 Como configurar as regras de firewall IP para espaços de nomes Azure Event Hubs: https://docs.microsoft.com/azure/event-hubs/event-hubs-ip-filtering
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -56,7 +56,7 @@ Como ativar os registos de fluxo NSG: https://docs.microsoft.com/azure/network-w
 
 Compreender a Segurança da Rede fornecida pelo Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -64,7 +64,7 @@ Compreender a Segurança da Rede fornecida pelo Azure Security Center: https://d
 
 **Orientação**: Não aplicável; esta recomendação destina-se a aplicações web em execução no Azure App Service ou recursos de computação.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -72,11 +72,11 @@ Compreender a Segurança da Rede fornecida pelo Azure Security Center: https://d
 
 **Orientação**: Ative o DDoS Protection Standard nas redes virtuais associadas aos centros de eventos para se proteger contra ataques de negação de serviço distribuídos (DDoS). Use a Azure Security Center Integrated Threat Intelligence para negar comunicações com endereços IP de Internet maliciosos ou não utilizados.
 
-Como configurar a proteção DDoS: [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../virtual-network/manage-ddos-protection.md)
+Como configurar a proteção DDoS: [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../ddos-protection/manage-ddos-protection.md)
 
 Para mais informações sobre o Centro de Segurança Azure Integrado De Ameaças: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -92,7 +92,7 @@ Como Ativar e utilizar a Análise de Tráfego: https://docs.microsoft.com/azure/
 
 Como ativar o Observador de Rede: https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -116,7 +116,7 @@ Como adicionar uma regra de firewall nos Centros de Eventos para um endereço IP
 
 **Orientação**: Não aplicável; esta recomendação destina-se a aplicações web em execução no Azure App Service ou recursos de computação.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -124,7 +124,7 @@ Como adicionar uma regra de firewall nos Centros de Eventos para um endereço IP
 
 **Orientação**: Não aplicável, esta recomendação destina-se a aplicações web em execução no Azure App Service ou recursos de computação.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -146,7 +146,7 @@ Amostras da Política Azure para networking: https://docs.microsoft.com/azure/go
 
 Como criar uma Planta Azure: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -156,7 +156,7 @@ Como criar uma Planta Azure: https://docs.microsoft.com/azure/governance/bluepri
 
 Como criar e utilizar tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -168,7 +168,7 @@ Como visualizar e recuperar eventos de Registo de Atividades Azure: https://docs
 
 Como criar alertas no Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -180,7 +180,7 @@ Como criar alertas no Azure Monitor: https://docs.microsoft.com/azure/azure-moni
 
 **Orientação**: Não aplicável; A Microsoft mantém a fonte de tempo utilizada para os recursos Azure, como o Azure Event Hubs, para os timetamps nos registos.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -192,7 +192,7 @@ Como configurar definições de diagnóstico para centros de eventos Azure: http
 
 Compreensão do Registo de Atividades Azure: https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -206,7 +206,7 @@ Como ativar as definições de diagnóstico para centros de eventos Azure: https
 
 Como ativar as definições de diagnóstico para o registo de atividades Azure: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -214,7 +214,7 @@ Como ativar as definições de diagnóstico para o registo de atividades Azure: 
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -224,7 +224,7 @@ Como ativar as definições de diagnóstico para o registo de atividades Azure: 
 
 Como definir parâmetros de retenção de registos para espaços de trabalho do Log Analytics: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -239,7 +239,7 @@ Como realizar consultas personalizadas no Azure Monitor: https://docs.microsoft.
 
 Como embarcar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -265,7 +265,7 @@ Como embarcar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quicksta
 
 **Orientação**: Não aplicável; O Event Hub não processa a exploração anti-malware.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -273,7 +273,7 @@ Como embarcar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quicksta
 
 **Orientação**: Não aplicável; Os Centros de Eventos não processam nem produzem registos relacionados com DNS.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -281,7 +281,7 @@ Como embarcar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quicksta
 
 **Orientação**: Não aplicável; esta orientação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -297,7 +297,7 @@ Como obter um papel de diretório em Azure AD com PowerShell: https://docs.micro
 
 Como obter membros de um papel de diretório em Azure AD com PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -309,7 +309,7 @@ O acesso de um avião de dados aos Centros de Eventos é controlado através do 
 
 Compreender assinaturas de acesso partilhado para Centros de Eventos: https://docs.microsoft.com/azure/event-hubs/authenticate-shared-access-signature
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -329,7 +329,7 @@ Como utilizar o Centro de Segurança Azure para monitorizar a identidade e o ace
 
 Como utilizar a Política Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -341,7 +341,7 @@ Como autenticar uma aplicação com Azure AD para aceder aos recursos do Event H
 
 Compreensão de SSO com Azure AD: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -353,7 +353,7 @@ Como permitir o MFA em Azure: https://docs.microsoft.com/azure/active-directory/
 
 Como monitorizar a identidade e o acesso dentro do Centro de Segurança Azure: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -365,7 +365,7 @@ Saiba mais sobre estações de acesso privilegiadas: https://docs.microsoft.com/
 
 Como permitir o MFA em Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -379,7 +379,7 @@ Compreenda as deteções de risco da AD Azure: https://docs.microsoft.com/azure/
 
 Como configurar grupos de ação para alerta e notificação personalizados: https://docs.microsoft.com/azure/azure-monitor/platform/action-groups
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -391,7 +391,7 @@ Como configurar grupos de ação para alerta e notificação personalizados: htt
 
 Como configurar localizações nomeadas em Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -403,7 +403,7 @@ Como configurar localizações nomeadas em Azure: https://docs.microsoft.com/azu
 
 Para saber como o Azure Event Hubs se integra com o Azure Ative Directory (AAD), consulte acesso autorizado aos recursos do Event Hubs utilizando o Diretório Ativo Azure: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -419,7 +419,7 @@ Como utilizar comentários sobre o acesso à identidade do Azure: https://docs.m
 
 Compreender assinaturas de acesso partilhado para Centros de Eventos: https://docs.microsoft.com/azure/event-hubs/authenticate-shared-access-signature
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -433,7 +433,7 @@ Como integrar os Registos de Atividade do Azure no Monitor Azure: https://docs.m
 
 Autorizar o acesso aos recursos do Event Hubs utilizando o Azure Ative Directory: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -447,7 +447,7 @@ Como configurar e permitir políticas de risco de proteção de identidade: http
 
 Como embarcar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -457,7 +457,7 @@ Como embarcar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quicksta
 
 Lista de serviços suportados pelo Cliente Lockbox: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Atualmente não disponível
 
@@ -471,7 +471,7 @@ Lista de serviços suportados pelo Cliente Lockbox: https://docs.microsoft.com/a
 
 Como criar e utilizar Tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -491,7 +491,7 @@ Como criar e utilizar tags: https://docs.microsoft.com/azure/azure-resource-mana
 
 Como criar uma Rede Virtual: https://docs.microsoft.com/azure/virtual-network/quick-create-portal
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -511,7 +511,7 @@ Compreender grupos de segurança de rede e tags de serviço: https://docs.micros
 
 Compreender a proteção de dados do cliente em Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -521,7 +521,7 @@ Compreender a proteção de dados do cliente em Azure: https://docs.microsoft.co
 
 Para compreender as funcionalidades de segurança dos Centros de Eventos, consulte a segurança da rede:  https://docs.microsoft.com/azure/event-hubs/network-security
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -533,9 +533,9 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 Compreender a proteção de dados do cliente em Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
@@ -543,7 +543,7 @@ Compreender a proteção de dados do cliente em Azure: https://docs.microsoft.co
 
 Compreenda o Azure RBAC e as funções disponíveis para os Azure Event Hubs: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -555,7 +555,7 @@ A Microsoft gere a infraestrutura subjacente aos Centros de Eventos e implemento
 
 Compreender a proteção de dados do cliente em Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -565,7 +565,7 @@ Compreender a proteção de dados do cliente em Azure: https://docs.microsoft.co
 
 Como configurar chaves geridas pelo cliente para encriptar os Hubs de Eventos Azure: https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -575,7 +575,7 @@ Como configurar chaves geridas pelo cliente para encriptar os Hubs de Eventos Az
 
 Como criar alertas para eventos de Registo de Atividades Azure: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -587,7 +587,7 @@ Como criar alertas para eventos de Registo de Atividades Azure: https://docs.mic
 
 **Orientação**: Não aplicável; A Microsoft realiza uma gestão de vulnerabilidades nos sistemas subjacentes que suportam os Centros de Eventos.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -595,7 +595,7 @@ Como criar alertas para eventos de Registo de Atividades Azure: https://docs.mic
 
 **Orientação**: Não aplicável; A Microsoft realiza a gestão de patchs nos sistemas subjacentes que suportam os Centros de Eventos.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -603,7 +603,7 @@ Como criar alertas para eventos de Registo de Atividades Azure: https://docs.mic
 
 **Orientação**: Não aplicável; referência destina-se a recursos de computação.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -611,7 +611,7 @@ Como criar alertas para eventos de Registo de Atividades Azure: https://docs.mic
 
 **Orientação**: Não aplicável; A Microsoft realiza uma gestão de vulnerabilidades nos sistemas subjacentes que suportam os Centros de Eventos.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -619,7 +619,7 @@ Como criar alertas para eventos de Registo de Atividades Azure: https://docs.mic
 
 **Orientação**: Não aplicável; A Microsoft realiza uma gestão de vulnerabilidades nos sistemas subjacentes que suportam os Centros de Eventos.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -637,7 +637,7 @@ Como ver as suas Subscrições Azure: https://docs.microsoft.com/powershell/modu
 
 Compreenda Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -647,7 +647,7 @@ Compreenda Azure RBAC: https://docs.microsoft.com/azure/role-based-access-contro
 
 Como criar e utilizar tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -661,7 +661,7 @@ Como criar Grupos de Gestão: https://docs.microsoft.com/azure/governance/manage
 
 Como criar e utilizar Tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -669,7 +669,7 @@ Como criar e utilizar Tags: https://docs.microsoft.com/azure/azure-resource-mana
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional e a Azure como um todo.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -687,7 +687,7 @@ Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/g
 
 Como criar consultas com O Gráfico Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -695,7 +695,7 @@ Como criar consultas com O Gráfico Azure: https://docs.microsoft.com/azure/gove
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -703,7 +703,7 @@ Como criar consultas com O Gráfico Azure: https://docs.microsoft.com/azure/gove
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional e a Azure como um todo.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -711,7 +711,7 @@ Como criar consultas com O Gráfico Azure: https://docs.microsoft.com/azure/gove
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -727,7 +727,7 @@ Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/g
 
 Como negar um tipo específico de recurso com a Política Azure: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -735,7 +735,7 @@ Como negar um tipo específico de recurso com a Política Azure: https://docs.mi
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -745,7 +745,7 @@ Como negar um tipo específico de recurso com a Política Azure: https://docs.mi
 
 Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recursos Azure: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -753,7 +753,7 @@ Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recurso
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -761,7 +761,7 @@ Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recurso
 
 **Orientação**: Não aplicável; esta recomendação destina-se a aplicações web em execução no Azure App Service ou recursos de computação.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -783,7 +783,7 @@ Como visualizar pseudónimos disponíveis da Política Azure: https://docs.micro
 
 Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -791,7 +791,7 @@ Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/g
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -804,7 +804,7 @@ Como configurar e gerir a Política de Azure:  https://docs.microsoft.com/azure/
  
 Para mais informações sobre os Efeitos políticos do Azure:  https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -812,7 +812,7 @@ Para mais informações sobre os Efeitos políticos do Azure:  https://docs.micr
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -824,7 +824,7 @@ Como armazenar código em Azure DevOps: https://docs.microsoft.com/azure/devops/
 
 Documentação Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -832,7 +832,7 @@ Documentação Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -842,7 +842,7 @@ Documentação Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?
 
 Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -850,7 +850,7 @@ Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/g
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -860,7 +860,7 @@ Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/g
 
 Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -868,7 +868,7 @@ Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/g
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -888,7 +888,7 @@ Como autenticar o Cofre de Chaves: https://docs.microsoft.com/azure/key-vault/ge
 
 Como atribuir uma política de acesso ao Cofre chave: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -906,17 +906,17 @@ Como configurar identidades geridas: https://docs.microsoft.com/azure/active-dir
 
 Como integrar-se com identidades geridas aZure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminar a exposição credencial não intencional
 
-**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault.
+**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner de Credenciais também vai incentivar a movimentação das credenciais descobertas para localizações mais seguras, por exemplo, o Azure Key Vault.
 
 Como configurar o Scanner Credencial: https://secdevtools.azurewebsites.net/helpcredscan.html
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -930,7 +930,7 @@ Como configurar o Scanner Credencial: https://secdevtools.azurewebsites.net/help
 
 O anti-malware da Microsoft é ativado no anfitrião subjacente que suporta os serviços Azure (por exemplo, Azure App Service), no entanto não funciona com conteúdo do cliente.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -940,7 +940,7 @@ O anti-malware da Microsoft é ativado no anfitrião subjacente que suporta os s
 
 O anti-malware da Microsoft é ativado no anfitrião subjacente que suporta os serviços Azure (por exemplo, Azure Cache para Redis), no entanto não funciona com conteúdo do cliente.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -948,7 +948,7 @@ O anti-malware da Microsoft é ativado no anfitrião subjacente que suporta os s
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -962,7 +962,7 @@ O anti-malware da Microsoft é ativado no anfitrião subjacente que suporta os s
 
 Compreenda a recuperação de geo-desastres para os Hubs de Eventos Azure: https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#availability-zones
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -976,7 +976,7 @@ Como configurar chaves geridas pelo cliente para encriptar os dados do Azure Eve
 
 Como apoiar os Segredos do Cofre chave: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -988,7 +988,7 @@ Como apoiar os Segredos do Cofre chave: https://docs.microsoft.com/powershell/mo
 
 Como restaurar as chaves do cofre chave em Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1004,7 +1004,7 @@ Crie um cofre com chaves: https://docs.microsoft.com/azure/event-hubs/configure-
 
 Excluir suavemente para bolhas de armazenamento Azure: https://docs.microsoft.com//azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -1020,7 +1020,7 @@ Como configurar automatizações de fluxo de trabalho dentro do Centro de Segura
 
 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1028,17 +1028,17 @@ Como configurar automatizações de fluxo de trabalho dentro do Centro de Segura
 
 **Orientação**: O Centro de Segurança atribui uma gravidade aos alertas, para o ajudar a priorizar a ordem em que atende a cada alerta, para que quando um recurso estiver comprometido, possa chegar imediatamente ao mesmo. A gravidade baseia-se na confiança que o Centro de Segurança está na descoberta ou no analítico utilizado para emitir o alerta, bem como no nível de confiança de que havia intenção maliciosa por trás da atividade que levou ao alerta.
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Procedimentos de resposta à segurança do teste
 
-**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular. Identifique pontos fracos e lacunas e reveja o plano conforme necessário.
+**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular. Identifique pontos fracos e lacunas e reavalie o plano, conforme necessário.
 
 Consulte a publicação do NIST: Guide to Test, Training e Exercise Programs for IT Plans and Capabilities: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1048,7 +1048,7 @@ Consulte a publicação do NIST: Guide to Test, Training e Exercise Programs for
 
 Como definir o Contacto de Segurança do Centro de Segurança Azure: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -1060,7 +1060,7 @@ Como configurar a exportação contínua: https://docs.microsoft.com/azure/secur
 
 Como transmitir alertas para Azure Sentinel: https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1070,7 +1070,7 @@ Como transmitir alertas para Azure Sentinel: https://docs.microsoft.com/azure/se
 
 Como configurar a automatização do fluxo de trabalho e as aplicações lógicas: https://docs.microsoft.com/azure/security-center/workflow-automation
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1083,7 +1083,7 @@ Como configurar a automatização do fluxo de trabalho e as aplicações lógica
 **Orientação**: Siga as Regras de Engajamento da Microsoft para garantir que os seus Testes de Penetração não violam as políticas da Microsoft: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1 .
 Pode encontrar mais informações sobre a estratégia e execução da Red Teaming e testes de penetração em sites ao vivo contra infraestruturas, serviços e aplicações geridos pela Microsoft na nuvem, aqui: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 

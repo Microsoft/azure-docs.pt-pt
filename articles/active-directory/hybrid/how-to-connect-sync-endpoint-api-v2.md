@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 779b29c8d31dffa495926a7f2ca5e1f77870078c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4b9b73e30094ed7d07e19f4b93f2fe8ab8f6af3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319916"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339426"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Azure AD Connect Sync V2 endpoint API (pré-visualização pública) 
 A Microsoft implementou um novo ponto final (API) para o Azure AD Connect que melhora o desempenho das operações de serviço de sincronização para o Azure Ative Directory. Utilizando o novo ponto final V2, irá experimentar ganhos de desempenho notáveis na exportação e importação para a Azure AD. Este novo ponto final suporta o seguinte:
@@ -141,7 +141,7 @@ Podem ser utilizados os seguintes passos para aumentar o limite de adesão:
 > Se o Azure AD Connect Health não estiver ativado, altere as definições de registo de eventos de aplicação do Windows para arquivar os registos, em vez de os sobrepor. Os registos podem ser utilizados para ajudar em futuros esforços de resolução de problemas. 
 
 >[!NOTE]
-> Depois de ativar o novo ponto final, poderá ver erros de exportação adicionais no conector AAD com o nome "dn-atributos-falha". Haverá uma entrada de registo de evento correspondente para cada erro com o id 6949, . Os erros são informativos e não indicam um problema com a sua instalação, mas sim que o processo de sincronização não poderia adicionar certos membros a um grupo em Azure AD porque o próprio objeto membro não estava sincronizado com a Azure AD. 
+> Depois de ativar o novo ponto final, poderá ver erros de exportação adicionais no conector AAD com o nome "dn-atributos-falha". Haverá uma entrada de registo de evento correspondente para cada erro com o id 6949. Os erros são informativos e não indicam um problema com a sua instalação, mas sim que o processo de sincronização não poderia adicionar certos membros a um grupo em Azure AD porque o próprio objeto membro não estava sincronizado com a Azure AD. 
 
 O novo código de ponta V2 trata alguns tipos de erros de exportação ligeiramente diferentes do que o código V1 fez.  Pode ver mais mensagens de erro informativas quando utilizar o ponto de terminação V2. 
 
@@ -155,7 +155,7 @@ Durante os aumentos subsequentes ao limite de membro do grupo na regra **out to 
 >[!NOTE]
 > Se tiver o Microsoft 365 grupos unificados que tenham mais de 50 mil membros, os grupos serão lidos no Azure AD Connect, e se a gravação do grupo estiver ativada, serão escritas para o seu AD no local. 
 
-## <a name="rollback"></a>Recuo 
+## <a name="rollback"></a>Reversão 
 Se tiver ativado o ponto final v2 e precisar de ser revoado, siga estes passos: 
 
 1. No servidor Azure AD Connect: a. [Opcional] Faça backup de base de dados 

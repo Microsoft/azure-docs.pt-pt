@@ -12,19 +12,19 @@ ms.topic: quickstart
 ms.date: 02/27/2020
 ms.author: aahi
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: a85a953cfa16ebe1103540b77d6e076e0bd721c0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d87d582a60c55104785958bb9cc3a7ca3c714a4b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075777"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338321"
 ---
 # <a name="quickstart-use-the-bing-custom-search-client-library"></a>Quickstart: Use a biblioteca de clientes Bing Custom Search
 
 > [!WARNING]
-> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource)documentado.
 > Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
-> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](/bing/search-apis/bing-web-search/create-bing-search-service-resource)
 
 ::: zone pivot="programming-language-csharp"
 
