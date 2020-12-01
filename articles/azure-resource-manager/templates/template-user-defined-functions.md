@@ -1,20 +1,20 @@
 ---
 title: Funções definidas pelo utilizador em modelos
-description: Descreve como definir e usar funções definidas pelo utilizador num modelo de Gestor de Recursos Azure.
+description: Descreve como definir e utilizar funções definidas pelo utilizador num modelo de Gestor de Recursos Azure (modelo ARM).
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 69f4e98d389cc8dbe5cd3f4b628189676c501106
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0d62abb5362d51a77db872c11416b04dcfb3f97
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84672940"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353481"
 ---
-# <a name="user-defined-functions-in-azure-resource-manager-template"></a>Funções definidas pelo utilizador no modelo do Gestor de Recursos Azure
+# <a name="user-defined-functions-in-arm-template"></a>Funções definidas pelo utilizador no modelo ARM
 
 Dentro do seu modelo, pode criar as suas próprias funções. Estas funções estão disponíveis para utilização no seu modelo. As funções definidas pelo utilizador são separadas das [funções padrão](template-functions.md) do modelo que estão automaticamente disponíveis dentro do seu modelo. Crie as suas próprias funções quando tiver expressões complicadas que são usadas repetidamente no seu modelo.
 
-Este artigo descreve como adicionar funções definidas pelo utilizador no seu modelo de Gestor de Recursos Azure.
+Este artigo descreve como adicionar funções definidas pelo utilizador no seu modelo de Gestor de Recursos Azure (modelo ARM).
 
 ## <a name="define-the-function"></a>Definir a função
 

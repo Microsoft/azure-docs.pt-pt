@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 8e9739b705848edd721c9ebe0d36c25dd5b8d80c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 39b3104f9d6cbc004383bf2c50d07c4dd345fa3c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517791"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353607"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Tutorial: Integração do Diretório Ativo Azure com o UserVoice
 
@@ -130,7 +130,7 @@ Para configurar o Azure AD com o UserVoice, execute os seguintes passos:
 
 1. Numa janela diferente do navegador web, inscreva-se no site da empresa UserVoice como administrador.
 
-2. Na barra de ferramentas na parte superior, clique em **Definições**e, em seguida, selecione o **portal Web** a partir do menu.
+2. Na barra de ferramentas na parte superior, clique em **Definições** e, em seguida, selecione o **portal Web** a partir do menu.
    
     ![Secção de definições no lado da aplicação](./media/uservoice-tutorial/ic777519.png "Definições")
 
@@ -148,7 +148,7 @@ Para configurar o Azure AD com o UserVoice, execute os seguintes passos:
 
     c. Cole o valor **URL logout,** que copiou do portal Azure para a **caixa de texto SSO Remote Sign-Out**.
  
-    d. Cole o valor **de impressão digital thumbprint** , que copiou do portal Azure para a caixa **de texto de impressão digital Sha1 do certificado atual.**
+    d. Cole o valor **de impressão digital thumbprint,** que copiou do portal Azure para a caixa **de texto de impressão digital SHA1 do certificado atual.**
     
     e. Clique **em Guardar as definições de autenticação**.
 
@@ -180,7 +180,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, permite à Britta Simon utilizar o Azure single sign-on, concedendo acesso ao UserVoice.
 
-1. No portal Azure, selecione **Aplicações Empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **UserVoice**.
+1. No portal Azure, selecione **Aplicações Empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **UserVoice**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

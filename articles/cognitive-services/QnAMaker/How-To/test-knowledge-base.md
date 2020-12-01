@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 21984a03947e4f9f60e705955cb1be3b2df8933c
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 273548ec095ce04772438a2d732b914d80d976cc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376196"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353158"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Teste a sua base de conhecimentos no QnA Maker
 
@@ -151,7 +151,7 @@ Utilize a ferramenta de teste do lote quando quiser:
     * Língua - a língua inglesa
 1. Insira o nome `Multi-turn batch test quickstart` como o nome da sua base de conhecimento.
 
-1. No **passo 4** , configurar as definições com a seguinte tabela:
+1. No **passo 4**, configurar as definições com a seguinte tabela:
 
     |Definição|Valor|
     |--|--|
@@ -306,7 +306,7 @@ Você deve ser capaz de ver com estes resultados que você pode pegar um log de 
 
 Filtrar com meta-dados foi uma boa ideia para o teste? Sim e não. O sistema de teste deve criar ficheiros de teste para cada par de meta-dados, bem como um teste sem pares de meta-dados.
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar a testar a base de conhecimentos, elimine a ferramenta de ficheiro de lote e os ficheiros de teste.
 
@@ -323,4 +323,4 @@ Se não continuar a utilizar esta base de conhecimento, elimine a base de conhec
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Publicar uma base de dados de conhecimento](./publish-knowledge-base.md)
+> [Publicar uma base de dados de conhecimento](../quickstarts/create-publish-knowledge-base.md)

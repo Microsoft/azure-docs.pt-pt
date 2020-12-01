@@ -10,26 +10,26 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 90b6619a5a0c3d59b09eeb5a5002d15cf0c21e19
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6141bd67681df757536792981d47756a20ed33db
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095905"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353328"
 ---
 # <a name="share-your-custom-search-instance"></a>Partilhe a sua instância de Pesquisa Personalizada
 
 > [!WARNING]
-> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource)documentado.
 > Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
-> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](/bing/search-apis/bing-web-search/create-bing-search-service-resource)
 
 Pode permitir facilmente edição e teste de colaboração da sua instância, partilhando-a com membros da sua equipa. Pode partilhar o seu caso com qualquer pessoa que utilize apenas o seu endereço de e-mail. Para partilhar um caso:
 
 - Iniciar s.000 para [pesquisa personalizada](https://customsearch.ai)
 - Selecione uma instância de pesquisa personalizada
 - Clique no ícone de definições (aparece como uma engrenagem). 
-- Em **Partilhar o seu exemplo,** insira o endereço de e-mail da pessoa para partilhar o seu caso e clique em **Partilhar** . 
+- Em **Partilhar o seu exemplo,** insira o endereço de e-mail da pessoa para partilhar o seu caso e clique em **Partilhar**. 
 
 Depois de adicionar o endereço de e-mail, é adicionado à **Instância partilhada com** a lista. Repita o processo para cada pessoa com quem pretende partilhar o seu exemplo. 
 

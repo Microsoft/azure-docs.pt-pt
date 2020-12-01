@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 57e878f11f5857f4c5b629a8069f64de259e8e7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26fc976983fc08857e7771d58f15d0abcd9a1d3c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777797"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353226"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utilizar pedidos de seguimento para criar vários turnos numa conversa
 
@@ -46,7 +46,7 @@ Depois de publicar o seu KB, pode selecionar o botão **Criar Bot** para implant
 
 ## <a name="create-a-multi-turn-conversation-from-a-documents-structure"></a>Criar uma conversa multi-volta a partir da estrutura de um documento
 
-Quando cria uma base de conhecimento, a secção **Populate a sua** secção KB apresenta uma **ativação de extração de várias voltas a partir de URLs, .pdf ou .docx.**
+Quando cria uma base de conhecimento, a secção **'Povoar' do KB** apresenta uma **extração de várias voltas ativada a partir de URLs, .pdf ou .docx** caixa de verificação de ficheiros.
 
 ![Caixa de verificação para permitir a extração em várias voltas](../media/conversational-context/enable-multi-turn.png)
 
@@ -72,7 +72,7 @@ Se estiver a criar um documento multi-turn, tenha em mente as seguintes diretriz
 
 Ao adicionar um documento hierárquico, o QnA Maker determina as indicações de seguimento da estrutura para criar fluxo de conversação.
 
-1. No QnA Maker, selecione uma base de conhecimento existente que foi criada com **enable multi-turn extração a partir de urls, ficheiros .pdf ou .docx.** habilidoso.
+1. No QnA Maker, selecione uma base de conhecimento existente que foi criada com **enable multi-turn extração a partir de URLs, .pdf ou .docx ficheiros.** habilidoso.
 1. Aceda à página **Definições,** selecione o ficheiro ou URL para adicionar.
 1. **Poupe e treine** a base de conhecimento.
 
@@ -82,19 +82,19 @@ Ao adicionar um documento hierárquico, o QnA Maker determina as indicações de
 
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Criar base de conhecimento com solicitações de várias voltas com a API Criar
 
-Pode criar um caso de conhecimento com solicitações de várias voltas utilizando a [API do Criador de QnA.](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create) As indicações estão adicionando na `context` matriz da `prompts` propriedade.
+Pode criar um caso de conhecimento com solicitações de várias voltas utilizando a [API do Criador de QnA.](/rest/api/cognitiveservices/qnamaker/knowledgebase/create) As indicações estão adicionando na `context` matriz da `prompts` propriedade.
 
 ## <a name="show-questions-and-answers-with-context"></a>Mostrar perguntas e respostas com contexto
 
 Reduza os pares de perguntas e respostas exibidos apenas para aqueles com conversas contextuais.
 
-Selecione **Ver as opções**e, em seguida, selecione **Mostrar o contexto**. A lista apresenta pares de perguntas e respostas que contêm pedidos de seguimento.
+Selecione **Ver as opções** e, em seguida, selecione **Mostrar o contexto**. A lista apresenta pares de perguntas e respostas que contêm pedidos de seguimento.
 
 ![Filtrar pares de perguntas e respostas por conversas contextuais](../media/conversational-context/filter-question-and-answers-by-context.png)
 
 O contexto multi-volta é apresentado na primeira coluna.
 
-:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="A screenshot mostra um exemplo da estrutura num manual do utilizador." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="A screenshot mostra a secção de Contexto realçada." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 Na imagem anterior, **#1** indica texto arrojado na coluna, o que significa a questão atual. A questão dos pais é o item mais alto da fila. Quaisquer perguntas abaixo estão os pares de perguntas e respostas ligados. Estes itens são selecionáveis, para que possa ir imediatamente para os outros itens de contexto.
 
@@ -151,17 +151,17 @@ Quando se adiciona um novo par de perguntas e respostas à base de conhecimento,
     |--|--|
     |Texto a apresentar|*Criar uma conta windows*. O texto personalizado para visualizar na mensagem de seguimento.|
     |Apenas contexto|Selecione esta caixa de verificação. Esta resposta só é devolvida se a pergunta especificar o contexto.|
-    |Link para responder|Introduza o seguinte texto como resposta:<br>* [Criar](https://account.microsoft.com/) uma conta Windows com uma conta de e-mail nova ou existente.*<br>Quando guardar e treinar a base de dados, este texto será convertido. |
+    |Link para responder|Introduza o seguinte texto como resposta:<br>*[Criar](https://account.microsoft.com/) uma conta Windows com uma conta de e-mail nova ou existente.*<br>Quando guardar e treinar a base de dados, este texto será convertido. |
     |||
 
     ![Criar uma nova pergunta rápida e responder](../media/conversational-context/create-child-prompt-from-parent.png)
 
 
-1. **Selecione Criar novo**e, em seguida, selecione **Guardar**.
+1. **Selecione Criar novo** e, em seguida, selecione **Guardar**.
 
     Esta ação cria um novo par de perguntas e respostas e liga a pergunta selecionada como um pedido de seguimento. A coluna **Contexto,** para ambas as perguntas, indica uma relação rápida de seguimento.
 
-1. Selecione **Ver as opções**e, em seguida, selecione [**Mostrar o contexto (PREVIEW)**](#show-questions-and-answers-with-context).
+1. Selecione **Ver as opções** e, em seguida, selecione [**Mostrar o contexto (PREVIEW)**](#show-questions-and-answers-with-context).
 
     A nova pergunta mostra como está ligada.
 
@@ -169,7 +169,7 @@ Quando se adiciona um novo par de perguntas e respostas à base de conhecimento,
 
     A questão dos pais mostra uma nova questão como uma das suas escolhas.
 
-    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="A screenshot mostra um exemplo da estrutura num manual do utilizador." lightbox="../media/conversational-context/child-prompt-created.png":::
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="A screenshot mostra a coluna Contexto, para ambas as perguntas, indica uma relação rápida de seguimento." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. Depois de adicionar o pedido de seguimento, **selecione Save e treine** na barra de navegação superior.
 
@@ -357,11 +357,11 @@ Se estiver a construir uma aplicação personalizada utilizando uma função mul
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>A ordem de exibição é suportada na API de atualização
 
-O [texto de exibição e a ordem de exibição](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), devolvidos na resposta JSON, são suportados para edição pela [API de atualização](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).
+O [texto de exibição e a ordem de exibição](/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), devolvidos na resposta JSON, são suportados para edição pela [API de atualização](/rest/api/cognitiveservices/qnamaker/knowledgebase/update).
 
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Adicione ou elimine as solicitações de várias voltas com a API de atualização
 
-Pode adicionar ou eliminar pedidos de várias voltas utilizando a [API de Atualização do Criador de QnA](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  As indicações estão adicionando na `context` matriz da propriedade e na `promptsToAdd` `promptsToDelete` matriz.
+Pode adicionar ou eliminar pedidos de várias voltas utilizando a [API de Atualização do Criador de QnA](/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  As indicações estão adicionando na `context` matriz da propriedade e na `promptsToAdd` `promptsToDelete` matriz.
 
 ## <a name="export-knowledge-base-for-version-control"></a>Base de conhecimento de exportação para controlo de versão
 
@@ -369,7 +369,7 @@ O QnA Maker suporta o controlo da versão, incluindo passos de conversação em 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre conversas contextuais a partir desta amostra de [diálogo](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) ou saiba mais sobre [design conceptual de bot para conversas multi-voltas.](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0)
+Saiba mais sobre conversas contextuais a partir desta amostra de [diálogo](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) ou saiba mais sobre [design conceptual de bot para conversas multi-voltas.](/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0)
 
 > [!div class="nextstepaction"]
 > [Migrar para uma base de dados de conhecimento](../Tutorials/migrate-knowledge-base.md)

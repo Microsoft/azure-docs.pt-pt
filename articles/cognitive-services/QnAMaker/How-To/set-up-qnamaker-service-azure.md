@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 5185e7d0bd60eec239f1233db7f9789cbefc2c10
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 83917214705546b21553e997ccab11a7511f77fd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006171"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353311"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerir os recursos do Fabricante QnA
 
@@ -81,7 +81,7 @@ Para atualizar a gestão da QnA Maker SKU:
 
  Quando a sua base de conhecimentos precisar de servir mais pedidos a partir da sua aplicação de cliente, atualize o seu nível de preços do Serviço de Aplicações.
 
-Pode [escalar](https://docs.microsoft.com/azure/app-service/manage-scale-up) ou escalar o Serviço de Aplicações.
+Pode [escalar](../../../app-service/manage-scale-up.md) ou escalar o Serviço de Aplicações.
 
 Aceda ao recurso Serviço de Aplicações no portal Azure e selecione a opção **Scale up** ou **Scale out** conforme necessário.
 
@@ -154,13 +154,13 @@ O principal objetivo do plano de continuidade do negócio é criar um ponto fina
 
 A ideia de alto nível, tal como acima representada, é a seguinte:
 
-1. Crie dois [serviços paralelos da QnA Maker](set-up-qnamaker-service-azure.md) em [regiões emparelhadas Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+1. Crie dois [serviços paralelos da QnA Maker](set-up-qnamaker-service-azure.md) em [regiões emparelhadas Azure](../../../best-practices-availability-paired-regions.md).
 
 1. [Faça uma cópia de segurança](../../../app-service/manage-backup.md) do seu serviço de aplicações QnA Maker e [restaure-o](../../../app-service/web-sites-restore.md) na configuração secundária. Isto garantirá que ambas as configurações funcionam com o mesmo nome de hospedeiro e teclas.
 
 1. Mantenha os índices de pesquisa Azure primários e secundários em sincronização. Use a amostra do GitHub [aqui](https://github.com/pchoudhari/QnAMakerBackupRestore) para ver como restaurar os índices Azure de backup.
 
-1. Apoie os Insights de Aplicação utilizando [uma exportação contínua.](../../../application-insights/app-insights-export-telemetry.md)
+1. Apoie os Insights de Aplicação utilizando [uma exportação contínua.](../../../azure-monitor/app/export-telemetry.md)
 
 1. Uma vez configuradas as pilhas primárias e secundárias, utilize o [gestor de tráfego](../../../traffic-manager/traffic-manager-overview.md) para configurar os dois pontos finais e configure um método de encaminhamento.
 
@@ -386,4 +386,4 @@ Se eliminar algum dos recursos Azure utilizados para as suas bases de conhecimen
 Saiba mais sobre o [serviço app](../../../app-service/index.yml) e serviço [de pesquisa.](../../../search/index.yml)
 
 > [!div class="nextstepaction"]
-> [Saiba como autor com os outros](../how-to/collaborate-knowledge-base.md)
+> [Saiba como autor com os outros](../index.yml)

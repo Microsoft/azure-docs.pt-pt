@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 17dff6056564b421f0741f55ce8171f3251c94c9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c79846b0a5b675c34e4e7919e9ecd9d591bfefe5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027062"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356363"
 ---
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Chaves geridas pelo cliente com o Azure Key Vault
 
@@ -38,8 +38,8 @@ A utilização de chaves geridas pelo cliente requer que sejam definidas duas pr
 
 Para saber como ativar estas propriedades num cofre de chaves existente, consulte as secções intituladas **Permitir a eliminação suave** e permitir a **proteção contra purgas** num dos seguintes artigos:
 
-- [Como utilizar o soft-delete com PowerShell](../../key-vault/general/soft-delete-powershell.md).
-- [Como utilizar o soft-delete com CLI](../../key-vault/general/soft-delete-cli.md).
+- [Como utilizar o soft-delete com PowerShell](../../key-vault/general/key-vault-recovery.md).
+- [Como utilizar o soft-delete com CLI](../../key-vault/general/key-vault-recovery.md).
 
 Apenas as teclas RSA do tamanho 2048 são suportadas com encriptação de Armazenamento Azure. Para obter mais informações sobre as chaves, consulte **as chaves do Cofre chave** em chaves [Azure Key Vault, segredos e certificados](../../key-vault/general/about-keys-secrets-certificates.md).
 

@@ -1,26 +1,26 @@
 ---
-title: ficheiro de inclusão
+title: incluir ficheiro
 titleSuffix: Azure
-description: ficheiro de inclusão
+description: incluir ficheiro
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 3894bf046ed4ee3f068e43dbc5bc5b7f2a1002b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3212acd5015edbb639b8904b885c718d654e5b4
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81681037"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356266"
 ---
 Esta secção descreve como executar as seguintes operações de modificação para o espreguio direto.
 
 ### <a name="add-direct-peering-connections"></a>Adicionar ligações de observação direta
 1. Selecione o botão **+ Adicionar ligações** e configuure uma nova ligação de espreitar.
     > [!div class="mx-imgBorder"]
-    > ![Vista de recursos de peering](../media/setup-direct-modify-addconnection.png)
+    > ![A página AshburnPeering - Connections lista as ligações. Destaca-se o botão + Adicionar ligações.](../media/setup-direct-modify-addconnection.png)
 
 1. Preencha o **formulário de Ligação de Pares Direto** e selecione **Guardar**. Para ajudar a configurar uma ligação de espreitamento, reveja os passos na secção "Criar e providenciar um olhar direto".
     > [!div class="mx-imgBorder"]

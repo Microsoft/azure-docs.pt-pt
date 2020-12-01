@@ -4,21 +4,21 @@ description: Saiba como ligar-se a um servidor Azure Analysis Services utilizand
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 11/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4658a4c05aac7932d8a99c3511f21024f19fbe47
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c91cfe24aa7a5dd224fd1aed31b6b0dee44e687f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013734"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352818"
 ---
 # <a name="connect-with-excel"></a>Ligar com o Excel
 
 Uma vez criado um servidor e implantado um modelo tabular, os clientes podem conectar-se e começar a explorar dados. 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 A conta com que insinou deve pertencer a uma função de base de dados modelo com, pelo menos, permissões de leitura. Para saber mais, veja [Authentication and user permissions](analysis-services-manage-users.md) (Permissões de autenticação e utilizador). 
 
@@ -26,7 +26,7 @@ A conta com que insinou deve pertencer a uma função de base de dados modelo co
 
 A ligação a um servidor no Excel é suportada utilizando o Get Data no Excel 2016 e mais tarde. A ligação utilizando o Assistente de Tabela de Importação no Pivô de Potência não é suportada. 
 
-1. No Excel, na fita **de dados,** clique em **Obter Dados Externos**  >  **de Outras Fontes**dos  >  **Serviços de Análise**.
+1. No Excel, na fita **de dados,** clique em **Obter Dados** da Base de  >  **Dados dos**  >  **Serviços de Análise.**
 
 2. No Assistente de Ligação de Dados, em **nome do Servidor,** insira o nome do servidor, incluindo o protocolo e o URI. Por exemplo, asazure://westcentralus.asazure.windows.net/advworks. Em seguida, nas **credenciais de Logon**, selecione **Use o nome de utilizador e palavra-passe seguintes**, e, em seguida, digite o nome de utilizador organizacional, por exemplo , e a nancy@adventureworks.com palavra-passe.
 

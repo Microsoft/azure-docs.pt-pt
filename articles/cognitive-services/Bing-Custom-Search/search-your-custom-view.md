@@ -10,26 +10,26 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: a27f252f401d0fcf863391a0d45538b01b1141e9
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 07b0dd68e39f555171e5606b71cd1eec92a4035c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94367289"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353345"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Ligue para o seu caso de Pesquisa Personalizada Bing a partir do Portal
 
 > [!WARNING]
-> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource)documentado.
 > Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
-> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](/bing/search-apis/bing-web-search/create-bing-search-service-resource)
 
 Depois de configurar a sua experiência de pesquisa personalizada, pode testá-la dentro do [portal](https://customsearch.ai)Bing Custom Search . 
 
 ![uma imagem do portal de pesquisa personalizado Bing](media/portal-search-screen.png)
 ## <a name="create-a-search-query"></a>Criar uma consulta de pesquisa 
 
-Depois de ter assinado no [portal](https://customsearch.ai)Bing Custom Search, selecione o seu caso de pesquisa e clique no separador **'Produção'.** Em **Endpoints** , selecione um ponto final da API (por exemplo, Web API). A sua subscrição determina quais os pontos finais apresentados.
+Depois de ter assinado no [portal](https://customsearch.ai)Bing Custom Search, selecione o seu caso de pesquisa e clique no separador **'Produção'.** Em **Endpoints**, selecione um ponto final da API (por exemplo, Web API). A sua subscrição determina quais os pontos finais apresentados.
 
 Para criar uma consulta de pesquisa, introduza os valores de parâmetro para o seu ponto final. Note que os parâmetros apresentados no portal podem ser alterados dependendo do ponto final que escolher. Consulte a [referência API de Pesquisa Personalizada](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) para obter mais informações. Para alterar a subscrição que a sua instância de pesquisa utiliza, adicione a chave de subscrição adequada e atualize os parâmetros de mercado e/ou idioma apropriados.
 

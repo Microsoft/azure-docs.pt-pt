@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: c3c42146ba93115e257924c23dc34785c8258533
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 165fb2937db5edfa4f51f62033afaf87cfff83ef
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340456"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353107"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Constrangimentos fundamentais únicos no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,7 +45,7 @@ Só pode definir chaves únicas quando criar um recipiente Azure Cosmos. Uma cha
 
 * Não é possível atualizar um recipiente existente para utilizar uma chave única diferente. Por outras palavras, depois de um recipiente ser criado com uma política chave única, a política não pode ser alterada.
 
-* Para definir uma chave única para um recipiente existente, crie um novo recipiente com o constrangimento chave único. Utilize a ferramenta de migração de dados adequada para mover os dados do recipiente existente para o novo recipiente. Para recipientes SQL, utilize a [ferramenta de migração de dados](import-data.md) para mover dados. Para os recipientes MongoDB, utilize [mongoimport.exe ou mongorestore.exe](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) para mover dados.
+* Para definir uma chave única para um recipiente existente, crie um novo recipiente com o constrangimento chave único. Utilize a ferramenta de migração de dados adequada para mover os dados do recipiente existente para o novo recipiente. Para recipientes SQL, utilize a [ferramenta de migração de dados](import-data.md) para mover dados. Para os recipientes MongoDB, utilize [mongoimport.exe ou mongorestore.exe](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) para mover dados.
 
 * Uma política chave única pode ter um máximo de 16 valores de caminho. Por exemplo, os valores podem ser `/firstName` `/lastName` , e `/address/zipCode` . Cada política chave única pode ter um máximo de 10 restrições ou combinações únicas. Os caminhos combinados para cada restrição de índice único não devem exceder 60 bytes. No exemplo anterior, o primeiro nome, apelido e endereço de e-mail juntos são um constrangimento. Esta restrição utiliza 3 dos 16 caminhos possíveis.
 

@@ -1,6 +1,6 @@
 ---
-title: Migrar de uma imagem gerida para uma versão de imagem com o Azure CLI
-description: Aprenda a migrar de uma imagem gerida para uma versão de imagem numa Galeria de Imagens Partilhadas utilizando o Azure CLI.
+title: Clone uma imagem gerida para uma versão de imagem com o Azure CLI
+description: Aprenda a clonar uma imagem gerida para uma versão de imagem numa Galeria de Imagens Partilhadas utilizando o Azure CLI.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -10,22 +10,22 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8631a411b26f91bc72e23ac7ff9fb2278f61168c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e53bebf9cdb8c0fc084d04550c7444c1c01be50
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502890"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352869"
 ---
-# <a name="migrate-from-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Migrar de uma imagem gerida para uma versão de imagem usando o Azure CLI
-Se tiver uma imagem gerida existente que gostaria de migrar para uma Galeria de Imagens Partilhadas, pode criar uma imagem da Galeria de Imagens Partilhada diretamente a partir da imagem gerida. Depois de ter testado a sua nova imagem, pode eliminar a imagem gerida pela fonte. Também pode migrar de uma imagem gerida para uma Galeria de Imagens Partilhadas utilizando [o PowerShell.](image-version-managed-image-powershell.md)
+# <a name="clone-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Clone uma imagem gerida para uma versão de imagem usando o Azure CLI
+Se tiver uma imagem gerida que gostaria de clonar numa Galeria de Imagens Partilhadas, pode criar uma imagem da Galeria de Imagens Partilhada diretamente a partir da imagem gerida. Depois de ter testado a sua nova imagem, pode eliminar a imagem gerida pela fonte. Também pode migrar de uma imagem gerida para uma Galeria de Imagens Partilhadas utilizando [o PowerShell.](image-version-managed-image-powershell.md)
 
 As imagens numa galeria de imagens têm dois componentes, que iremos criar neste exemplo:
 - Uma **definição de Imagem** transporta informações sobre a imagem e requisitos para a sua utilização. Isto inclui se a imagem é Windows ou Linux, especializada ou generalizada, notas de lançamento e requisitos mínimos e máximo de memória. É uma definição de um tipo de imagem. 
 - Uma **versão de imagem** é o que é usado para criar um VM quando se utiliza uma Galeria de Imagens Partilhadas. Pode ter várias versões de uma imagem necessária para o seu ambiente. Quando se cria um VM, a versão de imagem é usada para criar novos discos para o VM. As versões de imagem podem ser usadas várias vezes.
 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para completar este artigo, você deve ter uma Galeria de [Imagem Partilhada](shared-images-cli.md)existente. 
 

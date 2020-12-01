@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: e00fd3d1dac0a18ac7f7377e08ae8d20ae132c56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa0d78d52ec13c91b82e6a8d10720269076f59a1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652632"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353549"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos dos acionadores e dos enlaces das Funções do Azure
 
@@ -29,7 +29,7 @@ Considere os seguintes exemplos de como poderia implementar diferentes funções
 | Cenário de exemplo | Acionador | Encadernação de entrada | Ligação de saída |
 |-------------|---------|---------------|----------------|
 | Chega uma nova mensagem de fila que executa uma função para escrever para outra fila. | Fila<sup>*</sup> | *Nenhuma* | Fila<sup>*</sup> |
-|Um trabalho programado lê o conteúdo do Blob Storage e cria um novo documento de Cosmos DB. | Temporizador | Armazenamento de Blobs | BD do Cosmos |
+|Um trabalho programado lê o conteúdo do Blob Storage e cria um novo documento de Cosmos DB. | Temporizador | Armazenamento de Blobs | Cosmos DB |
 |A Grade de Eventos é usada para ler uma imagem do Blob Storage e um documento da Cosmos DB para enviar um e-mail. | Event Grid | Blob Storage e Cosmos DB | SendGrid |
 | Um webhook que usa o Microsoft Graph para atualizar uma folha de Excel. | HTTP | *Nenhuma* | Microsoft Graph |
 
@@ -50,7 +50,7 @@ O portal fornece um UI para esta configuração, mas pode editar o ficheiro dire
 
 Em .NET, o tipo de parâmetro define o tipo de dados para os dados de entrada. Por exemplo, use `string` para ligar ao texto de um gatilho de fila, um conjunto byte para ler como binário e um tipo personalizado para des-serializar a um objeto.
 
-Para idiomas que são digitado dinamicamente como JavaScript, use a `dataType` propriedade nofunction.js* no* ficheiro. Por exemplo, para ler o conteúdo de um pedido HTTP em formato binário, definido `dataType` `binary` para:
+Para idiomas que são digitado dinamicamente como JavaScript, use a `dataType` propriedade nofunction.js *no* ficheiro. Por exemplo, para ler o conteúdo de um pedido HTTP em formato binário, definido `dataType` `binary` para:
 
 ```json
 {
@@ -88,6 +88,10 @@ Para obter informações sobre quais as ligações que estão em pré-visualiza�
 Utilize a tabela seguinte para encontrar exemplos de tipos de encadernação específicos que lhe mostrem como trabalhar com encadernações nas suas funções. Primeiro, escolha o separador de idiomas que corresponde ao seu projeto. 
 
 [!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
+
+## <a name="custom-bindings"></a>Encadernações personalizadas
+
+Pode criar entradas personalizadas e encadernações de saída. As encadernações devem ser da autoria em .NET, mas podem ser consumidas a partir de qualquer língua suportada. Para obter mais informações sobre a criação de encadernações personalizadas, consulte [criar entradas personalizadas e encadernações de saída.](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings)
 
 ## <a name="resources"></a>Recursos
 - [Expressões e padrões de ligação](./functions-bindings-expressions-patterns.md)

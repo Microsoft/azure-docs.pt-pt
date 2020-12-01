@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: af3935bab5cd4d6a2aa4a9e3250f6beec19a8ea4
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 5c8af8ddb7a0870de37b73cbe09965ee63c88ba1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736684"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353753"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modelo de fatura pré-construído do Reconhecimento de Formulário
 
-O Azure Form Recogniser pode analisar e extrair informações das faturas de venda utilizando os seus modelos de fatura pré-construídos. A Fatura API permite que os clientes levem faturas em diversos formatos e devolvam dados estruturados para automatizar o processamento da fatura. Combina as nossas poderosas capacidades [de Reconhecimento de Caracteres Óticos (OCR)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) com a compreensão da fatura de modelos de aprendizagem profunda para extrair informações-chave das faturas em inglês. Extrai o texto, tabelas e informações como cliente, fornecedor, identificação de fatura, data de vencimento da fatura, total, valor da fatura devido, valor do imposto, envio para, fatura para, e muito mais. A API de fatura pré-construída está disponível publicamente na pré-visualização do Reconhecimento de Formulários v2.1.
+O Azure Form Recogniser pode analisar e extrair informações das faturas de venda utilizando os seus modelos de fatura pré-construídos. A Fatura API permite que os clientes levem faturas em diversos formatos e devolvam dados estruturados para automatizar o processamento da fatura. Combina as nossas poderosas capacidades [de Reconhecimento de Caracteres Óticos (OCR)](../computer-vision/concept-recognizing-text.md) com a compreensão da fatura de modelos de aprendizagem profunda para extrair informações-chave das faturas em inglês. Extrai o texto, tabelas e informações como cliente, fornecedor, identificação de fatura, data de vencimento da fatura, total, valor da fatura devido, valor do imposto, envio para, fatura para, e muito mais. A API de fatura pré-construída está disponível publicamente na pré-visualização do Reconhecimento de Formulários v2.1.
 
 ## <a name="what-does-the-invoice-service-do"></a>O que faz o serviço de Fatura?
 
@@ -74,14 +74,14 @@ A saída JSON tem 3 partes:
 
 O serviço de Fatura extrairá o texto, as tabelas e 26 campos de fatura. Seguem-se os campos extraídos de uma fatura na resposta de saída JSON (a saída abaixo utiliza esta [fatura de amostra)](./media/sample-invoice.jpg)  
 
-|Nome| Tipo | Description | Texto | Valor (saída padronizada) |
+|Nome| Tipo | Descrição | Texto | Valor (saída padronizada) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | string | Cliente a ser faturado | Microsoft Corp |  |
 | CustomerId | string | ID de referência para o cliente | CID-12345 |  |
 | Pedido de Compra | string | Um número de referência de pedido de compra | PO-3333 | |  |
 | InvoiceId | string | ID para esta fatura específica (muitas vezes "Número de fatura") | INV-100 | |  |
-| DataDaFatura | data | Data em que a fatura foi emitida | 11/15/2019 | 
-| DueDate | data | O pagamento da data desta fatura é devido | 12/15/2019 | 2019-12-15 | 2019-11-15 |
+| DataDaFatura | date | Data em que a fatura foi emitida | 11/15/2019 | 
+| DueDate | date | O pagamento da data desta fatura é devido | 12/15/2019 | 2019-12-15 | 2019-11-15 |
 | Nome do fornecedor | string | Fornecedor que criou esta fatura | CONTOSO LTD. | |
 | Pagamento de Fornecedores | string | Endereço de correio para o Fornecedor | 123 456th St New York, NY, 10001 | |
 | FornecedorAddressRecipient | string | Nome associado ao VendorAddress | Sede do Contoso | |
@@ -99,8 +99,8 @@ O serviço de Fatura extrairá o texto, as tabelas e 26 campos de fatura. Seguem
 | ServiçoAddressRecipient | string | Nome associado ao ServiceAddress | Serviços Microsoft | |
 | RemessaAddress | string | Remessa explícita ou endereço de pagamento para o cliente | 123 Remit St New York, NY, 10001 |  |
 | RemessaAddressRecipient | string | Nome associado ao RemittanceAddress | Contoso Billing |  |
-| ServiceStartDate | data | Primeira data para o período de serviço (por exemplo, um período de serviço de conta de utilidade) | 14/10/2019 | 2019-10-14 |
-| ServiceEndDate | data | Data de fim do período de serviço (por exemplo, um período de serviço de conta de utilidade) | 11/14/2019 | 2019-11-14 |
+| ServiceStartDate | date | Primeira data para o período de serviço (por exemplo, um período de serviço de conta de utilidade) | 14/10/2019 | 2019-10-14 |
+| ServiceEndDate | date | Data de fim do período de serviço (por exemplo, um período de serviço de conta de utilidade) | 11/14/2019 | 2019-11-14 |
 | Anterior Desequilíbrio | número | Saldo explícito anteriormente não pago | 500,00 € | 500 |
 
 
@@ -113,4 +113,3 @@ O serviço de Fatura extrairá o texto, as tabelas e 26 campos de fatura. Seguem
 
 * [O que é o Reconhecedor de Formato?](./overview.md)
 * [REST API referenciar docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync)
-

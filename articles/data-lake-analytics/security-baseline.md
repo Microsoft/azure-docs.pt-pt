@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 03d960f95aed4c6843e29dbebd37feec64b6eae2
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2cd4b26e81df8ce57a09b4cdddc923035a41308e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221150"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352903"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Linha de segurança Azure para Data Lake Analytics
 
@@ -34,7 +34,7 @@ Para obter mais informações, consulte [a visão geral da Azure Security Baseli
 
 * [Gerir o Azure Data Lake Analytics com o Azure PowerShell](./data-lake-analytics-manage-use-powershell.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -42,7 +42,7 @@ Para obter mais informações, consulte [a visão geral da Azure Security Baseli
 
 **Orientação**: Não aplicável; O Azure Data Lake Analytics não funciona numa rede virtual e ao utilizar consultas federadas as chamadas de saída não podem ser configuradas para encaminhar através de uma rede virtual do cliente.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -50,7 +50,7 @@ Para obter mais informações, consulte [a visão geral da Azure Security Baseli
 
 **Orientação**: Não aplicável; Este controlo destina-se a aplicações web em execução em instâncias do Azure App Service ou iaaS.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -62,7 +62,7 @@ Para obter mais informações, consulte [a visão geral da Azure Security Baseli
 
 * [Gerir o Azure Data Lake Analytics com o Azure PowerShell](./data-lake-analytics-manage-use-powershell.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -70,7 +70,7 @@ Para obter mais informações, consulte [a visão geral da Azure Security Baseli
 
 **Orientação**: Não aplicável; O Data Lake Analytics não funciona dentro das redes virtuais dos clientes e não pode utilizar grupos de segurança de rede (NSGs) para registar registos de fluxos de rede.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -78,7 +78,7 @@ Para obter mais informações, consulte [a visão geral da Azure Security Baseli
 
 **Orientação**: Não aplicável; Data Lake Analytics é uma oferta paaS que não se implanta em redes de clientes.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -86,7 +86,7 @@ Para obter mais informações, consulte [a visão geral da Azure Security Baseli
 
 **Orientação**: Não aplicável; Esta recomendação destina-se a aplicações web em execução no Azure App Service ou recursos de computação.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -94,7 +94,7 @@ Para obter mais informações, consulte [a visão geral da Azure Security Baseli
 
 **Orientação**: Não aplicável; Data Lake Analytics não funciona dentro de redes virtuais de clientes e não pode usar grupos de segurança de rede (NSGs).
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -102,7 +102,7 @@ Para obter mais informações, consulte [a visão geral da Azure Security Baseli
 
 **Orientação**: Não aplicável; Data Lake Analytics não funciona dentro de redes virtuais de clientes e não pode usar grupos de segurança de rede (NSGs).
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -110,7 +110,7 @@ Para obter mais informações, consulte [a visão geral da Azure Security Baseli
 
 **Orientação**: Não aplicável; Data Lake Analytics não funciona dentro de redes virtuais de clientes e não pode usar grupos de segurança de rede (NSGs).
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -118,7 +118,7 @@ Para obter mais informações, consulte [a visão geral da Azure Security Baseli
 
 **Orientação**: Não aplicável; Data Lake Analytics não funciona dentro de redes virtuais de clientes e não pode usar grupos de segurança de rede (NSGs).
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -130,7 +130,7 @@ Para obter mais informações, consulte [a visão geral da Azure Security Baseli
 
 **Orientação**: Não aplicável; A Microsoft mantém a fonte de tempo para data lake analytics.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -150,7 +150,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 * [Como começar com o Azure Monitor e a integração do SIEM de terceiros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -162,7 +162,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 * [Compreenda o registo e diferentes tipos de registo em Azure](../azure-monitor/platform/platform-logs-overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -170,7 +170,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -182,7 +182,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 * [Como configurar a política de retenção para os registos de conta de armazenamento Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -192,11 +192,11 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 * [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Para mais informações sobre o Log Analytics Workspace](../azure-monitor/log-query/get-started-portal.md)
+* [Para mais informações sobre o Log Analytics Workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -210,7 +210,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 * [Accessing diagnostics logs for Azure Data Lake Analytics (Aceder aos registos de diagnóstico do Azure Data Lake Analytics)](./data-lake-analytics-diagnostic-logs.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -218,7 +218,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 **Orientação**: Não aplicável; Data Lake Analytics não processa ou produz registos relacionados com anti-malware.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -226,7 +226,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 **Orientação**: Implementar uma solução de terceiros do Azure Marketplace para a solução de registo de DNS conforme as suas organizações precisam.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -234,7 +234,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 **Orientação**: Não aplicável; este controlo destina-se a recursos de computação onde o cliente tem acesso ao sistema operativo subjacente.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -250,7 +250,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 * [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -260,7 +260,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 * [Visão geral do Azure Data Lake Analytics](./data-lake-analytics-overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -272,7 +272,7 @@ Também pode ativar um acesso Just-In-Time utilizando a Azure AD Privileged Iden
 
 * [Saiba mais sobre Gestão de Identidade Privilegiada](../active-directory/privileged-identity-management/index.yml)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -282,7 +282,7 @@ Também pode ativar um acesso Just-In-Time utilizando a Azure AD Privileged Iden
 
 * [Compreender SSO com Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -290,11 +290,11 @@ Também pode ativar um acesso Just-In-Time utilizando a Azure AD Privileged Iden
 
 **Orientação**: Ativar a autenticação multi-factor do Azure Ative Directory (MFA) e seguir as recomendações de identidade do Centro de Segurança Azure e de gestão de acessos para ajudar a proteger os seus recursos de Data Lake Analytics.
 
-* [Como permitir o MFA em Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+* [Como ativar o MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 * [Como monitorizar a identidade e o acesso dentro do Centro de Segurança Azure](../security-center/security-center-identity-access.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -306,7 +306,7 @@ Também pode ativar um acesso Just-In-Time utilizando a Azure AD Privileged Iden
 
 * [Como ativar O Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -314,11 +314,11 @@ Também pode ativar um acesso Just-In-Time utilizando a Azure AD Privileged Iden
 
 **Orientação**: Utilize relatórios de segurança do Azure Ative Directory para a geração de registos e alertas quando ocorrem atividades suspeitas ou inseguras no ambiente. Utilize o Centro de Segurança Azure para monitorizar a atividade de identidade e acesso.
 
-* [Como identificar utilizadores de AD Azure sinalizados para atividade de risco](../active-directory/identity-protection/overview-identity-protection.md)
+* [Como identificar utilizadores do Azure AD sinalizados por atividade de risco](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Como monitorizar a identidade e a atividade de acesso dos utilizadores no Centro de Segurança Azure](../security-center/security-center-identity-access.md)
+* [Como monitorizar as atividades de identidade e acesso dos utilizadores no Centro de Segurança do Azure](../security-center/security-center-identity-access.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -328,7 +328,7 @@ Também pode ativar um acesso Just-In-Time utilizando a Azure AD Privileged Iden
 
 * [Como configurar a Azure AD nomeou localizações](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -336,9 +336,9 @@ Também pode ativar um acesso Just-In-Time utilizando a Azure AD Privileged Iden
 
 **Orientação**: Utilize o Azure Ative Directory (Azure AD) como sistema central de autenticação e autorização. O controlo de acesso baseado em funções (Azure RBAC) proporciona um controlo fino sobre o acesso de um cliente aos recursos de Data Lake Analytics.
 
-* [Como criar e configurar uma instância AD Azure](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+* [Como criar e configurar instâncias do Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -348,9 +348,9 @@ Também pode ativar um acesso Just-In-Time utilizando a Azure AD Privileged Iden
 
 * [Compreenda a Azure AD reportando](../active-directory/reports-monitoring/index.yml)
 
-* [Como utilizar a identidade AD do Azure e as avaliações de acesso](../active-directory/governance/access-reviews-overview.md)
+* [Como utilizar as revisões de identidades e acessos do Azure AD](../active-directory/governance/access-reviews-overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -360,7 +360,7 @@ Também pode ativar um acesso Just-In-Time utilizando a Azure AD Privileged Iden
 
 * [Integre registos AD AD com registos do Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -368,13 +368,13 @@ Também pode ativar um acesso Just-In-Time utilizando a Azure AD Privileged Iden
 
 **Orientação**: Utilize as funcionalidades de Proteção de Risco e Identidade do Azure Ative Directory para configurar respostas automatizadas para detetar ações suspeitas relacionadas com os seus recursos de Data Lake Analytics. Deve permitir respostas automatizadas através do Azure Sentinel para implementar as respostas de segurança da sua organização.
 
-* [Como ver a Azure AD a entrar em risco](../active-directory/identity-protection/overview-identity-protection.md)
+* [Como ver os inícios de sessão de risco do Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 * [Como configurar e permitir políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
 * [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -384,7 +384,7 @@ Também pode ativar um acesso Just-In-Time utilizando a Azure AD Privileged Iden
 
 * [Serviços e cenários apoiados em disponibilidade geral](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -398,7 +398,7 @@ Também pode ativar um acesso Just-In-Time utilizando a Azure AD Privileged Iden
 
 * [Como criar e usar Tags](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -418,7 +418,7 @@ Também pode ativar um acesso Just-In-Time utilizando a Azure AD Privileged Iden
 
 * [Gerir o Azure Data Lake Analytics com o Azure PowerShell](./data-lake-analytics-manage-use-powershell.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -428,11 +428,11 @@ Também pode ativar um acesso Just-In-Time utilizando a Azure AD Privileged Iden
 
 Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os conteúdos do cliente como sensíveis e protege contra a perda e exposição de dados dos clientes. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
 
-* [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md)
+* [Compreender a proteção dos dados dos clientes no Azure](../security/fundamentals/protection-customer-data.md)
 
 * [Como garantir contas de armazenamento Azure](../storage/blobs/security-recommendations.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -442,17 +442,17 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 * [Lista de Operações de Exemplo](/rest/api/datalakeanalytics/operations/list)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: Utilize uma ferramenta de descoberta ativa para identificar dados sensíveis
 
 **Orientação**: As funcionalidades de identificação de dados ainda não estão disponíveis para os recursos Azure Data Lake Analytics. Implementar solução de terceiros, se necessário para efeitos de conformidade.
 
-* [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md)
+* [Compreender a proteção dos dados dos clientes no Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -462,7 +462,7 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 * [Gerir a Azure RBAC](./data-lake-analytics-manage-use-portal.md#manage-azure-role-based-access-control)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -470,7 +470,7 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -480,9 +480,9 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 * [Encriptação de dados em Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-encryption.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: Registar e alertar sobre alterações aos recursos críticos do Azure
 
@@ -490,7 +490,7 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 * [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -506,7 +506,7 @@ A Microsoft realiza a gestão de vulnerabilidades nos sistemas subjacentes que s
 
 * [Compreenda as recomendações do Centro de Segurança Azure](../security-center/recommendations-reference.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -514,7 +514,7 @@ A Microsoft realiza a gestão de vulnerabilidades nos sistemas subjacentes que s
 
 **Orientação**: Não aplicável; este controlo destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -522,7 +522,7 @@ A Microsoft realiza a gestão de vulnerabilidades nos sistemas subjacentes que s
 
 **Orientação**: Não aplicável; este controlo destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -530,7 +530,7 @@ A Microsoft realiza a gestão de vulnerabilidades nos sistemas subjacentes que s
 
 **Orientação**: Não aplicável; este controlo destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -540,7 +540,7 @@ A Microsoft realiza a gestão de vulnerabilidades nos sistemas subjacentes que s
 
 * [NIST Publication--Common Vulnerability Scoring System](https://www.nist.gov/publications/common-vulnerability-scoring-system)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -554,13 +554,13 @@ A Microsoft realiza a gestão de vulnerabilidades nos sistemas subjacentes que s
 
 Embora os recursos clássicos do Azure possam ser descobertos através do Azure Resource Graph Explorer, é altamente recomendado criar e utilizar os recursos do Azure Resource Manager.
 
-* [Como criar consultas com o Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
+* [Como criar consultas com o Explorador do Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
 * [Como ver as suas subscrições Azure](/powershell/module/az.accounts/get-azsubscription)
 
 * [Compreender Azure RBAC](../role-based-access-control/overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -570,7 +570,7 @@ Embora os recursos clássicos do Azure possam ser descobertos através do Azure 
 
 * [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -588,7 +588,7 @@ Além disso, utilize a política da Azure para impor restrições ao tipo de rec
 
 * [Como criar e usar Tags](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -596,7 +596,7 @@ Além disso, utilize a política da Azure para impor restrições ao tipo de rec
 
 **Orientação**: Crie um inventário de recursos Azure aprovados e software aprovado para recursos de computação de acordo com as suas necessidades organizacionais.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -608,11 +608,11 @@ Além disso, utilize a política da Azure para impor restrições ao tipo de rec
 
 Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos dentro da subscrição.s.
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [Como criar consultas com Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -620,7 +620,7 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 **Orientação**: Não aplicável; este controlo destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -628,7 +628,7 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 **Orientação**: Não aplicável; este controlo destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -636,7 +636,7 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 **Orientação**: Não aplicável; este controlo destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -646,11 +646,11 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/index.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -658,7 +658,7 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 **Orientação**: Não aplicável; este controlo destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -668,7 +668,7 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 * [Como configurar o Acesso Condicional para bloquear o acesso à ARM](../role-based-access-control/conditional-access-azure-management.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -676,7 +676,7 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 **Orientação**: Não aplicável; este controlo destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -684,7 +684,7 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 **Orientação**: Não aplicável; esta recomendação destina-se a aplicações web em execução no Azure App Service ou recursos de computação.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -699,9 +699,9 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 * [Como ver pseudónimos disponíveis da Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias)
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -709,7 +709,7 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 **Orientação**: Não aplicável; este controlo destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -717,11 +717,11 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 **Orientação**: Use a política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [Compreender efeitos da política do Azure](../governance/policy/concepts/effects.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -729,7 +729,7 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 **Orientação**: Não aplicável; este controlo destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -741,7 +741,7 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 * [Sobre permissões e grupos em Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -749,7 +749,7 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 **Orientação**: Não aplicável; este controlo destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -757,7 +757,7 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 **Orientação**: Não aplicável; este controlo destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -765,7 +765,7 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 **Orientação**: Não aplicável; este controlo destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -773,9 +773,9 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 **Orientação**: Utilize pseudónimos da Política Azure no espaço de nomes "Microsoft.DataLakeAnalytics" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Use a política Azure [auditoria], [negar], e [implementar se não existir] para impor automaticamente configurações para os seus recursos Azure Data Lake Analytics.
 
-* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -783,7 +783,7 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 **Orientação**: Não aplicável; este controlo destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -791,7 +791,7 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 **Orientação**: Não aplicável; Data Lake Analytics não expõe quaisquer segredos que o cliente precisa de gerir.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -799,17 +799,17 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 **Orientação**: Não aplicável; Data Lake Analytics não suporta identidades geridas pelo Azure.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminar a exposição credencial não intencional
 
-**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault.
+**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner de Credenciais também vai incentivar a movimentação das credenciais descobertas para localizações mais seguras, por exemplo, o Azure Key Vault.
 
 * [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -821,7 +821,7 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 **Orientação**: Não aplicável; este controlo destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -831,7 +831,7 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 Pré-digitalize qualquer conteúdo que seja enviado para recursos Azure, tais como App Service, Data Lake Analytics, Blob Storage etc. A Microsoft não pode aceder aos seus dados nestes casos.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -839,7 +839,7 @@ Pré-digitalize qualquer conteúdo que seja enviado para recursos Azure, tais co
 
 **Orientação**: Não aplicável; este controlo destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -857,7 +857,7 @@ Pré-digitalize qualquer conteúdo que seja enviado para recursos Azure, tais co
 
 * [Visão geral da Azure Automation](../automation/automation-intro.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -869,7 +869,7 @@ Pré-digitalize qualquer conteúdo que seja enviado para recursos Azure, tais co
 
 * [Copiar dados de Azure Storage Blobs para Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -877,7 +877,7 @@ Pré-digitalize qualquer conteúdo que seja enviado para recursos Azure, tais co
 
 **Orientação**: Efetue periodicamente a restauração de dados dos seus dados de backup para testar a integridade dos dados.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -889,7 +889,7 @@ Pré-digitalize qualquer conteúdo que seja enviado para recursos Azure, tais co
 
 * [Autorizar o acesso aos dados no Azure Storage](../storage/common/storage-auth.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -899,7 +899,7 @@ Pré-digitalize qualquer conteúdo que seja enviado para recursos Azure, tais co
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Criar um guia de resposta a incidentes
 
-**Orientação**: Crie um guia de resposta a incidentes para a sua organização. Certifique-se de que existem planos escritos de resposta a incidentes que definem todas as funções de pessoal, bem como fases de tratamento/gestão de incidentes, desde a deteção até à revisão pós-incidente.
+**Orientação**: desenvolva um guia de respostas a incidentes para a sua organização. Confirme que existem planos escritos de resposta a incidentes, que definem todas as funções do pessoal, assim como as fases de manipulação/gestão de incidentes desde a deteção até à análise pós-incidente.
 
 * [Orientação para a construção do seu próprio processo de resposta a incidentes de segurança](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -907,7 +907,7 @@ Pré-digitalize qualquer conteúdo que seja enviado para recursos Azure, tais co
 
 * [O cliente também pode aproveitar o Guia de Tratamento de Incidentes de Segurança Informática da NIST para ajudar na criação do seu próprio plano de resposta a incidentes](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -915,13 +915,13 @@ Pré-digitalize qualquer conteúdo que seja enviado para recursos Azure, tais co
 
 **Orientação**: O Centro de Segurança atribui uma gravidade a cada alerta para o ajudar a priorizar quais os alertas que devem ser investigados primeiro. A gravidade baseia-se na confiança que o Centro de Segurança está na descoberta ou no analítico utilizado para emitir o alerta, bem como no nível de confiança de que havia intenção maliciosa por trás da atividade que levou ao alerta.
 
-Além disso, marque claramente as subscrições (para ex. produção, não-prod) usando tags e criar um sistema de nomeação para identificar e categorizar claramente os recursos Azure, especialmente aqueles que processam dados sensíveis. É da sua responsabilidade priorizar a reparação de alertas com base na criticidade dos recursos e ambiente do Azure onde ocorreu o incidente.
+Além disso, marque claramente as subscrições (para ex. produção, não-prod) usando tags e criar um sistema de nomeação para identificar e categorizar claramente os recursos Azure, especialmente aqueles que processam dados sensíveis. É da sua responsabilidade priorizar a remediação dos alertas de acordo com a criticalidade dos recursos do Azure e o ambiente em que os incidentes ocorreram.
 
 * [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
 * [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -931,7 +931,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 * [Publicação do NIST--Guia para Testes, Formação e Programas de Exercício para Planos e Capacidades de TI](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -941,7 +941,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 * [Como definir o Contacto de Segurança do Centro de Segurança Azure](../security-center/security-center-provide-security-contact-details.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -953,7 +953,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 * [Como transmitir alertas para o Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -963,7 +963,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 * [Como configurar a automatização do fluxo de trabalho e as aplicações lógicas](../security-center/workflow-automation.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -973,17 +973,17 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Realizar testes regulares de penetração dos seus recursos Azure e garantir a reparação de todas as conclusões críticas de segurança
 
-**Orientação**: Siga as regras de teste de penetração da Microsoft cloud para garantir que os seus testes de penetração não violam as políticas da Microsoft. Use a estratégia da Microsoft e a execução de testes de penetração em red teaming e site ao vivo contra infraestruturas, serviços e aplicações de nuvem geridas pela Microsoft.
+**Orientação**: Siga as regras de teste de penetração da Microsoft cloud para garantir que os seus testes de penetração não violam as políticas da Microsoft. Utilize a estratégia e a execução de "Equipas de Ataque" e os testes de penetração no local em direto da Microsoft na infraestrutura, nos serviços e nas aplicações cloud geridas pela Microsoft.
 
-* [Regras de teste de penetração de compromisso](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [Regras de Interação para os Testes de Penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* ["Equipa de Ataque" da Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
-- Saiba mais sobre [as linhas de base de segurança da Azure](../security/benchmarks/security-baselines-overview.md)
+- Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

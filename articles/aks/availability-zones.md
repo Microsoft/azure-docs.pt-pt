@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 43b57d0b58c9268482ca27fd51040c7152ecdc25
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 15f66e836a2900349007fb5068a172b89f39d4de
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026056"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352801"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Criar um cluster Azure Kubernetes Service (AKS) que utiliza zonas de disponibilidade
 
@@ -34,11 +34,8 @@ Os clusters AKS podem ser criados atualmente utilizando zonas de disponibilidade
 * E.U.A. Leste 
 * E.U.A. Leste 2
 * França Central
-* Alemanha Centro-Oeste
 * Leste do Japão
 * Europa do Norte
-* Norte da África do Sul
-* E.U.A. Centro-Sul
 * Sudeste Asiático
 * Sul do Reino Unido
 * Europa Ocidental
@@ -184,7 +181,7 @@ Node:         aks-nodepool1-28993262-vmss000004/10.240.0.8
 
 Como pode ver na saída anterior, a primeira cápsula está a funcionar no nó 0, que está localizado na zona de `eastus2-1` disponibilidade. A segunda cápsula está a funcionar no nó 2, que corresponde a `eastus2-3` , e a terceira no nó 4, em `eastus2-2` . Sem qualquer configuração adicional, a Kubernetes está a espalhar corretamente as cápsulas pelas três zonas de disponibilidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo detalhou como criar um cluster AKS que utiliza zonas de disponibilidade. Para obter mais considerações sobre clusters altamente disponíveis, consulte [as melhores práticas para a continuidade do negócio e recuperação de desastres em AKS][best-practices-bc-dr].
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 6dbe97d615753f0a90c8ba80aa7afa6dafa15eb2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7f8fb0488c863868b1076ad5b3fa7868d1880a6b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658473"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353787"
 ---
 # <a name="what-is-custom-speech"></a>O que é a Voz Personalizada?
 
@@ -31,7 +31,7 @@ Este diagrama destaca as peças que compõem o [portal Discurso Personalizado.](
 
 1. [Inscreva-se e crie um projeto](#set-up-your-azure-account) - Crie uma conta Azure e subscreva o serviço Discurso. Esta subscrição unificada dá-lhe acesso a discurso-a-texto, texto-a-discurso, tradução de fala e portal de [discurso personalizado](https://speech.microsoft.com/customspeech). Em seguida, utilizando a subscrição do serviço Speech, crie o seu primeiro projeto de Discurso Personalizado.
 
-1. [Upload datas de teste](how-to-custom-speech-test-data.md) - Carreie os dados do teste (ficheiros áudio) para avaliar a oferta de voz para texto da Microsoft para as suas aplicações, ferramentas e produtos.
+1. [Upload datas de teste](./how-to-custom-speech-test-and-train.md) - Carreie os dados do teste (ficheiros áudio) para avaliar a oferta de voz para texto da Microsoft para as suas aplicações, ferramentas e produtos.
 
 1. [Inspecione a qualidade](how-to-custom-speech-inspect-data.md) do reconhecimento - Utilize o [portal Discurso Personalizado](https://speech.microsoft.com/customspeech) para reproduzir áudio carregado e inspecione a qualidade de reconhecimento da fala dos seus dados de teste. Para medições quantitativas, consulte [os dados do Inspecione](how-to-custom-speech-inspect-data.md).
 
@@ -99,9 +99,9 @@ Também pode verificar as datas de validade através das [`GetModel`](https://we
 
 Note que pode atualizar o modelo num ponto final de fala personalizado sem tempo de inatividade alterando o modelo utilizado pelo ponto final na secção de implementação do portal de fala personalizado, ou através da API de discurso personalizado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Prepare e teste os seus dados](how-to-custom-speech-test-data.md)
+* [Prepare e teste os seus dados](./how-to-custom-speech-test-and-train.md)
 * [Fiscalizar os seus dados](how-to-custom-speech-inspect-data.md)
 * [Avaliar e melhorar a precisão do modelo](how-to-custom-speech-evaluate-data.md)
 * [Preparar e implementar um modelo](how-to-custom-speech-train-model.md)

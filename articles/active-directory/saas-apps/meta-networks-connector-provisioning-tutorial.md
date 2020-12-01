@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: ac41fb5ed6fd1e46719fcc39ccaf5b29375e7410
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b6a8f192cd26639431cc9fcb6b43e1bc5e8e2843
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359906"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353634"
 ---
 # <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>Tutorial: Configurar meta-redes connector para fornecimento automático de utilizadores
 
@@ -106,7 +106,7 @@ Antes de configurar o Conector Meta Networks para o fornecimento automático de 
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira o **Conector Meta Networks** , selecione **Meta Networks Connector** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, insira o **Conector Meta Networks**, selecione **Meta Networks Connector** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![Meta Networks Connector na lista de resultados](common/search-new-app.png)
 
@@ -115,7 +115,7 @@ Antes de configurar o Conector Meta Networks para o fornecimento automático de 
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no Meta Networks Connector com base nas atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Pode também optar por ativar o único sinal de acesso ao conector meta redes, seguindo as instruções fornecidas no tutorial de assinatura único do [Conector meta networks](./metanetworksconnector-tutorial.md). O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
+> Pode também optar por ativar o único sinal de inscrição baseado em SAML para o Conector meta redes, seguindo as instruções fornecidas no tutorial de assinatura único do [Conector meta networks](./metanetworksconnector-tutorial.md). O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
 
 ### <a name="to-configure-automatic-user-provisioning-for-meta-networks-connector-in-azure-ad"></a>Para configurar o fornecimento automático do utilizador para o Conector meta redes em Azure AD:
 

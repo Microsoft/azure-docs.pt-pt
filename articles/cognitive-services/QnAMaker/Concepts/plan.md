@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 0be2fecfad4d2a2b829266fa1d9574bcc4c50eee
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 048b53186aa0be388d9d801cd6590d4295a4faa7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376682"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353175"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planeie a sua app QnA Maker
 
@@ -94,13 +94,13 @@ Agora pode ter bases de conhecimento em diferentes idiomas dentro do mesmo recur
 
 ### <a name="ingest-data-sources"></a>Ingerir fontes de dados
 
-Pode utilizar uma das [seguintes fontes](knowledge-base.md) de dados ingeridas para criar uma base de conhecimento:
+Pode utilizar uma das [seguintes fontes](../index.yml) de dados ingeridas para criar uma base de conhecimento:
 
 * URL público
 * Private SharePoint URL
 * Ficheiro
 
-O processo de ingestão converte [tipos de conteúdo suportados](content-types.md) para marcação. Toda a edição adicional da *resposta* é feita com marcação. Depois de criar uma base de conhecimento, pode editar [pares QnA](question-answer-set.md) no portal QnA Maker com [uma rica autoria de texto.](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer)
+O processo de ingestão converte [tipos de conteúdo suportados](../index.yml) para marcação. Toda a edição adicional da *resposta* é feita com marcação. Depois de criar uma base de conhecimento, pode editar [pares QnA](question-answer-set.md) no portal QnA Maker com [uma rica autoria de texto.](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer)
 
 ### <a name="data-format-considerations"></a>Considerações de formato de dados
 
@@ -124,17 +124,17 @@ Deve desenhar o seu fluxo de conversação com um loop em mente para que um util
 
 Os colaboradores podem ser outros desenvolvedores que partilham a pilha completa de desenvolvimento da aplicação base de conhecimento ou podem limitar-se a apenas autorizar a base de conhecimento.
 
-A autoria da base de conhecimento suporta várias [permissões de acesso baseadas](../how-to/collaborate-knowledge-base.md) em funções que aplica no portal Azure para limitar o âmbito das capacidades de um colaborador.
+A autoria da base de conhecimento suporta várias [permissões de acesso baseadas](../index.yml) em funções que aplica no portal Azure para limitar o âmbito das capacidades de um colaborador.
 
 ## <a name="integration-with-client-applications"></a>Integração com aplicações de clientes
 
-A integração com [as aplicações dos clientes](integration-with-other-applications.md) é conseguida enviando uma consulta para o ponto final de tempo de previsão. Uma consulta é enviada para a sua base de conhecimentos específica com um pedido baseado em SDK ou REST para o ponto final da aplicação web do seu QnA Maker.
+A integração com [as aplicações dos clientes](../index.yml) é conseguida enviando uma consulta para o ponto final de tempo de previsão. Uma consulta é enviada para a sua base de conhecimentos específica com um pedido baseado em SDK ou REST para o ponto final da aplicação web do seu QnA Maker.
 
 Para autenticar corretamente um pedido de cliente, a aplicação do cliente deve enviar as credenciais corretas e o ID da base de conhecimento. Se estiver a utilizar um Serviço Azure Bot, configufique estas definições como parte da configuração do bot no portal Azure.
 
 ### <a name="conversation-flow-in-a-client-application"></a>Fluxo de conversação em uma aplicação de cliente
 
-O fluxo de conversação numa [aplicação do cliente](integration-with-other-applications.md), como um bot Azure, pode exigir funcionalidade antes e depois de interagir com a base de conhecimento.
+O fluxo de conversação numa [aplicação do cliente](../index.yml), como um bot Azure, pode exigir funcionalidade antes e depois de interagir com a base de conhecimento.
 
 O fluxo de conversação da sua aplicação do cliente, quer fornecendo meios alternativos para lidar com as solicitações de seguimento, quer incluindo chit-chit? Em caso afirmativo, desenhe-os precocemente e certifique-se de que a consulta de aplicação do cliente é tratada corretamente por outro serviço ou quando enviada para a sua base de conhecimentos.
 
@@ -152,7 +152,7 @@ O QnA Maker utiliza _a aprendizagem ativa_ para melhorar a sua base de conhecime
 
 ### <a name="providing-a-default-answer"></a>Fornecendo uma resposta padrão
 
-Se a sua base de conhecimento não encontrar uma resposta, ela devolve a _resposta por defeito_. Esta resposta é configurável na página **Definições** no portal QnA Maker ou nas [APIs](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body).
+Se a sua base de conhecimento não encontrar uma resposta, ela devolve a _resposta por defeito_. Esta resposta é configurável na página **Definições** no portal QnA Maker ou nas [APIs](/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body).
 
 Esta resposta padrão é diferente da resposta padrão do bot Azure. Configura a resposta padrão para o seu bot Azure no portal Azure como parte das definições de configuração. É devolvido quando o limiar de pontuação não é cumprido.
 
@@ -197,7 +197,7 @@ Todas as consultas à sua base de conhecimentos são armazenadas em Application 
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
 
-Na implantação gerida, a telemetria é oferecida através do [serviço Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). Use [as nossas principais consultas](../how-to/get-analytics-knowledge-base.md) para entender as suas métricas.
+Na implantação gerida, a telemetria é oferecida através do [serviço Azure Monitor](../../../azure-monitor/index.yml). Use [as nossas principais consultas](../how-to/get-analytics-knowledge-base.md) para entender as suas métricas.
 
 
 ---
@@ -217,7 +217,7 @@ Cada par pode conter:
 
 ### <a name="devops-development"></a>Desenvolvimento de DevOps
 
-O desenvolvimento de uma base de conhecimento para inserir num gasoduto DevOps requer que a base de conhecimento seja isolada durante os [testes de lote](../quickstarts/batch-testing.md).
+O desenvolvimento de uma base de conhecimento para inserir num gasoduto DevOps requer que a base de conhecimento seja isolada durante os [testes de lote](../index.yml).
 
 Uma base de conhecimento partilha o índice de Pesquisa Cognitiva com todas as outras bases de conhecimento no recurso QnA Maker. Enquanto a base de conhecimento é isolada por partição, a partilha do índice pode causar uma diferença na pontuação quando comparada com a base de conhecimento publicada.
 

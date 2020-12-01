@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
-ms.openlocfilehash: 39c0556350482e171234a3ff9dce0c16ed88d110
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2ccff72be66a88b9bf0a5e9eb9c29ade8397804b
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93406639"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356198"
 ---
 Os erros levantados numa Função Azure podem vir de qualquer uma das seguintes origens:
 
@@ -149,6 +149,27 @@ Aqui está a política de repetição no *function.jsarquivado:*
     }
 }
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Aqui está a política de repetição no *function.jsarquivado:*
+
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            ....
+        }
+    ],
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 4,
+        "delayInterval": "00:00:10"
+    }
+}
+```
 ---
 
 #### <a name="exponential-backoff-retry"></a>Relemisso de recuo exponencial
@@ -249,9 +270,30 @@ Aqui está a política de repetição no *function.jsarquivado:*
     }
 }
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Aqui está a política de repetição no *function.jsarquivado:*
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            ....
+        }
+    ],
+    "retry": {
+        "strategy": "exponentialBackoff",
+        "maxRetryCount": 5,
+        "minimumInterval": "00:00:10",
+        "maximumInterval": "00:15:00"
+    }
+}
+```
 ---
 
-|function.jsna propriedade  |Propriedade atributo | Description |
+|function.jsna propriedade  |Propriedade atributo | Descrição |
 |---------|---------|---------| 
 |estratégia|n/a|Obrigatório. A estratégia de repetição a utilizar. Valores válidos são `fixedDelay` ou `exponentialBackoff` .|
 |maxRetryCount|n/a|Obrigatório. O número máximo de retrós assim que é permitido por execução de função. `-1` significa voltar a tentar indefinidamente.|

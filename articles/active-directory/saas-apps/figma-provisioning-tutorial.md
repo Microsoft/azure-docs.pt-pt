@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: 789dafc61c89515f4b2ef64933262252d1232f16
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ec509cc04db87602b3e29230253d9b363a5e30d5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357033"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353923"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Tutorial: Configure a Figma para o fornecimento automático de utilizadores
 
@@ -96,7 +96,7 @@ Para configurar a Figma para o fornecimento automático de utilizadores com Azur
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Figma com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Pode também optar por ativar o sign-on único baseado em SAML para Figma, seguindo as instruções fornecidas no [tutorial de inscrição single figma](figma-tutorial.md). O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente.
+> Pode também optar por ativar o sign-on único baseado em SAML para a Figma, seguindo as instruções fornecidas no [tutorial de inscrição single figma](figma-tutorial.md). O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente.
 
 ### <a name="to-configure-automatic-user-provisioning-for-figma--in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para a Figma em Azure AD:
 

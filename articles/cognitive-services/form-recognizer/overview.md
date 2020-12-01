@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento automatizado de dados, processamento de documentos, entrada automatizada de dados, tratamento de formulários
-ms.openlocfilehash: 05024b8d7f4cf76024d71a79cb1fce489d58ee70
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 39243f4428d055ee5d4491c3e87b4b91213f63f1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519528"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353685"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecedor de Formato?
 
@@ -76,7 +76,7 @@ Quando treina com dados rotulados, o modelo supervisiona a aprendizagem para ext
 
 O Form Recogniser utiliza a [API do Layout](#layout-api) para aprender os tamanhos e posições esperados de elementos de texto impressos e manuscritos. Em seguida, utiliza etiquetas especificadas pelo utilizador para aprender as associações chave/valor nos documentos. Recomendamos que utilize cinco formas de marca manual do mesmo tipo (mesma estrutura) para começar a treinar um novo modelo e adicionar mais dados rotulados conforme necessário para melhorar a precisão do modelo.
 
-[Começar com Train com rótulos](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
+[Começar com Train com rótulos](./quickstarts/label-tool.md)
 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]

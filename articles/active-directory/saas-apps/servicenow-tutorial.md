@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 5ba81c7a3da6747b0fee8a05e359181e86e4a19d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7a15248300150c9b79c4678701f81fac923d56a3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181531"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353617"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Azure Ative Directy integração única (SSO) com o ServiceNow
 
@@ -25,6 +25,8 @@ Neste tutorial, você vai aprender a integrar o ServiceNow com o Azure Ative Dir
 * Controlo em Azure AD que tem acesso ao ServiceNow.
 * Ative os seus utilizadores a serem automaticamente inscritos no ServiceNow com as suas contas AD Azure.
 * Gerencie as suas contas num local central: o portal Azure.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Jao6]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -104,7 +106,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     d. No **URL logout,** introduza um URL que utiliza o seguinte padrão: `https://<instancename>.service-now.com/navpage.do`
 
     > [!NOTE]
-    > Se for acrescentado "/" no valor do identificador, retire-o manualmente.
+    > Se "/" for adicionado no valor do identificador, remova-o manualmente.
 
     > [!NOTE]
     > Estes valores não são reais. É necessário atualizar estes valores com o URL de inscrição real, URL de resposta, URL de logout e identificador, que é explicado mais tarde no tutorial. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -175,7 +177,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
     d. No **URL logout,** introduza um URL que utiliza o seguinte padrão: `https://<instancename>.service-now.com/navpage.do`
     
     > [!NOTE]
-    > Se for acrescentado "/" no valor do identificador, retire-o manualmente.
+    > Se "/" for adicionado no valor do identificador, remova-o manualmente.
 
     > [!NOTE]
     > Estes valores não são reais. É necessário atualizar estes valores com o URL de inscrição real, URL de resposta, URL de logout e identificador, que é explicado mais tarde no tutorial. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.

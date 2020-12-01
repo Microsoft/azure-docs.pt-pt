@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1866e9b233a1379474c061779ada09fd6d119107
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: f5bfe128ddc04e8048bb89a8e39035434dfd2b92
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94338402"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352886"
 ---
 # <a name="integrate-industry-standard-models-with-dtdl-for-azure-digital-twins"></a>Integrar modelos padrão da indústria com DTDL para Azure Digital Twins
 
@@ -21,9 +21,9 @@ A utilização de modelos baseados nos padrões da indústria ou na utilização
 Para ser utilizado com a Azure Digital Twins, um modelo deve ser representado na Linguagem de Definição de [**Gémeos Digitais (DTDL)**](concepts-models.md)baseada em JSON-LD . Por isso, este artigo descreve como representar os seus modelos padrão da indústria em DTDL, integrando os conceitos existentes da indústria com semântica DTDL para que a Azure Digital Twins possa usá-los. O modelo DTDL serve então como fonte de verdade para o modelo dentro da Azure Digital Twins.
 
 Existem três caminhos possíveis para integrar modelos padrão da indústria com DTDL:
-* **Adote** : Pode iniciar a sua solução com uma ontologia DTDL de código aberto que foi construída com base em padrões da indústria amplamente adotados. 
-* **Converter** : Se já tiver modelos existentes, terá de os converter em DTDL.
-* **Autor** : Pode sempre desenvolver os seus próprios modelos DTDL personalizados de raiz, conforme descrito em [*Como-a-: Gerir modelos personalizados.*](how-to-manage-model.md)
+* **Adote**: Pode iniciar a sua solução com uma ontologia DTDL de código aberto que foi construída com base em padrões da indústria amplamente adotados. 
+* **Converter**: Se já tiver modelos existentes, terá de os converter em DTDL.
+* **Autor**: Pode sempre desenvolver os seus próprios modelos DTDL personalizados de raiz, conforme descrito em [*Como-a-: Gerir modelos personalizados.*](how-to-manage-model.md)
 
 ## <a name="adopt-an-open-source-dtdl-ontology"></a>Adotar uma ontologia DTDL de código aberto
 
@@ -111,9 +111,9 @@ Existe uma aplicação de amostra disponível que converte um ficheiro modelo ba
 
 A amostra é uma aplicação de linha de comando .NET Core chamada **RdfToDtdlConverter**.
 
-Pode obter a amostra aqui: [**RdfToDtdlConverter**](https://docs.microsoft.com/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
+Pode obter a amostra aqui: [**RdfToDtdlConverter**](/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
 
-Para descarregar o código para a sua máquina, é *premida* o botão Download ZIP por baixo do título na página de aterragem da amostra. Isto irá descarregar um ficheiro *ZIP* com o nome *RdfToDtdlConverter_sample_application_to_convert_RDF_to_DTDL.zip* , que depois pode desapertar e explorar.
+Para descarregar o código para a sua máquina, é *premida* o botão Download ZIP por baixo do título na página de aterragem da amostra. Isto irá descarregar um ficheiro *ZIP* com o nome *RdfToDtdlConverter_sample_application_to_convert_RDF_to_DTDL.zip*, que depois pode desapertar e explorar.
 
 Você pode usar esta amostra para ver os padrões de conversão em contexto, e ter como um bloco de construção para suas próprias aplicações executando conversões de modelos de acordo com suas necessidades específicas.
 

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 05/26/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: fabricante de qna, bots de chat de código baixo, conversas multi-turn
-ms.openlocfilehash: 6a5ea51086e3ab532966c9cea9eb866334494bba
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 9655f64da455fb7a7124a97e6dc2d1d8437d05b7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874429"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353141"
 ---
 # <a name="what-is-qna-maker"></a>O que é o Criador de FAQ?
 
@@ -22,14 +22,14 @@ O QnA Maker é comumente usado para construir aplicações de clientes conversai
 
 ## <a name="when-to-use-qna-maker"></a>Quando usar o Fabricante QnA
 
-* **Quando tiver informações estáticas** - Use o Fabricante QnA quando tiver informações estáticas na base de respostas do seu conhecimento. Esta base de conhecimento é personalizada às suas necessidades, que construiu com documentos como [PDFs e URLs.](../concepts/content-types.md)
+* **Quando tiver informações estáticas** - Use o Fabricante QnA quando tiver informações estáticas na base de respostas do seu conhecimento. Esta base de conhecimento é personalizada às suas necessidades, que construiu com documentos como [PDFs e URLs.](../index.yml)
 * **Quando pretende dar a mesma resposta a um pedido, pergunta ou comando** - quando diferentes utilizadores submetem a mesma pergunta, a mesma resposta é devolvida.
 * **Quando pretende filtrar informações estáticas com base em metodagens** - adicione tags [de metadados](../how-to/metadata-generateanswer-usage.md) para fornecer opções de filtragem adicionais relevantes para os utilizadores da sua aplicação do cliente e as informações. As informações comuns de metadados incluem [chit-chat,](../how-to/chit-chat-knowledge-base.md)tipo de conteúdo ou formato, finalidade do conteúdo e frescura de conteúdo.
 * **Quando pretende gerir uma conversa bot que inclua informações estáticas** - a sua base de conhecimentos pega no texto ou comando de um utilizador e responde-o. Se a resposta for parte de um fluxo de conversação pré-determinado, representado na sua base de conhecimento com [contexto multi-volta,](../how-to/multiturn-conversation.md)o bot pode facilmente fornecer este fluxo.
 
 ## <a name="what-is-a-knowledge-base"></a>O que é uma base de conhecimento?
 
-A QnA Maker [importa o seu conteúdo](../concepts/knowledge-base.md) numa base de conhecimento de pares de perguntas e respostas. O processo de importação extrai informações sobre a relação entre as partes do seu conteúdo estruturado e semi-estruturado para implicar relações entre os pares de perguntas e respostas. Pode editar estes pares de perguntas e respostas ou adicionar novos pares.
+A QnA Maker [importa o seu conteúdo](../index.yml) numa base de conhecimento de pares de perguntas e respostas. O processo de importação extrai informações sobre a relação entre as partes do seu conteúdo estruturado e semi-estruturado para implicar relações entre os pares de perguntas e respostas. Pode editar estes pares de perguntas e respostas ou adicionar novos pares.
 
 O conteúdo do par de perguntas e respostas inclui:
 * Todas as formas alternativas da pergunta

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 93d9cc871d1cb114f7f08b68eb8ae9d597e228b9
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 9c042d044f5ceba5a64d6bd7dfefa34bbc69b107
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376490"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353209"
 ---
 # <a name="manage-qna-maker-app"></a>Gerir a aplicação QnA Maker
 
@@ -23,7 +23,7 @@ A sua base de conhecimento não muda automaticamente. Para que qualquer alteraç
 
 ## <a name="add-azure-role-based-access-control-azure-rbac"></a>Adicionar controlo de acesso baseado em funções Azure (Azure RBAC)
 
-O QnA Maker permite que várias pessoas colaborem em todas as bases de conhecimento no mesmo recurso QnA Maker. Esta funcionalidade é fornecida com [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../../active-directory/role-based-access-control-configure.md).
+O QnA Maker permite que várias pessoas colaborem em todas as bases de conhecimento no mesmo recurso QnA Maker. Esta funcionalidade é fornecida com [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="access-at-the-qna-maker-resource-level"></a>Acesso ao nível de recursos do QnA Maker
 

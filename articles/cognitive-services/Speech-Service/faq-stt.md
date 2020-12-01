@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 7c0b399f84e793d9e762c89dbbd1901bb5a95f26
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 32f6a9dae1a5b0be604b53d814ebc85cb7813b91
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024335"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353770"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Discurso ao Texto frequentemente feito perguntas
 
-Se não conseguir encontrar respostas para as suas perguntas nestas PERGUNTAS, consulte [outras opções de suporte.](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext)
+Se não conseguir encontrar respostas para as suas perguntas nestas PERGUNTAS, consulte [outras opções de suporte.](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)
 
 ## <a name="general"></a>Geral
 
@@ -71,7 +71,7 @@ Se tiver adaptado e implementado um modelo com V1.0 de base, essa implantação 
 
 **P: Os meus pedidos estão registados?**
 
-**A**: Por defeito, os pedidos não são registados (nem áudio, nem transcrição). Se necessário, poderá selecionar *o conteúdo de Log a partir desta* opção de ponto final quando criar um ponto final [personalizado](how-to-custom-speech-deploy-model.md) para ativar o rastreio. Em seguida, os pedidos serão registados em Azure em armazenamento seguro.
+**A**: Por defeito, os pedidos não são registados (nem áudio, nem transcrição). Se necessário, poderá selecionar *o conteúdo de Log a partir desta* opção de ponto final quando criar um ponto final [personalizado](./how-to-custom-speech-train-model.md) para ativar o rastreio. Em seguida, os pedidos serão registados em Azure em armazenamento seguro.
 
 **P: Os meus pedidos são acelerados?**
 
@@ -164,7 +164,7 @@ Ver [Quotas e Limites de Serviços de Fala.](speech-services-quotas-and-limits.m
 
 As experiências de fala incorporadas na Microsoft 365, tais como O Ditado e a Legendagem de PowerPoint, não são alteradas quando cria um Modelo de Inquilino para as suas aplicações de serviço de Discurso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Resolução de problemas](troubleshooting.md)
 - [Notas de versão](releasenotes.md)

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 3d399507499a320116ff1c732a1ffc0ad84b5731
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b43d446930d1f8c40c12e5d0aeba6eb202ef47ef
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015447"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353736"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>Assistentes de voz frequentemente fazem perguntas
 
-Se não conseguir encontrar respostas às suas perguntas neste documento, consulte [outras opções de suporte](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
+Se não conseguir encontrar respostas às suas perguntas neste documento, consulte [outras opções de suporte](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 ## <a name="general"></a>Geral
 
@@ -68,7 +68,7 @@ Para obter um guia mais detalhado, consulte a [secção tutorial](tutorial-voice
 
 **A:** A sessão por ficheiros fornece substancialmente mais detalhes e pode ajudar a acelerar os pedidos de suporte. Para ativar esta funcionalidade, consulte [como utilizar a sessão de registo de ficheiros](how-to-use-logging.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Resolução de problemas](troubleshooting.md)
 - [Notas de versão](releasenotes.md)

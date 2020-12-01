@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2019
-ms.openlocfilehash: dc910c01c401468a3dae392a6318344bee25efb7
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5035a81838ace0678f0cbb68ad2b9325de498003
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375645"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353124"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Suporte linguístico para um recurso e bases de conhecimento do QnA Maker
 
@@ -140,7 +140,7 @@ A lista a seguir contém os idiomas suportados para um recurso QnA Maker.
 |Vietnamita|
 
 ## <a name="query-matching-and-relevance"></a>Combinação de consulta e relevância
-O QnA Maker depende dos [analisadores de linguagem Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/language-support) para fornecer resultados.
+O QnA Maker depende dos [analisadores de linguagem Azure Cognitive Search](/rest/api/searchservice/language-support) para fornecer resultados.
 
 Enquanto as capacidades de Pesquisa Cognitiva Azure estão a par para línguas suportadas, o QnA Maker tem um ranker adicional que se situa acima dos resultados de pesquisa do Azure. Neste modelo ranker, usamos algumas características semânticas e baseadas em palavras nas seguintes línguas.
 
@@ -166,4 +166,4 @@ Este ranking adicional é um trabalho interno do ranker do QnA Maker.
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Seleção de idioma](../how-to/language-knowledge-base.md)
+> [Seleção de idioma](../index.yml)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: a62afa9469caa886d86814036017427c0cc0d193
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 8fdd2c8a326fbdc68d1aec65377f4c465c5ee4c1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357441"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353906"
 ---
 # <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>Tutorial: Configurar Infor CloudSuite para fornecimento automático de utilizadores
 
@@ -94,7 +94,7 @@ Antes de configurar o Infor CloudSuite para o fornecimento automático de utiliz
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **Infor CloudSuite** , selecione **Infor CloudSuite** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, insira **Infor CloudSuite**, selecione **Infor CloudSuite** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![Infor CloudSuite na lista de resultados](common/search-new-app.png)
 
@@ -103,7 +103,7 @@ Antes de configurar o Infor CloudSuite para o fornecimento automático de utiliz
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no Infor CloudSuite com base nas atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Pode também optar por ativar o sign-on único baseado em SAML para o Infor CloudSuite, seguindo as instruções fornecidas no [tutorial de inscrição única infor CloudSuite.](./infor-cloud-suite-tutorial.md) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente.
+> Também pode optar por ativar o sign-on único baseado em SAML para o Infor CloudSuite, seguindo as instruções fornecidas no [tutorial de inscrição única infor CloudSuite.](./infor-cloud-suite-tutorial.md) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente.
 
 > [!NOTE]
 > Para saber mais sobre o ponto final scim do Infor CloudSuite, consulte [isto](https://docs.infor.com/mingle/12.0.x/en-us/minceolh/jho1449382121585.html#).

@@ -1,18 +1,18 @@
 ---
 title: Parâmetros em modelos
-description: Descreve como definir parâmetros num modelo de Gestor de Recursos Azure.
+description: Descreve como definir parâmetros num modelo de Gestor de Recursos Azure (modelo ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 8cdc95037967a32c2d8464f4dc39b1e7369102bb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4ac1aeb579040b35b2a9b4cb90fb5687f91ebd3b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911418"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353515"
 ---
-# <a name="parameters-in-azure-resource-manager-templates"></a>Parameters in Azure Resource Manager templates (Parâmetros nos modelos do Azure Resource Manager)
+# <a name="parameters-in-arm-templates"></a>Parâmetros em modelos ARM
 
-Este artigo descreve como definir e usar parâmetros no seu modelo de Gestor de Recursos Azure. Ao fornecer diferentes valores para parâmetros, pode reutilizar um modelo para diferentes ambientes.
+Este artigo descreve como definir e usar parâmetros no seu modelo de Gestor de Recursos Azure (modelo ARM). Ao fornecer diferentes valores para parâmetros, pode reutilizar um modelo para diferentes ambientes.
 
 O Gestor de Recursos resolve os valores dos parâmetros antes de iniciar as operações de implantação. Onde quer que o parâmetro seja utilizado no modelo, o Gestor de Recursos substitui-o pelo valor resolvido.
 
@@ -159,9 +159,8 @@ Os exemplos a seguir demonstram cenários para a utilização de parâmetros.
 |[parâmetros com funções para valores predefinidos](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstra como utilizar as funções do modelo ao definir valores predefinidos para parâmetros. O modelo não implementa recursos. Constrói valores de parâmetros e devolve esses valores. |
 |[objeto de parâmetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstra usar um objeto para um parâmetro. O modelo não implementa recursos. Constrói valores de parâmetros e devolve esses valores. |
 
-
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para conhecer as propriedades disponíveis para parâmetros, consulte [a estrutura e sintaxe dos modelos Azure Resource Manager](template-syntax.md).
+* Para conhecer as propriedades disponíveis para parâmetros, consulte [a estrutura e sintaxe dos modelos ARM](template-syntax.md).
 * Para saber como passar os valores dos parâmetros como ficheiro, consulte [o ficheiro de parâmetros Do Gestor de Recursos](parameter-files.md).
 * Para recomendações sobre a criação de parâmetros, consulte [as melhores práticas - parâmetros.](template-best-practices.md#parameters)

@@ -1,18 +1,18 @@
 ---
 title: Saídas em modelos
-description: Descreve como definir valores de saída num modelo de Gestor de Recursos Azure.
+description: Descreve como definir valores de saída num modelo de Gestor de Recursos Azure (modelo ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 8f782a78e523ebc55faac98344643982172476fa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6a375dfbc767bcbbfd8ec6b7f8cb9e942e275582
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911435"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353532"
 ---
-# <a name="outputs-in-azure-resource-manager-template"></a>Saídas no modelo do Gestor de Recursos Azure
+# <a name="outputs-in-arm-templates"></a>Saídas em modelos ARM
 
-Este artigo descreve como definir valores de saída no seu modelo de Gestor de Recursos Azure. Utiliza-se saídas quando precisa de devolver os valores dos recursos implantados.
+Este artigo descreve como definir os valores de saída no seu modelo de Gestor de Recursos Azure (modelo ARM). Utiliza-se saídas quando precisa de devolver os valores dos recursos implantados.
 
 O formato de cada valor de saída deve corresponder a um dos tipos de [dados](template-syntax.md#data-types).
 
@@ -120,4 +120,4 @@ Os exemplos que se seguem demonstram cenários para a utilização de saídas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para conhecer as propriedades disponíveis para saídas, consulte [a estrutura e sintaxe dos modelos Azure Resource Manager](template-syntax.md).
+* Para saber mais sobre as propriedades disponíveis para saídas, consulte [a estrutura e sintaxe dos modelos ARM](template-syntax.md).
