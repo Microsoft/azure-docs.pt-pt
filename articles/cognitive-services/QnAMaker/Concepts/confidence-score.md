@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: abae83cee106feb553e8ced404d23ba5619ba416
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 489592fcbc779685728b120f18e5e923ee34d655
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327158"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346380"
 ---
 # <a name="the-confidence-score-of-an-answer"></a>A pontuação de confiança de uma resposta
 Quando uma consulta do utilizador é compatível com uma base de conhecimento, o QnA Maker devolve respostas relevantes, juntamente com uma pontuação de confiança. Esta pontuação indica a confiança de que a resposta é a correspondência certa para a consulta do utilizador dada.
@@ -62,7 +62,7 @@ Desavele a pontuação limiar como propriedade do [corpo JSON da API de Generate
 A partir da estrutura bot, desajei a pontuação como parte do objeto de opções com [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) ou [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## <a name="improve-confidence-scores"></a>Melhorar os resultados de confiança
-Para melhorar a pontuação de confiança de uma determinada resposta a uma consulta do utilizador, pode adicionar a consulta do utilizador à base de conhecimento como uma pergunta alternativa sobre essa resposta. Também pode utilizar alterações de [palavras insensíveis](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) a casos para adicionar sinónimos a palavras-chave no seu KB.
+Para melhorar a pontuação de confiança de uma determinada resposta a uma consulta do utilizador, pode adicionar a consulta do utilizador à base de conhecimento como uma pergunta alternativa sobre essa resposta. Também pode utilizar alterações de [palavras insensíveis](/rest/api/cognitiveservices/qnamaker/alterations/replace) a casos para adicionar sinónimos a palavras-chave no seu KB.
 
 
 ## <a name="similar-confidence-scores"></a>Pontuações de confiança semelhantes
@@ -89,4 +89,3 @@ Quando nenhum bom jogo é encontrado pelo ranker, a pontuação de confiança de
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Melhores práticas](./best-practices.md)
-

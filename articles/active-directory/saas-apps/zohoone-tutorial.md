@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: fa63cc2c76d8bd47ca80050a369bda7211f5db24
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 98c9012969051e4370239a0f4098e0ea1d7a55a0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896759"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348318"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>Tutorial: Integração do Diretório Ativo Azure com o Zoho One
 
@@ -49,7 +49,7 @@ Para configurar a integração do Zoho One em AD Azure, precisa adicionar o Zoho
 
 **Para adicionar Zoho One da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do Zoho One em AD Azure, precisa adicionar o Zoho
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, **digite Zoho One** , selecione **Zoho One** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
+4. Na caixa de pesquisa, **digite Zoho One**, selecione **Zoho One** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
      ![Zoho One na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, você configura e testa Azure AD single sign-on com Zoho One com base em um utilizador de teste chamado **Britta Simon** .
+Nesta secção, você configura e testa Azure AD single sign-on com Zoho One com base em um utilizador de teste chamado **Britta Simon**.
 Para um único s-on para o trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no Zoho One.
 
 Para configurar e testar o Azure AD com o Zoho One, você precisa completar os seguintes blocos de construção:
@@ -85,7 +85,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD single sign-on com Zoho One, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Zoho One,** selecione **Single sign-on** .
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Zoho One,** selecione **Single sign-on**.
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -106,9 +106,9 @@ Para configurar o Azure AD single sign-on com Zoho One, execute os seguintes pas
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://accounts.zoho.com/samlresponse/<saml-identifier>`
 
     > [!NOTE]
-    > O valor **URL de resposta** anterior não é real. Você receberá o `<saml-identifier>` valor de #step4 da secção **Configure Zoho One Single Sign-On** , que é explicada mais tarde no tutorial.
+    > O valor **URL de resposta** anterior não é real. Você receberá o `<saml-identifier>` valor de #step4 da secção **Configure Zoho One Single Sign-On,** que é explicada mais tarde no tutorial.
 
-    c. Clique **em Definir URLs adicionais** .
+    c. Clique **em Definir URLs adicionais**.
 
     d. Na caixa de texto **do Estado de Retransmissão,** digite um URL: `https://one.zoho.com`
 
@@ -139,7 +139,7 @@ Para configurar o Azure AD single sign-on com Zoho One, execute os seguintes pas
 
 1. Numa janela diferente do navegador web, inscreva-se no seu site da empresa Zoho One como administrador.
 
-2. No separador **Organização,** clique em **Configuração** sob **autenticação SAML** .
+2. No separador **Organização,** clique em **Configuração** sob **autenticação SAML**.
 
     ![Zoho One org](./media/zohoone-tutorial/tutorial_zohoone_setup.png)
 
@@ -153,13 +153,13 @@ Para configurar o Azure AD single sign-on com Zoho One, execute os seguintes pas
 
     c. Clique **em Procurar** para fazer o upload do Certificado **(Base64)** que descarregou a partir do portal Azure.
 
-    d. Clique em **Guardar** .
+    d. Clique em **Guardar**.
 
 4. Depois de guardar a configuração de autenticação SAML, copie o valor **DO IDENTIFICADOR SAML** e apique-o com o **URL de resposta** em vez `<saml-identifier>` de, como e colar o valor `https://accounts.zoho.com/samlresponse/one.zoho.com` gerado na caixa de texto URL **resposta** na secção **de Configuração SAML Básica.**
 
     ![Zoho One saml](./media/zohoone-tutorial/tutorial_zohoone_samlidenti.png)
 
-5. Vá ao **separador Domínios** e, em seguida, clique em **Adicionar Domínio** .
+5. Vá ao **separador Domínios** e, em seguida, clique em **Adicionar Domínio**.
 
     ![Domínio Zoho One](./media/zohoone-tutorial/tutorial_zohoone_domain.png)
 
@@ -169,7 +169,7 @@ Para configurar o Azure AD single sign-on com Zoho One, execute os seguintes pas
 
     a. Na caixa de texto **do Nome de Domínio,** escreva o domínio como contoso.com.
 
-    b. Clique em **Adicionar** .
+    b. Clique em **Adicionar**.
 
     >[!Note]
     >Depois de adicionar o domínio siga [estes](https://www.zoho.com/one/help/admin-guide/domain-verification.html) passos para verificar o seu domínio. Assim que o domínio for verificado, utilize o seu nome de domínio em **URL de acesso na** secção de **configuração SAML básica** no portal Azure.
@@ -178,7 +178,7 @@ Para configurar o Azure AD single sign-on com Zoho One, execute os seguintes pas
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -190,27 +190,27 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon** .
+    a. No campo **Nome** entra **BrittaSimon**.
   
     b. No tipo de campo **do nome do utilizador** `brittasimon@yourcompanydomain.extension` . Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao Zoho One.
 
-1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações** e, em seguida, selecione **Zoho One** .
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Zoho One**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, selecione **Zoho One** .
+2. Na lista de candidaturas, selecione **Zoho One**.
 
     ![O link Zoho One na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos** .
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -240,14 +240,14 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no Zoho One, devem se
 
     ![Zoho One adicionar utilizador](./media/zohoone-tutorial/tutorial_zohoone_adduser.png)
     
-    a. Na caixa de texto **Name,** insira o nome de utilizador como **Britta simon** .
+    a. Na caixa de texto **Name,** insira o nome de utilizador como **Britta simon**.
     
     b. Na caixa de texto **do Endereço de E-mail,** insira o e-mail do utilizador como brittasimon@contoso.com .
 
     >[!Note]
     >Selecione o seu domínio verificado na lista de domínios.
 
-    c. Clique em **Adicionar** .
+    c. Clique em **Adicionar**.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 

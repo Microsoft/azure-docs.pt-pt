@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 19942e5400be63dfde48b9653282fb93bcb1ec42
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f524eae791ab3944fb326b867e5f6823a35b432c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174820"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348199"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutorial - Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
 
@@ -199,29 +199,21 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
   - [Criar Utilizador](#create-user) (Resposta[de Pedido)](#request)  /  [Response](#response)
   - [Obter Utilizador](#get-user) (Resposta[de Pedido)](#request-1)  /  [Response](#response-1)
   - [Obter Utilizador por consulta](#get-user-by-query) (Resposta[de Pedido)](#request-2)  /  [Response](#response-2)
-  - [Obtenha o Utilizador por consulta - Resultados zero](#get-user-by-query---zero-results) (Resposta[de Pedido)](#request-3) 
-/  [Response](#response-3)
-  - [Atualizar o Utilizador [propriedades multi-valorizadas]](#update-user-multi-valued-properties) [Request](#request-4)  /   [(Resposta de Pedido)](#response-4)
-  - [Atualizar o Utilizador [propriedades de valor único]](#update-user-single-valued-properties) (Resposta[de](#request-5) 
-/  [Pedido)](#response-5) 
-  - [Utilizador desativação](#disable-user) (Resposta[de](#request-14)  / 
- [Response](#response-14)Pedido)
-  - [Excluir utilizador](#delete-user) (Resposta[de Pedido)](#request-6)  / 
- [Response](#response-6)
+  - [Obtenha o Utilizador por consulta - Resultados zero](#get-user-by-query---zero-results) (Resposta[de Pedido)](#request-3)  /  [Response](#response-3)
+  - [Atualizar o Utilizador [propriedades multi-valorizadas]](#update-user-multi-valued-properties) [Request](#request-4)  /  [(Resposta de Pedido)](#response-4)
+  - [Atualizar o Utilizador [propriedades de valor único]](#update-user-single-valued-properties) (Resposta[de](#request-5)  /  [Pedido)](#response-5) 
+  - [Utilizador desativação](#disable-user) (Resposta[de](#request-14)  /  [Response](#response-14)Pedido)
+  - [Excluir utilizador](#delete-user) (Resposta[de Pedido)](#request-6)  /  [Response](#response-6)
 
 
 [Operações de Grupo](#group-operations)
-  - [Criar Grupo](#create-group) (Resposta [de Pedido)](#request-7)  /  [Response](#response-7)
-  - [Obter Grupo](#get-group) (Resposta [de Pedido)](#request-8)  /  [Response](#response-8)
+  - [Criar Grupo](#create-group) (Resposta[de Pedido)](#request-7)  /  [Response](#response-7)
+  - [Obter Grupo](#get-group) (Resposta[de Pedido)](#request-8)  /  [Response](#response-8)
   - [Obter Grupo por displayName](#get-group-by-displayname) [Request](#request-9)  /  [(Resposta de Pedido)](#response-9)
-  - [Grupo de Atualização [Atributos não membros]](#update-group-non-member-attributes) [Request](#request-10) /
-  [(Resposta de](#response-10)Pedido)
-  - [Grupo de Atualização [Add Members]](#update-group-add-members) [Request](#request-11)  /
- [(Resposta do](#response-11)Pedido)
-  - [Grupo de atualização [Remover Membros]](#update-group-remove-members) [Request](#request-12)  /
- [(Resposta do](#response-12)Pedido)
-  - [Excluir Grupo](#delete-group) (Resposta[de Pedido)](#request-13)  /
- [Response](#response-13)
+  - [Grupo de Atualização [Atributos não membros]](#update-group-non-member-attributes) [Request](#request-10)  /  [(Resposta de](#response-10)Pedido)
+  - [Grupo de Atualização [Add Members]](#update-group-add-members) [Request](#request-11)  /  [(Resposta do](#response-11)Pedido)
+  - [Grupo de atualização [Remover Membros]](#update-group-remove-members) [Request](#request-12)  /  [(Resposta do](#response-12)Pedido)
+  - [Excluir Grupo](#delete-group) (Resposta[de Pedido)](#request-13)  /  [Response](#response-13)
 
 ### <a name="user-operations"></a>Operações de Utilizador
 
@@ -750,7 +742,7 @@ Barra mínima TLS 1.2 Cipher Suites:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Gamas IP
-O serviço de prestação de AD Azure opera atualmente ao abrigo dos Intervalos IP para AzureActiveDirectory, conforme [listado aqui.](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all) Pode adicionar as gamas IP listadas na tag AzureActiveDirectory para permitir o tráfego do serviço de fornecimento AZure AD na sua aplicação. Note que terá de rever cuidadosamente a lista de gama IP para endereços computados. Um endereço como '40.126.25.32' poderia estar representado na lista de intervalos de IP como '40.126.0.0/18'. Também pode recuperar programaticamente a lista de gama IP utilizando a seguinte [API](/rest/api/virtualnetwork/servicetags/list).
+O serviço de prestação de AD Azure opera atualmente ao abrigo dos Intervalos IP para AzureActiveDirectory, conforme [listado aqui.](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all) Pode adicionar as gamas IP listadas na tag AzureActiveDirectory para permitir o tráfego do serviço de fornecimento AZure AD na sua aplicação. Note que terá de rever cuidadosamente a lista de gama IP para endereços computados. Um endereço como '40.126.25.32' poderia estar representado na lista de intervalos de IP como '40.126.0.0/18'. Também pode recuperar programáticamente a lista de gama IP utilizando a seguinte [API.](/rest/api/virtualnetwork/servicetags/list)
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Passo 3: Construir um ponto final SCIM
 

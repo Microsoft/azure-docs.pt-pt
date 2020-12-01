@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 90abd46e73ecb50b5e6de40218571d0ec899752e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8af3da5d04f9aaafc18299f4837660694ee34b51
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012959"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345274"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a uma área de trabalho do Azure Machine Learning
 
@@ -55,7 +55,7 @@ Se você é proprietário de um espaço de trabalho, você pode adicionar e remo
 - [PowerShell](../role-based-access-control/role-assignments-powershell.md)
 - [CLI do Azure](../role-based-access-control/role-assignments-cli.md)
 - [API REST](../role-based-access-control/role-assignments-rest.md)
-- [Modelos do Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
+- [Modelos de gestor de recursos Azure](../role-based-access-control/role-assignments-template.md)
 
 Se tiver instalado o [CLI de Aprendizagem de Máquinas Azure,](reference-azure-machine-learning-cli.md)pode utilizar comandos CLI para atribuir funções aos utilizadores:
 
@@ -175,7 +175,7 @@ O quadro a seguir é um resumo das atividades de Aprendizagem automática do Azu
 | Criar novo cluster computacional | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `/workspaces/computes/write` |
 | Criar nova instância computacional | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `/workspaces/computes/write` |
 | Submeter qualquer tipo de execução | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
-| Publicação de um ponto final do gasoduto | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| Oleodutos e pontos finais de publicação | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `"/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Implantação de um modelo registado num recurso AKS/ACI | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | Pontuação contra um ponto final AKS implantado | não é necessário | não é necessário | Titular, colaborador ou papel personalizado que permite: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (quando não estiver a utilizar auth Azure Ative Directory) OR `"/workspaces/read"` (quando estiver a utilizar auth token) |
 | Acesso ao armazenamento usando cadernos interativos | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
@@ -467,7 +467,7 @@ Eis algumas coisas a ter em conta enquanto utiliza o controlo de acesso baseado 
 
 - Às vezes pode levar até 1 hora para que as suas novas tarefas de função produzam efeitos sobre permissões em cache através da pilha.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral da segurança empresarial](concept-enterprise-security.md)
 - [Isolamento de rede virtual e visão geral da privacidade](how-to-network-security-overview.md)

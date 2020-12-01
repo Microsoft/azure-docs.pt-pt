@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 900021e258bb96c0d0c83ef182262515449ad5df
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 982f4a9cdf3984bae79cd11dad2bd637a1772f05
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912591"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348505"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Recursos de armazenamento blob disponíveis no Azure Data Lake Storage Gen2
 
@@ -44,9 +44,11 @@ A tabela seguinte mostra como cada recurso de armazenamento Blob é suportado co
 |Web sites estáticos|Pré-visualizar|Pré-visualizar|[Static website hosting in Azure Storage](storage-blob-static-website.md) (Alojamento de sites estáticos no Armazenamento do Microsoft Azure)|
 |Armazenamento imutável|Pré-visualizar|Pré-visualizar|[Armazenar dados de blob críticos de negócio com armazenamento imutável](storage-blob-immutable-storage.md)|
 |Eliminação macia do recipiente|Pré-visualizar|Pré-visualizar|[Excluir suave para recipientes (pré-visualização)](soft-delete-container-overview.md)|
+|Inventário de armazenamento Azure|Pré-visualizar|Pré-visualizar|[Utilize o inventário de armazenamento Azure para gerir dados blob (pré-visualização)](blob-inventory.md)|
+|Blob soft delete|Ainda não suportado|Ainda não suportado|[Eliminação recuperável para blobs](storage-blob-soft-delete.md)|
 |Blob soft delete|Ainda não suportado|Ainda não suportado|[Eliminação recuperável para blobs](./soft-delete-blob-overview.md)|
 |Rio Blobfuse|Disponível em Geral|Disponível em Geral|[Como montar o armazenamento Blob como um sistema de ficheiros com blobfuse](storage-how-to-mount-container-linux.md)|
-|Falha na conta|Ainda não suportado|Ainda não suportado|[Recuperação de desastres e falha na conta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Falha na conta gerida pelo cliente|Ainda não suportado|Ainda não suportado|[Recuperação de desastres e falha na conta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Recipiente blob ACL|Não suportado<div role="complementary" aria-labelledby="blob-container-ACL"><sup>1</sup></div>|Não suportado<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Consulte a nota relacionada abaixo desta tabela.|
 |Chaves fornecidas pelo cliente|Ainda não suportado|Ainda não suportado|[Fornecer uma chave de encriptação sobre um pedido para o armazenamento Blob](encryption-customer-provided-keys.md)|
 |Domínios personalizados|Ainda não suportado|Ainda não suportado|[Mapear um domínio personalizado para um ponto final de armazenamento Azure Blob](storage-custom-domain-name.md)|

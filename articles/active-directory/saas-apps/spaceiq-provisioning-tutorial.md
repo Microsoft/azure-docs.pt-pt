@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: 4e115de4f86baba9559730d94f45ab7b17cc4379
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a5bd3c39c293880e31ebe63f85b3814725f6027a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002209"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96347298"
 ---
 # <a name="tutorial-configure-spaceiq-for-automatic-user-provisioning"></a>Tutorial: Configurar SpaceIQ para o fornecimento automático de utilizadores
 
@@ -95,7 +95,7 @@ Antes de configurar o SpaceIQ para o fornecimento automático de utilizadores co
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no SpaceIQ com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Pode também optar por ativar um único sinal de síl sobre o SpaceIQ baseado em SAML, seguindo as instruções fornecidas no [tutorial de assinatura único SpaceIQ.](./spaceiq-tutorial.md) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
+> Pode também optar por ativar um único sinal de SEM para o SpaceIQ, seguindo as instruções fornecidas no [tutorial de assinatura único SpaceIQ.](./spaceiq-tutorial.md) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
 
 ### <a name="to-configure-automatic-user-provisioning-for-spaceiq-in-azure-ad"></a>Para configurar o fornecimento automático do utilizador para o SpaceIQ em Azure AD:
 

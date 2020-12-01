@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 90b107b2335bd5f08eeb0b9aa66c7a9db9b74eb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5a22655dca5af86729d5a906093a389b2bdc2d0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388566"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345291"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o sº de saúde com uma conta Amazon utilizando políticas personalizadas no Azure Ative Directory B2C
 
@@ -62,7 +62,7 @@ Se quiser que os utilizadores assinem através de uma conta Amazon, tem de defin
 Pode definir uma conta Amazon como fornecedor de sinistros adicionando-a ao elemento **ClaimsProviders** no ficheiro de extensão da sua política.
 
 
-1. Abra a *TrustFrameworkExtensions.xml. *
+1. Abra a *TrustFrameworkExtensions.xml.*
 2. Encontre o elemento **ClaimsProviders.** Se não existir, adicione-o sob o elemento raiz.
 3. Adicione um novo **Provider de Reclamações** da seguinte forma:
 
@@ -81,7 +81,7 @@ Pode definir uma conta Amazon como fornecedor de sinistros adicionando-a ao elem
           <Item Key="ClaimsEndpoint">https://api.amazon.com/user/profile</Item>
           <Item Key="scope">profile</Item>
           <Item Key="HttpBinding">POST</Item>
-          <Item Key="UsePolicyInRedirectUri">0</Item>
+          <Item Key="UsePolicyInRedirectUri">false</Item>
           <Item Key="client_id">Your Amazon application client ID</Item>
         </Metadata>
         <CryptographicKeys>
@@ -113,7 +113,7 @@ Pode definir uma conta Amazon como fornecedor de sinistros adicionando-a ao elem
 Por esta altura, já configuraste a tua política para que o Azure AD B2C saiba comunicar com o teu diretório AD Azure. Tente carregar o ficheiro de extensão da sua apólice apenas para confirmar que não tem quaisquer problemas até agora.
 
 1. Na página **'Políticas Personalizadas'** no seu inquilino Azure AD B2C, selecione **'Política de Upload'.**
-2. Ativar **a política em caso de existência**e, em seguida, navegar e selecionar o ficheiro *TrustFrameworkExtensions.xml.*
+2. Ativar **a política em caso de existência** e, em seguida, navegar e selecionar o ficheiro *TrustFrameworkExtensions.xml.*
 3. Clique em **Carregar**.
 
 ## <a name="register-the-claims-provider"></a>Registar o fornecedor de sinistros

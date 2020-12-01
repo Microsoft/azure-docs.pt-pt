@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 2016d6dfedef68c334758660e9affa0ad9b9d4a3
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 2c159e25195c5f144187268b4355c1078695e809
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505245"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345530"
 ---
 # <a name="whats-new-in-qna-maker"></a>Novidades no QnA Maker
 
@@ -56,17 +56,17 @@ Saiba as novidades com o QnA Maker.
 
 ### <a name="november-2019"></a>Novembro de 2019
 
-* [Apoio à nuvem do Governo dos EUA](https://docs.microsoft.com/azure/azure-government/documentation-government-services-aiandcognitiveservices#qna-maker) para o Criador QnA
-* [Recurso multi-turn](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/multiturn-conversation) em GA
-* [Suporte chit-chat](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/chit-chat-knowledge-base#language-support) disponível em idiomas de nível 1
+* [Apoio à nuvem do Governo dos EUA](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers) para o Criador QnA
+* [Recurso multi-turn](./how-to/multiturn-conversation.md) em GA
+* [Suporte chit-chat](./how-to/chit-chat-knowledge-base.md#language-support) disponível em idiomas de nível 1
 
 ### <a name="october-2019"></a>Outubro de 2019
 
-* [Definição explícita do idioma](./how-to/language-knowledge-base.md#select-language-when-creating-first-knowledge-base) para todas as bases de conhecimento no serviço QnA Maker.
+* [Definição explícita do idioma](./index.yml) para todas as bases de conhecimento no serviço QnA Maker.
 
 ### <a name="september-2019"></a>Setembro de 2019
 
-* Importação e exportação com [formato de ficheiro XLS](concepts/content-types.md)
+* Importação e exportação com [formato de ficheiro XLS](./index.yml)
 
 ### <a name="june-2019"></a>Junho de 2019
 

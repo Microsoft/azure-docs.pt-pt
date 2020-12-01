@@ -3,12 +3,12 @@ title: Entrega e reagem à grelha de eventos Azure
 description: Descreve como a Azure Event Grid fornece eventos e como lida com mensagens não entregues.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 7bf8fd3a647e28d18a7ca1e658761f9226d1153a
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 9a7bde33e322183f86c3c51d30bb004d06fa1406
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981107"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345358"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e redação de mensagem da Grelha de Eventos
 
@@ -54,6 +54,22 @@ az eventgrid event-subscription create \
 Para obter mais informações sobre a utilização do Azure CLI com a Grade de [Eventos, consulte os eventos de armazenamento da Rota para o ponto final da Web com o Azure CLI](../storage/blobs/storage-blob-event-quickstart.md).
 
 ## <a name="retry-schedule-and-duration"></a>Horário e duração de redominação
+
+Quando o EventGrid recebe um erro para uma tentativa de entrega de eventos, a EventGrid decide se deve voltar a tentar a entrega ou a carta morta ou largar o evento com base no tipo de erro. 
+
+Se o erro devolvido pelo ponto final subscrito for um erro relacionado com a configuração que não pode ser corrigido com retornas (por exemplo, se o ponto final for eliminado), o EventGrid ou executa o evento de rotulação morta ou deixa cair o evento se a letra morta não estiver configurada.
+
+Seguem-se os tipos de pontos finais para os quais não acontece novamente:
+
+| Tipo de ponto final | Códigos de erro |
+| --------------| -----------|
+| Recursos do Azure | 400 Mau Pedido, 413 Entidade de Pedido Demasiado Grande, 403 Proibido | 
+| Webhook | 400 Mau Pedido, 413 Entidade de Pedido Demasiado Grande, 403 Proibido, 404 Não Encontrado, 401 Não Autorizado |
+ 
+> [!NOTE]
+> Se Dead-Letter não estiver configurado para o ponto final, os eventos serão eliminados quando os erros acima acontecerem, por isso considere configurar a Carta Morta, se não quiser que este tipo de eventos sejam eliminados.
+
+Se o erro devolvido pelo ponto final subscrito não estiver entre a lista acima, a EventGrid executa a repetição utilizando as políticas descritas abaixo:
 
 A Grade de Eventos espera 30 segundos para uma resposta depois de entregar uma mensagem. Após 30 segundos, se o ponto final não tiver respondido, a mensagem é reda proibida para tentar novamente. A Grade de Eventos utiliza uma política de recuo exponencial para a entrega do evento. Entrega de retries de grelha de eventos no seguinte horário com uma melhor base de esforço:
 
@@ -256,16 +272,16 @@ A Event Grid considera **apenas** os seguintes códigos de resposta HTTP como en
 
 ### <a name="failure-codes"></a>Códigos de falha
 
-Todos os outros códigos não no conjunto acima (200-204) são considerados falhas e serão novamente julgados. Alguns têm políticas específicas de relícula ligadas a eles descritas abaixo, todas as outras seguem o modelo exponencial padrão de back-off. É importante ter em mente que, devido à natureza altamente paralela da arquitetura do Event Grid, o comportamento relemcrónico não é determinístico. 
+Todos os outros códigos não no conjunto acima (200-204) são considerados falhas e serão novamente julgados (se necessário). Alguns têm políticas específicas de relícula ligadas a eles descritas abaixo, todas as outras seguem o modelo exponencial padrão de back-off. É importante ter em mente que, devido à natureza altamente paralela da arquitetura do Event Grid, o comportamento relemcrónico não é determinístico. 
 
 | Código de estado | Relemgar o comportamento |
 | ------------|----------------|
-| 400 Pedido Incorreto | Redaça após 5 minutos ou mais (Deadletter imediatamente se a montagem da carta morta) |
-| 401 Não Autorizado | Relemissar após 5 minutos ou mais |
-| 403 Proibido | Relemissar após 5 minutos ou mais |
-| 404 Não Encontrado | Relemissar após 5 minutos ou mais |
+| 400 Pedido Incorreto | Não julgado novamente |
+| 401 Não Autorizado | Reagem após 5 minutos ou mais para os pontos finais dos Recursos Azure |
+| 403 Proibido | Não julgado novamente |
+| 404 Não Encontrado | Reagem após 5 minutos ou mais para os pontos finais dos Recursos Azure |
 | 408 Tempo Limite do Pedido | Relemissar após 2 minutos ou mais |
-| 413 Entidade de Pedido Demasiado Grande | Relemcando após 10 segundos ou mais (Deadletter imediatamente se a montagem da carta morta) |
+| 413 Entidade de Pedido Demasiado Grande | Não julgado novamente |
 | 503 Serviço Indisponível | Relemissar após 30 segundos ou mais |
 | Todos os outros | Relemissar após 10 segundos ou mais |
 

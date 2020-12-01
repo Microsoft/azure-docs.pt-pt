@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: c3d6e21b45bccbdaeeee350bac79be680783eb24
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ecf81152605d77e1036c9fbf5d3308af2b1fb988
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147533"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346160"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Colaborar com outros autores e editores
 
@@ -42,11 +42,11 @@ O diagrama seguinte mostra o fluxo, do ponto de vista do autor, para iniciar a s
 |3|A API do Fabricante QNA valida o token.|
 |4 |A API do Fabricante QNA chama o Serviço QnAMaker.|
 
-Se pretender ligar para as [APIs de autoria,](../How-To/collaborate-knowledge-base.md)saiba mais sobre como configurar a autenticação.
+Se pretender ligar para as [APIs de autoria,](../index.yml)saiba mais sobre como configurar a autenticação.
 
 ## <a name="authenticate-by-qna-maker-portal"></a>Autenticado por portal QnA Maker
 
-Se você autore e colabore usando o portal QnA Maker, depois de [adicionar o papel apropriado ao recurso para um colaborador,](../How-To/collaborate-knowledge-base.md)o portal QnA Maker gere todas as permissões de acesso.
+Se você autore e colabore usando o portal QnA Maker, depois de [adicionar o papel apropriado ao recurso para um colaborador,](../index.yml)o portal QnA Maker gere todas as permissões de acesso.
 
 ## <a name="authenticate-by-qna-maker-apis-and-sdks"></a>Autenticado por APIs e SDKs do Criador de QnA
 
@@ -54,4 +54,4 @@ Se você autorizar e colaborar usando as APIs, seja através do REST ou dos SDKs
 
 ## <a name="next-step"></a>Passo seguinte
 
-* Desenhe uma base de conhecimento para [idiomas](design-language-culture.md) e para aplicações de [clientes](integration-with-other-applications.md)
+* Desenhe uma base de conhecimento para [idiomas](../index.yml) e para aplicações de [clientes](../index.yml)

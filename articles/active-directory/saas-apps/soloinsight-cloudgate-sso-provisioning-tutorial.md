@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: 1b992150f6013fd597a3e56b243bd6236289b710
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 5c42102c0704d7212411d6b86f4210ad8ecd885c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358002"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96347519"
 ---
 # <a name="tutorial-configure-soloinsight-cloudgate-sso-for-automatic-user-provisioning"></a>Tutorial: Configurar Soloinsight-CloudGate SSO para o fornecimento automático de utilizadores
 
@@ -80,7 +80,7 @@ Antes de configurar Soloinsight-CloudGate SSO para fornecimento automático de u
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **Soloinsight-CloudGate SSO** , selecione **Soloinsight-CloudGate SSO** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, insira **Soloinsight-CloudGate SSO**, selecione **Soloinsight-CloudGate SSO** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![SSO Soloinsight-CloudGate na lista de resultados](common/search-new-app.png)
 

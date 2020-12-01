@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d8ec8eec28d66cf93608393ddca45f78460d831
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6c8be064ade8182355c320e948b3b60b846033d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279776"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348063"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: Funções Referência
 No Azure AD Connect, as funções são usadas para manipular um valor de atributo durante a sincronização.  
@@ -48,7 +48,7 @@ Os tipos são expressos com a seguinte sintaxe:
 * **var** – Uma variante de (quase) qualquer outro tipo
 * **vazio** – não devolve um valor
 
-As funções com os tipos **mvbin**, **mvstr**e **mvref** só podem funcionar em atributos multi-valorizados. Funções com **bin**, **str**, e **ref** trabalham em atributos de valor único e multi-valor.
+As funções com os tipos **mvbin**, **mvstr** e **mvref** só podem funcionar em atributos multi-valorizados. Funções com **bin**, **str**, e **ref** trabalham em atributos de valor único e multi-valor.
 
 ## <a name="functions-reference"></a>Referência das Funções
 
@@ -124,7 +124,7 @@ As funções com os tipos **mvbin**, **mvstr**e **mvref** só podem funcionar em
   * [Erro](#error)
   * [IIF](#iif)
   * [Selecionar](#select)
-  * [Mudar](#switch)
+  * [Comutador](#switch)
   * [Onde](#where)
   * [Com](#with)
 * **Texto**
@@ -509,7 +509,7 @@ O formato de saída desta função é utilizado pelo Azure Ative Directory como 
 Devoluções 48656C6C6F20776F726C6421
 
 ---
-### <a name="count"></a>Contagem
+### <a name="count"></a>de palavras
 **Description:**  
 A função Contagem devolve o número de elementos num atributo multi-valor
 
@@ -703,7 +703,7 @@ A função InStr encontra a primeira ocorrência de um sublaming numa corda
 
 `num InStr(str stringcheck, str stringmatch)`  
 `num InStr(str stringcheck, str stringmatch, num start)`  
-`num InStr(str stringcheck, str stringmatch, num start , enum compare)`
+`num InStr(str stringcheck, str stringmatch, num start, enum compare)`
 
 * stringcheck: cadeia a ser pesquisada
 * stringmatch: corda a ser encontrada

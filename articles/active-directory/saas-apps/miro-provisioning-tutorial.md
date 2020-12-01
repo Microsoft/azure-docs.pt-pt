@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: Zhchia
-ms.openlocfilehash: 31631209a16024e4414cc19bca37166332b427de
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d3dee76ada7a9ed48813928937f8f8da8be4add1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359234"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348046"
 ---
 # <a name="tutorial-configure-miro-for-automatic-user-provisioning"></a>Tutorial: Configure Miro para o fornecimento automático de utilizadores
 
@@ -79,7 +79,7 @@ Antes de configurar o Miro para o fornecimento automático de utilizadores com A
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Miro com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Pode também optar por ativar o sign-on único baseado em SAML para o Miro, seguindo as instruções fornecidas no [tutorial de inscrição única Miro .](./miro-tutorial.md) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente.
+> Pode também optar por ativar o sign-on único baseado em SAML para o Miro, seguindo as instruções fornecidas no [tutorial de inscrição única do Miro.](./miro-tutorial.md) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente.
 
 > [!NOTE]
 > Para saber mais sobre o ponto final do SCIM da Miro, consulte [isto.](https://help.miro.com/hc/en-us/articles/360036777814)

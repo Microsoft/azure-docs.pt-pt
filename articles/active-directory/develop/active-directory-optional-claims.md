@@ -12,12 +12,12 @@ ms.date: 10/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 50f57f48ca839c5389df49fc5dc7586030916b6b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7eedb9ce30be236e8d47152f0e114b7bc5ae2304
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169754"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348097"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: Fornecer reclamações opcionais à sua app
 
@@ -84,7 +84,7 @@ Estas reclamações estão sempre incluídas em fichas AD v1.0 Azure, mas não i
 | `pwd_url`     | Alterar URL de palavra-passe             | Um URL que o utilizador pode visitar para alterar a sua palavra-passe.   |   |
 | `in_corp`     | Dentro da Rede da Empresa        | Sinaliza se o cliente está a fazer login na rede corporativa. Se não estiverem, a reclamação não está incluída.   |  Baseado nas [definições de IPs confiáveis](../authentication/howto-mfa-mfasettings.md#trusted-ips) no MFA.    |
 | `family_name` | Apelido                       | Fornece o sobrenome, apelido ou nome de família do utilizador, conforme definido no objeto do utilizador. <br>"family_name":"Miller" | Suportado em MSA e Azure AD. Requer o `profile` alcance.   |
-| `given_name`  | Nome próprio                      | Fornece o primeiro nome ou "dado" do utilizador, conforme definido no objeto do utilizador.<br>"given_name": "Frank"                   | Suportado em MSA e Azure AD .  Requer o `profile` alcance. |
+| `given_name`  | Nome próprio                      | Fornece o primeiro nome ou "dado" do utilizador, conforme definido no objeto do utilizador.<br>"given_name": "Frank"                   | Suportado em MSA e Azure AD.  Requer o `profile` alcance. |
 | `upn`         | Nome Principal de Utilizador | Um identificador para o utilizador que pode ser utilizado com o parâmetro username_hint.  Não é um identificador durável para o utilizador e não deve ser utilizado para identificar exclusivamente informações do utilizador (por exemplo, como chave de base de dados). Em vez disso, utilize o ID do objeto de utilizador `oid` como uma chave de base de dados. Os utilizadores que iniciam sessão com um [ID de login alternativo](../authentication/howto-authentication-use-email-signin.md) não devem ser mostrados o seu Nome Principal do Utilizador (UPN). Em vez disso, utilize as seguintes reclamações de iD para visualizar o estado de inscrição ao utilizador: `preferred_username` ou `unique_name` para tokens v1 e `preferred_username` para tokens v2. | Consulte [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para configuração da reclamação. Requer o `profile` alcance.|
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriedades adicionais de créditos opcionais
@@ -93,7 +93,7 @@ Algumas reclamações opcionais podem ser configuradas para alterar a forma como
 
 **Quadro 4: Valores para configurar reclamações opcionais**
 
-| Nome da propriedade  | Nome de propriedade adicional | Description |
+| Nome da propriedade  | Nome de propriedade adicional | Descrição |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Pode ser usado tanto para respostas SAML como JWT, e para tokens v1.0 e v2.0. |
 |                | `include_externally_authenticated_upn`  | Inclui o hóspede UPN como armazenado no inquilino de recursos. Por exemplo, `foo_hometenant.com#EXT#@resourcetenant.com` |
@@ -139,7 +139,7 @@ Pode configurar reclamações opcionais para a sua aplicação através do UI ou
 1. Selecione **Adicionar**.
 
 > [!NOTE]
-> A lâmina **de configuração token** de opção UI não está disponível para aplicações registadas num inquilino AZURE AD B2C atualmente . Para os pedidos registados num inquilino B2C, os pedidos opcionais podem ser configurados modificando o manifesto de aplicação. Para mais informações consulte [adicionar reclamações e personalizar a entrada do utilizador usando políticas personalizadas no Azure Ative Directory B2C](../../active-directory-b2c/custom-policy-configure-user-input.md) 
+> A lâmina de **configuração token** de opção UI não está disponível para aplicações registadas num inquilino AZURE AD B2C atualmente. Para os pedidos registados num inquilino B2C, os pedidos opcionais podem ser configurados modificando o manifesto de aplicação. Para mais informações consulte [adicionar reclamações e personalizar a entrada do utilizador usando políticas personalizadas no Azure Ative Directory B2C](../../active-directory-b2c/custom-policy-configure-user-input.md) 
 
 **Configurar reclamações opcionais através do manifesto de aplicação:**
 
@@ -186,7 +186,7 @@ Declara os pedidos facultativos solicitados por um pedido. Uma aplicação pode 
 
 **Quadro 5: OpcionaisClaims tipo propriedades**
 
-| Nome          | Tipo                       | Description                                           |
+| Nome          | Tipo                       | Descrição                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Coleção (OpcionalClaim) | As reclamações opcionais devolvidas no token JWT ID.     |
 | `accessToken` | Coleção (OpcionalClaim) | As reclamações opcionais devolvidas no token de acesso JWT. |
@@ -199,7 +199,7 @@ Se suportado por uma reclamação específica, também pode modificar o comporta
 
 **Quadro 6: Propriedades do tipo OpcionalClaim**
 
-| Nome                   | Tipo                    | Description                                                                                                                                                                                                                                                                                                   |
+| Nome                   | Tipo                    | Descrição                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | O nome da reclamação opcional.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | A fonte (objeto de diretório) da reclamação. Existem reclamações predefinidas e reclamações definidas pelo utilizador a partir de propriedades de extensão. Se o valor de origem for nulo, o pedido é uma reclamação opcional predefinida. Se o valor de origem for o utilizador, o valor na propriedade do nome é a propriedade de extensão do objeto do utilizador. |

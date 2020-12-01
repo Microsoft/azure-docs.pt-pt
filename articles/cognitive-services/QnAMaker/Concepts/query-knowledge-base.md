@@ -3,12 +3,12 @@ title: Consulta da base de conhecimento - QnA Maker
 description: Uma base de conhecimento deve ser publicada. Uma vez publicada, a base de conhecimento é consultada no ponto final de previsão de tempo de execução usando a API generateAnswer.
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: e8dd056a7b6357b8342d3059e17baa88db92b404
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: d8f986299edee46bf5cace7a9f4c805c29b3ce0c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376731"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346210"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Consultar a base de conhecimento para respostas
 
@@ -18,7 +18,7 @@ Uma base de conhecimento deve ser publicada. Uma vez publicada, a base de conhec
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
 
-A base de conhecimentos da QnA Maker treinada e [publicada](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) recebe uma consulta do utilizador, a partir de um bot ou outra aplicação de cliente, na [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). O diagrama seguinte ilustra o processo quando a consulta do utilizador é recebida.
+A base de conhecimentos da QnA Maker treinada e [publicada](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) recebe uma consulta do utilizador, a partir de um bot ou outra aplicação de cliente, na [API GenerateAnswer](../how-to/metadata-generateanswer-usage.md). O diagrama seguinte ilustra o processo quando a consulta do utilizador é recebida.
 
 ![O processo de modelo de classificação para uma consulta de utilizador](../media/qnamaker-concepts-knowledgebase/ranker-v1.png)
 
@@ -28,7 +28,7 @@ O processo é explicado na tabela seguinte.
 
 |Passo|Objetivo|
 |--|--|
-|1|A aplicação do cliente envia a consulta do utilizador para a [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
+|1|A aplicação do cliente envia a consulta do utilizador para a [API GenerateAnswer](../how-to/metadata-generateanswer-usage.md).|
 |2|O QnA Maker pré-processa a consulta do utilizador com deteção de idiomas, soletradores e disjuntores de palavras.|
 |3|Este pré-processamento é tomado para alterar a consulta do utilizador para obter os melhores resultados de pesquisa.|
 |4|Esta consulta alterada é enviada para um Índice de Pesquisa Cognitiva Azure, que recebe o `top` número de resultados. Se a resposta correta não estiver nestes resultados, aumente ligeiramente o `top` valor. Geralmente, um valor de 10 para `top` obras em 90% das consultas.|
@@ -41,7 +41,7 @@ As características usadas incluem, mas não se limitam à semântica de nível 
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
 
-A base de conhecimentos da QnA Maker treinada e [publicada](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) recebe uma consulta do utilizador, a partir de um bot ou outra aplicação de cliente, na [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). O diagrama seguinte ilustra o processo quando a consulta do utilizador é recebida.
+A base de conhecimentos da QnA Maker treinada e [publicada](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) recebe uma consulta do utilizador, a partir de um bot ou outra aplicação de cliente, na [API GenerateAnswer](../how-to/metadata-generateanswer-usage.md). O diagrama seguinte ilustra o processo quando a consulta do utilizador é recebida.
 
 ![O processo de modelo de classificação para uma pré-visualização de consulta de utilizador](../media/qnamaker-concepts-knowledgebase/ranker-v2.png)
 
@@ -51,7 +51,7 @@ O processo é explicado na tabela seguinte.
 
 |Passo|Objetivo|
 |--|--|
-|1|A aplicação do cliente envia a consulta do utilizador para a [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
+|1|A aplicação do cliente envia a consulta do utilizador para a [API GenerateAnswer](../how-to/metadata-generateanswer-usage.md).|
 |2|O QnA Maker pré-processa a consulta do utilizador com deteção de idiomas, soletradores e disjuntores de palavras.|
 |3|Este pré-processamento é tomado para alterar a consulta do utilizador para obter os melhores resultados de pesquisa.|
 |4|Esta consulta alterada é enviada para um Índice de Pesquisa Cognitiva Azure, que recebe o `top` número de resultados. Se a resposta correta não estiver nestes resultados, aumente ligeiramente o `top` valor. Geralmente, um valor de 10 para `top` obras em 90% das consultas.|

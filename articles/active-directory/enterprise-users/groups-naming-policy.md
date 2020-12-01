@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 458fbdf4cdfa40da871d34a62101020330c79265
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 4ac878db8d81cc7d9d9dfc6d7c3a4ba63f966110
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95488798"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348369"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Impor uma política de nomeação em grupos Microsoft 365 no Azure Ative Directory
 
@@ -47,7 +47,7 @@ Prefixos e sufixos podem conter caracteres especiais que são suportados em nome
 
 #### <a name="fixed-strings"></a>Cordas fixas
 
-Pode utilizar cordas para facilitar a digitalização e diferenciar grupos na lista de endereços globais e nas ligações de navegação à esquerda das cargas de trabalho do grupo. Alguns dos prefixos comuns são palavras-chave como \_ 'Grp Name', \# 'Name', \_ 'Name', 'Name'
+Pode utilizar cordas para facilitar a digitalização e diferenciar grupos na lista de endereços globais e nas ligações de navegação à esquerda das cargas de trabalho do grupo. Alguns dos prefixos comuns são palavras-chave como \_ 'Grp Name', \# 'Name', \_ 'Name'
 
 #### <a name="user-attributes"></a>Atributos do utilizador
 

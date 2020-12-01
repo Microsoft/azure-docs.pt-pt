@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/22/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 224131d1b17c4ed34ee847638633a5a1a494ccaf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12879b22e255384701b0cd265b50ed34d5e198c9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894135"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345547"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro"></a>Tutorial: Prepare-se para implementar Azure Stack Edge Pro  
 
@@ -53,18 +53,18 @@ Seguem-se os pré-requisitos de configuração para o seu recurso Azure Stack Ed
 
 Antes de começar, certifique-se de que:
 
-* A subscrição do Microsoft Azure tem de estar ativada para um recurso do Azure Stack Edge. Certifique-se de que utilizou uma subscrição suportada, como [o Microsoft Enterprise Agreement (EA),](https://azure.microsoft.com/overview/sales-number/)o Cloud Solution Provider [(CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)ou [o Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Não são suportadas subscrições Pay as you go.
+* A subscrição do Microsoft Azure tem de estar ativada para um recurso do Azure Stack Edge. Certifique-se de que utilizou uma subscrição suportada, como [o Microsoft Enterprise Agreement (EA),](https://azure.microsoft.com/overview/sales-number/)o Cloud Solution Provider [(CSP)](/partner-center/azure-plan-lp)ou [o Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Não são suportadas subscrições Pay as you go.
 
 * Tem acesso ao proprietário ou colaborador a nível de grupo de recursos para os recursos Azure Stack Edge / Data Box Gateway, IoT Hub e Azure Storage.
 
-  * Deverá ser **proprietário** ao nível de subscrição para conceder acesso ao contribuinte. Para dar acesso ao colaborador a outra pessoa, no portal Azure, aceda ao controlo de acesso a **todas as**subscrições de  >  **serviços**  >  **(IAM)**  >  **+Add**  >  **Add fun assignment**. Para obter mais informações, consulte [Tutorial: Conceder a um utilizador acesso aos recursos da Azure utilizando o portal Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+  * Deverá ser **proprietário** ao nível de subscrição para conceder acesso ao contribuinte. Para dar acesso ao colaborador a outra pessoa, no portal Azure, aceda ao controlo de acesso a **todas as** subscrições de  >  **serviços**  >  **(IAM)**  >  **+Add**  >  **Add fun assignment**. Para obter mais informações, consulte [Tutorial: Conceder a um utilizador acesso aos recursos da Azure utilizando o portal Azure](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
   * Para criar qualquer recurso Azure Stack Edge / Data Box Gateway, deverá ter permissões como contribuinte (ou superior) a nível de grupo de recursos. Também é necessário certificar-se de que o `Microsoft.DataBoxEdge` fornecedor de recursos está registado. Para obter informações sobre como registar um fornecedor de recursos, consulte [o fornecedor de recursos Do Registo.](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)
   * Para criar qualquer recurso IoT Hub, certifique-se de que o fornecedor microsoft.devices está registado. Para obter informações sobre como realizar o registo, aceda a [Registar fornecedor de recursos](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
   * Para criar um recurso de conta de Armazenamento, mais uma vez precisa de um contribuinte ou de um acesso mais elevado ao nível do grupo de recursos. O Azure Storage é, por defeito, um fornecedor de recursos registado.
-* Tem acesso administrativo ou utilizador à Azure Ative Directory Graph API. Para mais informações, consulte [a Azure Ative Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+* Tem acesso administrativo ou utilizador à Azure Ative Directory Graph API. Para mais informações, consulte [a Azure Ative Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 * Tem a conta do Storage do Microsoft Azure com credenciais de acesso.
-* Não está bloqueado por nenhuma política Azure criada pelo administrador do seu sistema. Para obter mais informações sobre políticas, consulte [Quickstart: Crie uma atribuição de política para identificar recursos não conformes](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal).
+* Não está bloqueado por nenhuma política Azure criada pelo administrador do seu sistema. Para obter mais informações sobre políticas, consulte [Quickstart: Crie uma atribuição de política para identificar recursos não conformes](../governance/policy/assign-policy-portal.md).
 
 ### <a name="for-the-azure-stack-edge-pro-device"></a>Para o dispositivo Azure Stack Edge Pro
 
@@ -96,7 +96,7 @@ Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure
 1. Use as suas credenciais Microsoft Azure para iniciar seduca 
 
     - O portal Azure neste URL: [https://portal.azure.com](https://portal.azure.com) .
-    - Ou, o portal do Governo Azure nesta URL: [https://portal.azure.us](https://portal.azure.us) . Para mais detalhes, [aceda ao Governo de Azure utilizando o portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+    - Ou, o portal do Governo Azure nesta URL: [https://portal.azure.us](https://portal.azure.us) . Para mais detalhes, [aceda ao Governo de Azure utilizando o portal](../azure-government/documentation-government-get-started-connect-with-portal.md).
 
 2. No painel esquerdo, selecione **+ Crie um recurso**. Procure e selecione **Azure Stack Edge / Data Box Gateway**. Selecione **Criar**.
 3. Escolha a subscrição que pretende utilizar para o dispositivo Azure Stack Edge Pro. Selecione a região onde pretende implantar o recurso Azure Stack Edge. Para obter uma lista de todas as regiões onde o recurso Azure Stack Edge está disponível, consulte [os produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)
@@ -112,7 +112,7 @@ Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure
     |Definição  |Valor  |
     |---------|---------|
     |Subscrição    |Isto é automaticamente povoado com base na seleção anterior. A subscrição está associada à sua conta de faturação. |
-    |Grupo de recursos  |Selecione um grupo existente ou crie um novo grupo.<br>Saiba mais sobre os [Grupos de Recursos do Azure](../azure-resource-manager/resource-group-overview.md).     |
+    |Grupo de recursos  |Selecione um grupo existente ou crie um novo grupo.<br>Saiba mais sobre os [Grupos de Recursos do Azure](../azure-resource-manager/management/overview.md).     |
 
 4. Introduza ou selecione os **seguintes detalhes da Instância**.
 
@@ -132,7 +132,7 @@ Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure
 
 6. Selecione **Seguinte: Rever + criar**.
 
-7. No **separador 'Rever +' criar,** rever os **detalhes de Preços,** **Termos de utilização**e os detalhes do seu recurso. Selecione a caixa de combinação para **eu ter revisto os termos de privacidade**.
+7. No **separador 'Rever +' criar,** rever os **detalhes de Preços,** **Termos de utilização** e os detalhes do seu recurso. Selecione a caixa de combinação para **eu ter revisto os termos de privacidade**.
 
     ![Reveja detalhes de recursos e termos de privacidade do Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-resource2.png)
 

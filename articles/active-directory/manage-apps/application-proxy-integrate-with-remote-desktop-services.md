@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 03e89b0da25a915a00c70a9a87bd0f675b8e12d6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bfa9367e06c099e21a54ad8c03f8d5ab853aaafb
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997533"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348080"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar o Ambiente de Trabalho Remoto com o Proxy de Aplicações do Azure AD
 
@@ -130,7 +130,7 @@ A configuração descrita neste artigo é para acesso a RDS via RD Web ou ao Cli
 
 | Método de autenticação | Configuração de cliente suportado |
 | --------------------- | ------------------------------ |
-| Pré-autenticação    | RD Web- Windows 7/10 utilizando o internet Explorer ou [o modo Edge Chromium IE](/deployedge/edge-ie-mode) + add-on RDS ActiveX |
+| Pré-autenticação    | RD Web- Windows 7/10 utilizando o internet Explorer ou [o modo Edge Chromium IE](/deployedge/edge-ie-mode) + add-on RDS ActiveX <br /> *Note que o portal My Apps só suporta edge.* |
 | Pré-autenticação    | RD Web Client- HTML5-compatível com navegador web como Microsoft Edge, Internet Explorer 11, Google Chrome, Safari ou Mozilla Firefox (v55.0 e mais tarde) |
 | Passthrough | Qualquer outro sistema operativo que suporte a aplicação Microsoft Remote Desktop |
 

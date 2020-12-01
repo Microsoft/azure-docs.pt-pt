@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 2f87f5c7e43757db476153db93d6ecc5082dde89
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: ee8d838ba315c2e261a61699948b71a710341165
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376762"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346363"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Boas práticas de uma base de conhecimento da QnA Maker
 
@@ -18,7 +18,7 @@ O [ciclo de vida de desenvolvimento](../Concepts/development-lifecycle-knowledge
 
 ## <a name="extraction"></a>Extração
 
-O serviço QnA Maker está continuamente a melhorar os algoritmos que extraem QnAs do conteúdo e a expandir a lista de formatos de ficheiros e HTML suportados. Siga as [diretrizes](../Concepts/content-types.md) para a extração de dados com base no seu tipo de documento.
+O serviço QnA Maker está continuamente a melhorar os algoritmos que extraem QnAs do conteúdo e a expandir a lista de formatos de ficheiros e HTML suportados. Siga as [diretrizes](../index.yml) para a extração de dados com base no seu tipo de documento.
 
 Em geral, as páginas de FAQ devem ser autónomas e não combinadas com outras informações. Os manuais do produto devem ter posições claras e, de preferência, uma página de índice.
 
@@ -71,7 +71,7 @@ Existem algumas questões específicas do bot que fazem parte do conjunto de dad
 
 Recomendamos tornar os seguintes QnAs de chit-chat mais específicos:
 
-* Quem és?
+* Qual é a sua função?
 * O que é que se pode fazer?
 * Que idade tens?
 * Quem te criou?
@@ -117,10 +117,10 @@ Por predefinição, o QnA Maker procura através de perguntas e respostas. Se qu
 
 ### <a name="use-synonyms"></a>Use sinónimos
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
-Embora exista algum suporte para sinónimos na língua inglesa, use alterações de palavras insensíveis através da [API alterações](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) para adicionar sinónimos a palavras-chave que assumem diferentes formas. Os sinónimos são adicionados ao nível de serviço do QnA Maker e **partilhados por todas as bases de conhecimento do serviço.**
+Embora exista algum suporte para sinónimos na língua inglesa, use alterações de palavras insensíveis através da [API alterações](/rest/api/cognitiveservices/qnamaker/alterations/replace) para adicionar sinónimos a palavras-chave que assumem diferentes formas. Os sinónimos são adicionados ao nível de serviço do QnA Maker e **partilhados por todas as bases de conhecimento do serviço.**
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
-Embora exista algum suporte para sinónimos na língua inglesa, use alterações de palavras insensíveis através da [API alterações](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) para adicionar sinónimos a palavras-chave que assumem diferentes formas. Os sinónimos no QnA Maker geridos (Preview) são **adicionados por base de conhecimento**.
+Embora exista algum suporte para sinónimos na língua inglesa, use alterações de palavras insensíveis através da [API alterações](/rest/api/cognitiveservices/qnamaker/alterations/replace) para adicionar sinónimos a palavras-chave que assumem diferentes formas. Os sinónimos no QnA Maker geridos (Preview) são **adicionados por base de conhecimento**.
 
 |Palavra original|Sinónimos|
 |--|--|
@@ -141,7 +141,7 @@ Por exemplo, pode ter dois QNAs separados com as seguintes perguntas:
 Uma vez que estes dois QnAs são expressos com palavras muito semelhantes, esta semelhança pode causar pontuações muito semelhantes para muitas consultas de utilizador que são fraseada como  *"onde está a `<x>` localização"*. Em vez disso, tente diferenciar claramente as consultas como  *"onde está o parque de estacionamento"* e *"onde está o multibanco",* evitando palavras como "localização" que poderia estar em muitas perguntas no seu KB.
 
 ## <a name="collaborate"></a>Colaborar
-O QnA Maker permite que os utilizadores [colaborem](../How-to/collaborate-knowledge-base.md) numa base de conhecimento. Os utilizadores precisam de acesso ao grupo de recursos Azure QnA Maker para aceder às bases de conhecimento. Algumas organizações podem querer subcontratar a base de conhecimentos de edição e manutenção, e ainda ser capaz de proteger o acesso aos seus recursos Azure. Este modelo de editor-aprovação é feito através da criação de dois [serviços QnA Maker idênticos](../How-to/set-up-qnamaker-service-azure.md) em diferentes subscrições e selecionando um para o ciclo de testes de edição. Uma vez concluído o teste, os conteúdos da base de conhecimento são transferidos com um processo [de importação-exportação](../Tutorials/migrate-knowledge-base.md) para o serviço QnA Maker do aprovador que irá finalmente publicar a base de conhecimento e atualizar o ponto final.
+O QnA Maker permite que os utilizadores [colaborem](../index.yml) numa base de conhecimento. Os utilizadores precisam de acesso ao grupo de recursos Azure QnA Maker para aceder às bases de conhecimento. Algumas organizações podem querer subcontratar a base de conhecimentos de edição e manutenção, e ainda ser capaz de proteger o acesso aos seus recursos Azure. Este modelo de editor-aprovação é feito através da criação de dois [serviços QnA Maker idênticos](../How-to/set-up-qnamaker-service-azure.md) em diferentes subscrições e selecionando um para o ciclo de testes de edição. Uma vez concluído o teste, os conteúdos da base de conhecimento são transferidos com um processo [de importação-exportação](../Tutorials/migrate-knowledge-base.md) para o serviço QnA Maker do aprovador que irá finalmente publicar a base de conhecimento e atualizar o ponto final.
 
 
 

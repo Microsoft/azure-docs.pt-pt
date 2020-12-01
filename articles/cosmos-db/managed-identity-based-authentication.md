@@ -9,12 +9,12 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b3bd6a71898576ac23cdd10c1eb52e1ef3a39b95
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: cfef6ce0fb38f074f854d5ceb77677843e44b91b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336593"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345734"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Utilize identidades geridas atribuídas ao sistema para aceder aos dados do Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -68,9 +68,9 @@ Neste cenário, a aplicação de função irá ler a temperatura do aquário e, 
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Screenshot mostrando o painel de atribuição de funções Adicionar.":::
 
-   * **Função** : Selecione **Colaborador de Conta DocumentDB**
+   * **Função**: Selecione **Colaborador de Conta DocumentDB**
    * **Atribua acesso a:** Sob a **subsecção de identidade gerida atribuída pelo sistema Select,** selecione **App de Função**.
-   * **Selecione** : O painel será preenchido com todas as aplicações de função na sua subscrição que tenham uma **Identidade do Sistema Gerido.** Neste caso, selecione a aplicação de função **FishTankTemperatureService:** 
+   * **Selecione**: O painel será preenchido com todas as aplicações de função na sua subscrição que tenham uma **Identidade do Sistema Gerido.** Neste caso, selecione a aplicação de função **FishTankTemperatureService:** 
 
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Screenshot mostrando o painel de atribuição de funções Adicionar preenchido com exemplos.":::
 
@@ -214,7 +214,7 @@ namespace Monitor
 }
 ```
 
-Está agora pronto para implementar a [sua aplicação de função.](../azure-functions/functions-create-first-function-vs-code.md)
+Está agora pronto para implementar a [sua aplicação de função.](../azure-functions/create-first-function-vs-code-csharp.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

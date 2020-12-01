@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.author: egeaney
-ms.openlocfilehash: 1ee3c3942ee7d01fa174947f5d9c278cddaf0424
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 19dc0f3a676d5373b28e4b7055050477c426f847
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376920"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345785"
 ---
 # <a name="qna-maker-encryption-of-data-at-rest"></a>Encriptação de dados do QnA Maker em repouso
 
@@ -26,11 +26,11 @@ Por predefinição, a subscrição utiliza chaves de encriptação geridas pela 
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
 
-O QnA Maker utiliza o suporte cmk da pesquisa Azure. Configure [CMK em Azure Search usando Azure Key Vault](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys). Esta instância Azure deve ser associada ao serviço QnA Maker para torná-lo cmk habilitado.
+O QnA Maker utiliza o suporte cmk da pesquisa Azure. Configure [CMK em Azure Search usando Azure Key Vault](../../search/search-security-manage-encryption-keys.md). Esta instância Azure deve ser associada ao serviço QnA Maker para torná-lo cmk habilitado.
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
 
-O QnA Maker utiliza [o suporte cmk da pesquisa Azure,](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)e associa automaticamente a CMK fornecida para encriptar os dados armazenados no índice de pesquisa Azure.
+O QnA Maker utiliza [o suporte cmk da pesquisa Azure,](../../search/search-security-manage-encryption-keys.md)e associa automaticamente a CMK fornecida para encriptar os dados armazenados no índice de pesquisa Azure.
 
 ---
 
@@ -43,7 +43,7 @@ O serviço QnA Maker utiliza CMK do serviço de Pesquisa Azure. Siga estes passo
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
 
-1. Crie uma nova instância de Pesquisa de Azure e permita os pré-requisitos mencionados nos [pré-requisitos de chave geridos pelo cliente para a Pesquisa Cognitiva Azure](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys#prerequisites).
+1. Crie uma nova instância de Pesquisa de Azure e permita os pré-requisitos mencionados nos [pré-requisitos de chave geridos pelo cliente para a Pesquisa Cognitiva Azure](../../search/search-security-manage-encryption-keys.md#prerequisites).
 
    ![Ver definições de encriptação 1](../media/cognitive-services-encryption/qna-encryption-1.png)
 
@@ -52,8 +52,8 @@ O serviço QnA Maker utiliza CMK do serviço de Pesquisa Azure. Siga estes passo
    ![Ver definições de encriptação 2](../media/cognitive-services-encryption/qna-encryption-2.png)
 
 3. Em seguida, crie uma nova definição de aplicação:
-   * **Nome** : Definir para `CustomerManagedEncryptionKeyUrl`
-   * **Valor** : Use o valor que obteve no Passo 1 ao criar a sua instância de Pesquisa Azure.
+   * **Nome**: Definir para `CustomerManagedEncryptionKeyUrl`
+   * **Valor**: Use o valor que obteve no Passo 1 ao criar a sua instância de Pesquisa Azure.
 
    ![Ver definições de encriptação 3](../media/cognitive-services-encryption/qna-encryption-3.png)
 
@@ -62,14 +62,14 @@ O serviço QnA Maker utiliza CMK do serviço de Pesquisa Azure. Siga estes passo
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
 
 1.  Aceda ao separador **encriptação** do seu serviço gerido (Preview) do Seu QnA Maker.
-2.  Selecione a opção **Chaves Geridas pelo Cliente.** Forneça os detalhes das [suas chaves geridas pelo cliente](https://docs.microsoft.com/azure/storage/common/customer-managed-keys-configure-key-vault?tabs=portal) e clique em **Save**.
+2.  Selecione a opção **Chaves Geridas pelo Cliente.** Forneça os detalhes das [suas chaves geridas pelo cliente](../../storage/common/customer-managed-keys-configure-key-vault.md?tabs=portal) e clique em **Save**.
 
      :::image type="content" source="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png" alt-text="QnA Maker gerido (Preview) CMK definição" lightbox="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png":::
 
 3.  Numa defesa bem sucedida, o CMK será utilizado para encriptar os dados armazenados no Índice de Pesquisa do Azure.
 
 > [!IMPORTANT]
-> Recomenda-se definir o seu CMK num serviço de Pesquisa Cognitiva Azure antes de serem criadas quaisquer bases de conhecimento. Se colocar a CMK num serviço QnA Maker com bases de conhecimento existentes, poderá perder o acesso a elas. Leia mais sobre [trabalhar com conteúdo encriptado](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys#work-with-encrypted-content) na pesquisa cognitiva do Azure.
+> Recomenda-se definir o seu CMK num serviço de Pesquisa Cognitiva Azure antes de serem criadas quaisquer bases de conhecimento. Se colocar a CMK num serviço QnA Maker com bases de conhecimento existentes, poderá perder o acesso a elas. Leia mais sobre [trabalhar com conteúdo encriptado](../../search/search-security-manage-encryption-keys.md#work-with-encrypted-content) na pesquisa cognitiva do Azure.
 
 > [!NOTE]
 > Para solicitar a capacidade de utilizar chaves geridas pelo cliente, preencha e envie o [Formulário de Pedido de Chave dos Serviços Cognitivos Customer-Managed](https://aka.ms/cogsvc-cmk).
@@ -87,6 +87,6 @@ No entanto, como o serviço de portal QnA Maker está hospedado no West-US, aind
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Encriptação em Pesquisa de Azure usando CMKs no Cofre da Chave Azure](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)
-* [Encriptação de dados inativos](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
-* [Saiba mais sobre o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Encriptação em Pesquisa de Azure usando CMKs no Cofre da Chave Azure](../../search/search-security-manage-encryption-keys.md)
+* [Encriptação de dados inativos](../../security/fundamentals/encryption-atrest.md)
+* [Saiba mais sobre o Azure Key Vault](../../key-vault/general/overview.md)

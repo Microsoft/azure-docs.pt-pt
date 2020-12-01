@@ -1,5 +1,5 @@
 ---
-title: Módulo PowerShell AADCloudSyncTools para Azure AD Connect Cloud Sync
+title: Módulo AADCloudSyncTools PowerShell para a azure AD Connect cloud provisioning
 description: Este artigo descreve como instalar o agente de provisão de nuvem Azure AD Connect.
 services: active-directory
 author: billmath
@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 11/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3ce5a7a313ab0f0680558aa60b34e3ebb9b51c9
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: ba71d3eedbb75780c20499daa890556574494a35
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95255157"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348142"
 ---
-# <a name="aadcloudsynctools-powershell-module-for-azure-ad-connect-cloud-sync"></a>Módulo PowerShell AADCloudSyncTools para Azure AD Connect Cloud Sync
+# <a name="aadcloudsynctools-powershell-module-for-azure-ad-connect-cloud-provisioning"></a>Módulo AADCloudSyncTools PowerShell para a azure AD Connect cloud provisioning
 
 Com o lançamento da atualização de pré-visualização pública 2, a Microsoft introduziu o Módulo PowerShell AADCloudSyncTools.  Este módulo fornece um conjunto de ferramentas úteis que pode usar para ajudar a gerir as suas implementações Azure AD Connect Cloud Sync.
 
@@ -122,7 +122,7 @@ Modifica o 'AADConnectProvisioningAgent.exe.config' para desativar o rastreio ve
 ### <a name="suspend-aadcloudsynctoolsjob"></a>Suspend-AADCloudSyncToolsJob
 Pausa sincronização.
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 - [O que é o aprovisionamento?](what-is-provisioning.md)
 - [O que é o aprovisionamento na cloud do Azure AD Connect?](what-is-cloud-provisioning.md)

@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: c96be79a349478db7d0452cae1ff07ee1c48aaa3
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: e383896e50ccf06ef6d1b5caaeb0ef36ece2ce3b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700098"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348301"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Configurar a app Microsoft Authenticator como o seu método de verificação
 
@@ -47,7 +47,7 @@ Os métodos de informação de segurança são utilizados tanto para a verifica�
 Dependendo das definições da sua organização, poderá utilizar uma aplicação de autenticação como um dos seus métodos de informação de segurança. Não é obrigado a utilizar a aplicação Microsoft Authenticator, e pode escolher uma aplicação diferente durante o processo de configuração. No entanto, este artigo utiliza a aplicação Microsoft Authenticator.
 
 >[!Important]
-> Se tiver configurado a aplicação Microsoft Authenticator em 5 dispositivos diferentes ou 5 fichas de hardware , não poderá configurar uma sexta e poderá ver a seguinte mensagem de erro.
+> Se tiver configurado a aplicação Microsoft Authenticator em 5 dispositivos diferentes ou 5 fichas de hardware, não poderá configurar uma sexta e poderá ver a seguinte mensagem de erro.
 > 
 > **Não é possível configurar o Microsoft Authenticator porque já tem cinco aplicações autenticadoras ou fichas de hardware. Contacte o seu administrador para eliminar uma das suas aplicações autenticadoras ou fichas de hardware.**
 

@@ -5,16 +5,16 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: ceff3127eba724ba9aa9bc8f9398d0f27ba687eb
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5aab021ab5194b4af18e3ff1b2c154ed74710353
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376614"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346125"
 ---
 # <a name="change-default-answer-for-a-qna-maker-resource"></a>Alterar a resposta padrão para um recurso do QnA Maker
 
-A resposta padrão para uma base de conhecimento deve ser devolvida quando uma resposta não é encontrada. Se estiver a utilizar uma aplicação do cliente, como o [serviço Azure Bot,](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna)também poderá ter uma resposta por defeito separada, indicando que nenhuma resposta cumpriu o limiar de pontuação.
+A resposta padrão para uma base de conhecimento deve ser devolvida quando uma resposta não é encontrada. Se estiver a utilizar uma aplicação do cliente, como o [serviço Azure Bot,](/azure/bot-service/bot-builder-howto-qna)também poderá ter uma resposta por defeito separada, indicando que nenhuma resposta cumpriu o limiar de pontuação.
 
 ## <a name="types-of-default-answer"></a>Tipos de resposta predefinido
 
@@ -24,15 +24,15 @@ Existem dois tipos de resposta padrão na sua base de conhecimento. É important
 
 |Tipos de respostas predefinidos|Descrição da resposta|
 |--|--|
-|Resposta KB quando não é determinada resposta|`No good match found in KB.` - Quando a [API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) não encontra uma resposta correspondente à pergunta, a `DefaultAnswer` definição do serviço App é devolvida. Todas as bases de conhecimento no mesmo recurso QnA Maker partilham o mesmo texto de resposta predefinido.<br>Pode gerir a definição no portal Azure, através do serviço App, ou com as APIs REST para [obter](https://docs.microsoft.com/rest/api/appservice/webapps/listapplicationsettings) ou [atualizar](https://docs.microsoft.com/rest/api/appservice/webapps/updateapplicationsettings) a definição.|
-|Texto de instrução de acompanhamento rápido|Ao utilizar um pedido de seguimento num fluxo de conversação, pode não precisar de uma resposta no par QnA porque pretende que o utilizador selecione a partir das indicações de seguimento. Neste caso, defina texto específico definindo o texto de resposta predefinido, que é devolvido com cada previsão para as indicações de seguimento. O texto destina-se a exibir como texto instrutivo a seleção de instruções. Um exemplo para este texto de resposta predefinido é `Please select from the following choices` . Esta configuração é explicada nas próximas secções deste documento. Também pode definir como parte da definição de base de conhecimento da utilização da `defaultAnswerUsedForExtraction` [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
+|Resposta KB quando não é determinada resposta|`No good match found in KB.` - Quando a [API GenerateAnswer](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) não encontra uma resposta correspondente à pergunta, a `DefaultAnswer` definição do serviço App é devolvida. Todas as bases de conhecimento no mesmo recurso QnA Maker partilham o mesmo texto de resposta predefinido.<br>Pode gerir a definição no portal Azure, através do serviço App, ou com as APIs REST para [obter](/rest/api/appservice/webapps/listapplicationsettings) ou [atualizar](/rest/api/appservice/webapps/updateapplicationsettings) a definição.|
+|Texto de instrução de acompanhamento rápido|Ao utilizar um pedido de seguimento num fluxo de conversação, pode não precisar de uma resposta no par QnA porque pretende que o utilizador selecione a partir das indicações de seguimento. Neste caso, defina texto específico definindo o texto de resposta predefinido, que é devolvido com cada previsão para as indicações de seguimento. O texto destina-se a exibir como texto instrutivo a seleção de instruções. Um exemplo para este texto de resposta predefinido é `Please select from the following choices` . Esta configuração é explicada nas próximas secções deste documento. Também pode definir como parte da definição de base de conhecimento da utilização da `defaultAnswerUsedForExtraction` [API REST](/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
 
 |Tipos de respostas predefinidos|Descrição da resposta|
 |--|--|
-|Resposta KB quando não é determinada resposta|`No good match found in KB.` - Quando a [API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) não encontra uma resposta correspondente à pergunta, apresenta uma resposta de texto predefinido. Na QnA Maker gerida (Pré-visualização) pode definir este texto nas **Definições** da sua base de conhecimento. <br><br> ![QnA Maker gerido (Preview) definir resposta padrão](../media/qnamaker-how-change-default-answer/qnamaker-v2-change-default-answer.png)|
-|Texto de instrução de acompanhamento rápido|Ao utilizar um pedido de seguimento num fluxo de conversação, pode não precisar de uma resposta no par QnA porque pretende que o utilizador selecione a partir das indicações de seguimento. Neste caso, defina texto específico definindo o texto de resposta predefinido, que é devolvido com cada previsão para as indicações de seguimento. O texto destina-se a exibir como texto instrutivo a seleção de instruções. Um exemplo para este texto de resposta predefinido é `Please select from the following choices` . Esta configuração é explicada nas próximas secções deste documento. Também pode definir isto como parte de uma definição de base de conhecimento com `defaultAnswerUsedForExtraction` a utilização da [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
+|Resposta KB quando não é determinada resposta|`No good match found in KB.` - Quando a [API GenerateAnswer](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) não encontra uma resposta correspondente à pergunta, apresenta uma resposta de texto predefinido. Na QnA Maker gerida (Pré-visualização) pode definir este texto nas **Definições** da sua base de conhecimento. <br><br> ![QnA Maker gerido (Preview) definir resposta padrão](../media/qnamaker-how-change-default-answer/qnamaker-v2-change-default-answer.png)|
+|Texto de instrução de acompanhamento rápido|Ao utilizar um pedido de seguimento num fluxo de conversação, pode não precisar de uma resposta no par QnA porque pretende que o utilizador selecione a partir das indicações de seguimento. Neste caso, defina texto específico definindo o texto de resposta predefinido, que é devolvido com cada previsão para as indicações de seguimento. O texto destina-se a exibir como texto instrutivo a seleção de instruções. Um exemplo para este texto de resposta predefinido é `Please select from the following choices` . Esta configuração é explicada nas próximas secções deste documento. Também pode definir isto como parte de uma definição de base de conhecimento com `defaultAnswerUsedForExtraction` a utilização da [API REST](/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
 
 ---
 

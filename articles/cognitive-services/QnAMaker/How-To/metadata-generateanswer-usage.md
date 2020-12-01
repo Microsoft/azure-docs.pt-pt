@@ -9,18 +9,18 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 85abefc8437936ffaedc4811bdd9bed0be32786f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c250868c9d470ee85f765f693aff3e21320fc45e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020692"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346193"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API generateAnswer e metadados
 
 Para obter a resposta prevista à pergunta de um utilizador, utilize a API GenerateAnswer. Ao publicar uma base de conhecimento, pode ver informações sobre como utilizar esta API na página **Publicar.** Também pode configurar a API para filtrar respostas com base em etiquetas de metadados e testar a base de conhecimento a partir do ponto final com o parâmetro de cadeia de consulta de teste.
 
-O QnA Maker permite-lhe adicionar metadados, sob a forma de pares de chaves e valor, aos seus pares de perguntas e respostas. Em seguida, pode utilizar estas informações para filtrar resultados para consultas do utilizador e para armazenar informações adicionais que podem ser usadas em conversas de seguimento. Para mais informações, consulte [a Base de Conhecimento.](../Concepts/knowledge-base.md)
+O QnA Maker permite-lhe adicionar metadados, sob a forma de pares de chaves e valor, aos seus pares de perguntas e respostas. Em seguida, pode utilizar estas informações para filtrar resultados para consultas do utilizador e para armazenar informações adicionais que podem ser usadas em conversas de seguimento. Para mais informações, consulte [a Base de Conhecimento.](../index.yml)
 
 <a name="qna-entity"></a>
 
@@ -36,13 +36,13 @@ Cada entidade QnA tem um ID único e persistente. Pode utilizar o ID para fazer 
 
 ## <a name="get-answer-predictions-with-the-generateanswer-api"></a>Obtenha previsões de resposta com a API GenerateAnswer
 
-Utiliza a [API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) no seu bot ou aplicação para consultar a sua base de conhecimentos com uma pergunta do utilizador, para obter a melhor correspondência dos pares de perguntas e respostas.
+Utiliza a [API GenerateAnswer](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) no seu bot ou aplicação para consultar a sua base de conhecimentos com uma pergunta do utilizador, para obter a melhor correspondência dos pares de perguntas e respostas.
 
 <a name="generateanswer-endpoint"></a>
 
 ## <a name="publish-to-get-generateanswer-endpoint"></a>Publicar para obter GenerateAnswer ponto final
 
-Depois de publicar a sua base de conhecimentos, seja a partir do [portal QnA Maker,](https://www.qnamaker.ai)ou utilizando a [API,](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish)poderá obter os detalhes do seu ponto final GenerateAnswer.
+Depois de publicar a sua base de conhecimentos, seja a partir do [portal QnA Maker,](https://www.qnamaker.ai)ou utilizando a [API,](/rest/api/cognitiveservices/qnamaker/knowledgebase/publish)poderá obter os detalhes do seu ponto final GenerateAnswer.
 
 Para obter os detalhes do seu ponto final:
 1. Inicie sessão em [https://www.qnamaker.ai](https://www.qnamaker.ai).
@@ -70,9 +70,9 @@ Ligue para GenerateAnswer com um pedido HTTP POST. Para obter um código de amos
 
 O pedido do POST utiliza:
 
-* Parâmetros [URI necessários](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
+* Parâmetros [URI necessários](/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
 * Propriedade de cabeçalho necessária, `Authorization` para segurança
-* Propriedades [corporais necessárias.](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)
+* Propriedades [corporais necessárias.](/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)
 
 O URL GenerateAnswer tem o seguinte formato:
 
@@ -108,7 +108,7 @@ O JSON anterior solicitou apenas respostas que estejam a 30% ou acima da pontua�
 
 ## <a name="generateanswer-response-properties"></a>Gerar Propriedades de resposta de resímos
 
-A [resposta](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) é um objeto JSON, incluindo todas as informações necessárias para mostrar a resposta e a próxima volta na conversa, se disponível.
+A [resposta](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) é um objeto JSON, incluindo todas as informações necessárias para mostrar a resposta e a próxima volta na conversa, se disponível.
 
 ```json
 {
@@ -136,7 +136,7 @@ O anterior JSON respondeu com uma resposta com uma pontuação de 38,5%.
 
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>Use o Fabricante QnA com um bot em C #
 
-A estrutura bot fornece acesso às propriedades do Fabricante QnA com a [API getAnswer](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__&preserve-view=true):
+A estrutura bot fornece acesso às propriedades do Fabricante QnA com a [API getAnswer](/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?preserve-view=true&view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
 
 ```csharp
 using Microsoft.Bot.Builder.AI.QnA;
@@ -155,7 +155,7 @@ O JSON anterior solicitou apenas respostas que estejam a 30% ou acima da pontua�
 
 ## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Use o Fabricante QnA com um bot em Node.js
 
-A estrutura bot fornece acesso às propriedades do Fabricante QnA com a [API getAnswer](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-&preserve-view=true):
+A estrutura bot fornece acesso às propriedades do Fabricante QnA com a [API getAnswer](/javascript/api/botbuilder-ai/qnamaker?preserve-view=true&view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
 
 ```javascript
 const { QnAMaker } = require('botbuilder-ai');

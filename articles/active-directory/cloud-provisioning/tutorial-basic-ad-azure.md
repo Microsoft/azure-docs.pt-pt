@@ -10,12 +10,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ceffc928a0cf8313723ff6193d9a6a63f8465f90
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0b6acaa76d21cb1321feb5466c4fb7a9bacfa846
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994779"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348114"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>Tutorial: Ambiente básico de diretório ativo
 
@@ -331,7 +331,7 @@ Agora que tem o VM criado e foi renomeado e tem um endereço IP estático, pode 
 
     ```powershell
     # Filename:    3_InstallAD_CP.ps1
-    # Description: Creates an on-premises AD envrionment.  This is part of
+    # Description: Creates an on-premises AD environment.  This is part of
     #              the Azure AD Connect password hash sync tutorial.
     #
     # DISCLAIMER:

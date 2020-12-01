@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: ad6a4d075ea861068ad0c929d92cd2f12efa6121
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 78324cfa58a8ac015b085052bdec7e3793befc1b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516110"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348454"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Tutorial: Integração do Diretório Ativo Azure com Signagelive
 
@@ -52,7 +52,7 @@ Para adicionar Signagelive da galeria, tome os seguintes passos:
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá a **Aplicações Empresariais**e, em seguida, selecione a opção **Todas as Aplicações.**
+2. Vá a **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -153,7 +153,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, concedendo acesso a Signagelive.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Signagelive**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Signagelive**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

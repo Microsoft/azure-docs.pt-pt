@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/06/2020
 ms.author: nichola
 ms.reviewer: ''
-ms.openlocfilehash: 975c92256ea0993badde0faf840a939f42901059
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: cf5a7a5902484536d0cf2a1844be469f29e15f4b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95753702"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348471"
 ---
 # <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>Como utilizar a Avaliação contínua de Acessos permitiu APIs nas suas aplicações
 
@@ -57,7 +57,7 @@ Quando estas condições são satisfeitas, a aplicação pode extrair e descodif
 ```csharp
 if (APIresponse.IsSuccessStatusCode)
 {
-    // . . .
+    // ...
 }
 else
 {
@@ -99,7 +99,7 @@ catch (MsalUiRequiredException)
             .ExecuteAsync()
             .ConfigureAwait(false);
     }
-    // . . .
+    // ...
 ```
 
 Uma vez que a sua aplicação esteja pronta para lidar com o desafio de reclamação devolvido por um recurso ativado pela CAE, pode dizer ao Microsoft Identity que a sua aplicação está pronta para CAE. Para isso na sua aplicação MSAL, construa o seu Cliente Público utilizando as Capacidades do Cliente de "cp1".
