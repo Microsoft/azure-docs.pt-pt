@@ -3,20 +3,20 @@ title: Atividade de função Azure na Fábrica de Dados Azure
 description: Saiba como utilizar a atividade da Função Azure para executar uma Função Azure num pipeline da Data Factory
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: ee2e59e794cf34a8fd5043a56867a81c2537f1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7c8f1e5ae0da9e7c404a942fcb4f554281486a7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81415314"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500052"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Atividade da função Azure na Fábrica de Dados Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -30,27 +30,27 @@ Para uma introdução de oito minutos e demonstração desta funcionalidade, vej
 
 O tipo de devolução da função Azure tem de ser válido `JObject` . (Tenha em mente que [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *não* é `JObject` um.) Qualquer tipo de devolução que não `JObject` falhe e eleva o conteúdo de resposta ao erro do utilizador *não é um JObject válido*.
 
-| **Propriedade** | **Descrição** | **Necessário** |
+| **Propriedade** | **Descrição** | **Obrigatório** |
 | --- | --- | --- |
-| tipo   | A propriedade tipo deve ser definida para: **AzureFunction** | sim |
-| url de aplicação de função | URL para a App de Função Azure. O formato é `https://<accountname>.azurewebsites.net` . Este URL é o valor na secção **URL** ao visualizar a sua App de Função no portal Azure  | sim |
-| chave de função | Chave de acesso para a Função Azure. Clique na secção **'Gerir'** para a respetiva função e copie a **tecla 'Função'** ou a **tecla 'Anfitrião'.** Saiba mais aqui: [Funções Azure HTTP detona e encadernações](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | sim |
+| tipo   | A propriedade tipo deve ser definida para: **AzureFunction** | yes |
+| url de aplicação de função | URL para a App de Função Azure. O formato é `https://<accountname>.azurewebsites.net` . Este URL é o valor na secção **URL** ao visualizar a sua App de Função no portal Azure  | yes |
+| chave de função | Chave de acesso para a Função Azure. Clique na secção **'Gerir'** para a respetiva função e copie a **tecla 'Função'** ou a **tecla 'Anfitrião'.** Saiba mais aqui: [Funções Azure HTTP detona e encadernações](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | yes |
 |   |   |   |
 
 ## <a name="azure-function-activity"></a>Atividade da Função Azure
 
-| **Propriedade**  | **Descrição** | **Valores permitidos** | **Necessário** |
+| **Propriedade**  | **Descrição** | **Valores permitidos** | **Obrigatório** |
 | --- | --- | --- | --- |
-| name  | Nome da atividade no oleoduto  | String | sim |
-| tipo  | Tipo de atividade é 'AzureFunctionActivity' | String | sim |
-| serviço ligado | O serviço ligado à Função Azure para a app de função Azure correspondente  | Referência de serviço ligada | sim |
-| nome de função  | Nome da função na App de Função Azure a que esta atividade chama | String | sim |
-| método  | Método DE API REST para a chamada de função | Tipos suportados por cordas: "GET", "POST", "PUT"   | sim |
+| name  | Nome da atividade no oleoduto  | String | yes |
+| tipo  | Tipo de atividade é 'AzureFunctionActivity' | String | yes |
+| serviço ligado | O serviço ligado à Função Azure para a app de função Azure correspondente  | Referência de serviço ligada | yes |
+| nome de função  | Nome da função na App de Função Azure a que esta atividade chama | String | yes |
+| método  | Método DE API REST para a chamada de função | Tipos suportados por cordas: "GET", "POST", "PUT"   | yes |
 | cabeçalho  | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e escrever num pedido: "cabeçalhos": { "Aceitar linguagem": "en-us", "Content-Type": "application/json" } | Corda (ou expressão com resultadoType de corda) | Não |
-| body  | corpo que é enviado juntamente com o pedido para o método função api  | Corda (ou expressão com resultadoTipo de corda) ou objeto.   | Necessário para os métodos PUT/POST |
+| body  | corpo que é enviado juntamente com o pedido para o método função api  | Corda (ou expressão com resultadoTipo de corda) ou objeto.   | Necessário para os métodos PUT/POST |
 |   |   |   | |
 
-Consulte o esquema da carga útil do pedido na secção [de esquemas de carga útil do Pedido.](control-flow-web-activity.md#request-payload-schema)  
+Consulte o esquema da carga útil do pedido na secção [de esquemas de carga útil do Pedido.](control-flow-web-activity.md#request-payload-schema)
 
 ## <a name="routing-and-queries"></a>Encaminhamento e consultas
 

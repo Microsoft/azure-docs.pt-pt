@@ -8,19 +8,19 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
-ms.openlocfilehash: 73ae811c17a578cafc557b0cda9e98b101dd5c03
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f4906d4e0590df047bac4ee15cb0e996a59c3d5b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557824"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498868"
 ---
 # <a name="measured-boot-and-host-attestation"></a>Atestado de arranque e hospedeiro medido
 Este artigo descreve como a Microsoft garante a integridade e segurança dos anfitriões através de um atestado medido de arranque e anfitrião.
 
 ## <a name="measured-boot"></a>Bota medida
 
-O [Módulo plataforma fidedigna](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-top-node) (TPM) é um componente de auditoria à prova de violação e criptograficamente seguro com firmware fornecido por terceiros de confiança. O registo de configuração de boot contém medições acorrentadas a haxixe registadas nos registos de configuração da plataforma (PCR) quando o anfitrião sofreu pela última vez a sequência de armadilhagem de botas. A seguinte figura mostra este processo de gravação. Incrementalmente adicionando uma medição previamente hashed para o haxixe da próxima medição e executando o algoritmo de hashing na união realiza acorrente de haxixe.
+O [Módulo plataforma fidedigna](/windows/security/information-protection/tpm/trusted-platform-module-top-node) (TPM) é um componente de auditoria à prova de violação e criptograficamente seguro com firmware fornecido por terceiros de confiança. O registo de configuração de boot contém medições acorrentadas a haxixe registadas nos registos de configuração da plataforma (PCR) quando o anfitrião sofreu pela última vez a sequência de armadilhagem de botas. A seguinte figura mostra este processo de gravação. Incrementalmente adicionando uma medição previamente hashed para o haxixe da próxima medição e executando o algoritmo de hashing na união realiza acorrente de haxixe.
 
 ![Diagrama que mostra acorrentação de hash do Serviço de Attestation host.](./media/measured-boot-host-attestation/hash-chaining.png)
 
@@ -54,8 +54,8 @@ O UEFI [Secure Boot](secure-boot.md) garante que apenas um software de baixo ní
 ## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre o que fazemos para impulsionar a integridade e segurança da plataforma, consulte:
 
-- [Segurança firmware](firmware.md)
+- [Segurança do firmware](firmware.md)
 - [Bota segura](secure-boot.md)
 - [Projeto Cerberus](project-cerberus.md)
 - [Encriptação inativa](encryption-atrest.md)
-- [Segurança hipervisor](hypervisor.md)
+- [Segurança do hipervisor](hypervisor.md)

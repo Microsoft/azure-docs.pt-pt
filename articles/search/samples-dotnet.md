@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: d068365cc8197a579c0b043d3fff2da3d54eb803
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ab6408621616a4be62631391456f73e90fced752
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94687089"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499004"
 ---
 # <a name="net-c-code-samples-for-azure-cognitive-search"></a>.NET (C#) amostras de código para Azure Cognitive Search
 
 Saiba mais sobre as amostras de código C# que demonstram as funcionalidades e funcionalidades da Azure Cognitive Search. Os repositórios primários são os seguintes:
 
-| Repositório | Description |
+| Repositório | Descrição |
 |------------|-------------|
 | [azure-sdk-for-net/sdk/search/Azure.Search.Documents/samples/](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/samples) | Amostras produzidas pela equipa da Azure SDK que envia com a biblioteca de clientes Azure.Search.Documents na SDK. Também pode rever [os testes de unidade](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/tests) para a biblioteca do cliente para ver como são chamadas várias APIs. |
 | [Amostras de Azure/azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) | Amostras que acompanham artigos de como fazer na documentação, incluindo [Como utilizar a biblioteca de clientes .NET](search-howto-dotnet-sdk.md).|
@@ -32,7 +32,7 @@ Saiba mais sobre as amostras de código C# que demonstram as funcionalidades e f
 
 O Azure SDK para .NET inclui numerosas amostras e um [leitura de amostras](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/README.md) que descreve cada uma delas. Essa lista é fornecida abaixo para sua conveniência.
 
-| Amostras | Description |
+| Amostras | Descrição |
 |---------|-------------|
 | ["Olá mundo", sincronizadamente](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/Sample01a_HelloWorld.md) | Demonstra como criar um cliente, autenticar e lidar com erros utilizando métodos sincronizados.|
 | ["Olá mundo", assíncronea](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/Sample01b_HelloWorldAsync.md) | Demonstra como criar um cliente, autenticar e lidar com erros utilizando métodos assíncronos.  |
@@ -44,9 +44,9 @@ O Azure SDK para .NET inclui numerosas amostras e um [leitura de amostras](https
 
 ## <a name="documentation-samples"></a>Exemplos de documentação
 
-As seguintes amostras têm um artigo associado na [documentação de Pesquisa Cognitiva Azure.](https://docs.microsoft.com/azure/search/)
+As seguintes amostras têm um artigo associado na [documentação de Pesquisa Cognitiva Azure.](./index.yml)
 
-| Amostras | Description |
+| Amostras | Descrição |
 |---------|-------------|
 | [arranque rápido](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) | Código fonte para [Quickstart: Criar um índice de pesquisa ](search-get-started-dotnet.md).  |
 | [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)  | Código fonte [para como utilizar a biblioteca de clientes .NET](search-howto-dotnet-sdk.md) |
@@ -60,9 +60,9 @@ As seguintes amostras têm um artigo associado na [documentação de Pesquisa Co
 
 ## <a name="standalone-samples-and-solutions"></a>Amostras e soluções autónomas
 
-| Amostras | Description |
+| Amostras | Descrição |
 |---------|-------------|
 | [azure-search-power-skills](https://github.com/Azure-Samples/azure-search-power-skills)  | Código fonte para habilidades personalizadas consumíveis que pode incorporar nas suas soluções ganhas.  |
-| [Acelerador de Soluções de Extração de Conhecimentos](https://docs.microsoft.com/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | Inclui modelos, ficheiros de suporte e relatórios analíticos para ajudá-lo a protótipo de uma solução de mineração de conhecimento de ponta a ponta.  |
+| [Acelerador de Soluções de Extração de Conhecimentos](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | Inclui modelos, ficheiros de suporte e relatórios analíticos para ajudá-lo a protótipo de uma solução de mineração de conhecimento de ponta a ponta.  |
 | [Repositório de app de pesquisa Covid-19](https://github.com/liamca/covid19search) | Repositório de código fonte para a App de Pesquisa Cognitiva Baseada em [Covid-19](https://covid19search.azurewebsites.net/) |
 | [JFK](https://github.com/Microsoft/AzureSearch_JFK_Files) | Saiba mais sobre a [solução JFK.](https://www.microsoft.com/ai/ai-lab-jfk-files) |

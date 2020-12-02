@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: ff8d726203c5ddfae63a74a7a364c6f2b9ca783e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 32023fca15de9d3f9258bc05166c3cff4184ea15
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085144"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499854"
 ---
 # <a name="faq---questions-about-virtual-machines"></a>FAQ - Perguntas sobre máquinas virtuais
 
 
 ## <a name="what-types-of-virtual-machines-are-supported"></a>Que tipos de máquinas virtuais são suportadas?
 
-A monitorização e recomendações estão disponíveis para máquinas virtuais (VMs) criadas utilizando os [modelos clássicos e de implementação do Gestor de Recursos.](/azure/azure-resource-manager/management/deployment-models)
+A monitorização e recomendações estão disponíveis para máquinas virtuais (VMs) criadas utilizando os [modelos clássicos e de implementação do Gestor de Recursos.](../azure-resource-manager/management/deployment-models.md)
 
 Consulte [as plataformas apoiadas no Centro de Segurança Azure](security-center-os-coverage.md) para obter uma lista de plataformas apoiadas.
 

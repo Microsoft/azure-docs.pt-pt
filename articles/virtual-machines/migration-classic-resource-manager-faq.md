@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 5734e028f7a735a48e49f4e6c582682bcd7cbd97
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 24e52f517f46de06fef8aa52e889185826c20d44
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888390"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498400"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Perguntas mais frequentes sobre a migração da implementação clássica para a implementação Azure Resource Manager
 
@@ -126,7 +126,7 @@ Esta mensagem é recebida quando a VM não tem conectividade de saída à Intern
 
 Para Linux:
 
-* [Visão geral da migração suportada pela plataforma de recursos iaas do clássico para o Azure Resource Manager](./linux/migration-classic-resource-manager-overview.md)
+* [Visão geral da migração suportada pela plataforma de recursos iaas do clássico para o Azure Resource Manager](./migration-classic-resource-manager-overview.md)
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md) (Análise detalhada técnica sobre a migração suportada por plataforma da clássica para Azure Resource Manager)
 * [Planear a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-plan.md)
 * [Use o PowerShell para migrar os recursos iaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-ps.md)

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: dd755e1bc220d61aa540a0e7da9e3f174bde9d76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba971919037230cb6c09e627fde448647063b5b9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652929"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498426"
 ---
 # <a name="lsv2-series"></a>Série Lsv2
 
@@ -51,7 +51,7 @@ Rebentamento: Suportado<br>
 
 <sup>4</sup> VMs da série Lsv2 não fornecem cache de anfitrião para o disco de dados, uma vez que não beneficia as cargas de trabalho Lsv2.
 
-<sup>5</sup> VMs da série Lsv2 podem [rebentar](linux/disk-bursting.md) o seu desempenho em disco até 30 minutos de cada vez. 
+<sup>5</sup> VMs da série Lsv2 podem [rebentar](./disk-bursting.md) o seu desempenho em disco até 30 minutos de cada vez. 
 
 <sup>6</sup> VMs com mais de 64 vCPUs requerem um destes sistemas operativos suportados por hóspedes:
 

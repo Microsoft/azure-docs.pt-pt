@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 98ba7c63e057e1f6b1f37a6529b6e94e2f514d6d
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 86874a60d48ddcbdaca5ae779ad554ee58cc233b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701036"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498851"
 ---
 # <a name="azure-operational-security-best-practices"></a>Melhores práticas de Segurança Operacional da Azure
 Este artigo fornece um conjunto de boas práticas operacionais para proteger os seus dados, aplicações e outros ativos em Azure.
@@ -195,7 +195,7 @@ A utilização [de pontos finais](../../virtual-network/virtual-network-service-
 
 Vemos muitas vezes os recursos dos clientes no local a serem atacados juntamente com os seus recursos em Azure. Se estiver a ligar um ambiente no local ao Azure, minimize a exposição dos recursos no local à internet pública.
 
-A Azure tem [duas ofertas](../../virtual-network/ddos-protection-overview.md) de serviços DDoS que fornecem proteção contra ataques de rede:
+A Azure tem [duas ofertas](../../ddos-protection/ddos-protection-overview.md) de serviços DDoS que fornecem proteção contra ataques de rede:
 
 - A proteção básica é integrada no Azure por padrão sem custos adicionais. A escala e a capacidade da rede Azure implantada globalmente fornece defesa contra ataques comuns de camadas de rede através de monitorização de tráfego sempre on e mitigação em tempo real. O básico não requer configuração do utilizador ou alterações de aplicações e ajuda a proteger todos os serviços Azure, incluindo serviços PaaS como o Azure DNS.
 - A proteção padrão fornece capacidades avançadas de mitigação do DDoS contra ataques de rede. Está automaticamente sintonizado para proteger os seus recursos específicos do Azure. A proteção é simples de permitir durante a criação de redes virtuais. Também pode ser feito após a criação e não requer nenhuma aplicação ou alterações de recursos.

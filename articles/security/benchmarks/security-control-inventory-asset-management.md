@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7a5cd7a6019451b27b509aa7f486540c04c29ee2
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 464439516ee86d2fb6f900c3fcaf179095192acf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412651"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498885"
 ---
 # <a name="security-control-inventory-and-asset-management"></a>Controlo de Segurança: Inventário e Gestão de Ativos
 
@@ -76,7 +76,7 @@ Utilize a Azure Policy para impor restrições ao tipo de recursos que podem ser
 
 Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da sua subscrição.  Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados.
 
-- [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Como criar consultas com Azure Graph](../../governance/resource-graph/first-query-portal.md)
 
@@ -100,7 +100,7 @@ Utilize o Monitor de Integridade de Ficheiros do Azure Security Center (Change T
 
 - [Como utilizar o Monitor de Integridade do Ficheiro](../../security-center/security-center-file-integrity-monitoring.md)
 
-- [Compreenda o rastreio da mudança de Azure](../../automation/change-tracking.md)
+- [Compreenda o rastreio da mudança de Azure](../../automation/change-tracking/overview.md)
 
 - [Como ativar o inventário de máquinas virtuais Azure](../../automation/automation-tutorial-installed-software.md)
 
@@ -122,7 +122,7 @@ Utilize controlos de aplicação adaptativos do Azure Security Center para garan
 
 Utilize a Política Azure para restringir os serviços que pode prestação no seu ambiente.
 
-- [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Como negar um tipo específico de recurso com a Política Azure](../../governance/policy/samples/index.md)
 

@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/23/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3c40e4c7b00a5c78872a60af25e3b19fe08f324
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5efb1df378df323585bc0ca1094451cdb095fe4e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467691"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499786"
 ---
 # <a name="enabling-synapse-workspace-features-on-an-existing-dedicated-sql-pool-formerly-sql-dw"></a>Habilitando funcionalidades de espaço de trabalho synapse em uma piscina SQL dedicada existente (anteriormente SQL DW)
 
@@ -44,7 +44,7 @@ As seguintes informações aplicar-se-ão quando utilizar um SQL DW dedicado (an
 
 - **Segurança da rede** Se o espaço de trabalho synapse que ativou na sua piscina SQL (anteriormente SQL DW) estiver ativado para proteção contra infiltração de dados. Crie uma ligação de ponto final privado gerida do espaço de trabalho para o servidor lógico SQL. Aprove o pedido de ligação de ponto final privado para permitir comunicações entre o servidor e o espaço de trabalho.
 - **Estúdio** Piscinas SQL no **centro de dados** Um espaço de trabalho habilitado para piscina SQL (anteriormente SQL DW) pode ser identificado através da ponta da ferramenta no centro de dados. 
-- **criando uma nova piscina SQL dedicada (anteriormente SQL DW)** Novas piscinas SQL dedicadas podem ser criadas através do espaço de trabalho synapse e studio depois que a funcionalidade de espaço de trabalho foi ativada e o fornecimento de uma nova piscina será realizado no servidor lógico SQL. Os novos recursos aparecerão no portal e no Estúdio quando o provisionamento estiver concluído.      
+- **Criação de uma nova piscina SQL dedicada (anteriormente SQL DW)** Novas piscinas SQL dedicadas podem ser criadas através do espaço de trabalho synapse e studio depois que a funcionalidade de espaço de trabalho foi ativada e o fornecimento de uma nova piscina será realizado no servidor lógico SQL. Os novos recursos aparecerão no portal e no Estúdio quando o provisionamento estiver concluído.      
 
 ## <a name="next-steps"></a>Passos seguintes
 Ativar [as funcionalidades do espaço de trabalho synapse](workspace-connected-create.md) na sua piscina SQL dedicada existente (anteriormente SQL DW)

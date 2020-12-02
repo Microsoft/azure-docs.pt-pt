@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e594dab3e4bf36fedee7a068068934501ca02f24
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 07ef3da9f67de92c3526b83222c1c8088660d7c7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842792"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499871"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Linha de segurança Azure para Azure Cognitive Search
 
-Esta linha de base de segurança aplica orientações da [versão 1.0 do Azure Security Benchmark](../security/benchmarks/overview.md) para Azure Cognitive Search. O Azure Security Benchmark fornece recomendações sobre como pode proteger as suas soluções em nuvem no Azure. O conteúdo é agrupado pelos **controlos de segurança definidos** pelo Azure Security Benchmark e pela orientação conexa aplicável à Azure Cognitive Search. **Os controlos** não aplicáveis à Azure Cognitive Search, ou o cliente foram excluídos.
+Esta linha de base de segurança aplica orientações da [versão 1.0 do Azure Security Benchmark](../security/benchmarks/overview.md) para Azure Cognitive Search. A Referência de Segurança do Azure disponibiliza recomendações para proteger as suas soluções cloud no Azure. O conteúdo é agrupado pelos **controlos de segurança definidos** pelo Azure Security Benchmark e pela orientação conexa aplicável à Azure Cognitive Search. **Os controlos** não aplicáveis à Azure Cognitive Search, ou o cliente foram excluídos.
 
 Para ver como a Azure Cognitive Search mapeia completamente para o Benchmark de Segurança Azure, consulte o ficheiro completo de [mapeamento de base de segurança de segurança Azure Cognitive Search](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
@@ -34,7 +34,7 @@ A Cognitive Search também suporta funcionalidades adicionais de segurança da r
 
 - [Como configurar a firewall de pesquisa cognitiva Azure](./service-configure-firewall.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -48,7 +48,7 @@ A Cognitive Search também suporta funcionalidades adicionais de segurança da r
 
 - [Compreender a segurança da rede fornecida pelo Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -56,7 +56,7 @@ A Cognitive Search também suporta funcionalidades adicionais de segurança da r
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. Esta recomendação destina-se a aplicações web em execução no Azure App Service ou recursos de computação.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -64,9 +64,9 @@ A Cognitive Search também suporta funcionalidades adicionais de segurança da r
 
 **Orientação**: A Pesquisa Cognitiva não fornece uma característica específica para combater um ataque de negação de serviço distribuído, mas pode ativar o DDoS Protection Standard nas redes virtuais associadas ao seu serviço de Pesquisa Cognitiva para proteção geral.
 
-- [Como configurar a proteção DDoS](../virtual-network/manage-ddos-protection.md)
+- [Como configurar a proteção DDoS](../ddos-protection/manage-ddos-protection.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -80,7 +80,7 @@ Ativar a captura de pacotes do Monitor de Rede, se necessário para investigar a
 
 - [Como ativar o Observador de Redes](../network-watcher/network-watcher-create.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -92,7 +92,7 @@ Ativar a captura de pacotes do Monitor de Rede, se necessário para investigar a
 
 - [Como obter informações-chave geridas pelo cliente a partir de índices e mapas de sinónimos](./search-security-get-encryption-keys.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -100,7 +100,7 @@ Ativar a captura de pacotes do Monitor de Rede, se necessário para investigar a
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. Esta recomendação destina-se a aplicações web em execução no Azure App Service ou recursos de computação.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -112,7 +112,7 @@ Permitir ou negar o tráfego aos recursos especificando o nome da etiqueta de se
 
 - [Tags de serviço de rede virtual](../virtual-network/service-tags-overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -120,7 +120,7 @@ Permitir ou negar o tráfego aos recursos especificando o nome da etiqueta de se
 
 **Orientação**: A Pesquisa Cognitiva não tem nem depende dos recursos da rede por design. As aplicações de clientes e fontes de dados relacionadas com a sua aplicação de pesquisa podem estar numa rede virtual, mas o serviço de pesquisa não está por si só implantado na rede. 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -140,7 +140,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 - [Como filtrar o tráfego da rede com regras do grupo de segurança de rede](../virtual-network/tutorial-filter-network-traffic.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -148,7 +148,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: A Pesquisa Cognitiva não tem ou depende de quaisquer componentes de rede, pelo que as configurações destes recursos não podem ser monitorizadas.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -160,7 +160,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: A Pesquisa Cognitiva não suporta configurar as suas próprias fontes de sincronização de tempo. O serviço de pesquisa baseia-se em fontes de sincronização de tempo da Microsoft e não está exposto aos clientes para configuração.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -175,7 +175,7 @@ Em alternativa, pode ativar e embarcar estes dados para a Azure Sentinel ou para
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -187,7 +187,7 @@ Em alternativa, pode ativar e embarcar estes dados para a Azure Sentinel ou para
 
 - [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -195,7 +195,7 @@ Em alternativa, pode ativar e embarcar estes dados para a Azure Sentinel ou para
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. Esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -209,7 +209,7 @@ No Azure Monitor, desapasse o período de retenção do espaço de trabalho do L
 
 - [Como configurar a política de retenção para os registos de conta de armazenamento Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -223,11 +223,11 @@ No Azure Monitor, desapasse o período de retenção do espaço de trabalho do L
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Saiba mais sobre o Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Saiba mais sobre o Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -241,7 +241,7 @@ No Azure Monitor, desapasse o período de retenção do espaço de trabalho do L
 
 - [Como alertar nos dados de registo de registo de registos de registos](../azure-monitor/learn/tutorial-response.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -249,7 +249,7 @@ No Azure Monitor, desapasse o período de retenção do espaço de trabalho do L
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. A Microsoft gere a solução anti-malware para a plataforma subjacente.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -257,7 +257,7 @@ No Azure Monitor, desapasse o período de retenção do espaço de trabalho do L
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. Não produz nem consome registos DNS.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -265,7 +265,7 @@ No Azure Monitor, desapasse o período de retenção do espaço de trabalho do L
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. A auditoria da linha de comando não está disponível para pesquisa cognitiva.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -275,7 +275,7 @@ No Azure Monitor, desapasse o período de retenção do espaço de trabalho do L
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Manter um inventário das contas administrativas
 
-**Orientação**: O controlo de acesso baseado em funções (Azure RBAC) permite-lhe gerir o acesso aos recursos Azure através de atribuições de funções. Pode atribuir estas funções aos utilizadores, grupos de diretores de serviço e identidades geridas. Existem funções incorporadas pré-definidas para determinados recursos, e estas funções podem ser inventariadas ou consultadas através de ferramentas como Azure CLI, Azure PowerShell ou o portal Azure.
+**Orientação**: O controlo de acesso baseado em funções (Azure RBAC) permite-lhe gerir o acesso aos recursos Azure através de atribuições de funções. Pode atribuir estas funções aos utilizadores, grupos de diretores de serviço e identidades geridas. Existem funções incorporadas predefinidas para determinados recursos, que podem ser inventariadas ou consultadas com ferramentas como a CLI do Azure, o Azure PowerShell ou o portal do Azure.
 
 As funções de Pesquisa Cognitiva estão associadas a permissões que suportam tarefas de gestão de nível de serviço.  Estas funções não concedem acesso ao ponto final de serviço. O acesso às operações contra o ponto final (como a gestão de índices, a população indexada e as consultas sobre dados de pesquisa), utiliza as chaves API para autenticar o pedido.
 
@@ -286,7 +286,7 @@ As funções de Pesquisa Cognitiva estão associadas a permissões que suportam 
 - [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 - [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -294,7 +294,7 @@ As funções de Pesquisa Cognitiva estão associadas a permissões que suportam 
 
 **Orientação**: Não aplicável à pesquisa cognitiva. Não tem um conceito de senhas padrão.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -308,7 +308,7 @@ Utilize as funções incorporadas AZURE AD que devem ser explicitamente atribuí
 
 - [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -320,7 +320,7 @@ Estabeleça um processo para reduzir o número de identidades e credenciais, per
 
 - [Compreender SSO com Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -328,11 +328,11 @@ Estabeleça um processo para reduzir o número de identidades e credenciais, per
 
 **Orientação**: Ative Directory (Azure AD) Multi-Factor Authentication (MFA) e seguir as recomendações de Identidade e Acesso do Centro de Segurança.
 
-- [Como permitir o MFA em Azure](../active-directory/authentication/howto-mfa-getstarted.md) 
+- [Como ativar o MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md) 
 
 - [Como monitorizar a identidade e o acesso dentro do Centro de Segurança Azure](../security-center/security-center-identity-access.md) 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -346,7 +346,7 @@ Estabeleça um processo para reduzir o número de identidades e credenciais, per
 - [Como ativar O Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
  
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -354,11 +354,11 @@ Estabeleça um processo para reduzir o número de identidades e credenciais, per
 
 **Orientação**: Utilize relatórios de segurança e monitorização do Azure Ative Directory (Azure AD) para detetar quando ocorrem atividades suspeitas ou inseguras no ambiente. Utilize o Centro de Segurança para monitorizar a atividade de identidade e acesso.
 
-- [Como identificar utilizadores de AD Azure sinalizados para atividade de risco](../active-directory/identity-protection/overview-identity-protection.md)
+- [Como identificar utilizadores do Azure AD sinalizados por atividade de risco](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Como monitorizar a identidade e a atividade de acesso dos utilizadores no Centro de Segurança Azure](../security-center/security-center-identity-access.md)
+- [Como monitorizar as atividades de identidade e acesso dos utilizadores no Centro de Segurança do Azure](../security-center/security-center-identity-access.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -366,7 +366,7 @@ Estabeleça um processo para reduzir o número de identidades e credenciais, per
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. Não suporta a utilização da localização aprovada como condição para o acesso.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -374,11 +374,11 @@ Estabeleça um processo para reduzir o número de identidades e credenciais, per
 
 **Orientação**: Utilize o Azure Ative Directory (Azure AD) como o sistema central de autenticação e autorização para tarefas de gestão de nível de serviço na Pesquisa Cognitiva Azure. As identidades da AD AZure não concedem acesso ao ponto final do serviço de pesquisa.  O acesso a operações como a gestão de índices, a população indexada e as consultas sobre dados de pesquisa estão disponíveis através de chaves API.
 
-- [Como criar e configurar uma instância AD Azure](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Como criar e configurar instâncias do Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 - [Criar e gerir chaves api para um serviço de Pesquisa Cognitiva Azure](./search-security-api-keys.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -390,11 +390,11 @@ Reveja os registos de diagnóstico da Pesquisa Cognitiva para a atividade no pon
 
 - [Compreenda a Azure AD reportando](../active-directory/reports-monitoring/index.yml)
 
-- [Como utilizar a identidade AD do Azure e as avaliações de acesso](../active-directory/governance/access-reviews-overview.md)
+- [Como utilizar as revisões de identidades e acessos do Azure AD](../active-directory/governance/access-reviews-overview.md)
 
 - [Monitorizar operações e atividade da Azure Cognitive Search](./search-monitor-usage.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -406,7 +406,7 @@ Agilize este processo criando definições de diagnóstico para contas de utiliz
 
 - [Como integrar registos de atividades do Azure com o Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) 
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -414,13 +414,13 @@ Agilize este processo criando definições de diagnóstico para contas de utiliz
 
 **Orientação**: Utilize funcionalidades de Proteção de Identidade Azure Ative (Azure AD) para configurar respostas automatizadas para detetar ações suspeitas relacionadas com identidades do utilizador. Ingerir dados em Azure Sentinel para mais investigação, conforme necessário.
 
-- [Como ver a Azure AD a entrar em risco](../active-directory/identity-protection/overview-identity-protection.md) 
+- [Como ver os inícios de sessão de risco do Azure AD](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [Como configurar e permitir políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -428,7 +428,7 @@ Agilize este processo criando definições de diagnóstico para contas de utiliz
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. O Lockbox do cliente não suporta a Pesquisa Cognitiva.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -440,7 +440,7 @@ Agilize este processo criando definições de diagnóstico para contas de utiliz
 
 **Orientação**: Utilize etiquetas para ajudar a rastrear os recursos da Azure que armazenam ou processam informações sensíveis.
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -454,7 +454,7 @@ Agilize este processo criando definições de diagnóstico para contas de utiliz
 
 - [Como criar um ponto final privado para a Pesquisa Cognitiva](./service-create-private-endpoint.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -464,9 +464,9 @@ Agilize este processo criando definições de diagnóstico para contas de utiliz
 
 A Microsoft gere a plataforma subjacente e trata todos os conteúdos do cliente como sensíveis e protege contra a perda e exposição de dados do cliente. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
 
-- [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md) 
+- [Compreender a proteção dos dados dos clientes no Azure](../security/fundamentals/protection-customer-data.md) 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -476,7 +476,7 @@ A Microsoft gere a plataforma subjacente e trata todos os conteúdos do cliente 
 
 - [Compreender a encriptação em trânsito com Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -486,21 +486,21 @@ A Microsoft gere a plataforma subjacente e trata todos os conteúdos do cliente 
 
 A Microsoft gere a plataforma subjacente e trata todos os conteúdos do cliente como sensíveis e protege contra a perda e exposição de dados do cliente. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
 
-- [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md)
+- [Compreender a proteção dos dados dos clientes no Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6: Utilizar o Azure RBAC para gerir o acesso aos recursos
 
 **Orientação**: Para administração de serviços, utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para gerir o acesso às chaves e configuração. Para operações de conteúdo, tais como indexação e consultas, a Cognitive Search utiliza chaves em vez de um modelo de controlo de acesso baseado na identidade. Utilize o Azure RBAC para controlar o acesso às chaves.
-- [Como configurar o RBAC em Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Como configurar o RBAC no Azure](../role-based-access-control/role-assignments-portal.md) 
 
  
 - [Como usar papéis para acesso administrativo à Pesquisa Cognitiva](./search-security-rbac.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -510,9 +510,9 @@ A Microsoft gere a plataforma subjacente e trata todos os conteúdos do cliente 
 
 A Microsoft gere a infraestrutura subjacente à Pesquisa Cognitiva e implementou rigorosos controlos para evitar a perda ou exposição dos dados dos clientes.
 
-- [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md)
+- [Compreender a proteção dos dados dos clientes no Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -522,11 +522,11 @@ A Microsoft gere a infraestrutura subjacente à Pesquisa Cognitiva e implementou
 
 - [Configure as chaves geridas pelo cliente para encriptação de dados na Pesquisa Cognitiva Azure](./search-security-manage-encryption-keys.md)
 
-- [Compreenda a encriptação em repouso em Azure](../security/fundamentals/encryption-atrest.md)
+- [Compreender a encriptação de dados inativos no Azure](../security/fundamentals/encryption-atrest.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: Registar e alertar sobre alterações aos recursos críticos do Azure
 
@@ -536,7 +536,7 @@ A Microsoft gere a infraestrutura subjacente à Pesquisa Cognitiva e implementou
 
 - [Como criar alertas para atividades de Pesquisa Cognitiva](./search-monitor-logs.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -548,7 +548,7 @@ A Microsoft gere a infraestrutura subjacente à Pesquisa Cognitiva e implementou
 
 **Orientação**: Atualmente não está disponível para pesquisa cognitiva.  Para os clusters que armazenam o conteúdo do serviço de pesquisa, a Microsoft é responsável pela gestão de vulnerabilidades desses clusters.
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Microsoft
 
@@ -556,7 +556,7 @@ A Microsoft gere a infraestrutura subjacente à Pesquisa Cognitiva e implementou
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. Esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -564,7 +564,7 @@ A Microsoft gere a infraestrutura subjacente à Pesquisa Cognitiva e implementou
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. Esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -572,7 +572,7 @@ A Microsoft gere a infraestrutura subjacente à Pesquisa Cognitiva e implementou
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. A Microsoft realiza a gestão de vulnerabilidades nos sistemas subjacentes que suportam os serviços de Pesquisa Cognitiva.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
@@ -580,7 +580,7 @@ A Microsoft gere a infraestrutura subjacente à Pesquisa Cognitiva e implementou
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. Não tem nenhum sistema padrão de classificação de risco ou pontuação para obter resultados de verificação de vulnerabilidades.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -594,13 +594,13 @@ A Microsoft gere a infraestrutura subjacente à Pesquisa Cognitiva e implementou
 
 Certifique-se de permissões (leia) adequadas no seu inquilino e enumere todas as subscrições do Azure, bem como os recursos nas suas subscrições.  
 
-- [Como criar consultas com o Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md) 
+- [Como criar consultas com o Explorador do Azure Resource Graph](../governance/resource-graph/first-query-portal.md) 
 
 - [Como ver as suas subscrições Azure](/powershell/module/az.accounts/get-azsubscription) 
 
 - [Compreender Azure RBAC](../role-based-access-control/overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -610,7 +610,7 @@ Certifique-se de permissões (leia) adequadas no seu inquilino e enumere todas a
 
 - [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -623,7 +623,7 @@ Certifique-se de permissões (leia) adequadas no seu inquilino e enumere todas a
 
 - [Como criar e usar Tags](../azure-resource-manager/management/tag-resources.md) 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -631,7 +631,7 @@ Certifique-se de permissões (leia) adequadas no seu inquilino e enumere todas a
 
 **Orientação**: Defina uma lista de recursos Azure aprovados relacionados com a indexação e processamento de skillset na Pesquisa Cognitiva.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -639,11 +639,11 @@ Certifique-se de permissões (leia) adequadas no seu inquilino e enumere todas a
 
 **Orientação**: Recomenda-se que defina um inventário dos recursos Azure que tenham sido aprovados para utilização de acordo com as suas políticas e padrões organizacionais anteriores, em seguida, monitorize para recursos Azure não aprovados com Azure Policy, ou Azure Resource Graph.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md) 
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
 - [Como criar consultas com Azure Graph](../governance/resource-graph/first-query-portal.md) 
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -653,7 +653,7 @@ Certifique-se de permissões (leia) adequadas no seu inquilino e enumere todas a
 
 Recomenda-se que tenha um inventário de aplicações de software que tenham sido consideradas aprovadas de acordo com as suas políticas organizacionais e padrões de segurança, e monitorize quaisquer títulos de software não aprovados instalados nos seus recursos de computação Azure.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -661,7 +661,7 @@ Recomenda-se que tenha um inventário de aplicações de software que tenham sid
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. Esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -669,7 +669,7 @@ Recomenda-se que tenha um inventário de aplicações de software que tenham sid
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. Não expõe quaisquer recursos de computação nem permite a instalação de aplicações de software em nenhum dos seus recursos.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -682,11 +682,11 @@ Recomenda-se que tenha um inventário de aplicações de software que tenham sid
 
 Utilize o Gráfico de Recursos Azure para consultar ou descobrir recursos dentro da sua subscrição( s). Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md) 
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
 - [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/index.md) 
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -694,7 +694,7 @@ Utilize o Gráfico de Recursos Azure para consultar ou descobrir recursos dentro
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. Esta recomendação destina-se a aplicações em execução de recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -704,7 +704,7 @@ Utilize o Gráfico de Recursos Azure para consultar ou descobrir recursos dentro
 
 Controle o acesso às chaves utilizadas para autenticar pedidos para todas as outras operações, nomeadamente as relacionadas com o conteúdo com a Pesquisa Cognitiva.
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -712,7 +712,7 @@ Controle o acesso às chaves utilizadas para autenticar pedidos para todas as ou
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. Esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -720,7 +720,7 @@ Controle o acesso às chaves utilizadas para autenticar pedidos para todas as ou
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. Esta recomendação destina-se a aplicações web em execução no Azure App Service ou recursos de computação.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -742,7 +742,7 @@ Também pode utilizar as recomendações do Azure Security Center como uma base 
 
 - [Como ver pseudónimos disponíveis da Política Azure](/powershell/module/az.resources/get-azpolicyalias)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -750,7 +750,7 @@ Também pode utilizar as recomendações do Azure Security Center como uma base 
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. Esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -768,7 +768,7 @@ Os modelos do Azure Resource Manager podem ser utilizados para manter a configur
 
 - [Visão geral dos modelos do Gestor de Recursos Azure](../azure-resource-manager/templates/overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -776,7 +776,7 @@ Os modelos do Azure Resource Manager podem ser utilizados para manter a configur
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. Esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -788,7 +788,7 @@ Os modelos do Azure Resource Manager podem ser utilizados para manter a configur
 
 - [Documentação de Azure Repos](/azure/devops/repos/index)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -796,7 +796,7 @@ Os modelos do Azure Resource Manager podem ser utilizados para manter a configur
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. Esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -810,9 +810,9 @@ Além disso, pode utilizar a Azure Automation para implementar alterações de c
 
 - [Controlos de conformidade regulamentar da política Azure para a pesquisa cognitiva do Azure](./security-controls-policy.md)
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -820,7 +820,7 @@ Além disso, pode utilizar a Azure Automation para implementar alterações de c
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. Esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -832,7 +832,7 @@ Além disso, pode utilizar a Azure Automation para implementar alterações de c
 
 - [Controlos de conformidade regulamentar da política Azure para a pesquisa cognitiva do Azure](./security-controls-policy.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -840,7 +840,7 @@ Além disso, pode utilizar a Azure Automation para implementar alterações de c
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. Esta recomendação destina-se a recursos computacional.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -852,7 +852,7 @@ Além disso, pode utilizar a Azure Automation para implementar alterações de c
 
 - [Como fornecer a autenticação do Cofre-Chave com uma identidade gerida](../key-vault/general/assign-access-policy-portal.md) 
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -864,7 +864,7 @@ Além disso, pode utilizar a Azure Automation para implementar alterações de c
 
 - [Configure as chaves geridas pelo cliente para encriptação de dados usando uma identidade gerida](./search-security-manage-encryption-keys.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -872,7 +872,7 @@ Além disso, pode utilizar a Azure Automation para implementar alterações de c
 
 **Orientação**: Não aplicável à Pesquisa Cognitiva. Não acolhe código e não tem credenciais para identificar.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -886,7 +886,7 @@ Além disso, pode utilizar a Azure Automation para implementar alterações de c
 
 O anti-malware da Microsoft é ativado no anfitrião subjacente que suporta os serviços Azure (por exemplo, Azure Cognitive Search), no entanto não funciona com conteúdo do cliente.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
@@ -896,7 +896,7 @@ O anti-malware da Microsoft é ativado no anfitrião subjacente que suporta os s
 
 É da sua responsabilidade pré-digitalizar qualquer conteúdo que seja enviado para recursos Azure não computados. A Microsoft não pode aceder aos dados dos clientes e, portanto, não pode realizar análises anti-malware do conteúdo do cliente em seu nome.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -906,9 +906,9 @@ O anti-malware da Microsoft é ativado no anfitrião subjacente que suporta os s
 
 Para quaisquer recursos de computação que sejam propriedade da sua organização e utilizados na sua solução de pesquisa, siga recomendações no Security Center, Compute &amp; Apps para garantir que todos os pontos finais estão atualizados com as assinaturas mais recentes. Para o Linux, utilize uma solução anti-malware de terceiros.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ## <a name="data-recovery"></a>Recuperação de dados
 
@@ -920,7 +920,7 @@ Para quaisquer recursos de computação que sejam propriedade da sua organizaç�
 
 - [Amostra de restauro do índice GitHub](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/index-backup-restore)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -932,7 +932,7 @@ Para quaisquer recursos de computação que sejam propriedade da sua organizaç�
 
 - [Como apoiar chaves do Cofre chave em Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -944,7 +944,7 @@ Para quaisquer recursos de computação que sejam propriedade da sua organizaç�
 
 - [Como restaurar chaves do Cofre chave em Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -956,11 +956,11 @@ Ativar a proteção de eliminação e purga suave no Cofre de Chaves para proteg
 
 - [Recue e restaure um índice de Pesquisa Cognitiva Azure](/samples/azure-samples/azure-search-dotnet-samples/azure-search-backup-restore-index/)
 
-- [Como permitir a eliminação suave e a proteção de purga no Cofre de Chaves](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
+- [Como ativar a eliminação recuperável e a proteção contra remoção no Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 - [Excluir suave para armazenamento Azure Blob](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -978,7 +978,7 @@ Ativar a proteção de eliminação e purga suave no Cofre de Chaves para proteg
 
 - [O cliente também pode aproveitar o Guia de Tratamento de Incidentes de Segurança Informática da NIST para ajudar na criação do seu próprio plano de resposta a incidentes](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -992,17 +992,17 @@ Além disso, marque subscrições usando tags e crie um sistema de nomeação pa
 
 - [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Procedimentos de resposta à segurança do teste
 
-**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular. Identifique pontos fracos e lacunas e reveja o plano conforme necessário.
+**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular. Identifique pontos fracos e lacunas e reavalie o plano, conforme necessário.
 
 - [Consulte a publicação do NIST, "Guide to Test, Training and Exercise Programs for IT Plans and Capabilities"](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1012,7 +1012,7 @@ Além disso, marque subscrições usando tags e crie um sistema de nomeação pa
 
 - [Como definir o Contacto de Segurança do Centro de Segurança Azure](../security-center/security-center-provide-security-contact-details.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -1024,7 +1024,7 @@ Além disso, marque subscrições usando tags e crie um sistema de nomeação pa
 
 - [Como transmitir alertas para o Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -1034,7 +1034,7 @@ Além disso, marque subscrições usando tags e crie um sistema de nomeação pa
 
 - [Como configurar a automatização do fluxo de trabalho e as aplicações lógicas](../security-center/workflow-automation.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -1044,15 +1044,15 @@ Além disso, marque subscrições usando tags e crie um sistema de nomeação pa
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Realizar testes regulares de penetração dos seus recursos Azure e garantir a reparação de todas as conclusões críticas de segurança
 
-**Orientação**: Siga as regras de teste de penetração da Microsoft cloud para garantir que os seus testes de penetração não violam as políticas da Microsoft. Use a estratégia da Microsoft e a execução de testes de penetração em red teaming e site ao vivo contra infraestruturas, serviços e aplicações de nuvem geridas pela Microsoft.
-- [Regras de teste de penetração de compromisso](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
-- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+**Orientação**: Siga as regras de teste de penetração da Microsoft cloud para garantir que os seus testes de penetração não violam as políticas da Microsoft. Utilize a estratégia e a execução de "Equipas de Ataque" e os testes de penetração no local em direto da Microsoft na infraestrutura, nos serviços e nas aplicações cloud geridas pela Microsoft.
+- [Regras de Interação para os Testes de Penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- ["Equipa de Ataque" da Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
-- Saiba mais sobre [as linhas de base de segurança da Azure](../security/benchmarks/security-baselines-overview.md)
+- Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

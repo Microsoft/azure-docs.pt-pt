@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/10/2019
 ms.author: guybo
-ms.openlocfilehash: 97fd61614eff05ddc542dbe17cf199663ab4cf1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e9f87ec4a0df28b14bca8f5a44dfe9388e8ff03
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371911"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500534"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Prepare uma máquina virtual Oracle Linux para o Azure
 
@@ -23,7 +23,7 @@ Este artigo pressupõe que já instalou um sistema operativo Oracle Linux num di
 * O Hyper-V e o Azure suportam o Oracle Linux com o Kernel da Empresa Inquebrável (UEK) ou com o Kernel Compatível com o Chapéu Vermelho.
 * O UEK2 da Oracle não é suportado no Hyper-V e no Azure, uma vez que não inclui os controladores necessários.
 * O formato VHDX não é suportado em Azure, apenas **VHD fixo**.  Pode converter o disco em formato VHD utilizando o Hyper-V Manager ou o cmdlet converte-vhd.
-* Ao instalar o sistema Linux recomenda-se que utilize divisórias padrão em vez de LVM (muitas vezes o padrão para muitas instalações). Isto evitará conflitos de nome LVM com VMs clonados, especialmente se um disco de SO precisar de ser ligado a outro VM para resolução de problemas. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) podem ser usados em discos de dados, se preferir.
+* Ao instalar o sistema Linux recomenda-se que utilize divisórias padrão em vez de LVM (muitas vezes o padrão para muitas instalações). Isto evitará conflitos de nome LVM com VMs clonados, especialmente se um disco de SO precisar de ser ligado a outro VM para resolução de problemas. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) podem ser usados em discos de dados, se preferir.
 * As versões de kernel Linux antes de 2.6.37 não suportam UMA em Hiper-V com tamanhos VM maiores. Esta questão afeta principalmente as distribuições mais antigas utilizando o núcleo a montante do chapéu vermelho 2.6.32, e foi fixada no Oracle Linux 6.6 e mais tarde
 * Não configuure uma partição de troca no disco OS. O agente Linux pode ser configurado para criar um ficheiro de troca no disco de recursos temporários.  Mais informações sobre isso podem ser encontradas nos degraus abaixo.
 * Todos os VHDs em Azure devem ter um tamanho virtual alinhado a 1MB. Ao converter de um disco cru para VHD deve certificar-se de que o tamanho do disco bruto é um múltiplo de 1MB antes da conversão. Consulte [as notas de instalação do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais informações.
@@ -137,7 +137,7 @@ Preparar uma máquina virtual Oracle Linux 7 para Azure é muito semelhante ao O
 * GRUB2 é agora usado como o bootloader padrão, por isso o procedimento de edição dos parâmetros do núcleo mudou (ver abaixo).
 * XFS é agora o sistema de ficheiros predefinido. O sistema de ficheiros ext4 ainda pode ser utilizado se desejar.
 
-**Etapas de configuração**
+**Passos de configuração**
 
 1. No Hyper-V Manager, selecione a máquina virtual.
 2. Clique **em Connect** para abrir uma janela de consola para a máquina virtual.

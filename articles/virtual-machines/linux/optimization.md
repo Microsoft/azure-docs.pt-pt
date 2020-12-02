@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: fceef1fa9f79ead0ffbbfd7de17b21b750659fc9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1e3551834e7664d5036fa8a5e0497e5a37f61c2f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370241"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498511"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Otimizar a VM do Linux no Azure
 A criação de uma máquina virtual Linux (VM) é fácil de fazer a partir da linha de comando ou a partir do portal. Este tutorial mostra-lhe como garantir que o configura para otimizar o seu desempenho na plataforma Microsoft Azure. Este tópico utiliza um Ubuntu Server VM, mas também pode criar uma máquina virtual Linux usando [as suas próprias imagens como modelos.](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
@@ -53,11 +53,11 @@ A forma mais fácil de gerir a troca por estas imagens é completar estes passos
 
 1. Na pasta **/var/lib/cloud/scripts/por-boot,** crie um ficheiro chamado **create_swapfile.sh**:
 
-   **$ sudo touch /var/lib/cloud/scripts/per-boot/create_swapfile.sh**
+   **$ sudo touch /var/lib/cloud/scripts/por-boot/create_swapfile.sh**
 
 1. Adicione as seguintes linhas ao ficheiro:
 
-   **$ sudo vi /var/lib/cloud/scripts/per-boot/create_swapfile.sh**
+   **$ sudo vi /var/lib/cloud/scripts/por-boot/create_swapfile.sh**
 
    ```
    #!/bin/sh
@@ -128,7 +128,7 @@ root@myVM:~# update-grub
 > [!NOTE]
 > Aplicar esta definição para **/dev/sda** por si só não é útil. Definir em todos os discos de dados onde a E/S sequencial domina o padrão de E/S.  
 
-Deve ver a seguinte saída, indicando que **a grub.cfg** foi reconstruída com sucesso e que o programador predefinido foi atualizado para a NOOP.  
+Deve ver a seguinte saída, indicando que **a .cfg** de comida foi reconstruída com sucesso e que o programador predefinido foi atualizado para a NOOP.  
 
 ```bash
 Generating grub configuration file ...
@@ -150,9 +150,9 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 Ubuntu 18.04 com o núcleo afinado Azure usa agendadores de I/S multi-fila. Nesse cenário, `none` é a seleção adequada em vez de `noop` . Para mais informações, consulte [os Agendadores Ubuntu I/O](https://wiki.ubuntu.com/Kernel/Reference/IOSchedulers).
 
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>Utilização de RAID de Software para atingir i/ops mais elevados
-Se as suas cargas de trabalho requerem mais IOps do que um único disco pode fornecer, tem de utilizar uma configuração RAID de software de vários discos. Como o Azure já realiza a resiliência do disco na camada de tecido local, obtém-se o mais alto nível de desempenho a partir de uma configuração de striping RAID-0.  Provisões e criações de discos no ambiente Azure e prenda-os ao seu LM Linux antes de dividir, formatar e montar as unidades.  Mais detalhes sobre a configuração de um RAID de software no seu Linux VM em azul podem ser encontrados no RAID de Software Configurado no documento **[Linux.](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+Se as suas cargas de trabalho requerem mais IOps do que um único disco pode fornecer, tem de utilizar uma configuração RAID de software de vários discos. Como o Azure já realiza a resiliência do disco na camada de tecido local, obtém-se o mais alto nível de desempenho a partir de uma configuração de striping RAID-0.  Provisões e criações de discos no ambiente Azure e prenda-os ao seu LM Linux antes de dividir, formatar e montar as unidades.  Mais detalhes sobre a configuração de um RAID de software no seu Linux VM em azul podem ser encontrados no RAID de Software Configurado no documento **[Linux.](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
-Como alternativa a uma configuração raid tradicional, também pode optar por instalar o Logical Volume Manager (LVM) de forma a configurar uma série de discos físicos num único volume de armazenamento lógico listrado. Nesta configuração, as leituras e as gravações são distribuídas por vários discos contidos no grupo de volume (semelhante ao RAID0). Por razões de desempenho, é provável que queira riscar os seus volumes lógicos para que as leituras e as gravações utilizem todos os seus discos de dados anexados.  Mais detalhes sobre a configuração de um volume lógico listrado no seu Linux VM em Azure podem ser encontrados no **[CONFIGURE LVM num documento Linux VM em Azure.](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+Como alternativa a uma configuração raid tradicional, também pode optar por instalar o Logical Volume Manager (LVM) de forma a configurar uma série de discos físicos num único volume de armazenamento lógico listrado. Nesta configuração, as leituras e as gravações são distribuídas por vários discos contidos no grupo de volume (semelhante ao RAID0). Por razões de desempenho, é provável que queira riscar os seus volumes lógicos para que as leituras e as gravações utilizem todos os seus discos de dados anexados.  Mais detalhes sobre a configuração de um volume lógico listrado no seu Linux VM em Azure podem ser encontrados no **[CONFIGURE LVM num documento Linux VM em Azure.](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
 ## <a name="next-steps"></a>Passos Seguintes
 Lembre-se, como em todas as discussões de otimização, você precisa realizar testes antes e depois de cada mudança para medir o impacto que a mudança tem.  A otimização é um processo passo a passo que tem resultados diferentes em diferentes máquinas do seu ambiente.  O que funciona para uma configuração pode não funcionar para os outros.
@@ -160,4 +160,4 @@ Lembre-se, como em todas as discussões de otimização, você precisa realizar 
 Algumas ligações úteis a recursos adicionais:
 
 * [Guia de Utilizador de Agente Azure Linux](../extensions/agent-linux.md)
-* [Configure software RAID no Linux](configure-raid.md)
+* [Configure software RAID no Linux](/previous-versions/azure/virtual-machines/linux/configure-raid)

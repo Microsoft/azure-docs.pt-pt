@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 88bbd83d7ac5b834255c9b4d46d7cef4394f15d3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a3016900b6265bfd56ad1a5a71f70efc01181af5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968672"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499259"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tarefa de devOps de devops de serviço de construtor de imagem Azure
 
@@ -139,7 +139,7 @@ Selecione o botão **'Construir Caminho'** para escolher a pasta de construção
 
 O exemplo a seguir explica como isto funciona:
 
-:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Selecionar adicione um artefacto no gasoduto de libertação.":::
+:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Uma estrutura de diretório mostrando hierarquia.":::
 
 
 * Windows - Os ficheiros existem em `C:\` . Um diretório nomeado `buildArtifacts` é criado que inclui o `webapp` diretório.
@@ -194,7 +194,7 @@ O exemplo a seguir explica como isto funciona:
     
 #### <a name="total-length-of-image-build"></a>Comprimento total da construção de imagem
 
-O comprimento total ainda não pode ser alterado na tarefa do gasoduto DevOps. Usa o padrão de 240 minutos. Se pretender aumentar a [buildTimeoutInMinutes,](./image-builder-json.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#properties-buildtimeoutinminutes)então pode utilizar uma tarefa CLI AZ no Pipeline de Lançamento. Configurar a tarefa de copiar um modelo e submetê-lo. Por exemplo, consulte esta [solução](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)ou utilize a Az PowerShell.
+O comprimento total ainda não pode ser alterado na tarefa do gasoduto DevOps. Usa o padrão de 240 minutos. Se pretender aumentar a [buildTimeoutInMinutes,](./image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-buildtimeoutinminutes)então pode utilizar uma tarefa CLI AZ no Pipeline de Lançamento. Configurar a tarefa de copiar um modelo e submetê-lo. Por exemplo, consulte esta [solução](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)ou utilize a Az PowerShell.
 
 
 #### <a name="storage-account"></a>Conta de Armazenamento
@@ -312,9 +312,9 @@ Não. Um nome de modelo único é usado e, em seguida, apagado.
 
 Se houver uma falha de construção, a tarefa DevOps não elimina o grupo de recursos de encenação. Pode aceder ao grupo de recursos de encenação que contém o registo de personalização de construção.
 
-Verá um erro no registo de DevOps para a tarefa VM Image Builder e verá a localização personalização.log. Por exemplo:
+Verá um erro no registo de DevOps para a tarefa VM Image Builder e verá a localização .log personalização. Por exemplo:
 
-:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Selecionar adicione um artefacto no gasoduto de libertação.":::
+:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Exemplo DevOps erro de tarefa que mostra uma falha.":::
 
 Para obter mais informações sobre a resolução de problemas, consulte [o Serviço de Construtores de Imagem Azure .](image-builder-troubleshoot.md) 
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 2bc1878739c9ce23cb1448eee87d71575823a2f6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: a21df6e5f8d437415bb5376969d56d26153b5c5f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740294"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500466"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorize uma máquina virtual Linux em Azure
 
@@ -46,13 +46,13 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer que exec
 
 ## <a name="create-vm"></a>Criar VM
 
-Para ver os diagnósticos e as métricas em ação, precisa de uma VM. Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupMonitor* na localização *eastus* .
+Para ver os diagnósticos e as métricas em ação, precisa de uma VM. Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupMonitor* na localização *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Agora, crie uma VM com [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create). O exemplo seguinte cria uma VM com o nome *myVM* e gera chaves SSH caso estas ainda não existam em *~/.ssh/* :
+Agora, crie uma VM com [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create). O exemplo seguinte cria uma VM com o nome *myVM* e gera chaves SSH caso estas ainda não existam em *~/.ssh/*:
 
 ```azurecli-interactive
 az vm create \
@@ -79,7 +79,7 @@ az storage account create \
   --location eastus
 ```
 
-Ao ativar os diagnósticos de arranque, é necessário o URI para o contentor de armazenamento de blobs. O comando seguinte consulta a conta de armazenamento para devolver este URI. O valor do URI é armazenado no nome de variável *bloburi* , utilizado no próximo passo.
+Ao ativar os diagnósticos de arranque, é necessário o URI para o contentor de armazenamento de blobs. O comando seguinte consulta a conta de armazenamento para devolver este URI. O valor do URI é armazenado no nome de variável *bloburi*, utilizado no próximo passo.
 
 ```azurecli-interactive
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
@@ -118,8 +118,8 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 
 Uma VM do Linux tem um anfitrião dedicado no Azure com o qual interage. As métricas são recolhidas automaticamente para o anfitrião e podem ser visualizadas no portal do Azure da seguinte forma:
 
-1. No portal do Azure, selecione **Grupos de Recursos** , escolha **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
-1. Para ver o desempenho da VM de anfitrião, selecione **Métricas** na janela da VM e, em seguida, escolha qualquer uma das métricas *[Anfitrião]* em **Métricas disponíveis** .
+1. No portal do Azure, selecione **Grupos de Recursos**, escolha **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
+1. Para ver o desempenho da VM de anfitrião, selecione **Métricas** na janela da VM e, em seguida, escolha qualquer uma das métricas *[Anfitrião]* em **Métricas disponíveis**.
 
     ![Ver métricas de anfitrião](./media/tutorial-monitoring/monitor-host-metrics.png)
 
@@ -127,11 +127,11 @@ Uma VM do Linux tem um anfitrião dedicado no Azure com o qual interage. As mét
 
 Para permitir a monitorização do seu Azure VM com monitor Azure para VMs:
 
-1. No portal do Azure, clique em **Grupos de Recursos** , selecione **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
+1. No portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
 
-2. Na página VM, na secção **De Monitorização,** selecione **Insights (pré-visualização)** .
+2. Na página VM, na secção **De Monitorização,** selecione **Insights (pré-visualização)**.
 
-3. Na página **Insights (pré-visualização),** selecione **Tente agora** .
+3. Na página **Insights (pré-visualização),** selecione **Tente agora**.
 
     ![Ativar o Monitor Azure para VMs para um VM](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
@@ -150,11 +150,11 @@ Depois de ativar a monitorização, poderá ter de esperar alguns minutos antes 
 
 O Azure Monitor para VMs inclui um conjunto de gráficos de desempenho que visam vários indicadores-chave de desempenho (KPI's) para ajudá-lo a determinar o quão bem uma máquina virtual está a funcionar. Para aceder a partir do seu VM, execute os seguintes passos.
 
-1. No portal do Azure, clique em **Grupos de Recursos** , selecione **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
+1. No portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
 
-2. Na página VM, na secção **De Monitorização,** selecione **Insights (pré-visualização)** .
+2. Na página VM, na secção **De Monitorização,** selecione **Insights (pré-visualização)**.
 
-3. Selecione o **separador Desempenho.**
+3. Selecione o separador **Desempenho**.
 
 Esta página inclui não só gráficos de utilização de desempenho, mas também uma tabela que mostra cada disco lógico descoberto, a sua capacidade, utilização e média total por cada medida.
 
@@ -164,7 +164,7 @@ Pode criar alertas com base em métricas de desempenho específicas. Podem ser u
 
 O exemplo seguinte cria um alerta para a utilização média da CPU.
 
-1. No portal do Azure, clique em **Grupos de Recursos** , selecione **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
+1. No portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
 
 2. Clique em **Regras de alerta** no painel da VM e, em seguida, clique em **Adicionar alerta de métrica** na parte superior do painel de alertas.
 
@@ -192,4 +192,4 @@ Neste tutorial, configuraste e viste o desempenho do teu VM. Aprendeu a:
 Avance para o próximo tutorial para saber mais sobre o Centro de Segurança do Azure.
 
 > [!div class="nextstepaction"]
-> [Gerir segurança de VM](tutorial-azure-security.md)
+> [Gerir segurança de VM](../tutorial-azure-security.md)

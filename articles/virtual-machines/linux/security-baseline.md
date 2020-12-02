@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f9835a0bb67fd276096153c54a569ebb58161799
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 45a33981c51f5a2590843fafc1e54f54d2e567cf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842418"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498477"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Linha de segurança Azure para Máquinas Virtuais Linux
 
@@ -40,7 +40,7 @@ Em alternativa, se tiver uma caixa de utilização específica para uma firewall
 
 * [Como implantar e configurar firewall Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -52,7 +52,7 @@ Em alternativa, se tiver uma caixa de utilização específica para uma firewall
 
 * [Compreender a Segurança da Rede fornecida pelo Azure Security Center](../../security-center/security-center-network-recommendations.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -68,7 +68,7 @@ Também pode implementar o Azure Web Application Firewall (WAF) em frente a apli
 
 * [Informação sobre grupos de segurança de rede](../../virtual-network/tutorial-filter-network-traffic.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -78,7 +78,7 @@ Também pode implementar o Azure Web Application Firewall (WAF) em frente a apli
 
 Pode utilizar o acesso da Rede Just In Time do Azure Security Center para limitar a exposição das Máquinas Virtuais Linux aos endereços IP aprovados por um período limitado. Além disso, utilize o Hardening de Rede Adaptável do Centro de Segurança Azure para recomendar configurações NSG que limitem portas e IPs de origem com base na inteligência real de tráfego e ameaça.
 
-* [Como configurar a proteção DDoS](../../virtual-network/manage-ddos-protection.md)
+* [Como configurar a proteção DDoS](../../ddos-protection/manage-ddos-protection.md)
 
 * [Como implantar a Firewall do Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -88,7 +88,7 @@ Pode utilizar o acesso da Rede Just In Time do Azure Security Center para limita
 
 * [Compreender o Centro de Segurança Azure Mesmo no Tempo Controlo de Acesso à Rede](../../security-center/security-center-just-in-time.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -100,7 +100,7 @@ Pode utilizar o acesso da Rede Just In Time do Azure Security Center para limita
 
 * [Como ativar o Observador de Redes](../../network-watcher/network-watcher-create.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -114,7 +114,7 @@ Pode utilizar o acesso da Rede Just In Time do Azure Security Center para limita
 
 * [Como configurar alertas com a Azure Firewall](../../firewall/threat-intel.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -146,7 +146,7 @@ Pode utilizar o acesso da Rede Just In Time do Azure Security Center para limita
 
 **Orientação**: Defina e implemente configurações de segurança padrão para máquinas virtuais Azure (VM) utilizando a Política Azure. Também pode utilizar plantas Azure para simplificar as implementações em VM em larga escala através de artefactos de ambiente chave de embalagem, tais como modelos de gestor de recursos Azure, atribuições de funções e atribuições de Política Azure, numa única definição de planta. Pode aplicar o plano às subscrições e ativar a gestão de recursos através da versão blueprint.
 
-* [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 * [Amostras da Política Azure para networking](../../governance/policy/samples/built-in-policies.md#network)
 
@@ -180,7 +180,7 @@ Utilize a Política Azure para validar (e/ou remediar) configurações para recu
 
 * [Como criar alertas no Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
 
-* [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 * [Amostras da Política Azure para networking](../../governance/policy/samples/built-in-policies.md#network)
 
@@ -200,7 +200,7 @@ Utilize a Política Azure para validar (e/ou remediar) configurações para recu
 
 **Monitorização do Centro de Segurança Azure**: Não Disponível
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: Configurar a gestão central dos registos de segurança
 
@@ -210,7 +210,7 @@ Utilize a Política Azure para validar (e/ou remediar) configurações para recu
 
 * [Para capturar os dados do Syslog para monitorização, terá de ativar a extensão Do Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -248,7 +248,7 @@ Se a sua organização quiser reter os dados de registo de eventos de segurança
 
 * [Para capturar os dados do Syslog para monitorização, terá de ativar a extensão Do Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -278,7 +278,7 @@ Em alternativa, pode ativar e a bordo dados do Azure Sentinel ou de um SIEM de t
 
 * [Como embarcar Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-* [Compreender log analytics workspace](../../azure-monitor/log-query/get-started-portal.md)
+* [Compreender log analytics workspace](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Como realizar consultas personalizadas no Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
@@ -308,9 +308,9 @@ Em alternativa, pode permitir e a bordo dados de Azure Sentinel ou um SIEM de te
 
 * [Instruções para embarcar servidores Linux para o Centro de Segurança Azure](../../security-center/quickstart-onboard-machines.md)
 
-* [O link seguinte fornece as diretrizes de segurança recomendadas pela Microsoft, que podem servir como uma lista de critérios para o software de vulnerabilidade selecionado](./security-recommendations.md)
+* [O link seguinte fornece as diretrizes de segurança recomendadas pela Microsoft, que podem servir como uma lista de critérios para o software de vulnerabilidade selecionado](../security-recommendations.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -346,7 +346,7 @@ Em alternativa, pode permitir e a bordo dados de Azure Sentinel ou um SIEM de te
 
 * [Informação sobre Gestor de Identidade Privilegiada](../../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -366,7 +366,7 @@ Em alternativa, pode permitir e a bordo dados de Azure Sentinel ou um SIEM de te
 
 * [Informação sobre Gestor de Identidade Privilegiada](../../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -386,11 +386,11 @@ Em alternativa, pode permitir e a bordo dados de Azure Sentinel ou um SIEM de te
 
 **Orientação**: Ativar O Azure AD MFA e seguir as recomendações do Azure Security Center Identity and Access Management.
 
-* [Como permitir o MFA em Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
+* [Como ativar o MFA no Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 * [Como monitorizar a identidade e o acesso dentro do Centro de Segurança Azure](../../security-center/security-center-identity-access.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -400,7 +400,7 @@ Em alternativa, pode permitir e a bordo dados de Azure Sentinel ou um SIEM de te
 
 * [Saiba mais sobre estações de trabalho de acesso privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Como permitir o MFA em Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
+* [Como ativar o MFA no Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitorização do Centro de Segurança Azure**: Não Disponível
 
@@ -418,7 +418,7 @@ Em alternativa, pode permitir e a bordo dados de Azure Sentinel ou um SIEM de te
 
 * [Como configurar grupos de ação para alerta e notificação personalizados](../../azure-monitor/platform/action-groups.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -436,7 +436,7 @@ Em alternativa, pode permitir e a bordo dados de Azure Sentinel ou um SIEM de te
 
 **Orientação**: Utilize o Azure Ative Directory (Azure AD) como sistema central de autenticação e autorização. A Azure AD protege os dados utilizando uma encriptação forte para dados em repouso e em trânsito. A Azure AD também sai, hashes e armazena seguramente as credenciais dos utilizadores. Pode utilizar identidades geridas para autenticar qualquer serviço que suporte a autenticação AZure AD, incluindo o Key Vault, sem quaisquer credenciais no seu código. O seu código que está a funcionar numa máquina virtual pode usar a sua identidade gerida para solicitar o acesso a fichas de acesso para serviços que suportem a autenticação Azure AD.
 
-* [Como criar e configurar uma instância AD Azure](../../active-directory-domain-services/tutorial-create-instance.md)
+* [Como criar e configurar instâncias do Azure AD](../../active-directory-domain-services/tutorial-create-instance.md)
 
 * [Identidades geridas para visão geral dos recursos da Azure](../../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -450,7 +450,7 @@ Em alternativa, pode permitir e a bordo dados de Azure Sentinel ou um SIEM de te
 
 * [Como utilizar comentários sobre acesso à identidade do Azure](../../active-directory/governance/access-reviews-overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -458,7 +458,7 @@ Em alternativa, pode permitir e a bordo dados de Azure Sentinel ou um SIEM de te
 
 **Orientação**: Configurar definições de diagnóstico para o Azure Ative Directory enviar os registos de auditoria e registos de login para um espaço de trabalho do Log Analytics. Além disso, utilize o Azure Monitor para rever registos e efetue consultas em dados de syslog a partir de máquinas Azure Virtual.
 
-* [Compreender log analytics workspace](../../azure-monitor/log-query/get-started-portal.md)
+* [Compreender log analytics workspace](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Como integrar os Registos de Atividades do Azure no Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -474,7 +474,7 @@ Em alternativa, pode permitir e a bordo dados de Azure Sentinel ou um SIEM de te
 
 **Orientação**: Utilize as funcionalidades de Proteção de Risco e Identidade do Azure Ative Para configurar respostas automatizadas para detetar ações suspeitas relacionadas com os recursos da sua conta de armazenamento. Deve permitir respostas automatizadas através do Azure Sentinel para implementar as respostas de segurança da sua organização.
 
-* [Como ver a Azure AD a entrar em risco](../../active-directory/identity-protection/overview-identity-protection.md)
+* [Como ver os inícios de sessão de risco do Azure AD](../../active-directory/identity-protection/overview-identity-protection.md)
 
 * [Como configurar e permitir políticas de risco de proteção de identidade](../../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -504,7 +504,7 @@ Em alternativa, pode permitir e a bordo dados de Azure Sentinel ou um SIEM de te
 
 * [Como criar e usar Tags](../../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -536,7 +536,7 @@ Em alternativa, pode permitir e a bordo dados de Azure Sentinel ou um SIEM de te
 
 Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os conteúdos do cliente como sensíveis para se proteger contra a perda e exposição de dados dos clientes. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
 
-* [Compreender a proteção de dados do cliente em Azure](../../security/fundamentals/protection-customer-data.md)
+* [Compreender a proteção dos dados dos clientes no Azure](../../security/fundamentals/protection-customer-data.md)
 
 **Monitorização do Centro de Segurança Azure**: Não Disponível
 
@@ -552,7 +552,7 @@ A Microsoft utiliza o protocolo De Segurança da Camada de Transporte (TLS) para
 
 **Monitorização do Centro de Segurança Azure**: Não Disponível
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: Utilize uma ferramenta de descoberta ativa para identificar dados sensíveis
 
@@ -586,13 +586,13 @@ A Microsoft utiliza o protocolo De Segurança da Camada de Transporte (TLS) para
 
 **Orientação**: Os discos virtuais em Máquinas Virtuais Linux (VM) são encriptados em repouso utilizando a encriptação do lado do Servidor ou a encriptação do disco Azure (ADE). A Azure Disk Encryption aproveita a funcionalidade DM-Crypt do Linux para encriptar discos geridos com chaves geridas pelo cliente dentro do VM do hóspede. A encriptação do lado do servidor com as teclas geridas pelo cliente melhora no ADE, permitindo-lhe utilizar quaisquer tipos e imagens de OS para os seus VMs encriptando dados no serviço de Armazenamento.
 
-* [Encriptação lateral do servidor dos discos geridos pelo Azure](../windows/disk-encryption.md)
+* [Encriptação lateral do servidor dos discos geridos pelo Azure](../disk-encryption.md)
 
 * [Azure Disk Encryption para VMs do Linux](./disk-encryption-overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: Registar e alertar sobre alterações aos recursos críticos do Azure
 
@@ -618,9 +618,9 @@ A Microsoft utiliza o protocolo De Segurança da Camada de Transporte (TLS) para
 
 * [Instruções para embarcar servidores Linux para o Centro de Segurança Azure](../../security-center/quickstart-onboard-machines.md)
 
-* [Diretrizes de segurança recomendadas pela Microsoft](./security-recommendations.md)
+* [Diretrizes de segurança recomendadas pela Microsoft](../security-recommendations.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -628,11 +628,11 @@ A Microsoft utiliza o protocolo De Segurança da Camada de Transporte (TLS) para
 
 **Orientação**: Utilize a solução Azure Update Management para gerir atualizações e patches para as suas máquinas virtuais. A Update Management baseia-se no repositório de atualização configurado localmente para corrigir sistemas suportados.
 
-* [Solução de Gestão de Atualização em Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Solução de Gestão de Atualização em Azure](../../automation/update-management/overview.md)
 
-* [Gerir atualizações e patches para os seus VMs](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Gerir atualizações e patches para os seus VMs](../../automation/update-management/manage-updates-for-vm.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -640,9 +640,9 @@ A Microsoft utiliza o protocolo De Segurança da Camada de Transporte (TLS) para
 
 **Orientação**: Pode utilizar uma solução de gestão de patch de terceiros. Pode utilizar a solução Azure Update Management para gerir atualizações e patches para as suas máquinas virtuais. A Update Management baseia-se no repositório de atualização configurado localmente para corrigir sistemas suportados.
 
-* [Solução de Gestão de Atualização em Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Solução de Gestão de Atualização em Azure](../../automation/update-management/overview.md)
 
-* [Gerir atualizações e patches para os seus VMs](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Gerir atualizações e patches para os seus VMs](../../automation/update-management/manage-updates-for-vm.md)
 
 **Monitorização do Centro de Segurança Azure**: Não Disponível
 
@@ -662,7 +662,7 @@ A Microsoft utiliza o protocolo De Segurança da Camada de Transporte (TLS) para
 
 * [Compreenda a pontuação segura do Centro de Segurança Azure](../../security-center/secure-score-security-controls.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -728,7 +728,7 @@ A Microsoft utiliza o protocolo De Segurança da Camada de Transporte (TLS) para
 
 Além disso, utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da(s) subscrição. Isto pode ajudar em ambientes de alta segurança, como aqueles com contas de Armazenamento.
 
-* [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 * [Como criar consultas com Azure Graph](../../governance/resource-graph/first-query-portal.md)
 
@@ -772,7 +772,7 @@ Além de utilizar o Change Tracking para monitorização de aplicações de soft
 
 * [Como utilizar os controlos de aplicações adaptativos do Centro de Segurança Azure](../../security-center/security-center-adaptive-application.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -782,11 +782,11 @@ Além de utilizar o Change Tracking para monitorização de aplicações de soft
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-* [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 * [Como negar um tipo específico de recurso com a Política Azure](../../governance/policy/samples/index.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -806,7 +806,7 @@ Além de utilizar o Change Tracking para monitorização de aplicações de soft
 
 * [Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recursos Azure](../../role-based-access-control/conditional-access-azure-management.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -850,7 +850,7 @@ Além de utilizar o Change Tracking para monitorização de aplicações de soft
 
 **Orientação**: Utilize a Política Azure ou o Centro de Segurança Azure para manter configurações de segurança para todos os recursos Azure. Além disso, o Azure Resource Manager tem a capacidade de exportar o modelo na Notação de Objetos JavaScript (JSON), que deve ser revisto para garantir que as configurações cumprem /excedem os requisitos de segurança para a sua empresa.
 
-* [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 * [Informações sobre como descarregar o modelo VM](../windows/download-template.md)
 
@@ -876,7 +876,7 @@ Além de utilizar o Change Tracking para monitorização de aplicações de soft
 
 * [Informação sobre a criação de modelos do Gestor de Recursos Azure](../windows/ps-template.md)
 
-* [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+* [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 * [Compreender efeitos da política do Azure](../../governance/policy/concepts/effects.md)
 
@@ -902,7 +902,7 @@ Para a maioria dos cenários, os modelos VM base da Microsoft combinados com a C
 
 * [Como carregar um VM VHD personalizado para Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -984,7 +984,7 @@ Para a maioria dos cenários, os modelos VM base da Microsoft combinados com a C
 
 * [Como atribuir uma política de acesso ao Cofre de Chaves](../../key-vault/general/assign-access-policy-portal.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -1000,7 +1000,7 @@ Para a maioria dos cenários, os modelos VM base da Microsoft combinados com a C
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminar a exposição credencial não intencional
 
-**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault.
+**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner de Credenciais também vai incentivar a movimentação das credenciais descobertas para localizações mais seguras, por exemplo, o Azure Key Vault.
 
 * [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
@@ -1016,9 +1016,9 @@ Para a maioria dos cenários, os modelos VM base da Microsoft combinados com a C
 
 **Orientação**: Necessitará de uma ferramenta de terceiros para proteção anti-malware na máquina virtual Azure Linux.
 
-* [Como configurar o Microsoft Antimalware para serviços em nuvem e máquinas virtuais](./security-recommendations.md)
+* [Como configurar o Microsoft Antimalware para serviços em nuvem e máquinas virtuais](../security-recommendations.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -1034,9 +1034,9 @@ Para a maioria dos cenários, os modelos VM base da Microsoft combinados com a C
 
 **Orientação**: Necessitará de uma ferramenta de terceiros para proteção anti-malware na máquina virtual Azure Linux.
 
-* [Como configurar o Microsoft Antimalware para serviços em nuvem e máquinas virtuais](./security-recommendations.md)
+* [Como configurar o Microsoft Antimalware para serviços em nuvem e máquinas virtuais](../security-recommendations.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -1052,7 +1052,7 @@ Para a maioria dos cenários, os modelos VM base da Microsoft combinados com a C
 
 * [Apoie um VM Azure a partir das definições de VM](../../backup/backup-azure-vms-first-look-arm.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -1070,7 +1070,7 @@ Ativar a Azure Backup e direcionar as Máquinas Virtuais Azure (VM), bem como os
 
 * [Como backup chaves chave cofre em Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -1100,7 +1100,7 @@ Se estiver a utilizar a encriptação do disco Azure, pode restaurar o Azure VM 
 
 * [Descrição geral da eliminação recuperável do Azure Key Vault](../../key-vault/general/soft-delete-overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -1110,7 +1110,7 @@ Se estiver a utilizar a encriptação do disco Azure, pode restaurar o Azure VM 
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Criar um guia de resposta a incidentes
 
-**Orientação**: Crie um guia de resposta a incidentes para a sua organização. Certifique-se de que existem planos escritos de resposta a incidentes que definem todas as funções de pessoal, bem como fases de tratamento/gestão de incidentes, desde a deteção até à revisão pós-incidente.
+**Orientação**: desenvolva um guia de respostas a incidentes para a sua organização. Confirme que existem planos escritos de resposta a incidentes, que definem todas as funções do pessoal, assim como as fases de manipulação/gestão de incidentes desde a deteção até à análise pós-incidente.
 
 * [Orientação para a construção do seu próprio processo de resposta a incidentes de segurança](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1124,13 +1124,13 @@ Se estiver a utilizar a encriptação do disco Azure, pode restaurar o Azure VM 
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: Criar um procedimento de pontuação e priorização de incidentes
 
-**Orientação**: O Centro de Segurança atribui uma gravidade a cada alerta para o ajudar a priorizar quais os alertas que devem ser investigados primeiro. A gravidade baseia-se na confiança que o Centro de Segurança está na descoberta ou no analítico utilizado para emitir o alerta, bem como no nível de confiança de que havia intenção maliciosa por trás da atividade que levou ao alerta. Além disso, marque claramente as subscrições (para ex. produção, não-prod) usando tags e criar um sistema de nomeação para identificar e categorizar claramente os recursos Azure, especialmente aqueles que processam dados sensíveis. É da sua responsabilidade priorizar a reparação de alertas com base na criticidade dos recursos e ambiente do Azure onde ocorreu o incidente.
+**Orientação**: O Centro de Segurança atribui uma gravidade a cada alerta para o ajudar a priorizar quais os alertas que devem ser investigados primeiro. A gravidade baseia-se na confiança que o Centro de Segurança está na descoberta ou no analítico utilizado para emitir o alerta, bem como no nível de confiança de que havia intenção maliciosa por trás da atividade que levou ao alerta. Além disso, marque claramente as subscrições (para ex. produção, não-prod) usando tags e criar um sistema de nomeação para identificar e categorizar claramente os recursos Azure, especialmente aqueles que processam dados sensíveis. É da sua responsabilidade priorizar a remediação dos alertas de acordo com a criticalidade dos recursos do Azure e o ambiente em que os incidentes ocorreram.
 
 * [Alertas de segurança no Centro de Segurança do Azure](../../security-center/security-center-alerts-overview.md)
 
 * [Utilizar etiquetas para organizar os recursos do Azure](../../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -1150,7 +1150,7 @@ Se estiver a utilizar a encriptação do disco Azure, pode restaurar o Azure VM 
 
 * [Como definir o Contacto de Segurança do Centro de Segurança Azure](../../security-center/security-center-provide-security-contact-details.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -1184,15 +1184,15 @@ Se estiver a utilizar a encriptação do disco Azure, pode restaurar o Azure VM 
 
 **Orientação**: Siga as Regras de Engajamento da Microsoft para garantir que os seus Testes de Penetração não violam as políticas da Microsoft. Use a estratégia da Microsoft e a execução de testes de penetração em red teaming e site ao vivo contra infraestruturas, serviços e aplicações de nuvem geridas pela Microsoft.
 
-* [Regras de teste de penetração de compromisso](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [Regras de Interação para os Testes de Penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* ["Equipa de Ataque" da Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](../../security/benchmarks/overview.md)
-- Saiba mais sobre [as linhas de base de segurança da Azure](../../security/benchmarks/security-baselines-overview.md)
+- Saiba mais sobre as [linhas de base de segurança do Azure](../../security/benchmarks/security-baselines-overview.md)

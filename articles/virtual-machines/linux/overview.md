@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 95e4ac884e0eda3b4f469484226962e3fd2e2eea
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 54982189a5da584c7daf66855ffb655e403a455a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375385"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500517"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Máquinas virtuais do Linux no Azure
 
@@ -110,11 +110,11 @@ O Azure suporta [a inibição de nuvens na](https://cloud-init.io/) maioria dos 
 * [Add a disk to a Linux VM using the azure-cli](add-disk.md) (Adicionar um disco a uma VM do Linux com a CLI do Azure)
 * [How to attach a data disk to a Linux VM in the Azure portal](attach-disk-portal.md) (Como anexar um disco de dados a uma VM do Linux no portal do Azure)
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 * [Visão geral da rede virtual](../../virtual-network/virtual-networks-overview.md)
 * [Endereços IP no Azure](../../virtual-network/public-ip-addresses.md)
 * [Opening ports to a Linux VM in Azure](nsg-quickstart.md) (Abrir portas para uma VM do Linux no Azure)
-* [Create a Fully Qualified Domain Name in the Azure portal](portal-create-fqdn.md) (Criar um Nome de Domínio Completamente Qualificado no portal do Azure)
+* [Create a Fully Qualified Domain Name in the Azure portal](../create-fqdn.md) (Criar um Nome de Domínio Completamente Qualificado no portal do Azure)
 
 
 ## <a name="data-residency"></a>Residência dos dados

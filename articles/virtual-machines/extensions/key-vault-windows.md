@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c02b6bcb6587313f84c4b900fba49df540d12c07
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0418c11d84fb82ac4a4b181289f032407a29f92e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966365"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500670"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual key Vault para Windows
 
@@ -36,9 +36,9 @@ A extensão Key Vault VM também é suportada em VM local personalizado que é c
 - PEM
 
 ## <a name="prerequisities"></a>Pré-requisitos
-  - Caso do Cofre com certificado. Ver [Criar um cofre de chaves](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
-  - VM/VMSS deve ter atribuído [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
-  - A Política de Acesso ao Cofre-Chave deve ser definida com segredos `get` e `list` permissão para vM/VMSS identidade gerida para recuperar a parte de um certificado secreto. Ver [como autenticar para o cofre](/azure/key-vault/general/authentication) de chaves e atribuir uma política de acesso ao cofre de [chaves](/azure/key-vault/general/assign-access-policy-cli).
+  - Caso do Cofre com certificado. Ver [Criar um cofre de chaves](../../key-vault/general/quick-create-portal.md)
+  - VM/VMSS deve ter atribuído [identidade gerida](../../active-directory/managed-identities-azure-resources/overview.md)
+  - A Política de Acesso ao Cofre-Chave deve ser definida com segredos `get` e `list` permissão para vM/VMSS identidade gerida para recuperar a parte de um certificado secreto. Ver [como autenticar para o cofre](../../key-vault/general/authentication.md) de chaves e atribuir uma política de acesso ao cofre de [chaves](../../key-vault/general/assign-access-policy-cli.md).
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -88,9 +88,9 @@ O JSON seguinte mostra o esquema para a extensão VM do Cofre de Chaves. A exten
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor / Exemplo | Tipo de Dados |
+| Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | data |
+| apiVersion | 2019-07-01 | date |
 | publicador | Microsoft.Azure.KeyVault | string |
 | tipo | KeyVaultForWindows | string |
 | typeHandlerVersion | 1,0 | int |
@@ -111,7 +111,7 @@ As extensões Azure VM podem ser implementadas com modelos Azure Resource Manage
 A configuração JSON para uma extensão de máquina virtual deve ser aninhada dentro do fragmento de recurso de máquina virtual do modelo, especificamente `"resources": []` objeto para o modelo de máquina virtual e em caso de escala de máquina virtual definida sob `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` objeto.
 
  > [!NOTE]
-> A extensão VM exigiria que o sistema ou identidade gerida pelo utilizador fosse atribuído para autenticar o cofre key.  Veja [como autenticar o Key Vault e atribuir uma política de acesso ao Cofre de Chaves.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+> A extensão VM exigiria que o sistema ou identidade gerida pelo utilizador fosse atribuído para autenticar o cofre key.  Veja [como autenticar o Key Vault e atribuir uma política de acesso ao Cofre de Chaves.](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 > 
 
 ```json

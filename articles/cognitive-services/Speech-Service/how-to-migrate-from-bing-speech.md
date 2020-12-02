@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: 4b7950759914724234ec89e6eaee13b48e735ec9
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: d0ffd786d3fb6bb5f0d70095d947c81caa070518
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024318"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499140"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar do Discurso de Bing para o serviço de fala
 
@@ -79,9 +79,9 @@ Para começar com o Discurso SDK:
 
 Os clientes da Bing Speech devem contactar o apoio ao cliente abrindo um [bilhete de apoio](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Também pode contactar-nos caso a sua necessidade de suporte exija um [plano de suporte técnico.](https://azure.microsoft.com/support/plans/)
 
-Para o serviço de fala, suporte SDK e API, visite a [página de suporte](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext)do serviço speech .
+Para o serviço de fala, suporte SDK e API, visite a [página de suporte](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)do serviço speech .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Experimente o serviço de fala gratuitamente](overview.md#try-the-speech-service-for-free)
 * [Introdução à conversão de voz em texto](get-started-speech-to-text.md)

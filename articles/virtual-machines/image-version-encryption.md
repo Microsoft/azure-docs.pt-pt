@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: b19dab8dffaa0c9c888e8a9974a43cbb48006fd7
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 0f5eb6a2964cdb679c2a83bd9d9b6296e3e962ed
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504327"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499293"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Pré-visualização: Utilize chaves geridas pelo cliente para encriptar imagens
 
@@ -211,7 +211,7 @@ Quando criar a sua versão de imagem no portal, pode utilizar o **separador Encr
 
 
 1. Na página **'Criar uma versão de imagem',** selecione o **separador Encriptação.**
-2. No **tipo de encriptação** , selecione **Encriptação em repouso com uma chave gerida pelo cliente** ou **encriptação dupla com teclas geridas pela plataforma e geridas pelo cliente**. 
+2. No **tipo de encriptação**, selecione **Encriptação em repouso com uma chave gerida pelo cliente** ou **encriptação dupla com teclas geridas pela plataforma e geridas pelo cliente**. 
 3. Para cada disco na imagem, selecione um conjunto de encriptação da lista de definição de encriptação do **disco.** 
 
 ### <a name="create-the-vm"></a>Criar a VM
@@ -220,6 +220,6 @@ Pode criar um VM a partir de uma versão de imagem e utilizar chaves geridas pel
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [a encriptação do disco do lado do servidor.](./windows/disk-encryption.md)
+Saiba mais sobre [a encriptação do disco do lado do servidor.](./disk-encryption.md)
 
 Para obter informações sobre como fornecer informações sobre o plano de compra, consulte [as informações do plano de compra do Supply Azure Marketplace ao criar imagens.](marketplace-images.md)

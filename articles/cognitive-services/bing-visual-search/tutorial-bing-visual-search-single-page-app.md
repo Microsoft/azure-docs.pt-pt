@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 03/27/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: b9458f6080759f0948d103f7fe3d131f6a4c4e37
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b1ca88cd654b7bf373bee60b1e9b7a2e7a129fa2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092726"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499055"
 ---
 # <a name="tutorial-create-a-visual-search-single-page-web-app"></a>Tutorial: Criar uma aplicação web de pesquisa visual de uma página
 
 > [!WARNING]
-> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource)documentado.
 > Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
-> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](/bing/search-apis/bing-web-search/create-bing-search-service-resource)
 
 A API de Pesquisa Visual Bing retorna insights para uma imagem. Pode fazer upload de uma imagem ou fornecer um URL a uma. Os insights são imagens visualmente semelhantes, fontes de compras, páginas web que incluem a imagem, e muito mais. Os insights devolvidos pela API de Pesquisa Visual Bing são semelhantes aos apresentados no Bing.com/images.
 
@@ -124,7 +124,7 @@ Adicione o seguinte código HTML na linha 601. Este código de marcação adicio
 </div>
 ```
 
-Com todo o novo código JavaScript e elementos HTML implementados, os resultados da pesquisa são apresentados com uma ligação **encontrar semelhante** . Clique na ligação para preencher a secção **Semelhante** com as imagens semelhantes à que escolheu. Poderá ter de expandir a secção **Semelhante** para mostrar as imagens.
+Com todo o novo código JavaScript e elementos HTML implementados, os resultados da pesquisa são apresentados com uma ligação **encontrar semelhante**. Clique na ligação para preencher a secção **Semelhante** com as imagens semelhantes à que escolheu. Poderá ter de expandir a secção **Semelhante** para mostrar as imagens.
 
 ## <a name="next-steps"></a>Passos seguintes
 

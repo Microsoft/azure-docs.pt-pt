@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: discurso ao texto, discurso ao software de texto
-ms.openlocfilehash: f26d896397a950bc2c5f5d1f66dca6a01da045d7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 102289fd233a744952f37568abf77a753953637e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015227"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499650"
 ---
 # <a name="what-is-speech-to-text"></a>O que é a conversão de voz em texto?
 
@@ -48,7 +48,7 @@ O código de amostra para o SDK de discurso está disponível no GitHub. Estas a
 
 ## <a name="customization"></a>Personalização
 
-Além do modelo padrão de serviço de fala, pode criar modelos personalizados. A personalização ajuda a superar barreiras de reconhecimento de voz, tais como estilo de fala, vocabulário e ruído de fundo, ver [Discurso Personalizado.](how-to-custom-speech.md) As opções de personalização variam de acordo com o idioma/local, consulte [idiomas suportados](./language-support.md) para verificar o suporte.
+Além do modelo padrão de serviço de fala, pode criar modelos personalizados. A personalização ajuda a superar barreiras de reconhecimento de voz, tais como estilo de fala, vocabulário e ruído de fundo, ver [Discurso Personalizado.](./custom-speech-overview.md) As opções de personalização variam de acordo com o idioma/local, consulte [idiomas suportados](./language-support.md) para verificar o suporte.
 
 ## <a name="batch-transcription"></a>Transcrição em lote
 
@@ -56,7 +56,7 @@ A transcrição do lote é um conjunto de operações de API REST que permitem t
 
 [!INCLUDE [speech-reference-doc-links](includes/speech-reference-doc-links.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](overview.md#try-the-speech-service-for-free)
 - [Obtenha o Discurso SDK](speech-sdk.md)

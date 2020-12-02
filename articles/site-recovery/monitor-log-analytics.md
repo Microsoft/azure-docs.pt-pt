@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 7d11fa8605d9cd5f335b6be56097caf7a5222bbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3d3ce8218030bc8ba6c59b26b7360bf2299e02a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006946"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499820"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorizar o Site Recovery com os Registos do Azure Monitor
 
@@ -36,7 +36,7 @@ Eis o que necessita:
 
 - Pelo menos uma máquina protegida num cofre dos Serviços de Recuperação.
 - Um espaço de trabalho log Analytics para armazenar registos de recuperação do site. [Saiba como](../azure-monitor/learn/quick-create-workspace.md) criar um espaço de trabalho.
-- Uma compreensão básica de como escrever, executar e analisar consultas de registo em Log Analytics. [Saiba mais](../azure-monitor/log-query/get-started-portal.md).
+- Uma compreensão básica de como escrever, executar e analisar consultas de registo em Log Analytics. [Saiba mais](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Recomendamos que reveja [questões comuns de monitorização](monitoring-common-questions.md) antes de começar.
 

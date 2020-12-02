@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a79ec9a54ae597bc7e9795029dc4292c2c82345
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: fd1c7f5dec57127f92da52be908bd6faa2c90e85
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836398"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500228"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação em nuvem usando o lançamento encenado (pré-visualização)
 
@@ -66,6 +66,8 @@ Os seguintes cenários são suportados para o lançamento encenado. A funcionali
 ## <a name="unsupported-scenarios"></a>Cenários não suportados
 
 Os seguintes cenários não são suportados para o lançamento encenado:
+
+- Aplicações ou serviços em nuvem utilizam a autenticação antiga, como POP3 e SMTP.
 
 - Algumas aplicações enviam o parâmetro de consulta "domain_hint" para Azure AD durante a autenticação. Estes fluxos continuarão, e os utilizadores que estejam habilitados para o lançamento encenado continuarão a utilizar a federação para a autenticação.
 

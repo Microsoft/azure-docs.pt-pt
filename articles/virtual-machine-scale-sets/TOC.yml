@@ -176,7 +176,7 @@
           href: ../virtual-machines/disks-types.md
           maintainContext: true
         - name: Encriptação
-          href: ../virtual-machines/windows/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
+          href: ../virtual-machines/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
           maintainContext: true
         - name: Desempenho de armazenamento Premium
           href: ../virtual-machines/premium-storage-performance.md

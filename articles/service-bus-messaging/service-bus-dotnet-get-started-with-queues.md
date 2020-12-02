@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1976848f9c91b5fd5e136e027b83456bbbe0b3b4
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: 15e5d257259bb4dfc98528cb726dbd2cc1f9a903
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317440"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498732"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Enviar mensagens para e receber mensagens das filas do Azure Service Bus (.NET)
 Neste tutorial, cria uma aplicação de consola .NET Core para enviar mensagens e receber mensagens de uma fila de Autocarros de Serviço utilizando o pacote **Azure.Messaging.ServiceBus.** 
@@ -289,5 +289,4 @@ Consulte a seguinte documentação e amostras:
 
 - [Biblioteca de clientes Azure Service Bus para .NET - Readme](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
 - [Exemplos no GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
-- [Referência da API .NET](https://docs.microsoft.com/dotnet/api/azure.messaging.servicebus?view=azure-dotnet-preview&preserve-view=true)
-
+- [Referência da API .NET](/dotnet/api/azure.messaging.servicebus?preserve-view=true&view=azure-dotnet-preview)

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/02/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5fe8bf70374a2eec639a0a9365f7d227cf259d06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a55a330f6f4fefb86f2c056cd0ca3b2ba5f4b29
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667253"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499599"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Tutorial: Encomende os resultados da pesquisa utilizando o .NET SDK
 
@@ -62,7 +62,7 @@ Não é necessário modificar nenhum dos modelos para permitir a encomenda. Apen
 
 1. Agora executar a aplicação, e inserir qualquer termo de pesquisa comum. Os resultados podem ou não estar na ordem correta, uma vez que nem você como desenvolvedor, nem o utilizador, tem uma maneira fácil de verificar os resultados!
 
-1. Vamos deixar claro que os resultados são ordenados na classificação. Em primeiro lugar, substitua as classes **box1** e **box2** no arquivo hotels.css pelas seguintes aulas (estas aulas são todas as novas que precisamos para este tutorial).
+1. Vamos deixar claro que os resultados são ordenados na classificação. Primeiro, substitua as classes **box1** e **box2** nos hotéis.css arquivo pelas seguintes aulas (estas aulas são todas as novas que precisamos para este tutorial).
 
     ```html
     textarea.box1A {
@@ -135,7 +135,7 @@ Não é necessário modificar nenhum dos modelos para permitir a encomenda. Apen
     Select = new[] { "HotelName", "Description", "Rating"},
     ```
 
-1. Abra a vista (index.cshtml) e substitua o laço de renderização** &lt; (!-- Mostre os &gt; dados do hotel.--**) com o seguinte código.
+1. Abra a vista (index.cshtml) e substitua o laço de renderização **&lt; (!-- Mostre os &gt; dados do hotel.--**) com o seguinte código.
 
     ```cs
                 <!-- Show the hotel data. -->
@@ -698,7 +698,7 @@ Vamos olhar para três exemplos de perfis de pontuação, e considerar como cada
     }
     ```
 
-1. Abra o arquivo hotels.css e adicione as seguintes classes HTML.
+1. Abra o arquivo .css hotéis e adicione as seguintes classes HTML.
 
     ```html
     .facetlist {
@@ -965,7 +965,7 @@ Vamos olhar para três exemplos de perfis de pontuação, e considerar como cada
 
 ### <a name="resources"></a>Recursos
 
-Para obter mais informações, consulte os [seguintes perfis de pontuação adicionar a um índice de Pesquisa Cognitiva Azure](/azure/search/index-add-scoring-profiles).
+Para obter mais informações, consulte os [seguintes perfis de pontuação adicionar a um índice de Pesquisa Cognitiva Azure](./index-add-scoring-profiles.md).
 
 ## <a name="takeaways"></a>Conclusões
 

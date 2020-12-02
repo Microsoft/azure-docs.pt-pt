@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6519f9d549c513e03400366447812a170f9ab41c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: acdddcd95883d13393838a47281fb888ac2f9274
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978667"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500398"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento premium Azure: design para alto desempenho
 
@@ -222,7 +222,7 @@ No entanto, se hospedar a mesma aplicação no Premium Storage, necessitará de 
 
 Tabela abaixo resume a repartição de custos deste cenário para o Armazenamento Standard e Premium.
 
-| &nbsp; | **Padrão** | **Premium** |
+| &nbsp; | **Standard** | **Premium** |
 | --- | --- | --- |
 | **Custo de VM por mês** |$1.570,58 (Standard \_ D14) |$1.003.66 (Standard \_ DS13) |
 | **Custo dos Discos por mês** |$1.638,40 (discos de 32 x 1-TB) |$544.34 (discos 4 x P30) |
@@ -319,7 +319,7 @@ No Windows, pode utilizar espaços de armazenamento para riscar discos em conjun
 
 Importante: Utilizando o UI do Gestor do Servidor, pode definir o número total de colunas até 8 para um volume listrado. Ao fixar mais de oito discos, utilize o PowerShell para criar o volume. Utilizando o PowerShell, pode definir o número de colunas igual ao número de discos. Por exemplo, se houver 16 discos num único conjunto de listras; especificar 16 colunas no parâmetro *NumberOfColumns* do *cmdlet PowerShell New-VirtualDisk.*
 
-No Linux, utilize o utilitário MDADM para riscar discos juntos. Para passos detalhados sobre discos de strip no Linux, consulte o [Configure Software RAID no Linux](linux/configure-raid.md).
+No Linux, utilize o utilitário MDADM para riscar discos juntos. Para passos detalhados sobre discos de strip no Linux, consulte o [Configure Software RAID no Linux](/previous-versions/azure/virtual-machines/linux/configure-raid).
 
 *Tamanho das riscas*  
 Uma configuração importante no striping do disco é o tamanho das listras. O tamanho das listras ou o tamanho do bloco é o menor pedaço de dados que a aplicação pode endereçar num volume listrado. O tamanho das listras que configura depende do tipo de aplicação e do seu padrão de pedido. Se escolher o tamanho errado da listra, pode levar ao desalinhamento do IO, o que leva a um desempenho degradado da sua aplicação.

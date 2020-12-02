@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 11/13/2018
 ms.author: guybo
-ms.openlocfilehash: 1d4d055c0cd20d1b9598c408753334458d709276
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5d99e6ec0beb6eaf83f9c664683c33fc1b71e3f0
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660632"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500551"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Prepare um VHD Debian para Azure
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -20,7 +20,7 @@ Esta secção pressupõe que já instalou um sistema operativo Debian Linux a pa
 ## <a name="installation-notes"></a>Notas de instalação
 * Consulte também [as notas de instalação do General Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais dicas sobre a preparação do Linux para a Azure.
 * O novo formato VHDX não é suportado no Azure. Pode converter o disco em formato VHD utilizando o Hyper-V Manager ou o **cmdlet converte-vhd.**
-* Ao instalar o sistema Linux, recomenda-se que utilize divisórias padrão em vez de LVM (muitas vezes o padrão para muitas instalações). Isto evitará conflitos de nome LVM com VMs clonados, especialmente se um disco de SO precisar de ser ligado a outro VM para resolução de problemas. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) podem ser usados em discos de dados, se preferir.
+* Ao instalar o sistema Linux, recomenda-se que utilize divisórias padrão em vez de LVM (muitas vezes o padrão para muitas instalações). Isto evitará conflitos de nome LVM com VMs clonados, especialmente se um disco de SO precisar de ser ligado a outro VM para resolução de problemas. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) podem ser usados em discos de dados, se preferir.
 * Não configuure uma partição de troca no disco OS. O agente Azure Linux pode ser configurado para criar um ficheiro de troca no disco de recursos temporários. Mais informações podem ser encontradas nos degraus abaixo.
 * Todos os VHDs em Azure devem ter um tamanho virtual alinhado a 1MB. Ao converter de um disco cru para VHD, deve certificar-se de que o tamanho do disco bruto é um múltiplo de 1MB antes da conversão. Para mais informações, consulte [as Notas de Instalação do Linux.](create-upload-generic.md#general-linux-installation-notes)
 
@@ -125,5 +125,5 @@ Existem ferramentas disponíveis para gerar VHDs Debian para Azure, como os scri
 
 10. Clique em **Ação** -> Desligar em Hyper-V Manager. O seu VHD Linux está agora pronto para ser enviado para Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Está agora pronto para usar o seu disco rígido virtual Debian para criar novas máquinas virtuais em Azure. Se esta for a primeira vez que está a enviar o ficheiro .vhd para a Azure, consulte [Create a Linux VM a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).

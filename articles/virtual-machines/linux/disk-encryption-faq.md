@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 06a84621c4d6abbf361eba232c776c167dc46265
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9d62195759de2d43e863c1cb2c4c3ef911bb52c6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970614"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498528"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Encriptação do disco Azure para máquinas virtuais Linux FAQ
 
@@ -57,14 +57,14 @@ Não, a encriptação do disco Azure apenas encripta volumes montados.
 
 ## <a name="what-is-storage-server-side-encryption"></a>O que é encriptação do lado do servidor de armazenamento?
 
-Encriptação do lado do servidor de armazenamento encripta discos geridos pelo Azure no Azure Storage. Os discos geridos são encriptados por padrão com encriptação do lado do Servidor com uma chave gerida pela plataforma (a partir de 10 de junho de 2017). Pode gerir a encriptação de discos geridos com as suas próprias chaves especificando uma chave gerida pelo cliente. Para obter mais informações consulte: [Encriptação do lado do servidor dos discos geridos Azure](disk-encryption.md).
+Encriptação do lado do servidor de armazenamento encripta discos geridos pelo Azure no Azure Storage. Os discos geridos são encriptados por padrão com encriptação do lado do Servidor com uma chave gerida pela plataforma (a partir de 10 de junho de 2017). Pode gerir a encriptação de discos geridos com as suas próprias chaves especificando uma chave gerida pelo cliente. Para obter mais informações consulte: [Encriptação do lado do servidor dos discos geridos Azure](../disk-encryption.md).
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>Como é que a encriptação do disco Azure é diferente da encriptação do lado do servidor de armazenamento com a chave gerida pelo cliente e quando devo usar cada solução?
 
 A Azure Disk Encryption fornece encriptação de ponta a ponta para o disco DE, discos de dados e o disco temporário, utilizando uma chave gerida pelo cliente.
 - Se os seus requisitos incluirem encriptar todas as encriptações acima e de ponta a ponta, utilize encriptação do disco Azure. 
-- Se os seus requisitos incluirem encriptar apenas dados em repouso com a chave gerida pelo cliente, em seguida, use [encriptação do lado do Servidor com teclas geridas pelo cliente](disk-encryption.md). Não é possível encriptar um disco com encriptação do servidor Azure e encriptação do servidor de armazenamento com teclas geridas pelo cliente. 
-- Se o seu distro Linux não estiver listado em [sistemas operativos suportados para encriptação de disco Azure](disk-encryption-overview.md#supported-operating-systems) ou estiver a utilizar um cenário chamado nos [cenários não suportados para](disk-encryption-linux.md#unsupported-scenarios)o Windows , considere [a encriptação do lado do Servidor com as teclas geridas pelo cliente](disk-encryption.md).
+- Se os seus requisitos incluirem encriptar apenas dados em repouso com a chave gerida pelo cliente, em seguida, use [encriptação do lado do Servidor com teclas geridas pelo cliente](../disk-encryption.md). Não é possível encriptar um disco com encriptação do servidor Azure e encriptação do servidor de armazenamento com teclas geridas pelo cliente. 
+- Se o seu distro Linux não estiver listado em [sistemas operativos suportados para encriptação de disco Azure](disk-encryption-overview.md#supported-operating-systems) ou estiver a utilizar um cenário chamado nos [cenários não suportados para](disk-encryption-linux.md#unsupported-scenarios)o Windows , considere [a encriptação do lado do Servidor com as teclas geridas pelo cliente](../disk-encryption.md).
 - Se a política da sua organização permitir que você encripte o conteúdo em repouso com uma chave gerida pelo Azure, então não é necessária nenhuma ação - o conteúdo é encriptado por padrão. Para discos geridos, o conteúdo dentro do armazenamento é encriptado por padrão com encriptação do lado do Servidor com chave gerida pela plataforma. A chave é gerida pelo serviço de armazenamento Azure. 
 
 
@@ -101,7 +101,7 @@ Existem pré-requisitos para encriptação do disco Azure. Consulte a Criação 
 Existem pré-requisitos para encriptação do disco Azure. Consulte a Encriptação do Disco Azure com o conteúdo [Azure AD](disk-encryption-linux-aad.md) para criar uma aplicação Azure Ative Directory, criar um novo cofre de chaves ou configurar um cofre-chave existente para acesso à encriptação do disco para permitir a encriptação e salvaguardar segredos e chaves. Para obter mais informações sobre os principais cenários de suporte à chave de encriptação, consulte [criar e configurar um cofre-chave para encriptação de disco Azure com Azure AD](disk-encryption-key-vault-aad.md).
 
 ## <a name="is-azure-disk-encryption-using-an-azure-ad-app-previous-release-still-supported"></a>A Encriptação do Disco Azure está a utilizar uma aplicação AD AZure (versão anterior) ainda suportada?
-Yes. A encriptação do disco utilizando uma aplicação AD Azure ainda é suportada. No entanto, ao encriptar novos VMs é recomendado que use o novo método em vez de encriptar com uma aplicação AD Azure. 
+Sim. A encriptação do disco utilizando uma aplicação AD Azure ainda é suportada. No entanto, ao encriptar novos VMs é recomendado que use o novo método em vez de encriptar com uma aplicação AD Azure. 
 
 ## <a name="can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app"></a>Posso migrar VMs que foram encriptados com uma aplicação AD AD Azure para encriptação sem uma aplicação AD AZure?
   Atualmente, não existe um caminho de migração direta para máquinas que foram encriptadas com uma aplicação AD AD Azure para encriptar sem uma aplicação AD AZure. Além disso, não existe um caminho direto desde a encriptação sem uma aplicação AD AZure até encriptação com uma aplicação AD. 

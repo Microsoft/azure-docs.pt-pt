@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad97a822aaa6477616a6661a579df6c4ec82729
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f65ab02e06319519548eaa2c02120691a0ceef02
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919893"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498562"
 ---
 # <a name="build-resilience-in-your-identity-and-access-management-infrastructure"></a>Construa resiliência na sua infraestrutura de gestão de identidade e acessos
 
@@ -40,11 +40,11 @@ No contexto da sua infraestrutura de identidade, a resiliência é a capacidade 
 
 ## <a name="why-worry-about-disruption"></a>Por que se preocupar com perturbações?
 
-Cada chamada para o sistema de autenticação está sujeita a perturbações se algum componente na cadeia da chamada para Azure AD falhar. Isto significa que se alguma parte da sua infraestrutura tiver um problema, o trabalho pode ser interrompido porque os utilizadores não podem aceder às aplicações de que necessitam. Por isso, a redução do número de chamadas de autenticação e o número de dependências nessas chamadas é importante para a sua resiliência. Os desenvolvedores de aplicações podem afirmar algum controlo sobre a frequência com que os tokens são solicitados. Por exemplo, trabalhe com os seus desenvolvedores para garantir que estão a usar identidades geridas Azure AD para as suas aplicações sempre que possível. 
+Cada chamada para o sistema de autenticação está sujeita a perturbações se algum componente da chamada falhar. Quando a autenticação é interrompida, devido às falhas dos componentes subjacentes, os seus utilizadores não acedem às suas aplicações. Por isso, a redução do número de chamadas de autenticação e o número de dependências nessas chamadas é importante para a sua resiliência. Os desenvolvedores de aplicações podem afirmar algum controlo sobre a frequência com que os tokens são solicitados. Por exemplo, trabalhe com os seus desenvolvedores para garantir que estão a usar identidades geridas Azure AD para as suas aplicações sempre que possível. 
 
 Num sistema de autenticação baseado em símbolos como o Azure AD, a aplicação (cliente) de um utilizador deve adquirir um símbolo de segurança do sistema de identidade antes de poder aceder a uma aplicação ou outro recurso. Durante o período de validade, um cliente pode apresentar o mesmo símbolo várias vezes para aceder à aplicação.
 
-Quando o token apresentado ao pedido expirar, o pedido rejeita o token, e o cliente deve adquirir um novo token da Azure AD. Adquirir um novo símbolo requer potencialmente a interação do utilizador, como as indicações de credencial. A redução da frequência de chamadas de autenticação com fichas de maior duração reduz este risco. No entanto, é preciso equilibrar a vida útil com o risco criado por menos avaliações políticas. Para obter mais informações sobre a gestão de vidas simbólicas, consulte este artigo sobre [a otimização de pedidos de reauestação](https://docs.microsoft.com/azure/active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime).
+Quando o token apresentado ao pedido expirar, o pedido rejeita o token, e o cliente deve adquirir um novo token da Azure AD. A aquisição de um novo símbolo requer potencialmente a interação do utilizador, como pedidos de credenciais ou o cumprimento de outros requisitos do sistema de autenticação. A redução da frequência de chamadas de autenticação com fichas de vida mais longas diminui as interações desnecessárias. No entanto, é preciso equilibrar a vida útil com o risco criado por menos avaliações políticas. Para obter mais informações sobre a gestão de vidas simbólicas, consulte este artigo sobre [a otimização de pedidos de reauestação](https://docs.microsoft.com/azure/active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime).
 
 ## <a name="ways-to-increase-resilience"></a>Formas de aumentar a resiliência
 O diagrama que se segue mostra seis formas concretas de aumentar a resiliência. Cada método é explicado em detalhe nos artigos ligados na parte dos próximos passos deste artigo.

@@ -8,16 +8,16 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 6b523ac306feef2e4c82b3739096b26158c55fc3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5c0336b80bee1cd5eb76d0ce3d5f99c7296a8467
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741738"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499769"
 ---
 # <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utilize o CLI Azure para ativar a encriptação de ponta a ponta utilizando encriptação no anfitrião
 
-Quando ativa a encriptação no anfitrião, os dados armazenados no anfitrião VM são encriptados em repouso e os fluxos encriptados para o serviço de Armazenamento. Para obter informações conceptuais sobre encriptação no anfitrião, bem como outros tipos de encriptação de discos [geridos, consulte a Encriptação no anfitrião - Encriptação de ponta a ponta para os seus dados VM](disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+Quando ativa a encriptação no anfitrião, os dados armazenados no anfitrião VM são encriptados em repouso e os fluxos encriptados para o serviço de Armazenamento. Para obter informações conceptuais sobre encriptação no anfitrião, bem como outros tipos de encriptação de discos [geridos, consulte a Encriptação no anfitrião - Encriptação de ponta a ponta para os seus dados VM](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 ## <a name="restrictions"></a>Restrições
 
@@ -187,7 +187,7 @@ az vmss show -n $vmssName \
 
 Os tamanhos VM legacy não são suportados. Pode encontrar a lista de tamanhos VM suportados por:
 
-Chamando a [API de Recursos Skus](/rest/api/compute/resourceskus/list) e verificando se a `EncryptionAtHostSupported` capacidade está definida para **True** .
+Chamando a [API de Recursos Skus](/rest/api/compute/resourceskus/list) e verificando se a `EncryptionAtHostSupported` capacidade está definida para **True**.
 
 ```json
     {

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: a53f947eb2a44cc8773be8ee2b2bd03ca899be22
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7c250f1351d83d213c5c7af5b00d7a648c5d8bc6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95521007"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499667"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de lançamento do Microsoft Azure Storage Explorer
 
@@ -559,7 +559,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
         
 ### <a name="new"></a>Novo
 
-* Agora pode utilizar o Storage Explorer para aceder aos seus dados Blob através [do RBAC.](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) Se estiver assinado e o Storage Explorer não conseguir recuperar as chaves da sua conta de Armazenamento, então será usado um token OAuth para autenticar quando interagir com os seus dados.
+* Agora pode utilizar o Storage Explorer para aceder aos seus dados Blob através [do RBAC.](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) Se estiver assinado e o Storage Explorer não conseguir recuperar as chaves da sua conta de Armazenamento, então será usado um token OAuth para autenticar quando interagir com os seus dados.
 * O Storage Explorer suporta agora as contas de armazenamento ADLS Gen2. Quando o Storage Explorer detetar que o espaço hierárquico está ativado para uma conta de Armazenamento, verá "(Pré-visualização ADLS Gen2)" ao lado do nome da sua conta de Armazenamento. O Storage Explorer é capaz de detetar se o espaço de nome hierárquico está ou não ativado quando está assinado ou se anexou a sua Conta de Armazenamento com nome e chave. Para contas de armazenamento ADLS Gen2, pode utilizar o Storage Explorer para:
   * Criar e apagar contentores
   * Gerir as propriedades e permissões dos contentores (do lado esquerdo)
@@ -628,7 +628,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
         
 ### <a name="new"></a>Novo
 
-* Agora pode utilizar o Storage Explorer para aceder aos seus dados Blob através [do RBAC.](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) Se estiver assinado e o Storage Explorer não conseguir recuperar as chaves da sua conta de Armazenamento, então será usado um token OAuth para autenticar quando interagir com os seus dados.
+* Agora pode utilizar o Storage Explorer para aceder aos seus dados Blob através [do RBAC.](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) Se estiver assinado e o Storage Explorer não conseguir recuperar as chaves da sua conta de Armazenamento, então será usado um token OAuth para autenticar quando interagir com os seus dados.
 * O Storage Explorer suporta agora as contas de armazenamento ADLS Gen2. Quando o Storage Explorer detetar que o espaço hierárquico está ativado para uma conta de Armazenamento, verá "(Pré-visualização ADLS Gen2)" ao lado do nome da sua conta de Armazenamento. O Storage Explorer é capaz de detetar se o espaço de nome hierárquico está ou não ativado quando está assinado ou se anexou a sua Conta de Armazenamento com nome e chave. Para contas de armazenamento ADLS Gen2, pode utilizar o Storage Explorer para:
   * Criar e apagar contentores
   * Gerir as propriedades e permissões dos contentores (do lado esquerdo)
@@ -683,7 +683,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 
 ### <a name="new"></a>Novo
 
-* Agora pode utilizar o Storage Explorer para aceder aos seus dados Blob através [do RBAC.](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) Se estiver assinado e o Storage Explorer não conseguir recuperar as chaves da sua conta de Armazenamento, então será usado um token OAuth para autenticar quando interagir com os seus dados.
+* Agora pode utilizar o Storage Explorer para aceder aos seus dados Blob através [do RBAC.](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) Se estiver assinado e o Storage Explorer não conseguir recuperar as chaves da sua conta de Armazenamento, então será usado um token OAuth para autenticar quando interagir com os seus dados.
 * O Storage Explorer suporta agora as contas de armazenamento ADLS Gen2. Quando o Storage Explorer detetar que o espaço hierárquico está ativado para uma conta de Armazenamento, verá "(Pré-visualização ADLS Gen2)" ao lado do nome da sua conta de Armazenamento. O Storage Explorer é capaz de detetar se o espaço de nome hierárquico está ou não ativado quando está assinado ou se anexou a sua Conta de Armazenamento com nome e chave. Para contas de armazenamento ADLS Gen2, pode utilizar o Storage Explorer para:
   * Criar e apagar contentores
   * Gerir as propriedades e permissões dos contentores (do lado esquerdo)

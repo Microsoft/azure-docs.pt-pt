@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: a4cc6e31e49243af8fa52ac568bcbba660bcde7e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8a33e9d462f3105bfee295ac82384a38325f7c7c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842741"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498800"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Serviços de segurança e tecnologias disponíveis no Azure
 
@@ -88,8 +88,8 @@ Com o tempo, esta lista mudará e crescerá, tal como o Azure. Certifique-se de 
 |[Firewall de aplicação web](../../web-application-firewall/afds/afds-overview.md) (WAF)|Uma funcionalidade do Application Gateway que fornece proteção centralizada das suas aplicações web de explorações e vulnerabilidades comuns|
 | [Balanceador de Carga do Azure](../../load-balancer/load-balancer-overview.md)|Um equilibrador de rede de aplicações TCP/UDP. |
 | [Azure ExpressRoute](../../expressroute/expressroute-introduction.md)| Uma ligação WAN dedicada entre redes no local e redes virtuais Azure. |
-| [Gestor de Tráfego do Azure](../../traffic-manager/traffic-manager-overview.md)| Um equilibrador global de carga de DNS.|
+| [Traffic Manager do Azure](../../traffic-manager/traffic-manager-overview.md)| Um equilibrador global de carga de DNS.|
 | [Procuração de aplicação Azure](../../active-directory/manage-apps/application-proxy.md)| Uma linha frontal autenticadora usada para garantir o acesso remoto para aplicações web hospedadas no local. |
 |[Azure Firewall](../../firewall/overview.md)|Um serviço de segurança de rede gerido e baseado na nuvem que protege os seus recursos da Rede Virtual Azure.|
-|[Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)|Combinado com as melhores práticas de design de aplicações, fornece defesa contra ataques DDoS.|
+|[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)|Combinado com as melhores práticas de design de aplicações, fornece defesa contra ataques DDoS.|
 |[Pontos finais de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)|Estende o espaço de endereço privado da sua rede virtual e a identidade do seu VNet aos serviços Azure, através de uma ligação direta.|

@@ -3,20 +3,20 @@ title: Se a atividade da condição na Fábrica de Dados Azure
 description: A atividade se a Condição permite controlar o fluxo de processamento com base numa condição.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9f65ffc9ef24b18ce0f18571c1f3fc91e7ca7fdf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 150efe87565b1949dc1ed29b03af69c26f84a896
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024236"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499480"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Se a atividade da condição na Fábrica de Dados Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2017
 ms.author: vikdesai
-ms.openlocfilehash: 5df56b304463ab981026fbe0c82d831d83d702c3
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: f23d1fb0162abf05fba97c2f6fb02be9238fabd2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93380266"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500364"
 ---
 # <a name="save-costs-with-azure-reserved-vm-instances-linux"></a>Poupe custos com Azure Reserved VM Instances (Linux)
 
@@ -86,7 +86,7 @@ As instâncias VM reservadas estão disponíveis para a maioria dos tamanhos VM,
 
 ## <a name="buy-a-reserved-vm-instance"></a>Comprar uma Instância de VM Reservada
 
-Pode comprar uma instância VM reservada no [portal Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/monthly-payments-reservations.md).
+Pode comprar uma instância VM reservada no [portal Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/prepare-buy-reservation.md).
 Estes requisitos aplicam-se à compra de uma instância VM reservada:
 
 - Você deve estar numa função proprietário para pelo menos uma subscrição EA ou uma subscrição com uma taxa de pagamento como você-go.
@@ -158,6 +158,4 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://port
     - [Compreender a utilização de reservas para uma subscrição com tarifas pay as you go](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
     - [Compreender a utilização de reservas na inscrição Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
     - [Custos de software Windows não incluídos nas reservas](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md)
-    - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations) (Reservas do Azure no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros)
-
-
+    - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations) (Reservas do Azure no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros)

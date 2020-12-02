@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: b0871b6365d78129cd6fdaec82fee14e2b0a7a4b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 4fb20b221858c4717d67e0777afbe5c067c00a69
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693448"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499616"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configure as chaves geridas pelo cliente para encriptação de dados na Pesquisa Cognitiva Azure
 
@@ -66,7 +66,7 @@ Pode definir ambas as propriedades utilizando os comandos portal, PowerShell ou 
 
 1. Na página **'Visão Geral'** no **âmbito do Essencial,** **ativar a proteção para eliminar** e **purgar.**
 
-### <a name="using-powershell"></a>Com o PowerShell
+### <a name="using-powershell"></a>Utilizar o PowerShell
 
 1. Corre `Connect-AzAccount` para preparar as tuas credenciais do Azure.
 
@@ -96,7 +96,7 @@ Pode definir ambas as propriedades utilizando os comandos portal, PowerShell ou 
 
 ### <a name="using-azure-cli"></a>Utilizar a CLI do Azure
 
-+ Se tiver uma [instalação de Azure CLI,](https://docs.microsoft.com/cli/azure/install-azure-cli)pode executar o seguinte comando para ativar as propriedades necessárias.
++ Se tiver uma [instalação de Azure CLI,](/cli/azure/install-azure-cli)pode executar o seguinte comando para ativar as propriedades necessárias.
 
    ```azurecli-interactive
    az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
@@ -173,7 +173,7 @@ As permissões de acesso podem ser revogadas a qualquer momento. Uma vez revogad
 
 ## <a name="5---encrypt-content"></a>5 - Encriptar conteúdo
 
-Para adicionar uma chave gerida pelo cliente num mapa de índice, fonte de dados, skillset, indexante ou sinónimo, deve utilizar a [API search REST](https://docs.microsoft.com/rest/api/searchservice/) ou um SDK. O portal não expõe mapas de sinónimo ou propriedades de encriptação. Quando utiliza índices de API válidos, fontes de dados, skillsets, indexadores e mapas de sinónimo suportam uma propriedade encriptação de alto **nívelKey.**
+Para adicionar uma chave gerida pelo cliente num mapa de índice, fonte de dados, skillset, indexante ou sinónimo, deve utilizar a [API search REST](/rest/api/searchservice/) ou um SDK. O portal não expõe mapas de sinónimo ou propriedades de encriptação. Quando utiliza índices de API válidos, fontes de dados, skillsets, indexadores e mapas de sinónimo suportam uma propriedade encriptação de alto **nívelKey.**
 
 Este exemplo utiliza a API REST, com valores para Azure Key Vault e Azure Ative Directory:
 
@@ -196,7 +196,7 @@ Este exemplo utiliza a API REST, com valores para Azure Key Vault e Azure Ative 
 
 ## <a name="example-index-encryption"></a>Exemplo: Encriptação do índice
 
-Criar um índice encriptado utilizando a [API de Pesquisa Cognitiva Do Índice Azure.](https://docs.microsoft.com/rest/api/searchservice/create-index) Utilize a `encryptionKey` propriedade para especificar qual a chave de encriptação a utilizar.
+Criar um índice encriptado utilizando a [API de Pesquisa Cognitiva Do Índice Azure.](/rest/api/searchservice/create-index) Utilize a `encryptionKey` propriedade para especificar qual a chave de encriptação a utilizar.
 > [!Note]
 > Nenhum destes detalhes chave do cofre é considerado secreto e poderia ser facilmente recuperado navegando para a página chave do Azure Key Vault relevante no portal Azure.
 
@@ -239,7 +239,7 @@ Agora pode enviar o pedido de criação de índice e, em seguida, começar a usa
 
 ### <a name="synonym-map-encryption"></a>Encriptação do mapa do synonym
 
-Crie um mapa de sinónimo encriptado utilizando o [Create Synonym Map Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Utilize a `encryptionKey` propriedade para especificar qual a chave de encriptação a utilizar.
+Crie um mapa de sinónimo encriptado utilizando o [Create Synonym Map Azure Cognitive Search REST API](/rest/api/searchservice/create-synonym-map). Utilize a `encryptionKey` propriedade para especificar qual a chave de encriptação a utilizar.
 
 ```json
 {
@@ -263,7 +263,7 @@ Agora pode enviar o pedido de criação de mapa sinónimo e, em seguida, começa
 
 ## <a name="example-data-source-encryption"></a>Exemplo: Encriptação de fonte de dados
 
-Criar uma fonte de dados encriptada utilizando a [Create Data Source (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-data-source). Utilize a `encryptionKey` propriedade para especificar qual a chave de encriptação a utilizar.
+Criar uma fonte de dados encriptada utilizando a [Create Data Source (Azure Cognitive Search REST API)](/rest/api/searchservice/create-data-source). Utilize a `encryptionKey` propriedade para especificar qual a chave de encriptação a utilizar.
 
 ```json
 {
@@ -289,7 +289,7 @@ Pode agora enviar o pedido de criação de fonte de dados e, em seguida, começa
 
 ## <a name="example-skillset-encryption"></a>Exemplo: Encriptação skillset
 
-Crie um skillset encriptado utilizando a [API de Pesquisa Cognitiva Create Skillset Azure](https://docs.microsoft.com/rest/api/searchservice/create-skillset). Utilize a `encryptionKey` propriedade para especificar qual a chave de encriptação a utilizar.
+Crie um skillset encriptado utilizando a [API de Pesquisa Cognitiva Create Skillset Azure](/rest/api/searchservice/create-skillset). Utilize a `encryptionKey` propriedade para especificar qual a chave de encriptação a utilizar.
 
 ```json
 {
@@ -315,7 +315,7 @@ Agora pode enviar o pedido de criação de skillset e, em seguida, começar a us
 
 ## <a name="example-indexer-encryption"></a>Exemplo: Encriptação do Indexante
 
-Crie um indexante encriptado utilizando a [API de Pesquisa Cognitiva Do Indexer Azure](https://docs.microsoft.com/rest/api/searchservice/create-indexer). Utilize a `encryptionKey` propriedade para especificar qual a chave de encriptação a utilizar.
+Crie um indexante encriptado utilizando a [API de Pesquisa Cognitiva Do Indexer Azure](/rest/api/searchservice/create-indexer). Utilize a `encryptionKey` propriedade para especificar qual a chave de encriptação a utilizar.
 
 ```json
 {

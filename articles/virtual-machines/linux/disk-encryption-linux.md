@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e8f71b277a4f4b538d501b1fa825bc6ec43428c8
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d2c9d810fb3bd86d68518e1ad20088a57d538bbe
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359396"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500585"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários do Azure Disk Encryption em VMs com Linux
 
@@ -413,8 +413,8 @@ A Azure Disk Encryption não funciona para os seguintes cenários, funcionalidad
 - Um VM com "pontos de montagem aninhados"; ou seja, múltiplos pontos de montagem num único caminho (como "/1stmountpoint/data/2stmountpoint").
 - Um VM com uma unidade de dados montada em cima de uma pasta de SO.
 - VMs da série M com discos de acelerador de escrita.
-- Aplicação de ADE a um VM que tenha discos encriptados com [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md) (SSE + CMK). Aplicar SSE + CMK a um disco de dados num VM encriptado com ADE também é um cenário não suportado.
-- Migrar um VM que é encriptado com ADE, ou **que já** foi encriptado com ADE, para [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md).
+- Aplicação de ADE a um VM que tenha discos encriptados com [encriptação do lado do servidor com teclas geridas pelo cliente](../disk-encryption.md) (SSE + CMK). Aplicar SSE + CMK a um disco de dados num VM encriptado com ADE também é um cenário não suportado.
+- Migrar um VM que é encriptado com ADE, ou **que já** foi encriptado com ADE, para [encriptação do lado do servidor com teclas geridas pelo cliente](../disk-encryption.md).
 - [Tamanhos Azure VM sem disco temporário local;](../azure-vms-no-temp-disk.md) especificamente, Dv4, Dsv4, Ev4 e Esv4.
 
 ## <a name="next-steps"></a>Passos seguintes

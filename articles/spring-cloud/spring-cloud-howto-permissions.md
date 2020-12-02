@@ -7,15 +7,15 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: edd9898580c60199b761b24b172a366069f09cb2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 0c0b3bd81e0f73a7879382e28516378bd722bc17
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516193"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498647"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>Como usar permissões em Azure Spring Cloud
-Este artigo mostra-lhe como criar papéis personalizados que delegam permissões aos recursos da Azure Spring Cloud. As funções personalizadas estendem [as funções incorporadas do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) com várias permissões de stock.
+Este artigo mostra-lhe como criar papéis personalizados que delegam permissões aos recursos da Azure Spring Cloud. As funções personalizadas estendem [as funções incorporadas do Azure](../role-based-access-control/built-in-roles.md) com várias permissões de stock.
 
 Implementaremos as seguintes funções personalizadas:
 
@@ -54,7 +54,7 @@ Siga estes passos para começar a definir um papel.
    ![Adicionar permissões começam](media/spring-cloud-permissions/add-permissions.png)
 
 ### <a name="search-for-azure-spring-cloud-permissions"></a>Procure permissões em Azure Spring Cloud:
-7. Na caixa de pesquisa, procure o *Microsoft.app*.
+7. Na caixa de pesquisa, procure *.app Microsoft*.
 Selecione *Microsoft Azure Spring Cloud*.
 
    ![Selecione Azure Spring Cloud](media/spring-cloud-permissions/spring-cloud-permissions.png)
@@ -257,9 +257,9 @@ A partir de **Microsoft.AppPlatform/skus,** selecione:
 
 
 ## <a name="see-also"></a>Ver também
-* [Criar ou atualizar funções personalizadas do Azure com o portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal)
+* [Criar ou atualizar funções personalizadas do Azure com o portal do Azure](../role-based-access-control/custom-roles-portal.md)
 
 Para obter mais informações sobre três métodos que definem permissões personalizadas consulte:
-* [Clonar um papel](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#clone-a-role)
-* [Começar do zero](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#start-from-scratch)
-* [Comece pelo JSON](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#start-from-json)
+* [Clonar um papel](../role-based-access-control/custom-roles-portal.md#clone-a-role)
+* [Começar do zero](../role-based-access-control/custom-roles-portal.md#start-from-scratch)
+* [Comece pelo JSON](../role-based-access-control/custom-roles-portal.md#start-from-json)

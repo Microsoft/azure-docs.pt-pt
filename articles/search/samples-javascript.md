@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 6bcdb4a48f71e28514229116c10bd25747b55616
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 234c70fffb6f353c670d23624cc446fdaf6bd886
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701828"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498970"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Amostras de código JavaScript para Pesquisa Cognitiva Azure
 
 Saiba mais sobre as amostras de código JavaScript que demonstram as funcionalidades e funcionalidades da Pesquisa Cognitiva Azure. Os repositórios primários são os seguintes:
 
-| Repositório | Description |
+| Repositório | Descrição |
 |------------|-------------|
 | [azure-sdk-for-js/tree/master/sdk/search/search-documents](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents) | Amostras produzidas pela equipa da Azure SDK que envia com a biblioteca de clientes Azure.Search.Documents na SDK. Também pode rever [os testes de unidade](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/test) para a biblioteca do cliente para ver como são chamadas várias APIs. |
 | [Amostras de Azure/azure-search-javascript-samples](https://github.com/Azure-Samples/azure-search-javascript-samples) | Amostras de código que acompanham artigos como fazer, incluindo [Quickstart: Criar um índice de pesquisa em JavaScript](search-get-started-javascript.md).|
@@ -31,7 +31,7 @@ Saiba mais sobre as amostras de código JavaScript que demonstram as funcionalid
 
 O Azure SDK para Java inclui numerosas amostras e uma [página de início](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/README.md#getting-started) que cobre a instalação de pacotes, configuração do cliente e resolução de problemas. A página também descreve as seguintes categorias de amostras, listadas aqui para sua conveniência.
 
-| Amostras | Description |
+| Amostras | Descrição |
 |---------|-------------|
 | [índices](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexes) | Demonstra como criar, atualizar, obter, listar e eliminar [índices de pesquisa](search-what-is-an-index.md). Esta categoria de amostra também inclui uma amostra estatística de serviço. |
 | [dataSourceConnections (para indexadores)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/dataSourceConnections) | Demonstra como criar, atualizar, obter, listar e eliminar fontes de dados indexantes, necessárias para indexar fontes de [dados suportadas](search-indexer-overview.md#supported-data-sources)pelo indexante . |
@@ -44,7 +44,7 @@ O Azure SDK para Java inclui numerosas amostras e uma [página de início](https
 
 O SDK também fornece exemplos TypeScript, listados aqui para sua conveniência.
 
-| Amostras | Description |
+| Amostras | Descrição |
 |---------|-------------|
 | [índices](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexes) | Demonstra como criar, atualizar, obter, listar e eliminar [índices de pesquisa](search-what-is-an-index.md). Esta categoria de amostra também inclui uma amostra estatística de serviço. |
 | [dataSourceConnections (para indexadores)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/dataSourceConnections) | Demonstra como criar, atualizar, obter, listar e eliminar fontes de dados indexantes, necessárias para indexar fontes de [dados suportadas](search-indexer-overview.md#supported-data-sources)pelo indexante . |
@@ -55,14 +55,14 @@ O SDK também fornece exemplos TypeScript, listados aqui para sua conveniência.
 
 ## <a name="documentation-samples"></a>Exemplos de documentação
 
-As seguintes amostras têm um artigo associado na [documentação de Pesquisa Cognitiva Azure.](https://docs.microsoft.com/azure/search/)
+As seguintes amostras têm um artigo associado na [documentação de Pesquisa Cognitiva Azure.](./index.yml)
 
-| Amostras | Description | 
+| Amostras | Descrição | 
 |---------|-------------|
 | [arranque rápido](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | Código fonte para [Quickstart: Criar um índice de pesquisa em JavaScript](search-get-started-javascript.md).  |
 
 ## <a name="standalone-samples"></a>Amostras autónomas
 
-| Amostras | Description |
+| Amostras | Descrição |
 |---------|-------------|
 | [azure-search-react-template](https://github.com/dereklegenzoff/azure-search-react-template) | Modelo de reação para Azure Cognitive Search (github.com) |

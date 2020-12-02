@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0e1b7aa0eb56d5668b6561b36a0f63e719974573
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 69cef4c17fd17219f0221c509775ad3fd6a80a27
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698901"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498987"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure utilizando o JavaScript SDK
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "94698901"
 > * [REST](search-get-started-rest.md)
 
 
-Utilize o [SDK Javascript/Typscript para Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme) para criar uma aplicação Node.js no JavaScript que cria, carrega e consulta um índice de pesquisa.
+Utilize o [SDK Javascript/Typscript para Azure Cognitive Search](/javascript/api/overview/azure/search-documents-readme) para criar uma aplicação Node.js no JavaScript que cria, carrega e consulta um índice de pesquisa.
 
 Este artigo demonstra como criar a aplicação passo a passo. Em alternativa, pode [descarregar o código de origem e os dados](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) e executar a aplicação a partir da linha de comando.
 
@@ -80,7 +80,7 @@ Comece por abrir o Código VS e o seu [terminal integrado](https://code.visualst
     ```
      Aceite os valores predefinidos, com exceção da Licença, que deve definir para "MIT". 
 
-3. Instale `@azure/search-documents` , o [SDK Javascript/Typscript para Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme).
+3. Instale `@azure/search-documents` , o [SDK Javascript/Typscript para Azure Cognitive Search](/javascript/api/overview/azure/search-documents-readme).
 
     ```cmd
     npm install @azure/search-documents

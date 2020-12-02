@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d6cf0ba06293a073fc8fbe26e2386f1852429002
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: dcfef81f2d7f3413489490d97c143fdec7e11bed
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844000"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499327"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes sobre discos de VM IaaS do Azure e discos premium geridos e não geridos
 
@@ -151,7 +151,7 @@ A reserva de disco Azure oferece a opção de comprar SSDs Premium nos SKUs espe
 As reservas são feitas sob a forma de discos, não de capacidade. Por outras palavras, quando reserva um disco P80 (32 TiB), obtém-se um único disco P80, não pode então dividir essa reserva específica em dois discos P70 (16 TiB) mais pequenos. Pode, naturalmente, reservar quantos ou poucos discos quiser, incluindo dois discos P70 (16 TiB) separados.
 
 **Como é aplicada a reserva de disco Azure?**    
-A reserva de discos segue um modelo semelhante aos casos de máquina virtual reservada (VM). A diferença é que uma reserva de disco não pode ser aplicada a diferentes SKUs, enquanto uma instância VM pode. Consulte [os custos de poupança com Azure Reserved VM Instances](./linux/prepay-reserved-vm-instances.md) para obter mais informações sobre as instâncias VM.     
+A reserva de discos segue um modelo semelhante aos casos de máquina virtual reservada (VM). A diferença é que uma reserva de disco não pode ser aplicada a diferentes SKUs, enquanto uma instância VM pode. Consulte [os custos de poupança com Azure Reserved VM Instances](./prepay-reserved-vm-instances.md) para obter mais informações sobre as instâncias VM.     
 
 **Posso usar o meu armazenamento de dados adquirido através da reserva de discos Azure em várias regiões?**    
 A reserva de discos Azure é comprada para uma região específica e SKU (como P30 no Leste dos EUA 2), e, portanto, não pode ser usado fora destas construções. Pode sempre adquirir uma Reserva adicional de Discos Azure para as suas necessidades de armazenamento de discos noutras regiões ou SKUs.    
@@ -304,7 +304,7 @@ Não. Azure Site Recovery Azure to Azure protection for VMs with Managed Disks e
 
 **Posso migrar VMs com discos não geridos que estão localizados em contas de armazenamento que são ou foram previamente encriptadas para discos geridos?**
 
-Yes
+Sim
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Encriptação de Discos Geridos e Serviço de Armazenamento
 
@@ -342,7 +342,7 @@ Sim. Todas as imagens e imagens geridas são automaticamente encriptadas.
 
 **Posso converter VMs com discos não geridos que estão localizados em contas de armazenamento que são ou foram previamente encriptadas para discos geridos?**
 
-Yes
+Sim
 
 **Será que um VHD exportado de um disco gerido ou de um instantâneo também será encriptado?**
 

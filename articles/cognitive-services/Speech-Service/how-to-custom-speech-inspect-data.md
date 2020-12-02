@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: erhopf
-ms.openlocfilehash: a3ff2a1f92cabb61f58d70b732738e613afa7cd9
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 87bc411903604a7068f346604853a2a61c9a6f1c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025638"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499191"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspecionar dados da Voz Personalizada
 
@@ -91,16 +91,16 @@ Depois de fazer edições, clique no botão **Guardar.**
 
 Para exportar conjuntos de dados de volta para o separador **Dados,** navegue na página de detalhes de dados e clique no botão **Exportar** todos os ficheiros como um novo conjunto de dados. Também pode filtrar os ficheiros pelo último tempo editado, durações de áudio, etc. para selecionar parcialmente os ficheiros pretendidos. 
 
-![Exportar dados](media/custom-speech/custom-speech-editor-export.png)
+![Exportar os dados](media/custom-speech/custom-speech-editor-export.png)
 
 Os ficheiros exportados para Dados serão utilizados como um conjunto de dados novinho em folha e não afetarão nenhuma das entidades existentes de dados/formação/teste.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Avaliar os seus dados](how-to-custom-speech-evaluate-data.md)
 - [Preparar o seu modelo](how-to-custom-speech-train-model.md)
-- [Melhore o seu modelo](how-to-custom-speech-improve-accuracy.md)
-- [Implemente o seu modelo](how-to-custom-speech-deploy-model.md)
+- [Melhore o seu modelo](./how-to-custom-speech-evaluate-data.md)
+- [Implemente o seu modelo](./how-to-custom-speech-train-model.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

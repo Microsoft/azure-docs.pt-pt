@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 83d291ae72e79ec3600015fac07ee4ab80fe5df4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b7f6d30ffa849f78b0f7baa2d84e4fb01f3bf192
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843558"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500347"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Proteger e utilizar políticas em máquinas virtuais no Azure
 
@@ -41,7 +41,7 @@ A encriptação não afeta o desempenho dos discos geridos. Não há nenhum cust
 
 Pode confiar em chaves geridas pela plataforma para a encriptação do seu disco gerido, ou pode gerir a encriptação usando as suas próprias chaves. Se optar por gerir a encriptação com as suas próprias chaves, pode especificar uma *chave gerida pelo cliente* para encriptar e desencriptar todos os dados em discos geridos. 
 
-Para saber mais sobre a encriptação do lado do servidor, consulte os artigos para [Windows](windows/disk-encryption.md) ou [Linux](linux/disk-encryption.md).
+Para saber mais sobre a encriptação do lado do servidor, consulte os artigos para [Windows](./disk-encryption.md) ou [Linux](./disk-encryption.md).
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -73,4 +73,4 @@ Utilizando [o controlo de acesso baseado em funções (Azure RBAC) ( Azure RBAC)
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- Caminhe pelos degraus para monitorizar a segurança da máquina virtual utilizando o Azure Security Center para [Linux](../security/fundamentals/overview.md) ou [Windows](windows/tutorial-azure-security.md).
+- Caminhe pelos degraus para monitorizar a segurança da máquina virtual utilizando o Azure Security Center para [Linux](../security/fundamentals/overview.md) ou [Windows](./tutorial-azure-security.md).

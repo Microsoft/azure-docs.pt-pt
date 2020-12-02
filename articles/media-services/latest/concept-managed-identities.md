@@ -8,20 +8,20 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.author: inhenkel
-ms.openlocfilehash: a0ded2a1ad5cd590ab5715edebde2ab19e399e8d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d0811e8f9183ee334d413bcad69f2c7b32023be3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686871"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499361"
 ---
 # <a name="managed-identities-and-trusted-storage-with-media-services"></a>Identidades geridas e armazenamento fidedigno com serviços de mídia
 
-Os Serviços de Mídia podem ser utilizados com [identidades geridas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para permitir o armazenamento fidedigno. Ao criar uma conta de Serviços de Comunicação, deve associá-la a uma conta de armazenamento. Os Serviços de Mídia podem aceder a essa conta de armazenamento utilizando a autenticação do sistema. Os Serviços de Comunicação Social validam que a conta de Serviços de Mídia e a conta de armazenamento estão na mesma subscrição e valida que o utilizador que acrescenta a associação tem acesso à conta de armazenamento com o Azure Resource Manager RBAC.
+Os Serviços de Mídia podem ser utilizados com [identidades geridas](../../active-directory/managed-identities-azure-resources/overview.md) para permitir o armazenamento fidedigno. Ao criar uma conta de Serviços de Comunicação, deve associá-la a uma conta de armazenamento. Os Serviços de Mídia podem aceder a essa conta de armazenamento utilizando a autenticação do sistema. Os Serviços de Comunicação Social validam que a conta de Serviços de Mídia e a conta de armazenamento estão na mesma subscrição e valida que o utilizador que acrescenta a associação tem acesso à conta de armazenamento com o Azure Resource Manager RBAC.
 
 ## <a name="trusted-storage"></a>Armazenamento fidedigno
 
-No entanto, se pretender utilizar uma firewall para proteger a sua conta de armazenamento, tem de utilizar a autenticação de identidade gerida. Permite que os Serviços de Comunicação Social acedam à conta de armazenamento que foi configurada com uma firewall ou uma restrição VNet através de acesso de armazenamento fidedigno.  Para obter mais informações sobre serviços fidedignos da Microsoft, consulte [firewalls de armazenamento Configure Azure e redes virtuais.](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)
+No entanto, se pretender utilizar uma firewall para proteger a sua conta de armazenamento, tem de utilizar a autenticação de identidade gerida. Permite que os Serviços de Comunicação Social acedam à conta de armazenamento que foi configurada com uma firewall ou uma restrição VNet através de acesso de armazenamento fidedigno.  Para obter mais informações sobre serviços fidedignos da Microsoft, consulte [firewalls de armazenamento Configure Azure e redes virtuais.](../../storage/common/storage-network-security.md#trusted-microsoft-services)
 
 ## <a name="media-services-managed-identity-scenarios"></a>Os serviços de comunicação social geriram cenários de identidade
 
@@ -57,4 +57,4 @@ Estes tutoriais incluem ambos os cenários acima mencionados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o que as identidades geridas podem fazer por si e pelas suas aplicações Azure, consulte [as identidades geridas aZure AD](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Para saber mais sobre o que as identidades geridas podem fazer por si e pelas suas aplicações Azure, consulte [as identidades geridas aZure AD](../../active-directory/managed-identities-azure-resources/overview.md).

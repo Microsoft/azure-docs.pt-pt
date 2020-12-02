@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: guybo
-ms.openlocfilehash: 90b29944315b8a72a4ef95adbfc681a0ab276b00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aefad880d788502ece0e3ba246a06a7529a3cab9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533063"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499701"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Prepare a CentOS-based virtual machine for Azure (Preparar uma máquina virtual baseada em CentOS para o Azure)
 
@@ -29,7 +29,7 @@ Este artigo pressupõe que já instalou um sistema operativo Linux CentOS (ou de
 
 * Consulte também [as notas de instalação do General Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais dicas sobre a preparação do Linux para o Azure.
 * O formato VHDX não é suportado em Azure, apenas **VHD fixo**.  Pode converter o disco em formato VHD utilizando o Hyper-V Manager ou o cmdlet converte-vhd. Se estiver a utilizar a VirtualBox, isto significa selecionar **o tamanho fixo** em oposição ao padrão atribuído dinamicamente ao criar o disco.
-* Ao instalar o sistema Linux *recomenda-se* que utilize divisórias padrão em vez de LVM (muitas vezes o padrão para muitas instalações). Isto evitará conflitos de nome LVM com VMs clonados, especialmente se um disco de SO precisar de ser ligado a outro VM idêntico para resolução de problemas. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) podem ser usados em discos de dados.
+* Ao instalar o sistema Linux *recomenda-se* que utilize divisórias padrão em vez de LVM (muitas vezes o padrão para muitas instalações). Isto evitará conflitos de nome LVM com VMs clonados, especialmente se um disco de SO precisar de ser ligado a outro VM idêntico para resolução de problemas. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) podem ser usados em discos de dados.
 * É necessário suporte kernel para a montagem de sistemas de ficheiros UDF. No início da boot on Azure, a configuração de provisionamento é passada para o Linux VM através de meios formatados pela UDF que estão ligados ao hóspede. O agente Azure Linux deve ser capaz de montar o sistema de ficheiros UDF para ler a sua configuração e provisão do VM.
 * As versões de kernel Linux abaixo de 2.6.37 não suportam UMA em Hiper-V com tamanhos VM maiores. Esta questão afeta principalmente as distribuições mais antigas utilizando o núcleo a montante do chapéu vermelho 2.6.32, e foi fixada em RHEL 6.6 (kernel-2.6.32-504). Os sistemas que executam núcleos personalizados com mais de 2.6.37, ou núcleos baseados em RHEL com mais de 2.6.32-504 devem definir o parâmetro de arranque `numa=off` na linha de comando do núcleo em grub.conf. Para mais informações consulte Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * Não configuure uma partição de troca no disco OS. O agente Linux pode ser configurado para criar um ficheiro de troca no disco de recursos temporários.  Mais informações sobre isso podem ser encontradas nos degraus abaixo.
@@ -231,7 +231,7 @@ Preparar uma máquina virtual CentOS 7 para O Azure é muito semelhante ao CentO
 * GRUB2 é agora usado como o bootloader padrão, por isso o procedimento de edição dos parâmetros do núcleo mudou (ver abaixo).
 * XFS é agora o sistema de ficheiros predefinido. O sistema de ficheiros ext4 ainda pode ser utilizado se desejar.
 
-**Passos de Configuração**
+**Passos de configuração**
 
 1. No Hyper-V Manager, selecione a máquina virtual.
 

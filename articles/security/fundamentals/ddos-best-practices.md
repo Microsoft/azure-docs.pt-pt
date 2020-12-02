@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 435cb1d52b5505f4f29bd0c31986a1f7f72208fd
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e298cb0d1a2c510a096f8ead03f8af7e39c206a8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412872"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498936"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Proteção Azure DDoS - Conceber soluções resilientes
 
@@ -113,7 +113,7 @@ Se o endereço IP público estiver sob ataque, o valor da métrica sob ataque **
 
 Recomendamos configurar um alerta nesta métrica. Em seguida, será notificado quando houver uma mitigação ativa do DDoS realizada no seu endereço IP público.
 
-Para obter mais informações, consulte [a Norma de Proteção Azure DDoS utilizando o portal Azure](../../virtual-network/manage-ddos-protection.md).
+Para obter mais informações, consulte [a Norma de Proteção Azure DDoS utilizando o portal Azure](../../ddos-protection/manage-ddos-protection.md).
 
 #### <a name="web-application-firewall-for-resource-attacks"></a>Firewall de aplicação web para ataques de recursos
 
@@ -179,7 +179,7 @@ Para a sua equipa de resposta DDoS, recomendamos que utilize exercícios de simu
 
 ### <a name="alerts-during-an-attack"></a>Alertas durante um ataque
 
-A Azure DDoS Protection Standard identifica e atenua os ataques DDoS sem qualquer intervenção do utilizador. Para ser notificado quando há uma mitigação ativa para um IP público protegido, você pode [configurar um alerta](../../virtual-network/manage-ddos-protection.md) sobre a métrica sob o **ataque DDoS ou não**. Pode optar por criar alertas para as outras métricas do DDoS para entender a escala do ataque, o tráfego a ser retirado e outros detalhes.
+A Azure DDoS Protection Standard identifica e atenua os ataques DDoS sem qualquer intervenção do utilizador. Para ser notificado quando há uma mitigação ativa para um IP público protegido, você pode [configurar um alerta](../../ddos-protection/manage-ddos-protection.md) sobre a métrica sob o **ataque DDoS ou não**. Pode optar por criar alertas para as outras métricas do DDoS para entender a escala do ataque, o tráfego a ser retirado e outros detalhes.
 
 #### <a name="when-to-contact-microsoft-support"></a>Quando entrar em contato com o suporte da Microsoft
 
@@ -260,7 +260,7 @@ Esta arquitetura de referência mostra configurar o DDoS Protection Standard par
 
 Nesta arquitetura, o tráfego destinado ao cluster HDInsight a partir da internet é encaminhado para o IP público associado ao equilibrador de carga de gateway HDInsight. Em seguida, o balançador de carga de gateway envia o tráfego para os nós da cabeça ou o trabalhador acena diretamente. Como o DDoS Protection Standard está ativado na rede virtual HDInsight, todos os IPs públicos da rede virtual obtêm proteção DDoS para as Camadas 3 e 4. Esta arquitetura de referência pode ser combinada com as arquiteturas de referência N-Tier e multi-regiões.
 
-Para obter mais informações sobre esta arquitetura de referência, consulte o [Extend Azure HDInsight utilizando uma documentação da Rede Virtual Azure.](../../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%252fazure%252fvirtual-network%252ftoc.json)
+Para obter mais informações sobre esta arquitetura de referência, consulte o [Extend Azure HDInsight utilizando uma documentação da Rede Virtual Azure.](../../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 
 > [!NOTE]
@@ -270,4 +270,4 @@ Para obter mais informações sobre esta arquitetura de referência, consulte o 
 
 * [Responsabilidade partilhada na cloud](shared-responsibility.md)
 * [Página de produto Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/)
-* [Documentação de proteção Azure DDoS](../../virtual-network/ddos-protection-overview.md)
+* [Documentação de proteção Azure DDoS](../../ddos-protection/ddos-protection-overview.md)

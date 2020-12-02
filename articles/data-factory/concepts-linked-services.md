@@ -3,20 +3,20 @@ title: Serviços ligados no Azure Data Factory
 description: Conheça os serviços ligados na Data Factory. Serviços ligados ligam computação/lojas de dados à fábrica de dados.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 3d49422af01e38884b5d8ff871fbe84254938944
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 172694363b482edf6d463aa74b85e81c91fa6a9c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434118"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500109"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Serviços ligados no Azure Data Factory
 
@@ -32,7 +32,7 @@ Se é novo na Data Factory, consulte [a Introdução à Fábrica de Dados Azure]
 
 ## <a name="overview"></a>Descrição geral
 
-Uma fábrica de dados pode ter um ou mais pipelines. Um **oleoduto** é um agrupamento lógico de **atividades** que juntos desempenham uma tarefa. As atividades num pipeline definem as ações a executar nos seus dados. Por exemplo, pode utilizar uma atividade de cópia para copiar dados do SQL Server para o armazenamento de Azure Blob. Em seguida, você pode usar uma atividade de Hive que executa um script hive em um cluster Azure HDInsight para processar dados do armazenamento Blob para produzir dados de saída. Finalmente, poderá utilizar uma segunda atividade de cópia para copiar os dados de saída para a Azure Synapse Analytics (ex-SQL Data Warehouse), além das quais são construídas soluções de reporte de informação de inteligência empresarial (BI). Para obter mais informações sobre os oleodutos e atividades, consulte [Pipelines e atividades](concepts-pipelines-activities.md) na Azure Data Factory.
+Uma fábrica de dados pode ter um ou mais pipelines. Um **oleoduto** é um agrupamento lógico de **atividades** que juntos desempenham uma tarefa. As atividades num pipeline definem as ações a executar nos seus dados. Por exemplo, pode utilizar uma atividade de cópia para copiar dados do SQL Server para o armazenamento de Azure Blob. Em seguida, você pode usar uma atividade de Hive que executa um script hive em um cluster Azure HDInsight para processar dados do armazenamento Blob para produzir dados de saída. Finalmente, poderá utilizar uma segunda atividade de cópia para copiar os dados de saída para a Azure Synapse Analytics, além das quais são construídas soluções de reporte de informação de business intelligence (BI). Para obter mais informações sobre os oleodutos e atividades, consulte [Pipelines e atividades](concepts-pipelines-activities.md) na Azure Data Factory.
 
 Agora, um conjunto de **dados** é uma visão nomeada de dados que simplesmente apontam ou referenciam os dados que pretende utilizar nas suas **atividades** como entradas e saídas.
 

@@ -4,16 +4,16 @@ description: Saiba como se conectar e obter dados de um servidor de Serviços de
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 93b1e9a2ea052a39e891cf9084b632f434c341df
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 4abe1e9c6f9d7b62792936f816b9c46a937be41a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013700"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499429"
 ---
 # <a name="connecting-to-servers"></a>Ligar aos servidores
 
@@ -21,7 +21,7 @@ Este artigo descreve a ligação a um servidor utilizando aplicações de modela
 
 ## <a name="client-libraries"></a>Bibliotecas de cliente
 
-[Obtenha as mais recentes bibliotecas de clientes](/analysis-services/client-libraries?view=azure-analysis-services-current)
+[Obtenha as mais recentes bibliotecas de clientes](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)
 
 Todas as ligações a um servidor, independentemente do tipo, requerem bibliotecas de clientes amo, ADOMD.NET e OLEDB atualizadas para se conectarem e interagirem com um servidor de Serviços de Análise. Para sSMS, Visual Studio, Excel 2016 e mais tarde, e Power BI, as mais recentes bibliotecas de clientes são instaladas ou atualizadas com lançamentos mensais. No entanto, em alguns casos, é possível que uma aplicação não tenha a mais recente. Por exemplo, quando as apólices atrasam as atualizações ou as atualizações do Microsoft 365 estão no Canal Diferido.
 
@@ -39,7 +39,7 @@ Quando cria um servidor de Serviços de Análise em Azure, especifica um nome ú
 
 ### <a name="get-the-server-name"></a>Obtenha o nome do servidor
 
-No **portal Azure** > servidor > nome **do Servidor de Visão Geral**,  >  **Server name**copie todo o nome do servidor. Se outros utilizadores da sua organização também estiverem ligados a este servidor, pode partilhar este nome do servidor com eles. Ao especificar um nome de servidor, todo o caminho deve ser utilizado.
+No **portal Azure** > servidor > nome **do Servidor de Visão Geral**,  >  **Server name** copie todo o nome do servidor. Se outros utilizadores da sua organização também estiverem ligados a este servidor, pode partilhar este nome do servidor com eles. Ao especificar um nome de servidor, todo o caminho deve ser utilizado.
 
 ![Obter o nome do servidor no Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
@@ -79,7 +79,7 @@ Com versões mais antigas do Excel, os utilizadores podem ligar-se a um servidor
 
 ## <a name="connect-as-a-linked-server-from-sql-server"></a>Conecte-se como um servidor ligado do SQL Server
 
-O SQL Server pode ligar-se a um recurso Azure Analysis Services como um [servidor ligado,](/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine) especificando o MSOLAP como fornecedor de fonte de dados. Antes de configurar uma ligação do servidor ligada, certifique-se de instalar a mais recente [biblioteca de clientes MSOLAP](/analysis-services/client-libraries?view=azure-analysis-services-current) (fornecedor). 
+O SQL Server pode ligar-se a um recurso Azure Analysis Services como um [servidor ligado,](/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine) especificando o MSOLAP como fornecedor de fonte de dados. Antes de configurar uma ligação do servidor ligada, certifique-se de instalar a mais recente [biblioteca de clientes MSOLAP](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) (fornecedor). 
 
 Para ligações de servidores ligados aos Serviços de Análise Azure, o fornecedor MSOLAP deve ser instantâneo fora do processo do SQL Server. Ao configurar opções de servidor ligado, certifique-se de que a opção **de inprocessamento permitir** **não está selecionada**.
 

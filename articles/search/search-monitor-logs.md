@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 52230d6b13c4210e0ff8e85d0a3efe39af55f6e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6fcf5980cf64b5fc088dfa295ef6221ffda6de9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935063"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499939"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Recolher e analisar dados de registo para a pesquisa cognitiva do Azure
 
@@ -25,7 +25,7 @@ Quando configurar a registo de diagnóstico, ser-lhe-á pedido que especifique u
 
 | Recurso | Utilizado para |
 |----------|----------|
-| [Enviar para a área de trabalho do Log Analytics](../azure-monitor/learn/tutorial-resource-logs.md) | Eventos e métricas são enviados para um espaço de trabalho Log Analytics, que pode ser consultado no portal para devolver informações detalhadas. Para uma introdução, consulte [Começar com os registos do Azure Monitor](../azure-monitor/log-query/get-started-portal.md) |
+| [Enviar para a área de trabalho do Log Analytics](../azure-monitor/learn/tutorial-resource-logs.md) | Eventos e métricas são enviados para um espaço de trabalho Log Analytics, que pode ser consultado no portal para devolver informações detalhadas. Para uma introdução, consulte [Começar com os registos do Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md) |
 | [Arquivo com armazenamento Blob](../storage/blobs/storage-blobs-overview.md) | Os eventos e métricas são arquivados num recipiente Blob e armazenados em ficheiros JSON. Os troncos podem ser bastante granulares (à hora/minuto), úteis para pesquisar um incidente específico, mas não para investigação aberta. Utilize um editor JSON para visualizar um ficheiro de log cru ou Power BI para agregar e visualizar dados de registo.|
 | [Stream para Centro de Eventos](../event-hubs/index.yml) | Eventos e métricas são transmitidos para um serviço Azure Event Hubs. Escolha isto como um serviço alternativo de recolha de dados para registos muito grandes. |
 

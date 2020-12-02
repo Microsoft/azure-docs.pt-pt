@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: b02c16c63d83fc33be5512d26eafb0ca0d6c9b98
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 54ac7b27ada62a969dd40428fd9a753bb5a99530
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145893"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499837"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implementar uma aplicação no Service Fabric Mesh com um modelo
 
@@ -61,7 +61,7 @@ az account set --subscription "<subscriptionName>"
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Utilize o comando seguinte para criar um grupo de recursos com o nome *myResourceGroup* na localização *eastus* .
+Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Utilize o comando seguinte para criar um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -69,7 +69,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-the-container-registry"></a>Criar o registo de contentor
 
-Crie uma instância do ACR com o comando `az acr create`. O nome do registo tem de ser exclusivo no Azure e conter de 5 a 50 carateres alfanuméricos. No exemplo seguinte, é utilizado o nome *myContainerRegistry* . Se obtiver um erro a indicar que o nome do registo já está em utilização, escolha um nome diferente.
+Crie uma instância do ACR com o comando `az acr create`. O nome do registo tem de ser exclusivo no Azure e conter de 5 a 50 carateres alfanuméricos. No exemplo seguinte, é utilizado o nome *myContainerRegistry*. Se obtiver um erro a indicar que o nome do registo já está em utilização, escolha um nome diferente.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry --sku Basic
@@ -107,7 +107,7 @@ Para enviar uma imagem para uma instância do ACR, primeiro tem de ter uma image
 >[!NOTE]
 > A partir de 2 de novembro de 2020, [os limites de taxa de descarregamento aplicam-se](https://docs.docker.com/docker-hub/download-rate-limit/) a pedidos anónimos e autenticados para Docker Hub a partir de contas do plano Docker Free e são aplicados por endereço IP. 
 > 
-> Estes comandos usam imagens públicas de Docker Hub. Por favor, note que pode ser limitado. Para mais detalhes, consulte [Authenticate with Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
+> Estes comandos usam imagens públicas de Docker Hub. Por favor, note que pode ser limitado. Para mais detalhes, consulte [Authenticate with Docker Hub](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub).
 
 Extraia as imagens do Windows:
 
@@ -161,7 +161,7 @@ seabreeze/azure-mesh-todo-webfrontend
 seabreeze/azure-mesh-todo-service
 ```
 
-O exemplo seguinte lista as etiquetas no repositório **azure-mesh-todo-service** .
+O exemplo seguinte lista as etiquetas no repositório **azure-mesh-todo-service**.
 
 ```azurecli
 az acr repository show-tags --name myContainerRegistry --repository seabreeze/azure-mesh-todo-service --output table
@@ -201,9 +201,9 @@ Uma aplicação do Service Fabric Mesh é um recurso do Azure que pode implement
 Este tutorial utiliza a aplicação de Lista de Tarefas como um exemplo.  Em vez de criar novos ficheiros de parâmetros e de modelo, transfira os ficheiros [de modelo de implementação de mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) e [de parâmetros de mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
 ### <a name="parameters"></a>Parâmetros
-Quando tiver valores no seu modelo que prevê alterar assim que a aplicação for implementada ou se gostaria de ter a opção para alterar numa base por implementação (se planear reutilizar este modelo para outras implementações), a prática recomendada é parametrizar os valores. A maneira certa de o fazer é criar uma secção "parâmetros" na parte superior do seu modelo de implementação, onde especifica os nomes e propriedades de parâmetros, que são referenciados mais tarde no modelo de implementação. Cada definição de parâmetro inclui *tipo* , *defaultValue* e uma secção opcional *metadados* com uma *descrição* .
+Quando tiver valores no seu modelo que prevê alterar assim que a aplicação for implementada ou se gostaria de ter a opção para alterar numa base por implementação (se planear reutilizar este modelo para outras implementações), a prática recomendada é parametrizar os valores. A maneira certa de o fazer é criar uma secção "parâmetros" na parte superior do seu modelo de implementação, onde especifica os nomes e propriedades de parâmetros, que são referenciados mais tarde no modelo de implementação. Cada definição de parâmetro inclui *tipo*, *defaultValue* e uma secção opcional *metadados* com uma *descrição*.
 
-A secção de parâmetros é definida na parte superior do seu modelo de implementação, mesmo antes da secção *recursos* :
+A secção de parâmetros é definida na parte superior do seu modelo de implementação, mesmo antes da secção *recursos*:
 
 ```json
 {

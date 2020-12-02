@@ -3,20 +3,20 @@ title: Atividade webhook na Azure Data Factory
 description: A atividade webhook não continua a execução do pipeline até validar o conjunto de dados anexado com determinados critérios que o utilizador especifica.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 1ce41a5928d5b8a7c7df439ce5321cd15f0cc1d5
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 144006c3d0722bc3211f542b7059bba0bb0cbdbf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634985"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499412"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Atividade webhook na Azure Data Factory
 
@@ -53,7 +53,7 @@ Uma atividade webhook pode controlar a execução de oleodutos através do seu c
 
 ## <a name="type-properties"></a>Tipo de propriedades
 
-Propriedade | Descrição | Valores permitidos | Obrigatório
+Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
 **nome** | O nome da atividade webhook. | String | Sim |
 **tipo** | Deve ser definido como "WebHook". | String | Sim |
@@ -62,7 +62,7 @@ Propriedade | Descrição | Valores permitidos | Obrigatório
 **cabeçalhos** | Cabeçalhos que são enviados para o pedido. Aqui está um exemplo que define o idioma e o tipo num pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Uma corda ou uma expressão com o **resultado Valor** de um fio. | Sim. Um `Content-Type` cabeçalho como `"headers":{ "Content-Type":"application/json"}` é necessário. |
 **corpo** | Representa a carga útil que é enviada para o ponto final. | JSON válido ou uma expressão com o **resultado Valor de** Tipo de JSON. Consulte [o esquema de carga útil do Pedido](./control-flow-web-activity.md#request-payload-schema) para o esquema da carga útil do pedido. | Sim |
 **autenticação** | O método de autenticação usado para chamar o ponto final. Os tipos suportados são "Básico" e "ClientCertificate". Para obter mais informações, veja [Autenticação](./control-flow-web-activity.md#authentication). Se a autenticação não for necessária, exclua esta propriedade. | Uma corda ou uma expressão com o **resultado Valor** de um fio. | Não |
-**tempo limite** | Quanto tempo a atividade aguarda que a chamada especificada pelo **callBackUri** seja invocada. O valor predefinido é de 10 minutos ("00:10:00"). Os valores têm o formato TimeSpan *d* . *hh* : *mm* : *ss* . | String | Não |
+**tempo limite** | Quanto tempo a atividade aguarda que a chamada especificada pelo **callBackUri** seja invocada. O valor predefinido é de 10 minutos ("00:10:00"). Os valores têm o formato TimeSpan *d*. *hh*:*mm*:*ss*. | String | Não |
 **Estado do relatório sobre o retorno** | Permite que um utilizador reporte o estado falhado de uma atividade webhook. | Booleano | Não |
 
 ## <a name="authentication"></a>Autenticação
@@ -119,7 +119,7 @@ A atividade webhook falha quando a chamada para o ponto final personalizado falh
 
 Para cada chamada da API REST, o cliente termina se o ponto final não responder dentro de um minuto. Este comportamento é a melhor prática padrão HTTP. Para resolver este problema, implementar um padrão de 202. No caso em atualmente, o ponto final devolve 202 (Aceitos) e as sondagens dos clientes.
 
-O tempo limite de um minuto no pedido não tem nada a ver com o tempo limite de atividade. Este último é utilizado para aguardar a chamada especificada por **callbackUri** .
+O tempo limite de um minuto no pedido não tem nada a ver com o tempo limite de atividade. Este último é utilizado para aguardar a chamada especificada por **callbackUri**.
 
 O corpo passado de volta para o URI de retorno deve ser válido JSON. Desa estale o `Content-Type` cabeçalho para `application/json` .
 

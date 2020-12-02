@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: guybo
-ms.openlocfilehash: cc8d4458de5f3bbf1eaf111aa10f1377f3c9d46a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c352b9e6b067724fbfc00bf5b0338baf8514421
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292290"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500500"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Prepare a Red Hat-based virtual machine for Azure (Preparar uma máquina virtual baseada em Red Hat para o Azure)
 Neste artigo, você aprenderá a preparar uma máquina virtual Red Hat Enterprise Linux (RHEL) para uso em Azure. As versões do RHEL que estão abrangidas por este artigo são 6.7+ e 7.1+. Os hipervisores para a preparação que estão cobertos neste artigo são Hyper-V, máquina virtual baseada em kernel (KVM) e VMware. Para obter mais informações sobre os requisitos de elegibilidade para participar no programa Red Hat's Cloud Access, consulte o [site do Red Hat's Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e o Running [RHEL no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Para formas de automatizar a construção de imagens RHEL consulte o [Azure Image Builder](./image-builder-overview.md).
@@ -28,7 +28,7 @@ Esta secção pressupõe que já obteve um ficheiro ISO do site do Red Hat e ins
 * O Azure não suporta o formato VHDX. O Azure suporta apenas VHD fixo. Pode utilizar o Hyper-V Manager para converter o disco no formato VHD, ou pode utilizar o cmdlet converte-vhd. Se utilizar a VirtualBox, selecione **tamanho fixo** em oposição ao padrão de opção atribuída dinamicamente quando criar o disco.
 * A azure suporta máquinas virtuais Gen1 (BOTA BIOS) & Gen2 (bota UEFI).
 * O tamanho máximo permitido para o VHD é de 1.023 GB.
-* O Gestor de Volume Lógico (LVM) é suportado e pode ser utilizado no disco de SISTEMA ou discos de dados em máquinas virtuais Azure. No entanto, em geral, recomenda-se a utilização de divisórias padrão no disco de so em vez de LVM. Esta prática evitará conflitos de nome LVM com máquinas virtuais clonadas, especialmente se alguma vez precisar de anexar um disco do sistema operativo a outra máquina virtual idêntica para a resolução de problemas. Consulte também a documentação [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [RAID.](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* O Gestor de Volume Lógico (LVM) é suportado e pode ser utilizado no disco de SISTEMA ou discos de dados em máquinas virtuais Azure. No entanto, em geral, recomenda-se a utilização de divisórias padrão no disco de so em vez de LVM. Esta prática evitará conflitos de nome LVM com máquinas virtuais clonadas, especialmente se alguma vez precisar de anexar um disco do sistema operativo a outra máquina virtual idêntica para a resolução de problemas. Consulte também a documentação [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [RAID.](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * É necessário suporte kernel para a montagem de sistemas de ficheiros Universal Disk Format (UDF). No início da boot on Azure, o mídia formatada pelo UDF que está ligado ao hóspede passa a configuração de provisionamento para a máquina virtual Linux. O Agente Azure Linux deve ser capaz de montar o sistema de ficheiros UDF para ler a sua configuração e a provisionar a máquina virtual.
 * Não configuure uma partição de troca no disco do sistema operativo. O Agente Linux pode ser configurado para criar um ficheiro de troca no disco de recursos temporários.  Mais informações sobre isso podem ser encontradas nos seguintes passos.
 * Todos os VHDs em Azure devem ter um tamanho virtual alinhado a 1MB. Ao converter de um disco cru para VHD deve certificar-se de que o tamanho do disco bruto é um múltiplo de 1MB antes da conversão. Mais detalhes podem ser encontrados nos degraus abaixo. Consulte também [as notas de instalação do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais informações.
@@ -1112,7 +1112,7 @@ Esta secção pressupõe que já instalou uma máquina virtual RHEL em VMware. P
 
 1. Coloque o ficheiro de arranque onde o sistema de instalação possa aceder-lhe.
 
-1. No Hyper-V Manager, crie uma nova máquina virtual. Na página **'Ligar** o disco rígido virtual', **selecione Fixe um disco rígido virtual mais tarde**e complete o Novo Assistente de Máquina Virtual.
+1. No Hyper-V Manager, crie uma nova máquina virtual. Na página **'Ligar** o disco rígido virtual', **selecione Fixe um disco rígido virtual mais tarde** e complete o Novo Assistente de Máquina Virtual.
 
 1. Abra as definições da máquina virtual:
 
