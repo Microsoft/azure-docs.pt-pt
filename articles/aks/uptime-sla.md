@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: dd1836220b5fd5a0af2d4ece3d9bc3932f1ae554
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f8ec80d178af274c285371b4f53820eb9e41ccf7
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748872"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519166"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Serviço Azure Kubernetes (AKS) Uptime SLA
 
@@ -27,17 +27,20 @@ Os clientes podem ainda criar clusters gratuitos ilimitados com um objetivo de n
 
 O Uptime SLA está disponível nas regiões públicas e nas regiões do Governo de Azure onde [a AKS é apoiada.](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)
 
-* Azure China 21Vianet não é atualmente apoiada.
-
 ## <a name="limitations"></a>Limitações
 
-* Os aglomerados privados não são suportados atualmente.
+Os aglomerados privados só são apoiados nas seguintes regiões:
+ *  E.U.A. Leste
+ *  E.U.A. Oeste
+ *  E.U.A. Oeste 2
+ *  E.U.A. Centro-Norte
+ *  E.U.A. Centro-Oeste
 
 ## <a name="sla-terms-and-conditions"></a>Termos e condições do SLA
 
 Uptime SLA é uma funcionalidade paga e ativada por cluster. Os preços de SLA de uptime são determinados pelo número de clusters discretos, e não pelo tamanho dos clusters individuais. Pode ver [os detalhes dos preços do Uptime SLA](https://azure.microsoft.com/pricing/details/kubernetes-service/) para mais informações.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 * Instale a versão [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 2.8.0 ou posterior
 

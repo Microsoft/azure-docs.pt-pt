@@ -1,5 +1,5 @@
 ---
-title: Incapaz de criar o caderno Jupyter em Azure HDInsight
+title: Incapaz de criar o Jupyter Notebook em Azure HDInsight
 description: Conheça as etapas de resolução de problemas e possíveis resoluções para problemas ao interagir com os clusters Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,20 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/11/2020
-ms.openlocfilehash: 50a77e240315796d0d4c98fc8fba8edfc9cd2b7d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 41eefd18419969c6e8c54ba68ce6c0d1eeb7832b
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545536"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519200"
 ---
-# <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Incapaz de criar o caderno Jupyter em Azure HDInsight
+# <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Incapaz de criar o Jupyter Notebook em Azure HDInsight
 
 Este artigo descreve etapas de resolução de problemas e possíveis resoluções para problemas ao interagir com clusters Azure HDInsight.
 
 ## <a name="issue"></a>Problema
 
-Ao iniciar um caderno Jupyter, recebe uma mensagem de erro que contém:
+Ao iniciar um Caderno Jupyter, recebe uma mensagem de erro que contém:
 
 ```error
 Cannot convert notebook to v5 because that version doesn't exist
@@ -50,7 +50,7 @@ Uma versão desajustada.
     version_info = (4, 0, 3)
     ```
 
-    Guardar alterações ao introduzir **Ctrl + X,** **Y,** **Enter** .
+    Guardar alterações ao introduzir **Ctrl + X,** **Y,** **Enter**.
 
 1. A partir de um navegador web, navegue `https://CLUSTERNAME.azurehdinsight.net/#/main/services/JUPYTER` para, onde `CLUSTERNAME` está o nome do seu cluster.
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: c7a2373f0cf7005e465c2d3bd42817b3394a84de
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 27b0485fdd7b3c352a85fe7eb39fba33c53bf727
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510284"
+ms.locfileid: "96519217"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Escritas Aceleradas do Azure HDInsight para o Apache HBase
 
@@ -36,7 +36,7 @@ A funcionalidade Writes Acelerada resolve o problema das mais altas latências d
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Como ativar writes acelerados para HBase em HDInsight
 
-Para criar um novo cluster HBase com a função Escritas Aceleradas, siga os passos em [Configurar clusters em HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) até chegar ao **Passo 3, Armazenamento**. Em **Configurações de Metastore**, selecione a caixa de verificação ao lado **de Ativar as escritas aceleradas HBase**. Em seguida, continue com os passos restantes para a criação de clusters.
+Para criar um novo cluster HBase com a funcionalidade Escritas Aceleradas, siga os passos em [Configurar clusters em HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). No separador **Basics** selecione o tipo de cluster como HBase, especifique uma versão componente e, em seguida, clique na caixa de verificação ao lado de **Ativar as escritas aceleradas da HBase**. Em seguida, continue com os passos restantes para a criação de clusters.
 
 ![Ativar a opção de escrita acelerada para HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-create-hbase-wals.png)
 
