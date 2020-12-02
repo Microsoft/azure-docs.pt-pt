@@ -1,18 +1,18 @@
 ---
 title: Funções de transformação de fluxo de dados em Azure Data Factory
 description: Uma visão geral das funções de fluxo de dados disponíveis na Azure Data Factory
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: c56c52193f433571f16e4acf7bd6e7b89641b26f
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 28c6228d4401db0fd1301137167a86cb6f18cbeb
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233955"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494924"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funções de transformação no fluxo de dados de estrangulamento
 

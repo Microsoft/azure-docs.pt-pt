@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 10/1/2020
 ms.author: rahugup
-ms.openlocfilehash: 185979fcc0eeaebbe1c3b09d74050e05899737af
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 3cd8d29a498a6a00fa8fff679afc969b339934b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376804"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494346"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>Migrar VMware VMs para Azure (sem agente) - PowerShell
 
@@ -38,7 +38,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Antes de começar este tutorial, tem de:
 
 1. [Complete o tutorial de descoberta](tutorial-discover-vmware.md) para preparar Azure e VMware para migração.
-2. Recomendamos que complete o segundo tutorial para [avaliar vMware VMs](tutorial-assess-vmware.md) antes de migrar para Azure.
+2. Recomendamos que complete o segundo tutorial para [avaliar vMware VMs](./tutorial-assess-vmware-azure-vm.md) antes de migrar para Azure.
 3. Tem o módulo Azure `Az` PowerShell. Se precisar de instalar ou atualizar o Azure PowerShell, siga este [guia para instalar e configurar a Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="install-azure-migrate-powershell-module"></a>Instalar módulo Azure Migrate PowerShell
@@ -118,9 +118,9 @@ $DiscoveredServers = Get-AzMigrateDiscoveredServer -ProjectName $MigrateProject.
 [Azure Migrate: A migração do servidor](migrate-services-overview.md#azure-migrate-server-migration-tool) aproveita vários recursos Azure para a migração de VMs. A Migração de Servidores fornece os seguintes recursos, no mesmo grupo de recursos que o projeto.
 
 - **Autocarro de** serviço : A Migração do Servidor utiliza o autocarro de serviço para enviar mensagens de orquestração de replicação para o aparelho.
-- **Conta de armazenamento gateway** : A migração do servidor utiliza a conta de armazenamento de gateway para armazenar informações do Estado sobre os VMs que estão a ser replicados.
+- **Conta de armazenamento gateway**: A migração do servidor utiliza a conta de armazenamento de gateway para armazenar informações do Estado sobre os VMs que estão a ser replicados.
 - **Conta de armazenamento de** registo : O aparelho Azure Migrate envia registos de replicação de VMs para uma conta de armazenamento de registo. Azure Migrate aplica a informação de replicação aos discos geridos por réplicas.
-- **Cofre chave** : O aparelho Azure Migrate utiliza o cofre-chave para gerir as cordas de ligação do autocarro de serviço e as chaves de acesso para as contas de armazenamento utilizadas na replicação.
+- **Cofre chave**: O aparelho Azure Migrate utiliza o cofre-chave para gerir as cordas de ligação do autocarro de serviço e as chaves de acesso para as contas de armazenamento utilizadas na replicação.
 
 Antes de replicar o primeiro VM no projeto Azure Migrate, executar o seguinte script para providenciar a infraestrutura de replicação. Este script prevê e configura os recursos acima mencionados para que possa começar a migrar os seus VMware VMs.
 
@@ -480,11 +480,8 @@ Write-Output $StopReplicationJob.State
     - Mantenha as cargas de trabalho em execução e continuamente disponíveis ao replicar VMs do Azure para uma região secundária com o Site Recovery. [Saiba mais](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Para uma maior segurança:
     - Bloqueie e limite o acesso ao tráfego de entrada com [o Azure Security Center - Mesmo a tempo da administração](../security-center/security-center-just-in-time.md).
-    - Restrinja o tráfego de rede para os pontos finais de gestão com os [Grupos de Segurança de Rede](../virtual-network/security-overview.md).
+    - Restrinja o tráfego de rede para os pontos finais de gestão com os [Grupos de Segurança de Rede](../virtual-network/network-security-groups-overview.md).
     - Implemente o [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para ajudar a proteger discos e a manter os dados protegidos contra roubo e acesso não autorizado.
     - Leia mais sobre como [proteger recursos de IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) e aceda ao [Centro de Segurança do Azure](https://azure.microsoft.com/services/security-center/).
 - Para monitorização e gestão:
 -  Considere implementar o [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para monitorizar a utilização e as despesas do recurso.
-
-
-

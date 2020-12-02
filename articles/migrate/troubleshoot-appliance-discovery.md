@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: b6fed24c7de87424bde94b864d4a9db91828a510
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0d4630cad94a30e0dd53785c512e452d7b4a7d38
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315775"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494448"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Resolução de problemas do aparelho Esmigósia Azure Migrar e descoberta
 
@@ -31,7 +31,7 @@ Se receber o erro "O ficheiro manifesto fornecido é inválido: Entrada manifest
 2. Se a implementação ainda falhar, e estiver a utilizar o cliente VMware vSphere para implementar o ficheiro OVF, tente implantá-lo através do cliente web vSphere. Se a implementação ainda falhar, tente utilizar um navegador web diferente.
 3. Se estiver a utilizar o cliente web vSphere e a tentar implantá-lo no vCenter Server 6.5 ou 6.7, tente implantar o OVA diretamente no anfitrião ESXi:
    - Ligue-se diretamente ao anfitrião ESXi (em vez do vCenter Server) com o cliente web (https://<*anfitrião endereço IP*>/ui).
-   - No **Inventário Doméstico**,  >  **Inventory**selecione o modelo de OVF de **File**  >  **implementação de ficheiros**. Navegue pelo OVA e complete a colocação.
+   - No **Inventário Doméstico**,  >  **Inventory** selecione o modelo de OVF de **File**  >  **implementação de ficheiros**. Navegue pelo OVA e complete a colocação.
 4. Se a implantação ainda falhar, contacte o suporte da Azure Migrate.
 
 ## <a name="cant-connect-to-the-internet"></a>Não se liga à internet
@@ -62,12 +62,12 @@ Um erro sobre a sincronização da data e da hora (802) indica que o relógio do
 
 ## <a name="unabletoconnecttoserver"></a>"UnableToConnectToServer"
 
-Se obter este erro de ligação, poderá não conseguir ligar-se ao nome do *servidor*do servidor do vCenter Server .com:9443. Os detalhes do erro indicam que não há nenhum ponto final a ouvir `https://\*servername*.com:9443/sdk` que possa aceitar a mensagem.
+Se obter este erro de ligação, poderá não conseguir ligar-se ao *nome do servidor do* servidor do vCenter .com:9443. Os detalhes do erro indicam que não há nenhum ponto final a ouvir `https://\*servername*.com:9443/sdk` que possa aceitar a mensagem.
 
 - Verifique se está a executar a versão mais recente do aparelho. Se não estiver, atualize o aparelho para a [versão mais recente](./migrate-appliance.md).
 - Se o problema ainda ocorrer na versão mais recente, o aparelho poderá não conseguir resolver o nome do servidor vCenter especificado, ou a porta especificada pode estar errada. Por predefinição, se a porta não for especificada, o coletor tentará ligar-se ao número da porta 443.
 
-    1. Ping *Servername.com*do aparelho.
+    1. O *ping servername*.com do aparelho.
     2. Se o passo 1 falhar, tente ligar-se ao servidor vCenter utilizando o endereço IP.
     3. Identifique o número de porta correto para ligar ao servidor vCenter.
     4. Verifique se o vCenter Server está a funcionar.
@@ -80,7 +80,7 @@ Se obter este erro de ligação, poderá não conseguir ligar-se ao nome do *ser
     - [Saiba mais](./migrate-appliance.md#appliance---vmware) sobre as funções e permissões necessárias do Azure.
 - Erro 60039: "O aparelho pode não ser registado com sucesso no projeto Azure Migrate" pode ocorrer se o registo falhar porque o projeto Azure Migrate usado para o registo do aparelho não pode ser encontrado.
     - No portal Azure e verifique se o projeto existe no grupo de recursos.
-    - Se o projeto não existir, crie um novo projeto Azure Migrate no seu grupo de recursos e registe novamente o aparelho. [Saiba como](./how-to-add-tool-first-time.md#create-a-project-and-add-a-tool) criar um novo projeto.
+    - Se o projeto não existir, crie um novo projeto Azure Migrate no seu grupo de recursos e registe novamente o aparelho. [Saiba como](./create-manage-projects.md#create-a-project-for-the-first-time) criar um novo projeto.
 
 ## <a name="error-6003060031-key-vault-management-operation-failed"></a>Erro 60030/60031: A operação de gestão do Cofre falhou
 

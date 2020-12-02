@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 53a10123bf3304ab9c949146d7cad6b904c8323d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c87290b36ec77e834a0d0fcd99e9a8bdb05675b5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317212"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494703"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior de Azure Migrate
 
@@ -31,7 +31,7 @@ Existem duas versões do serviço Azure Migrate:
 
 ## <a name="upgrade-between-versions"></a>Upgrade entre versões
 
-Não é possível atualizar projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um novo projeto Azure Migrate](create-manage-projects.md), e [adicionar-lhe ferramentas de avaliação e migração.](how-to-add-tool-first-time.md) Use os tutoriais para entender como usar as ferramentas de avaliação e migração disponíveis. Se tiver um espaço de trabalho log Analytics ligado a um projeto Clássico, pode anexá-lo a um projeto de versão atual depois de eliminar o projeto Classic.
+Não é possível atualizar projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um novo projeto Azure Migrate](create-manage-projects.md), e [adicionar-lhe ferramentas de avaliação e migração.](./create-manage-projects.md) Use os tutoriais para entender como usar as ferramentas de avaliação e migração disponíveis. Se tiver um espaço de trabalho log Analytics ligado a um projeto Clássico, pode anexá-lo a um projeto de versão atual depois de eliminar o projeto Classic.
 
 ## <a name="find-projects-from-previous-version"></a>Encontre projetos a partir de versão anterior
 
@@ -103,7 +103,7 @@ A prontidão tem em conta uma série de propriedades VM, para identificar se o V
 **Núcleos** | Máquinas core <= o número máximo de núcleos (128) suportados para um Azure VM.<br/><br/> Se o histórico de desempenho estiver disponível, a Azure Migrate considera os núcleos utilizados.<br/>Se um fator de conforto for especificado nas definições de avaliação, o número de núcleos utilizados é multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, a Azure Migrate utiliza os núcleos atribuídos, sem aplicar o fator de conforto. | Pronto se for inferior ou igual a limites.
 **Memória** | O tamanho da memória da máquina <= a memória máxima (3892 GB na série Azure M Standard_M128m &nbsp; <sup>2</sup>) para um Azure VM. [Saiba mais](../virtual-machines/sizes.md).<br/><br/> Se o histórico de desempenho estiver disponível, Azure Migrate considera a memória utilizada.<br/><br/>Se for especificado um fator de conforto, a memória utilizada é multiplicada pelo fator de conforto.<br/><br/> Se não houver história, a memória atribuída é usada, sem aplicar o fator de conforto.<br/><br/> | Pronto se dentro dos limites.
 **Disco de armazenamento** | O tamanho atribuído de um disco deve ser de 4 TB (4096 GB) ou menos.<br/><br/> O número de discos ligados à máquina deve ser de 65 ou menos, incluindo o disco SO. | Pronto se dentro dos limites.
-**Redes** | Uma máquina deve ter 32 OU menos NICs ligados a ela. | Pronto se dentro dos limites.
+**Rede** | Uma máquina deve ter 32 OU menos NICs ligados a ela. | Pronto se dentro dos limites.
 
 #### <a name="guest-operating-system"></a>Sistema operativo convidado
 
@@ -114,7 +114,7 @@ Juntamente com as propriedades VM, Azure Migrate também olha para o so convidad
 
 É utilizada a seguinte lógica.
 
-**Sistema Operativo** | **Detalhes** | **Prontidão**
+**Sistema operativo** | **Detalhes** | **Prontidão**
 --- | --- | ---
 Windows Server 2016 e todos os SPs | O Azure oferece todo o apoio. | Preparado para o Azure
 Windows Server 2012 R2 e todos os SPs | O Azure oferece todo o apoio. | Preparado para o Azure
@@ -219,7 +219,7 @@ Para utilizar a visualização da dependência, associa um espaço de trabalho l
 
 Depois de configurar um espaço de trabalho, descarregue e instale agentes em cada máquina no local que pretende avaliar. Além disso, se tiver máquinas sem conectividade com a Internet, tem de descarregar e instalar o [Gateway Log Analytics](../azure-monitor/platform/gateway.md) nelas.
 
-1. Em **Visão Geral,** clique em **Gerir**  >  **Máquinas**e selecione a máquina necessária.
+1. Em **Visão Geral,** clique em **Gerir**  >  **Máquinas** e selecione a máquina necessária.
 2. Na coluna **Dependências,** clique **em Instalar agentes.**
 3. Na página **Dependências,** descarregue e instale o Microsoft Monitoring Agent (MMA) e o agente De dependência em cada VM que pretende avaliar.
 4. Copie o ID e a chave da área de trabalho. Precisa destes quando instalar o MMA na máquina no local.
@@ -304,11 +304,11 @@ Para executar as consultas de Kusto:
 
 1. Depois de instalar os agentes, vá ao portal e clique em **Overview**.
 2. Em **Visão Geral**, vá à secção **Essentials** do projeto e clique no nome do espaço de trabalho fornecido junto ao **Espaço de Trabalho OMS.**
-3. Na página do espaço de **General**trabalho Log Analytics, clique em  >  **Registos Gerais**.
+3. Na página do espaço de **General** trabalho Log Analytics, clique em  >  **Registos Gerais**.
 4. Escreva a sua consulta para recolher dados de dependência utilizando registos do Azure Monitor. Encontre consultas de amostra na secção seguinte.
 5. Executar a sua consulta clicando em Run. 
 
-[Saiba mais](../azure-monitor/log-query/get-started-portal.md) sobre como escrever consultas kusto. 
+[Saiba mais](../azure-monitor/log-query/log-analytics-tutorial.md) sobre como escrever consultas kusto. 
 
 ### <a name="sample-azure-monitor-logs-queries"></a>Experimente consultas de registos do Monitor Azure
 

@@ -3,12 +3,12 @@ title: Azure Migrar FAQ
 description: Obtenha respostas a perguntas comuns sobre o serviço Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 95fd2ea9ecf5e4bcdf3fb2291e4cf7bf5b111c5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0877ad0d36e131525a227050cf44321e39e8b30
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87847470"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494618"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: Questões comuns
 
@@ -41,7 +41,7 @@ A ferramenta Azure Migrate: Server Migration usa alguma funcionalidade de recupe
 
 ## <a name="i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version"></a>Tenho um projeto com a experiência clássica anterior de Azure Migrate. Como começo a usar a nova versão?
 
-Não é possível atualizar projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um novo projeto Azure Migrate](create-manage-projects.md), e [adicionar-lhe ferramentas de avaliação e migração.](how-to-add-tool-first-time.md) Use os tutoriais para entender como usar as ferramentas de avaliação e migração disponíveis. Se tiver um espaço de trabalho log Analytics ligado a um projeto Clássico, pode anexá-lo a um projeto de versão atual depois de eliminar o projeto Classic.
+Não é possível atualizar projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um novo projeto Azure Migrate](create-manage-projects.md), e [adicionar-lhe ferramentas de avaliação e migração.](./create-manage-projects.md) Use os tutoriais para entender como usar as ferramentas de avaliação e migração disponíveis. Se tiver um espaço de trabalho log Analytics ligado a um projeto Clássico, pode anexá-lo a um projeto de versão atual depois de eliminar o projeto Classic.
 
 ## <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>Qual é a diferença entre Azure Migrate: Avaliação do servidor e o kit de ferramentas MAP?
 

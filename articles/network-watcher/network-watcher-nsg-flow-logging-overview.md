@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 792908236c4f240db64bd3899474d779d5b0570c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b6f66813ea23f6c9d4b47a3733d0c72c683d0676
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018108"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493989"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao registo de fluxos para grupos de segurança de rede
 
@@ -59,7 +59,7 @@ Análise de segurança da rede **forense &:** Analise os fluxos de rede de IPs c
 **Conceitos-chave**
 
 - As redes definidas por software são organizadas em torno de Redes Virtuais (VNETs) e sub-redes. A segurança destes VNets e sub-redes pode ser gerida através de um NSG.
-- Um grupo de segurança de rede (NSG) contém uma lista de _regras_ de segurança que permitem ou negam o tráfego de rede em recursos a que está ligado. Os NSGs podem ser associados com sub-redes, VMs individuais ou interfaces de rede individuais (NIC) anexadas a VMs (Gestor de Recursos). Para obter mais informações, consulte [a visão geral do grupo de segurança da rede.](../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json)
+- Um grupo de segurança de rede (NSG) contém uma lista de _regras_ de segurança que permitem ou negam o tráfego de rede em recursos a que está ligado. Os NSGs podem ser associados com sub-redes, VMs individuais ou interfaces de rede individuais (NIC) anexadas a VMs (Gestor de Recursos). Para obter mais informações, consulte [a visão geral do grupo de segurança da rede.](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 - Todos os fluxos de tráfego da sua rede são avaliados usando as regras do NSG aplicável.
 - O resultado destas avaliações são os Registos de Fluxo NSG. Os registos de fluxo são recolhidos através da plataforma Azure e não requerem qualquer alteração aos recursos do cliente.
 - Nota: As regras são de dois tipos - terminando & não terminantes, cada uma com diferentes comportamentos de registo.

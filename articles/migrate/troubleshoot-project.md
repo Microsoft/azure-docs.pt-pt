@@ -6,12 +6,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
-ms.openlocfilehash: f2245e13f348706f662055408196ea7a26484811
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: af9254bc536dedc425aac53199665ae399e60a5a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314646"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494414"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Resolver problemas relacionados com projetos do Azure Migrate
 
@@ -19,7 +19,7 @@ Este artigo ajuda-o a resolver problemas ao criar e gerir projetos [da Azure Mig
 
 ## <a name="how-to-add-new-project"></a>Como adicionar novo projeto?
 
-Pode ter vários projetos da Azure Migrate numa subscrição. [Saiba como](how-to-add-tool-first-time.md) criar um projeto pela primeira vez, ou adicione projetos [adicionais.](create-manage-projects.md#create-additional-projects)
+Pode ter vários projetos da Azure Migrate numa subscrição. [Saiba como](./create-manage-projects.md) criar um projeto pela primeira vez, ou adicione projetos [adicionais.](create-manage-projects.md#create-additional-projects)
 
 ## <a name="what-azure-permissions-are-needed"></a>Que permissões do Azure são necessárias?
 
@@ -40,7 +40,7 @@ Você pode avaliar até 35.000 VMware VMs ou até 35.000 VMs Hiper-V em um únic
 
 ## <a name="can-i-upgrade-old-project"></a>Posso atualizar o projeto antigo?
 
-Os projetos da versão anterior do Azure Migrate não podem ser atualizados. É preciso [criar um novo projeto](how-to-add-tool-first-time.md)e adicionar-lhe ferramentas.
+Os projetos da versão anterior do Azure Migrate não podem ser atualizados. É preciso [criar um novo projeto](./create-manage-projects.md)e adicionar-lhe ferramentas.
 
 ## <a name="cant-create-a-project"></a>Não se pode criar um projeto
 

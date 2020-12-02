@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/15/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 63768581da07566ac59b525ca0aefbd7b616e20e
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 4f774351fc0eaaf32069687a1943c72b74b6308a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635573"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494329"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Quickstart: Criar uma base de dados Azure para servidor MySQL utilizando O Azure CLI
 
 > [!TIP]
 > Considere usar o comando [Az IL mais simples do Azure](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) CLI (atualmente em pré-visualização). Experimente o [arranque rápido.](./quickstart-create-server-up-azure-cli.md)
 
-Este quickstart mostra como usar os comandos [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) em [Azure Cloud Shell](https://shell.azure.com) para criar uma Base de Dados Azure para o servidor MySQL em cinco minutos. 
+Este quickstart mostra como usar os comandos [Azure CLI](/cli/azure/get-started-with-azure-cli) em [Azure Cloud Shell](https://shell.azure.com) para criar uma Base de Dados Azure para o servidor MySQL em cinco minutos. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -54,9 +54,9 @@ Aqui estão os detalhes dos argumentos acima:
 name | mydemoserver | Introduza um nome único para a sua Base de Dados Azure para o servidor MySQL. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
 resource-group | myResourceGroup | Indique o nome do grupo de recursos do Azure.
 localização | westus | A localização do Azure para o servidor.
-admin-user | myadmin | O nome de utilizador para o início de sessão do administrador. Não pode ser **azure_superuser** , **admin** , **administrador** , **raiz** , **convidado** nem **público**.
+admin-user | myadmin | O nome de utilizador para o início de sessão do administrador. Não pode ser **azure_superuser**, **admin**, **administrador**, **raiz**, **convidado** nem **público**.
 admin-password | *palavra-passe segura* | A palavra-passe do utilizador administrador. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres das três categorias seguintes: letras em maiúsculas do inglês, letras em minúsculas do inglês, números e carateres não alfanuméricos.
-sku-name|GP_Gen5_2|Insira o nome do nível de preços e configuração de cálculo. Segue a convenção {escalão de preço} _{geração de computação}_ {vCores} em estenografia. Consulte os [níveis de preços](./concepts-pricing-tiers.md) para obter mais informações.
+sku-name|GP_Gen5_2|Insira o nome do nível de preços e configuração de cálculo. Segue a convenção {escalão de preço}_{geração de computação}_{vCores} em estenografia. Consulte os [níveis de preços](./concepts-pricing-tiers.md) para obter mais informações.
 
 >[!IMPORTANT] 
 >- A versão padrão do MySQL no seu servidor é 5.7 . Atualmente temos versões 5.6 e 8.0 também disponíveis.

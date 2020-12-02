@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: eed68ff7e6b002e7a5985b336686b646a1a9acee
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a97f3bf3a479d956747755a421d7946f7aafd4f1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522960"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494244"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migrar para o Monitor de Ligação a partir do Monitor de Ligação (Clássico)
 
@@ -64,5 +64,5 @@ Após o início da migração, ocorrem as seguintes alterações:
 ## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o Connection Monitor, consulte:
-* [Migrar do Monitor de Desempenho da Rede para o Monitor de Ligação](/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor)
+* [Migrar do Monitor de Desempenho da Rede para o Monitor de Ligação](./migrate-to-connection-monitor-from-network-performance-monitor.md)
 * [Criar Monitor de Ligação utilizando o portal Azure](./connection-monitor-create-using-portal.md)

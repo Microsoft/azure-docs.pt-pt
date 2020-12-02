@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: c5bf559ec7bf85e92cf21e3d4c493cae1361ea7c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e4782bf09b8c27132417f6021927408e18755104
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968031"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494023"
 ---
 # <a name="what-is-azure-network-watcher"></a>O que é o Observador de Rede do Azure?
 
@@ -31,7 +31,7 @@ O Observador de Rede do Azure oferece ferramentas para monitorizar, diagnosticar
 
 Os pontos finais podem ser outra máquina virtual (VM), um nome de domínio completamente qualificado (FQDN), um identificador de recursos uniforme (URI) ou um endereço IPv4. A capacidade de *monitorização da ligação* monitoriza a comunicação em intervalos regulares e informa-o do alcance, da latência e das alterações à topologia de rede entre a VM e o ponto final. Por exemplo, pode ter uma VM de servidor Web que comunica com uma VM de servidor de bases de dados. Sem o seu conhecimento, uma pessoa da sua organização poderá aplicar uma rota personalizada ou uma regra de segurança de rede à VM de servidor Web ou de servidor de bases de dados ou à sub-rede.
 
-Se um ponto final ficar inacessível, a resolução de problemas de ligações informa-o do motivo. Alguns possíveis motivos são um problema na resolução de nomes DNS, a CPU, a memória ou a firewall dentro do sistema operativo de uma VM, ou o tipo de salto de uma rota personalizada ou regra de segurança para a VM ou sub-rede da ligação de saída. Saiba mais sobre as [regras de segurança](../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json#security-rules) e os [tipos de salto de rotas](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) no Azure.
+Se um ponto final ficar inacessível, a resolução de problemas de ligações informa-o do motivo. Alguns possíveis motivos são um problema na resolução de nomes DNS, a CPU, a memória ou a firewall dentro do sistema operativo de uma VM, ou o tipo de salto de uma rota personalizada ou regra de segurança para a VM ou sub-rede da ligação de saída. Saiba mais sobre as [regras de segurança](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) e os [tipos de salto de rotas](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) no Azure.
 
 A monitorização da ligação também disponibiliza a latência mínima, média e máxima registada ao longo do tempo. Depois de determinar a latência de uma ligação, pode constatar que pode diminuí-la ao mover os seus recursos do Azure para outras regiões do Azure. Saiba mais sobre como determinar as [latências relativas entre regiões do Azure e fornecedores de serviços de Internet](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) e como monitorizar a comunicação entre uma VM e um ponto final com o [monitor da ligação](connection-monitor.md). Se preferir testar uma ligação num ponto no tempo, em vez de ao longo do tempo, tal como faz com a monitorização da ligação, utilize a capacidade de [resolução de problemas de ligação](#connection-troubleshoot).
 
