@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6107ffea4fe4d615a42973ab1b231ca9f6b5241f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7132eae073f3d53a104536076ae801ec9ff93e5f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674951"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518673"
 ---
 # <a name="msix-app-attach-glossary"></a>App MSIX anexa glossário
 
@@ -108,7 +108,19 @@ O Destaging notifica o SO de que um pacote ou aplicação MSIX que não está at
 
 ## <a name="cim"></a>CIM
 
-. A CIM é uma nova extensão de ficheiros associada ao Sistema de Ficheiros de Imagem Compósito (CimFS). A montagem e desmontagem de ficheiros CIM é mais rápida que os ficheiros VHD. A CIM também consome menos CPU e memória do que o VHD.
+.CIM é uma nova extensão de ficheiro associada ao Sistema de Ficheiros de Imagem Compósito (CimFS). A montagem e desmontagem de ficheiros CIM é mais rápida que os ficheiros VHD. A CIM também consome menos CPU e memória do que o VHD.
+
+Um ficheiro CIM é um ficheiro com um . Extensão CIM que contém metadados e pelo menos seis ficheiros adicionais que contêm dados reais. Os ficheiros dentro do ficheiro CIM não têm extensões. A tabela a seguir é uma lista de ficheiros de exemplo que encontraria dentro de uma CIM:
+
+| Nome de ficheiro | Extensão | Tamanho |
+|-----------|-----------|------|
+| VSC | CIM | 1 KB |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_0 | ND | 27 KB |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_1 | ND | 20 KB |
+| objectid_b5742e0b-1b98-40b3-94a6-9cb96f497e56_2 | ND | 42 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_0 | ND | 428 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_1 | ND | 217 KB |
+| region_b5742e0b-1b98-40b3-94a6-9cb96f497e56_2 | ND | 264,132 KB |
 
 O quadro a seguir é uma comparação de desempenho entre VHD e CimFS. Estes números foram o resultado de um teste com 500 ficheiros MB em cada formato executado numa máquina DSv4.
 

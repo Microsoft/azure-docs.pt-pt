@@ -7,21 +7,16 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: b546b043b856fd6ec69acd63fd69a01c48d0553b
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 59ca0b85ba2aff29bdb2ad3379c1054041d2b4cb
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990130"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518741"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Visão geral da política do Azure Web Application Firewall (WAF)
 
 As políticas de firewall de aplicação web contêm todas as definições e configurações da WAF. Isto inclui exclusões, regras personalizadas, regras geridas, e assim por diante. Estas políticas estão então associadas a uma porta de aplicação (global), a um ouvinte (por local) ou a uma regra baseada em caminhos (per-URI) para que eles entrem em vigor.
-
-> [!NOTE]
-> As políticas Azure Web Application Firewall (WAF) per-URI estão em Visualização Pública.
-> 
-> Esta pré-visualização pública é disponibilizada sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Não há limite para o número de políticas que se pode criar. Quando se cria uma política, deve ser associada a uma porta de aplicação para fazer efeito. Pode ser associado a qualquer combinação de gateways de aplicações, ouvintes e regras baseadas em caminhos.
 
@@ -60,6 +55,6 @@ Neste exemplo, tem uma política global que se aplica a dois sites. Você tem um
 Todas as definições waf da Web Application Firewall (regras personalizadas, configurações de definição de regras geridas, exclusões e assim por diante.) existem numa política da WAF. Se tiver um WAF existente, estas definições ainda podem existir na sua configuração WAF. Para obter mais informações sobre a mudança para a nova política da WAF, [Migrar WAF Config para uma Política da WAF](./migrate-policy.md). 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Crie políticas por local e por URI utilizando a Azure PowerShell](per-site-policies.md).

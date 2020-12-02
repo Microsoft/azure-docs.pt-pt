@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: e919db24a70b0ed69aca6977865cc76c0c9c5845
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: dd7616bdc07aee86ac56a2f2fe0ac282838c58b4
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182466"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518860"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Especificações do modelo do Gestor de Recursos Azure (Visualização)
 
@@ -21,7 +21,7 @@ Uma especificação de modelo é um tipo de recurso para armazenar um modelo de 
 Para implementar a especificação do modelo, utiliza ferramentas Azure padrão como PowerShell, Azure CLI, portal Azure, REST e outros SDKs e clientes suportados. Usa os mesmos comandos que o modelo.
 
 > [!NOTE]
-> As Especificações do Modelo estão atualmente em pré-visualização. Para a utilizar, tem de instalar a versão mais recente do PowerShell ou do Azure CLI. Para a Azure PowerShell, utilize [a versão 5.0.0 ou mais tarde](/powershell/azure/install-az-ps). Para O Azure CLI, utilize [a versão 2.14.2 ou posterior](/cli/azure/install-azure-cli).
+> As Especificações do Modelo estão atualmente em pré-visualização. Para usá-lo com a Azure PowerShell, tem de instalar [a versão 5.0.0 ou posterior](/powershell/azure/install-az-ps). Para usá-lo com Azure CLI, utilize [a versão 2.14.2 ou posterior](/cli/azure/install-azure-cli).
 
 ## <a name="why-use-template-specs"></a>Por que usar especificações de modelo?
 

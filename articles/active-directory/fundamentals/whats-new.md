@@ -1,5 +1,5 @@
 ---
-title: Novidades? Notas de lançamento - Azure Ative Directory / Microsoft Docs
+title: Novidades Notas de lançamento - Azure Ative Directory / Microsoft Docs
 description: Saiba quais as novidades com o Azure Ative Directory; como as últimas notas de lançamento, problemas conhecidos, correções de bugs, funcionalidades precadas e alterações futuras.
 services: active-directory
 author: ajburnle
@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b664898f8dfa2adbe816f7686c05add7ea360fbf
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b836c28443790466084b1840edcf08dc09dcf4cc
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96343744"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518282"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Quais as novidades no Diretório Ativo do Azure?
 
@@ -58,7 +58,7 @@ Os ambientes afetados são:
 
 Anúncio relacionado Todas as combinações de servidores de clientes e servidores de navegador devem usar os serviços TLS 1.2 e cifra modernas para manter uma ligação segura ao Azure Ative Directory para os serviços Azure, Office 365 e Microsoft 365. Esta mudança está relacionada com o [Azure Ative Directory TLS 1.0 & 1.1 e 3DES Cipher Suite Deprecation in US Gov Cloud](whats-new.md#azure-active-directory-tls-10-tls-11-and-3des-deprecation-in-us-gov-cloud).
 
-### <a name="new-federated-apps-available-in-azure-ad-application-gallery---october-2020"></a>Novas Aplicações Federadas disponíveis na galeria AZure AD Application - outubro de 2020
+### <a name="new-federated-apps-available-in-azure-ad-application-gallery---november-2020"></a>Novas Aplicações Federadas disponíveis na galeria AZure AD Application - novembro de 2020
 
 **Tipo:** Nova funcionalidade  
 **Categoria de serviço:** Aplicativos da Empresa  
@@ -66,7 +66,7 @@ Anúncio relacionado Todas as combinações de servidores de clientes e servidor
 
 Em novembro de 2020 adicionámos 52 novas aplicações na nossa galeria app com o apoio da Federação:
 
-[Travel & Gestão de Despesas](https://app.expenseonce.com/Account/Login), [Tribeloo](../saas-apps/tribeloo-tutorial.md), Seu Selecionador [SailPoint IdentityNow](../saas-apps/sailpoint-identitynow-tutorial.md)de [Jedox](../saas-apps/jedox-tutorial.md) [UiPathStudioO365App](https://www.uipath.com/product/platform) [GoBright](https://portal.brightbooking.eu/) [Ficheiros, Controlo de Crises,](../saas-apps/crises-control-tutorial.md)Controlo de Crises, Controlo de Crises, [Itslearning File Picker](https://pmteam.itslearning.com/)[Resource Central](../saas-apps/resource-central-tutorial.md) [StealthMail](https://stealthmail.com/), [Edmentum - Ilha de Estudo,](https://app.studyisland.com/cfw/login/) [Gestor de Risco Virtual,](../saas-apps/virtual-risk-manager-tutorial.md) [TIMU,](../saas-apps/timu-tutorial.md) [Plataforma Looker Analytics,](../saas-apps/looker-analytics-platform-tutorial.md) [Talview - Recrutamento, Tradutor em Tempo Real](https://recruit.talview.com/login), [Klaxoon](https://access.klaxoon.com/login), [Podbean,](../saas-apps/podbean-tutorial.md) [zcal,](https://zcal.co/signup)gerente [CourtAlert](https://www.courtalert.com/)de [despesas, Netsparker Enterprise](../saas-apps/netsparker-enterprise-tutorial.md), [En-trak Tenant Experience Platform](https://portal.en-trak.app/), [Appian](../saas-apps/appian-tutorial.md), [Panorays](../saas-apps/panorays-tutorial.md), [Builterra](https://portal.builterra.com/), [EVA Check-in,](https://my.evacheckin.com/organization) [HowNow WebApp SSO,](../saas-apps/hownow-webapp-sso-tutorial.md) [Coupa Risk Assess,](../saas-apps/coupa-risk-assess-tutorial.md) [Lucid (Todos os Produtos)](../saas-apps/lucid-tutorial.md)Segurança [de Aplicações](../saas-apps/cequence-application-security-tutorial.md), [PerimeterX](../saas-apps/perimeterx-tutorial.md), [TrendMiner](../saas-apps/trendminer-tutorial.md), [Lexion](../saas-apps/lexion-tutorial.md), [WorkWare](../saas-apps/workware-tutorial.md), [ProdPad](../saas-apps/prodpad-tutorial.md), [AWS ClientVPN](../saas-apps/aws-clientvpn-tutorial.md), [AppSec Flow SSO](../saas-apps/appsec-flow-sso-tutorial.md), [Luum,](../saas-apps/luum-tutorial.md)Freight [Measure](https://www.gpcsl.com/freight.html), [Terraform Cloud](../saas-apps/terraform-cloud-tutorial.md), [Nature Research](../saas-apps/nature-research-tutorial.md), [Play Digital Signage,](https://login.playsignage.com/login) [RemotePC,](../saas-apps/remotepc-tutorial.md) [Prolorus,](../saas-apps/prolorus-tutorial.md) [Hirebridge ATS,](../saas-apps/hirebridge-ats-tutorial.md) [Teamgage,](https://www.teamgage.com/Account/ExternalLoginAzure) [Roadmunk,](../saas-apps/roadmunk-tutorial.md) [Sunrise Software Relations CRM](https://cloud.relations-crm.com/), [Procaire,](../saas-apps/procaire-tutorial.md) [Mentor® por eDriving: Business, Gradle Enterprise, Gradle Enterprise](https://www.edriving.com/) [expensemanager](https://api.expense-manager.com/)
+[Travel & Gestão de Despesas](https://app.expenseonce.com/Account/Login), [Tribeloo](../saas-apps/tribeloo-tutorial.md), Seu Selecionador de [Ficheiros,](https://pmteam.itslearning.com/)Controlo de Crises, Controlo de [Crises,](../saas-apps/crises-control-tutorial.md) [TribunalAlert,](https://www.courtalert.com/) [StealthMail](https://stealthmail.com/), [Edmentum - Ilha de Estudo,](https://app.studyisland.com/cfw/login/)Gestor de Risco [Virtual,](../saas-apps/virtual-risk-manager-tutorial.md) [TIMU,](../saas-apps/timu-tutorial.md)Plataforma [Looker Analytics,](../saas-apps/looker-analytics-platform-tutorial.md) [Talview - Recruta,](https://recruit.talview.com/login)Tradutor em Tempo Real, [Klaxoon](https://access.klaxoon.com/login), [Jedox](../saas-apps/jedox-tutorial.md) [Podbean](../saas-apps/podbean-tutorial.md), [zcal,](https://zcal.co/signup) [expensemanager](https://api.expense-manager.com/), [SailPoint IdentityNow](../saas-apps/sailpoint-identitynow-tutorial.md) [Netsparker Enterprise](../saas-apps/netsparker-enterprise-tutorial.md), [UiPathStudioO365App](https://www.uipath.com/product/platform) [En-trak Tenant Experience Platform](https://portal.en-trak.app/), [Appian](../saas-apps/appian-tutorial.md), [Panorays](../saas-apps/panorays-tutorial.md),[Resource Central](../saas-apps/resource-central-tutorial.md) [Builterra,](https://portal.builterra.com/) [EVA Check-in,](https://my.evacheckin.com/organization) [HowNow WebApp SSO,](../saas-apps/hownow-webapp-sso-tutorial.md) [GoBright](https://portal.brightbooking.eu/) [Coupa Risk Assess,](../saas-apps/coupa-risk-assess-tutorial.md) [Lucid (Todos os Produtos)](../saas-apps/lucid-tutorial.md) [,](../saas-apps/cequence-application-security-tutorial.md) [PerimeterX](../saas-apps/perimeterx-tutorial.md), [TrendMiner](../saas-apps/trendminer-tutorial.md), [Lexion](../saas-apps/lexion-tutorial.md), [WorkWare](../saas-apps/workware-tutorial.md), [ProdPad](../saas-apps/prodpad-tutorial.md), [AWS ClientVPN](../saas-apps/aws-clientvpn-tutorial.md), [AppSec Flow SSO](../saas-apps/appsec-flow-sso-tutorial.md), [Luum,](../saas-apps/luum-tutorial.md) [Freight Measure](https://www.gpcsl.com/freight.html), [Terraform Cloud](../saas-apps/terraform-cloud-tutorial.md), Nature [Research](../saas-apps/nature-research-tutorial.md), Play [Digital Signage,](https://login.playsignage.com/login) [RemotePC,](../saas-apps/remotepc-tutorial.md) [Prolorus,](../saas-apps/prolorus-tutorial.md) [Hirebridge ATS,](../saas-apps/hirebridge-ats-tutorial.md) [Teamgage,](https://www.teamgage.com/Account/ExternalLoginAzure) [Roadmunk,](../saas-apps/roadmunk-tutorial.md) [Sunrise Software Relations CRM,](https://cloud.relations-crm.com/) [Procaire,](../saas-apps/procaire-tutorial.md) [Mentor® por eDriving: Business,](https://www.edriving.com/) [Gradle Enterprise](https://gradle.com/)
 
 Também pode encontrar a documentação de todas as aplicações a partir daqui https://aka.ms/AppsTutorial
 

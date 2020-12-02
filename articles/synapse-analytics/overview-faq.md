@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 838276c47085a3c7ad0f7c0a35a2578b13eb5026
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 57948cf705d2a58b4f8e19e56121115ba33362ad
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511272"
+ms.locfileid: "96518639"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Azure Synapse Analytics frequentemente fez perguntas
 
@@ -22,7 +22,7 @@ Neste guia, encontrará as perguntas mais frequentes para a Azure Synapse Analyt
 
 ## <a name="general"></a>Geral
 
-### <a name="q-what-rbac-roles-exist-and-how-do-i-use-them-to-secure-a-synapse-workspace"></a>P: Quais os papéis do RBAC e como os uso para garantir um espaço de trabalho da Sinapse?
+### <a name="q-how-can-i-use-rbac-roles-to-secure-my-workspace"></a>P: Como posso usar os papéis do RBAC para garantir o meu espaço de trabalho?
 
 R: A azure Synapse introduz uma série de funções e âmbitos para atribuí-los que simplificarão a segurança do seu espaço de trabalho.
 
@@ -36,16 +36,16 @@ Funções DE Sinapse RBAC:
 * Operador de computação de sinapse (pré-visualização)
 * Utilizador credencial de sinapse (pré-visualização)
 
-Âmbitos DO RBAC de Sinapse:
-* Área de trabalho 
-* Piscina de faíscas
-* Runtime de integração
-* Serviço ligado
-* Credencial
+Para garantir o seu espaço de trabalho synapse, atribua as Funções RBAC a estes âmbitos RBAC:
+* Áreas de Trabalho
+* Piscinas de faíscas
+* Tempos de integração
+* Serviços ligados
+* Credenciais
 
 Além disso, com piscinas SQL dedicadas você tem todas as mesmas funcionalidades de segurança que você conhece e ama.
 
-### <a name="q-how-can-i-cost-control-for-the-capabilities-inside-a-synapse-workspace-such-as-dedicated-sql-pools-serverless-spark-pools-and-serverless-sql-pools"></a>P: Como posso controlar as capacidades dentro de um espaço de trabalho da Synapse, tais como piscinas SQL dedicadas, piscinas de faíscas sem servidor e piscinas SQL sem servidor?
+### <a name="q-how-do-i-control-cont-dedicated-sql-pools-serverless-sql-pools-and-serverless-spark-pools"></a>P: Como controlo piscinas SQL dedicadas cont, piscinas SQL sem servidor e piscinas de faíscas sem servidor?
 
 R: Como ponto de partida, a Azure Synapse trabalha com a análise de custos incorporada e os alertas de custos disponíveis ao nível da subscrição do Azure.
 

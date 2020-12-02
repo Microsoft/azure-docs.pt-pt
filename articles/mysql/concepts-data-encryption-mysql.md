@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 87dff3bbb4a7ff5e40a06d1b63bdc38987d727fe
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f9b9681b08f5864dc34bbf1c35dc6919129c24cb
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492697"
+ms.locfileid: "96518809"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Base de Dados Azure para encriptação de dados MySQL com uma chave gerida pelo cliente
 
@@ -61,7 +61,7 @@ Quando o servidor está configurado para utilizar a chave gerida pelo cliente ar
 Seguem-se os requisitos para a configuração do Cofre de Chaves:
 
 * A Key Vault e a Azure Database for MySQL devem pertencer ao mesmo inquilino do Azure Ative Directory (Azure AD). O Key Vault e as interações do servidor não são suportados. O recurso "Key Vault" em movimento requer que reconfigure a encriptação de dados.
-* Ativar o [soft-delete](.. /key-vault/general/soft-delete-overview.md) no cofre da chave com período de retenção definido para **90 dias,** para proteger da perda de dados se uma chave acidental (ou cofre de chaves) acontecer. Os recursos eliminados por 90 dias por defeito, a menos que o período de retenção seja explicitamente definido para <=90 dias. As ações de recuperação e purga têm as suas próprias permissões associadas a uma política de acesso ao Cofre-Chave. A função de eliminação suave está desligada por padrão, mas pode ative-la através do PowerShell ou do Azure CLI (note que não é possível ative-lo através do portal Azure).
+* Ativar a função [de eliminação suave](../key-vault/general/soft-delete-overview.md) no cofre da chave com o período de retenção definido para **90 dias**, para proteger da perda de dados se uma chave acidental (ou Cofre de Chaves) acontecer. Os recursos eliminados por 90 dias por defeito, a menos que o período de retenção seja explicitamente definido para <=90 dias. As ações de recuperação e purga têm as suas próprias permissões associadas a uma política de acesso ao Cofre-Chave. A função de eliminação suave está desligada por padrão, mas pode ative-la através do PowerShell ou do Azure CLI (note que não é possível ative-lo através do portal Azure).
 * Ativar a [função Proteção de Purga](../key-vault/general/soft-delete-overview.md#purge-protection) no cofre da chave com o período de retenção definido para **90 dias**. A proteção contra a purga só pode ser ativada quando se ativa uma eliminação suave. Pode ser ligado através do Azure CLI ou do PowerShell. Quando a proteção contra a purga estiver acesa, um cofre ou um objeto no estado apagado não podem ser purgados até que o período de retenção tenha passado. As abóbadas e objetos apagados ainda podem ser recuperados, garantindo que a política de retenção será seguida. 
 * Conceda à Base de Dados Azure para o acesso do MySQL ao cofre de chaves com as permissões get, wrapKey e desembrulhar, utilizando a sua identidade gerida única. No portal Azure, a identidade única de 'Serviço' é criada automaticamente quando a encriptação de dados é ativada no MySQL. Consulte [a encriptação de dados configurar o MySQL](howto-data-encryption-portal.md) para obter instruções detalhadas e passo a passo quando estiver a utilizar o portal Azure.
 
@@ -70,8 +70,8 @@ Seguem-se os requisitos para a configuração da chave gerida pelo cliente:
 * A chave gerida pelo cliente para encriptar o DEK só pode ser assimétrica, RSA 2048.
 * A data de ativação da chave (se definida) deve ser uma data e hora no passado. A data de validade não está definida.
 * A chave deve estar no estado *ativado.*
-* A chave deve ter [uma eliminação suave](../key-vault/general/soft-delete-overview.md) com o período de retenção definido para **90 dias**.
-* O kay deve ter [a proteção de purga ativada.](../key-vault/general/soft-delete-overview.md#purge-protection)
+* A chave deve ter [uma eliminação suave](../key-vault/general/soft-delete-overview.md) com o período de retenção definido para **90 dias**. Isto define implicitamente o atributo chave necessário recuperaçãoLevel: "Recuperável". Se a retenção estiver definida para < 90 dias, a recuperaçãoLevel: "PersonalizadaRecoverável" que não é o requisito, pelo que garantir a fixação do período de retenção está definido para **90 dias**.
+* A chave deve ter [a proteção de purga ativada](../key-vault/general/soft-delete-overview.md#purge-protection).
 * Se estiver [a importar uma chave existente](/rest/api/keyvault/ImportKey/ImportKey) para o cofre da chave, certifique-se de que a fornece nos formatos de ficheiros suportados `.pfx` (, , `.byok` . `.backup`
 
 ## <a name="recommendations"></a>Recomendações

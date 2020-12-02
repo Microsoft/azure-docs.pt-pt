@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/20/2020
-ms.openlocfilehash: 9d6970331024ea0cd08e890cc62507d9eb230678
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/2/2020
+ms.openlocfilehash: 99b5e7bee93ffee14585f048506104ec313b9bff
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016338"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518540"
 ---
 # <a name="co-sell-partner-engagement"></a>Compromisso entre parceiros para venda conjunta
 
@@ -24,7 +24,7 @@ O programa co-venda está disponível para **software construído com a sua prop
 
     ![Diagrama mostrando como co-vender acontece quando os leads de vendas são partilhados, aceites e ganhos contra clientes geridos pela Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
 
-- **Co-venda incentivada** As soluções IP podem ganhar incentivos para os vendedores de campo da Microsoft quando são vendidas em colaboração com as equipas de vendas da Microsoft, além dos benefícios do mercado listados abaixo.</li></ul>
+- **Co-venda incentivada** As ofertas IP podem ganhar incentivos para os vendedores de campo da Microsoft quando são vendidas em colaboração com as equipas de vendas da Microsoft, além dos benefícios do mercado listados abaixo.</li></ul>
 
 ## <a name="marketplace-benefits-for-incentivized-offers"></a>Benefícios do mercado para ofertas incentivadas
 
@@ -67,7 +67,7 @@ Inicie a sua viagem de Co-venda diretamente no Partner Center seguindo os passos
 
     :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="Esta imagem mostra a secção de Listagem do separador Co-venda.":::  
 
-1. Forneça detalhes sobre a sua oferta e carrene a garantia na secção **Documentos.** Os vendedores da Microsoft usarão esta informação para recomendar e vender a sua oferta. *(Requerido: Pager de um pager e deck de apresentação do cliente.*)
+1. Forneça detalhes sobre a sua oferta e carrene a garantia na secção **Documentos.** Os vendedores da Microsoft usarão esta informação para recomendar e vender a sua oferta. *(Requerido: Solução/oferta de um pager e deck de pitch solution/offer. Necessário para atingir o estatuto de Co-venda Azure IP Co-venda: Diagrama de arquitetura de referência.)*
 
     :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="Esta imagem mostra a secção documentos no separador Co-venda.":::
 
@@ -93,7 +93,7 @@ Para ofertas com a [opção Co-venda no Partner Center,](./partner-center-portal
  :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="Esta imagem mostra o estado atual de Co-venda das ofertas.":::
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a venda com a Microsoft.](https://partner.microsoft.com/membership/sell-with-microsoft)
 - Saiba mais sobre a [opção Co-venda no Partner Center.](./partner-center-portal/commercial-marketplace-co-sell.md)

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 25f4ae0dbfd7827a36dede6a889c342ea490e273
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f27f2a6319bf2648546a62c2566d938db657738f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948481"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518469"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Traffic Analytics frequentemente fez perguntas
 
@@ -401,3 +401,6 @@ A página de topologia de sub-redes virtuais contém duas secções principais:
 - Para passar para outros nós destacados na vista topologia, use a chave para o `Shift+Right arrow` movimento para a frente. 
 - Nos nós realçados, o foco move-se para a **Caixa de Ferramentas de Informação** para o nó. Por predefinição, o foco passa para o botão **Mais detalhes** na **Caixa de Ferramentas de Informação**. Para avançar ainda mais dentro da vista **Caixa,** utilize `Right arrow` e as `Left arrow` teclas para avançar e recuar, respectivamente. A prensagem `Enter` tem o mesmo efeito que selecionar o botão focado na Caixa de **Ferramentas de Informação**.
 - Na seleção de tais nós, pode visitar todas as suas ligações, uma a uma, premindo `Shift+Left arrow` a tecla. O foco desloca-se para a Caixa de Ferramentas de **Informação** dessa ligação. Em qualquer ponto, o foco pode ser deslocado de volta para o nó pressionando `Shift+Right arrow` novamente.
+
+## <a name="are-classic-nsgs-supported"></a>Os NSGs clássicos são suportados?
+Não, a Traffic Analytics não suporta o NSG clássico. Recomenda-se a migração dos recursos iaaS do clássico para o Azure Resource Manager, uma vez que os recursos clássicos serão [depreciados.](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation) Consulte este artigo para entender [como migrar.](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview)

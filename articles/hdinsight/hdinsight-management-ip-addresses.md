@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 35f2f82b4fe6862f0d023a70b32c964698b0c0eb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 682db0ef52e624a23d95aa18a007f05a78f39677
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547814"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518792"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Gestão de endereços IP do HDInsight
 
@@ -32,7 +32,7 @@ As seguintes secções discutem os endereços IP específicos que devem ser perm
 
 ## <a name="azure-dns-service"></a>Serviço Azure DNS
 
-Se estiver a utilizar o serviço DNS fornecido pelo Azure, permita o acesso a partir do __168.63.129.16__ na porta 53. Para obter mais informações, consulte a [resolução de nomes para vMs e documento de instâncias de papel.](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) Se estiver a usar DNS personalizados, ignore este passo.
+Se estiver a utilizar o serviço DNS fornecido pela Azure, permita o acesso ao __168.63.129.16__ na porta 53 para tCP e UDP. Para obter mais informações, consulte a [resolução de nomes para vMs e documento de instâncias de papel.](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) Se estiver a usar DNS personalizados, ignore este passo.
 
 ## <a name="health-and-management-services-all-regions"></a>Serviços de saúde e gestão: Todas as regiões
 
@@ -57,7 +57,7 @@ Permitir o tráfego dos endereços IP listados para os serviços de saúde e ges
 | Ásia | Ásia Leste | 23.102.235.122</br>52.175.38.134 | \*:443 | Entrada |
 | &nbsp; | Sudeste Asiático | 13.76.245.160</br>13.76.136.249 | \*:443 | Entrada |
 | Austrália | Leste da Austrália | 104.210.84.115</br>13.75.152.195 | \*:443 | Entrada |
-| &nbsp; | Austrália Sudeste | 13.77.2.56</br>13.77.2.94 | \*:443 | Entrada |
+| &nbsp; | Sudeste da Austrália | 13.77.2.56</br>13.77.2.94 | \*:443 | Entrada |
 | Brasil | Sul do Brasil | 191.235.84.104</br>191.235.87.113 | \*:443 | Entrada |
 | Canadá | Leste do Canadá | 52.229.127.96</br>52.229.123.172 | \*:443 | Entrada |
 | &nbsp; | Canadá Central | 52.228.37.66</br>52.228.45.222 |\*: 443 | Entrada |
@@ -78,8 +78,8 @@ Permitir o tráfego dos endereços IP listados para os serviços de saúde e ges
 | &nbsp; | Sul da Coreia do Sul | 52.231.203.16</br>52.231.205.214 | \*:443 | Entrada
 | Reino Unido | Oeste do Reino Unido | 51.141.13.110</br>51.141.7.20 | \*:443 | Entrada |
 | &nbsp; | Sul do Reino Unido | 51.140.47.39</br>51.140.52.16 | \*:443 | Entrada |
-| Estados Unidos da América | E.U.A. Central | 13.89.171.122</br>13.89.171.124 | \*:443 | Entrada |
-| &nbsp; | E.U.A Leste | 13.82.225.233</br>40.71.175.99 | \*:443 | Entrada |
+| Estados Unidos | E.U.A. Central | 13.89.171.122</br>13.89.171.124 | \*:443 | Entrada |
+| &nbsp; | E.U.A. Leste | 13.82.225.233</br>40.71.175.99 | \*:443 | Entrada |
 | &nbsp; | E.U.A. Centro-Norte | 157.56.8.38</br>157.55.213.99 | \*:443 | Entrada |
 | &nbsp; | E.U.A. Centro-Oeste | 52.161.23.15</br>52.161.10.167 | \*:443 | Entrada |
 | &nbsp; | E.U.A. Oeste | 13.64.254.98</br>23.101.196.19 | \*:443 | Entrada |

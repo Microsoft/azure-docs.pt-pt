@@ -1,6 +1,6 @@
 ---
 title: Instale o Jupyter localmente e ligue-se à Spark em Azure HDInsight
-description: Aprenda a instalar o bloco de notas Jupyter localmente no seu computador e conecte-o a um cluster Apache Spark.
+description: Aprenda a instalar o Jupyter Notebook localmente no seu computador e conecte-o a um cluster Apache Spark.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,25 +8,25 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: 96b2e7deff464f00ced4457a514ac833a90bd42d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 16cb8a9c2a951c9f60640248ef74757d1e5ee200
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999897"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518928"
 ---
-# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instale o caderno Jupyter no seu computador e ligue-se ao Apache Spark em HDInsight
+# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instale o Bloco de Notas Jupyter no seu computador e ligue-se ao Apache Spark em HDInsight
 
-Neste artigo, você aprende a instalar o caderno Jupyter com os kernels PySpark (para Python) e Apache Spark (para Scala) com magia Spark. Em seguida, ligue o caderno a um cluster HDInsight.
+Neste artigo, você aprende a instalar Jupyter Notebook com os kernels PySpark (para Python) e Apache Spark (para Scala) com magia Spark. Em seguida, ligue o caderno a um cluster HDInsight.
 
 Existem quatro passos-chave envolvidos na instalação do Jupyter e na ligação ao Apache Spark em HDInsight.
 
 * Configurar o aglomerado de faíscas.
-* Instale o caderno Jupyter.
+* Instale o Bloco de Notas do Jupyter.
 * Instale os núcleos PySpark e Spark com a magia Spark.
 * Configure a magia spark para aceder ao cluster Spark em HDInsight.
 
-Para obter mais informações sobre núcleos personalizados e magia spark, consulte [Kernels disponível para cadernos Jupyter com clusters Apache Spark Linux em HDInsight.](apache-spark-jupyter-notebook-kernels.md)
+Para obter mais informações sobre núcleos personalizados e magia spark, consulte [Kernels disponível para Cadernos Jupyter com aglomerados Apache Spark Linux em HDInsight.](apache-spark-jupyter-notebook-kernels.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,9 +34,9 @@ Para obter mais informações sobre núcleos personalizados e magia spark, consu
 
 * Familiaridade com a utilização de Jupyter Notebooks com o Spark no HDInsight.
 
-## <a name="install-jupyter-notebook-on-your-computer"></a>Instale o caderno Jupyter no seu computador
+## <a name="install-jupyter-notebook-on-your-computer"></a>Instale o Bloco de Notas Jupyter no seu computador
 
-Instale python antes de instalar os cadernos Jupyter. A [distribuição da Anaconda](https://www.anaconda.com/download/) vai instalar ambos, Python e Jupyter Notebook.
+Instale python antes de instalar os Cadernos Jupyter. A [distribuição da Anaconda](https://www.anaconda.com/download/) vai instalar ambos, Python e Jupyter Notebook.
 
 Descarregue o [instalador Daaconda](https://www.anaconda.com/download/) para a sua plataforma e execute a configuração. Durante a execução do assistente de configuração, certifique-se de que seleciona a opção de adicionar Anaconda à variável PATH.  Consulte também, [instalar o Jupyter usando a Anaconda.](https://jupyter.readthedocs.io/en/latest/install.html)
 
@@ -150,7 +150,7 @@ Nesta secção, configura a magia spark que instalou anteriormente para se ligar
 
     a. Crie um novo bloco de notas. Do canto direito, selecione **New**. Deve ver o núcleo padrão **Python 2** ou **Python 3** e os núcleos que instalou. Os valores reais podem variar dependendo das suas opções de instalação.  Selecione **PySpark**.
 
-    ![Kernels disponíveis no caderno Jupyter](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kernels no caderno Jupyter")
+    ![Kernels disponíveis no Caderno Jupyter](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kernels em Caderno Jupyter")
 
     > [!IMPORTANT]  
     > Depois de selecionar **New** review your shell for any errors.  Se vires o `TypeError: __init__() got an unexpected keyword argument 'io_loop'` erro, podes estar a passar por um problema conhecido com certas versões do Tornado.  Em caso afirmativo, pare o núcleo e, em seguida, desclasse a sua instalação tornado com o seguinte comando: `pip install tornado==4.5.3` .
@@ -170,7 +170,7 @@ Nesta secção, configura a magia spark que instalou anteriormente para se ligar
 
 Razões para instalar o Jupyter no seu computador e, em seguida, conectá-lo a um cluster Apache Spark em HDInsight:
 
-* Fornece-lhe a opção de criar os seus cadernos localmente, testar a sua aplicação contra um cluster de execução e, em seguida, fazer o upload dos cadernos para o cluster. Para fazer o upload dos cadernos para o cluster, pode carregá-los utilizando o caderno Jupyter que está em execução ou o cluster, ou guardá-los para a `/HdiNotebooks` pasta na conta de armazenamento associada ao cluster. Para obter mais informações sobre como os cadernos são armazenados no cluster, veja [onde estão armazenados os cadernos do Jupyter?](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)
+* Fornece-lhe a opção de criar os seus cadernos localmente, testar a sua aplicação contra um cluster de execução e, em seguida, fazer o upload dos cadernos para o cluster. Para fazer o upload dos cadernos para o cluster, pode carregá-los utilizando o Bloco de Notas Jupyter que está em execução ou o cluster, ou guardá-los para a `/HdiNotebooks` pasta na conta de armazenamento associada ao cluster. Para obter mais informações sobre como os cadernos são armazenados no cluster, veja [onde estão armazenados os Cadernos Jupyter?](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)
 * Com os cadernos disponíveis localmente, pode ligar-se a diferentes clusters Spark com base no seu requisito de aplicação.
 * Pode utilizar o GitHub para implementar um sistema de controlo de fontes e ter controlo de versão para os cadernos. Também pode ter um ambiente colaborativo onde vários utilizadores podem trabalhar com o mesmo caderno.
 * Você pode trabalhar com cadernos localmente sem sequer ter um aglomerado. Só precisa de um cluster para testar os seus cadernos, não para gerir manualmente os seus cadernos ou um ambiente de desenvolvimento.
@@ -182,5 +182,5 @@ Razões para instalar o Jupyter no seu computador e, em seguida, conectá-lo a u
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
-* [Kernels para o caderno jupyter em Apache Spark](apache-spark-jupyter-notebook-kernels.md)
+* [Kernels para Jupyter Notebook em Apache Spark](apache-spark-jupyter-notebook-kernels.md)
 * [Use pacotes externos com cadernos Jupyter em Apache Spark](apache-spark-jupyter-notebook-use-external-packages.md)

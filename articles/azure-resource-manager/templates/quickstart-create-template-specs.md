@@ -2,15 +2,15 @@
 title: Criar e implementar especificações de modelo
 description: Aprenda a criar uma especificação de modelo a partir do modelo ARM. Em seguida, implemente a especificação do modelo para um grupo de recursos na sua subscrição.
 author: tfitzmac
-ms.date: 11/17/2020
+ms.date: 12/01/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 8439b1de5a69b3e5bfc22e10f089938da921c1cb
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 03cf2013f1cec9722af5d7e72285d9f11d8a6bc1
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747507"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518962"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Quickstart: Criar e implementar especificações de modelo (Pré-visualização)
 
@@ -21,15 +21,37 @@ Este quickstart mostra-lhe como embalar um modelo de gestor de recursos Azure (m
 Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
 > [!NOTE]
-> As Especificações do Modelo estão atualmente em pré-visualização. Para a utilizar, tem de instalar a versão mais recente do PowerShell ou do Azure CLI. Para a Azure PowerShell, utilize [a versão 5.0.0 ou mais tarde](/powershell/azure/install-az-ps). Para O Azure CLI, utilize [a versão 2.14.2 ou posterior](/cli/azure/install-azure-cli).
+> As Especificações do Modelo estão atualmente em pré-visualização. Para usá-lo com a Azure PowerShell, tem de instalar [a versão 5.0.0 ou posterior](/powershell/azure/install-az-ps). Para usá-lo com Azure CLI, utilize [a versão 2.14.2 ou posterior](/cli/azure/install-azure-cli).
 
 ## <a name="create-template-spec"></a>Criar especificação de modelo
 
-A especificação do modelo é um tipo de recurso chamado **Microsoft.Resources/templateSpecs**. Para criar a especificação do seu modelo, pode utilizar a Azure PowerShell, Azure CLI ou um modelo ARM. Em todas as opções, você precisa de um modelo ARM que é embalado dentro da especificação do modelo.
+A especificação do modelo é um tipo de recurso chamado **Microsoft.Resources/templateSpecs**. Para criar a especificação do seu modelo, pode utilizar o portal Azure PowerShell, Azure CLI ou um modelo ARM. Em todas as opções, você precisa de um modelo ARM que é embalado dentro da especificação do modelo.
 
 Com PowerShell e CLI, o modelo ARM é passado como parâmetro para o comando. Com o modelo ARM, o modelo ARM para embalar dentro da especificação do modelo está incorporado na definição de especificação do modelo.
 
 Estas opções são mostradas abaixo.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. A partir do topo do ecrã, em **recursos de pesquisa, serviços e docs,** introduza **as especificações do modelo** e, em seguida, selecione as **especificações do modelo**.
+1. Selecione **Criar a especificação do modelo**.
+1. Selecione ou introduza os seguintes valores:
+
+    - **Nome**: insira um nome para a especificação do modelo.  Por exemplo, **armazenamentoSpec**
+    - **Subscrição**: selecione uma subscrição Azure utilizada para criar a especificação do modelo.
+    - **Grupo de Recursos**: selecione **Criar novo** e, em seguida, introduza um novo nome de grupo de recursos.  Por exemplo, **modeloSpecRG**.
+    - **Localização**: selecione uma localização para o grupo de recursos. Por exemplo,  **West US 2**.
+    - **Versão**: introduza uma versão para a especificação do modelo. Por exemplo, **1.0**, ou **v1.0**.
+
+1. Selecione **seguinte: Modelo de edição**.
+1. Substitua o conteúdo do modelo pelo seguinte JSON:
+
+    :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
+
+    Este é o modelo que será embalado dentro da especificação do modelo.
+1. Selecione **Review + Criar**.
+1. Selecione **Criar**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -203,7 +225,23 @@ Estas opções são mostradas abaixo.
 
 ## <a name="deploy-template-spec"></a>Implementar especificação de modelo
 
-Agora pode implementar a especificação do modelo. Implementar a especificação do modelo é como implementar o modelo que contém, exceto que você passa no ID de recurso da especificação do modelo. Utiliza os mesmos comandos de implantação e, se necessário, passa em valores de parâmetro para a especificação do modelo.
+Agora pode implementar a especificação do modelo. Implementar a especificação do modelo é como implementar o modelo que contém, exceto que você passa no ID de recurso da especificação do modelo em Azure PowerShell ou Azure CLI. Utiliza os mesmos comandos de implantação e, se necessário, passa em valores de parâmetro para a especificação do modelo.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. A partir do portal Azure, abra o grupo de recursos que criou no último procedimento.  Por **exemplo, o modeloSPECRG**.
+1. Selecione a especificação do modelo que criou. Por exemplo, **armazenamentoSpec**.
+1. Selecione **Implementar**.
+1. Selecione ou introduza os seguintes valores:
+
+    - **Subscrição**: selecione uma subscrição Azure para criar o recurso.
+    - **Grupo de recursos**: selecione **Criar novo** e, em seguida, insira **o storageRG**.
+    - **Tipo de conta de armazenamento**: selecione **Standard_GRS**.
+
+    Você cria um novo grupo de recursos e implementa o modelo dentro da especificação do modelo para o novo grupo de recursos.
+
+1. Selecione **Rever + criar**.
+1. Selecione **Criar**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

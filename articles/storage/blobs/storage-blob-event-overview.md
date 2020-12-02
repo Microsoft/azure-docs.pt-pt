@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: e67a323e03ae8ac0a0e34df1f7cc1ee4fe0901d3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 00a7a081f29458ae81d8d8ea4dd8f7abef42f78f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95901507"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519013"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagir aos eventos de armazenamento de Blobs
 
@@ -58,7 +58,7 @@ Consulte o artigo [de esquema de eventos de armazenamento Blob](../../event-grid
 
 ## <a name="filtering-events"></a>Eventos de filtragem
 
-Os [eventos blob podem ser filtrados](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) pelo tipo de evento, nome do recipiente ou nome do objeto que foi criado/eliminado. Os filtros em Grade de Evento correspondem ao início ou ao fim do assunto para que os eventos com um sujeito correspondente vão para o assinante.
+Os [eventos blob podem ser filtrados](/cli/azure/eventgrid/event-subscription) pelo tipo de evento, nome do recipiente ou nome do objeto que foi criado/eliminado. Os filtros em Grade de Evento correspondem ao início ou ao fim do assunto para que os eventos com um sujeito correspondente vão para o assinante.
 
 Para saber mais sobre como aplicar filtros, consulte [eventos de filtro para grelha de eventos.](../../event-grid/how-to-filter-events.md)
 
@@ -96,7 +96,7 @@ As aplicações que lidam com eventos de armazenamento Blob devem seguir algumas
 > [!div class="checklist"]
 > * Como várias subscrições podem ser configuradas para encaminhar eventos para o mesmo manipulador de eventos, é importante não assumir que os eventos são de uma determinada fonte, mas para verificar o tópico da mensagem para garantir que ele vem da conta de armazenamento que você está esperando.
 > * Da mesma forma, verifique se o eventType é aquele que está preparado para processar, e não assuma que todos os eventos que receber serão os tipos que espera.
-> * Como as mensagens podem chegar após algum atraso, use os campos etag para entender se as suas informações sobre objetos ainda estão atualizadas. Para aprender a utilizar o campo etag, consulte [a Gestão da concordância no armazenamento blob](../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage). 
+> * Como as mensagens podem chegar após algum atraso, use os campos etag para entender se as suas informações sobre objetos ainda estão atualizadas. Para aprender a utilizar o campo etag, consulte [a Gestão da concordância no armazenamento blob](../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage).
 > * Como as mensagens podem chegar fora de ordem, use os campos de sequenciador para entender a ordem dos eventos em qualquer objeto em particular. O campo do sequenciador é um valor de corda que representa a sequência lógica de eventos para qualquer nome blob em particular. Pode utilizar a comparação de cordas padrão para entender a sequência relativa de dois eventos no mesmo nome blob.
 > * Os eventos de armazenamento garantem pelo menos uma vez a entrega aos assinantes, o que garante que todas as mensagens são outputadas. No entanto, devido a retrações ou disponibilidade de subscrições, podem ocorrer mensagens duplicadas ocasionalmente. Para saber mais sobre a entrega de mensagens e retentou, consulte [a entrega de mensagens de Event Grid e retentou.](../../event-grid/delivery-and-retry.md)
 > * Utilize o campo blobType para entender que tipo de operações são permitidas na bolha e quais os tipos de biblioteca de clientes que deve usar para aceder à bolha. Valores válidos são `BlockBlob` `PageBlob` ou. 

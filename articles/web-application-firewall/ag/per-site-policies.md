@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 3ac0540856d8cb8ccba6f1d176292d634d2dc80f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc15c8deb7aea3256cc0077fbdc3ce1a2492b1b2
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856607"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519030"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Configure as políticas waf por site usando a Azure PowerShell
 
@@ -28,7 +28,7 @@ Neste artigo, vai aprender a:
 * Configurar a rede
 * Criar uma política de WAF
 * Criar um gateway de aplicação com a WAF ativada
-* Aplicar a política da WAF globalmente, por site e por URI (pré-visualização)
+* Aplicar a política da WAF globalmente, por site e per-URI 
 * Criar um conjunto de dimensionamento de máquinas virtuais
 * Criar uma conta de armazenamento e configurar o diagnóstico
 * Testar o gateway de aplicação
@@ -84,7 +84,7 @@ $pip = New-AzPublicIpAddress `
 Nesta secção, você cria recursos que suportam o gateway de aplicação, e finalmente criá-lo e um WAF. Os recursos que criar incluem:
 
 - *Configurações de IP e porta de front-end* - associa a sub-rede que criou anteriormente ao gateway de aplicação e atribui uma porta a utilizar para aceder ao mesmo.
-- *Conjunto predefinido * - todos os gateways de aplicação precisam de ter, pelo menos, um conjunto de servidores de back-end.
+- *Conjunto predefinido* - todos os gateways de aplicação precisam de ter, pelo menos, um conjunto de servidores de back-end.
 - *Serviço de escuta e regra predefinidos* - o serviço de escuta predefinido escuta o tráfego na porta atribuída e a regra predefinida envia o tráfego para o conjunto predefinido.
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Criar as configurações de IP e a porta de front-end
@@ -249,7 +249,7 @@ $appgw = New-AzApplicationGateway `
   -FirewallPolicy $wafPolicyGlobal
 ```
 
-### <a name="apply-a-per-uri-policy-preview"></a>Aplicar uma política per-URI (pré-visualização)
+### <a name="apply-a-per-uri-policy"></a>Aplicar uma política per-URI
 
 Para aplicar uma política per-URI, basta criar uma nova política e aplicá-la à regra do caminho config. 
 

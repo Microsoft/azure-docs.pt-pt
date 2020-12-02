@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: d3e38de191557f0602d1b544c6590018f98405b0
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: f15a739904c28361a60210a0cc4606c7048d0f53
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560796"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518979"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>O que é Azure Web Application Firewall no Gateway de aplicações Azure?
 
@@ -22,9 +22,6 @@ O Azure Web Application Firewall (WAF) no Azure Application Gateway fornece prot
 O WAF on Application Gateway baseia-se no [Conjunto de Regras Fundamentais (CRS)](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.1, 3.0 ou 2.2.9 do Open Web Application Security Project (OWASP). O WAF atualiza automaticamente para incluir proteção contra novas vulnerabilidades, sem necessidade de configuração adicional. 
 
 Todas as funcionalidades da WAF listadas abaixo existem dentro de uma política da WAF. Pode criar várias políticas, e podem ser associadas a um Gateway de Aplicação, a ouvintes individuais ou a regras de encaminhamento baseadas em caminhos numa Gateway de aplicações. Desta forma, pode ter políticas separadas para cada site por trás do seu Gateway de Aplicação, se necessário. Para obter mais informações sobre as políticas da WAF, consulte [Criar uma Política WAF](create-waf-policy-ag.md).
-
-   > [!NOTE]
-   > As políticas per-URI WAF estão em Visualização Pública. Isto significa que esta funcionalidade está sujeita aos Termos Complementares de Utilização da Microsoft. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Diagrama WAF do Gateway de Aplicação](../media/ag-overview/waf1.png)
 
@@ -122,8 +119,8 @@ Se a Proteção de Bot estiver ativada, os pedidos de entrada que correspondam a
 
 O Gateway DE Aplicação WAF pode ser configurado para ser executado nos dois modos seguintes:
 
-* **Modo de deteção** : Monitores e regista todos os alertas de ameaça. Liga os diagnósticos de registo de registo sonoro para o Gateway de Aplicações na secção **De Diagnóstico.** Também deve certificar-se de que o registo WAF é selecionado e ligado. A firewall da aplicação web não bloqueia os pedidos de entrada quando está a funcionar no modo deteção.
-* **Modo de prevenção** : Bloqueia intrusões e ataques que as regras detetam. O intruso recebe uma exceção de "acesso não autorizado 403" e a ligação está fechada. O modo de prevenção regista tais ataques nos registos da WAF.
+* **Modo de deteção**: Monitores e regista todos os alertas de ameaça. Liga os diagnósticos de registo de registo sonoro para o Gateway de Aplicações na secção **De Diagnóstico.** Também deve certificar-se de que o registo WAF é selecionado e ligado. A firewall da aplicação web não bloqueia os pedidos de entrada quando está a funcionar no modo deteção.
+* **Modo de prevenção**: Bloqueia intrusões e ataques que as regras detetam. O intruso recebe uma exceção de "acesso não autorizado 403" e a ligação está fechada. O modo de prevenção regista tais ataques nos registos da WAF.
 
 > [!NOTE]
 > Recomenda-se que execute um WAF recém-implantado no modo deteção durante um curto período de tempo num ambiente de produção. Isto proporciona a oportunidade de obter [registos de firewall](../../application-gateway/application-gateway-diagnostics.md#firewall-log) e atualizar quaisquer exceções ou [regras personalizadas](./custom-waf-rules-overview.md) antes da transição para o modo de Prevenção. Isto pode ajudar a reduzir a ocorrência de tráfego bloqueado inesperado.

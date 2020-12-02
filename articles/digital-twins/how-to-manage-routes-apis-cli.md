@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3db475b5eb0c584f86c8810e9c993e4d5d7b497e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7016abc9d52aa12b497d29f605fe351ee3f6a2dd
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452897"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519118"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)
 
@@ -90,47 +90,59 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 Quando um ponto final não consegue entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um certo número de vezes, pode enviar o evento não entregue para uma conta de armazenamento. Este processo é conhecido como **letra morta.**
 
-Para saber mais sobre letras [*mortas, consulte Conceitos: Rotas do evento.*](concepts-route-events.md#dead-letter-events)
+Para saber mais sobre letras [*mortas, consulte Conceitos: Rotas do evento.*](concepts-route-events.md#dead-letter-events) Para instruções sobre como configurar um ponto final com letras mortas, continue através do resto desta secção.
 
 #### <a name="set-up-storage-resources"></a>Criar recursos de armazenamento
 
-Antes de definir o local da letra morta, deve ter uma [conta de armazenamento](../storage/common/storage-account-create.md?tabs=azure-portal) com um [recipiente](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) configurado na sua conta Azure. Você fornecerá o URL para este recipiente ao criar o ponto final mais tarde.
-A carta morta é fornecida como URL de contentor com um [token SAS](../storage/common/storage-sas-overview.md). Esse símbolo só precisa de `write` permissão para o contentor de destino dentro da conta de armazenamento. O URL totalmente formado será no formato de: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+Antes de definir o local da letra morta, deve ter uma [conta de armazenamento](../storage/common/storage-account-create.md?tabs=azure-portal) com um [recipiente](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) configurado na sua conta Azure. 
+
+Você fornecerá o URL para este recipiente ao criar o ponto final mais tarde. O local da carta morta será fornecido ao ponto final como URL de contentor com um [símbolo SAS](../storage/common/storage-sas-overview.md). Esse símbolo precisa de `write` permissão para o contentor de destino dentro da conta de armazenamento. O URL totalmente formado será no formato de: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>` .
 
 Siga os passos abaixo para configurar estes recursos de armazenamento na sua conta Azure, para preparar a configuração da ligação de ponto final na secção seguinte.
 
-1. Siga [este artigo](../storage/common/storage-account-create.md?tabs=azure-portal) para criar uma conta de armazenamento e guarde o nome da conta de armazenamento para usá-lo mais tarde.
-2. Crie um recipiente utilizando [este artigo](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) e guarde o nome do recipiente para o utilizar mais tarde, ao configurar a ligação entre o recipiente e o ponto final.
-3. Em seguida, crie um símbolo SAS para a sua conta de armazenamento. Comece por navegar na sua conta de armazenamento no [portal Azure](https://ms.portal.azure.com/#home) (pode encontrá-la pelo nome com a barra de pesquisa do portal).
-4. Na página da conta de armazenamento, escolha o link _de assinatura de acesso partilhado_ na barra de navegação esquerda para selecionar as permissões certas para gerar token SAS.
-5. Para _serviços permitidos_ e _tipos de recursos permitidos,_ selecione as definições que quiser. Terá de selecionar pelo menos uma caixa em cada categoria. Para permissões permitidas, escolha **Escrever** (também pode selecionar outras permissões se quiser).
-Defina as definições restantes como quiser.
-6. Em seguida, selecione o _botão de cadeia Generate SAS e de ligação_ para gerar o token SAS. Isto irá gerar vários valores de cadeia sas e de ligação na parte inferior da mesma página, por baixo das seleções de definição. Desloque-se para baixo para ver os valores e use a cópia para o ícone de área de transferência para copiar o valor **simbólico SAS.** Guarde-o para usar mais tarde.
+1. Siga os passos na [*Criar uma conta de armazenamento*](../storage/common/storage-account-create.md?tabs=azure-portal) para criar uma conta de **armazenamento** na sua subscrição Azure. Tome nota do nome da conta de armazenamento para usá-lo mais tarde.
+2. Siga os passos na [*Criar um recipiente*](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) para criar um **recipiente** dentro da nova conta de armazenamento. Tome nota do nome do recipiente para usá-lo mais tarde.
+3. Em seguida, crie um **token SAS para a** sua conta de armazenamento que o ponto final pode usar para aceder ao mesmo. Comece por navegar na sua conta de armazenamento no [portal Azure](https://ms.portal.azure.com/#home) (pode encontrá-la pelo nome com a barra de pesquisa do portal).
+4. Na página da conta de armazenamento, escolha o link _de assinatura de acesso Partilhado_ na barra de navegação esquerda para começar a configurar o token SAS.
 
-:::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token.png" alt-text="Página de conta de armazenamento no portal Azure mostrando toda a seleção de definição para gerar um token SAS." lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token.png":::
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token-1.png" alt-text="Página de conta de armazenamento no portal Azure" lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token-1.png":::
 
-:::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Copiar o símbolo da SAS para usar no segredo da letra morta." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
+1. Na *página* de assinatura de acesso Partilhado , nos *serviços permitidos* e *tipos de recursos permitidos,* selecione as definições que quiser. Terá de selecionar pelo menos uma caixa em cada categoria. Sob *permissões Permitidas,* escolha **Escrever** (também pode selecionar outras permissões se quiser).
+1. Defina os valores que quiser para as definições restantes.
+1. Quando terminar, selecione o _botão de cadeia Generate SAS e de ligação_ para gerar o token SAS. 
 
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token-2.png" alt-text="Página de conta de armazenamento no portal Azure mostrando toda a seleção de definição para gerar um token SAS, e realçando o botão 'Gerar SAS e cadeia de conexão'" lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token-2.png"::: 
+
+1. Isto irá gerar vários valores de cadeia sas e de ligação na parte inferior da mesma página, por baixo das seleções de definição. Desloque-se para baixo para ver os valores e use o ícone *copy to clipboard* para copiar o valor **simbólico SAS.** Guarde-o para usar mais tarde.
+
+    :::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Copiar o símbolo da SAS para usar no segredo da letra morta." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
+    
 #### <a name="configure-the-endpoint"></a>Configure o ponto final
 
-Os pontos finais de letra morta são criados usando APIs do Gestor de Recursos Azure. Ao criar um ponto final, utilize a [documentação APIs do Gestor de Recursos Azure](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para preencher os parâmetros de pedido necessários. Além disso, adicione o `deadLetterSecret` objeto de propriedades no **corpo** do pedido, que contém um URL de contentor e um símbolo SAS para a sua conta de armazenamento.
+Para criar um ponto final que tenha a inscrição ativada, terá de criar o ponto final utilizando as APIs do Gestor de Recursos Azure. 
+
+1. Em primeiro lugar, utilize a [documentação apis do Gestor de Recursos Azure](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para configurar um pedido de criação de um ponto final e preencher os parâmetros de pedido necessários. 
+
+1. Em seguida, adicione um `deadLetterSecret` campo ao objeto de propriedades no **corpo** do pedido. Deite este valor de acordo com o modelo abaixo, que cria um URL a partir do nome da conta de armazenamento, nome do recipiente e valor simbólico SAS que recolheu na [secção anterior](#set-up-storage-resources).
       
-```json
-{
-  "properties": {
-    "endpointType": "EventGrid",
-    "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
-    "accessKey1": "xxxxxxxxxxx",
-    "accessKey2": "xxxxxxxxxxx",
-    "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
-  }
-}
-```
+    ```json
+    {
+      "properties": {
+        "endpointType": "EventGrid",
+        "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
+        "accessKey1": "xxxxxxxxxxx",
+        "accessKey2": "xxxxxxxxxxx",
+        "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
+      }
+    }
+    ```
+1. Envie o pedido para criar o ponto final.
+
 Para obter mais informações sobre a estruturação deste pedido, consulte a documentação API do Azure Digital Twins REST: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
 ### <a name="message-storage-schema"></a>Esquema de armazenamento de mensagens
 
-As mensagens com letras mortas serão armazenadas no seguinte formato na sua conta de armazenamento:
+Uma vez configurado o ponto final com letras mortas, as mensagens com letras mortas serão armazenadas no seguinte formato na sua conta de armazenamento:
 
 `{container}/{endpointName}/{year}/{month}/{day}/{hour}/{eventId}.json`
 
