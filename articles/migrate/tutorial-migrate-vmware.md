@@ -4,12 +4,12 @@ description: Aprenda a executar uma migração sem agente de VMware VMs com Azur
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 7eb918a844b1cd542664ac7e5aec2736ceba0e6f
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 202886bc0a7738f8211cfea6d90a380c7bac82b8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301633"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492952"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrar VMware VMs para Azure (sem agente)
 
@@ -21,7 +21,7 @@ Este tutorial é o terceiro de uma série que demonstra como avaliar e migrar VM
 > Os tutoriais mostram-lhe o caminho de implantação mais simples para um cenário para que possa configurar rapidamente uma prova de conceito. Os tutoriais utilizam opções predefinidas sempre que possível e não mostram todas as definições e caminhos possíveis. 
 
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Adicione a ferramenta Azure Migration:Server Migration.
@@ -38,7 +38,7 @@ Antes de começar este tutorial, tem de:
 
 1. [Complete o primeiro tutorial](./tutorial-discover-vmware.md) para preparar Azure e VMware para migração.
 2. Recomendamos que complete o segundo tutorial para [avaliar VMware VMs](./tutorial-assess-vmware-azure-vm.md) antes de os migrar para Azure, mas não é preciso. 
-3. Vá ao projeto já criado ou [crie um novo projeto](https://docs.microsoft.com/azure/migrate/create-manage-projects)
+3. Vá ao projeto já criado ou [crie um novo projeto](./create-manage-projects.md)
 4. Verifique permissões para a sua conta Azure - A sua conta Azure necessita de permissões para criar um VM e escreva para um disco gerido azure.
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Configurar o aparelho Azure Migrate
@@ -201,6 +201,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 -  Considere implementar o [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para monitorizar a utilização e as despesas do recurso.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

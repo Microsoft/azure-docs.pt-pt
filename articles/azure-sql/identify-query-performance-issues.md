@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: troubleshooting
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: ce5bf86073b2c478108e264010bb3c213c214368
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6ea17f04538e3444b1baddaa8862add2cfbbaa9c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791754"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493428"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipos detetáveis de estrangulamento de desempenho de consultas na Base de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -27,7 +27,7 @@ Pode utilizar insights [inteligentes](database/intelligent-insights-troubleshoot
 
 ![Estados de carga de trabalho](./media/identify-query-performance-issues/workload-states.png)
 
-**Problemas relacionados com a execução** : Os problemas relacionados com a execução estão geralmente relacionados com problemas de compilação que resultam num plano de consulta sub-ideais ou problemas de execução relacionados com recursos insuficientes ou sobreusados.
+**Problemas relacionados com a execução**: Os problemas relacionados com a execução estão geralmente relacionados com problemas de compilação que resultam num plano de consulta sub-ideais ou problemas de execução relacionados com recursos insuficientes ou sobreusados.
 **Problemas relacionados com** a espera : Os problemas relacionados com a espera estão geralmente relacionados com:
 
 - Fechaduras (bloqueio)
@@ -68,7 +68,7 @@ Várias soluções alternativas podem atenuar problemas da PSP. Cada solução t
 
 - Utilize a indicação de consulta [RECOMPILE](/sql/t-sql/queries/hints-transact-sql-query) em cada execução de consulta. Esta solução de soluções comercia o tempo de compilação e o aumento da CPU para uma melhor qualidade do plano. A `RECOMPILE` opção muitas vezes não é possível para cargas de trabalho que requerem uma produção elevada.
 - Utilize a sugestão de consulta [OPTION (OTIMIZE FOR...)](/sql/t-sql/queries/hints-transact-sql-query) para anular o valor do parâmetro real com um valor de parâmetro típico que produz um plano suficientemente bom para a maioria das possibilidades de valor dos parâmetros. Esta opção requer uma boa compreensão dos valores ótimos dos parâmetros e das características do plano associados.
-- Utilize a sugestão de consulta [OPÇÃO (OTIMIZE FOR UNKNOWN)](/sql/t-sql/queries/hints-transact-sql-query) para anular o valor real do parâmetro e, em vez disso, utilizar a média do vetor de densidade. Também pode fazê-lo capturando os valores dos parâmetros de entrada em variáveis locais e, em seguida, usando as variáveis locais dentro dos predicados em vez de usar os próprios parâmetros. Para esta correção, a densidade média deve ser *suficientemente boa* .
+- Utilize a sugestão de consulta [OPÇÃO (OTIMIZE FOR UNKNOWN)](/sql/t-sql/queries/hints-transact-sql-query) para anular o valor real do parâmetro e, em vez disso, utilizar a média do vetor de densidade. Também pode fazê-lo capturando os valores dos parâmetros de entrada em variáveis locais e, em seguida, usando as variáveis locais dentro dos predicados em vez de usar os próprios parâmetros. Para esta correção, a densidade média deve ser *suficientemente boa*.
 - Desative o cheiro do parâmetro inteiramente utilizando a sugestão de consulta [DISABLE_PARAMETER_SNIFFING.](/sql/t-sql/queries/hints-transact-sql-query)
 - Utilize a sugestão de consulta [KEEPFIXEDPLAN](/sql/t-sql/queries/hints-transact-sql-query) para evitar recompilações em cache. Esta solução pressupõe que o plano comum já é o que está em cache. Também pode desativar atualizações de estatísticas automáticas para reduzir as hipóteses de o bom plano ser despejado e um novo plano mau será compilado.
 - Force o plano utilizando explicitamente a sugestão [de plano de UTILIZAÇÃO](/sql/t-sql/queries/hints-transact-sql-query) reescrevendo a consulta e adicionando a sugestão no texto da consulta. Ou defina um plano específico utilizando a Loja de Consultas ou permitindo a [sintonização automática](../azure-sql/database/automatic-tuning-overview.md).
@@ -137,13 +137,13 @@ Se usar uma sugestão RECOMPILE, um plano não será em cache.
 
 Uma recompilação (ou compilação fresca após o despejo de cache) ainda pode resultar na geração de um plano de execução de consultas idêntico ao original. Quando o plano muda do plano anterior ou original, estas explicações são prováveis:
 
-- **Alterado design físico** : Por exemplo, os índices recém-criados cobrem mais eficazmente os requisitos de uma consulta. Os novos índices podem ser usados numa nova compilação se o otimizador de consulta decidir que usar esse novo índice é mais ideal do que usar a estrutura de dados que foi originalmente selecionada para a primeira versão da execução de consultas. Quaisquer alterações físicas nos objetos referenciados podem resultar numa nova escolha do plano no momento da compilação.
+- **Alterado design físico**: Por exemplo, os índices recém-criados cobrem mais eficazmente os requisitos de uma consulta. Os novos índices podem ser usados numa nova compilação se o otimizador de consulta decidir que usar esse novo índice é mais ideal do que usar a estrutura de dados que foi originalmente selecionada para a primeira versão da execução de consultas. Quaisquer alterações físicas nos objetos referenciados podem resultar numa nova escolha do plano no momento da compilação.
 
 - **Diferenças de recursos** do servidor : Quando um plano de um sistema difere do plano noutro sistema, a disponibilidade de recursos, como o número de processadores disponíveis, pode influenciar o plano gerado. Por exemplo, se um sistema tiver mais processadores, poderá ser escolhido um plano paralelo.
 
-- **Estatísticas diferentes** : As estatísticas associadas aos objetos referenciados podem ter mudado ou podem ser materialmente diferentes das estatísticas do sistema original. Se as estatísticas mudarem e uma recompilação acontecer, o otimizador de consulta utiliza as estatísticas a partir do momento em que mudaram. As distribuições e frequências de dados revistas das estatísticas podem diferir das da compilação original. Estas mudanças são usadas para criar estimativas de cardinalidade. (As *estimativas da Cardinalidade* são o número de linhas que se espera que fluam através da árvore de consulta lógica.) Alterações nas estimativas de cardinaldade podem levá-lo a escolher diferentes operadores físicos e ordens de operações associadas. Mesmo pequenas alterações nas estatísticas podem resultar numa alteração do plano de execução de consultas.
+- **Estatísticas diferentes**: As estatísticas associadas aos objetos referenciados podem ter mudado ou podem ser materialmente diferentes das estatísticas do sistema original. Se as estatísticas mudarem e uma recompilação acontecer, o otimizador de consulta utiliza as estatísticas a partir do momento em que mudaram. As distribuições e frequências de dados revistas das estatísticas podem diferir das da compilação original. Estas mudanças são usadas para criar estimativas de cardinalidade. (As *estimativas da Cardinalidade* são o número de linhas que se espera que fluam através da árvore de consulta lógica.) Alterações nas estimativas de cardinaldade podem levá-lo a escolher diferentes operadores físicos e ordens de operações associadas. Mesmo pequenas alterações nas estatísticas podem resultar numa alteração do plano de execução de consultas.
 
-- Alterar o **nível de compatibilidade da base de dados ou a versão do estimador cardinalício** : As alterações ao nível de compatibilidade da base de dados podem permitir novas estratégias e funcionalidades que possam resultar num plano de execução de consultas diferente. Para além do nível de compatibilidade da base de dados, um bloco de rastreios desativado ou ativado 4199 ou um estado alterado da configuração de âmbito de base de dados QUERY_OPTIMIZER_HOTFIXES também podem influenciar as escolhas do plano de execução de consultas no momento de compilação. As bandeiras de rastreio 9481 (legado de força CE) e 2312 (padrão de força CE) também afetam o plano.
+- Alterar o **nível de compatibilidade da base de dados ou a versão do estimador cardinalício**: As alterações ao nível de compatibilidade da base de dados podem permitir novas estratégias e funcionalidades que possam resultar num plano de execução de consultas diferente. Para além do nível de compatibilidade da base de dados, um bloco de rastreios desativado ou ativado 4199 ou um estado alterado da configuração de âmbito de base de dados QUERY_OPTIMIZER_HOTFIXES também podem influenciar as escolhas do plano de execução de consultas no momento de compilação. As bandeiras de rastreio 9481 (legado de força CE) e 2312 (padrão de força CE) também afetam o plano.
 
 ## <a name="resource-limits-issues"></a>Questões de limites de recursos
 
@@ -173,11 +173,11 @@ Em resumo, se o plano de execução de consulta não executou de forma diferente
 
 Nem sempre é fácil identificar uma mudança de volume de trabalho que está a conduzir um problema de CPU. Considere estes fatores:
 
-- **Alteração da utilização do recurso** : Por exemplo, considere um cenário em que o uso do CPU aumentou para 80% durante um longo período de tempo. Só o uso do CPU não significa que o volume de carga de trabalho tenha mudado. As regressões no plano de execução de consultas e as alterações na distribuição de dados também podem contribuir para uma maior utilização dos recursos, mesmo que a aplicação execute a mesma carga de trabalho.
+- **Alteração da utilização do recurso**: Por exemplo, considere um cenário em que o uso do CPU aumentou para 80% durante um longo período de tempo. Só o uso do CPU não significa que o volume de carga de trabalho tenha mudado. As regressões no plano de execução de consultas e as alterações na distribuição de dados também podem contribuir para uma maior utilização dos recursos, mesmo que a aplicação execute a mesma carga de trabalho.
 
 - **O aparecimento de uma nova consulta:** Uma aplicação pode conduzir um novo conjunto de consultas em diferentes momentos.
 
-- **Aumento ou diminuição do número de pedidos** : Este cenário é a medida mais óbvia de uma carga de trabalho. O número de consultas nem sempre corresponde a uma utilização mais de recursos. No entanto, esta métrica ainda é um sinal significativo, assumindo que outros fatores são inalterados.
+- **Aumento ou diminuição do número de pedidos**: Este cenário é a medida mais óbvia de uma carga de trabalho. O número de consultas nem sempre corresponde a uma utilização mais de recursos. No entanto, esta métrica ainda é um sinal significativo, assumindo que outros fatores são inalterados.
 
 Utilize insights inteligentes para detetar [aumentos de carga de trabalho](database/intelligent-insights-troubleshoot-performance.md#workload-increase) e planear [regressões](database/intelligent-insights-troubleshoot-performance.md#plan-regression).
 

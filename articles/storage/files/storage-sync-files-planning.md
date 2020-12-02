@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 1b29565e18b2da2087cc15966b30b433a42fb603
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 32aa94c986c90b7bd46b9f5561021c34c0f142af
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629806"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492097"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 
@@ -30,16 +30,16 @@ ms.locfileid: "94629806"
 
 Os ficheiros serão armazenados na nuvem nas [ações de ficheiros Azure](storage-files-introduction.md). As ações de ficheiros Azure podem ser utilizadas de duas formas: montando diretamente estas ações de ficheiros Azure sem servidor (SMB) ou caching Azure file shares on-in usando Azure File Sync. Qual a opção de implementação que escolhe altera os aspetos que precisa de considerar como planeia para a sua implementação. 
 
-- **Montagem direta de uma partilha de ficheiros Azure** : Uma vez que os Ficheiros Azure fornecem acesso SMB, pode montar ações de ficheiros Azure no local ou na nuvem utilizando o cliente SMB padrão disponível no Windows, macOS e Linux. Como as ações de ficheiros Azure são sem servidor, a implementação para cenários de produção não requer a gestão de um servidor de ficheiros ou de um dispositivo NAS. Isto significa que não tem de aplicar patches de software ou trocar discos físicos. 
+- **Montagem direta de uma partilha de ficheiros Azure**: Uma vez que os Ficheiros Azure fornecem acesso SMB, pode montar ações de ficheiros Azure no local ou na nuvem utilizando o cliente SMB padrão disponível no Windows, macOS e Linux. Como as ações de ficheiros Azure são sem servidor, a implementação para cenários de produção não requer a gestão de um servidor de ficheiros ou de um dispositivo NAS. Isto significa que não tem de aplicar patches de software ou trocar discos físicos. 
 
-- **A partilha de ficheiros Cache Azure no local com o Azure File Sync** : O Azure File Sync permite centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma um Servidor Windows no local (ou nuvem) numa cache rápida da sua partilha de ficheiros Azure. 
+- **A partilha de ficheiros Cache Azure no local com o Azure File Sync**: O Azure File Sync permite centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma um Servidor Windows no local (ou nuvem) numa cache rápida da sua partilha de ficheiros Azure. 
 
 ## <a name="management-concepts"></a>Conceitos de gestão
 Uma implementação de Azure File Sync tem três objetos de gestão fundamentais:
 
-- **Azure file share** : Uma partilha de ficheiros Azure é uma partilha de ficheiros em nuvem sem servidor, que fornece o *ponto final* em nuvem de uma relação sincronizada de sincronização de ficheiros Azure. Os ficheiros de uma partilha de ficheiros Azure podem ser acedidos diretamente com o protocolo SMB ou FileREST, embora o incentivemos a aceder principalmente aos ficheiros através da cache do Servidor do Windows quando a partilha de ficheiros Azure estiver a ser utilizada com o Azure File Sync. Isto porque o Azure Files hoje em dia carece de um mecanismo de deteção de alterações eficiente como o Windows Server tem, pelo que as alterações na partilha de ficheiros Azure levarão tempo a propagar-se aos pontos finais do servidor.
-- **Ponto final do servidor** : O caminho no Servidor do Windows que está a ser sincronizado com uma partilha de ficheiros Azure. Esta pode ser uma pasta específica num volume ou na raiz do volume. Vários pontos finais do servidor podem existir no mesmo volume se os seus espaços de nome não se sobreporem.
-- **Sync group** : O objeto que define a relação de sincronização entre um **ponto final de nuvem** ou partilha de ficheiros Azure e um ponto final do servidor. Os pontos finais num grupo de sincronização são mantidos em sincronia entre si. Se, por exemplo, tiver dois conjuntos distintos de ficheiros que pretende gerir com o Azure File Sync, criará dois grupos de sincronização e adicionaria diferentes pontos finais a cada grupo de sincronização.
+- **Azure file share**: Uma partilha de ficheiros Azure é uma partilha de ficheiros em nuvem sem servidor, que fornece o *ponto final* em nuvem de uma relação sincronizada de sincronização de ficheiros Azure. Os ficheiros de uma partilha de ficheiros Azure podem ser acedidos diretamente com o protocolo SMB ou FileREST, embora o incentivemos a aceder principalmente aos ficheiros através da cache do Servidor do Windows quando a partilha de ficheiros Azure estiver a ser utilizada com o Azure File Sync. Isto porque o Azure Files hoje em dia carece de um mecanismo de deteção de alterações eficiente como o Windows Server tem, pelo que as alterações na partilha de ficheiros Azure levarão tempo a propagar-se aos pontos finais do servidor.
+- **Ponto final do servidor**: O caminho no Servidor do Windows que está a ser sincronizado com uma partilha de ficheiros Azure. Esta pode ser uma pasta específica num volume ou na raiz do volume. Vários pontos finais do servidor podem existir no mesmo volume se os seus espaços de nome não se sobreporem.
+- **Sync group**: O objeto que define a relação de sincronização entre um **ponto final de nuvem** ou partilha de ficheiros Azure e um ponto final do servidor. Os pontos finais num grupo de sincronização são mantidos em sincronia entre si. Se, por exemplo, tiver dois conjuntos distintos de ficheiros que pretende gerir com o Azure File Sync, criará dois grupos de sincronização e adicionaria diferentes pontos finais a cada grupo de sincronização.
 
 ### <a name="azure-file-share-management-concepts"></a>Conceitos de gestão de ações de arquivo Azure
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
@@ -213,9 +213,9 @@ O Azure File Sync não suporta a desduplicação de dados e o tiering de nuvem n
 ### <a name="distributed-file-system-dfs"></a>Sistema de ficheiros distribuídos (DFS)
 A Azure File Sync suporta o interop com os espaços de nomes DFS (DFS-N) e a replicação dfs (DFS-R).
 
-**DFS Namespaces (DFS-N)** : O Azure File Sync está totalmente suportado em servidores DFS-N. Pode instalar o agente Azure File Sync num ou mais membros DFS-N para sincronizar dados entre os pontos finais do servidor e o ponto final da nuvem. Para obter mais informações, consulte [a visão geral do DFS Namespaces](/windows-server/storage/dfs-namespaces/dfs-overview).
+**DFS Namespaces (DFS-N)**: O Azure File Sync está totalmente suportado em servidores DFS-N. Pode instalar o agente Azure File Sync num ou mais membros DFS-N para sincronizar dados entre os pontos finais do servidor e o ponto final da nuvem. Para obter mais informações, consulte [a visão geral do DFS Namespaces](/windows-server/storage/dfs-namespaces/dfs-overview).
  
-**Replicação DFS (DFS-R)** : Uma vez que DFS-R e Azure File Sync são ambas soluções de replicação, na maioria dos casos, recomendamos a substituição dfs-R por Azure File Sync. Existem, no entanto, vários cenários em que gostaria de utilizar o DFS-R e o Azure File Sync juntos:
+**Replicação DFS (DFS-R)**: Uma vez que DFS-R e Azure File Sync são ambas soluções de replicação, na maioria dos casos, recomendamos a substituição dfs-R por Azure File Sync. Existem, no entanto, vários cenários em que gostaria de utilizar o DFS-R e o Azure File Sync juntos:
 
 - Está a migrar de uma implementação DFS-R para uma implementação de Azure File Sync. Para obter mais informações, consulte [a implementação de uma replicação DFS (DFS-R) para Azure File Sync](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
 - Nem todos os servidores no local que necessitem de uma cópia dos seus dados de ficheiros podem ser ligados diretamente à internet.
@@ -368,7 +368,7 @@ As soluções antivírus internas da Microsoft, o Windows Defender e o System Ce
 > Os fornecedores antivírus podem verificar a compatibilidade entre o seu produto e o Azure File Sync, utilizando o [Azure File Sync Antivirus Compatibilidade Test Suite](https://www.microsoft.com/download/details.aspx?id=58322), que está disponível para download no Microsoft Download Center.
 
 ## <a name="backup"></a>Backup 
-Se o tiering da nuvem estiver ativado, não devem ser utilizadas soluções que recuem diretamente no ponto final do servidor ou num VM no qual se encontra o ponto final do servidor. O tiering em nuvem faz com que apenas um subconjunto dos seus dados seja armazenado no ponto final do servidor, com o conjunto de dados completo a residir na sua partilha de ficheiros Azure. Dependendo da solução de backup utilizada, os ficheiros hierárquicos serão ignorados e não apoiados (porque têm o FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS conjunto de atributos), ou serão chamados ao disco, resultando em elevadas cargas de saída. Recomendamos a utilização de uma solução de backup em nuvem para fazer backup diretamente na partilha de ficheiros Azure. Para obter mais informações, consulte [a cópia de segurança da partilha de ficheiros Azure](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) ou contacte o seu fornecedor de backup para ver se suportam o backup das ações de ficheiros Azure.
+Se o tiering da nuvem estiver ativado, não devem ser utilizadas soluções que recuem diretamente no ponto final do servidor ou num VM no qual se encontra o ponto final do servidor. O tiering em nuvem faz com que apenas um subconjunto dos seus dados seja armazenado no ponto final do servidor, com o conjunto de dados completo a residir na sua partilha de ficheiros Azure. Dependendo da solução de backup utilizada, os ficheiros hierárquicos serão ignorados e não apoiados (porque têm o FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS conjunto de atributos), ou serão chamados ao disco, resultando em elevadas cargas de saída. Recomendamos a utilização de uma solução de backup em nuvem para fazer backup diretamente na partilha de ficheiros Azure. Para obter mais informações, consulte [a cópia de segurança da partilha de ficheiros Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) ou contacte o seu fornecedor de backup para ver se suportam o backup das ações de ficheiros Azure.
 
 Se preferir utilizar uma solução de backup no local, as cópias de segurança devem ser realizadas num servidor do grupo de sincronização que tenha o tiering da nuvem desativado. Ao efetuar uma restauração, utilize as opções de restauro de nível de volume ou de nível de ficheiro. Os ficheiros restaurados utilizando a opção de restauro do nível de ficheiro serão sincronizados em todos os pontos finais do grupo de sincronização e os ficheiros existentes serão substituídos pela versão restaurada a partir da cópia de segurança.  As restaurações ao nível do volume não substituirão as versões de ficheiros mais recentes na partilha de ficheiros Azure ou noutros pontos finais do servidor.
 

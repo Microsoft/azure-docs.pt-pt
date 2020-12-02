@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/18/2020
-ms.openlocfilehash: 42e15da2fd31d163bc8822a347101704b27e1222
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 000ab3e3911c65554622a48d34abda79d60411df
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913421"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492391"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-portal"></a>Quickstart: Criar uma base de dados Azure para servidor PostgreSQL utilizando o portal Azure
 
@@ -44,8 +44,8 @@ Vá ao [portal Azure](https://portal.azure.com/) para criar uma base de dados Az
    |Subscrição|seu nome de assinatura|selecione a subscrição Azure desejada.|
    |Grupo de recursos|*grupo myresource*| Um novo ou um grupo de recursos existente da sua subscrição.|
    |Nome do servidor |*mydemoserver*|Um nome exclusivo que identifique a sua Base de Dados do Azure para o servidor PostgreSQL. O nome de domínio *postgres.database.azure.com* é anexado ao nome do servidor que fornece. O servidor só pode conter letras minúsculas, números e o caráter de hífen (-). Deve conter 3 a 63 caracteres.|
-   |Origem de dados | Nenhuma | Selecione **Nenhum** para criar um novo servidor de raiz. Selecione **Backup** apenas se estiver a restaurar a partir de um geo-backup de um servidor existente.|
-   |Nome de utilizador de administrador |*myadmin*| Insira o nome de utilizador do seu administrador de serviço. Não pode começar com **pg_** e estes valores não são permitidos: **azure_superuser** , **azure_pg_admin,** **administrador,** **administrador,** **raiz,** **hóspede,** ou **público.**|
+   |Origem de dados | Nenhum | Selecione **Nenhum** para criar um novo servidor de raiz. Selecione **Backup** apenas se estiver a restaurar a partir de um geo-backup de um servidor existente.|
+   |Nome de utilizador de administrador |*myadmin*| Insira o nome de utilizador do seu administrador de serviço. Não pode começar com **pg_** e estes valores não são permitidos: **azure_superuser**, **azure_pg_admin,** **administrador,** **administrador,** **raiz,** **hóspede,** ou **público.**|
    |Palavra-passe |a sua palavra-passe| Uma nova palavra-passe para o utilizador de administração do servidor. Deve conter 8 a 128 caracteres de três das seguintes categorias: letras maiúsculas inglesas, letras minúsculas inglesas, números (0 a 9) e caracteres não alfanuméricos (por exemplo, !, $, #, %).|
    |Localização|sua localização desejada| Selecione uma localização da lista de dropdown.|
    |Versão|A versão principal mais recente| A versão principal mais recente do PostgreSQL, a não ser que tenha requisitos específicos.|
@@ -65,7 +65,7 @@ Vá ao [portal Azure](https://portal.azure.com/) para criar uma base de dados Az
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/postgres-doc-feedback)
 
 ## <a name="configure-a-firewall-rule"></a>Configurar uma regra de firewall
-Por predefinição, o servidor que cria não é acessível ao público. Tem de dar permissões ao seu endereço IP. Aceda ao recurso do seu servidor no portal Azure e selecione a segurança de **ligação** do menu do lado esquerdo para o seu recurso de servidor. Se não sabe como encontrar o seu recurso, consulte os [recursos abertos.](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources)
+Por predefinição, o servidor que cria não é acessível ao público. Tem de dar permissões ao seu endereço IP. Aceda ao recurso do seu servidor no portal Azure e selecione a segurança de **ligação** do menu do lado esquerdo para o seu recurso de servidor. Se não sabe como encontrar o seu recurso, consulte os [recursos abertos.](../azure-resource-manager/management/manage-resources-portal.md#open-resources)
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstart-create-database-portal/add-current-ip-firewall.png" alt-text="Screenshot que mostra regras de firewall para segurança de ligação.":::
@@ -134,7 +134,7 @@ Você pode usar [psql](http://postgresguide.com/utilities/psql.html) ou [pgAdmin
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/postgres-doc-feedback)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Criou com sucesso uma Base de Dados Azure para servidor PostgreSQL num grupo de recursos. Se não espera precisar destes recursos no futuro, pode eliminá-los eliminando o grupo de recursos ou o servidor PostgreSQL.
 
 Para eliminar o grupo de recursos:

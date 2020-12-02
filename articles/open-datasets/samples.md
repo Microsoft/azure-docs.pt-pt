@@ -7,12 +7,12 @@ ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/06/2020
-ms.openlocfilehash: 470ed0ea4b129c12041007487b61929843b1de34
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: eddfcc36c6440ce155d7b9d81031db449cfa8d2b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654801"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492442"
 ---
 # <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Exemplo Os cadernos jupyter mostram como enriquecer dados com conjuntos de dados abertos 
 O exemplo Os cadernos jupyter para Azure Open Datasets mostram-lhe como carregar conjuntos de dados abertos e usá-los para enriquecer dados de demonstração. As técnicas incluem o uso de Apache Spark e Pandas para processar dados.
@@ -38,9 +38,9 @@ O exemplo Os cadernos jupyter para Azure Open Datasets mostram-lhe como carregar
 |[Dados da viagem de táxi enriquecidos com dados meteorológicos - Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/04-nyc-taxi-join-weather-in-pandas.ipynb) | Carregue os dados do táxi verde nyc (mais de 1 mês) e enriqueça-os com dados meteorológicos num dataframe pandas. Este exemplo sobrepõe-se ao método `get_pandas_limit` e equilibra o desempenho da carga de dados com a quantidade de dados.|
 |[Dados da viagem de táxi enriquecidos com dados meteorológicos – Faísca](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/03-nyc-taxi-join-weather-in-spark.ipynb) | Carregue os dados do táxi verde nyc e enriqueça-os com dados meteorológicos, no dataframe spark.  |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Tutorial: Modelação de regressão com machine learning automatizado e um conjunto de dados aberto](../machine-learning/tutorial-auto-train-models.md?context=azure%252fopen-datasets%252fcontext%252fopen-datasets-context)
+* [Tutorial: Modelação de regressão com machine learning automatizado e um conjunto de dados aberto](../machine-learning/tutorial-auto-train-models.md?context=azure%2fopen-datasets%2fcontext%2fopen-datasets-context)
 * [Python SDK para conjuntos de dados abertos](/python/api/azureml-opendatasets/azureml.opendatasets)
 * [Catálogo do Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/)
 * [Criar conjunto de dados de aprendizagem de máquinas Azure a partir do Conjunto de Dados Abertos](how-to-create-azure-machine-learning-dataset-from-open-dataset.md)

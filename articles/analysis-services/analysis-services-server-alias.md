@@ -4,15 +4,15 @@ description: Saiba como criar pseudónimos de nome do servidor Azure Analysis Se
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 753ac449418b78fe02640f1b70b94b5b3d7f2be5
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 7fb52a0f03fa1f9ab9bc0c6a2c27adf70b4bf2ca
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019040"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491235"
 ---
 # <a name="alias-server-names"></a>Nomes do servidor de pseudónimos
 
@@ -37,7 +37,7 @@ Ao ligar a partir de um cliente, o nome do servidor de pseudónimos é introduzi
 
 Para criar um ponto final de pseudónimo, pode utilizar qualquer método que devolva um nome de servidor de Serviços de Análise Azure válido. Por exemplo, uma referência a um ficheiro no Azure Blob Storage que contém o nome do servidor real, ou criar e publicar uma aplicação ASP.NET Web Forms.
 
-Neste exemplo, uma aplicação de formulários web ASP.NET é criada em Visual Studio. A referência da página e o controlo do utilizador são removidos da página Default.aspx. Os conteúdos de Default.aspx são simplesmente a seguinte diretiva Page:
+Neste exemplo, uma aplicação de formulários web ASP.NET é criada em Visual Studio. A referência da página e o controlo do utilizador são removidos da página Padrão.aspx. O conteúdo do Predefinido.aspx são simplesmente a seguinte diretiva page:
 
 ```
 <%@ Page Title="Home Page" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FriendlyRedirect._Default" %>
@@ -54,5 +54,5 @@ protected void Page_Load(object sender, EventArgs e)
 
 ## <a name="see-also"></a>Ver também
 
-[Bibliotecas de clientes](/analysis-services/client-libraries?view=azure-analysis-services-current)   
+[Bibliotecas de clientes](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)   
 [Ligar a partir do Power BI Desktop](analysis-services-connect-pbi.md)

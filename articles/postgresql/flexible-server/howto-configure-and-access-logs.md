@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 319b7a40a87d29454b22a26088df313ef524dc56
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3b54fe1ffd49c12db82a038ad449190a0049133f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545825"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492357"
 ---
 # <a name="configure-and-access-logs-in-azure-database-for-postgresql---flexible-server"></a>Configurar e aceder registos na base de dados Azure para PostgreSQL - Servidor Flexível
 
@@ -22,21 +22,21 @@ Os registos PostgreSQL estão disponíveis em cada nó de um servidor flexível.
 
 ## <a name="configure-diagnostic-settings"></a>Configurar configurações de diagnóstico
 
-Pode ativar as definições de diagnóstico para o seu servidor Postgres utilizando o portal Azure, CLI, REST API e PowerShell. A categoria de registo a selecionar é **PostgreSQLLogs** .
+Pode ativar as definições de diagnóstico para o seu servidor Postgres utilizando o portal Azure, CLI, REST API e PowerShell. A categoria de registo a selecionar é **PostgreSQLLogs**.
 
 Para ativar registos de recursos utilizando o portal Azure:
 
 1. No portal, aceda a *Definições de Diagnóstico* no menu de navegação do seu servidor Postgres.
    
-2. Selecione *Adicionar Definição de Diagnóstico* .
+2. Selecione *Adicionar Definição de Diagnóstico*.
    :::image type="content" source="media/howto-logging/diagnostic-settings.png" alt-text="Adicione botão de definições de diagnóstico":::
 
 3. Diga o nome desta definição. 
 
 4. Selecione o seu ponto final preferido (conta de armazenamento, centro de eventos, análise de registo). 
 
-5. Selecione o tipo de registo **PostgreSQLLogs** .
-   :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="Adicione botão de definições de diagnóstico":::
+5. Selecione o tipo de registo **PostgreSQLLogs**.
+   :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="Escolha registos PostgreSQL":::
 
 7. Guarde a sua configuração.
 
@@ -71,5 +71,5 @@ A consulta acima mostrará resultados nas últimas 6 horas para qualquer servido
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Começar com consultas de analítica de log](../../azure-monitor/log-query/get-started-portal.md)
+- [Começar com consultas de analítica de log](../../azure-monitor/log-query/log-analytics-tutorial.md)
 - Saiba mais sobre [os centros de eventos da Azure](../../event-hubs/event-hubs-about.md)

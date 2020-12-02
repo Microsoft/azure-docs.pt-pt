@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: a49dbdace01396656c3114df0bc0d4589aff57c1
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 5a35d939c12639770e25c3096c77f13d31310f85
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916496"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492017"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Resolução de problemas Azure partilha problemas de desempenho
 
@@ -196,7 +196,7 @@ Alterações recentes nas definições de configuração de config multicanais S
 
 ### <a name="cause"></a>Causa  
 
-A notificação de alteração de ficheiros de um número elevado nas ações de ficheiros pode resultar em elevadas latências significativas. Isto ocorre tipicamente com sites hospedados em partilhas de ficheiros com estrutura de diretório aninhado profundo. Um cenário típico é a aplicação web hospedada do IIS onde a notificação de alteração de ficheiros é configurada para cada diretório na configuração predefinida. Cada alteração[(ReadDirectoryChangesW)](https://docs.microsoft.com/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)sobre a ação que o cliente SMB está registado para empurrar uma notificação de alteração do serviço de ficheiros para o cliente, que requer recursos do sistema, e emite piora com o número de alterações. Isto pode causar estrangulamento de partilha e, assim, resultar em maior latência do lado do cliente. 
+A notificação de alteração de ficheiros de um número elevado nas ações de ficheiros pode resultar em elevadas latências significativas. Isto ocorre tipicamente com sites hospedados em partilhas de ficheiros com estrutura de diretório aninhado profundo. Um cenário típico é a aplicação web hospedada do IIS onde a notificação de alteração de ficheiros é configurada para cada diretório na configuração predefinida. Cada alteração[(ReadDirectoryChangesW)](/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)sobre a ação que o cliente SMB está registado para empurrar uma notificação de alteração do serviço de ficheiros para o cliente, que requer recursos do sistema, e emite piora com o número de alterações. Isto pode causar estrangulamento de partilha e, assim, resultar em maior latência do lado do cliente. 
 
 Para confirmar, pode utilizar a Azure Metrics no portal - 
 

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: 4282294ff54fd3da3f764f53efc8b040b9522191
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f71bcc1fd3b92a32a3e6d9fa056bae7131a663bd
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542257"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492612"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Quickstart: Criar uma base de dados Azure para servidor MySQL utilizando o portal Azure
 
@@ -22,14 +22,14 @@ A azure Database for MySQL é um serviço gerido que utiliza para executar, geri
 É necessária uma subscrição Azure. Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="create-an-azure-database-for-mysql-single-server"></a>Criar uma base de dados Azure para o servidor único MySQL
-1. Vá ao [portal Azure](https://portal.azure.com/) para criar uma base de dados MySQL Single Server. Procure e selecione **Azure Database para o MySQL** :
+1. Vá ao [portal Azure](https://portal.azure.com/) para criar uma base de dados MySQL Single Server. Procure e selecione **Azure Database para o MySQL**:
 
    >[!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/find-azure-mysql-in-portal.png" alt-text="Encontre a base de dados Azure para o MySQL":::
 
 1. Selecione **Adicionar**.
 
-2. Na **base de dados Select Azure para a página de opções de implementação mySQL,** selecione  **Servidor Único** :
+2. Na **base de dados Select Azure para a página de opções de implementação mySQL,** selecione  **Servidor Único**:
    >[!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/choose-singleserver.png" alt-text="Screenshot que mostra a opção de servidor único.":::
 
@@ -45,7 +45,7 @@ A azure Database for MySQL é um serviço gerido que utiliza para executar, geri
    Nome do servidor | **mydemoserver** | Introduza um nome exclusivo. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Deve conter 3 a 63 caracteres.
    Origem de dados |**Nenhuma** | Selecione **Nenhum** para criar um novo servidor de raiz. Selecione **Backup** apenas se estiver a restaurar a partir de um geo-backup de um servidor existente.
    Localização |A sua localização desejada | Selecione uma localização da lista.
-   Versão | A versão principal mais recente| Use a versão mais recente. Consulte [todas as versões suportadas.](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions)
+   Versão | A versão principal mais recente| Use a versão mais recente. Consulte [todas as versões suportadas.](../postgresql/concepts-supported-versions.md)
    Computação e armazenamento | Use os predefinidos| O nível de preços predefinidos é **Finalidade Geral** com **4 vCores** e armazenamento **de 100 GB.** A retenção de backup está definida para **7 dias,** com a opção de backup **geograficamente redundante.**<br/>[Reveja a](https://azure.microsoft.com/pricing/details/mysql/) página de preços e atualize os predefinidos se necessário.
    Nome de utilizador de administrador | **mydemoadmin** | Insira o nome de utilizador do seu administrador de servidor. Não pode utilizar **azure_superuser,** **administrador,** **raiz,** **hóspede** ou **público** para o nome de utilizador administrativo. **root**
    Palavra-passe | Uma palavra-passe | Uma nova palavra-passe para o utilizador de administração do servidor. A palavra-passe deve ter 8 a 128 caracteres e conter uma combinação de letras maiúsculas ou minúsculas, números e caracteres não alfanuméricos (!, $, #, %, e assim por diante).
@@ -67,7 +67,7 @@ A azure Database for MySQL é um serviço gerido que utiliza para executar, geri
 
 Por predefinição, o novo servidor está protegido com uma firewall. Para se conectar, deve fornecer acesso ao seu IP, completando estes passos:
 
-1. Aceda à segurança de **ligação** do painel esquerdo para o seu recurso de servidor. Se não sabe como encontrar o seu recurso, consulte [Como abrir um recurso.](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources)
+1. Aceda à segurança de **ligação** do painel esquerdo para o seu recurso de servidor. Se não sabe como encontrar o seu recurso, consulte [Como abrir um recurso.](../azure-resource-manager/management/manage-resources-portal.md#open-resources)
 
    >[!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Screenshot que mostra a página de regras de > firewall de segurança de ligação.":::
@@ -138,7 +138,7 @@ Pode utilizar [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) ou
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/mysql-doc-feedback)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Criou agora uma Base de Dados Azure para servidor MySQL num grupo de recursos.  Se não espera precisar destes recursos no futuro, pode eliminá-los eliminando o grupo de recursos, ou simplesmente apagar o servidor MySQL. Para eliminar o grupo de recursos, complete estes passos:
 1. No portal Azure, procure e selecione **grupos de Recursos.**
 2. Na lista de grupos de recursos, selecione o nome do seu grupo de recursos.
@@ -151,9 +151,9 @@ Para eliminar o servidor, pode selecionar **Eliminar** na página **'Vista Geral
 
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
->[Construir uma aplicação PHP no Windows com o MySQL](../app-service/app-service-web-tutorial-php-mysql.md) <br/>
+>[Construir uma aplicação PHP no Windows com o MySQL](../app-service/tutorial-php-mysql-app.md) <br/>
 
 > [!div class="nextstepaction"]
->[Construa aplicativo PHP no Linux com MySQL](../app-service/containers/tutorial-php-mysql-app.md)<br/><br/>
+>[Construa aplicativo PHP no Linux com MySQL](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%3fpivots%3dplatform-linux)<br/><br/>
 
 [Não consegue encontrar o que procura? Deixe-nos saber.](https://aka.ms/mysql-doc-feedback)

@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 038d0ec817d4f81371546e8d7aa4b48b299c8d98
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 2d31c5b90f37f336b48118e4f4adde4777f8cf4a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302559"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493139"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrar VMs Hyper-V para o Azure 
 
@@ -22,7 +22,7 @@ Este tutorial é o terceiro de uma série que demonstra como avaliar e migrar m�
 > [!NOTE]
 > Os tutoriais mostram-lhe o caminho de implantação mais simples para um cenário para que possa configurar rapidamente uma prova de conceito. Os tutoriais utilizam opções predefinidas sempre que possível e não mostram todas as definições e caminhos possíveis. 
 
- Neste tutorial, vai aprender a:
+ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Adicione a ferramenta Azure Migrate:Server Migration.
@@ -45,7 +45,6 @@ Antes de começar este tutorial, tem de:
 4. Recomendamos que  [avalie os Hiper-VM](tutorial-assess-hyper-v.md) antes de os migrar para Azure, mas não é preciso.
 5. Vá ao projeto já criado ou [crie um novo projeto](https://docs.microsoft.com/azure/migrate/create-manage-projects)
 6. Verifique permissões para a sua conta Azure - A sua conta Azure necessita de permissões para criar um VM e escreva para um disco gerido azure.
-
 
 ## <a name="download-and-install-the-provider"></a>Descarregue e instale o fornecedor
 
@@ -225,6 +224,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 -  Considere implementar o [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para monitorizar a utilização e as despesas do recurso.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

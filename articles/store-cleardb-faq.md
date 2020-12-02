@@ -12,12 +12,12 @@ ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: references_regions
-ms.openlocfilehash: cecb3a150de8c19d390cafbd163f287520c3a91d
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 25cc4dfaabee58a47cc33fe4be8dc7375bc804d2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519041"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491647"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>FAQ para bases de dados ClearDB MySql com Serviço de Aplicações Azure
 Esta FAQ responde a perguntas comuns sobre a utilização e compra de bases de dados ClearDB MySQL para aplicações web Azure.
@@ -33,7 +33,7 @@ Consulte [a ClearDB](https://w2.cleardb.net/) para obter as informações mais r
 Você tem várias outras opções para hospedar MySQL em Azure:
 * [Base de Dados do Azure para MySQL](https://azure.microsoft.com/services/mysql/)
 * [Cluster MySQL em execução em um VM Azure](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
-* [Instância única do MySQL a correr num Azure VM](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%252fazure%252fvirtual-machines%252fwindows%252fclassic%252ftoc.json)
+* [Instância única do MySQL a correr num Azure VM](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 
 ## <a name="do-i-need-a-credit-card-for-the-web-app--mysql-template-in-the-azure-marketplace"></a>Preciso de um cartão de crédito para a aplicação Web + modelo MySQL no Azure Marketplace?
@@ -48,7 +48,7 @@ Isto depende do tipo de subscrição que está a utilizar. Aqui estão alguns ti
 A opção de base de dados padrão é Titan, que é $3,50. Não mostramos o custo durante a criação da base de dados, e pode por engano comprar uma base de dados que não pretendia. Estamos a tentar encontrar uma maneira de melhorar a experiência, mas até lá tem de verificar todos os seus níveis de preços selecionados para aplicações web e base de dados antes de clicar em **Criar** e iniciar a implementação dos recursos.
 
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Estou a executar o MySQL na minha própria máquina virtual Azure. Posso ligar o meu aplicativo Azure à minha base de dados?
-Sim. Pode ligar a sua aplicação web à sua base de dados desde que o seu VM Azure tenha dado acesso remoto à sua aplicação web. Para obter mais informações, consulte [instalar o MySQL numa máquina virtual.](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%252fazure%252fvirtual-machines%252fwindows%252fclassic%252ftoc.json)
+Sim. Pode ligar a sua aplicação web à sua base de dados desde que o seu VM Azure tenha dado acesso remoto à sua aplicação web. Para obter mais informações, consulte [instalar o MySQL numa máquina virtual.](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>Em que países/regiões são apoiados os clusters MySQL premium Da ClearDB?
 Os clusters MySQL Premium Da ClearDB estão disponíveis em todas as regiões do Azure em todo o mundo, com exceção da Índia, Austrália, Brasil Sul e China.

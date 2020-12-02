@@ -4,20 +4,20 @@ description: Este artigo descreve como codificar atualizações de modelos para 
 author: chrislound
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/01/2020
 ms.author: chlound
-ms.openlocfilehash: fe811c81d0774393f40dc5c8403d1af8b22da109
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 7c801511b6f24cf5ef04d55bb195e3a4c62d7b6d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019142"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491252"
 ---
 # <a name="refresh-with-azure-automation"></a>Atualizar com a Automatização do Azure
 
 Utilizando a Azure Automation e PowerShell Runbooks, pode realizar operações automatizadas de atualização de dados nos seus modelos tabulares Azure Analysis.  
 
-O exemplo neste artigo utiliza o [módulo SqlServer PowerShell](/powershell/module/sqlserver/?view=sqlserver-ps). Uma amostra powerShell Runbook, que demonstra que refrescar um modelo é fornecido mais tarde neste artigo.  
+O exemplo neste artigo utiliza o [módulo SqlServer PowerShell](/powershell/module/sqlserver/?view=sqlserver-ps&preserve-view=true). Uma amostra powerShell Runbook, que demonstra que refrescar um modelo é fornecido mais tarde neste artigo.  
 
 ## <a name="authentication"></a>Autenticação
 
@@ -64,7 +64,7 @@ O Diretor de Serviço que cria deve ter permissões de administrador de servidor
 
     ![Screenshot que mostra a página "Runbooks" com a ação "Importer um runbook" selecionada.](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Navegue pelo ficheiro [Refresh-Model.ps1, ](#sample-powershell-runbook) forneça um **Nome** e **Descrição**e, em seguida, clique em **Criar**.
+4. Navegue pelo ficheiro [Refresh-Model.ps1,](#sample-powershell-runbook) forneça um **Nome** e **Descrição** e, em seguida, clique em **Criar**.
 
     > [!NOTE]
     > Utilize o script da secção [Sample Powershell Runbook](#sample-powershell-runbook) na parte inferior deste documento para criar um ficheiro chamado Refresh-Model.ps1 e guardar para a máquina local para importar em Runbook.
@@ -82,7 +82,7 @@ O Diretor de Serviço que cria deve ter permissões de administrador de servidor
 
     ![Screenshot que mostra a página "Visão Geral" com a ação "Iniciar" selecionada.](./media/analysis-services-refresh-azure-automation/11.png)
 
-7. Preencha os parâmetros **DATABASENAME,** **ANALYSISSERVER**e **REFRESHTYPE** e, em seguida, clique **em OK**. O parâmetro **WEBHOOKDATA** não é necessário quando o Runbook é executado manualmente.
+7. Preencha os parâmetros **DATABASENAME,** **ANALYSISSERVER** e **REFRESHTYPE** e, em seguida, clique **em OK**. O parâmetro **WEBHOOKDATA** não é necessário quando o Runbook é executado manualmente.
 
     ![Inicie o Runbook](./media/analysis-services-refresh-azure-automation/12.png)
 
@@ -96,11 +96,11 @@ O Runbook pode ser configurado para ativar a atualização do modelo Azure Analy
 
 Isto pode ser configurado da seguinte forma:
 
-1. No Livro de Execuções de Automação, clique em **Horários**e, em seguida, **Adicione uma Programação**.
+1. No Livro de Execuções de Automação, clique em **Horários** e, em seguida, **Adicione uma Programação**.
  
     ![Criar horários](./media/analysis-services-refresh-azure-automation/14.png)
 
-2. **Click Schedule**Criar um  >  **novo horário**e, em seguida, preencher os detalhes.
+2. **Click Schedule** Criar um  >  **novo horário** e, em seguida, preencher os detalhes.
 
     ![Calendário de configuração](./media/analysis-services-refresh-azure-automation/15.png)
 
@@ -119,7 +119,7 @@ Para consumir o runbook utilizando a Azure Data Factory, crie primeiro um **Webh
 > [!IMPORTANT]
 > Para criar um **Webhook,** o estado do Runbook tem de ser **publicado**.
 
-1. No seu Livro de Execução de Automação, clique em **Webhooks**e, em seguida, clique em **Adicionar Webhook**.
+1. No seu Livro de Execução de Automação, clique em **Webhooks** e, em seguida, clique em **Adicionar Webhook**.
 
    ![Adicionar Webhook](./media/analysis-services-refresh-azure-automation/17.png)
 
@@ -202,7 +202,7 @@ $_Credential = Get-AutomationPSCredential -Name "ServicePrincipal"
 
 # If runbook was called from Webhook, WebhookData will not be null.
 if ($WebhookData)
-{ 
+{ 
     # Retrieve AAS details from Webhook request body
     $atmParameters = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
     Write-Output "CredentialName: $($atmParameters.CredentialName)"

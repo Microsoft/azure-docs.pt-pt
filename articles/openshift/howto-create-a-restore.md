@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, chapéu vermelho, cli
 ms.custom: mvc
-ms.openlocfilehash: 9eac34d643ba0df4be79a064858c580c884de727
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a4b22036612aac3d2b67e299881ba11b896979e5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078566"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492408"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-restore"></a>Crie um Azure Red Hat OpenShift 4 Cluster Application restaurar
 
@@ -23,9 +23,9 @@ Neste artigo, você vai preparar o seu ambiente para criar uma aplicação de cl
 > * Configurar os pré-requisitos e instalar as ferramentas necessárias
 > * Criar um Azure Red Hat OpenShift 4 restaurar a aplicação
 
-Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 ### <a name="create-an-azure-red-hat-openshift-4-application-backup"></a>Crie um Azure Red Hat OpenShift 4 backup de aplicações
 
@@ -88,5 +88,3 @@ Neste artigo, foi restaurada uma aplicação de cluster Azure Red Hat OpenShift 
 Avance para o próximo artigo para saber sobre os recursos suportados Azure Red Hat OpenShift 4.
 
 * [Azure Red Hat OpenShift v4 recursos suportados](supported-resources.md)
-
-

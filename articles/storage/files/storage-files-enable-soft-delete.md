@@ -4,16 +4,16 @@ description: Saiba como permitir a eliminação suave das ações de ficheiros A
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 12/01/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 7defa8611080027a67a0d1db1daa4c4a9d44edfe
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ea98b2d9812fb5c848c7e13b94d46a4142595cd4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126146"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492170"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Permitir a eliminação suave nas ações de ficheiros Azure
 
@@ -25,19 +25,37 @@ As seguintes secções mostram como ativar e utilizar a eliminação suave para 
 
 ## <a name="getting-started"></a>Introdução
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-1. Navegue para a sua conta de armazenamento e selecione **Soft delete** in **File service** .
-1. Selecione **Ativado** para **apagar suavemente a partilha de ficheiros** .
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Navegue para a sua conta de armazenamento e selecione **Soft delete** in **File service**.
+1. Selecione **Ativado** para **apagar suavemente a partilha de ficheiros**.
 1. Selecione **O período de retenção de partilha** de ficheiros em dias e introduza uma série de escolhas.
 1. **Selecione Guardar** para confirmar as definições de retenção de dados.
 
 :::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Screenshot da conta de armazenamento apagar suavemente as definições. Realçando a secção de partilhas de ficheiros, ativar alternar, definir um período de retenção e guardar. Isto permitirá eliminar suavemente todas as ações de ficheiros na sua conta de armazenamento.":::
 
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Os cmdlets soft delete estão disponíveis na versão 2.1.3 e mais recentes do [módulo Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+## <a name="getting-started-with-cli"></a>Começar com o CLI
+
+Para permitir a eliminação suave, tem de atualizar as propriedades de serviço de um cliente de ficheiro. O exemplo a seguir permite a eliminação suave de todas as ações de ficheiros numa conta de armazenamento:
+
+```azurecli
+az storage account file-service-properties update --enable-delete-retention true -n yourStorageaccount -g yourResourceGroup
+```
+
+Pode verificar se a eliminação suave está ativada e ver a sua política de retenção com o seguinte comando:
+
+```azurecli
+az storage account file-service-properties show -n yourStorageaccount -g yourResourceGroup
+```
+
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ## <a name="prerequisite"></a>Pré-requisito
 
-Os cmdlets de eliminação suave estão disponíveis na versão [3.0.0](https://www.powershellgallery.com/packages/Az.Storage/3.0.0) do módulo Az.Storage. 
+Os cmdlets soft delete estão disponíveis nas versões 4.8.0 e mais recentes do módulo Az.Storage. 
 
 ## <a name="getting-started-with-powershell"></a>Introdução ao PowerShell
 
@@ -68,17 +86,37 @@ Para restaurar uma partilha de ficheiros suavemente eliminada:
 
     Isto apresentará quaisquer ações atualmente num estado **eliminado.**
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="Screenshot da conta de armazenamento apagar suavemente as definições. Realçando a secção de partilhas de ficheiros, ativar alternar, definir um período de retenção e guardar. Isto permitirá eliminar suavemente todas as ações de ficheiros na sua conta de armazenamento.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="Se a coluna de estado, a coluna ao lado da coluna de nomes, estiver definida para Apagar, então a sua parte do ficheiro encontra-se num estado de apagamento suave. E será permanentemente eliminado após o período de retenção especificado.":::
 
 1. Selecione a partilha e selecione **undelete,** isto irá restaurar a partilha.
 
-    Pode confirmar que a ação foi restaurada uma vez que o seu estado muda para **Ative** .
+    Pode confirmar que a ação foi restaurada uma vez que o seu estado muda para **Ative**.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="Screenshot da conta de armazenamento apagar suavemente as definições. Realçando a secção de partilhas de ficheiros, ativar alternar, definir um período de retenção e guardar. Isto permitirá eliminar suavemente todas as ações de ficheiros na sua conta de armazenamento.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="Se a coluna de estado, a coluna ao lado da coluna de nomes, estiver definida para Ative, então a sua parte do ficheiro foi restaurada.":::
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Os cmdlets de eliminação suave estão disponíveis na versão 2.1.3 do Azure CLI. Para restaurar uma partilha de ficheiros suavemente apagada, tem primeiro de obter o `--deleted-version` valor da parte. Para obter esse valor, utilize o seguinte comando para listar todas as ações eliminadas para a sua conta de armazenamento:
+
+```azurecli
+az storage share-rm list --storage-account yourStorageaccount --include-deleted
+```
+
+Uma vez identificada a parte que gostaria de restaurar, pode usá-la com o seguinte comando para restaurá-la:
+
+```azurecli
+az storage share-rm restore -n deletedshare --deleted-version 01D64EB9886F00C4 -g yourResourceGroup --storage-account yourStorageaccount
+```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Os cmdlets de eliminação suave estão disponíveis na versão 3.0.0 do módulo Az.Storage. Para restaurar uma partilha de ficheiros apagadas suaves, utilize o seguinte comando:
+Os cmdlets soft delete estão disponíveis nas versões 4.8.0 e mais recentes do módulo Az.Storage. Para restaurar uma partilha de ficheiros suavemente apagada, tem primeiro de obter o `-DeletedShareVersion` valor da parte. Para obter esse valor, utilize o seguinte comando para listar todas as ações eliminadas para a sua conta de armazenamento:
+
+```azurepowershell-interactive
+Get-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $accountName -IncludeDeleted
+```
+
+Uma vez identificada a parte que gostaria de restaurar, pode usá-la com o seguinte comando para restaurá-la:
 
 ```azurepowershell-interactive
 Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $accountName -DeletedShareVersion 01D5E2783BDCDA97
@@ -91,15 +129,22 @@ Se desejar parar de usar exclusão suave ou eliminar permanentemente uma partilh
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Navegue na sua conta de armazenamento e selecione **Soft Delete** em **Definições** .
-1. Em **'Ações de Ficheiro'** selecione **Disabled** for **Soft delete for file shares** .
+1. Navegue na sua conta de armazenamento e selecione **Soft Delete** em **Definições**.
+1. Em **'Ações de Ficheiro'** selecione **Disabled** for **Soft delete for file shares**.
 1. **Selecione Guardar** para confirmar as definições de retenção de dados.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="Screenshot da conta de armazenamento apagar suavemente as definições. Realçando a secção de partilhas de ficheiros, ativar alternar, definir um período de retenção e guardar. Isto permitirá eliminar suavemente todas as ações de ficheiros na sua conta de armazenamento.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="A desativação de uma eliminação suave permitir-lhe-á eliminar imediatamente e permanentemente todas as ações de ficheiros da sua conta de armazenamento a seu bel-prazer.":::
 
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Os cmdlets de eliminação suave estão disponíveis na versão 2.1.3 do Azure CLI. Pode utilizar o seguinte comando para desativar a eliminação suave na sua conta de armazenamento:
+
+```azurecli
+az storage account file-service-properties update --enable-delete-retention false -n yourStorageaccount -g yourResourceGroup
+```
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Os cmdlets de eliminação suave estão disponíveis na versão 3.0.0 do módulo Az.Storage. Pode utilizar o seguinte comando para desativar a eliminação suave na sua conta de armazenamento:
+Os cmdlets soft delete estão disponíveis nas versões 4.8.0 e mais recentes do módulo Az.Storage. Pode utilizar o seguinte comando para desativar a eliminação suave na sua conta de armazenamento:
 
 ```azurepowershell-interactive
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $false

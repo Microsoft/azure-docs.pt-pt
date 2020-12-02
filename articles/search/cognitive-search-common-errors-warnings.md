@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 8ceb6d4dddb76148be1e82ebc8c1994886a11da3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcdc05ae696a207546eb62160fe89ea38d307058
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362819"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492272"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Resolução de problemas erros e avisos comuns do indexante na Pesquisa Cognitiva do Azure
 
@@ -166,8 +166,8 @@ O documento foi lido e processado pelo indexante, mas devido a uma incompatibili
 | Razão | Detalhes/Exemplo
 | --- | ---
 | O tipo de dados do campo extraído pelo indexante é incompatível com o modelo de dados do respetivo campo de índice-alvo. | O campo de dados '_dados_' no documento com a chave '888' tem um valor inválido 'do tipo 'Edm.String'. O tipo esperado era 'Collection(Edm.String)'. |
-| Não conseguiu extrair qualquer entidade JSON de um valor de corda. | Não podia analisar o valor 'do tipo 'Edm.String' dos_dados_do campo ' como um objeto JSON. Erro:'Depois de analisar um valor, um personagem inesperado foi encontrado: ''. Caminho '_caminho_', linha 1, posição 3162.' |
-| Não conseguiu extrair uma coleção de entidades JSON de um valor de corda.  | Não podia analisar o valor 'do tipo 'Edm.String' dos_dados_do campo ' como uma matriz JSON. Erro:'Depois de analisar um valor, um personagem inesperado foi encontrado: ''. Caminho '[0]', linha 1, posição 27.» |
+| Não conseguiu extrair qualquer entidade JSON de um valor de corda. | Não podia analisar o valor 'do tipo 'Edm.String' dos _dados_ do campo ' como um objeto JSON. Erro:'Depois de analisar um valor, um personagem inesperado foi encontrado: ''. Caminho '_caminho_', linha 1, posição 3162.' |
+| Não conseguiu extrair uma coleção de entidades JSON de um valor de corda.  | Não podia analisar o valor 'do tipo 'Edm.String' dos _dados_ do campo ' como uma matriz JSON. Erro:'Depois de analisar um valor, um personagem inesperado foi encontrado: ''. Caminho '[0]', linha 1, posição 27.» |
 | Um tipo desconhecido foi descoberto no documento de origem. | Tipo desconhecido '_desconhecido_' não pode ser indexado |
 | No documento-origem foi utilizada uma notação incompatível para pontos de geografia. | As cordas de WKT POINT não são suportadas. Por favor, use geoJson ponto literal em vez |
 
@@ -348,8 +348,8 @@ Para contornar este aviso, determine qual é o texto codificado para esta bolha 
 
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Aviso: A coleção 'X' da Cosmos DB tem uma política de indexação preguiçosa. Alguns dados podem ser perdidos
 
-As coleções com políticas de indexação [preguiçosas](/azure/cosmos-db/index-policy#indexing-mode) não podem ser consultadas de forma consistente, resultando em dados em falta do seu indexante. Para contornar este aviso, altere a sua política de indexação para Consistente.
+As coleções com políticas de indexação [preguiçosas](../cosmos-db/index-policy.md#indexing-mode) não podem ser consultadas de forma consistente, resultando em dados em falta do seu indexante. Para contornar este aviso, altere a sua política de indexação para Consistente.
 
 ## <a name="warning-the-document-contains-very-long-words-longer-than-64-characters-these-words-may-result-in-truncated-andor-unreliable-model-predictions"></a>Aviso: O documento contém palavras muito longas (mais de 64 caracteres). Estas palavras podem resultar em previsões de modelos truncadas e/ou pouco fiáveis.
 
-Este aviso é transmitido pelo serviço Text Analytics.  Em alguns casos, é seguro ignorar este aviso, como quando o seu documento contém um URL longo (o que provavelmente não é uma frase chave ou sentimento de condução, etc.).  Esteja ciente de que quando uma palavra é maior que 64 caracteres, será truncado para 64 caracteres que podem afetar as previsões do modelo.  
+Este aviso é transmitido pelo serviço Text Analytics.  Em alguns casos, é seguro ignorar este aviso, como quando o seu documento contém um URL longo (o que provavelmente não é uma frase chave ou sentimento de condução, etc.).  Esteja ciente de que quando uma palavra é maior que 64 caracteres, será truncado para 64 caracteres que podem afetar as previsões do modelo.

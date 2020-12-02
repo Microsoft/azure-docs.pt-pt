@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: 171ae04a70f3639981e74d20d260a03359a0f2c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f5653e4c184e88bce86026681dde1aee9e14d49
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187443"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491422"
 ---
 # <a name="what-is-routing-preference-preview"></a>O que é a preferência de encaminhamento (pré-visualização)?
 
@@ -26,7 +26,7 @@ A preferência por encaminhamento azure permite-lhe escolher como as suas rotas 
 
 > [!IMPORTANT]
 > A preferência de encaminhamento está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="routing-via-microsoft-global-network"></a>Encaminhamento através da rede global da Microsoft
 
@@ -70,19 +70,7 @@ Para armazenamento, os pontos finais primários utilizam sempre a rede global da
 * Azure DataLake
 
 ## <a name="pricing"></a>Preços
-A diferença de preços entre ambas as opções reflete-se nos preços de transferência de dados da internet. O preço de transferência de dados **da rede global da Microsoft** é o mesmo que o preço atual da saída da Internet. Visite [a página de preços da largura de banda Azure](https://azure.microsoft.com/pricing/details/bandwidth/) para obter as informações mais recentes sobre os preços. O encaminhamento via **Internet Pública** tem um preço mais baixo, como mostra o quadro abaixo:
-
-| Região de origem Egress | 0-5 GB/Mês | 5GB-10 TB/Mês | 10-50 TB/Mês | 50-150 TB/Mês | 150-500 TB/Mês |
-| --- | --- | --- | --- | --- | --- |
-| Zona 1 | $0/GB | $0.085/GB | $0.065/GB | $0,06/GB | $0,04/GB |
-| Zona 2 | $0/GB | $0.11/GB | $0.075/GB | $0,07/GB | $0,06/GB  |
-
-[Contacte-nos](https://azure.microsoft.com/overview/sales-number/) para obter um volume mensal superior a 500 TB.
-* Zona 1 - Austrália Central, Austrália Central 2, Canadá Central, Canadá Leste, Norte da Europa, Europa Ocidental, França Central, França Sul, Alemanha Norte (Público), Alemanha West Central (Público), Noruega Leste, Noruega Oeste, Suíça Norte, Suíça Oeste, Reino Unido, Reino Unido Oeste, Eua Central, Eua Leste, Leste dos EUA 2, Centro Norte dos EUA, Centro-Sul dos EUA, West US 2, e West Central EUA.
-
-* Zona 2 - Leste da Ásia, Sudeste Asiático, Austrália Leste, Austrália Sudeste, Índia Central, Índia Do Sul, Índia Ocidental, Japão Leste, Japão Ocidental, Coreia Central e Coreia do Sul.
-
-* Zona 3 - Brasil Sul, África do Sul Norte, África do Sul Oeste, UAE Central e Emirados Árabes Unidos Norte.
+A diferença de preços entre ambas as opções reflete-se nos preços de transferência de dados da internet. O preço de transferência de dados **da rede global da Microsoft** é o mesmo que o preço atual da saída da Internet. Visite [a página de preços da largura de banda Azure](https://azure.microsoft.com/pricing/details/bandwidth/) para obter as informações mais recentes sobre os preços. 
 
 ## <a name="availability"></a>Disponibilidade
 

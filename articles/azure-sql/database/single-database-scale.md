@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1, references_regions
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 09/16/2020
-ms.openlocfilehash: d24143a440c0d30c3abcd6eb5efd454033b8f71c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: da3c70baccc3c86f2ac57d61539456464e3042b6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791482"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493411"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Dimensionar recursos de base de dados individual na Base de Dados SQL do Azure
 
@@ -84,7 +84,7 @@ Na lâmina de visão geral da base de **dados,** navegue para notificações e c
 
 ![Operação em curso](./media/single-database-scale/ongoing-operations.png)
 
-Em seguida, clique no botão marcado **Cancelar esta operação** .
+Em seguida, clique no botão marcado **Cancelar esta operação**.
 
 ![Cancelar operação em curso](./media/single-database-scale/cancel-ongoing-operation.png)
 

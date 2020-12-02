@@ -4,19 +4,19 @@ description: Aprenda a executar uma migração baseada em agentes de VMware VMs 
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 437dbce1c577b5d837ad0c70e8e8865ba59cf9e6
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 46f23953e6572b752f8773bc9db86be946ccf212
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302768"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493002"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrar VMware VMs para Azure (baseado em agente)
 
 Este artigo mostra-lhe como migrar vMware VMs para Azure, utilizando a ferramenta [Azure Migrate:Server Migration,](migrate-services-overview.md#azure-migrate-server-migration-tool) com migração baseada em agentes.  Também pode migrar VMware VMs usando migração baseada em agentes. [Compare](server-migrate-overview.md#compare-migration-methods) os métodos.
 
 
- Neste tutorial, vai aprender a:
+ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Prepare o Azure para trabalhar com a Azure Migrate.
 > * Preparem-se para a migração baseada em agentes. Crie uma conta VMware para que a Azure Migrate possa descobrir máquinas para migração. Crie uma conta para que o agente de serviço de Mobilidade possa instalar nas máquinas que pretende migrar e preparar uma máquina para funcionar como o aparelho de replicação.
@@ -133,7 +133,6 @@ Certifique-se de que os servidores vMware e VMs cumprem os requisitos de migraç
 
 > [!NOTE]
 > A migração baseada em agentes com a migração do servidor Azure Migrate baseia-se nas funcionalidades do serviço de recuperação do site Azure. Alguns requisitos podem ligar-se à documentação de Recuperação do Local.
-
 
 ## <a name="set-up-the-replication-appliance"></a>Configurar o aparelho de replicação
 
@@ -371,6 +370,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 
 
 
- ## <a name="next-steps"></a>Próximos passos
+ ## <a name="next-steps"></a>Passos seguintes
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

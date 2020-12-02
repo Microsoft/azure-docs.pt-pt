@@ -7,22 +7,22 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 095a97d27439c54e2ade96e3a40349a0d95b9c11
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f6d17b007fcccd87aed17a9ec3ca039b9559ab6d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843099"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492238"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Linha de base de segurança Azure para recuperação do local
 
-Esta linha de base de segurança aplica orientações da [versão 1.0 do Benchmark de Segurança Azure](../security/benchmarks/overview-v1.md) para a Recuperação do Local. O Azure Security Benchmark fornece recomendações sobre como pode proteger as suas soluções em nuvem no Azure. O conteúdo é agrupado pelos **controlos de segurança definidos** pelo Azure Security Benchmark e pela orientação conexa aplicável à Recuperação do Site. Foram excluídos **os controlos** não aplicáveis à Recuperação do Local. 
+Esta linha de base de segurança aplica orientações da [versão 1.0 do Benchmark de Segurança Azure](../security/benchmarks/overview-v1.md) para a Recuperação do Local. A Referência de Segurança do Azure disponibiliza recomendações para proteger as suas soluções cloud no Azure. O conteúdo é agrupado pelos **controlos de segurança definidos** pelo Azure Security Benchmark e pela orientação conexa aplicável à Recuperação do Site. Foram excluídos **os controlos** não aplicáveis à Recuperação do Local. 
 
 Para ver como a Recuperação do Site mapeia completamente para o Benchmark de Segurança Azure, consulte o [ficheiro de mapeamento de base de segurança do local completo](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Segurança de Rede
 
-*Para mais informações, consulte o [Benchmark de Segurança Azure: Segurança da Rede](../security/benchmarks/security-control-network-security.md).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Segurança de Rede](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: Proteger os recursos do Azure nas redes virtuais
 
@@ -30,7 +30,7 @@ Para ver como a Recuperação do Site mapeia completamente para o Benchmark de S
 
 - [Suporte de ligação privada de recuperação do site Azure](azure-to-azure-how-to-enable-replication-private-endpoints.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -40,7 +40,7 @@ Para ver como a Recuperação do Site mapeia completamente para o Benchmark de S
 
 - [Conectividade de saída usando tags de serviço](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -52,13 +52,13 @@ Incorpore qualquer uma das definições de Política Azure incorporadas relacion
 
 Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar ações em recursos baseados nas suas etiquetas. 
 
-- [Como criar e usar tags](/azure/azure-resource-manager/resource-group-using-tags) 
+- [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md) 
 
 - [Como criar uma Rede Virtual Azure](../virtual-network/quick-create-portal.md) 
 
 - [Como filtrar o tráfego da rede com regras do grupo de segurança de rede](../virtual-network/tutorial-filter-network-traffic.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -70,7 +70,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 - [Criar, visualizar e gerir alertas de registo de atividades utilizando o Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -92,7 +92,7 @@ Ingeste os registos de recuperação do site no Azure Monitor para agregar dados
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -110,7 +110,7 @@ Ingeste os registos de recuperação do site com o Azure Monitor para agregar da
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -120,7 +120,7 @@ Ingeste os registos de recuperação do site com o Azure Monitor para agregar da
 
 - [Como definir parâmetros de retenção de registos](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -136,7 +136,7 @@ Realize consultas no Log Analytics para pesquisar termos, identificar tendência
 
 - [Como recolher e analisar registos de atividades do Azure no espaço de trabalho do Log Analytics no Azure Monitor](../azure-monitor/platform/activity-log.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -152,7 +152,7 @@ Visualizar e consultar os resultados dos registos e configurar alertas para toma
 
 - [Criar, visualizar e gerir alertas de registo usando o Azure Monitor](../azure-monitor/platform/alerts-log.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -164,11 +164,11 @@ Visualizar e consultar os resultados dos registos e configurar alertas para toma
 
 **Orientação**: Não são atribuídas funções por defeito. Têm de ser explicitamente atribuídos com base nas necessidades empresariais. Quaisquer atribuições de funções podem ser verificadas com o PowerShell CLI ou com o Azure Ative Directory (Azure AD) para descobrir contas que sejam membros de grupos administrativos.
 
-- [Como obter um papel de diretório em Azure AD com PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
 
-- [Como obter membros de um papel de diretório em Azure AD com PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -189,7 +189,7 @@ Crie um processo para rastrear a identidade e o controlo de acesso para contas a
 
 - [Como usar a Política Azure](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -203,7 +203,7 @@ Crie um processo para rastrear a identidade e o controlo de acesso para contas a
 
 - [Informação da Azure Recovery Services API](/rest/api/recoveryservices)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -214,7 +214,7 @@ Crie um processo para rastrear a identidade e o controlo de acesso para contas a
 
 - [Monitorizar a identidade e o acesso](../security-center/security-center-identity-access.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -226,7 +226,7 @@ Crie um processo para rastrear a identidade e o controlo de acesso para contas a
 
 - [Planejando uma implementação de autenticação multi-factor Azure AD baseada na nuvem](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -239,7 +239,7 @@ Ver alertas e relatórios sobre comportamento de utilizador de risco com recurso
 
 - [Compreender deteções de risco Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -248,7 +248,7 @@ Ver alertas e relatórios sobre comportamento de utilizador de risco com recurso
 **Orientação**: Utilize locais nomeados de acesso condicional para permitir o acesso ao portal Azure a partir de agrupamentos lógicos específicos de intervalos de endereços IP, regiões ou países.
 - [Como configurar localizações nomeadas em Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -256,9 +256,9 @@ Ver alertas e relatórios sobre comportamento de utilizador de risco com recurso
 
 **Orientação**: Utilize o Azure AD como o sistema central de autenticação e autorização para recuperação do local. O Azure AD protege os dados utilizando uma encriptação forte para dados em repouso, em trânsito e também em sais, hashes e armazena de forma segura as credenciais dos utilizadores. 
 
-- [Como criar e configurar uma instância AD Azure](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Como criar e configurar instâncias do Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -270,11 +270,11 @@ Gerir eficientemente os membros do grupo, o acesso a aplicações empresariais e
 
 Crie um processo para rever o acesso do utilizador regularmente para garantir que apenas os utilizadores com revisões de acesso concluídas tenham acesso continuado. 
 
-- [Compreenda a Azure AD reportando](/azure/active-directory/reports-monitoring/)
+- [Compreenda a Azure AD reportando](../active-directory/reports-monitoring/index.yml)
 
 - [Como utilizar comentários sobre acesso à identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -286,11 +286,11 @@ Tem acesso a fontes de login, auditoria e registo de eventos de risco da Azure, 
 
 Agilizar ainda mais este processo, criando definições de diagnóstico para contas de utilizadores AZure E enviando os registos de auditoria e de login para um espaço de trabalho do Log Analytics. Pode configurar os alertas desejados dentro de um espaço de trabalho log analytics.
 
-- [Como integrar os Registos de Atividades do Azure no Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Como integrar os Registos de Atividades do Azure no Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -306,13 +306,13 @@ Empregue as funcionalidades de Proteção de Identidade da Azure para deteção 
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
 ## <a name="data-protection"></a>Proteção de Dados
 
-*Para mais informações, consulte o [Benchmark de Segurança Azure: Proteção de Dados](../security/benchmarks/security-control-data-protection.md).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Proteção de dados](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Manter um inventário de informação sensível
 
@@ -320,7 +320,7 @@ Empregue as funcionalidades de Proteção de Identidade da Azure para deteção 
 
 - [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -336,7 +336,7 @@ Desligue as máquinas virtuais, que armazenam ou processam dados sensíveis, qua
 
 - [Visão geral da recuperação do local](site-recovery-overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -346,15 +346,15 @@ Desligue as máquinas virtuais, que armazenam ou processam dados sensíveis, qua
 
 A Microsoft gere a plataforma subjacente utilizada pela Recuperação do Site e trata todos os conteúdos do cliente como sensíveis e protegidos contra a perda e exposição de dados do cliente. A Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados para garantir que os dados dos clientes dentro do Azure permanecem seguros. 
 
-- [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md)
+- [Compreender a proteção dos dados dos clientes no Azure](../security/fundamentals/protection-customer-data.md)
 
 - [Replicar máquinas virtuais com pontos finais privados Azure](azure-to-azure-how-to-enable-replication-private-endpoints.md)
 
 - [Replicar máquinas virtuais com etiquetas de serviço de recuperação do site Azure](azure-to-azure-about-networking.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Criptografar todas as informações sensíveis em trânsito
 
@@ -364,9 +364,9 @@ As atuais versões TLS suportadas para recuperação de sítios são TLS 1.0, TL
 
 - [Compreender a encriptação em trânsito para a recuperação do site Azure](physical-azure-set-up-source.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: Utilize uma ferramenta de descoberta ativa para identificar dados sensíveis
 
@@ -376,9 +376,9 @@ Implementar uma solução de terceiros, se necessário, para efeitos de conformi
 
 A Microsoft gere a plataforma subjacente utilizada pela Recuperação do Site e trata todos os conteúdos do cliente como sensíveis e guarda contra a perda e exposição de dados do cliente. Implementou e mantém um conjunto de robustos controlos e capacidades de proteção de dados para garantir que os dados dos clientes dentro do Azure permanecem seguros. 
 
-- [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md)
+- [Compreender a proteção dos dados dos clientes no Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -392,7 +392,7 @@ Tarefas de trabalho separadas com a Azure RBAC e concedem o acesso adequado nece
 
 - [Utilize Role-Based Controlo de Acesso para gerir a recuperação do site Azure](site-recovery-role-based-linked-access-control.md)
 
-**Monitorização do Centro de Segurança Azure**: Atualmente não disponível
+**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
 **Responsabilidade**: Cliente
 
@@ -406,16 +406,16 @@ Apenas o cliente tem acesso à chave de encriptação enquanto utiliza um cofre 
 
 - [Suporte de chaves geridas pelo cliente para recuperação do site Azure](azure-to-azure-how-to-enable-replication-cmk-disks.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: Registar e alertar sobre alterações aos recursos críticos do Azure
 
 **Orientação**: Utilize o Monitor Azure com registos de atividade do Azure para criar alertas quando ocorrerem alterações para recursos críticos,. Estes recursos podem incluir casos de produção de Cofres de Serviços de Recuperação, recursos do serviço de recuperação de locais e recursos conexos.
 - [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -431,11 +431,11 @@ Embora os recursos clássicos do Azure possam ser descobertos através do Gráfi
 
 - [Como criar consultas com Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Como ver as suas Subscrições Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Como ver as suas Subscrições Azure](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Compreender Azure RBAC](../role-based-access-control/overview.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -444,7 +444,7 @@ Embora os recursos clássicos do Azure possam ser descobertos através do Gráfi
 **Orientação**: Aplicar etiquetas nos cofres dos Serviços de Recuperação e outros recursos relacionados, utilizados pela Recuperação do Site com metadados, para os organizar logicamente numa taxonomia.
 - [Como criar e usar Tags](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -465,7 +465,7 @@ Conciliar o inventário regularmente e garantir que os recursos não autorizados
 
 - [Como criar e usar Tags](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -473,7 +473,7 @@ Conciliar o inventário regularmente e garantir que os recursos não autorizados
 
 **Orientação**: Criar um inventário de recursos Azure aprovados e software aprovado para recursos de computação com base nos requisitos organizacionais do cliente.
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -486,11 +486,11 @@ Conciliar o inventário regularmente e garantir que os recursos não autorizados
 
 Utilize o Gráfico de Recursos Azure para consultar e descobrir recursos dentro das subscrições.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Como criar consultas com gráfico de recursos Azure](../governance/resource-graph/first-query-portal.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -503,11 +503,11 @@ Utilize o Gráfico de Recursos Azure para consultar e descobrir recursos dentro 
 
 Compreender como criar e gerir políticas no Azure é importante para manter a conformidade com os seus padrões empresariais e contratos de nível de serviço.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo específico de recurso com a Política Azure](/azure/governance/policy/samples)
+- [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/index.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -517,7 +517,7 @@ Compreender como criar e gerir políticas no Azure é importante para manter a c
 
 - [Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recursos Azure](../role-based-access-control/conditional-access-azure-management.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -530,11 +530,11 @@ Compreender como criar e gerir políticas no Azure é importante para manter a c
 **Orientação**: Defina e implemente configurações de segurança padrão para o cofre dos Serviços de Recuperação com a Política Azure. 
 
 Utilize pseudónimos da Política Azure no espaço de nomes "Microsoft.RecoveryServices" para criar políticas personalizadas para auditar ou impor a configuração dos recursos de cofre de serviços de recuperação do serviço de recuperação de locais.
-- [Como ver pseudónimos disponíveis da Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Como ver pseudónimos disponíveis da Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -543,9 +543,9 @@ Utilize pseudónimos da Política Azure no espaço de nomes "Microsoft.RecoveryS
 **Orientação**: Use a Política Azure [negar] e [implementar se não existir] efeitos para impor configurações seguras em todos os seus recursos Azure.
 - [Compreender efeitos da política do Azure](../governance/policy/concepts/effects.md)
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -553,11 +553,11 @@ Utilize pseudónimos da Política Azure no espaço de nomes "Microsoft.RecoveryS
 
 **Orientação**: Escolha O Azure Repos para armazenar e gerir o seu código de forma segura se estiver a utilizar definições personalizadas da Política Azure para os seus Cofres de Serviços de Recuperação e recursos relacionados.
 
-- [Como armazenar código em Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
-- [Documentação de Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentação de Azure Repos](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -567,9 +567,9 @@ Utilize pseudónimos da Política Azure no espaço de nomes "Microsoft.RecoveryS
 
 Além disso, desenvolva um processo e um oleoduto para gerir exceções políticas.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -578,9 +578,9 @@ Além disso, desenvolva um processo e um oleoduto para gerir exceções polític
 **Orientação**: Utilize definições de política de Azure incorporadas, bem como pseudónimos da Política Azure no espaço de nomes "Microsoft.RecoveryServices" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. 
 
 Use a Política Azure [auditoria], [negar], e [implementar se não existir] efeitos para impor automaticamente configurações para os seus recursos Azure.
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -596,7 +596,7 @@ Use a Política Azure [auditoria], [negar], e [implementar se não existir] efei
 
 - [Como ativar o DR para máquinas virtuais ativadas por encriptação de discos Azure usando a Recuperação do Site](azure-to-azure-how-to-enable-replication-ade-vms.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -608,21 +608,21 @@ Utilize identidades geridas para fornecer aos serviços Azure uma identidade ger
 
 As identidades geridas permitem-lhe autenticar qualquer serviço que suporte a autenticação AZURE AD, incluindo o Key Vault, sem quaisquer credenciais no seu código.
 
-- [Como integrar-se com identidades geridas aZure](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core2x)
+- [Como integrar-se com identidades geridas aZure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md?tabs=core2x)
 
 - [Como ativar a identidade gerida pelo sistema no cofre de serviços de recuperação](azure-to-azure-how-to-enable-replication-private-endpoints.md#enable-the-managed-identity-for-the-vault)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminar a exposição credencial não intencional
 
-**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault.
+**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner de Credenciais também vai incentivar a movimentação das credenciais descobertas para localizações mais seguras, por exemplo, o Azure Key Vault.
 
 - [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -638,9 +638,9 @@ Utilize a deteção de ameaças do Security Center para os serviços de dados de
 
 - [Compreenda o Antimalware da Microsoft para serviços em nuvem Azure e máquinas virtuais](../security/fundamentals/antimalware.md)
 
-- [Compreenda a deteção de ameaças do Azure Security Center para serviços de dados](/azure/security-center/threat-protection)
+- [Compreenda a deteção de ameaças do Azure Security Center para serviços de dados](../security-center/azure-defender.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -656,9 +656,9 @@ Todos os recursos de armazenamento utilizados pelos metadados dos serviços de r
 
 Isto está fora do alcance do cliente e a equipa de Recuperação do Site trata-o internamente. O cliente pode fazer backup das chaves do Cofre em Azure.
 
-- [Como backup chaves chave cofre em Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Como backup chaves chave cofre em Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -666,9 +666,9 @@ Isto está fora do alcance do cliente e a equipa de Recuperação do Site trata-
 
 **Orientação**: Ensaio periodicamente restaura as teclas geridas pelo cliente.
 
-- [Como restaurar chaves chave do cofre em Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Como restaurar chaves chave do cofre em Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -676,19 +676,19 @@ Isto está fora do alcance do cliente e a equipa de Recuperação do Site trata-
 
 **Orientação**: Os dados são encriptados em repouso utilizando encriptação do serviço de armazenamento (SSE) com a Infraestrutura do Azure como máquinas virtuais baseadas em serviço (IaaS). Ativar a eliminação suave no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
 
-- [Como permitir a eliminação suave no Cofre de Chaves](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview?tabs=azure-portal)
+- [Como permitir a eliminação suave no Cofre de Chaves](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
 ## <a name="incident-response"></a>Resposta a Incidentes
 
-*Para mais informações, consulte o [Benchmark de Segurança Azure: Incident Response](../security/benchmarks/security-control-incident-response.md).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Resposta a Incidentes](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Criar um guia de resposta a incidentes
 
-**Orientação**: Crie um guia de resposta a incidentes para a sua organização. 
+**Orientação**: desenvolva um guia de respostas a incidentes para a sua organização. 
 
 Certifique-se de que existem planos escritos de resposta a incidentes que definem todas as funções de pessoal, bem como fases de tratamento ou gestão de incidentes, desde a deteção até à revisão pós-incidente.
 
@@ -700,7 +700,7 @@ Certifique-se de que existem planos escritos de resposta a incidentes que define
 
 - [O cliente também pode aproveitar o Guia de Tratamento de Incidentes de Segurança Informática da NIST para ajudar na criação do seu próprio plano de resposta a incidentes](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -712,9 +712,9 @@ Marque claramente as subscrições (por exemplo, produção, não produção) e 
 
 - [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md) 
 
-- [Utilizar etiquetas para organizar os recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -724,7 +724,7 @@ Marque claramente as subscrições (por exemplo, produção, não produção) e 
 
 - [Consulte a publicação do NIST - Guia para Testes, Formação e Programas de Exercício para Planos e Capacidades de TI](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -736,7 +736,7 @@ Crie um processo para rever incidentes, pós-ocorrência, para garantir que as q
 
 - [Como definir o Contacto de Segurança do Centro de Segurança Azure](../security-center/security-center-provide-security-contact-details.md)
 
-**Monitorização do Centro de Segurança Azure**: Sim
+**Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
@@ -749,7 +749,7 @@ Utilize o conector de dados do Centro de Segurança para transmitir os alertas a
 
 - [Como transmitir alertas para o Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -758,7 +758,7 @@ Utilize o conector de dados do Centro de Segurança para transmitir os alertas a
 **Orientação**: Utilize a função de automatização do fluxo de trabalho no Centro de Segurança para ativar automaticamente respostas através de "Aplicações lógicas" em alertas e recomendações de segurança.
 - [Como configurar a automatização do fluxo de trabalho e as aplicações lógicas](../security-center/workflow-automation.md)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -772,11 +772,11 @@ Utilize o conector de dados do Centro de Segurança para transmitir os alertas a
 
 - [Você pode encontrar mais informações sobre a estratégia da Microsoft e execução de Red Teaming e testes de penetração em sites ao vivo contra infraestruturas, serviços e aplicações geridas pela Microsoft, aqui](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Monitorização do Centro de Segurança Azure**: Não aplicável
+**Monitorização do Centro de Segurança do Azure**: Não aplicável
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade**: Partilhada
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte a [visão geral do Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Saiba mais sobre [as linhas de base de segurança da Azure](/azure/security/benchmarks/security-baselines-overview)
+- Veja a [Descrição geral da Referência de Segurança do Azure v2](../security/benchmarks/overview.md)
+- Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

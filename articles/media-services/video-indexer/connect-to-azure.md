@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: juliako
-ms.openlocfilehash: 3f159a11dc9607daf479c13f6612cab0175dae0c
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 282e1ef98a3c0d6e152b56a180a639c86d004af9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94634893"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493105"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Criar uma conta de Indexer de Vídeo ligada ao Azure
 
@@ -45,7 +45,7 @@ Se estiver a passar de um *ensaio* para uma conta de Indexer de Vídeo *paga,* p
 
     Utilizará este membro ao ligar a sua conta de Indexer de Vídeo ao Azure.
 
-    Este utilizador deve ser membro na sua subscrição Azure com uma função **Proprietário,** ou tanto as funções **de Administrador de Contribuinte** e De Acesso ao **Utilizador.** Um utilizador pode ser adicionado duas vezes, com duas funções. Uma vez com o Contribuinte e uma vez com o Administrador de Acesso ao Utilizador. Para mais informações, consulte [ver o acesso que um utilizador tem aos recursos da Azure.](https://docs.microsoft.com/azure/role-based-access-control/check-access)
+    Este utilizador deve ser membro na sua subscrição Azure com uma função **Proprietário,** ou tanto as funções **de Administrador de Contribuinte** e De Acesso ao **Utilizador.** Um utilizador pode ser adicionado duas vezes, com duas funções. Uma vez com o Contribuinte e uma vez com o Administrador de Acesso ao Utilizador. Para mais informações, consulte [ver o acesso que um utilizador tem aos recursos da Azure.](../../role-based-access-control/check-access.md)
 
     ![controlo de acessos](./media/create-account/access-control-iam.png)
 
@@ -53,7 +53,7 @@ Se estiver a passar de um *ensaio* para uma conta de Indexer de Vídeo *paga,* p
 
 * Registe o fornecedor de recursos EventGrid utilizando o portal Azure.
 
-    No [portal Azure](https://portal.azure.com/), vá a **Subscrições** ->[subscrição]-> **ResourceProviders**.
+    No [portal Azure](https://portal.azure.com/), vá a **Subscrições**->[subscrição]->**ResourceProviders**.
 
     Procure por **Microsoft.Media** e **Microsoft.EventGrid**. Se não estiver no estado "Registado", clique em **Registar**. Leva alguns minutos para se registar.
 
@@ -127,7 +127,7 @@ Se a ligação ao Azure falhar, pode tentar resolver o problema ligando manualme
     2. Selecione [o método de autenticação principal do Serviço](../previous/media-services-portal-get-started-with-aad.md).
     3. Obtenha a iD do cliente e o segredo do cliente
 
-        Depois de **Settings** selecionar -> **Definições Chaves** , adicione **Descrição** , prima **Guardar** , e o valor da chave é povoado.
+        Depois de **Settings** selecionar -> **Definições Chaves**, adicione **Descrição**, prima **Guardar**, e o valor da chave é povoado.
 
         Se a chave expirar, o proprietário da conta terá de contactar o suporte do Video Indexer para renovar a chave.
 
@@ -147,7 +147,7 @@ No diálogo, forneça as seguintes informações:
 |ID da subscrição|A assinatura Azure sob a qual esta ligação deve ser criada. O ID de subscrição pode ser recuperado a partir do portal Azure. Selecione **Todos os serviços** no painel esquerdo e procure por "subscrições". Selecione **Subscrições** e escolha o ID desejado na lista das suas subscrições.|
 |Nome do grupo de recursos Azure Media Services|O nome do grupo de recursos em que criou a conta dos Serviços de Comunicação Social.|
 |Nome de recurso de serviço de mídia|O nome da conta Azure Media Services que criou na secção anterior.|
-|ID da Aplicação|O ID de aplicação Azure (com permissões para a conta de Serviços de Mídia especificadas) que criou na secção anterior.|
+|ID da aplicação|O ID de aplicação Azure (com permissões para a conta de Serviços de Mídia especificadas) que criou na secção anterior.|
 |Chave de aplicação|A chave de aplicação AD AZure que criou na secção anterior. |
 
 ## <a name="import-your-content-from-the-trial-account"></a>Importe o seu conteúdo da conta *experimental*

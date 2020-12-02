@@ -6,18 +6,18 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: e756e033c8e5b2508dca9bde76ad16be26a940fa
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 42bbe1c9f4056ae0dae0ccd59b452db90a7c63c5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505789"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493666"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>Atualize a sua base de dados PostgreSQL utilizando o despejo e o restauro
 
 Pode atualizar o seu servidor PostgreSQL implantado na Base de Dados Azure para PostgreSQL - Servidor Único migrando as suas bases de dados para um servidor de versão maior, utilizando métodos seguidos.
 * **Método offline** utilizando [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) postgreSQL e [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) que incorre em tempo de inatividade para migrar os dados. Este documento aborda este método de atualização/migração.
-* **Método online** utilizando [o Serviço de Migração de Bases de Dados](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) (DMS). Este método fornece uma migração reduzida de tempo de inatividade e mantém a base de dados-alvo em sintonia com a fonte e pode escolher quando cortar. No entanto, existem poucos pré-requisitos e restrições a serem abordados para a utilização de DMS. Para mais informações, consulte a documentação do [DMS.](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) 
+* **Método online** utilizando [o Serviço de Migração de Bases de Dados](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) (DMS). Este método fornece uma migração reduzida de tempo de inatividade e mantém a base de dados-alvo em sintonia com a fonte e pode escolher quando cortar. No entanto, existem poucos pré-requisitos e restrições a serem abordados para a utilização de DMS. Para mais informações, consulte a documentação do [DMS.](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) 
 
  A tabela seguinte fornece algumas recomendações baseadas em tamanhos e cenários de base de dados.
 
@@ -28,7 +28,7 @@ Pode atualizar o seu servidor PostgreSQL implantado na Base de Dados Azure para 
 | DBs de pequeno porção (10 GB – 100 GB) | X | X |
 | Grandes bases de dados (> 100 GB) |  | X |
 | Pode permitir tempo de inatividade para upgrade (independentemente do tamanho da base de dados) | X |  |
-| Pode abordar [os pré-requisitos do](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal#prerequisites)DMS, incluindo um reboot? |  | X |
+| Pode abordar [os pré-requisitos do](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md#prerequisites)DMS, incluindo um reboot? |  | X |
 | Pode evitar DDLs e tabelas nãologadas durante o processo de atualização? | |  X |
 
 Este guia fornece poucas metodologias e exemplos de migração offline para mostrar como pode migrar do seu servidor de origem para o servidor-alvo que executa uma versão mais alta do PostgreSQL.
@@ -66,7 +66,7 @@ Neste guia, os seguintes servidores de origem e alvo e nomes de bases de dados s
  | ------- | ------- |
  | Servidor de origem (v9.5) | pg-95.postgres.database.azure.com |
  | Base de dados de origem | bench5gb |
- | Tamanho da base de dados de origem | 5 GB |
+ | Tamanho da base de dados de origem | 5 GB |
  | Nome do utilizador da fonte | pg@pg-95 |
  | Servidor-alvo (v11) | pg-11.postgres.database.azure.com |
  | Base de dados-alvo | bench5gb |
@@ -116,7 +116,7 @@ Se não tiver um cliente PostgreSQL ou quiser utilizar a Azure Cloud Shell, ent�
 | **Tamanho da base de dados** | **Aprox. tempo demorado** | 
 | ----- | ------ |
 | 1 GB  | 1-2 minutos |
-| 5 GB | 8-10 minutos |
+| 5 GB | 8-10 minutos |
 | 10 GB | 15-20 minutos |
 | 50 GB | 1-1,5 horas |
 | 100 GB | 2,5-3 horas|
