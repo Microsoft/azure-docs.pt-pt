@@ -3,17 +3,17 @@ title: Quickstart - Criar uma aplicação Azure IoT Central / Microsoft Docs
 description: Quickstart - Crie uma nova aplicação Azure IoT Central. Crie a aplicação utilizando o plano de preços gratuitos ou um dos planos de preços padrão.
 author: viv-liu
 ms.author: viviali
-ms.date: 11/16/2020
+ms.date: 11/23/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 313826e9e3fb5fd34d42dd735cf66259773084f7
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: a156150c2cd28964658fa8529181a70ef546b78f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122346"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457316"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>Quickstart - Criar uma aplicação Azure IoT Central
 
@@ -50,7 +50,7 @@ Para criar uma nova aplicação Azure IoT Central a partir do modelo de **aplica
 1. Opte por criar esta aplicação utilizando o plano de preços gratuitos de 7 dias, ou um dos planos de preços padrão:
 
     - As aplicações que cria usando o plano *gratuito* são gratuitas durante sete dias e suportam até cinco dispositivos. Pode convertê-los para usar um plano de preços padrão a qualquer momento antes de expirarem.
-    - As aplicações que cria usando um plano *padrão* são faturadas por dispositivo, pode escolher o plano de preços **Standard 1** ou **Standard 2** com os dois primeiros dispositivos gratuitos. Saiba mais sobre os planos de preços gratuitos e padrão na página de preços da [Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). Se criar uma aplicação utilizando um plano de preços padrão, tem de selecionar o seu *Diretório,* *Subscrição Azure* e *Localização*:
+    - As aplicações que cria usando um plano *padrão* são faturadas por dispositivo, pode escolher o plano de preços **Standard 0,** **Standard 1** ou **Standard 2,** com os dois primeiros dispositivos a serem gratuitos. Saiba mais sobre os planos de preços gratuitos e padrão na página de preços da [Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). Se criar uma aplicação utilizando um plano de preços padrão, tem de selecionar o seu *Diretório,* *Subscrição Azure* e *Localização*:
         - *O Diretório* é o Diretório Ativo Azure no qual cria a sua aplicação. Um Diretório Ativo Azure contém identidades de utilizador, credenciais e outras informações organizacionais. Se não tiver um Diretório Ativo Azure, um é criado para si quando cria uma subscrição do Azure.
         - A *Subscrição do Azure* permite-lhe criar instâncias de serviços do Azure. A IoT Central fornece recursos na sua subscrição. Se não tiver uma subscrição do Azure, pode criar uma gratuitamente na página de inscrição do [Azure](https://aka.ms/createazuresubscription). Depois de criar a subscrição do Azure, volte à página de **aplicação Nova.** A sua nova subscrição aparece agora na entrega da **Subscrição Azure.**
         - *A localização* é a [geografia](https://azure.microsoft.com/global-infrastructure/geographies/) onde gostaria de criar a sua aplicação. Normalmente, deve escolher o local mais próximo fisicamente dos seus dispositivos para obter um desempenho ideal. Uma vez que você escolhe um local, você não pode mais tarde mover a sua aplicação para um local diferente.

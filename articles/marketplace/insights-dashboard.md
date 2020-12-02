@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 8f85e9c77cc6fed7e2763f694664332b124d0780
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 9089fee7565633b198043efeed929fc7446437d5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561799"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458291"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de Informações do Marketplace na análise de mercados comerciais
 
@@ -20,7 +20,7 @@ Este artigo fornece informações sobre o dashboard Marketplace Insights no Part
 
 Para aceder ao dashboard **Marketplace Insights** no Partner Center, no Mercado Comercial, selecione **[Analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **Marketplace Insights**.
 
-Para definições detalhadas de terminologia analítica, consulte [terminologia de análise de mercado comercial e questões comuns.](./partner-center-portal/faq-terminology.md)
+Para definições detalhadas de terminologia analítica, consulte [terminologia de análise de mercado comercial e questões comuns.](./analytics-faq.md)
 
 ## <a name="marketplace-insights-dashboard"></a>Dashboard de Informações do Marketplace
 
@@ -54,29 +54,29 @@ Pode encontrar uma seleção de mês no canto superior direito de cada página. 
 
 O gráfico de **Visitantes** do Marketplace Insights apresenta uma contagem de _visitas_ de página e _visitantes únicos_ para o período de cálculo selecionado.
 
-**Visitas de página** : Este número representa a contagem de sessões de utilizador distintas na página de listagem de oferta (página de detalhes do produto) para um período de cálculo selecionado. Os indicadores de percentagem vermelha e verde representam a percentagem de crescimento das visitas de página. O gráfico de tendências representa a contagem mensal de visitas de página.
+**Visitas de página**: Este número representa a contagem de sessões de utilizador distintas na página de listagem de oferta (página de detalhes do produto) para um período de cálculo selecionado. Os indicadores de percentagem vermelha e verde representam a percentagem de crescimento das visitas de página. O gráfico de tendências representa a contagem mensal de visitas de página.
 
-**Visitantes únicos** : Este número representa a contagem de visitantes distinta durante o período de cálculo selecionado para a(s) oferta(s) em Azure Marketplace e AppSource. Um visitante que tenha visitado uma ou mais páginas de detalhes do produto será contado como um visitante único.
+**Visitantes únicos**: Este número representa a contagem de visitantes distinta durante o período de cálculo selecionado para a(s) oferta(s) em Azure Marketplace e AppSource. Um visitante que tenha visitado uma ou mais páginas de detalhes do produto será contado como um visitante único.
 
 [![Ilustra a tabela de Visitantes no painel De Marketplace Insights.](./media/insights-dashboard/visitors.png)](./media/insights-dashboard/visitors.png#lightbox)
 
 ### <a name="call-to-actions-trend"></a>Tendência de chamada para ações
 
-Este número representa a contagem de cliques do botão **Call to Action** concluídos na página de listagem de oferta (página de detalhe do produto). _As chamadas para a ação_ são contadas quando os utilizadores selecionam os botões Get It **Now** , **Free Trial** , **Contact Me** ou **Test Drive.**
+Este número representa a contagem de cliques do botão **Call to Action** concluídos na página de listagem de oferta (página de detalhe do produto). _As chamadas para a ação_ são contadas quando os utilizadores selecionam os botões Get It **Now**, **Free Trial**, **Contact Me** ou **Test Drive.**
 
 [![Ilustra o gráfico de chamada para ação no painel de insights do Mercado.](./media/insights-dashboard/call-to-actions-trend.png)](./media/insights-dashboard/call-to-actions-trend.png#lightbox)
 
 ### <a name="page-visits-and-call-to-actions-against-offers-referral-domains-and-campaign-ids"></a>Visitas de página e chamada a ações contra ofertas, domínios de referência e iDs de campanha
 
-**Domínios de referência** : A seleção de um domínio de referência específico mostra a tendência mensal das visitas de página e apela à ação no gráfico à direita.
+**Domínios de referência**: A seleção de um domínio de referência específico mostra a tendência mensal das visitas de página e apela à ação no gráfico à direita.
 
 :::image type="content" source="./media/insights-dashboard/referral-domain.png" alt-text="Ilustra o gráfico de domínio de referência no painel De marketplace Insights.":::
 
-**Ofertas** : Selecione uma oferta específica, para ver a tendência mensal das visitas de página e apela à ação na tabela à direita.
+**Ofertas**: Selecione uma oferta específica, para ver a tendência mensal das visitas de página e apela à ação na tabela à direita.
 
 :::image type="content" source="./media/insights-dashboard/offer-alias.png" alt-text="Ilustra o gráfico de pseudónimos da oferta no painel marketplace Insights.":::
 
-**IDs de campanha** : Ao selecionar um ID de campanha específico, você deve ser capaz de entender o sucesso da campanha. Para cada campanha, você deve ser capaz de ver a tendência mensal das visitas de página e chamadas para a ação na tabela para a direita.
+**IDs de campanha**: Ao selecionar um ID de campanha específico, você deve ser capaz de entender o sucesso da campanha. Para cada campanha, você deve ser capaz de ver a tendência mensal das visitas de página e chamadas para a ação na tabela para a direita.
 
 :::image type="content" source="./media/insights-dashboard/campaign.png" alt-text="Ilustra o gráfico de campanha no painel marketplace Insights.":::
 
@@ -112,4 +112,4 @@ Esta tabela fornece uma visão da lista das visitas de página e as chamadas par
 - Para obter informações detalhadas sobre os seus clientes, incluindo tendências de crescimento, consulte [o painel de clientes em análise de mercado comercial.](./customer-dashboard.md)
 - Para obter uma lista dos seus pedidos de descarregamento nos últimos 30 dias, consulte [downloads dashboard em análise de mercado comercial.](./partner-center-portal/downloads-dashboard.md)
 - Para ver uma visão consolidada do feedback do cliente para as ofertas no Azure Marketplace e appSource, consulte [o painel de avaliação de avaliações & ratings no Partner Center](./partner-center-portal/ratings-reviews.md).
-- Para perguntas frequentes sobre análise de mercado comercial e para um dicionário abrangente de termos de dados, consulte a terminologia de análise de [mercado comercial e questões comuns.](./partner-center-portal/faq-terminology.md)
+- Para perguntas frequentes sobre análise de mercado comercial e para um dicionário abrangente de termos de dados, consulte a terminologia de análise de [mercado comercial e questões comuns.](./analytics-faq.md)

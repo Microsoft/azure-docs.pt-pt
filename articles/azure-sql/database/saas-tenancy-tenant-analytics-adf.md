@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 97dc53c9870112dc5d547ab477e54f15f802cc05
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: dc47c996748b126841cbeff1ea3f6f18f423951f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310649"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457642"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Explore a análise do SaaS com a Azure SQL Database, Azure Synapse Analytics, Data Factory e Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,7 +45,7 @@ As aplicações saaS possuem uma quantidade potencialmente vasta de dados de inq
 
 O acesso aos dados para todos os inquilinos é simples quando todos os dados estão numa base de dados multi-inquilinos. Mas o acesso é mais complexo quando distribuído em escala por milhares de bases de dados. Uma forma de domar a complexidade é extrair os dados para uma base de dados de análise ou um armazém de dados para consulta.
 
-Este tutorial apresenta um cenário de análise de ponta a ponta para a aplicação de Ingressos wingtip. Em primeiro lugar, [a Azure Data Factory (ADF)](../../data-factory/introduction.md) é usada como ferramenta de orquestração para extrair bilhetes de venda e dados relacionados de cada base de dados de inquilinos. Estes dados são carregados em mesas de preparação numa loja de análise. A loja de análise pode ser uma Base de Dados SQL ou uma piscina SQL dedicada. Este tutorial utiliza [a Azure Synapse Analytics (anteriormente SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) como loja de análise.
+Este tutorial apresenta um cenário de análise de ponta a ponta para a aplicação de Ingressos wingtip. Em primeiro lugar, [a Azure Data Factory (ADF)](../../data-factory/introduction.md) é usada como ferramenta de orquestração para extrair bilhetes de venda e dados relacionados de cada base de dados de inquilinos. Estes dados são carregados em mesas de preparação numa loja de análise. A loja de análise pode ser uma Base de Dados SQL ou uma piscina SQL dedicada. Este tutorial usa [a Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) como loja de análise.
 
 Em seguida, os dados extraídos são transformados e carregados em um conjunto de tabelas [de esquemas estelares.](https://www.wikipedia.org/wiki/Star_schema) As tabelas consistem num quadro central de factos mais tabelas de dimensão relacionadas:
 
@@ -79,15 +79,15 @@ Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 
 Este tutorial explora a análise sobre os dados de venda de bilhetes. Neste passo, gera dados de bilhetes para todos os inquilinos. Posteriormente, estes dados são extraídos para análise. _Certifique-se de que fornece o lote de inquilinos_ (como descrito anteriormente) para que tenha dados suficientes para expor uma gama de diferentes padrões de compra de bilhetes.
 
-1. No PowerShell ISE, abra *...\Módulos de aprendizagem\Analytics operacional\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* , e definir o seguinte valor:
+1. No PowerShell ISE, abra *...\Módulos de aprendizagem\Analytics operacional\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1*, e definir o seguinte valor:
     - **$DemoScenario**  =  **1** Compre bilhetes para eventos em todos os locais
 2. Pressione **F5** para executar o script e criar histórico de compra de bilhetes para todos os locais. Com 20 inquilinos, o roteiro gera dezenas de milhares de bilhetes e pode demorar 10 minutos ou mais.
 
 ### <a name="deploy-azure-synapse-analytics-data-factory-and-blob-storage"></a>Implementar Azure Synapse Analytics, Data Factory e Blob Storage
 
-Na aplicação Wingtip Tickets, os dados transacionais dos inquilinos são distribuídos por muitas bases de dados. A Azure Data Factory (ADF) é usada para orquestrar o Extrato, Carga e Transformação (ELT) destes dados no armazém de dados. Para carregar os dados no Azure Synapse Analytics (anteriormente SQL Data Warehouse) de forma mais eficiente, a ADF extrai dados em ficheiros de bolhas intermédias e, em seguida, utiliza [a PolyBase](../../synapse-analytics/sql-data-warehouse/design-elt-data-loading.md) para carregar os dados no armazém de dados.
+Na aplicação Wingtip Tickets, os dados transacionais dos inquilinos são distribuídos por muitas bases de dados. A Azure Data Factory (ADF) é usada para orquestrar o Extrato, Carga e Transformação (ELT) destes dados no armazém de dados. Para carregar os dados no Azure Synapse Analytics de forma mais eficiente, a ADF extrai dados em ficheiros de bolhas intermédias e, em seguida, utiliza [a PolyBase](../../synapse-analytics/sql-data-warehouse/design-elt-data-loading.md) para carregar os dados no armazém de dados.
 
-Neste passo, você implanta os recursos adicionais utilizados no tutorial: uma piscina de SQL dedicada chamada _tenantanalytics_ , uma Fábrica de Dados Azure chamada _dbtodwload- \<user\>_ e uma conta de armazenamento Azure chamada _wingtipstaging \<user\>_. A conta de armazenamento é usada para reter temporariamente ficheiros de dados extraídos como bolhas antes de serem carregados no armazém de dados. Este passo também implanta o esquema de armazém de dados e define os oleodutos ADF que orquestram o processo ELT.
+Neste passo, você implanta os recursos adicionais utilizados no tutorial: uma piscina de SQL dedicada chamada _tenantanalytics_, uma Fábrica de Dados Azure chamada _dbtodwload- \<user\>_ e uma conta de armazenamento Azure chamada _wingtipstaging \<user\>_. A conta de armazenamento é usada para reter temporariamente ficheiros de dados extraídos como bolhas antes de serem carregados no armazém de dados. Este passo também implanta o esquema de armazém de dados e define os oleodutos ADF que orquestram o processo ELT.
 
 1. No PowerShell ISE, abra *...\Módulos de aprendizagem\Analytics operacional\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* e definido:
     - **$DemoScenario**  =  **2** Implementar armazém de dados de análise de inquilino, armazenamento de bolhas e fábrica de dados
@@ -167,7 +167,7 @@ Correspondentes aos três serviços ligados, existem três conjuntos de dados qu
   
 ### <a name="data-warehouse-pattern-overview"></a>Visão geral do padrão do armazém de dados
 
-A Azure Synapse (anteriormente SQL Data Warehouse) é usada como a loja de análise para realizar agregação nos dados do inquilino. Nesta amostra, a PolyBase é utilizada para carregar dados no armazém de dados. Os dados brutos são carregados em tabelas de encenação que têm uma coluna de identidade para acompanhar as linhas que foram transformadas nas tabelas de esquemas estelares. A imagem a seguir mostra o padrão de carregamento: ![ O diagrama mostra o padrão de carregamento das tabelas de bases de dados.](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
+A Azure Synapse é usada como a loja de análise para realizar agregação nos dados do inquilino. Nesta amostra, a PolyBase é utilizada para carregar dados no armazém de dados. Os dados brutos são carregados em tabelas de encenação que têm uma coluna de identidade para acompanhar as linhas que foram transformadas nas tabelas de esquemas estelares. A imagem a seguir mostra o padrão de carregamento: ![ O diagrama mostra o padrão de carregamento das tabelas de bases de dados.](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
 
 Neste exemplo são utilizadas tabelas de dimensão tipo 1 (SCD) de mudança lenta . Cada dimensão tem uma chave de substituição definida usando uma coluna de identidade. Como uma boa prática, a tabela de dimensão da data é pré-povoada para economizar tempo. Para as outras tabelas de dimensão, uma tabela CREATE AS SELECT... (CTAS) é utilizada para criar uma tabela temporária contendo as linhas modificadas e não modificadas existentes, juntamente com as chaves de substituição. Isto é feito com IDENTITY_INSERT=ON. As novas linhas são então inseridas na tabela com IDENTITY_INSERT=OFF. Para um retrocesso fácil, a tabela de dimensões existente é renomeada e a tabela temporária é renomeada para se tornar a nova tabela de dimensões. Antes de cada execução, a tabela de dimensão antiga é apagada.
 
@@ -204,15 +204,15 @@ Use os seguintes passos para ligar ao Power BI e importar as vistas que criou an
 1. Lançar power bi desktop.
 2. A partir da fita Home, **selecione Obter Dados,** e selecione **Mais...** do menu.
 3. Na janela **Obter Dados,** selecione **Azure SQL Database**.
-4. Na janela de início de sessão de dados, insira o nome do seu servidor **(catalog-dpt- &lt; User &gt; .database.windows.net** ). Selecione **Importar** para **o Modo de Conectividade de Dados** e, em seguida, clique em **OK**.
+4. Na janela de início de sessão de dados, insira o nome do seu servidor **(catalog-dpt- &lt; User &gt; .database.windows.net**). Selecione **Importar** para **o Modo de Conectividade de Dados** e, em seguida, clique em **OK**.
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics-adf/powerBISignIn.PNG)
 
-5. Selecione **a Base de Dados** no painel esquerdo e, em seguida, introduza o nome do utilizador = *desenvolvedor* , e introduza a palavra-passe = *P \@ ssword1*. Clique em **Ligar**.  
+5. Selecione **a Base de Dados** no painel esquerdo e, em seguida, introduza o nome do utilizador = *desenvolvedor*, e introduza a palavra-passe = *P \@ ssword1*. Clique em **Ligar**.  
 
     ![registo de bases de dados](./media/saas-tenancy-tenant-analytics-adf/databaseSignIn.PNG)
 
-6. No painel **Do Navegador,** sob a base de dados de análise, selecione as tabelas star-schema: **fact_Tickets** , **dim_Events,** **dim_Venues,** **dim_Customers** e **dim_Dates**. Em seguida, **selecione Carregar**.
+6. No painel **Do Navegador,** sob a base de dados de análise, selecione as tabelas star-schema: **fact_Tickets**, **dim_Events,** **dim_Venues,** **dim_Customers** e **dim_Dates**. Em seguida, **selecione Carregar**.
 
 Parabéns! Carregou os dados com sucesso no Power BI. Agora explore visualizações interessantes para obter informações sobre os seus inquilinos. Vamos percorrer como a análise pode fornecer algumas recomendações baseadas em dados para a equipa de negócios wingtip tickets. As recomendações podem ajudar a otimizar o modelo de negócio e a experiência do cliente.
 

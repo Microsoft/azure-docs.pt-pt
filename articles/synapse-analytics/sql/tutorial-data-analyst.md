@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Explore e analise lagos de dados com sql synapse sem servidor'
-description: Este tutorial mostra-lhe como realizar facilmente a análise de dados exploratórios combinando diferentes conjuntos de dados Azure Open usando piscina SQL sem servidor (pré-visualização) e visualizar os resultados no Synapse Studio para Azure Synapse Analytics.
+title: 'Tutorial: Use piscina SQL sem servidor para analisar conjuntos de dados Azure Open no Azure Synapse Studio'
+description: Este tutorial mostra-lhe como realizar facilmente a análise de dados exploratórios combinando diferentes conjuntos de dados Azure Open usando piscina SQL sem servidor e visualizar os resultados no Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: af6fc75b5de22fc77313932ca17ce695e889dad3
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7b2d4953b3a42c5d66fca4a67b4a6d0f13700a35
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95238024"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459125"
 ---
-# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool-preview"></a>Tutorial: Explore e analise os lagos de dados com piscina SQL sem servidor (pré-visualização)
+# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool"></a>Tutorial: Explore e analise lagos de dados com piscina SQL sem servidor
 
 Neste tutorial, aprende-se a realizar análises exploratórias de dados. Você combinará diferentes conjuntos de dados Azure Open usando piscina SQL sem servidor. Em seguida, visualizará os resultados no Synapse Studio para Azure Synapse Analytics.
 
@@ -208,7 +208,7 @@ Os resultados da consulta indicam que a diminuição do número de passeios de t
 
 Este tutorial mostrou como um analista de dados pode rapidamente realizar análises exploratórias de dados, combinar facilmente diferentes conjuntos de dados utilizando o pool SQL sem servidor, e visualizar os resultados usando o Azure Synapse Studio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a ligar a piscina SQL sem servidor ao Power BI Desktop e criar relatórios, consulte [a piscina SQL sem servidor para o Power BI Desktop e crie relatórios](tutorial-connect-power-bi-desktop.md).
 

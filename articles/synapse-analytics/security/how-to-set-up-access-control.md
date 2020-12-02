@@ -1,5 +1,5 @@
 ---
-title: Proteja o seu espaço de trabalho Synapse (pré-visualização)
+title: Proteger a área de trabalho do Synapse
 description: Este artigo irá ensiná-lo a usar funções e controlar o acesso a atividades de controlo e acesso a dados no espaço de trabalho da Synapse.
 services: synapse-analytics
 author: matt1883
@@ -9,20 +9,20 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 79a4db1f7d4be88260ea41ce1090007bc66cc7c8
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 25e191af919c5880045a6c4c7c79b675cf02520e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556034"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458721"
 ---
-# <a name="secure-your-synapse-workspace-preview"></a>Proteja o seu espaço de trabalho Synapse (pré-visualização) 
+# <a name="secure-your-synapse-workspace"></a>Proteger a área de trabalho do Synapse 
 
 Este artigo irá ensiná-lo a usar funções e controlar o acesso a atividades de controlo e acesso a dados. Seguindo estas instruções, o controlo de acesso em Azure Synapse Analytics é simplificado. Basta adicionar e remover os utilizadores a um dos três grupos de segurança.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
-Para garantir um espaço de trabalho synapse (pré-visualização), seguirá um padrão de configuração dos seguintes itens:
+Para garantir um espaço de trabalho da Sinapse, seguirá um padrão de configuração dos seguintes itens:
 
 - Funções azure (como as incorporadas como Proprietário, Contribuinte, etc.)
 - Papéis de sinapse – estes papéis são exclusivos da Sinapse e não são baseados em papéis de Azure. Há três destes papéis:
@@ -36,7 +36,7 @@ Para garantir um espaço de trabalho synapse (pré-visualização), seguirá um 
 
 Este documento utiliza nomes padrão para simplificar as instruções. Substitua-os por quaisquer nomes à sua escolha.
 
-|Definição | Valor de exemplo | Description |
+|Definição | Valor de exemplo | Descrição |
 | :------ | :-------------- | :---------- |
 | **Espaço de trabalho sinapse** | WS1 |  O nome que o espaço de trabalho da Sinapse terá. |
 | **Conta ADLSGEN2** | STG1 | A conta ADLS para usar com o seu espaço de trabalho. |
@@ -96,7 +96,7 @@ O espaço de trabalho synapse precisa de acesso a STG1 e CNT1 para que possa exe
 
 - Abra o portal do Azure
 - Navegue até WS1
-- Em **Definições** , selecione **sql ative directy administrador**
+- Em **Definições**, selecione **sql ative directy administrador**
 - Selecione **Definir administração** e escolha WS1 \_ SQLAdmins
 
 ## <a name="step-6-maintain-access-control"></a>PASSO 6: Manter o controlo de acesso

@@ -10,24 +10,24 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 1a6708214eadb2f5d0d66d72f5db5cb4a195d206
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 43b03abb2aac13358a2187a0a5dc570c1e45934e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324870"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458488"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Aprendizagem profunda vs. aprendizagem automática em Azure Machine Learning
 
 Este artigo explica a aprendizagem profunda vs. aprendizagem automática e como se enquadram na categoria mais ampla de inteligência artificial. Saiba mais sobre soluções de aprendizagem profunda que pode construir no Azure Machine Learning, como deteção de fraudes, reconhecimento de voz e facial, análise de sentimentos e previsão de séries de tempo.
 
-Para obter orientações sobre a escolha de algoritmos para as suas soluções, consulte a [Folha de Batota do Algoritmo de Aprendizagem automática.](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri)
+Para obter orientações sobre a escolha de algoritmos para as suas soluções, consulte a [Folha de Batota do Algoritmo de Aprendizagem automática.](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri)
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>Aprendizagem profunda, aprendizagem automática e IA
 
 ![Diagrama de relacionamento: IA vs. machine learning vs. deep learning](./media/concept-deep-learning-vs-machine-learning/ai-vs-machine-learning-vs-deep-learning.png)
 
-Considere as seguintes definições para compreender a aprendizagem profunda vs. machine learning vs. IA:
+Considere as seguintes definições para compreender a aprendizagem profunda vs. aprendizagem automática vs.AI:
 
 - **A aprendizagem profunda** é um subconjunto de aprendizagem automática que é baseado em redes neuronais artificiais. O _processo de aprendizagem_ é _profundo_ porque a estrutura das redes neurais artificiais consiste em múltiplas entradas, saídas e camadas ocultas. Cada camada contém unidades que transformam os dados de entrada em informações que a próxima camada pode utilizar para uma determinada tarefa preditiva. Graças a esta estrutura, uma máquina pode aprender através do seu próprio processamento de dados.
 

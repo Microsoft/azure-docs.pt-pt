@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 24c2fe9b6bbb0b5a40edd395bfe669abfc8c9adc
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 0ab0e64d9a088a332ba037dccf01dc445998ebfb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183180"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457555"
 ---
 # <a name="azure-analysis-services-samples"></a>Amostras de Serviços de Análise Azure
 
@@ -28,7 +28,7 @@ O repositório [de Serviços](https://github.com/Microsoft/Analysis-Services) de
 
 ## <a name="sample-database-on-azure"></a>Base de dados de amostras em Azure
 
-A Azure Synapse Analytics (anteriormente SQL Data Warehouse) fornece uma base de dados adventureWorksDW que pode ser incluída num recurso aprovisionado. Para saber mais, consulte [Quickstart: Criar e consultar uma piscina SQL dedicada em Azure Synapse Analytics ](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
+A Azure Synapse Analytics fornece uma base de dados AdventureWorksDW que pode ser incluída num recurso aprovisionado. Para saber mais, consulte [Quickstart: Criar e consultar uma piscina SQL dedicada em Azure Synapse Analytics ](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 ## <a name="sample-databases-on-github"></a>Bases de dados de amostras no GitHub
 

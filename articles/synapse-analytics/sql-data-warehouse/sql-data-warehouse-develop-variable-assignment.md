@@ -1,30 +1,30 @@
 ---
 title: Atribuir variáveis
-description: Neste artigo, encontrará dicas essenciais para a atribuição de variáveis T-SQL na piscina SQL.
+description: Neste artigo, você encontrará dicas essenciais para a atribuição de variáveis T-SQL para piscinas SQL dedicadas em Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 0cbadc10fb817c70bd259397c840aae68abc2d54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 87448ea737c11af13a52632e5bf4f67dc54d9ae3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213334"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459229"
 ---
-# <a name="assign-variables-in-synapse-sql-pool"></a>Atribuir variáveis na piscina Sinaapse SQL
+# <a name="assign-variables-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Atribuir variáveis para piscinas SQL dedicadas em Azure Synapse Analytics
 
-Neste artigo, encontrará dicas essenciais para a atribuição de variáveis T-SQL na piscina SQL.
+Neste artigo, você encontrará dicas essenciais para atribuir variáveis T-SQL em piscina SQL dedicada.
 
 ## <a name="set-variables-with-declare"></a>Definir variáveis com DECLARE
 
-As variáveis na piscina SQL são definidas usando a `DECLARE` declaração ou a `SET` declaração. Inicializar variáveis com DECLARE é uma das formas mais flexíveis de definir um valor variável na piscina SQL.
+As variáveis na piscina SQL dedicada são definidas usando a `DECLARE` declaração ou a `SET` declaração. Inicializar variáveis com DECLARE é uma das formas mais flexíveis de definir um valor variável na piscina SQL.
 
 ```sql
 DECLARE @v  int = 0

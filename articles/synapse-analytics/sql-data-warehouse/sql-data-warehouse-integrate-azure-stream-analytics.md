@@ -1,6 +1,6 @@
 ---
-title: Use Azure Stream Analytics
-description: Dicas para utilizar o Azure Stream Analytics com o seu armazém de dados em Azure Synapse para desenvolver soluções em tempo real.
+title: Use a Azure Stream Analytics em piscina SQL dedicada
+description: Dicas para utilizar o Azure Stream Analytics com piscina SQL dedicada em Azure Synapse para o desenvolvimento de soluções em tempo real.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 9/25/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 3ead3393218255808eb67983251fcf9f2561c82c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8fbe546beb1004214e544f8eb160884c0f64ef9e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020185"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458223"
 ---
-# <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Utilizar o Azure Stream Analytics com o Azure Synapse Analytics
+# <a name="use-azure-stream-analytics-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Use a Azure Stream Analytics com piscina SQL dedicada em Azure Synapse Analytics
 
 O Azure Stream Analytics é um serviço totalmente gerido que fornece um processamento complexo complexo de baixa latência, altamente disponível e complexo sobre o streaming de dados na nuvem. Pode aprender o básico lendo [Introdução ao Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Em seguida, pode aprender a criar uma solução de ponta a ponta com stream Analytics, seguindo o Get começou a usar o tutorial [Azure Stream Analytics.](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
-Neste artigo, você aprenderá a usar o seu armazém de dados como um lavatório de saída para ingestão de dados de alta produção com empregos Azure Stream Analytics.
+Neste artigo, você aprenderá a usar o seu pool DE SQL dedicado como um lavatório de saída para ingestão de dados de alto rendimento com empregos Azure Stream Analytics.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,9 +32,9 @@ Neste artigo, você aprenderá a usar o seu armazém de dados como um lavatório
     2. Configurar e iniciar a aplicação do gerador de eventos
     3. Provisionamento de um trabalho stream analytics
     4. Especificar entrada de trabalho e consulta
-* Synapse pool SQL dedicado para o seu armazém de dados - Para criar um novo armazém de dados, siga os passos no [Quickstart para criar um novo armazém de dados.](create-data-warehouse-portal.md)
+* Piscina SQL dedicada - Para criar uma nova piscina SQL dedicada, siga os passos no [Quickstart: Crie uma piscina SQL dedicada.](../quickstart-create-sql-pool-portal.md)
 
-## <a name="specify-streaming-output-to-point-to-your-data-warehouse"></a>Especifique a saída de streaming para apontar para o seu armazém de dados
+## <a name="specify-streaming-output-to-point-to-your-dedicated-sql-pool"></a>Especifique a saída de streaming para apontar para a sua piscina DE SQL dedicada
 
 ### <a name="step-1"></a>Passo 1
 
@@ -52,8 +52,8 @@ Introduza os seguintes valores:
 
 * *Alias de saída : Insira* um nome amigável para esta saída de trabalho.
 * *Assinatura*:
-  * Se o seu armazém de dados estiver na mesma subscrição que o trabalho stream Analytics, clique em ***Selecione Azure Synapse Analytics a partir das suas subscrições** _.
-  _ Se o seu armazém de dados estiver numa subscrição diferente, clique em Configurações De azure Synapse Analytics manualmente.
+  * Se o seu pool DE SQL dedicado estiver na mesma subscrição que o trabalho stream Analytics, clique em ***Selecione Azure Synapse Analytics a partir das suas subscrições** _.
+  _ Se o seu pool SQL dedicado estiver numa subscrição diferente, clique em Configurações Provide Azure Synapse Analytics manualmente.
 * *Base de dados*: Selecione a base de dados de destino da lista de drop down.
 * *Nome do utilizador*: Especifique o nome de utilizador de uma conta que tenha permissões de escrita para a base de dados.
 * *Senha*: Forneça a palavra-passe para a conta de utilizador especificada.
@@ -64,7 +64,7 @@ Introduza os seguintes valores:
 
 ### <a name="step-4"></a>Passo 4
 
-Antes de poder fazer um teste, terá de criar a tabela no seu armazém de dados.  Execute o seguinte script de criação de mesa utilizando o SQL Server Management Studio (SSMS) ou a sua escolha de ferramenta de consulta.
+Antes de poder realizar um teste, terá de criar a mesa na sua piscina SQL dedicada.  Execute o seguinte script de criação de mesa utilizando o SQL Server Management Studio (SSMS) ou a sua escolha de ferramenta de consulta.
 
 ```sql
 CREATE TABLE SensorLog
@@ -120,7 +120,7 @@ Clique no botão _ *_Iniciar_** no painel de trabalho inicial.
 
 ![Clique em Iniciar](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastartconfirm.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma visão geral da integração, consulte [Integrar outros serviços.](sql-data-warehouse-overview-integrate.md)
-Para obter mais dicas de desenvolvimento, consulte [decisões de design e técnicas de codificação para armazéns de dados.](sql-data-warehouse-overview-develop.md)
+Para obter mais dicas de desenvolvimento, consulte [decisões de design e técnicas de codificação para piscina SQL dedicada.](sql-data-warehouse-overview-develop.md)

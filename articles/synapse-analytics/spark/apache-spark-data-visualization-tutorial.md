@@ -1,5 +1,5 @@
 ---
-title: Visualizar dados com Apache Spark
+title: Visualizar dados com o Apache Spark
 description: Criar visualizações de dados ricas usando Os Cadernos analíticos Apache Spark e Azure Synapse
 services: synapse-analytics
 author: midesa
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 10/20/2020
 ms.author: midesa
-ms.openlocfilehash: 820dd8b607f5ec2fdc44d25063e0a941f76237ad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8735514b639cb0322a83ffb19d661027327c0f73
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920169"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458765"
 ---
 # <a name="analyze-data-with-apache-spark"></a>Analisar dados com Apache Spark
 
@@ -99,7 +99,7 @@ Além das opções de gráficos de notebook incorporados, também pode usar bibl
 
 > [!Note]
 > 
-> Por padrão, cada piscina Apache Spark Azure Synapse Analytics contém um conjunto de bibliotecas comumente usadas e padrão. Pode ver a lista completa de bibliotecas no Tempo de [Execução Azure Synapse.](../spark/apache-spark-version-support.md) documentação. Além disso, para disponibilizar código de terceiros ou construído localmente para as suas aplicações, pode [instalar uma biblioteca](../spark/apache-spark-azure-portal-add-libraries.md) numa das suas Piscinas de Faísca (pré-visualização).
+> Por padrão, cada piscina Apache Spark Azure Synapse Analytics contém um conjunto de bibliotecas comumente usadas e padrão. Pode ver a lista completa de bibliotecas no Tempo de [Execução Azure Synapse.](../spark/apache-spark-version-support.md) documentação. Além disso, para disponibilizar código de terceiros ou construído localmente para as suas aplicações, pode [instalar uma biblioteca](../spark/apache-spark-azure-portal-add-libraries.md) numa das suas Piscinas de Faíscas.
 >
 
 1. Para tornar o desenvolvimento mais fácil e menos dispendioso, vamos reduzir a amostra do conjunto de dados. Usaremos a capacidade de amostragem de Apache Spark incorporada. Além disso, tanto Seaborn como Matplotlib requerem um dataframe pandas ou uma matriz numpy. Para obter um dataframe pandas, usaremos o comando para converter o ```toPandas()``` nosso dataframe.

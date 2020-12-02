@@ -14,12 +14,12 @@ ms.date: 11/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c29087ee1f74e2abed8c9fb2449a222469c82848
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ce2525927b38a2d3300d15b7d34324f5ff59e4e5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325132"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457428"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Troubleshoot SQL connectivity issues with Azure AD Connect (Resolver problemas de conectividade do SQL com o Azure AD Connect)
 Este artigo explica como resolver problemas de conectividade entre O Azure AD Connect e SQL Server. 
@@ -33,7 +33,7 @@ Abra uma janela PowerShell e importe o módulo ADSyncTools Powershell
 
 ``` powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-Install-PackageProvider -Name NuGet -MinimumVersion2.8.5.201 -Force
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
 Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
 ```
 

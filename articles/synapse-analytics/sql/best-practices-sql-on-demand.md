@@ -1,6 +1,6 @@
 ---
-title: Melhores práticas para piscina SQL sem servidor (pré-visualização)
-description: Recomendações e boas práticas para trabalhar com piscina SQL sem servidor (pré-visualização).
+title: Melhores práticas para piscina SQL sem servidor
+description: Recomendações e boas práticas para trabalhar com piscina SQL sem servidor.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ddf9d689316d3c95c322aa3a967af53621a2e00f
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: b8b93471b6d7f2555cfd71e524718ed0ea1ee191
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638874"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457902"
 ---
-# <a name="best-practices-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Melhores práticas para piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics
+# <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Melhores práticas para piscina SQL sem servidor em Azure Synapse Analytics
 
-Neste artigo, você encontrará uma coleção de boas práticas para usar a piscina SQL sem servidor (pré-visualização). Serverless SQL pool é um recurso em Azure Synapse Analytics.
+Neste artigo, você encontrará uma coleção de boas práticas para usar a piscina SQL sem servidor. Serverless SQL pool é um recurso em Azure Synapse Analytics.
 
 ## <a name="general-considerations"></a>Considerações gerais
 
@@ -129,7 +129,7 @@ Pode utilizar um analisador otimizado para o desempenho quando consultar ficheir
 
 ## <a name="manually-create-statistics-for-csv-files"></a>Criar manualmente estatísticas para ficheiros CSV
 
-O pool SQL sem servidor baseia-se em estatísticas para gerar planos de execução de consultas ideais. As estatísticas serão automaticamente criadas para colunas em ficheiros Parquet quando necessário. Neste momento, as estatísticas não são automaticamente criadas para colunas em ficheiros CSV e deve criar estatísticas manualmente para colunas que utilize em consultas, particularmente as utilizadas em DISTINCT, JOIN, WHERE, ORDER BY e GROUP BY. Consulte [as estatísticas na piscina SQL sem servidor](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview) para obter detalhes.
+O pool SQL sem servidor baseia-se em estatísticas para gerar planos de execução de consultas ideais. As estatísticas serão automaticamente criadas para colunas em ficheiros Parquet quando necessário. Neste momento, as estatísticas não são automaticamente criadas para colunas em ficheiros CSV e deve criar estatísticas manualmente para colunas que utilize em consultas, particularmente as utilizadas em DISTINCT, JOIN, WHERE, ORDER BY e GROUP BY. Consulte [estatísticas na piscina SQL sem servidor](develop-tables-statistics.md#statistics-in-serverless-sql-pool para obter mais detalhes.
 
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Use o CETAS para melhorar o desempenho da consulta e junta-se
 

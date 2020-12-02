@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 9d5ddb508740cf5fec670d258926419512e3d549
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ac2c9cb1710c4b4f67ba2aa06707d08cc45d4907
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129835"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459251"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Saída da Base de Dados Azure SQL da Azure Stream Analytics
 
@@ -24,7 +24,7 @@ Também pode utilizar [a Azure SQL Managed Instance](../azure-sql/managed-instan
 
 A tabela que se segue lista os nomes dos imóveis e a sua descrição para a criação de uma saída sql Database.
 
-| Nome da propriedade | Description |
+| Nome da propriedade | Descrição |
 | --- | --- |
 | Alias de saída |Um nome amigável usado em consultas para direcionar a saída de consulta para esta base de dados. |
 | Base de Dados | O nome da base de dados para onde está a enviar a sua produção. |
@@ -35,11 +35,11 @@ A tabela que se segue lista os nomes dos imóveis e a sua descrição para a cri
 |Herdar o esquema de partição| Uma opção para herdar o esquema de partição do seu passo de consulta anterior, para permitir topologia totalmente paralela com vários escritores à mesa. Para obter mais informações, consulte [a saída Azure Stream Analytics para a Base de Dados Azure SQL](stream-analytics-sql-output-perf.md).|
 |Contagem de lotes max| O limite superior recomendado para o número de registos enviados com cada transação de inserção a granel.|
 
-Existem dois adaptadores que permitem a saída do Azure Stream Analytics para a Azure Synapse Analytics (anteriormente SQL Data Warehouse): SQL Database e Azure Synapse. Recomendamos que escolha o adaptador Azure Synapse Analytics em vez do adaptador SQL Database se alguma das seguintes condições for verdadeira:
+Existem dois adaptadores que permitem a saída do Azure Stream Analytics para Azure Synapse Analytics: SQL Database e Azure Synapse. Recomendamos que escolha o adaptador Azure Synapse Analytics em vez do adaptador SQL Database se alguma das seguintes condições for verdadeira:
 
-* **Produção** : Se a sua produção esperada agora ou no futuro for superior a 10MB/seg, utilize a opção de saída Azure Synapse para um melhor desempenho.
+* **Produção**: Se a sua produção esperada agora ou no futuro for superior a 10MB/seg, utilize a opção de saída Azure Synapse para um melhor desempenho.
 
-* **Entradas Partições** : Se tiver oito ou mais divisórias de entrada, utilize a opção de saída Azure Synapse para uma melhor escala.
+* **Entradas Partições**: Se tiver oito ou mais divisórias de entrada, utilize a opção de saída Azure Synapse para uma melhor escala.
 
 ## <a name="partitioning"></a>Criação de partições
 
@@ -47,7 +47,7 @@ A partição tem de ser ativada e baseia-se na cláusula PARTITION BY na consult
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
 
-Pode configurar o tamanho máximo da mensagem utilizando a **contagem de lotes Max** . O máximo de predefinição é de 10.000 e o mínimo de predefinição é de 100 linhas por cada inserção a granel. Para mais informações, consulte [os limites do Azure SQL](../azure-sql/database/resource-limits-logical-server.md). Cada lote é inicialmente inserido a granel com a contagem máxima de lote. O lote é dividido ao meio (até à contagem mínima de lotes) com base em erros retripáveis do SQL.
+Pode configurar o tamanho máximo da mensagem utilizando a **contagem de lotes Max**. O máximo de predefinição é de 10.000 e o mínimo de predefinição é de 100 linhas por cada inserção a granel. Para mais informações, consulte [os limites do Azure SQL](../azure-sql/database/resource-limits-logical-server.md). Cada lote é inicialmente inserido a granel com a contagem máxima de lote. O lote é dividido ao meio (até à contagem mínima de lotes) com base em erros retripáveis do SQL.
 
 ## <a name="next-steps"></a>Passos seguintes
 

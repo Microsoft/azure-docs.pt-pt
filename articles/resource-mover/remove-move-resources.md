@@ -5,14 +5,14 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 11/30/2020
 ms.author: raynew
-ms.openlocfilehash: 38a633a7a11ac29271231679e7075920e1f33a70
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 63548e2bf470c012e0dd8a5f879a51eeb631f453
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945948"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459285"
 ---
 # <a name="manage-move-collections-and-resource-groups"></a>Gerir recolhas de movimentos e grupos de recursos
 
@@ -43,12 +43,11 @@ Remova um recurso (no nosso exemplo, as máquinas PSDemoVM) de uma coleção uti
 
 ```azurepowershell-interactive
 # Remove a resource using the resource ID
-Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus - Name PSDemoVM
+Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus -Name PSDemoVM
 ```
-**Saída esperada** 
- ![ Texto de saída após remover um recurso de uma coleção de movimento](./media/remove-move-resources/remove-resource.png)
+**Resultado esperado**
 
-
+![Texto de saída após remover um recurso de uma coleção de movimento](./media/remove-move-resources/remove-resource.png)
 
 ## <a name="remove-a-collection-powershell"></a>Remover uma coleção (PowerShell)
 
@@ -59,16 +58,18 @@ Remova uma coleção de movimentos inteira usando o PowerShell, da seguinte form
 
     ```azurepowershell-interactive
     # Remove a resource using the resource ID
-    Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus 
+    Remove-AzResourceMoverMoveCollection -SubscriptionId <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus -MoveCollectionName MoveCollection-centralus-westcentralus
     ```
-    **Saída esperada** ![ Texto de saída após a remoção de uma coleção de movimento](./media/remove-move-resources/remove-collection.png)
+    **Resultado esperado**
+    
+    ![Texto de saída após a remoção de uma coleção de movimento](./media/remove-move-resources/remove-collection.png)
 
 ## <a name="vm-resource-state-after-removing"></a>Estado de recursos VM após a remoção
 
 O que acontece quando se remove um recurso VM de uma recolha de movimentos depende do estado de recursos, como resumido na tabela.
 
 ###  <a name="remove-vm-state"></a>Remover o estado de VM
-**Estado dos recursos** | **VM** | **Redes**
+**Estado dos recursos** | **VM** | **Rede**
 --- | --- | --- 
 **Adicionado para mover coleção** | Apagar da coleção de movimentos. | Apagar da coleção de movimentos. 
 **Dependências resolvidas/preparar pendentes** | Excluir da coleção de movimentos  | Apagar da coleção de movimentos. 
@@ -102,6 +103,6 @@ O que acontece quando remove um recurso Azure SQL de uma recolha de movimentos d
 **Eliminar fonte pendente** | Apagado da coleção de movimentos.<br/><br/> Não apaga nada criado na região alvo. 
 **Eliminar fonte falhou** | Apagado da coleção de movimentos.<br/><br/> Não apaga nada criado na região alvo. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Tente [mover um VM](tutorial-move-region-virtual-machines.md) para outra região com o Resource Mover.

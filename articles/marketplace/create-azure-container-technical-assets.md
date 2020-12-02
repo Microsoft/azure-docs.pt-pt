@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 11/30/2020
-ms.openlocfilehash: 30f9eac0a0e88092a243b4d9421d2a4f33b07841
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 014bcd6fc519c267cdf17e9e98b850425c25ead6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95759038"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459331"
 ---
 # <a name="prepare-your-azure-container-technical-assets"></a>Prepare os seus ativos técnicos do contentor Azure
 
@@ -20,7 +20,7 @@ Este artigo fornece recursos técnicos e recomendações para ajudá-lo a criar 
 
 ## <a name="before-you-begin"></a>Before you begin
 
-Para quickstarts, tutoriais e amostras, consulte a [documentação das instâncias do recipiente Azure](/azure/container-instances/).
+Para quickstarts, tutoriais e amostras, consulte a [documentação das instâncias do recipiente Azure](../container-instances/index.yml).
 
 ## <a name="fundamental-technical-knowledge"></a>Conhecimento técnico fundamental
 
@@ -43,7 +43,7 @@ Escolha um ou ambos os seguintes ambientes de script para ajudar a gerir a sua i
 
 Recomendamos que adicione estas ferramentas ao seu ambiente de desenvolvimento:
 
-- [Explorador de Armazenamento do Azure](/azure/vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
+- [Explorador de Armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Extensão: [Ferramentas do gestor de recursos Azure](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   - Extensão: [Embelezamento](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -55,9 +55,9 @@ Reveja as ferramentas disponíveis na página [Azure Developer Tools.](https://a
 
 Não é possível implantar uma imagem no Azure Container Instances a partir de um registo no local.
 
-- Se já tiver um recipiente de trabalho no seu registo local, crie um Registo Azure e carre fique com a imagem do seu contentor no Registo do Contentor de Azure. Para saber mais, consulte [Tutorial: Construa e implemente imagens de contentores na nuvem com tarefas de registo de contentores Azure](/azure/container-registry/container-registry-tutorial-quick-task.md).
+- Se já tiver um recipiente de trabalho no seu registo local, crie um Registo Azure e carre fique com a imagem do seu contentor no Registo do Contentor de Azure. Para saber mais, consulte [Tutorial: Construa e implemente imagens de contentores na nuvem com tarefas de registo de contentores Azure](../container-registry/container-registry-tutorial-quick-task.md).
 
-- Se ainda não tiver uma imagem de contentor e precisar de contentorizar a sua aplicação existente ou criar uma nova aplicação baseada em contentores, clone o código fonte de aplicação do GitHub, crie uma imagem de recipiente a partir da fonte de aplicação e teste a imagem num ambiente local do Docker. Para saber mais, consulte [Tutorial: Crie uma imagem de recipiente para implantação em Instâncias de Contentores Azure](/azure/container-instances/container-instances-tutorial-prepare-app.md).
+- Se ainda não tiver uma imagem de contentor e precisar de contentorizar a sua aplicação existente ou criar uma nova aplicação baseada em contentores, clone o código fonte de aplicação do GitHub, crie uma imagem de recipiente a partir da fonte de aplicação e teste a imagem num ambiente local do Docker. Para saber mais, consulte [Tutorial: Crie uma imagem de recipiente para implantação em Instâncias de Contentores Azure](../container-instances/container-instances-tutorial-prepare-app.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

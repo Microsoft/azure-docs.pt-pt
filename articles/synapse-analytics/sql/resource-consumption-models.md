@@ -9,18 +9,18 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1a78142ded7be46bdc06c49d6e0a26ef8b266300
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0e3bbb2532340664d0fc54b29bea3ef3af75f9b6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318401"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459153"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consumo de recursos SQL de Sinapse
 
-Este artigo descreve os modelos de consumo de recursos do Synapse SQL (pré-visualização).
+Este artigo descreve os modelos de consumo de recursos da Synapse SQL.
 
-## <a name="serverless-sql-pool"></a>Piscina SQL sem servidor
+## <a name="serverless-sql-pool"></a>Conjunto de SQL sem servidor
 
 A piscina SQL sem servidor é um serviço de pagamento por consulta que não requer que escolha o tamanho certo. O sistema ajusta-se automaticamente com base nos seus requisitos, libertando-o da gestão da sua infraestrutura e escolhendo o tamanho certo para a sua solução.
 
@@ -127,7 +127,7 @@ Para alterar DWUs:
 
 1. Abra o [portal Azure,](https://portal.azure.com)abra a sua base de dados e selecione **Escala**.
 
-2. Em **Escala** , mova o deslizador para a esquerda ou para a direita para alterar a definição DWU.
+2. Em **Escala**, mova o deslizador para a esquerda ou para a direita para alterar a definição DWU.
 
 3. Selecione **Guardar**. É apresentada uma mensagem de confirmação. Selecione **sim** para confirmar ou **não** para cancelar.
 

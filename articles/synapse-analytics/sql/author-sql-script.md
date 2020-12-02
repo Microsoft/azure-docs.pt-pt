@@ -1,6 +1,6 @@
 ---
-title: Scripts SQL no Azure Synapse Studio (pré-visualização)
-description: Introdução aos scripts do Azure Synapse Studio (pré-visualização) SQL
+title: Scripts SQL no Estúdio Synapse
+description: Introdução aos scripts Sinaapse Studio SQL em Azure synapse Analytics.
 services: synapse-analytics
 author: pimorano
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
-ms.openlocfilehash: 3f3009799889bd6b118f586676e22338d821d37c
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 077815d117af0328a3466346727e135caaf8ff21
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635294"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457997"
 ---
-# <a name="using-sql-scripts-in-azure-synapse-studio-preview"></a>Utilizando scripts SQL no Azure Synapse Studio (pré-visualização)
+# <a name="synapse-studio-sql-scripts-in-azure-synapse-analytics"></a>Scripts Sinaapse Studio SQL em Azure Synapse Analytics 
 
-O Azure Synapse Studio (pré-visualização) fornece uma interface web de script SQL para você para autor de consultas SQL. Pode ligar-se à piscina SQL (pré-visualização). 
+O Synapse Studio fornece uma interface web de script SQL para você para autor de consultas SQL. 
 
 ## <a name="begin-authoring-in-sql-script"></a>Comece a escrever no script SQL 
 

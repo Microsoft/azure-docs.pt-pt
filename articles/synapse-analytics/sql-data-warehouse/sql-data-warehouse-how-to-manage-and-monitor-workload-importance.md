@@ -1,6 +1,6 @@
 ---
-title: Gerir e monitorizar a importância da carga de trabalho
-description: Aprenda a gerir e monitorizar a importância do nível de pedido no Azure Synapse Analytics.
+title: Gerir e monitorizar a importância da carga de trabalho na piscina dedicada SQL
+description: Saiba como gerir e monitorizar a importância do nível de pedido dedicada à piscina SQL dedicada para a Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 43006456142728287ddf4adba1fbb9b45f5ccc89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb0a5fbf33b48521882646bf8fb5eb3fe5dacca6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85211974"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459205"
 ---
-# <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Gerir e monitorizar a importância da carga de trabalho no Azure Synapse Analytics
+# <a name="manage-and-monitor-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>Gerir e monitorizar a importância da carga de trabalho na piscina dedicada SQL para a Azure Synapse Analytics
 
-Gerir e monitorizar a importância do nível de pedido synapse em Azure Synapse usando DMVs e vistas de catálogo.
+Gerir e monitorizar a importância dedicada do pedido de piscina SQL em Azure Synapse usando DMVs e vistas de catálogo.
 
 ## <a name="monitor-importance"></a>Monitorizar a importância
 

@@ -12,12 +12,12 @@ ms.custom:
 - security-recommendations
 - amqp
 - mqtt
-ms.openlocfilehash: 5a7fc2a5a5a6be7695fa816f28e3cdf61c5839f2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a1de3a71253b1a82b4423bff279fbf3f7e378da4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208278"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457613"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Recomendações de segurança para implantação da Internet das Coisas (IoT)
 
@@ -40,7 +40,7 @@ Algumas das recomendações incluídas neste artigo podem ser monitorizadas auto
 
 | Recomendação | Comentários | Apoiado pela ASC |
 |-|----|--|
-| Defina o controlo de acesso para o hub | [Compreenda e defina o tipo de acesso](iot-security-deployment.md#securing-the-cloud) que cada componente terá na sua solução IoT Hub, com base na funcionalidade. As permissões permitidas são *Registry Read*, *RegistryReadWrite,* *ServiceConnect*e *DeviceConnect*. As políticas de acesso partilhado por defeito [no seu hub IoT](../iot-hub/iot-hub-devguide-security.md#access-control-and-permissions) também podem ajudar a definir as permissões para cada componente com base no seu papel. | - |
+| Defina o controlo de acesso para o hub | [Compreenda e defina o tipo de acesso](iot-security-deployment.md#securing-the-cloud) que cada componente terá na sua solução IoT Hub, com base na funcionalidade. As permissões permitidas são *Registry Read*, *RegistryReadWrite,* *ServiceConnect* e *DeviceConnect*. As políticas de acesso partilhado por defeito [no seu hub IoT](../iot-hub/iot-hub-devguide-security.md#access-control-and-permissions) também podem ajudar a definir as permissões para cada componente com base no seu papel. | - |
 | Defina o controlo de acesso para serviços de backend | Os dados ingeridos pela sua solução IoT Hub podem ser consumidos por outros serviços da Azure, tais como [Cosmos DB,](../cosmos-db/index.yml) [Stream Analytics,](../stream-analytics/index.yml) [App Service,](../app-service/index.yml) [Logic Apps](../logic-apps/index.yml)e [Blob storage](../storage/blobs/storage-blobs-introduction.md). Certifique-se de compreender e permitir permissões de acesso apropriadas como documentado para estes serviços. | - |
 
 ## <a name="data-protection"></a>Proteção de dados
@@ -63,8 +63,8 @@ Algumas das recomendações incluídas neste artigo podem ser monitorizadas auto
 | Recomendação | Comentários | Apoiado pela ASC |
 |-|----|--|
 | Monitorize o acesso não autorizado aos seus dispositivos |  Utilize a função de registo do sistema operativo do seu dispositivo para monitorizar eventuais falhas de segurança ou adulteração física do dispositivo ou das suas portas. | - |
-| Monitorize a sua solução IoT a partir da nuvem | Monitorize a saúde geral da sua solução IoT Hub utilizando as [métricas no Azure Monitor](../iot-hub/iot-hub-metrics.md). | - |
-| Configurar diagnósticos | Observe atentamente as suas operações registando eventos na sua solução e, em seguida, envie os registos de diagnóstico para o Azure Monitor para obter visibilidade no desempenho. Leia [Monitor e diagnostice problemas no seu hub IoT](../iot-hub/iot-hub-monitor-resource-health.md) para obter mais informações. | - |
+| Monitorize a sua solução IoT a partir da nuvem | Monitorize a saúde geral da sua solução IoT Hub utilizando as [métricas no Azure Monitor](../iot-hub/monitor-iot-hub.md). | - |
+| Configurar diagnósticos | Observe atentamente as suas operações registando eventos na sua solução e, em seguida, envie os registos de diagnóstico para o Azure Monitor para obter visibilidade no desempenho. Leia [Monitor e diagnostice problemas no seu hub IoT](../iot-hub/monitor-iot-hub.md) para obter mais informações. | - |
 
 ## <a name="next-steps"></a>Passos seguintes
 

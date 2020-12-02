@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 59f68909e2f3704fea5c38e3f1535f5996b284ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2620b52c426871b0ec85e3db237be2d373d42f1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87099171"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458701"
 ---
 # <a name="add-tags-to-digital-twins"></a>Adicionar tags a gémeos digitais 
 
@@ -69,13 +69,13 @@ Uma vez adicionadas etiquetas aos gémeos digitais, as etiquetas podem ser usada
 Aqui está uma consulta para obter todos os gémeos que foram marcados como "vermelho": 
 
 ```sql
-select * from digitaltwins where is_defined(tags.red) 
+SELECT * FROM digitaltwins WHERE is_defined(tags.red) 
 ```
 
 Também pode combinar tags para consultas mais complexas. Aqui está uma consulta para obter todos os gémeos que são redondos, e não vermelho: 
 
 ```sql
-select * from digitaltwins where not is_defined(tags.red) and is_defined(tags.round) 
+SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND is_defined(tags.round) 
 ```
 
 ## <a name="value-tags"></a>Etiquetas de valor 
@@ -127,13 +127,13 @@ Tal como acontece com as etiquetas de marcação, pode utilizar etiquetas de val
 Pelo exemplo acima, `red` está a ser usado como uma etiqueta de marcação. Aqui está uma consulta para obter todos os gémeos que foram marcados como "vermelho": 
 
 ```sql
-select * from digitaltwins where is_defined(tags.red) 
+SELECT * FROM digitaltwins WHERE is_defined(tags.red) 
 ```
 
 Aqui está uma consulta para obter todas as entidades que são pequenas (etiqueta de valor), e não vermelhas: 
 
 ```sql
-select * from digitaltwins where not is_defined(tags.red) and tags.size = 'small' 
+SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND tags.size = 'small' 
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

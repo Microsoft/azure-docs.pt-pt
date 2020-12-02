@@ -3,17 +3,17 @@ title: O que é o Azure IoT Central | Microsoft Docs
 description: A Azure IoT Central é uma plataforma de aplicação IoT que simplifica a criação de soluções IoT e ajuda a reduzir os encargos e custos das operações de gestão de IoT, e desenvolvimento. Este artigo disponibiliza uma descrição geral do Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/10/2019
+ms.date: 11/23/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 41dba796327d7f5857098af6165be996bed226fb
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 55f187781a0f11417b0c918034dcfe3362be4468
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122705"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457670"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é o Azure IoT Central?
 
@@ -137,7 +137,7 @@ As aplicações IoT Central são totalmente hospedadas pela Microsoft, o que red
 Você pode criar uma aplicação IoT Central usando um teste gratuito de 7 dias, ou usar um plano de preços padrão.
 
 - As aplicações que cria usando o plano *gratuito* são gratuitas durante sete dias e suportam até cinco dispositivos. Pode convertê-los para usar um plano de preços padrão a qualquer momento antes de expirarem.
-- As aplicações que cria usando o plano *padrão* são faturadas por dispositivo, pode escolher o plano de preços **Standard 1** ou **Standard 2** com os dois primeiros dispositivos gratuitos. Saiba mais sobre [os preços da IoT Central.](https://aka.ms/iotcentral-pricing)
+- As aplicações que cria utilizando o plano *padrão* são faturadas por dispositivo, pode escolher o plano de preços **Standard 0,** **Standard 1** ou **Standard 2,** com os dois primeiros dispositivos a serem gratuitos. Saiba mais sobre [os preços da IoT Central.](https://aka.ms/iotcentral-pricing)
 
 ## <a name="quotas"></a>Quotas
 

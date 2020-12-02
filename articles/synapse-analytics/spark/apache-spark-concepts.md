@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: d29fa6454839b0c34830374282b8abb5fa6e4c51
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8df7a2ecd2a6732a011267eb0efe00e8eaf2bef4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313399"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458756"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Apache Spark in Azure Synapse Analytics Core Concepts
 
@@ -22,17 +22,17 @@ Apache Spark é uma estrutura de processamento paralela que suporta o processame
 
 A Azure Synapse facilita a criação e configuração das capacidades de faísca em Azure. O Azure Synapse fornece uma implementação diferente destas capacidades de Faísca que são documentadas aqui.
 
-## <a name="spark-pools-preview"></a>Piscinas de faíscas (pré-visualização)
+## <a name="spark-pools"></a>Piscinas de faíscas
 
-Uma piscina Apache Spark sem servidor (pré-visualização) é criada no portal Azure. É a definição de uma piscina de faíscas que, quando instantânea, é usada para criar uma instância Spark que processa dados. Quando uma piscina Spark é criada, existe apenas como metadados, e nenhum recursos são consumidos, em execução ou cobrados. Uma piscina spark tem uma série de propriedades que controlam as características de uma ocorrência de faísca. Estas características incluem, mas não se limitam ao nome, tamanho, comportamento de escala, tempo de vida.
+Uma piscina Apache Spark sem servidor é criada no portal Azure. É a definição de uma piscina de faíscas que, quando instantânea, é usada para criar uma instância Spark que processa dados. Quando uma piscina Spark é criada, existe apenas como metadados, e nenhum recursos são consumidos, em execução ou cobrados. Uma piscina spark tem uma série de propriedades que controlam as características de uma ocorrência de faísca. Estas características incluem, mas não se limitam ao nome, tamanho, comportamento de escala, tempo de vida.
 
 Como não há um dólar ou custo de recursos associado à criação de piscinas Spark, qualquer número pode ser criado com qualquer número de configurações diferentes. As permissões também podem ser aplicadas a piscinas Spark, permitindo que os utilizadores tenham apenas acesso a alguns e não a outros.
 
 Uma das melhores práticas é criar piscinas de faíscas mais pequenas que possam ser usadas para o desenvolvimento e depurações e, em seguida, maiores para executar cargas de trabalho de produção.
 
-Você pode ler como criar uma piscina spark e ver todas as suas propriedades aqui [Começar com piscinas Spark em Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md)
+Você pode ler como criar uma piscina spark e ver todas as suas propriedades aqui [Começar com piscinas spark em Azure Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md)
 
-## <a name="spark-instances"></a>Ocorrências de faíscas
+## <a name="spark-instances"></a>Instâncias do Apache Spark
 
 As ocorrências de faíscas são criadas quando se liga a uma piscina spark, cria uma sessão e gere um emprego. Como vários utilizadores podem ter acesso a uma única piscina Spark, é criado um novo exemplo de Spark para cada utilizador que se conecta. 
 

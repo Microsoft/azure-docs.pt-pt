@@ -9,16 +9,16 @@ ms.date: 10/16/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 27881b048a738d4de2acb57dcc4c2dad1f4d5b24
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 62610e1b86671021e66891ae232bacbd4b3e40ed
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435370"
+ms.locfileid: "96458813"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gerir bibliotecas para Apache Spark em Azure Synapse Analytics
 
-As bibliotecas fornecem código reutilizável que poderá querer incluir nos seus programas ou projetos. Para disponibilizar códigos de terceiros ou construídos localmente para as suas aplicações, pode instalar uma biblioteca numa das suas Piscinas Apache Spark sem servidor (pré-visualização). Uma vez instalada uma biblioteca para uma piscina Spark, está disponível para todas as sessões usando a mesma piscina. 
+As bibliotecas fornecem código reutilizável que poderá querer incluir nos seus programas ou projetos. Para disponibilizar códigos de terceiros ou construídos localmente para as suas aplicações, pode instalar uma biblioteca numa das suas piscinas Apache Spark sem servidor. Uma vez instalada uma biblioteca para uma piscina Spark, está disponível para todas as sessões usando a mesma piscina. 
 
 ## <a name="before-you-begin"></a>Before you begin
 - Para instalar e atualizar bibliotecas, tem de ter as permissões **do Storage Blob Data Contributor** ou do Proprietário de **Dados blob de armazenamento** na conta primária de Armazenamento Gen2 que está ligada ao espaço de trabalho Azure Synapse Analytics.
@@ -26,11 +26,11 @@ As bibliotecas fornecem código reutilizável que poderá querer incluir nos seu
 ## <a name="default-installation"></a>Instalação predefinida
 Apache Spark in Azure Synapse Analytics tem uma instalação completa de Anacondas mais bibliotecas adicionais. A lista completa de bibliotecas pode ser encontrada no [suporte da versão Apache Spark.](apache-spark-version-support.md) 
 
-Quando uma instância Spark começa, estas bibliotecas serão automaticamente incluídas. Os pacotes adicionais python e personalizados podem ser adicionados ao nível da piscina Spark (pré-visualização).
+Quando uma instância Spark começa, estas bibliotecas serão automaticamente incluídas. Python adicionais e pacotes construídos personalizados podem ser adicionados ao nível da piscina Spark.
 
 
 ## <a name="manage-python-packages"></a>Gerir pacotes Python
-Uma vez identificadas as bibliotecas que gostaria de utilizar para a sua aplicação Spark, pode instalá-las numa piscina Spark (pré-visualização). 
+Uma vez identificadas as bibliotecas que gostaria de usar para a sua aplicação Spark, pode instalá-las numa piscina Spark. 
 
  Um ficheiro *requirements.txt* (saída do `pip freeze` comando) pode ser usado para atualizar o ambiente virtual. Os pacotes listados neste ficheiro para instalação ou upgrade são descarregados a partir de PyPi no momento do arranque da piscina. Este ficheiro de requisitos é usado sempre que uma instância Spark é criada a partir dessa piscina Spark.
 
@@ -54,7 +54,7 @@ alabaster==0.7.10
 À medida que desenvolve a sua aplicação Spark, poderá descobrir que precisa de atualizar ou instalar novas bibliotecas. As bibliotecas podem ser atualizadas durante ou após a criação da piscina.
 
 #### <a name="install-packages-during-pool-creation"></a>Instalar pacotes durante a criação da piscina
-Para instalar bibliotecas numa piscina spark (pré-visualização) durante a criação da piscina:
+Para instalar bibliotecas numa piscina de faíscas durante a criação da piscina:
    
 1. Navegue para o seu espaço de trabalho Azure Synapse Analytics a partir do portal Azure.
    
@@ -66,7 +66,7 @@ Para instalar bibliotecas numa piscina spark (pré-visualização) durante a cri
  
 
 #### <a name="install-packages-from-the-synapse-workspace"></a>Instalar pacotes a partir do Espaço de Trabalho Synapse
-Para atualizar ou adicionar bibliotecas adicionais a uma piscina Spark (pré-visualização) do portal Azure Synapse Analytics:
+Para atualizar ou adicionar bibliotecas adicionais a uma piscina spark do portal Azure Synapse Analytics:
 
 1.  Navegue para o seu espaço de trabalho Azure Synapse Analytics a partir do portal Azure.
    
@@ -79,7 +79,7 @@ Para atualizar ou adicionar bibliotecas adicionais a uma piscina Spark (pré-vis
     ![Adicione bibliotecas Python em sinapse](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png)
    
 #### <a name="install-packages-from-the-azure-portal"></a>Instalar pacotes a partir do portal Azure
-Para instalar uma biblioteca numa piscina spark (pré-visualização) diretamente do portal Azure:
+Para instalar uma biblioteca numa piscina spark diretamente a partir do portal Azure:
    
  1. Navegue para o seu espaço de trabalho Azure Synapse Analytics a partir do portal Azure.
    

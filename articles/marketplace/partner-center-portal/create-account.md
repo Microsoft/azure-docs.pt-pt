@@ -8,12 +8,12 @@ ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
-ms.openlocfilehash: ccdc87d03181bad1aba4dd362a651fa42381343a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 39a9b363c847b615bfbe049b4b47628e8688c607
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95542291"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458113"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Criar uma conta de mercado comercial no Partner Center
 
@@ -114,7 +114,7 @@ Criou agora uma conta comercial no Partner Center. Continue a [adicionar novas e
 >
 >As contas individuais são para os desenvolvedores que trabalham por conta própria. As contas da empresa são para organizações e empresas. As contas da empresa dão-lhe acesso a submeter apps com funcionalidade adicional.
 >
-> Para verificar se está autorizado a configurar a conta para a sua empresa, exigimos uma verificação adicional das contas da empresa depois de se registar. Esta verificação pode demorar de alguns dias a algumas semanas, e muitas vezes inclui um telefonema para a sua empresa. Ambos os tipos de contas permitem submeter apps, add-ins e serviços. Para mais informações, consulte [tipos de conta, locais e taxas.](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees)
+> Para verificar se está autorizado a configurar a conta para a sua empresa, exigimos uma verificação adicional das contas da empresa depois de se registar. Esta verificação pode demorar de alguns dias a algumas semanas, e muitas vezes inclui um telefonema para a sua empresa. Ambos os tipos de contas permitem submeter apps, add-ins e serviços. Para mais informações, consulte [tipos de conta, locais e taxas.](/windows/uwp/publish/account-types-locations-and-fees)
 
 Quando se regista no programa de marketplace comercial com a mesma conta que o seu programa de desenvolvimento, pode ver todas as suas inscrições existentes no painel de programa no painel esquerdo do Partner Center.
 

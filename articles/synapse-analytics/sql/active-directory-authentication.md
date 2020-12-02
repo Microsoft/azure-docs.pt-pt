@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7518d6ac8bc0cde515ab8da2f3d9c1496cb93f08
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b8b0ac002cb52acdc043e4e8ca4fa91daae4e665
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311724"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457982"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Utilize autenticação de diretório ativo Azure para autenticação com Sinapse SQL
 
@@ -36,7 +36,7 @@ As etapas de configuração incluem os seguintes procedimentos para configurar e
 
 1. Criar e povoar Azure AD.
 2. Criar uma identidade de Diretório Ativo Azure
-3. Atribuir papel à identidade do Azure Ative Directory no espaço de trabalho da Sinapse (pré-visualização)
+3. Atribuir papel para criar identidade do Azure Ative Directory no espaço de trabalho da Sinapse
 4. Ligue-se ao Synapse Studio utilizando identidades Azure AD.
 
 ## <a name="azure-ad-pass-through-in-azure-synapse-analytics"></a>Passagem Azure AD em Azure Synapse Analytics
@@ -65,7 +65,7 @@ Ao utilizar a autenticação AZure AD, existem duas contas de Administrador para
 
 O login do administrador AZure AD pode ser um utilizador AD Azure ou um grupo AZure AD. Quando o administrador é uma conta de grupo, pode ser usado por qualquer membro do grupo, permitindo vários administradores AD Azure para a instância Synapse SQL. 
 
-A utilização da conta de grupo como administrador aumenta a gestão, permitindo-lhe adicionar e remover centralmente membros do grupo em Azure AD sem alterar os utilizadores ou permissões no espaço de trabalho Synapse Analytics. Apenas um administrador AD AZure (um utilizador ou grupo) pode ser configurado a qualquer momento.
+A utilização da conta de grupo como administrador aumenta a gestão, permitindo-lhe adicionar e remover centralmente membros do grupo em Azure AD sem alterar os utilizadores ou permissões no espaço de trabalho Azure Synapse Analytics. Apenas um administrador AD AZure (um utilizador ou grupo) pode ser configurado a qualquer momento.
 
 ![estrutura de administração](./media/aad-authentication/3-admin-structure.png)
 
@@ -109,7 +109,7 @@ A autenticação do Azure Ative Directory suporta os seguintes métodos de liga�
 - Diretório Ativo Azure Universal com MFA
 - Utilização da autenticação simbólica de aplicação
 
-Os seguintes métodos de autenticação são suportados para os principais servidores AD do Azure (logins) **(pré-visualização pública):**
+Os seguintes métodos de autenticação são suportados para os principais servidores AZure AD (logins):
 
 - Senha de diretório ativo Azure
 - Diretório Ativo Azure Integrado
@@ -119,10 +119,10 @@ Os seguintes métodos de autenticação são suportados para os principais servi
 
 - Para melhorar a gestão, recomendamos que você provisa um grupo Azure AD dedicado como administrador.
 - Apenas um administrador AD AD (um utilizador ou grupo) pode ser configurado para a piscina Sinaapse SQL a qualquer momento.
-  - A adição de principais servidores AD (logins) para Synapse SQL (pré-visualização) permite a criação de vários principais servidores AD (logins) do Azure que podem ser adicionados ao `sysadmin` papel.
+  - A adição de principais servidores AD (logins) para Synapse SQL permite a possibilidade de criar vários principais servidores AD Azure (logins) que podem ser adicionados à `sysadmin` função.
 - Apenas um administrador AD AZure para o SYNAPSE SQL pode inicialmente ligar-se ao Synapse SQL utilizando uma conta do Azure Ative Directory. O administrador ative directory pode configurar os utilizadores subsequentes da base de dados Azure AD.
 - Recomendamos que se ajuste o tempo limite de ligação para 30 segundos.
-- SQL Server 2016 Management Studio e SQL Server Data Tools for Visual Studio 2015 (versão 14.0.60311.1April 2016 ou posterior) suportam a autenticação do Azure Ative Directory. (A autenticação AZURE AD é suportada pelo **Fornecedor de Dados-Quadro .NET para SqlServer** ; pelo menos versão .NET Framework 4.6). Assim, as versões mais recentes destas ferramentas e aplicações de nível de dados (DAC e . BACPAC) pode utilizar a autenticação AD AZure.
+- SQL Server 2016 Management Studio e SQL Server Data Tools for Visual Studio 2015 (versão 14.0.60311.1April 2016 ou posterior) suportam a autenticação do Azure Ative Directory. (A autenticação AZURE AD é suportada pelo **Fornecedor de Dados-Quadro .NET para SqlServer**; pelo menos versão .NET Framework 4.6). Assim, as versões mais recentes destas ferramentas e aplicações de nível de dados (DAC e . BACPAC) pode utilizar a autenticação AD AZure.
 - Começando com a versão 15.0.1, [utilitário sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e suporte [de utilitário do BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) Ative Directy Interactive autenticação com MFA.
 - As Ferramentas de Dados do Servidor SQL para o Visual Studio 2015 requerem pelo menos a versão abril de 2016 das Ferramentas de Dados (versão 14.0.60311.1). Atualmente, os utilizadores de AZure AD não são mostrados no SSDT Object Explorer. Como solução alternativa, veja os utilizadores em [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 - [O Microsoft JDBC Driver 6.0 para o SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) suporta a autenticação AD AZure. Consulte também [a Definição das Propriedades de Ligação](/sql/connect/jdbc/setting-the-connection-properties?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).

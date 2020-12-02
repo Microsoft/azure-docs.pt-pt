@@ -8,12 +8,12 @@ ms.date: 10/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: d8c7965a1d77d443b538392a4c190a8f578d8e18
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 496b2ea7272be96774d4bd0900fc35c6de8cf9eb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183214"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457775"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -145,7 +145,7 @@ Os modelos em tabela nos modos dentro da memória e DirectQuery são suportados.
 
 A criação de partições permite carregamentos incrementais, aumenta a paralelização e reduz o consumo de memória. Outras funcionalidades avançadas de modelação de dados, como tabelas calculadas e todas as funções DAX, são suportadas. Os modelos dentro da memória têm de ser atualizados (processados) para atualizar os dados em cache das origens de dados. Com o suporte principal do serviço Azure, operações de atualização sem supervisão utilizando PowerShell, TOM, TMSL e REST oferecem flexibilidade para garantir que os dados do seu modelo estão sempre atualizados. 
 
-O modo DirectQuery* tira partido da base de dados relacional de back-end para armazenamento e execução de consultas. Conjuntos de dados extremamente grandes em únicos sql server, SQL Server Data Warehouse, Azure SQL Database, Azure Synapse Analytics (anteriormente SQL Data Warehouse), Oracle, e Teradata fontes de dados são suportadas. Os conjuntos de dados de back-end podem ultrapassar a memória dos recursos de servidores disponíveis. Não são necessários cenários complexos de atualização de modelos de dados. Existem também algumas restrições, tais como tipos limitados de fonte de dados, limitações de fórmula DAX, e algumas funcionalidades avançadas de modelação de dados não são suportadas. Antes de determinar o modo mais adequado para si, veja o [modo do Direct Query](/analysis-services/tabular-models/directquery-mode-ssas-tabular).
+O modo DirectQuery* tira partido da base de dados relacional de back-end para armazenamento e execução de consultas. São suportados conjuntos de dados extremamente grandes em únicos servidores SQL, SQL Server Data Warehouse, Azure SQL Database, Azure Synapse Analytics, Oracle e Teradata. Os conjuntos de dados de back-end podem ultrapassar a memória dos recursos de servidores disponíveis. Não são necessários cenários complexos de atualização de modelos de dados. Existem também algumas restrições, tais como tipos limitados de fonte de dados, limitações de fórmula DAX, e algumas funcionalidades avançadas de modelação de dados não são suportadas. Antes de determinar o modo mais adequado para si, veja o [modo do Direct Query](/analysis-services/tabular-models/directquery-mode-ssas-tabular).
 
 \* A disponibilidade das funcionalidades varia consoante o escalão.
 

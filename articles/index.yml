@@ -13,12 +13,12 @@ metadata:
   ms.date: 09/25/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 2f8379447edbe6ce7d74780e2f87b79cf77c72b7
-  ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+  ms.openlocfilehash: aeb75bcfb25fdfb23e559b3f07f33c23c5f927de
+  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/24/2020
-  ms.locfileid: "95527042"
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96458180"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -320,11 +320,11 @@ productDirectory:
     - iot
     url: stream-analytics/index.yml
   - title: Azure Synapse Analytics
-    summary: Serviço de análise ilimitada com tempo sem correspondência para informações (anteriormente SQL Data Warehouse)
+    summary: Serviço de análise ilimitado com uma velocidade de obtenção de informações sem rival
     imageSrc: https://static.docs.com/ui/media/product/azure/synapse.svg
     azureCategories:
     - analytics
-    url: synapse-analytics/sql-data-warehouse/index.yml
+    url: synapse-analytics/index.yml
   - title: Catálogo de Dados
     summary: Extraia mais valor dos seus elementos de dados empresariais
     imageSrc: https://static.docs.com/ui/media/product/azure/data-catalog.svg
@@ -501,7 +501,7 @@ productDirectory:
     azureCategories:
     - compute
     - databases
-    url: ./azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json
+    url: ./azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - title: Aplicações Web Estáticas (Pré-visualização)
     summary: Um serviço de aplicações Web moderno que oferece desenvolvimento simplificado de pilha completa de código fonte para elevada disponibilidade global
     imageSrc: ./media/index/static-apps.svg

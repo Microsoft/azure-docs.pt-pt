@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 174ad4692d043390e6773a98e31f0985d75c8e2e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 61efc7719b071ff4e8e5c0e07534b72a2883aff1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018819"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458871"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Data sources supported in Azure Analysis Services (Origens de dados suportadas no Azure Analysis Services)
 
@@ -24,12 +24,12 @@ As fontes de dados e conectores mostrados no Get Data ou no Table Import Wizard 
 |---------|---------|---------|---------|
 |Base de Dados SQL do Azure      |   Sim      |    Sim      |<sup>[2,](#azprovider)</sup> <sup> [3](#azsqlmanaged)</sup>|
 |Azure Synapse Analytics (SQL DW)      |   Sim      |   Sim       |<sup>[2](#azprovider)</sup>|
-|Armazenamento de Blobs do Azure      |   Yes       |    Não      | <sup>[1](#tab1400a)</sup> |
+|Armazenamento de Blobs do Azure      |   Sim       |    Não      | <sup>[1](#tab1400a)</sup> |
 |Armazenamento de Tabelas do Azure     |   Sim       |    Não      | <sup>[1](#tab1400a)</sup>|
 |Azure Cosmos DB     |  Sim        |  Não        |<sup>[1](#tab1400a)</sup> |
 |Azure Data Lake Store Gen1      |   Sim       |    Não      |<sup>[1](#tab1400a)</sup> |
 |Azure Data Lake Store Gen2       |   Sim       |    Não      |<sup>[1,](#tab1400a)</sup> <sup> [5](#gen2)</sup>|
-|Azure HDInsight HDFS    |     Yes     |   Não       |<sup>[1](#tab1400a)</sup> |
+|Azure HDInsight HDFS    |     Sim     |   Não       |<sup>[1](#tab1400a)</sup> |
 |Azure HDInsight Spark     |   Sim       |   Não       |<sup>[1,](#tab1400a)</sup> <sup> [4](#databricks)</sup>|
 ||||
 
@@ -50,9 +50,9 @@ As fontes de dados e conectores mostrados no Get Data ou no Table Import Wizard 
 |Analysis Services     |  Sim | Não |  |
 |Sistema de Plataformas analíticas     |  Sim | Não |  |
 |Ficheiro CSV  |Sim | Não |  |
-|Dynamics 365     |  Yes | Não | <sup>[6](#tab1400b)</sup> |
+|Dynamics 365     |  Sim | Não | <sup>[6](#tab1400b)</sup> |
 |Livro do Excel     |  Sim | Não |  |
-|Troca      |  Yes | Não | <sup>[6](#tab1400b)</sup> |
+|Troca      |  Sim | Não | <sup>[6](#tab1400b)</sup> |
 |Pasta      |Sim | Não | <sup>[6](#tab1400b)</sup> |
 |IBM Informix  |Sim | Não |  |
 |Documento JSON      |  Sim | Não | <sup>[6](#tab1400b)</sup> |
@@ -60,20 +60,20 @@ As fontes de dados e conectores mostrados no Get Data ou no Table Import Wizard 
 |Base de Dados MySQL     | Yes | Não |  |
 |Feed OData      |  Yes | Não | <sup>[6](#tab1400b)</sup> |
 |Consulta ODBC     | Sim | Não |  |
-|OLEDB     |   Yes | Não |  |
+|OLEDB     |   Sim | Não |  |
 |Oracle  | Sim  |Sim  | <sup>[9](#oracle)</sup> |
 |Base de Dados PostgreSQL   | Yes | Não | <sup>[6](#tab1400b)</sup> |
 |Objetos do Salesforce|  Sim | Não | <sup>[6](#tab1400b)</sup> |
 |Relatórios do Salesforce |Sim | Não | <sup>[6](#tab1400b)</sup> |
 |SAP HANA     |  Sim | Não |  |
-|SAP Business Warehouse    |  Yes | Não | <sup>[6](#tab1400b)</sup> |
+|SAP Business Warehouse    |  Sim | Não | <sup>[6](#tab1400b)</sup> |
 |Lista do SharePoint      |   Sim | Não | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
-|SQL Server |Sim   | Yes  | <sup>[7,](#sqlim)</sup> <sup> [8](#instgw)</sup> |
-|Armazém de dados do sql server |Sim   | Yes  | <sup>[7,](#sqlim)</sup> <sup> [8](#instgw)</sup> |
+|SQL Server |Sim   | Sim  | <sup>[7,](#sqlim)</sup> <sup> [8](#instgw)</sup> |
+|Armazém de dados do sql server |Sim   | Sim  | <sup>[7,](#sqlim)</sup> <sup> [8](#instgw)</sup> |
 |Base de Dados Sybase     |  Yes | Não |  |
-|Teradata | Sim  | Yes  | <sup>[10](#teradata)</sup> |
+|Teradata | Sim  | Sim  | <sup>[10](#teradata)</sup> |
 |Ficheiro TXT  |Sim | Não |  |
-|Mesa XML    |  Yes | Não | <sup>[6](#tab1400b)</sup> |
+|Mesa XML    |  Sim | Não | <sup>[6](#tab1400b)</sup> |
 | | | |
 
 **Notas:**  
@@ -94,7 +94,7 @@ Ao utilizar o Assistente de Importação de Tabelas em Estúdio Visual, as liga�
 
 ### <a name="specify-provider-data-sources-in-tabular-1400-and-higher-model-projects"></a>Especificar as fontes de dados do fornecedor em projetos de modelo tabulares 1400 e mais elevados
 
-Para ativar as fontes de dados do fornecedor, no Estúdio Visual, clique em **Tools**  >  **Options Analysis**Services  >  **Tabular**Data  >  **Import**, selecione **Enable Legacy data sources**.
+Para ativar as fontes de dados do fornecedor, no Estúdio Visual, clique em **Tools**  >  **Options Analysis** Services  >  **Tabular** Data  >  **Import**, selecione **Enable Legacy data sources**.
 
 ![Ativar fontes de dados antigas](media/analysis-services-datasource/aas-enable-legacy-datasources.png)
 
@@ -120,7 +120,7 @@ Para fontes de dados em nuvem:
 
 ## <a name="oauth-credentials"></a>Credenciais OAuth
 
-Para modelos tabulares no nível de compatibilidade 1400 e mais elevado utilizando o modo de memória, Azure SQL Database, Azure Synapse (anteriormente SQL Data Warehouse), Dynamics 365 e SharePoint List suportam credenciais OAuth. A Azure Analysis Services gere a atualização simbólica para fontes de dados da OAuth para evitar intervalos de tempo para operações de atualização de longa duração. Para gerar fichas válidas, desempenhe as credenciais utilizando a Consulta de Potência.
+Para modelos tabulares no nível de compatibilidade 1400 e mais elevado utilizando o modo de memória, base de dados Azure SQL, Azure Synapse, Dynamics 365 e SharePoint List suportam credenciais OAuth. A Azure Analysis Services gere a atualização simbólica para fontes de dados da OAuth para evitar intervalos de tempo para operações de atualização de longa duração. Para gerar fichas válidas, desempenhe as credenciais utilizando a Consulta de Potência.
 
 O modo de consulta direta não é suportado com credenciais OAuth.
 
