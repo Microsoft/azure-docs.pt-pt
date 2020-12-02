@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 39a1f41d97b1f4576d5877e4f35c99b3e189e3b2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f65c1d6fda09d7762a59fb5a932a72ad706a767a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314499"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448025"
 ---
 # <a name="partitioning-tables-in-dedicated-sql-pool"></a>Mesas de partição em piscina SQL dedicada
 
@@ -30,7 +30,7 @@ A partilha pode beneficiar a manutenção de dados e o desempenho da consulta. S
 
 ### <a name="benefits-to-loads"></a>Benefícios para cargas
 
-O principal benefício da partição no pool de SQL dedicado é melhorar a eficiência e o desempenho dos dados de carregamento através da utilização da eliminação de divisórias, comutação e fusão. Na maioria dos casos, os dados são divididos numa coluna de datas que está intimamente ligada à ordem em que os dados são carregados na base de dados. Um dos maiores benefícios da utilização de divisórias para manter os dados é evitar a exploração de transações. Ao mesmo tempo que simplesmente inserir, atualizar ou eliminar dados pode ser a abordagem mais simples, com um pouco de pensamento e esforço, usar a partição durante o seu processo de carga pode melhorar substancialmente o desempenho.
+O principal benefício da partição no pool de SQL dedicado é melhorar a eficiência e o desempenho dos dados de carregamento através da utilização da eliminação de divisórias, comutação e fusão. Na maioria dos casos, os dados são divididos numa coluna de datas que está intimamente ligada à ordem em que os dados são carregados no pool SQL. Um dos maiores benefícios da utilização de divisórias para manter os dados é evitar a exploração de transações. Ao mesmo tempo que simplesmente inserir, atualizar ou eliminar dados pode ser a abordagem mais simples, com um pouco de pensamento e esforço, usar a partição durante o seu processo de carga pode melhorar substancialmente o desempenho.
 
 A comutação de partição pode ser utilizada para remover ou substituir rapidamente uma secção de uma tabela.  Por exemplo, uma tabela de factos de vendas pode conter apenas dados dos últimos 36 meses. No final de cada mês, os dados de vendas mais antigos são eliminados da tabela.  Estes dados podem ser eliminados utilizando uma declaração de exclusão para apagar os dados do mês mais antigo. 
 
@@ -355,7 +355,7 @@ Para evitar que a definição de tabela **enferruje** no seu sistema de controlo
     DROP TABLE #partitions;
     ```
 
-Com esta abordagem, o código de controlo de origem permanece estático e os valores de fronteira de partição podem ser dinâmicos; evoluindo com a base de dados ao longo do tempo.
+Com esta abordagem, o código de controlo de origem permanece estático e os valores de fronteira de partição podem ser dinâmicos; evoluindo com a piscina SQL ao longo do tempo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

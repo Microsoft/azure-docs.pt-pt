@@ -1,16 +1,16 @@
 ---
 title: Regiões suportadas para a área de trabalho do Log Analytics ligada
 description: Este artigo descreve os mapeamentos da região suportada entre uma conta de Automação e um espaço de trabalho Log Analytics, uma vez que se relaciona com certas características da Azure Automation.
-ms.date: 10/19/2020
+ms.date: 12/01/2020
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 23e5293301a2fc311565d0c1c8ec5fd92bebe9b2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 25ddf562f92ca96a505432a58f137657a2bbc4bd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183571"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446963"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiões suportadas para a área de trabalho do Log Analytics ligada
 
@@ -31,6 +31,7 @@ A tabela a seguir mostra os mapeamentos suportados:
 |---|---|
 |**EUA**||
 |Leste<sup>1</sup>|Leste|
+|Leste2<sup>2</sup>|Rio Eastus|
 |Westus2|Westus2|
 |Sul-Centro|Sul-Centro|
 |WestCentralus|WestCentralus|
@@ -40,7 +41,7 @@ A tabela a seguir mostra os mapeamentos suportados:
 |AustráliaSoutheast|AustráliaSoutheast|
 |Sudeste da Ásia|Sudeste da Ásia|
 |CentralIndia|CentralIndia|
-|ChinaEast2<sup>2</sup>|ChinaEast2|
+|ChinaEast2<sup>3</sup>|ChinaEast2|
 |JapãoEast|JapãoEast|
 |**Europa**||
 |UKSouth|UKSouth|
@@ -48,11 +49,13 @@ A tabela a seguir mostra os mapeamentos suportados:
 |SuíçaNorth|SuíçaNorth|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
-|USGovArizona<sup>2</sup>|USGovArizona|
+|USGovArizona<sup>3</sup>|USGovArizona|
 
 <sup>1</sup> O mapeamento de EastUS para os espaços de trabalho do Log Analytics para as contas de Automação não é um mapeamento de região-a-região exato, mas é o mapeamento correto.
 
-<sup>2</sup> Nesta região, apenas a Gestão de Atualização é suportada, e outras funcionalidades como Change Tracking e Inventory não estão disponíveis neste momento.
+<sup>2</sup> O mapeamento de EastUS2 para os espaços de trabalho do Log Analytics para as contas de Automação não é um mapeamento de região-a-região exato, mas é o mapeamento correto.
+
+<sup>3</sup> Nesta região, apenas a Gestão de Atualização é suportada, e outras funcionalidades como Change Tracking e Inventory não estão disponíveis neste momento.
 
 ## <a name="unlink-a-workspace"></a>Desvincular um espaço de trabalho
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 91a2d08bf9eea2f5af0f6893712515cb2feeab8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6356089daed02270a14903639afee8001153b195
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890742"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447374"
 ---
 # <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Implemente uma aplicação apátrida Kubernetes através de kubectl no seu dispositivo GPU Azure Stack Edge Pro
 
@@ -25,7 +25,7 @@ Antes de criar um cluster Kubernetes e utilizar a `kubectl` ferramenta de linha 
 
 - Tem credenciais de entrada num dispositivo Azure Stack Edge Pro de 1 nó.
 
-- O Windows PowerShell 5.0 ou mais tarde é instalado num sistema de clientes Windows para aceder ao dispositivo Azure Stack Edge Pro. Também pode ter qualquer outro cliente com um sistema operativo suportado. Este artigo descreve o procedimento quando se utiliza um cliente Windows. Para descarregar a versão mais recente do Windows PowerShell, aceda à [instalação do Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+- O Windows PowerShell 5.0 ou mais tarde é instalado num sistema de clientes Windows para aceder ao dispositivo Azure Stack Edge Pro. Também pode ter qualquer outro cliente com um sistema operativo suportado. Este artigo descreve o procedimento quando se utiliza um cliente Windows. Para descarregar a versão mais recente do Windows PowerShell, aceda à [instalação do Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
 
 - O Compute está ativado no dispositivo Azure Stack Edge Pro. Para ativar o cálculo, aceda à página **compute** na UI local do dispositivo. Em seguida, selecione uma interface de rede que deseja ativar para calcular. Selecione **Ativar**. Permitir a computação resulta na criação de um interruptor virtual no seu dispositivo nessa interface de rede. Para obter mais informações, consulte [Enable compute network no seu Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 

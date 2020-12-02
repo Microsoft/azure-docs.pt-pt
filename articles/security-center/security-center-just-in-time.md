@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 9a01dabbd0a3e9d76caaead544be655b9505030d
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 55e9d2d1af863084b080c2de7833712413221050
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289194"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445637"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteger as portas de gestão com acesso just-in-time
 
@@ -37,7 +37,7 @@ Esta página ensina-lhe como incluir o JIT no seu programa de segurança. Vai ap
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |VMs suportados:|![Sim ](./media/icons/yes-icon.png) VMs implantados através do Azure Resource Manager.<br>![Não há ](./media/icons/no-icon.png) VMs implantados com modelos clássicos de implantação. [Saiba mais sobre estes modelos de implantação.](../azure-resource-manager/management/deployment-models.md)<br>![Sem ](./media/icons/no-icon.png) VMs protegidos por Firewalls Azure controlados pelo [Azure Firewall Manager](../firewall-manager/overview.md)|
 |Funções e permissões necessárias:|**As** funções reader e **SecurityReader** podem visualizar o estado e os parâmetros do JIT.<br>Para criar funções personalizadas que possam funcionar com o JIT, veja [quais as permissões necessárias para configurar e utilizar o JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)<br>Para criar um papel menos privilegiado para os utilizadores que precisam solicitar o acesso do JIT a um VM, e não realizar outras operações JIT, use o [script Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) a partir das páginas comunitárias do Centro de Segurança GitHub.|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -89,9 +89,9 @@ A partir do Centro de Segurança, pode ativar e configurar o acesso JIT VM.
 
     Para cada porta (personalizada e padrão) o painel **de configuração** da porta Add oferece as seguintes opções:
 
-    - **Protocolo** - O protocolo que é permitido nesta porta quando um pedido é aprovado
-    - **IPs de origem permitida** - As gamas IP que são permitidas nesta porta quando um pedido é aprovado
-    - **Tempo máximo de pedido** - O período máximo durante o qual uma porta específica pode ser aberta
+    - **Protocolo**- O protocolo que é permitido nesta porta quando um pedido é aprovado
+    - **IPs de origem permitida**- As gamas IP que são permitidas nesta porta quando um pedido é aprovado
+    - **Tempo máximo de pedido**- O período máximo durante o qual uma porta específica pode ser aberta
 
      1. Desaça a segurança do porto às suas necessidades.
 
@@ -136,7 +136,7 @@ Pode ativar o JIT num VM a partir das páginas de máquinas virtuais Azure do po
 
 1. No menu, selecione **Configuração**.
 
-1. No **acesso just-in-time** , selecione **Ative just-in-time**. 
+1. No **acesso just-in-time**, selecione **Ative just-in-time**. 
 
     Isto permite o acesso just-in-time para o VM utilizando as seguintes definições predefinidos:
 
@@ -300,7 +300,7 @@ Executar o seguinte em PowerShell:
 
     ```azurepowershell
     $JitPolicyVm1 = (@{
-        id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
+        id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
         ports=(@{
            number=22;
            endTimeUtc="2020-07-15T17:00:00.3658798Z";

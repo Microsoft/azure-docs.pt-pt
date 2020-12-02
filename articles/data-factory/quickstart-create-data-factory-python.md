@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: e511b8b5505f1fa8713d81d0ce959df32ef28503
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6344e8e02f61da0bc742dcc6e05914bebf5d1fba
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013331"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446039"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Quickstart: Create a data factory and pipeline using Python (Guia de Início Rápido: Criar uma fábrica de dados e um pipeline com o Python)
 
@@ -32,7 +32,7 @@ Neste arranque rápido, cria-se uma fábrica de dados utilizando o Python. O gas
 
 A Azure Data Factory é um serviço de integração de dados baseado na nuvem que permite criar fluxos de trabalho baseados em dados para orquestrar e automatizar movimentos de dados e transformação de dados. Utilizando a Azure Data Factory, pode criar e agendar fluxos de trabalho baseados em dados, chamados oleodutos.
 
-Os oleodutos podem ingerir dados de lojas de dados diferentes. Os oleodutos processam ou transformam dados utilizando serviços de computação como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics e Azure Machine Learning. Os oleodutos publicam dados de produção em lojas de dados como a Azure Synapse Analytics (antiga SQL Data Warehouse) para aplicações de inteligência empresarial (BI).
+Os oleodutos podem ingerir dados de lojas de dados diferentes. Os oleodutos processam ou transformam dados utilizando serviços de computação como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics e Azure Machine Learning. Os oleodutos publicam dados de produção em lojas de dados como a Azure Synapse Analytics para aplicações de business intelligence (BI).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

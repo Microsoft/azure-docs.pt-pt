@@ -1,6 +1,6 @@
 ---
-title: Sincronizar o Apache Spark para definições de tabela externa na piscina SQL sem servidor (pré-visualização)
-description: Visão geral de como consultar tabelas spark usando piscina SQL sem servidor (pré-visualização)
+title: Sincronizar o Apache Spark para definições de tabela externa na piscina SQL sem servidor
+description: Visão geral de como consultar tabelas spark usando piscina SQL sem servidor
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea4e7cd009be8a78faa0dcfab44371a350b6a200
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 057a69881b8b407e5d75fa3510ca1c3eb1830bc7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315839"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446493"
 ---
-# <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-serverless-sql-pool-preview"></a>Sincronizar a Faísca Apache para as definições de tabela externa do Azure Synapse na piscina SQL sem servidor (pré-visualização)
+# <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-serverless-sql-pool"></a>Sincronizar a Faísca Apache para as definições de tabela externa do Azure Synapse na piscina SQL sem servidor
 
-O pool SQL sem servidor (pré-visualização) pode sincronizar automaticamente metadados a partir de Apache Spark. Será criada uma base de dados de piscinas SQL sem servidor para cada base de dados existente em piscinas Apache Spark sem servidor (pré-visualização). 
+O pool SQL sem servidor pode sincronizar automaticamente metadados a partir de Apache Spark. Será criada uma base de dados de piscinas SQL sem servidor para cada base de dados existente em piscinas Apache Spark sem servidor. 
 
 Para cada mesa externa Spark baseada no Parquet e localizada no Azure Storage, uma tabela externa é criada numa base de dados de piscinas SQL sem servidor. Como tal, pode desligar as suas piscinas Spark e ainda consultar mesas externas Spark a partir da piscina SQL sem servidor.
 

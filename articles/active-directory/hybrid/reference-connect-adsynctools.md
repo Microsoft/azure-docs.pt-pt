@@ -11,12 +11,12 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e7d0022cd381a6c5d6592e2097f3c1bd4855a3e4
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 2dd16f89851b9376557e544b86dc5e088891e63b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326000"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446981"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell Reference
 A documentação que se segue fornece informações de referência para o Módulo PowerShell ADSyncTools.psm1 que está incluído no Azure AD Connect.
@@ -28,7 +28,7 @@ Para instalar o Módulo PowerShell ADSyncTools, faça o seguinte:
 2.  Digite ou copie e cole o seguinte: 
     ``` powershell
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-        Install-PackageProvider -Name NuGet -MinimumVersion2.8.5.201 -Force
+        Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
         Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
     ```
 3.  Acerte entrar.

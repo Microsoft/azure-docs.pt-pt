@@ -1,6 +1,6 @@
 ---
-title: Azure Synapse Analytics (anteriormente SQL DW) arquitetura
-description: Saiba como a Azure Synapse Analytics (anteriormente SQL DW) combina capacidades de processamento de consulta distribuídas com o Azure Storage para alcançar um alto desempenho e escalabilidade.
+title: Arquitetura dedicada à piscina SQL (anteriormente SQL DW)
+description: Saiba como a piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics combina capacidades de processamento de consulta distribuídas com o Azure Storage para alcançar um alto desempenho e escalabilidade.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,49 +10,44 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1d32aa011e9e816f97b050d43f9558af0cf82e90
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 45c7f89f773095a102429c07f7441223de3c2dec
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319660"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448255"
 ---
-# <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure Synapse Analytics (anteriormente SQL DW) arquitetura
+# <a name="dedicated-sql-pool-formerly-sql-dw-architecture-in-azure-synapse-analytics"></a>Arquitetura dedicada da piscina SQL (anteriormente SQL DW) em Azure Synapse Analytics
 
-O Azure Synapse é um serviço de análise ilimitado que junta o armazenamento de dados empresariais e a análise de macrodados. Dá-lhe a liberdade de consultar dados nos seus termos, através de recursos a pedido ou aprovisionados sem servidor, em escala. O Azure Synapse Analytics junta estes dois mundos com uma experiência unificada para ingerir, preparar, gerir e apresentar dados mais para as suas necessidades imediatas de BI e de machine learning.
+O Azure Synapse Analytics é um serviço de análise que combina o armazenamento de dados empresariais e a análise de Macrodados. Dá-lhe a liberdade de consultar dados sobre os seus termos.
 
- Azure Synapse tem quatro componentes:
+> [!NOTE]
+>Explore a [documentação Azure Synapse Analytics](../overview-what-is.md).
+>
 
-- Sinaapse SQL: Análise completa baseada em T-SQL
-
-  - Piscina SQL dedicada (pagamento por DWU a provisionado) – Geralmente Disponível
-  - Piscina SQL sem servidor (pagamento por TB processado) – (Pré-visualização)
-- Faísca: Faísca Apache profundamente integrada (Preview)
-- Integração de Dados: Integração híbrida de dados (Pré-visualização)
-- Estúdio: experiência unificada do utilizador.  (Pré-visualização)
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
 ## <a name="synapse-sql-architecture-components"></a>Componentes de arquitetura Sinapse SQL
 
-[O Sinaapse SQL](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse) aproveita uma arquitetura de escala para distribuir o processamento computacional de dados através de múltiplos nós. A unidade de escala é uma abstração do poder computacional que é conhecida como uma [unidade de armazém de dados.](what-is-a-data-warehouse-unit-dwu-cdwu.md) O cálculo é separado do armazenamento, o que lhe permite escalar o cálculo independentemente dos dados do seu sistema.
+[O pool de SQL dedicado (anteriormente SQL DW)](sql-data-warehouse-overview-what-is.md) aproveita uma arquitetura de escala para distribuir o processamento computacional de dados através de múltiplos nós. A unidade de escala é uma abstração do poder computacional que é conhecida como uma [unidade de armazém de dados.](what-is-a-data-warehouse-unit-dwu-cdwu.md) O cálculo é separado do armazenamento, o que lhe permite escalar o cálculo independentemente dos dados do seu sistema.
 
-![Arquitetura SQL do Synapse](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
+![Arquitetura dedicada à piscina SQL (anteriormente SQL DW)](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-O SYNAPSE SQL utiliza uma arquitetura baseada em nó. As aplicações ligam e emitem comandos T-SQL a um nó de controlo, que é o único ponto de entrada para o Sinaapse SQL. O nó de Controlo acolhe o motor de consulta distribuído, que otimiza consultas para processamento paralelo, e depois passa as operações para os nós compute para fazer o seu trabalho em paralelo.
+Piscina de SQL dedicada (anteriormente SQL DW) usa uma arquitetura baseada em nó. As aplicações ligam e emitem comandos T-SQL a um nó de controlo. O nó de Controlo acolhe o motor de consulta distribuído, que otimiza consultas para processamento paralelo, e depois passa as operações para os nós compute para fazer o seu trabalho em paralelo.
 
 Os nós de computação armazenam todos os dados de utilizador no Armazenamento do Microsoft Azure e executam as consultas paralelas. O Serviço de Movimento de Dados (DMS – Data Movement Service) é um serviço interno ao nível do sistema que move os dados em todos os nós, conforme necessário, para executar consultas em paralelo e devolver resultados precisos.
 
-Com armazenamento e cálculo dissociados, ao utilizar a piscina Synapse SQL pode-se:
+Com armazenamento e cálculo dissociados, quando se utiliza uma piscina SQL dedicada (anteriormente SQL DW) pode-se:
 
 - Potência de computação de tamanho independente, independentemente das suas necessidades de armazenamento.
-- Cresça ou encolhe a potência de computação, dentro de um pool SQL (data warehouse), sem mover dados.
+- Cresça ou encolhe a potência de computação, dentro de uma piscina SQL dedicada (anteriormente SQL DW), sem dados móveis.
 - Colocar a capacidade de computação em pausa, mantendo os dados intactos, pelo que só paga pelo armazenamento.
 - Retomar a capacidade de computação durante as horas de funcionamento.
 
 ### <a name="azure-storage"></a>Storage do Azure
 
-O Synapse SQL aproveita o Azure Storage para manter os dados do utilizador seguros.  Uma vez que os seus dados são armazenados e geridos pela Azure Storage, existe uma taxa separada para o seu consumo de armazenamento. Os dados são **fragmentos** em distribuições para otimizar o desempenho do sistema. Pode escolher qual o padrão de fragmentos a utilizar para distribuir os dados quando define a tabela. Estes padrões de fragmentos são suportados:
+A piscina SQL dedicada SQL (anteriormente SQL DW) aproveita o Azure Storage para manter os dados do utilizador seguros.  Uma vez que os seus dados são armazenados e geridos pela Azure Storage, existe uma taxa separada para o seu consumo de armazenamento. Os dados são **fragmentos** em distribuições para otimizar o desempenho do sistema. Pode escolher qual o padrão de fragmentos a utilizar para distribuir os dados quando define a tabela. Estes padrões de fragmentos são suportados:
 
 - Hash
 - Round Robin
@@ -76,7 +71,7 @@ Data Movement Service (DMS) é a tecnologia de transporte de dados que coordena 
 
 As distribuições são as unidades básicas de armazenamento e processamento de consultas paralelas que são executadas em dados distribuídos. Quando o Synapse SQL faz uma consulta, a obra é dividida em 60 consultas menores que funcionam em paralelo.
 
-Cada uma das 60 consultas menores funciona numa das distribuições de dados. Cada nó compute gere uma ou mais das 60 distribuições. Uma piscina SQL com recursos de computação máximo tem uma distribuição por nó Compute. Uma piscina SQL com recursos mínimos de computação tem todas as distribuições em um nó compute.  
+Cada uma das 60 consultas menores funciona numa das distribuições de dados. Cada nó compute gere uma ou mais das 60 distribuições. Um pool SQL dedicado (anteriormente SQL DW) com recursos de computação máximo tem uma distribuição por nó Compute. Um pool DE SQL dedicado (anteriormente SQL DW) com recursos mínimos de computação tem todas as distribuições em um nó de computação.  
 
 ## <a name="hash-distributed-tables"></a>Tabelas distribuídas com hash
 
@@ -112,7 +107,7 @@ O diagrama abaixo mostra uma tabela replicada que é em cache na primeira distri
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que sabe um pouco sobre a Azure Synapse, aprenda a criar rapidamente [uma piscina SQL](create-data-warehouse-portal.md) e [carregue dados de amostras.](load-data-from-azure-blob-storage-using-polybase.md) Se não estiver familiarizado com o Azure, poderá achar útil o [Glossário do Azure](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) quando se deparar com terminologia nova. Ou olhe para alguns destes outros Recursos Azure Synapse.  
+Agora que sabe um pouco sobre a Azure Synapse, aprenda a criar rapidamente [uma piscina SQL dedicada (anteriormente SQL DW)](create-data-warehouse-portal.md) e [carregue dados de amostras.](load-data-from-azure-blob-storage-using-polybase.md) Se não estiver familiarizado com o Azure, poderá achar útil o [Glossário do Azure](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) quando se deparar com terminologia nova. Ou olhe para alguns destes outros Recursos Azure Synapse.  
 
 - [Histórias de sucesso de clientes](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Blogues](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)

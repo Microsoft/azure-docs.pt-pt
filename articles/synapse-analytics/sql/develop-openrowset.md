@@ -1,6 +1,6 @@
 ---
-title: Como utilizar o OPENROWSET na piscina SQL sem servidor (pré-visualização)
-description: Este artigo descreve a sintaxe de OPENROWSET na piscina SQL sem servidor (pré-visualização) e explica como usar argumentos.
+title: Como utilizar o OPENROWSET na piscina SQL sem servidor
+description: Este artigo descreve a sintaxe de OPENROWSET na piscina SQL sem servidor e explica como usar argumentos.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 90a5afb19c9ba5061b9304c739914262bcdbee15
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 97ee6c17d62a924686e3e4f4717d7bb7f4375988
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122707"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446685"
 ---
-# <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Como utilizar o OPENROWSET utilizando a piscina SQL sem servidor (pré-visualização) no Azure Synapse Analytics
+# <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Como utilizar o OPENROWSET utilizando a piscina SQL sem servidor em Azure Synapse Analytics
 
-A `OPENROWSET(BULK...)` função permite-lhe aceder a ficheiros no Azure Storage. `OPENROWSET` função lê o conteúdo de uma fonte de dados remoto (por exemplo, ficheiro) e devolve o conteúdo como um conjunto de linhas. Dentro do recurso de pool SQL sem servidor (pré-visualização), o fornecedor de conjunto de linha a granel OPENROWSET é acedido através da chamada de função OPENROWSET e especificando a opção BULK.  
+A `OPENROWSET(BULK...)` função permite-lhe aceder a ficheiros no Azure Storage. `OPENROWSET` função lê o conteúdo de uma fonte de dados remoto (por exemplo, ficheiro) e devolve o conteúdo como um conjunto de linhas. Dentro do recurso de piscina SQL sem servidor, o fornecedor de conjunto de linha a granel OPENROWSET é acedido através da chamada da função OPENROWSET e especificando a opção BULK.  
 
 A `OPENROWSET` função pode ser referenciada na `FROM` cláusula de uma consulta como se fosse uma nome de mesa `OPENROWSET` . Suporta operações a granel através de um fornecedor BULK incorporado que permite que os dados de um ficheiro sejam lidos e devolvidos como um conjunto de linhas.
 

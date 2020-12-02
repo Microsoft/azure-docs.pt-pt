@@ -11,18 +11,18 @@ ms.topic: how-to
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
-ms.date: 09/21/2020
-ms.openlocfilehash: 31a47b9032ac014fa4eedde343d03d4fd343ff02
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 12/01/2020
+ms.openlocfilehash: 69bebcf872f55055117acf5cef410d1f89eafe34
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790666"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446911"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-managed-instance"></a>Configure proteção avançada de ameaças em Azure SQL Caso gerido
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-[A Advanced Threat Protection](../database/threat-detection-overview.md) for [a Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) deteta atividades anómalas que indiquem tentativas incomuns e potencialmente nocivas de aceder ou explorar bases de dados. A Advanced Threat Protection pode identificar **a injeção potencial de SQL** , acesso a partir de **localização incomum ou centro de dados** , **Acesso a aplicações principais ou potencialmente nocivas ,** e **credenciais de SQL da força bruta** - ver mais detalhes em [alertas de Proteção de Ameaças Avançadas](../database/threat-detection-overview.md#alerts).
+[A Advanced Threat Protection](../database/threat-detection-overview.md) for [a Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) deteta atividades anómalas que indiquem tentativas incomuns e potencialmente nocivas de aceder ou explorar bases de dados. A Advanced Threat Protection pode identificar **a injeção potencial de SQL**, acesso a partir de **localização incomum ou centro de dados**, **Acesso a aplicações principais ou potencialmente nocivas ,** e **credenciais de SQL da força bruta** - ver mais detalhes em [alertas de Proteção de Ameaças Avançadas](../database/threat-detection-overview.md#alerts).
 
 Pode receber notificações sobre as ameaças detetadas através de [notificações por e-mail](../database/threat-detection-overview.md#explore-detection-of-a-suspicious-event) ou [portal Azure](../database/threat-detection-overview.md#explore-alerts-in-the-azure-portal)
 
@@ -31,13 +31,15 @@ Pode receber notificações sobre as ameaças detetadas através de [notificaç�
 ##  <a name="azure-portal"></a>Portal do Azure
 
 1. Inscreva-se no  [portal Azure](https://portal.azure.com). 
-2. Navegue para a página de configuração da instância de SQL Managed Instance que pretende proteger. Em **Segurança** , selecione **Security Center** .
+2. Navegue para a página de configuração da instância de SQL Managed Instance que pretende proteger. Sob **Segurança**, selecione **Security Center**.
 3. Na página de configuração do Azure Defender para SQL
    - Ligue **o Azure** Defender para o SQL.
-   - Configure a **lista de e-mails** para receber alertas de segurança após a deteção de atividades de base de dados anómalas.
+   - Configure os **alertas enviar para** o endereço de e-mail para receber alertas de segurança após a deteção de atividades de base de dados anómalas.
    - Selecione a **conta de armazenamento Azure** onde são guardados registos de auditoria de ameaças anómalas.
    - Selecione os **tipos de Proteção de Ameaças Avançadas** que gostaria de configurar. Saiba mais sobre [alertas avançados de proteção contra ameaças.](../database/threat-detection-overview.md)
 4. Clique em **Guardar** para guardar a nova ou atualizada política do Azure Defender para a política SQL.
+
+   :::image type="content" source="../database/media/azure-defender-for-sql/set-up-advanced-threat-protection-mi.png" alt-text="criar proteção de ameaças avançadas":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

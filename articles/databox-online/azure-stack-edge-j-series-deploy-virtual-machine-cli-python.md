@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: alkohli
-ms.openlocfilehash: c27f6ef47b8e4db83ceb63e308e318803800f8a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c12935a4b0b9cbbf088ba7b9c5ea804be0ce85a1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890711"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447363"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Implemente VMs no seu dispositivo GPU Azure Stack Edge Pro usando Azure CLI e Python
 
@@ -70,7 +70,7 @@ Antes de começar a criar e gerir um VM no seu dispositivo Azure Stack Edge Pro 
 
 3. Criou e instalou todos os certificados no seu dispositivo Azure Stack Edge Pro e na loja de confiança do seu cliente. Siga o procedimento descrito no [Passo 2: Criar e instalar certificados](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
-4. Criou um certificado *De .cer* codificado base-64 (formato PEM) para o seu dispositivo Azure Stack Edge Pro. Isto já está carregado como cadeia de assinaturas no dispositivo e instalado na loja de raiz fidedigna no seu cliente. Este certificado também é exigido em formato *pem* para python trabalhar neste cliente.
+4. Criou um certificado de *.cer* codificado Base-64 (formato PEM) para o seu dispositivo Azure Stack Edge Pro. Isto já está carregado como cadeia de assinaturas no dispositivo e instalado na loja de raiz fidedigna no seu cliente. Este certificado também é exigido em formato *pem* para python trabalhar neste cliente.
 
     Converta este certificado em formato pem utilizando o `certutil` comando. Tem de executar este comando no diretório que contém o seu certificado.
 
@@ -117,7 +117,7 @@ Antes de começar a criar e gerir um VM no seu dispositivo Azure Stack Edge Pro 
 
 ### <a name="verify-profile-and-install-azure-cli"></a>Verifique o perfil e instale o Azure CLI
 
-<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
 
 1. Instale o Azure CLI no seu cliente. Neste exemplo, foi instalado o Azure CLI 2.0.80. Para verificar a versão de Azure CLI, verifique o `az --version` comando.
 
@@ -147,7 +147,7 @@ Antes de começar a criar e gerir um VM no seu dispositivo Azure Stack Edge Pro 
     PS C:\windows\system32>
     ```
 
-    Se não tiver O CLI Azure, faça o download e [instale o Azure CLI no Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest). Pode executar O Azure CLI utilizando o pedido de comando do Windows ou através do Windows PowerShell.
+    Se não tiver O CLI Azure, faça o download e [instale o Azure CLI no Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest). Pode executar O Azure CLI utilizando o pedido de comando do Windows ou através do Windows PowerShell.
 
 2. Tome nota da localização da CLI Python. Precisa disto para determinar a localização da loja de certificados de raiz fidedigna para o Azure CLI.
 
@@ -308,7 +308,7 @@ Antes de começar a criar e gerir um VM no seu dispositivo Azure Stack Edge Pro 
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
 
-4. Inscreva-se no ambiente Azure Stack Edge Pro utilizando o `az login` comando. Pode iniciar seduca no ambiente Azure Stack Edge Pro, quer como utilizador, quer como diretor de [serviço.](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+4. Inscreva-se no ambiente Azure Stack Edge Pro utilizando o `az login` comando. Pode iniciar seduca no ambiente Azure Stack Edge Pro, quer como utilizador, quer como diretor de [serviço.](../active-directory/develop/app-objects-and-service-principals.md)
 
    Siga estes passos para iniciar sinscreva-se como *utilizador:*
 

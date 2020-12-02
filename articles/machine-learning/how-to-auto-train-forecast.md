@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 57b54fbe20df4eb74ee17c7b5ac83d773114463b
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 8c6a27f0cfaafe7e6c1181651e672d0e828af855
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437376"
+ms.locfileid: "96444486"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treina automaticamente um modelo de previsão da série de tempo
 
@@ -154,7 +154,7 @@ A tabela a seguir resume estes parâmetros adicionais. Consulte [a documentaçã
 
 
 O seguinte código, 
-* Aproveita a [`ForecastingParameters`](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) classe para definir os parâmetros de previsão para o seu treino de experiência
+* Aproveita a [`ForecastingParameters`](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) classe para definir os parâmetros de previsão para o seu treino de experiência
 * Define o `time_column_name` campo no conjunto de `day_datetime` dados. 
 * Define o `time_series_id_column_names` parâmetro para `"store"` . Isto garante a criação **de dois grupos separados de séries de tempo** para os dados; um para a loja A e B.
 * Define `forecast_horizon` o a 50 para prever para todo o conjunto de testes. 

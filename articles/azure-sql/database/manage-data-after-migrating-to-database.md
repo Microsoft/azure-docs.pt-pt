@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: fe49dce276a15d9d7bc8ddaa5618c0e43dec62e9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b34ac24cb26bf5db4a49a5ad5b531deb252f4695
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841228"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446122"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Novo DBA na nuvem – Gestão da Base de Dados Azure SQL após migração
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -101,12 +101,12 @@ A Base de Dados SQL leva a Segurança e Privacidade muito a sério. A segurança
 
 Existem dois métodos de autenticação oferecidos na Base de Dados SQL:
 
-- [Autenticação do Diretório Ativo Azure](authentication-aad-overview.md)
+- [Autenticação do Azure Active Directory](authentication-aad-overview.md)
 - [Autenticação SQL](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
 A autenticação tradicional das janelas não é suportada. O Azure Ative Directory (Azure AD) é um serviço centralizado de gestão de identidade e acesso. Com isto pode fornecer convenientemente um Único Acesso De Acesso (SSO) a todo o pessoal da sua organização. O que isto significa é que as credenciais são partilhadas em todos os serviços da Azure para uma autenticação mais simples. 
 
-O Azure AD suporta [a autenticação multi-factor Azure AD](authentication-mfa-ssms-overview.md) e com [alguns cliques](../../active-directory/hybrid/how-to-connect-install-express.md) o Azure AD pode ser integrado com o Windows Server Ative Directory. A autenticação SQL funciona exatamente como a tens usado no passado. Fornece um nome de utilizador/palavra-passe e pode autenticar os utilizadores em qualquer base de dados num determinado servidor. Isto também permite que a SQL Database e a Azure Synapse Analytics (anteriormente SQL Data Warehouse) ofereçam autenticação multi-factor e contas de utilizadores convidados dentro de um domínio AD Azure. Se já tem um Diretório Ativo no local, pode federar o diretório com o Azure Ative Directory para estender o seu diretório ao Azure.
+O Azure AD suporta [a autenticação multi-factor Azure AD](authentication-mfa-ssms-overview.md) e com [alguns cliques](../../active-directory/hybrid/how-to-connect-install-express.md) o Azure AD pode ser integrado com o Windows Server Ative Directory. A autenticação SQL funciona exatamente como a tens usado no passado. Fornece um nome de utilizador/palavra-passe e pode autenticar os utilizadores em qualquer base de dados num determinado servidor. Isto também permite que a SQL Database e a Azure Synapse Analytics ofereçam autenticação multi-factor e contas de utilizadores de hóspedes dentro de um domínio AD Azure. Se já tem um Diretório Ativo no local, pode federar o diretório com o Azure Ative Directory para estender o seu diretório ao Azure.
 
 |**Se...**|**Base de Dados SQL / Azure Synapse Analytics**|
 |---|---|
@@ -172,7 +172,7 @@ Para proteger os seus dados sensíveis em voo e em repouso, a SQL Database forne
 |**Características**|**Always Encrypted**|**Encriptação de Dados Transparente**|
 |---|---|---|
 |**Extensão de encriptação**|De ponta a ponta|Dados de repouso|
-|**O servidor pode aceder a dados sensíveis**|No|Sim, já que a encriptação é para os dados em repouso|
+|**O servidor pode aceder a dados sensíveis**|Não|Sim, já que a encriptação é para os dados em repouso|
 |**Operações T-SQL permitidas**|Comparação da igualdade|Toda a área de superfície T-SQL está disponível|
 |**Alterações de aplicação necessárias para usar a funcionalidade**|Mínimo|Muito mínimo|
 |**Granularidade de encriptação**|Nível de coluna|Ao nível da base de dados|

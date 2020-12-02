@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Technical Support'
 - fasttrack-edit
 - iot
-ms.openlocfilehash: b179bb3566cc19b8033a56348db34cd1f05cee10
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 81558526500f3c01e975d9a963b4a6a98ec6d753
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506401"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446409"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitor, diagnóstico e resolução de problemas desliga-se com O Hub IoT do Azure
 
@@ -58,7 +58,7 @@ Explore os seguintes tópicos para saber mais sobre a monitorização de eventos
 
 * Para obter um tutorial sobre a encomenda de eventos de ligação do dispositivo, consulte [eventos de ligação do dispositivo da Ordem a partir do Azure IoT Hub utilizando Azure Cosmos DB](iot-hub-how-to-order-connection-state-events.md).
 
-* Para obter um tutorial sobre o envio de notificações por e-mail, consulte [Enviar notificações por e-mail sobre eventos do Azure IoT Hub utilizando a Grelha de Eventos e aplicações lógicas](/azure/event-grid/publish-iot-hub-events-to-logic-apps) na documentação da Grade de Eventos.
+* Para obter um tutorial sobre o envio de notificações por e-mail, consulte [Enviar notificações por e-mail sobre eventos do Azure IoT Hub utilizando a Grelha de Eventos e aplicações lógicas](../event-grid/publish-iot-hub-events-to-logic-apps.md) na documentação da Grade de Eventos.
 
 ## <a name="azure-monitor-route-connection-events-to-logs"></a>Monitor Azure: Eventos de ligação de rotas para registos
 
@@ -94,7 +94,7 @@ Depois de criar uma definição de diagnóstico para encaminhar os registos de r
 
 1. Em **Monitorização** no painel esquerdo do seu hub IoT, Selecione **Logs**.
 
-1. Para isolar os registos de erros de conectividade para o IoT Hub, insira a seguinte consulta no editor de consulta e, em seguida, selecione **Executar** :
+1. Para isolar os registos de erros de conectividade para o IoT Hub, insira a seguinte consulta no editor de consulta e, em seguida, selecione **Executar**:
 
     ```kusto
     AzureDiagnostics

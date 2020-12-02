@@ -1,6 +1,6 @@
 ---
-title: Aceder a ficheiros de armazenamento na piscina SQL sem servidor (pré-visualização)
-description: Descreve ficheiros de armazenamento de consulta usando piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics.
+title: Aceder a ficheiros de armazenamento na piscina SQL sem servidor
+description: Descreve ficheiros de armazenamento de consulta usando piscina SQL sem servidor em Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 64148cd8fd467be6a5f09ee723e230bdc8181d2d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 82a4ded3a64a8a8bbc62f99a8854eb6d2b5f0d0b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685686"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446575"
 ---
-# <a name="access-external-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Aceda ao armazenamento externo utilizando piscina SQL sem servidor (pré-visualização) no Azure Synapse Analytics
+# <a name="access-external-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Aceda ao armazenamento externo utilizando piscina SQL sem servidor em Azure Synapse Analytics
 
 Este documento descreve como os utilizadores podem ler dados dos ficheiros armazenados no Azure Storage na piscina SQL sem servidor. Os utilizadores têm as seguintes opções de acesso ao armazenamento:
 
@@ -188,7 +188,7 @@ As seguintes listas de tabelas requeriam permissões para as operações acima e
 | SELECIONE A PARTIR DA TABELA EXTERNA | `SELECT TABLE` e `REFERENCES DATABASE SCOPED CREDENTIAL` |
 | CETAS | Para criar mesa - `CREATE TABLE` , , , e `ALTER ANY SCHEMA` `ALTER ANY DATA SOURCE` `ALTER ANY EXTERNAL FILE FORMAT` . Para ler dados: `ADMINISTER BULK OPERATIONS` ou `REFERENCES CREDENTIAL` por cada `SELECT TABLE` tabela/visualização/função em consulta + permissão R/W no armazenamento |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Está agora pronto para continuar com os seguintes artigos:
 

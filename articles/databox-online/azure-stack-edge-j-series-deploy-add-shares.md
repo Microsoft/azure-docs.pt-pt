@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: cd288926e6f7a3f454be2788479b5c9d414b167a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 68cac756a3c84d0360d475a4bf88a392e3961f1d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185492"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447567"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Tutorial: Transferir dados através de ações com a Azure Stack Edge Pro GPU
 
@@ -24,7 +24,7 @@ Este tutorial descreve como adicionar e conectar-se a ações no seu dispositivo
 
 Este procedimento pode demorar cerca de 10 minutos a concluir.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -66,7 +66,7 @@ Para criar uma partilha, faça o seguinte procedimento:
     O tipo de serviço que seleciona depende do formato que pretende utilizar no Azure. Neste exemplo, porque queremos armazenar os dados como blobs de bloco em Azure, selecionamos **Block Blob**. Se selecionar **Page Blob,** certifique-se de que os seus dados estão alinhados com 512 bytes. Por exemplo, um VHDX tem sempre um alinhamento de 512 bytes.
 
    > [!IMPORTANT]
-   > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge Pro ou Data Box Gateway. Para obter mais informações, consulte [Definir e gerir políticas de imutabilidade para armazenamento de bolhas](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge Pro ou Data Box Gateway. Para obter mais informações, consulte [Definir e gerir políticas de imutabilidade para armazenamento de bolhas](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
     e. Crie um novo recipiente blob ou utilize um existente na lista de retiradas. Se criar um recipiente de bolhas, forneça um nome de recipiente. Se ainda não existir nenhum contentor, este será criado na conta de armazenamento com o nome da partilha recentemente criada.
    
@@ -198,5 +198,3 @@ Para aprender a transformar os seus dados utilizando o Azure Stack Edge Pro, ava
 
 > [!div class="nextstepaction"]
 > [Transforme dados com Azure Stack Edge Pro](./azure-stack-edge-j-series-deploy-configure-compute.md)
-
-

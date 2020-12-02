@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: de060be7ace84ea309b71087a50fd572091bed43
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 88d732cc3feaa2c9a528443d4a783227f3d8e641
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004794"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446794"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>Adicione um dispositivo IoT Edge ao seu acelerador de solução de monitorização remota
 
@@ -34,9 +34,9 @@ No painel do **novo dispositivo,** escolha o **dispositivo IoT Edge**. Pode deix
 
 Também é possível registar um dispositivo IoT Edge diretamente com a instância IoT Hub no seu acelerador de solução. Precisa de saber o nome do hub IoT no seu acelerador de solução antes de seguir qualquer um destes guias:
 
-- [Registar um novo dispositivo Azure IoT Edge a partir do portal Azure](../iot-edge/how-to-register-device.md#register-in-the-azure-portal)
-- [Registar um novo dispositivo Azure IoT Edge com Azure CLI](../iot-edge/how-to-register-device.md#register-with-the-azure-cli)
-- [Registar um novo dispositivo Azure IoT Edge do Visual Studio Code](../iot-edge/how-to-register-device.md#register-with-visual-studio-code)
+- [Registar um novo dispositivo Azure IoT Edge a partir do portal Azure](../iot-edge/how-to-manual-provision-symmetric-key.md?tabs=azure-portal%2Cwindows)
+- [Registar um novo dispositivo Azure IoT Edge com Azure CLI](../iot-edge/how-to-manual-provision-symmetric-key.md?tabs=azure-cli%2Cwindows)
+- [Registar um novo dispositivo Azure IoT Edge do Visual Studio Code](../iot-edge/how-to-manual-provision-symmetric-key.md?tabs=visual-studio-code%2Cwindows)
 
 Quando regista um dispositivo diretamente com o hub IoT no acelerador de solução de monitorização remota, está listado na página **device Explorer** na UI web.
 
@@ -44,11 +44,11 @@ Quando regista um dispositivo diretamente com o hub IoT no acelerador de soluç�
 
 Antes de poder implantar módulos no seu dispositivo Edge, tem de instalar o tempo de funcionaamento do IoT Edge no dispositivo real. Os seguintes guias de como instalar o tempo de funcionaamento nas plataformas comuns do dispositivo:
 
-- [Instale o tempo de execução Azure IoT Edge no Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md)
-- [Instale o tempo de execução da borda Azure IoT em Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge-linux.md)
-- [Instale o tempo de execução do Azure IoT Edge no Windows para utilizar com recipientes Windows](../iot-edge/how-to-install-iot-edge-windows.md)
-- [Instale o tempo de execução do Azure IoT Edge no Windows para utilizar com recipientes Linux](../iot-edge/how-to-install-iot-edge-windows-with-linux.md)
-- [Instale o tempo de execução IoT Edge no Windows IoT Core](../iot-edge/how-to-install-iot-edge-windows.md)
+- [Instale o tempo de execução Azure IoT Edge no Linux (x64)](../iot-edge/how-to-install-iot-edge.md)
+- [Instale o tempo de execução da borda Azure IoT em Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge.md)
+- [Instale o tempo de execução do Azure IoT Edge no Windows para utilizar com recipientes Windows](../iot-edge/how-to-install-iot-edge.md)
+- [Instale o tempo de execução do Azure IoT Edge no Windows para utilizar com recipientes Linux](../iot-edge/how-to-install-iot-edge.md)
+- [Instale o tempo de execução IoT Edge no Windows IoT Core](../iot-edge/how-to-install-iot-edge.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

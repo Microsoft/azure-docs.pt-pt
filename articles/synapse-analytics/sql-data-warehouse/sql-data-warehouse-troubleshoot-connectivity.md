@@ -1,6 +1,6 @@
 ---
 title: Conectividade de resolução de problemas
-description: Conectividade de resolução de problemas em piscina SQL dedicada.
+description: Conectividade de resolução de problemas em piscina SQL dedicada (anteriormente SQL DW).
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,47 +11,47 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
-ms.openlocfilehash: 82b9f988ef4a7f4a53cd0b451da28642b53bcb65
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ea99c2ce1963ec58649fd4c2fbb4d98768da8c6f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308373"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447960"
 ---
-# <a name="troubleshooting-connectivity-issues-in-dedicated-sql-pool"></a>Problemas de conectividade na piscina de SQL dedicada
+# <a name="troubleshooting-connectivity-issues-in-dedicated-sql-pool-formerly-sql-dw"></a>Problemas de conectividade na piscina de SQL dedicada (anteriormente SQL DW)
 
-Este artigo lista técnicas comuns de resolução de problemas em torno da ligação à sua base de dados dedicada à piscina SQL.
+Este artigo lista técnicas comuns de resolução de problemas em torno da ligação à sua base de dados de piscinas SQL (anteriormente SQL DW).
 
 ## <a name="check-service-availability"></a>Ver disponibilidade de serviço
 
-Verifique se o serviço está disponível. No portal Azure, vá à piscina SQL dedicada que está a tentar ligar. No painel TOC esquerdo, clique no **Diagnóstico e resolva problemas**.
+Verifique se o serviço está disponível. No portal Azure, vá à piscina de SQL dedicada (anteriormente SQL DW) que está a tentar ligar. No painel TOC esquerdo, clique no **Diagnóstico e resolva problemas**.
 
 ![Selecione a saúde dos recursos](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-O estado da sua piscina SQL dedicada será mostrado aqui. Se o serviço não estiver **disponível,** verifique mais passos.
+O estado da sua piscina SQL dedicada (anteriormente SQL DW) será mostrado aqui. Se o serviço não estiver **disponível,** verifique mais passos.
 
 ![Serviço Disponível](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Se a sua saúde de recursos mostrar que a sua instância dedicada da piscina SQL está em pausa ou em escala, siga as orientações para retomar a sua instância.
+Se a sua saúde de recursos mostrar que a sua instância dedicada da piscina SQL (anteriormente SQL DW) é pausada ou escalonada, siga as orientações para retomar a sua instância.
 
-![A screenshot mostra uma instância do armazém de dados SQL que é pausado ou escalonado.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
+![A screenshot mostra uma instância de piscina SQL dedicada que é pausada ou escalonada.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
 Informações adicionais sobre a Saúde dos Recursos podem ser encontradas aqui.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Verificar operação de dimensionamento ou em pausa
 
-Verifique o portal para ver se a sua caixa de piscina SQL dedicada está em pausa ou em escalonamento.
+Verifique o portal para ver se a sua caixa de piscina SQL dedicada (anteriormente SQL DW) está em pausa ou em escala.
 
 ![A screenshot mostra como verificar se um armazém de dados é pausado.](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Se vir que o seu serviço está em pausa ou em escalonamento, verifique se não é durante o seu horário de manutenção. No portal para a sua *visão geral* dedicada da piscina SQL, você verá o horário de manutenção eleito.
+Se vir que o seu serviço está em pausa ou em escalonamento, verifique se não é durante o seu horário de manutenção. No portal para a sua piscina de SQL dedicada (anteriormente SQL DW) *Visão geral,* você verá o horário de manutenção eleito.
 
 ![Horário de manutenção da visão geral](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-Caso contrário, consulte o seu administrador de TI para verificar se esta manutenção não é um evento agendado. Para retomar a instância dedicada da piscina SQL, siga [estes passos.](pause-and-resume-compute-portal.md)
+Caso contrário, consulte o seu administrador de TI para verificar se esta manutenção não é um evento agendado. Para retomar a instância dedicada da piscina SQL (anteriormente SQL DW), siga [estes passos.](pause-and-resume-compute-portal.md)
 
 ## <a name="check-your-firewall-settings"></a>Verificar as definições de firewall
 
-A base de dados dedicada da piscina SQL comunica sobre a porta 1433.Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Nesse caso, não pode ligar-se ao seu [servidor lógico](../../azure-sql/database/logical-servers.md) a menos que o seu departamento de TI abra a porta 1433. Informações adicionais sobre configurações de firewall podem ser encontradas [aqui.](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules)
+A base de dados dedicada sql pool (anteriormente SQL DW) comunica sobre a porta 1433.Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Nesse caso, não pode ligar-se ao seu [servidor lógico](../../azure-sql/database/logical-servers.md) a menos que o seu departamento de TI abra a porta 1433. Informações adicionais sobre configurações de firewall podem ser encontradas [aqui.](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules)
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Verificar as definições de Ponto Final de Serviço/VNet
 
@@ -61,7 +61,7 @@ Se estiver a receber os Erros 40914 e 40615, consulte [a descrição do erro e a
 
 ### <a name="software"></a>Software
 
-Verifique se está a usar as ferramentas mais recentes para ligar à sua piscina SQL dedicada:
+Verifique se está a utilizar as ferramentas mais recentes para ligar à sua piscina SQL dedicada (anteriormente SQL DW):
 
 - SSMS
 - Azure Data Studio
@@ -106,7 +106,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>Problemas de ligação intermitentes
 
-Verifique se o servidor está sobrecarregado com um grande número de pedidos em fila. Poderá ter de aumentar a sua piscina DE SQL dedicada para obter recursos adicionais.
+Verifique se o servidor está sobrecarregado com um grande número de pedidos em fila. Você pode precisar de escalar a sua piscina DE SQL dedicada (anteriormente SQL DW) para obter recursos adicionais.
 
 ## <a name="common-error-messages"></a>Mensagens de erro comuns
 

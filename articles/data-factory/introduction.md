@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 730141d22b318d79c8c2b7d995b98ee1c311aaf5
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 77420939c25401c170007d3971d63ca9c5b2d04c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491278"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446198"
 ---
 # <a name="what-is-azure-data-factory"></a>O que é o Azure Data Factory?
 
@@ -28,7 +28,7 @@ Por exemplo, imagine uma empresa de jogos que recolhe petabytes de registos de j
 
 Para analisar estes registos, a empresa tem de utilizar dados de referência, como informações do cliente, informações do jogo, informações de campanhas de marketing, que se encontram num arquivo de dados no local. A empresa quer utilizar estes dados a partir do arquivo de dados no local e combiná-los com os dados de registos adicionais que tem num arquivo de dados na cloud. 
 
-Para extrair insights, espera processar os dados associados utilizando um cluster Spark na nuvem (Azure HDInsight), e publicar os dados transformados num armazém de dados em nuvem, como a Azure Synapse Analytics (ex-SQL Data Warehouse) para facilmente construir um relatório em cima dele. Pretende automatizar este fluxo de trabalho e monitorizá-lo e geri-lo diariamente. Pretende também executá-lo quando os ficheiros estiverem num contentor de arquivo de blobs.
+Para extrair insights, espera processar os dados associados utilizando um cluster Spark na nuvem (Azure HDInsight), e publicar os dados transformados num armazém de dados em nuvem, como o Azure Synapse Analytics, para facilmente construir um relatório em cima do mesmo. Pretende automatizar este fluxo de trabalho e monitorizá-lo e geri-lo diariamente. Pretende também executá-lo quando os ficheiros estiverem num contentor de arquivo de blobs.
 
 O Azure Data Factory é a plataforma que resolve estes cenários de dados. É o *ETL baseado na nuvem e o serviço de integração de dados que lhe permite criar fluxos de trabalho baseados em dados para orquestrar o movimento de dados e transformar dados à escala.* Ao utilizar o Azure Data Factory, pode criar e agendar fluxos de trabalho condicionados por dados (denominados pipelines) que podem ingerir dados a partir de arquivos de dados diferentes. Pode construir processos ETL complexos que transformam dados visualmente com fluxos de dados ou utilizando serviços de computação como Azure HDInsight Hadoop, Azure Databricks e Azure SQL Database. 
 
@@ -58,14 +58,14 @@ Se preferir codificar transformações à mão, a ADF suporta atividades externa
 ### <a name="cicd-and-publish"></a>CI/CD e publicação
 A Data Factory oferece suporte total para CI/CD dos seus oleodutos de dados utilizando Azure DevOps e GitHub. Isto permite-lhe desenvolver e entregar os seus processos ETL de forma incremental antes de publicar o produto acabado. Quando os dados não processados estiverem refinados e prontos para consumo por parte das empresas, carregue os dados para o Azure Data Warehouse, para a Base de Dados SQL do Azure, para o Azure CosmosDB ou para qualquer que seja o motor de análise para o qual os seus utilizadores empresariais podem apontar a partir as ferramentas de business intelligence que utilizam.
 
-### <a name="monitor"></a>Monitor
+### <a name="monitor"></a>Monitorizar
 Depois de criar e implementar com êxito o seu pipeline de integração de dados, proporcionando valor comercial a partir dos dados refinados, monitorize as atividades e os pipelines agendados relativamente às taxas de êxito e falha. A Azure Data Factory tem suporte incorporado para monitorização de gasodutos através do Azure Monitor, API, PowerShell, Azure Monitor e painéis de saúde no portal Azure.
 
 ## <a name="top-level-concepts"></a>Principais conceitos
 As subscrições do Azure podem ter uma ou várias instâncias do Azure Data Factory (ou fábricas de dados). A Azure Data Factory é composta por componentes chave abaixo.
 - Pipelines
 - Atividades
-- Conjuntos de dados
+- Conjuntos de Dados
 - Serviços ligados
 - Fluxos de Dados
 - Integration Runtimes
@@ -83,7 +83,7 @@ Crie e gere gráficos da lógica de transformação de dados que pode usar para 
 ### <a name="activity"></a>Atividade
 As atividades representam uma fase de processamento num pipeline. Por exemplo, pode utilizar uma atividade de cópia para copiar dados de um arquivo de dados para outro. Da mesma forma, pode utilizar uma atividade do Hive, que executa uma consulta do Hive num cluster do Azure HDInsight, para transformar ou analisar os seus dados. O Data Factory suporta três tipos de atividades: atividades de movimento de dados, atividades de transformação de dados e atividades de controlo.
 
-### <a name="datasets"></a>Conjuntos de dados
+### <a name="datasets"></a>Conjuntos de Dados
 Os conjuntos de dados representam estruturas de dados nos arquivos de dados, que simplesmente apontam ou referenciam os dados que pretende utilizar nas suas atividades como entrada ou saída. 
 
 ### <a name="linked-services"></a>Serviços ligados
@@ -119,7 +119,7 @@ Aqui estão documentos importantes para explorar:
 
 - [Dataset and linked services](concepts-datasets-linked-services.md) (Conjuntos de dados e serviços ligados)
 - [Pipelines e atividades](concepts-pipelines-activities.md)
-- [Runtime de integração](concepts-integration-runtime.md)
+- [Tempo de execução da integração](concepts-integration-runtime.md)
 - [Fluxos de dados de mapeamento](concepts-data-flow-overview.md)
 - [IU do Data Factory no portal do Azure](quickstart-create-data-factory-portal.md)
 - [Ferramenta de Copiar Dados no portal do Azure](quickstart-create-data-factory-copy-data-tool.md)

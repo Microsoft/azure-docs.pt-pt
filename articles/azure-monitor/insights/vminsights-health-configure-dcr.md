@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: 2bbc57d8ddc004c1926da7e0037efdc1fcf2d76e
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 55e5a587a0ad02fa1f8993027b46162a14a58832
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95318104"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448250"
 ---
 # <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-using-data-collection-rules-preview"></a>Configure a monitorização no Azure Monitor para a saúde dos hóspedes em VMs utilizando regras de recolha de dados (pré-visualização)
 [O Azure Monitor para a saúde dos hóspedes em VMs](vminsights-health-overview.md) permite-lhe visualizar a saúde de uma máquina virtual, tal como definida por um conjunto de medições de desempenho que são amostradas a intervalos regulares. Este artigo descreve como pode modificar a monitorização predefinitiva em várias máquinas virtuais usando regras de recolha de dados.
@@ -50,8 +50,8 @@ A tabela seguinte lista a configuração predefinitiva para cada monitor. Esta c
 | Monitorizar | Ativado | Alertas | Aviso | Crítico | Frequência de avaliação | Olhar para o interior | Tipo de avaliação | Amostra de min | Amostras max |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
 | Utilização da CPU  | Verdadeiro | Falso | Nenhum | \> 90%    | 60 s | 240 seg | Mín. | 2 | 3 |
-| Memória disponível | Verdadeiro | Falso | Nenhum | \< 100 MB | 60 s | 240 seg | Máx | 2 | 3 |
-| Sistema de ficheiros      | Verdadeiro | Falso | Nenhum | \< 100 MB | 60 s | 120 seg | Máx | 1 | 1 |
+| Memória disponível | Verdadeiro | Falso | Nenhum | \< 100 MB | 60 s | 240 seg | Máx. | 2 | 3 |
+| Sistema de ficheiros      | Verdadeiro | Falso | Nenhum | \< 100 MB | 60 s | 120 seg | Máx. | 1 | 1 |
 
 
 ## <a name="overrides"></a>Substituições
@@ -103,9 +103,9 @@ A saúde dos hóspedes é implementada como uma extensão ao agente Azure Monito
 | Elemento | Obrigatório | Descrição |
 |:---|:---|:---|
 | `name` | Sim | Cadeia definida pelo utilizador para a extensão. |
-| `streams` | Yes | Lista de streams para os que os dados de saúde dos hóspedes serão enviados. Isto deve incluir **microsoft-HealthStateChange**.  |
-| `extensionName` | Yes | O nome da extensão. Esta deve ser **a HealthExtension**. |
-| `extensionSettings` | Yes | Matriz de `healthRuleOverride` elementos a aplicar à configuração padrão. |
+| `streams` | Sim | Lista de streams para os que os dados de saúde dos hóspedes serão enviados. Isto deve incluir **microsoft-HealthStateChange**.  |
+| `extensionName` | Sim | O nome da extensão. Esta deve ser **a HealthExtension**. |
+| `extensionSettings` | Sim | Matriz de `healthRuleOverride` elementos a aplicar à configuração padrão. |
 
 
 ## <a name="extensionsettings-element"></a>extensãoSelementos elemento
@@ -122,8 +122,8 @@ Contém definições para a extensão.
 | Elemento | Obrigatório | Descrição |
 |:---|:---|:---|
 | `schemaVersion` | Sim | Cadeia definida pela Microsoft para representar o esquema esperado do elemento. Atualmente deve ser definido para 1.0 |
-| `contentVersion` | No | Cadeia definida pelo utilizador para rastrear diferentes versões da configuração de saúde, se necessário. |
-| `healthRuleOverrides` | Yes | Matriz de `healthRuleOverride` elementos a aplicar à configuração padrão. |
+| `contentVersion` | Não | Cadeia definida pelo utilizador para rastrear diferentes versões da configuração de saúde, se necessário. |
+| `healthRuleOverrides` | Sim | Matriz de `healthRuleOverride` elementos a aplicar à configuração padrão. |
 
 ## <a name="healthrulesoverrides-element"></a>healthRulesOverrides elemento
 Contém um ou mais `healthRuleOverride` elementos que cada um define uma sobreposição.
@@ -143,10 +143,10 @@ Contém um ou mais `healthRuleOverride` elementos que cada um define uma sobrepo
 | Elemento | Obrigatório | Descrição |
 |:---|:---|:---|
 | `scopes` | Sim | Lista de um ou mais âmbitos que especificam as máquinas virtuais às quais esta sobreposição é aplicável. Mesmo que o DCR esteja associado a uma máquina virtual, a máquina virtual deve estar dentro de uma margem para que o sobreposição seja aplicado. |
-| `monitors` | Yes | Lista de uma ou mais cordas que definem quais os monitores que receberão esta sobreposição.  |
-| `monitorConfiguration` | No | Configuração para o monitor, incluindo estados de saúde e como são calculados. |
-| `alertConfiguration` | No | Configuração de alerta para o monitor. |
-| `isEnabled` | No | Controla se o monitor está ativado ou não. O monitor desativado muda para estado especial de saúde *para deficientes* e está incapacitado, a menos que seja reativado. Se omitido, o monitor herdará o seu estatuto do monitor dos pais na hierarquia. |
+| `monitors` | Sim | Lista de uma ou mais cordas que definem quais os monitores que receberão esta sobreposição.  |
+| `monitorConfiguration` | Não | Configuração para o monitor, incluindo estados de saúde e como são calculados. |
+| `alertConfiguration` | Não | Configuração de alerta para o monitor. |
+| `isEnabled` | Não | Controla se o monitor está ativado ou não. O monitor desativado muda para estado especial de saúde *para deficientes* e está incapacitado, a menos que seja reativado. Se omitido, o monitor herdará o seu estatuto do monitor dos pais na hierarquia. |
 
 
 ## <a name="scopes-element"></a>elemento de âmbitos
@@ -227,12 +227,12 @@ No caso de haver menos amostras em intervalo de retrocesso do `minSamples` que, 
 | Elemento | Obrigatório | Descrição | 
 |:---|:---|:---|
 | `evaluationFrequencySecs` | Não | Define a frequência para a avaliação do estado de saúde. Cada monitor é avaliado no momento em que o agente inicia e num intervalo regular definido por este parâmetro posteriormente. |
-| `lookbackSecs`   | No | Tamanho da janela de olhar em segundos. |
-| `evaluationType` | No | `min` – tirar o valor mínimo de todo o conjunto de amostras<br>`max` - tirar o valor máximo de todo o conjunto de amostras<br>`avg` – recolher a média dos valores definidos de amostras<br>`all` – comparar cada valor no conjunto com os limiares. O monitor comuta o estado se e somente se todas as amostras do conjunto satisfizerem a condição limiar. |
-| `minSamples`     | No | Número mínimo de valores a utilizar para calcular o valor. |
-| `maxSamples`     | No | Número máximo de valores a utilizar para calcular o valor. |
-| `warningCondition`  | No | Lógica de limiar e comparação para a condição de aviso. |
-| `criticalCondition` | No | Lógica de limiar e comparação para a condição crítica. |
+| `lookbackSecs`   | Não | Tamanho da janela de olhar em segundos. |
+| `evaluationType` | Não | `min` – tirar o valor mínimo de todo o conjunto de amostras<br>`max` - tirar o valor máximo de todo o conjunto de amostras<br>`avg` – recolher a média dos valores definidos de amostras<br>`all` – comparar cada valor no conjunto com os limiares. O monitor comuta o estado se e somente se todas as amostras do conjunto satisfizerem a condição limiar. |
+| `minSamples`     | Não | Número mínimo de valores a utilizar para calcular o valor. |
+| `maxSamples`     | Não | Número máximo de valores a utilizar para calcular o valor. |
+| `warningCondition`  | Não | Lógica de limiar e comparação para a condição de aviso. |
+| `criticalCondition` | Não | Lógica de limiar e comparação para a condição crítica. |
 
 
 ## <a name="warningcondition-element"></a>elemento de pré-aviso
@@ -249,8 +249,8 @@ Define a lógica de limiar e comparação para a condição de aviso. Se este el
 | Propriedade | Obrigatório | Descrição | 
 |:---|:---|:---|
 | `isEnabled` | Não | Especifica se a condição está ativada. Se for definido como **falso,** a condição é desativada, mesmo que as propriedades do limiar e do operador possam ser definidas. |
-| `threshold` | No | Define o limiar para comparar o valor avaliado. |
-| `operator`  | No | Define o operador de comparação a utilizar na expressão limiar. Valores possíveis: >, <, >=, <=, ==. |
+| `threshold` | Não | Define o limiar para comparar o valor avaliado. |
+| `operator`  | Não | Define o operador de comparação a utilizar na expressão limiar. Valores possíveis: >, <, >=, <=, ==. |
 
 
 ## <a name="criticalcondition-element"></a>elemento críticocondição
@@ -267,111 +267,13 @@ Define a lógica de limiar e comparação para a condição crítica. Se este el
 | Propriedade | Obrigatório | Descrição | 
 |:---|:---|:---|
 | `isEnabled` | Não | Especifica se a condição está ativada. Se for definido como **falso,** a condição é desativada, mesmo que as propriedades do limiar e do operador possam ser definidas. |
-| `threshold` | No | Define o limiar para comparar o valor avaliado. |
-| `operator`  | No | Define o operador de comparação a utilizar na expressão limiar. Valores possíveis: >, <, >=, <=, ==. |
+| `threshold` | Não | Define o limiar para comparar o valor avaliado. |
+| `operator`  | Não | Define o operador de comparação a utilizar na expressão limiar. Valores possíveis: >, <, >=, <=, ==. |
 
 ## <a name="sample-data-collection-rule"></a>Regra de recolha de dados de amostra
-A seguinte regra de recolha de dados de amostra mostra um exemplo de uma sobreposição para configurar a monitorização.
+Para obter uma regra de recolha de dados de amostra que permita a monitorização do hóspede, consulte [Ativar uma máquina virtual utilizando o modelo de Gestor de Recursos](vminsights-health-enable.md#enable-a-virtual-machine-using-resource-manager-template).
 
 
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "defaultHealthDataCollectionRuleName": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the name of the data collection rule to create."
-      },
-      "defaultValue": "Microsoft-VMInsights-Health"
-    },
-    "destinationWorkspaceResourceId": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the Azure resource ID of the Log Analytics workspace to use to store virtual machine health data."
-      }
-    },
-    "dataCollectionRuleLocation": {
-      "type": "string",
-      "metadata": {
-        "description": "The location code in which the data collection rule should be deployed. Examples: eastus, westeurope, etc"
-      }
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Insights/dataCollectionRules",
-      "name": "[parameters('defaultHealthDataCollectionRuleName')]",
-      "location": "[parameters('dataCollectionRuleLocation')]",
-      "apiVersion": "2019-11-01-preview",
-      "properties": {
-        "description": "Data collection rule for VM Insights health.",
-        "dataSources": {
-          "performanceCounters": [
-              {
-                  "name": "VMHealthPerfCounters",
-                  "streams": [ "Microsoft-Perf" ],
-                  "scheduledTransferPeriod": "PT1M",
-                  "samplingFrequencyInSeconds": 60,
-                  "counterSpecifiers": [
-                      "\\LogicalDisk(*)\\% Free Space",
-                      "\\Memory\\Available Bytes",
-                      "\\Processor(_Total)\\% Processor Time"
-                  ]
-              }
-          ],
-          "extensions": [
-            {
-              "name": "Microsoft-VMInsights-Health",
-              "streams": [
-                "Microsoft-HealthStateChange"
-              ],
-              "extensionName": "HealthExtension",
-              "extensionSettings": {
-                "schemaVersion": "1.0",
-                "contentVersion": "",
-                "healthRuleOverrides": [
-                  {
-                    "scopes": [ "*" ],
-                    "monitors": ["root"],
-                    "alertConfiguration": {
-                      "isEnabled": true
-                    }
-                  }
-                ]
-              },
-              "inputDataSources": [
-                  "VMHealthPerfCounters"
-              ]
-
-            }
-          ]
-        },
-        "destinations": {
-          "logAnalytics": [
-            {
-              "workspaceResourceId": "[parameters('destinationWorkspaceResourceId')]",
-              "name": "Microsoft-HealthStateChange-Dest"
-            }
-          ]
-        },                  
-        "dataFlows": [
-          {
-            "streams": [
-              "Microsoft-HealthStateChange"
-            ],
-            "destinations": [
-              "Microsoft-HealthStateChange-Dest"
-            ]
-          }
-        ]
-      }
-    }
-  ]
-}
-```
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia mais sobre [as regras de recolha de dados.](../platform/data-collection-rule-overview.md)

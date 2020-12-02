@@ -9,16 +9,14 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 382ba871f95b3b36c3f819de8d582ba2c5dc358a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 20f095a058434c36373c30ed2a633db12643814d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316080"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448286"
 ---
-# <a name="machine-learning-capabilities-in-azure-synapse-analytics-workspaces-preview"></a>Capacidades de aprendizagem automática em Azure Synapse Analytics (pré-visualização de espaços de trabalho)
-
-[!INCLUDE [preview](../includes/note-preview.md)]
+# <a name="machine-learning-capabilities-in-azure-synapse-analytics"></a>Capacidades de aprendizagem automática em Azure Synapse Analytics
 
 O Azure Synapse Analytics oferece várias capacidades de aprendizagem automática. Este artigo fornece uma visão geral de como pode aplicar Machine Learning no contexto do Azure Synapse.
 
@@ -48,11 +46,11 @@ Graças à [Azure Data Factory](/azure/data-factory/introduction), uma parte int
 
 Uma parte importante do processo de aprendizagem automática é compreender os dados através da exploração e visualização.
 
-Dependendo do local onde os dados são armazenados, a Synapse oferece um conjunto de ferramentas diferentes para explorar e preparar para análise e machine learning. Uma das formas mais rápidas de começar com a exploração de dados é usar piscinas sem servidor Apache Spark ou Synapse SQL diretamente sobre dados no lago de dados.
+Dependendo do local onde os dados são armazenados, a Synapse oferece um conjunto de ferramentas diferentes para explorar e preparar para análise e machine learning. Uma das formas mais rápidas de começar com a exploração de dados é usar piscinas de SQL apache spark ou sem servidor diretamente sobre dados no lago de dados.
 
 * [Apache Spark for Azure Synapse](../spark/apache-spark-overview.md) oferece capacidades para transformar, preparar e explorar os seus dados em escala. Estas piscinas de faíscas oferecem ferramentas como PySpark/Python, Scala e .NET para processamento de dados em escala. Utilizando bibliotecas de visualização poderosas, a experiência de exploração de dados pode ser melhorada para ajudar a entender melhor os dados. [Saiba mais sobre como explorar e visualizar dados em Synapse usando a Spark.](../get-started-analyze-spark.md)
 
-* [As piscinas sem servidor Sinaapse SQL](../sql/on-demand-workspace-overview.md) oferecem uma forma de explorar dados usando o TSQL diretamente sobre o lago de dados. As piscinas sem servidor Sinaapse SQL também oferecem algumas visualizações incorporadas no Synapse Studio. [Saiba mais sobre como explorar dados com piscinas sem servidor Synapse SQL](../get-started-analyze-sql-on-demand.md).
+* [As piscinas SQL sem servidor](../sql/on-demand-workspace-overview.md) oferecem uma forma de explorar dados usando o TSQL diretamente sobre o lago de dados. As piscinas SQL sem servidor também oferecem algumas visualizações incorporadas no Synapse Studio. [Saiba mais sobre como explorar dados com piscinas SQL sem servidor.](../get-started-analyze-sql-on-demand.md)
 
 ### <a name="modeling"></a>Modelação
 

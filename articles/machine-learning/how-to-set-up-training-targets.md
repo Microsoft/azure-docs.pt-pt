@@ -11,16 +11,16 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: cb10eb0f89ce37bc484c8570995ebaa098c696f1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 492d1370a228fc4fc80880102899c9207a514f57
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541305"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447197"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configurar e enviar execuções de preparação
 
-Neste artigo, aprende-se a configurar e submeter as corridas Azure Machine Learning para treinar os seus modelos.
+Neste artigo, aprende-se a configurar e submeter as corridas Azure Machine Learning para treinar os seus modelos. Os snippets de código explicam as partes-chave da configuração e submissão de um script de treino.  Em seguida, use um dos [cadernos](#notebooks) de exemplo para encontrar todos os exemplos de trabalho de ponta a ponta.
 
 Ao treinar, é comum começar no computador local e, mais tarde, escalar para um cluster baseado em nuvem. Com o Azure Machine Learning, pode executar o seu script em vários alvos de computação sem ter de alterar o seu script de treino.
 
@@ -38,10 +38,10 @@ Um [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?prese
 
 Submetes a tua experiência de treino com um objeto ScriptRunConfig.  Este objeto inclui:
 
-* **source_directory** : O diretório de origem que contém o seu roteiro de treino
-* **script** : O roteiro de treino para executar
-* **compute_target** : O alvo do cálculo a executar
-* **ambiente** : O ambiente a utilizar ao executar o script
+* **source_directory**: O diretório de origem que contém o seu roteiro de treino
+* **script**: O roteiro de treino para executar
+* **compute_target**: O alvo do cálculo a executar
+* **ambiente**: O ambiente a utilizar ao executar o script
 * e algumas opções configuráveis adicionais (ver [documentação de referência](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) para mais informações)
 
 ## <a name="train-your-model"></a><a id="submit"></a>Preparar o seu modelo
@@ -164,7 +164,7 @@ run.wait_for_completion(show_output=True)
 
 Quando se inicia uma corrida de treinamento onde o diretório de origem é um repositório local de Git, a informação sobre o repositório é armazenada na história da execução. Para obter mais informações, consulte [a integração do Git para a Azure Machine Learning.](concept-train-model-git-integration.md)
 
-## <a name="notebook-examples"></a>Exemplos de cadernos
+## <a name="notebook-examples"></a><a name="notebooks"></a>Exemplos de cadernos
 
 Consulte estes cadernos como exemplos de configurações para vários cenários de formação:
 * [Formação em vários alvos de computação](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)

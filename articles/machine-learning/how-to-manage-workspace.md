@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 9524577d40c3b6b65bb3c3c8ff9e257b015ed90d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 4425fdf488665ad555c73c59682041cb23a9ca66
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012939"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447334"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Criar e gerir espaços de trabalho de aprendizagem automática Azure 
 
@@ -30,7 +30,7 @@ Neste artigo, você vai criar, visualizar e eliminar [**espaços de trabalho de 
 
 ## <a name="limitations"></a>Limitações
 
-* Ao criar um novo espaço de trabalho, pode permitir que o espaço de trabalho crie os serviços Azure que necessita automaticamente ou que preste serviços existentes. Ao fornecer serviços existentes, estes serviços devem estar todos na mesma subscrição do Azure que o espaço de trabalho.
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
@@ -155,7 +155,7 @@ Se tiver problemas em aceder à sua subscrição, consulte [Configurar a autenti
  
 ---
 
-### <a name="networking"></a>Redes  
+### <a name="networking"></a>Rede  
 
 > [!IMPORTANT]  
 > Para obter mais informações sobre a utilização de um ponto final privado e rede virtual com o seu espaço de trabalho, consulte [o isolamento e privacidade da Rede.](how-to-network-security-overview.md)
@@ -363,7 +363,7 @@ No [portal Azure,](https://portal.azure.com/) **selecione Delete**  na parte sup
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
@@ -390,6 +390,6 @@ Exemplos de criação de um espaço de trabalho:
 * Use o portal Azure para [criar um espaço de trabalho e uma instância computacional](tutorial-1st-experiment-sdk-setup.md)
 * Use a Python SDK para [criar um espaço de trabalho no seu próprio ambiente](tutorial-1st-experiment-sdk-setup-local.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez que tenha um espaço de trabalho, aprenda a [treinar e implementar um modelo.](tutorial-train-models-with-aml.md)

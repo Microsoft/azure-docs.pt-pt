@@ -1,6 +1,6 @@
 ---
-title: PowerShell & REST APIs
-description: Encontre os cmdlets PowerShell superiores para a piscina Azure Synapse Analytics SQL, incluindo como parar e retomar uma base de dados.
+title: PowerShell & REST APIs para piscina SQL dedicada (anteriormente SQL DW)
+description: Top PowerShell cmdlets para piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics, incluindo como parar e retomar uma base de dados.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: aaf290fac71fec0ff4106e3f8a1895dd65b94e09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb26ac0071a50095f8e93ce0cc25da0055bdbac8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072898"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448227"
 ---
-# <a name="powershell--rest-apis-for-azure-synapse-analytics-sql-pool"></a>PowerShell & REST APIs para piscina SQL Azure Synapse Analytics
+# <a name="powershell--rest-apis-for-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>PowerShell & REST APIs para piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics 
 
-Muitas tarefas administrativas de piscina Azure Synapse Analytics SQL podem ser geridas usando cmdlets Azure PowerShell ou REST APIs.  Abaixo estão alguns exemplos de como usar comandos PowerShell para automatizar tarefas comuns na sua piscina SQL.  Para alguns bons exemplos DE REST, consulte o artigo [Gerir a escalabilidade com REST.](sql-data-warehouse-manage-compute-rest-api.md)
+Muitas tarefas administrativas dedicadas ao pool SQL podem ser geridas usando cmdlets Azure PowerShell ou REST APIs.  Abaixo estão alguns exemplos de como usar comandos PowerShell para automatizar tarefas comuns na sua piscina SQL dedicada (anteriormente SQL DW).  Para alguns bons exemplos DE REST, consulte o artigo [Gerir a escalabilidade com REST.](sql-data-warehouse-manage-compute-rest-api.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

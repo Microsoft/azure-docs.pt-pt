@@ -8,16 +8,16 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: f5d816b3d44a6fadd8dd462a14e62de4cdac2a00
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6585718a549c0e0a6eac1ab50788798e1021fef9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995935"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446814"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Utilize o site azureiotsolutions.com para implantar o seu acelerador de solução
 
-Pode colocar os aceleradores de solução Azure IoT na sua subscrição Azure a partir de [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). AzureIoTSolutions.com acolhe tanto os aceleradores de fonte aberta da Microsoft como os aceleradores de soluções parceiras. Estes aceleradores de solução alinham-se com a [Arquitetura de Referência Azure IoT](https://aka.ms/iotrefarchitecture). Pode utilizar o site para implementar rapidamente um acelerador de solução como um ambiente de demonstração ou de produção.
+Pode colocar os aceleradores de solução Azure IoT na sua subscrição Azure a partir de [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). AzureIoTSolutions.com acolhe tanto os aceleradores de fonte aberta da Microsoft como os aceleradores de soluções parceiras. Estes aceleradores de solução alinham-se com a [Arquitetura de Referência Azure IoT](/azure/architecture/reference-architectures/iot). Pode utilizar o site para implementar rapidamente um acelerador de solução como um ambiente de demonstração ou de produção.
 
 ![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Classificação da carga de trabalho
-description: Orientações para a utilização da classificação para gerir a concuência, importância e recursos de cálculo para consultas em Azure Synapse Analytics.
+title: Classificação da carga de trabalho para piscina SQL dedicada
+description: Orientações para a utilização da classificação para gerir a conuscrição de consultas, importância e recursos de cálculo para piscinas SQL dedicadas em Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 6b66b8a9fb3b5eb7dc78c00ba084e8609877dec7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bf19e2d1674d0a0c2102280b28b5549505c1dfab
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323881"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447761"
 ---
-# <a name="azure-synapse-analytics-workload-classification"></a>Classificação da carga de trabalho Azure Synapse Analytics
+# <a name="workload-classification-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Classificação da carga de trabalho para piscina sql dedicada em Azure Synapse Analytics
 
 Este artigo explica o processo de classificação da carga de trabalho de atribuição de um grupo de carga de trabalho e a importância para os pedidos de entrada com piscinas SQL dedicadas em Azure Synapse.
 
@@ -36,7 +36,7 @@ Nem todas as declarações são classificadas porque não requerem recursos ou p
 
 ## <a name="classification-process"></a>Processo de classificação
 
-A classificação para piscina SQL dedicada em Azure Synapse é alcançada hoje, atribuindo aos utilizadores uma função que tem uma classe de recursos correspondente que lhe seja atribuída utilizando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). A capacidade de caracterizar pedidos para além de um login para uma classe de recursos é limitada com esta capacidade. Um método mais rico para a classificação está agora disponível com a sintaxe [CREATE WORKLOAD CLASSIFIER.](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  Com esta sintaxe, os utilizadores de pools SQL dedicados podem atribuir importância e quantos recursos do sistema são atribuídos a um pedido através do `workload_group` parâmetro.
+A classificação para piscina SQL dedicada é alcançada hoje, atribuindo aos utilizadores uma função que tem uma classe de recursos correspondente que lhe seja atribuída utilizando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). A capacidade de caracterizar pedidos para além de um login para uma classe de recursos é limitada com esta capacidade. Um método mais rico para a classificação está agora disponível com a sintaxe [CREATE WORKLOAD CLASSIFIER.](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  Com esta sintaxe, os utilizadores de pools SQL dedicados podem atribuir importância e quantos recursos do sistema são atribuídos a um pedido através do `workload_group` parâmetro.
 
 > [!NOTE]
 > A classificação é avaliada por pedido. Vários pedidos numa única sessão podem ser classificados de forma diferente.

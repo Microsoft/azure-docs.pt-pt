@@ -1,5 +1,5 @@
 ---
-title: Terminologia - Azure Synapse Analytics (pré-visualização de espaços de trabalho)
+title: Terminologia - Azure Synapse Analytics
 description: Guia de referência que percorre o utilizador através do Azure Synapse Analytics
 services: synapse-analytics
 author: saveenr
@@ -9,16 +9,14 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 60c3fc6688dc4a25faf5ed94df25055e29d34403
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 7f0ca83c194aae6f4a8d04d70c2d4f3746ad2ca5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309822"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446720"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Terminologia Azure Synapse Analytics
-
-[!INCLUDE [preview](includes/note-preview.md)]
 
 Este documento guia-o através dos conceitos básicos da Azure Synapse Analytics.
 
@@ -56,7 +54,7 @@ Os oleodutos são como o Azure Synapse fornece integração de dados - permitind
 * **Trigger** - Executa um oleoduto. Pode ser executado manualmente ou automaticamente (agendar, tropeçar na janela ou no evento)
 * **Conjunto de dados** de integração - Visão nomeada de dados que simplesmente apontam ou referenciam os dados a serem utilizados numa atividade como entrada e saída. Pertence a um Serviço Linked.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Começa com o Azure Synapse Analytics](get-started.md)
 * [Criar uma área de trabalho](quickstart-create-workspace.md)

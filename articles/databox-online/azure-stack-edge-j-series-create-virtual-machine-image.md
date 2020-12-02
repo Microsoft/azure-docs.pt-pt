@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 745d0df07b6d0d01acf0d564df8c242e16f3f56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b49659f67e779b6eb8079492b47fef9419ca6b1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890994"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447518"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-device"></a>Crie imagens VM personalizadas para o seu dispositivo Azure Stack Edge Pro
 
@@ -42,7 +42,7 @@ Faça os seguintes passos para criar uma imagem VM do Windows.
     
         `c:\windows\system32\sysprep\sysprep.exe /oobe /generalize /shutdown /mode:vm`
    
-       Também pode consultar a [visão geral do Sysprep (preparação do sistema).](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)
+       Também pode consultar a [visão geral do Sysprep (preparação do sistema).](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)
 
 Utilize este VHD para agora criar e implementar um VM no seu dispositivo Azure Stack Edge Pro.
 
@@ -76,7 +76,7 @@ Utilize este VHD para agora criar e implementar um VM no seu dispositivo Azure S
 |[Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.ubuntuserver) |O Ubuntu Server é o Linux mais popular do mundo para ambientes em nuvem.|Canónico|
 |[Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian) |Debian GNU/Linux é uma das distribuições linux mais populares.     |credativ|
 
-Para obter uma lista completa de imagens do Azure Marketplace que possam funcionar (atualmente não [testadas), aceda aos itens do Azure Marketplace disponíveis para o Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910).
+Para obter uma lista completa de imagens do Azure Marketplace que possam funcionar (atualmente não [testadas), aceda aos itens do Azure Marketplace disponíveis para o Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910).
 
 
 ## <a name="next-steps"></a>Passos seguintes

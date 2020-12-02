@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: alkohli
-ms.openlocfilehash: d835507a17417f8b500c0fc13d0a662e606a37ff
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d97f500bb84f816bacf44208ba305840e797b3bd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996422"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447698"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Requisitos do sistema para Azure Stack Edge Pro com GPU 
 
@@ -81,9 +81,9 @@ Utilize a seguinte tabela para configuração de porta para os servidores que ho
 
 | Porto não. | Dentro ou fora | Âmbito portuário | Necessário | Orientação |
 |----------|-----------|------------|----------|----------|
-| TCP 443 (HTTPS)| Saída       | WAN        | Yes      | Saída aberta para provisão IoT Edge. Esta configuração é necessária quando se utilizam scripts manuais ou serviço de provisionamento de dispositivos Azure IoT (DPS).|
+| TCP 443 (HTTPS)| Saída       | WAN        | Sim      | Saída aberta para provisão IoT Edge. Esta configuração é necessária quando se utilizam scripts manuais ou serviço de provisionamento de dispositivos Azure IoT (DPS).|
 
-Para obter informações completas, aceda às [regras de configuração de Firewall e porta para a implementação do IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+Para obter informações completas, aceda às [regras de configuração de Firewall e porta para a implementação do IoT Edge](../iot-edge/troubleshoot.md).
 
 ## <a name="url-patterns-for-firewall-rules"></a>Padrões de URL para regras de firewall
 

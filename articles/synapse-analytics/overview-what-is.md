@@ -9,20 +9,18 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2052e27cde3427986dbf7784dcd5dbb179c5b209
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: c315dae7e5f02f112dfdfbec02e1ebaaa5e48a9f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380934"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445781"
 ---
-# <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>O que é Azure Synapse Analytics (pré-visualização de espaços de trabalho)?
-
-[!INCLUDE [preview](includes/note-preview.md)]
+# <a name="what-is-azure-synapse-analytics"></a>O que é o Azure Synapse Analytics?
 
 A análise empresarial deve funcionar em grande escala em qualquer tipo de dados, sejam brutos, refinados ou altamente curados. Isto normalmente requer que as empresas cosam tecnologias de armazenamento de big data e dados em complexos oleodutos de dados que funcionam em dados em lojas relacionais e lagos de dados. Este tipo de soluções são difíceis de construir, manter e garantir. Os seus atrasos de complexidade em fornecer as empresas de insights precisam.
 
-**O Azure Synapse** é um serviço de análise integrado que acelera o tempo para conhecer armazéns de dados e grandes sistemas de dados. A Azure Synapse reúne o melhor das tecnologias **SQL** utilizadas no armazenamento de dados empresariais, tecnologias **Spark** utilizadas para big data, e Pipelines para integração de **dados** e ETL/ELT. **O Synapse Studio** proporciona uma experiência unificada de gestão, monitorização, codificação e segurança. A Synapse tem uma profunda integração com outros serviços Azure, tais como **PowerBI,** **CosmosDB** e **AzureML.**
+**O Azure Synapse** é um serviço de análise integrado que acelera o tempo para conhecer armazéns de dados e grandes sistemas de dados. A Azure Synapse reúne o melhor das tecnologias **SQL** utilizadas no armazenamento de dados empresariais, tecnologias **Spark** utilizadas para big data, e Pipelines para integração de **dados** e ETL/ELT. **O Synapse Studio** proporciona uma experiência unificada de gestão, monitorização, codificação e segurança. A Synapse tem uma profunda integração com outros serviços Azure, tais como **Power BI,** **CosmosDB** e **AzureML.**
 
 ## <a name="key-features--benefits"></a>Principais funcionalidades & benefícios
 
@@ -53,7 +51,7 @@ A Azure Synapse remove as barreiras tecnológicas tradicionais entre a utilizaç
 
 ### <a name="built-in-data-integration-via-pipelines"></a>Integração de dados incorporados através de oleodutos
 
-A Azure Synapse vem integrado com o mesmo motor de integração de dados e experiências como Azure Data Factory, permitindo-lhe criar ricos oleodutos ETL em escala sem sair da Synapse Analytics.
+A Azure Synapse vem integrado com o mesmo motor de integração de dados e experiências como a Azure Data Factory, permitindo-lhe criar oleodutos ETL ricos em escala sem sair da Azure Synapse Analytics.
 
 * Ingerir dados de mais de 90 fontes de dados
 * Code-Free ETL com atividades de fluxo de dados
@@ -80,7 +78,7 @@ O Azure Synapse fornece uma única forma de as empresas gerirem os recursos anal
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): Faça perguntas de desenvolvimento.
 - [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): Faça perguntas técnicas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Começa com o Azure Synapse Analytics](get-started.md)
 * [Criar uma área de trabalho](quickstart-create-workspace.md)

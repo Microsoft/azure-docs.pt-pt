@@ -1,6 +1,6 @@
 ---
-title: FAQ - Azure Synapse Analytics (pré-visualização de espaços de trabalho)
-description: FAQ para Azure Synapse Analytics (pré-visualização de espaços de trabalho)
+title: FAQ - Azure Synapse Analytics
+description: FAQ para Azure Synapse Analytics
 services: synapse-analytics
 author: saveenr
 ms.service: synapse-analytics
@@ -9,22 +9,20 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5acfc8c01f375164979e1fb051563fcfb2da3bd3
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 05fef320d558de30830f76031d3b96262ae29f07
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436261"
+ms.locfileid: "96445797"
 ---
-# <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Azure Synapse Analytics (pré-visualização de espaços de trabalho) frequentemente perguntas
+# <a name="azure-synapse-analytics-frequently-asked-questions"></a>Azure Synapse Analytics frequentemente fez perguntas
 
 Neste guia, encontrará as perguntas mais frequentes para a Azure Synapse Analytics.
 
-[!INCLUDE [preview](includes/note-preview.md)]
-
 ## <a name="general"></a>Geral
 
-### <a name="q-what-rbac-roles-exist-and-how-i-use-them-to-secure-a-synapse-workspace"></a>P: Quais os papéis do RBAC e como os uso para garantir um espaço de trabalho da Sinapse?
+### <a name="q-what-rbac-roles-exist-and-how-do-i-use-them-to-secure-a-synapse-workspace"></a>P: Quais os papéis do RBAC e como os uso para garantir um espaço de trabalho da Sinapse?
 
 R: A azure Synapse introduz uma série de funções e âmbitos para atribuí-los que simplificarão a segurança do seu espaço de trabalho.
 
@@ -137,7 +135,7 @@ R: Pode encontrar uma lista completa de diferenças nas [diferenças de caracter
 
 R: Não há "movimento" ou "migração". Pode optar por ativar novas funcionalidades de espaço de trabalho nas suas piscinas existentes. Se o fizer, não haverá alterações de rutura, em vez disso poderá utilizar novas funcionalidades como o Synapse Studio, Spark e piscinas SQL sem servidor.
 
-### <a name="q-what-is-the-default-deployment-of-dedicated-sql-pools-now"></a>P: Qual é agora a implantação padrão de Piscinas SQL dedicadas? 
+### <a name="q-what-is-the-default-deployment-of-dedicated-sql-pools-now"></a>P: Qual é a implantação padrão de piscinas SQL dedicadas agora? 
 
 R: Por padrão, todas as novas piscinas SQL dedicadas serão implantadas num espaço de trabalho; no entanto, se precisar ainda pode criar uma piscina SQL dedicada (anteriormente SQL DW) num fator de forma autónoma. 
 

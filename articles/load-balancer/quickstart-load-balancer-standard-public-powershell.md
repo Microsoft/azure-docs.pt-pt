@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 9f443b15cd427dd31c2ffa95af8d1124f1169881
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 9081ba0aae14c39d70e62818dc13aa4d92c91986
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302642"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445956"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Quickstart: Criar um equilibrador de carga público para carregar VMs de equilíbrio usando Azure PowerShell
 
@@ -239,7 +239,7 @@ Nesta secção, irá criar as três máquinas virtuais para o pool de backend do
 
 * Criar três interfaces de rede com [o New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface).
 
-* Desconfime de utilizador e palavra-passe para os VMs com [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential).
+* Desconfime de utilizador e palavra-passe para os VMs com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential).
 
 * Crie as máquinas virtuais com:
     * [New-AzVM](/powershell/module/az.compute/new-azvm)
@@ -786,7 +786,7 @@ Remove-AzResourceGroup -Name 'CreatePubLBQS-rg'
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido
 

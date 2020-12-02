@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 212e5fb62043c2ffe2b8876249a6aad1d224411d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 3d7e6357fd8f1091509cbf27875c028d3af310cb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685856"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445909"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Início Rápido: Definir e obter um segredo do Azure Key Vault com o portal do Azure
 
@@ -45,13 +45,13 @@ Para adicionar um segredo ao cofre, siga os passos:
 1. Clique em **Gerar/Importar**.
 1. No ecrã **Criar um segredo**, selecione os seguintes valores:
     - **Opções de carregamento**: Manual.
-    - **Nome**: Digite um nome para o segredo. O nome secreto deve ser único dentro de um Cofre de Chaves. O nome deve ser uma corda de caracteres 1-127, começando com uma letra e contendo apenas 0-9, a-z, A-Z, e -. Para obter mais informações sobre o nome, consulte [objetos key vault, identificadores e versões](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning)
+    - **Nome**: Digite um nome para o segredo. O nome secreto deve ser único dentro de um Cofre de Chaves. O nome deve ser uma corda de caracteres 1-127, começando com uma letra e contendo apenas 0-9, a-z, A-Z, e -. Para obter mais informações sobre o nome, consulte [objetos key vault, identificadores e versões](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning)
     - **Valor**: Digite um valor para o segredo. As APIs do Cofre-Chave aceitam e devolvem valores secretos como cordas. 
     - Deixe as outras opções com os valores predefinidos. Clique em **Criar**.
 
 Depois de receber a mensagem de que o segredo foi criado com êxito, pode clicar no mesmo na lista. 
 
-Para obter mais informações sobre atributos de segredos, consulte [sobre os segredos do Cofre da Chave Azure](https://docs.microsoft.com/azure/key-vault/secrets/about-secrets)
+Para obter mais informações sobre atributos de segredos, consulte [sobre os segredos do Cofre da Chave Azure](./about-secrets.md)
 
 ## <a name="retrieve-a-secret-from-key-vault"></a>Recupere um segredo do Cofre de Chaves
 
@@ -75,9 +75,9 @@ Quando já não for necessário, elimine o grupo de recursos, que elimina o Key 
 3. Na caixa **ESCREVA O NOME DO GRUPO DE RECURSOS:**, escreva o nome do grupo de recursos e selecione **Eliminar**.
 
 > [!NOTE]
-> É importante notar que uma vez que um cofre secreto, chave, certificado ou chave é eliminado, ele permanecerá recuperável por um período configurável de 7 a 90 dias de calendário. Se não for especificada nenhuma configuração, o período de recuperação predefinido será definido para 90 dias. Isto proporciona aos utilizadores tempo suficiente para notar uma eliminação acidental e secreta e responder. Para obter mais informações sobre a eliminação e recuperação de cofres chave e objetos-chave do cofre, consulte [a visão geral do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview)
+> É importante notar que uma vez que um cofre secreto, chave, certificado ou chave é eliminado, ele permanecerá recuperável por um período configurável de 7 a 90 dias de calendário. Se não for especificada nenhuma configuração, o período de recuperação predefinido será definido para 90 dias. Isto proporciona aos utilizadores tempo suficiente para notar uma eliminação acidental e secreta e responder. Para obter mais informações sobre a eliminação e recuperação de cofres chave e objetos-chave do cofre, consulte [a visão geral do Azure Key Vault](../general/soft-delete-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, criaste um Cofre-Chave e guardaste um segredo nele. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
 

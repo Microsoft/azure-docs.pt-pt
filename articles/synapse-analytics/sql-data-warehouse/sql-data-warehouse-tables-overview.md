@@ -10,13 +10,13 @@ ms.subservice: sql-dw
 ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 3bdf234156c55e3c30df74c672866a118fd2f4f1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: ec62724b7aedbad4111a4882dd89f86d116b2a96
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323494"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448060"
 ---
 # <a name="design-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Tabelas de design usando piscina SQL dedicada em Azure Synapse Analytics
 
@@ -44,7 +44,7 @@ CREATE SCHEMA wwi;
 
 Para mostrar a organização das mesas na piscina dedicada SQL, você poderia usar fato, dim, e int como prefixos para os nomes de mesa. A tabela seguinte mostra alguns dos nomes de esquema e tabelas para WideWorldImportersDW.  
 
-| Tabela WideWorldImportersDW  | Tipo de mesa | Piscina SQL dedicada |
+| Tabela WideWorldImportersDW  | Tipo de mesa | Conjunto de SQL dedicado |
 |:-----|:-----|:------|:-----|
 | City | Dimensão | wwi. DimCity |
 | Encomenda | Fact | wwi. Ordem dos Factos |
@@ -111,7 +111,7 @@ A categoria de tabela determina frequentemente qual a opção a escolher para di
 
 ## <a name="table-partitions"></a>Divisórias de mesa
 
-Uma mesa dividida armazena e realiza operações nas linhas de tabela de acordo com as gamas de dados. Por exemplo, uma mesa pode ser dividida por dia, mês ou ano. Pode melhorar o desempenho da consulta através da eliminação da partição, o que limita uma consulta aos dados dentro de uma partição. Também pode manter os dados através da comutação de divisórias. Uma vez que os dados em Azure Synapse Analytics já estão distribuídos, muitas divisórias podem atrasar o desempenho da consulta. Para obter mais informações, consulte [a orientação de partição.](sql-data-warehouse-tables-partition.md)  Quando a partição mudar para divisórias que não estão vazias, considere utilizar a opção TRUNCATE_TARGET na sua declaração [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) se os dados existentes forem truncados. O código abaixo comuta nos dados diários transformados no SalesFact, sobressaltando quaisquer dados existentes.
+Uma mesa dividida armazena e realiza operações nas linhas de tabela de acordo com as gamas de dados. Por exemplo, uma mesa pode ser dividida por dia, mês ou ano. Pode melhorar o desempenho da consulta através da eliminação da partição, o que limita uma consulta aos dados dentro de uma partição. Também pode manter os dados através da comutação de divisórias. Uma vez que os dados no pool SQL já estão distribuídos, muitas divisórias podem atrasar o desempenho da consulta. Para obter mais informações, consulte [a orientação de partição.](sql-data-warehouse-tables-partition.md)  Quando a partição mudar para divisórias que não estão vazias, considere utilizar a opção TRUNCATE_TARGET na sua declaração [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) se os dados existentes forem truncados. O código abaixo comuta nos dados diários transformados no SalesFact, sobressaltando quaisquer dados existentes.
 
 ```sql
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
@@ -144,9 +144,9 @@ A CHAVE PRIMÁRIA só é suportada quando não é aplicada e não executada.  É
 
 Pode criar uma mesa como uma nova mesa vazia. Também pode criar e preencher uma tabela com os resultados de uma declaração selecionada. Seguem-se os comandos T-SQL para a criação de uma tabela.
 
-| Declaração T-SQL | Description |
+| Declaração T-SQL | Descrição |
 |:----------------|:------------|
-| [CRIAR TABELA](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma mesa vazia definindo todas as colunas e opções de mesa. |
+| [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma mesa vazia definindo todas as colunas e opções de mesa. |
 | [CRIAR TABELA EXTERNA](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma mesa externa. A definição da tabela é armazenada em piscina SQL dedicada. Os dados da tabela são armazenados no armazenamento Azure Blob ou na Azure Data Lake Store. |
 | [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Povoa uma nova tabela com os resultados de uma declaração selecionada. As colunas de tabela e os tipos de dados baseiam-se nos resultados da declaração selecionada. Para importar dados, esta declaração pode selecionar a partir de uma tabela externa. |
 | [CRIAR TABELA EXTERNA COMO SELEÇÃO](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma nova tabela externa exportando os resultados de uma declaração selecionada para um local externo.  A localização é o armazenamento Azure Blob ou a Azure Data Lake Store. |

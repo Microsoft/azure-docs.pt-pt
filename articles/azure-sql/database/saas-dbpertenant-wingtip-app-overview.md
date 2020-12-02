@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 3abfffcfb47a9530b6a04762624eee9d6ee9bc81
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 09651ed5c7472c12d82108fdbd450cca6e84349f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780466"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447090"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Introdução a uma app SaaS multitenante que utiliza o padrão de base de dados por inquilino com Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ A aplicação Wingtip SaaS utiliza o modelo base de dados por inquilino. Utiliza
 
 ## <a name="sql-database-wingtip-saas-tutorials"></a>Tutoriais saas da asa da base de dados SQL
 
-Depois de implementar a aplicação, explore os seguintes tutoriais que se baseiam na implementação inicial. Estes tutoriais exploram padrões saaS comuns que tiram partido das características incorporadas da BASE de Dados SQL, Azure Synapse Analytics (anteriormente SQL Data Warehouse) e outros serviços Azure. Os tutoriais incluem scripts PowerShell com explicações detalhadas. As explicações simplificam a compreensão e implementação dos mesmos padrões de gestão saaS nas suas aplicações.
+Depois de implementar a aplicação, explore os seguintes tutoriais que se baseiam na implementação inicial. Estes tutoriais exploram padrões saaS comuns que aproveitam as características incorporadas da BASE de Dados SQL, Azure Synapse Analytics e outros serviços Azure. Os tutoriais incluem scripts PowerShell com explicações detalhadas. As explicações simplificam a compreensão e implementação dos mesmos padrões de gestão saaS nas suas aplicações.
 
 
 | Tutorial | Descrição |

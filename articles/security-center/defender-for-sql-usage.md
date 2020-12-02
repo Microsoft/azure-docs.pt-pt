@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: d37c362da484a2a7e400da8f87dd0a37f0f80d3a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: a80747a88087e1ad3a70f198a260e41a6848e34f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436730"
+ms.locfileid: "96445666"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender para servidores SQL em máquinas 
 
@@ -108,7 +108,7 @@ Pode ver os resultados da avaliação da vulnerabilidade diretamente do Centro d
     Em cada vista, os controlos de segurança são classificados pela **Severidade**. Clique numa verificação de segurança específica para ver um painel de detalhes com uma **Descrição**, como **remediar** e outras informações relacionadas, como **Impacto** ou **Benchmark**.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Azure Defender para alertas SQL
-Os alertas são gerados por tentativas incomuns e potencialmente nocivas de aceder ou explorar máquinas SQL. Estes eventos podem desencadear alertas mostrados na secção alertas para a [Base de Dados SQL e Azure Synapse Analytics (antigo ARMAZÉM DE DADOS SQL) da página de referência dos alertas](alerts-reference.md#alerts-sql-db-and-warehouse).
+Os alertas são gerados por tentativas incomuns e potencialmente nocivas de aceder ou explorar máquinas SQL. Estes eventos podem desencadear alertas mostrados na secção alertas para a [Base de Dados SQL e a secção Azure Synapse Analytics da página de referência dos alertas](alerts-reference.md#alerts-sql-db-and-warehouse).
 
 ## <a name="explore-and-investigate-security-alerts"></a>Explore e investigue alertas de segurança
 
@@ -128,7 +128,7 @@ Os alertas do Azure Defender para SQL estão disponíveis na página de alertas 
 
 Para material relacionado, consulte o seguinte artigo:
 
-- [Alertas de segurança para a SQL Database e Azure Synapse Analytics (anteriormente SQL Data Warehouse)](alerts-reference.md#alerts-sql-db-and-warehouse)
+- [Alertas de segurança para A SQL Database e Azure Synapse Analytics](alerts-reference.md#alerts-sql-db-and-warehouse)
 - [Configurar notificações por e-mail para alertas de segurança](security-center-provide-security-contact-details.md)
 - [Saiba mais sobre a Azure Sentinel](../sentinel/index.yml)
 - [Pacote de segurança de dados do Azure Security Center](../azure-sql/database/azure-defender-for-sql.md)

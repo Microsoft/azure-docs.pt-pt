@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Gerir o cálculo com funções Azure'
-description: Como utilizar as Funções Azure para gerir o cálculo da sua piscina SQL em Azure Synapse Analytics.
+description: Como utilizar as Funções Azure para gerir o cálculo da sua piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bc615322c11a456699d2364cf44cad40e086e851
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f0731f0deaf46ec419cfe43037804e10f2b73fd4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022484"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448382"
 ---
-# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Utilize funções Azure para gerir recursos computativos na piscina SQL Azure Synapse Analytics
+# <a name="use-azure-functions-to-manage-compute-resources-for-your-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Use funções Azure para gerir recursos computativos para a sua piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics
 
-Este tutorial utiliza funções Azure para gerir recursos computativos para uma piscina SQL em Azure Synapse Analytics.
+Este tutorial utiliza funções Azure para gerir recursos computativos para uma piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics.
 
-Para utilizar a App de Função Azure com piscina SQL, tem de criar uma [Conta Principal de Serviço](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) com acesso ao contribuinte na mesma subscrição que a sua caixa de piscina SQL.
+Para utilizar uma App de Função Azure com uma piscina SQL dedicada (anteriormente SQL DW), tem de criar uma [Conta Principal de Serviço.](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) A Conta Principal de Serviço necessita de acesso ao contribuinte na mesma subscrição que a sua caixa de piscina SQL dedicada (anteriormente SQL DW).
 
 ## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Implementar escalamento baseado em temporizador com um modelo de gestor de recursos Azure
 
 Para implementar o modelo, precisa das seguintes informações:
 
-- Nome do grupo de recursos a sua instância de piscina SQL está em
-- Nome do servidor a sua instância de piscina SQL está em
-- Nome da sua instância de piscina SQL
+- Nome do grupo de recursos a sua piscina de SQL dedicada (anteriormente SQL DW) está em
+- Nome do servidor a sua piscina de SQL dedicada (anteriormente SQL DW) está em
+- Nome da sua piscina de SQL dedicada (anteriormente SQL DW) instância
 - ID do inquilino (ID do Diretório) do seu Azure Active Directory
 - ID da subscrição
 - ID da Aplicação Principal de Serviço
@@ -48,13 +48,13 @@ Uma vez implementado o modelo, deverá encontrar três novos recursos: um Plano 
 
    ![Funções que são implementadas com o modelo](./media/manage-compute-with-azure-functions/five-functions.png)
 
-2. Selecione *DWScaleDownTrigger* ou *DWScaleUpTrigger*, dependendo se quer alterar a hora de aumento ou redução vertical. No menu suspenso, selecione Integrate.
+2. Selecione *DWScaleDownTrigger* ou *DWScaleUpTrigger* para escalar ou escalar para baixo. No menu suspenso, selecione Integrate.
 
    ![Selecionar Integrate para a função](./media/manage-compute-with-azure-functions/select-integrate.png)
 
 3. Atualmente, o valor apresentado deverá indicar *%ScaleDownTime%* ou *%ScaleUpTime%*. Estes valores indicam que a agenda se baseia nos valores definidos nas [Definições da Aplicação](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Por enquanto, pode ignorar este valor e alterar o horário para o seu tempo preferido com base nos próximos passos.
 
-4. Na área de programação, adicione o tempo que a expressão CRON deseja refletir com que frequência deseja que o Azure Synapse Analytics seja aumentado.
+4. Na área de programação, adicione a expressão CRON que gostaria de refletir com que frequência deseja que o Azure Synapse Analytics seja aumentado.
 
    ![Alterar agenda da função](./media/manage-compute-with-azure-functions/change-schedule.png)
 
@@ -70,11 +70,11 @@ Uma vez implementado o modelo, deverá encontrar três novos recursos: um Plano 
 
 1. Navegue para o serviço Function App. Se tiver implementado o modelo com os valores predefinidos, este serviço deverá chamar-se *DWOperations*. Assim que Function App estiver aberto, deverá ver cinco funções implementadas no seu serviço do Function App.
 
-2. Selecione *DWScaleDownTrigger* ou *DWScaleUpTrigger*, dependendo se quer alterar o valor de computação de aumento ou redução vertical. Após selecionar as funções, o painel deve mostrar o ficheiro *index.js*.
+2. Selecione *DWScaleDownTrigger* ou *DWScaleUpTrigger* para escalar ou escalar o valor do cálculo. Após selecionar as funções, o painel deve mostrar o ficheiro *index.js*.
 
    ![Alterar o nível de computação do acionador de função](././media/manage-compute-with-azure-functions/index-js.png)
 
-3. Altere o valor de *ServiceLevelObjective* para o nível que pretende e prima “Save”. Este valor é o nível de cálculo que a sua instância de armazém de dados irá escalar com base no calendário definido na secção Integração.
+3. Altere o valor do *ServiceLevelObjective* para o nível que pretende e selecione guardar. O *ServiceLevelObjective* é o nível de cálculo que a sua instância de armazém de dados irá escalar com base no calendário definido na secção Integração.
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>Utilizar a pausa ou a retoma em vez do dimensionamento
 
@@ -84,7 +84,7 @@ Atualmente, as funções ligadas por predefinição são *DWScaleDownTrigger* e 
 
    ![Painel Functions](./media/manage-compute-with-azure-functions/functions-pane.png)
 
-2. Clique no botão deslizante dos acionadores que quer ativar.
+2. Selecione no toggle deslizante para os gatilhos correspondentes que pretende ativar.
 
 3. Navegue para os separadores *Integrate* de cada acionador, para alterar as agendas dos mesmos.
 
@@ -114,17 +114,17 @@ Atualmente, o modelo inclui apenas duas funções de dimensionamento. Com estas 
 5. Desa parte da variável de operação para o comportamento pretendido da seguinte forma:
 
    ```JavaScript
-   // Resume the SQL pool instance
+   // Resume the dedicated SQL pool (formerly SQL DW) instance
    var operation = {
        "operationType": "ResumeDw"
    }
 
-   // Pause the SQL pool instance
+   // Pause the dedicated SQL pool (formerly SQL DW) instance
    var operation = {
        "operationType": "PauseDw"
    }
 
-   // Scale the SQL pool instance to DW600c
+   // Scale the dedicated SQL pool (formerly SQL DW)l instance to DW600c
    var operation = {
        "operationType": "ScaleDw",
        "ServiceLevelObjective": "DW600c"
@@ -169,4 +169,4 @@ Escala às 8:00 para DW1000c, escala uma vez para DW600c às 16:00 nos dias úte
 
 Saiba mais sobre [o temporizador acionar](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) funções Azure.
 
-Check-out o [repositório de amostras](https://github.com/Microsoft/sql-data-warehouse-samples)de piscina SQL .
+Consulte [o repositório](https://github.com/Microsoft/sql-data-warehouse-samples)de amostras de piscina SQL (anteriormente SQL DW).

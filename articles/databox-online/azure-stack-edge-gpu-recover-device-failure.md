@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 91efdac9d17e679226f10012bbff9b5b6676ff0e
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: bf4d0a845b7f26c82ba3940d6613a33bcacf9187
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205583"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448326"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>Recuperar de um dispositivo GPU Azure Stack Edge Pro falhado 
 
 Este artigo descreve como recuperar de uma falha não tolerável no seu dispositivo GPU Azure Stack Edge Pro. Uma falha não tolerável no dispositivo GPU Azure Stack Edge Pro requer uma substituição do dispositivo.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Certifique-se de que tem:
 
@@ -81,7 +81,7 @@ Para se preparar para uma possível falha do dispositivo, pode ter implementado 
 
 | Soluções de backup        | SoA apoiado   | Referência                                                                |
 |-------------------------|----------------|--------------------------------------------------------------------------|
-| Agente dos Serviços de Recuperação do Microsoft Azure (MARS) para backup do Azure | Windows        | [Acerca do agente MARS](/azure/backup/backup-azure-about-mars)    |
+| Agente dos Serviços de Recuperação do Microsoft Azure (MARS) para backup do Azure | Windows        | [Acerca do agente MARS](../backup/backup-azure-about-mars.md)    |
 | Coesidade                | Windows, Linux | [Resumo da solução de integração, backup e recuperação da Microsoft Azure](https://www.cohesity.com/solution/cloud/azure) <br>Para mais detalhes, contacte a Coesity.                          |
 | Commvault               | Windows, Linux | https://www.commvault.com/azure <br> Para mais informações, contacte a Commvault.
 | Veritas                 | Windows, Linux | http://veritas.com/azure <br> Para mais detalhes, contacte a Veritas.                    |

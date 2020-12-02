@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 088300d4b6f92886310315b67763536e39cbb019
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 5109139c7168026c74a475128832fbb0733ce832
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789527"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447128"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure Private Link para Azure SQL Database e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "92789527"
 O Private Link permite-lhe ligar-se a vários serviços PaaS em Azure através de um **ponto final privado.** Para obter uma lista de serviços PaaS que suportam a funcionalidade Private Link, aceda à página [de Documentação de Link Privado.](../../private-link/index.yml) Um ponto final privado é um endereço IP privado dentro de um [VNet](../../virtual-network/virtual-networks-overview.md) específico e sub-rede.
 
 > [!IMPORTANT]
-> Este artigo aplica-se tanto à Base de Dados Azure SQL como à Azure Synapse Analytics (antiga SQL Data Warehouse). Para simplificar, o termo "base de dados" refere-se a ambas as bases de dados na Base de Dados Azure SQL e na Azure Synapse Analytics. Da mesma forma, quaisquer referências ao 'servidor' referem-se ao [servidor lógico SQL](logical-servers.md) que acolhe a Base de Dados Azure SQL e a Azure Synapse Analytics. Este artigo *não* se aplica a **Azure SQL Managed Instance** .
+> Este artigo aplica-se tanto à Base de Dados Azure SQL como à Azure Synapse Analytics. Para simplificar, o termo "base de dados" refere-se a ambas as bases de dados na Base de Dados Azure SQL e na Azure Synapse Analytics. Da mesma forma, quaisquer referências ao 'servidor' referem-se ao [servidor lógico SQL](logical-servers.md) que acolhe a Base de Dados Azure SQL e a Azure Synapse Analytics. Este artigo *não* se aplica a **Azure SQL Managed Instance**.
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Como configurar o Link Privado para a Base de Dados Azure SQL 
 
@@ -50,7 +50,7 @@ Uma vez que o administrador de rede cria o Ponto Final Privado (PE), o administr
 1. Após aprovação ou rejeição, a lista refletirá o estado apropriado juntamente com o texto de resposta.
 ![Screenshot de todos os PECs após aprovação][5]
 
-## <a name="on-premises-connectivity-over-private-peering"></a>Conectividade no local sobre o espreitamento privado
+## <a name="on-premises-connectivity-over-private-peering"></a>Conectividade no local em peering privado
 
 Quando os clientes se ligam ao ponto final público a partir de máquinas no local, o seu endereço IP precisa de ser adicionado à firewall baseada em IP utilizando uma [regra de firewall ao nível do Servidor](firewall-create-server-level-portal-quickstart.md). Embora este modelo funcione bem para permitir o acesso a máquinas individuais para dev ou testar cargas de trabalho, é difícil de gerir em ambiente de produção.
 
@@ -145,7 +145,7 @@ A exfiltração de dados na Base de Dados Azure SQL é quando um utilizador auto
 
 Considere um cenário com um utilizador que executa o SQL Server Management Studio (SSMS) dentro de uma máquina virtual Azure conectando-se a uma base de dados na Base de Dados SQL. Esta base de dados está no centro de dados dos EUA. O exemplo abaixo mostra como limitar o acesso com pontos finais públicos na Base de Dados SQL utilizando controlos de acesso à rede.
 
-1. Desative todo o tráfego de serviço Azure para a Base de Dados SQL através do ponto final público, definindo Allow Azure Services to **OFF** . Certifique-se de que não são permitidos endereços IP nas regras de firewall de nível de servidor e base de dados. Para obter mais informações, consulte a [Base de Dados Azure SQL e os controlos de acesso à rede Azure Synapse Analytics](network-access-controls-overview.md).
+1. Desative todo o tráfego de serviço Azure para a Base de Dados SQL através do ponto final público, definindo Allow Azure Services to **OFF**. Certifique-se de que não são permitidos endereços IP nas regras de firewall de nível de servidor e base de dados. Para obter mais informações, consulte a [Base de Dados Azure SQL e os controlos de acesso à rede Azure Synapse Analytics](network-access-controls-overview.md).
 1. Apenas permita o tráfego na base de dados na Base de Dados SQL utilizando o endereço IP privado do VM. Para obter mais informações, consulte os artigos sobre [as regras](firewall-configure.md)de Service [Endpoint](vnet-service-endpoint-rule-overview.md) e de firewall de rede virtual .
 1. No Azure VM, reduza o âmbito de ligação de saída utilizando grupos de segurança de [rede (NSGs)](../../virtual-network/manage-network-security-group.md) e tags de serviço da seguinte forma
     - Especifique uma regra NSG para permitir o tráfego para tag de serviço = SQL. WestUs - apenas permitindo a ligação à SQL Database nos EUA
@@ -172,7 +172,7 @@ Configure [a rede virtual para a ligação de gateway de rede virtual VPN](../..
 Para estabelecer conectividade de um ambiente no local até à base de dados na Base de Dados SQL, escolha e implemente uma das opções:
 - [Ligação ponto-a-local](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Ligação VPN Site a Site](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-- [Circuito do ExpressRoute](../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
+- [Circuito ExpressRoute](../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 
 ## <a name="connecting-from-azure-synapse-analytics-to-azure-storage-using-polybase-and-the-copy-statement"></a>Ligação do Azure Synapse Analytics ao Azure Storage utilizando a Base Polibase e a declaração COPY

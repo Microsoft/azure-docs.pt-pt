@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 8ae95518bab5ed9bc100a5902acf1fd1db631dbe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3fb4085ba275bda1fe784f368eb5d92ac0c668f0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91617167"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448521"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>O que é o Azure Stack Edge Pro com GPU?
 
@@ -25,7 +25,7 @@ Azure Stack Edge Pro com GPU é uma solução de hardware-as-a-service. A Micros
 
 Aqui estão os vários cenários em que o Azure Stack Edge Pro pode ser usado para a rápida aprendizagem automática (ML) inferening on the edge and preprocessing data antes de enviá-lo para Azure.
 
-- **Inferência com Azure Machine Learning** - Com O Azure Stack Edge Pro, pode executar modelos ML para obter resultados rápidos que podem ser atuados antes de os dados serem enviados para a nuvem. O conjunto completo de dados pode opcionalmente ser transferido para continuar a treinar e melhorar os seus modelos ML. Para obter mais informações sobre como utilizar os modelos acelerados de hardware Azure ML no dispositivo Azure Stack Edge Pro, consulte [os modelos acelerados de hardware Azure ML no Azure Stack Edge Pro](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Inferência com Azure Machine Learning** - Com O Azure Stack Edge Pro, pode executar modelos ML para obter resultados rápidos que podem ser atuados antes de os dados serem enviados para a nuvem. O conjunto completo de dados pode opcionalmente ser transferido para continuar a treinar e melhorar os seus modelos ML. Para obter mais informações sobre como utilizar os modelos acelerados de hardware Azure ML no dispositivo Azure Stack Edge Pro, consulte [os modelos acelerados de hardware Azure ML no Azure Stack Edge Pro](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
 
 - **Dados de pré-processamento** - Transforme os dados antes de enviá-los para o Azure através de opções computacional, tais como cargas de trabalho contentorizadas e Máquinas Virtuais para criar um conjunto de dados mais acccionado. O pré-processamento pode ser utilizado para: 
 
@@ -40,7 +40,7 @@ Aqui estão os vários cenários em que o Azure Stack Edge Pro pode ser usado pa
 
 Azure Stack Edge Pro tem as seguintes capacidades:
 
-|Funcionalidade |Descrição  |
+|Funcionalidade |Description  |
 |---------|---------|
 |Inferencing acelerado da IA| Ativada pela GPU incorporada (uma ou duas dependendo do modelo).|
 |Computação edge      |Suporta VM e cargas de trabalho contentorizadas para permitir a análise, processamento e filtragem de dados. |

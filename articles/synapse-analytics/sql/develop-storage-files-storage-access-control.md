@@ -1,6 +1,6 @@
 ---
-title: Acesso de conta de armazenamento de controlo para piscina SQL sem servidor (pré-visualização)
-description: Descreve como a piscina SQL sem servidor (pré-visualização) acede ao Azure Storage e como pode controlar o acesso ao armazenamento para piscina SQL sem servidor em Azure Synapse Analytics.
+title: Controle o acesso à conta de armazenamento para piscina SQL sem servidor
+description: Descreve como a piscina SQL sem servidor acede ao Azure Storage e como pode controlar o acesso ao armazenamento para piscina SQL sem servidor em Azure Synapse Analytics.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 958f371a0018d20331e73d0eabba9354614d121c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 631aaf3c6a99e093f6ed59089f7ce99803f3f054
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315736"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446630"
 ---
-# <a name="control-storage-account-access-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Acesso de conta de armazenamento de controlo para piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics
+# <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Acesso de conta de armazenamento de controlo para piscina SQL sem servidor em Azure Synapse Analytics
 
 Uma consulta de piscina SQL sem servidor lê ficheiros diretamente do Azure Storage. As permissões de acesso aos ficheiros do armazenamento Azure são controladas a dois níveis:
 - **Nível de armazenamento** - O utilizador deve ter permissão para aceder a ficheiros de armazenamento subjacentes. O seu administrador de armazenamento deve permitir que o diretor da AD AD Azure leia/escreva ficheiros ou gere a chave SAS que será usada para aceder ao armazenamento.
@@ -33,7 +33,7 @@ Um utilizador que tenha iniciado sessão num pool SQL sem servidor deve ser auto
 
 ### <a name="user-identity"></a>[Identidade do Utilizador](#tab/user-identity)
 
-**Identidade do Utilizador** , também conhecida como "Azure AD pass-through", é um tipo de autorização onde a identidade do utilizador Azure AD que iniciou sessão no pool SQL sem servidor é usada para autorizar o acesso aos dados. Antes de aceder aos dados, o administrador do Azure Storage deve conceder permissões ao utilizador Azure AD. Como indicado na tabela abaixo, não é suportado para o tipo de utilizador SQL.
+**Identidade do Utilizador**, também conhecida como "Azure AD pass-through", é um tipo de autorização onde a identidade do utilizador Azure AD que iniciou sessão no pool SQL sem servidor é usada para autorizar o acesso aos dados. Antes de aceder aos dados, o administrador do Azure Storage deve conceder permissões ao utilizador Azure AD. Como indicado na tabela abaixo, não é suportado para o tipo de utilizador SQL.
 
 > [!IMPORTANT]
 > Precisa de ter uma função de Proprietário/Contribuinte/Leitor de Armazenamento para utilizar a sua identidade para aceder aos dados.
@@ -144,7 +144,7 @@ Os utilizadores do SQL não podem utilizar a autenticação AZure AD para aceder
 
 O seguinte script cria uma credencial de nível de servidor que pode ser usada por `OPENROWSET` função para aceder a qualquer ficheiro no armazenamento Azure usando o token SAS. Crie esta credencial para permitir que o principal sql que executa `OPENROWSET` a função de ler ficheiros protegidos com a chave SAS no armazenamento Azure que corresponda a URL em nome credencial.
 
-Troque < *mystorageaccountname* > com o seu nome de conta de armazenamento real, e < *mystorageaccountcontainername* > com o nome real do recipiente:
+Troque <*mystorageaccountname*> com o seu nome de conta de armazenamento real, e <*mystorageaccountcontainername*> com o nome real do recipiente:
 
 ```sql
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]

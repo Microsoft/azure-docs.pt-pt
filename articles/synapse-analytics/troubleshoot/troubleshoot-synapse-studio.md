@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Synapse Studio (pré-visualização)
+title: Resolver problemas do Synapse Studio
 description: Troubleshoot Azure Synapse Studio
 author: julieMSFT
 ms.service: synapse-analytics
@@ -8,18 +8,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3fe31f83ccc0dcbd2d61a7c70d40a64da08d13a1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a96709c7538bda6d6b338c29dc512902e9ca2c87
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321010"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445848"
 ---
-# <a name="azure-synapse-studio-preview-troubleshooting"></a>Azure Synapse Studio (pré-visualização) resolução de problemas
+# <a name="azure-synapse-studio-troubleshooting"></a>Azure Synapse Studio resolução de problemas
 
 Este guia de resolução de problemas fornece instruções sobre as informações a fornecer ao abrir um bilhete de apoio sobre problemas de conectividade de rede. Com a informação adequada, podemos resolver o problema mais rapidamente.
 
-## <a name="serverless-sql-pool-preview-service-connectivity-issue"></a>Problema de conectividade de serviço de pool SQL sem servidor (pré-visualização)
+## <a name="serverless-sql-pool-service-connectivity-issue"></a>Problema de conectividade do serviço de piscina sem servidor SQL
 
 ### <a name="symptom-1"></a>Sintoma 1
 
@@ -61,7 +61,7 @@ Encontre o item cuja coluna url corresponde ao seguinte padrão:
 
 `https://[*A*]-ondemand.database.windows.net:1443/databases/[*B*]/query?api-version=2018-08-01-preview&application=ArcadiaSqlOnDemandExplorer`
 
-Onde [ *A* ] é o seu nome de espaço de trabalho, e "-ondemand" poderia ser "-sqlod" e onde [ *B* ] deveria ser um nome de base de dados, como "mestre". Deve haver no máximo dois itens com o mesmo valor DE URL, mas valores de método diferentes; OPÇÕES E POST. Verifique se estes dois itens têm "200" ou "20x" debaixo da coluna de estado, onde "x" pode ser qualquer dígito.
+Onde [*A*] é o seu nome de espaço de trabalho, e "-ondemand" poderia ser "-sqlod" e onde [*B*] deveria ser um nome de base de dados, como "mestre". Deve haver no máximo dois itens com o mesmo valor DE URL, mas valores de método diferentes; OPÇÕES E POST. Verifique se estes dois itens têm "200" ou "20x" debaixo da coluna de estado, onde "x" pode ser qualquer dígito.
 
 Se um deles tiver algo diferente de "20x" e:
 

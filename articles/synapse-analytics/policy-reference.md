@@ -7,14 +7,14 @@ author: julieMSFT
 ms.author: jrasnick
 ms.service: synapse-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: fda3a9fc3c5a2620fe9fe3bcd63ae94875282122
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 655cf05ece748ae66ffd99bb170c59af74fb1f07
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296098"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446756"
 ---
-# <a name="azure-policy-built-in-definitions-for-azure-synapse-analytics-workspace-preview"></a>Definições incorporadas da Política Azure para a Azure Synapse Analytics (pré-visualização do espaço de trabalho)
+# <a name="azure-policy-built-in-definitions-for-azure-synapse-analytics"></a>Azure Policy definições incorporadas para Azure Synapse Analytics 
 
 Esta página é um índice de definições políticas incorporadas da [Azure Policy](../governance/policy/overview.md) para Azure Synapse. Para obter mais incorporados em Azure Policy para outros serviços, consulte [definições incorporadas da Política Azure](../governance/policy/samples/built-in-policies.md).
 

@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: jmartens
 author: j-martens
 ms.date: 11/16/2020
-ms.openlocfilehash: 2abad31173992a891e908bdbb61c37e905907d69
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 0afbf32f80a3d19f6db457f398a213a634cfa3d4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697583"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447050"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Conecte-se a uma instância computacional de aprendizagem de máquinas Azure no Código do Estúdio Visual (pré-visualização)
 
@@ -41,7 +41,7 @@ Para ligar a uma instância computacional:
 1. Quando o portátil integrado experimentar cargas, selecione **Jupyter Server**.
 
     > [!div class="mx-imgBorder"]
-    > ![Lançamento Azure Machine Learning remoto servidor de caderno jupyter dropdown](media/how-to-set-up-vs-code-remote/launch-server-selection-dropdown.png)
+    > ![Lançamento Azure Machine Learning remoto Jupyter Notebook servidor dropdown](media/how-to-set-up-vs-code-remote/launch-server-selection-dropdown.png)
 
     Em alternativa, também utiliza a paleta de comando:
 
@@ -58,7 +58,7 @@ Para ligar a uma instância computacional:
 > [!IMPORTANT]
 > **Tem de** executar uma célula para estabelecer a ligação.
 
-Neste momento, pode continuar a executar células no seu caderno Jupyter.
+Neste momento, pode continuar a executar células no seu Caderno Jupyter.
 
 > [!TIP]
 > Também pode trabalhar com ficheiros de script Python (.py) que contêm células de código semelhantes a Jupyter. Para mais informações, consulte a [documentação interativa Visual Studio Code Python](https://code.visualstudio.com/docs/python/jupyter-support-py).

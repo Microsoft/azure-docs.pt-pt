@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 50f2515cee92ead8018ffaaf4b4574905f8007d5
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d29d7401cf944e8d999db847ce2e1266169ea34
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844510"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448419"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrar o Key Vault com a Autoridade de Certificação DigiCert
 
@@ -108,7 +108,7 @@ $org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCer
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
 ```
 
-4. Definir **emitente**. Isto irá adicionar Digicert como autoridade de certificado no cofre chave. Para saber mais sobre os parâmetros, [leia aqui](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
+4. Definir **emitente**. Isto irá adicionar Digicert como autoridade de certificado no cofre chave. Para saber mais sobre os parâmetros, [leia aqui](/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
 ```azurepowershell-interactive
 Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
 ```

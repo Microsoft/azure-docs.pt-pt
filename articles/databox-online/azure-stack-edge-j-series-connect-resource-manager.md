@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 5cf406dc0577f477858dd8a6570f7975747112e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 048f2585d8e9ac1b10293083bda0900e7ce468bb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891220"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447606"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Ligue ao Gestor de Recursos Azure no seu dispositivo Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-O Azure Resource Manager fornece uma camada de gestão que lhe permite criar, atualizar e eliminar recursos na sua subscrição Azure. O dispositivo Azure Stack Edge Pro suporta as mesmas APIs do Gestor de Recursos Azure para criar, atualizar e eliminar VMs numa subscrição local. Este suporte permite-lhe gerir o dispositivo de uma forma consistente com a nuvem. 
+O Azure Resource Manager proporciona uma camada de gestão que lhe permite criar, atualizar e eliminar recursos na subscrição do Azure. O dispositivo Azure Stack Edge Pro suporta as mesmas APIs do Gestor de Recursos Azure para criar, atualizar e eliminar VMs numa subscrição local. Este suporte permite-lhe gerir o dispositivo de uma forma consistente com a nuvem. 
 
 Este tutorial descreve como ligar-se às APIs locais no seu dispositivo Azure Stack Edge Pro através do Azure Resource Manager utilizando a Azure PowerShell.
 
@@ -38,7 +38,7 @@ A tabela seguinte resume os vários pontos finais expostos no seu dispositivo, o
 | --- | --- | --- | --- | --- |
 | 1. | Azure Resource Manager | https | 443 | Para ligar ao Azure Resource Manager para automação |
 | 2. | Serviço de ficha de segurança | https | 443 | Para autenticar através de acesso e atualização de fichas |
-| 3. | Blob | https | 443 | Para ligar ao armazenamento blob via REST |
+| 3. | Blobs | https | 443 | Para ligar ao armazenamento blob via REST |
 
 
 ## <a name="connecting-to-azure-resource-manager-workflow"></a>Ligação ao fluxo de trabalho do Gestor de Recursos Azure
@@ -111,7 +111,7 @@ Para obter mais informações sobre certificados, aceda a como [Gerir certificad
 
 Os certificados que criou no passo anterior estarão na loja Personal do seu cliente. Estes certificados precisam de ser exportados no seu cliente para ficheiros de formato apropriados que podem ser depois enviados para o seu dispositivo.
 
-1. O certificado raiz deve ser exportado como um ficheiro de formato DER com extensão de ficheiro *.cer.* Para etapas detalhadas, consulte [os certificados de exportação como um ficheiro formato .cer](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-der-format).
+1. O certificado raiz deve ser exportado como um ficheiro de formato DER com *.cer* extensão de ficheiro. Para obter etapas detalhadas, consulte [os certificados de exportação como um ficheiro de formato .cer](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-der-format).
 
 2. Os certificados de ponto final devem ser exportados como *ficheiros .pfx* com chaves privadas. Para etapas detalhadas, consulte [os certificados de exportação como ficheiro .pfx com chaves privadas](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
 
@@ -122,9 +122,9 @@ Os certificados que criou no passo anterior estarão na loja Personal do seu cli
 
 O cliente windows onde irá invocar as APIs do Gestor de Recursos Azure precisa de estabelecer confiança com o dispositivo. Para o efeito, os certificados que criou no passo anterior devem ser importados no seu cliente Windows para a loja de certificados apropriada.
 
-1. O certificado de raiz que exportou como formato DER com extensão *.cer* deve agora ser importado nas Autoridades de Certificados de Raiz Fidedignas no seu sistema de clientes. Para obter etapas detalhadas, consulte [os certificados de importação na loja Trusted Root Certificate Authorities.](azure-stack-edge-j-series-manage-certificates.md#import-certificates-as-der-format)
+1. O certificado de raiz que exportou como formato DER com *.cer* extensão deve agora ser importado nas Autoridades de Certificados de Raiz Fidedignas no seu sistema de clientes. Para obter etapas detalhadas, consulte [os certificados de importação na loja Trusted Root Certificate Authorities.](azure-stack-edge-j-series-manage-certificates.md#import-certificates-as-der-format)
 
-2. Os certificados de ponto final que exportou como *.pfx* devem ser exportados como *.cer*. Este *.cer* é então importado na loja **de certificados pessoais** no seu sistema. Para obter etapas detalhadas, consulte [certificados de importação em loja pessoal.](azure-stack-edge-j-series-manage-certificates.md#import-certificates-as-der-format)
+2. Os certificados de ponto final que exportou como *.pfx* devem ser exportados como *.cer*. Esta *.cer* é então importada na loja **de certificados pessoais** no seu sistema. Para obter etapas detalhadas, consulte [certificados de importação em loja pessoal.](azure-stack-edge-j-series-manage-certificates.md#import-certificates-as-der-format)
 
 ## <a name="step-3-install-powershell-on-the-client"></a>Passo 3: Instalar PowerShell no cliente 
 
@@ -138,9 +138,9 @@ O seu cliente Windows deve cumprir os seguintes requisitos:
 
     Compare a versão **Major** e certifique-se de que é 5.0 ou mais tarde.
 
-    Se tem uma versão desatualizada, veja [Atualizar o Windows PowerShell existente](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+    Se tem uma versão desatualizada, veja [Atualizar o Windows PowerShell existente](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
 
-    Se \' não tiver PowerShell 5.0, siga [instalar o Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6).
+    Se \' não tiver PowerShell 5.0, siga [instalar o Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6).
 
     É apresentada abaixo uma saída de exemplo.
 
@@ -175,11 +175,11 @@ O seu cliente Windows deve cumprir os seguintes requisitos:
     PSGallery                 Trusted              https://www.powershellgallery.com/api/v2
     ```
     
-Se o seu repositório não for de confiança ou precisar de mais informações, consulte [validar a acessibilidade da PowerShell Gallery](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility).
+Se o seu repositório não for de confiança ou precisar de mais informações, consulte [validar a acessibilidade da PowerShell Gallery](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility).
 
 ## <a name="step-4-set-up-azure-powershell-on-the-client"></a>Passo 4: Configurar a Azure PowerShell no cliente 
 
-<!--1. Verify the API profile of the client and identify which version of the Azure PowerShell modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the Azure PowerShell modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
 
 1. Irá instalar módulos Azure PowerShell no seu cliente que irão funcionar com o seu dispositivo.
 
@@ -297,9 +297,9 @@ Verifique se o nome do ponto final está resolvido no cliente que está a usar p
 Defina o ambiente de Gestor de Recursos Azure e verifique se o seu dispositivo para comunicação do cliente através do Azure Resource Manager está a funcionar bem. Tome as seguintes medidas para esta verificação:
 
 
-1. Utilize o `Add-AzureRmEnvironment` cmdlet para garantir ainda que a comunicação através do Azure Resource Manager está a funcionar corretamente e as chamadas da API estão a passar pelo porto dedicado ao Azure Resource Manager - 443.
+1. Utilize o cmdlet `Add-AzureRmEnvironment` para garantir que a comunicação através do Azure Resource Manager está a funcionar corretamente e as chamadas à API estão a passar pela porta dedicada ao Azure Resource Manager – 443.
 
-    O `Add-AzureRmEnvironment` cmdlet adiciona pontos finais e metadados para permitir que os cmdlets do Azure Resource Manager se conectem com uma nova instância do Azure Resource Manager. 
+    O cmdlet `Add-AzureRmEnvironment` adiciona pontos finais e metadados para permitir aos cmdlets do Azure Resource Manager ligarem a uma nova instância do Azure Resource Manager. 
 
 
     > [!IMPORTANT]
@@ -319,7 +319,7 @@ Defina o ambiente de Gestor de Recursos Azure e verifique se o seu dispositivo p
     AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
     ```
 
-2. Desaprote o ambiente como Azure Stack Edge Pro e a porta a ser utilizada para chamadas Azure Resource Manager como 443. Define o ambiente de duas formas:
+2. Defina o ambiente como Azure Stack Edge Pro e a porta a utilizar nas chamadas do Azure Resource Manager como 443. Define o ambiente de duas formas:
 
     - Defina o ambiente. Escreva o seguinte comando:
 
@@ -327,13 +327,13 @@ Defina o ambiente de Gestor de Recursos Azure e verifique se o seu dispositivo p
     Set-AzureRMEnvironment -Name <Environment Name>
     ```
     
-    Para mais informações, aceda ao [Set-AzureRMEnvironment](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
+    Para mais informações, aceda ao [Set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
 
     - Defina o ambiente em linha para cada cmdlet que executa. Isto garante que todas as chamadas da API estão a passar pelo ambiente correto. Por padrão, as chamadas passariam pelo público do Azure, mas quer que estas passem pelo ambiente que definiu para o dispositivo Azure Stack Edge Pro.
 
     - Consulte mais informações sobre [como mudar os ambientes AzureRM](#switch-environments).
 
-2. Ligue para as APIs do dispositivo local para autenticar as ligações ao Gestor de Recursos Azure. 
+2. Chame as APIs do dispositivo local para autenticar as ligações ao Azure Resource Manager. 
 
     1. Estas credenciais são para uma conta de máquina local e são exclusivamente utilizadas para o acesso à API.
 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27a65d8a499f6eba130dc9537de3cb2b3dc3abe8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "61447190"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446768"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Escolhas arquitetónicas da Monitorização Remota
 
@@ -23,7 +23,7 @@ O acelerador de solução de monitorização remota Azure IoT é um acelerador d
 - Gestão de dispositivos
 - Processamento de fluxos
 
-A solução de Monitorização Remota segue a arquitetura de [referência Azure IoT](https://aka.ms/iotrefarchitecture)recomendada.
+A solução de Monitorização Remota segue a arquitetura de [referência Azure IoT](/azure/architecture/reference-architectures/iot)recomendada.
 
 Este artigo descreve as principais escolhas arquitetónicas e técnicas feitas em cada um dos subsistemas de monitorização remota. No entanto, as escolhas técnicas que a Microsoft fez na solução de Monitorização Remota não são a única forma de implementar uma solução IoT de monitorização remota. Deve considerar a implementação técnica como uma linha de base para a construção de uma aplicação bem sucedida e deve modificá-la para:
 
@@ -86,4 +86,4 @@ Alternativas ao Docker incluem hospedar microserviços em serviços PaaS, como o
 
 * Implemente aqui a sua solução de monitorização [remota](https://www.azureiotsolutions.com/).
 * Explore o código GitHub em [C#](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) e [Java.](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/)  
-* Saiba mais sobre a Arquitetura de Referência IoT [aqui.](https://aka.ms/iotrefarchitecture)
+* Saiba mais sobre a Arquitetura de Referência IoT [aqui.](/azure/architecture/reference-architectures/iot)

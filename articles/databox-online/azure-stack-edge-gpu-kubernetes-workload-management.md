@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: d9e0da9e24a0bd32047d029879c4f0e110dc0c16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef840b3d9db4e82eeecea37079a08ccb0858a77b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320800"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448527"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Gestão da carga de trabalho da Kubernetes no seu dispositivo Azure Stack Edge Pro
 
-No seu dispositivo Azure Stack Edge Pro, é criado um cluster Kubernetes quando configura o papel de computação. Uma vez criado o cluster Kubernetes, as aplicações contentorizadas podem ser implantadas no cluster Kubernetes em Pods. Existem formas distintas de implementar cargas de trabalho no seu cluster Kubernetes. 
+No seu dispositivo Azure Stack Edge Pro, é criado um cluster Kubernetes quando configura o papel de computação. Uma vez criado o cluster Kubernetes, as aplicações contentorizadas podem ser implantadas no cluster Kubernetes em Pods. A implementação de cargas de trabalho no cluster do Kubernetes pode ser feita de diferentes formas. 
 
 Este artigo descreve os vários métodos que podem ser usados para implementar cargas de trabalho no seu dispositivo Azure Stack Edge Pro.
 
@@ -49,11 +49,11 @@ Há três formas primárias de implantar as suas cargas de trabalho. Cada uma de
 
 - **Implantação local**: Esta implementação é através da ferramenta de acesso à linha de comando, tal como `kubectl` permite-lhe implantar Kubernetes `yamls` . Aceda ao cluster Kubernetes no seu Azure Stack Edge Pro através de um `kubeconfig` ficheiro. Para mais informações, aceda a [um cluster Kubernetes via kubectl.](azure-stack-edge-gpu-create-kubernetes-cluster.md)
 
-- **Implementação IoT Edge**: Isto é através do IoT Edge, que se conecta ao Azure IoT Hub. Liga-se ao cluster Kubernetes no seu dispositivo Azure Stack Edge Pro através do `iotedge` espaço de nomes. Os agentes IoT Edge implantados neste espaço de nome são responsáveis pela conectividade com o Azure. Aplica a `IoT Edge deployment.json` configuração utilizando Azure DevOps CI/CD. A gestão namespace e IoT Edge é feita através do operador de nuvem.
+- **Implementação IoT Edge**: Isto é através do IoT Edge, que se conecta ao Azure IoT Hub. Liga-se ao cluster Kubernetes no seu dispositivo Azure Stack Edge Pro através do `iotedge` espaço de nomes. Os agentes do IoT Edge implementados neste espaço de nomes são responsáveis pela conectividade ao Azure. Aplica a `IoT Edge deployment.json` configuração utilizando Azure DevOps CI/CD. A gestão namespace e IoT Edge é feita através do operador de nuvem.
 
 - **Azure Arc permitiu a implantação de Kubernetes**: Azure Arc habilitado a Kubernetes é uma ferramenta de gestão híbrida que lhe permitirá implementar aplicações nos seus clusters Kubernetes. Liga-se ao cluster Kubernetes no seu dispositivo Azure Stack Edge Pro através do `azure-arc namespace` . Os agentes implantados neste espaço de nome são responsáveis pela conectividade com o Azure. Aplica-se a configuração de implementação utilizando a gestão de configuração baseada em GitOps. 
     
-    Azure Arc ativado Kubernetes também lhe permitirá usar o Azure Monitor para os recipientes para visualizar e monitorizar o seu cluster. Para mais informações, vá ao [Que é que o Azure Arc está habilitado a Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)
+    Azure Arc ativado Kubernetes também lhe permitirá usar o Azure Monitor para os recipientes para visualizar e monitorizar o seu cluster. Para mais informações, vá ao [Que é que o Azure Arc está habilitado a Kubernetes?](../azure-arc/kubernetes/overview.md)
 
 ## <a name="choose-the-deployment-type"></a>Escolha o tipo de implementação
 

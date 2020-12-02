@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 7fa6beacf4456145e312494a72dad321dfef3754
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ca8a36584c09d850ed1daab8cba301b244f76526
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843932"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447022"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurar a autenticação dos recursos e dos fluxos de trabalho do Azure Machine Learning
 
@@ -67,7 +67,7 @@ A forma mais fácil de criar um SP e conceder acesso ao seu espaço de trabalho 
 
     Se a CLI conseguir abrir o seu browser predefinido, executa essa ação e carrega uma página de início de sessão. Caso contrário, é necessário abrir um browser e seguir as instruções na linha de comando. As instruções envolvem navegar [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e introduzir um código de autorização.
 
-    Se tiver várias subscrições do Azure, pode utilizar o `az account set -s <subscription name or ID>` comando para definir a subscrição. Para obter mais informações, consulte [utilizar várias subscrições do Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    Se tiver várias subscrições do Azure, pode utilizar o `az account set -s <subscription name or ID>` comando para definir a subscrição. Para obter mais informações, consulte [utilizar várias subscrições do Azure](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
 
     Para outros métodos de autenticação, consulte [iniciar sing com Azure CLI](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
 
@@ -184,7 +184,7 @@ A maioria dos exemplos na documentação e amostras utilizam a autenticação in
 > interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
 > ```
 
-Ao utilizar o Azure CLI, o `az login` comando é utilizado para autenticar a sessão CLI. Para mais informações, consulte [Começar com o Azure CLI.](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)
+Ao utilizar o Azure CLI, o `az login` comando é utilizado para autenticar a sessão CLI. Para mais informações, consulte [Começar com o Azure CLI.](/cli/azure/get-started-with-azure-cli)
 
 > [!TIP]
 > Se estiver a utilizar o SDK a partir de um ambiente onde já autenticou interativamente utilizando o Azure CLI, pode utilizar a `AzureCliAuthentication` classe para autenticar no espaço de trabalho utilizando as credenciais em cache pelo CLI:
