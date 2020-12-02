@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 971f0cd74d7ccc6e2b0d8049a4441ba3d465b70a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: eb71de223e2d840e0caa0444b837e16e1f091414
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787674"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484792"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage analytics logging (Registo de análise do Armazenamento do Azure)
 
@@ -204,7 +204,7 @@ O exemplo a seguir mostra como pode descarregar os dados de registo do serviço 
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
 ```
 
-Para saber mais sobre como descarregar ficheiros específicos, consulte [Baixar ficheiros específicos](./storage-use-azcopy-blobs.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#download-specific-files).
+Para saber mais sobre como descarregar ficheiros específicos, consulte [Baixar ficheiros específicos](./storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
 
 Quando tiver descarregado os seus dados de registo, pode visualizar as entradas de registo nos ficheiros. Estes ficheiros de registo utilizam um formato de texto delimitado que muitas ferramentas de leitura de registos são capazes de analisar (para mais informações, consulte o guia [Monitor, Diagnóstico e Resolução de Problemas do Microsoft Azure Storage).](storage-monitoring-diagnosing-troubleshooting.md) Diferentes ferramentas têm diferentes instalações para formatação, filtragem, triagem, anúncio de pesquisa do conteúdo dos seus ficheiros de registo. Para obter mais informações sobre o formato e conteúdo do ficheiro de registo de registo de registo de armazenamento, consulte o formato de registo de [armazenamento Analytics](/rest/api/storageservices/storage-analytics-log-format) e o armazenamento de [analítica operações registadas e mensagens de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 

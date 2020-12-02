@@ -3,12 +3,12 @@ title: Descubra aplicativos, funções e funcionalidades em servidores no local 
 description: Saiba como descobrir apps, funções e funcionalidades em servidores no local com avaliação do servidor Azure Migrate.
 ms.topic: article
 ms.date: 06/10/2020
-ms.openlocfilehash: 6bdc26ac3a27026183e889bf258e2e1a5dadebfb
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 960877ac4eab4d8f23b5616dc04628142964b46a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315199"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483458"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Descubra aplicativos, papéis e funcionalidades de máquinas
 
@@ -23,14 +23,14 @@ Descobrir o inventário de apps, funções e funcionalidades em execução em m�
 ## <a name="before-you-start"></a>Antes de começar
 
 - Certifique-se de que:
-    - [Criei](how-to-add-tool-first-time.md) um projeto Azure Migrate.
+    - [Criei](./create-manage-projects.md) um projeto Azure Migrate.
     - [Adicionei](how-to-assess.md) a ferramenta Azure Migrate:Server Assessment a um projeto.
 - Reveja [o suporte e requisitos de descoberta de aplicações.](migrate-support-matrix-vmware.md#vmware-requirements)
 - Certifique-se de que os VMs onde está a executar a descoberta de aplicações têm a versão PowerShell 2.0 ou posteriormente instalada, e as Ferramentas VMware (mais tarde de 10.2.0) estão instaladas.
 - Verifique os [requisitos](migrate-appliance.md) para a colocação do aparelho Azure Migrate.
 
 
-## <a name="deploy-the-azure-migrate-appliance"></a>Implementar o aparelho Azure Migrate
+## <a name="deploy-the-azure-migrate-appliance"></a>Implementar a aplicação do Azure Migrate
 
 1. [Reveja](migrate-appliance.md#appliance---vmware) os requisitos para a colocação do aparelho Azure Migrate.
 2. Reveja os URLs Azure que o aparelho terá de aceder nas nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
@@ -46,7 +46,7 @@ Depois de o aparelho ser implantado e tiver fornecido credenciais, o aparelho in
 
 ## <a name="verify-permissions"></a>Verificar permissões
 
-[Criou uma conta de leitura do vCenter Server apenas](./tutorial-discover-vmware.md#prepare-vmware) para a descoberta e avaliação. A conta apenas de leitura necessita de privilégios habilitados para **operações de hóspedes de máquinas virtuais,**  >  **Guest Operations**de forma a interagir com o VM para a descoberta de apps.
+[Criou uma conta de leitura do vCenter Server apenas](./tutorial-discover-vmware.md#prepare-vmware) para a descoberta e avaliação. A conta apenas de leitura necessita de privilégios habilitados para **operações de hóspedes de máquinas virtuais,**  >  **Guest Operations** de forma a interagir com o VM para a descoberta de apps.
 
 ### <a name="add-the-user-account-to-the-appliance"></a>Adicione a conta de utilizador ao aparelho
 
@@ -66,7 +66,7 @@ Adicione a conta de utilizador da seguinte forma:
 
 Após o fim da descoberta, se forneceu credenciais para a descoberta de apps, pode rever e exportar o inventário de aplicações no portal Azure.
 
-1. Em **Azure Migrate - Servidores**  >  **Azure Migrate: Avaliação**do servidor , clique na contagem visualizada para abrir a página dos **servidores Descobertos.**
+1. Em **Azure Migrate - Servidores**  >  **Azure Migrate: Avaliação** do servidor , clique na contagem visualizada para abrir a página dos **servidores Descobertos.**
 
     > [!NOTE]
     > Nesta fase, também pode configurar opcionalmente a análise de dependência para máquinas descobertas, para que possa visualizar dependências através de máquinas que pretende avaliar. [Saiba mais](concepts-dependency-visualization.md) sobre a análise da dependência.

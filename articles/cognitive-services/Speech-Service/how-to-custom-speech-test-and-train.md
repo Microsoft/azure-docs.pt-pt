@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: cd9b85f22866c529b66fa6df07bd524516726086
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a5457dc94082f089d3adf02c9614d05d2c5db244
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165337"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484010"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Voz Personalizada
 
@@ -87,7 +87,7 @@ Utilize esta tabela para garantir que os seus ficheiros áudio são formatados c
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
 > [!TIP]
-> Ao carregar dados de treino e teste, o tamanho do ficheiro .zip não pode exceder 2 GB. Se necessitar de mais dados para o treino, divida-os em vários ficheiros .zip e carre deixe-os enviar separadamente. Mais tarde, pode optar por treinar a partir de *vários* conjuntos de dados. No entanto, só é possível testar a partir de um *único* conjunto de dados.
+> Ao carregar dados de treino e teste, o tamanho do ficheiro .zip não pode exceder 2 GB. Se necessitar de mais dados para a formação, divida-os em vários ficheiros .zip e faça o upload separadamente. Mais tarde, pode optar por treinar a partir de *vários* conjuntos de dados. No entanto, só é possível testar a partir de um *único* conjunto de dados.
 
 Utilize <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">o <span class="docon docon-navigate-external x-hidden-focus"></span> SoX</a> para verificar as propriedades áudio ou converter o áudio existente nos formatos apropriados. Abaixo estão alguns exemplos de como cada uma destas atividades pode ser feita através da linha de comando SoX:
 
@@ -131,7 +131,7 @@ Para resolver questões como a eliminação ou substituição de palavras, é ne
 
 As transcrições são normalizadas para texto, de modo a que o sistema as possa processar. No entanto, existem algumas normalizações importantes que devem ser feitas antes de enviar os dados para o Estúdio da Fala. Para que a língua apropriada utilize quando prepara as suas transcrições, consulte [Como criar uma transcrição com rótulo humano](how-to-custom-speech-human-labeled-transcriptions.md)
 
-Depois de ter recolhido os seus ficheiros áudio e transcrições correspondentes, embale-os como um único ficheiro .zip antes de enviar para o <a href="https://speech.microsoft.com/customspeech" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Discurso Personalizado </a>. Abaixo está um conjunto de dados de exemplo com três ficheiros áudio e um ficheiro de transcrição com rótulo humano:
+Depois de ter recolhido os seus ficheiros áudio e transcrições correspondentes, embale-os como um único ficheiro .zip antes de enviar para o <a href="https://speech.microsoft.com/customspeech" target="_blank">portal Desemaguiso <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Abaixo está um conjunto de dados de exemplo com três ficheiros áudio e um ficheiro de transcrição com rótulo humano:
 
 > [!div class="mx-imgBorder"]
 > ![Selecione áudio do Portal do Discurso](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
@@ -204,4 +204,4 @@ Utilize a seguinte tabela para garantir que o seu ficheiro de dados relacionado 
 * [Fiscalizar os seus dados](how-to-custom-speech-inspect-data.md)
 * [Avaliar os seus dados](how-to-custom-speech-evaluate-data.md)
 * [Preparar o seu modelo](how-to-custom-speech-train-model.md)
-* [Implemente o seu modelo](how-to-custom-speech-deploy-model.md)
+* [Implemente o seu modelo](./how-to-custom-speech-train-model.md)

@@ -7,12 +7,12 @@ ms.manager: carmonm
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: raynew
-ms.openlocfilehash: 01f30305529e7f142be0ca6ddffa0f5a12a235bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89b795011460ee2803d07d14b9c2abe9c8ffca55
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260011"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483356"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Migrar VMware VMs para VMs Azure habilitados com encriptação do lado do servidor e chaves geridas pelo cliente
 
@@ -22,12 +22,12 @@ A experiência do portal de migração do servidor Azure Migrate permite [migrar
 
 Os exemplos deste artigo utilizam [o Azure PowerShell](/powershell/azure/new-azureps-module-az) para executar as tarefas necessárias para criar e implementar o modelo de Gestor de Recursos.
 
-[Saiba mais](../virtual-machines/windows/disk-encryption.md) sobre encriptação do lado do servidor (SSE) com teclas geridas pelo cliente (CMK) para discos geridos.
+[Saiba mais](../virtual-machines/disk-encryption.md) sobre encriptação do lado do servidor (SSE) com teclas geridas pelo cliente (CMK) para discos geridos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Reveja o tutorial](tutorial-migrate-vmware.md) sobre a migração de VMware VMs para Azure com replicação sem agente para entender os requisitos da ferramenta.
-- [Siga estas instruções](how-to-add-tool-first-time.md) para criar um projeto Azure Migrate e adicione a ferramenta de migração do **Azure Migrate: Server Migration** ao projeto.
+- [Siga estas instruções](./create-manage-projects.md) para criar um projeto Azure Migrate e adicione a ferramenta de migração do **Azure Migrate: Server Migration** ao projeto.
 - [Siga estas instruções](how-to-set-up-appliance-vmware.md) para configurar o aparelho Azure Migrate para VMware no seu ambiente no local e descoberta completa.
 
 ## <a name="prepare-for-replication"></a>Preparar para a replicação
@@ -192,7 +192,7 @@ uuid                                 label       name    maxSizeInBytes
 - Desajuste o valor da **licençaType** a "WindowsServer" para aplicar o Benefício Híbrido Azure para este VM. Se este VM não for elegível para benefício híbrido Azure, desajuste o valor da **licençaType** para NoLicenseType.
 - Altere o valor da propriedade **targetVmName** para o nome de máquina virtual Azure desejado para o VM migrado.
 - Opcionalmente adicione uma propriedade chamada **targetVmSize** abaixo da propriedade **targetVmName.** Desajuste o valor da propriedade **targetVmSize** para o tamanho da máquina virtual Azure desejada para o VM migrado.
-- A propriedade **disksToInclude** é uma lista de entradas de disco para replicação com cada item de lista representando um disco no local. Crie tantos itens de lista como o número de discos no VM no local. Substitua a propriedade **diskId** no item da lista para o uuid dos discos identificados no passo anterior. Desajuste o valor **isOSDisk** para "verdadeiro" para o disco DE do VM e "falso" para todos os outros discos. Deixe inalterados os **registosStorageAccountId** e as propriedades do **logStorageAccountSasSecretName inalteradas.** Desa estarir o valor do **discoType** ao tipo disco gerido Azure *(Standard_LRS, Premium_LRS, StandardSSD_LRS*) para utilizar para o disco. Para os discos que precisam de ser encriptados com CMK, adicione uma propriedade chamada **diskEncryptionSetId** e defina o valor para o ID de recursos do conjunto de encriptação do disco**criado( $des. Id**) no passo de configuração de *encriptação de disco*
+- A propriedade **disksToInclude** é uma lista de entradas de disco para replicação com cada item de lista representando um disco no local. Crie tantos itens de lista como o número de discos no VM no local. Substitua a propriedade **diskId** no item da lista para o uuid dos discos identificados no passo anterior. Desajuste o valor **isOSDisk** para "verdadeiro" para o disco DE do VM e "falso" para todos os outros discos. Deixe inalterados os **registosStorageAccountId** e as propriedades do **logStorageAccountSasSecretName inalteradas.** Desa estarir o valor do **discoType** ao tipo disco gerido Azure *(Standard_LRS, Premium_LRS, StandardSSD_LRS*) para utilizar para o disco. Para os discos que precisam de ser encriptados com CMK, adicione uma propriedade chamada **diskEncryptionSetId** e defina o valor para o ID de recursos do conjunto de encriptação do disco **criado( $des. Id**) no passo de configuração de *encriptação de disco*
 - Guarde o ficheiro de modelo editado. Para o exemplo acima, o ficheiro de modelo editado parece o seguinte:
 
 ```

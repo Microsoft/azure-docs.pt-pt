@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 89e5fa180b011cbedebc25a5e5d555a2190805f8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: dff7ff0afd6c236645731dc7edd936b0b808716b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015363"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483925"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de voz em texto
 
@@ -58,7 +58,7 @@ Estes parâmetros podem ser incluídos na sequência de consulta do pedido REST.
 | `language` | Identifica a língua falada que está a ser reconhecida. Ver [línguas suportadas.](language-support.md#speech-to-text) | Necessário |
 | `format` | Especifica o formato de resultado. Os valores aceites são `simple` `detailed` e. Os resultados simples `RecognitionStatus` `DisplayText` incluem, `Offset` `Duration` e. As respostas detalhadas incluem quatro representações diferentes do texto do visor. A predefinição é `simple`. | Opcional |
 | `profanity` | Especifica como lidar com a profanação nos resultados do reconhecimento. Os `masked` valores aceites são , que substitui a profanação por asteriscos, que `removed` removem toda a profanação do resultado, ou `raw` , que inclui a profanação no resultado. A predefinição é `masked`. | Opcional |
-| `cid` | Ao utilizar o [portal Discurso Personalizado](how-to-custom-speech.md) para criar modelos personalizados, pode utilizar modelos personalizados através do seu **ID Endpoint** encontrado na página **De implementação.** Utilize o **ID endpoint** como argumento para o parâmetro de `cid` cadeia de consulta. | Opcional |
+| `cid` | Ao utilizar o [portal Discurso Personalizado](./custom-speech-overview.md) para criar modelos personalizados, pode utilizar modelos personalizados através do seu **ID Endpoint** encontrado na página **De implementação.** Utilize o **ID endpoint** como argumento para o parâmetro de `cid` cadeia de consulta. | Opcional |
 
 ## <a name="request-headers"></a>Cabeçalhos do pedido
 
@@ -304,7 +304,7 @@ Uma resposta típica para o reconhecimento com avaliação da pronúncia:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma conta do Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
 - [Personalizar modelos acústicos](./how-to-custom-speech-train-model.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 6b7c280d9ff5f4d8a3c35eb11e080bf2f9f287c0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5e9ddecd694a9051e746d07cbc1bee4d98bf5829
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959174"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484435"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Conceça e implemente uma base de dados oracle em Azure
 
@@ -138,7 +138,7 @@ Com base nos requisitos de largura de banda da sua rede, existem vários tipos d
 - A latência da rede é maior em comparação com uma implantação no local. A redução das viagens de ida e volta na rede pode melhorar consideravelmente o desempenho.
 - Para reduzir as viagens de ida e volta, consolidar aplicações que tenham transações elevadas ou aplicações "chatty" na mesma máquina virtual.
 - Utilize máquinas virtuais com [rede acelerada](../../../virtual-network/create-vm-accelerated-networking-cli.md) para um melhor desempenho da rede.
-- Para certas distribuições do Linux, considere permitir o [suporte TRIM/UNMAP](../../linux/configure-lvm.md#trimunmap-support).
+- Para certas distribuições do Linux, considere permitir o [suporte TRIM/UNMAP](/previous-versions/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
 - Instale [o Gestor da Empresa Oracle](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) numa máquina virtual separada.
 - As páginas enormes não são ativadas no linux por defeito. Considere ativar páginas enormes e definir `use_large_pages = ONLY` no Oráculo DB. Isto pode ajudar a aumentar o desempenho. Mais informações podem ser [encontradas aqui.](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390)
 

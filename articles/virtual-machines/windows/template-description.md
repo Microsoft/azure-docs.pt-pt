@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 0a2a386264be0ec13e29b7a7546926819c5d931a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 228814db76ea14fa8b74c0c5d634e5afd6d54ac6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012736"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483050"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais num modelo do Azure Resource Manager
 
@@ -282,7 +282,7 @@ Vários elementos de perfil são utilizados ao definir um recurso de máquina vi
 
 ## <a name="disks-and-images"></a>Discos e imagens
    
-Em Azure, os ficheiros VHD podem representar [discos ou imagens](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json). Quando o sistema operativo num ficheiro VHD é especializado para ser um VM específico, é referido como um disco. Quando o sistema operativo num ficheiro VHD é generalizado para ser usado para criar muitos VMs, é referido como uma imagem.   
+Em Azure, os ficheiros VHD podem representar [discos ou imagens](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quando o sistema operativo num ficheiro VHD é especializado para ser um VM específico, é referido como um disco. Quando o sistema operativo num ficheiro VHD é generalizado para ser usado para criar muitos VMs, é referido como uma imagem.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Criar novas máquinas virtuais e novos discos a partir de uma imagem de plataforma
 

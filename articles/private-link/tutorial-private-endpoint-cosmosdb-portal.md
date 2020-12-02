@@ -7,18 +7,18 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: a544d0c5fafbdaf9d272fed552fb38eda613292f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: c9866ac2c14e4deb29326ffdd1a93a7d8eae1ea3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522146"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484809"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>Tutorial: Ligue-se a uma conta Azure Cosmos usando um Azure Private Endpoint
 
 O ponto final privado Azure é o bloco de construção fundamental para private link em Azure. Permite que os recursos do Azure, como máquinas virtuais (VMs), comuniquem com os recursos de Private Link em privado.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie uma rede virtual e um hospedeiro de bastião.
@@ -53,7 +53,7 @@ O hospedeiro de bastião será utilizado para ligar de forma segura à máquina 
     | Grupo de Recursos   | Selecione **myResourceGroup** |
     | **Detalhes da instância** |                                                                 |
     | Name             | Insira **myVNet**                                    |
-    | Region           | Selecione **E.U.A. Leste**. |
+    | Região           | Selecione **E.U.A. Leste**. |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
 
@@ -104,7 +104,7 @@ Nesta secção, irá criar uma máquina virtual que será usada para testar o po
     | Grupo de Recursos | Selecione **myResourceGroup** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM** |
-    | Region | Selecione **E.U.A. Leste**. |
+    | Região | Selecione **E.U.A. Leste**. |
     | Opções de Disponibilidade | Selecione **Não é necessário um despedimento de infraestrutura** |
     | Imagem | Selecione **Windows Server 2019 Datacenter - Gen1** |
     | Instância do Azure Spot | Selecione **Não** |
@@ -161,7 +161,7 @@ Nesta secção, você vai criar uma conta Cosmos DB e configurar o ponto final p
     | ------- | ----- |
     | **Conectividade de rede** | |
     | Método de conectividade | Selecione **Ponto final privado**. |
-    | **Configure Firewall** | |
+    | **Configurar a Firewall** | |
     | Permitir o acesso a partir do portal Azure | Deixe o padrão **Permitir**. |
     | Permitir o acesso a partir do meu IP | Deixe o **Deny** padrão. |
 
@@ -248,7 +248,7 @@ Nesta secção, você usará a máquina virtual que criou no passo anterior para
 
     Um endereço IP privado de **10.1.0.5** é devolvido para o nome da conta Cosmos DB.  Este endereço encontra-se na sub-rede da rede virtual que criou anteriormente.
 
-9. Instale o [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%252fazure%252fstorage%252fblobs%252ftoc.json) na máquina virtual.
+9. Instale o [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) na máquina virtual.
 
 10. **Selecione Terminar** depois de instalado o **Microsoft Azure Storage Explorer.**  Deixe a caixa verificada para abrir o pedido.
 

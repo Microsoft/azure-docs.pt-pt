@@ -4,12 +4,12 @@ description: Neste tutorial, utilizará um servidor de modelo de IA fornecido pe
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: d03737f43ee719b72860e7ffeff076e3f156cade
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a15984917b854a9f3e2dbc80dd0775989c80bf81
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776345"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483683"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Tutorial: Analise o vídeo ao vivo utilizando o OpenVINO™ Model Server – Extensão de IA da Intel 
 
@@ -49,7 +49,7 @@ Este diagrama mostra como os sinais fluem neste arranque rápido. Um [módulo de
 
 O nó de extensão HTTP desempenha o papel de um representante. Converte os quadros de vídeo para o tipo de imagem especificado. Em seguida, transmite a imagem sobre REST para outro módulo de borda que executa os modelos de IA atrás de um ponto final HTTP. Neste exemplo, este módulo de borda é o OpenVINO™ Model Server – Extensão de IA da Intel. O nó do processador de extensão HTTP recolhe os resultados de deteção e publica eventos no nó [de pia IoT Hub.](media-graph-concept.md#iot-hub-message-sink) O nó envia então esses eventos para [ioT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
 
-Neste tutorial, irá:
+Neste tutorial, vai:
 
 1. Crie e implemente o gráfico de mídia, modificando-o.
 1. Interprete os resultados.
@@ -84,11 +84,11 @@ Como parte dos pré-requisitos, descarregou o código de amostra para uma pasta.
 
 1. Aceda à pasta *src/cloud-to-device-app.* Aqui vê a sua *appsettings.jsno* ficheiro e alguns outros ficheiros:
 
-    * ***c2d-console-app.csproj*** - O ficheiro do projeto para Visual Studio Code.
-    * ***operations.jsem*** - Uma lista das operações que quer que o programa seja executado.
-    * ***Program.cs*** - O código do programa de amostra. Este código:
+    * ***c2d-console-app.csproj** _ - O ficheiro do projeto para Visual Studio Code.
+    _ ***operations.jsem** _ - Uma lista das operações que pretende que o programa seja executado.
+    _ ***Program.cs** _ - O código do programa de amostra. Este código:
 
-        * Carrega as definições da aplicação.
+        _ Carrega as definições da aplicação.
         * Invoca métodos diretos que o live video analytics no módulo IoT Edge expõe. Pode utilizar o módulo para analisar streams de vídeo ao vivo invocando os seus [métodos diretos.](direct-methods.md)
         * Pausas para que possa examinar a saída do programa na janela **TERMINAL** e examinar os eventos que foram gerados pelo módulo na janela **OUTPUT.**
         * Invoca métodos diretos para limpar recursos.
@@ -145,11 +145,38 @@ Se abrir a [topologia](https://raw.githubusercontent.com/Azure/live-video-analyt
 1. Clique no direito e selecione **Definições de extensão**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Descrição geral":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Definições de extensão":::
 1. Procure e ative "Mostrar Mensagem Verbose".
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Descrição geral"
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Mostrar mensagem verbose":::
+1. Para iniciar uma sessão de depuragem, selecione a tecla F5. Vê mensagens impressas na janela **TERMINAL.**
+1. A *operations.jsno* código começa com chamadas para os métodos diretos e `GraphTopologyList` `GraphInstanceList` . Se limpou os recursos depois de ter concluído os quickstarts anteriores, então este processo irá devolver listas vazias e, em seguida, fazer uma pausa. Para continuar, selecione a tecla 'Entrar'.
+
+    A janela **TERMINAL** mostra o próximo conjunto de chamadas de métodos diretos:
+
+     * Uma chamada para `GraphTopologySet` que usa o anterior `topologyUrl`
+     * Uma chamada para `GraphInstanceSet` o seguinte corpo:
+
+         ```
+         {
+           "@apiVersion": "1.0",
+           "name": "Sample-Graph-1",
+           "properties": {
+             "topologyName": "InferencingWithOpenVINO",
+             "description": "Sample graph description",
+             "parameters": [
+               {
+                 "name": "rtspUrl",
+                 "value": "rtsp://rtspsim:554/media/lots_015.mkv"
+               },
+               {
+                 "name": "rtspUserName",
+                 "value": "testuser"
+               },
+               {
+                 "name": "rtspPassword",
+                 "value": "testpassword"
                }
              ]
            }
@@ -365,4 +392,4 @@ Se pretender experimentar outros quickstarts ou tutoriais, mantenha os recursos 
 Rever desafios adicionais para utilizadores avançados:
 
 * Utilize uma [câmara IP](https://en.wikipedia.org/wiki/IP_camera) que tenha suporte para RTSP em vez de utilizar o simulador RTSP. Pode pesquisar por câmaras IP que suportem RTSP na página de produtos [conformantes ONVIF.](https://www.onvif.org/conformant-products/) Procure dispositivos em conformidade com os perfis G, S ou T.
-* Utilize um dispositivo Linux AMD64 ou x64 em vez de um VM Azure Linux. Este dispositivo deve estar na mesma rede que a câmara IP. Pode seguir as instruções no [tempo de funcionamento do Azure IoT Edge no Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Em seguida, registe o dispositivo com o Azure IoT Hub seguindo as instruções no [Implementar o seu primeiro módulo IoT Edge num dispositivo Linux virtual](../../iot-edge/quickstart-linux.md).
+* Utilize um dispositivo Linux AMD64 ou x64 em vez de um VM Azure Linux. Este dispositivo deve estar na mesma rede que a câmara IP. Pode seguir as instruções no [tempo de funcionamento do Azure IoT Edge no Linux](../../iot-edge/how-to-install-iot-edge.md). Em seguida, registe o dispositivo com o Azure IoT Hub seguindo as instruções no [Implementar o seu primeiro módulo IoT Edge num dispositivo Linux virtual](../../iot-edge/quickstart-linux.md).

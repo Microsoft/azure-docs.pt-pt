@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: 5c4f02eff06c08f1829f9f1c74d1dcb09ee57905
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a562c28235608d4a2425455b5543a76c99374f80
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024794"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483819"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Serviço de fala: as novidades nos docs
 
@@ -32,7 +32,7 @@ Se quiser aprender sobre as atualizações ao serviço de fala, SDK de fala, dis
 
 ### <a name="new-articles"></a>Artigos novos
 
-* [Melhorar um modelo para discurso personalizado](how-to-custom-speech-improve-accuracy.md)
+* [Melhorar um modelo para discurso personalizado](./how-to-custom-speech-evaluate-data.md)
 
 ### <a name="updated-articles"></a>Artigos atualizados
 
@@ -44,7 +44,7 @@ Se quiser aprender sobre as atualizações ao serviço de fala, SDK de fala, dis
 * [Quickstart: Síntese assíncronea para áudio de forma longa em Python (Preview)](./long-audio-api.md) - Atualizado com suporte para vozes neurais públicas e parâmetros associados.
 * [Quickstart: Reconheça a fala a partir de um ficheiro áudio](./get-started-speech-to-text.md) - Adicione instruções javaScript à documentação.
 * [Quickstart: Reconheça a fala a partir de um microfone](./get-started-speech-to-text.md) - Instruções de Go e JavaScript adicionadas à documentação.
-* [Quickstart: Reconheça a fala armazenada no armazenamento de bolhas](quickstarts/from-blob.md) - Adicione instruções javaScript à documentação.
+* [Quickstart: Reconheça a fala armazenada no armazenamento de bolhas](./batch-transcription.md) - Adicione instruções javaScript à documentação.
 * [Quickstart: Reconhecer a fala, as intenções e as entidades com Compreensão linguística (LUIS)](quickstarts/intent-recognition.md)
 * [Quickstart: Ambiente de desenvolvimento de configuração](quickstarts/setup-platform.md) - Adicionou instruções javaScript à documentação.
 * [Quickstart: Sintetizar a fala num ficheiro áudio](./get-started-text-to-speech.md) - Adicione instruções javaScript à documentação.

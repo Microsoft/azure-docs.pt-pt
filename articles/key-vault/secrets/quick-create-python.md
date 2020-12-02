@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 7fe5b8da0b6dfa69d04a5ad152aa34a8686d854f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 68c58769302bbefd29b483a8fda225201d242dd9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786110"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483649"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Quickstart: Azure Key Vault biblioteca secreta de clientes para Python
 
@@ -30,7 +30,7 @@ Começa com a biblioteca secreta do Azure Key Vault para python. Siga os passos 
 Este quickstart pressupõe que está a executar [o Azure CLI](/cli/azure/install-azure-cli) numa janela do terminal Linux.
 
 
-## <a name="set-up-your-local-environment"></a>Configurar o seu ambiente local
+## <a name="set-up-your-local-environment"></a>Configurar o ambiente local
 Este quickstart está a utilizar a biblioteca Azure Identity com o Azure CLI para autenticar o utilizador nos Serviços Azure. Os desenvolvedores também podem usar o Visual Studio ou Visual Studio Code para autenticar as suas chamadas, para obter mais informações, ver [Autenticar o cliente com a biblioteca de clientes da Azure Identity](/java/api/overview/azure/identity-readme).
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -54,7 +54,7 @@ Este quickstart está a utilizar a biblioteca Azure Identity com o Azure CLI par
 1. Instalar a biblioteca de identidade do Diretório Ativo Azure:
 
     ```terminal
-    pip install azure.identity
+    pip install azure-identity
     ```
 
 
@@ -136,7 +136,7 @@ print(" done.")
 
 ## <a name="run-the-code"></a>Executar o código
 
-Certifique-se de que o código na secção anterior está num ficheiro denominado *kv_secrets.py* . Em seguida, executar o código com o seguinte comando:
+Certifique-se de que o código na secção anterior está num ficheiro denominado *kv_secrets.py*. Em seguida, executar o código com o seguinte comando:
 
 ```terminal
 python kv_secrets.py

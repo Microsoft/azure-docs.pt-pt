@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9ff05f2cf9f29ef86a6db9955e7d28c9035e1bf4
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 26905b746efb0bfcc877e0fa8fad797672bb6447
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376966"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483221"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Máquinas virtuais do Windows no Azure
 
@@ -69,7 +69,7 @@ O Azure cobra um [preço por hora](https://azure.microsoft.com/pricing/details/v
 A subscrição tem [limites de quota](../../azure-resource-manager/management/azure-subscription-service-limits.md) predefinidos num local que pode afetar a implementação de muitas VMs para o seu projeto. O limite atual numa base por subscrição é de 20 VMs por região. Os limites podem ser aumentados ao [preencher um pedido de suporte a pedir um aumento](../../azure-portal/supportability/resource-manager-core-quotas-request.md)
 
 ### <a name="operating-system-disks-and-images"></a>Discos do sistema operativo e imagens
-As máquinas virtuais utilizam [discos rígidos virtuais (VHDs)](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) para armazenar o seu sistema operativo (OS) e dados. Os VHDs também são utilizados para as imagens que pode escolher para instalar um SO. 
+As máquinas virtuais utilizam [discos rígidos virtuais (VHDs)](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para armazenar o seu sistema operativo (OS) e dados. Os VHDs também são utilizados para as imagens que pode escolher para instalar um SO. 
 
 O Azure oferece muitas [imagens do marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images%3Bwindows&page=1) para utilizar com diversas versões e tipos de sistemas operativos do Windows Server. A imagens do marketplace são identificadas pelo publicador da imagem, oferta, sku e versão (normalmente, a versão especificada é a mais recente). Apenas os sistemas operativos de 64 bits são suportados. Para obter mais informações sobre os sistemas operativos convidados suportados, as funções e funcionalidades, veja [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) (Suporte do software do servidor da Microsoft para máquinas virtuais do Microsoft Azure).
 
@@ -98,12 +98,12 @@ Os recursos nesta tabela são utilizados pela VM e têm de existir ou ser criado
 
 | Recurso | Obrigatório | Descrição |
 | --- | --- | --- |
-| [Grupo de recursos](../../azure-resource-manager/management/overview.md) |Yes |A VM tem de estar contida num grupo de recursos. |
-| [Conta de armazenamento](../../storage/common/storage-account-create.md) |Yes |A VM precisa da conta de armazenamento para armazenar os respetivos discos rígidos virtuais. |
-| [Rede virtual](../../virtual-network/virtual-networks-overview.md) |Yes |A VM tem de ser um membro de uma rede virtual. |
-| [Endereço IP público](../../virtual-network/public-ip-addresses.md) |No |A VM pode ter um endereço IP público atribuído para aceder ao mesmo remotamente. |
-| [Interface de rede](../../virtual-network/virtual-network-network-interface.md) |Yes |A VM precisa da interface de rede para comunicar na rede. |
-| [Discos de dados](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No |A VM pode incluir discos de dados para expandir as capacidades de armazenamento. |
+| [Grupo de recursos](../../azure-resource-manager/management/overview.md) |Sim |A VM tem de estar contida num grupo de recursos. |
+| [Conta de armazenamento](../../storage/common/storage-account-create.md) |Sim |A VM precisa da conta de armazenamento para armazenar os respetivos discos rígidos virtuais. |
+| [Rede virtual](../../virtual-network/virtual-networks-overview.md) |Sim |A VM tem de ser um membro de uma rede virtual. |
+| [Endereço IP público](../../virtual-network/public-ip-addresses.md) |Não |A VM pode ter um endereço IP público atribuído para aceder ao mesmo remotamente. |
+| [Interface de rede](../../virtual-network/virtual-network-network-interface.md) |Sim |A VM precisa da interface de rede para comunicar na rede. |
+| [Discos de dados](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Não |A VM pode incluir discos de dados para expandir as capacidades de armazenamento. |
 
 
 ## <a name="data-residency"></a>Residência dos dados

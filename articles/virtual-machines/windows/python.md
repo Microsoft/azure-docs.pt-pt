@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: devx-track-python
-ms.openlocfilehash: 402a61b4b5335c19d75cd1182243783453a0e7fa
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a7117d30eb1774753f21e82ad5f812a7309d8386
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974860"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483101"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Criar e gerir VMs windows em Azure usando Python
 
@@ -38,7 +38,7 @@ Leva cerca de 20 minutos para fazer estes passos.
 
 ## <a name="install-packages"></a>Instalar pacotes
 
-1. No Solution Explorer, sob *o myPythonProject,* clique à direita **em Python Environments**e, em seguida, selecione **Adicionar ambiente virtual**.
+1. No Solution Explorer, sob *o myPythonProject,* clique à direita **em Python Environments** e, em seguida, selecione **Adicionar ambiente virtual**.
 2. No ecrã Add Virtual Environment, aceite o nome padrão do *env,* certifique-se de que *Python 3.6 (64-bits)* é selecionado para o intérprete base e, em seguida, clique em **Criar**.
 3. Clique com o botão direito no ambiente *env* que criou, clique em **Instalar o Pacote Python,** *introduza* o azul na caixa de pesquisa e, em seguida, prima Enter.
 
@@ -88,7 +88,7 @@ Antes de iniciar este passo, certifique-se de que tem um [diretor de serviço de
         return credentials
     ```
 
-    Substitua **o id de aplicação,** **a chave de autenticação**e o **id do inquilino** pelos valores que recolheu anteriormente quando criou o seu diretor de serviço Azure Ative.
+    Substitua **o id de aplicação,** **a chave de autenticação** e o **id do inquilino** pelos valores que recolheu anteriormente quando criou o seu diretor de serviço Azure Ative.
 
 5. Para ligar para a função que adicionou anteriormente, adicione este código ao abrigo da declaração **se** a declaração no final do ficheiro .py:
 
@@ -492,7 +492,7 @@ Muitos aspetos da implementação devem ser considerados ao decidir sobre um tam
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Adicionar um disco de dados à VM
 
-As máquinas virtuais podem ter um ou mais [discos de dados](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) que são armazenados como VHDs.
+As máquinas virtuais podem ter um ou mais [discos de dados](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) que são armazenados como VHDs.
 
 1. Para adicionar um disco de dados à máquina virtual, adicione esta função após as variáveis no ficheiro .py: 
 

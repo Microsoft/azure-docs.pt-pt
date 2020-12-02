@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fc44b7a49785a24460ea11f07e5248b266f5dfad
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7008cfcdeb4615b42839f92a6df71357f9acf911
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793012"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484996"
 ---
 # <a name="storage-account-overview"></a>Descrição geral da conta de armazenamento
 
@@ -108,7 +108,7 @@ Os níveis de acesso disponíveis são:
 
 - O nível de acesso **quente.** Este nível é otimizado para o acesso frequente de objetos na conta de armazenamento. O acesso aos dados no nível quente é mais rentável, enquanto os custos de armazenamento são mais elevados. Novas contas de armazenamento são criadas no nível quente por defeito.
 - O nível de acesso **cool.** Este nível é otimizado para armazenar grandes quantidades de dados que são pouco acessados e armazenados durante pelo menos 30 dias. Armazenar dados no nível cool é mais rentável, mas aceder a esses dados pode ser mais caro do que aceder a dados no nível quente.
-- A camada **Arquivo** . Este nível está disponível apenas para bolhas de bloco individuais. O nível de arquivo está otimizado para dados que podem tolerar várias horas de latência de recuperação e que permanecerão no nível de arquivo por pelo menos 180 dias. O nível de arquivo é a opção mais rentável para armazenar dados. No entanto, aceder a esses dados é mais caro do que aceder a dados nos níveis quentes ou frescos.
+- A camada **Arquivo**. Este nível está disponível apenas para bolhas de bloco individuais. O nível de arquivo está otimizado para dados que podem tolerar várias horas de latência de recuperação e que permanecerão no nível de arquivo por pelo menos 180 dias. O nível de arquivo é a opção mais rentável para armazenar dados. No entanto, aceder a esses dados é mais caro do que aceder a dados nos níveis quentes ou frescos.
 
 Se houver uma alteração no padrão de utilização dos seus dados, pode alternar entre estes níveis de acesso a qualquer momento. Para obter mais informações sobre os níveis de acesso, consulte [o armazenamento Azure Blob: níveis de acesso quentes, frescos e de arquivo.](../blobs/storage-blob-storage-tiers.md)
 
@@ -138,7 +138,7 @@ Por exemplo, se a sua conta de armazenamento para fins gerais for nomeada *conta
 > [!NOTE]
 > As contas de armazenamento de blocos e blob expõem apenas o ponto final do serviço Blob.
 
-Construa o URL para aceder a um objeto numa conta de armazenamento, anexando a localização do objeto na conta de armazenamento para o ponto final. Por exemplo, um endereço de blob pode ter este formato: http:// *mystorageaccount* .blob.core.windows.net/ *mycontainer*/*myblob* .
+Construa o URL para aceder a um objeto numa conta de armazenamento, anexando a localização do objeto na conta de armazenamento para o ponto final. Por exemplo, um endereço de blob pode ter este formato: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
 Também pode configurar a sua conta de armazenamento para usar um domínio personalizado para bolhas. Para mais informações, consulte [configurar um nome de domínio personalizado para a sua conta de Armazenamento Azure.](../blobs/storage-custom-domain-name.md)  
 
@@ -167,7 +167,7 @@ Quando faz o upgrade para uma conta V2 de uso geral a partir de uma conta de arm
 
 ### <a name="azcopy"></a>AzCopy
 
-O AzCopy é um utilitário de linha de comandos do Windows concebido para copiar dados de e para o Storage do Azure com um elevado desempenho. Pode utilizar o AzCopy para copiar dados numa conta de armazenamento Blob a partir de uma conta de armazenamento de fim geral existente, ou para enviar dados de dispositivos de armazenamento no local. Para obter mais informações, veja [Transferir dados com o Utilitário de Linha de Comandos AzCopy](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
+O AzCopy é um utilitário de linha de comandos do Windows concebido para copiar dados de e para o Storage do Azure com um elevado desempenho. Pode utilizar o AzCopy para copiar dados numa conta de armazenamento Blob a partir de uma conta de armazenamento de fim geral existente, ou para enviar dados de dispositivos de armazenamento no local. Para obter mais informações, veja [Transferir dados com o Utilitário de Linha de Comandos AzCopy](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="data-movement-library"></a>Biblioteca de Movimento de Dados
 

@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: a0efc6f6f6d4ae6355fbb42fbc7e13ad7c078cf3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 19a4645e2bde4cf6b9f9a78123b334c290581ac4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792893"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484537"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Solutions for periodic data transfer (Soluções para a transferência de dados periódica)
  
@@ -23,26 +23,26 @@ Para compreender uma visão geral de todas as opções de transferência de dado
 
 ## <a name="recommended-options"></a>Opções recomendadas
 
-As opções recomendadas para a transferência periódica de dados caem em duas categorias, dependendo se a transferência é recorrente ou contínua.
+As opções recomendadas para a transferência de dados periódica enquadram-se em duas categorias, consoante a transferência seja recorrente ou contínua.
 
-- **Ferramentas scriptadas/programáticas** – Para transferência de dados que ocorra em intervalos regulares, utilize as ferramentas scriptadas e programáticas, tais como APIs de AzCopy e Azure Storage REST. Estas ferramentas são direcionadas para profissionais de TI e desenvolvedores.
+- **Ferramentas scriptadas/programáticas** – Para transferência de dados que ocorra em intervalos regulares, utilize as ferramentas scriptadas e programáticas, tais como APIs de AzCopy e Azure Storage REST. Estas ferramentas destinam-se a programadores e profissionais de TI.
 
-    - **AzCopy** - Utilize esta ferramenta de linha de comando para copiar facilmente dados de e para Azure Blobs, Ficheiros e Armazenamento de Mesa com o melhor desempenho. A AzCopy suporta a concordância e o paralelismo, e a capacidade de retomar as operações de cópia quando interrompidas.
+    - **AzCopy** - Utilize esta ferramenta de linha de comando para copiar facilmente dados de e para Azure Blobs, Ficheiros e Armazenamento de Mesa com o melhor desempenho. O AzCopy suporta simultaneidade e paralelismo, além da capacidade de retomar operações de cópia interrompidas.
     - **Azure Storage REST APIs/SDKs** – Ao construir uma aplicação, pode desenvolver a aplicação contra ASPis de ARMAZENAMENTO Azure e utilizar os SDKs Azure oferecidos em vários idiomas. As APIs REST também podem alavancar a Biblioteca de Movimentos de Dados de Armazenamento Azure projetada especialmente para a cópia de alto desempenho de dados de e para Azure.
 
-- **Ferramentas contínuas de ingestão** de dados – Para ingestão contínua e contínua de dados, pode selecionar um dos dispositivos de transferência online da Data Box ou a Azure Data Factory. Estas ferramentas são criadas por profissionais de TI e podem automatizar de forma transparente a transferência de dados.
+- **Ferramentas contínuas de ingestão** de dados – Para ingestão contínua e contínua de dados, pode selecionar um dos dispositivos de transferência online da Data Box ou a Azure Data Factory. Estas ferramentas são configuradas por profissionais de TI e podem automatizar de forma transparente a transferência de dados.
 
-    - **Azure Data Factory** – Data Factory deve ser usada para escalar uma operação de transferência, e se houver necessidade de capacidades de orquestração e monitorização de nível empresarial. Utilize a Azure Data Factory para configurar um pipeline em nuvem que transfere regularmente ficheiros entre vários serviços Azure, no local ou uma combinação dos dois. A Azure Data Factory permite-lhe orquestrar fluxos de trabalho baseados em dados que ingerem dados de lojas de dados díspares e automatizam o movimento de dados e a transformação de dados.
-    - **Família Azure Data Box para transferências on-line** - Data Box Edge e Data Box Gateway são dispositivos de rede online que podem mover dados para dentro e para fora do Azure. Data Box Edge utiliza o cálculo edge habilitado para a inteligência artificial (IA) para pré-processar dados antes do upload. Data Box Gateway é uma versão virtual do dispositivo com as mesmas capacidades de transferência de dados.
+    - **Azure Data Factory** – Data Factory deve ser usada para escalar uma operação de transferência, e se houver necessidade de capacidades de orquestração e monitorização de nível empresarial. Utilize o Azure Data Factory para configurar um pipeline na cloud que transfere regularmente ficheiros entre vários serviços do Azure, no local ou uma combinação dos dois. O Azure Data Factory permite orquestrar fluxos de trabalho condicionados por dados que ingerem dados a partir de diferentes arquivos de dados, além de automatizar o movimento e a transformação de dados.
+    - **Família Azure Data Box para transferências on-line** - Data Box Edge e Data Box Gateway são dispositivos de rede online que podem mover dados para dentro e para fora do Azure. O Data Box Edge utiliza computação edge ativada por inteligência artificial (IA) para pré-processar os dados antes do carregamento. O Data Box Gateway é uma versão virtual do dispositivo com as mesmas capacidades de transferência de dados.
 
 
 ## <a name="comparison-of-key-capabilities"></a>Comparação das capacidades-chave
 
-A tabela seguinte resume as diferenças nas capacidades-chave.
+A tabela seguinte resume as diferenças entre as principais capacidades.
 
 ### <a name="scriptedprogrammatic-network-data-transfer"></a>Transferência de dados de rede scripted/programática
 
-| Capacidade                  | AzCopy                                 | Azure Storage REST APIs       |
+| Funcionalidade                  | AzCopy                                 | APIs REST do Armazenamento do Microsoft Azure       |
 |-----------------------------|----------------------------------------|-------------------------------|
 | Fator de forma                 | Ferramenta de linha de comando da Microsoft       | Os clientes desenvolvem-se contra o Armazenamento <br> REST APIs usando bibliotecas de clientes Azure |
 | Configuração inicial de uma vez     | Mínimo                                | Esforço de desenvolvimento moderado e variável    |
@@ -65,7 +65,7 @@ A tabela seguinte resume as diferenças nas capacidades-chave.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Transferir dados com a AzCopy](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ftables%252ftoc.json).
+- [Transferir dados com a AzCopy](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
 - [Mais informações sobre transferência de dados com APIs de repouso de armazenamento](/dotnet/api/overview/azure/storage).
 - Compreender como:
     - [Transferir dados com data box gateway](../../databox-online/data-box-gateway-deploy-add-shares.md).

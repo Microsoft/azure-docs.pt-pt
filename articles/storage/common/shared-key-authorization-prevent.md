@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 49a89228afd3b46f38afafb8ff16bc63a40dd35b
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: ce0ea938cac4afa043b8770a4d6a98f08ec145ec
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635216"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484894"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir a autorização da Chave Partilhada para uma conta de Armazenamento Azure (pré-visualização)
 
@@ -77,7 +77,7 @@ Os registos de armazenamento Azure captam detalhes sobre pedidos feitos contra a
 
 Para registar pedidos na sua conta de Armazenamento Azure para avaliar como são autorizados, pode utilizar o registo de armazenamento Azure no Azure Monitor (pré-visualização). Para obter mais informações, consulte [monitor Azure Storage](../blobs/monitor-blob-storage.md).
 
-O registo de armazenamento Azure no Azure Monitor suporta a utilização de consultas de registo para analisar dados de registo. Para consultar registos, pode utilizar um espaço de trabalho Azure Log Analytics. Para saber mais sobre consultas de log, consulte [Tutorial: Começar com consultas de Log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+O registo de armazenamento Azure no Azure Monitor suporta a utilização de consultas de registo para analisar dados de registo. Para consultar registos, pode utilizar um espaço de trabalho Azure Log Analytics. Para saber mais sobre consultas de log, consulte [Tutorial: Começar com consultas de Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 #### <a name="create-a-diagnostic-setting-in-the-azure-portal"></a>Criar uma definição de diagnóstico no portal Azure
 
@@ -88,10 +88,10 @@ Para registar os dados de Armazenamento Azure com o Azure Monitor e analisá-los
 1. Navegue para a sua conta de armazenamento no portal do Azure.
 1. Na secção de Monitorização, selecione **definições de diagnóstico (pré-visualização)**.
 1. Selecione o serviço de Armazenamento Azure para o qual pretende registar pedidos. Por exemplo, escolha **Blob** para registar pedidos para armazenamento Blob.
-1. **Selecione Adicionar a definição de diagnóstico**.
+1. Selecione **Adicionar definição de diagnóstico**.
 1. Forneça um nome para a definição de diagnóstico.
-1. Em **detalhes de categoria** , na secção de **registo,** escolha **StorageRead,** **StorageWrite** e **StorageDelete** para registar todos os pedidos de dados para o serviço selecionado.
-1. Nos **detalhes do Destino** , selecione Enviar para Registar **Analítico**. Selecione a sua subscrição e o espaço de trabalho Log Analytics que criou anteriormente, como mostrado na imagem seguinte.
+1. Em **detalhes de categoria**, na secção de **registo,** escolha **StorageRead,** **StorageWrite** e **StorageDelete** para registar todos os pedidos de dados para o serviço selecionado.
+1. Nos **detalhes do Destino**, selecione Enviar para Registar **Analítico**. Selecione a sua subscrição e o espaço de trabalho Log Analytics que criou anteriormente, como mostrado na imagem seguinte.
 
     :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot mostrando como criar uma definição de diagnóstico para pedidos de registo":::
 
@@ -215,10 +215,10 @@ Algumas ferramentas Azure oferecem a opção de usar a autorização Azure AD pa
 |-|-|
 | Portal do Azure | Suportado. Para obter informações sobre a autorização da sua conta Azure AD a partir do portal Azure, consulte [Escolha como autorizar o acesso aos dados blob no portal Azure.](../blobs/authorize-data-operations-portal.md) |
 | AzCopy | Suportado para armazenamento Blob. Para obter informações sobre a autorização de operações da AzCopy, consulte [Escolha como irá fornecer credenciais](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) de autorização na documentação da AzCopy. |
-| Explorador de Armazenamento do Azure | Suportado apenas para armazenamento blob e Azure Data Lake Storage Gen2. O acesso a AD AD ao armazenamento da fila não é suportado. Certifique-se de selecionar o inquilino AD Azure correto. Para mais informações, consulte [Começar com o Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
+| Explorador do Storage do Azure | Suportado apenas para armazenamento blob e Azure Data Lake Storage Gen2. O acesso a AD AD ao armazenamento da fila não é suportado. Certifique-se de selecionar o inquilino AD Azure correto. Para mais informações, consulte [Começar com o Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
 | Azure PowerShell | Suportado. Para obter informações sobre como autorizar comandos PowerShell para operações de blob ou fila com Azure AD, consulte [comandos Run PowerShell com credenciais AD AD para aceder a dados blob](../blobs/authorize-data-operations-powershell.md) ou [executar comandos PowerShell com credenciais AD AD Aure para aceder a dados de fila](../queues/authorize-data-operations-powershell.md). |
-| CLI do Azure | Suportado. Para obter informações sobre como autorizar comandos Azure CLI com Azure AD para acesso a dados de blob e fila, consulte [comandos Run Azure CLI com credenciais AD AD para aceder a dados de blob ou fila](authorize-data-operations-cli.md). |
-| Hub IoT do Azure | Suportado. Para obter mais informações, consulte [o suporte do IoT Hub para redes virtuais.](../../iot-hub/virtual-network-support.md) |
+| CLI do Azure | Suportado. Para obter informações sobre como autorizar comandos Azure CLI com Azure AD para acesso a dados de blob e fila, consulte [comandos Run Azure CLI com credenciais AD AD para aceder a dados de blob ou fila](../blobs/authorize-data-operations-cli.md). |
+| Azure IoT Hub | Suportado. Para obter mais informações, consulte [o suporte do IoT Hub para redes virtuais.](../../iot-hub/virtual-network-support.md) |
 | Azure Cloud Shell | Azure Cloud Shell é uma concha integrada no portal Azure. A Azure Cloud Shell acolhe ficheiros para persistência numa partilha de ficheiros Azure numa conta de armazenamento. Estes ficheiros tornar-se-ão inacessíveis se a autorização da Chave Partilhada for proibida para essa conta de armazenamento. Para obter mais informações, consulte [o armazenamento do Microsoft Azure Files](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Para executar comandos em Azure Cloud Shell para gerir contas de armazenamento para as quais o acesso de Chave Partilhada é proibido, certifique-se primeiro de que lhe foram concedidas as permissões necessárias a estas contas através do controlo de acesso baseado em funções Azure (Azure RBAC). Para obter mais informações, veja [o que é o controlo de acesso baseado em funções Azure (Azure RBAC)?](../../role-based-access-control/overview.md) |
 
 ## <a name="about-the-preview"></a>Sobre a pré-visualização

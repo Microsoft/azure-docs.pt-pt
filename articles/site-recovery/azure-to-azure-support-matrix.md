@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs do Azure para 
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 64e8d4d00efa52b10d4543d36af7874f61dc3455
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: f0aebd09c06677aeba7cddda246e3e37992e0d9e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317542"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485285"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação após desastre de VMs do Azure entre regiões do Azure
 
@@ -234,7 +234,7 @@ Armazenamento fresco e quente | Não suportado | Os discos VM não são suportad
 Espaços de Armazenamento | Suportado |
 Encriptação em repouso (SSE) | Suportado | SSE é a definição padrão nas contas de armazenamento.
 Encriptação em repouso (CMK) | Suportado | Tanto as teclas de Software como as teclas HSM são suportadas para discos geridos
-Dupla encriptação em repouso | Suportado | Saiba mais sobre regiões apoiadas para [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md)
+Dupla encriptação em repouso | Suportado | Saiba mais sobre regiões apoiadas para [Windows](../virtual-machines/disk-encryption.md) e [Linux](../virtual-machines/disk-encryption.md)
 Encriptação do disco Azure (ADE) para o Windows OS | Suportado para VMs com discos geridos. | Os VMs que utilizam discos não geridos não são suportados. <br/><br/> As chaves protegidas pelo HSM não são suportadas. <br/><br/> A encriptação de volumes individuais num único disco não é suportada. |
 Encriptação do disco Azure (ADE) para Linux OS | Suportado para VMs com discos geridos. | Os VMs que utilizam discos não geridos não são suportados. <br/><br/> As chaves protegidas pelo HSM não são suportadas. <br/><br/> A encriptação de volumes individuais num único disco não é suportada. <br><br> Problema conhecido com ativar a replicação. [Saiba mais.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
 Rotação da chave SAS | Não suportado | Se a chave SAS para contas de armazenamento for rotativa, o cliente precisa de desativar e reativar a replicação. |

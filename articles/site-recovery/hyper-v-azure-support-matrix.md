@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 53967ab0bec9488691ff60cdabb8fedbb6b9730e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7466f037f0a39b67023b9ebcc27c2e19b27f42ab
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386712"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485268"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de apoio à recuperação de desastres de Hiper-V VMs para Azure
 
@@ -83,7 +83,7 @@ Acesso de ligação privada ao serviço de Recuperação de Sítios | Sim. [Saib
 Azure ExpressRoute | Sim | Sim
 ILB | Sim | Sim
 ELB | Sim | Sim
-Gestor de Tráfego do Azure | Sim | Sim
+Traffic Manager do Azure | Sim | Sim
 Multi-NIC | Sim | Sim
 IP reservado | Sim | Sim
 IPv4 | Sim | Sim
@@ -136,12 +136,12 @@ Armazenamento quente| Não | Não
 Blobs de blocos | Não | Não
 Encriptação em repouso (SSE)| Sim | Sim
 Encriptação em repouso (CMK) <br></br> (Apenas para falhas a gerir discos)| Sim (via módulo PowerShell Az 3.3.0 em diante) | Sim (via módulo PowerShell Az 3.3.0 em diante)
-Dupla encriptação em repouso <br></br> (Apenas para falhas a gerir discos) <br></br> Saiba mais sobre regiões apoiadas para [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md) | Sim (via módulo PowerShell Az 3.3.0 em diante) | Sim (via módulo PowerShell Az 3.3.0 em diante)
+Dupla encriptação em repouso <br></br> (Apenas para falhas a gerir discos) <br></br> Saiba mais sobre regiões apoiadas para [Windows](../virtual-machines/disk-encryption.md) e [Linux](../virtual-machines/disk-encryption.md) | Sim (via módulo PowerShell Az 3.3.0 em diante) | Sim (via módulo PowerShell Az 3.3.0 em diante)
 Armazenamento Premium | Sim | Sim
 Armazenamento Standard | Sim | Sim
 Serviço de importação/exportação | Não | Não
 Contas de Armazenamento Azure com firewall ativadas | Sim. Para armazenamento de alvo e cache. | Sim. Para armazenamento de alvo e cache.
-Modificar a conta de armazenamento | N.º A conta de armazenamento Azure alvo não pode ser modificada após permitir a replicação. Para modificar, desativar e, em seguida, reativar a recuperação de desastres. | Não
+Modificar a conta de armazenamento | Não. A conta de armazenamento Azure alvo não pode ser modificada após permitir a replicação. Para modificar, desativar e, em seguida, reativar a recuperação de desastres. | Não
 Opção de transferência segura | Sim
 
 
@@ -188,7 +188,7 @@ Mover armazenamento, rede, VMs Azure em grupos de recursos<br/><br/> Dentro e em
 
 Para se certificar de que a sua implementação é compatível com as definições deste artigo, certifique-se de que está a executar as versões mais recentes do fornecedor e do agente.
 
-**Nome** | **Descrição** | **Detalhes**
+**Name** | **Descrição** | **Detalhes**
 --- | --- | --- 
 Fornecedor de recuperação do site Azure | Coordena comunicações entre servidores no local e Azure <br/><br/> Hiper-V com Gestor de Máquinas Virtuais: Instalado em servidores de Gestor de Máquinas Virtuais<br/><br/> Hiper-V sem Gerente de Máquina Virtual: Instalado em anfitriões Hyper-V| Versão mais recente: 5.1.2700.1 (disponível a partir do portal Azure)<br/><br/> [Funcionalidades e correções mais recentes](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Agente dos Serviços de Recuperação do Microsoft Azure | Coordena a replicação entre Hiper-VMs e Azure<br/><br/> Instalados em servidores Hiper-V no local (com ou sem Gestor de Máquinas Virtuais) | Último agente disponível a partir do portal

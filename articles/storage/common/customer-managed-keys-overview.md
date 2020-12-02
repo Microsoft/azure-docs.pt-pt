@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 2b474ae184374a2c91dcba15517048556686ec35
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8eaadc031039b22e209db1023c65da39e1e096b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782234"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483288"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Chaves geridas pelo cliente para encriptação de armazenamento Azure
 
@@ -113,10 +113,10 @@ Para revogar o acesso às chaves geridas pelo cliente, utilize [o PowerShell](./
 
 ## <a name="customer-managed-keys-for-azure-managed-disks"></a>Chaves geridas pelo cliente para discos geridos pela Azure
 
-As chaves geridas pelo cliente também estão disponíveis para gerir a encriptação dos discos geridos pela Azure. As chaves geridas pelo cliente comportam-se de forma diferente para discos geridos do que para os recursos de Armazenamento Azure. Para obter mais informações, consulte [a encriptação do lado do Servidor dos discos geridos pelo Azure](../../virtual-machines/windows/disk-encryption.md) para encriptação lateral do Windows ou servidor dos discos geridos pelo [Azure](../../virtual-machines/linux/disk-encryption.md) para o Linux.
+As chaves geridas pelo cliente também estão disponíveis para gerir a encriptação dos discos geridos pela Azure. As chaves geridas pelo cliente comportam-se de forma diferente para discos geridos do que para os recursos de Armazenamento Azure. Para obter mais informações, consulte [a encriptação do lado do Servidor dos discos geridos pelo Azure](../../virtual-machines/disk-encryption.md) para encriptação lateral do Windows ou servidor dos discos geridos pelo [Azure](../../virtual-machines/disk-encryption.md) para o Linux.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md) (Encriptação do Armazenamento do Azure para dados inativos)
-- [Configurar encriptação com chaves geridas pelo cliente armazenadas no Cofre da Chave Azure](customer-managed-keys-configure-key-vault.md)
+- [Configurar a encriptação com chaves geridas pelo cliente armazenadas no Azure Key Vault](customer-managed-keys-configure-key-vault.md)
 - [Configure a encriptação com chaves geridas pelo cliente armazenadas no Azure Key Vault Managed HSM (pré-visualização)](customer-managed-keys-configure-key-vault-hsm.md)

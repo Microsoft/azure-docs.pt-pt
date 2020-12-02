@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/26/2019
+ms.date: 12/01/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: bccdb830fba4d55266dc9eff8f06c5ac4e3f2a34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e37065e6fa61f3784d1a6165bd88c515bdfc29f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706188"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484112"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que as aplicações são adicionadas ao Azure AD
 
@@ -105,7 +105,7 @@ As aplicações que se adiciona (representadas como **App (sua)** no diagrama) i
   * Mapeamentos de atributos (fornecimento de utilizador)
 * Para obter informações mais detalhadas sobre o principal do serviço e os objetos de aplicação, consulte a documentação de referência da Microsoft Graph API:
   * [Aplicação](/graph/api/resources/application?view=graph-rest-1.0)
-  * [Principal de Serviço](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
+  * [Diretor de Serviço](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Porque é que as aplicações se integram com a Azure AD?
 
@@ -118,6 +118,7 @@ As aplicações são adicionadas à Azure AD para alavancar um ou mais dos servi
 * Controlo de acesso baseado em funções - Utilize o diretório para definir funções de aplicação para executar controlos de autorização baseados em funções numa aplicação
 * Serviços de autorização OAuth - Usados pela Microsoft 365 e outras aplicações da Microsoft para autorizar o acesso a APIs/recursos
 * Publicação de aplicações e procuração - Publicar uma aplicação de uma rede privada para a internet
+* Atributos de extensão de esquema de diretório - [Alargar o esquema do principal de serviço e objetos de utilizador](active-directory-schema-extensions.md) para armazenar dados adicionais em Azure AD 
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Quem tem permissão para adicionar aplicações à minha instância AD Azure?
 

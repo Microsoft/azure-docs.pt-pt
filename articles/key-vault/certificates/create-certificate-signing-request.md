@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: c8f11f17c9e110509dcbcda291194f9b8d928c50
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6d66648680aa14baa53372732df52a6c247a0117
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658966"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483768"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Criação e fusão de CSR no Cofre de Chaves
 
@@ -42,12 +42,14 @@ Os seguintes passos irão ajudá-lo a criar um certificado das autoridades de ce
 
 
 
-1.  Em primeiro lugar, **crie a política de certificados.** O Key Vault não inscreverá ou renovará o certificado do Emitente em nome do utilizador como CA escolhido neste cenário não é suportado e, portanto, o EmitenteName está definido para Desconhecido.
+1. Em primeiro lugar, **crie a política de certificados.** O Key Vault não inscreverá ou renovará o certificado do Emitente em nome do utilizador como CA escolhido neste cenário não é suportado e, portanto, o EmitenteName está definido para Desconhecido.
 
-    ```azurepowershell
-    $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
-    ```
-
+   ```azurepowershell
+   $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
+   ```
+    
+   > [!NOTE]
+   > Se estiver a utilizar um Nome Distinto Relativo (RDN) que tenha uma vírgula (,)no valor, use aspas individuais e embrulhe o valor que contém o carácter especial em ações duplas. Exemplo: `$policy = New-AzKeyVaultCertificatePolicy -SubjectName 'OU="Docs,Contoso",DC=Contoso,CN=www.contosoHRApp.com' -ValidityInMonths 1  -IssuerName Unknown`. Neste exemplo, o `OU` valor é como **Docs, Contoso.** Este formato funciona para todos os valores que contêm uma vírgula.
 
 2. Criar um pedido de **assinatura de certificado**
 
@@ -56,7 +58,7 @@ Os seguintes passos irão ajudá-lo a criar um certificado das autoridades de ce
    $csr.CertificateSigningRequest
    ```
 
-3. Obtenção do **pedido** de RSE assinado pela AC `$certificateOperation.CertificateSigningRequest` É o pedido de assinatura do certificado codificado base4 para o certificado. Você pode pegar esta bolha e despejar no site de pedido de certificado do Emitente. Este passo varia de CA para CA, a melhor maneira seria procurar as diretrizes da sua AC sobre como executar este passo. Também pode utilizar ferramentas como certreq ou openssl para obter o pedido de certificado assinado e completar o processo de geração de um certificado.
+3. Obtenção do **pedido** de RSE assinado pela AC `$csr.CertificateSigningRequest` É o pedido de assinatura do certificado codificado base4 para o certificado. Você pode pegar esta bolha e despejar no site de pedido de certificado do Emitente. Este passo varia de CA para CA, a melhor maneira seria procurar as diretrizes da sua AC sobre como executar este passo. Também pode utilizar ferramentas como certreq ou openssl para obter o pedido de certificado assinado e completar o processo de geração de um certificado.
 
 
 4. **Fusão do pedido assinado** no Cofre-Chave Depois de o pedido de certificado ter sido assinado pelo Emitente, pode trazer de volta o certificado assinado e fundi-lo com o par inicial de chaves público-privado criado no Cofre chave Azure
@@ -79,15 +81,23 @@ Os seguintes passos irão ajudá-lo a criar um certificado das autoridades de ce
     - **Objeto:**`"CN=www.contosoHRApp.com"`
     - Selecione os outros valores conforme desejado. Clique em **Criar**.
 
-    ![Propriedades de certificados](../media/certificates/create-csr-merge-csr/create-certificate.png)
+    ![Propriedades de certificados](../media/certificates/create-csr-merge-csr/create-certificate.png)  
+
+
 6.  Verá que o certificado foi agora adicionado na lista de Certificados. Selecione este novo certificado que tinha acabado de criar. O estado atual do certificado seria "desativado", uma vez que ainda não foi emitido pela AC.
 7. Clique no separador **Operação certificado** e selecione **Download CSR**.
- ![Screenshot que realça o botão Download CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
 
+   ![Screenshot que realça o botão Download CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
+ 
 8.  Leve .csr arquivo para a AC para o pedido de assinatura.
 9.  Uma vez que o pedido seja assinado pela AC, traga de volta o ficheiro de certificado para **fundir o pedido assinado** no mesmo ecrã de Operação certificado.
 
-O pedido de certificado foi agora fundido com sucesso.
+O pedido de certificado foi agora fundido com êxito.
+
+> [!NOTE]
+> Se os seus valores RDN tiverem vírgulas, também pode adicioná-las no campo **Assunto,** rodeando o valor em cotações duplas, como mostrado no passo 4.
+> Exemplo de entrada para "Assunto": `DC=Contoso,OU="Docs,Contoso",CN=www.contosoHRApp.com` Neste exemplo, o RDN `OU` contém um valor com uma vírgula no nome. A saída resultante `OU` é **docs, Contoso.**
+
 
 ## <a name="adding-more-information-to-csr"></a>Adicionar mais informações à CSR
 
@@ -102,8 +112,8 @@ Exemplo
     ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
     ```
 
->[!Note]
->Se você estiver solicitando um cert DEV com todos esses detalhes na RSE, a AC pode rejeitar o pedido como CA pode não ser capaz de validar todas essas informações no pedido. Se está a solicitar um certificado de OV, então seria mais apropriado adicionar toda essa informação na RSE.
+> [!NOTE]
+> Se você está solicitando um cert DEV com todos esses detalhes na RSE, a AC pode rejeitar o pedido porque pode não ser capaz de validar todas as informações no pedido. Se está a pedir um certificado de OV, seria mais apropriado adicionar toda essa informação na RSE.
 
 
 ## <a name="troubleshoot"></a>Resolução de problemas
@@ -117,7 +127,9 @@ Exemplo
 
 Para obter mais informações, consulte as operações do [Certificado na referência API do Cofre-Chave](/rest/api/keyvault). Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Abóbadas - Atualizar a Política de Acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
-## <a name="next-steps"></a>Próximos passos
+- **Error type 'O nome do sujeito fornecido não é um nome X500 válido'** Este erro pode ocorrer se tiver incluído quaisquer "caracteres especiais" nos valores do Nome Sujeito. Consulte notas no portal Azure e instruções PowerShell respectivamente. 
+
+## <a name="next-steps"></a>Passos seguintes
 
 - [Autenticação, pedidos e respostas](../general/authentication-requests-and-responses.md)
 - [Guia do Programador do Key Vault](../general/developers-guide.md)

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: 5631cbdd0b1eae343899be2147720d980e605dbb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5bd41396cf075f83fd37a4276f7a30223ec8c1f3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452713"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96482948"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Como implementar o Windows 10 no Azure com direitos de hospedagem multitenant 
 Para clientes com Windows 10 Enterprise E3/E5 por utilizador ou Windows Virtual Desktop Access por utilizador (Licenças de subscrição de utilizador ou licenças de subscrição de utilizadores adicionais), os direitos de hospedagem multitenant para o Windows 10 permitem-lhe trazer as suas Licenças do Windows 10 para a nuvem e executar máquinas virtuais do Windows 10 no Azure sem pagar outra licença. Para mais informações, consulte [o Multitenant Hosting para windows 10.](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)
@@ -36,9 +36,11 @@ Para as implementações do modelo PowerShell, CLI e Azure Resource Manager, a i
 ## <a name="qualify-for-multi-tenant-hosting-rights"></a>Qualificar-se para direitos de acolhimento multi-inquilinos 
 Para se qualificar para os direitos de hospedagem de vários inquilinos e para executar imagens do Windows 10 em Azure, os utilizadores devem ter uma das seguintes subscrições: 
 
--   Microsoft 365 E3/E5/F3/A3/A5
--   Empresa E3/E5 do Windows 10 
--   Windows 10 Educação A3/A5
+-   Microsoft 365 E3/E5 
+-   Microsoft 365 F3 
+-   Microsoft 365 A3/A5 
+-   Empresa E3/E5 do Windows 10
+-   Windows 10 Educação A3/A5 
 -   Windows VDA E3/E5
 
 

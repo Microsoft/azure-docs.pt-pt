@@ -4,12 +4,12 @@ description: Neste tutorial, aprende-se a instalar uma aplicação no seu cluste
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 0b35bd02af5e1c90cac2e94d31dfca2344f3cc85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae946321b34f12c816a717db4a3d07f57feefe52
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840630"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485365"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Tutorial: implementar uma aplicação no cluster autónomo do Service Fabric
 
@@ -17,7 +17,7 @@ Os clusters autónomos do Service Fabric oferecem a opção de escolher o seu am
 
 Este tutorial é a terceira parte de uma série.  Os clusters autónomos de tecido de serviço oferecem-lhe a opção de escolher o seu próprio ambiente e criar um cluster como parte da nossa abordagem "qualquer SISTEMA, qualquer nuvem" com o Service Fabric. Este tutorial mostra como criar a infraestrutura do AWS necessário para alojar este cluster autónomo.
 
-Neste artigo, aprenderá a:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Transferir a aplicação de exemplo
@@ -50,7 +50,7 @@ Agora que a aplicação foi transferida, pode implementá-la num cluster diretam
 
 4. Clique com o botão direito no projeto de `Voting` aplicação no Solution Explorer e escolha **Publicar**
 
-5. Selecione o menu pendente do **Ponto Final de Ligação** e introduza o nome DNS público de um dos nós no cluster.  Por exemplo, `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. Em Azure, um nome de domínio totalmente qualificado (FQDN) não é dado automaticamente, mas pode ser facilmente [definido na página de visão geral vm.](../virtual-machines/linux/portal-create-fqdn.md)
+5. Selecione o menu pendente do **Ponto Final de Ligação** e introduza o nome DNS público de um dos nós no cluster.  Por exemplo, `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. Em Azure, um nome de domínio totalmente qualificado (FQDN) não é dado automaticamente, mas pode ser facilmente [definido na página de visão geral vm.](../virtual-machines/create-fqdn.md)
 
 6. Abra o browser preferido e escreva o endereço do cluster (ponto final da ligação, esta aplicação implementa na porta 8080, por exemplo, ec2-34-215-183-77.us-west-2.compute.amazonaws.com:8080).
 

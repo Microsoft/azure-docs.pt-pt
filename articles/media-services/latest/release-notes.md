@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: cdc6cbbea8b222007d94ecac99902bc4498a42fe
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 4ddb02bbcf284566550517f8fa343a728e2275a9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505262"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483632"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
@@ -51,7 +51,7 @@ Para obter mais informações sobre o modo Analisador de Áudio Básico, consult
 
 As atualizações para a maioria das propriedades são agora permitidas quando os eventos ao vivo são interrompidos. Além disso, os utilizadores estão autorizados a especificar um prefixo para o nome de anfitrião estático para os URLs de entrada e pré-visualização do evento ao vivo. A VanityUrl é agora chamada `useStaticHostName` para melhor refletir a intenção da propriedade.
 
-Os eventos ao vivo têm agora um estado de espera.  Ver [Eventos Ao Vivo e Saídas Ao Vivo nos Serviços de Media.](https://docs.microsoft.com/azure/media-services/latest/live-events-outputs-concept)
+Os eventos ao vivo têm agora um estado de espera.  Ver [Eventos Ao Vivo e Saídas Ao Vivo nos Serviços de Media.](./live-events-outputs-concept.md)
 
 Um evento ao vivo suporta receber vários rácios de aspeto de entrada. O modo alongamento permite que os clientes especifiquem o comportamento de alongamento para a saída.
 

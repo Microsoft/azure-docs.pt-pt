@@ -7,14 +7,14 @@ ms.service: data-factory
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
-ms.openlocfilehash: f1f81af715bc4b2248a24076f3b12a74d0ee73e3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+author: dcstwh
+ms.author: weetok
+ms.openlocfilehash: 9b28fb24439354e09e5262281a99cd9dc0153a04
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102077"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485251"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desenvolvimento iterativo e de depuração com o Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -44,7 +44,7 @@ Depois de um teste ter sucesso, adicione mais atividades ao seu oleoduto e conti
 
 ### <a name="setting-breakpoints"></a>Definição de pontos de rutura
 
-A Azure Data Factory permite-lhe depurar um oleoduto até chegar a uma determinada atividade na tela do gasoduto. Coloque um ponto de rutura na atividade até à qual pretende testar e selecione **Debug** . A Data Factory garante que o teste funciona apenas até à atividade do ponto de rutura na tela do gasoduto. Esta funcionalidade *Debug Até* que a funcionalidade seja útil quando não pretende testar todo o pipeline, mas apenas um subconjunto de atividades dentro do oleoduto.
+A Azure Data Factory permite-lhe depurar um oleoduto até chegar a uma determinada atividade na tela do gasoduto. Coloque um ponto de rutura na atividade até à qual pretende testar e selecione **Debug**. A Data Factory garante que o teste funciona apenas até à atividade do ponto de rutura na tela do gasoduto. Esta funcionalidade *Debug Até* que a funcionalidade seja útil quando não pretende testar todo o pipeline, mas apenas um subconjunto de atividades dentro do oleoduto.
 
 ![Pontos de rutura na tela do gasoduto](media/iterative-development-debugging/iterative-development-3.png)
 

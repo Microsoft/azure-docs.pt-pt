@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/06/2020
 ms.author: nichola
 ms.reviewer: ''
-ms.openlocfilehash: cf5a7a5902484536d0cf2a1844be469f29e15f4b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 86c379316737b7718b62165a6feb93ca3a0e9954
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348471"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484044"
 ---
 # <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>Como utilizar a Avaliação contínua de Acessos permitiu APIs nas suas aplicações
 
@@ -27,9 +27,9 @@ Este artigo mostra-lhe como utilizar APIs ativados por CAE nas suas aplicações
 
 ## <a name="implementation-considerations"></a>Considerações de implementação
 
-Para utilizar a Avaliação de Acesso Contínuo, tanto a sua aplicação como a API de recursos a que está a aceder devem estar ativadas pelo CAE. No entanto, preparar o seu código para utilizar um recurso ativado por CAE não o impedirá de utilizar APIs que não estejam ativados por CAE. 
+Para utilizar a Avaliação de Acesso Contínuo, tanto a sua aplicação como a API de recursos a que está a aceder devem estar ativadas pelo CAE. No entanto, preparar o seu código para utilizar um recurso ativado por CAE não o impedirá de utilizar APIs que não estejam ativados por CAE.
 
-Se uma API de recurso implementar o CAE e a sua aplicação declarar que pode lidar com CAE, a sua aplicação receberá fichas CAE para esse recurso. Por esta razão, se declarar a sua app CAE pronta, a sua aplicação deve lidar com o desafio de reivindicação cae para todas as APIs de recursos que aceitem tokens de acesso da Microsoft Identity. Se não lidar com as respostas cae nestas chamadas API, a sua aplicação pode acabar num ciclo redando uma chamada da API com um token que ainda está no tempo de vida devolvido do token, mas que foi revogado devido ao CAE. 
+Se uma API de recurso implementar o CAE e a sua aplicação declarar que pode lidar com CAE, a sua aplicação receberá fichas CAE para esse recurso. Por esta razão, se declarar a sua app CAE pronta, a sua aplicação deve lidar com o desafio de reivindicação cae para todas as APIs de recursos que aceitem tokens de acesso da Microsoft Identity. Se não lidar com as respostas cae nestas chamadas API, a sua aplicação pode acabar num ciclo redando uma chamada da API com um token que ainda está no tempo de vida devolvido do token, mas que foi revogado devido ao CAE.
 
 ## <a name="the-code"></a>O código
 
@@ -116,4 +116,4 @@ Pode testar a sua aplicação assinando um utilizador para a aplicação e, em s
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais, consulte [a avaliação de acesso contínuo.](/conditional-access/concept-continuous-access-evaluation.md)
+Para saber mais, consulte [a avaliação de acesso contínuo.](../conditional-access/concept-continuous-access-evaluation.md)

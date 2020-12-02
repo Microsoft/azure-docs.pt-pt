@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b8b8d100eb2ff16e8f8b7a734ad493ed4faddd33
-ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
+ms.openlocfilehash: 8c4aa608e892867daaf954284a9dfce997a9ae1f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96299535"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484282"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento da máquina virtual do Azure do SAP HANA
 
@@ -112,7 +112,7 @@ A acumulação de vários VHDs Azure por baixo de um conjunto de listras, é acu
 
 
 ### <a name="azure-burst-functionality-for-premium-storage"></a>Funcionalidade de explosão Azure para armazenamento premium
-Para discos de armazenamento premium Azure menores ou iguais a 512 GiB na capacidade, é oferecida a funcionalidade de explosão. A forma exata como funciona a explosão do disco é descrita no artigo [Disco rebentando](../../linux/disk-bursting.md). Ao ler o artigo, compreende o conceito de acumulação de IOPS e produção nos tempos em que a sua carga de trabalho de I/S está abaixo do IOPS nominal e da produção dos discos (para mais detalhes sobre a produção nominal ver [preços do Disco Gerido).](https://azure.microsoft.com/pricing/details/managed-disks/) Você vai acumular o delta do IOPS e a produção entre o seu uso atual e os valores nominais do disco. As rajadas estão limitadas a um máximo de 30 minutos.
+Para discos de armazenamento premium Azure menores ou iguais a 512 GiB na capacidade, é oferecida a funcionalidade de explosão. A forma exata como funciona a explosão do disco é descrita no artigo [Disco rebentando](../../disk-bursting.md). Ao ler o artigo, compreende o conceito de acumulação de IOPS e produção nos tempos em que a sua carga de trabalho de I/S está abaixo do IOPS nominal e da produção dos discos (para mais detalhes sobre a produção nominal ver [preços do Disco Gerido).](https://azure.microsoft.com/pricing/details/managed-disks/) Você vai acumular o delta do IOPS e a produção entre o seu uso atual e os valores nominais do disco. As rajadas estão limitadas a um máximo de 30 minutos.
 
 Os casos ideais em que esta funcionalidade de explosão pode ser planeada serão provavelmente os volumes ou discos que contêm ficheiros de dados para os diferentes DBMS. Espera-se que a carga de trabalho de E/S contra esses volumes, especialmente com sistemas de pequena a média gama, se pareça com:
 
@@ -134,7 +134,7 @@ Especialmente em sistemas DBMS mais pequenos, onde a sua carga de trabalho está
 > A certificação SAP HANA para máquinas virtuais Azure M-Series é exclusivamente com O Acelerador de Escrita Azure para o volume **/hana/log.** Como resultado, espera-se que as implementações do cenário de produção SAP HANA em máquinas virtuais Azure M-Series sejam configuradas com acelerador de escrita Azure para o volume **/hana/log.**  
 
 > [!NOTE]
-> Em cenários que envolvem armazenamento premium Azure, estamos a implementar capacidades de explosão na configuração. Como está a utilizar ferramentas de teste de armazenamento de qualquer forma ou forma, mantenha em mente a forma como o [disco premium Azure rebenta.](../../linux/disk-bursting.md) Executando os testes de armazenamento entregues através da ferramenta SAP HWCCT ou HCMT, não esperamos que todos os testes passem os critérios, uma vez que alguns dos testes excederão os créditos de rebentamento que pode acumular. Especialmente quando todos os testes correm sequencialmente sem pausa.
+> Em cenários que envolvem armazenamento premium Azure, estamos a implementar capacidades de explosão na configuração. Como está a utilizar ferramentas de teste de armazenamento de qualquer forma ou forma, mantenha em mente a forma como o [disco premium Azure rebenta.](../../disk-bursting.md) Executando os testes de armazenamento entregues através da ferramenta SAP HWCCT ou HCMT, não esperamos que todos os testes passem os critérios, uma vez que alguns dos testes excederão os créditos de rebentamento que pode acumular. Especialmente quando todos os testes correm sequencialmente sem pausa.
 
 
 > [!NOTE]

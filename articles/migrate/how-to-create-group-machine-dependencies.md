@@ -3,12 +3,12 @@ title: Configurar a análise de dependência baseada em agentes na avaliação d
 description: Este artigo descreve como configurar a análise de dependência baseada em agentes na Avaliação do Servidor migratório Azure.
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 58c1aeea00ae033def0f45d220c12d13cc28b4b2
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 1ab5d639d68b5ce2298f907ef8346488e16b4020
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302853"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483475"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurar visualização de dependência
 
@@ -21,7 +21,7 @@ Este artigo descreve como configurar a análise de dependência baseada em agent
     - [Servidores físicos](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
     - [VMs hiper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
 - Certifique-se de:
-    - Tenha um projeto Azure Migrate. Se não o fizeres, [cria](how-to-add-tool-first-time.md) um agora.
+    - Tenha um projeto Azure Migrate. Se não o fizeres, [cria](./create-manage-projects.md) um agora.
     - Verifique se [adicionou](how-to-assess.md) a ferramenta Azure Migrate:Server Assessment ao projeto.
     - Crie um [aparelho Azure Migrate](migrate-appliance.md) para descobrir máquinas no local. O aparelho descobre máquinas no local e envia metadados e dados de desempenho para a Azure Migrate:Avaliação do servidor. Configurar um aparelho para:
         - [VMware](how-to-set-up-appliance-vmware.md) VMs.
@@ -147,7 +147,7 @@ Depois de criar o grupo, recomendamos que instale agentes em todas as máquinas 
 Pode consultar os dados de dependência capturados pelo Mapa de Serviços no espaço de trabalho Log Analytics associado ao projeto Azure Migrate. O Log Analytics é utilizado para escrever e executar consultas de registo do Azure Monitor.
 
 - [Saiba como](../azure-monitor/insights/service-map.md#log-analytics-records) procurar dados do Mapa de Serviços no Log Analytics.
-- [Obtenha uma visão geral](../azure-monitor/log-query/get-started-queries.md)  das consultas de registo de escrita no [Log Analytics](../azure-monitor/log-query/get-started-portal.md).
+- [Obtenha uma visão geral](../azure-monitor/log-query/get-started-queries.md)  das consultas de registo de escrita no [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Executar uma consulta para os dados de dependência da seguinte forma:
 
@@ -205,6 +205,6 @@ VMConnection
 | summarize sum(BytesSent), sum(BytesReceived) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar uma avaliação](how-to-create-assessment.md) para um grupo.

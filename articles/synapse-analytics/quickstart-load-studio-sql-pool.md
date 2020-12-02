@@ -9,20 +9,20 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8d70a45b89142f6f9c6990fdbb4b79751c82275f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 312c57c103bf733bc72c5de1d22ab3239d5b5e96
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95237481"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484719"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Quickstart: Carregamento a granel com Sinapse SQL
 
-Os dados de carregamento nunca foram tão fáceis quando se utiliza o assistente de carga a granel no Estúdio Synapse. Este assistente irá guiá-lo através da criação de um script T-SQL com a [declaração COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) para os dados de carga em massa. 
+Os dados de carregamento são fáceis com o assistente de carga a granel no Synapse Studio. O assistente de carga em massa irá guiá-lo através da criação de um script T-SQL com a [declaração COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) para carregar em massa dados de carga. 
 
 ## <a name="entry-points-to-the-bulk-load-wizard"></a>Pontos de entrada para o assistente de carga a granel
 
-Agora pode carregar facilmente dados de carga em massa usando piscinas SQL dedicadas com um simples clique à direita nas seguintes áreas dentro do Estúdio Synapse:
+Pode carregar facilmente dados de carga em massa utilizando piscinas SQL dedicadas com um simples clique à direita nas seguintes áreas dentro do Estúdio Synapse:
 
 - Um ficheiro ou pasta de uma conta de armazenamento Azure anexada ao seu espaço de trabalho ![ Clicar num ficheiro ou pasta a partir de uma conta de armazenamento](./sql/media/bulk-load/bulk-load-entry-point-0.png)
 
@@ -60,7 +60,7 @@ Agora pode carregar facilmente dados de carga em massa usando piscinas SQL dedic
 
 6. Selecione "Open script" e um script T-SQL será gerado com a declaração COPY para carregar a partir do seu lago de dados: ![ Abrir o script SQL](./sql/media/bulk-load/bulk-load-target-final-script.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o artigo [de declaração COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax) para obter mais informações sobre as capacidades COPY
 - Consulte o artigo [da visão geral de carregamento de dados](./sql-data-warehouse/design-elt-data-loading.md#what-is-elt)

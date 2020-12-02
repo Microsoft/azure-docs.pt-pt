@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: ee7cc1c81bd35bf2b51c712c3a60a046435ee700
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0c2deb1ae1d41f8daaed8856f97c4b458930c616
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951288"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484384"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Guia de planeamento e implementação da plataforma de BI SAP BusinessObjects no Azure
 
@@ -256,7 +256,7 @@ O Azure Storage tem diferentes tipos de Armazenamento disponíveis para clientes
 
 ![SAP BusinessObjects BI Plataforma De Armazenamento layout em Azure](media/businessobjects-deployment-guide/businessobjects-storage-layout.png)
 
-### <a name="networking"></a>Redes
+### <a name="networking"></a>Rede
 
 O SAP BOBI é uma plataforma bi de reporte e análise que não detém quaisquer dados de negócio. Assim, o sistema está ligado a outros servidores de base de dados de onde recolhe todos os dados e fornece informações aos utilizadores. O Azure disponibiliza uma infraestrutura de rede, que permite o mapeamento de todos os cenários que podem ser realizados com a Plataforma SAP BI, como a ligação ao sistema no local, sistemas em diferentes redes virtuais e outros. Para obter mais informações, consulte [a Rede Microsoft Azure para a carga de trabalho SAP](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/planning-guide.md#microsoft-azure-networking).
 
@@ -267,4 +267,4 @@ Para a oferta de Base de Dados como serviço, qualquer base de dados recém-cria
 - [SAP BusinessObjects implantação de plataforma bi no Linux](businessobjects-deployment-guide-linux.md)
 - [Azure Virtual Machines planejamento e implementação para SAP](planning-guide.md)
 - [Implantação de máquinas virtuais Azure para SAP](deployment-guide.md)
-- [Implantação DBMS de máquinas virtuais Azure para SAP](dbms-guide.md)
+- [Implantação DBMS de máquinas virtuais Azure para SAP](./dbms_guide_general.md)

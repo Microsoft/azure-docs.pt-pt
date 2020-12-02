@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/04/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 9101944a567df5000d3584ed48eff24e4c5e0057
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 572b3b3459e1d837130f3c987d45ee45629f37ad
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89565808"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485081"
 ---
 # <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>Teste um modelo usando um arquivo áudio no Speech Studio
 
@@ -23,7 +23,7 @@ Neste como fazer, você usa o Speech Studio para converter o discurso de um fich
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de utilizar o Portal da Fala, [siga estas instruções para criar uma conta Azure e subscreva o serviço Discurso](../how-to-custom-speech.md#set-up-your-azure-account). Esta subscrição unificada dá-lhe acesso a discurso-a-texto, texto-a-discurso, tradução de fala e portal de discurso personalizado.
+Antes de utilizar o Portal da Fala, [siga estas instruções para criar uma conta Azure e subscreva o serviço Discurso](../custom-speech-overview.md#set-up-your-azure-account). Esta subscrição unificada dá-lhe acesso a discurso-a-texto, texto-a-discurso, tradução de fala e portal de discurso personalizado.
 
 ## <a name="download-an-audio-file"></a>Descarregue um ficheiro áudio
 
@@ -38,7 +38,7 @@ Siga estes passos para criar um projeto que contenha o seu fecho de um ficheiro 
 
 1. Abra [o Estúdio de Discurso](https://speech.microsoft.com/), e clique em Novo **projeto**. Digite um nome para este projeto e clique em **Criar**. O seu projeto aparece na lista de Discursos Personalizados.
 2. Clique no nome do seu projeto. No separador Dados, clique em **Enviar dados.**
-3. O tipo de dados de fala predefinido **apenas**para Áudio , por isso clique em **Seguinte**.
+3. O tipo de dados de fala predefinido **apenas** para Áudio , por isso clique em **Seguinte**.
 4. Nomeie o seu novo conjunto de dados de `MyZipOfAudio` fala e clique em **Seguinte**.
 5. Clique **em Navegar nos ficheiros...**, navegue para o seu ficheiro e clique em `whatstheweatherlike.zip` **Abrir**.
 6. Clique no botão **Carregar**. O navegador envia o seu ficheiro zip para o Speech Studio e o Speech Studio processa os conteúdos.
@@ -59,7 +59,7 @@ Depois de o Speech Studio processar o conteúdo do seu ficheiro zip, pode reprod
 Pode descarregar ficheiros que descrevam transcrições em detalhes muito maiores. Os ficheiros incluem forma lexical de fala nos seus ficheiros áudio e ficheiros JSON que contêm detalhes de confiança compensação, duração e transcrição sobre cada palavra. Siga estes passos para ver estes ficheiros.
 
 1. Clique **em Baixar**.
-2. No diálogo de Descarregamento, desescolh **o áudio**e clique em **Baixar**.
+2. No diálogo de Descarregamento, desescolh **o áudio** e clique em **Baixar**.
 3. Desaperte o ficheiro zip descarregado e examine os ficheiros extraídos.
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: bc0a556841c3c6ee91ae472087aaaf7c74009b67
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: da1acc6316d7af87ffe35b9560919c324373591a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785787"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484605"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage encryption for data at rest (Encriptação do Armazenamento do Azure para dados inativos)
 
@@ -32,7 +32,7 @@ Cada blob de bloco, blob de apêndice ou bolha de página que foi escrito para A
 
 Para obter mais informações sobre os módulos criptográficos subjacentes à encriptação do Armazenamento Azure, consulte [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
 
-Para obter informações sobre encriptação e gestão de chaves para discos geridos pelo Azure, consulte [a encriptação do lado do Servidor dos discos geridos pelo Azure](../../virtual-machines/windows/disk-encryption.md) para VMs do Windows ou [encriptação do lado do Servidor de discos geridos pelo Azure](../../virtual-machines/linux/disk-encryption.md) para Os VMs Do Linux.
+Para obter informações sobre encriptação e gestão de chaves para discos geridos pelo Azure, consulte [a encriptação do lado do Servidor dos discos geridos pelo Azure](../../virtual-machines/disk-encryption.md) para VMs do Windows ou [encriptação do lado do Servidor de discos geridos pelo Azure](../../virtual-machines/disk-encryption.md) para Os VMs Do Linux.
 
 ## <a name="about-encryption-key-management"></a>Sobre a gestão de chaves de encriptação
 
