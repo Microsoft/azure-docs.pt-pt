@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.assetid: 7aa21ef8-9cfb-43e0-bfda-3f10a2a2f3ef
 ms.date: 10/23/2020
-ms.openlocfilehash: 842913b8e9f83ff3b188976da55aef7c909518ca
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: ddd6f277bc71467060aa2279d93f9410a1327dde
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359923"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486611"
 ---
 # <a name="quickstart-wildfly-on-centos-8"></a>Quickstart: WildFly no CentOS 8
 
@@ -63,7 +63,7 @@ A imagem Azure CentOS 8 é uma imagem VM Pay-As-You-Go (PAYG) e não requer que 
 
 Pode implementar o modelo de três formas:
 
-- Utilizar PowerShell - Implementar o modelo executando os seguintes comandos: (Verifique [a Azure PowerShell](https://docs.microsoft.com/powershell/azure/) para obter informações sobre a instalação e configuração do Azure PowerShell).
+- Utilizar PowerShell - Implementar o modelo executando os seguintes comandos: (Verifique [a Azure PowerShell](/powershell/azure/) para obter informações sobre a instalação e configuração do Azure PowerShell).
 
     ```
     New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment
@@ -73,7 +73,7 @@ Pode implementar o modelo de três formas:
     New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json
     ```
     
-- Utilizar O Azure CLI - Implementar o modelo executando os seguintes comandos: (Verifique [a Linha de Comando da Plataforma Transversal Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) para obter mais informações sobre a instalação e configuração da Interface Command-Line plataforma cruzada Azure).
+- Utilizar O Azure CLI - Implementar o modelo executando os seguintes comandos: (Verifique [a Linha de Comando da Plataforma Transversal Azure](/cli/azure/install-azure-cli) para obter mais informações sobre a instalação e configuração da Interface Command-Line plataforma cruzada Azure).
 
     ```
     az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment
@@ -92,10 +92,10 @@ Pode implementar o modelo de três formas:
 ## <a name="resource-links"></a>Ligações de recursos
 
 * Saiba mais sobre [wildFly 18](https://docs.wildfly.org/18/)
-* Saiba mais sobre [as distribuições do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)
+* Saiba mais sobre [as distribuições do Linux no Azure](../../linux/endorsed-distros.md)
 * [Azure para documentação de desenvolvedores java](https://github.com/JasonFreeberg/jboss-on-app-service)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para o ambiente de produção, confira os modelos Red Hat JBoss EAP Azure Quickstart ARM:
 

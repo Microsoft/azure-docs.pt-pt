@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c553652d4d8abd16b4e5fd4ff896e42bdba103ad
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 8602450ef7df7f728fc5bdcda4f46ae30058fc94
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408979"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487801"
 ---
 # <a name="security-control-v2-asset-management"></a>Controlo de Segurança V2: Gestão de Ativos
 
 A Gestão de Ativos cobre controlos para garantir visibilidade e governação de segurança sobre os recursos da Azure. Isto inclui recomendações sobre permissões para pessoal de segurança, acesso de segurança ao inventário de ativos, e gestão de aprovações para serviços e recursos (inventário, pista e correto).
 
-## <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: Garantir que a equipa de segurança tem visibilidade em riscos para os ativos
+## <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: Certifique-se de que a equipa de segurança tem visibilidade para os riscos dos ativos
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
@@ -26,17 +26,17 @@ A Gestão de Ativos cobre controlos para garantir visibilidade e governação de
 
 Certifique-se de que as equipas de segurança recebem permissões de Leitor de Segurança no seu inquilino Estaure e subscrições para que possam monitorizar riscos de segurança usando o Centro de Segurança Azure. 
 
-Dependendo da forma como as responsabilidades das equipas de segurança são estruturadas, a monitorização dos riscos de segurança pode ser da responsabilidade de uma equipa de segurança central ou de uma equipa local. Dito isto, os conhecimentos de segurança e os riscos devem ser sempre agregados centralmente dentro de uma organização. 
+Dependendo da forma como as responsabilidades destas equipas são estruturadas, a monitorização dos riscos de segurança pode ser da responsabilidade de uma equipa de segurança central ou de uma equipa local. Dito isto, as informações e os riscos de segurança têm de ser sempre agregados centralmente nas organizações. 
 
-As permissões do Security Reader podem ser aplicadas amplamente a um inquilino inteiro (Root Management Group) ou a grupos de gestão ou subscrições específicas. 
+As permissões Leitor de Segurança podem ser aplicadas de um modo amplo em todo um inquilino (Grupo de Gestão Raiz) ou dentro de âmbitos, como grupos de gestão ou subscrições específicas. 
 
-Nota: Podem ser necessárias permissões adicionais para obter visibilidade em cargas de trabalho e serviços. 
+Nota: para obter visibilidade para cargas de trabalho e serviços, poderão ser necessárias permissões adicionais. 
 
-- [Visão geral do papel do leitor de segurança](../../role-based-access-control/built-in-roles.md#security-reader)
+- [Descrição Geral da Função de Leitor de Segurança](../../role-based-access-control/built-in-roles.md#security-reader)
 
-- [Visão geral dos Grupos de Gestão Azure](../../governance/management-groups/overview.md)
+- [Descrição Geral dos Grupos de Gestão do Azure](../../governance/management-groups/overview.md)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -44,25 +44,25 @@ Nota: Podem ser necessárias permissões adicionais para obter visibilidade em c
 
 - [Gestão de Conformidade de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-## <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: Garantir que a equipa de segurança tem acesso ao inventário de ativos e metadados
+## <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: Garantir que a equipa de segurança tem acesso aos metadados e inventário dos recursos
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | AM-2 | 1.1, 1.2, 1.4, 1.5, 9.1, 12.1 | CM-8, PM-5 |
 
-Certifique-se de que as equipas de segurança têm acesso a um inventário continuamente atualizado de ativos em Azure. As equipas de segurança precisam frequentemente deste inventário para avaliar a exposição potencial da sua organização a riscos emergentes, e como um contributo para melhorias contínuas de segurança. 
+Certifique-se de que as equipas de segurança têm acesso a um inventário continuamente atualizado de ativos em Azure. As equipas de segurança, normalmente, precisam deste inventário para avaliar o potencial de exposição da organização a riscos emergentes e como um ponto de entrada para melhorias contínuas à segurança. 
 
 A funcionalidade de inventário do Azure Security Center e o Azure Resource Graph podem consultar e descobrir todos os recursos nas suas subscrições, incluindo serviços Azure, aplicações e recursos de rede.  
 
-Organizar logicamente ativos de acordo com a taxonomia da sua organização usando Tags, bem como outros metadados em Azure (Nome, Descrição e Categoria).  
+Organize logicamente os recursos de acordo com a taxonomia da organização, com as Etiquetas e com outros metadados no Azure (Nome, Descrição e Categoria).  
 
-- [Como criar consultas com o Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md)
+- [Como criar consultas com o Explorador do Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
 - [Gestão de inventário de ativos do Azure Security Center](../../security-center/asset-inventory.md)
 
-- [Para obter mais informações sobre a marcação de ativos, consulte o guia de decisão de nomeação e marcação de recursos](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
+- [Para obter mais informações sobre a marcação de ativos, consulte o guia de decisão de nomeação e marcação de recursos](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -70,21 +70,21 @@ Organizar logicamente ativos de acordo com a taxonomia da sua organização usan
 
 - [Gestão de Conformidade de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-## <a name="am-3-use-only-approved-azure-services"></a>AM-3: Utilize apenas serviços Azure aprovados
+## <a name="am-3-use-only-approved-azure-services"></a>AM-3: Utilizar apenas os serviços do Azure aprovados
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | AM-3 | 2.3, 2.4 | CM-7, CM-8 |
 
-Utilize a Política Azure para auditar e restringir quais os serviços que os utilizadores podem prestação no seu ambiente. Utilize o Gráfico de Recursos Azure para consultar e descobrir recursos dentro das suas subscrições.  Também pode utilizar o Azure Monitor para criar regras para desencadear alertas quando for detetado um serviço não aprovado.
+Utilize o Azure Policy para auditar e restringir que serviços os utilizadores podem aprovisionar no ambiente. Utilize o Azure Resource Graph para consultar e detetar recursos dentro das subscrições.  Também pode utilizar o Azure Monitor para criar regras para acionar alertas quando um serviço não aprovado for detetado.
 
 - [Configure e gere a Política Azure](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Como negar um tipo específico de recurso com a Política Azure](../../governance/policy/samples/index.md)
 
-- [Como criar consultas com o Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md)
+- [Como criar consultas com o Explorador do Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -92,19 +92,19 @@ Utilize a Política Azure para auditar e restringir quais os serviços que os ut
 
 - [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
 
-## <a name="am-4-ensure-security-of-asset-lifecycle-management"></a>AM-4: Garantir a segurança da gestão do ciclo de vida dos ativos
+## <a name="am-4-ensure-security-of-asset-lifecycle-management"></a>AM-4: Garanta a segurança da gestão do ciclo de vida dos ativos
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | AM-4 | 2.3, 2.4, 2.5 | CM-7, CM-8, CM-10, CM-11 |
 
-Estabeleça ou atualize políticas de segurança que abordem processos de gestão do ciclo de vida dos ativos para modificações de impacto potencialmente elevadas. Estas alterações incluem alterações a: fornecedores de identidade e acesso, sensibilidade de dados, configuração de rede e atribuição de privilégios administrativos.
+Estabeleça ou atualize políticas de segurança que abordem processos de gestão do ciclo de vida dos ativos para modificações de impacto potencialmente elevadas. Essas modificações incluem alterações a fornecedores de identidade e acesso, confidencialidade dos dados, configuração de rede e atribuição de privilégios administrativos.
 
-Remova os recursos de Azure quando já não forem necessários.
+Quando já não precisar dos recursos do Azure, remova-os.
 
-- [Eliminar grupo de recursos Escaure e recursos](../../azure-resource-manager/management/delete-resource-group.md)
+- [Eliminar grupos de recursos e recursos do Azure](../../azure-resource-manager/management/delete-resource-group.md)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -124,7 +124,7 @@ Utilize o Acesso Condicional AD Azure para limitar a capacidade dos utilizadores
 
 - [Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recursos Azure](../../role-based-access-control/conditional-access-azure-management.md)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -154,7 +154,7 @@ Também pode usar uma solução de terceiros para descobrir e identificar softwa
 
 - [Como controlar a execução do script PowerShell em ambientes Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 

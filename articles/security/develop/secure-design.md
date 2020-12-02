@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: ad3980db6348867e92664e314326d23b4274abcc
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 743412b7602e5781911cdf190e41a5ee15bfddd4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701573"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487682"
 ---
 # <a name="design-secure-applications-on-azure"></a>Design aplicações seguras em Azure
 Neste artigo apresentamos atividades de segurança e controlos a ter em conta quando desenha aplicações para a nuvem. São abrangidos os recursos de formação, juntamente com questões de segurança e conceitos a ter em conta durante as fases de requisitos e de conceção do Ciclo de Vida para o Desenvolvimento de Segurança da Microsoft [(SDL).](/previous-versions/windows/desktop/cc307891(v=msdn.10)) O objetivo é ajudá-lo a definir atividades e serviços Azure que você pode usar para desenhar uma aplicação mais segura.
@@ -157,7 +157,7 @@ Modelar o design da aplicação e enumerar ameaças [de STRIDE](https://docs.goo
 | Adulteração              | Integridade             | Validar certificados SSL/TLS. As aplicações que utilizam o SSL/TLS devem verificar plenamente os certificados X.509 das entidades a que se ligam. Utilize certificados Azure Key Vault para [gerir os seus certificados x509](../../key-vault/general/about-keys-secrets-certificates.md). |
 | Rejeição            | Não rejeição       | Ativar [a monitorização e diagnósticos do](/azure/architecture/best-practices/monitoring)Azure .|
 | Divulgação de Informações | Confidencialidade       | Criptografe dados sensíveis [em repouso](../fundamentals/encryption-atrest.md) e [em trânsito.](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit) |
-| Negação de Serviço      | Disponibilidade          | Monitorize as métricas de desempenho para potenciais condições de negação de serviço. Implementar filtros de ligação. [A proteção Azure DDoS,](../../virtual-network/ddos-protection-overview.md#next-steps)combinada com as melhores práticas de design de aplicações, fornece defesa contra ataques DDoS.|
+| Negação de Serviço      | Disponibilidade          | Monitorize as métricas de desempenho para potenciais condições de negação de serviço. Implementar filtros de ligação. [A proteção Azure DDoS,](../../ddos-protection/ddos-protection-overview.md#next-steps)combinada com as melhores práticas de design de aplicações, fornece defesa contra ataques DDoS.|
 | Elevação de Privilégios | Autorização         | Utilizar a Azure <span class="underline"> </span> Ative Directory [Gestão de Identidade Privilegiada](../../active-directory/privileged-identity-management/pim-configure.md).|
 
 ### <a name="reduce-your-attack-surface"></a>Reduza a sua superfície de ataque

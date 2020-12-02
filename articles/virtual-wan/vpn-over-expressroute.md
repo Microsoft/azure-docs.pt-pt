@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6c6f71277c276bed603989774637bd95999de333
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b8dde3ed76587e2343edaec8626287853ec6ef9b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023534"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487512"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Encriptação ExpressRoute: IPsec over ExpressRoute for Virtual WAN
 
@@ -95,7 +95,7 @@ O recurso do site é o mesmo que os sites VPN não ExpressRoute para um WAN virt
 
    Se o BGP estiver ativado, aplicar-se-á a todas as ligações criadas para este site em Azure. Configurar o BGP num WAN virtual equivale a configurar o BGP num gateway Azure VPN. 
    
-   O seu endereço de pares BGP no local *não deve* ser o mesmo que o endereço IP da sua VPN para o dispositivo ou o espaço de endereço de rede virtual do site VPN. Utilize um endereço IP diferente no dispositivo VPN para o seu IP de pares BGP. Pode ser um endereço atribuído à interface de loopback no dispositivo. No entanto, *não pode* ser uma APIPA (169.254.*x*. *x*) endereço. Especifique este endereço no portal de rede local correspondente que representa a localização. Para pré-requisitos BGP, consulte [Sobre o BGP com o Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
+   O seu endereço de pares BGP no local *não deve* ser o mesmo que o endereço IP da sua VPN para o dispositivo ou o espaço de endereço de rede virtual do site VPN. Utilize um endereço IP diferente no dispositivo VPN para o seu IP de pares BGP. Pode ser um endereço atribuído à interface de loopback no dispositivo. No entanto, *não pode* ser uma APIPA (169.254.*x*. *x*) endereço. Especifique este endereço no site VPN correspondente que representa a localização. Para pré-requisitos BGP, consulte [Sobre o BGP com o Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 1. Selecione **Seguinte: Revisão + criar >** para verificar os valores de definição e criar o site VPN. Se selecionou **Hubs** para ligar, a ligação será estabelecida entre a rede no local e o gateway VPN do hub.
 

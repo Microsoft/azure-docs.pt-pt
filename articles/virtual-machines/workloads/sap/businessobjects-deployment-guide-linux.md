@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 17b978d3f4faebd3870868bceeea4572288ecb07
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 647009854ef5a0c0811fc303914f724272f1a3f5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965362"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486662"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guia de implementação da plataforma de BI SAP BusinessObjects para Linux no Azure
 
@@ -615,7 +615,7 @@ Para outras implementações de DBMS para base de dados CMS consulte [guias de i
 
 O Servidor de Repositório de Ficheiros (FRS) refere-se aos diretórios de discos onde conteúdos como relatórios, universos e ligações são armazenados. Está a ser partilhado em todos os servidores de aplicações desse sistema. Por isso, tens de ter a certeza que está altamente disponível.
 
-No Azure, pode escolher [ficheiros Azure Premium](../../../storage/files/storage-files-introduction.md) ou [Ficheiros Azure NetApp](../../../azure-netapp-files/azure-netapp-files-introduction.md) para partilha de ficheiros que são projetados para serem de natureza altamente disponível e altamente durável. Para mais informações, consulte a secção [de redundância](https://docs.microsoft.com/azure/storage/files/storage-files-planning#redundancy) para ficheiros Azure.
+No Azure, pode escolher [ficheiros Azure Premium](../../../storage/files/storage-files-introduction.md) ou [Ficheiros Azure NetApp](../../../azure-netapp-files/azure-netapp-files-introduction.md) para partilha de ficheiros que são projetados para serem de natureza altamente disponível e altamente durável. Para mais informações, consulte a secção [de redundância](../../../storage/files/storage-files-planning.md#redundancy) para ficheiros Azure.
 
 > [!NOTE]
 > O Protocolo SMB para Ficheiros Azure está geralmente disponível, mas o suporte do Protocolo NFS para Ficheiros Azure está atualmente em pré-visualização. Para mais informações, consulte [o suporte NFS 4.1 para Ficheiros Azure está agora em pré-visualização](https://azure.microsoft.com/en-us/blog/nfs-41-support-for-azure-files-is-now-in-preview/)
@@ -667,7 +667,7 @@ O serviço de recuperação do site Azure pode ser usado para replicar máquinas
 
   Pode utilizar a replicação da região de ficheiros Azure NetApp, que está atualmente em [pré-visualização](https://azure.microsoft.com/en-us/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/) que utiliza a tecnologia ® NetApp SnapMirror. Assim, apenas os blocos alterados são enviados pela rede num formato comprimido e eficiente. Esta tecnologia proprietária minimiza a quantidade de dados necessários para se replicar em todas as regiões, o que poupa custos de transferência de dados. Também encurta o tempo de replicação para que possa alcançar um objetivo de ponto de restauro menor (RPO). Consulte [os Requisitos e considerações para a utilização da replicação entre regiões](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md) para obter mais informações.
 
-- **Os ficheiros premium Azure** só suportam armazenamento redundante localmente (LRS) e zona de armazenamento redundante (ZRS). Para a estratégia Azure Premium Files DR, pode utilizar [a AzCopy](../../../storage/common/storage-use-azcopy-v10.md) ou [a Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/) para copiar os seus ficheiros para outra conta de armazenamento numa região diferente. Para obter mais informações, consulte [a recuperação de desastres e a falha da conta de armazenamento](../../../storage/common/storage-disaster-recovery-guidance.md)
+- **Os ficheiros premium Azure** só suportam armazenamento redundante localmente (LRS) e zona de armazenamento redundante (ZRS). Para a estratégia Azure Premium Files DR, pode utilizar [a AzCopy](../../../storage/common/storage-use-azcopy-v10.md) ou [a Azure PowerShell](/powershell/module/az.storage/) para copiar os seus ficheiros para outra conta de armazenamento numa região diferente. Para obter mais informações, consulte [a recuperação de desastres e a falha da conta de armazenamento](../../../storage/common/storage-disaster-recovery-guidance.md)
 
 #### <a name="cms-database"></a>Base de dados CMS
 
@@ -695,4 +695,4 @@ Segue-se a recomendação para a recuperação de catástrofes de cada nível ut
 - [Configurar a recuperação de desastres para uma implementação de aplicativos SAP de vários níveis](../../../site-recovery/site-recovery-sap.md)
 - [Azure Virtual Machines planejamento e implementação para SAP](planning-guide.md)
 - [Implantação de máquinas virtuais Azure para SAP](deployment-guide.md)
-- [Implantação DBMS de máquinas virtuais Azure para SAP](dbms-guide.md)
+- [Implantação DBMS de máquinas virtuais Azure para SAP](./dbms_guide_general.md)

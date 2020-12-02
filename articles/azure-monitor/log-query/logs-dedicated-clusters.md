@@ -6,24 +6,23 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: d261640dfdb59b2b06cfe3066fca26640a0bed54
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: a68501bd1189993b4dd0c2acdecaa7434fa51dcc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874649"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488039"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor Logs Clusters Dedicados
 
-Azure Monitor Logs Clusters Dedicados são uma opção de implementação que está disponível para melhor servir clientes de alto volume. Os clientes que ingerem mais de 4 TB de dados por dia utilizarão clusters dedicados. Os clientes com clusters dedicados podem escolher os espaços de trabalho a serem hospedados nestes clusters.
+Azure Monitor Logs Clusters dedicados são uma opção de implementação que permite capacidade avançada para os clientes do Azure Monitor Logs. Os clientes com clusters dedicados podem escolher os espaços de trabalho a serem hospedados nestes clusters.
 
-Além do suporte para o volume elevado, existem outros benefícios de utilizar clusters dedicados:
+As capacidades que requerem agrupamentos dedicados são:
 
-- **Limite de taxa** - Um cliente pode ter [limites de taxa de ingestão mais elevados apenas](../service-limits.md#data-ingestion-volume-rate) em cluster dedicado.
-- **Funcionalidades** - Certas funcionalidades da empresa só estão disponíveis em clusters dedicados - especificamente teclas geridas pelo cliente (CMK) e suporte lockBox. 
-- **Consistência** - Os clientes têm os seus próprios recursos dedicados e por isso não há influência de outros clientes que executam na mesma infraestrutura partilhada.
-- **Eficiência de custos** - Pode ser mais rentável utilizar cluster dedicado, uma vez que os níveis de reserva de capacidade atribuídos têm em conta toda a ingestão de clusters e se aplicam a todos os seus espaços de trabalho, mesmo que alguns deles sejam pequenos e não elegíveis para desconto de reserva de capacidade.
-- As consultas **de espaço cross-work** correm mais rápido se todos os espaços de trabalho estiverem no mesmo cluster.
+- **[Keys geridas pelo cliente](../platform/customer-managed-keys.md)** - Criptografe os dados do cluster utilizando as chaves fornecidas e controladas pelo cliente.
+- **[Lockbox](../platform/customer-managed-keys.md#customer-lockbox-preview)** - Os clientes podem controlar os pedidos de acesso dos engenheiros de suporte da Microsoft.
+- **[A dupla encriptação](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** protege contra um cenário em que um dos algoritmos ou chaves de encriptação pode estar comprometido. Neste caso, a camada adicional de encriptação continua a proteger os seus dados.
+- **[Multi-workspace](../log-query/cross-workspace-query.md)** - Se um cliente estiver a usar mais do que um espaço de trabalho para a produção, pode fazer sentido usar cluster dedicado. As consultas de espaço de trabalho cruzado serão mais rápidas se todos os espaços de trabalho estiverem no mesmo aglomerado. Poderia também ser mais rentável utilizar o cluster dedicado, uma vez que os níveis de reserva de capacidade atribuídos têm em conta toda a ingestão de clusters e se aplicam a todos os seus espaços de trabalho, mesmo que alguns deles sejam pequenos e não elegíveis para desconto de reserva de capacidade.
 
 Os clusters dedicados exigem que os clientes se comprometam com uma capacidade de pelo menos 1 TB de ingestão de dados por dia. A migração para um cluster dedicado é simples. Não há perda de dados ou interrupção de serviço. 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 6ddce9bd8eaa57571cd3c3eac660806340db4b74
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: b6aaad9cce330d755fb69f8be48737f9a8f6c4a7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408673"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487750"
 ---
 # <a name="security-control-v2-network-security"></a>Controlo de Segurança V2: Segurança da rede
 
@@ -40,7 +40,7 @@ Utilize o Azure Sentinel para descobrir o uso de protocolos de insegurança como
 
 - [Livro de protocolos inseguros de Azure Sentinel](../../sentinel/quickstart-get-visibility.md#use-built-in-workbooks)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -68,7 +68,7 @@ Para ligar duas ou mais redes virtuais em Azure, utilize o espreitamento de rede
 
 - [Azure Private Link](../../private-link/private-link-service-overview.md)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -78,7 +78,7 @@ Para ligar duas ou mais redes virtuais em Azure, utilize o espreitamento de rede
 
 - [Segurança de Aplicações e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-## <a name="ns-3-establish-private-network-access-to-azure-services"></a>NS-3: Estabelecer acesso à rede privada aos serviços da Azure
+## <a name="ns-3-establish-private-network-access-to-azure-services"></a>NS-3: Estabelecer o acesso à rede privada para os serviços do Azure
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
@@ -92,7 +92,7 @@ O acesso privado é uma defesa adicional em profundidade, além da autenticaçã
 
 - [Compreender pontos finais de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -120,9 +120,9 @@ Proteja os recursos do Azure contra ataques de redes externas, incluindo ataques
 
 - [Como implantar a Azure WAF](../../web-application-firewall/overview.md)
 
-- [Gerir o Padrão de Proteção Azure DDoS utilizando o portal Azure](../../virtual-network/manage-ddos-protection.md)
+- [Gerir o Padrão de Proteção Azure DDoS utilizando o portal Azure](../../ddos-protection/manage-ddos-protection.md)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -144,7 +144,7 @@ Nota: Se tiver um requisito regulamentar ou outro para a utilização do IDS/IPS
 
 - [Capacidade ATP EDR do Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -170,7 +170,7 @@ Também pode utilizar grupos de segurança de aplicações para ajudar a simplif
 
 - [Compreender e utilizar grupos de segurança de aplicações](../../virtual-network/network-security-groups-overview.md#application-security-groups)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -196,7 +196,7 @@ Quando o Azure DNS for utilizado como o seu serviço de DNS autoritário, certif
 
 - [Evitar entradas de DNS pendentes e evitar a aquisição de subdomínios](../fundamentals/subdomain-takeover.md)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 

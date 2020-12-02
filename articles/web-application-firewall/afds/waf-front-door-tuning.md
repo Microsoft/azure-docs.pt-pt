@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: mohitku
 ms.reviewer: tyao
-ms.openlocfilehash: a24f9e78de34b17977a1876cbefb473cc2610db0
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 4c710792dd7966fad76b33954fdf7c2253cf18f0
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95550050"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488243"
 ---
 # <a name="tuning-web-application-firewall-waf-for-azure-front-door"></a>Firewall de aplicação web de afinação (WAF) para Azure Front Door
  
@@ -136,7 +136,7 @@ Um benefício da utilização de uma lista de exclusão é que apenas a variáve
  
 É importante considerar que as exclusões são um cenário global. Isto significa que a exclusão configurada se aplicará a todo o tráfego que passa pela sua WAF, e não apenas a uma aplicação web específica ou uri. Por exemplo, isto pode ser uma preocupação se *1=1* é um pedido válido no organismo para uma determinada aplicação web, mas não para outros sob a mesma política da WAF. Se fizer sentido utilizar diferentes listas de exclusão para diferentes aplicações, considere usar diferentes políticas waf para cada aplicação e aplicá-las no frontend de cada aplicação.
  
-Ao configurar listas de exclusão para regras geridas, pode optar por excluir todas as regras dentro de um conjunto de regras, todas as regras dentro de um grupo de regras ou uma regra individual. Uma lista de exclusão pode ser configurada usando [PowerShell,](https://docs.microsoft.com/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-4.7.0&viewFallbackFrom=azps-3.5.0) [Azure CLI,](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext_front_door_az_network_front_door_waf_policy_managed_rules_exclusion_add) [Rest API](https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)ou o portal Azure.
+Ao configurar listas de exclusão para regras geridas, pode optar por excluir todas as regras dentro de um conjunto de regras, todas as regras dentro de um grupo de regras ou uma regra individual. Uma lista de exclusão pode ser configurada usando [PowerShell,](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-4.7.0&viewFallbackFrom=azps-3.5.0) [Azure CLI,](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext_front_door_az_network_front_door_waf_policy_managed_rules_exclusion_add) [Rest API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)ou o portal Azure.
 
 * Exclusões ao nível de regras
   * A aplicação de exclusões a um nível de regra significa que as exclusões especificadas não serão analisadas apenas contra essa regra individual, enquanto ainda ser analisada por todas as outras regras do conjunto de regras. Este é o nível mais granular para exclusões, e pode ser usado para afinar a regra gerida definida com base nas informações que encontra nos registos da WAF ao resolver problemas num evento.
@@ -181,7 +181,7 @@ No exemplo abaixo, criámos uma regra personalizada com duas condições. A prim
 
 A utilização de uma regra personalizada permite-lhe ser o mais granular ao afinar as suas regras de WAF e lidar com falsos positivos. Neste caso, não estamos a tomar medidas apenas com base no valor corporal do `comment` pedido, que pode existir em vários sites ou aplicações sob a mesma política da WAF. Ao incluir outra condição para também corresponder a um pedido específico `/api/Feedbacks/` URI, garantimos que esta regra personalizada se aplica verdadeiramente a este caso de uso explícito que nós examinamos. Isto garante que o mesmo ataque, se realizado em diferentes condições, ainda seria inspecionado e impedido pelo motor WAF.
 
-![Registo](../media/waf-front-door-tuning/custom-rule.png)
+![Registar](../media/waf-front-door-tuning/custom-rule.png)
 
 Ao explorar o registo, pode ver que o `ruleName_s` campo contém o nome dado à regra personalizada que criamos: `redirectcomment` . No `action_s` campo, pode ver que a ação *de redirecionamento* foi tomada para este evento. No `details_matches_s` campo, podemos ver os detalhes de ambas as condições foram combinados.
 
@@ -193,7 +193,7 @@ Desativar uma regra é um benefício quando tem a certeza de que todos os pedido
  
 No entanto, desativar uma regra é um cenário global que se aplica a todos os anfitriões frontais associados à política da WAF. Quando optar por desativar uma regra, pode estar a deixar as vulnerabilidades expostas sem proteção ou deteção para quaisquer outros anfitriões de frontend associados à política WAF.
  
-Se pretender utilizar o Azure PowerShell para desativar uma regra gerida, consulte a documentação do [`PSAzureManagedRuleOverride`](https://docs.microsoft.com/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject?view=azps-4.7.0&preserve-view=true) objeto. Se quiser utilizar o Azure CLI, consulte a [`az network front-door waf-policy managed-rules override`](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override?view=azure-cli-latest&preserve-view=true) documentação.
+Se pretender utilizar o Azure PowerShell para desativar uma regra gerida, consulte a documentação do [`PSAzureManagedRuleOverride`](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject?preserve-view=true&view=azps-4.7.0) objeto. Se quiser utilizar o Azure CLI, consulte a [`az network front-door waf-policy managed-rules override`](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override?preserve-view=true&view=azure-cli-latest) documentação.
 
 ![Regras da WAF](../media/waf-front-door-tuning/waf-rules.png)
 

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/06/2020
 ms.author: amsriva
-ms.openlocfilehash: b9154b124f89a8b672c58d5e7bce28c0833e8a8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9d7fb8be1894ffa5f8c35e16e1ed3aa0949b3ff
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84988043"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488209"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>VPN Gateway clássico para migração de Gestor de Recursos
 Os Gateways VPN podem agora ser migrados do modelo de implementação clássico para o Gestor de Recursos. Pode ler mais sobre [funcionalidades e benefícios](../azure-resource-manager/management/overview.md)do Azure Resource Manager . Neste artigo, detalhamos como migrar de implementações clássicas para um modelo mais recente baseado em Gestor de Recursos. 
 
-Os Gateways VPN são migrados como parte da migração da VNet do clássico para o Gestor de Recursos. Esta migração é feita um VNet de cada vez. Não existe qualquer exigência adicional em termos de ferramentas ou pré-requisitos para a migração. As etapas de migração são idênticas à migração vnet existente e estão documentadas na [página de migração de recursos iaaS.](../virtual-machines/windows/migration-classic-resource-manager-ps.md) Não existe uma trajetória de inatividade durante a migração e, por conseguinte, as cargas de trabalho existentes continuariam a funcionar sem perda de conectividade no local durante a migração. O endereço IP público associado ao gateway VPN não muda durante o processo de migração. Isto implica que não precisará de reconfigurar o seu router no local uma vez que a migração esteja concluída.  
+Os Gateways VPN são migrados como parte da migração da VNet do clássico para o Gestor de Recursos. Esta migração é feita um VNet de cada vez. Não existe qualquer exigência adicional em termos de ferramentas ou pré-requisitos para a migração. As etapas de migração são idênticas à migração vnet existente e estão documentadas na [página de migração de recursos iaaS.](../virtual-machines/migration-classic-resource-manager-ps.md) Não existe uma trajetória de inatividade durante a migração e, por conseguinte, as cargas de trabalho existentes continuariam a funcionar sem perda de conectividade no local durante a migração. O endereço IP público associado ao gateway VPN não muda durante o processo de migração. Isto implica que não precisará de reconfigurar o seu router no local uma vez que a migração esteja concluída.  
 
 O modelo em Resource Manager é diferente do modelo clássico e é composto por gateways de rede virtuais, gateways de rede locais e recursos de conexão. Estes representam a própria porta de entrada VPN, o local que representa no espaço de endereço das instalações e a conectividade entre os dois, respectivamente. Uma vez concluída a migração, os seus gateways não estariam disponíveis no modelo clássico e todas as operações de gestão em gateways de rede virtuais, gateways de rede locais e objetos de conexão devem ser realizados usando o modelo de Gestor de Recursos.
 
@@ -66,5 +66,4 @@ Uma vez que transformamos a conectividade VNet para VNet sem exigir sites locais
 * Estabeleça uma ligação explícita do VNet afetado à porta de entrada de rede local que representa a localização no local. Isto exigiria igualmente a alteração da configuração no router no local para criar e configurar o túnel IPsec.
 
 ## <a name="next-steps"></a>Passos seguintes
-Depois de aprender sobre o suporte de migração de gateway VPN, vá para a [migração apoiada pela plataforma de recursos IaaS de clássico para Gestor de Recursos](../virtual-machines/windows/migration-classic-resource-manager-ps.md) para começar.
-
+Depois de aprender sobre o suporte de migração de gateway VPN, vá para a [migração apoiada pela plataforma de recursos IaaS de clássico para Gestor de Recursos](../virtual-machines/migration-classic-resource-manager-ps.md) para começar.

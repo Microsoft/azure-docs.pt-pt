@@ -4,16 +4,16 @@ description: Conheça os Azure Analysis Services, uma plataforma totalmente geri
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/19/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 496b2ea7272be96774d4bd0900fc35c6de8cf9eb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e70d02c02ba9a3f14d1659851919fbccf71776d1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457775"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487359"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -243,7 +243,7 @@ O Azure Analysis Services também suporta a utilização de [Vistas de Gestão D
 
 Esta secção inclui documentação específica do Azure Analysis Services. Utilize o índice no lado esquerdo do ecrã do browser para localizar artigos. 
 
-Como os modelos tabulares nos Serviços de Análise Azure são praticamente os mesmos que os modelos tabulares nos Serviços de Análise de Servidores SQL e conjuntos de dados Power BI Premium, há uma extensa biblioteca de tutoriais de modelação de dados partilhados, conceptuais, processuais, desenvolvedores e artigos de referência na [documentação dos Serviços de Análise.](/analysis-services/?view=azure-analysis-services-current) Os artigos na documentação dos Serviços de Análise partilhada mostram se também se aplicam aos Serviços de Análise Azure por um banner APPLY TO por baixo do título. Também pode utilizar o seletor de versão acima da tabela de conteúdos para ver apenas os artigos que se aplicam à plataforma que está a utilizar.
+Como os modelos tabulares nos Serviços de Análise Azure são praticamente os mesmos que os modelos tabulares nos Serviços de Análise de Servidores SQL e conjuntos de dados Power BI Premium, há uma extensa biblioteca de tutoriais de modelação de dados partilhados, conceptuais, processuais, desenvolvedores e artigos de referência na [documentação dos Serviços de Análise.](/analysis-services/?view=azure-analysis-services-current&preserve-view=true) Os artigos na documentação dos Serviços de Análise partilhada mostram se também se aplicam aos Serviços de Análise Azure por um banner APPLY TO por baixo do título. Também pode utilizar o seletor de versão acima da tabela de conteúdos para ver apenas os artigos que se aplicam à plataforma que está a utilizar.
 
 ![Documentação partilhada](./media/analysis-services-overview/aas-overview-applies-to.png)
 

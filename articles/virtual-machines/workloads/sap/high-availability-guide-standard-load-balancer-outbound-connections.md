@@ -14,21 +14,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/16/2020
+ms.date: 12/01/2020
 ms.author: radeltch
-ms.openlocfilehash: a6b62e9c894c25b2c3cd064524881ae5db51ec5a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9c9979699b5bcb3636adc0f9b58331568ea9cad1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968541"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486307"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividade de ponto final público para máquinas virtuais usando O Balançador de Carga Padrão Azure em cenários de alta disponibilidade SAP
 
 O âmbito deste artigo é descrever configurações que permitirão a conectividade de saída ao ponto final público.s. As configurações são principalmente no contexto de Alta Disponibilidade com Pacemaker para SUSE/RHEL.  
 
-Se estiver a utilizar o Pacemaker com o agente de cerca Azure na sua solução de alta disponibilidade, então os VMs devem ter conectividade de saída com a API de gestão Azure.  
-O artigo apresenta várias opções para que possa selecionar a opção mais adequada para o seu cenário.  
+Se estiver a utilizar o Pacemaker com o agente de cerca Azure na sua solução de alta disponibilidade, então os VMs devem ter conectividade de saída com a API de gestão Azure. O artigo apresenta várias opções para que possa selecionar a opção mais adequada para o seu cenário.  
 
 ## <a name="overview"></a>Descrição geral
 
@@ -42,12 +41,12 @@ Quando os VMs sem endereços IP públicos são colocados no pool de backend de s
 
 Se um VM for atribuído um endereço IP público, ou se o VM estiver no pool de backend de um equilibrador de carga com endereço IP público, terá conectividade de saída para pontos finais públicos.  
 
-Os sistemas SAP contêm frequentemente dados empresariais sensíveis. Raramente é aceitável que os VM que acolhem sistemas SAP tenham endereços IP públicos. Ao mesmo tempo, existem cenários que exigiriam conectividade de saída do VM para pontos finais públicos.  
+Os sistemas SAP contêm frequentemente dados empresariais sensíveis. Raramente é aceitável que os VM que hospedam sistemas SAP sejam acessíveis através de endereços IP públicos. Ao mesmo tempo, existem cenários que exigiriam conectividade de saída do VM para pontos finais públicos.  
 
 Exemplos de cenários que exigem acesso ao ponto final público do Azure são:  
-- Usando o Agente da Cerca de Azure como um mecanismo de esgrima em clusters pacemaker
-- Azure Backup
-- Azure Site Recovery  
+- Agente da Cerca de Azure requer acesso a **management.azure.com** e **login.microsoftonline.com**  
+- [Azure Backup](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity)
+- [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls)  
 - Utilização de repositório público para remendar o sistema Operativo
 - O fluxo de dados da aplicação SAP pode exigir conectividade de saída ao ponto final público
 
@@ -70,7 +69,7 @@ Leia primeiro os seguintes artigos:
 * [Redes Virtuais -Regras definidas pelo utilizador](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) - Conceitos e regras de encaminhamento Azure  
 * [Tags de serviço grupos de segurança](../../../virtual-network/network-security-groups-overview.md#service-tags) - como simplificar os seus Grupos de Segurança de Rede e configuração de Firewall com tags de serviço
 
-## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Balançador de carga padrão Azure externo adicional para ligações de saída à internet
+## <a name="option-1-additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Opção 1: Balançador de carga padrão Azure externo adicional para ligações de saída à Internet
 
 Uma opção para alcançar a conectividade de saída para os pontos finais públicos, sem permitir a conectividade de entrada para o VM a partir do ponto final público, é criar um segundo equilibrador de carga com endereço IP público, adicionar os VMs ao pool de backend do segundo equilibrador de carga e definir apenas [regras](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules)de saída .  
 Utilize [grupos de segurança de rede](../../../virtual-network/network-security-groups-overview.md) para controlar os pontos finais do público, que estão acessíveis para chamadas de saída do VM.  
@@ -120,7 +119,7 @@ A configuração seria como:
 
    Para obter mais informações sobre os grupos de segurança da Rede Azure, consulte [os Grupos de Segurança ](../../../virtual-network/network-security-groups-overview.md). 
 
-## <a name="azure-firewall-for-outbound-connections-to-internet"></a>Azure Firewall para ligações de saída à internet
+## <a name="option-2-azure-firewall-for-outbound-connections-to-internet"></a>Opção 2: Firewall Azure para ligações de saída à internet
 
 Outra opção para alcançar a conectividade de saída para os pontos finais públicos, sem permitir a conectividade de entrada para o VM a partir de pontos finais públicos, é com o Azure Firewall. O Azure Firewall é um serviço gerido, com alta disponibilidade incorporada e pode abranger várias Zonas de Disponibilidade.  
 Também terá de implantar a Rota Definida pelo [Utilizador,](../../../virtual-network/virtual-networks-udr-overview.md#custom-routes)associada à sub-rede onde estão implantados VMs e o equilibrador de carga Azure, apontando para a firewall Azure, para encaminhar o tráfego através da Firewall Azure.  
@@ -170,7 +169,7 @@ A arquitetura seria como:
    1. Nome da rota: ToMyAzureFirewall, Prefixo do endereço: **0.0.0.0/0**. Próximo tipo de lúpulo: Selecione Aparelho Virtual. Próximo endereço de lúpulo: insira o endereço IP privado da firewall configurado: **11.97.1.4**.  
    1. Guardar
 
-## <a name="using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Utilização de Proxy para chamadas de Pacemaker para Azure Management API
+## <a name="option-3-using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Opção 3: Utilização de Proxy para chamadas de Pacemaker para AZure Management API
 
 Você poderia usar proxy para permitir chamadas pacemaker para o azure management API ponto final público.  
 
@@ -221,9 +220,9 @@ Para permitir que o pacemaker comunique com a API de gestão Azure, execute os s
      sudo pcs property set maintenance-mode=false
      ```
 
-## <a name="other-solutions"></a>Outras soluções
+## <a name="other-options"></a>Outras opções
 
-Se o tráfego de saída for encaminhado através de firewall de terceiros:
+Se o tráfego de saída for encaminhado por terceiros, o proxy de firewall baseado em URL:
 
 - se utilizar o agente de cerca Azure certifique-se de que a configuração da firewall permite a conectividade de saída à API de gestão Azure: `https://management.azure.com``https://login.microsoftonline.com`   
 - se utilizar a infraestrutura de atualização de nuvem pública Azure da SUSE para aplicar atualizações e patches, consulte [a Infraestrutura de Atualização da Nuvem Pública do Azure 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 86f3ef8ccac83cdc939cff5572dd81e78137d396
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 83da8cbf3a87570cfb967e0a6c8da3f0f2ed1766
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968728"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486747"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Arquiteturas de referência para Oracle Database Enterprise Edition em Azure
 
@@ -207,12 +207,12 @@ Durante o pedido inicial, o servidor de aplicações conecta-se ao diretor de fr
 
 Ao implementar as suas cargas de trabalho da Oracle para o Azure, a Microsoft cuida de todos os patchings de nível OS do hospedeiro. Qualquer manutenção planeada ao nível do SO é comunicada antecipadamente aos clientes para permitir ao cliente esta manutenção planeada. Dois servidores de duas zonas de disponibilidade diferentes nunca são remendados simultaneamente. Consulte [Gerir a disponibilidade de máquinas virtuais](../../manage-availability.md) para obter mais detalhes sobre manutenção e remendos em VM. 
 
-Remendar o sistema operativo da máquina virtual pode ser automatizado utilizando [a Azure Automation Update Management](../../../automation/update-management/update-mgmt-overview.md). Remendar e manter a base de dados oracle pode ser automatizado e programado usando [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) ou [Azure Automation Update Management](../../../automation/update-management/update-mgmt-overview.md) para minimizar o tempo de inatividade. Consulte [a Entrega Contínua e As Implementações Azuis/Verdes](/azure/devops/learn/what-is-continuous-delivery) para entender como pode ser usada no contexto das suas bases de dados Oráculos.
+Remendar o sistema operativo da máquina virtual pode ser automatizado utilizando [a Azure Automation Update Management](../../../automation/update-management/overview.md). Remendar e manter a base de dados oracle pode ser automatizado e programado usando [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) ou [Azure Automation Update Management](../../../automation/update-management/overview.md) para minimizar o tempo de inatividade. Consulte [a Entrega Contínua e As Implementações Azuis/Verdes](/azure/devops/learn/what-is-continuous-delivery) para entender como pode ser usada no contexto das suas bases de dados Oráculos.
 
 ## <a name="architecture-and-design-considerations"></a>Considerações de arquitetura e design
 
 - Considere usar a [máquina virtual otimizada de memória hiperligada](../../sizes-memory.md) com [vCPUs de núcleo limitado](../../../virtual-machines/constrained-vcpu.md) para o seu Oracle Database VM para economizar nos custos de licenciamento e maximizar o desempenho. Utilize vários discos premium ou ultra (discos geridos) para desempenho e disponibilidade.
-- Ao utilizar discos geridos, o nome do disco/dispositivo pode ser alterado em reboots. Recomenda-se que utilize o dispositivo UUID em vez do nome para garantir que os seus suportes persistam em reboots. Mais informações podem ser [encontradas aqui.](../../../virtual-machines/linux/configure-raid.md#add-the-new-file-system-to-etcfstab)
+- Ao utilizar discos geridos, o nome do disco/dispositivo pode ser alterado em reboots. Recomenda-se que utilize o dispositivo UUID em vez do nome para garantir que os seus suportes persistam em reboots. Mais informações podem ser [encontradas aqui.](/previous-versions/azure/virtual-machines/linux/configure-raid#add-the-new-file-system-to-etcfstab)
 - Utilize zonas de disponibilidade para obter uma elevada disponibilidade na região.
 - Considere utilizar discos ultra (quando disponíveis) ou discos premium para a sua base de dados Oracle.
 - Considere criar uma base de dados de standby Oracle em outra região de Azure usando a Oracle Data Guard.

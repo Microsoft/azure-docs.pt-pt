@@ -31,6 +31,10 @@
       href: concepts-built-in-policy.md
     - name: Artefacto de definição de função
       href: concepts-custom-role-definition.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
 - name: Guias de procedimentos
   items:
     - name: Editores
@@ -40,7 +44,7 @@
         - name: Testar interface do portal
           href: test-createuidefinition.md
         - name: Criar uma oferta de aplicações do Azure
-          href: ../../marketplace/partner-center-portal/create-new-azure-apps-offer.md?toc=/azure/azure-resource-manager/managed-applications/toc.json
+          href: ../../marketplace/create-new-azure-apps-offer.md?toc=/azure/azure-resource-manager/managed-applications/toc.json
         - name: Pedir acesso just-in-time
           href: request-just-in-time-access.md
         - name: Utilizar a rede virtual existente

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ce9ab371c0ed1e81cf1dfb53fca7e359e1aeb35
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9a907f2a6fc54c96dbef9f2091a91cac50bbd4ca
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967504"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486526"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações e operações de infraestrutura do SAP HANA no Azure
 Este documento fornece orientações para configurar a infraestrutura Azure e operar sistemas SAP HANA que são implantados em máquinas virtuais nativas do Azure (VMs). O documento também inclui informações de configuração para a escala SAP HANA para o M128s VM SKU. Este documento não se destina a substituir a documentação padrão SAP, que inclui o seguinte conteúdo:
@@ -245,8 +245,8 @@ De acordo com a orientação de boas práticas DT 2.0, a produção de IO do dis
 É necessário anexar vários discos Azure ao DT 2.0 VM e criar uma raid de software (striping) ao nível de SO para atingir o limite máximo de produção de disco por VM. Um único disco Azure não pode fornecer a produção para atingir o limite máximo de VM a este respeito. O armazenamento Azure Premium é obrigatório para executar DT 2.0. 
 
 - Detalhes sobre os tipos de discos Azure disponíveis podem ser encontrados [aqui](../../disks-types.md)
-- Detalhes sobre a criação de raid de software via mdadm podem ser encontrados [aqui](../../linux/configure-raid.md)
-- Detalhes sobre a configuração da LVM para criar um volume listrado para a produção máxima podem ser encontrados [aqui](../../linux/configure-lvm.md)
+- Detalhes sobre a criação de raid de software via mdadm podem ser encontrados [aqui](/previous-versions/azure/virtual-machines/linux/configure-raid)
+- Detalhes sobre a configuração da LVM para criar um volume listrado para a produção máxima podem ser encontrados [aqui](/previous-versions/azure/virtual-machines/linux/configure-lvm)
 
 Dependendo dos requisitos de tamanho, existem diferentes opções para alcançar o rendimento máximo de um VM. Aqui estão possíveis configurações de disco de volume de dados para cada tipo DT 2.0 VM para atingir o limite superior de produção de VM. O E32sv3 VM deve ser considerado como um nível de entrada para cargas de trabalho mais pequenas. No caso de se revelar que não é rápido o suficiente, pode ser necessário redimensionar o VM para M64-32ms.
 Como o VM M64-32ms tem muita memória, a carga de IO pode não atingir o limite especialmente para a leitura de cargas de trabalho intensivas. Portanto, menos discos no conjunto de listras podem ser suficientes dependendo da carga de trabalho específica do cliente. Mas para estar no lado seguro as configurações do disco abaixo foram escolhidas para garantir a máxima produção:
@@ -324,4 +324,3 @@ Familiarize-se com os artigos listados
 - [Implementar um sistema de escala SAP HANA com nó de espera em VMs Azure utilizando ficheiros Azure NetApp no Red Hat Enterprise Linux](./sap-hana-scale-out-standby-netapp-files-rhel.md)
 - [Alta disponibilidade de SAP HANA em VMs Azure no SUSE Linux Enterprise Server](./sap-hana-high-availability.md)
 - [Alta disponibilidade de SAP HANA em VMs Azure em Red Hat Enterprise Linux](./sap-hana-high-availability-rhel.md)
-

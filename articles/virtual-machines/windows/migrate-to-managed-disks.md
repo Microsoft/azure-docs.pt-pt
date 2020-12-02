@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 8b7490723d3930a151abf1d3f72bb957e02e5988
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d88792f50e0e79dd0313694cf979761054551eac
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975506"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487529"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrar VMs Azure para Discos Geridos em Azure
 
@@ -27,7 +27,7 @@ Pode migrar para Discos Geridos em seguintes cenários:
 |---------|---------|
 |Converter VMs autónomas e VMs num conjunto de disponibilidade para discos geridos     |[Converter VMs para utilizar discos geridos](convert-unmanaged-to-managed-disks.md)         |
 |Converter um único VM do clássico para o Gestor de Recursos em discos geridos     |[Criar um VM a partir de um VHD clássico](create-vm-specialized-portal.md)         |
-|Converter todos os VMs num vNet de clássico para Gestor de Recursos em discos geridos     |[Migrar recursos iaaS do clássico para o Gestor de Recursos](migration-classic-resource-manager-ps.md) e depois converter um [VM de discos não geridos para discos geridos](convert-unmanaged-to-managed-disks.md)         |
+|Converter todos os VMs num vNet de clássico para Gestor de Recursos em discos geridos     |[Migrar recursos iaaS do clássico para o Gestor de Recursos](../migration-classic-resource-manager-ps.md) e depois converter um [VM de discos não geridos para discos geridos](convert-unmanaged-to-managed-disks.md)         |
 |Atualizar VMs com discos não geridos padrão para VMs com discos premium geridos     | Em primeiro lugar, [converta uma máquina virtual windows de discos não geridos para discos geridos](convert-unmanaged-to-managed-disks.md). Em [seguida, atualize o tipo de armazenamento de um disco gerido](convert-disk-storage.md).         |
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]

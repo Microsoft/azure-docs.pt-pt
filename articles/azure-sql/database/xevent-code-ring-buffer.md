@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: d73efd7a64d0118cea11ca9b0a35f659ce7fee6a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a646588616b874e40b1ed2a5a0b5e691b075075d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791295"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487308"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Código-alvo do tampão de anel para eventos prolongados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,10 +28,10 @@ Você quer uma amostra de código completa para a maneira mais fácil de captura
 Este tópico apresenta uma amostra de código Transact-SQL que:
 
 1. Cria uma tabela com dados para demonstrar.
-2. Cria uma sessão para um evento alargado existente, nomeadamente **sqlserver.sql_statement_starting** .
+2. Cria uma sessão para um evento alargado existente, nomeadamente **sqlserver.sql_statement_start .**
 
-   * O evento está limitado a declarações SQL que contêm uma determinada cadeia de atualização: **declaração como '%UPDATE tabEmployee%'** .
-   * Opta por enviar a saída do evento para um alvo do tipo Tampão de Anel, nomeadamente  **package0.ring_buffer** .
+   * O evento está limitado a declarações SQL que contêm uma determinada cadeia de atualização: **declaração como '%UPDATE tabEmployee%'**.
+   * Opta por enviar a saída do evento para um alvo do tipo Tampão de Anel, nomeadamente  **package0.ring_buffer**.
 3. Começa a sessão do evento.
 4. Emite um par de declarações simples SQL UPDATE.
 5. Emite uma declaração SQL SELECT para recuperar a saída do evento a partir do tampão de anel.
@@ -218,9 +218,9 @@ GO
 
 Costumávamos `ssms.exe` analisar a amostra de código.
 
-Para ver os resultados, clicamos na célula sob o cabeçalho da coluna **target_data_XML** .
+Para ver os resultados, clicamos na célula sob o cabeçalho da coluna **target_data_XML**.
 
-Em seguida, no painel de resultados clicamos na célula sob o cabeçalho da coluna **target_data_XML** . Este clique criou outro separador de ficheiros em ssms.exe em que o conteúdo da célula de resultados foi apresentado, como XML.
+Em seguida, no painel de resultados clicamos na célula sob o cabeçalho da coluna **target_data_XML**. Este clique criou outro separador de ficheiros em ssms.exe em que o conteúdo da célula de resultados foi apresentado, como XML.
 
 A saída é mostrada no bloco seguinte. Parece longo, mas são **\<event>** apenas dois elementos.
 
