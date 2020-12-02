@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: f22a8f085938f5a3cc3e7a748391a9048129296c
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: b03db9632f5f47a7600c5b9037d16b1cff6ccf69
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888373"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344254"
 ---
 # <a name="buy-a-reservation"></a>Comprar uma reserva
 
@@ -81,7 +81,7 @@ Pode comprar reservas no portal, nas APIs, no PowerShell e na CLI do Azure. Leia
 - [Base de Dados do Azure para MySQL](../../mysql/concept-reserved-pricing.md)
 - [Azure Database for MariaDB](../../mariadb/concept-reserved-pricing.md)
 - [Azure Synapse Analytics](prepay-sql-data-warehouse-charges.md)
-- [Máquinas virtuais](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Máquinas virtuais](../../virtual-machines/prepay-reserved-vm-instances.md)
 
 ## <a name="buy-reservations-with-monthly-payments"></a>Comprar reservas com pagamentos mensais
 

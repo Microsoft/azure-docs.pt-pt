@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contentperfq2
-ms.openlocfilehash: 2c533ea08534444e5bf8d8d57d585e2bf975a93b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1dca2fa938c26ba45f162fae962aec0bfaf6cef7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677388"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353039"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>O que é o Azure Cost Management + Faturação?
 
@@ -43,11 +43,11 @@ Ao inscrever-se para utilizar o Azure, é criada uma conta de faturação. Utili
 
 O portal do Azure suporta atualmente os seguintes tipos de contas de faturação:
 
-- **Programa Microsoft Online Services** : é criada uma conta de faturação individual para um Programa Microsoft Online Services quando se inscrever no Azure através do site do Azure. Por exemplo, quando se inscreve numa Conta Gratuita do Azure, conta com tarifas pay as you go ou como subscritor do Visual Studio.
+- **Programa Microsoft Online Services**: é criada uma conta de faturação individual para um Programa Microsoft Online Services quando se inscrever no Azure através do site do Azure. Por exemplo, quando se inscreve numa Conta Gratuita do Azure, conta com tarifas pay as you go ou como subscritor do Visual Studio.
 
-- **Contrato Enterprise** : uma conta de faturação para um Contrato Enterprise é criada quando a sua organização assina um Contrato Enterprise (EA) para utilizar o Azure.
+- **Contrato Enterprise**: uma conta de faturação para um Contrato Enterprise é criada quando a sua organização assina um Contrato Enterprise (EA) para utilizar o Azure.
 
-- **Contrato de Cliente da Microsoft** : uma conta de faturação para um Contrato de Cliente Microsoft é criada quando a sua organização trabalha com um representante da Microsoft para assinar um Contrato de Cliente da Microsoft. Alguns clientes em determinadas regiões, que se inscrevem no site do Azure numa conta com tarifas pay as you go ou atualizam a respetiva Conta Gratuita do Azure, também podem ter uma conta de faturação para um Contrato de Cliente da Microsoft.
+- **Contrato de Cliente da Microsoft**: uma conta de faturação para um Contrato de Cliente Microsoft é criada quando a sua organização trabalha com um representante da Microsoft para assinar um Contrato de Cliente da Microsoft. Alguns clientes em determinadas regiões, que se inscrevem no site do Azure numa conta com tarifas pay as you go ou atualizam a respetiva Conta Gratuita do Azure, também podem ter uma conta de faturação para um Contrato de Cliente da Microsoft.
 
 ### <a name="scopes-for-billing-accounts"></a>Âmbitos de contas de faturação
 Um âmbito é um nó numa conta de faturação que utiliza para ver e gerir a faturação. É onde gere os dados de faturação, os pagamentos, as faturas e onde realiza a gestão global da conta.
@@ -108,7 +108,7 @@ Cloudyn é um serviço do Azure relacionado com o Cost Management, que está a s
 O Azure tem outras ferramentas que não fazem parte do conjunto de funcionalidades Azure Cost Management + Faturação. No entanto, desempenham um papel importante no processo de gestão de custos. Para saber mais sobre estas ferramentas, veja as ligações seguintes.
 
 - [Calculadora de Preços do Azure](https://azure.microsoft.com/pricing/calculator/): utilize esta ferramenta para estimar os seus custos iniciais com a cloud.
-- [Azure Migrate](/azure/migrate/migrate-services-overview): avalie a carga de trabalho do seu datacenter atual para obter informações sobre o que precisa numa solução de substituição do Azure.
+- [Azure Migrate](../migrate/migrate-services-overview.md): avalie a carga de trabalho do seu datacenter atual para obter informações sobre o que precisa numa solução de substituição do Azure.
 - [Assistente do Azure](../advisor/advisor-overview.md): identifique VMs não utilizadas e obtenha recomendações sobre compras de instâncias reservadas do Azure.
 - [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/): utilize as suas licenças do Windows Server ou SQL Server atuais no local para que as VMs no Azure as guardem.
 

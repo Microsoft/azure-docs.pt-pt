@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 15e45143d1da5ac405b3e408df197ab04b4dea39
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 0f4f4d934361f1e59eceaaccca680f0cf155bb04
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412277"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348964"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introdução ao portal Azure Enterprise
 
@@ -44,33 +44,33 @@ Para ajudar a gerir a utilização e o gasto da sua organização, os clientes d
 - Administrador de Departamento (só de leitura)
 - Proprietário da Conta
 
-Cada função tem um grau variável de limites e permissões de utilizador. Para obter mais informações, veja [Estrutura e permissões da organização por função](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-ea-roles#organization-structure-and-permissions-by-role).
+Cada função tem um grau variável de limites e permissões de utilizador. Para obter mais informações, veja [Estrutura e permissões da organização por função](./understand-ea-roles.md#organization-structure-and-permissions-by-role).
 
 ## <a name="activate-your-enrollment-create-a-subscription-and-other-administrative-tasks"></a>Ativar o registo, criar uma subscrição e outras tarefas administrativas
 
-Para obter mais informações sobre como ativar o seu registo, criar um departamento ou uma subscrição, adicionar administradores e proprietários de conta, e outras tarefas administrativas, veja [Administração do Azure EA Portal](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-administration).
+Para obter mais informações sobre como ativar o seu registo, criar um departamento ou uma subscrição, adicionar administradores e proprietários de conta, e outras tarefas administrativas, veja [Administração do Azure EA Portal](./ea-portal-administration.md).
 
-Se quiser saber mais sobre como transferir uma subscrição Enterprise para uma subscrição Pay As You Go, veja [Transferências do Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-transfers).
+Se quiser saber mais sobre como transferir uma subscrição Enterprise para uma subscrição Pay As You Go, veja [Transferências do Azure Enterprise](./ea-transfers.md).
 
 ## <a name="view-usage-summary-and-download-reports"></a>Ver o resumo de utilização e os relatórios de transferências
 
 Pode gerir e agir na fatura do Azure EA. A fatura é uma representação da sua conta e deve analisar a sua precisão.
 
-Para ver o resumo de utilização, transferir relatórios e gerir faturas de registo, veja [Faturas de registo do Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-enrollment-invoices).
+Para ver o resumo de utilização, transferir relatórios e gerir faturas de registo, veja [Faturas de registo do Azure Enterprise](./ea-portal-enrollment-invoices.md).
 
 ## <a name="now-that-youre-familiar-with-the-basics-here-are-some-additional-links-to-help-you-get-onboarded"></a>Agora que está familiarizado com os conceitos básicos, seguem-se algumas ligações adicionais para o ajudar na integração
 
-Os [preços do Azure EA](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-pricing-overview) fornecem detalhes sobre como é calculada a utilização e os custos de vários serviços do Azure no Contrato Enterprise em que os cálculos são mais complexos.
+Os [preços do Azure EA](./ea-pricing-overview.md) fornecem detalhes sobre como é calculada a utilização e os custos de vários serviços do Azure no Contrato Enterprise em que os cálculos são mais complexos.
 
-Se quiser saber mais sobre como as reservas do Azure para instâncias reservadas de VM o podem ajudar a economizar dinheiro com a sua inscrição Enterprise, veja [Instâncias reservadas de VM do Azure EA](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-vm-reservations).
+Se quiser saber mais sobre como as reservas do Azure para instâncias reservadas de VM o podem ajudar a economizar dinheiro com a sua inscrição Enterprise, veja [Instâncias reservadas de VM do Azure EA](./ea-portal-vm-reservations.md).
 
-Para obter informações sobre que APIs REST deve utilizar no registo do Azure Enterprise e uma explicação sobre como resolver problemas comuns com APIs REST, veja [APIs REST do Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+Para obter informações sobre que APIs REST deve utilizar no registo do Azure Enterprise e uma explicação sobre como resolver problemas comuns com APIs REST, veja [APIs REST do Azure Enterprise](./ea-portal-rest-apis.md).
 
-[Contratos e emendas do Azure EA](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) descreve como os contratos e as emendas do Azure EA podem afetar o acesso, a utilização e os pagamentos dos serviços do Azure.
+[Contratos e emendas do Azure EA](./ea-portal-agreements.md) descreve como os contratos e as emendas do Azure EA podem afetar o acesso, a utilização e os pagamentos dos serviços do Azure.
 
-[Azure Marketplace](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-azure-marketplace) explica como os clientes e parceiros EA podem ver os custos do marketplace e permitir compras no Azure Marketplace.
+[Azure Marketplace](./ea-azure-marketplace.md) explica como os clientes e parceiros EA podem ver os custos do marketplace e permitir compras no Azure Marketplace.
 
-Para obter explicações sobre as tarefas comuns que um administrador do EA para parceiros realiza no Azure EA Portal, veja [Administração do Azure EA Portal para parceiros](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-partner-portal-administration).
+Para obter explicações sobre as tarefas comuns que um administrador do EA para parceiros realiza no Azure EA Portal, veja [Administração do Azure EA Portal para parceiros](./ea-partner-portal-administration.md).
 
 ## <a name="get-started-on-azure-ea---faq"></a>Introdução ao Azure EA – FAQ
 
@@ -132,7 +132,7 @@ Pode criar a quantidade de departamentos que quiser na inscrição Azure EA. Pa
 
 Depois de ter criado departamentos e subscrições, pode ver os dados no relatório de utilização. Estas informações podem ajudar a controlar a utilização e a gerir o custo e os gastos ao nível do departamento.
 
-Também pode aceder aos dados de utilização através da API de relatórios. Para obter informações detalhadas e código de exemplo, veja as [APIs REST Empresariais do Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+Também pode aceder aos dados de utilização através da API de relatórios. Para obter informações detalhadas e código de exemplo, veja as [APIs REST Empresariais do Azure](./ea-portal-rest-apis.md).
 
 ### <a name="can-i-set-a-spending-quota-and-get-alerts-as-i-approach-my-limit"></a>Posso definir uma quota de gastos e obter alertas à medida que me aproximo do meu limite?
 
@@ -142,9 +142,9 @@ Para definir a quota de gastos, selecione um departamento e, em seguida, selecio
 
 ### <a name="i-used-resource-groups-to-implement-rbac-and-track-usage-how-can-i-view-the-associated-usage-details"></a>Utilizei grupos de recursos para implementar o RBAC e controlar a utilização. Como posso ver os detalhes de utilização associados?
 
-Se utilizar _grupos de recursos_ e _etiquetas_ , estas informações são controladas ao nível do serviço e pode aceder às mesmas no ficheiro de transferência de utilização detalhada (CSV). Veja o [relatório de utilização de transferências](https://ea.azure.com/report/downloadusage) no portal Azure Enterprise.
+Se utilizar _grupos de recursos_ e _etiquetas_, estas informações são controladas ao nível do serviço e pode aceder às mesmas no ficheiro de transferência de utilização detalhada (CSV). Veja o [relatório de utilização de transferências](https://ea.azure.com/report/downloadusage) no portal Azure Enterprise.
 
-Também pode aceder à utilização através da API. Para obter informações detalhadas e código de exemplo, veja as [APIs REST Empresariais do Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+Também pode aceder à utilização através da API. Para obter informações detalhadas e código de exemplo, veja as [APIs REST Empresariais do Azure](./ea-portal-rest-apis.md).
 
 > [!NOTE]
 > Só pode aplicar etiquetas em recursos que suportem operações do Azure Resource Manager. Caso tenha criado uma máquina virtual, uma rede virtual ou um armazenamento através do modelo de implementação clássica (por exemplo, através do portal clássico), não poderá aplicar etiquetas a esse recurso. Deve implementar esses recursos novamente através do Resource Manager para suportar as etiquetas. Todos os outros recursos suportam etiquetas.
@@ -165,7 +165,7 @@ Para utilizar o Power BI:
 
    A conta escolar ou profissional pode ser a mesma ou diferente da que é utilizada para aceder à inscrição através do portal Azure Enterprise.
 1. No dashboard de serviços, escolha o mosaico Microsoft Azure Enterprise e selecione **Ligar**.
-1. No ecrã **Ligar ao Azure Enterprise** , introduza:
+1. No ecrã **Ligar ao Azure Enterprise**, introduza:
     - URL do Ambiente do Azure: [https://ea.azure.com](https://ea.azure.com)
     - Número de Meses: entre 1 e 36
     - Número da Inscrição: o seu número de inscrição

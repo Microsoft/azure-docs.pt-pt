@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 91b3b7b71524c76006ad4d431774e05e47fd0266
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 85f6e64cb20a14b9cd03776d138872d6a4191535
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131076"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344492"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Resolução de problemas quando se inscreve numa nova conta no portal do Azure ou no centro de contas do Azure
 
@@ -76,8 +76,8 @@ Para resolver este problema, verifique novamente se os seguintes itens são verd
 
 #### <a name="you-see-the-message-your-current-account-type-is-not-supported"></a>É apresentada a mensagem “O tipo de conta atual não é suportado”
 
-Este problema pode ocorrer se a conta estiver registada num [diretório do Azure AD não gerido](../../active-directory/users-groups-roles/directory-self-service-signup.md) e não estiver no diretório do Azure AD da sua organização.
-Para resolver este problema, inscreva-se na conta do Azure com outra conta ou assuma o controlo do diretório do AD não gerido. Para obter mais informações, veja [Take over an unmanaged directory as administrator in Azure Active Directory](../../active-directory/users-groups-roles/domains-admin-takeover.md) (Assumir um diretório não gerido como administrador no Azure Active Directory).
+Este problema pode ocorrer se a conta estiver registada num [diretório do Azure AD não gerido](../../active-directory/enterprise-users/directory-self-service-signup.md) e não estiver no diretório do Azure AD da sua organização.
+Para resolver este problema, inscreva-se na conta do Azure com outra conta ou assuma o controlo do diretório do AD não gerido. Para obter mais informações, veja [Take over an unmanaged directory as administrator in Azure Active Directory](../../active-directory/enterprise-users/domains-admin-takeover.md) (Assumir um diretório não gerido como administrador no Azure Active Directory).
 
 ## <a name="identity-verification-by-phone"></a>Verificação de identidade por telefone
 

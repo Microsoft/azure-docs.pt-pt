@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 16e325f029fc4c317a61db62df97ded5c213e0e5
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 7c8a35e7c8ecd0952f8e02b66c5071253d9b0445
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132538"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348930"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instâncias reservadas de VM do Azure EA
 
@@ -65,7 +65,7 @@ As instâncias reservadas podem reduzir os custos com máquinas virtuais até 72
 
 Para comprar uma instância de máquina virtual reservada do Azure, um administrador de inscrição do Azure Enterprise tem de ativar a opção de compra _Reservar Instância_. A opção está disponível na secção _Detalhes da Inscrição_ no separador _Inscrição_ no [EA Portal do Azure](https://ea.azure.com/).
 
-Quando a inscrição EA estiver ativada para adicionar instâncias reservadas, qualquer proprietário de conta com uma subscrição ativa associada à inscrição EA pode comprar uma instância de máquina virtual reservada no [portal do Azure](https://aka.ms/reservations). Para obter mais informações, veja [Prepay for virtual machines and save money with Reserved Virtual Machine Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md) (Efetuar pré-pagamento de máquinas virtuais e economizar com Instâncias de Máquina Virtual Reservadas).
+Quando a inscrição EA estiver ativada para adicionar instâncias reservadas, qualquer proprietário de conta com uma subscrição ativa associada à inscrição EA pode comprar uma instância de máquina virtual reservada no [portal do Azure](https://aka.ms/reservations). Para obter mais informações, veja [Prepay for virtual machines and save money with Reserved Virtual Machine Instances](../../virtual-machines/prepay-reserved-vm-instances.md) (Efetuar pré-pagamento de máquinas virtuais e economizar com Instâncias de Máquina Virtual Reservadas).
 
 ### <a name="how-to-view-reserved-instance-purchase-details"></a>Como ver os detalhes de compra de instâncias reservadas
 

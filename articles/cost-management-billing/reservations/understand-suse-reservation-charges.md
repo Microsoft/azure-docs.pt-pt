@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: banders
-ms.openlocfilehash: 3b936cb15114d81d1dff1eb052a9bafe01adeff7
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2c17b2f9dc12fa7bff2dae8603bcf95a3a8ddfa0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681690"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350845"
 ---
 # <a name="azure-software-plan-discount"></a>Desconto de plano de software do Azure
 
@@ -123,7 +123,7 @@ Para saber mais sobre as reservas, veja os seguintes artigos:
 
 - [O que são as reservas do Azure?](save-compute-costs-reservations.md)
 - [Efetuar o pré-pagamento de planos de software SUSE com Reservas do Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Gerir o Azure Reservations](manage-reserved-vm-instance.md)
 - [Compreender a utilização de reservas na sua subscrição Pay As You Go](understand-reserved-instance-usage.md)
 - [Compreender a utilização de reservas na inscrição Enterprise](understand-reserved-instance-usage-ea.md)
