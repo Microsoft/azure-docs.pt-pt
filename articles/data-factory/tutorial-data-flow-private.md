@@ -1,19 +1,19 @@
 ---
 title: Transformar dados com uma Azure Data Factory gerido fluxo de dados de mapeamento de rede virtual
 description: Este tutorial fornece instruções passo a passo para a utilização da Azure Data Factory para transformar dados com fluxos de dados de mapeamento.
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/19/2019
-ms.openlocfilehash: 52e45017643c63937ffc521adfe08d6415460254
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9a4b57f3813adfeee53891f733dd4d303dbbef8d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637144"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497134"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Transforme os dados de forma segura utilizando o fluxo de dados de mapeamento
 
@@ -34,10 +34,10 @@ Neste tutorial, vai executar os seguintes passos:
 > * Monitorize uma atividade de fluxo de dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Assinatura Azure** . Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de armazenamento Azure** . Utiliza o Armazenamento do Lago de Dados como *fonte* e *lava* datas. Se não tiver uma conta de armazenamento, veja [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal) para seguir os passos para criar uma. *Certifique-se de que a conta de armazenamento permite o acesso apenas a partir de redes selecionadas.* 
+* **Assinatura Azure**. Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Conta de armazenamento Azure**. Utiliza o Armazenamento do Lago de Dados como *fonte* e *lava* datas. Se não tiver uma conta de armazenamento, veja [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal) para seguir os passos para criar uma. *Certifique-se de que a conta de armazenamento permite o acesso apenas a partir de redes selecionadas.* 
 
-O ficheiro que vamos transformar neste tutorial é moviesDB.csv, que pode ser encontrado neste [site de conteúdo do GitHub.](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv) Para recuperar o ficheiro do GitHub, copie o conteúdo para um editor de texto à sua escolha para o guardar localmente como ficheiro .csv. Para fazer o upload do ficheiro para a sua conta de armazenamento, consulte [as bolhas de upload com o portal Azure](../storage/blobs/storage-quickstart-blobs-portal.md). Os exemplos referenciarão um contentor denominado **dados de amostra.**
+O ficheiro que vamos transformar neste tutorial é moviesDB.csv, que pode ser encontrado neste [site de conteúdo do GitHub.](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv) Para recuperar o ficheiro do GitHub, copie o conteúdo para um editor de texto à sua escolha para o guardar localmente como um ficheiro .csv. Para fazer o upload do ficheiro para a sua conta de armazenamento, consulte [as bolhas de upload com o portal Azure](../storage/blobs/storage-quickstart-blobs-portal.md). Os exemplos referenciarão um contentor denominado **dados de amostra.**
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
@@ -45,21 +45,21 @@ Neste passo, cria-se uma fábrica de dados e abre-se a UI da Data Factory para c
 
 1. Abra o Microsoft Edge ou o Google Chrome. Atualmente, apenas os navegadores Web Microsoft Edge e Google Chrome suportam o UI da Data Factory.
 1. No menu esquerdo, **selecione Criar uma** Fábrica de  >  **Analytics**  >  **Dados** de Análise de Recursos .
-1. Na página **Nova fábrica de dados** , em **Nome** , introduza **ADFTutorialDataFactory** .
+1. Na página **Nova fábrica de dados**, em **Nome**, introduza **ADFTutorialDataFactory**.
 
-   O nome da fábrica de dados tem de ser *globalmente exclusivo* . Se receber uma mensagem de erro sobre o valor do nome, insira um nome diferente para a fábrica de dados (por exemplo, o seu nomeADFTutorialDataFactory). Para obter as regras de nomenclatura dos artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
+   O nome da fábrica de dados tem de ser *globalmente exclusivo*. Se receber uma mensagem de erro sobre o valor do nome, insira um nome diferente para a fábrica de dados (por exemplo, o seu nomeADFTutorialDataFactory). Para obter as regras de nomenclatura dos artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
 
 1. Selecione a **subscrição** do Azure na qual pretende criar a fábrica de dados.
-1. Em **Grupo de Recursos** , efetue um destes passos:
+1. Em **Grupo de Recursos**, efetue um destes passos:
 
     * Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente.
     * Selecione **Criar novo** e introduza o nome de um grupo de recursos. 
          
     Para saber mais sobre grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md). 
-1. Em **Versão** , selecione **V2** .
-1. Em **Localização** , selecione uma localização para a fábrica de dados. Apenas os locais suportados aparecem na lista de suspensos. As lojas de dados (por exemplo, Azure Storage e Azure SQL Database) e os cálculos (por exemplo, Azure HDInsight) utilizados pela fábrica de dados podem estar noutras regiões.
+1. Em **Versão**, selecione **V2**.
+1. Em **Localização**, selecione uma localização para a fábrica de dados. Apenas os locais suportados aparecem na lista de suspensos. As lojas de dados (por exemplo, Azure Storage e Azure SQL Database) e os cálculos (por exemplo, Azure HDInsight) utilizados pela fábrica de dados podem estar noutras regiões.
 
-1. Selecione **Criar** .
+1. Selecione **Criar**.
 1. Depois de concluída a criação, vê o aviso no centro de Notificações. Selecione **Ir para o recurso** para ir à página data **Factory.**
 1. Selecione **Criar e Monitorizar** para iniciar a IU do Data Factory num separador à parte.
 
@@ -73,17 +73,17 @@ Neste passo, cria-se um Azure IR e ativa a Rede Virtual Gerida pela Data Factory
 
    ![Screenshot que mostra um novo Azure IR.](./media/tutorial-copy-data-portal-private/azure-ir.png)
 
-1. Na **configuração da rede virtual (Pré-visualização)** , selecione **Enable** .
+1. Na **configuração da rede virtual (Pré-visualização)**, selecione **Enable**.
 
    ![Screenshot que mostra permitir um novo Azure IR.](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
 
-1. Selecione **Criar** .
+1. Selecione **Criar**.
 
 ## <a name="create-a-pipeline-with-a-data-flow-activity"></a>Criar um oleoduto com uma atividade de fluxo de dados
 
 Neste passo, irá criar um oleoduto que contém uma atividade de fluxo de dados.
 
-1. Na página **Vamos começar** , selecione **Criar pipeline** .
+1. Na página **Vamos começar**, selecione **Criar pipeline**.
 
    ![Screenshot que mostra a criação de um oleoduto.](./media/doc-common-process/get-started-page.png)
 
@@ -93,7 +93,7 @@ Neste passo, irá criar um oleoduto que contém uma atividade de fluxo de dados.
     ![Screenshot que mostra o depurador de fluxo de dados.](media/tutorial-data-flow-private/dataflow-debug.png)
 1. No painel **de atividades,** expanda **o Move and Transform.** Arraste a atividade do Fluxo de **Dados** do painel para a tela do gasoduto.
 
-1. No pop-up do fluxo de **dados de adicionar,** selecione **Criar um novo fluxo de dados** e, em seguida, selecione Mapping Data **Flow** . Selecione **OK** quando terminar.
+1. No pop-up do fluxo de **dados de adicionar,** selecione **Criar um novo fluxo de dados** e, em seguida, selecione Mapping Data **Flow**. Selecione **OK** quando terminar.
 
     ![Screenshot que mostra mapeamento do fluxo de dados.](media/tutorial-data-flow-private/mapping-dataflow.png)
 
@@ -109,13 +109,13 @@ Neste passo, configuras o Data Lake Storage Gen2 como fonte.
 
 1. Na tela de fluxo de dados, adicione uma fonte selecionando a caixa **Add Source.**
 
-1. Diga o nome da sua fonte **MoviesDB** . Selecione **Novo** para criar um novo conjunto de dados de origem.
+1. Diga o nome da sua fonte **MoviesDB**. Selecione **Novo** para criar um novo conjunto de dados de origem.
 
-1. Selecione **Azure Data Lake Storage Gen2** e, em seguida, selecione **Continue** .
+1. Selecione **Azure Data Lake Storage Gen2** e, em seguida, selecione **Continue**.
 
-1. Selecione **DelimitedText** e, em seguida, **selecione Continue** .
+1. Selecione **DelimitedText** e, em seguida, **selecione Continue**.
 
-1. Nomeie o seu conjunto de **dados MoviesDB** . Na entrega de serviços ligada, selecione **New** .
+1. Nomeie o seu conjunto de **dados MoviesDB**. Na entrega de serviços ligada, selecione **New**.
 
 1. No ecrã de criação de serviços ligado, nomeie o seu serviço ligado ao Data Lake Storage Gen2 **ADLSGen2** e especifique o seu método de autenticação. Em seguida, insira as suas credenciais de ligação. Neste tutorial, estamos a usar a **chave conta** para ligar à nossa conta de armazenamento. 
 
@@ -123,7 +123,7 @@ Neste passo, configuras o Data Lake Storage Gen2 como fonte.
 
     ![Screenshot que mostra a autoria interativa.](./media/tutorial-data-flow-private/interactive-authoring.png)
 
-1. Selecione **Testar ligação** . Deve falhar porque a conta de armazenamento não permite o acesso à sua sem a criação e aprovação de um ponto final privado. Na mensagem de erro, deverá ver um link para criar um ponto final privado que pode seguir para criar um ponto final privado gerido. Uma alternativa é ir diretamente ao **separador Gerir** e seguir as instruções [desta secção](#create-a-managed-private-endpoint) para criar um ponto final privado gerido.
+1. Selecione **a ligação de teste**. Deve falhar porque a conta de armazenamento não permite o acesso à sua sem a criação e aprovação de um ponto final privado. Na mensagem de erro, deverá ver um link para criar um ponto final privado que pode seguir para criar um ponto final privado gerido. Uma alternativa é ir diretamente ao **separador Gerir** e seguir as instruções [desta secção](#create-a-managed-private-endpoint) para criar um ponto final privado gerido.
 
 1. Mantenha a caixa de diálogo aberta e, em seguida, vá para a sua conta de armazenamento.
 
@@ -149,13 +149,13 @@ Se não usou a hiperligação quando testou a ligação anterior, siga o caminho
    > O **separador Manage** pode não estar disponível para todas as instâncias da Data Factory. Se não o vir, pode aceder a pontos finais privados selecionando **o Ponto**  >  De Terminante Privado de **Ligações**  >  **de** Autor .
 
 1. Aceda à secção **de pontos finais privados geridos.**
-1. Selecione **+ Novos** **pontos finais privados geridos** .
+1. Selecione **+ Novos** **pontos finais privados geridos**.
 
     ![Screenshot que mostra o botão novo dos pontos finais privados geridos.](./media/tutorial-data-flow-private/new-managed-private-endpoint.png) 
 
-1. Selecione o azulejo **Azure Data Lake Storage Gen2** da lista e selecione **Continue** .
+1. Selecione o azulejo **Azure Data Lake Storage Gen2** da lista e selecione **Continue**.
 1. Insira o nome da conta de armazenamento que criou.
-1. Selecione **Criar** .
+1. Selecione **Criar**.
 1. Após alguns segundos, deve ver que o link privado criado precisa de uma aprovação.
 1. Selecione o ponto final privado que criou. Pode ver uma hiperligação que o levará a aprovar o ponto final privado ao nível da conta de armazenamento.
 
@@ -165,11 +165,11 @@ Se não usou a hiperligação quando testou a ligação anterior, siga o caminho
 
 1. Na conta de armazenamento, aceda às **ligações de ponto final privados** na secção **Definições.**
 
-1. Selecione a caixa de verificação pelo ponto final privado que criou e selecione **Aprovar** .
+1. Selecione a caixa de verificação pelo ponto final privado que criou e selecione **Aprovar**.
 
     ![Screenshot que mostra o botão de aprovação do ponto final privado.](./media/tutorial-data-flow-private/approve-private-endpoint.png)
 
-1. Adicione uma descrição e selecione **sim** .
+1. Adicione uma descrição e selecione **sim**.
 1. Volte para a secção de **pontos finais privados geridos** do **separador Managed** na Data Factory.
 1. Após cerca de um minuto, deverá ver a aprovação aparecer para o seu ponto final privado.
 
@@ -178,7 +178,7 @@ Se não usou a hiperligação quando testou a ligação anterior, siga o caminho
 1. Ao lado do seu nó de origem na tela de fluxo de dados, selecione o ícone plus para adicionar uma nova transformação. A primeira transformação que vai adicionar é um **Filtro.**
 
     ![Screenshot que mostra a adição de um filtro.](media/tutorial-data-flow-private/add-filter.png)
-1. Nomeie o seu filter transformation **FilterYears** . Selecione a caixa de expressão ao lado **do Filtro para** abrir o construtor de expressão. Aqui irá especificar a sua condição de filtragem.
+1. Nomeie o seu filter transformation **FilterYears**. Selecione a caixa de expressão ao lado **do Filtro para** abrir o construtor de expressão. Aqui irá especificar a sua condição de filtragem.
 
     ![Screenshot que mostra FilterYears.](media/tutorial-data-flow-private/filter-years.png)
 1. O construtor de expressão de fluxo de dados permite-lhe construir expressões interativas para usar em várias transformações. As expressões podem incluir funções incorporadas, colunas do esquema de entrada e parâmetros definidos pelo utilizador. Para obter mais informações sobre como construir expressões, consulte [o construtor de expressão de fluxo de dados.](./concepts-data-flow-expression-builder.md)
@@ -206,10 +206,10 @@ Se não usou a hiperligação quando testou a ligação anterior, siga o caminho
 1. A próxima transformação que vai adicionar é uma transformação **agregada** sob **o modificador Schema.**
 
     ![Screenshot que mostra a adição do agregado.](media/tutorial-data-flow-private/add-aggregate.png)
-1. Nomeie a sua transformação **agregada AggregateComedyRating** . No **Grupo por** aba, selecione o **ano** da caixa de entrega para agrupar as agregações até ao ano em que o filme saiu.
+1. Nomeie a sua transformação **agregada AggregateComedyRating**. No **Grupo por** aba, selecione o **ano** da caixa de entrega para agrupar as agregações até ao ano em que o filme saiu.
 
     ![Screenshot que mostra o grupo agregado.](media/tutorial-data-flow-private/group-by-year.png)
-1. Vá ao **separador Agregados.** Na caixa de texto esquerda, nomeie a coluna agregada **AverageComedyRating** . Selecione a caixa de expressão certa para introduzir a expressão agregada através do construtor de expressão.
+1. Vá ao **separador Agregados.** Na caixa de texto esquerda, nomeie a coluna agregada **AverageComedyRating**. Selecione a caixa de expressão certa para introduzir a expressão agregada através do construtor de expressão.
 
     ![Screenshot que mostra o nome da coluna agregada.](media/tutorial-data-flow-private/name-column.png)
 1. Para obter a média de **classificação** de coluna, utilize a ```avg()``` função agregada. Como **a classificação** é uma corda e ```avg()``` requer uma entrada numérica, temos de converter o valor num número através da ```toInteger()``` função. Esta expressão parece:
@@ -219,21 +219,21 @@ Se não usou a hiperligação quando testou a ligação anterior, siga o caminho
 1. **Selecione Save e termine** depois de terminar.
 
     ![Screenshot que mostra salvar o agregado.](media/tutorial-data-flow-private/save-aggregate.png)
-1. Aceda ao **separador Data Preview** para ver a saída de transformação. Note que apenas existem duas colunas, **ano** e **Média ComedyRating** .
+1. Aceda ao **separador Data Preview** para ver a saída de transformação. Note que apenas existem duas colunas, **ano** e **Média ComedyRating**.
 
 ### <a name="add-the-sink-transformation"></a>Adicione a transformação do lavatório
 
-1. Em seguida, você quer adicionar uma transformação **de Sink** em **Destino** .
+1. Em seguida, você quer adicionar uma transformação **de Sink** em **Destino**.
 
     ![Screenshot que mostra adicionar uma pia.](media/tutorial-data-flow-private/add-sink.png)
 1. Diga o nome da **pia.** Selecione **Novo** para criar o conjunto de dados da pia.
 
     ![Screenshot que mostra a criação de uma pia.](media/tutorial-data-flow-private/create-sink.png)
-1. Na nova página de **conjunto de dados,** selecione **Azure Data Lake Storage Gen2** e, em seguida, selecione **Continue** .
+1. Na nova página de **conjunto de dados,** selecione **Azure Data Lake Storage Gen2** e, em seguida, selecione **Continue**.
 
-1. Na página de **formato Select,** selecione **DelimitedText** e, em seguida, selecione **Continue** .
+1. Na página de **formato Select,** selecione **DelimitedText** e, em seguida, selecione **Continue**.
 
-1. Nomeie o seu conjunto de dados de pia **MoviesSink** . Para o serviço ligado, escolha o mesmo serviço ligado **ADLSGen2** que criou para a transformação de fontes. Introduza uma pasta de saída para escrever os seus dados para. Neste tutorial, estamos escrevendo para a **saída** da pasta nos **dados** da amostra do recipiente. A pasta não precisa de existir previamente e pode ser criada dinamicamente. Selecione a primeira linha como caixa de verificação **do cabeçalho** e selecione **Nenhum** para **o esquema de importação** . Selecione **OK** .
+1. Nomeie o seu conjunto de dados de pia **MoviesSink**. Para o serviço ligado, escolha o mesmo serviço ligado **ADLSGen2** que criou para a transformação de fontes. Introduza uma pasta de saída para escrever os seus dados para. Neste tutorial, estamos escrevendo para a **saída** da pasta nos **dados** da amostra do recipiente. A pasta não precisa de existir previamente e pode ser criada dinamicamente. Selecione a primeira linha como caixa de verificação **do cabeçalho** e selecione **Nenhum** para **o esquema de importação**. Selecione **OK**.
 
     ![Screenshot que mostra o caminho da pia.](media/tutorial-data-flow-private/sink-file-path.png)
 

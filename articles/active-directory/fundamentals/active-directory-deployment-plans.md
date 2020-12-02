@@ -2,59 +2,27 @@
 title: Planos de implantação - Azure Ative Directory / Microsoft Docs
 description: Orientação de ponta a ponta sobre como implementar muitas capacidades do Azure Ative Directory.
 services: active-directory
-author: ajburnle
+author: BarbaraSelden
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/20/2019
-ms.author: ajburnle
+ms.date: 12/01/2020
+ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2a7c2813919321227bfcdc4ee43ca15186b89df
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 069cf348bb6d0432d02a8350bc0847c2b155f90a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836823"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498086"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implementação do Azure Active Directory
 Procura orientação de ponta a ponta sobre a implementação de capacidades do Azure Ative Directory (Azure AD) ? Os planos de implementação da AD AZure percorrem o valor do negócio, as considerações de planeamento e os procedimentos operacionais necessários para implementar com sucesso as capacidades comuns da AD Azure.
 
 A partir de qualquer uma das páginas do plano, use a capacidade de Impressão do seu navegador para PDF para criar uma versão offline atualizada da documentação.
-## <a name="include-the-right-stakeholders"></a>Incluir as partes interessadas certas
-
-Ao iniciar o seu planeamento de implementação para uma nova capacidade, é importante incluir as principais partes interessadas em toda a sua organização. Recomendamos que identifique e documente a pessoa ou pessoas que desempenham cada uma das seguintes funções, e que trabalhe com elas para determinar o seu envolvimento no projeto.  
-
-As funções podem incluir os seguintes 
-
-|Função |Descrição |
-|-|-|
-|Utilizador final|Um grupo representativo de utilizadores para o qual a capacidade será implementada. Muitas vezes pré-visualiza as alterações num programa piloto.
-|Gestor de Suporte de TI|Representante da organização de suporte de TI que pode fornecer informações sobre a capacidade de apoio desta mudança numa perspetiva de helpdesk.  
-|Arquiteto de Identidade ou Administrador Global da Azure|Representante da equipa de gestão de identidade responsável por definir como esta mudança está alinhada com a infraestrutura de gestão de identidade central na sua organização.|
-|Proprietário de Negócios de Aplicação |O proprietário geral do(s) de aplicações afetadas, que pode incluir a gestão do acesso.Pode também fornecer informações sobre a experiência do utilizador e a utilidade desta alteração do ponto de vista do utilizador final.
-|Proprietário de Segurança|Um representante da equipa de segurança que pode assinar que o plano vai cumprir os requisitos de segurança da sua organização.|
-|Gestor de Conformidade|A pessoa dentro da sua organização responsável por garantir o cumprimento dos requisitos corporativos, industriais ou governamentais.|
-
-**Os níveis de envolvimento podem incluir:**
-
-- **R** eponsível para implementação do plano de projeto e do resultado 
-
-- **Um** pproval do plano de projeto e do resultado 
-
-- **C** ontributor para projetar plano e resultado 
-
-- **Eu** nformou do plano de projeto e do resultado
-
-
-## <a name="best-practices-for-a-pilot"></a>Melhores práticas para um piloto
-Um piloto permite-lhe testar com um pequeno grupo antes de ligar uma capacidade para todos. Certifique-se de que, como parte do seu teste, cada caso de utilização dentro da sua organização é completamente testado. É melhor direcionar um grupo específico de utilizadores piloto antes de passar isto para a sua organização como um todo.
-
-Na sua primeira onda, direcione a TI, a usabilidade e outros utilizadores apropriados que possam testar e fornecer feedback. Este feedback deve ser utilizado para desenvolver ainda mais as comunicações e instruções que envia aos seus utilizadores e para fornecer informações sobre os tipos de problemas que o seu pessoal de suporte pode ver. 
-
-O alargamento do lançamento a grupos maiores de utilizadores deve ser efetuado aumentando o âmbito de aplicação do grupo(s) visados. Isto pode ser feito através da [adesão dinâmica do grupo,](../enterprise-users/groups-dynamic-membership.md)ou adicionando manualmente os utilizadores ao(s) grupo(s) alvo.
 
 
 ## <a name="deploy-authentication"></a>Implementar autenticação
@@ -98,3 +66,36 @@ O alargamento do lançamento a grupos maiores de utilizadores deve ser efetuado 
 | [Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)| A Azure AD Privileged Identity Management (PIM) ajuda-o a gerir funções administrativas privilegiadas em Azure AD, recursos Azure e outros Serviços Online da Microsoft. A PIM fornece soluções como o acesso just-in-time, solicitar fluxos de trabalho de aprovação e avaliações de acesso totalmente integradas para que possa identificar, descobrir e prevenir atividades maliciosas de funções privilegiadas em tempo real. |
 | [Reportagem e Monitorização](../reports-monitoring/plan-monitoring-and-reporting.md)| O desenho da sua solução de relatório e monitorização Azure AD depende dos seus requisitos legais, de segurança e operacionais, bem como do ambiente e processos existentes. Este artigo apresenta as várias opções de design e guia-o para a estratégia de implementação certa. |
 | [Comentários de Acesso](../governance/deploy-access-reviews.md) | As análises de acesso são uma parte importante da sua estratégia de governação, permitindo-lhe conhecer e gerir quem tem acesso e ao que têm acesso. Este artigo ajuda-o a planear e implementar avaliações de acesso para alcançar as suas posturas de segurança e colaboração desejadas. |
+
+## <a name="include-the-right-stakeholders"></a>Incluir as partes interessadas certas
+
+Ao iniciar o seu planeamento de implementação para uma nova capacidade, é importante incluir as principais partes interessadas em toda a sua organização. Recomendamos que identifique e documente a pessoa ou pessoas que desempenham cada uma das seguintes funções, e que trabalhe com elas para determinar o seu envolvimento no projeto.  
+
+As funções podem incluir os seguintes 
+
+|Função |Descrição |
+|-|-|
+|Utilizador final|Um grupo representativo de utilizadores para o qual a capacidade será implementada. Muitas vezes pré-visualiza as alterações num programa piloto.
+|Gestor de Suporte de TI|Representante da organização de suporte de TI que pode fornecer informações sobre a capacidade de apoio desta mudança numa perspetiva de helpdesk.  
+|Arquiteto de Identidade ou Administrador Global da Azure|Representante da equipa de gestão de identidade responsável por definir como esta mudança está alinhada com a infraestrutura de gestão de identidade central na sua organização.|
+|Proprietário de Negócios de Aplicação |O proprietário geral do(s) de aplicações afetadas, que pode incluir a gestão do acesso.Pode também fornecer informações sobre a experiência do utilizador e a utilidade desta alteração do ponto de vista do utilizador final.
+|Proprietário de Segurança|Um representante da equipa de segurança que pode assinar que o plano vai cumprir os requisitos de segurança da sua organização.|
+|Gestor de Conformidade|A pessoa dentro da sua organização responsável por garantir o cumprimento dos requisitos corporativos, industriais ou governamentais.|
+
+**Os níveis de envolvimento podem incluir:**
+
+- **R** eponsível para implementação do plano de projeto e do resultado 
+
+- **Um** pproval do plano de projeto e do resultado 
+
+- **C** ontributor para projetar plano e resultado 
+
+- **Eu** nformou do plano de projeto e do resultado
+
+
+## <a name="best-practices-for-a-pilot"></a>Melhores práticas para um piloto
+Um piloto permite-lhe testar com um pequeno grupo antes de ligar uma capacidade para todos. Certifique-se de que, como parte do seu teste, cada caso de utilização dentro da sua organização é completamente testado. É melhor direcionar um grupo específico de utilizadores piloto antes de passar isto para a sua organização como um todo.
+
+Na sua primeira onda, direcione a TI, a usabilidade e outros utilizadores apropriados que possam testar e fornecer feedback. Este feedback deve ser utilizado para desenvolver ainda mais as comunicações e instruções que envia aos seus utilizadores e para fornecer informações sobre os tipos de problemas que o seu pessoal de suporte pode ver. 
+
+O alargamento do lançamento a grupos maiores de utilizadores deve ser efetuado aumentando o âmbito de aplicação do grupo(s) visados. Isto pode ser feito através da [adesão dinâmica do grupo,](../enterprise-users/groups-dynamic-membership.md)ou adicionando manualmente os utilizadores ao(s) grupo(s) alvo.

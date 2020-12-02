@@ -2,13 +2,13 @@
 title: Melhores práticas de modelos
 description: Descreve abordagens recomendadas para a autoria de modelos do Gestor de Recursos Azure. Oferece sugestões para evitar problemas comuns ao usar modelos.
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 1121c66e0bcd7de39afd5bea85866fd9ad007ce4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/01/2020
+ms.openlocfilehash: c62bde8fc8cfc79330d13b7b2ff4f778dadf1339
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87809260"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497984"
 ---
 # <a name="arm-template-best-practices"></a>As melhores práticas do modelo ARM
 
@@ -87,8 +87,6 @@ As informações nesta secção podem ser úteis quando se trabalha com [parâme
    },
    ```
 
-* Não utilize um parâmetro para a versão API para um tipo de recurso. As propriedades e valores dos recursos podem variar por número de versão. O IntelliSense num editor de código não consegue determinar o esquema correto quando a versão API está definida como parâmetro. Em vez disso, código rígido a versão API no modelo.
-
 * Use `allowedValues` com moderação. Use-o apenas quando tiver de se certificar de que alguns valores não estão incluídos nas opções permitidas. Se utilizar `allowedValues` de forma demasiado ampla, poderá bloquear implementações válidas não mantendo a sua lista atualizada.
 
 * Quando um nome de parâmetro no seu modelo corresponde a um parâmetro no comando de implementação PowerShell, o Gestor de Recursos resolve este conflito de nomeação adicionando o pós-fixo **FromTemplate** ao parâmetro do modelo. Por exemplo, se incluir um parâmetro chamado **ResourceGroupName** no seu modelo, ele entra em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzResourceGroupDeployment.](/powershell/module/az.resources/new-azresourcegroupdeployment) Durante a implementação, é solicitado que forneça um valor para **o ResourceGroupNameFromTemplate**.
@@ -146,8 +144,6 @@ As seguintes informações podem ser úteis quando se trabalha com [variáveis:]
 
 * Use variáveis para valores que constrói a partir de um arranjo complexo de funções de modelo. O seu modelo é mais fácil de ler quando a expressão complexa só aparece em variáveis.
 
-* Não use variáveis para `apiVersion` um recurso. A versão API determina o esquema do recurso. Muitas vezes, não é possível alterar a versão sem alterar as propriedades para o recurso.
-
 * Não é possível utilizar a função [de referência](template-functions-resource.md#reference) na secção de **variáveis** do modelo. A função de **referência** obtém o seu valor a partir do estado de execução do recurso. No entanto, as variáveis são resolvidas durante a análise inicial do modelo. Construa valores que necessitem da função **de referência** diretamente na secção de **recursos** ou **saídas** do modelo.
 
 * Incluir variáveis para nomes de recursos que devem ser únicos.
@@ -155,6 +151,16 @@ As seguintes informações podem ser úteis quando se trabalha com [variáveis:]
 * Utilize um [laço de cópia em variáveis](copy-variables.md) para criar um padrão repetido de objetos JSON.
 
 * Remova as variáveis não ususadas.
+
+## <a name="api-version"></a>Versão API
+
+Desaprova a `apiVersion` propriedade numa versão API codificada por código rígido para o tipo de recurso. Ao criar um novo modelo, recomendamos que utilize a versão API mais recente para um tipo de recurso. Para determinar os valores disponíveis, consulte [a referência do modelo](/azure/templates/).
+
+Quando o seu modelo funcionar como esperado, recomendamos que continue a usar a mesma versão API. Ao utilizar a mesma versão API, não tem de se preocupar em quebrar alterações que possam ser introduzidas em versões posteriores.
+
+Não utilize um parâmetro para a versão API. As propriedades e valores dos recursos podem variar de acordo com a versão API. O IntelliSense num editor de código não consegue determinar o esquema correto quando a versão API está definida como parâmetro. Se passar numa versão API que não corresponde às propriedades do seu modelo, a implementação falhará.
+
+Não utilize variáveis para a versão API. Em particular, não utilize a [função dos fornecedores](template-functions-resource.md#providers) para obter dinamicamente versões API durante a implementação. A versão API recuperada dinamicamente pode não corresponder às propriedades do seu modelo.
 
 ## <a name="resource-dependencies"></a>Dependências de recursos
 

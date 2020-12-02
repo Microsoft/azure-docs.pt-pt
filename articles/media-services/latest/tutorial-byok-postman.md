@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: tutorial
 ms.date: 10/18/2020
-ms.openlocfilehash: 93bbd84c25f02ac1653a46ebb4a70c1dfa90c744
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: c8a5b682e2ac4879d2181bdb069cf554bad512d9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94687268"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498290"
 ---
 # <a name="tutorial-use-customer-managed-keys-or-byok-with-media-services-rest-api"></a>Tutorial: Utilize chaves geridas pelo cliente ou BYOK com Serviços de Mídia REST API
 
@@ -19,7 +19,7 @@ Com a API 2020-05-01, pode utilizar uma chave RSA gerida pelo cliente com uma co
 
 - Registo de candidatura de Azure Ative (Azure AD) para Carteiro
 - Microsoft Graph API
-- Armazenamento do Azure
+- Storage do Azure
 - Azure Key Vault
 - Serviços de Multimédia do Azure
 
@@ -43,8 +43,8 @@ Se não tiver uma subscrição do Azure, [crie uma conta de teste gratuita](http
 
 ### <a name="register-a-service-principal-with-the-needed-permissions"></a>Registar um diretor de serviço com as permissões necessárias
 
-1. [Criar um principal de serviço.](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
-1. Ir para a [Opção 2: Criar um novo segredo de aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#authentication-two-options) para obter o segredo principal do serviço.
+1. [Criar um principal de serviço.](../../active-directory/develop/howto-create-service-principal-portal.md)
+1. Ir para a [Opção 2: Criar um novo segredo de aplicação](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) para obter o segredo principal do serviço.
 
    > [!IMPORTANT]
    >Copie e guarde o segredo para utilização posterior. Não pode aceder ao segredo depois de deixar a página secreta no portal.

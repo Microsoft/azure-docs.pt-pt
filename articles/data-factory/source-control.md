@@ -4,19 +4,19 @@ description: Saiba como configurar o controlo de origem na Azure Data Factory
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 37982d1c28d445d40fa9d53a2a1eb076fbbf7f2f
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: d219ff8469c471a37deb47e0f217292d70e8f0f9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566712"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497117"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controlo de fontes na Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -109,7 +109,7 @@ O painel de configuração mostra as seguintes definições de repositório de c
 | **Sucursal para importar recurso em** | Especifica em que ramo são importados os recursos da fábrica de dados (oleodutos, conjuntos de dados, serviços ligados, etc.). Pode importar recursos para um dos seguintes ramos: a. Colaboração b. Criar novo c. Utilizar a existência |  |
 
 > [!NOTE]
-> Se estiver a utilizar o Microsoft Edge e não vir quaisquer valores no seu dropdown da conta Azure DevOps, adicione https://*.visualstudio.com à lista de sites fidedignos.
+> Se estiver a utilizar o Microsoft Edge e não vir quaisquer valores na sua conta Azure DevOps, adicione https://*.visualstudio.com à lista de sites fidedignos.
 
 ### <a name="use-a-different-azure-active-directory-tenant"></a>Use um inquilino azure ative inquilina diferente
 
@@ -151,7 +151,7 @@ O painel de configuração mostra as seguintes definições de repositório GitH
 | **Tipo repositório** | O tipo de repositório de código Azure Repos. | GitHub |
 | **Use GitHub Enterprise** | Caixa de verificação para selecionar GitHub Enterprise | não selecionado (padrão) |
 | **URL da Empresa GitHub** | O URL raiz gitHub Enterprise (deve ser HTTPS para o servidor local gitHub Enterprise). Por exemplo: `https://github.mydomain.com`. Só é necessário se **a Utilização da GitHub Enterprise** for selecionada | `<your GitHub enterprise url>` |                                                           
-| **Conta GitHub** | O nome da sua conta GitHub. Este nome pode ser encontrado em https: \/ /github.com/{account name}/{repository name}. Navegar nesta página leva-o a introduzir credenciais GitHub OAuth na sua conta GitHub. | `<your GitHub account name>` |
+| **Conta GitHub** | O nome da sua conta GitHub. Este nome pode ser encontrado em https: \/ /github.com/{account name}/{repositório}. Navegar nesta página leva-o a introduzir credenciais GitHub OAuth na sua conta GitHub. | `<your GitHub account name>` |
 | **Nome do Repositório**  | O teu nome de repositório de código GitHub. As contas do GitHub contêm repositórios de Git para gerir o seu código fonte. Pode criar um novo repositório ou usar um repositório existente que já está na sua conta. | `<your repository name>` |
 | **Ramo de colaboração** | O seu ramo de colaboração GitHub que é usado para a publicação. Por defeito, o seu mestre. Altere esta definição no caso de pretender publicar recursos a partir de outra sucursal. | `<your collaboration branch>` |
 | **Pasta raiz** | A sua pasta de raiz no seu ramo de colaboração GitHub. |`<your root folder name>` |
@@ -260,7 +260,7 @@ Recomenda-se a utilização do Cofre de Chaves Azure para armazenar quaisquer fi
 
 A utilização da autenticação Key Vault ou MSI também facilita a integração e implementação contínuas, uma vez que não terá de fornecer estes segredos durante a implementação do modelo do Gestor de Recursos.
 
-## <a name="troubleshooting-git-integration"></a>Integração de Git de resolução de problemas
+## <a name="troubleshooting-git-integration"></a>Resolver problemas de integração no Git
 
 ### <a name="stale-publish-branch"></a>Filial de publicação de Stale
 
@@ -268,7 +268,7 @@ Se o ramo de publicação estiver dessincronizado com o ramo principal e contive
 
 1. Remova o seu repositório git atual
 1. Reconfigure Git com as mesmas definições, mas certifique-se de que **importa os recursos existentes da Data Factory para repositório** é selecionado e escolha **Novo ramo**
-1. Criar um pedido de puxar para fundir as alterações ao ramo de colaboração 
+1. Criar um pedido Pull para unir as alterações no ramo de colaboração 
 
 Abaixo estão alguns exemplos de situações que podem causar uma sucursal de publicação velha:
 - Um utilizador tem vários ramos. Numa sucursal de recurso, eliminaram um serviço ligado que não está associado à AKV (os serviços ligados não-AKV são publicados imediatamente independentemente de estarem em Git ou não) e nunca fundiram o ramo de recurso no ramo de colaboração.

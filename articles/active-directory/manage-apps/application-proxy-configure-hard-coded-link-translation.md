@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ad45d5f0e313c06619fa9c998515e434de957ea
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 08c4020fc03f89b2c583a2458c70e18ecbbe0ba1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997567"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498069"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecione links codificados para apps publicadas com Proxy de aplicações AD AZure
 
@@ -86,28 +86,28 @@ Existem dois tipos comuns de ligações internas em aplicações no local:
 - **Ligações internas relativas** que apontam para um recurso partilhado numa estrutura de ficheiros local como `/claims/claims.html` . Estes links funcionam automaticamente em aplicações que são publicadas através do Application Proxy, e continuam a trabalhar com ou sem tradução de links. 
 - **Ligações internas codificadas com códigos rígidos** para outras aplicações no local, como `http://expenses` ou ficheiros publicados como `http://expenses/logo.jpg` . A funcionalidade de tradução de links funciona em ligações internas codificadas e altera-as para apontar para os URLs externos que os utilizadores remotos precisam de passar.
 
-A lista completa de etiquetas de código HTML que o Application Proxy suporta a tradução de ligação para:
-* um
-* áudio
-* base
-* .
-* div
-* Incorporar
-* forma
-* quadro
-* cabeça
-* html
-* iframe
-* img
-* entrada
-* associar
-* menuitem
-* meta
-* objeto
-* script
-* source
-* controlar
-* vídeo
+A lista completa de atributos em tags de código HTML que o Application Proxy suporta a tradução de ligação para incluir:
+* a (href)
+* áudio (src)
+* base (href)
+* botão (formação)
+* div (dados-fundo, estilo, data-src)
+* incorporado (src)
+* forma (ação)
+* quadro (src)
+* cabeça (perfil)
+* html (manifesto)
+* iframe (longdesc, src)
+* img (longdesc, src)
+* entrada (formação, src, valor)
+* ligação (href)
+* menuitem (ícone)
+* meta (conteúdo)
+* objeto (arquivo, dados, base de código)
+* script (src)
+* fonte (src)
+* pista (src)
+* vídeo (src, cartaz)
 
 Adicionalmente, dentro de CSS o atributo URL também é traduzido.
 

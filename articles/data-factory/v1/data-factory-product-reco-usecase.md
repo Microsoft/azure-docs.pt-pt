@@ -3,8 +3,8 @@ title: Caso de utilização da fábrica de dados - Recomendações do produto
 description: Saiba mais sobre um caso de uso implementado utilizando a Azure Data Factory juntamente com outros serviços.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: 6f1523c7-46c3-4b8d-9ed6-b847ae5ec4ae
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: b458b8d76111db6b32d188d9784e56d7fae303b9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: fc1e0398f98dc72d57039530dce9751af012f154
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456839"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495298"
 ---
 # <a name="use-case---product-recommendations"></a>Caso de Utilização - Recomendações do Produto
 A Azure Data Factory é um dos muitos serviços utilizados para implementar o Conjunto de Inteligência Cortana de aceleradores de soluções.  Consulte a página [cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) para mais detalhes sobre esta suite. Neste documento, descrevemos um caso de uso comum que os utilizadores do Azure já resolveram e implementaram usando a Azure Data Factory e outros serviços de componentes da Cortana Intelligence.

@@ -2,13 +2,13 @@
 title: Estrutura do modelo e sintaxe
 description: Descreve a estrutura e propriedades dos modelos Azure Resource Manager (modelos ARM) usando a sintaxe declarativa JSON.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: c0e1e3225d63d0463164a3ed599fb0b760367123
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.date: 12/01/2020
+ms.openlocfilehash: ce36d725b3844fcd4c8d43a9f044423611d44fbd
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353498"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497882"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Understand the structure and syntax of ARM templates (Compreender a estrutura e a sintaxe dos modelos do Resource Manager)
 
@@ -283,7 +283,7 @@ Define recursos com a seguinte estrutura:
 |:--- |:--- |:--- |
 | condição | Não | Valor booleano que indica se o recurso será aprovisionado durante esta implantação. Quando `true` , o recurso é criado durante a implantação. Quando `false` , o recurso é ignorado para esta implantação. Ver [condição.](conditional-resource-deployment.md) |
 | tipo |Sim |Tipo de recurso. Este valor é uma combinação do espaço de nome do fornecedor de recursos e do tipo de recursos (tais como **Microsoft.Storage/storageAccounts).** Para determinar os valores disponíveis, consulte [a referência do modelo](/azure/templates/). Para um recurso infantil, o formato do tipo depende se está aninhado no recurso principal ou definido fora do recurso principal. Consulte [o nome definido e o tipo para obter recursos para crianças.](child-resource-name-type.md) |
-| apiVersion |Sim |Versão da API REST para a criação do recurso. Para determinar os valores disponíveis, consulte [a referência do modelo](/azure/templates/). |
+| apiVersion |Sim |Versão da API REST para a criação do recurso. Ao criar um novo modelo, desloque este valor para a versão mais recente do recurso que está a implementar. Enquanto o modelo funcionar conforme necessário, continue a utilizar a mesma versão API. Ao continuar a utilizar a mesma versão API, minimiza o risco de uma nova versão API alterar o funcionamento do seu modelo. Considere atualizar a versão API apenas quando pretender utilizar uma nova funcionalidade que é introduzida numa versão posterior. Para determinar os valores disponíveis, consulte [a referência do modelo](/azure/templates/). |
 | name |Sim |Nome do recurso. O nome deve seguir as restrições de componentes URI definidas no RFC3986. Os serviços da Azure que expõem o nome de recursos a partes externas validam o nome para garantir que não é uma tentativa de falsificação de outra identidade. Para um recurso infantil, o formato do nome depende se está aninhado no recurso principal ou definido fora do recurso principal. Consulte [o nome definido e o tipo para obter recursos para crianças.](child-resource-name-type.md) |
 | comentários |Não |As suas notas para documentar os recursos no seu modelo. Para obter mais informações, consulte [comentários em modelos.](template-syntax.md#comments) |
 | localização |Varia |Geo-localizações suportadas do recurso fornecido. Pode selecionar qualquer um dos locais disponíveis, mas normalmente faz sentido escolher um que esteja próximo dos seus utilizadores. Normalmente, também faz sentido colocar recursos que interagem uns com os outros na mesma região. A maioria dos tipos de recursos requer uma localização, mas alguns tipos (como uma atribuição de funções) não requerem uma localização. Ver [localização do recurso definido](resource-location.md). |
@@ -351,7 +351,7 @@ Para comentários inline, você pode usar ou `//` `/* ... */` mas esta sintaxe n
   ],
 ```
 
-No Código do Estúdio Visual, a [extensão Azure Resource Manager Tools](quickstart-create-templates-use-visual-studio-code.md) pode detetar automaticamente o modelo do Gestor de Recursos e alterar o modo de idioma em conformidade. Se vir **o Modelo do Gestor de Recursos Azure** no canto inferior direito do Código VS, pode utilizar os comentários inline. Os comentários inline já não são marcados como inválidos.
+No Código do Estúdio Visual, a [extensão Azure Resource Manager Tools](quickstart-create-templates-use-visual-studio-code.md) pode detetar automaticamente um modelo ARM e alterar o modo de idioma. Se vir **o Modelo do Gestor de Recursos Azure** no canto inferior direito do Código VS, pode utilizar os comentários inline. Os comentários inline já não são marcados como inválidos.
 
 ![Modo modelo de gestor de recursos do código de estúdio visual Azure](./media/template-syntax/resource-manager-template-editor-mode.png)
 

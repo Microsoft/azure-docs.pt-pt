@@ -3,20 +3,20 @@ title: Monitorize fábricas de dados usando o Azure Monitor
 description: Aprenda a utilizar o Azure Monitor para monitorizar os oleodutos /Azure Data Factory, permitindo registos de diagnóstico com informações da Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: af274c9c50b514befb4a3ce5930877edf964d976
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 35d2073dca21b4a0d48a43bed9933bb7549cf8f3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638096"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497899"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Monitorizar e alertar a fábrica de dados utilizando o Monitor Azure
 
@@ -34,9 +34,9 @@ Para mais informações, consulte [a visão geral do Azure Monitor](../azure-mon
 
 A Data Factory armazena dados de condutas por apenas 45 dias. Utilize o Azure Monitor se quiser manter esses dados por mais tempo. Com o Monitor, pode encaminhar registos de diagnóstico para análise para vários alvos diferentes.
 
-* **Conta de Armazenamento** : Guarde os seus registos de diagnóstico numa conta de armazenamento para auditoria ou inspeção manual. Pode utilizar as definições de diagnóstico para especificar o tempo de retenção em dias.
-* **Centro de Eventos** : Transmita os registos para Azure Event Hubs. Os registos tornam-se entradas para uma solução de análise de serviço de parceiro/personalizado como o Power BI.
-* **Log Analytics** : Analise os registos com Log Analytics. A integração da Data Factory com o Azure Monitor é útil nos seguintes cenários:
+* **Conta de Armazenamento**: Guarde os seus registos de diagnóstico numa conta de armazenamento para auditoria ou inspeção manual. Pode utilizar as definições de diagnóstico para especificar o tempo de retenção em dias.
+* **Centro de Eventos**: Transmita os registos para Azure Event Hubs. Os registos tornam-se entradas para uma solução de análise de serviço de parceiro/personalizado como o Power BI.
+* **Log Analytics**: Analise os registos com Log Analytics. A integração da Data Factory com o Azure Monitor é útil nos seguintes cenários:
   * Você quer escrever consultas complexas sobre um rico conjunto de métricas que são publicadas pela Data Factory para monitorizar. Pode criar alertas personalizados nestas consultas através do Monitor.
   * Quer monitorizar as fábricas de dados. Pode encaminhar dados de várias fábricas de dados para um único espaço de trabalho monitor.
 
@@ -46,19 +46,19 @@ Também pode utilizar uma conta de armazenamento ou espaço de nome de centro de
 
 Crie ou adicione definições de diagnóstico para a sua fábrica de dados.
 
-1. No portal, vá ao Monitor. Selecione **Settings**  >  **definições de diagnóstico** .
+1. No portal, vá ao Monitor. Selecione **Settings**  >  **definições de diagnóstico**.
 
 1. Selecione a fábrica de dados para a qual pretende definir uma definição de diagnóstico.
 
-1. Se não existirem definições na fábrica de dados selecionada, é solicitado que crie uma definição. **Selecione Ligue os diagnósticos** .
+1. Se não existirem definições na fábrica de dados selecionada, é solicitado que crie uma definição. **Selecione Ligue os diagnósticos**.
 
    ![Crie uma definição de diagnóstico se não existirem definições](media/data-factory-monitor-oms/monitor-oms-image1.png)
 
-   Se houver definições existentes na fábrica de dados, vê uma lista de definições já configuradas na fábrica de dados. **Selecione Adicionar a definição de diagnóstico** .
+   Se houver definições existentes na fábrica de dados, vê uma lista de definições já configuradas na fábrica de dados. Selecione **Adicionar definição de diagnóstico**.
 
    ![Adicione uma definição de diagnóstico se existirem definições](media/data-factory-monitor-oms/add-diagnostic-setting.png)
 
-1. Dê um nome à sua definição, selecione **Enviar para registar análises** e, em seguida, selecione um espaço de trabalho no **Log Analytics Workspace** .
+1. Dê um nome à sua definição, selecione **Enviar para registar análises** e, em seguida, selecione um espaço de trabalho no **Log Analytics Workspace**.
 
     * No modo _Azure-Diagnostics,_ os registos de diagnóstico fluem para a tabela _AzureDiagnostics._
 
@@ -80,9 +80,9 @@ Crie ou adicione definições de diagnóstico para a sua fábrica de dados.
    ![Nomeie as suas definições e selecione um espaço de trabalho de análise de log-analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Como uma tabela de registoS Azure não pode ter mais de 500 colunas, **recomendamos vivamente** que selecione _o modo Específico de Recursos_ . Para obter mais informações, consulte [Log Analytics As limitações conhecidas.](../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics)
+    > Como uma tabela de registoS Azure não pode ter mais de 500 colunas, **recomendamos vivamente** que selecione _o modo Específico de Recursos_. Para obter mais informações, consulte [Log Analytics As limitações conhecidas.](../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics)
 
-1. Selecione **Guardar** .
+1. Selecione **Guardar**.
 
 Após alguns momentos, a nova definição aparece na sua lista de definições para esta fábrica de dados. Os registos de diagnóstico são transmitidos para esse espaço de trabalho assim que novos dados de eventos são gerados. Podem decorrer até 15 minutos entre quando um evento é emitido e quando aparece no Log Analytics.
 
@@ -102,7 +102,7 @@ Esta solução fornece-lhe um resumo da saúde geral da sua Data Factory, com op
 
    ![Detalhes sobre "Azure Data Factory Analytics (Preview)"](media/data-factory-monitor-oms/monitor-oms-image4.png)
 
-1. Selecione **Criar** e, em seguida, criar ou selecionar o **espaço de trabalho do Log Analytics** .
+1. Selecione **Criar** e, em seguida, criar ou selecionar o **espaço de trabalho do Log Analytics**.
 
    ![Criar uma nova solução](media/data-factory-monitor-oms/monitor-log-analytics-image-5.png)
 
@@ -127,7 +127,7 @@ Pode visualizar as métricas anteriores, olhar para as consultas por trás desta
 ![Representação gráfica do gasoduto é executado por fábrica de dados"](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
 > [!NOTE]
-> A Azure Data Factory Analytics (Preview) envia registos de diagnóstico para tabelas de destino _específicas de recursos._ Pode escrever consultas com as seguintes tabelas: _ADFPipelineRun,_ _ADFTriggerRun_ e _ADFActivityRun_ .
+> A Azure Data Factory Analytics (Preview) envia registos de diagnóstico para tabelas de destino _específicas de recursos._ Pode escrever consultas com as seguintes tabelas: _ADFPipelineRun,_ _ADFTriggerRun_ e _ADFActivityRun_.
 
 ## <a name="data-factory-metrics"></a>Métricas da Fábrica de Dados
 
@@ -446,7 +446,7 @@ Para obter mais informações, consulte [Definições de Diagnóstico](/rest/api
 | --- | --- | --- | --- |
 | **Nível** |String | O nível dos registos de diagnóstico. Para registos de execução de atividades, desa um valor de propriedade para 4. | `4` |
 | **correlationId** |String | A identificação única para rastrear um pedido particular. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **hora** | String | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z` TEMPOMUC . | `2017-06-28T21:00:27.3534352Z` |
+| **Hora** | String | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z` TEMPOMUC . | `2017-06-28T21:00:27.3534352Z` |
 |**activityRunId**| String| A identificação da atividade funciona. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |**pipelineRunId**| String| A identificação do oleoduto. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |**recursosId**| String | O ID associado ao recurso de fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -492,7 +492,7 @@ Para obter mais informações, consulte [Definições de Diagnóstico](/rest/api
 | --- | --- | --- | --- |
 | **Nível** |String | O nível dos registos de diagnóstico. Para registos de execução de atividades, desa um valor de propriedade para 4. | `4` |
 | **correlationId** |String | A identificação única para rastrear um pedido particular. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **hora** | String | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z` TEMPOMUC . | `2017-06-28T21:00:27.3534352Z` |
+| **Hora** | String | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z` TEMPOMUC . | `2017-06-28T21:00:27.3534352Z` |
 |**runId**| String| A identificação do oleoduto. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |**recursosId**| String | O ID associado ao recurso de fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**categoria**| String | A categoria dos registos de diagnóstico. Desa estava o valor da propriedade para `PipelineRuns` . | `PipelineRuns` |
@@ -535,7 +535,7 @@ Para obter mais informações, consulte [Definições de Diagnóstico](/rest/api
 | --- | --- | --- | --- |
 | **Nível** |String | O nível dos registos de diagnóstico. Para registos de execução de atividades, desa um valor de propriedade para 4. | `4` |
 | **correlationId** |String | A identificação única para rastrear um pedido particular. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **hora** | String | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z` TEMPOMUC . | `2017-06-28T21:00:27.3534352Z` |
+| **Hora** | String | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z` TEMPOMUC . | `2017-06-28T21:00:27.3534352Z` |
 |**triggerId**| String| A identificação do gatilho funciona. | `08587023010602533858661257311` |
 |**recursosId**| String | O ID associado ao recurso de fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**categoria**| String | A categoria dos registos de diagnóstico. Desa estava o valor da propriedade para `PipelineRuns` . | `PipelineRuns` |
@@ -570,7 +570,7 @@ Aqui estão os atributos de registo das operações de arranque/paragem/manuten�
 
 | Propriedade                   | Tipo   | Descrição                                                   | Exemplo                        |
 | -------------------------- | ------ | ------------------------------------------------------------- | ------------------------------ |
-| **hora**                   | String | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| **Hora**                   | String | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 | **operaçãoName**          | String | O nome da sua operação SSIS IR                            | `Start/Stop/Maintenance` |
 | **categoria**               | String | A categoria de registos de diagnóstico                               | `SSISIntegrationRuntimeLogs` |
 | **correlationId**          | String | O ID único para rastrear uma determinada operação             | `f13b159b-515f-4885-9dfa-a664e949f785Deprovision0059035558` |
@@ -610,7 +610,7 @@ Aqui estão os atributos de registo de condições relacionadas com mensagens de
 
 | Propriedade                   | Tipo   | Descrição                                                          | Exemplo                        |
 | -------------------------- | ------ | -------------------------------------------------------------------- | ------------------------------ |
-| **hora**                   | String | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
+| **Hora**                   | String | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
 | **operaçãoName**          | String | Isto está definido para `YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
 | **categoria**               | String | A categoria de registos de diagnóstico                                      | `SSISPackageEventMessageContext` |
 | **correlationId**          | String | O ID único para rastrear uma determinada operação                    | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
@@ -660,7 +660,7 @@ Aqui estão os atributos de registo de mensagens de evento que são geradas por 
 
 | Propriedade                   | Tipo   | Descrição                                                        | Exemplo                        |
 | -------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
-| **hora**                   | String | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
+| **Hora**                   | String | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
 | **operaçãoName**          | String | Isto está definido para `YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
 | **categoria**               | String | A categoria de registos de diagnóstico                                    | `SSISPackageEventMessages` |
 | **correlationId**          | String | O ID único para rastrear uma determinada operação                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
@@ -709,7 +709,7 @@ Aqui estão os atributos de registo de estatísticas executáveis que são gerad
 
 | Propriedade                   | Tipo   | Descrição                                                      | Exemplo                        |
 | -------------------------- | ------ | ---------------------------------------------------------------- | ------------------------------ |
-| **hora**                   | String | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
+| **Hora**                   | String | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
 | **operaçãoName**          | String | Isto está definido para `YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
 | **categoria**               | String | A categoria de registos de diagnóstico                                  | `SSISPackageExecutableStatistics` |
 | **correlationId**          | String | O ID único para rastrear uma determinada operação                | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
@@ -754,7 +754,7 @@ Aqui estão os atributos de registo de estatísticas de tempo de execução para
 
 | Propriedade                   | Tipo   | Descrição                                                         | Exemplo                        |
 | -------------------------- | ------ | ------------------------------------------------------------------- | ------------------------------ |
-| **hora**                   | String | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
+| **Hora**                   | String | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
 | **operaçãoName**          | String | Isto está definido para `YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
 | **categoria**               | String | A categoria de registos de diagnóstico                                     | `SSISPackageExecutionComponentPhases` |
 | **correlationId**          | String | O ID único para rastrear uma determinada operação                   | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
@@ -802,7 +802,7 @@ Aqui estão os atributos de registo de movimentos de dados através de cada part
 
 | Propriedade                     | Tipo   | Descrição                                                        | Exemplo                        |
 | ---------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
-| **hora**                     | String | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
+| **Hora**                     | String | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
 | **operaçãoName**            | String | Isto está definido para `YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
 | **categoria**                 | String | A categoria de registos de diagnóstico                                    | `SSISPackageExecutionDataStatistics` |
 | **correlationId**            | String | O ID único para rastrear uma determinada operação                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
@@ -836,7 +836,7 @@ Log Analytics herda o esquema do Monitor com as seguintes exceções:
     | Propriedades. Entrada | Entrada | Dinâmica |
     | Propriedades. Saída | Saída | Dinâmica |
     | Propriedades. Erro.erroSDesco | CódigoDoErro | int |
-    | Propriedades. Error.message | ErroS | cadeia |
+    | Propriedades. Error.message | ErroS | string |
     | Propriedades. Erro | Erro | Dinâmica |
     | Propriedades. Antecessores | Antecessores | Dinâmica |
     | Propriedades. Parâmetros | Parâmetros | Dinâmica |

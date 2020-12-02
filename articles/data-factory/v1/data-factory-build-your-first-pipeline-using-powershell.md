@@ -3,20 +3,20 @@ title: Construa a sua primeira fábrica de dados (PowerShell)
 description: Neste tutorial, irá criar um exemplo de pipeline do Azure Data Factory com o Azure PowerShell.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 3f388937c43c9c6a2b9e4700768d4af9cdcb39de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbeb87c6e96c75e62fe97db031ae926ce30b6a19
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543117"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496352"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutorial: Criar a primeira fábrica de dados do Azure com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -168,7 +168,7 @@ Neste passo, irá ligar um cluster do HDInsight a pedido à sua fábrica de dado
    * Você poderia usar **o seu próprio cluster HDInsight** em vez de usar um cluster HDInsight a pedido. Veja [HDInsight Linked Service (Serviço Ligado do HDInsight)](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
    * O cluster HDInsight cria um **recipiente predefinido** no armazenamento de bolhas especificado no JSON **(linkedServiceName**). Quando o cluster é eliminado, o HDInsight não é eliminado deste contentor. Este comportamento é propositado. Com um serviço on-demand HDInsight ligado, um cluster HDInsight é criado sempre que uma fatia é processada, a menos que exista um cluster vivo existente **(timeToLive**). O cluster é eliminado automaticamente quando o processamento é concluído.
 
-       À medida que são processados mais setores, verá muitos contentores no armazenamento de blobs do Azure. Se não precisar deles para a resolução de problemas das tarefas, poderá eliminá-los para reduzir o custo de armazenamento. Os nomes destes recipientes seguem um padrão: "adf**yourdatafactoryname** - **linkedservicename**-datetimestamp". Utilize ferramentas como o [Microsoft Azure Storage Explorer](https://storageexplorer.com/) para eliminar recipientes no seu armazenamento de bolhas Azure.
+       À medida que são processados mais setores, verá muitos contentores no armazenamento de blobs do Azure. Se não precisar deles para a resolução de problemas das tarefas, poderá eliminá-los para reduzir o custo de armazenamento. Os nomes destes recipientes seguem um padrão: "adf **yourdatafactoryname** - **linkedservicename**-datetimestamp". Utilize ferramentas como o [Microsoft Azure Storage Explorer](https://storageexplorer.com/) para eliminar recipientes no seu armazenamento de bolhas Azure.
 
      Veja [On-demand HDInsight Linked Service (Serviço Ligado do HDInsight a Pedido)](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
 2. Executar o **cmdlet New-AzDataFactoryLinkedService** que cria o serviço ligado chamado HDInsightOnDemandLinkedService.

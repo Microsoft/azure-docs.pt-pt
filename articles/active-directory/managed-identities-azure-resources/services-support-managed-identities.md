@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: eee711917a732bfc24b10db82c75786fd9734b57
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: c77f0e93e9f0084f335df39d2878871d66af0aac
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555690"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498035"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos da Azure
 
@@ -190,7 +190,7 @@ Consulte a seguinte lista para configurar a identidade gerida para as funções 
 - [Azure PowerShell](../../app-service/overview-managed-identity.md#using-azure-powershell)
 - [Modelo Azure Resource Manager](../../app-service/overview-managed-identity.md#using-an-azure-resource-manager-template)
 
-### <a name="azure-iot-hub"></a>Hub IoT do Azure
+### <a name="azure-iot-hub"></a>Azure IoT Hub
 
 Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -253,7 +253,7 @@ Consulte a seguinte lista para configurar a identidade gerida para a Política A
 - [Portal do Azure](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
 - [CLI do Azure](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
-- [Modelos do Azure Resource Manager](/azure/templates/microsoft.authorization/policyassignments)
+- [Modelos de gestor de recursos Azure](/azure/templates/microsoft.authorization/policyassignments)
 - [REST](/rest/api/resources/policyassignments/create)
 
 
@@ -291,15 +291,15 @@ Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globai
 
 |Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Sistema atribuído | ![Disponível][check] | ![Disponível][check] | Pré-visualizar | Pré-visualizar |
-| Utilizador atribuído | ![Disponível][check] | ![Disponível][check] | Pré-visualizar | Pré-visualizar |
+| Sistema atribuído | ![Disponível][check] | ![Disponível][check] | Pré-visualizar | ![Disponível][check] |
+| Utilizador atribuído | ![Disponível][check] | ![Disponível][check] | Pré-visualizar | ![Disponível][check] |
 
 Consulte a seguinte lista para configurar a identidade gerida para conjuntos de balanças de máquinas virtuais Azure (nas regiões onde disponível):
 
 - [Portal do Azure](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](qs-configure-cli-windows-vm.md)
-- [Modelos do Azure Resource Manager](qs-configure-template-windows-vm.md)
+- [Modelos de gestor de recursos Azure](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
 
@@ -308,15 +308,15 @@ Consulte a seguinte lista para configurar a identidade gerida para conjuntos de 
 
 | Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Sistema atribuído | ![Disponível][check] | ![Disponível][check] | Pré-visualizar | Pré-visualizar |
-| Utilizador atribuído | ![Disponível][check] | ![Disponível][check] | Pré-visualizar | Pré-visualizar |
+| Sistema atribuído | ![Disponível][check] | ![Disponível][check] | Pré-visualizar | ![Disponível][check] |
+| Utilizador atribuído | ![Disponível][check] | ![Disponível][check] | Pré-visualizar | ![Disponível][check] |
 
 Consulte a seguinte lista para configurar a identidade gerida para as máquinas virtuais Azure (nas regiões onde disponível):
 
 - [Portal do Azure](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](qs-configure-cli-windows-vm.md)
-- [Modelos do Azure Resource Manager](qs-configure-template-windows-vm.md)
+- [Modelos de gestor de recursos Azure](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 - [SDKs do Azure](qs-configure-sdk-windows-vm.md)
 
@@ -387,7 +387,7 @@ Consulte a seguinte lista para configurar o acesso ao Azure Resource Manager:
 | Azure Alemanha | `https://database.cloudapi.de/` | ![Disponível][check] |
 | Azure China 21Vianet | `https://database.chinacloudapi.cn/` | ![Disponível][check] |
 
-### <a name="azure-event-hubs"></a>Hubs de Eventos do Azure
+### <a name="azure-event-hubs"></a>Azure Event Hubs
 
 | Cloud | ID do Recurso | Estado |
 |--------|------------|:-:|

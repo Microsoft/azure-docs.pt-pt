@@ -3,8 +3,8 @@ title: Monitorizar e gerir os gasodutos de dados - Azure
 description: Saiba como utilizar a app de Monitorização e Gestão para monitorizar e gerir fábricas de dados e oleodutos Azure.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: e378c1e25fb434e689eadd91e9e8562ffe7e61fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afab2b03d31045b9f49f357b49d15368cde898da
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570086"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495706"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorize e gere os oleodutos da Azure Data Factory utilizando a app de monitorização e gestão
 > [!div class="op_single_selector"]
@@ -58,7 +58,7 @@ Na lista do Activity Windows no painel central, vê-se uma janela de atividade p
 Se não tiver uma aplicação de Data Factory para testar estes passos, faça o tutorial: [copie os dados do Blob Storage para a BASE de Dados SQL utilizando a Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="understand-the-monitoring-and-management-app"></a>Compreender a app de Monitorização e Gestão
-Existem três separadores à esquerda: **Explorador de Recursos,** **Vistas de Monitorização**e **Alertas.** O primeiro separador **(Explorador de Recursos)** é selecionado por predefinição.
+Existem três separadores à esquerda: **Explorador de Recursos,** **Vistas de Monitorização** e **Alertas.** O primeiro separador **(Explorador de Recursos)** é selecionado por predefinição.
 
 ### <a name="resource-explorer"></a>Explorador de Recursos
 Vê o seguinte:
@@ -66,7 +66,7 @@ Vê o seguinte:
 * A vista da **árvore** exploradora de recursos no painel esquerdo.
 * A **vista do diagrama** na parte superior no painel central.
 * A lista **de Activity Windows** na parte inferior do painel central.
-* As **propriedades,** **explorador de janelas**de atividade e separadores **script** no painel direito.
+* As **propriedades,** **explorador de janelas** de atividade e separadores **script** no painel direito.
 
 No Resource Explorer, vê todos os recursos (oleodutos, conjuntos de dados, serviços ligados) na fábrica de dados numa vista de árvores. Quando seleciona um objeto no Explorador de Recursos:
 
@@ -177,7 +177,7 @@ As janelas de atividade podem estar num dos seguintes estados:
 <td>AtividadesResume</td><td>A atividade é interrompida e não pode executar as janelas de atividade até que seja retomada.</td>
 </tr>
 <tr>
-<td>Repetir</td><td>A execução da atividade está a ser novamente julgada.</td>
+<td>Tentar novamente</td><td>A execução da atividade está a ser novamente julgada.</td>
 </tr>
 <tr>
 <td>Validação</td><td>A validação ainda não começou.</td>
@@ -254,7 +254,7 @@ Atualmente, existem três pontos de vista do sistema que são suportados. Seleci
 
 Ao selecionar a opção **janelas de atividades recentes,** vê todas as janelas de atividades recentes na ordem descendente da **última tentativa.**
 
-Pode utilizar a vista de **janelas de atividade falhada** para ver todas as janelas de atividade falhadas na lista. Selecione uma janela de atividade falhada na lista para ver detalhes sobre o mesmo na janela **Propriedades** ou no **Explorador de Janelas**de Atividade . Também pode descarregar quaisquer registos para uma janela de atividade falhada.
+Pode utilizar a vista de **janelas de atividade falhada** para ver todas as janelas de atividade falhadas na lista. Selecione uma janela de atividade falhada na lista para ver detalhes sobre o mesmo na janela **Propriedades** ou no **Explorador de Janelas** de Atividade . Também pode descarregar quaisquer registos para uma janela de atividade falhada.
 
 ## <a name="sort-and-filter-activity-windows"></a>Ordenar e filtrar janelas de atividade
 Altere as definições **de hora de início** e de fim de **tempo** na barra de comando para filtrar as janelas de atividade. Depois de alterar a hora de início e o tempo de fim, clique no botão ao lado da hora final para atualizar a lista de Windows de atividade.

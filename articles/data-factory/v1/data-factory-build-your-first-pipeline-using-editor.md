@@ -3,20 +3,20 @@ title: Construa a sua primeira fábrica de dados (portal Azure)
 description: Neste tutorial, vai criar um exemplo de pipeline do Azure Data Factory com o Editor do Data Factory no portal do Azure.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: e948962a73137f78ec26a01c1d2f54d883e76783
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 360fbc3e1bfe7890f1f3b05899eb95ce7a3a72c2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637450"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496625"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: criar a primeira fábrica de dados com o portal do Azure
 > [!div class="op_single_selector"]
@@ -52,13 +52,13 @@ Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline pode conter uma
 
 Para criar uma fábrica de dados, siga estes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Selecione **Novos**  >  Dados + Fábrica de Dados **Analíticos.**  >  **Data Factory**
 
    ![Criar painel](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
 
-1. No painel **Nova fábrica de dados** , em **Nome** , introduza **GetStartedDF** .
+1. No painel **Nova fábrica de dados**, em **Nome**, introduza **GetStartedDF**.
 
    ![Painel Nova fábrica de dados](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
@@ -68,21 +68,21 @@ Para criar uma fábrica de dados, siga estes passos:
    > O nome da fábrica de dados pode ser registado como um nome DNS no futuro e, por conseguinte, ficar publicamente visível.
    >
    >
-1. Em **Subscrição** , selecione a subscrição do Azure onde pretende que seja criada a fábrica de dados.
+1. Em **Subscrição**, selecione a subscrição do Azure onde pretende que seja criada a fábrica de dados.
 
-1. Selecione um grupo de recursos existente ou crie um grupo de recursos. Para o tutorial, crie um grupo de recursos chamado **ADFGetStartedRG** .
+1. Selecione um grupo de recursos existente ou crie um grupo de recursos. Para o tutorial, crie um grupo de recursos chamado **ADFGetStartedRG**.
 
-1. Em **Localização** , selecione uma localização para a fábrica de dados. A lista pendente só mostra as regiões que o serviço Data Factory suporta.
+1. Em **Localização**, selecione uma localização para a fábrica de dados. A lista pendente só mostra as regiões que o serviço Data Factory suporta.
 
-1. Selecione a caixa de verificação **Afixar ao dashboard** .
+1. Selecione a caixa de verificação **Afixar ao dashboard**.
 
-1. Selecione **Criar** .
+1. Selecione **Criar**.
 
    > [!IMPORTANT]
    > Para criar instâncias data factory, você deve ser um membro da [função de contribuinte](../../role-based-access-control/built-in-roles.md#data-factory-contributor) data factory ao nível do grupo de subscrição/recursos.
    >
    >
-1. No dashboard, é apresentado o mosaico seguinte, com o estado **A Implementar o Data Factory** :    
+1. No dashboard, é apresentado o mosaico seguinte, com o estado **A Implementar o Data Factory**:    
 
    ![Estado A implementar o Data Factory](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 
@@ -98,11 +98,11 @@ Neste passo, vai ligar a sua conta de Armazenamento do Azure e um cluster do HDI
 ### <a name="create-a-storage-linked-service"></a>Criar um serviço ligado ao Armazenamento
 Neste passo, vai ligar a sua conta de armazenamento à fábrica de dados. Neste tutorial, vai utilizar a mesma conta de armazenamento para guardar os dados de entrada/saída e o ficheiro de script HQL.
 
-1. N painel **Fábrica de dados** de **GetStartedDF** , selecione **Criar e implementar** . Será apresentado o Editor do Data Factory.
+1. N painel **Fábrica de dados** de **GetStartedDF**, selecione **Criar e implementar**. Será apresentado o Editor do Data Factory.
 
    ![Mosaico Criar e implementar](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
 
-1. Selecione **Novo arquivo de dados** e escolha **Armazenamento do Azure** .
+1. Selecione **Novo arquivo de dados** e escolha **Armazenamento do Azure**.
 
    ![Painel Novo arquivo de dados](./media/data-factory-build-your-first-pipeline-using-editor/new-data-store-azure-storage-menu.png)
 
@@ -159,9 +159,9 @@ Neste passo, irá ligar um cluster do HDInsight a pedido à sua fábrica de dado
 
      b. Pode utilizar o seu próprio cluster do HDInsight, em vez de utilizar um cluster do HDInsight a pedido. Para obter mais informações, veja [Serviço ligado do HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
 
-     c. O cluster do HDInsight cria um contentor predefinido no armazenamento de blobs especificado na propriedade JSON ( **linkedServiceName** ). O HDInsight não elimina este contentor quando o cluster é eliminado. Este comportamento é propositado. Com o serviço ligado do HDInsight a pedido, é criado um cluster do HDInsight sempre que é processado um setor, exceto se houver um cluster em direto ( **timeToLive** ). O cluster é eliminado automaticamente quando o processamento é concluído.
+     c. O cluster do HDInsight cria um contentor predefinido no armazenamento de blobs especificado na propriedade JSON (**linkedServiceName**). O HDInsight não elimina este contentor quando o cluster é eliminado. Este comportamento é propositado. Com o serviço ligado do HDInsight a pedido, é criado um cluster do HDInsight sempre que é processado um setor, exceto se houver um cluster em direto (**timeToLive**). O cluster é eliminado automaticamente quando o processamento é concluído.
 
-     À medida que são processados mais setores, verá muitos contentores no armazenamento de blobs. Se não precisar deles para a resolução de problemas das tarefas, poderá eliminá-los para reduzir o custo de armazenamento. Os nomes destes contentores seguem um padrão: "adf **yourdatafactoryname** - **linkedservicename** -datetimestamp.". Utilize ferramentas como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/) para eliminar contentores do armazenamento de blobs.
+     À medida que são processados mais setores, verá muitos contentores no armazenamento de blobs. Se não precisar deles para a resolução de problemas das tarefas, poderá eliminá-los para reduzir o custo de armazenamento. Os nomes destes contentores seguem um padrão: "adf **yourdatafactoryname** - **linkedservicename**-datetimestamp.". Utilize ferramentas como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/) para eliminar contentores do armazenamento de blobs.
 
      Para obter mais informações, veja [Serviço ligado do HDInsight a pedido](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
@@ -177,11 +177,11 @@ Neste passo, irá ligar um cluster do HDInsight a pedido à sua fábrica de dado
 Neste passo, irá criar conjuntos de dados para representar os dados de entrada e de saída do processamento do Hive. Estes conjuntos de dados referem-se ao AzureStorageLinkedService que criou anteriormente neste tutorial. O serviço ligado aponta para uma conta de armazenamento. Os conjuntos de dados especificam o contentor, a pasta e o nome do ficheiro no armazenamento que contém os dados de entrada e saída.   
 
 ### <a name="create-the-input-dataset"></a>Criar o conjunto de dados de entrada
-1. No Editor de Fábrica de Dados, selecione **Mais**  >  **novos conjuntos de dados**  >  **Azure Blob armazenamento** .
+1. No Editor de Fábrica de Dados, selecione **Mais**  >  **novos conjuntos de dados**  >  **Azure Blob armazenamento**.
 
     ![Novo conjunto de dados](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 
-1. Copie e cole o fragmento seguinte na janela Rascunho-1. No fragmento JSON, crie um conjunto de dados com o nome **AzureBlobInput** , que representa os dados de entrada de uma atividade no pipeline. Além disso, especifique que os dados de entrada estão no contentor de blobs com o nome **adfgetstarted** e na pasta com o nome **inputdata** .
+1. Copie e cole o fragmento seguinte na janela Rascunho-1. No fragmento JSON, crie um conjunto de dados com o nome **AzureBlobInput**, que representa os dados de entrada de uma atividade no pipeline. Além disso, especifique que os dados de entrada estão no contentor de blobs com o nome **adfgetstarted** e na pasta com o nome **inputdata**.
 
     ```JSON
     {
@@ -210,14 +210,14 @@ Neste passo, irá criar conjuntos de dados para representar os dados de entrada 
 
    | Propriedade | Aninhado sob | Descrição |
    |:--- |:--- |:--- |
-   | tipo | propriedades |O tipo de propriedade está definido como **AzureBlob** , porque os dados estão contidos no armazenamento de blobs. |
+   | tipo | propriedades |O tipo de propriedade está definido como **AzureBlob**, porque os dados estão contidos no armazenamento de blobs. |
    | linkedServiceName | formato |Refere-se ao AzureStorageLinkedService que criou anteriormente. |
    | folderPath | typeProperties | Especifica o contentor de blobs e a pasta que contém os blobs de entrada. | 
    | fileName | typeProperties |Esta propriedade é opcional. Se omitir esta propriedade, serão escolhidos todos os ficheiros em folderPath. Neste tutorial, apenas o ficheiro input.log é processado. |
-   | tipo | formato |Os ficheiros de registo estão no formato de texto, pelo que utilizamos **TextFormat** . |
+   | tipo | formato |Os ficheiros de registo estão no formato de texto, pelo que utilizamos **TextFormat**. |
    | columnDelimiter | formato |As colunas nos ficheiros de registo são delimitadas por vírgula (`,`). |
-   | frequência/intervalo | disponibilidade |A frequência está definida para **Mês** , sendo o intervalo **1** , o que significa que os setores de entrada estão disponíveis mensalmente. |
-   | externo | propriedades | Esta propriedade é definida como **verdadeira** se os dados de entrada não forem gerados por este pipeline. Neste tutorial, o ficheiro input.log não é gerado por este pipeline, por isso definimos a propriedade como **verdadeira** . |
+   | frequência/intervalo | disponibilidade |A frequência está definida para **Mês**, sendo o intervalo **1**, o que significa que os setores de entrada estão disponíveis mensalmente. |
+   | externo | propriedades | Esta propriedade é definida como **verdadeira** se os dados de entrada não forem gerados por este pipeline. Neste tutorial, o ficheiro input.log não é gerado por este pipeline, por isso definimos a propriedade como **verdadeira**. |
 
     Para obter mais informações sobre estas propriedades JSON, veja [Conector de Blobs do Azure](data-factory-azure-blob-connector.md#dataset-properties).
 
@@ -226,9 +226,9 @@ Neste passo, irá criar conjuntos de dados para representar os dados de entrada 
 ### <a name="create-the-output-dataset"></a>Criar o conjunto de dados de saída
 Agora, crie o conjunto de dados de saída para representar os dados de saída guardados no armazenamento de blobs.
 
-1. No Editor de Fábrica de Dados, selecione **Mais**  >  **novos conjuntos de dados**  >  **Azure Blob armazenamento** .
+1. No Editor de Fábrica de Dados, selecione **Mais**  >  **novos conjuntos de dados**  >  **Azure Blob armazenamento**.
 
-1. Copie e cole o fragmento seguinte na janela Rascunho-1. No fragmento JSON, crie um conjunto de dados com o nome **AzureBlobOutput** para especificar a estrutura dos dados que são produzidos pelo script do Hive. Especifique também que os resultados são armazenados no contentor de blobs com o nome **adfgetstarted** e na pasta com o nome **partitioneddata** . A secção **disponibilidade** especifica que o conjunto de dados de saída é produzido mensalmente.
+1. Copie e cole o fragmento seguinte na janela Rascunho-1. No fragmento JSON, crie um conjunto de dados com o nome **AzureBlobOutput** para especificar a estrutura dos dados que são produzidos pelo script do Hive. Especifique também que os resultados são armazenados no contentor de blobs com o nome **adfgetstarted** e na pasta com o nome **partitioneddata**. A secção **disponibilidade** especifica que o conjunto de dados de saída é produzido mensalmente.
 
     ```JSON
     {
@@ -261,7 +261,7 @@ Agora, crie o conjunto de dados de saída para representar os dados de saída gu
 ## <a name="create-a-pipeline"></a>Criar um pipeline
 Neste passo, vai criar o seu primeiro pipeline com uma atividade do HDInsight Hive. O setor de entrada está disponível mensalmente (a frequência é Mês, o intervalo é 1). O setor de saída é produzido mensalmente. A propriedade do agendador da atividade também está definida para mensal. As definições para o conjunto de dados de saída e o agendador de atividade têm de corresponder. Atualmente, o conjunto de dados de saída é o que pauta a agenda, pelo que deve criar um conjunto de dados de saída, mesmo que a atividade não produza dados de saída. Se a atividade não incluir entradas, pode ignorar a criação do conjunto de dados de entrada. No final desta secção, encontrará uma explicação sobre as propriedades utilizadas no seguinte fragmento JSON.
 
-1. No Editor de Fábrica de Dados, selecione **Mais**  >  **Novo pipeline** .
+1. No Editor de Fábrica de Dados, selecione **Mais**  >  **Novo pipeline**.
 
     ![Opção Novo pipeline](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 
@@ -319,13 +319,13 @@ Neste passo, vai criar o seu primeiro pipeline com uma atividade do HDInsight Hi
 
     No fragmento JSON, vai criar um pipeline que consiste numa única atividade que utiliza o Hive para processar dados num cluster do HDInsight.
 
-    O ficheiro de script do Hive **partitionweblogs.hql** é armazenado na conta de armazenamento, que é especificada pelo scriptLinkedService, que tem o nome **AzureStorageLinkedService1** . Pode encontrá-lo na pasta de **scripts** do contentor **adfgetstarted** .
+    O ficheiro de script do Hive **partitionweblogs.hql** é armazenado na conta de armazenamento, que é especificada pelo scriptLinkedService, que tem o nome **AzureStorageLinkedService1**. Pode encontrá-lo na pasta de **scripts** do contentor **adfgetstarted**.
 
     A secção **define** é utilizada para especificar as definições de runtime que são transmitidas ao script do Hive como valores de configuração do Hive. Os exemplos são ${hiveconf:inputtable} e ${hiveconf}.
 
     As propriedades de **início** e **fim** do pipeline especificam o período ativo do pipeline.
 
-    No JSON de atividade, especifique que o Script do Hive é executado na computação especificada pelo **linkedServiceName** : **HDInsightOnDemandLinkedService** .
+    No JSON de atividade, especifique que o Script do Hive é executado na computação especificada pelo **linkedServiceName**: **HDInsightOnDemandLinkedService**.
 
    > [!NOTE]
    > Para obter mais informações sobre as propriedades JSON utilizadas no exemplo, veja a secção “JSON do Pipeline” em [Pipelines e atividades no Data Factory](data-factory-create-pipelines.md).
@@ -339,7 +339,7 @@ Neste passo, vai criar o seu primeiro pipeline com uma atividade do HDInsight Hi
 
    c. Substituiu **storageaccountname** pelo nome da sua conta de armazenamento no pipeline JSON.
 
-1. Selecione **Implementar** na barra de comandos para implementar o pipeline. Uma vez que as horas de **início** e **fim** estão definidas no passado e **isPaused** está definido como **falso** , o pipeline (atividade no pipeline) é executado imediatamente depois de implementá-lo.
+1. Selecione **Implementar** na barra de comandos para implementar o pipeline. Uma vez que as horas de **início** e **fim** estão definidas no passado e **isPaused** está definido como **falso**, o pipeline (atividade no pipeline) é executado imediatamente depois de implementá-lo.
 
 1. Verifique se vê o pipeline na vista de árvore.
 
@@ -349,7 +349,7 @@ Neste passo, vai criar o seu primeiro pipeline com uma atividade do HDInsight Hi
 
 ## <a name="monitor-a-pipeline"></a>Monitorizar um pipeline
 ### <a name="monitor-a-pipeline-by-using-the-diagram-view"></a>Monitorizar um pipeline com a vista de Diagrama
-1. No painel **Fábrica de dados** , selecione **Diagrama** .
+1. No painel **Fábrica de dados**, selecione **Diagrama**.
 
     ![Mosaico do diagrama](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
 
@@ -357,7 +357,7 @@ Neste passo, vai criar o seu primeiro pipeline com uma atividade do HDInsight Hi
 
     ![Vista de diagrama](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png)
 
-1. Para ver todas as atividades do pipeline, clique com o botão direito do rato no pipeline no diagrama e selecione **Abrir pipeline** .
+1. Para ver todas as atividades do pipeline, clique com o botão direito do rato no pipeline no diagrama e selecione **Abrir pipeline**.
 
     ![Menu Abrir pipeline](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-menu.png)
 
@@ -367,17 +367,17 @@ Neste passo, vai criar o seu primeiro pipeline com uma atividade do HDInsight Hi
 
     Para voltar à vista anterior, selecione **Fábrica de dados** no menu na parte superior.
 
-1. Na vista **diagrama,** clique duas vezes no conjunto de dados **AzureBlobInput** . Verifique se o setor está no estado **Pronto** . Poderá demorar alguns minutos até o setor aparecer como **Pronto** . Se não aparecer ao fim de um certo tempo, verifique se colocou o ficheiro de entrada ( **input.log** ) no contentor ( **adfgetstarted** ) e na pasta ( **inputdata** ) adequados.
+1. Na vista **diagrama,** clique duas vezes no conjunto de dados **AzureBlobInput**. Verifique se o setor está no estado **Pronto**. Poderá demorar alguns minutos até o setor aparecer como **Pronto**. Se não aparecer ao fim de um certo tempo, verifique se colocou o ficheiro de entrada (**input.log**) no contentor (**adfgetstarted**) e na pasta (**inputdata**) adequados.
 
    ![Setor de entrada no estado Pronto](./media/data-factory-build-your-first-pipeline-using-editor/input-slice-ready.png)
 
-1. Feche o painel **AzureBlobInput** .
+1. Feche o painel **AzureBlobInput**.
 
-1. Na vista **diagrama,** clique duas vezes no conjunto de dados **AzureBlobOutput** . Verá o setor que está atualmente a ser processado.
+1. Na vista **diagrama,** clique duas vezes no conjunto de dados **AzureBlobOutput**. Verá o setor que está atualmente a ser processado.
 
    ![Processamento de conjunto de dados em curso](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 
-1. Depois de o processamento estar concluído, verá o setor no estado **Pronto** .
+1. Depois de o processamento estar concluído, verá o setor no estado **Pronto**.
 
    ![Conjunto de dados no estado Pronto](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)  
 
@@ -386,15 +386,15 @@ Neste passo, vai criar o seu primeiro pipeline com uma atividade do HDInsight Hi
    >
    >
 
-1. Quando estiver no estado **Pronto** , verifique a pasta **partitioneddata** no contentor **adfgetstarted** do armazenamento de blobs dos dados de saída.  
+1. Quando estiver no estado **Pronto**, verifique a pasta **partitioneddata** no contentor **adfgetstarted** do armazenamento de blobs dos dados de saída.  
 
    ![Dados de saída](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
 
-1. Selecione o setor para ver mais informações sobre o mesmo num painel **Setor de dados** .
+1. Selecione o setor para ver mais informações sobre o mesmo num painel **Setor de dados**.
 
     ![Informações de Setor de dados](./media/data-factory-build-your-first-pipeline-using-editor/data-slice-details.png)
 
-1. Na lista **Execuções de atividades** , selecione uma execução de atividade para ver mais informações sobre a mesma. (Neste cenário, é uma atividade de Colmeia.) A informação aparece numa lâmina **de detalhes da atividade.**   
+1. Na lista **Execuções de atividades**, selecione uma execução de atividade para ver mais informações sobre a mesma. (Neste cenário, é uma atividade de Colmeia.) A informação aparece numa lâmina **de detalhes da atividade.**   
 
     ![Janela Detalhes da execução da atividade](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)    
 
@@ -402,7 +402,7 @@ Neste passo, vai criar o seu primeiro pipeline com uma atividade do HDInsight Hi
    Para obter mais informações, veja [Monitorizar e gerir pipelines com os painéis do portal do Azure](data-factory-monitor-manage-pipelines.md).
 
 > [!IMPORTANT]
-> O ficheiro de entrada é eliminado quando o setor é processado com êxito. Portanto, se pretender refazer a fatia ou voltar a fazer o tutorial, carreque o ficheiro de entrada **(input.log** ) para a pasta de **dados** de entrada do recipiente **adfgetstarted.**
+> O ficheiro de entrada é eliminado quando o setor é processado com êxito. Portanto, se pretender voltar a repetir a fatia ou fazer o tutorial novamente, carrequique o ficheiro de entrada **(entrada.log**) para a pasta de **dados** de entrada do recipiente **adfgetstarted.**
 >
 >
 
@@ -413,7 +413,7 @@ Pode utilizar a aplicação Monitorizar e Gerir para monitorizar os seus pipelin
 
     ![Mosaico Monitorizar e Gerir](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-tile.png)
 
-1. Na aplicação Monitorizar e Gerir, altere a **Hora de início** e a **Hora de fim** para corresponderem às horas de início e fim do seu pipeline. Selecione **Aplicar** .
+1. Na aplicação Monitorizar e Gerir, altere a **Hora de início** e a **Hora de fim** para corresponderem às horas de início e fim do seu pipeline. Selecione **Aplicar**.
 
     ![Aplicação Monitorizar e Gerir](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
 

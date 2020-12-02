@@ -1,19 +1,19 @@
 ---
-title: Efeito Fresnel
+title: Efeito de Fresnel
 description: Página de explicação de recurso para o efeito material do fresnel
 author: jumeder
 ms.author: jumeder
 ms.date: 11/09/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0596d118d1f3c09bc295891f023fe9990f3f1e05
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: c8ecd3afc95cf4b8054cd7db3530c15afebea3ce
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557919"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498239"
 ---
-# <a name="fresnel-effect"></a>Efeito Fresnel
+# <a name="fresnel-effect"></a>Efeito de Fresnel
 
 A característica do material do efeito fresnel é um efeito ad-hoc não fisicamente correto. A funcionalidade baseia-se na observação física dos objetos que se tornam mais reflexivos nestes ângulos. A própria reflexão fresnel já está fisicamente incorporada no [modelo de material PBR](../../overview/features/pbr-materials.md) utilizado na renderização remota Azure. Em contraste, a característica do material do efeito fresnel é apenas um efeito de cor aditivo sem dependência das [luzes](../../overview/features/lights.md) ou do ambiente do [céu.](../../overview/features/sky.md)
 
@@ -21,7 +21,7 @@ O efeito fresnel dá aos objetos afetados um brilho colorido em torno das suas b
 
 ## <a name="enabling-the-fresnel-effect"></a>Permitindo o efeito fresnel
 
-Para utilizar a função efeito fresnel, tem de ser ativada sobre os materiais em questão. Pode ative-lo definindo a parte FresnelEffect das [PbrMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures) no [material PBR](../../overview/features/pbr-materials.md). O mesmo padrão aplica-se às [ColorMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering) e ao [material Color.](../../overview/features/color-materials.md) Consulte a secção de amostras de código para obter uma demonstração de utilização.
+Para utilizar a função efeito fresnel, tem de ser ativada sobre os materiais em questão. Pode ative-lo definindo a parte FresnelEffect das [PbrMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures) no [material PBR](../../overview/features/pbr-materials.md). O mesmo padrão aplica-se às [ColorMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering) e ao [material Color.](../../overview/features/color-materials.md) Consulte a secção de amostras de código para obter uma demonstração de utilização.
 
 Após a ativação, o efeito fresnel será imediatamente visível. Por defeito, o brilho será branco (1, 1, 1, 1) e terá um expoente de 1. Pode personalizar estas definições utilizando os parâmetros abaixo.
 
@@ -93,10 +93,10 @@ void SetFresnelEffect(ApiHandle<AzureSession> session, ApiHandle<Material> mater
 
 ## <a name="api-documentation"></a>Documentação da API
 
-* [C# PbrMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures)
-* [C++ PbrMaterialFeatures](https://docs.microsoft.com/cpp/api/remote-rendering/pbrmaterialfeatures)
-* [C# ColorMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.colormaterialfeatures)
-* [C++ ColorMaterialFeatures](https://docs.microsoft.com/cpp/api/remote-rendering/colormaterialfeatures)
+* [C# PbrMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures)
+* [C++ PbrMaterialFeatures](/cpp/api/remote-rendering/pbrmaterialfeatures)
+* [C# ColorMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering.colormaterialfeatures)
+* [C++ ColorMaterialFeatures](/cpp/api/remote-rendering/colormaterialfeatures)
 
 ## <a name="next-steps"></a>Passos seguintes
 

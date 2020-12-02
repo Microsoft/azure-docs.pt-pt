@@ -5,18 +5,18 @@ services: data-factory
 ms.service: data-factory
 tags: azure-resource-manager
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 07/16/2020
-ms.openlocfilehash: eb423ebd354adeb8273755d34323b283d53eb8b5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0a9c4f6d9e98e721370f54dfbe261025cf186b6c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87283899"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497491"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Quickstart: Criar uma fábrica de dados Azure usando o modelo ARM
 
@@ -87,30 +87,30 @@ Mais amostras de modelo de Azure Data Factory podem ser encontradas na [galeria 
     - **Região**: Selecione uma localização.  Por exemplo, *Leste dos EUA.*
     - **Nome da fábrica de dados**: Utilize o valor predefinido.
     - **Localização**: Use o valor predefinido.
-    - **Nome da conta de**armazenamento : Use o valor predefinido.
+    - **Nome da conta de** armazenamento : Use o valor predefinido.
     - **Recipiente blob**: Utilize o valor predefinido.
 
 ## <a name="review-deployed-resources"></a>Revisão dos recursos implantados
 
 1. Selecione **Ir para o grupo de recursos**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="Implementar o modelo ADF ARM":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="Grupo de Recursos":::
 
 2.  Verifique se a sua Fábrica de Dados Azure foi criada.
     1. O nome da Fábrica de Dados Azure está no formato - datafactory \<uniqueid\> .
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="Implementar o modelo ADF ARM":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="Fábrica de Dados de Amostra":::
 
 2. Verifique se a sua conta de armazenamento foi criada.
     1. O nome da conta de armazenamento está no formato - armazenamento \<uniqueid\> .
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="Implementar o modelo ADF ARM":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="Conta de Armazenamento":::
 
 3. Selecione a conta de armazenamento criada e, em seguida, **selecione Recipientes**.
     1. Na página **Recipientes,** selecione o recipiente blob que criou.
         1. O nome do recipiente blob está no formato - blob \<uniqueid\> .
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Implementar o modelo ADF ARM":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Contentor de blobs":::
 
 ### <a name="upload-a-file"></a>Carregar um ficheiro
 
@@ -126,7 +126,7 @@ Mais amostras de modelo de Azure Data Factory podem ser encontradas na [galeria 
 
 6. Selecione o ícone **Close** (um **X)** para fechar a página **de blob upload.**
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="Implementar o modelo ADF ARM":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="Carregar ficheiro para inserir pasta":::
 
 Mantenha a página do recipiente aberta, pois pode usá-la para verificar a saída no final deste arranque rápido.
 
@@ -136,17 +136,17 @@ Mantenha a página do recipiente aberta, pois pode usá-la para verificar a saí
 
 2. Selecione o **azulejo do Monitor &** autor. 
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Implementar o modelo ADF ARM":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Monitor & autor":::
 
 2. Selecione o **separador Autor** :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author.png" border="false"::: .
 
 3. Selecione o gasoduto criado - ArmtemplateSampleCopyPipeline.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="Implementar o modelo ADF ARM":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="Pipeline de modelo ARM":::
 
 4. **Selecione Adicionar Gatilho**  >  **Agora**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="Implementar o modelo ADF ARM":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="Acionador":::
 
 5. No painel direito sob **a tubagem,** selecione **OK**.
 
@@ -156,7 +156,7 @@ Mantenha a página do recipiente aberta, pois pode usá-la para verificar a saí
 
 2. Verá as execuções de atividade associadas à execução do pipeline. Neste início rápido, o pipeline só tem uma atividade do tipo Cópia. Como tal, vê-se uma corrida para essa atividade.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="Implementar o modelo ADF ARM":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="Corrida bem sucedida":::
 
 ### <a name="verify-the-output-file"></a>Verifique o ficheiro de saída
 
@@ -168,9 +168,9 @@ O gasoduto cria automaticamente uma pasta de saída no recipiente blob. Em segui
 
 3. Confirme se o ficheiro **emp.txt** foi copiado para a pasta de saída. 
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Implementar o modelo ADF ARM":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Saída":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode limpar os recursos que criou no Guia de Introdução de duas formas. Pode [eliminar o grupo de recursos Azure,](../azure-resource-manager/management/delete-resource-group.md)que inclui todos os recursos do grupo de recursos. Se quiser manter os outros recursos intactos, elimine apenas a fábrica de dados que criou neste tutorial.
 

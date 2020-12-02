@@ -3,12 +3,12 @@ title: Implemente o Live Video Analytics num dispositivo IoT Edge - Azure
 description: Este artigo lista os passos que o ajudarão a implementar o Live Video Analytics no seu dispositivo IoT Edge. Fá-lo-ia, por exemplo, se tivesse acesso a uma máquina Linux local e/ou criasse previamente uma conta Azure Media Services.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: a64fc11d7afa70d5200fdbd24bd3facdb8a95a7e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 4fa4a9643976ba513b025706cacec26b2a50afb5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019584"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498324"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implemente o Live Video Analytics num dispositivo IoT Edge
 
@@ -23,8 +23,8 @@ Este artigo lista os passos que o ajudarão a implementar o Live Video Analytics
 * Um dispositivo x86-64 ou um ARM64 que executa um dos [sistemas operativos Linux suportados](../../iot-edge/support.md#operating-systems)
 * Assinatura Azure para a qual tem [privilégios de proprietário](../../role-based-access-control/built-in-roles.md#owner)
 * [Criar e configurar o Hub IoT](../../iot-hub/iot-hub-create-through-portal.md)
-* [Registar dispositivo IoT Edge](../../iot-edge/how-to-register-device.md)
-* [Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian](../../iot-edge/how-to-install-iot-edge-linux.md)
+* [Registar dispositivo IoT Edge](../../iot-edge/how-to-manual-provision-symmetric-key.md)
+* [Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian](../../iot-edge/how-to-install-iot-edge.md)
 * [Criar uma conta Azure Media Services](../latest/create-account-howto.md)
 
     * Utilize uma destas regiões: Leste dos EUA 2, Leste dos EUA, Central EUA, Norte Central dos EUA, Japão Leste, Oeste dos EUA, Oeste dos EUA 2, Centro Ocidental dos EUA, Canadá Leste, Reino Unido Sul, França Central, França Sul, Suíça Norte, Suíça Oeste e Japão Oeste.
@@ -99,7 +99,7 @@ O portal Azure guia-o através da criação de um manifesto de implantação e e
 
 #### <a name="configure-a-deployment-manifest"></a>Configure um manifesto de implantação
 
-Um manifesto de implantação é um documento JSON que descreve quais os módulos a implementar, como os dados fluem entre os módulos e as propriedades desejadas dos gémeos módulos. O portal Azure tem um assistente que o acompanha através da criação de um manifesto de implantação. Tem três passos organizados em separadores: **Módulos,** **Rotas**e **Revisão + Criar.**
+Um manifesto de implantação é um documento JSON que descreve quais os módulos a implementar, como os dados fluem entre os módulos e as propriedades desejadas dos gémeos módulos. O portal Azure tem um assistente que o acompanha através da criação de um manifesto de implantação. Tem três passos organizados em separadores: **Módulos,** **Rotas** e **Revisão + Criar.**
 
 #### <a name="add-modules"></a>Adicionar módulos
 
@@ -113,7 +113,7 @@ Um manifesto de implantação é um documento JSON que descreve quais os módulo
     ![A screenshot mostra o separador Definições do Módulo.](./media/deploy-iot-edge-device/add.png)
     
     > [!TIP]
-    > Não **selecione Adicionar** até ter especificado **valores**nas Definições do Módulo , **Opções de Criação de Recipientes**e Separadores **de Configurações Gémeas do Módulo,** conforme descrito neste procedimento.
+    > Não **selecione Adicionar** até ter especificado **valores** nas Definições do Módulo , **Opções de Criação de Recipientes** e Separadores **de Configurações Gémeas do Módulo,** conforme descrito neste procedimento.
     
     > [!WARNING]
     > O Azure IoT Edge é sensível a casos quando faz chamadas para módulos. Tome nota da cadeia exata que usa como nome do módulo.»

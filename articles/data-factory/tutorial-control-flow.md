@@ -2,8 +2,8 @@
 title: Ramificação no gasoduto Azure Data Factory
 description: Saiba como controlar o fluxo de dados no Azure Data Factory através de atividades de ramificação e encadeamento.
 services: data-factory
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 0a6fc68ddcb86c7ba768f59519cfb4273d381fab
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ab7d17ee61d733483b6d3573e9bd69b1628c7940
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637705"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496949"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 
@@ -58,14 +58,14 @@ Crie uma aplicação como descrito na [Criação de uma aplicação Azure Ative 
 
 ### <a name="create-a-blob-table"></a>Criar uma mesa de bolhas
 
-1. Abra um editor de texto. Copie o seguinte texto e guarde-o localmente como *input.txt* .
+1. Abra um editor de texto. Copie o seguinte texto e guarde-o localmente como *input.txt*.
 
    ```
    Ethel|Berg
    Tamika|Walsh
    ```
 
-1. Abra o Explorador de Armazenamento Azure. Expanda a sua conta de armazenamento. Clique com o botão direito do rato em **Contentores de Blobs** e selecione **Criar Contentor de Blobs** .
+1. Abra o Explorador de Armazenamento Azure. Expanda a sua conta de armazenamento. Clique com o botão direito do rato em **Contentores de Blobs** e selecione **Criar Contentor de Blobs**.
 1. Nomeie o novo recipiente *adfv2branch* e **selecione Upload** para adicionar o seu ficheiro *input.txt* ao recipiente.
 
 ## <a name="create-visual-studio-project"></a>Criar projeto do Visual Studio<a name="create-visual-studio-project"></a>
@@ -73,13 +73,13 @@ Crie uma aplicação como descrito na [Criação de uma aplicação Azure Ative 
 Criar uma aplicação de consola C# .NET:
 
 1. Inicie o Visual Studio e selecione **Criar um novo projeto.**
-1. In **Create a new project** , escolha a App consola **(.NET Framework)** para C# e selecione **Next** .
-1. Nomeie o projeto *ADFv2BranchTutorial* .
-1. Selecione **a versão .NET 4.5.2** ou superior e, em seguida, selecione **Criar** .
+1. In **Create a new project**, escolha a App consola **(.NET Framework)** para C# e selecione **Next**.
+1. Nomeie o projeto *ADFv2BranchTutorial*.
+1. Selecione **a versão .NET 4.5.2** ou superior e, em seguida, selecione **Criar**.
 
 ### <a name="install-nuget-packages"></a>Instalar pacotes NuGet
 
-1. Selecione **ferramentas**  >  **NuGet Package Manager** Package Manager  >  **Consola** .
+1. Selecione **ferramentas**  >  **NuGet Package Manager** Package Manager  >  **Consola**.
 1. Na **Consola Gestor de Pacotes,** executar os seguintes comandos para instalar pacotes. Consulte o [pacote nuget Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) para obter mais detalhes.
 
    ```powershell
@@ -211,7 +211,7 @@ Nesta secção, cria-se dois conjuntos de dados, um para a fonte e outro para a 
 
 ### <a name="create-a-dataset-for-a-source-azure-blob"></a>Criar um conjunto de dados para uma fonte Azure Blob
 
-Adicione um método que cria um *conjunto de dados de bolhas Azure* . Para obter mais informações sobre propriedades e detalhes suportados, consulte [as propriedades do conjunto de dados Azure Blob](connector-azure-blob-storage.md#dataset-properties).
+Adicione um método que cria um *conjunto de dados de bolhas Azure*. Para obter mais informações sobre propriedades e detalhes suportados, consulte [as propriedades do conjunto de dados Azure Blob](connector-azure-blob-storage.md#dataset-properties).
 
 Adicione um `SourceBlobDatasetDefinition` método ao seu ficheiro *Program.cs:*
 
@@ -236,7 +236,7 @@ static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient c
 
 Defina um conjunto de dados que represente os dados de origem no Blob do Azure. Este conjunto de dados Blob refere-se ao serviço ligado ao Azure Storage suportado no passo anterior. O conjunto de dados Blob descreve a localização da bolha para copiar a partir de: *PastaPath* e *DataName* de Ficheiros .
 
-Note a utilização de parâmetros para o *FolderPath* . `sourceBlobContainer` é o nome do parâmetro e a expressão é substituída pelos valores passados no gasoduto. A sintaxe para definir os parâmetros é `@pipeline().parameters.<parameterName>`
+Note a utilização de parâmetros para o *FolderPath*. `sourceBlobContainer` é o nome do parâmetro e a expressão é substituída pelos valores passados no gasoduto. A sintaxe para definir os parâmetros é `@pipeline().parameters.<parameterName>`
 
 ### <a name="create-a-dataset-for-a-sink-azure-blob"></a>Crie um conjunto de dados para um azure Blob
 
@@ -308,7 +308,7 @@ Para acionar o envio de uma mensagem de e-mail, utilize [Logic Apps](../logic-ap
 
 ### <a name="success-email-workflow"></a>Fluxo de trabalho de e-mail de êxito
 
-No [portal Azure,](https://portal.azure.com)crie um fluxo de trabalho de Apps Lógicas chamado *CopySuccessEmail* . Defina o gatilho do fluxo de trabalho como `When an HTTP request is received` . Para o acionador do pedido, preencha o `Request Body JSON Schema` com o seguinte JSON:
+No [portal Azure,](https://portal.azure.com)crie um fluxo de trabalho de Apps Lógicas chamado *CopySuccessEmail*. Defina o gatilho do fluxo de trabalho como `When an HTTP request is received` . Para o acionador do pedido, preencha o `Request Body JSON Schema` com o seguinte JSON:
 
 ```json
 {
@@ -344,7 +344,7 @@ Depois de guardar o fluxo de trabalho, copie e guarde o valor **URL HTTP POST** 
 
 ## <a name="fail-email-workflow"></a>Fluxo de trabalho de e-mail de falha
 
-Clone **CopySuccessEmail** como outro fluxo de trabalho de Apps Lógicas chamado *CopyFailEmail* . No acionador do pedido, o `Request Body JSON schema` é o mesmo. Altere o formato do e-mail, como o `Subject`, para adaptar a um e-mail de falha. Segue-se um exemplo:
+Clone **CopySuccessEmail** como outro fluxo de trabalho de Apps Lógicas chamado *CopyFailEmail*. No acionador do pedido, o `Request Body JSON schema` é o mesmo. Altere o formato do e-mail, como o `Subject`, para adaptar a um e-mail de falha. Segue-se um exemplo:
 
 ![Logic app designer - fail email workflow](media/tutorial-control-flow/fail-email-workflow.png)
 

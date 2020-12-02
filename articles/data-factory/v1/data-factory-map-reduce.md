@@ -3,8 +3,8 @@ title: Invocar o Programa MapReduce da Azure Data Factory
 description: Saiba como processar dados executando programas MapReduce num cluster Azure HDInsight a partir de uma fábrica de dados Azure.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: c34db93f-570a-44f1-a7d6-00390f4dc0fa
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 089a2e6a0b90c1682e2ebdd146626c93cec35f77
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8bdcaf20330a3700681fd96f858370dd7dcdf4c7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636855"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495434"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Invocar programas mapReduce da Fábrica de Dados
 > [!div class="op_single_selector" title1="Atividades de Transformação"]
@@ -49,7 +49,7 @@ Consulte [o Pig](data-factory-pig-activity.md) and [Hive](data-factory-hive-acti
 ## <a name="json-for-hdinsight-mapreduce-activity"></a>JSON para atividade de mapreduce mapa hdinsight
 Na definição JSON para a Atividade HDInsight: 
 
-1. Defina o **tipo** de **atividade** para **HDInsight** .
+1. Defina o **tipo** de **atividade** para **HDInsight**.
 2. Especifique o nome da classe para propriedade **classeName.**
 3. Especifique o caminho para o ficheiro JAR, incluindo o nome do ficheiro para a propriedade **jarFilePath.**
 4. Especifique o serviço ligado que se refere ao Azure Blob Storage que contém o ficheiro JAR para a propriedade **jarLinkedService.**   
@@ -152,7 +152,7 @@ Em seguida, cria um serviço ligado para ligar o seu cluster Azure HDInsight à 
 }
 ```
 
-### <a name="datasets"></a>Conjuntos de dados
+### <a name="datasets"></a>Conjuntos de Dados
 #### <a name="output-dataset"></a>Conjunto de dados de saída
 O gasoduto neste exemplo não tem entradas. Especifica um conjunto de dados de saída para a Atividade de Análise de Mapas hdinsight. Este conjunto de dados é apenas um conjunto de dados falso que é necessário para conduzir o calendário do pipeline.  
 
@@ -183,7 +183,7 @@ O pipeline neste exemplo tem apenas uma atividade que é do tipo: HDInsightMapRe
 
 | Propriedade | Notas |
 |:--- |:--- |
-| tipo |O tipo deve ser definido para **HDInsightMapReduce** . |
+| tipo |O tipo deve ser definido para **HDInsightMapReduce**. |
 | nome de classeName |O nome da classe é: **contador de palavras** |
 | jarFilePath |Caminho para o ficheiro do frasco que contém a classe. Se copiar/colar o seguinte código, não se esqueça de alterar o nome do cluster. |
 | jarLinkedService |Serviço ligado a Azure Storage que contém o ficheiro do frasco. Este serviço ligado refere-se ao armazenamento que está associado ao cluster HDInsight. |

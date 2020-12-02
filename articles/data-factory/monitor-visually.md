@@ -3,19 +3,19 @@ title: Monitorizar visualmente o Azure Data Factory
 description: Saiba como monitorizar visualmente as fábricas de dados do Azure
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 45ebd793d96ed8cf0edf88d5631353fb6cd6a982
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: f2bf1b1a16660b4e80bc0acc5c6e4201b452098f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96008774"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497916"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Monitorizar visualmente o Azure Data Factory
 
@@ -72,7 +72,7 @@ A visualização da lista mostra que as operações correspondem a cada corrida 
 | Início de execução | Data e hora de início da atividade executada (MM/DD/YYYY, HH:MM:SS AM/PM) |
 | Duração | Duração da execução (HH:MM:SS) |
 | Estado | **Falhado,** **bem sucedido,** **em curso,** ou **cancelado** |
-| Tempo de execução de integração | Qual integração Runtime a atividade foi executado em |
+| Runtime de Integração | Qual integração Runtime a atividade foi executado em |
 | Propriedades do Utilizador | Propriedades definidas pelo utilizador da atividade |
 | Erro | Se a atividade falhou, o erro de execução |
 | o ID da Execução | ID da atividade executado |

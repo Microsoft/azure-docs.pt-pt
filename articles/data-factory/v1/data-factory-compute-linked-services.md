@@ -3,20 +3,20 @@ title: Ambientes computativos suportados pela versão 1 da Azure Data Factory
 description: Saiba mais sobre ambientes computativos que pode utilizar nos oleodutos Azure Data Factory (como a Azure HDInsight) para transformar ou processar dados.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 27210dad3e32d4a308310ff114499ca468c4deac
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9f970b66bd30ef2faf705d2fb41825bb81bbb8c9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452281"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496097"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Ambientes computativos suportados pela versão 1 da Azure Data Factory
 > [!NOTE]

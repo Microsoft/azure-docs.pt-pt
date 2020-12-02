@@ -3,12 +3,12 @@ title: Gravação de vídeo baseada em eventos para a nuvem e reprodução do tu
 description: Neste tutorial, você vai aprender a usar Azure Live Video Analytics em Azure IoT Edge para gravar uma gravação de vídeo baseada em eventos para a nuvem e reproduzi-lo de volta da nuvem.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 03c97854673b369db9fe1cb026161a1e81a6bf31
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 84f6ef813fb1b2cc425e096212010717d0561aef
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346660"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498307"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Gravação de vídeo baseada em eventos para a nuvem e reprodução da nuvem
 
@@ -52,7 +52,7 @@ No final destes passos, terá recursos Azure relevantes implantados na sua subsc
 * Azure IoT Hub
 * Conta de armazenamento do Azure
 * Conta Azure Media Services
-* Linux VM em Azure, com o [tempo de execução IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md) instalado
+* Linux VM em Azure, com o [tempo de execução IoT Edge](../../iot-edge/how-to-install-iot-edge.md) instalado
 
 ## <a name="concepts"></a>Conceitos
 
@@ -86,8 +86,8 @@ Antes de começar, verifique se completou a terceira bala em [Pré-requisitos.](
 
 De interesse neste tutorial estão os ficheiros:
 
-* **~/clouddrive/lva-sample/edge-deployment/.env** : Contém propriedades que o Código do Estúdio Visual utiliza para implantar módulos num dispositivo de borda.
-* **~/clouddrive/lva-sample/appsetting.jsem** : Usado pelo Código do Estúdio Visual para executar o código de amostra.
+* **~/clouddrive/lva-sample/edge-deployment/.env**: Contém propriedades que o Código do Estúdio Visual utiliza para implantar módulos num dispositivo de borda.
+* **~/clouddrive/lva-sample/appsetting.jsem**: Usado pelo Código do Estúdio Visual para executar o código de amostra.
 
 Vai precisar dos ficheiros para estes passos.
 
@@ -132,10 +132,10 @@ No Código do Estúdio Visual, navegue para src/edge. Verá o ficheiro .env que 
 
 Abra src/edge/deployment.objectCounter.template.jsligado. Existem quatro entradas na secção de **módulos** que correspondem aos itens listados na secção "Conceitos" anteriores:
 
-* **LvaEdge** : Este é o vídeo ao vivo analítico no módulo IoT Edge.
-* **yolov3** : Este é o módulo de IA construído utilizando o modelo YOLO v3.
-* **rtspsim** : Este é o simulador RTSP.
-* **objectCounter** : Este é o módulo que procura objetos específicos nos resultados do yolov3.
+* **LvaEdge**: Este é o vídeo ao vivo analítico no módulo IoT Edge.
+* **yolov3**: Este é o módulo de IA construído utilizando o modelo YOLO v3.
+* **rtspsim**: Este é o simulador RTSP.
+* **objectCounter**: Este é o módulo que procura objetos específicos nos resultados do yolov3.
 
 Para o módulo objectCounter, consulte a cadeia (${MODULES.objectCounter}) utilizada para o valor "imagem". Isto baseia-se no [tutorial](../../iot-edge/tutorial-develop-for-linux.md) sobre o desenvolvimento de um módulo IoT Edge. O Código do Estúdio Visual reconhece automaticamente que o código do módulo objectCounter está em src/edge/modules/objectCounter. 
 
@@ -207,7 +207,7 @@ Para ver os eventos do módulo objectCounter e do live video analytics no módul
 
     `"topologyName" : "EVRtoAssetsOnObjDetect"`
 1. Inicie uma sessão de depurar selecionando F5. Verá algumas mensagens impressas na janela **TERMINAL.**
-1. A operations.jsno ficheiro começa com chamadas para GraphTopologyList e GraphInstanceList. Se tiver limpo recursos após inícios ou tutoriais anteriores, esta ação devolve listas vazias e pausas para que possa selecionar **Enter** , como mostrado:
+1. A operations.jsno ficheiro começa com chamadas para GraphTopologyList e GraphInstanceList. Se tiver limpo recursos após inícios ou tutoriais anteriores, esta ação devolve listas vazias e pausas para que possa selecionar **Enter**, como mostrado:
 
     ```
     --------------------------------------------------------------------------
@@ -421,7 +421,7 @@ Pode examinar o ativo Dos Serviços de Comunicação que foi criado pelo gráfic
 
 Se pretende experimentar os outros tutoriais, guarde os recursos que criou. Caso contrário, vá ao portal Azure, navegue pelos seus grupos de recursos, selecione o grupo de recursos sob o qual executou este tutorial e elimine o grupo de recursos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Utilize uma [câmara IP](https://en.wikipedia.org/wiki/IP_camera) com suporte para RTSP em vez de utilizar o simulador RTSP. Pode pesquisar por câmaras IP com suporte RTSP na página de [produtos conformantes ONVIF,](https://www.onvif.org/conformant-products/) procurando dispositivos que estejam em conformidade com os perfis G, S ou T.
-* Utilize um dispositivo Linux AMD64 ou X64 (vs. utilizando um VM Azure Linux). Este dispositivo deve estar na mesma rede que a câmara IP. Siga as instruções no [tempo de funcionamento do Azure IoT Edge no Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Em seguida, siga as instruções no implante do [seu primeiro módulo IoT Edge para um dispositivo Linux virtual](../../iot-edge/quickstart-linux.md) para registar o dispositivo com O Azure IoT Hub.
+* Utilize um dispositivo Linux AMD64 ou X64 (vs. utilizando um VM Azure Linux). Este dispositivo deve estar na mesma rede que a câmara IP. Siga as instruções no [tempo de funcionamento do Azure IoT Edge no Linux](../../iot-edge/how-to-install-iot-edge.md). Em seguida, siga as instruções no implante do [seu primeiro módulo IoT Edge para um dispositivo Linux virtual](../../iot-edge/quickstart-linux.md) para registar o dispositivo com O Azure IoT Hub.

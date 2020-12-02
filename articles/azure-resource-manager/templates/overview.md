@@ -2,13 +2,13 @@
 title: Descrição geral de modelos
 description: Descreve os benefícios usando modelos de Gestor de Recursos Azure (modelos ARM) para a implementação de recursos.
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: e25404fc74456f99a4d41c25786b34b6e1f3edda
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.date: 12/01/2020
+ms.openlocfilehash: da091d09f6d242d4b98903a8dcd76fe305e578b8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96342333"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498001"
 ---
 # <a name="what-are-arm-templates"></a>O que são modelos do ARM?
 
@@ -80,13 +80,13 @@ Quando implementa um modelo, o Gestor de Recursos converte o modelo em operaçõ
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2016-01-01",
+    "apiVersion": "2019-04-01",
     "name": "mystorageaccount",
     "location": "westus",
     "sku": {
       "name": "Standard_LRS"
     },
-    "kind": "Storage",
+    "kind": "StorageV2",
     "properties": {}
   }
 ]
@@ -96,17 +96,19 @@ Converte a definição para a operação de API REST seguinte, a qual é enviada
 
 ```HTTP
 PUT
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2019-04-01
 REQUEST BODY
 {
   "location": "westus",
   "sku": {
     "name": "Standard_LRS"
   },
-  "kind": "Storage",
+  "kind": "StorageV2",
   "properties": {}
 }
 ```
+
+Note que a **apiversão** definida no modelo para o recurso é usada como a versão API para a operação REST. Pode implementar repetidamente o modelo e ter confiança de que continuará a funcionar. Ao utilizar a mesma versão API, não tem de se preocupar em quebrar alterações que possam ser introduzidas em versões posteriores.
 
 ## <a name="template-design"></a>Design de modelo
 
@@ -114,7 +116,7 @@ A forma como define modelos e grupos de recursos é inteiramente da sua responsa
 
 ![modelo de três camadas](./media/overview/3-tier-template.png)
 
-No entanto, não precisa de definir toda a infraestrutura num único modelo. Muitas vezes, faz sentido dividir os requisitos de implementação num conjunto de modelos direcionados e com uma finalidade específica. Pode reutilizar facilmente estes modelos para soluções diferentes. Para implementar uma solução específica, cria um modelo global que liga todos os modelos necessários. A imagem seguinte mostra como implementar uma solução de três camadas através de um modelo principal que inclui três modelos aninhados.
+No entanto, não precisa de definir toda a infraestrutura num único modelo. Muitas vezes, faz sentido dividir os requisitos de implementação num conjunto de modelos direcionados e com uma finalidade específica. Pode reutilizar facilmente estes modelos para soluções diferentes. Para implementar uma solução específica, cria-se um modelo principal que liga todos os modelos necessários. A imagem seguinte mostra como implementar uma solução de três camadas através de um modelo principal que inclui três modelos aninhados.
 
 ![modelo de camadas aninhado](./media/overview/nested-tiers-template.png)
 

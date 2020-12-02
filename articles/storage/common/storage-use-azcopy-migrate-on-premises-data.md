@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 154a7b17fc09c55e83b65eef8d479904c36e87eb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: eddee58d70cf621bd6c82d54fe75434f4e596d9e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791193"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498171"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Tutorial: Migrar dados no local para armazenamento em nuvem com AzCopy
 
@@ -44,13 +44,13 @@ O primeiro passo é criar um contentor, porque os blobs têm de ser sempre carre
 Siga estes passos para criar um contentor:
 
 1. Selecione o botão **Contas de armazenamento** na página principal e selecione a conta de armazenamento que criou.
-2. Selecione **Blobs** em **Serviços** e, em seguida, selecione **Contentor** .
+2. Selecione **Blobs** em **Serviços** e, em seguida, selecione **Contentor**.
 
    ![Screenshot mostrando criação de recipiente](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
 Os nomes de contentores têm de começar com uma letra ou um número. Só podem conter letras, números e o caráter de hífen (-). Para ter acesso a outras regras sobre como atribuir nomes a blobs e contentores, consulte [Atribuir nomes e referenciar contentores, blobs e metadados](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-## <a name="download-azcopy"></a>Baixar AzCopy
+## <a name="download-azcopy"></a>Transferir o AzCopy
 
 Descarregue o ficheiro executável AzCopy V10.
 
@@ -176,7 +176,7 @@ Para validar que a tarefa agendada/tarefa Cron é executada corretamente, crie n
 
 Para obter mais informações sobre formas de mover os dados no local para o Armazenamento do Azure e vice-versa, siga esta ligação:
 
-* [Mover dados de e para o Armazenamento do Azure](./storage-choose-data-transfer-solution.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).  
+* [Mover dados de e para o Armazenamento do Azure](./storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
 Para mais informações sobre a AzCopy, consulte qualquer um destes artigos:
 

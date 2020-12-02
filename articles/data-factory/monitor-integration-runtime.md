@@ -7,15 +7,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/11/2020
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 3c7765d65b63c9cee83a76a13448506f61aa8472
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 4eb9b0077d1d0591953a40d98a220d7aa0683de7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637161"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497950"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorizar um runtime de integração no Azure Data Factory
 
@@ -196,7 +196,7 @@ O quadro seguinte fornece descrições das propriedades devolvidas pelo cmdlet a
 | Tipo                         | O tipo de IR (Gerido/Auto-hospedado) do seu Azure-SSIS IR. |
 | ResourceGroupName            | O nome do seu Grupo de Recursos Azure, no qual foram criados os seus ADF e Azure-SSIS IR. |
 | DataFactoryName              | O nome da sua ADF. |
-| Nome                         | O nome do seu Azure-SSIS IR. |
+| Name                         | O nome do seu Azure-SSIS IR. |
 | Descrição                  | A descrição do seu Azure-SSIS IR. |
   
 #### <a name="status-per-azure-ssis-ir-node"></a>Estado (por nó IR Azure-SSIS)
@@ -234,7 +234,7 @@ Em seguida, selecione o nome do seu Azure-SSIS IR para abrir a sua página de mo
 
 #### <a name="status-tile"></a>Azulejo status
 
-No azulejo **status** da sua página de monitorização Azure-SSIS IR, pode ver o seu estado geral, por exemplo **Running** ou **Stop** . Selecionar o estado **de Funcionamento** aparece numa janela com o botão **stop** ao vivo para parar o seu Azure-SSIS IR. A seleção do estado **Stop** aparece numa janela com o botão **Iniciar** ao vivo para iniciar o seu Azure-SSIS IR. A janela pop-up também tem um botão **de pacote Execute SSIS** para gerar automaticamente um pipeline ADF com a atividade do Pacote SSIS executado que funciona no seu Azure-SSIS IR (ver [pacotes Running SSIS como execute as atividades do Pacote SSIS em oleodutos ADF)](./how-to-invoke-ssis-package-ssis-activity.md)e uma caixa de texto **de ID** de recursos, a partir da qual pode copiar o seu ID de recursos Azure-SISIS `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` (). O sufixo do seu ID de recursos IR Azure-SSIS que contém os seus nomes ADF e Azure-SSIS IR forma um ID de cluster que pode ser usado para adquirir componentes SSIS premium/licenciados adicionais a fornecedores de software independentes (ISVs) e ligá-los ao seu Azure-SSIS IR (ver [Instalar componentes premium/licenciados no seu Azure-SSIS IR).](./how-to-develop-azure-ssis-ir-licensed-components.md)
+No azulejo **status** da sua página de monitorização Azure-SSIS IR, pode ver o seu estado geral, por exemplo **Running** ou **Stop**. Selecionar o estado **de Funcionamento** aparece numa janela com o botão **stop** ao vivo para parar o seu Azure-SSIS IR. A seleção do estado **Stop** aparece numa janela com o botão **Iniciar** ao vivo para iniciar o seu Azure-SSIS IR. A janela pop-up também tem um botão **de pacote Execute SSIS** para gerar automaticamente um pipeline ADF com a atividade do Pacote SSIS executado que funciona no seu Azure-SSIS IR (ver [pacotes Running SSIS como execute as atividades do Pacote SSIS em oleodutos ADF)](./how-to-invoke-ssis-package-ssis-activity.md)e uma caixa de texto **de ID** de recursos, a partir da qual pode copiar o seu ID de recursos Azure-SISIS `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` (). O sufixo do seu ID de recursos IR Azure-SSIS que contém os seus nomes ADF e Azure-SSIS IR forma um ID de cluster que pode ser usado para adquirir componentes SSIS premium/licenciados adicionais a fornecedores de software independentes (ISVs) e ligá-los ao seu Azure-SSIS IR (ver [Instalar componentes premium/licenciados no seu Azure-SSIS IR).](./how-to-develop-azure-ssis-ir-licensed-components.md)
 
 ![Monitorize o seu azulejo Azure-SSIS IR - STATUS](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png)
 

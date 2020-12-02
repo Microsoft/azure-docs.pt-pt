@@ -1,19 +1,19 @@
 ---
 title: Transformar dados usando um fluxo de dados de mapeamento
 description: Este tutorial fornece instruções passo a passo para usar a Azure Data Factory para transformar dados com fluxo de dados de mapeamento
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/09/2019
-ms.openlocfilehash: fa516f577254f827a6437697df82010bd9b631ee
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: b0f564f68a638e7efd1cd1ce9116a26f4d19f277
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555915"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497066"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformar dados com o fluxo de dados de mapeamento
 
@@ -36,32 +36,32 @@ Neste tutorial, vai executar os seguintes passos:
 * **Assinatura Azure**. Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 * **Conta de armazenamento Azure**. Utiliza o armazenamento ADLS como *fonte* e *lava* datas. Se não tiver uma conta de armazenamento, veja [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md) para seguir os passos para criar uma.
 
-O ficheiro que estamos a transformar neste tutorial é MoviesDB.csv, que pode ser encontrado [aqui.](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv) Para recuperar o ficheiro do GitHub, copie o conteúdo para um editor de texto à sua escolha para guardar localmente como ficheiro .csv. Para fazer o upload do ficheiro para a sua conta de armazenamento, consulte [as bolhas de upload com o portal Azure](../storage/blobs/storage-quickstart-blobs-portal.md). Os exemplos serão referentes a um contentor chamado "dados de amostra".
+O ficheiro que estamos a transformar neste tutorial é MoviesDB.csv, que pode ser encontrado [aqui.](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv) Para recuperar o ficheiro do GitHub, copie o conteúdo para um editor de texto à sua escolha para guardar localmente como um ficheiro .csv. Para fazer o upload do ficheiro para a sua conta de armazenamento, consulte [as bolhas de upload com o portal Azure](../storage/blobs/storage-quickstart-blobs-portal.md). Os exemplos serão referentes a um contentor chamado "dados de amostra".
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 Neste passo, cria-se uma fábrica de dados e abre-se o Data Factory UX para criar um pipeline na fábrica de dados.
 
 1. Abra **o Microsoft Edge** ou o Google **Chrome**. Atualmente, a Data Factory UI é suportada apenas nos navegadores Web Microsoft Edge e Google Chrome.
-2. No menu esquerdo, **selecione Criar uma** Fábrica de  >  Dados de **Integração de** Recursos  >  **Data Factory** :
+2. No menu esquerdo, **selecione Criar uma** Fábrica de  >  Dados de **Integração de** Recursos  >  **Data Factory**:
 
    ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-3. Na página **Nova fábrica de dados** , em **Nome** , introduza **ADFTutorialDataFactory**.
+3. Na página **Nova fábrica de dados**, em **Nome**, introduza **ADFTutorialDataFactory**.
 
    O nome da fábrica de dados Azure deve ser *globalmente único.* Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. (por exemplo, o seu nomeADFTutorialDataFactory). Para obter as regras de nomenclatura dos artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
 
      ![Nova fábrica de dados](./media/doc-common-process/name-not-available-error.png)
 4. Selecione a **subscrição** do Azure na qual pretende criar a fábrica de dados.
-5. Em **Grupo de Recursos** , efetue um destes passos:
+5. Em **Grupo de Recursos**, efetue um destes passos:
 
     a. Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente.
 
     b. Selecione **Criar novo** e introduza o nome de um grupo de recursos. 
          
     Para saber mais sobre grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md). 
-6. Em **Versão** , selecione **V2**.
-7. Em **Localização** , selecione uma localização para a fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. As lojas de dados (por exemplo, Azure Storage e SQL Database) e os cálculos (por exemplo, Azure HDInsight) utilizados pela fábrica de dados podem estar noutras regiões.
+6. Em **Versão**, selecione **V2**.
+7. Em **Localização**, selecione uma localização para a fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. As lojas de dados (por exemplo, Azure Storage e SQL Database) e os cálculos (por exemplo, Azure HDInsight) utilizados pela fábrica de dados podem estar noutras regiões.
 8. Selecione **Criar**.
 9. Depois de concluída a criação, vê o aviso no Centro de Notificações. Selecione **Ir para o recurso** para navegar para a página de fábrica de dados.
 10. Selecione **Criar e Monitorizar** para iniciar a IU do Data Factory num separador à parte.
@@ -70,7 +70,7 @@ Neste passo, cria-se uma fábrica de dados e abre-se o Data Factory UX para cria
 
 Neste passo, irá criar um oleoduto que contenha uma atividade de Fluxo de Dados.
 
-1. Na página **Vamos começar** , selecione **Criar pipeline**.
+1. Na página **Vamos começar**, selecione **Criar pipeline**.
 
    ![Criar pipeline](./media/doc-common-process/get-started-page.png)
 
@@ -109,7 +109,7 @@ Assim que criar o fluxo de dados, será automaticamente enviado para a tela de f
     ![Serviço Ligado](media/tutorial-data-flow/ls1.png)
 1. Assim que voltar ao ecrã de criação do conjunto de dados, insira onde o seu ficheiro está localizado no campo **do caminho do Ficheiro.** Neste tutorial, o ficheiro moviesDB.csv está localizado em dados de amostras de contentores. Como o ficheiro tem cabeçalhos, verifique **a primeira linha como cabeçalho**. Selecione **Da ligação/loja** para importar o esquema do cabeçalho diretamente do ficheiro armazenado. Clique em OK quando terminar.
 
-    ![Conjuntos de dados](media/tutorial-data-flow/dataset4.png)
+    ![Conjuntos de Dados](media/tutorial-data-flow/dataset4.png)
 1. Se o seu cluster de depuração tiver começado, vá ao **separador Des preview** de Dados da transformação da fonte e clique em **Refresh** para obter uma imagem dos dados. Pode utilizar a pré-visualização de dados para verificar se a sua transformação está configurada corretamente.
 
     ![Screenshot que mostra onde pode visualizar os seus dados para verificar se a sua transformação está configurada corretamente.](media/tutorial-data-flow/dataflow4.png)
@@ -131,7 +131,7 @@ Assim que criar o fluxo de dados, será automaticamente enviado para a tela de f
 
     Se tiver um cluster de depuração ativo, pode verificar a sua lógica clicando em **Refresh** para ver a saída da expressão em comparação com as entradas utilizadas. Há mais do que uma resposta certa sobre como pode realizar esta lógica usando a linguagem de expressão de fluxo de dados.
 
-    ![Filtro](media/tutorial-data-flow/filter2.png)
+    ![Filtrar](media/tutorial-data-flow/filter2.png)
 
     Clique **em Guardar e Terminar** assim que terminar com a sua expressão.
 

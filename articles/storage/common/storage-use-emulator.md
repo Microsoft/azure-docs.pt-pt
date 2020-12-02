@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: b51746326c2df81e2dd2bdc72bf2a9ab72b649b5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6d9e0e63a3586be139620c154616acfcba2ab10f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790564"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498222"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilize o Emulador de Armazenamento Azure para desenvolvimento e teste
 
@@ -170,7 +170,7 @@ Começando pela versão 3.1, o Emulador de Armazenamento suporta a replicação 
 A partir da versão 3.0, é apresentada uma janela da consola quando inicia o Emulador de Armazenamento. Utilize a linha de comando na janela da consola para iniciar e parar o emulador. Também pode consultar o estado e fazer outras operações a partir da linha de comando.
 
 > [!NOTE]
-> Se tiver o emulador de computação Microsoft Azure instalado, aparece um ícone de bandeja de sistema quando lança o Emulador de Armazenamento. Clique com o botão direito no ícone para revelar um menu que fornece uma forma gráfica de iniciar e parar o Emulador de Armazenamento.
+> Se tiver o Microsoft Azure Compute Emulator instalado, aparece um ícone de bandeja de sistema quando lança o Emulador de Armazenamento. Clique com o botão direito no ícone para revelar um menu que fornece uma forma gráfica de iniciar e parar o Emulador de Armazenamento.
 >
 >
 
@@ -187,8 +187,8 @@ Para ver a lista de opções, escreva `/help` na linha de comandos.
 | **Iniciar** |Começa o Emulador de Armazenamento. |`AzureStorageEmulator.exe start [-inprocess]` |*-Reprocessamento:* Inicie o emulador no processo atual em vez de criar um novo processo. |
 | **Parar** |Para o emulador de armazenamento. |`AzureStorageEmulator.exe stop` | |
 | **Estado** |Imprime o estado do Emulador de Armazenamento. |`AzureStorageEmulator.exe status` | |
-| **Limpar** |Limpa os dados em todos os serviços especificados na linha de comando. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob* : Limpa os dados da bolha. <br/>*fila* : Limpa os dados da fila. <br/>*tabela* : Limpa os dados da tabela. <br/>*tudo:* Limpa todos os dados em todos os serviços. |
-| **Init** |Faz uma in inicialização única para configurar o emulador. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-servidor servidorName\instância Nome* : Especifica o servidor que hospeda a instância SQL. <br/>*-sqlinstance instanceName* : Especifica o nome da instância SQL a ser usada na instância do servidor predefinido. <br/>*-forcecreate* : Força a criação da base de dados SQL, mesmo que já exista. <br/>*-skipcreate* : Ignora a criação da base de dados SQL. Isto tem precedência sobre -forcecreate.<br/>*-reservas:* Tentativas de reserva das portas HTTP associadas aos serviços.<br/>*-sem reservas* : Tentativas de remover reservas para as portas HTTP associadas aos serviços. Isto tem precedência sobre os portos de reserva.<br/>*-inprocesso* : Executa a inicialização no processo atual em vez de desovar um novo processo. O processo atual deve ser lançado com permissões elevadas se alterar as reservas portuárias. |
+| **Limpar** |Limpa os dados em todos os serviços especificados na linha de comando. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: Limpa os dados da bolha. <br/>*fila*: Limpa os dados da fila. <br/>*tabela*: Limpa os dados da tabela. <br/>*tudo:* Limpa todos os dados em todos os serviços. |
+| **Init** |Faz uma in inicialização única para configurar o emulador. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-servidor servidorName\instância Nome*: Especifica o servidor que hospeda a instância SQL. <br/>*-sqlinstance instanceName*: Especifica o nome da instância SQL a ser usada na instância do servidor predefinido. <br/>*-forcecreate*: Força a criação da base de dados SQL, mesmo que já exista. <br/>*-skipcreate*: Ignora a criação da base de dados SQL. Isto tem precedência sobre -forcecreate.<br/>*-reservas:* Tentativas de reserva das portas HTTP associadas aos serviços.<br/>*-sem reservas*: Tentativas de remover reservas para as portas HTTP associadas aos serviços. Isto tem precedência sobre os portos de reserva.<br/>*-inprocesso*: Executa a inicialização no processo atual em vez de desovar um novo processo. O processo atual deve ser lançado com permissões elevadas se alterar as reservas portuárias. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Diferenças entre o Emulador de Armazenamento e o Armazenamento Azure
 
@@ -310,7 +310,7 @@ Não existem diferenças específicas para o armazenamento da fila no emulador.
 
 ### <a name="version-40"></a>Versão 4.0
 
-* O emulador de armazenamento foi renomeado para *AzureStorageEmulator.exe* .
+* O emulador de armazenamento foi renomeado para *AzureStorageEmulator.exe*.
 
 ### <a name="version-32"></a>Versão 3.2
 

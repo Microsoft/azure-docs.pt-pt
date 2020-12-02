@@ -3,20 +3,20 @@ title: Atualizar modelos de machine learning usando Azure Data Factory
 description: Descreve como criar oleodutos preditivos usando Azure Data Factory v1 e Azure Machine Learning Studio (clássico)
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: c456c7eb31e1e8e66aa3276a0cb5f6f8b39efa9a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 556936eb6e8c1c1c2dd1fab4ce7dfc1b648710b7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631755"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496607"
 ---
 # <a name="updating-azure-machine-learning-studio-classic-models-using-update-resource-activity"></a>Atualizar modelos do Azure Machine Learning Studio (clássico) usando a atividade de recurso de atualização
 
@@ -42,7 +42,7 @@ Este artigo complementa o principal artigo de integração do Azure Machine Lear
 Com o tempo, os modelos preditivos no Azure Machine Learning Studio (clássico) experiências de pontuação precisam de ser retreinados usando novos conjuntos de dados de entrada. Depois de terminar a reconversão, pretende atualizar o serviço web de pontuação com o modelo ML retreinado. Os passos típicos para permitir a reconversão e atualização dos modelos studio (clássico) através de serviços web são:
 
 1. Crie uma experiência no [Azure Machine Learning Studio (clássico)](https://studio.azureml.net).
-2. Quando estiver satisfeito com o modelo, use o Azure Machine Learning Studio (clássico) para publicar serviços web tanto para a **experiência de treino** como para a experiência de pontuação/preditiva . **predictive experiment**
+2. Quando estiver satisfeito com o modelo, use o Azure Machine Learning Studio (clássico) para publicar serviços web tanto para a **experiência de treino** como para a experiência de pontuação/preditiva .**predictive experiment**
 
 A tabela seguinte descreve os serviços web utilizados neste exemplo.  Consulte [os modelos Retrain Azure Machine Learning Studio (clássico) programáticos](../../machine-learning/classic/retrain-machine-learning-model.md) para obter detalhes.
 
@@ -53,7 +53,7 @@ A imagem que se segue retrata a relação entre o treino e os pontos finais no A
 
 ![Serviços web](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
-Pode invocar o **serviço web de formação** utilizando o **Azure Machine Learning Studio (clássico) Atividade de Execução de Lotes** . Invocar um serviço web de formação é o mesmo que invocar um serviço web Azure Machine Learning Studio (clássico) (serviço web de pontuação) para a pontuação de dados. As secções anteriores cobrem como invocar um serviço web Azure Machine Learning Studio (clássico) a partir de um oleoduto Azure Data Factory em detalhe. 
+Pode invocar o **serviço web de formação** utilizando o **Azure Machine Learning Studio (clássico) Atividade de Execução de Lotes**. Invocar um serviço web de formação é o mesmo que invocar um serviço web Azure Machine Learning Studio (clássico) (serviço web de pontuação) para a pontuação de dados. As secções anteriores cobrem como invocar um serviço web Azure Machine Learning Studio (clássico) a partir de um oleoduto Azure Data Factory em detalhe. 
 
 Pode invocar o **serviço web de pontuação** utilizando o **Azure Machine Learning Studio (clássico) Update Resource Activity** para atualizar o serviço web com o modelo recém-treinado. Os seguintes exemplos fornecem definições de serviço ligadas: 
 
@@ -208,12 +208,12 @@ O seguinte snippet JSON define um serviço ligado studio (clássico) que aponta 
 }
 ```
 
-No **Azure Machine Learning Studio (clássico)** , faça o seguinte para obter valores para **mlEndpoint** e **apiKey** :
+No **Azure Machine Learning Studio (clássico)**, faça o seguinte para obter valores para **mlEndpoint** e **apiKey**:
 
 1. Clique nos **SERVIÇOS WEB** no menu esquerdo.
 2. Clique no **serviço web de formação** na lista de serviços web.
 3. Clique na cópia ao lado da caixa de texto **chave API.** Cole a chave na pasta para o editor JSON da Data Factory.
-4. No **Azure Machine Learning Studio (clássico)** , clique no link **DE EXECUÇÃO BATCH.**
+4. No **Azure Machine Learning Studio (clássico)**, clique no link **DE EXECUÇÃO BATCH.**
 5. Copie o **URI pedido** da secção **Request** e cole-o no editor JSON da Data Factory.   
 
 ### <a name="linked-service-for-studio-classic-updatable-scoring-endpoint"></a>Linked Service for Studio (classic) updatable scoreing endpoint:
@@ -260,7 +260,7 @@ A atividade de Recurso de atualização do Estúdio (clássico) não gera qualqu
 ```
 
 ### <a name="pipeline"></a>Pipeline
-O gasoduto tem duas atividades: **AzureMLBatchExecution** e **AzureMLUpdateResource** . A atividade de execução de lote Azure Machine Learning Studio (clássico) toma os dados de formação como entrada e produz um ficheiro iLearner como uma saída. A atividade invoca o serviço web de formação (experiência de formação exposta como um serviço web) com os dados de formação de entrada e recebe o ficheiro ilearner do serviço web. O espaço-reservadoBlob é apenas um conjunto de dados de saída falso que é exigido pelo serviço Azure Data Factory para executar o pipeline.
+O gasoduto tem duas atividades: **AzureMLBatchExecution** e **AzureMLUpdateResource**. A atividade de execução de lote Azure Machine Learning Studio (clássico) toma os dados de formação como entrada e produz um ficheiro iLearner como uma saída. A atividade invoca o serviço web de formação (experiência de formação exposta como um serviço web) com os dados de formação de entrada e recebe o ficheiro ilearner do serviço web. O espaço-reservadoBlob é apenas um conjunto de dados de saída falso que é exigido pelo serviço Azure Data Factory para executar o pipeline.
 
 ![diagrama de pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 

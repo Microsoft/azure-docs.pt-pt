@@ -4,16 +4,16 @@ description: Descreve como mover um recurso Azure Analysis Services para uma reg
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 1f7ecf960ae94fae4d829e73daf051b9062e478d
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 049ff6d14c3967481eb73037814082fa261154e3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018199"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497933"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Mover serviços de análise para uma região diferente
 
@@ -73,7 +73,7 @@ Para exportar um modelo com o portal do Azure:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Selecione **todos os recursos**e, em seguida, selecione o seu servidor de Serviços de Análise.
+2. Selecione **todos os recursos** e, em seguida, selecione o seu servidor de Serviços de Análise.
 
 3. Selecione > **Definições**  >  **Modelo de exportação**.
 
@@ -88,7 +88,7 @@ Para exportar um modelo com o portal do Azure:
 
 Para exportar um modelo utilizando o PowerShell:
 
-1. Inscreva-se na sua subscrição Azure com o comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e siga as instruções no ecrã:
+1. Inscreva-se na sua subscrição Azure com o comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) e siga as instruções no ecrã:
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -123,7 +123,7 @@ Para obter uma assinatura de acesso partilhado utilizando o portal:
 
 1. No portal, selecione a conta de armazenamento utilizada para fazer backup da base de dados do servidor.
 
-2. Selecione **o Explorador de Armazenamento**e, em seguida, expanda os **recipientes BLOB**. 
+2. Selecione **o Explorador de Armazenamento** e, em seguida, expanda os **recipientes BLOB**. 
 
 3. Clique com o botão direito no seu recipiente de armazenamento e, em seguida, **selecione Obter Assinatura de Acesso Partilhado**.
 
@@ -177,7 +177,7 @@ Para modificar o modelo:
 
 #### <a name="regions"></a>Regiões
 
-Para obter regiões de Azure, consulte [as localizações de Azure.](https://azure.microsoft.com/global-infrastructure/locations/) Para obter regiões usando PowerShell, executar o comando [Get-AzLocation.](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0)
+Para obter regiões de Azure, consulte [as localizações de Azure.](https://azure.microsoft.com/global-infrastructure/locations/) Para obter regiões usando PowerShell, executar o comando [Get-AzLocation.](/powershell/module/az.resources/get-azlocation)
 
 ```azurepowershell-interactive
    Get-AzLocation | format-table 
@@ -191,7 +191,7 @@ Para implementar um novo recurso de servidor numa região diferente, utilizará 
 
 1. No portal, **selecione Criar um recurso**.
 
-2. Em **Search the Marketplace**, **digitar a implementação do modelo**e, em seguida, premir **ENTER**.
+2. Em **Search the Marketplace**, **digitar a implementação do modelo** e, em seguida, premir **ENTER**.
 
 3. Selecione **a implementação do modelo**.
 
@@ -199,7 +199,7 @@ Para implementar um novo recurso de servidor numa região diferente, utilizará 
 
 5. Selecione **Construa o seu próprio modelo no editor.**
 
-6. Selecione **carregar o ficheiro**, e, em seguida, siga as instruções para carregar atemplate.js** no** ficheiro que exportou e modificou.
+6. Selecione **carregar o ficheiro**, e, em seguida, siga as instruções para carregar atemplate.js **no** ficheiro que exportou e modificou.
 
 7. Verifique se o editor de modelo mostra as propriedades corretas para o seu novo servidor-alvo.
 
@@ -209,7 +209,7 @@ Para implementar um novo recurso de servidor numa região diferente, utilizará 
 
     - **Subscrição**: selecione a subscrição do Azure.
     
-    - **Grupo de recursos**: Selecione **Criar novo**e, em seguida, insira um nome de grupo de recursos. Pode selecionar um grupo de recursos existente desde que não contenha já um servidor de Serviços de Análise com o mesmo nome.
+    - **Grupo de recursos**: Selecione **Criar novo** e, em seguida, insira um nome de grupo de recursos. Pode selecionar um grupo de recursos existente desde que não contenha já um servidor de Serviços de Análise com o mesmo nome.
     
     - **Localização**: Selecione a mesma região especificada no modelo.
 
@@ -278,9 +278,9 @@ Opcional: Depois de restaurar a base de dados do modelo, processe o modelo e as 
 
 Opcional: [O ALM Toolkit](http://alm-toolkit.com/) é uma ferramenta *de código aberto* para comparar e gerir bases de dados de dados *e* serviços de análise de power bi. Utilize o conjunto de ferramentas para ligar as bases de dados de servidores de origem e alvo e comparar. Se a migração da sua base de dados for bem sucedida, os objetos-modelo terão a mesma definição. 
 
-:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="Obter SAS":::
+:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="ALM Toolkit":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de verificar as aplicações do cliente pode ligar-se ao novo servidor e quaisquer scripts de automatização estão a ser executados corretamente, elimine o seu servidor de origem. 
 

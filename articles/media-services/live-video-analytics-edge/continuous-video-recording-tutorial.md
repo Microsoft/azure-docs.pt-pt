@@ -3,12 +3,12 @@ title: Gravação contínua de vídeo para a nuvem e reprodução do tutorial de
 description: Neste tutorial, você vai aprender a usar Azure Live Video Analytics em Azure IoT Edge para gravar continuamente o vídeo para a nuvem e transmitir qualquer parte desse vídeo usando a Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 7e8bf1202e95cb4e76b54473f9d84076d24accea
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: c38ab1f32d1ef4e54cd8568ff17d325fabdefc31
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346371"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498375"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Gravação contínua de vídeo para a nuvem e reprodução da nuvem
 
@@ -49,7 +49,7 @@ No final destes passos, terá recursos Azure relevantes implantados na sua subsc
 * Azure IoT Hub
 * Conta de armazenamento do Azure
 * Conta Azure Media Services
-* Linux VM em Azure, com o [tempo de execução IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md) instalado
+* Linux VM em Azure, com o [tempo de execução IoT Edge](../../iot-edge/how-to-install-iot-edge.md) instalado
 
 ## <a name="concepts"></a>Conceitos
 
@@ -74,8 +74,8 @@ Antes de começar, verifique se completou a terceira bala em [Pré-requisitos.](
 
 De interesse neste tutorial estão os ficheiros:
 
-* **~/clouddrive/lva-sample/edge-deployment/.env** : Contém propriedades que o Código do Estúdio Visual utiliza para implantar módulos num dispositivo de borda.
-* **~/clouddrive/lva-sample/appsettings.jsem** : Usado pelo Código do Estúdio Visual para executar o código de amostra.
+* **~/clouddrive/lva-sample/edge-deployment/.env**: Contém propriedades que o Código do Estúdio Visual utiliza para implantar módulos num dispositivo de borda.
+* **~/clouddrive/lva-sample/appsettings.jsem**: Usado pelo Código do Estúdio Visual para executar o código de amostra.
 
 Vai precisar dos ficheiros para estes passos:
 
@@ -114,14 +114,14 @@ Vai precisar dos ficheiros para estes passos:
 
 No Código do Estúdio Visual, abra src/edge/deployment.template.jsligado. Este modelo define quais os módulos de borda que irá implantar no dispositivo de borda (o Azure Linux VM). Existem duas entradas na secção de **módulos** com os seguintes nomes:
 
-* **LvaEdge** : Este é o vídeo ao vivo analítico no módulo IoT Edge.
-* **rtspsim** : Este é o simulador RTSP.
+* **LvaEdge**: Este é o vídeo ao vivo analítico no módulo IoT Edge.
+* **rtspsim**: Este é o simulador RTSP.
 
 Em seguida, navegue na pasta src/cloud-to-device-console-app. Aqui verá o appsettings.jsno ficheiro que criou juntamente com outros ficheiros:
 
-* **c2d-console-app.csproj** : O ficheiro do projeto para Visual Studio Code.
+* **c2d-console-app.csproj**: O ficheiro do projeto para Visual Studio Code.
 * **operations.jsem:** Este ficheiro lista as diferentes operações que executaria.
-* **Program.cs** : O código do programa de amostra, que:
+* **Program.cs**: O código do programa de amostra, que:
     * Carrega as definições da aplicação.
     * Invoca métodos diretos expostos pelo live video analytics no módulo IoT Edge. Pode utilizar o módulo para analisar streams de vídeo ao vivo invocando os seus [métodos diretos.](direct-methods.md)
     * Pausa para examinar a saída do programa na janela **TERMINAL** e os eventos gerados pelo módulo na janela **OUTPUT.**
@@ -180,7 +180,7 @@ Quando utiliza o módulo Live Video Analytics no IoT Edge para gravar o stream d
 
     `"assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}"`    
 1. Inicie uma sessão de depurar selecionando F5. Verá algumas mensagens impressas na janela **TERMINAL.**
-1. A operations.jsno ficheiro começa com chamadas para GraphTopologyList e GraphInstanceList. Se tiver limpo recursos após inícios ou tutoriais anteriores, esta ação retorna listas vazias e, em seguida, faz uma pausa para que você **selecione Enter** , como mostrado:
+1. A operations.jsno ficheiro começa com chamadas para GraphTopologyList e GraphInstanceList. Se tiver limpo recursos após inícios ou tutoriais anteriores, esta ação retorna listas vazias e, em seguida, faz uma pausa para que você **selecione Enter**, como mostrado:
 
     ```
     --------------------------------------------------------------------------
@@ -382,7 +382,7 @@ Pode examinar o ativo Media Services que foi criado pelo gráfico mediático ini
 
 Se pretende experimentar os outros tutoriais, guarde os recursos que criou. Caso contrário, vá ao portal Azure, navegue pelos seus grupos de recursos, selecione o grupo de recursos sob o qual executou este tutorial e elimine o grupo de recursos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Utilize uma [câmara IP](https://en.wikipedia.org/wiki/IP_camera) com suporte para RTSP em vez de utilizar o simulador RTSP. Pode pesquisar por câmaras IP com suporte RTSP na página de [produtos conformantes ONVIF,](https://www.onvif.org/conformant-products/) procurando dispositivos que estejam em conformidade com os perfis G, S ou T.
-* Utilize um dispositivo Linux AMD64 ou X64 (vs. utilizando um VM Azure Linux). Este dispositivo deve estar na mesma rede que a câmara IP. Siga as instruções no [tempo de funcionamento do Azure IoT Edge no Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Em seguida, siga as instruções no implante do [seu primeiro módulo IoT Edge para um dispositivo Linux virtual](../../iot-edge/quickstart-linux.md) para registar o dispositivo com O Azure IoT Hub.
+* Utilize um dispositivo Linux AMD64 ou X64 (vs. utilizando um VM Azure Linux). Este dispositivo deve estar na mesma rede que a câmara IP. Siga as instruções no [tempo de funcionamento do Azure IoT Edge no Linux](../../iot-edge/how-to-install-iot-edge.md). Em seguida, siga as instruções no implante do [seu primeiro módulo IoT Edge para um dispositivo Linux virtual](../../iot-edge/quickstart-linux.md) para registar o dispositivo com O Azure IoT Hub.
