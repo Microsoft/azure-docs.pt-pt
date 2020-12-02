@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 12/01/2020
 ms.author: mnayak
-ms.openlocfilehash: 2002e4a11a2accbbc639c200372c393b8dc2f228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65f5b27ecc7b526c4b3e4f5ed62ac90149df1ce1
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707536"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510612"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-powershell"></a>Configure a preferência de encaminhamento para um VM usando a Azure PowerShell
 
@@ -27,13 +27,7 @@ Este artigo mostra-lhe como criar uma máquina virtual com um IP público que es
 
 > [!IMPORTANT]
 > A preferência de encaminhamento está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="register-the-feature-for-your-subscription"></a>Registe a funcionalidade da sua subscrição
-A função 'Preferência de encaminhamento' está atualmente em pré-visualização. Registe a funcionalidade da sua subscrição da seguinte forma:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
-```
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 1. Se utilizar a Cloud Shell, salte para o passo 2. Abra uma sessão de comando e assine em Azure com `Connect-AzAccount` .

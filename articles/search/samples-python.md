@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 244408cc512a51683ecb3c062113170b1c7f4781
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6e0f3d318cc462b03151d5a4935ae318df46e2c5
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499565"
+ms.locfileid: "96510561"
 ---
 # <a name="python-code-samples-for-azure-cognitive-search"></a>Amostras de código python para pesquisa cognitiva de Azure
 
@@ -25,7 +25,7 @@ Conheça as amostras de código Python que demonstram as funcionalidades e funci
 | [Amostras de Azure/azure-search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples) | Amostras de código que acompanham artigos como fazer, incluindo [Quickstart: Criar um índice de pesquisa em Python](search-get-started-python.md).|
 
 > [!Tip]
-> Experimente o [navegador Samples](/samples/browse/?languages=csharp&products=azure-cognitive-search) para procurar amostras de código da Microsoft no Github, filtradas por produto, serviço e idioma.
+> Experimente o [navegador Samples](/samples/browse/?languages=python&products=azure-cognitive-search) para procurar amostras de código da Microsoft no Github, filtradas por produto, serviço e idioma.
 
 ## <a name="python-sdk-samples"></a>Amostras do SDK de Python
 

@@ -215,6 +215,8 @@
               href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Pesquisa em texto completo para dados de blob
               href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Utilizar o inventário de blobs para gerir dados de blob
+              href: blob-inventory.md
         - name: Migração de dados
           items:
             - name: Comparar soluções de transferência de dados

@@ -1,6 +1,6 @@
 ---
 title: O que é o Centro de Segurança do Azure? | Microsoft Docs
-description: Esta página descreve os principais benefícios do Security Center - descobrir o seu estado de segurança e melhorá-lo com cobertura de recursos em nuvem e pré-m.
+description: Esta página descreve os principais benefícios do Security Center - descobrir o seu estado de segurança e melhorá-lo com cobertura de recursos de nuvem e no local.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: d62ed31a68d9469a1bd1fc66e479b0f91db2f916
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 0a1cac0fe61ea13a18224ea5992b5c7c1ba69d8a
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372273"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510340"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
@@ -37,11 +37,11 @@ O Centro de Segurança do Azure aborda os três desafios de segurança mais urge
 
 Para o ajudar a proteger-se contra estes desafios, o Centro de Segurança fornece as ferramentas para:
 
--   **Fortaleça a postura de segurança** : O Centro de Segurança avalia o seu ambiente e permite-lhe compreender o estado dos seus recursos e se estão seguros.
+-   **Fortaleça a postura de segurança**: O Centro de Segurança avalia o seu ambiente e permite-lhe compreender o estado dos seus recursos e se estão seguros.
 
--   **Proteja contra ameaças** : O Centro de Segurança avalia as suas cargas de trabalho e eleva as recomendações de prevenção de ameaças e alertas de segurança.
+-   **Proteja contra ameaças**: O Centro de Segurança avalia as suas cargas de trabalho e eleva as recomendações de prevenção de ameaças e alertas de segurança.
 
--   **Proteger-se rapidamente** : no Centro de Segurança, tudo é feito à velocidade da cloud. Como é integrada nativamente, a implementação do Centro de Segurança é fácil, fornecendo aprovisionamento automático e proteção com serviços do Azure.
+-   **Proteger-se rapidamente**: no Centro de Segurança, tudo é feito à velocidade da cloud. Como é integrada nativamente, a implementação do Centro de Segurança é fácil, fornecendo aprovisionamento automático e proteção com serviços do Azure.
 
 > [!NOTE]
 > Este serviço suporta [o Azure Lighthouse,](../lighthouse/overview.md)que permite que os prestadores de serviços inscrevam-se no seu próprio inquilino para gerir subscrições e grupos de recursos que os clientes delegaram. Para cenários do Azure Security Center, uma subscrição deve ser delegada em vez de grupos de recursos individuais.

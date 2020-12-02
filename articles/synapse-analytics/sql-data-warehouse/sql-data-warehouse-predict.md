@@ -11,16 +11,16 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 7b35997e763434d7ae4d849c33d358d1593d7e33
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ce77a169e28e21aa37be2a49997a58ee42c93807
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460528"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510833"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Marque modelos de aprendizagem automática com PREVISÃO
 
-O pool dedicado SQL proporciona-lhe a capacidade de marcar modelos de machine learning usando o familiar idioma T-SQL. Com o T-SQL [PREDICT,](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)pode trazer os seus modelos de machine learning existentes treinados com dados históricos e marcá-los dentro dos limites seguros do seu armazém de dados. A função PREDICT requer um modelo [ONNX (Open Neural Network Exchange)](https://onnx.ai/) e os dados como entradas. Esta funcionalidade elimina o passo de mover dados valiosos para fora do armazém de dados para pontuação. Tem como objetivo capacitar os profissionais de dados a implementarem facilmente modelos de machine learning com a interface T-SQL familiar, bem como colaborar perfeitamente com os cientistas de dados que trabalham com o enquadramento certo para a sua tarefa.
+O pool dedicado SQL proporciona-lhe a capacidade de marcar modelos de machine learning usando o familiar idioma T-SQL. Com o T-SQL [PREDICT,](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)pode trazer os seus modelos de machine learning existentes treinados com dados históricos e marcá-los dentro dos limites seguros do seu armazém de dados. A função PREDICT requer um modelo [ONNX (Open Neural Network Exchange)](https://onnx.ai/) e os dados como entradas. Esta funcionalidade elimina o passo de mover dados valiosos para fora do armazém de dados para pontuação. Tem como objetivo capacitar os profissionais de dados a implementarem facilmente modelos de machine learning com a interface T-SQL familiar, bem como colaborar perfeitamente com os cientistas de dados que trabalham com o enquadramento certo para a sua tarefa.
 
 > [!NOTE]
 > Esta funcionalidade não é suportada atualmente na piscina SQL sem servidor.
@@ -66,7 +66,7 @@ GO
 
 ```
 
-Uma vez que o modelo é convertido para uma corda hexadémica e a definição de tabela especificada, utilize o [comando COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) ou Polybase para carregar o modelo na tabela de piscinas SQL dedicada. A seguinte amostra de código utiliza o comando Copy para carregar o modelo.
+Uma vez que o modelo é convertido para uma corda hexadémica e a definição de tabela especificada, utilize o [comando COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) ou Polybase para carregar o modelo na tabela de piscinas SQL dedicada. A seguinte amostra de código utiliza o comando Copy para carregar o modelo.
 
 ```sql
 -- Copy command to load hexadecimal string of the model from Azure Data Lake storage location
@@ -80,17 +80,17 @@ WITH (
 
 ## <a name="scoring-the-model"></a>Marcando o modelo
 
-Uma vez que o modelo e os dados são carregados no armazém de dados, utilize a função **T-SQL PREDICT** para marcar o modelo. Certifique-se de que os novos dados de entrada estão no mesmo formato que os dados de formação utilizados para a construção do modelo. T-SQL PREDICT requer duas entradas: modelo e novos dados de entrada de pontuação, e gera novas colunas para a saída. O modelo pode ser especificado como uma variável, uma sub_query literal ou escalar. Utilize [o WITH common_table_expression](https://docs.microsoft.com/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-ver15) para especificar um conjunto de resultados nomeado para o parâmetro de dados.
+Uma vez que o modelo e os dados são carregados no armazém de dados, utilize a função **T-SQL PREDICT** para marcar o modelo. Certifique-se de que os novos dados de entrada estão no mesmo formato que os dados de formação utilizados para a construção do modelo. T-SQL PREDICT requer duas entradas: modelo e novos dados de entrada de pontuação, e gera novas colunas para a saída. O modelo pode ser especificado como uma variável, uma sub_query literal ou escalar. Utilize [o WITH common_table_expression](https://docs.microsoft.com/sql/t-sql/queries/with-common-table-expression-transact-sql?view=azure-sqldw-latest&preserve-view=true) para especificar um conjunto de resultados nomeado para o parâmetro de dados.
 
-O exemplo abaixo mostra uma consulta de amostra usando a função de previsão. Uma coluna adicional com nome *Pontuação* e *boia* tipo de dados é criada contendo os resultados da previsão. Todas as colunas de dados de entrada, bem como as colunas de previsão de saída, estão disponíveis para visualizar com a declaração selecionada. Para mais detalhes, consulte [PREDICT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).
+O exemplo abaixo mostra uma consulta de amostra usando a função de previsão. Uma coluna adicional com nome *Pontuação* e *boia* tipo de dados é criada contendo os resultados da previsão. Todas as colunas de dados de entrada, bem como as colunas de previsão de saída, estão disponíveis para visualizar com a declaração selecionada. Para mais detalhes, consulte [PREDICT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ```sql
 -- Query for ML predictions
 SELECT d.*, p.Score
 FROM PREDICT(MODEL = (SELECT Model FROM Models WHERE Id = 1),
-DATA = dbo.mytable AS d) WITH (Score float) AS p;
+DATA = dbo.mytable AS d, RUNTIME = ONNX) WITH (Score float) AS p;
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre a função PREVISÃO, consulte [PREDICT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).
+Para saber mais sobre a função PREVISÃO, consulte [PREDICT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true).

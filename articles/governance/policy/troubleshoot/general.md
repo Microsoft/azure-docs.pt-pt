@@ -1,14 +1,14 @@
 ---
 title: Resolver erros comuns
 description: Aprenda a resolver problemas com a criação de definições políticas, os vários SDK e o addon para Kubernetes.
-ms.date: 10/30/2020
+ms.date: 12/01/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 74b622dd41fb28e845a35780e5d06588189ec029
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f3667988d527100507d308887338278e1200d454
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146284"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511003"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Erros de resolução de problemas usando a Política Azure
 
@@ -88,14 +88,14 @@ Um recurso que se espera que seja atuado pela Azure Policy não é e não há en
 
 #### <a name="cause"></a>Causa
 
-A atribuição da política foi configurada para [a aplicação da Medida](../concepts/assignment-structure.md#enforcement-mode) de _Incapacidade_ . Enquanto o modo de execução é desativado, o efeito de política não é aplicado e não há entrada no registo de Atividade.
+A atribuição da política foi configurada para [a aplicação da Medida](../concepts/assignment-structure.md#enforcement-mode) de _Incapacidade_. Enquanto o modo de execução é desativado, o efeito de política não é aplicado e não há entrada no registo de Atividade.
 
 #### <a name="resolution"></a>Resolução
 
 Siga estes passos para resolver os problemas da aplicação da sua missão política:
 
 1. Em primeiro lugar, aguarde o tempo adequado para que uma avaliação complete e os resultados de conformidade fiquem disponíveis no portal Azure ou SDK. Para iniciar uma nova avaliação com Azure PowerShell ou REST API, consulte a [avaliação a pedido](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
-1. Verifique se os parâmetros de atribuição e o âmbito de atribuição estão corretamente definidos e se **o modo de execução** está _ativado_ . 
+1. Verifique se os parâmetros de atribuição e o âmbito de atribuição estão corretamente definidos e se **o modo de execução** está _ativado_.
 1. Verifique o [modo de definição de política](../concepts/definition-structure.md#mode):
    - Modo 'todos' para todos os tipos de recursos.
    - Modo 'indexado' se a definição de política verificar as etiquetas ou a localização.
@@ -190,24 +190,6 @@ Para obter uma narrativa detalhada, consulte a seguinte publicação de blog:
 
 ## <a name="add-on-for-kubernetes-general-errors"></a>Complemento para erros gerais de Kubernetes
 
-### <a name="scenario-add-on-doesnt-work-with-aks-clusters-on-version-119-preview"></a>Cenário: O add-on não funciona com clusters AKS na versão 1.19 (pré-visualização)
-
-#### <a name="issue"></a>Problema
-
-Os clusters da versão 1.19 devolvem este erro através do controlador de porta-gatekeeper e das cápsulas webhook de política:
-
-```
-2020/09/22 20:06:55 http: TLS handshake error from 10.244.1.14:44282: remote error: tls: bad certificate
-```
-
-#### <a name="cause"></a>Causa
-
-Osclusers AKS na versão 1.19 (pré-visualização) ainda não são compatíveis com o Azure Policy Add-on.
-
-#### <a name="resolution"></a>Resolução
-
-Evite utilizar Kubernetes 1.19 (pré-visualização) com o Add-on da Política Azure. O addon pode ser usado com qualquer versão geralmente disponível, como 1.16, 1.17 ou 1.18.
-
 ### <a name="scenario-add-on-is-unable-to-reach-the-azure-policy-service-endpoint-due-to-egress-restrictions"></a>Cenário: O add-on não consegue chegar ao ponto final do serviço Azure Policy devido a restrições de saída
 
 #### <a name="issue"></a>Problema
@@ -239,9 +221,9 @@ O addon não pode chegar ao ponto final do serviço Azure Policy e devolve um do
 
 #### <a name="cause"></a>Causa
 
-Este erro ocorre quando _a identidade do add-pod_ é instalada no cluster e as cápsulas _do sistema kube_ não são excluídas na _identidade aad-pod_ .
+Este erro ocorre quando _a identidade do add-pod_ é instalada no cluster e as cápsulas _do sistema kube_ não são excluídas na _identidade aad-pod_.
 
-As cápsulas de identidade de _aad-pod-identidade_ (NMI) modificam os iptables dos nós para intercetar chamadas para o ponto final dos metadados de exemplo de Azure. Esta configuração significa que qualquer pedido feito ao ponto final dos metadados é intercetado pelo NMI mesmo que a cápsula não utilize _a identidade aad-pod_ .
+As cápsulas de identidade de _aad-pod-identidade_ (NMI) modificam os iptables dos nós para intercetar chamadas para o ponto final dos metadados de exemplo de Azure. Esta configuração significa que qualquer pedido feito ao ponto final dos metadados é intercetado pelo NMI mesmo que a cápsula não utilize _a identidade aad-pod_.
 **AzurePodIdentityExcepção** O CRD pode ser configurado para informar a _identidade aad-pod_ que quaisquer pedidos para o ponto final de metadados originários de uma cápsula que corresponda às etiquetas definidas em CRD devem ser proxiited sem qualquer processamento em NMI.
 
 #### <a name="resolution"></a>Resolução
@@ -277,10 +259,19 @@ spec:
 
 #### <a name="issue"></a>Problema
 
-O addon pode chegar ao ponto final do serviço Azure Policy, mas vê o seguinte erro:
+O addon pode chegar ao ponto final do serviço Azure Policy, mas vê um dos seguintes erros em registos adicionais:
 
 ```
-The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See https://aka.ms/policy-register-subscription for how to register subscriptions.
+The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See
+https://aka.ms/policy-register-subscription for how to register subscriptions.
+```
+
+ou
+
+```
+policyinsightsdataplane.BaseClient#CheckDataPolicyCompliance: Failure responding to request:
+StatusCode=500 -- Original Error: autorest/azure: Service returned an error. Status=500
+Code="InternalServerError" Message="Encountered an internal server error."
 ```
 
 #### <a name="cause"></a>Causa
@@ -289,9 +280,9 @@ O `Microsoft.PolicyInsights` fornecedor de recursos não está registado e deve 
 
 #### <a name="resolution"></a>Resolução
 
-Registe o `Microsoft.PolicyInsights` fornecedor de recursos. Para obter instruções, consulte [Registar um fornecedor de recursos.](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)
+Registe o `Microsoft.PolicyInsights` fornecedor de recursos na subscrição do cluster. Para obter instruções, consulte [Registar um fornecedor de recursos.](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)
 
-### <a name="scenario-the-subscript-is-disabled"></a>Cenário: O subscrito é desativado
+### <a name="scenario-the-subscription-is-disabled"></a>Cenário: A subscrição está desativada
 
 #### <a name="issue"></a>Problema
 
@@ -307,7 +298,7 @@ Este erro significa que a subscrição foi determinada como problemática e a ba
 
 #### <a name="resolution"></a>Resolução
 
-Contacte a equipa de recurso `azuredg@microsoft.com` para investigar e resolver este problema. 
+Contacte a equipa de recurso `azuredg@microsoft.com` para investigar e resolver este problema.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -315,4 +306,4 @@ Se não viu o seu problema ou não conseguir resolver o seu problema, visite um 
 
 - Obtenha respostas de especialistas através do [Microsoft Q&A](/answers/topics/azure-policy.html).
 - Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
-- Se precisar de mais ajuda, pode apresentar um incidente de apoio ao Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter **Apoio** .
+- Se precisar de mais ajuda, pode apresentar um incidente de apoio ao Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter **Apoio**.

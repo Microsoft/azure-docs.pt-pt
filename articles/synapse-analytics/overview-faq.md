@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 05fef320d558de30830f76031d3b96262ae29f07
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 838276c47085a3c7ad0f7c0a35a2578b13eb5026
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445797"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511272"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Azure Synapse Analytics frequentemente fez perguntas
 
@@ -28,13 +28,13 @@ R: A azure Synapse introduz uma série de funções e âmbitos para atribuí-los
 
 Funções DE Sinapse RBAC:
 * Administrador da Sinapse
-* Colaborador da Sinapse
-* Autor de artefactos de sinapse
-* Leitor de artefactos de sinapse
-* Gestor de Computação de Sinaapse
-* Utilizador credencial de sinapse
-* Administrador de ponto final gerido pela Synapse
-* Leitor de Sinapse
+* Administrador Sinapse SQL
+* Administrador de faíscas da Sinapse
+* Contribuidor de Sinapse (pré-visualização)
+* Editor de Artefactos De Sinapse (pré-visualização)
+* Utilizador de artefactos de sinapse (pré-visualização)
+* Operador de computação de sinapse (pré-visualização)
+* Utilizador credencial de sinapse (pré-visualização)
 
 Âmbitos DO RBAC de Sinapse:
 * Área de trabalho 

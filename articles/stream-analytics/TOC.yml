@@ -189,10 +189,13 @@
             - name: Armazenamento de blobs
               href: blob-output-managed-identity.md
               displayName: 'managed identity, identities, authenticate'
+            - name: Hubs de Eventos
+              href: event-hubs-managed-identity.md
+              displayName: 'managed identity, identities, authenticate'
             - name: Power BI
               href: powerbi-output-managed-identity.md
               displayName: 'managed identity, identities, authenticate'
-            - name: BD SQL do Azure
+            - name: SQL do Azure e Azure Synapse
               href: sql-database-output-managed-identity.md
               displayName: 'managed identity, identities, authenticate'
         - name: Encriptar os dados

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/11/2020
+ms.date: 11/30/2020
 ms.author: memildin
-ms.openlocfilehash: 26192c742ab2e010c18c02226252dbb480b72cee
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 854926c64b50cf4b8e7df9fa82da58b924ddbd83
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967164"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510425"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Arquivo para o que há de novo no Centro de Segurança Azure?
 
@@ -30,6 +30,117 @@ Esta página fornece-lhe informações sobre:
 - Funcionalidade preterida
 
 
+## <a name="june-2020"></a>Junho de 2020
+
+As atualizações em junho incluem:
+- [API de pontuação segura (pré-visualização)](#secure-score-api-preview)
+- [Segurança avançada de dados para máquinas SQL (Azul, outras nuvens e no local) (pré-visualização)](#advanced-data-security-for-sql-machines-azure-other-clouds-and-on-premises-preview)
+- [Duas novas recomendações para implantar o agente Log Analytics nas máquinas Azure Arc (pré-visualização)](#two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview)
+- [Novas políticas para criar configurações contínuas de automação de exportação e fluxo de trabalho em escala](#new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale)
+- [Nova recomendação para a utilização de NSGs para proteger máquinas virtuais não-orientadas para a Internet](#new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines)
+- [Novas políticas para permitir a proteção de ameaças e segurança avançada de dados](#new-policies-for-enabling-threat-protection-and-advanced-data-security)
+
+
+
+### <a name="secure-score-api-preview"></a>API de pontuação segura (pré-visualização)
+
+Pode agora aceder à sua pontuação através da [pontuação segura API](/rest/api/securitycenter/securescores/) (atualmente em pré-visualização). Os métodos API fornecem a flexibilidade para consultar os dados e construir o seu próprio mecanismo de reporte das suas pontuações seguras ao longo do tempo. Por exemplo, pode utilizar a API **de Pontuações Seguras** para obter a pontuação de uma subscrição específica. Além disso, pode utilizar a API **de Controlos de Pontuação Segura** para listar os controlos de segurança e a pontuação atual das suas subscrições.
+
+Por exemplo, ferramentas externas possibilitadas com a pontuação segura API, consulte [a área de pontuação segura da nossa comunidade GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
+
+Saiba mais sobre [os controlos de pontuação e segurança seguros no Azure Security Center](secure-score-security-controls.md).
+
+
+
+### <a name="advanced-data-security-for-sql-machines-azure-other-clouds-and-on-premises-preview"></a>Segurança avançada de dados para máquinas SQL (Azul, outras nuvens e no local) (pré-visualização)
+
+A segurança avançada de dados do Azure Security Center para máquinas SQL protege agora os SqL Servers alojados em Azure, em outros ambientes de nuvem e até mesmo máquinas no local. Isto alarga as proteções para os seus SqL Servers nativos do Azure para suportar totalmente ambientes híbridos.
+
+A segurança avançada de dados fornece uma avaliação de vulnerabilidade e proteção avançada de ameaças para as suas máquinas SQL onde quer que estejam localizadas.
+
+A configuração envolve dois passos:
+
+1. Implantar o agente Log Analytics na máquina de anfitrião do seu SQL Server para fornecer a ligação à conta Azure.
+
+1. Ativar o pacote opcional na página de preços e definições do Security Center.
+
+Saiba mais sobre [a segurança avançada de dados para máquinas SQL](defender-for-sql-usage.md).
+
+
+
+### <a name="two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview"></a>Duas novas recomendações para implantar o agente Log Analytics nas máquinas Azure Arc (pré-visualização)
+
+Foram adicionadas duas novas recomendações para ajudar a implantar o [Agente Desanalização](../azure-monitor/platform/log-analytics-agent.md) do Log para as suas máquinas Azure Arc e garantir que estão protegidas pelo Azure Security Center:
+
+- **O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas no Windows (Pré-visualização)**
+- **O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas em Linux (Pré-visualização)**
+
+Estas novas recomendações aparecerão nos mesmos quatro controlos de segurança que a recomendação existente (relacionada), o **agente de monitorização deve ser instalado nas suas máquinas**: remediar as configurações de segurança, aplicar o controlo adaptativo da aplicação de aplicações, aplicar atualizações do sistema e permitir a proteção do ponto final.
+
+As recomendações também incluem a capacidade de correção rápida para ajudar a acelerar o processo de implementação. 
+
+Saiba mais sobre estas duas novas recomendações na tabela [de recomendações computacional e de aplicações.](recommendations-reference.md#recs-computeapp)
+
+Saiba mais sobre como o Azure Security Center utiliza o agente em [O que é o agente Log Analytics?](faq-data-collection-agents.md#what-is-the-log-analytics-agent)
+
+Saiba mais sobre [extensões para máquinas Azure Arc](../azure-arc/servers/manage-vm-extensions.md).
+
+
+### <a name="new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale"></a>Novas políticas para criar configurações contínuas de automação de exportação e fluxo de trabalho em escala
+
+Automatizar os processos de monitorização e resposta a incidentes da sua organização pode melhorar consideravelmente o tempo necessário para investigar e mitigar incidentes de segurança.
+
+Para implementar as suas configurações de automação em toda a sua organização, utilize estas políticas Azure 'DeployIfdNotExist' incorporadas para criar e configurar procedimentos [contínuos](continuous-export.md) de exportação e [automatização de fluxos de trabalho:](workflow-automation.md)
+
+As políticas podem ser encontradas na política de Azure:
+
+
+|Objetivo  |Política  |ID de política  |
+|---------|---------|---------|
+|Exportação contínua para centro de eventos|[Implementar a exportação no Hub de Eventos para alertas e recomendações do Centro de Segurança do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
+|Exportação contínua para log analytics espaço de trabalho|[Implementar a exportação na área de trabalho do Log Analytics para alertas e recomendações do Centro de Segurança do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
+|Automatização do fluxo de trabalho para alertas de segurança|[Implementar a Automatização do Fluxo de Trabalho para os alertas do Centro de Segurança do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
+|Automatização do fluxo de trabalho para recomendações de segurança|[Implementar a Automatização do Fluxo de Trabalho para as recomendações do Centro de Segurança do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
+||||
+
+Começa com [modelos de automatização de fluxos de trabalho.](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation)
+
+Saiba mais sobre a utilização das duas políticas de exportação na [automatização do fluxo de trabalho configure em escala utilizando as políticas fornecidas](workflow-automation.md#configure-workflow-automation-at-scale-using-the-supplied-policies) e [Crie uma exportação contínua.](continuous-export.md#set-up-a-continuous-export)
+
+
+### <a name="new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines"></a>Nova recomendação para a utilização de NSGs para proteger máquinas virtuais não-orientadas para a Internet
+
+O controlo de segurança "implementar as melhores práticas de segurança" inclui agora a seguinte nova recomendação:
+
+- **Máquinas virtuais não orientadas para a Internet devem ser protegidas com grupos de segurança de rede**
+
+Uma recomendação existente, **as máquinas virtuais viradas para a Internet devem ser protegidas com grupos** de segurança de rede, não distinguindo entre VMs virados para a Internet e não virados para a Internet. Para ambos, uma recomendação de alta gravidade foi gerada se um VM não fosse atribuído a um grupo de segurança de rede. Esta nova recomendação separa as máquinas que não se estamos a passar pela Internet para reduzir os falsos positivos e evitar alertas desnecessários de alta gravidade.
+
+Saiba mais na tabela [de recomendações da Rede.](recommendations-reference.md#recs-network)
+
+
+
+
+### <a name="new-policies-for-enabling-threat-protection-and-advanced-data-security"></a>Novas políticas para permitir a proteção de ameaças e segurança avançada de dados
+
+As novas políticas abaixo foram adicionadas à iniciativa ASC Default e destinam-se a ajudar a permitir a proteção de ameaças ou a segurança avançada de dados para os tipos de recursos relevantes.
+
+As políticas podem ser encontradas na política de Azure:
+
+
+| Política                                                                                                                                                                                                                                                                | ID de política                            |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
+| [A segurança avançada dos dados deve ser ativada nos servidores da Base de Dados Azure SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)     | 7fe3b40f-802b-4cdd-8bd4-fd799c948cc2 |
+| [A segurança avançada dos dados deve ser ativada em servidores SQL em máquinas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b) | 6581d072-105e-4418-827f-bd446d56421b |
+| [A proteção avançada de ameaças deve ser ativada nas contas de armazenamento do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f308fbb08-4ab8-4e67-9b29-592e93fb94fa)           | 308fbb08-4ab8-4e67-9b29-592e93fb94fa |
+| [Proteção avançada de ameaças deve ser ativada em cofres Azure Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047)           | 0e6763cc-5078-4e64-889d-ff4d9a839047 |
+| [Proteção avançada de ameaças deve ser ativada nos planos do Azure App Service](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2913021d-f2fd-4f3d-b958-22354e2bdbcb)                | 2913021d-f2fd-4f3d-b958-22354e2bdbcb |
+| [A proteção avançada de ameaças deve ser ativada nos registos do Registo de Contentores de Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4)   | c25d9a16-bc35-4e15-a7e5-9db606bf9ed4 |
+| [A proteção avançada de ameaças deve ser ativada nos clusters de serviços Azure Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f523b5cd1-3e23-492f-a539-13118b6d1e3a)   | 523b5cd1-3e23-492f-a539-13118b6d1e3a |
+| [A proteção avançada de ameaças deve ser ativada em Máquinas Virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)           | 4da35fc9-c9e7-4960-aec9-797fe7d9051d |
+|                                                                                                                                                                                                                                                                       |                                      |
+
+Saiba mais sobre [a proteção contra ameaças no Centro de Segurança Azure](azure-defender.md).
 
 
 ## <a name="may-2020"></a>Maio de 2020

@@ -11,12 +11,12 @@ author: jpe316
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2, devx-track-python, deploy
-ms.openlocfilehash: 9ec82dcd7578744dc7443d48dc28820413f14005
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e2bb133997ec7b7d5ee3b8b82ec3179460596eeb
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996309"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511105"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Implementar modelos ML para arrays de portão programáveis em campo (FPGAs) com Azure Machine Learning 
 
@@ -33,7 +33,7 @@ Pode reconfigurar FPGAs para diferentes tipos de modelos de aprendizagem automá
 
 |Processador| Abreviatura |Descrição|
 |---|:-------:|------|
-|Circuitos integrados específicos de aplicação|ASICs|Circuitos personalizados, como as Unidades de Processadores TensorFlow da Google (TPU), proporcionam a maior eficiência. Não podem ser reconfigurados à medida que as suas necessidades mudam.|
+|Circuitos integrados específicos de aplicação|ASICs|Circuitos personalizados, como as Unidades de Processador tensor da Google (TPU), proporcionam a maior eficiência. Não podem ser reconfigurados à medida que as suas necessidades mudam.|
 |Matrizes de portão programáveis em campo|FPGAs|As FPGAs, como as disponíveis no Azure, proporcionam um desempenho próximo dos ASICs. São também flexíveis e reconfiguráveis ao longo do tempo, para implementar uma nova lógica.|
 |Unidades de processamento de gráficos|GPUs|Uma escolha popular para computações de IA. As GPUs oferecem capacidades de processamento paralelos, tornando-a mais rápida na renderização de imagem do que nos CPUs.|
 |Unidades centrais de processamento|CPUs|Processadores de uso geral, o desempenho que não é ideal para processamento de gráficos e vídeo.|

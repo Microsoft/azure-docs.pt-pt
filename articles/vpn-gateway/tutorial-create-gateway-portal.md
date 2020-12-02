@@ -5,13 +5,13 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 10/23/2020
-ms.openlocfilehash: 74000322372652b90e0d0db07d687f8e57c4f88e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.date: 12/01/2020
+ms.openlocfilehash: e2df34b7897ee2543d967d147317859ab26971e9
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518250"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510489"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>Tutorial: Criar e gerir uma porta de entrada VPN usando o portal Azure
 
@@ -74,7 +74,7 @@ Criar um gateway de rede virtual utilizando os seguintes valores:
 
 Pode ver o endereço IP público gateway na página **'Vista Geral'** para o seu gateway.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Diagrama de gateway VNet e VPN":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Página geral":::
 
 Para ver informações adicionais sobre o objeto de endereço IP público, clique no link de endereço nome/IP ao lado **do endereço IP Público.**
 

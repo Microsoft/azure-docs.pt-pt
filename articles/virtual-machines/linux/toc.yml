@@ -487,7 +487,7 @@
                       href: ../image-version-vm-cli.md
                     - name: A partir de um Disco Gerido ou de um instantâneo
                       href: ../image-version-snapshot-cli.md
-                    - name: Migrar de uma imagem gerida
+                    - name: Clonar uma imagem gerida
                       href: ../image-version-managed-image-cli.md
                     - name: Copiar de outra galeria
                       href: ../image-version-another-gallery-cli.md
@@ -511,7 +511,7 @@
                       href: ../image-version-vm-powershell.md
                     - name: A partir de um Disco Gerido ou de um instantâneo
                       href: ../image-version-snapshot-powershell.md
-                    - name: Migrar de uma imagem gerida
+                    - name: Clonar uma imagem gerida
                       href: ../image-version-managed-image-powershell.md
                     - name: Copiar de outra galeria
                       href: ../image-version-another-gallery-powershell.md

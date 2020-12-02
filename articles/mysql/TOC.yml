@@ -124,6 +124,8 @@
           href: concepts-supported-versions.md
         - name: Limitações
           href: concepts-limits.md
+        - name: Melhores práticas operacionais
+          href: concept-operation-excellence-best-practices.md
         - name: Escalões de Preços
           items:
             - name: Escalões de preço
@@ -195,6 +197,10 @@
             - name: Recomendações de desempenho
               href: concepts-performance-recommendations.md
               displayName: recommendation
+            - name: Melhores práticas de monitorização
+              href: concept-monitoring-best-practices.md
+            - name: Melhores Práticas para o Desempenho
+              href: concept-performance-best-practices.md
         - name: Programação de aplicações
           items:
             - name: Descrição geral do desenvolvimento de aplicações
@@ -202,7 +208,7 @@
             - name: Compatibilidade de controladores e ferramentas
               href: concepts-compatibility.md
               displayName: 'drivers, tools'
-            - name: Melhores Práticas de Aplicações
+            - name: Melhores práticas de aplicações
               href: app-development-best-practices.md
               displayName: application
             - name: Resiliência de ligação

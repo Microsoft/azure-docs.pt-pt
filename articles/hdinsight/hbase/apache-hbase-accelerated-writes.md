@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: 99253aa2e7e2e1f3f58f2ab7d5c40a695c2b9690
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7a2373f0cf7005e465c2d3bd42817b3394a84de
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654859"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510284"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Escritas Aceleradas do Azure HDInsight para o Apache HBase
 
@@ -26,7 +26,7 @@ Na Base H, uma **linha** é constituída por uma ou mais **colunas** e é identi
 
 ## <a name="write-ahead-log-for-apache-hbase"></a>Escreva antecipadamente para Apache HBase
 
-O HBase escreve pela primeira vez atualizações de dados para um tipo de registo de compromisso chamado Write Ahead Log (WAL). Depois de a atualização ser armazenada no WAL, é escrita para a **MemStore**in-memory . Quando os dados na memória atingem a sua capacidade máxima, é escrito para o disco como um **HFile**.
+O HBase escreve pela primeira vez atualizações de dados para um tipo de registo de compromisso chamado Write Ahead Log (WAL). Depois de a atualização ser armazenada no WAL, é escrita para a **MemStore** in-memory . Quando os dados na memória atingem a sua capacidade máxima, é escrito para o disco como um **HFile**.
 
 Se um **RegiãoServer** falhar ou ficar indisponível antes da MemStore ser lavada, o Write Ahead Log pode ser utilizado para reproduzir atualizações. Sem o WAL, se um **RegionalServer** se despenhar antes de descarregar atualizações para um **HFile,** todas essas atualizações são perdidas.
 
@@ -38,7 +38,7 @@ A funcionalidade Writes Acelerada resolve o problema das mais altas latências d
 
 Para criar um novo cluster HBase com a função Escritas Aceleradas, siga os passos em [Configurar clusters em HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) até chegar ao **Passo 3, Armazenamento**. Em **Configurações de Metastore**, selecione a caixa de verificação ao lado **de Ativar as escritas aceleradas HBase**. Em seguida, continue com os passos restantes para a criação de clusters.
 
-![Ativar a opção de escrita acelerada para HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-cluster-storage-hbase.png)
+![Ativar a opção de escrita acelerada para HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-create-hbase-wals.png)
 
 ## <a name="other-considerations"></a>Outras considerações
 
