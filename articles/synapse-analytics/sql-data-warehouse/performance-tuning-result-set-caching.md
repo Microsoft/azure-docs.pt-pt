@@ -1,6 +1,6 @@
 ---
 title: Otimização do desempenho com a colocação em cache dos resultados
-description: Visão geral do conjunto de resultados para a piscina Sinaapse SQL em Azure Synapse Analytics
+description: Visão geral do conjunto de resultados para piscina SQL dedicada em Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 933ec541e358f1839c1b4d24acd19e439ea26375
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2b54277d0306244dc4ab6740fdd30e52668dd63c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541286"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460778"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Otimização do desempenho com a colocação em cache dos resultados
 
-Quando o caching do resultado está ativado, a consulta de caches Synapse SQL automaticamente resulta na base de dados do utilizador para uma utilização repetitiva.  Isto permite que execuções de consulta subsequentes obtenham resultados diretamente da cache persistiu, pelo que não é necessária recomputação.   O conjunto de resultados melhora o desempenho da consulta e reduz o uso de recursos compute.  Além disso, as consultas que utilizam os resultados em cache não utilizam quaisquer ranhuras de concordância e, portanto, não contam com os limites de concordância existentes. Para a segurança, os utilizadores só podem aceder aos resultados em cache se tiverem as mesmas permissões de acesso aos dados que os utilizadores que criam os resultados em cache.  
+Quando o caching do resultado está ativado, a consulta de caches SQL dedicada automaticamente resulta na base de dados do utilizador para uma utilização repetitiva.  Isto permite que execuções de consulta subsequentes obtenham resultados diretamente da cache persistiu, pelo que não é necessária recomputação.   O conjunto de resultados melhora o desempenho da consulta e reduz o uso de recursos compute.  Além disso, as consultas que utilizam os resultados em cache não utilizam quaisquer ranhuras de concordância e, portanto, não contam com os limites de concordância existentes. Para a segurança, os utilizadores só podem aceder aos resultados em cache se tiverem as mesmas permissões de acesso aos dados que os utilizadores que criam os resultados em cache.  
 
 ## <a name="key-commands"></a>Comandos-chave
 
@@ -47,7 +47,7 @@ Uma vez que o caching do resultado é ligado para uma base de dados, os resultad
 > - Se os dados nas colunas ORDER BY não forem únicos, não existe uma ordem de linha garantida para linhas com os mesmos valores nas colunas ORDER BY, independentemente de o caching conjunto de resultados estiver ativado ou desativado.
 
 > [!IMPORTANT]
-> As operações para criar cache de conjunto de resultados e obter dados da cache acontecem no nó de controlo de uma placa de piscina Sinapse SQL.
+> As operações para criar cache de conjunto de resultados e obter dados da cache acontecem no nó de controlo de uma instância dedicada da piscina SQL.
 > Quando o caching do resultado é ligado, as consultas de execução que devolvem o grande conjunto de resultados (por exemplo, >1GB) podem causar um elevado estrangulamento no nó de controlo e abrandar a resposta geral da consulta sobre o caso.  Estas consultas são comumente utilizadas durante a exploração de dados ou operações ETL. Para evitar stressar o nó de controlo e causar problemas de desempenho, os utilizadores devem desligar o conjunto de resultados na base de dados antes de executar este tipo de consultas.  
 
 Executar esta consulta pelo tempo tomado pelas operações de caching do resultado para uma consulta:
@@ -85,7 +85,7 @@ WHERE request_id = <'Your_Query_Request_ID'>
 
 O tamanho máximo da cache definida pelo resultado é de 1 TB por base de dados.  Os resultados em cache são automaticamente invalidados quando os dados de consulta subjacentes mudam.  
 
-O despejo de cache é gerido pela Synapse SQL seguindo automaticamente este horário:
+O despejo de cache é gerido por piscina SQL dedicada seguindo automaticamente este horário:
 
 - A cada 48 horas se o conjunto de resultados não tiver sido utilizado ou tiver sido invalidado.
 - Quando a cache definida pelo resultado se aproximar do tamanho máximo.

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7155e1517ba5ff203f11ee834af3c0d1dd1fa065
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 8806ff41edabcd3c0875d3c02360dc9a275e3878
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289480"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460823"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Funcionalidades de dados do cliente do Azure Key Vault
 
@@ -54,7 +54,7 @@ Os registos de diagnóstico Azure Key Vault que contenham dados pessoais podem s
 
 - [Azure Key Vault Logging](logging.md)
 
-- [Descrição geral da eliminação recuperável do Azure Key Vault](soft-delete-cli.md)
+- [Descrição geral da eliminação recuperável do Azure Key Vault](./key-vault-recovery.md)
 
 - [Operações chave Azure Key Vault](/rest/api/keyvault/key-operations)
 

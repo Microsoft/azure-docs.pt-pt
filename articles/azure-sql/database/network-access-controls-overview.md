@@ -1,7 +1,7 @@
 ---
 title: Controlos de Acesso à Rede
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Visão geral de como gerir e controlar o acesso à rede para a Base de Dados Azure SQL e para a Azure Synapse Analytics (anteriormente SQL Data Warehouse).
+description: Visão geral de como gerir e controlar o acesso à rede para Azure SQL Database e Azure Synapse Analytics.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,16 +12,16 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: be327fabdffc0f98dc0449b51e7e4d73651d80d8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 90bc57af3aaf0d11cd354bfe7163014f836a72e8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789493"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460002"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL Database e Azure Synapse Analytics controlos de acesso à rede
 
-Quando cria um servidor SQL lógico a partir do [portal Azure](single-database-create-quickstart.md) sql Database e Azure Synapse Analytics, o resultado é um ponto final público no formato, *yourservername.database.windows.net* .
+Quando cria um servidor SQL lógico a partir do [portal Azure](single-database-create-quickstart.md) sql Database e Azure Synapse Analytics, o resultado é um ponto final público no formato, *yourservername.database.windows.net*.
 
 Pode utilizar os seguintes controlos de acesso à rede para permitir o acesso seletivamente a uma base de dados através do ponto final público:
 
@@ -34,7 +34,7 @@ Também pode permitir o acesso privado à base de dados a partir de [redes virtu
 - Link Privado: Utilize esta funcionalidade para criar um ponto final privado para [o servidor SQL lógico](logical-servers.md) dentro de uma rede virtual específica
 
 > [!IMPORTANT]
-> Este artigo *não* se aplica à **SQL Managed Instance** . Para obter mais informações sobre a configuração da rede, consulte [a ligação ao Azure SQL Managed Instance](../managed-instance/connect-application-instance.md) .
+> Este artigo *não* se aplica à **SQL Managed Instance**. Para obter mais informações sobre a configuração da rede, consulte [a ligação ao Azure SQL Managed Instance](../managed-instance/connect-application-instance.md) .
 
 Veja o vídeo abaixo para obter uma explicação de alto nível destes controlos de acesso e o que fazem:
 
@@ -42,7 +42,7 @@ Veja o vídeo abaixo para obter uma explicação de alto nível destes controlos
 
 ## <a name="allow-azure-services"></a>Permitir serviços Azure
 
-Por predefinição durante a criação de um novo servidor lógico SQL [a partir do portal Azure,](single-database-create-quickstart.md)esta definição está definida para **OFF** . Esta definição aparece quando a conectividade é permitida usando o ponto final de serviço público.
+Por predefinição durante a criação de um novo servidor lógico SQL [a partir do portal Azure,](single-database-create-quickstart.md)esta definição está definida para **OFF**. Esta definição aparece quando a conectividade é permitida usando o ponto final de serviço público.
 
 Também pode alterar esta definição através do painel de firewall depois de o servidor lógico SQL ser criado da seguinte forma.
   
@@ -56,7 +56,7 @@ No entanto, ao fazê-lo afeta as seguintes funcionalidades que funcionam em máq
 
 ### <a name="import-export-service"></a>Serviço de Exportação de Importações
 
-O Serviço de Exportação de Importações não funciona quando **o acesso aos serviços Azure** está definido para **OFF** . No entanto, pode contornar o problema [executando manualmente sqlpackage.exe a partir de um VM Azure ou realizando a exportação](./database-import-export-azure-services-off.md) diretamente no seu código utilizando a API DACFx.
+O Serviço de Exportação de Importações não funciona quando **o acesso aos serviços Azure** está definido para **OFF**. No entanto, pode contornar o problema [executando manualmente sqlpackage.exe a partir de um VM Azure ou realizando a exportação](./database-import-export-azure-services-off.md) diretamente no seu código utilizando a API DACFx.
 
 ### <a name="data-sync"></a>Sincronização de Dados
 
@@ -110,7 +110,7 @@ A firewall baseada em IP é uma característica do servidor lógico SQL em Azure
 
 ## <a name="virtual-network-firewall-rules"></a>Regras de firewall de rede virtual
 
-Além das regras ip, a firewall do servidor permite definir *regras de rede virtuais* .  
+Além das regras ip, a firewall do servidor permite definir *regras de rede virtuais*.  
 Para saber mais, consulte [os pontos finais e regras do serviço de rede virtual para a Base de Dados Azure SQL](vnet-service-endpoint-rule-overview.md) ou veja este vídeo:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]

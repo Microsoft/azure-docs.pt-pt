@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: bb978f30104b1e38bd8930ccb058c4057d394e51
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: d6c3dbc28da7bee0bc24a6dc24608c78e480c20e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899669"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462173"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrair, transformar e carregar (ETL) em escala
 
@@ -86,7 +86,7 @@ Para o upload de conjuntos de dados na gama terabyte, a latência da rede pode s
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-A Azure Synapse Analytics (anteriormente SQL DW) é uma escolha apropriada para armazenar resultados preparados. Você pode usar Azure HDInsight para executar esses serviços para Azure Synapse Analytics.
+A Azure Synapse Analytics é uma escolha apropriada para armazenar resultados preparados. Você pode usar Azure HDInsight para executar esses serviços para Azure Synapse Analytics.
 
 A Azure Synapse Analytics é uma loja de dados relacional otimizada para cargas de trabalho analíticas. Escamas baseadas em mesas divididas. As mesas podem ser divididas através de múltiplos nós. Os nós são selecionados no momento da criação. Podem escalar depois do facto, mas é um processo ativo que pode requerer movimento de dados. Para obter mais informações, consulte [Manage compute in Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 
@@ -138,7 +138,7 @@ Apache Flume não pode ser usado com Azure HDInsight. Mas, uma instalação hado
 
 Depois de existirem dados no local escolhido, é necessário limpá-lo, combiná-lo ou prepará-lo para um padrão de utilização específico. Colmeia, Porco e Spark SQL são boas escolhas para este tipo de trabalho. São todos apoiados no HDInsight.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Usando a Colmeia Apache como uma ferramenta ETL](apache-hadoop-using-apache-hive-as-an-etl-tool.md)
 - [Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

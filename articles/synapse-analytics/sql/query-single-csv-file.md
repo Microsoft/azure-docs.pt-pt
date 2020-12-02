@@ -1,6 +1,6 @@
 ---
-title: Ficheiros CSV de consulta utilizando piscina SQL sem servidor (pré-visualização)
-description: Neste artigo, você aprenderá a consultar ficheiros CSV únicos com diferentes formatos de ficheiro usando piscina SQL sem servidor (pré-visualização).
+title: Ficheiros CSV de consulta utilizando piscina SQL sem servidor
+description: Neste artigo, você vai aprender a consultar ficheiros CSV únicos com diferentes formatos de ficheiro usando piscina SQL sem servidor.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9faff6589466c7cbe78a11c283139acb72bce4bb
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f2f0cdf307e91fb40c55d4a98139bad1a5eca886
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685652"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462588"
 ---
 # <a name="query-csv-files"></a>Consultar ficheiros CSV
 
-Neste artigo, você aprenderá a consultar um único ficheiro CSV usando piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics. Os ficheiros CSV podem ter formatos diferentes: 
+Neste artigo, você aprenderá a consultar um único ficheiro CSV usando piscina SQL sem servidor em Azure Synapse Analytics. Os ficheiros CSV podem ter formatos diferentes: 
 
 - Com e sem uma linha de cabeçalho
 - Valores de vírgula e delimitados
@@ -47,8 +47,8 @@ from openrowset(
 A opção `firstrow` é usada para saltar a primeira linha no ficheiro CSV que representa o cabeçalho neste caso. Certifique-se de que pode aceder a este ficheiro. Se o seu ficheiro estiver protegido com chave SAS ou identidade personalizada, terá de configurar a [credencial de nível do servidor para o início de sessão](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
 > [!IMPORTANT]
-> Se o seu ficheiro CSV contiver caracteres UTF-8, certifique-se de que está a utilizar alguma colagem de base de dados UTF-8 (por `Latin1_General_100_CI_AS_SC_UTF8` exemplo).
-> O desfasamento entre codificação de texto no ficheiro e a colagem pode causar erros de conversão inesperados.
+> Se o seu ficheiro CSV contiver caracteres UTF-8, certifique-se de que está a utilizar uma colagem de base de dados UTF-8 (por `Latin1_General_100_CI_AS_SC_UTF8` exemplo).
+> Um desfasamento entre a codificação de texto no ficheiro e a colagem pode causar erros de conversão inesperados.
 > Pode alterar facilmente a colagem predefinida da base de dados atual utilizando a seguinte declaração T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>Utilização de fontes de dados
@@ -344,7 +344,7 @@ WITH (
 ) AS [r]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os próximos artigos irão mostrar-lhe como:
 

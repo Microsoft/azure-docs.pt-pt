@@ -3,14 +3,14 @@ title: Gerir variáveis em Azure Automation
 description: Este artigo diz como trabalhar com variáveis em runbooks e configurações DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 10/05/2020
+ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4749fcb6698ff1716f2cae257cc0efad458bf9a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5be0d45843eed8c7c0d7d9b6dc4655de01e914c3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766200"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461453"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gerir variáveis em Azure Automation
 
@@ -26,16 +26,16 @@ As variáveis de automatização são úteis para os seguintes cenários:
 
 A Azure Automation persiste em variáveis e disponibiliza-as mesmo que uma configuração de runbook ou DSC falhe. Este comportamento permite que um livro de execução ou configuração DSC desaje assim seja utilizado por outro runbook, ou pela mesma configuração de runbook ou DSC da próxima vez que for executado.
 
-A Azure Automation armazena cada variável encriptada de forma segura. Quando cria uma variável, pode especificar a sua encriptação e armazenamento pela Azure Automation como um ativo seguro. Depois de criar a variável, não pode alterar o seu estado de encriptação sem recriar a variável. Uma recomendação do Azure Security Center é encriptar todas as variáveis Azure Automation, tal como descritas nas [variáveis de conta Demôm automação, devem ser encriptadas](../../security-center/recommendations-reference.md#recs-computeapp).
+A Azure Automation armazena cada variável encriptada de forma segura. Quando cria uma variável, pode especificar a sua encriptação e armazenamento pela Azure Automation como um ativo seguro. Depois de criar a variável, não pode alterar o seu estado de encriptação sem recriar a variável. Se tiver variáveis de conta de Automação que armazenam dados sensíveis que ainda não estão encriptados, então tem de as eliminar e recriar como variáveis encriptadas. Uma recomendação do Azure Security Center é encriptar todas as variáveis Azure Automation, tal como descritas nas [variáveis de conta Demôm automação, devem ser encriptadas](../../security-center/recommendations-reference.md#recs-computeapp). Se tiver variáveis não encriptadas que deseja excluídas desta recomendação de segurança, consulte [isentar um recurso de recomendações e obter pontuação segura](../../security-center/exempt-resource.md) para criar uma regra de isenção.
 
 >[!NOTE]
->Os ativos seguros na Azure Automation incluem credenciais, certificados, conexões e variáveis encriptadas. Estes ativos são encriptados e armazenados na Azure Automation utilizando uma chave única que é gerada para cada conta Dem automação. A Azure Automation armazena a chave no Key Vault gerido pelo sistema. Antes de armazenar um ativo seguro, a Automatização carrega a chave do Key Vault e utiliza-a para encriptar o ativo. 
+>Os ativos seguros na Azure Automation incluem credenciais, certificados, conexões e variáveis encriptadas. Estes ativos são encriptados e armazenados na Azure Automation utilizando uma chave única que é gerada para cada conta Dem automação. A Azure Automation armazena a chave no Key Vault gerido pelo sistema. Antes de armazenar um ativo seguro, a Automatização carrega a chave do Key Vault e utiliza-a para encriptar o ativo.
 
 ## <a name="variable-types"></a>Tipos variáveis
 
 Quando cria uma variável com o portal Azure, deve especificar um tipo de dados da lista de abandono para que o portal possa apresentar o controlo adequado para introduzir o valor variável. Seguem-se os tipos variáveis disponíveis na Azure Automation:
 
-* Cadeia
+* String
 * Número inteiro
 * DateTime
 * Booleano

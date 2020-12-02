@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: a879ac81859c855bb7b7bc2eddb1e3c9b62adb34
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 31298be4d50c7f562e2e2b9adbf889b165b197e5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321409"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461869"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remova um protetor de encriptação de dados transparente (TDE) usando o PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -35,13 +35,13 @@ Tenha em mente que uma vez que o protetor TDE é eliminado no Cofre de Chaves, e
 Este guia de como orientar passa por duas abordagens dependendo do resultado desejado após uma resposta comprometida do incidente:
 
 - Para tornar **inacessíveis** as bases de dados em Azure SQL Database / Azure Synapse Analytics .
-- Para tornar **inacessíveis** as bases de dados em Azure SQL Database / Azure Azure Synapse Analytics (anteriormente SQL Data Warehouse).
+- Para tornar **inacessíveis** as bases de dados em Azure SQL Database / Azure Azure Synapse Analytics .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Você deve ter uma assinatura Azure e ser um administrador nessa subscrição
 - Deve ter a Azure PowerShell instalada e a funcionar.
-- Este guia assume que já está a utilizar uma chave do Azure Key Vault como protetor TDE para uma Base de Dados Azure SQL ou Azure Synapse (anteriormente SQL Data Warehouse). Consulte [encriptação de dados transparentes com suporte BYOK](transparent-data-encryption-byok-overview.md) para saber mais.
+- Este guia de como fazer pressupõe que já está a utilizar uma chave do Azure Key Vault como protetor TDE para uma Base de Dados Azure SQL ou Azure Synapse. Consulte [encriptação de dados transparentes com suporte BYOK](transparent-data-encryption-byok-overview.md) para saber mais.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

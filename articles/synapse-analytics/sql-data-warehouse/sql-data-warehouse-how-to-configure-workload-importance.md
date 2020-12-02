@@ -1,5 +1,5 @@
 ---
-title: Configurar a importância da carga de trabalho
+title: Configure a importância da carga de trabalho para piscina SQL dedicada
 description: Saiba como definir a importância do nível de pedido no Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
@@ -11,20 +11,20 @@ ms.date: 05/15/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 83170f4090909e3edcc163312383773d088d8c57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 067551d198f717dd40995cb8bc3e1345e82f078f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212127"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461908"
 ---
-# <a name="configure-workload-importance-in-azure-synapse-analytics"></a>Configure a importância da carga de trabalho no Azure Synapse Analytics
+# <a name="configure-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>Configure a importância da carga de trabalho na piscina dedicada SQL para Azure Synapse Analytics
 
-Definir importância no Sinapse SQL para Azure Synapse permite-lhe influenciar o agendamento de consultas. As consultas com maior importância serão agendadas para serem executadas antes de consultas com menor importância. Para atribuir importância às consultas, é necessário criar um classificador de carga de trabalho.
+Definir importância na piscina de SQL dedicada para Azure Synapse permite-lhe influenciar o agendamento de consultas. As consultas com maior importância serão agendadas para serem executadas antes de consultas com menor importância. Para atribuir importância às consultas, é necessário criar um classificador de carga de trabalho.
 
 ## <a name="create-a-workload-classifier-with-importance"></a>Criar um classificador de carga de trabalho com importância
 
-Muitas vezes, num cenário de armazém de dados, temos utilizadores, num sistema movimentado, que precisam de executar as suas consultas rapidamente.  O utilizador pode ser executivo da empresa que precisa de executar relatórios ou o utilizador pode ser um analista que executa uma consulta de adhoc. Para atribuir importância, cria-se um classificador de carga de trabalho e a importância é atribuída a uma consulta.  Os exemplos abaixo utilizam a sintaxe  [do classificador de criar carga de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para criar dois classificadores. `Membername` pode ser um único utilizador ou um grupo.  Para encontrar os utilizadores de armazém de dados existentes, corra:
+Muitas vezes, num cenário de armazém de dados, temos utilizadores, num sistema movimentado, que precisam de executar as suas consultas rapidamente.  O utilizador pode ser executivo da empresa que precisa de executar relatórios ou o utilizador pode ser um analista que executa uma consulta de adhoc. Para atribuir importância, cria-se um classificador de carga de trabalho e a importância é atribuída a uma consulta.  Os exemplos abaixo utilizam a sintaxe  [do classificador de criar carga de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para criar dois classificadores. `Membername` pode ser um único utilizador ou um grupo.  Para encontrar os utilizadores de piscinas SQL dedicados existentes, corra:
 
 ```sql
 Select name from sys.sysusers

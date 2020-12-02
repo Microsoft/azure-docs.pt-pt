@@ -1,5 +1,5 @@
 ---
-title: Melhorar o desempenho do índice de loja de colunas (pré-visualização de espaços de trabalho)
+title: Melhorar o desempenho do índice de lojas de colunas
 description: Reduza os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas que um índice de loja de colunas comprime em cada grupo de fila.
 services: synapse-analytics
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fecb78b240f5c983580d4bdb34535a879ffe3e2e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e4656531f1424c3414ab00afbbe241a532738400
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022552"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462266"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Maximizar a qualidade do grupo de linha para o desempenho do índice de loja de colunas
 

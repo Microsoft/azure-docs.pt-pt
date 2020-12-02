@@ -1,25 +1,25 @@
 ---
 title: Utilização de esquemas definidos pelo utilizador
-description: Dicas para utilizar esquemas definidos pelo utilizador T-SQL para desenvolver soluções na piscina Synapse SQL.
+description: Dicas para utilizar esquemas definidos pelo utilizador T-SQL para desenvolver soluções para piscinas SQL dedicadas em Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: fc5e035215e7cabd02861c6ee2498cadd1ef0534
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 3204c77dd076d9aac6eb5a60b489280caefcbf4b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213368"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460452"
 ---
-# <a name="user-defined-schemas-in-synapse-sql-pool"></a>Esquemas definidos pelo utilizador na piscina Sinaapse SQL
-Este artigo centra-se em fornecer várias dicas para a utilização de esquemas definidos pelo utilizador T-SQL para desenvolver soluções na piscina Synapse SQL.
+# <a name="user-defined-schemas-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Esquemas definidos pelo utilizador para piscinas SQL dedicadas em Azure Synapse Analytics
+Este artigo centra-se em fornecer várias dicas para a utilização de esquemas definidos pelo utilizador T-SQL para desenvolver soluções em piscinas SQL dedicadas.
 
 ## <a name="schemas-for-application-boundaries"></a>Esquemas para limites de aplicação
 
@@ -27,7 +27,7 @@ Os armazéns de dados tradicionais usam frequentemente bases de dados separadas 
 
 Como exemplo, um armazém de dados tradicional do SQL Server pode incluir uma base de dados de encenação, uma base de dados de data warehouse e algumas bases de dados do mercado de dados. Nesta topologia, cada base de dados funciona como uma linha de trabalho e limite de segurança na arquitetura.
 
-Em contraste, o pool SQL executa toda a carga de trabalho do armazém de dados dentro de uma base de dados. Não são permitidas juntas de base de dados cruzadas. A piscina SQL espera que todas as mesas usadas pelo armazém sejam armazenadas dentro de uma base de dados.
+Em contraste, um pool DE SQL dedicado executa toda a carga de trabalho do armazém de dados dentro de uma base de dados. Não são permitidas juntas de base de dados cruzadas. Piscina dedicada SQL espera que todas as mesas usadas pelo armazém sejam armazenadas dentro de uma base de dados.
 
 > [!NOTE]
 > O pool SQL não suporta consultas de base de dados cruzadas de qualquer tipo. Consequentemente, as implementações de armazéns de dados que alavancam este padrão terão de ser revistas.
@@ -37,11 +37,11 @@ Em contraste, o pool SQL executa toda a carga de trabalho do armazém de dados d
 ## <a name="recommendations"></a>Recomendações
 Seguem-se recomendações para a consolidação de cargas de trabalho, segurança, domínio e limites funcionais utilizando esquemas definidos pelo utilizador:
 
-- Use uma base de dados de piscinas SQL para executar toda a sua carga de trabalho do armazém de dados.
-- Consolidar o ambiente existente de armazém de dados para utilizar uma base de dados de piscinas SQL.
+- Use uma base de dados numa piscina DE SQL dedicada para executar toda a sua carga de trabalho do armazém de dados.
+- Consolidar o ambiente existente de armazém de dados para utilizar uma base de dados dedicada à piscina SQL.
 - Alavancar **os esquemas definidos pelo utilizador** para fornecer o limite previamente implementado através de bases de dados.
 
-Se os esquemas definidos pelo utilizador não tiverem sido utilizados anteriormente, então tem uma ficha limpa. Utilize o nome da base de dados antiga como base de base para os seus esquemas definidos pelo utilizador na base de dados da piscina SQL.
+Se os esquemas definidos pelo utilizador não tiverem sido utilizados anteriormente, então tem uma ficha limpa. Utilize o nome da base de dados antiga como base de base para os seus esquemas definidos pelo utilizador na base de dados dedicada da piscina SQL.
 
 Se os esquemas já foram usados, então tem algumas opções:
 
@@ -50,7 +50,7 @@ Se os esquemas já foram usados, então tem algumas opções:
 - Mantenha os nomes do esquema legado implementando pontos de vista sobre a mesa num esquema extra para recriar a antiga estrutura de esquemas.
 
 > [!NOTE]
-> Na primeira opção de inspeção 3 pode parecer a opção mais apelativa. No entanto, o diabo está nos detalhes. As vistas são lidas apenas na piscina SQL. Qualquer modificação de dados ou tabela teria de ser efetuada contra a tabela base. A opção 3 também introduz uma camada de pontos de vista no seu sistema. Você pode querer dar um pensamento adicional se você já está usando vistas na sua arquitetura.
+> Na primeira opção de inspeção 3 pode parecer a opção mais apelativa. No entanto, o diabo está nos detalhes. As vistas são lidas apenas em piscina SQL dedicada. Qualquer modificação de dados ou tabela teria de ser efetuada contra a tabela base. A opção 3 também introduz uma camada de pontos de vista no seu sistema. Você pode querer dar um pensamento adicional se você já está usando vistas na sua arquitetura.
 > 
 > 
 

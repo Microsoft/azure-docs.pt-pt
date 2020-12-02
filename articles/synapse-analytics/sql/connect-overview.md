@@ -10,17 +10,17 @@ ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0897ca35dd5ae1b7209a36aee4bd5335d4ea4d25
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 2ff2d9708642c347a829de290d45849d8629807f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681538"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462348"
 ---
 # <a name="connect-to-synapse-sql"></a>Ligue-se ao SQL da Sinapse
 Esteja ligado à capacidade Sinapse SQL em Azure Synapse Analytics.
 
-## <a name="supported-tools-for-serverless-sql-pool-preview"></a>Ferramentas suportadas para piscina SQL sem servidor (pré-visualização)
+## <a name="supported-tools-for-serverless-sql-pool"></a>Ferramentas suportadas para piscina SQL sem servidor
 
 [O Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) está totalmente suportado a partir da versão 1.18.0. O SSMS é parcialmente suportado a partir da versão 18.5, pode usá-lo apenas para ligar e consultar.
 
@@ -46,7 +46,7 @@ Descubra o nome de servidor completamente qualificado:
 
 ![Nome de servidor completo](./media/connect-overview/server-connect-example.png)
 
-## <a name="serverless-sql-pool"></a>**conjunto de SQL sem servidor**
+## <a name="serverless-sql-pool"></a>**piscina SQL sem servidor**
 
 ![Piscina SQL sem servidor de servidor completo](./media/connect-overview/server-connect-example-sqlod.png)
 
@@ -94,5 +94,5 @@ O SQL de Sinapse normaliza algumas definições durante a ligação e criação 
 
 Para executar consultas **de piscinas SQL sem servidor,** as ferramentas recomendadas são [Azure Data Studio](get-started-azure-data-studio.md) e Azure Synapse Studio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para ligar e consultar com o Visual Studio, veja [Query with Visual Studio (Consulta com o Visual Studio)](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Para saber mais sobre opções de autenticação, consulte [autenticação para Synapse SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

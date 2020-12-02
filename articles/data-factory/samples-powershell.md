@@ -10,12 +10,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 6df400e7ce4b66a1589a0c44089148b33ab88638
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20ee36989acbc36f86478d8205dd61097362eea3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439066"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461531"
 ---
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>Amostras Azure PowerShell para Azure Data Factory
 
@@ -28,7 +28,7 @@ A tabela seguinte inclui links para provar scripts Azure PowerShell para Azure D
 |**Copiar dados**||
 |[Copiar bolhas de uma pasta para outra pasta num Azure Blob Storage](scripts/copy-azure-blob-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script PowerShell copia bolhas de uma pasta no Azure Blob Storage para outra pasta no mesmo Blob Storage. |
 |[Copiar dados do SQL Server para o Azure Blob Storage](scripts/hybrid-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script PowerShell copia dados de uma base de dados do SQL Server para um armazenamento de bolhas Azure. |
-|[Cópia a granel](scripts/bulk-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Esta amostra de script PowerShell copia dados de várias tabelas numa base de dados na Base de Dados Azure SQL para Azure Synapse Analytics (anteriormente SQL Data Warehouse). |
+|[Cópia em massa](scripts/bulk-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Esta amostra de script PowerShell copia dados de várias tabelas numa base de dados na Base de Dados Azure SQL para Azure Synapse Analytics. |
 |[Cópia incremental](scripts/incremental-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Esta amostra O script PowerShell carrega apenas registos novos ou atualizados de uma loja de dados de origem para uma loja de dados de sumidouro após a cópia completa inicial dos dados da fonte para a pia. |
 |**Transformar dados**||
 |[Transforme dados usando um cluster spark](scripts/transform-data-spark-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script PowerShell transforma dados executando um programa num cluster Spark. |

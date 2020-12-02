@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/06/2020
+ms.date: 12/01/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref, devx-track-azurecli
-ms.openlocfilehash: c41ec06b1f985296377d27dcbe72b5f41224809b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d7debce83928e21072c981b007e8048bfc4c594
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835412"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460939"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>PERGUNTAS Frequentes e questões conhecidas com identidades geridas para recursos da Azure
 
@@ -85,6 +85,46 @@ Não. As identidades geridas não suportam atualmente cenários de diretórios c
 - Identidade gerida atribuída pelo sistema: É necessário escrever permissões sobre o recurso. Por exemplo, para máquinas virtuais, precisa de Microsoft.Compute/virtualMachines/write. Esta ação está incluída em funções específicas de recursos como [O Contribuinte De Máquina Virtual.](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 - Identidade gerida atribuída pelo utilizador: É necessário escrever permissões sobre o recurso. Por exemplo, para máquinas virtuais, precisa de Microsoft.Compute/virtualMachines/write. Além da atribuição de função [de Operador de Identidade Gerida](../../role-based-access-control/built-in-roles.md#managed-identity-operator) sobre a identidade gerida.
 
+### <a name="how-do-i-prevent-the-creation-of-user-assigned-managed-identities"></a>Como posso impedir a criação de identidades geridas atribuídas pelo utilizador?
+
+Pode impedir que os seus utilizadores criem identidades geridas atribuídas pelo utilizador através da [Política Azure](../../governance/policy/overview.md)
+
+- Navegue até ao [portal Azure](https://portal.azure.com) e vá para a **Política.**
+- Escolha **Definições**
+- Selecione **+ Definição de política** e introduza as informações necessárias.
+- Na pasta da secção de regras políticas
+
+```json
+{
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "field": "type",
+      "equals": "Microsoft.ManagedIdentity/userAssignedIdentities"
+    },
+    "then": {
+      "effect": "deny"
+    }
+  },
+  "parameters": {}
+}
+
+```
+
+Depois de criar a política atribua-a ao grupo de recursos que gostaria de utilizar.
+
+- Navegue para grupos de recursos.
+- Encontre o grupo de recursos que está a usar para testar.
+- Escolha **Políticas** no menu à esquerda.
+- Selecione **A política de atribuir**
+- Na secção **Básico,** prevê-se:
+    - **Âmbito de aplicação** O grupo de recursos que estamos usando para testar
+    - **Definição política**: A política que criámos anteriormente.
+- Deixe todas as outras definições à sua padrão e escolha **Review + Create**
+
+Neste momento, qualquer tentativa de criar uma identidade gerida atribuída pelo utilizador no grupo de recursos falhará.
+
+  ![Violação de política](./media/known-issues/policy-violation.png)
 
 ## <a name="known-issues"></a>Problemas conhecidos
 

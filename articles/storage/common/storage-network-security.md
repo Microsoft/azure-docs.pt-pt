@@ -9,12 +9,12 @@ ms.date: 10/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 2eed5a8ad783d325ef040b3a358e80a6517f08e8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9638d4f8a44b044bb02d3f77d259860128d2e9db
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783645"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462236"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar as firewalls e as redes virtuais do Armazenamento do Microsoft Azure
 
@@ -64,9 +64,9 @@ Pode gerir as regras de acesso à rede padrão para contas de armazenamento atra
 
 1. Aceda à conta de armazenamento que pretende proteger.
 
-1. Clique no menu de definições chamado **Firewalls e redes virtuais** .
+1. Clique no menu de definições chamado **Firewalls e redes virtuais**.
 
-1. Para negar o acesso por padrão, opte por permitir o acesso a partir de **redes Selecionadas.** Para permitir tráfego de todas as redes, opte por permitir o acesso a partir de **Todas as redes** .
+1. Para negar o acesso por padrão, opte por permitir o acesso a partir de **redes Selecionadas.** Para permitir tráfego de todas as redes, opte por permitir o acesso a partir de **Todas as redes**.
 
 1. Clique em **Guardar** para aplicar as suas alterações.
 
@@ -148,18 +148,18 @@ Pode gerir as regras de rede virtuais para contas de armazenamento através do p
 
 1. Aceda à conta de armazenamento que pretende proteger.
 
-1. Clique no menu de definições chamado **Firewalls e redes virtuais** .
+1. Clique no menu de definições chamado **Firewalls e redes virtuais**.
 
 1. Verifique se selecionou para permitir o acesso a partir de **redes selecionadas.**
 
-1. Para conceder acesso a uma rede virtual com uma nova regra de rede, em **redes Virtuais,** clique em **Adicionar rede virtual existente,** selecione **redes virtuais** e opções **de Subnets** e, em seguida, clique em **Adicionar** . Para criar uma nova rede virtual e conceder-lhe acesso, clique em **Adicionar nova rede virtual.** Forneça as informações necessárias para criar a nova rede virtual e, em seguida, clique em **Criar** .
+1. Para conceder acesso a uma rede virtual com uma nova regra de rede, em **redes Virtuais,** clique em **Adicionar rede virtual existente,** selecione **redes virtuais** e opções **de Subnets** e, em seguida, clique em **Adicionar**. Para criar uma nova rede virtual e conceder-lhe acesso, clique em **Adicionar nova rede virtual.** Forneça as informações necessárias para criar a nova rede virtual e, em seguida, clique em **Criar**.
 
     > [!NOTE]
     > Se um ponto final de serviço para o Azure Storage não foi previamente configurado para a rede virtual e sub-redes selecionadas, pode configurá-lo como parte desta operação.
     >
     > Atualmente, apenas as redes virtuais pertencentes ao mesmo inquilino do Azure Ative Directory são mostradas para seleção durante a criação de regras. Para conceder acesso a uma sub-rede numa rede virtual pertencente a outro inquilino, utilize as APIs powershell, CLI ou REST.
 
-1. Para remover uma regra de rede virtual ou sub-rede, clique **em ...** para abrir o menu de contexto para a rede virtual ou sub-rede, e clique em **Remover** .
+1. Para remover uma regra de rede virtual ou sub-rede, clique **em ...** para abrir o menu de contexto para a rede virtual ou sub-rede, e clique em **Remover**.
 
 1. Clique em **Guardar** para aplicar as suas alterações.
 
@@ -197,7 +197,7 @@ Pode gerir as regras de rede virtuais para contas de armazenamento através do p
     ```
 
 > [!IMPORTANT]
-> Certifique-se de [que define a regra padrão](#change-the-default-network-access-rule) para **negar** , ou as regras de rede não têm efeito.
+> Certifique-se de [que define a regra padrão](#change-the-default-network-access-rule) para **negar**, ou as regras de rede não têm efeito.
 
 #### <a name="cliv2"></a>CLIv2
 
@@ -235,18 +235,18 @@ Pode gerir as regras de rede virtuais para contas de armazenamento através do p
     ```
 
 > [!IMPORTANT]
-> Certifique-se de [que define a regra padrão](#change-the-default-network-access-rule) para **negar** , ou as regras de rede não têm efeito.
+> Certifique-se de [que define a regra padrão](#change-the-default-network-access-rule) para **negar**, ou as regras de rede não têm efeito.
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Conceder acesso a partir de um intervalo de IP da Internet
 
 Pode configurar contas de armazenamento para permitir o acesso a partir de intervalos específicos de endereços IP da Internet pública. Esta configuração permite o acesso a serviços específicos baseados na Internet e redes no local e bloqueia o tráfego geral de internet.
 
-Fornecer intervalos de endereços de internet permitidos utilizando [a notação CIDR](https://tools.ietf.org/html/rfc4632) no formulário *16.17.18.0/24* ou como endereços IP individuais como *16.17.18.19* .
+Fornecer intervalos de endereços de internet permitidos utilizando [a notação CIDR](https://tools.ietf.org/html/rfc4632) no formulário *16.17.18.0/24* ou como endereços IP individuais como *16.17.18.19*.
 
    > [!NOTE]
    > Não são suportadas pequenas gamas de endereços que utilizem tamanhos de prefixo "/31" ou "/32". Estas gamas devem ser configuradas utilizando regras individuais de endereço IP.
 
-As regras da rede IP só são permitidas para endereços IP **de internet pública.** Os intervalos de endereços IP reservados para redes privadas (tal como definido no [RFC 1918)](https://tools.ietf.org/html/rfc1918#section-3)não são permitidos nas regras de IP. As redes privadas incluem endereços que começam com _10.*_ , _172.16.*_  -  _172.31.*_ e _192.168.*_ .
+As regras da rede IP só são permitidas para endereços IP **de internet pública.** Os intervalos de endereços IP reservados para redes privadas (tal como definido no [RFC 1918)](https://tools.ietf.org/html/rfc1918#section-3)não são permitidos nas regras de IP. As redes privadas incluem endereços que começam com _10.*_, _172.16.*_  -  _172.31.*_ e _192.168.*_.
 
    > [!NOTE]
    > As regras da rede IP não têm qualquer efeito sobre os pedidos originários da mesma região de Azure que a conta de armazenamento. Utilize [regras de rede virtuais](#grant-access-from-a-virtual-network) para permitir pedidos da mesma região.
@@ -272,11 +272,11 @@ Pode gerir as regras da rede IP para contas de armazenamento através do portal 
 
 1. Aceda à conta de armazenamento que pretende proteger.
 
-1. Clique no menu de definições chamado **Firewalls e redes virtuais** .
+1. Clique no menu de definições chamado **Firewalls e redes virtuais**.
 
 1. Verifique se selecionou para permitir o acesso a partir de **redes selecionadas.**
 
-1. Para conceder acesso a uma gama IP da Internet, insira o endereço IP ou o intervalo de endereços (em formato CIDR) no Âmbito de **Endereços de Firewall**  >  **Address Range** .
+1. Para conceder acesso a uma gama IP da Internet, insira o endereço IP ou o intervalo de endereços (em formato CIDR) no Âmbito de **Endereços de Firewall**  >  **Address Range**.
 
 1. Para remover uma regra de rede IP, clique no ícone do caixote do lixo ao lado da gama de endereços.
 
@@ -317,7 +317,7 @@ Pode gerir as regras da rede IP para contas de armazenamento através do portal 
     ```
 
 > [!IMPORTANT]
-> Certifique-se de [que define a regra padrão](#change-the-default-network-access-rule) para **negar** , ou as regras de rede não têm efeito.
+> Certifique-se de [que define a regra padrão](#change-the-default-network-access-rule) para **negar**, ou as regras de rede não têm efeito.
 
 #### <a name="cliv2"></a>CLIv2
 
@@ -354,11 +354,11 @@ Pode gerir as regras da rede IP para contas de armazenamento através do portal 
     ```
 
 > [!IMPORTANT]
-> Certifique-se de [que define a regra padrão](#change-the-default-network-access-rule) para **negar** , ou as regras de rede não têm efeito.
+> Certifique-se de [que define a regra padrão](#change-the-default-network-access-rule) para **negar**, ou as regras de rede não têm efeito.
 
 ## <a name="exceptions"></a>Exceções
 
-As regras de rede ajudam a criar um ambiente seguro para ligações entre as suas aplicações e os seus dados para a maioria dos cenários. No entanto, algumas aplicações dependem de serviços Azure que não podem ser isolados exclusivamente através de regras de rede virtual ou endereço IP. Mas esses serviços devem ser concedidos ao armazenamento para permitir a funcionalidade completa da aplicação. Nestas situações, pode utilizar os serviços * *_Permitir serviços de confiança da Microsoft..._* _ definição para permitir que esses serviços acedam aos seus dados, registos ou análises.
+As regras de rede ajudam a criar um ambiente seguro para ligações entre as suas aplicações e os seus dados para a maioria dos cenários. No entanto, algumas aplicações dependem de serviços Azure que não podem ser isolados exclusivamente através de regras de rede virtual ou endereço IP. Mas esses serviços devem ser concedidos ao armazenamento para permitir a funcionalidade completa da aplicação. Nestas situações, pode utilizar os serviços **_Permitir serviços de confiança da Microsoft..._* _ definição para permitir que esses serviços acedam aos seus dados, registos ou análises.
 
 ### <a name="trusted-microsoft-services"></a>Serviços confiáveis da Microsoft
 
@@ -396,10 +396,10 @@ A **definição de Permitir serviços da Microsoft fidedignos...** a definição
 | Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Permite que os dados de um hub IoT sejam escritos para o armazenamento blob. [Saiba mais](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Permite que as aplicações lógicas acedam a contas de armazenamento. [Saiba mais](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
 | Serviço Azure Machine Learning | Microsoft.MachineLearningServices      | Os espaços de trabalho autorizados de Aprendizagem automática Azure escrevem a saída de experiências, modelos e registos para o armazenamento blob e lêem os dados. [Saiba mais](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). | 
-| Azure Synapse Analytics (anteriormente SQL Data Warehouse)       | Microsoft.Sql                          | Permite a importação e exportação de dados a partir de bases de dados SQL específicas utilizando a declaração COPY ou PolyBase. [Saiba mais](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
+| Azure Synapse Analytics       | Microsoft.Sql                          | Permite a importação e exportação de dados a partir de bases de dados SQL específicas utilizando a declaração COPY ou PolyBase. [Saiba mais](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
 | Base de Dados SQL do Azure       | Microsoft.Sql                          | Permite [a importação](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) de dados de contas de armazenamento e [a escrita](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) de dados de auditoria para contas de armazenamento por trás do firewall. |
 | Azure Stream Analytics         | Microsoft.StreamAnalytics             | Permite que os dados de um trabalho de streaming sejam escritos para o armazenamento blob. [Saiba mais](../../stream-analytics/blob-output-managed-identity.md). |
-| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Permite o acesso aos dados no Azure Storage da Synapse Analytics. |
+| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Permite o acesso aos dados no Azure Storage a partir da Azure Synapse Analytics. |
 
 
 ### <a name="storage-analytics-data-access"></a>Acesso de dados de análise de armazenamento
@@ -414,7 +414,7 @@ Pode gerir exceções de regras de rede através do portal Azure, PowerShell ou 
 
 1. Aceda à conta de armazenamento que pretende proteger.
 
-1. Clique no menu de definições chamado **Firewalls e redes virtuais** .
+1. Clique no menu de definições chamado **Firewalls e redes virtuais**.
 
 1. Verifique se selecionou para permitir o acesso a partir de **redes selecionadas.**
 

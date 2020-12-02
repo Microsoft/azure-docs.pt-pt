@@ -1,6 +1,6 @@
 ---
-title: Tipos de parquet aninhados de consulta usando piscina SQL sem servidor (pré-visualização)
-description: Neste artigo, você aprenderá a consultar os tipos aninhados do Parquet utilizando a piscina SQL sem servidor (pré-visualização).
+title: Tipos aninhados de Parquet de consulta usando piscina SQL sem servidor
+description: Neste artigo, você aprenderá a consultar os tipos aninhados do Parquet usando a piscina SQL sem servidor.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 426c95638422fa4260508aa81bb47a7c9565e6eb
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 91f612ba7f19deb739dbb6004e275ea044a5a3d3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685720"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462559"
 ---
-# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Tipos de aninhados de consulta em ficheiros Parquet e JSON utilizando piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics
+# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Tipos de aninhados de consulta em ficheiros Parquet e JSON utilizando piscina SQL sem servidor em Azure Synapse Analytics
 
-Neste artigo, você aprenderá a escrever uma consulta usando a piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics. A consulta irá ler os tipos aninhados de Parquet.
+Neste artigo, você aprenderá a escrever uma consulta usando a piscina SQL sem servidor em Azure Synapse Analytics. A consulta irá ler os tipos aninhados de Parquet.
 Os tipos aninhados são estruturas complexas que representam objetos ou matrizes. Os tipos aninhados podem ser armazenados em: 
 - [Parquet,](query-parquet-files.md)onde pode ter várias colunas complexas que contêm matrizes e objetos.
 - Ficheiros [hierárquicos do JSON,](query-json-files.md)onde pode ler um documento JSON complexo como uma única coluna.
@@ -219,6 +219,6 @@ FROM
     CROSS APPLY OPENJSON (SimpleArray) WITH (Element int '$') as array_values
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O próximo artigo irá mostrar-lhe como [consultar ficheiros JSON](query-json-files.md).

@@ -4,15 +4,15 @@ description: 'Tutorial: Descreve como usar a Azure Event Grid e os Centros de Ev
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e6dfcac17d79edd417af07179224fdf922906c4e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 42a2f7fd557970328f6d88b08e296317cecd8c66
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841381"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462152"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir big data para um armazém de dados
-A Azure [Event Grid](overview.md) é um serviço inteligente de encaminhamento de eventos que lhe permite reagir a notificações (eventos) de apps e serviços. Por exemplo, pode desencadear uma Função Azure para processar dados do Event Hubs que foram capturados para um armazenamento Azure Blob ou Azure Data Lake Storage, e migrar os dados para outros repositórios de dados. Esta [amostra de integração de Centros de Eventos e Grelha de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra-lhe como usar os Centros de Eventos com a Grade de Eventos para migrar sem problemas dados de Centros de Eventos capturados, desde o armazenamento de blob até um Azure Synapse Analytics (anteriormente SQL Data Warehouse).
+A Azure [Event Grid](overview.md) é um serviço inteligente de encaminhamento de eventos que lhe permite reagir a notificações (eventos) de apps e serviços. Por exemplo, pode desencadear uma Função Azure para processar dados do Event Hubs que foram capturados para um armazenamento Azure Blob ou Azure Data Lake Storage, e migrar os dados para outros repositórios de dados. Esta [amostra de integração de Centros de Eventos e Grelha de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra-lhe como usar os Centros de Eventos com a Grade de Eventos para migrar sem problemas dados de Centros de Eventos capturados, desde o armazenamento de blobs para um Azure Synapse Analytics.
 
 ![Descrição geral da aplicação](media/event-grid-event-hubs-integration/overview.png)
 
@@ -27,8 +27,8 @@ Este diagrama retrata o fluxo de trabalho da solução que se constrói neste tu
 Neste artigo, tome os seguintes passos:
 
 > [!div class="checklist"]
-> * Utilize um modelo de Gestor de Recursos Azure para implantar a infraestrutura: um centro de eventos, uma conta de armazenamento, uma aplicação de função, um Synapse Analytics.
-> * Crie uma tabela no armazém de dados.
+> * Utilize um modelo de Gestor de Recursos Azure para implantar a infraestrutura: um centro de eventos, uma conta de armazenamento, uma aplicação de função, uma piscina DE SQL dedicada.
+> * Crie uma mesa na piscina dedicada SQL.
 > * Adicione código à aplicação de função.
 > * Subscreva o evento. 
 > * Executar aplicativo que envia dados para o centro de eventos.

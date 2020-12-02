@@ -1,6 +1,6 @@
 ---
 title: Gerir o acesso a espaços de trabalho, dados e oleodutos
-description: Aprenda a gerir o controlo de acesso a espaços de trabalho, dados e oleodutos num espaço de trabalho Azure Synapse Analytics (pré-visualização).
+description: Aprenda a gerir o controlo de acesso a espaços de trabalho, dados e oleodutos em Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5d95ddcc610fb0350f47e0e5b494cbd16b95468c
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: c4304aeadf2950c1a91ee50ba9ecd895b2561b41
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95255228"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461354"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gerir o acesso a espaços de trabalho, dados e oleodutos
 
-Aprenda a gerir o controlo de acesso a espaços de trabalho, dados e oleodutos num espaço de trabalho Azure Synapse Analytics (pré-visualização).
+Aprenda a gerir o controlo de acesso a espaços de trabalho, dados e oleodutos em Azure Synapse Analytics.
 
 > [!NOTE]
 > Para a AG, o Azure RBAC será mais desenvolvido através da introdução de funções Azure específicas da Sinapse
@@ -171,7 +171,7 @@ Para conceder acesso a um utilizador a uma **única** base de dados SQL, siga es
 
 Depois de criar os utilizadores, valide que pode consultar a conta de armazenamento utilizando a piscina SQL sem servidor.
 
-## <a name="access-control-to-workspace-pipeline-runs"></a>O controlo de acesso ao gasoduto workspace funciona
+## <a name="access-control-to-workspace-pipeline-runs"></a>Controlo de acesso a execuções de pipelines da área de trabalho
 
 ### <a name="workspace-managed-identity"></a>Identidade gerida pelo espaço de trabalho
 
@@ -198,6 +198,6 @@ REVOKE CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
 DROP USER [<workspacename>];
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma visão geral da identidade gerida pelo espaço de trabalho da Synapse, consulte a identidade gerida pelo espaço de [trabalho Azure Synapse.](../security/synapse-workspace-managed-identity.md) Para saber mais sobre os principais da base de dados, consulte [os principais.](https://msdn.microsoft.com/library/ms181127.aspx) Informações adicionais sobre funções de base de dados podem ser encontradas no artigo [de funções de Base de Dados.](https://msdn.microsoft.com/library/ms189121.aspx)

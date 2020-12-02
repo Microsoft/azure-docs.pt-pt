@@ -3,12 +3,12 @@ title: Azure Lab Services - Guia de Administradores / Microsoft Docs
 description: Este guia ajuda administradores que criam e gerem contas de laboratório utilizando os Serviços Azure Lab.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 08d2fea719ad67f666ea9da09721dc3f7ab54768
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3ad3ee38a6c08a6af85822d76012cc6dfc34ff4e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999285"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462479"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - Guia de Administradores
 Os administradores de tecnologias da informação (TI) que gerem os recursos em nuvem de uma universidade são normalmente responsáveis pela criação da conta de laboratório para a sua escola. Depois de criarem uma conta de laboratório, administradores ou educadores criam os laboratórios que estão contidos na conta. Este artigo fornece uma visão geral de alto nível dos recursos Azure que estão envolvidos e as orientações para a sua criação.
@@ -167,14 +167,14 @@ Quando administradores ou Criadores de Laboratório criam um laboratório, podem
 
 | Tamanho | Especificações | Série | Uso sugerido |
 | ---- | ----- | ------ | ------------- |
-| Pequeno| <ul><li>2 &nbsp; núcleos</li><li>3,5 gigabytes (GB) RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Mais adequado para linha de comando, abertura de navegador web, servidores web de baixo tráfego, bases de dados pequenas a médias. |
-| Médio | <ul><li>4 &nbsp; núcleos</li><li>7 &nbsp; GB &nbsp; DE RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Mais adequado para bases de dados relacionais, caching na memória e análise. |
-| Médio (virtualização aninhada) | <ul><li>4 &nbsp; núcleos</li><li>16 &nbsp; GB &nbsp; DE RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | Mais adequado para bases de dados relacionais, caching na memória e análise.
+| Pequeno| <ul><li>2 &nbsp; núcleos</li><li>3,5 gigabytes (GB) RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Mais adequado para linha de comando, abertura de navegador web, servidores web de baixo tráfego, bases de dados pequenas a médias. |
+| Médio | <ul><li>4 &nbsp; núcleos</li><li>7 &nbsp; GB &nbsp; DE RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Mais adequado para bases de dados relacionais, caching na memória e análise. |
+| Médio (virtualização aninhada) | <ul><li>4 &nbsp; núcleos</li><li>16 &nbsp; GB &nbsp; DE RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | Mais adequado para bases de dados relacionais, caching na memória e análise.
 | Grande | <ul><li>8 &nbsp; núcleos</li><li>16 &nbsp; GB &nbsp; DE RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md) | Mais adequado para aplicações que precisam de CPUs mais rápidos, melhor desempenho do disco local, grandes bases de dados, caches de memória grandes.  Este tamanho também suporta a virtualização aninhada. |
-| Grande (virtualização aninhada) | <ul><li>8 &nbsp; núcleos</li><li>32 &nbsp; GB &nbsp; DE RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | Mais adequado para aplicações que precisam de CPUs mais rápidos, melhor desempenho do disco local, grandes bases de dados, caches de memória grandes. |
+| Grande (virtualização aninhada) | <ul><li>8 &nbsp; núcleos</li><li>32 &nbsp; GB &nbsp; DE RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | Mais adequado para aplicações que precisam de CPUs mais rápidos, melhor desempenho do disco local, grandes bases de dados, caches de memória grandes. |
 | Pequena GPU (visualização) | <ul><li>6 &nbsp; núcleos</li><li>56 &nbsp; GB &nbsp; DE RAM</li>  | [Standard_NV6](../virtual-machines/nv-series.md) | Mais adequado para visualização remota, streaming, jogos e codificação utilizando quadros como OpenGL e DirectX. |
 | Pequena GPU (Computação) | <ul><li>6 &nbsp; núcleos</li><li>56 &nbsp; GB &nbsp; DE RAM</li></ul>  | [Standard_NC6](../virtual-machines/nc-series.md) |Mais adequado para aplicações intensivas em computador, como IA e aprendizagem profunda. |
-| GPU médio (visualização) | <ul><li>12 &nbsp; núcleos</li><li>112 &nbsp; GB &nbsp; DE RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Mais adequado para visualização remota, streaming, jogos e codificação utilizando quadros como OpenGL e DirectX. |
+| GPU médio (visualização) | <ul><li>12 &nbsp; núcleos</li><li>112 &nbsp; GB &nbsp; DE RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Mais adequado para visualização remota, streaming, jogos e codificação utilizando quadros como OpenGL e DirectX. |
 
 ## <a name="manage-identity"></a>Gerir identidade
 

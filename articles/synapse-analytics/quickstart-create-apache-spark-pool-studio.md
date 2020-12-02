@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Criar uma piscina Apache Spark sem servidor (pré-visualização) usando o Synapse Studio'
+title: 'Quickstart: Criar uma piscina Apache Spark sem servidor usando o Synapse Studio'
 description: Crie uma piscina Apache Spark sem servidor utilizando o Synapse Studio seguindo os passos deste guia.
 services: synapse-analytics
 author: saveenr
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 10/16/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 313ad0c620fe06158e96c208ae265702134b58d1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d280e96b354f38a86545ed5f6bcaa6c9a314c46b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324185"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462033"
 ---
-# <a name="quickstart-create-a-serverless-apache-spark-pool-preview-using-synapse-studio"></a>Quickstart: Criar uma piscina Apache Spark sem servidor (pré-visualização) usando o Synapse Studio
+# <a name="quickstart-create-a-serverless-apache-spark-pool-using-synapse-studio"></a>Quickstart: Criar uma piscina Apache Spark sem servidor usando o Synapse Studio
 
 O Azure Synapse Analytics oferece vários motores de análise para ajudá-lo a ingerir, transformar, modelar, analisar e servir os seus dados. O conjunto Apache Spark oferece capacidades de computação de dados de código aberto. Depois de criar uma piscina Apache Spark no seu espaço de trabalho Synapse, os dados podem ser carregados, modelados, processados e servidos para obter insights.  
 

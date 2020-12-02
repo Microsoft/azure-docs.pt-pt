@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: c7f4cba10117efef4099b3524b49cae313593a9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ecf3c3954bd77962e56ee289b623806efb352410
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442722"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461270"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>Cópia em massa de ficheiros para base de dados
 
@@ -55,11 +55,11 @@ O modelo define os dois parâmetros seguintes:
     ![Reveja o oleoduto](media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png)
 
     > [!NOTE]
-    > Se escolheu **a Azure Synapse Analytics (anteriormente SQL DW)** como o destino de dados na **etapa 2** acima mencionada, deve introduzir uma ligação ao armazenamento Azure Blob para a realização, conforme exigido pela Azure Synapse Analytics (anteriormente SQL Data Warehouse) Polybase. Como mostra a imagem que se segue, o modelo gerará automaticamente um *Caminho de Armazenamento* para o seu armazenamento Blob. Verifique se o recipiente foi criado após o funcionado do gasoduto.
+    > Se escolheu **a Azure Synapse Analytics (anteriormente SQL DW)** como o destino de dados no **passo 2** acima mencionado, deve introduzir uma ligação ao armazenamento Azure Blob para a realização, conforme exigido pela Azure Synapse Analytics Polybase. Como mostra a imagem que se segue, o modelo gerará automaticamente um *Caminho de Armazenamento* para o seu armazenamento Blob. Verifique se o recipiente foi criado após o funcionado do gasoduto.
         
     ![Definição de base poli-base](media/solution-template-bulk-copy-from-files-to-database/staging-account.png)
 
-5. Selecione **Debug,** introduza os **parâmetros**e, em seguida, selecione **Terminar**.
+5. Selecione **Debug,** introduza os **parâmetros** e, em seguida, selecione **Terminar**.
 
     ![Clique em **Debug**](media/solution-template-bulk-copy-from-files-to-database/debug-run.png)
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
-ms.openlocfilehash: 4fdbf3bf1d9f740654fa694de03315b876116429
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1e286b2329cb98d580bbf64071ff8767db304a00
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784886"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461880"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolução de diferenças transact-SQL durante a migração para a Base de Dados SQL
 
@@ -45,7 +45,7 @@ As declarações de DDL (linguagem de definição de dados) estão disponíveis,
 Para além das declarações transact-SQL relacionadas com as funcionalidades não apoiadas descritas na [comparação de funcionalidades da Base de Dados Azure SQL,](features-comparison.md)as seguintes declarações e grupos de declarações não são suportados. Como tal, se a sua base de dados a ser migrada estiver a utilizar qualquer uma das seguintes funcionalidades, re-engendrar o seu T-SQL para eliminar estas funcionalidades e declarações T-SQL.
 
 - Agrupamento de objetos de sistema
-- Ligação: Declarações de ponto final. A BASE de Dados SQL não suporta a autenticação do Windows, mas suporta a autenticação semelhante do Azure Ative Directory. Alguns tipos de autenticação precisam da versão mais recente do SSMS. Para obter mais informações, consulte [Connecting to SQL Database ou Azure Azure Synapse Analytics (anteriormente SQL Data Warehouse) Utilizando a autenticação do Diretório Ativo Azure](authentication-aad-overview.md).
+- Ligação: Declarações de ponto final. A BASE de Dados SQL não suporta a autenticação do Windows, mas suporta a autenticação semelhante do Azure Ative Directory. Alguns tipos de autenticação precisam da versão mais recente do SSMS. Para obter mais informações, consulte [Connecting to SQL Database ou Azure Azure Synapse Analytics Utilizando a autenticação do Diretório Ativo Azure](authentication-aad-overview.md).
 - Consultas entre bases de dados com três ou quatro nomes de partes. (As consultas entre bases de dados só de leitura são suportadas através da [consulta de base de dados elástica](elastic-query-overview.md).)
 - Encadeamento de propriedade entre bases de dados, `TRUSTWORTHY` definição
 - `EXECUTE AS LOGIN`Em vez disso, utilize "EXECUTAR COMO UTILIZADOR".
@@ -82,7 +82,7 @@ Para obter mais informações sobre a gramática, utilização e exemplos do Tra
 
 ### <a name="about-the-applies-to-tags"></a>Sobre as etiquetas "Aplica-se a"
 
-A referência Transact-SQL inclui artigos relacionados com as versões SQL Server 2008 até ao presente. Abaixo do título do artigo há uma barra de ícones, listando as quatro plataformas SQL Server, e indicando a aplicabilidade. Por exemplo, os grupos de disponibilidade foram introduzidos no SQL Server 2012. O artigo [do GRUPO CREATE AVAILABILITY](/sql/t-sql/statements/create-availability-group-transact-sql) indica que a declaração se aplica ao **SQL Server (a partir de 2012)** . A declaração não se aplica ao SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure Azure Synapse Analytics (anteriormente SQL Data Warehouse) ou Ao Armazém de Dados Paralelos.
+A referência Transact-SQL inclui artigos relacionados com as versões SQL Server 2008 até ao presente. Abaixo do título do artigo há uma barra de ícones, listando as quatro plataformas SQL Server, e indicando a aplicabilidade. Por exemplo, os grupos de disponibilidade foram introduzidos no SQL Server 2012. O artigo [do GRUPO CREATE AVAILABILITY](/sql/t-sql/statements/create-availability-group-transact-sql) indica que a declaração se aplica ao **SQL Server (a partir de 2012)**. A declaração não se aplica ao SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure Azure Synapse Analytics ou Parallel Data Warehouse.
 
 Em alguns casos, o objeto geral de um artigo pode ser utilizado num produto, mas existem pequenas diferenças entre os produtos. As diferenças são indicadas em pontos médios do artigo, conforme adequado. Em alguns casos, o objeto geral de um artigo pode ser utilizado num produto, mas existem pequenas diferenças entre os produtos. As diferenças são indicadas em pontos médios do artigo, conforme adequado. Por exemplo, o artigo CREATE TRIGGER está disponível na Base de Dados SQL. Mas a opção **ALL SERVER** para gatilhos de nível de servidor, indica que os gatilhos de nível do servidor não podem ser usados na Base de Dados SQL. Em vez disso, utilize gatilhos de nível de base.
 

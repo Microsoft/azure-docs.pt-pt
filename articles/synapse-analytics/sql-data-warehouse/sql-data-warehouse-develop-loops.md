@@ -1,34 +1,34 @@
 ---
 title: Usando laços T-SQL
-description: Dicas para o desenvolvimento de soluções utilizando laços T-SQL e substituindo cursores na piscina Synapse SQL.
+description: Dicas para o desenvolvimento de soluções utilizando laços T-SQL e substituição de cursores para piscinas SQL dedicadas em Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 25dad01a54b6ffe08656379340f58e0fe70ec666
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 3477b3095414248afa9fbc7417ab707c94f35546
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213419"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462735"
 ---
-# <a name="using-t-sql-loops-in-synapse-sql-pool"></a>Utilizando laços T-SQL na piscina Sinaapse SQL
+# <a name="using-t-sql-loops-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Utilização de loops T-SQL para piscinas SQL dedicadas em Azure Synapse Analytics
 
-Incluído neste artigo estão dicas para o desenvolvimento da solução de piscina SQL usando laços T-SQL e substituindo cursores.
+Incluído neste artigo estão dicas para o desenvolvimento dedicado da solução de piscina SQL usando laços T-SQL e substituindo cursores.
 
 ## <a name="purpose-of-while-loops"></a>Finalidade dos ciclos DO WHILE
 
-A piscina Synapse SQL suporta o loop [WHILE](/sql/t-sql/language-elements/while-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para executar repetidamente blocos de declaração. Este laço WHILE continua enquanto as condições especificadas forem verdadeiras ou até que o código encerre especificamente o loop utilizando a palavra-chave BREAK.
+Piscinas SQL dedicadas em Azure Synapse suportam o loop [WHILE](/sql/t-sql/language-elements/while-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para executar repetidamente blocos de declaração. Este laço WHILE continua enquanto as condições especificadas forem verdadeiras ou até que o código encerre especificamente o loop utilizando a palavra-chave BREAK.
 
 Os loops são úteis para substituir cursores definidos no código SQL. Felizmente, quase todos os cursores que estão escritos no código SQL são da variedade rápida e só de leitura. Assim, os loops ENQUANTO são uma ótima alternativa para substituir cursores.
 
-## <a name="replacing-cursors-in-synapse-sql-pool"></a>Substituição de cursores na piscina Synapse SQL
+## <a name="replacing-cursors-in-dedicated-sql-pool"></a>Substituição de cursores em piscina SQL dedicada
 
 No entanto, antes de mergulhar de cabeça primeiro, deve perguntar a si mesmo a seguinte pergunta: "Poderia este cursor ser reescrito para usar operações baseadas em conjunto?"
 

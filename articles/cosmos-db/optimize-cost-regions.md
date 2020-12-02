@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2020
-ms.openlocfilehash: 010ca40f4f3aacd6353aecd150e944672cc09066
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a559a51feafa310a4645282dc6368f520fc6b972
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097518"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459622"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Otimizar o custo de várias regiões no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,14 +26,14 @@ Num sistema de escrita multi-região, as RUs disponíveis para operações de es
 
 ### <a name="example"></a>Exemplo
 
-Considere que tem um contentor nos EUA ocidental configurado para escritas de uma região única, a provisionado com produção 10K RU/s e armazena 1 TB de dados este mês. Vamos supor que você adiciona uma região, Leste dos EUA, com o mesmo armazenamento e produção e você quer a capacidade de escrever para os recipientes em ambas as regiões a partir de sua app. A sua fatura mensal total (assumindo 31 dias) num mês é a seguinte:
+Considere que tem um contentor nos EUA ocidental configurado para escritas de uma região única, a provisionado com produção de 10K RU/s, armazenando 0,5 TB de dados este mês. Vamos supor que você adiciona uma região, Leste dos EUA, com o mesmo armazenamento e produção e você quer a capacidade de escrever para os recipientes em ambas as regiões a partir de sua app. A sua nova fatura mensal total (assumindo 730 horas num mês) será a seguinte:
 
 |**Item**|**Utilização (mensal)**|**Rate** (Taxa)|**Custo Mensal**|
 |----|----|----|----|
-|Conta de produção de contentores nos EUA Ocidentais (regiões de escrita única) |10K RU/s * 24 horas * 31 dias |$0.008 por 100 RU/s por hora |$584.06 |
-|Conta de produção de contentores em 2 regiões - Eua Ocidental & Leste dos EUA (várias regiões de escrita) |2 * 10K RU/s * 24 horas * 31 dias|$0,016 por 100 RU/s por hora |$2.336.26 |
-|Conta de armazenamento para contentor no Oeste dos EUA |1 TB (ou 1,024 GB) |$0,25/GB |$256 |
-|Conta de armazenamento para 2 regiões - West US & East US |2 * 1 TB (ou 3,072 GB) |$0,25/GB |$768 |
+|Conta de produção de contentores nos EUA Ocidentais (região de escrita única) |10K RU/s * 730 horas |$0.008 por 100 RU/s por hora |$584 |
+|Conta de produção de contentores em 2 regiões - Eua Ocidental & Leste dos EUA (várias regiões de escrita) |2 * 10K RU/s * 730 horas |$0,016 por 100 RU/s por hora |$2.336 |
+|Conta de armazenamento para contentor no Oeste dos EUA |0,5 TB (ou 512 GB) |$0,25/GB |$128 |
+|Conta de armazenamento de contentores em 2 regiões - West US & East US |2 * 0,5 TB (ou 1,024 GB) |$0,25/GB |$256 |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Melhorar a utilização da produção por região
 

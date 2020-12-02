@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d2d6ee8357698e4af59f44579ce7f2c3aa82991c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 99c7490c4bf842da119a3a0abd4623c64d720ac8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340327"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462226"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistente de cópia da fábrica de dados Azure
 
@@ -48,7 +48,7 @@ Pode pré-visualizar parte dos dados a partir da fonte de dados selecionada para
 O esquema dos dados de entrada pode não corresponder ao esquema dos dados de saída em alguns casos. Neste cenário, é necessário mapear colunas do esquema de origem para colunas a partir do esquema de destino.
 
 > [!TIP]
-> Ao copiar dados do SQL Server ou da Base de Dados Azure SQL para a Azure Synapse Analytics (anteriormente SQL Data Warehouse), se a tabela não existir na loja de destino, a Data Factory suporta a criação de quadros automáticos utilizando o esquema da fonte. Saiba mais a partir da [Move datas de e para a Azure Synapse Analytics usando Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
+> Ao copiar dados do SQL Server ou da Base de Dados Azure SQL para a Azure Synapse Analytics, se a tabela não existir na loja de destino, a Data Factory suporta a criação de quadros automáticos utilizando o esquema da fonte. Saiba mais a partir da [Move datas de e para a Azure Synapse Analytics usando Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
 
 Utilize uma lista de recuos para selecionar uma coluna do esquema de origem para mapear para uma coluna no esquema de destino. O Copy Wizard tenta compreender o seu padrão de mapeamento de colunas. Aplica o mesmo padrão ao resto das colunas, de modo que não precisa de selecionar cada uma das colunas individualmente para completar o mapeamento do esquema. Se preferir, pode anular estes mapeamentos utilizando as listas de drop-down para mapear as colunas uma a uma. O padrão torna-se mais preciso à medida que mapeia mais colunas. O Copy Wizard atualiza constantemente o padrão e, em última análise, atinge o padrão certo para o mapeamento da coluna que pretende alcançar.     
 

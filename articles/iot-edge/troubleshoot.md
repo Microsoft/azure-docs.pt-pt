@@ -8,12 +8,12 @@ ms.date: 11/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: daae45c9eca45022225ea47aa048815d5eff70c4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 035cf5be4471cad7ac11eb8ce9a8a0ecb13a68da
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964512"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462372"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Resolução de problemas do seu dispositivo IoT Edge
 
@@ -81,7 +81,7 @@ Para obter instruções sobre como atualizar o seu dispositivo, consulte [atuali
 
 ## <a name="verify-the-installation-of-iot-edge-on-your-devices"></a>Verifique a instalação de IoT Edge nos seus dispositivos
 
-Pode verificar a instalação do IoT Edge nos seus dispositivos [monitorizando o twin módulo edgeAgent](https://docs.microsoft.com/azure/iot-edge/how-to-monitor-module-twins).
+Pode verificar a instalação do IoT Edge nos seus dispositivos [monitorizando o twin módulo edgeAgent](./how-to-monitor-module-twins.md).
 
 Para obter o mais recente twin módulo edgeAgent, executar o seguinte comando a partir de [Azure Cloud Shell](https://shell.azure.com/):
 
@@ -89,7 +89,7 @@ Para obter o mais recente twin módulo edgeAgent, executar o seguinte comando a 
    az iot hub module-twin show --device-id <edge_device_id> --module-id $edgeAgent --hub-name <iot_hub_name>
    ```
 
-Este comando irá desausar todas as [propriedades reportadas](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub)edgeAgent . Aqui estão algumas úteis monitorizam o estado do dispositivo:
+Este comando irá desausar todas as [propriedades reportadas](./module-edgeagent-edgehub.md)edgeAgent . Aqui estão algumas úteis monitorizam o estado do dispositivo:
 
 * estado de execução
 * tempo de início de execução

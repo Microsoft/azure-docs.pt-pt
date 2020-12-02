@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to, data4ml
-ms.openlocfilehash: e97546e678b3b7bf7932600ea53d09557493685c
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 554c815e6384115d56611e497f49a2c97ed15e38
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359872"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461437"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Conecte-se aos dados com o estúdio Azure Machine Learning
 
@@ -27,7 +27,7 @@ A tabela a seguir define e resume os benefícios das datas-tores e conjuntos de 
 |Objeto|Descrição| Benefícios|   
 |---|---|---|
 |Arquivos de dados| Ligue-se de forma segura ao seu serviço de armazenamento no Azure, armazenando as suas informações de conexão, como o seu ID de subscrição e a autorização simbólica no seu [Cofre-Chave](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho | Porque a sua informação está armazenada de forma segura, <br><br> <li> Não &nbsp; coloque &nbsp; em risco credenciais de autenticação &nbsp; ou &nbsp; &nbsp; fontes de &nbsp; dados originais. <li> Já não precisas de os codificar nos teus scripts.
-|Conjuntos de dados| Ao criar um conjunto de dados, cria uma referência para a localização da origem de dados, juntamente com uma cópia dos metadados. Com conjuntos de dados pode, <br><br><li> Aceder aos dados durante o treino de modelo.<li> Partilhe dados e colabore com outros utilizadores.<li> Alavancar bibliotecas de código aberto, como pandas, para exploração de dados. | Como os conjuntos de dados são avaliados preguiçosamente, e os dados permanecem na sua localização existente, <br><br><li>Guarde uma única cópia de dados no seu armazenamento.<li> Incorrer sem custos de armazenamento extra <li> Não se arrisque a alterar involuntariamente as suas fontes de dados originais.<li>Melhorar as velocidades de desempenho do fluxo de trabalho ML. 
+|Conjuntos de Dados| Ao criar um conjunto de dados, cria uma referência para a localização da origem de dados, juntamente com uma cópia dos metadados. Com conjuntos de dados pode, <br><br><li> Aceder aos dados durante o treino de modelo.<li> Partilhe dados e colabore com outros utilizadores.<li> Alavancar bibliotecas de código aberto, como pandas, para exploração de dados. | Como os conjuntos de dados são avaliados preguiçosamente, e os dados permanecem na sua localização existente, <br><br><li>Guarde uma única cópia de dados no seu armazenamento.<li> Incorrer sem custos de armazenamento extra <li> Não se arrisque a alterar involuntariamente as suas fontes de dados originais.<li>Melhorar as velocidades de desempenho do fluxo de trabalho ML. 
 
 Para entender onde as datas e conjuntos de dados se encaixam no fluxo de trabalho global de acesso de dados da Azure Machine Learning, consulte o artigo [de dados de acesso seguro.](concept-data.md#data-workflow)
 
@@ -48,7 +48,7 @@ Para uma primeira experiência de código, consulte os seguintes artigos para ut
 
 ## <a name="create-datastores"></a>Criar datastores
 
-Pode criar datastores a partir [destas soluções de armazenamento Azure](how-to-access-data.md#matrix). **Para soluções de armazenamento não suportadas** , e para poupar o custo da saída de dados durante as experiências de ML, deve [mover os seus dados](how-to-access-data.md#move) para uma solução de armazenamento Azure suportada. [Saiba mais sobre datastores.](how-to-access-data.md) 
+Pode criar datastores a partir [destas soluções de armazenamento Azure](how-to-access-data.md#matrix). **Para soluções de armazenamento não suportadas**, e para poupar o custo da saída de dados durante as experiências de ML, deve [mover os seus dados](how-to-access-data.md#move) para uma solução de armazenamento Azure suportada. [Saiba mais sobre datastores.](how-to-access-data.md) 
 
 Crie uma nova loja de dados em alguns passos com o estúdio Azure Machine Learning.
 
@@ -60,7 +60,7 @@ Crie uma nova loja de dados em alguns passos com o estúdio Azure Machine Learni
 1. Selecione **+ Nova loja de dados**.
 1. Preencha o formulário para criar e registar uma nova datastore. O formulário atualiza-se inteligentemente com base nas suas seleções para o tipo de armazenamento Eszure e tipo de autenticação. Consulte a [secção de acesso ao armazenamento e permissões](#access-validation) para saber onde encontrar as credenciais de autenticação necessárias para preencher este formulário.
 
-O exemplo a seguir demonstra como é a forma quando cria uma loja **de dados azure blob** :
+O exemplo a seguir demonstra como é a forma quando cria uma loja **de dados azure blob**:
 
 ![Formulário para uma nova datastore](media/how-to-connect-data-ui/new-datastore-form.png)
 
@@ -118,7 +118,7 @@ Especificamente, o perfil de dados do conjunto de dados de aprendizagem automát
 |Distribuição de tipo| Contagem de valor em linha de tipos dentro de uma coluna. Os nulos são do seu próprio tipo, pelo que esta visualização é útil para detetar valores ímpares ou em falta.
 |Tipo|Tipo inferido da coluna. Os valores possíveis incluem: cordas, booleans, datas e decimais.
 |Mín.| Valor mínimo da coluna. As entradas em branco aparecem para funcionalidades cujo tipo não tem uma encomenda inerente (como, booleans).
-|Máx| Valor máximo da coluna. 
+|Máx.| Valor máximo da coluna. 
 |de palavras| Número total de entradas desaparecidas e não desaparecidas na coluna.
 |Contagem não faltando| Número de entradas na coluna que não faltam. Cordas e erros vazios são tratados como valores, para que não contribuam para a "contagem não em falta".
 |Quantis| Valores aproximados em cada quântico para fornecer uma sensação de distribuição dos dados.
@@ -160,7 +160,7 @@ Pode encontrar a chave de conta, o token SAS e informações principais do servi
 
 ### <a name="permissions"></a>Permissões
 
-Para o recipiente de blob Azure e o armazenamento do Azure Data Lake Gen 2, certifique-se de que as suas credenciais de autenticação têm acesso **ao Leitor de Dados Blob de Armazenamento.** Saiba mais sobre [o Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Uma conta SAS não tem permissões. 
+Para o recipiente de blob Azure e o armazenamento do Azure Data Lake Gen 2, certifique-se de que as suas credenciais de autenticação têm acesso **ao Leitor de Dados Blob de Armazenamento.** Saiba mais sobre [o Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Uma conta SAS não tem permissões. 
 * Para **o acesso à leitura** de dados, as suas credenciais de autenticação devem ter um mínimo de lista e ler permissões para contentores e objetos. 
 
 * Para que os dados **escrevam acesso,** escreva e adicione permissões também são necessárias.
@@ -169,7 +169,7 @@ Para o recipiente de blob Azure e o armazenamento do Azure Data Lake Gen 2, cert
 
 Utilize os seus conjuntos de dados nas suas experiências de aprendizagem automática para treinar modelos ML. [Saiba mais sobre como treinar com conjuntos de dados](how-to-train-with-datasets.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Um exemplo passo-a-passo de formação com OsDatasets Tabular e a aprendizagem automática de máquinas.](tutorial-first-experiment-automated-ml.md)
 

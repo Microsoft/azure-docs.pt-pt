@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: be3b82765f2f5268a75147e8e1ef6de34aeb8ff2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d1ff372009c6158f2148847dd77126bcb4d189f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441073"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461233"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Cópia a granel de uma base de dados com uma tabela de controlo
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Para copiar dados de um armazém de dados em Oracle Server, Netezza, Teradata ou SQL Server para Azure Synapse Analytics (anteriormente SQL Data Warehouse), tem de carregar enormes quantidades de dados de várias tabelas. Normalmente, os dados têm de ser divididos em cada tabela para que possa carregar linhas com múltiplos fios em paralelo a partir de uma única tabela. Este artigo descreve um modelo para usar nestes cenários.
+Para copiar dados de um armazém de dados em Oracle Server, Netezza, Teradata ou SQL Server para Azure Synapse Analytics, tem de carregar enormes quantidades de dados de várias tabelas. Normalmente, os dados têm de ser divididos em cada tabela para que possa carregar linhas com múltiplos fios em paralelo a partir de uma única tabela. Este artigo descreve um modelo para usar nestes cenários.
 
- >! NOTE If you want to copy data from a small number of tables with relatively small data volume to Azure Synapse Analytics, it's more efficient to use the [Azure Data Factory Copy Data tool](copy-data-tool.md). O modelo descrito neste artigo é mais do que o necessário para esse cenário.
+ >!NOTA Se pretender copiar dados de um pequeno número de tabelas com volume de dados relativamente pequeno para a Azure Synapse Analytics, é mais eficiente utilizar a [ferramenta Azure Data Factory Copy Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Data Copy Data Data .](copy-data-tool.md) O modelo descrito neste artigo é mais do que o necessário para esse cenário.
 
 ## <a name="about-this-solution-template"></a>Sobre este modelo de solução
 
@@ -86,7 +86,7 @@ Os últimos três parâmetros, que definem o caminho na sua loja de destino só 
 
     ![Reveja o oleoduto](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png)
 
-7. Selecione **Debug,** introduza os **parâmetros**e, em seguida, selecione **Terminar**.
+7. Selecione **Debug,** introduza os **parâmetros** e, em seguida, selecione **Terminar**.
 
     ![Clique em **Debug**](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png)
 

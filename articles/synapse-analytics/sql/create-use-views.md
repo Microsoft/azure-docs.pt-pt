@@ -1,6 +1,6 @@
 ---
-title: Criar e utilizar vistas na piscina SQL sem servidor (pré-visualização)
-description: Nesta secção, você vai aprender a criar e usar vistas para embrulhar consultas de piscina SQL sem servidor (pré-visualização). As vistas permitir-lhe-ão reutilizar essas consultas. Também são necessárias vistas se pretender utilizar ferramentas, como o Power BI, em conjunto com a piscina SQL sem servidor.
+title: Criar e utilizar vistas na piscina SQL sem servidor
+description: Nesta secção, você vai aprender a criar e usar vistas para embrulhar consultas de piscina SQL sem servidor. As vistas permitir-lhe-ão reutilizar essas consultas. Também são necessárias vistas se pretender utilizar ferramentas, como o Power BI, em conjunto com a piscina SQL sem servidor.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 302cf97db7c1d2ba489a84b6be912816d20f6091
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 0948c7c82d7577bae07057bff9d1be4d7e09f978
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685567"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462279"
 ---
-# <a name="create-and-use-views-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Criar e utilizar vistas utilizando piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics
+# <a name="create-and-use-views-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Criar e utilizar vistas usando piscina SQL sem servidor em Azure Synapse Analytics
 
-Nesta secção, você vai aprender a criar e usar vistas para embrulhar consultas de piscina SQL sem servidor (pré-visualização). As vistas permitir-lhe-ão reutilizar essas consultas. Também são necessárias vistas se pretender utilizar ferramentas, como o Power BI, em conjunto com a piscina SQL sem servidor.
+Nesta secção, você vai aprender a criar e usar vistas para embrulhar consultas de piscina SQL sem servidor. As vistas permitir-lhe-ão reutilizar essas consultas. Também são necessárias vistas se pretender utilizar ferramentas, como o Power BI, em conjunto com a piscina SQL sem servidor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -90,6 +90,6 @@ ORDER BY
     [population] DESC;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre como consultar diferentes tipos de ficheiros, consulte o [ficheiro CSV único](query-single-csv-file.md)de consulta, os [ficheiros Query Parquet](query-parquet-files.md)e [os ficheiros de ficheiros De consulta JSON.](query-json-files.md)

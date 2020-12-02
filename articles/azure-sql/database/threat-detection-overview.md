@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: monhaber
 ms.author: ronmat
 ms.reviewer: vanto, sstein
-ms.date: 09/21/2020
+ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: f83b9515e16fcf2c2158586297545206d57e1a6e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 931e914cd3c184136395a9bb9a7e148a90e9fb91
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785124"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461939"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Proteção Avançada de Ameaças para Base de Dados Azure SQL, SqL Gerd instance e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -35,7 +35,7 @@ Para uma experiência de investigação completa, recomenda-se permitir a audito
 
 ## <a name="alerts"></a>Alertas
 
-A Advanced Threat Protection for Azure SQL Database deteta atividades anómalas que indiquem tentativas invulgares e potencialmente nocivas de aceder ou explorar bases de dados. Para obter uma lista de alertas para a Base de Dados Azure SQL, consulte os [Alertas para a Base de Dados SQL e Azure Synapse Analytics (antigo Armazém de Dados SQL) no Azure Security Center](../../security-center/alerts-reference.md#alerts-sql-db-and-warehouse).
+A Advanced Threat Protection for Azure SQL Database deteta atividades anómalas que indiquem tentativas invulgares e potencialmente nocivas de aceder ou explorar bases de dados. Para obter uma lista de alertas para a Base de Dados Azure SQL, consulte os [Alertas para a Base de Dados SQL e Azure Synapse Analytics no Azure Security Center](../../security-center/alerts-reference.md#alerts-sql-db-and-warehouse).
 
 ## <a name="explore-detection-of-a-suspicious-event"></a>Explore a deteção de um evento suspeito
 
@@ -58,6 +58,10 @@ Você recebe uma notificação por e-mail após a deteção de atividades de bas
 Advanced Threat Protection integra os seus alertas com [o Centro de Segurança Azure](https://azure.microsoft.com/services/security-center/). Os azulejos de proteção de ameaças avançadas do SQL ao vivo dentro da base de dados e as lâminas SQL Azure Defender no portal Azure acompanham o estado das ameaças ativas.
 
 Clique **em alerta avançado de proteção contra ameaças** para lançar a página de alertas do Azure Security Center e obtenha uma visão geral das ameaças de SQL ativas detetadas na base de dados.
+
+:::image type="content" source="media/azure-defender-for-sql/advanced-threat-protection-alerts.png" alt-text="alertas avançados de proteção de ameaças na visão geral da base de dados":::
+
+:::image type="content" source="media/azure-defender-for-sql/advanced-threat-protection.png" alt-text="proteção de ameaças avançadas no centro de segurança":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

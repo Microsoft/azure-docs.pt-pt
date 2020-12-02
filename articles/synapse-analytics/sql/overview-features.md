@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 063373b2ad21f46e37145a544b156ed100621a4c
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 6bb54cf6a5545a49b3c84df59a9ee1294b788846
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327020"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462674"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Características Transact-SQL suportadas no Azure Synapse SQL
 
 O Azure Synapse SQL é um serviço analítico de big data que lhe permite consultar e analisar os seus dados utilizando a linguagem T-SQL. Pode utilizar um dialeto padrão compatível com ANSI de linguagem SQL utilizado no SQL Server e na Base de Dados Azure SQL para análise de dados. 
 
-O idioma Transact-SQL é utilizado no modelo sinapse SQL sem servidor e o modelo dedicado pode referenciar diferentes objetos e tem algumas diferenças no conjunto de funcionalidades suportadas. Nesta página, você pode encontrar diferenças linguísticas transact-SQL de alto nível entre os modelos de consumo de Synapse SQL.
+O idioma Transact-SQL é usado na piscina SQL sem servidor e o modelo dedicado pode referenciar diferentes objetos e tem algumas diferenças no conjunto de funcionalidades suportadas. Nesta página, você pode encontrar diferenças linguísticas transact-SQL de alto nível entre os modelos de consumo de Synapse SQL.
 
 ## <a name="database-objects"></a>Objetos de base de dados
 
@@ -119,7 +119,7 @@ Pode utilizar várias ferramentas para ligar ao Sinaapse SQL para consultar dado
 | **SQL Server Management Studio** | Sim | Sim, versão 18.5 ou superior |
 
 > [!NOTE]
-> Pode utilizar SSMS para ligar à piscina SQL sem servidor (pré-visualização) e consultar. É parcialmente suportado a partir da versão 18.5, pode usá-lo apenas para ligar e consultar.
+> Pode utilizar SSMS para ligar à piscina SQL sem servidor e consultar. É parcialmente suportado a partir da versão 18.5, pode usá-lo apenas para ligar e consultar.
 
 A maioria das aplicações usam linguagem padrão Transact-SQL pode consultar modelos de consumo dedicados e sem servidor do Synapse SQL.
 

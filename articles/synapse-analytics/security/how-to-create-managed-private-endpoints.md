@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 919b8fb89e9189df7cb1964cbe0149dc6945ad2d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e0309b4c96b2ae25eb568e390717ba76cfd84fa5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323160"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461325"
 ---
-# <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Crie um ponto final privado gerido para a sua fonte de dados (pré-visualização)
+# <a name="create-a-managed-private-endpoint-to-your-data-source"></a>Crie um ponto final privado gerido para a sua fonte de dados
 
 Este artigo irá ensiná-lo a criar um ponto final privado gerido para a sua fonte de dados em Azure. Consulte [os pontos finais privados geridos](./synapse-workspace-managed-private-endpoints.md) para saber mais.
 

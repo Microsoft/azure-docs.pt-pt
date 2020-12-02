@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4100640fd619d9d971ac1c7083eedef8e2125fc3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5506a54193efc813927663533ddfd89be3ddf40a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738246"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461308"
 ---
-# <a name="azure-synapse-workspace-managed-identity-preview"></a>Identidade gerida pelo espaço de trabalho Azure Synapse (pré-visualização)
+# <a name="azure-synapse-workspace-managed-identity"></a>Identidade gerida da área de trabalho do Azure Synapse
 
 Neste artigo, você vai aprender sobre identidade gerida no espaço de trabalho Azure Synapse.
 
@@ -25,9 +25,9 @@ A identidade gerida para recursos Azure é uma característica do Azure Ative Di
 
 Identidades geridas para recursos Azure são o novo nome para o serviço anteriormente conhecido como Identidade de Serviço Gerido (MSI). Consulte [identidades geridas](../../active-directory/managed-identities-azure-resources/overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para saber mais.
 
-## <a name="azure-synapse-workspace-managed-identity"></a>Azure Synapse identidade gerida
+## <a name="azure-synapse-workspace-managed-identity"></a>Identidade gerida da área de trabalho do Azure Synapse
 
-Uma identidade gerida atribuída ao sistema é criada para o seu espaço de trabalho Azure Synapse quando cria o espaço de trabalho.
+É criada uma identidade gerida atribuída pelo sistema para a sua área de trabalho do Azure Synapse quando cria a área de trabalho.
 
 >[!NOTE]
 >Esta identidade gerida pelo espaço de trabalho será referida como identidade gerida através do resto deste documento.
@@ -48,11 +48,11 @@ Lance **o Azure Synapse Studio** e selecione o **separador Gerir** a partir da n
 
 ![Criação de serviços ligados 1](./media/synapse-workspace-managed-identity/workspace-managed-identity-2.png)
 
-Na nova janela **de serviço ligada,** *escreva Azure Data Lake Storage Gen2* . Selecione o tipo de recurso **Azure Data Lake Storage Gen2** da lista abaixo e escolha **Continue** .
+Na nova janela **de serviço ligada,** *escreva Azure Data Lake Storage Gen2*. Selecione o tipo de recurso **Azure Data Lake Storage Gen2** da lista abaixo e escolha **Continue**.
 
 ![Criação de serviços ligados 2](./media/synapse-workspace-managed-identity/workspace-managed-identity-3.png)
 
-Na janela seguinte, escolha **identidade gerida** para método **de autenticação** . Você verá o **nome** da identidade gerida e **identificação de objeto.**
+Na janela seguinte, escolha **identidade gerida** para método **de autenticação**. Você verá o **nome** da identidade gerida e **identificação de objeto.**
 
 ![Criação de serviços ligado 3](./media/synapse-workspace-managed-identity/workspace-managed-identity-4.png)
 

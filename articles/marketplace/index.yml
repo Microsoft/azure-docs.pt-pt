@@ -10,12 +10,12 @@ metadata:
   author: mingshen-ms
   ms.author: mingshen
   ms.date: 09/02/2020
-  ms.openlocfilehash: ee2bb685ba1313bcb54d8f32c2952a03258829b3
-  ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+  ms.openlocfilehash: b8b7de41dce5c36cb41db247e177fa5084878fb1
+  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/11/2020
-  ms.locfileid: "94491550"
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96462484"
 landingContent:
 - title: Trabalhar no marketplace comercial
   linkLists:
@@ -60,15 +60,15 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Dashboard de resumo
-      url: ./partner-center-portal/summary-dashboard.md
+      url: ./summary-dashboard.md
     - text: Dashboard de Informações do Marketplace
-      url: ./partner-center-portal/insights-dashboard.md
+      url: ./insights-dashboard.md
     - text: Dashboard de utilização
-      url: ./partner-center-portal/usage-dashboard.md
+      url: ./usage-dashboard.md
     - text: Dashboard de cliente
-      url: ./partner-center-portal/customer-dashboard.md
+      url: ./customer-dashboard.md
     - text: Dashboard de pedidos
-      url: ./partner-center-portal/orders-dashboard.md
+      url: ./orders-dashboard.md
     - text: Dashboard de transferências
       url: ./partner-center-portal/downloads-dashboard.md
     - text: Dashboard de classificações e críticas
@@ -82,7 +82,7 @@ landingContent:
     - text: Ofertas de máquinas virtuais
       url: ./marketplace-virtual-machines.md
     - text: Ofertas de aplicações do Azure
-      url: ./partner-center-portal/create-new-azure-apps-offer.md
+      url: ./create-new-azure-apps-offer.md
     - text: Ofertas do Dynamics 365 for Customer Engagement & PowerApps
       url: ./partner-center-portal/create-new-customer-engagement-offer.md
     - text: Ofertas do Dynamics 365 Business Central

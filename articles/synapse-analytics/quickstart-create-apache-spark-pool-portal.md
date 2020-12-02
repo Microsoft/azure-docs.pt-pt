@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: e84afc949a84da90a4799d7db3b3e7ad3e0057a3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3fc7a7f137701590e4bddd791a3fdd2d1eaeca4a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323519"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461608"
 ---
 # <a name="quickstart-create-a-new-serverless-apache-spark-pool-using-the-azure-portal"></a>Quickstart: Criar uma nova piscina Apache Spark sem servidor utilizando o portal Azure
 
@@ -99,4 +99,4 @@ Se pretender eliminar a piscina Apache Spark, faça o seguinte:
 ## <a name="next-steps"></a>Passos seguintes
 
 - Ver [Quickstart: Criar um caderno Apache Spark](quickstart-apache-spark-notebook.md).
-- Consulte [Quickstart: Crie uma piscina SQL dedicada à Sinaapse utilizando o portal Azure](quickstart-create-sql-pool-portal.md).
+- Consulte [Quickstart: Crie uma piscina SQL dedicada utilizando o portal Azure](quickstart-create-sql-pool-portal.md).

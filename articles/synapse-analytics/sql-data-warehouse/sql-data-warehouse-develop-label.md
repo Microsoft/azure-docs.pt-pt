@@ -1,32 +1,30 @@
 ---
 title: Utilização de rótulos para consultas de instrumentos
-description: Dicas para utilizar rótulos para consultas de instrumentos na piscina Synapse SQL para o desenvolvimento de soluções.
+description: Dicas para usar etiquetas para consultas de instrumentos para piscinas SQL dedicadas em Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 91b6dac5fba4bb8dfd8cf4a3bb4e5952f8388bb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 7958caf71658dcdcbf31bac84697931e9049452f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89459152"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462747"
 ---
-# <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>Utilização de rótulos para consultas de instrumentos na piscina Sinaapse SQL
+# <a name="using-labels-to-instrument-queries-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Utilização de rótulos para consultas de instrumentos para piscinas SQL dedicadas em Azure Synapse Analytics
 
-Incluído neste artigo estão dicas para o desenvolvimento de soluções que usam rótulos para consultas de instrumentos na piscina SQL.
-
-Dicas para utilizar rótulos para consultas de instrumentos no Azure Synapse Analytics para o desenvolvimento de soluções.
+Incluído neste artigo estão dicas para o desenvolvimento de soluções que usam rótulos para consultas de instrumentos em piscinas SQL dedicadas.
 
 ## <a name="what-are-labels"></a>O que são rótulos?
 
-A piscina SQL suporta um conceito chamado etiquetas de consulta. Antes de entrar em qualquer profundidade, vamos olhar para um exemplo:
+A piscina dedicada SQL suporta um conceito chamado etiquetas de consulta. Antes de entrar em qualquer profundidade, vamos olhar para um exemplo:
 
 ```sql
 SELECT *

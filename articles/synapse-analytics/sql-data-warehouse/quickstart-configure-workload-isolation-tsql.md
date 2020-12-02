@@ -11,14 +11,14 @@ ms.date: 04/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9132c9609961053e7f60344dc387b2a8d01bd6b9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ae21368269a2c098b4e35bf83b8c9fdf2749a297
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85212994"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460555"
 ---
-# <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Quickstart: Configure o isolamento da carga de trabalho usando t-SQL
+# <a name="quickstart-configure-workload-isolation-in-a-dedicated-sql-pool-using-t-sql"></a>Quickstart: Configurar o isolamento da carga de trabalho numa piscina SQL dedicada usando T-SQL
 
 Neste arranque rápido, criará rapidamente um grupo de carga de trabalho e classificará para reservar recursos para o carregamento de dados. O grupo de trabalho irá alocar 20% dos recursos do sistema às cargas de dados.  O classificador de carga de trabalho atribuirá pedidos ao grupo de carga de carga de dados.  Com 20% de isolamento para cargas de dados, são recursos garantidos para atingir SLAs.
 
@@ -29,7 +29,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este quickstart pressupõe que já tem uma instância Sinapse SQL em Azure Synapse e que tem permissões de BASE DE DADOS DE CONTROLO. Se precisar de criar um, utilize [Criar e Ligar - Portal](create-data-warehouse-portal.md) para criar um armazém de dados chamado **mySampleDataWarehouse**.
+Este quickstart pressupõe que já tem uma instância Sinapse SQL em Azure Synapse e que tem permissões de BASE DE DADOS DE CONTROLO. Se precisar de criar um, utilize o [portal Create and Connect -](create-data-warehouse-portal.md) para criar uma piscina SQL dedicada chamada **mySampleDataWarehouse**.
 
 ## <a name="create-login-for-dataloads"></a>Criar login para DataLoads
 
@@ -94,7 +94,7 @@ SELECT * FROM
 sys.dm_workload_management_workload_groups_stats
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 ```sql
 DROP WORKLOAD CLASSIFIER [wgcELTLogin]
@@ -103,10 +103,10 @@ DROP USER [ELTLogin]
 ;
 ```
 
-Está a ser cobrado por unidades de armazém de dados e dados armazenados no seu armazém de dados. Estes recursos de computação e armazenamento são faturados em separado.
+Está a ser cobrado por unidades de armazém de dados e dados armazenados na sua piscina de SQL dedicada. Estes recursos de computação e armazenamento são faturados em separado.
 
-- Se quiser manter os dados armazenados, pode parar o cálculo quando não estiver a utilizar a piscina SQL. Ao fazer uma pausa no cálculo, só é cobrado para armazenamento de dados. Quando estiver pronto para trabalhar com os dados, retome o cálculo.
-- Se quiser remover futuras cobranças, pode eliminar o armazém de dados.
+- Se quiser manter os dados armazenados, pode parar o cálculo quando não estiver a utilizar a piscina SQL dedicada. Ao fazer uma pausa no cálculo, só é cobrado para armazenamento de dados. Quando estiver pronto para trabalhar com os dados, retome o cálculo.
+- Se quiser remover as cargas futuras, pode eliminar a piscina SQL dedicada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

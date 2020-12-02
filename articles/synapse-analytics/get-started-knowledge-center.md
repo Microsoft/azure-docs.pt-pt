@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 0314f5e55a476cd1cd1f8a31bd918e0ebb64c75f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 611d2163e242d7851398821344c3ed595df364cb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95254243"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460258"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Explore o Centro de Conhecimento sinapse
 
@@ -56,7 +56,10 @@ O **Centro de Conhecimento** permite-lhe fazer três coisas:
 1. Clique **em Executar**
 1. Isto criará várias tabelas para todos os dados do Táxi nyc e carregá-los-á usando o comando T-SQL COPY.
 
-## <a name="next-steps"></a>Próximos passos
+    > [!NOTE] 
+    > Ao utilizar a galeria de amostras para script SQL com uma piscina SQL dedicada (anteriormente SQL DW), você só poderá usar uma piscina SQL dedicada existente (anteriormente SQL DW).
+
+## <a name="next-steps"></a>Passos seguintes
 
 * [Começa com o Azure Synapse Analytics](get-started.md)
 * [Criar uma área de trabalho](quickstart-create-workspace.md)

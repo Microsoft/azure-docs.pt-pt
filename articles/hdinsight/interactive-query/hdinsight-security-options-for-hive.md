@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/02/2020
-ms.openlocfilehash: 8573ba99b7aef13025b4f175640ac9583ad5a679
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f8296018a9534d5e2ce5dd7b84ebcad49cac00b3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545961"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460030"
 ---
 # <a name="security-options-for-hive-in-azure-hdinsight"></a>Opções de segurança para Colmeia em Azure HDInsight
 
@@ -41,6 +41,6 @@ Permitir o Hiveserver2 SSL não é recomendado para aglomerados standard ou ESP.
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Visão geral da Autenticação HiveServer2](https://cwiki.apache.org/confluence/display/Hive/Setting+up+HiveServer2#SettingUpHiveServer2-Authentication/SecurityConfiguration)
-* [Visão geral da Autorização HiveServer2](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Authorization#:~:text=%20Overview%20of%20Authorization%20Modes%20%201%201,and%20Apache%20Sentry%20are%20apache%20projects...%20More%20)
+* [Visão geral da Autorização HiveServer2](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Authorization)
 * [Habilitar a autorização de colmeia baseada em padrões SQL](https://community.cloudera.com/t5/Community-Articles/Getting-started-with-SQLStdAuth/ta-p/244263)
 * [Ranger Apache com Colmeia](../domain-joined/apache-domain-joined-run-hive.md)

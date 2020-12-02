@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 460fed7244ba8094da41ae6b5b8161de3d9efe65
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: efa160eb422658aeeb2eea3ad3c1d305b4b9f8be
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317274"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462404"
 ---
 # <a name="sql-authentication"></a>Autenticação SQL
 
@@ -22,14 +22,14 @@ O Azure Synapse Analytics tem dois fatores de forma SQL que lhe permitem control
 
 Para autorizar a Synapse SQL, pode utilizar dois tipos de autorização:
 
-- Autorização do Diretório Ativo Azure
+- Autorização do Azure Active Directory
 - Autorização de SQL
 
 O Azure Ative Directory permite-lhe ter um lugar único para a gestão do utilizador. A autorização SQL permite que as aplicações antigas utilizem o SQL synapse de uma forma bem familiar.
 
 ## <a name="administrative-accounts"></a>Contas administrativas
 
-Existem duas contas administrativas ( **Administrador de servidor** e **Administrador do Active Directory** ) que atuam como administradores. Para identificar estas contas de administrador para o seu servidor SQL, abra o portal Azure e navegue no separador Propriedades do seu SQL Synapse.
+Existem duas contas administrativas (**Administrador de servidor** e **Administrador do Active Directory**) que atuam como administradores. Para identificar estas contas de administrador para o seu servidor SQL, abra o portal Azure e navegue no separador Propriedades do seu SQL Synapse.
 
 ![Administradores do SQL Server](./media/sql-authentication/sql-admins.png)
 
@@ -51,7 +51,7 @@ As contas **de administração do Servidor** e **Azure AD** têm as seguintes ca
 - Pode adicionar e remover membros aos `dbmanager` `loginmanager` papéis e funções.
 - Pode ver a tabela do `sys.sql_logins` sistema.
 
-## <a name="serverless-sql-pool-preview"></a>[Piscina SQL sem servidor (pré-visualização)](#tab/serverless)
+## <a name="serverless-sql-pool"></a>[Conjunto de SQL sem servidor](#tab/serverless)
 
 Para gerir os utilizadores que tenham acesso à piscina SQL sem servidor, pode utilizar as instruções abaixo.
 
@@ -127,7 +127,7 @@ Agora o utilizador pode ligar-se à `master` base de dados e criar novas bases d
 
 ### <a name="login-managers"></a>Gestores de início de sessão
 
-A outra função administrativa é a função de gestor de início de sessão. Os membros desta função podem criar novos inícios de sessão na base de dados mestra. Se pretender, pode seguir os mesmos passos (criar um início de sessão e um utilizador e adicionar um utilizador à função **loginmanager** ) para permitir que um utilizador crie novos inícios de sessão na base de dados mestra. Normalmente, os logins não são necessários, uma vez que a Microsoft recomenda a utilização de utilizadores de bases de dados contidos, que autenticam ao nível da base de dados em vez de utilizarem os utilizadores com base em logins. Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos – Tornar a Sua Base de Dados Portátil)](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+A outra função administrativa é a função de gestor de início de sessão. Os membros desta função podem criar novos inícios de sessão na base de dados mestra. Se pretender, pode seguir os mesmos passos (criar um início de sessão e um utilizador e adicionar um utilizador à função **loginmanager**) para permitir que um utilizador crie novos inícios de sessão na base de dados mestra. Normalmente, os logins não são necessários, uma vez que a Microsoft recomenda a utilização de utilizadores de bases de dados contidos, que autenticam ao nível da base de dados em vez de utilizarem os utilizadores com base em logins. Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos – Tornar a Sua Base de Dados Portátil)](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ---
 
@@ -187,7 +187,7 @@ A gestão de acessos eficaz utiliza permissões atribuídas a grupos e funções
 
 - Ao utilizar a autenticação do SQL Server, crie utilizadores de base de dados contida na base de dados. Coloque um ou mais utilizadores de base de dados numa [função de base de dados](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) e, em seguida, atribua [permissões](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) à função de base de dados.
 
-As funções de base de dados podem ser as funções incorporadas, tais como **db_owner** , **db_ddladmin** , **db_datawriter** , **db_datareader** , **db_denydatawriter** e **db_denydatareader**. **db_owner** é, geralmente, utilizada para conceder permissão total apenas a alguns utilizadores. As outras funções de base de dados fixas são úteis para colocar bases de dados simples em desenvolvimento rapidamente, mas não são recomendadas para a maioria das bases de dados de produção. 
+As funções de base de dados podem ser as funções incorporadas, tais como **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** e **db_denydatareader**. **db_owner** é, geralmente, utilizada para conceder permissão total apenas a alguns utilizadores. As outras funções de base de dados fixas são úteis para colocar bases de dados simples em desenvolvimento rapidamente, mas não são recomendadas para a maioria das bases de dados de produção. 
 
 Por exemplo, a função de base de dados fixa **db_datareader** concede acesso de leitura a todas as tabelas na base de dados, o que, regra geral, é mais do que o estritamente necessário. 
 

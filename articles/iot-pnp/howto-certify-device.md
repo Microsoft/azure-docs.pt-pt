@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 7aa84336a3d71349c127ad15a90af98ffe2133fe
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 1b17729437b238b98f60e2cd97664fa6aafcccd4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980240"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462461"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Como certificar dispositivos IoT Plug and Play
 
@@ -42,9 +42,9 @@ Para satisfazer os requisitos de certificação, o seu dispositivo deve:
 - Implementar telemetria, propriedades ou comandos seguindo a convenção IoT Plug and Play.
 - Descreva as interações do dispositivo com um modelo [DTDL v2.](https://aka.ms/dtdl)
 - Publique o modelo, e todas as interfaces necessárias, no [Repositório de Modelo Público Azure IoT](https://devicemodels.azureiotsolutions.com/)
-- Envie o ID do modelo durante o [registo DPS](concepts-developer-guide-device-csharp.md#dps-payload) na carga útil de provisionamento DPS.
-- Anuncie o ID do modelo durante a [ligação MQTT](concepts-developer-guide-device-csharp.md#model-id-announcement).
-- Todos os modelos do dispositivo devem ser compatíveis com [a Azure IoT Central](https://aka.ms/pnp-iotc-getstarted).
+- Envie o ID do modelo durante o [registo DPS](./concepts-developer-guide-device.md#dps-payload) na carga útil de provisionamento DPS.
+- Anuncie o ID do modelo durante a [ligação MQTT](./concepts-developer-guide-device.md#model-id-announcement).
+- Todos os modelos do dispositivo devem ser compatíveis com [a Azure IoT Central](../iot-central/core/overview-iot-central-developer.md).
 
 > [!NOTE]
 > Atualmente, a Azure IoT Central não suporta totalmente os tipos de dados **Array** e **Geospatial** DTDL.

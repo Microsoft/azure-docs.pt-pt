@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
-ms.openlocfilehash: 255e4085e24ee7520c603f8a00b3e46c23367a77
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e7b7acb7e67d809229825b3d393fe49af12b3642
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000832"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461223"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Cópia delta de uma base de dados com uma tabela de controlo
 
@@ -140,7 +140,7 @@ O modelo define os seguintes parâmetros:
 
     Verá que apenas novas filas foram copiadas para o destino.
 
-15. (Opcional:) Se selecionar a Azure Synapse Analytics (anteriormente SQL DW) como destino de dados, também deve fornecer uma ligação ao armazenamento Azure Blob para a realização, o que é exigido pela Azure Synapse Analytics (anteriormente SQL Data Warehouse) Polybase. O modelo gerará um caminho de contentor para si. Após o funcionaamento do gasoduto, verifique se o recipiente foi criado no armazenamento blob.
+15. (Opcional:) Se selecionar a Azure Synapse Analytics como destino de dados, também deve fornecer uma ligação ao armazenamento Azure Blob para a realização, o que é exigido pela Azure Synapse Analytics Polybase. O modelo gerará um caminho de contentor para si. Após o funcionaamento do gasoduto, verifique se o recipiente foi criado no armazenamento blob.
     
     ![Configure a Base Polidisóia](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
     

@@ -1,6 +1,6 @@
 ---
-title: Cadeias de ligação para Synapse SQL (pré-visualização)
-description: Cadeias de ligação para Synapse SQL (pré-visualização)
+title: Cadeias de conexão para Sinaapse SQL
+description: Cadeias de conexão para Sinaapse SQL
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,16 +10,16 @@ ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e34563a312c5a248e97c4aac72d06030a836727b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6859d0582997ee861713090ccb4c22ed58ec4ca7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684847"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462333"
 ---
-# <a name="connection-strings-for-synapse-sql-preview"></a>Cadeias de ligação para Synapse SQL (pré-visualização)
+# <a name="connection-strings-for-synapse-sql"></a>Cadeias de conexão para Sinaapse SQL
 
-Pode ligar-se ao Synapse SQL (pré-visualização) com vários protocolos de aplicação diferentes, tais como, [ADO.NET,](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx) [ODBC,](https://msdn.microsoft.com/library/jj730314.aspx) [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)e [JDBC.](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx) Abaixo estão alguns exemplos de ligações cordas para cada protocolo. 
+Pode ligar-se ao Synapse SQL com vários protocolos de aplicação diferentes, tais [como, ADO.NET,](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx) [ODBC,](https://msdn.microsoft.com/library/jj730314.aspx) [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)e [JDBC.](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx) Abaixo estão alguns exemplos de ligações cordas para cada protocolo. 
 
 Também pode utilizar o portal Azure para construir a sua cadeia de ligação.  Para construir a sua cadeia de ligação utilizando o portal Azure, navegue para a sua lâmina de base de *dados,* sob o essencial selecione *Série de ligações de base de dados*.
 
@@ -54,6 +54,6 @@ jdbc:sqlserver://yourserver.sql.azuresynapse.net:1433;database=yourdatabase;user
 
 Para executar consultas **de piscinas SQL sem servidor,** as ferramentas recomendadas são [Azure Data Studio](get-started-azure-data-studio.md) e Azure Synapse Studio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar a consultar a sua análise com o Visual Studio e outras aplicações, consulte [Consulta com o Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

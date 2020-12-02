@@ -1,6 +1,6 @@
 ---
 title: Otimização do desempenho com índice columnstore em cluster ordenado
-description: Recomendações e considerações que deve conhecer ao utilizar o índice de loja de colunas agrupado encomendado para melhorar o seu desempenho de consulta.
+description: Recomendações e considerações que deve conhecer ao utilizar o índice de loja de colunas agrupados encomendado para melhorar o seu desempenho de consulta em piscinas SQL dedicadas.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 48db8541ebad19e3b22b737f7e92dcc980708ef6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afb6efcee2ad4f5cf25a411eed353ff2fc27d75c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841599"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460789"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Otimização do desempenho com índice columnstore em cluster ordenado  
 
-Quando os utilizadores consultam uma tabela de lojas de colunas na piscina Synapse SQL, o optimizador verifica os valores mínimos e máximos armazenados em cada segmento.  Segmentos que estão fora dos limites do predicado de consulta não são lidos do disco para a memória.  Uma consulta pode obter um desempenho mais rápido se o número de segmentos para ler e seu tamanho total são pequenos.   
+Quando os utilizadores consultam uma tabela de lojas de colunas em piscina SQL dedicada, o otimizador verifica os valores mínimos e máximos armazenados em cada segmento.  Segmentos que estão fora dos limites do predicado de consulta não são lidos do disco para a memória.  Uma consulta pode obter um desempenho mais rápido se o número de segmentos para ler e seu tamanho total são pequenos.   
 
 ## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Índice de colunas agrupados não encomendado
 
 Por padrão, para cada tabela criada sem uma opção de índice, um componente interno (index builder) cria nele um índice de colunas agrupado não encomendado (CCI).  Os dados de cada coluna são comprimidos num segmento de grupo de linha CCI separado.  Há metadados na gama de valor de cada segmento, por isso os segmentos que estão fora dos limites da consulta predicado não são lidos a partir do disco durante a execução de consultas.  O CCI oferece o mais alto nível de compressão de dados e reduz o tamanho dos segmentos para ler para que as consultas possam correr mais rapidamente. No entanto, como o construtor de índices não classifica dados antes de os comprimir em segmentos, segmentos com gamas de valor sobrepostos podem ocorrer, fazendo com que as consultas leiam mais segmentos a partir do disco e levem mais tempo a terminar.  
 
-Ao criar um CCI ordenado, o motor Synapse SQL classifica os dados existentes na memória pela ou na tecla de encomenda antes que o construtor de índice os comprima em segmentos de índice.  Com dados classificados, a sobreposição de segmentos é reduzida permitindo que as consultas tenham uma eliminação de segmento mais eficiente e, portanto, um desempenho mais rápido porque o número de segmentos a ler a partir do disco é menor.  Se todos os dados puderem ser classificados na memória de uma só vez, então a sobreposição de segmento pode ser evitada.  Devido a grandes tabelas em armazéns de dados, este cenário não acontece com frequência.  
+Ao criar um CCI ordenado, o motor de piscina SQL dedicado classifica os dados existentes na memória pela ou na tecla de encomenda antes que o construtor de índice os comprima em segmentos de índice.  Com dados classificados, a sobreposição de segmentos é reduzida permitindo que as consultas tenham uma eliminação de segmento mais eficiente e, portanto, um desempenho mais rápido porque o número de segmentos a ler a partir do disco é menor.  Se todos os dados puderem ser classificados na memória de uma só vez, então a sobreposição de segmento pode ser evitada.  Devido a grandes tabelas em armazéns de dados, este cenário não acontece com frequência.  
 
 Para verificar os intervalos de segmento de uma coluna, execute o seguinte comando com o nome da sua mesa e nome da coluna:
 
@@ -50,7 +50,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> Numa tabela de CCI encomendada, os novos dados resultantes do mesmo lote de DML ou operações de carregamento de dados são classificados dentro desse lote, não existindo uma triagem global em todos os dados da tabela.  Os utilizadores podem reconstruir o CCI ordenado para classificar todos os dados na tabela.  No Synapse SQL, o índice de loja de colunas REBUILD é uma operação offline.  Para uma mesa dividida, o REBUILD é feito uma divisória de cada vez.  Os dados na partição que está a ser reconstruída estão "offline" e indisponíveis até que o REBUILD esteja completo para essa partição. 
+> Numa tabela de CCI encomendada, os novos dados resultantes do mesmo lote de DML ou operações de carregamento de dados são classificados dentro desse lote, não existindo uma triagem global em todos os dados da tabela.  Os utilizadores podem reconstruir o CCI ordenado para classificar todos os dados na tabela.  Na piscina SQL dedicada, o índice de loja de colunas REBUILD é uma operação offline.  Para uma mesa dividida, o REBUILD é feito uma divisória de cada vez.  Os dados na partição que está a ser reconstruída estão "offline" e indisponíveis até que o REBUILD esteja completo para essa partição. 
 
 ## <a name="query-performance"></a>Desempenho de consultas
 

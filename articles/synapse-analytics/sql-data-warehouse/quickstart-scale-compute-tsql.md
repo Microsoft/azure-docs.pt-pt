@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Computação em escala em Azure Synapse Analytics - T-SQL'
-description: Cálculo de escala em Azure Synapse Analytics usando T-SQL e SQL Server Management Studio (SSMS). Dimensionar a computação para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
+title: 'Quickstart: Scale compute in dedicated SQL pool (anteriormente SQL DW) - T-SQL'
+description: Cálculo de escala em piscina sql dedicada (anteriormente SQL DW) usando T-SQL e SQL Server Management Studio (SSMS). Dimensionar a computação para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
 services: synapse-analytics
 author: Antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d11474a3f3b5d8c314f67260fddbbe0a98fe5196
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 37033e3c5f388d1a55a122899114914e661565f6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91569904"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460231"
 ---
-# <a name="quickstart-scale-compute-in-azure-synapse-analytics-using-t-sql"></a>Quickstart: Computação em escala em Azure Synapse Analytics usando T-SQL
+# <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-t-sql"></a>Quickstart: Cálculo de escala para piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics usando T-SQL
 
-Cálculo de escala em Azure Synapse Analytics (anteriormente SQL DW) usando T-SQL e SQL Server Management Studio (SSMS). [Dimensionar a computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
+Cálculo de escala em piscina sql dedicada (anteriormente SQL DW) usando T-SQL e SQL Server Management Studio (SSMS). [Dimensionar a computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -28,9 +28,9 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 Transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
-## <a name="create-a-data-warehouse"></a>Criar um armazém de dados
+## <a name="create-a-dedicated-sql-pool-formerly-sql-dw"></a>Crie uma piscina SQL dedicada (anteriormente SQL DW)
 
-Utilize [Início Rápido: criar e Ligar - portal](create-data-warehouse-portal.md) para criar um armazém de dados com o nome **mySampleDataWarehouse**. Complete o quickstart para garantir que tem uma regra de firewall e pode ligar-se ao seu armazém de dados a partir do SqL Server Management Studio.
+Use [Quickstart: create and Connect - portal](create-data-warehouse-portal.md) para criar uma piscina SQL dedicada (anteriormente SQL DW) chamada **mySampleDataWarehouse**. Complete o quickstart para garantir que tem uma regra de firewall e pode ligar-se à sua piscina SQL (anteriormente SQL DW) a partir do SqL Server Management Studio.
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Ligar ao servidor como administrador do servidor
 
@@ -58,9 +58,9 @@ Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-se
 
 ## <a name="view-service-objective"></a>Ver objetivo do serviço
 
-A definição de objetivo de serviço contém o número de unidades de armazém de dados para o armazém de dados.
+A definição do objetivo de serviço contém o número de unidades de armazém de dados para a piscina de SQL dedicada (anteriormente SQL DW).
 
-Para ver as unidades de armazém de dados atual para o seu armazém de dados:
+Para ver as atuais unidades de armazém de dados para a sua piscina SQL dedicada (anteriormente SQL DW):
 
 1. Sob a ligação a **mySampleDataWarehouseservername.database.windows.net,** expandir **bases de dados do sistema**.
 2. Clique com o botão direito do rato em **master** (mestra) e selecione **New Query** (Nova Consulta). É aberta uma nova janela de consulta.
@@ -85,7 +85,7 @@ Para ver as unidades de armazém de dados atual para o seu armazém de dados:
 
 ## <a name="scale-compute"></a>Dimensionar computação
 
-Em Azure Synapse, pode aumentar ou diminuir os recursos computacional ajustando unidades de armazém de dados. O [Criar e Ligar - portal](create-data-warehouse-portal.md) criou **mySampleDataWarehouse** e inicializou-o com 400 DWUs. Os seguintes passos ajustam as DWUs para **mySampleDataWarehouse**.
+No pool de SQL dedicado (anteriormente SQL DW), pode aumentar ou diminuir os recursos computativos ajustando unidades de armazém de dados. O [Criar e Ligar - portal](create-data-warehouse-portal.md) criou **mySampleDataWarehouse** e inicializou-o com 400 DWUs. Os seguintes passos ajustam as DWUs para **mySampleDataWarehouse**.
 
 Para alterar as unidades do data warehouse:
 
@@ -130,13 +130,13 @@ Para consultar o estado de alteração do objeto do serviço:
 
     ![Estado da operação](./media/quickstart-scale-compute-tsql/polling-output.png)
 
-## <a name="check-data-warehouse-state"></a>Verifique o estado do armazém de dados
+## <a name="check-dedicated-sql-pool-formerly-sql-dw-state"></a>Verifique o estado dedicado da piscina SQL (anteriormente SQL DW)
 
-Quando um armazém de dados está em pausa, não é possível ligar-se ao mesmo com T-SQL. Para ver o estado atual do armazém de dados, pode utilizar um cmdlet do PowerShell. Por exemplo, consulte [o estado do armazém de dados - PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
+Quando uma piscina SQL dedicada (anteriormente SQL DW) é pausada, não pode ligar-se a ele com t-SQL. Para ver o estado atual da piscina de SQL dedicada (anteriormente SQL DW), pode utilizar um cmdlet PowerShell. Por exemplo, consulte [o estado da piscina SQL dedicada (anteriormente SQL DW) - PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
 
 ## <a name="check-operation-status"></a>Verificar o estado da operação
 
-Para retornar informações sobre várias operações de gestão no seu Azure Synapse, execute a seguinte consulta sobre o [DMV sys.dm_operation_status.](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) Por exemplo, devolve a operação e o estado da operação, que é IN_PROGRESS ou COMPLETED.
+Para retornar informações sobre várias operações de gestão na sua piscina de SQL dedicada (anteriormente SQL DW), execute a seguinte consulta sobre o [DMV sys.dm_operation_status.](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) Por exemplo, devolve a operação e o estado da operação, que é IN_PROGRESS ou COMPLETED.
 
 ```sql
 SELECT *
@@ -150,7 +150,7 @@ AND
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora já aprendeu como dimensionar a computação para o seu armazém de dados. Para saber mais sobre a Azure Synapse, continue ao tutorial para carregar dados.
+Agora aprendeu a escalar o cálculo para a sua piscina DE SQL dedicada (anteriormente SQL DW). Para saber mais sobre o Azure Synapse Analytics, continue ao tutorial para carregar dados.
 
 > [!div class="nextstepaction"]
->[Carregue os dados num Azure Synapse Analytics](load-data-from-azure-blob-storage-using-polybase.md)
+>[Carregue os dados numa piscina de SQL dedicada](load-data-from-azure-blob-storage-using-polybase.md)

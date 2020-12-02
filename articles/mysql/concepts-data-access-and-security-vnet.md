@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: 225afcbafeaf7213b4f040a07d709d33e46b44f4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 364d9c20c0bfce1f31103ddf6df0c8d7b228eca2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996292"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461784"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Utilizar os pontos finais de serviço e regras de Rede Virtual para Base de Dados do Azure para MySQL
 
@@ -112,7 +112,7 @@ Para a base de dados Azure para o MySQL, a funcionalidade de regras de rede virt
 
 - As regras de rede virtuais aplicam-se apenas às redes virtuais do Azure Resource Manager; e não para redes [de modelos de implantação clássicas.][arm-deployment-model-568f]
 
-- Ligar os pontos finais do serviço de rede virtual ON para Azure Database for MySQL utilizando a tag de serviço **Microsoft.Sql** também permite os pontos finais para todos os serviços de Base de Dados Azure: Base de Dados Azure para MySQL, Base de Dados Azure para PostgreSQL, Base de Dados Azure SQL e Azure Synapse Analytics (ex-SQL Data Warehouse).
+- Ligar os pontos finais do serviço de rede virtual ON para Azure Database para o MySQL utilizando a tag de serviço **Microsoft.Sql** também permite os pontos finais para todos os serviços de Base de Dados Azure: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database e Azure Synapse Analytics.
 
 - O suporte para os pontos finais do serviço VNet é apenas para servidores otimizados para fins gerais e memória.
 

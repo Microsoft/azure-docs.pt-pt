@@ -1,6 +1,6 @@
 ---
-title: Pastas de consulta e vários ficheiros utilizando piscina SQL sem servidor (pré-visualização)
-description: A piscina SQL sem servidor (pré-visualização) suporta a leitura de vários ficheiros/pastas utilizando wildcards, que são semelhantes aos wildcards utilizados no Windows OS.
+title: Pastas de consulta e vários ficheiros usando piscina SQL sem servidor
+description: A piscina SQL sem servidor suporta a leitura de vários ficheiros/pastas utilizando wildcards, que são semelhantes aos wildcards utilizados no Windows OS.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9d15d681a114b0f364e8e33adc786b4d0ba7df0e
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 83c4d88e1a87f6b546e26dd55da338a36f16ebe4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684564"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462619"
 ---
 # <a name="query-folders-and-multiple-files"></a>Consultar pastas e vários ficheiros  
 
-Neste artigo, você aprenderá a escrever uma consulta usando piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics.
+Neste artigo, você aprenderá a escrever uma consulta usando a piscina SQL sem servidor em Azure Synapse Analytics.
 
 A piscina SQL sem servidor suporta a leitura de vários ficheiros/pastas utilizando wildcards, que são semelhantes aos wildcards utilizados no Windows OS. No entanto, existe uma maior flexibilidade, uma vez que são permitidos vários wildcards.
 
@@ -273,6 +273,6 @@ ORDER BY
 
 Uma vez que tem apenas uma pasta que corresponde aos critérios, o resultado da consulta é o mesmo que ler o [subconjunto de ficheiros na pasta](#read-subset-of-files-in-folder) e [ler todos os ficheiros de uma pasta específica](#read-all-files-from-specific-folder). Cenários de utilização wildcard mais complexos são cobertos por [ficheiros Parquet De consulta.](query-parquet-files.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Mais informações podem ser encontradas no artigo [de ficheiros específicos](query-specific-files.md) da Consulta.

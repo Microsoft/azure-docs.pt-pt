@@ -1,6 +1,6 @@
 ---
-title: Azure Synapse Analytics (anteriormente SQL DW) Perguntas frequentes
-description: Este artigo lista perguntas frequentes sobre a Azure Synapse Analytics (anteriormente SQL DW) de clientes e desenvolvedores.
+title: Piscina SQL dedicada (anteriormente SQL DW) frequentemente perguntas
+description: Este artigo lista perguntas frequentes sobre piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics de clientes e desenvolvedores.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,14 +10,14 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d1e2f82ecd80579d19f3a8793db64f6b8a17a440
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c8f8ae81f6f030245899ec82dbe16b29846dab23
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323606"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460516"
 ---
-# <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (anteriormente SQL DW) frequentemente fez perguntas
+# <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-frequently-asked-questions"></a>Piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics frequentemente fez perguntas
 
 ## <a name="general"></a>Geral
 
@@ -27,11 +27,11 @@ A. Azure Synapse é um serviço de análise que reúne armazenamento de dados e 
 
 P. O que aconteceu ao Armazém de Dados Azure SQL?
 
-A. Azure Synapse é Azure SQL Data Warehouse evoluído. Levamos o mesmo armazém de dados líder da indústria para um novo nível de desempenho e capacidades. Pode continuar a executar as cargas de trabalho existentes no armazém de dados em produção com a Azure Synapse. Para mais informações, consulte [O que é Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+A. Azure Synapse é Azure SQL Data Warehouse evoluído. Levamos o mesmo armazém de dados líder da indústria para um novo nível de desempenho e capacidades. Pode continuar a executar as suas cargas de trabalho existentes em armazém de dados em produção com piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse. Para mais informações, consulte [O que é Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
-P. O que é uma piscina SQL dedicada?
+P. O que é uma piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics?
 
-A. Pool DE SQL dedicado refere-se às funcionalidades de armazenamento de dados da empresa que estão geralmente disponíveis com Azure Synapse. Para mais informações, veja, [O que é Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+A. Pool DE SQL dedicado (anteriormente SQL DW) refere-se às funcionalidades de armazenamento de dados da empresa que estão geralmente disponíveis com Azure Synapse. Para mais informações, veja, [O que é Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 P. Como é que começo com o Azure Synapse?
 
@@ -49,7 +49,7 @@ P. Posso ligar o Power BI?
 
 A. Sim! Embora o Power BI suporte consulta direta com a Azure Synapse, não se destina a um grande número de utilizadores ou dados em tempo real. Para otimizar ainda mais o desempenho do Power BI, considere a utilização do Power BI em cima dos Serviços de Análise ou Serviço de Análise da Azure.
 
-P. Quais são os limites de capacidade de piscinas SQL dedicados?
+P. Quais são os limites de capacidade de uma piscina SQL dedicada (anteriormente SQL DW) de capacidade?
 
 A. Consulte a nossa página de [limites de capacidade](sql-data-warehouse-service-capacity-limits.md) atuais.
 
@@ -83,15 +83,15 @@ A. Muitas funcionalidades são suportadas. Funcionalidades que não são suporta
 
 ## <a name="tooling-and-administration"></a>Ferramenta e administração
 
-P. A piscina dedicada SQL suporta AS APIs de apoio à piscina?
+P. A piscina SQL dedicada (anteriormente SQL DW) suporta AS REST?
 
-A. Sim. A maioria das funcionalidades REST que podem ser usadas com base de dados SQL também está disponível com piscina SQL dedicada. Pode encontrar informações da API nas páginas de documentação DO REST ou [bases de dados.](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+A. Sim. A maioria das funcionalidades REST que podem ser usadas com base de dados SQL também está disponível com piscina SQL dedicada (anteriormente SQL DW). Pode encontrar informações da API nas páginas de documentação DO REST ou [bases de dados.](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 ## <a name="loading"></a>A carregar
 
 P. Que motoristas de clientes apoia?
 
-A. Suporte do condutor para piscina SQL dedicada pode ser encontrado na página [De Cordas de Conexão](../sql/connection-strings.md)
+A. O suporte do condutor para piscina SQL dedicada (anteriormente SQL DW) pode ser encontrado na página [Connection Strings](sql-data-warehouse-connection-strings.md)
 
 P: Que formatos de ficheiros são suportados pela PolyBase?
 
@@ -107,8 +107,8 @@ R: Não, a PolyBase só interage com os componentes de armazenamento.
 
 P: Posso ligar-me ao HDI?
 
-R: O HDI pode utilizar a ADLS ou a WASB como camada HDFS. Se tiver como camada HDFS, pode carregar esses dados numa piscina DE SQL dedicada. No entanto, não é possível gerar cálculo de pushdown para a instância HDI.
+R: O HDI pode utilizar a ADLS ou a WASB como camada HDFS. Se tiver como camada HDFS, pode carregar esses dados numa piscina SQL dedicada (anteriormente SQL DW). No entanto, não é possível gerar cálculo de pushdown para a instância HDI.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para mais informações sobre a Azure Synapse como um todo, consulte a nossa página [geral.](sql-data-warehouse-overview-faq.md)
+Para mais informações sobre piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse, consulte a nossa página [de visão](sql-data-warehouse-overview-what-is.md) geral.

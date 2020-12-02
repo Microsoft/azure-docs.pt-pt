@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Criar uma piscina SQL dedicada (pré-visualização) utilizando o portal Azure'
+title: 'Quickstart: Criar uma piscina SQL dedicada utilizando o portal Azure'
 description: Crie uma nova piscina SQL dedicada utilizando o portal Azure seguindo os passos deste guia.
 services: synapse-analytics
 author: julieMSFT
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: b558e34d3f5d224515eee669dfa7b8f2c6bbb3cd
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3537b126adf082c8b00a02d999789d8a32b3f51d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541016"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462013"
 ---
-# <a name="quickstart-create-a-dedicated-sql-pool-preview-using-the-azure-portal"></a>Quickstart: Criar uma piscina SQL dedicada (pré-visualização) utilizando o portal Azure
+# <a name="quickstart-create-a-dedicated-sql-pool-using-the-azure-portal"></a>Quickstart: Criar uma piscina SQL dedicada utilizando o portal Azure
 
 O Azure Synapse Analytics oferece vários motores de análise para ajudá-lo a ingerir, transformar, modelar e analisar os seus dados. Um pool SQL dedicado oferece capacidades de computação e armazenamento baseadas em T-SQL. Depois de criar uma piscina DE SQL dedicada no seu espaço de trabalho Synapse, os dados podem ser carregados, modelados, processados e entregues para uma visão analítica mais rápida.
 
@@ -77,7 +77,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/)
 
 Após a criação da piscina de SQL dedicada, estará disponível no espaço de trabalho para carregamento de dados, fluxos de processamento, leitura do lago, etc.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Siga os passos abaixo para eliminar a piscina SQL dedicada do espaço de trabalho.
 > [!WARNING]

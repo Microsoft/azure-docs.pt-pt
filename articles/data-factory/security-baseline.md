@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6cda99bfcb883dd42aa813d6edb922f2701ed1fe
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e48b1357b8576baca0e8defca94f4c5248c6f74e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352206"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461285"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Linha de segurança Azure para Azure Data Factory
 
@@ -578,7 +578,7 @@ Onde o Private Link estiver disponível, utilize pontos finais privados para gar
 
 **Orientação**: Se a loja de dados em nuvem suportar HTTPS ou TLS, todas as transferências de dados entre os serviços de movimento de dados na Data Factory e uma loja de dados em nuvem são através de um canal seguro HTTPS ou TLS. A versão TLS utilizada é 1.2.
 
-Todas as ligações à Base de Dados Azure SQL e à Azure Synapse Analytics (anteriormente SQL Data Warehouse) requerem encriptação (SSL/TLS) enquanto os dados estão em trânsito de e para a base de dados. Quando estiver a ser autor de um oleoduto utilizando o JSON, adicione a propriedade de encriptação e desacri-a para ser verdadeira na cadeia de ligação. Para o armazenamento Azure, pode utilizar HTTPS na cadeia de ligação.
+Todas as ligações à Base de Dados Azure SQL e à Azure Synapse Analytics requerem encriptação (SSL/TLS) enquanto os dados estão em trânsito de e para a base de dados. Quando estiver a ser autor de um oleoduto utilizando o JSON, adicione a propriedade de encriptação e desacri-a para ser verdadeira na cadeia de ligação. Para o armazenamento Azure, pode utilizar HTTPS na cadeia de ligação.
 
 * [Compreender a encriptação em trânsito na Azure Data Factory](./data-movement-security-considerations.md)
 

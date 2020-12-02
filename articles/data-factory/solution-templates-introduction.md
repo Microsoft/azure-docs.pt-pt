@@ -11,12 +11,12 @@ author: djpmsft
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
-ms.openlocfilehash: 515de0fed987f412adb060a3ba58978f0400ae0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2725d498b6fded56ad28235b051b1e8f4fbadadb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441970"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461203"
 ---
 # <a name="templates"></a>Modelos
 
@@ -68,9 +68,9 @@ A Data Factory utiliza modelos do Gestor de Recursos Azure para guardar modelos 
 
         -   Do SQL Server nas instalações até à Base de Dados Azure SQL
 
-        -   Do SQL Server nas instalações para a Azure Synapse Analytics (anteriormente SQL Data Warehouse)
+        -   Do SQL Server nas instalações para a Azure Synapse Analytics
 
-        -   Da Oracle nas instalações para a Azure Synapse Analytics (antiga SQL Data Warehouse)
+        -   Da Oráculo nas instalações para a Azure Synapse Analytics
 
 -   Modelos SSIS
 

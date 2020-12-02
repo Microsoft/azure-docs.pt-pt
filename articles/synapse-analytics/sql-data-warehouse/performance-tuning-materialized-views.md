@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
-ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 0e807a01f575615967a039d360505a4f090cd1fd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.reviewer: nibruno; jrasnick; azure-synapse
+ms.openlocfilehash: 902f0ac96349cf3e30ec12aeda02130afc2b800c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478325"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460755"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Melodia de desempenho com vistas materializadas
 
-Vistas materializadas na piscina Synapse SQL fornecem um método de baixa manutenção para consultas analíticas complexas para obter um desempenho rápido sem qualquer alteração de consulta. Este artigo discute as orientações gerais sobre a utilização de pontos de vista materializados.
+Vistas materializadas na piscina Azure Synapse SQL fornecem um método de baixa manutenção para consultas analíticas complexas para obter um desempenho rápido sem qualquer alteração de consulta. Este artigo discute as orientações gerais sobre a utilização de pontos de vista materializados.
 
 ## <a name="materialized-views-vs-standard-views"></a>Vistas materializadas vs. vistas padrão
 
-A piscina SQL suporta vistas standard e materializadas.  Ambas são tabelas virtuais criadas com expressões SELECT e apresentadas a consultas como tabelas lógicas.  As vistas encapsulam a complexidade da computação comum de dados e adicionam uma camada de abstração às alterações de cálculo para que não haja necessidade de reescrever consultas.  
+A piscina SQL em Azure Synapse suporta vistas standard e materializadas.  Ambas são tabelas virtuais criadas com expressões SELECT e apresentadas a consultas como tabelas lógicas.  As vistas encapsulam a complexidade da computação comum de dados e adicionam uma camada de abstração às alterações de cálculo para que não haja necessidade de reescrever consultas.  
 
-Uma visão padrão calcula os seus dados cada vez que a vista é usada.  Não há dados armazenados no disco. As pessoas normalmente usam vistas padrão como uma ferramenta que ajuda a organizar os objetos lógicos e consultas numa base de dados.  Para utilizar uma visão padrão, uma consulta precisa de fazer referência direta a ela.
+Uma visão padrão calcula os seus dados cada vez que a vista é usada.  Não há dados armazenados no disco. As pessoas normalmente usam vistas padrão como uma ferramenta que ajuda a organizar os objetos lógicos e consultas em uma piscina SQL.  Para utilizar uma visão padrão, uma consulta precisa de fazer referência direta a ela.
 
 Uma vista materializada pré-computa, armazena e mantém os seus dados em piscina SQL como uma mesa.  Não é necessária recomputação de cada vez que uma vista materializada é usada.  É por isso que as consultas que usam todos ou subconjuntos dos dados em vistas materializadas podem obter um desempenho mais rápido.  Ainda melhor, as consultas podem usar uma visão materializada sem fazer referência direta a ela, por isso não há necessidade de alterar o código de aplicação.  
 
@@ -37,7 +37,7 @@ A maioria dos requisitos numa vista padrão ainda se aplica a uma visão materia
 |Ver conteúdos                    | Gerada cada vez que a vista é usada.   | Pré-processado e armazenado na piscina SQL durante a criação de vista. Atualizado à medida que os dados são adicionados às tabelas subjacentes.
 |Atualização de dados                    | Sempre atualizado                               | Sempre atualizado
 |Velocidade para recuperar dados de visualização de consultas complexas     | Lento                                         | Rápido  
-|Armazenamento extra                   | No                                           | Yes
+|Armazenamento extra                   | Não                                           | Sim
 |Syntax                          | CREATE VIEW                                  | CRIAR VISTA MATERIALIZADA COMO SELEÇÃO
 
 ## <a name="benefits-of-using-materialized-views"></a>Benefícios da utilização de vistas materializadas
@@ -79,7 +79,7 @@ Em comparação com outras opções de afinação, como a escala e a gestão de 
 
 **Precisa de diferentes estratégias de distribuição de dados para um desempenho de consulta mais rápido**
 
-Synapse SQL é um sistema de processamento de consultas distribuído.  Os dados numa tabela SQL são distribuídos por 60 nóns utilizando uma das três [estratégias](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) de distribuição (haxixe, round_robin ou replicado).   
+Azure Synapse Analytics é um sistema de processamento de consultas distribuído.  Os dados numa tabela SQL são distribuídos por 60 nóns utilizando uma das três [estratégias](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) de distribuição (haxixe, round_robin ou replicado).   
 
 A distribuição de dados é especificada na hora de criação da tabela e permanece inalterada até que a tabela seja largada. A vista materializada sendo uma tabela virtual no disco suporta a distribuição de dados de haxixe e round_robin.  Os utilizadores podem escolher uma distribuição de dados diferente das tabelas base, mas ideal para o desempenho de consultas que mais usam as vistas.  
 
@@ -97,11 +97,11 @@ Avalie estas recomendações com as suas necessidades de carga de trabalho em me
 
 **Esteja ciente da troca entre consultas mais rápidas e o custo**
 
-Para cada vista materializada, há um custo de armazenamento de dados e um custo para manter a vista.  À medida que os dados mudam nas tabelas base, o tamanho da vista materializada aumenta e a sua estrutura física também muda.  Para evitar a degradação do desempenho da consulta, cada vista materializada é mantida separadamente pelo motor da piscina SQL.  
+Para cada vista materializada, há um custo de armazenamento de dados e um custo para manter a vista.  À medida que os dados mudam nas tabelas base, o tamanho da vista materializada aumenta e a sua estrutura física também muda.  Para evitar a degradação do desempenho da consulta, cada vista materializada é mantida separadamente pelo motor SQL Analytics.  
 
 A carga de trabalho de manutenção aumenta quando o número de visualizações materializadas e as alterações da tabela base aumentam.   Os utilizadores devem verificar se o custo incorrido de todas as vistas materializadas pode ser compensado pelo ganho de desempenho da consulta.  
 
-Pode executar esta consulta para a lista de visualizações materializadas numa base de dados:
+Pode executar esta consulta para a lista de vista materializada numa piscina SQL:
 
 ```sql
 SELECT V.name as materialized_view, V.object_id
@@ -141,7 +141,7 @@ GROUP BY A, C
 
 **Nem todas as afinações de desempenho requerem mudança de consulta**
 
-O otimizador de piscina SQL pode automaticamente usar vistas materializadas implantadas para melhorar o desempenho da consulta.  Este suporte é aplicado de forma transparente a consultas que não referenciam as vistas e consultas que usam agregados não suportados na criação de vistas materializadas.  Não é necessária qualquer alteração de consulta. Pode verificar o plano de execução estimado de uma consulta para confirmar se é utilizada uma vista materializada.  
+O otimizador SQL Analytics pode utilizar automaticamente vistas materializadas implantadas para melhorar o desempenho da consulta.  Este suporte é aplicado de forma transparente a consultas que não referenciam as vistas e consultas que usam agregados não suportados na criação de vistas materializadas.  Não é necessária qualquer alteração de consulta. Pode verificar o plano de execução estimado de uma consulta para confirmar se é utilizada uma vista materializada.  
 
 **Monitorar vistas materializadas**
 
@@ -151,7 +151,7 @@ Para evitar a degradação do desempenho da consulta, é uma boa prática execut
 
 **Vista materializada e conjunto de resultados**
 
-Estas duas funcionalidades são introduzidas na piscina SQL por volta do mesmo tempo para afinação de desempenho de consulta.  O cache do conjunto de resultados é usado para obter alta concordância e resposta rápida de consultas repetitivas contra dados estáticos.  
+Estas duas funcionalidades são introduzidas no SQL Analytics por volta do mesmo tempo para afinação de desempenho de consulta.  O cache do conjunto de resultados é usado para obter alta concordância e resposta rápida de consultas repetitivas contra dados estáticos.  
 
 Para utilizar o resultado em cache, a forma da consulta de pedido de cache deve coincidir com a consulta que produziu a cache.  Além disso, o resultado em cache deve aplicar-se a toda a consulta.  
 

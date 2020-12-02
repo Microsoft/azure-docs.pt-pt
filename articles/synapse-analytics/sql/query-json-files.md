@@ -1,5 +1,5 @@
 ---
-title: Consulta ficheiros JSON usando piscina SQL sem servidor (pré-visualização)
+title: Consulta ficheiros JSON usando piscina SQL sem servidor
 description: Esta secção explica como ler ficheiros JSON usando piscina SQL sem servidor em Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: d071bbabf630dd326ae46f4c840f8e60f957f9fe
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 5703e4ac3d4a545041c7d258f0b1f0e7c79a33b5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685635"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462616"
 ---
-# <a name="query-json-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Consulta ficheiros JSON usando piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics
+# <a name="query-json-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Consulta ficheiros JSON usando piscina SQL sem servidor em Azure Synapse Analytics
 
-Neste artigo, você aprenderá a escrever uma consulta usando piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics. O objetivo da consulta é ler ficheiros JSON utilizando [OPENROWSET](develop-openrowset.md). 
+Neste artigo, você aprenderá a escrever uma consulta usando a piscina SQL sem servidor em Azure Synapse Analytics. O objetivo da consulta é ler ficheiros JSON utilizando [OPENROWSET](develop-openrowset.md). 
 - Ficheiros JSON padrão onde vários documentos JSON são armazenados como uma matriz JSON.
 - Ficheiros JSON delimitados em linha, onde os documentos JSON são separados com o carácter de nova linha. As extensões comuns para este tipo de ficheiros são `jsonl` `ldjson` , e `ndjson` .
 
@@ -167,7 +167,7 @@ where country = 'Serbia'
 order by country, date_rep desc;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os próximos artigos desta série demonstrarão como:
 

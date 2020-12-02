@@ -1,6 +1,6 @@
 ---
 title: Modelo de metadados partilhados
-description: O Azure Synapse Analytics permite que os diferentes motores computacionais do espaço de trabalho partilhem bases de dados e tabelas entre as suas piscinas Apache Spark sem servidor (pré-visualização), piscina SQL sem servidor (pré-visualização) e piscinas SQL dedicadas.
+description: O Azure Synapse Analytics permite que os diferentes motores computacionais do espaço de trabalho partilhem bases de dados e tabelas entre as suas piscinas Apache Spark sem servidor, piscina SQL sem servidor e piscinas SQL dedicadas.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -9,18 +9,16 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 64c19f3331be8ffda433207da88ebf22c546ee4e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b10b6f011fa7daee4094f0cc7b819d36127fedcd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324670"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460349"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Azure Synapse Analytics partilhou metadados
 
-O Azure Synapse Analytics permite que os diferentes motores computacionais do espaço de trabalho partilhem bases de dados e tabelas entre as suas piscinas Apache Spark sem servidor (pré-visualização) e piscina SQL sem servidor (pré-visualização).
-
-[!INCLUDE [preview](../includes/note-preview.md)]
+O Azure Synapse Analytics permite que os diferentes motores computacionais do espaço de trabalho partilhem bases de dados e tabelas entre as suas piscinas Apache Spark sem servidor e a piscina SQL sem servidor.
 
 A partilha suporta o chamado padrão moderno de armazém de dados e dá aos motores SQL espaço de trabalho acesso a bases de dados e tabelas criadas com Spark. Também permite que os motores SQL criem os seus próprios objetos que não estão a ser partilhados com os outros motores.
 

@@ -11,19 +11,19 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 09/21/2020
+ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: ab974b0f68e831e672329f8af5ae1cb6a5fdbd4c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c3f1209c2c903399617bd60258cc152a6ce90b80
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672086"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462069"
 ---
 # <a name="data-discovery--classification"></a>Deteção e Classificação de Dados
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Data Discovery & Classification é incorporado na Base de Dados Azure SQL, Azure SQL Managed Instance e Azure Synapse Analytics. Fornece capacidades avançadas para descobrir, classificar, rotular e reportar os dados sensíveis nas suas bases de dados.
+Data Discovery & Classification é incorporado na Base de Dados Azure SQL, Azure SQL Managed Instance e Azure Synapse Analytics. Fornece capacidades avançadas para detetar, classificar, etiquetar e comunicar dados confidenciais nas bases de dados.
 
 Os seus dados mais sensíveis podem incluir informações empresariais, financeiras, de saúde ou pessoais. Descobrir e classificar estes dados pode desempenhar um papel fundamental na abordagem de proteção de informação da sua organização. Pode funcionar como infraestrutura para:
 
@@ -55,8 +55,8 @@ Esta secção descreve os passos para:
 
 A classificação inclui dois atributos de metadados:
 
-- **Etiquetas** : Os principais atributos de classificação, utilizados para definir o nível de sensibilidade dos dados armazenados na coluna.  
-- **Tipos de informação** : Atributos que fornecem mais informações granulares sobre o tipo de dados armazenados na coluna.
+- **Etiquetas**: Os principais atributos de classificação, utilizados para definir o nível de sensibilidade dos dados armazenados na coluna.  
+- **Tipos de informação**: Atributos que fornecem mais informações granulares sobre o tipo de dados armazenados na coluna.
 
 ### <a name="define-and-customize-your-classification-taxonomy"></a>Defina e personalize a sua taxonomia de classificação
 
@@ -77,7 +77,9 @@ Depois de definida a política em toda a organização, pode continuar a classif
 
 1. Aceda ao [portal do Azure](https://portal.azure.com).
 
-1. Aceda à **classificação & data Discovery** sob o título de Segurança no seu painel de base de dados Azure SQL. O separador Visão Geral inclui um resumo do estado de classificação atual da base de dados. O resumo inclui uma lista detalhada de todas as colunas classificadas, que também pode filtrar para mostrar apenas peças de esquemas específicos, tipos de informação e etiquetas. Se ainda não classificou nenhuma coluna, [salte para o passo 4](#step-4).
+1. Aceda à **classificação & Data Discovery** sob o título **de Segurança** no seu painel de base de dados Azure SQL. O separador Visão Geral inclui um resumo do estado de classificação atual da base de dados. O resumo inclui uma lista detalhada de todas as colunas classificadas, que também pode filtrar para mostrar apenas peças de esquemas específicos, tipos de informação e etiquetas. Se ainda não classificou nenhuma coluna, [salte para o passo 4](#step-4).
+
+    ![Descrição geral](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
 
 1. Para descarregar um relatório no formato Excel, selecione **Export** no menu superior do painel.
 
@@ -91,7 +93,9 @@ Depois de definida a política em toda a organização, pode continuar a classif
 
    - Para aceitar uma recomendação para uma coluna específica, selecione a caixa de verificação na coluna esquerda da linha relevante. Para marcar todas as recomendações conforme aceite, selecione a caixa de verificação mais à esquerda no cabeçalho da tabela de recomendações.
 
-   - Para aplicar as recomendações selecionadas, **selecione Aceite recomendações selecionadas** .
+   - Para aplicar as recomendações selecionadas, **selecione Aceite recomendações selecionadas**.
+
+   ![Recomendações de classificação](./media/data-discovery-and-classification-overview/recommendation.png)
 
 1. Também pode classificar as colunas manualmente, como alternativa ou para além da classificação baseada em recomendações:
 
@@ -101,7 +105,10 @@ Depois de definida a política em toda a organização, pode continuar a classif
 
    1. **Selecione Adicionar classificação** na parte inferior da janela de contexto.
 
-1. Para completar a sua classificação e etiquetar persistentemente (tag) as colunas de base de dados com os novos metadados de classificação, **selecione Guardar** no menu superior da janela.
+   ![Adicionar manualmente classificação](./media/data-discovery-and-classification-overview/manually-add-classification.png)
+
+
+1. Para completar a sua classificação e etiquetar persistentemente (tag) as colunas de base de dados com os novos metadados de classificação, **selecione Guardar** na página **de Classificação.**
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Auditoria de acesso a dados sensíveis
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a77a4808390f816bc3a6646520f4b542bee89d4c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fa6e19fd9759d6e489d0945b5521a2e0ae3881e0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001755"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462649"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copiar dados de ou para a Azure Blob Storage usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -31,7 +31,7 @@ ms.locfileid: "96001755"
 Este artigo explica como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de e para o Armazenamento Azure Blob. Baseia-se no artigo de Atividades de Movimento de [Dados,](data-factory-data-movement-activities.md) que apresenta uma visão geral do movimento de dados com a atividade da cópia.
 
 ## <a name="overview"></a>Descrição geral
-Pode copiar dados de qualquer loja de dados de origem suportada para o Azure Blob Storage ou do Azure Blob Storage para qualquer loja de dados de lavatórios suportados. A tabela seguinte fornece uma lista de lojas de dados suportadas como fontes ou sumidouros pela atividade de cópia. Por exemplo, pode mover dados de uma base de dados **do** SQL Server ou de uma base de dados na Base de Dados Azure SQL **para** um armazenamento de bolhas Azure. E, você pode copiar dados do armazenamento **de** blob Azure **para** Azure Synapse Analytics (anteriormente SQL Data Warehouse) ou uma coleção DB Azure Cosmos.
+Pode copiar dados de qualquer loja de dados de origem suportada para o Azure Blob Storage ou do Azure Blob Storage para qualquer loja de dados de lavatórios suportados. A tabela seguinte fornece uma lista de lojas de dados suportadas como fontes ou sumidouros pela atividade de cópia. Por exemplo, pode mover dados de uma base de dados **do** SQL Server ou de uma base de dados na Base de Dados Azure SQL **para** um armazenamento de bolhas Azure. E, você pode copiar dados do armazenamento **de** blob Azure **para** Azure Synapse Analytics ou uma coleção de DB Azure Cosmos.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -334,7 +334,7 @@ Devia ver dois serviços ligados. Um para a fonte e o outro para o destino. Nest
 
 Para obter mais informações sobre o serviço ligado ao Armazenamento Azure, consulte a secção [de propriedades de serviços Linked.](#linked-service-properties)
 
-#### <a name="datasets"></a>Conjuntos de dados
+#### <a name="datasets"></a>Conjuntos de Dados
 Existem dois conjuntos de dados: um conjunto de dados de entrada e um conjunto de dados de saída. O tipo de conjunto de dados é definido para **AzureBlob** para ambos.
 
 O conjunto de dados de entrada aponta para a pasta de **entrada** do recipiente de bolhas de **adfblobconnector.** A propriedade **externa** é definida como **verdadeira** para este conjunto de dados, uma vez que os dados não são produzidos pelo pipeline com a atividade de cópia que toma este conjunto de dados como uma entrada.

@@ -11,14 +11,14 @@ ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 691cdcb525f8e9e3d1fb914372b9f62366f4bfba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4c761404ab5a95bc0189407cc97ce779b66356fe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85213028"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460650"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-workload-classifier-using-the-azure-portal"></a>Quickstart: Criar um classificador de carga de trabalho de piscina Sinapse SQL utilizando o portal Azure
+# <a name="quickstart-create-a-dedicated-sql-pool-workload-classifier-using-the-azure-portal"></a>Quickstart: Criar um classificador dedicado à carga de trabalho da piscina SQL utilizando o portal Azure
 
 Neste arranque rápido, irá criar um [classificador de carga de trabalho](sql-data-warehouse-workload-classification.md) para atribuir consultas a um grupo de carga de trabalho.  O classificador atribuirá pedidos do `ELTLogin` utilizador SQL ao `DataLoads` grupo de carga de trabalho.   Siga o [Quickstart: Configurar](quickstart-configure-workload-isolation-portal.md) o tutorial de isolamento da carga de trabalho para criar o `DataLoads` grupo de carga de trabalho.  Este tutorial criará um classificador de carga de trabalho com a opção WLM_LABEL para ajudar a classificar os pedidos corretamente.  O classificador atribuirá `HIGH` [também importância](sql-data-warehouse-workload-importance.md) à carga de trabalho a estes pedidos.
 
@@ -31,16 +31,16 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 > [!NOTE]
-> A criação de uma 22 2019 em Azure Synapse Analytics pode resultar num novo serviço de faturação.  Para mais informações, consulte [os preços do Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> A criação de uma instância dedicada da piscina SQL no Azure Synapse Analytics pode resultar num novo serviço faturado.  Para mais informações, consulte [os preços do Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este quickstart pressupõe que já tem uma instância de piscina SQL em Synapse SQL e que tem permissões de BASE DE DADOS DE CONTROLO. Se precisar de criar um, utilize [Criar e Ligar - Portal](create-data-warehouse-portal.md) para criar um armazém de dados chamado **mySampleDataWarehouse**.
+Este quickstart pressupõe que já tem uma instância dedicada da piscina SQL que tem permissões de BASE DE DADOS DE CONTROLO. Se precisar de criar um, utilize o [portal Create and Connect -](create-data-warehouse-portal.md) para criar uma piscina SQL dedicada chamada **mySampleDataWarehouse**.
 <br><br>
 Existe um grupo de `DataLoads` trabalho.  Consulte o [Quickstart: Configurar](quickstart-configure-workload-isolation-portal.md) tutorial de isolamento de carga de trabalho para criar o grupo de carga de trabalho.
 <br><br>
 >[!IMPORTANT] 
->A sua piscina SQL deve estar online para configurar a gestão da carga de trabalho. 
+>A sua piscina SQL dedicada deve estar online para configurar a gestão da carga de trabalho. 
 
 
 ## <a name="create-a-login-for-eltlogin"></a>Criar um login para ELTLogin
@@ -72,18 +72,17 @@ END
 A classificação permite-lhe encaminhar os pedidos, com base num conjunto de regras, para um grupo de carga de trabalho.  No [Quickstart: Configure](quickstart-configure-workload-isolation-portal.md) o tutorial de isolamento da carga de trabalho criamos o `DataLoads` grupo de carga de trabalho.  Agora vai criar um classificador de carga de trabalho para encaminhar consultas para o `DataLoads` grupo de carga de trabalho.
 
 
-1.  Clique em **Azure Synapse Analytics (anteriormente SQL DW)** na página esquerda do portal Azure.
-2.  Selecione **mySampleDataWarehouse** a partir da página **Azure Synapse Analytics (anteriormente SQL DW).** A piscina SQL abre.
-3.  Clique **na gestão da carga de trabalho.**
+1.  Navegue para a sua página de piscina dedicada SQL **mySampleDataWarehouse.**
+3.  Selecione **gestão da carga de trabalho**.
 
     ![Clique no menu](./media/quickstart-create-a-workload-classifier-portal/menu.png)
 
-4.  Clique em **Definições & classificadores** no lado direito do grupo de `DataLoads` carga.
+4.  Selecione **Definições & classificadores** no lado direito do grupo de `DataLoads` carga de trabalho.
 
     ![Clique em Criar](./media/quickstart-create-a-workload-classifier-portal/settings-classifiers.png)
 
-5. Clique em **Classificadores**.
-6. Clique no **Adicionar classificador**.
+5. Selecione  **Não configurado** sob a coluna Classificadores.
+6. **Selecione + Adicionar classificador**.
 
     ![Clique em Adicionar](./media/quickstart-create-a-workload-classifier-portal/add-wc.png)
 
@@ -91,8 +90,8 @@ A classificação permite-lhe encaminhar os pedidos, com base num conjunto de re
 8.  `ELTLogin`Insira para **Membro**.
 9.  Escolha `High` para **a importância do pedido**.  *Opcional,* a importância normal é o predefinição.
 10. `fact_loads`Insira para **etiquetagem**.
-11. Clique em **Adicionar**.
-12. Clique em **Guardar**.
+11. Selecione **Adicionar**.
+12. Selecione **Guardar**.
 
     ![Clique em Config](./media/quickstart-create-a-workload-classifier-portal/config-wc.png)
 
@@ -135,9 +134,7 @@ WHERE [label] = 'fact_loads'
 ORDER BY submit_time DESC
 ```
 
-
-
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para eliminar o `ELTLoginDataLoads` classificador de carga de trabalho criado neste tutorial:
 
@@ -152,24 +149,20 @@ Para eliminar o `ELTLoginDataLoads` classificador de carga de trabalho criado ne
 
     ![Clicar em Guardar](./media/quickstart-create-a-workload-classifier-portal/delete-save-wc.png)
 
-Está a ser cobrado por unidades de armazém de dados e dados armazenados no seu armazém de dados. Estes recursos de computação e armazenamento são faturados em separado.
+Está a ser cobrado por unidades de armazém de dados e dados armazenados na sua piscina de SQL dedicada. Estes recursos de computação e armazenamento são faturados em separado.
 
-- Se quiser manter os dados no armazenamento, pode interromper a computação quando não estiver a utilizar o armazém de dados. Ao fazer uma pausa no cálculo, só é cobrado para armazenamento de dados. Quando estiver pronto para trabalhar com os dados, retome o cálculo.
-- Se quiser remover futuras cobranças, pode eliminar o armazém de dados.
+- Se quiser manter os dados armazenados, pode parar o cálculo quando não estiver a utilizar a sua piscina SQL dedicada. Ao fazer uma pausa no cálculo, só é cobrado para armazenamento de dados. Quando estiver pronto para trabalhar com os dados, retome o cálculo.
+- Se quiser remover as cargas futuras, pode eliminar a sua piscina SQL dedicada.
 
 Siga estes passos para limpar os recursos.
 
-1. Inscreva-se no [portal Azure,](https://portal.azure.com)selecione no seu armazém de dados.
+1. Inscreva-se no [portal Azure,](https://portal.azure.com)selecione a sua piscina SQL dedicada.
 
-    ![Limpar recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Limpar os recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Para parar o cálculo, selecione o **botão Pausa.** Quando o armazém de dados estiver em pausa, verá um botão **Iniciar**.  Para retomar o cálculo, selecione **Start**.
+2. Para parar o cálculo, selecione o **botão Pausa.** Quando a piscina SQL dedicada é pausada, vê-se um botão **Iniciar.**  Para retomar o cálculo, selecione **Start**.
 
-3. Para remover o armazém de dados para que não seja cobrado para calcular ou armazenar, selecione **Delete**.
-
-4. Para remover o servidor SQL que criou, selecione **sqlpoolservername.database.windows.net** na imagem anterior e, em seguida, selecione **Delete**.  Tenha cuidado com esta eliminação, uma vez que eliminar o servidor também elimina todas as bases de dados atribuídas ao mesmo.
-
-5. Para remover o grupo de recursos, selecione **myResourceGroup**e, em seguida, **selecione Delete resource group**.
+3. Para remover a sua piscina SQL dedicada para que não seja cobrado para computação ou armazenamento, selecione **Delete**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

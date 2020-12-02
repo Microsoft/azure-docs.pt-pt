@@ -12,17 +12,17 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 40572d50f7653539758ff892019e7e65b0ffa6dd
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: b4480f3d28cb89165a6ba3c5b26b10b1aba9765c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324895"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461844"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e o Azure CLI: Ativar a encriptação de dados transparente com a chave gerida pelo cliente a partir do Cofre da Chave Azure
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Este artigo percorre como usar uma chave do Cofre de Chaves Azure para encriptação de dados transparentes (TDE) na Base de Dados Azure SQL ou Azure Synapse Analytics (anteriormente SQL Data Warehouse). Para saber mais sobre o TDE com a integração do Azure Key Vault - Bring Your Own Key (BYOK) Support, visite [o TDE com chaves geridas pelo cliente no Cofre da Chave Azure](transparent-data-encryption-byok-overview.md).
+Este artigo percorre como usar uma chave do Cofre de Chaves Azure para encriptação de dados transparentes (TDE) na Base de Dados Azure SQL ou Azure Synapse Analytics. Para saber mais sobre o TDE com a integração do Azure Key Vault - Bring Your Own Key (BYOK) Support, visite [o TDE com chaves geridas pelo cliente no Cofre da Chave Azure](transparent-data-encryption-byok-overview.md).
 
 > [!NOTE] 
 > O Azure SQL suporta agora a utilização de uma chave RSA armazenada num HSM gerido como Protetor TDE. Esta funcionalidade está em **pré-visualização pública.** Azure Key Vault Managed HSM é um serviço de nuvem totalmente gerido, altamente disponível, de inquilino único, que permite proteger chaves criptográficas para as suas aplicações em nuvem, utilizando HSMs validados FIPS 140-2 Nível 3. Saiba mais sobre [HSMs geridos.](../../key-vault/managed-hsm/index.yml)

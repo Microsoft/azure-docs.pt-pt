@@ -1,6 +1,6 @@
 ---
 title: A consulta da loja resulta da piscina SQL sem servidor
-description: Neste artigo, você aprenderá a armazenar resultados de consulta para armazenamento usando piscina SQL sem servidor (pré-visualização).
+description: Neste artigo, você vai aprender a armazenar resultados de consulta para armazenamento usando piscina SQL sem servidor.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 50897d81ed5ef2fc33e458bd46d9229f6184fea8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: dd989d5925da864728e944e84962086c0cfb08ea
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322619"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462319"
 ---
-# <a name="store-query-results-to-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Armazenar resultados de consulta para armazenamento usando piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics
+# <a name="store-query-results-to-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Armazenar resultados de consulta para armazenamento usando piscina SQL sem servidor em Azure Synapse Analytics
 
-Neste artigo, você aprenderá a armazenar resultados de consulta para armazenamento usando piscina SQL sem servidor (pré-visualização).
+Neste artigo, você vai aprender a armazenar resultados de consulta para armazenamento usando piscina SQL sem servidor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

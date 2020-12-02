@@ -10,15 +10,15 @@ ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 2e76f48466d084d448cceea0490e44041e7d062e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: f61f2932ad9c6342a81ec05df335e9ea4d659fce
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212144"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461980"
 ---
-# <a name="connect-to-synapse-sql-pool-with-sqlcmd"></a>Conecte-se à piscina Sinaapse SQL com sqlcmd
+# <a name="connect-to-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Conecte-se à piscina SQL em Azure Synapse Analytics com sqlcmd
 
 > [!div class="op_single_selector"]
 >
@@ -32,10 +32,10 @@ Utilize o utilitário de linha de comando [sqlcmd] para ligar e consultar uma pi
 
 ## <a name="1-connect"></a>1. Ligar
 
-Para começar com [sqlcmd][sqlcmd], abra a solicitação de comando e introduza **sqlcmd** seguido pela cadeia de ligação para a sua base de dados de piscina SQL. A cadeia de ligação requer os parâmetros seguintes:
+Para começar com [sqlcmd][sqlcmd], abra a solicitação de comando e entre **em sqlcmd** seguido pela cadeia de ligação para a sua piscina SQL. A cadeia de ligação requer os parâmetros seguintes:
 
 * **Server (-S):** servidor sob a forma `<`Nome do Servidor`>`. database.windows.net
-* **Database (-d):** nome da base de dados.
+* **Base de dados (-d):** Nome da piscina SQL.
 * **Ativar identificadores citados (-I):** Os identificadores citados devem ser habilitados a ligar-se a uma placa de piscina SQL.
 
 Para utilizar a Autenticação do SQL Server tem de adicionar os parâmetros de nome de utilizador/palavra-passe:

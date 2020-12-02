@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
-ms.openlocfilehash: 0b445f9d4fdda0b1fac9dcdb4344533cfd7d37a9
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: fd3fa04d2d7e868476838788dd9cf0e27c07aeca
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491244"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461760"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Unidade de teste do Gestor de Recursos Azure
 
@@ -34,10 +34,10 @@ Um modelo de implementação contém todos os recursos Azure que compõem a sua 
 
   - **Frio** – Este tipo de ocorrência representa o número total de casos que podem ser implantados por região. As instâncias frias requerem que todo o modelo do Gestor de Recursos de Test Drive implemente quando um cliente solicita o test drive, por isso as instâncias *de frio* são muito mais lentas a carregar do que as instâncias *hot.* A troca é que só tem de pagar a duração do test drive, *nem* sempre está a funcionar na sua subscrição Azure como numa instância *Hot.*
 
-- **Test drive Modelo de Gestor de Recursos Azure** – Carreque o .zip contendo o seu modelo de Gestor de Recursos Azure. Saiba mais sobre a criação de um modelo de Gestor de Recursos Azure no artigo de arranque rápido [Criar e implementar modelos de Gestor de Recursos Azure utilizando o portal Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+- **Test drive Modelo de Gestor de Recursos Azure** – Carreque o .zip que contém o seu modelo de Gestor de Recursos Azure. Saiba mais sobre a criação de um modelo de Gestor de Recursos Azure no artigo de arranque rápido [Criar e implementar modelos de Gestor de Recursos Azure utilizando o portal Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
     > [!note]
-    > Para publicar com sucesso, é importante validar a formatação do modelo ARM. Duas formas de o fazer são (1) utilizando uma [ferramenta API online](https://docs.microsoft.com/rest/api/resources/deployments/validate) ou (2) com uma [implementação de teste](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal).
+    > Para publicar com sucesso, é importante validar a formatação do modelo ARM. Duas formas de o fazer são (1) utilizando uma [ferramenta API online](/rest/api/resources/deployments/validate) ou (2) com uma [implementação de teste](../azure-resource-manager/templates/deploy-portal.md).
 
 - **Duração do test drive** (obrigatório) – Introduza o número de horas em que o test drive permanecerá ativo. A unidade de teste termina automaticamente após o fim deste período de tempo. Utilize apenas números inteiros (por exemplo, "2" horas é válido, "1,5" não é).
 
@@ -73,7 +73,7 @@ Pode utilizar qualquer nome válido para os seus parâmetros; a unidade de teste
 
 ### <a name="accepted-parameter-metadata-types"></a>Tipos de metadados de parâmetros aceites
 
-| Tipo de metadados   | Tipo de parâmetro  | Description     | Valor da amostra    |
+| Tipo de metadados   | Tipo de parâmetro  | Descrição     | Valor da amostra    |
 |---|---|---|---|
 | **baseuri**     | string          | Base URI do seu pacote de implantação| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
 | **nome de utilizador**    | string          | Novo nome de utilizador aleatório.| administrador68876      |
@@ -336,7 +336,7 @@ A secção final a completar é poder implementar automaticamente as unidades de
 
    1. Selecione **Guardar**.
 
-7. Gere uma chave de autenticação **AD AD Azure.** Em **Teclas** , adicione uma **descrição da chave** , desembaraça a duração de Nunca **expira** (uma tecla expirada quebrará o seu test drive na produção), em seguida, selecione **Save**. Copie e cole este valor no campo de teste necessário.
+7. Gere uma chave de autenticação **AD AD Azure.** Em **Teclas**, adicione uma **descrição da chave**, desembaraça a duração de Nunca **expira** (uma tecla expirada quebrará o seu test drive na produção), em seguida, selecione **Save**. Copie e cole este valor no campo de teste necessário.
 
 ![Mostra as Chaves para a aplicação AD Azure](media/test-drive/azure-ad-app-keys.png)
 

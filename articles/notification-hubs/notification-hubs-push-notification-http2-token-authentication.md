@@ -16,12 +16,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8258aeef33be9192608f0d4cb29b46f08da64e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f8de6389a04448579672b84e91f0bb4dd0f4ce2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010635"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460461"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Autenticação baseada em token (HTTP/2) para APNS
 
@@ -78,9 +78,9 @@ As credenciais baseadas em token são compostas pelos seguintes campos:
 
 * **ID chave**: Identificador da chave privada gerada no portal Apple Developer; por exemplo, `2USFGKSKLT` . .
 * **ID da equipa**: Também chamado de "Prefixo" ou "Prefixo de aplicações". Este é o identificador da organização no portal Apple Developer; por exemplo, `S4V3D7CHJR` . .
-* **Bundle ID**: Também chamado de "App ID". Este é o identificador do pacote para a aplicação; por exemplo, `com.example.myapp` . . Note que pode usar uma chave para muitas aplicações. Este valor mapeia para o `apns-topic` cabeçalho HTTP ao enviar uma notificação, e é usado para direcionar a aplicação específica. Note que não pode definir explicitamente o valor. `apns-topic`
+* **Bundle ID**: Também chamado de "App ID". Este é o identificador do pacote para a aplicação; por exemplo, `com.example.myapp` . . Note que só pode usar uma chave para uma aplicação. Este valor mapeia para o `apns-topic` cabeçalho HTTP ao enviar uma notificação, e é usado para direcionar a aplicação específica. Não se pode definir explicitamente o `apns-topic` valor.
 * **Token**: Também chamado de "Chave" ou "Chave Privada". Isto é obtido a partir do ficheiro .p8 gerado no portal Apple Developer. A tecla deve ter APNS ativada (que é selecionada no portal Apple Developer ao gerar a chave). O valor deve ter o cabeçalho/rodapé PEM despojado dele quando o fornece ao Nh Portal/API.
-* Ponto final : **Trata-se**de um toggle na lâmina do portal 'Hubs de Notificação' e de um campo de cordas na API. Valores válidos são `https://api.development.push.apple.com:443/3/device` ou `https://api.sandbox.push.apple.com:443/3/device` . Os Centros de Notificação utilizam este valor para o ambiente de produção ou caixa de areia, para o envio de notificações. Isto deve corresponder ao `aps-environment` direito na aplicação, caso contrário os tokens do dispositivo APNS gerados não correspondem ao ambiente, e as notificações não são enviadas.
+* Ponto final : **Trata-se** de um toggle na lâmina do portal 'Hubs de Notificação' e de um campo de cordas na API. Valores válidos são `https://api.development.push.apple.com:443/3/device` ou `https://api.sandbox.push.apple.com:443/3/device` . Os Centros de Notificação utilizam este valor para o ambiente de produção ou caixa de areia, para o envio de notificações. Isto deve corresponder ao `aps-environment` direito na aplicação, caso contrário os tokens do dispositivo APNS gerados não correspondem ao ambiente, e as notificações não são enviadas.
 
 Aqui está uma amostra de código que ilustra o uso correto:
 

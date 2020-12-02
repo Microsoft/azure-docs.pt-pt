@@ -3,18 +3,18 @@ title: Definições de conectividade para Azure SQL Database e Azure Synapse Ana
 description: Este artigo explica a escolha da versão de Segurança da Camada de Transporte (TLS) e as definições de Proxy versus Redirect para Azure SQL Database e Azure Synapse Analytics.
 services: sql-database
 ms.service: sql-database
-titleSuffix: Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse)
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: 9856d71a6398bcea5b979788846afce17e7955f7
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e3422f468d1355245fb31e8f04d5f8625f583c37
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412984"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462189"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Definições de conectividade Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -104,12 +104,12 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 A definição mínima [de segurança da camada de transporte (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) permite que os clientes escolham qual a versão do TLS que a sua base de dados SQL utiliza.
 
-Atualmente, apoiamos TLS 1.0, 1.1 e 1.2. A definição de uma versão TLS mínima garante que as versões TLS mais recentes sejam suportadas. Por exemplo, escolher uma versão TLS superior a 1.1 significa apenas que são aceites ligações com TLS 1.1 e 1.2 e as ligações com tLS 1.0 são rejeitadas. Depois de testar para confirmar que as suas aplicações o suportam, recomendamos definir a versão mínima TLS para 1.2. Esta versão inclui correções para vulnerabilidades em versões anteriores e é a versão mais alta do TLS que é suportada na Base de Dados Azure SQL.
+Atualmente, suportamos o TLS 1.0, 1.1 e 1.2. A definição de uma versão mínima do TLS garante que as versões do TLS mais recentes são suportadas. Por exemplo, escolher uma versão do TLS superior a 1.1 significa que só as ligações com o TLS 1.1 e 1.2 são aceites e as ligações com o TLS 1.0 são rejeitadas. Depois de testar para confirmar que as aplicação o suportam, é recomendável definir a versão mínima do TLS como 1.2. Esta versão inclui correções para vulnerabilidades em versões anteriores e é a versão mais recente do TLS suportada na Base de Dados SQL do Azure.
 
 > [!IMPORTANT]
 > O padrão para a versão mínima TLS é permitir todas as versões. Depois de impor uma versão do TLS, não é possível reverter para o padrão.
 
-Para clientes com aplicações que dependem de versões mais antigas do TLS, recomendamos definir a versão TLS mínima de acordo com os requisitos das suas aplicações. Para os clientes que dependem de aplicações para se conectarem utilizando uma ligação não encriptada, recomendamos não definir qualquer versão TLS mínima.
+Para clientes com aplicações que dependem de versões mais antigas do TLS, recomendamos definir a versão mínima do TLS de acordo com os requisitos das aplicações. Para clientes que dependem de aplicações para se ligarem através de uma ligação não encriptada, recomendamos não definir nenhuma versão mínima do TLS.
 
 Para obter mais informações, consulte [considerações de TLS para a conectividade sql Database](connect-query-content-reference-guide.md#tls-considerations-for-database-connectivity).
 

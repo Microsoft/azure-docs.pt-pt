@@ -1,6 +1,6 @@
 ---
-title: Ficheiros De Consulta Parquet utilizando piscina SQL sem servidor (pré-visualização)
-description: Neste artigo, você aprenderá a consultar ficheiros Parquet usando piscina SQL sem servidor (pré-visualização).
+title: Ficheiros De Parquet de consulta usando piscina SQL sem servidor
+description: Neste artigo, você vai aprender a consultar ficheiros Parquet usando piscina SQL sem servidor.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 97b34d85e4628c0ef01dd02d3a9be85da7f8291e
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 20bfbaeea48711a680877e4d5d8f618e84eb12d7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685618"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462570"
 ---
-# <a name="query-parquet-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Ficheiros De Consulta Parquet utilizando piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics
+# <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Ficheiros De Parquet de consulta usando piscina SQL sem servidor em Azure Synapse Analytics
 
-Neste artigo, você aprenderá a escrever uma consulta usando a piscina SQL sem servidor (pré-visualização) que irá ler ficheiros Parquet.
+Neste artigo, você aprenderá a escrever uma consulta usando a piscina SQL sem servidor que irá ler ficheiros Parquet.
 
 ## <a name="quickstart-example"></a>Exemplo de arranque rápido
 
@@ -38,8 +38,8 @@ from openrowset(
 Certifique-se de que pode aceder a este ficheiro. Se o seu ficheiro estiver protegido com a chave SAS ou identidade Azure personalizada, terá de configurar a [credencial de nível do servidor para iniciar sessão de sessão](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
 > [!IMPORTANT]
-> Certifique-se de que está a utilizar algumas colagem de base de dados UTF-8 (por `Latin1_General_100_CI_AS_SC_UTF8` exemplo) porque os valores de cadeia nos ficheiros PARQUET estão codificados através da codificação UTF-8.
-> O desfasamento entre codificação de texto no ficheiro PARQUET e a colagem pode causar erros de conversão inesperados.
+> Certifique-se de que está a utilizar uma colagem de base de dados UTF-8 (por `Latin1_General_100_CI_AS_SC_UTF8` exemplo) porque os valores de cadeia nos ficheiros PARQUET estão codificados através da codificação UTF-8.
+> Um desfasamento entre a codificação de texto no ficheiro PARQUET e a colagem pode causar erros de conversão inesperados.
 > Pode alterar facilmente a colagem predefinida da base de dados atual utilizando a seguinte declaração T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>Utilização de fontes de dados
@@ -168,6 +168,6 @@ ORDER BY
 
 Para o mapeamento do tipo Parquet para mapeamento do tipo nativo [SQL, verifique o tipo de mapeamento para Parquet](develop-openrowset.md#type-mapping-for-parquet).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Avance para o próximo artigo para aprender a [questionar os tipos aninhados de Parquet](query-parquet-nested-types.md).

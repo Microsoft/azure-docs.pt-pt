@@ -1,6 +1,6 @@
 ---
 title: Tabelas de metadados partilhadas
-description: O Azure Synapse Analytics fornece um modelo de metadados partilhado onde a criação de uma tabela no conjunto Apache Spark sem servidor tornará acessível a partir de piscina SQL sem servidor (pré-visualização) e piscina DE SQL dedicada sem duplicar os dados.
+description: O Azure Synapse Analytics fornece um modelo de metadados partilhado onde a criação de uma tabela no conjunto Apache Spark sem servidor tornará acessível a partir de piscina SQL sem servidor e piscina DE SQL dedicada sem duplicar os dados.
 services: sql-data-warehouse
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,18 +10,17 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f269217908bea4b5e8ef3c0004a9cec9d5d682c7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9ee18edd563d94a85dedf48b7a4d6df394c09707
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314541"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461387"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Azure Synapse Analytics partilhou tabelas de metadados
 
-[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-O Azure Synapse Analytics permite que os diferentes motores computacionais do espaço de trabalho partilhem bases de dados e mesas apoiadas por Parquet entre as suas piscinas Apache Spark (pré-visualização) e piscina SQL sem servidor (pré-visualização).
+O Azure Synapse Analytics permite que os diferentes motores computacionais do espaço de trabalho partilhem bases de dados e mesas apoiadas por Parquet entre as suas piscinas Apache Spark e a piscina SQL sem servidor.
 
 Uma vez criada uma base de dados por uma função Spark, pode criar tabelas com a Spark que usam o Parquet como formato de armazenamento. Estas mesas ficarão imediatamente disponíveis para consulta por qualquer uma das piscinas de spark do espaço de trabalho Azure Synapse. Também podem ser usados a partir de qualquer um dos trabalhos de Faísca sujeitos a permissões.
 
@@ -87,9 +86,9 @@ As tabelas de faíscas fornecem diferentes tipos de dados do que os motores Syna
 
 As bases de dados e tabelas Spark, bem como as suas representações sincronizadas no motor SQL serão asseguradas ao nível de armazenamento subjacente. Uma vez que não têm atualmente permissões nos próprios objetos, os objetos podem ser vistos no explorador de objetos.
 
-O diretor de segurança que cria uma tabela gerida é considerado o proprietário dessa tabela e tem todos os direitos sobre a mesa, bem como as pastas e ficheiros subjacentes. Além disso, o proprietário da base de dados tornar-se-á automaticamente coproprietário da tabela.
+O principal de segurança que cria uma tabela gerida é considerado o proprietário dessa tabela e tem todos os direitos sobre a mesma, bem como sobre as pastas e ficheiros subjacentes. Além disso, o proprietário da base de dados passará automaticamente a ser coproprietário da tabela.
 
-Se criar uma tabela externa Spark ou SQL com a autenticação pass-through, os dados só são protegidos nos níveis de pasta e ficheiro. Se alguém consultar este tipo de tabela externa, a identidade de segurança do proponente de consulta é transmitida para o sistema de ficheiros, que verificará os direitos de acesso.
+Se criar uma tabela externa do Spark ou SQL com pass-through de autenticação, os dados só são protegidos aos níveis da pasta e do ficheiro. Se alguém consultar este tipo de tabela externa, a identidade de segurança do submissor da consulta é passada para o sistema de ficheiros, que verificará os direitos de acesso.
 
 Para obter mais informações sobre como definir permissões nas pastas e ficheiros, consulte [a base de dados partilhada Azure Synapse Analytics](database.md).
 

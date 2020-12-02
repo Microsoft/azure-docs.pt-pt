@@ -11,24 +11,24 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
-ms.openlocfilehash: f9dc11bd046bdc3a8913b4b05f1b68b84c9736c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c20508d27d03c00a6842979731fb905bbaa9def
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438454"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461255"
 ---
 # <a name="transformation-with-azure-databricks"></a>Transformação com o Azure Databricks
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, cria-se um pipeline de ponta a ponta que contém as **atividades**de **Validação,** Cópia e **Portátil** na Azure Data Factory.
+Neste tutorial, cria-se um pipeline de ponta a ponta que contém as **atividades** de **Validação,** Cópia e **Portátil** na Azure Data Factory.
 
 - **A validação** garante que o seu conjunto de dados de origem está pronto para consumo a jusante antes de desencadear o trabalho de cópia e análise.
 
 - **Os dados** de cópia duplicam o conjunto de dados de origem para o armazenamento da pia, que é montado como DBFS no caderno Azure Databricks. Desta forma, o conjunto de dados pode ser diretamente consumido pela Spark.
 
-- **O notebook** aciona o caderno Databricks que transforma o conjunto de dados. Adiciona também o conjunto de dados a uma pasta processada ou a Azure Azure Synapse Analytics (anteriormente SQL Data Warehouse).
+- **O notebook** aciona o caderno Databricks que transforma o conjunto de dados. Adiciona também o conjunto de dados a uma pasta processada ou a Azure Azure Synapse Analytics.
 
 Para simplificar, o modelo neste tutorial não cria um gatilho programado. Pode adicionar um, se necessário.
 
@@ -56,29 +56,29 @@ Para importar um caderno **de transformação** para o seu espaço de trabalho D
 
    No caderno importado, vá ao **comando 5,** como mostrado no seguinte corte de código.
 
-   - Substitua `<storage name>` e `<access key>` por informações de ligação de armazenamento próprias.
+   - Substitua `<storage name>` e `<access key>` por informações de ligação de armazenamento próprias.
    - Utilize a conta de armazenamento com o `sinkdata` recipiente.
 
     ```python
-    # Supply storageName and accessKey values  
-    storageName = "<storage name>"  
-    accessKey = "<access key>"  
+    # Supply storageName and accessKey values  
+    storageName = "<storage name>"  
+    accessKey = "<access key>"  
 
-    try:  
-      dbutils.fs.mount(  
-        source = "wasbs://sinkdata\@"+storageName+".blob.core.windows.net/",  
-        mount_point = "/mnt/Data Factorydata",  
-        extra_configs = {"fs.azure.account.key."+storageName+".blob.core.windows.net": accessKey})  
+    try:  
+      dbutils.fs.mount(  
+        source = "wasbs://sinkdata\@"+storageName+".blob.core.windows.net/",  
+        mount_point = "/mnt/Data Factorydata",  
+        extra_configs = {"fs.azure.account.key."+storageName+".blob.core.windows.net": accessKey})  
 
-    except Exception as e:  
-      # The error message has a long stack track. This code tries to print just the relevant line indicating what failed.
+    except Exception as e:  
+      # The error message has a long stack track. This code tries to print just the relevant line indicating what failed.
 
-    import re
-    result = re.findall(r"\^\s\*Caused by:\s*\S+:\s\*(.*)\$", e.message, flags=re.MULTILINE)
-    if result:
-      print result[-1] \# Print only the relevant error message
-    else:  
-      print e \# Otherwise print the whole stack trace.  
+    import re
+    result = re.findall(r"\^\s\*Caused by:\s*\S+:\s\*(.*)\$", e.message, flags=re.MULTILINE)
+    if result:
+      print result[-1] \# Print only the relevant error message
+    else:  
+      print e \# Otherwise print the whole stack trace.  
     ```
 
 1. Gere um **token de acesso databricks para** data factory para aceder a Databricks.
@@ -126,7 +126,7 @@ Para importar um caderno **de transformação** para o seu espaço de trabalho D
 
 No novo oleoduto, a maioria das definições são configuradas automaticamente com valores predefinidos. Reveja as configurações do seu pipeline e faça as alterações necessárias.
 
-1. No **pavilhão de disponibilidade**da atividade de **validação,** verifique se o valor do **Conjunto de Dados** de origem está definido para `SourceAvailabilityDataset` o que criou anteriormente.
+1. No **pavilhão de disponibilidade** da atividade de **validação,** verifique se o valor do **Conjunto de Dados** de origem está definido para `SourceAvailabilityDataset` o que criou anteriormente.
 
    ![Valor do conjunto de dados de origem](media/solution-template-Databricks-notebook/validation-settings.png)
 
@@ -136,7 +136,7 @@ No novo oleoduto, a maioria das definições são configuradas automaticamente c
 
    - **Separador de** pia ![ Tab Sink](media/solution-template-Databricks-notebook/copy-sink-settings.png)
 
-1. Na **transformação**da atividade do **Caderno,** reveja e atualize os caminhos e configurações conforme necessário.
+1. Na **transformação** da atividade do **Caderno,** reveja e atualize os caminhos e configurações conforme necessário.
 
    **O serviço ligado aos dados** deve ser pré-povoado com o valor de um passo anterior, como mostrado: ![ Valor povoado para o serviço ligado databricks](media/solution-template-Databricks-notebook/notebook-activity.png)
 

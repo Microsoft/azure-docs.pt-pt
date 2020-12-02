@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 09/29/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a543f03cb73d9eae8eaa81eeb3a37fd59e4e6a81
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 9ae13b88d767e43c425ceb86d0be455cebc0e6ac
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685805"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462529"
 ---
 # <a name="common-error-codes-for-azure-key-vault"></a>Códigos de erro comuns para Azure Key Vault
 
@@ -22,7 +22,7 @@ Os códigos de erro listados na tabela seguinte podem ser devolvidos por uma ope
 
 | Código de erro | Mensagem de utilizador |
 |--|--|
-| VaultAlreadyExists |  A sua tentativa de criar um novo cofre-chave com o nome especificado falhou uma vez que o nome já está em uso. Se apagou recentemente um cofre com este nome, pode ainda estar no estado de apagação suave. Pode verificar se o existiu em estado de soft-deleed [aqui](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault) |
+| VaultAlreadyExists |  A sua tentativa de criar um novo cofre-chave com o nome especificado falhou uma vez que o nome já está em uso. Se apagou recentemente um cofre com este nome, pode ainda estar no estado de apagação suave. Pode verificar se o existiu em estado de soft-deleed [aqui](./key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault) |
 | VaultNameNotValid |  O nome do cofre deve ser 24 char, alfanumérico e começar com um alfabeto |
 | AcessoDenied |  Podes estar a perder permissões na política de acesso para fazer essa operação. |
 | Proibido PorFirewall |  O endereço do cliente não é autorizado e o chamador não é um serviço de confiança. |
@@ -34,7 +34,7 @@ Os códigos de erro listados na tabela seguinte podem ser devolvidos por uma ope
 | CertificadoSExpired |  Verifique a data de validade e o prazo de validade do certificado. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o guia de desenvolvedores do [Azure Key Vault](developers-guide.md)
 - Ler mais sobre [autenticação no cofre da Chave](authentication.md)

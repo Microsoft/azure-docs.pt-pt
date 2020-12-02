@@ -1,5 +1,5 @@
 ---
-title: O que é a segurança ao nível da coluna para a Azure Synapse?
+title: Segurança ao nível da coluna para piscina SQL dedicada
 description: Column-Level Security permite que os clientes controlem o acesso a colunas de mesa de base com base no contexto de execução ou membro do grupo do utilizador, simplificando o design e codificação de segurança na sua aplicação, e permitindo-lhe implementar restrições no acesso à coluna.
 services: synapse-analytics
 author: julieMSFT
@@ -12,19 +12,19 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: f8bb40f9c80a0785c81c7aeacf783553bf73aa90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 817a912dabfc5365eabe8e0dabd7e0b40e40c525
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259888"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462508"
 ---
 # <a name="column-level-security"></a>Segurança ao nível da coluna
 
-Column-Level Security permite que os clientes controlem o acesso a colunas de mesa com base no contexto de execução do utilizador ou na adesão ao grupo.
+Column-Level segurança permite que os clientes controlem o acesso a colunas de mesa com base no contexto de execução do utilizador ou na adesão ao grupo.
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Desde que este vídeo foi [publicado, a Segurança de nível de linha](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) ficou disponível para Azure Synapse.
+Desde que este vídeo foi [publicado, a Row level Security](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) tornou-se disponível para piscina SQL dedicada em Azure Synapse.
 
 A segurança ao nível da coluna simplifica a conceção e codificação da segurança na sua aplicação, permitindo-lhe restringir o acesso à coluna para proteger dados sensíveis. Por exemplo, garantir que utilizadores específicos só podem aceder a determinadas colunas de uma tabela pertinentes ao seu departamento. A lógica de restrição de acesso está localizada no nível da base de dados e não longe dos dados de outro nível de aplicação. A base de dados aplica as restrições de acesso sempre que o acesso aos dados é tentado a partir de qualquer nível. Esta restrição torna a sua segurança mais fiável e robusta reduzindo a área de superfície do seu sistema de segurança global. Além disso, a segurança ao nível das colunas também elimina a necessidade de introduzir pontos de vista para filtrar colunas para impor restrições de acesso aos utilizadores.
 
@@ -85,5 +85,5 @@ SELECT * FROM Membership;
 
 Alguns exemplos de como a segurança ao nível das colunas está a ser utilizada hoje em dia:
 
-- Uma empresa de serviços financeiros permite que apenas os gestores de conta tenham acesso aos números de segurança social dos clientes (SSN), números de telefone e outras informações pessoalmente identificáveis (PII).
+- Uma empresa de serviços financeiros permite que apenas os gestores de conta tenham acesso aos números de segurança social dos clientes (SSN), números de telefone e outros dados pessoais.
 - Um prestador de cuidados de saúde permite que apenas médicos e enfermeiros tenham acesso a registos médicos sensíveis, impedindo os membros do departamento de faturação de visualizarem estes dados.

@@ -3,12 +3,12 @@ title: Cofre de Chaves Azure como fonte de grade de eventos
 description: Descreve as propriedades e esquemas fornecidos para eventos Azure Key Vault com Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b3d961228429c1f84e45c1df9147fa1687ab5074
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 605502794f2f3aa4f4edd14b49efda5003b91146
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324081"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460406"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Cofre de Chaves Azure como fonte de grade de eventos
 
@@ -85,5 +85,5 @@ Um evento tem os seguintes dados de alto nível:
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
 * Para obter mais informações sobre como criar uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Grade de Eventos.](subscription-creation-schema.md)
-* Para mais informações sobre key VAult, veja [o que é Azure Key Vault?](../key-vault/general/overview.md)
+* Para mais informações sobre o Key Vault, veja [o que é o Cofre da Chave Azure?](../key-vault/general/overview.md)
 
