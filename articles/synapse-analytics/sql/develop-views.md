@@ -1,6 +1,6 @@
 ---
 title: Vistas T-SQL usando piscinas SQL
-description: Dicas para a utilização de vistas T-SQL e desenvolvimento de soluções com piscina SQL dedicada e piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics..
+description: Dicas para a utilização de vistas T-SQL e desenvolvimento de soluções com piscina SQL dedicada e piscina SQL sem servidor em Azure Synapse Analytics..
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5097c35d97e33ef2d6fa0be12c796bf7e4e06950
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6fb75257a86e9e46d6c180a2a38193adecb2b36a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685737"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451686"
 ---
-# <a name="t-sql-views-with-dedicated-sql-pool-and-serverless-sql-pool-preview--in-azure-synapse-analytics"></a>Vistas T-SQL com piscina SQL dedicada e piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics
+# <a name="t-sql-views-with-dedicated-sql-pool-and-serverless-sql-pool-in-azure-synapse-analytics"></a>Vistas T-SQL com piscina SQL dedicada e piscina SQL sem servidor em Azure Synapse Analytics
 
-Neste artigo, você encontrará dicas para usar vistas T-SQL e desenvolver soluções com piscina SQL dedicada e piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics.
+Neste artigo, você encontrará dicas para usar vistas T-SQL e desenvolver soluções com piscina SQL dedicada e piscina SQL sem servidor em Azure Synapse Analytics.
 
 ## <a name="why-use-views"></a>Por que usar vistas
 
@@ -72,7 +72,7 @@ As vistas no Synapse SQL são armazenadas apenas como metadados. Consequentement
 * Não há suporte para as dicas EXPAND / NOEXPAND
 * Não existem pontos de vista indexados no SQL de Sinaapse
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais dicas de desenvolvimento, consulte a visão geral do [desenvolvimento do Synapse SQL.](develop-overview.md)
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 291a5850540ea7d7d24a4a544c1eb65183df8ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a5c5f9a4033b70a664071d6077a69f38c905093
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667746"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452216"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Melhores práticas para a utilização do Azure Data Lake Storage Gen1
 
@@ -37,7 +37,7 @@ Uma vez que um grupo de segurança é atribuído permissões, adicionar ou remov
 
 ### <a name="security-for-groups"></a>Segurança para grupos
 
-Como discutido, quando os utilizadores precisam de acesso à Data Lake Storage Gen1, o melhor é usar grupos de segurança do Azure Ative Directory. Alguns grupos recomendados para começar podem ser **ReadOnlyUsers**, **WriteAccessUsers**e **FullAccessUsers** para a raiz da conta, e até mesmo os separados para subfolders chave. Se houver outros grupos de utilizadores antecipados que possam ser adicionados mais tarde, mas que ainda não foram identificados, poderá considerar a criação de grupos de segurança falsos que tenham acesso a determinadas pastas. A utilização do grupo de segurança garante que mais tarde não precisa de muito tempo de processamento para atribuir novas permissões a milhares de ficheiros.
+Como discutido, quando os utilizadores precisam de acesso à Data Lake Storage Gen1, o melhor é usar grupos de segurança do Azure Ative Directory. Alguns grupos recomendados para começar podem ser **ReadOnlyUsers**, **WriteAccessUsers** e **FullAccessUsers** para a raiz da conta, e até mesmo os separados para subfolders chave. Se houver outros grupos de utilizadores antecipados que possam ser adicionados mais tarde, mas que ainda não foram identificados, poderá considerar a criação de grupos de segurança falsos que tenham acesso a determinadas pastas. A utilização do grupo de segurança garante que mais tarde não precisa de muito tempo de processamento para atribuir novas permissões a milhares de ficheiros.
 
 ### <a name="security-for-service-principals"></a>Segurança para os diretores de serviços
 
@@ -45,11 +45,11 @@ Os principais do serviço Azure Ative Directory são normalmente utilizados por 
 
 ### <a name="enable-the-data-lake-storage-gen1-firewall-with-azure-service-access"></a>Ativar a firewall gen1 de armazenamento de data lake com acesso ao serviço Azure
 
-Data Lake Storage Gen1 suporta a opção de ligar uma firewall e limitar o acesso apenas aos serviços Azure, que é recomendado para um vetor de ataque menor de intrusões externas. Firewall pode ser ativado na conta Desejamento de Armazenamento de Dados Gen1 no portal Azure através do **Firewall**  >  **Enable Firewall (ON)**  >  Permitir o acesso às opções de**serviços Azure.**
+Data Lake Storage Gen1 suporta a opção de ligar uma firewall e limitar o acesso apenas aos serviços Azure, que é recomendado para um vetor de ataque menor de intrusões externas. Firewall pode ser ativado na conta Desejamento de Armazenamento de Dados Gen1 no portal Azure através do **Firewall**  >  **Enable Firewall (ON)**  >  Permitir o acesso às opções de **serviços Azure.**
 
 ![Definições de firewall na Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Definições de firewall na Data Lake Storage Gen1")
 
-Uma vez ativada a firewall, apenas os serviços Azure tais como HDInsight, Data Factory, Azure Synapse Analytics (anteriormente SQL Data Warehouse), etc. têm acesso a Data Lake Storage Gen1. Devido à tradução interna do endereço de rede utilizada pelo Azure, a firewall da Data Lake Storage Gen1 não suporta a restrição de serviços específicos por IP e destina-se apenas a restrições de pontos finais fora de Azure, como no local.
+Uma vez ativada a firewall, apenas os serviços Azure tais como HDInsight, Data Factory, Azure Synapse Analytics, etc. têm acesso à Data Lake Storage Gen1. Devido à tradução interna do endereço de rede utilizada pelo Azure, a firewall da Data Lake Storage Gen1 não suporta a restrição de serviços específicos por IP e destina-se apenas a restrições de pontos finais fora de Azure, como no local.
 
 ## <a name="performance-and-scale-considerations"></a>Considerações de desempenho e escala
 
@@ -142,7 +142,7 @@ Se o envio de registos gen1 de armazenamento de dados não estiver ligado, o Azu
 
 `log4j.logger.com.microsoft.azure.datalake.store=DEBUG`
 
-Uma vez que a propriedade é definida e os nós são reiniciados, os diagnósticos da Gen1 de armazenamento de dados são escritos nos registos YARN nos nós (/tmp/ \<user\> /yarn.log), e detalhes importantes como erros ou estrangulamento (código de erro HTTP 429) podem ser monitorizados. Estas mesmas informações também podem ser monitorizadas nos registos do Azure Monitor ou onde quer que os registos sejam enviados para a lâmina de diagnóstico da conta Desíduo de Armazenamento de [Dados](data-lake-store-diagnostic-logs.md) Gen1. Recomenda-se, pelo menos, que o registo do lado do cliente seja ligado ou utilize a opção de envio de registos com a Data Lake Storage Gen1 para visibilidade operacional e depuração mais fácil.
+Uma vez que a propriedade é definida e os nós são reiniciados, os diagnósticos da Gen1 de armazenamento de dados são escritos nos registos YARN nos nós (/tmp/ \<user\> /fios.log), e detalhes importantes como erros ou estrangulamento (código de erro HTTP 429) podem ser monitorizados. Estas mesmas informações também podem ser monitorizadas nos registos do Azure Monitor ou onde quer que os registos sejam enviados para a lâmina de diagnóstico da conta Desíduo de Armazenamento de [Dados](data-lake-store-diagnostic-logs.md) Gen1. Recomenda-se, pelo menos, que o registo do lado do cliente seja ligado ou utilize a opção de envio de registos com a Data Lake Storage Gen1 para visibilidade operacional e depuração mais fácil.
 
 ### <a name="run-synthetic-transactions"></a>Executar transações sintéticas
 

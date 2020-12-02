@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 38b4713383368f0c64983738f2ed65f60edb9e67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e58dcf8206ae9feab4d8a09517bf9efda244dd5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334094"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451570"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: Automatizar tarefas para processar e-mails utilizando apps Azure Logic, Funções Azure e Armazenamento Azure
 
@@ -160,7 +160,7 @@ Agora, utilize o fragmento de código fornecido nestes passos para criar uma fun
 
    ![Aplicação de funções criada](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
 
-   Para criar uma aplicação de função, também pode utilizar os modelos [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md), ou [PowerShell e Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
+   Para criar uma aplicação de função, também pode utilizar os modelos [Azure CLI](../azure-functions/create-first-function-cli-csharp.md), ou [PowerShell e Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
 
 1. Na lista **de Aplicações de Função,** expanda a sua aplicação de função, se não já expandida. No âmbito da sua aplicação de funções, selecione **Funções**. Na barra de ferramentas das funções, selecione **Nova função**.
 
@@ -172,7 +172,7 @@ Agora, utilize o fragmento de código fornecido nestes passos para criar uma fun
 
    O Azure cria uma função utilizando um modelo específico do idioma para uma função desencadeada http.
 
-1. No painel **Nova Função**, em **Nome**, introduza `RemoveHTMLFunction`. Mantenha o **nível de Autorização** definido para **Função**e selecione **Criar**.
+1. No painel **Nova Função**, em **Nome**, introduza `RemoveHTMLFunction`. Mantenha o **nível de Autorização** definido para **Função** e selecione **Criar**.
 
    ![Dê um nome à sua função](./media/tutorial-process-email-attachments-workflow/function-provide-name.png)
 
@@ -363,7 +363,7 @@ Agora, teste para verificar se a condição funciona corretamente:
 
 1. Envie um e-mail para si próprio que cumpra estes critérios:
 
-   * O seu email tem o texto especificado no **filtro Subject**do gatilho: `Business Analyst 2 #423501`
+   * O seu email tem o texto especificado no **filtro Subject** do gatilho: `Business Analyst 2 #423501`
 
    * O e-mail tem um anexo. Por agora, crie apenas um ficheiro de texto vazia e anexe-o ao e-mail.
 
@@ -470,7 +470,7 @@ Agora, teste se a sua aplicação lógica processa os e-mails da forma que espec
 
 1. Envie um e-mail para si próprio que cumpra estes critérios:
 
-   * O seu email tem o texto especificado no **filtro Subject**do gatilho: `Business Analyst 2 #423501`
+   * O seu email tem o texto especificado no **filtro Subject** do gatilho: `Business Analyst 2 #423501`
 
    * O e-mail tem, pelo menos, um anexo. Por enquanto, basta criar um ficheiro de texto vazio e anexar esse ficheiro ao seu e-mail.
 
@@ -603,7 +603,7 @@ Em seguida, adicione uma ação para que a sua aplicação lógica envia um e-ma
    | ------- | ----- | ----- |
    | **Para** | <*destinatário-endereço de e-mail*> | Para fins de teste, pode utilizar o seu próprio endereço de e-mail. |
    | **Assunto**  | ```ASAP - Review applicant for position:``` **Assunto** | O assunto do e-mail que pretende incluir. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione o campo **Assunto** em **Quando é recebido um novo e-mail**. |
-   | **Corpo** | ```Please review new applicant:``` <p>```Applicant name:```**De** <p>```Application file location:```**Caminho** <p>```Application email content:``` **Corpo** | O conteúdo do corpo do e-mail. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione estes campos: <p>- **From**, em **When a new email arrives** </br>- **Path**, em **Create blob for email body** </br>- **Body**, em **Call RemoveHTMLFunction to clean email body** |
+   | **Corpo** | ```Please review new applicant:``` <p>```Applicant name:```**De** <p>```Application file location:``` **Caminho** <p>```Application email content:``` **Corpo** | O conteúdo do corpo do e-mail. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione estes campos: <p>- **From**, em **When a new email arrives** </br>- **Path**, em **Create blob for email body** </br>- **Body**, em **Call RemoveHTMLFunction to clean email body** |
    ||||
 
    > [!NOTE]

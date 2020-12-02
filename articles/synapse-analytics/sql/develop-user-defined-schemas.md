@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5d167ef06e8319004a1f33bead29485b22abc3d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6920d6cd190927747a69fc4dc0f0791278665abe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685788"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451702"
 ---
 # <a name="user-defined-schemas-within-synapse-sql"></a>Esquemas definidos pelo utilizador dentro do SQL da Sinapse
 
@@ -27,7 +27,7 @@ A arquitetura de análise tradicional usa frequentemente bases de dados separada
 Em vez disso, o Synapse SQL executa toda a carga de trabalho analítica dentro de uma base de dados. Não são permitidas juntas de base de dados cruzadas. A Synapse SQL espera que todas as tabelas utilizadas pelo armazém sejam armazenadas dentro de uma base de dados.
 
 > [!NOTE]
-> Piscinas SQL dedicadas não suportam consultas de base de dados cruzadas de qualquer tipo. Consequentemente, as implementações analíticas que alavancam este padrão terão de ser revistas. O pool SQL sem servidor (pré-visualização) suporta consultas de base de dados cruzadas.
+> Piscinas SQL dedicadas não suportam consultas de base de dados cruzadas de qualquer tipo. Consequentemente, as implementações analíticas que alavancam este padrão terão de ser revistas. A piscina SQL sem servidor suporta consultas de base de dados cruzadas.
 
 ## <a name="user-defined-schema-recommendations"></a>Recomendações de esquema definidas pelo utilizador
 
@@ -120,6 +120,6 @@ FROM    [edw].customer
 
 Se forem necessárias mais permissões granulares, pode utilizar funções de base de dados. Para obter mais informações sobre as funções de base de dados, consulte as [funções de base de dados Gerir e artigos de utilizadores.](../../analysis-services/analysis-services-database-users.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais dicas de desenvolvimento, consulte a visão geral do [desenvolvimento do Synapse SQL.](develop-overview.md)

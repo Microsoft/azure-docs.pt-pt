@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Use a piscina SQL sem servidor'
-description: Neste arranque rápido, você verá e aprenderá como é fácil consultar vários tipos de ficheiros usando piscina SQL sem servidor (pré-visualização).
+description: Neste arranque rápido, você verá e aprenderá como é fácil consultar vários tipos de ficheiros usando piscina SQL sem servidor.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,22 +9,22 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 270942392e028964c7e9b1c110e4d9f118bd4953
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: e75bab664bdd0d6a4ac898905226c9956f62b4ff
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682983"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450503"
 ---
 # <a name="quickstart-use-serverless-sql-pool"></a>Quickstart: Use a piscina SQL sem servidor
 
-Synapse serverless SQL pool (pré-visualização) é um serviço de consulta sem servidor que lhe permite executar consultas SQL em ficheiros colocados no Azure Storage. Neste arranque rápido, você vai aprender a consultar vários tipos de ficheiros usando piscina SQL sem servidor. Os formatos suportados estão listados em [OPENROWSET](sql/develop-openrowset.md).
+Synapse serverless SQL pool é um serviço de consulta sem servidor que permite executar consultas SQL em ficheiros colocados no Azure Storage. Neste arranque rápido, você vai aprender a consultar vários tipos de ficheiros usando piscina SQL sem servidor. Os formatos suportados estão listados em [OPENROWSET](sql/develop-openrowset.md).
 
 Este quickstart mostra consultas: ficheiros CSV, Apache Parquet e JSON.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Escolha um cliente SQL para emitir consultas:
+Escolha um cliente do SQL para emitir consultas:
 
 - [O Azure Synapse Studio](quickstart-synapse-studio.md) é uma ferramenta web que pode usar para navegar em ficheiros no armazenamento e criar consultas SQL.
 - [O Azure Data Studio](sql/get-started-azure-data-studio.md) é uma ferramenta de cliente que lhe permite executar consultas e cadernos SQL na sua base de dados On demand.
@@ -178,7 +178,7 @@ WHERE
 > [!IMPORTANT]
 > Estamos a ler todo o ficheiro JSON como uma única linha/coluna. Assim, o FIELDTERMINATOR, o FIELDQUOTE e o ROWTERMINATOR estão definidos para 0x0b porque não esperamos encontrá-lo no ficheiro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Está agora pronto para continuar com os seguintes artigos:
 

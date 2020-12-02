@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: ceecaf88f87a94473011eb48e944db7a011b3acc
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 943f1361a2a9d6bf8d891f8b4f2137b8738f0836
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563788"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450762"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de encomendas na análise do mercado comercial
 
@@ -21,7 +21,7 @@ Este artigo fornece informações sobre o dashboard encomendas no Partner Center
 Para aceder ao dashboard de Encomendas no Centro de Parceiros, no **Mercado Comercial,** selecione **[Ordens de Análise](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **Orders**.
 
 >[!NOTE]
-> Para definições detalhadas de terminologia analítica, consulte [terminologia de análise de mercado comercial e questões comuns.](./partner-center-portal/faq-terminology.md)
+> Para definições detalhadas de terminologia analítica, consulte [terminologia de análise de mercado comercial e questões comuns.](./analytics-faq.md)
 
 ## <a name="orders-dashboard"></a>Dashboard de pedidos
 
@@ -69,9 +69,9 @@ As **Encomendas por assento e** gráfico de linha baseado no site representam a 
 
 As ofertas do SaaS podem utilizar um de dois modelos de preços com cada plano: taxa fixa (baseada no site) ou por utilizador (à base de assentos).
 
-- **Taxa fixa** : Permita o acesso à sua oferta com um preço fixo único mensal ou anual. Isto é por vezes referido como preços baseados no site.
-- **Por utilizador** : Ative o acesso à sua oferta com um preço baseado no número de utilizadores que podem aceder à oferta ou ocupar lugares. Com este modelo baseado em utilização, pode definir o número mínimo e máximo de utilizadores suportados pelo plano. Pode criar vários planos para configurar diferentes pontos de preço com base no número de utilizadores. Estes campos são opcionais. Se não for selecionado, o número de utilizadores será interpretado como não tendo um limite (min de 1 e máximo de tantos quantos o seu serviço pode suportar). Estes campos podem ser editados como parte de uma atualização do seu plano.
-- **Faturação medido** : Em cima do preço fixo. Com este modelo de preços, pode definir opcionalmente planos medidos que usam o serviço de medição de mercado API para cobrar aos clientes pelo uso que não está coberto pela taxa fixa.
+- **Taxa fixa**: Permita o acesso à sua oferta com um preço fixo único mensal ou anual. Isto é por vezes referido como preços baseados no site.
+- **Por utilizador**: Ative o acesso à sua oferta com um preço baseado no número de utilizadores que podem aceder à oferta ou ocupar lugares. Com este modelo baseado em utilização, pode definir o número mínimo e máximo de utilizadores suportados pelo plano. Pode criar vários planos para configurar diferentes pontos de preço com base no número de utilizadores. Estes campos são opcionais. Se não for selecionado, o número de utilizadores será interpretado como não tendo um limite (min de 1 e máximo de tantos quantos o seu serviço pode suportar). Estes campos podem ser editados como parte de uma atualização do seu plano.
+- **Faturação medido**: Em cima do preço fixo. Com este modelo de preços, pode definir opcionalmente planos medidos que usam o serviço de medição de mercado API para cobrar aos clientes pelo uso que não está coberto pela taxa fixa.
 
 Para mais detalhes sobre assento, site e faturação baseada em contadores, consulte [Como planear uma oferta SaaS para o mercado comercial.](plan-saas-offer.md)
 
@@ -135,7 +135,7 @@ A tabela de detalhes da Ordem apresenta uma lista numerada das 1.000 principais 
 | Nome da Oferta | Nome da Oferta | O nome da oferta do mercado comercial. |
 | Data de Fim do Julgamento | Data de Fim do Julgamento | A data do período experimental para esta ordem terminará ou terminou. |
 | ID do cliente | ID de Cliente | O identificador único atribuído a um cliente. Um cliente pode ter zero ou mais subscrições do Azure Marketplace. |
-| ID de conta de faturação | ID de conta de faturação | O identificador da conta em que a faturação é gerada. Mapa _ *ID de conta de faturação* * ao **clienteID** para ligar o seu Relatório de Transações de Pagamento com os Relatórios de Cliente, Ordem e Utilização. |
+| ID de conta de faturação | ID de conta de faturação | O identificador da conta em que a faturação é gerada. Mapa _ *ID de conta de faturação** ao **clienteID** para ligar o seu Relatório de Transações de Pagamento com os Relatórios de Cliente, Ordem e Utilização. |
 | Conta de Ativos | Contagem de ativos | O número de ativos associados à identificação da encomenda. |
 ||||
 
@@ -154,4 +154,4 @@ Os filtros da página **Ordens** são aplicados ao nível da página Encomendas.
 - Para Máquina Virtual (VM) oferece métricas de utilização e faturação medido, consulte [o painel de uso em análise de mercado comercial.](./usage-dashboard.md)
 - Para obter uma lista dos seus pedidos de descarregamento nos últimos 30 dias, consulte [downloads dashboard em análise de mercado comercial.](./partner-center-portal/downloads-dashboard.md)
 - Para ver uma visão consolidada do feedback do cliente para as ofertas no Azure Marketplace e appSource, consulte [o painel de avaliação de avaliações & ratings no Partner Center](./partner-center-portal/ratings-reviews.md).
-- Para perguntas frequentes sobre análise de mercado comercial e para um dicionário abrangente de termos de dados, consulte a terminologia de análise de [mercado comercial e questões comuns.](./partner-center-portal/faq-terminology.md)
+- Para perguntas frequentes sobre análise de mercado comercial e para um dicionário abrangente de termos de dados, consulte a terminologia de análise de [mercado comercial e questões comuns.](./analytics-faq.md)

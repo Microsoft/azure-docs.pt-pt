@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: fe911ac8985f9997125eb5149348b50a7fa83222
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 702a59f768bfe978e1a7708d91c6b6b1bb9c92fe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109260"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452234"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Utilização do Azure Data Lake Storage Gen1 para grandes requisitos de dados
 
@@ -130,5 +130,5 @@ Você pode usar uma mistura de serviços para criar representações visuais de 
 
 ![Visualizar dados em Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/visualize-data.png "Visualizar dados em Data Lake Storage Gen1")
 
-* Pode começar por utilizar [a Azure Data Factory para transferir dados da Data Lake Storage Gen1 para a Azure Synapse Analytics (anteriormente SQL Data Warehouse)](../data-factory/copy-activity-overview.md)
+* Pode começar por utilizar [a Azure Data Factory para transferir dados da Data Lake Storage Gen1 para a Azure Synapse Analytics](../data-factory/copy-activity-overview.md)
 * Depois disso, pode [integrar o Power BI com o Azure Synapse Analytics](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect) para criar representação visual dos dados.

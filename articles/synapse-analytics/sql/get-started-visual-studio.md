@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: a284e453a621860c0aebf68bef13d30e77971f88
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ef8e2a3d1a6b78e8f2b6b9a900ed2485c1a4a5d7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686162"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451587"
 ---
-# <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Conecte-se ao SYNapse SQL com o Visual Studio e o SSDT
+# <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Ligar ao Synapse SQL com o Visual Studio e o SSDT
 
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
@@ -30,7 +30,7 @@ ms.locfileid: "94686162"
 Utilize o Visual Studio para consultar a piscina SQL dedicada utilizando o Azure Synapse Analytics. Este método utiliza a extensão SQL Server Data Tools (SSDT) no Visual Studio 2019. 
 
 > [!NOTE]
-> A piscina SQL sem servidor (pré-visualização) não é suportada por SSDT.
+> A piscina SQL sem servidor não é suportada por SSDT.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -79,7 +79,7 @@ Agora que foi estabelecida uma ligação à sua base de dados, irá escrever uma
    
     ![Resultados da consulta](./media/get-started-visual-studio/query-results.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que pode ligar e consultar, tente [visualizar os dados com o Power BI](get-started-power-bi-professional.md).
 Para configurar o seu ambiente para a autenticação do Azure Ative Directory, consulte [Authenticate para piscina SQL dedicada.](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
  

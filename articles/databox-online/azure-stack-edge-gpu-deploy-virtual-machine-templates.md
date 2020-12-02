@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 11/16/2020
 ms.author: alkohli
-ms.openlocfilehash: d0d02532f39d676772e5ee5d6414b802faffba7c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 93df80cd6fcd6f5553ea509a4778a155299bb057
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505942"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449058"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Implemente VMs no seu dispositivo GPU Azure Stack Edge Pro através de modelos
 
@@ -76,7 +76,7 @@ Configure estes pré-requisitos para a criação de recursos que serão necessá
     
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos do Azure com [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um recipiente lógico no qual os recursos Azure, tais como conta de armazenamento, disco, disco gerido são implantados e geridos.
+Crie um grupo de recursos do Azure com [New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um recipiente lógico no qual os recursos Azure, tais como conta de armazenamento, disco, disco gerido são implantados e geridos.
 
 > [!IMPORTANT]
 > Todos os recursos são criados no mesmo local que o do dispositivo e a localização está definida para **DBELocal.**
@@ -189,7 +189,7 @@ Copie quaisquer imagens de disco a serem usadas em bolhas de página na conta de
 
     ![Ligar ao Azure Storage 2](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
 
-6. Na **Ligação com** o Nome e a Chave , forneça o **nome do Visor** , **nome da conta de armazenamento** , **Tecla conta** de armazenamento Azure . Selecione **Outro domínio** de Armazenamento e, em seguida, forneça a `<device name>.<DNS domain>` cadeia de ligação. Se não instalou um certificado no Storage Explorer, verifique a opção **Utilização HTTP.** Selecione **Seguinte**.
+6. Na **Ligação com** o Nome e a Chave , forneça o **nome do Visor**, **nome da conta de armazenamento**, **Tecla conta** de armazenamento Azure . Selecione **Outro domínio** de Armazenamento e, em seguida, forneça a `<device name>.<DNS domain>` cadeia de ligação. Se não instalou um certificado no Storage Explorer, verifique a opção **Utilização HTTP.** Selecione **Seguinte**.
 
     ![Conecte-se com nome e chave](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-name-key-1.png)
 
@@ -249,7 +249,7 @@ O ficheiro `CreateImageAndVnet.parameters.json` toma os seguintes parâmetros:
               "value": "<Operating system corresponding to the VHD you upload can be Windows or Linux>"
         },
         "imageName": {
-            "value": "<Name for the VM iamge>"
+            "value": "<Name for the VM image>"
         },
         "imageUri": {
               "value": "<Path to the VHD that you uploaded in the Storage account>"
@@ -441,7 +441,7 @@ Atribua parâmetros apropriados `CreateVM.parameters.json` para o seu dispositiv
 
 1. Forneça um nome único, nome de interface de rede e nome ipconfig. 
 1. Introduza um nome de utilizador, palavra-passe e um tamanho VM suportado.
-1. Dê o mesmo nome para **VnetName,** **subnetName** e **ImageName** como indicado nos parâmetros para `CreateImageAndVnet.parameters.json` . Por exemplo, se tiver dado vnetName, subnetName e ImageName como **vnet1** , **subnet1** e **imagem1** , mantenha esses valores iguais para os parâmetros deste modelo também.
+1. Dê o mesmo nome para **VnetName,** **subnetName** e **ImageName** como indicado nos parâmetros para `CreateImageAndVnet.parameters.json` . Por exemplo, se tiver dado vnetName, subnetName e ImageName como **vnet1**, **subnet1** e **imagem1**, mantenha esses valores iguais para os parâmetros deste modelo também.
 1. Agora vai precisar de um endereço IP estático para atribuir ao VM que está na rede de sub-redes definida acima. Substitua **o PrivateIPAddress** por este endereço no ficheiro de parâmetros. Para que o VM obtenha um endereço IP do servidor DCHP local, deixe o `privateIPAddress` valor em branco.  
     
     ```json
@@ -629,4 +629,4 @@ To verify if the environment variable for AzCopy was set correctly, take the fol
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Cmdlets do Gestor de Recursos Azure](https://docs.microsoft.com/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Cmdlets do Gestor de Recursos Azure](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)

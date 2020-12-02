@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: a3715abdebce319979d867d12764a22b4ed16c35
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c452d51018ef3f204cd7281971c07fb6337d39bf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323624"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449712"
 ---
 # <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Orientação para o design de mesas distribuídas utilizando piscina SQL dedicada em Azure Synapse Analytics
 
@@ -44,7 +44,7 @@ Uma tabela distribuída por haxixe distribui linhas de mesa através dos nós co
 
 ![Tabela distribuída](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Tabela distribuída")  
 
-Uma vez que valores idênticos sempre têm a mesma distribuição, o armazém de dados tem conhecimento incorporado das localizações da linha. No pool de SQL dedicado este conhecimento é usado para minimizar o movimento de dados durante as consultas, o que melhora o desempenho da consulta.
+Uma vez que valores idênticos sempre têm a mesma distribuição, a SQL Analytics tem conhecimento incorporado das localizações da linha. No pool de SQL dedicado este conhecimento é usado para minimizar o movimento de dados durante as consultas, o que melhora o desempenho da consulta.
 
 Mesas distribuídas por haxixe funcionam bem para grandes mesas de factos num esquema estelar. Podem ter um número muito grande de linhas e ainda alcançar um alto desempenho. Existem, naturalmente, algumas considerações de design que o ajudam a obter o desempenho que o sistema distribuído é projetado para fornecer. Escolher uma boa coluna de distribuição é uma consideração que é descrita neste artigo.
 

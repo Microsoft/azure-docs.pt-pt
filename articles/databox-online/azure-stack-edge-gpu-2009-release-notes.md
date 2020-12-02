@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/13/2020
 ms.author: alkohli
-ms.openlocfilehash: 7ddc83874526a99383f94491771a81da2cde86d8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4aa25024273d62fe5b292d329f6470a828b952a7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047306"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449530"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-general-availability-ga-release-notes"></a>Azure Stack Edge Pro com notas de lançamento gpu Geral Availability (GA)
 
@@ -38,7 +38,7 @@ A tabela seguinte fornece um resumo de problemas conhecidos para o dispositivo A
 | Não. | Funcionalidade | Problema | Soluções/comentários |
 | --- | --- | --- | --- |
 |**1.**|Funcionalidades de pré-visualização |Para esta versão GA, as seguintes funcionalidades: Local Azure Resource Manager, VMs, Kubernetes, Azure Arc habilitado a Kubernetes, serviço multi-processo (MPS) para GPU - estão todas disponíveis na pré-visualização do seu dispositivo Azure Stack Edge Pro.  |Estas funcionalidades estarão geralmente disponíveis num lançamento posterior. |
-| **2.** |Azure Stack Edge Pro + Azure SQL | A criação da base de dados SQL requer acesso ao Administrador.   |Faça os seguintes passos em vez dos passos 1-2 em [https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database](https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database) . <ul><li>Na UI local do seu dispositivo, ative a interface compute. **Selecione Compute > Port # > Ative para calcular > Apply.**</li><li>Faça o download `sqlcmd` na sua máquina de clientes a partir de https://docs.microsoft.com/sql/tools/sqlcmd-utility </li><li>Ligue-se ao endereço IP da interface de computação (a porta que estava ativada), adicionando um "1401" ao final do endereço.</li><li>O comando final será assim: sqlcmd -S {Interface IP},1401 -U SA -P "Forte! Passw0rd".</li>Depois disso, os passos 3-4 da documentação atual devem ser idênticos. </li></ul> |
+| **2.** |Azure Stack Edge Pro + Azure SQL | A criação da base de dados SQL requer acesso ao Administrador.   |Faça os seguintes passos em vez dos passos 1-2 em [https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database](../iot-edge/tutorial-store-data-sql-server.md#create-the-sql-database) . <ul><li>Na UI local do seu dispositivo, ative a interface compute. **Selecione Compute > Port # > Ative para calcular > Apply.**</li><li>Faça o download `sqlcmd` na sua máquina de clientes a partir de https://docs.microsoft.com/sql/tools/sqlcmd-utility </li><li>Ligue-se ao endereço IP da interface de computação (a porta que estava ativada), adicionando um "1401" ao final do endereço.</li><li>O comando final será assim: sqlcmd -S {Interface IP},1401 -U SA -P "Forte! Passw0rd".</li>Depois disso, os passos 3-4 da documentação atual devem ser idênticos. </li></ul> |
 | **3.** |Atualizar| Alterações incrementais nas bolhas restauradas via **Refresh** NÃO são suportadas |No caso dos pontos finais blob, as atualizações parciais de blobs após uma Atualização, podem resultar em que as atualizações não sejam carregadas na nuvem. Por exemplo, sequência de ações como:<ul><li>Crie bolha na nuvem. Ou elimine uma bolha previamente carregada do dispositivo.</li><li>Refresque a bolha da nuvem para o aparelho utilizando a funcionalidade de atualização.</li><li>Atualize apenas uma parte da bolha utilizando APIs de REST Azure SDK.</li></ul>Estas ações podem resultar em secções atualizadas da bolha para não ser atualizada na nuvem. <br>**Solução alternativa**: Utilize ferramentas como robocopia, ou cópia de ficheiro regular através do Explorer ou da linha de comando, para substituir bolhas inteiras.|
 |**4.**|Limitação|Durante o estrangulamento, se não forem permitidas novas gravações no dispositivo, as gravações feitas pelo cliente NFS falham com o erro "Permissão Negada".| O erro mostrará o seguinte:<br>`hcsuser@ubuntu-vm:~/nfstest$ mkdir test`<br>mkdir: não é possível criar 'teste' de diretório: Permissão negada|
 |**5.**|Ingestão de armazenamento blob|Ao utilizar a versão 10 do AzCopy para a ingestão de armazenamento de Blob, execute a AzCopy com o seguinte argumento: `Azcopy <other arguments> --cap-mbps 2000`| Se estes limites não forem fornecidos para a AzCopy, então pode potencialmente enviar um grande número de pedidos para o dispositivo e resultar em problemas com o serviço.|
@@ -66,4 +66,3 @@ A tabela seguinte fornece um resumo de problemas conhecidos para o dispositivo A
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Prepare-se para implementar o dispositivo Azure Stack Edge Pro com GPU](azure-stack-edge-gpu-deploy-prep.md)
-

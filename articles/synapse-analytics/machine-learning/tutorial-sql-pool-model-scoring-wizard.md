@@ -9,14 +9,14 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: f5c5edc067b3f7b525fd129462c48ca50fdafc8f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 605a5f2f74ca6fb46d851c41f60001c48a95be95
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314042"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450885"
 ---
-# <a name="tutorial-machine-learning-model-scoring-wizard-for-dedicated-sql-pools"></a>Tutorial: Assistente de pontuação de modelo de machine learning para piscinas SQL dedicadas
+# <a name="tutorial-machine-learning-model-scoring-wizard-preview-for-dedicated-sql-pools"></a>Tutorial: Assistente de pontuação de modelo de machine learning (pré-visualização) para piscinas SQL dedicadas
 
 Aprenda a enriquecer facilmente os seus dados em piscinas SQL dedicadas com modelos preditivos de aprendizagem automática.  Os modelos que os seus cientistas de dados criam são agora facilmente acessíveis aos profissionais de dados para análise preditiva. Um profissional de dados em Synapse pode simplesmente selecionar um modelo do registo do modelo Azure Machine Learning para implantação em piscinas SQL synapse e lançar previsões para enriquecer os dados.
 
@@ -31,8 +31,8 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita antes de come�
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Espaço de trabalho Synapse Analytics](../get-started-create-workspace.md) com uma conta de armazenamento ADLS Gen2 configurada como o armazenamento padrão. Tem de ser o colaborador de dados da **Blob** de Armazenamento do sistema de ficheiros ADLS Gen2 com o que trabalha.
-- Piscina SQL dedicada no seu espaço de trabalho Synapse Analytics. Para mais detalhes, consulte [criar uma piscina SQL dedicada.](../quickstart-create-sql-pool-studio.md)
-- Serviço de aprendizagem automática Azure no seu espaço de trabalho Synapse Analytics. Para mais detalhes, consulte [criar um serviço de aprendizagem automática Azure em Synapse](quickstart-integrate-azure-machine-learning.md).
+- Piscina SQL dedicada no seu espaço de trabalho Azure Synapse Analytics. Para mais detalhes, consulte [criar uma piscina SQL dedicada.](../quickstart-create-sql-pool-studio.md)
+- Serviço de aprendizagem automática Azure no seu espaço de trabalho Azure Synapse Analytics. Para mais detalhes, consulte [criar um serviço de aprendizagem automática Azure em Synapse](quickstart-integrate-azure-machine-learning.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -149,4 +149,4 @@ Antes de executar todas as células no caderno, verifique se a instância de com
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart: Criar um novo serviço de aprendizagem automática Azure em Synapse](quickstart-integrate-azure-machine-learning.md)
-- [Capacidades de aprendizagem automática em Azure Synapse Analytics (pré-visualização de espaços de trabalho)](what-is-machine-learning.md)
+- [Capacidades de aprendizagem automática em Azure Synapse Analytics](what-is-machine-learning.md)

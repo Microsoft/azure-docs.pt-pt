@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 595b3a57594401df6b61db1fcf8ee16be98ef364
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 50429696c4cbe10c4723f6d4bb9c9499d9b775c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95900431"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450413"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tutorial: Construa uma app de machine learning com Apache Spark MLlib e Azure Synapse Analytics
 
@@ -71,7 +71,7 @@ Nos passos seguintes, desenvolve-se um modelo para prever se uma determinada via
 
 Como os dados brutos estão num formato Parquet, pode utilizar o contexto Spark para puxar o ficheiro para a memória como um dataframe diretamente. Embora o código abaixo utilize as opções predefinidos, é possível forçar o mapeamento de tipos de dados e outros atributos de esquema, se necessário.
 
-1. Executar as seguintes linhas para criar um dataframe Spark colando o código numa nova célula. Isto recupera os dados através da API Open Datasets. Puxar todos estes dados gera cerca de 1,5 mil milhões de linhas. Dependendo do tamanho do seu conjunto Apache Spark sem servidor (pré-visualização), os dados brutos podem ser demasiado grandes ou demorar muito tempo a operar. Pode filtrar estes dados para algo menor. O seguinte exemplo de código utiliza start_date e end_date para aplicar um filtro que devolve um único mês de dados.
+1. Executar as seguintes linhas para criar um dataframe Spark colando o código numa nova célula. Isto recupera os dados através da API Open Datasets. Puxar todos estes dados gera cerca de 1,5 mil milhões de linhas. Dependendo do tamanho do seu conjunto Apache Spark sem servidor, os dados brutos podem ser demasiado grandes ou demorar muito tempo a operar. Pode filtrar estes dados para algo menor. O seguinte exemplo de código utiliza start_date e end_date para aplicar um filtro que devolve um único mês de dados.
 
     ```python
     from azureml.opendatasets import NycTlcYellow

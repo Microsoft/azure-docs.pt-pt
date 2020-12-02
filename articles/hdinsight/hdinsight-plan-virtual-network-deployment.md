@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 05/04/2020
-ms.openlocfilehash: 60bb16b0a4fd2e710d0d5fddc6cf82916f2f66af
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 750e8cc59f196fda6bf3a816885c3c0b29a69a56
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741432"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451909"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planeie uma rede virtual para a Azure HDInsight
 
@@ -148,7 +148,7 @@ Para permitir a resolução de nomes entre a rede virtual e os recursos em redes
 
          * Encaminhe todos os outros pedidos para o servidor DNS no local. O DNS no local trata de todos os outros pedidos de resolução de nomes, mesmo pedidos de recursos da Internet, como Microsoft.com.
 
-     * __No local DNS__ : Encaminhar os pedidos para o sufixo DNS da rede virtual para o servidor DNS personalizado. O servidor DNS personalizado, em seguida, encaminha-se para o Azure recursive resolver.
+     * __No local DNS__: Encaminhar os pedidos para o sufixo DNS da rede virtual para o servidor DNS personalizado. O servidor DNS personalizado, em seguida, encaminha-se para o Azure recursive resolver.
 
        Esta configuração encaminha os pedidos de nomes de domínio totalmente qualificados que contenham o sufixo DNS da rede virtual para o servidor DNS personalizado. Todos os outros pedidos (mesmo para endereços de internet público) são tratados pelo servidor DNS no local.
 
@@ -212,4 +212,4 @@ Quando cria um cluster HDInsight, também é criado um equilibrador de carga. O 
 * Para obter mais informações sobre as redes virtuais Azure, consulte a [visão geral da Rede Virtual Azure](../virtual-network/virtual-networks-overview.md).
 * Para obter mais informações sobre grupos de segurança de rede, consulte [os grupos de segurança da rede](../virtual-network/network-security-groups-overview.md).
 * Para obter mais informações sobre as rotas definidas pelo utilizador, consulte [as rotas definidas pelo Utilizador e o encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
-* Para obter mais informações sobre o controlo do tráfego, consulte [o tráfego da rede de controlo.](./control-network-traffic.md)
+* Para obter mais informações sobre o controlo do tráfego, incluindo a integração do Firewall, consulte [o tráfego da rede de controlo](./control-network-traffic.md).

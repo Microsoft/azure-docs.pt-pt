@@ -1,6 +1,6 @@
 ---
-title: Ligar com o SSMS
-description: Utilize o SQL Server Management Studio (SSMS) para ligar e consultar uma piscina SQL dedicada em Azure Synapse Analytics.
+title: Conecte-se a piscina SQL dedicada (anteriormente SQL DW) com SSMS
+description: Utilize o SQL Server Management Studio (SSMS) para ligar e consultar uma piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c2fab8f02f31897a2e3d38094b9bd365f8e921e9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 950cb4c40a534f252ec8b0daa5a57eb87c098450
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325322"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450468"
 ---
-# <a name="connect-to-a-dedicated-sql-pool-in-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Conecte-se a uma piscina DE SQL dedicada em Azure Synapse Analytics com SQL Server Management Studio (SSMS)
+# <a name="connect-to-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Conecte-se a uma piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics com SQL Server Management Studio (SSMS)
 
 > [!div class="op_single_selector"]
 >
@@ -28,17 +28,17 @@ ms.locfileid: "93325322"
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-Utilize o SQL Server Management Studio (SSMS) para ligar e consultar um armazém de dados dentro do Azure Synapse.
+Utilize o SQL Server Management Studio (SSMS) para ligar e consultar uma piscina SQL dedicada (anteriormente SQL DW).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para utilizar este tutorial, precisa do seguinte:
 
-* Uma piscina SQL dedicada existente. Para criar um, consulte [Criar uma piscina SQL dedicada.](create-data-warehouse-portal.md)
+* Uma piscina SQL dedicada existente. Para criar um, consulte [Criar uma piscina SQL dedicada (anteriormente SQL DW)](create-data-warehouse-portal.md).
 * SQL Server Management Studio (SSMS) instalado. [Faça o download de SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) gratuitamente se ainda não o tiver.
-* O nome de servidor SQL completamente qualificado. Para encontrar estas informações, consulte [Connect para a piscina SQL dedicada.](sql-data-warehouse-connect-overview.md)
+* O nome de servidor SQL completamente qualificado. Para obter esta informação, consulte [a piscina SQL dedicada (anteriormente SQL DW)](sql-data-warehouse-connect-overview.md).
 
-## <a name="1-connect-to-your-dedicated-sql-pool"></a>1. Conecte-se à sua piscina SQL dedicada
+## <a name="1-connect-to-your-dedicated-sql-pool-formerly-sql-dw"></a>1. Ligue-se à sua piscina SQL dedicada (anteriormente SQL DW)
 
 1. Abra o SQL Server Management Studio.
 2. Abrir o Explorador de Objetos selecionando **o Explorador** de  >  **Objetos de Ligação** de Ficheiros .

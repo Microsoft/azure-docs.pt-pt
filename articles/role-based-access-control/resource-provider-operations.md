@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 11/18/2020
 ms.custom: generated
-ms.openlocfilehash: ceb1aea1edcc4916fdd802673c3145b12de01801
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 8225d50e9991ff632fb831c63e194551dbe02b31
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980920"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451889"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações de fornecedor de recursos Azure
 
@@ -83,12 +83,12 @@ Clique no nome do fornecedor de recursos na tabela seguinte para ver a lista de 
 | [Microsoft.StreamAnalytics](#microsoftstreamanalytics) |
 | **Blockchain** |
 | [Microsoft.Blockchain](#microsoftblockchain) |
-| **IA + aprendizagem automática** |
+| **IA + machine learning** |
 | [Microsoft.BotService](#microsoftbotservice) |
 | [Microsoft.CognitiveServices](#microsoftcognitiveservices) |
 | [Microsoft.MachineLearning](#microsoftmachinelearning) |
 | [Microsoft.MachineLearningServices](#microsoftmachinelearningservices) |
-| **Internet das coisas** |
+| **Internet das Coisas** |
 | [Microsoft.Devices](#microsoftdevices) |
 | [Microsoft.IoTCentral](#microsoftiotcentral) |
 | [Microsoft.NotificationHubs](#microsoftnotificationhubs) |
@@ -121,7 +121,7 @@ Clique no nome do fornecedor de recursos na tabela seguinte para ver a lista de 
 | [Microsoft.DevTestLab](#microsoftdevtestlab) |
 | [Microsoft.LabServices](#microsoftlabservices) |
 | [Microsoft.VisualStudio](#microsoftvisualstudio) |
-| **Migrar** |
+| **Migrate** |
 | [Microsoft.Migrate](#microsoftmigrate) |
 | [Microsoft.OffAzure](#microsoftoffazure) |
 | **Monitorizar** |
@@ -629,7 +629,7 @@ Serviço Azure: [Tecido de Serviço](../service-fabric/index.yml)
 > | Microsoft.ServiceFabric/locations/operations/read | Ler quaisquer Operações por local |
 > | Microsoft.ServiceFabric/operations/read | Ler quaisquer Operações Disponíveis |
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 ### <a name="microsoftcdn"></a>Microsoft.Cdn
 
@@ -3862,7 +3862,7 @@ Serviço Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 
 ### <a name="microsoftsql"></a>Microsoft.Sql
 
-Serviço Azure: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL Managed Instance](../azure-sql/managed-instance/index.yml), [Azure Synapse Analytics (anteriormente SQL Data Warehouse)](../synapse-analytics/sql-data-warehouse/index.yml)
+Serviço Azure: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL Managed Instance](../azure-sql/managed-instance/index.yml), [Azure Synapse Analytics](../synapse-analytics/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Ação | Descrição |
@@ -4722,7 +4722,7 @@ Serviço Azure: [Azure Blockchain Service](../blockchain/workbench/index.yml)
 > | **DataAction** | **Descrição** |
 > | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | Conecta-se a um nó de transação do membro blockchain. |
 
-## <a name="ai--machine-learning"></a>IA + aprendizagem automática
+## <a name="ai--machine-learning"></a>IA + machine learning
 
 ### <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -7030,7 +7030,7 @@ Serviço Azure: [Azure DevOps](/azure/devops/)
 > | Microsoft.VisualStudio/Project/Delete | Excluir Projeto |
 > | Microsoft.VisualStudio/Project/Read | Projeto ler |
 
-## <a name="migrate"></a>Migrar
+## <a name="migrate"></a>Migrate
 
 ### <a name="microsoftmigrate"></a>Microsoft.Migrate
 

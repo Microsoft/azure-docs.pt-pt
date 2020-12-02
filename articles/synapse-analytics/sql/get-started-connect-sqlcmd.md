@@ -1,6 +1,6 @@
 ---
 title: Ligue ao SQL da Sinapse com sqlcmd
-description: Utilize o utilitário sqlcmd da linha de comando para ligar e consultar a piscina SQL sem servidor (pré-visualização) e piscina SQL dedicada.
+description: Utilize o utilitário sqlcmd da linha de comando para ligar e consultar a piscina SQL sem servidor e a piscina SQL dedicada.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,23 +9,23 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43fae026f91e4430fbce0d01141a86a913db089d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 88ee95789bdc1c6ee9884a021067318caab203d4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686145"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451652"
 ---
 # <a name="connect-to-synapse-sql-with-sqlcmd"></a>Ligue ao SQL da Sinapse com sqlcmd
 
 > [!div class="op_single_selector"]
-> * [Azure Data Studio (pré-visualização)](get-started-azure-data-studio.md)
+> * [Azure Data Studio)](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Pode utilizar o utilitário [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) da linha de comando para ligar e consultar a piscina SQL sem servidor (pré-visualização) e piscina SQL dedicada dentro do Synapse SQL.  
+Você pode usar o utilitário [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) da linha de comando para ligar e consultar piscina SQL sem servidor e piscina SQL dedicada dentro do Sinaapse SQL.  
 
 ## <a name="1-connect"></a>1. Ligar
 Para começar com [sqlcmd,](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)abra o pedido de comando e introduza **sqlcmd** seguido pela cadeia de ligação para a sua base de dados Synapse SQL. A cadeia de ligação requer os parâmetros seguintes:
@@ -41,7 +41,7 @@ Para utilizar a autenticação do servidor SQL, é necessário adicionar o nome 
 
 A sua cadeia de ligação pode parecer o seguinte exemplo:
 
-**Piscina SQL sem servidor**
+**Conjunto de SQL sem servidor**
 
 ```sql
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P Enter_Your_Password_Here -I
@@ -59,7 +59,7 @@ Para utilizar a autenticação Integrada do Azure Active Directory, tem de adici
 
 A sua cadeia de ligação pode parecer-se com os seguintes exemplos:
 
-**Piscina SQL sem servidor**
+**Conjunto de SQL sem servidor**
 
 ```
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -G -I
@@ -118,6 +118,6 @@ sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P
 "SELECT COUNT(*) FROM  OPENROWSET(BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet', FORMAT='PARQUET')" | sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P 'Enter_Your_Password_Here' -I > ./tables.out
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as opções sqlcmd, consulte a [documentação sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).

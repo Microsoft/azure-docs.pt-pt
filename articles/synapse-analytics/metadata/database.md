@@ -1,6 +1,6 @@
 ---
 title: Base de dados partilhada
-description: O Azure Synapse Analytics fornece um modelo de metadados partilhado onde a criação de uma base de dados no conjunto Apache Spark sem servidor tornará acessível a partir dos seus motores SQL sem servidor (pré-visualização) e sql pool.
+description: O Azure Synapse Analytics fornece um modelo de metadados partilhado onde a criação de uma base de dados no conjunto Apache Spark sem servidor tornará acessível a partir da sua piscina SQL sem servidor e motores de piscina SQL.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,20 +10,18 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e17eb44a5f4f4aace9ce9d541b8218b35db0f5d3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 14ae8b8670db53761d085bc019711e829633601b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317843"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451820"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Base de dados partilhada Azure Synapse Analytics
 
-O Azure Synapse Analytics permite que os diferentes motores computacionais do espaço de trabalho partilhem bases de dados e tabelas entre as suas piscinas Apache Spark sem servidor (pré-visualização) e o motor de piscina SQL sem servidor (pré-visualização).
+O Azure Synapse Analytics permite que os diferentes motores computacionais do espaço de trabalho partilhem bases de dados e tabelas entre as suas piscinas Apache Spark sem servidor e o motor de piscina SQL sem servidor.
 
-[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
-
-Uma base de dados criada com uma obra Spark tornar-se-á visível com o mesmo nome para todas as piscinas spark atuais e futuras (pré-visualização) no espaço de trabalho, incluindo o motor de piscina SQL sem servidor.
+Uma base de dados criada com uma obra Spark tornar-se-á visível com o mesmo nome para todas as piscinas spark atuais e futuras no espaço de trabalho, incluindo o motor de piscina SQL sem servidor.
 
 A base de dados padrão Spark, chamada `default` , também será visível no contexto da piscina SQL sem servidor como uma base de dados chamada `default` .
 
@@ -48,7 +46,7 @@ Por exemplo, se uma base de dados Spark chamada `mydb` for criada no espaço de 
 
 As bases de dados e tabelas Spark, juntamente com as suas representações sincronizadas no motor SQL, serão asseguradas ao nível de armazenamento subjacente.
 
-O principal de segurança que cria uma base de dados é considerado o proprietário dessa base de dados, e tem todos os direitos sobre a base de dados e seus objetos.
+O principal de segurança que cria uma base de dados é considerado o proprietário dessa base de dados, e tem todos os direitos sobre a base de dados e os seus objetos.
 
 Para dar a um diretor de segurança, como um utilizador ou um grupo de segurança, o acesso a uma base de dados, forneça a pasta POSIX adequada e as permissões de ficheiros para as pastas e ficheiros subjacentes no `warehouse` diretório. 
 

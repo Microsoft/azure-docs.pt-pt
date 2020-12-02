@@ -9,16 +9,16 @@ ms.subservice: business-intelligence
 ms.date: 10/27/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick
-ms.openlocfilehash: 36334142595d4a6bd4865a690f154279967a70d5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 996233e2526b8b69c13abd4340ead4c5e2175916
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746363"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450678"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>Quickstart: Ligando um espaço de trabalho power BI a um espaço de trabalho synapse
 
-Neste quickstart, você aprenderá a ligar um espaço de trabalho Power BI a um espaço de trabalho Synapse Analytics para criar novos relatórios e conjuntos de dados power BI a partir do Synapse Studio (pré-visualização).
+Neste quickstart, você aprenderá a ligar um espaço de trabalho Power BI a um espaço de trabalho Azure Synapse Analytics para criar novos relatórios e conjuntos de dados power BI a partir do Synapse Studio.
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita antes de começar](https://azure.microsoft.com/free/).
 
@@ -29,15 +29,15 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita antes de come�
 
 ## <a name="link-power-bi-workspace-to-your-synapse-workspace"></a>Ligue o espaço de trabalho power BI ao seu espaço de trabalho synapse
 
-1. A partir do Synapse Studio, clique em **Manage** .
+1. A partir do Synapse Studio, clique em **Manage**.
 
     ![Synapse Studio clique para gerir.](media/quickstart-link-powerbi/synapse-studio-click-manage.png)
 
-2. Em **Ligações Externas,** clique **nos serviços Linked** .
+2. Em **Ligações Externas,** clique **nos serviços Linked**.
 
     ![Serviços ligados em destaque.](media/quickstart-link-powerbi/manage-click-linked-services.png)
 
-3. Clique em **+ Novo** .
+3. Clique em **+ Novo**.
 
     ![+ Destaque-se nos novos serviços ligados.](media/quickstart-link-powerbi/new-highlighted.png)
 
@@ -49,7 +49,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita antes de come�
 
     ![Apresentando a configuração do serviço ligado ao Power BI.](media/quickstart-link-powerbi/workspace-link-dialog.png)
 
-6. Clique em **Criar** .
+6. Clique em **Criar**.
 
 ## <a name="view-power-bi-workspace-in-synapse-studio"></a>Ver espaço de trabalho power bi no Estúdio Synapse
 

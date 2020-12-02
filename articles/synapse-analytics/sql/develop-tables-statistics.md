@@ -11,16 +11,16 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: b3e1c4b8dec0e62bb2a77939a36e38b61837033a
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 52e3ea3e07a81495f64f70f72686154a02a654af
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638857"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451791"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estatísticas em Synapse SQL
 
-Fornecidos neste artigo estão recomendações e exemplos para a criação e atualização de estatísticas de otimização de consultas utilizando os recursos Sinapse SQL: pool SQL dedicado e piscina SQL sem servidor (pré-visualização).
+Fornecidos neste artigo estão recomendações e exemplos para a criação e atualização de estatísticas de otimização de consultas utilizando os recursos Sinapse SQL: pool SQL dedicado e piscina SQL sem servidor.
 
 ## <a name="statistics-in-dedicated-sql-pool"></a>Estatísticas em piscina SQL dedicada
 
@@ -74,7 +74,7 @@ Para evitar uma degradação mensurável do desempenho, deve certificar-se de qu
 > [!NOTE]
 > A criação de estatísticas é registada em [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) num contexto de utilizador diferente.
 
-Quando as estatísticas automáticas forem criadas, assumirão o formulário: _WA_Sys_ <id de coluna de 8 dígitos no Hex>_<id tabela de 8 dígitos em Hex>. Pode ver estatísticas já criadas executando o comando [DBCC SHOW_STATISTICS:](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+Quando as estatísticas automáticas forem criadas, assumirão o formulário: _WA_Sys_<id de coluna de 8 dígitos no Hex>_<id tabela de 8 dígitos em Hex>. Pode ver estatísticas já criadas executando o comando [DBCC SHOW_STATISTICS:](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -443,7 +443,7 @@ Existem várias visões e funções do sistema que pode usar para encontrar info
 
 Estas opiniões do sistema fornecem informações sobre estatísticas:
 
-| Vista de catálogo | Description |
+| Vista de catálogo | Descrição |
 |:--- |:--- |
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Uma linha para cada coluna. |
 | [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Uma linha para cada objeto na base de dados. |
@@ -457,7 +457,7 @@ Estas opiniões do sistema fornecem informações sobre estatísticas:
 
 Estas funções do sistema são úteis para trabalhar com estatísticas:
 
-| Função do sistema | Description |
+| Função do sistema | Descrição |
 |:--- |:--- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Data em que o objeto estatístico foi atualizado pela última vez. |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Nível de resumo e informação detalhada sobre a distribuição de valores conforme entendido pelo objeto estatístico. |
@@ -557,7 +557,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 - O erro personalizado 2767 não é suportado.
 
 
-## <a name="statistics-in-serverless-sql-pool-preview"></a>Estatísticas na piscina SQL sem servidor (pré-visualização)
+## <a name="statistics-in-serverless-sql-pool"></a>Estatísticas na piscina SQL sem servidor
 
 As estatísticas são criadas por coluna particular para determinado conjunto de dados (trajetória de armazenamento).
 
@@ -566,7 +566,7 @@ As estatísticas são criadas por coluna particular para determinado conjunto de
 
 ### <a name="why-use-statistics"></a>Porquê usar estatísticas
 
-Quanto mais sem servidor a piscina SQL (pré-visualização) souber dos seus dados, mais rápido poderá executar consultas contra os mesmos. Recolher estatísticas sobre os seus dados é uma das coisas mais importantes que pode fazer para otimizar as suas consultas. 
+Quanto mais sem servidor o sql pool souber dos seus dados, mais rápido poderá executar consultas contra os mesmos. Recolher estatísticas sobre os seus dados é uma das coisas mais importantes que pode fazer para otimizar as suas consultas. 
 
 O otimizador de perguntas sql sem servidor é um otimizador baseado em custos. Compara o custo de vários planos de consulta, e depois escolhe o plano com o menor custo. Na maioria dos casos, escolhe o plano que executará o mais rápido. 
 
@@ -825,7 +825,7 @@ Existem várias visões e funções do sistema que pode usar para encontrar info
 
 Estas opiniões do sistema fornecem informações sobre estatísticas:
 
-| Vista de catálogo                                                 | Description                                                  |
+| Vista de catálogo                                                 | Descrição                                                  |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Uma linha para cada coluna.                                     |
 | [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Uma linha para cada objeto na base de dados.                     |
@@ -839,7 +839,7 @@ Estas opiniões do sistema fornecem informações sobre estatísticas:
 
 Estas funções do sistema são úteis para trabalhar com estatísticas:
 
-| Função do sistema                                              | Description                                  |
+| Função do sistema                                              | Descrição                                  |
 | :----------------------------------------------------------- | :------------------------------------------- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Data em que o objeto estatístico foi atualizado pela última vez. |
 

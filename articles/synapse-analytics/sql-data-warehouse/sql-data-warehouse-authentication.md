@@ -1,6 +1,6 @@
 ---
-title: Autenticação
-description: Aprenda a autenticar a Azure Synapse Analytics utilizando a autenticação do Azure Ative Directory (Azure AD) ou do SQL Server.
+title: Autenticação para piscina SQL dedicada (anteriormente SQL DW)
+description: Aprenda a autenticar para piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics utilizando a autenticação do Azure Ative Directory (Azure AD) ou sql Server.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -12,24 +12,24 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: 29709dc03ee3a06bdf2aec2587909a08ee13504e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2b5ca024046c5bc46fff756c55688d3ff0cfea1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85206735"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451972"
 ---
-# <a name="authenticate-to-azure-synapse-analytics"></a>Autenticar para Azure Synapse Analytics
+# <a name="authenticate-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Autenticar para piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics
 
-Aprenda a autenticar para Synapse SQL em Azure Synapse utilizando a autenticação do Azure Ative Directory (AAD) ou sql Server.
+Aprenda a autenticar para piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse utilizando a autenticação do Azure Ative Directory (Azure AD) ou sql Server.
 
-Para se ligar a uma piscina SQL, tem de passar em credenciais de segurança para fins de autenticação. Ao estabelecer uma ligação, determinadas definições de ligação são configuradas como parte do estabelecimento da sua sessão de consulta.  
+Para se ligar a uma piscina SQL dedicada (anteriormente SQL DW), tem de passar em credenciais de segurança para fins de autenticação. Ao estabelecer uma ligação, determinadas definições de ligação são configuradas como parte do estabelecimento da sua sessão de consulta.  
 
-Para obter mais informações sobre segurança e como permitir ligações ao seu armazém de dados, consulte [a obtenção de uma documentação de base de dados.](sql-data-warehouse-overview-manage-security.md)
+Para obter mais informações sobre segurança e como permitir ligações à sua piscina SQL dedicada (anteriormente SQL DW), consulte [a obtenção de uma documentação de base de dados.](sql-data-warehouse-overview-manage-security.md)
 
 ## <a name="sql-authentication"></a>Autenticação do SQL
 
-Para se ligar à piscina SQL, deve fornecer as seguintes informações:
+Para se conectar à piscina SQL dedicada (anteriormente SQL DW), deve fornecer as seguintes informações:
 
 * Nome de servidor totalmente qualificado
 * Especificar a autenticação SQL
@@ -45,9 +45,9 @@ Por predefinição, a sua ligação liga-se à base de dados *principal* e não 
 > [!NOTE]
 > A declaração Transact-SQL **USE MyDatabase;** não é suportada para alterar a base de dados para uma ligação. Para obter orientações que liguem a uma piscina SQL com SSDT, consulte o artigo da Consulta com o [Visual Studio.](sql-data-warehouse-query-visual-studio.md)
 
-## <a name="azure-active-directory-aad-authentication"></a>Autenticação do Diretório Ativo Azure (AAD)
+## <a name="azure-active-directory-authentication"></a>Autenticação do Azure Active Directory
 
-A autenticação [do Azure Ative Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) é um mecanismo de ligação à piscina SQL utilizando identidades no Azure Ative Directory (Azure AD). Com a autenticação do Azure Ative Directory, pode gerir centralmente as identidades dos utilizadores da base de dados e de outros serviços da Microsoft numa localização central. A gestão central de ID fornece um único lugar para gerir os utilizadores do Azure Synapse e simplifica a gestão da permissão.
+A autenticação [do Azure Ative Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) é um mecanismo de ligação à piscina SQL utilizando identidades no Azure Ative Directory (Azure AD). Com a autenticação do Azure Ative Directory, pode gerir centralmente as identidades dos utilizadores da base de dados e de outros serviços da Microsoft numa localização central. A gestão central de ID fornece um único lugar para gerir utilizadores de piscinas SQL dedicadas (anteriormente SQL DW) e simplifica a gestão de permissões.
 
 ### <a name="benefits"></a>Benefícios
 
@@ -57,7 +57,7 @@ Os benefícios do Azure Ative Directory incluem:
 * Ajuda a parar a proliferação de identidades de utilizadores através dos servidores.
 * Permite a rotação de palavras-passe num único local
 * Gerir permissões de base de dados utilizando grupos externos (Azure AD).
-* Elimina o armazenamento de palavras-passe, permitindo a autenticação integrada do Windows e as formas de autenticação com suporte a Azure Ative.
+* Elimina o armazenamento de palavras-passe, permitindo a autenticação integrada do Windows e outras formas de autenticação suportadas pelo Azure Ative Directory.
 * Utiliza utilizadores de bases de dados contidos para autenticar identidades ao nível da base de dados.
 * Suporta a autenticação baseada em fichas para aplicações que se ligam à piscina SQL.
 * Suporta a autenticação multi-factor através da autenticação universal do Diretório Ativo para várias ferramentas, incluindo [o SQL Server Management Studio](../../azure-sql/database/authentication-mfa-ssms-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e as [Ferramentas de Dados do Servidor SQL.](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

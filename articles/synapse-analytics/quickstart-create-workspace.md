@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: b25bae460ff11c3dab84e80524acd2eaf878561c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: fb7672a0d7bdd14415a51f2296c281e92cf5542a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184693"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450660"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Quickstart: Criar um espaço de trabalho synapse
 Este quickstart descreve os passos para criar um espaço de trabalho Azure Synapse utilizando o portal Azure.
@@ -22,7 +22,7 @@ Este quickstart descreve os passos para criar um espaço de trabalho Azure Synap
 ## <a name="create-a-synapse-workspace"></a>Criar uma área de trabalho do Synapse
 
 1. Abra o [portal Azure](https://portal.azure.com)e na pesquisa superior para **Synapse**.
-1. Nos resultados da pesquisa, em **Serviços,** selecione **Azure Synapse Analytics (pré-visualização de espaços de trabalho)**.
+1. Nos resultados da pesquisa, em **Serviços,** selecione **Azure Synapse Analytics**.
 1. **Selecione Adicionar** para criar um espaço de trabalho.
 1. No **separador Básicos,** dê ao espaço de trabalho um nome único. Vamos usar **o meu espaço de trabalho** neste documento
 1. Precisa de uma conta ADLSGEN2 para criar um espaço de trabalho. A escolha mais simples é criar uma nova. Se quiser reutilizar uma existente, terá de realizar alguma configuração adicional. 
@@ -34,7 +34,7 @@ Este quickstart descreve os passos para criar um espaço de trabalho Azure Synap
 1. Selecione **Rever + criar** > **Criar**. O seu espaço de trabalho está pronto em poucos minutos.
 
 > [!NOTE]
-> Depois de criar o seu espaço de trabalho Azure Synapse, não poderá mover o espaço de trabalho para outro inquilino do Azure Ative Directory. Se o fizer através da migração por subscrição ou de outras ações, poderá perder o acesso aos artefactos dentro do espaço de trabalho.  
+> Depois de criar o seu espaço de trabalho Azure Synapse, não poderá mover o espaço de trabalho para outro inquilino do Azure Ative Directory. Se for feito através da migração de subscrição ou outras ações, o acesso aos artefatos na área de trabalho poderá ser perdido.  
 
 ## <a name="open-synapse-studio"></a>Open Synapse Studio
 
@@ -43,7 +43,7 @@ Depois de criar o seu espaço de trabalho Azure Synapse, tem duas formas de abri
 * Abra o seu espaço de trabalho sinapse no [portal Azure](https://portal.azure.com). No topo da secção **Overview,** selecione **Launch Synapse Studio**.
 * Vá ao `https://web.azuresynapse.net` e inscreva-se no seu espaço de trabalho.
 
-## <a name="prepare-an-existing-storage-account-for-use-with-synapse-analytics"></a>Prepare uma conta de armazenamento existente para utilização com a Synapse Analytics
+## <a name="prepare-an-existing-storage-account-for-use-with-azure-synapse-analytics"></a>Prepare uma conta de armazenamento existente para uso com a Azure Synapse Analytics
 
 1. Abra o [portal do Azure](https://portal.azure.com).
 1. Navegue para uma conta de armazenamento ADLSGEN2 existente

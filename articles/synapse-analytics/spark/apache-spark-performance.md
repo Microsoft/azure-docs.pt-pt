@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: bb64fb3c9e25e629a0bcb36fe60fd5ae2d7fc906
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b94ece73d5f9dc9b8343e45fb1f616599b9a1c1f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368609"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450932"
 ---
-# <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Otimizar os empregos da Apache Spark (pré-visualização) no Azure Synapse Analytics
+# <a name="optimize-apache-spark-jobs-in-azure-synapse-analytics"></a>Otimizar os empregos da Apache Spark no Azure Synapse Analytics
 
 Aprenda a otimizar uma configuração de cluster [Apache Spark](https://spark.apache.org/) para a sua carga de trabalho particular.  O problema mais comum é a pressão da memória, devido a configurações inadequadas (em especial, executores com tamanho incorreto), operações de execução longa e tarefas que resultam em Operações cartesianas. Pode acelerar os postos de trabalho com o caching apropriado, e permitindo [distorcer os dados.](#optimize-joins-and-shuffles) Para obter o melhor desempenho, monitorize e reveja execuções de empregos de spark de longa duração e de consumo de recursos.
 

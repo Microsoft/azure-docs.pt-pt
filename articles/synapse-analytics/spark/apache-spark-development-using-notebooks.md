@@ -1,6 +1,6 @@
 ---
 title: Cadernos do Estúdio De Sinaapse
-description: Neste artigo, aprende-se a criar e desenvolver cadernos do Azure Synapse Studio (pré-visualização) para fazer a preparação e visualização de dados.
+description: Neste artigo, aprende-se a criar e desenvolver cadernos do Azure Synapse Studio para fazer a preparação e visualização de dados.
 services: synapse analytics
 author: ruixinxu
 ms.service: synapse-analytics
@@ -10,16 +10,16 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: c35ee7bcdefa5091d9c887430182638f066cb9fa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bfb822481e00e84fa17bd4b1fcb58c1d4b89a124
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95900912"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450859"
 ---
-# <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter cadernos do Synapse Studio (pré-visualização) em Azure Synapse Analytics
+# <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter os cadernos do Estúdio Synapse em Azure Synapse Analytics
 
-Um notebook Synapse Studio (pré-visualização) é uma interface web para criar ficheiros que contenham código ao vivo, visualizações e texto narrativo. Os cadernos são um bom local para validar ideias e usar experiências rápidas para obter informações dos seus dados. Os cadernos também são amplamente utilizados na preparação de dados, visualização de dados, machine learning e outros cenários de Big Data.
+Um notebook Do Synapse Studio é uma interface web para criar ficheiros que contenham código ao vivo, visualizações e texto narrativo. Os cadernos são um bom local para validar ideias e usar experiências rápidas para obter informações dos seus dados. Os cadernos também são amplamente utilizados na preparação de dados, visualização de dados, machine learning e outros cenários de Big Data.
 
 Com um caderno Azure Synapse Studio, você pode:
 
@@ -92,7 +92,7 @@ Há várias formas de adicionar uma nova célula ao seu caderno.
 Os cadernos do Azure Synapse Studio suportam quatro línguas Apache Spark:
 
 * pySpark (Python)
-* Faísca (Scala)
+* Apache Spark (Scala)
 * Sparksql
 * .NET para Apache Spark (C#)
 
@@ -150,7 +150,7 @@ As características do IntelliSense estão em diferentes níveis de maturidade p
 |Idiomas| Destaque de sintaxe | Marcador de erro de sintaxe  | Conclusão do Código sintaxe | Conclusão do código variável| Conclusão do código de função do sistema| Conclusão do código de função do utilizador| Avanço Inteligente | Dobragem de código|
 |--|--|--|--|--|--|--|--|--|
 |PySpark (Python)|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
-|Faísca (Scala)|Sim|Sim|Sim|Sim|-|-|-|Sim|
+|Apache Spark (Scala)|Sim|Sim|Sim|Sim|-|-|-|Sim|
 |Sparksql|Sim|Sim|-|-|-|-|-|-|
 |.NET for Spark (C#)|Sim|-|-|-|-|-|-|-|
 
@@ -549,8 +549,8 @@ Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais 
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Confira os cadernos da amostra da Sinapse](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
-- [Quickstart: Criar uma piscina Apache Spark (pré-visualização) em Azure Synapse Analytics usando ferramentas web](../quickstart-apache-spark-notebook.md)
+- [Quickstart: Criar uma piscina Apache Spark em Azure Synapse Analytics usando ferramentas web](../quickstart-apache-spark-notebook.md)
 - [O que é Apache Spark em Azure Synapse Analytics](apache-spark-overview.md)
-- [Utilize .NET para Apache Spark com Azure Synapse Analytics](spark-dotnet.md)
+- [Utilizar o .NET para Apache Spark com o Azure Synapse Analytics](spark-dotnet.md)
 - [.NET para documentação Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

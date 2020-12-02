@@ -1,6 +1,6 @@
 ---
 title: Garantir credenciais de acesso com serviços ligados em Apache Spark para Azure Synapse Analytics
-description: Este artigo fornece conceitos sobre como integrar seguramente o Apache Spark para Synapse Analytics com outros serviços usando serviços ligados e biblioteca simbólica
+description: Este artigo fornece conceitos sobre como integrar seguramente o Apache Spark para a Azure Synapse Analytics com outros serviços utilizando serviços ligados e biblioteca simbólica
 services: synapse-analytics
 author: mlee3gsd
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 08/26/2020
 ms.author: martinle
 ms.reviewer: euang
-ms.openlocfilehash: 1cdb010e34674d52ebe2135ad1591a163a078708
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d542e6ef784d763e406aad28231431cbc382fbfd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324959"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450907"
 ---
 # <a name="securing-your-credentials-through-linked-services-with-the-tokenlibrary"></a>Garantir as suas credenciais através de serviços ligados com a TokenLibrary
 O acesso a dados de fontes externas é um padrão comum. A menos que a fonte de dados externa permita o acesso anónimo, é provável que tenha de garantir a sua ligação com uma cadeia de credenciais, secretas ou de ligação.  

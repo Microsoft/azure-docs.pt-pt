@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 8957d8982a3bfe1da2811dc10d0c3e77a72fc288
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ec7a32739940d53d976e73a7e170df96a0acc245
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367606"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449512"
 ---
 # <a name="azure-key-vault-integration-with-azure-stack-edge"></a>Integração do Azure Key Vault com Azure Stack Edge 
 
@@ -49,7 +49,7 @@ Um cofre chave é criado para o recurso Azure Stack Edge durante o processo de g
 
 - Para evitar a eliminação acidental, está ativado um bloqueio de recursos no cofre da chave. Um soft-delete também é ativado no cofre da chave que permite que o cofre da chave seja restaurado dentro de 90 dias se houver uma eliminação acidental. Para obter mais informações, consulte [a visão geral do Azure Key Vault](../key-vault/general/soft-delete-overview.md)
 
-    Se o cofre da chave for acidentalmente apagado e a duração da proteção da purga de 90 dias não tiver decorrido, siga estes passos para [recuperar o cofre da chave](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault). 
+    Se o cofre da chave for acidentalmente apagado e a duração da proteção da purga de 90 dias não tiver decorrido, siga estes passos para [recuperar o cofre da chave](../key-vault/general/key-vault-recovery.md#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates). 
 
 - Se tiver um recurso Azure Stack Edge existente antes do Cofre da Chave Azure ser integrado com o recurso Azure Stack Edge, não é afetado. Pode continuar a utilizar o seu recurso Azure Stack Edge existente. 
 
@@ -73,4 +73,3 @@ When you generate an activation key, the following events occur:
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre como gerar a [chave de ativação.](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key)
-

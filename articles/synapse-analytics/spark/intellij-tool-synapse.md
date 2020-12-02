@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Azure Toolkit para IntelliJ (aplicação Spark)
-description: Tutorial - Utilize o Kit de Ferramentas Azure para o IntelliJ para desenvolver aplicações Spark, que são escritas em Scala, e submetê-las a uma piscina Apache Spark sem servidor (pré-visualização).
+description: Tutorial - Utilize o Kit de Ferramentas Azure para IntelliJ para desenvolver aplicações Spark, que são escritas em Scala, e submetê-las a uma piscina Apache Spark sem servidor.
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,22 +9,22 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 5a9fcf3e13c2f86a11e9626be486a585ec659044
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 75cc23df41741a95e87ad64d168aea4fa4f45733
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013773"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451043"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Tutorial: Criar uma aplicação Apache Spark com IntelliJ usando um espaço de trabalho synapse
 
-Este tutorial mostra-lhe como usar o Azure Toolkit para o plug-in IntelliJ para desenvolver aplicações Apache Spark, que são escritas em [Scala,](https://www.scala-lang.org/)e depois submetê-las a uma piscina Apache Spark sem servidor (pré-visualização) diretamente do ambiente de desenvolvimento integrado intelliJ (IDE). Pode utilizar o plug-in de várias formas:
+Este tutorial mostra-lhe como usar o Azure Toolkit para o plug-in IntelliJ para desenvolver aplicações Apache Spark, que são escritas em [Scala,](https://www.scala-lang.org/)e depois submetê-las a um conjunto apache spark sem servidor diretamente do ambiente de desenvolvimento integrado intelliJ (IDE). Pode utilizar o plug-in de várias formas:
 
 - Desenvolva e submeta uma aplicação Scala Spark numa piscina de faíscas.
 - Aceda aos recursos das suas piscinas Spark.
 - Desenvolver e executar uma aplicação Scala Spark localmente.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
 > - Utilize o kit de ferramentas Azure para o plug-in IntelliJ

@@ -1,6 +1,6 @@
 ---
 title: Pontos de restauro definidos pelo utilizador
-description: Como criar um ponto de restauração para piscina SQL dedicada.
+description: Como criar um ponto de restauração para piscina SQL dedicada (anteriormente SQL DW).
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9d7266e0b84ae57682ddcfe7195be9574a702c74
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5b8888a29d7dda94e4fc9c35b27056036bc6c463
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313244"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449778"
 ---
-# <a name="user-defined-restore-points-for-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Pontos de restauro definidos pelo utilizador para uma piscina SQL dedicada em Azure Synapse Analytics
+# <a name="user-defined-restore-points-for-a-dedicated-sql-pool-formerly-sql-dw"></a>Pontos de restauro definidos pelo utilizador para uma piscina SQL dedicada (anteriormente SQL DW)
 
-Neste artigo, você aprenderá a criar um novo ponto de restauro definido pelo utilizador para uma piscina SQL dedicada em Azure Synapse Analytics usando PowerShell e o portal Azure.
+Neste artigo, você aprenderá a criar um novo ponto de restauro definido pelo utilizador para uma piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics usando PowerShell e o portal Azure.
 
 ## <a name="create-user-defined-restore-points-through-powershell"></a>Criar pontos de restauro definidos pelo utilizador através do PowerShell
 
@@ -62,9 +62,9 @@ Os pontos de restauro definidos pelo utilizador também podem ser criados atrav�
 
 1. Inscreva-se na sua conta [do portal Azure.](https://portal.azure.com/)
 
-2. Navegue para a piscina de SQL dedicada para a que pretende criar um ponto de restauração.
+2. Navegue para a piscina SQL dedicada (anteriormente SQL DW) para a que pretende criar um ponto de restauração.
 
-3. Selecione **visão geral** do painel esquerdo, selecione **+ Novo Ponto de Restauro**. Se o botão New Restore Point não estiver ativado, certifique-se de que a piscina SQL dedicada não está em pausa.
+3. Selecione **visão geral** do painel esquerdo, selecione **+ Novo Ponto de Restauro**. Se o botão New Restore Point não estiver ativado, certifique-se de que a piscina SQL dedicada (anteriormente SQL DW) não está em pausa.
 
     ![Novo ponto de restauro](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
 
@@ -74,7 +74,6 @@ Os pontos de restauro definidos pelo utilizador também podem ser criados atrav�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Restaurar uma piscina SQL dedicada existente](sql-data-warehouse-restore-active-paused-dw.md)
-- [Restaurar uma piscina SQL dedicada eliminada](sql-data-warehouse-restore-deleted-dw.md)
-- [Restaurar a partir de uma piscina SQL dedicada a geo-backup](sql-data-warehouse-restore-from-geo-backup.md)
-
+- [Restaurar uma piscina SQL dedicada existente (anteriormente SQL DW)](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restaurar uma piscina SQL dedicada eliminada (anteriormente SQL DW)](sql-data-warehouse-restore-deleted-dw.md)
+- [Restaurar a partir de uma piscina SQL dedicada a geo-backup (anteriormente SQL DW)](sql-data-warehouse-restore-from-geo-backup.md)

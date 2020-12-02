@@ -1,6 +1,6 @@
 ---
 title: Conecte-se ao SQL synapse com power BI Professional
-description: Neste tutorial, passaremos por etapas como ligar o desktop Power BI à piscina SQL sem servidor (pré-visualização).
+description: Neste tutorial, vamos passar por etapas como conectar o desktop Power BI à piscina SQL sem servidor.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: c26e2bd27c0c3187768252fd922c31a2cc23d735
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: b33edb99109b7516e1792497a936031cf954bc15
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682093"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451618"
 ---
 # <a name="connect-to-serverless-sql-pool-with-power-bi-professional"></a>Conecte-se à piscina SQL sem servidor com o Power BI Professional
 
@@ -26,7 +26,7 @@ ms.locfileid: "94682093"
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
-Neste tutorial, passaremos os passos para ligar o ambiente de trabalho Power BI à piscina SQL sem servidor (pré-visualização).
+Neste tutorial, vamos percorrer os passos para ligar o desktop Power BI à piscina SQL sem servidor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -106,6 +106,6 @@ Selecione **Azure** no menu e, em seguida, **Azure SQL Database**.
 Escreva o URL para a base de dados e o nome da base de dados onde a vista reside.
 ![Selecione base de dados no ponto final.](./media/get-started-power-bi-professional/step-2-db.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Avance para [consultar ficheiros de armazenamento](get-started-azure-data-studio.md) para aprender a ligar-se à piscina SQL sem servidor usando o Azure Data Studio.

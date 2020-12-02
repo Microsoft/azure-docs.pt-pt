@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 37b2414252a7011444617ecc08c9dd7d081b7441
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d45ab771f90c0174f24d5f0d39921f93f72be850
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425515"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451069"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Utilize pontos finais de serviço de rede virtual e regras para Azure Database for PostgreSQL - Single Server
 
@@ -106,7 +106,7 @@ Para a base de dados Azure para PostgreSQL, a funcionalidade de regras de rede v
 
 - As regras de rede virtuais aplicam-se apenas às redes virtuais do Azure Resource Manager; e não para redes [de modelos de implantação clássicas.][arm-deployment-model-568f]
 
-- Ligar os pontos finais do serviço de rede virtual ON para Azure Database for PostgreSQL utilizando a tag de serviço **Microsoft.Sql** também permite os pontos finais para todos os serviços de Base de Dados Azure: Base de Dados Azure para MySQL, Base de Dados Azure para PostgreSQL, Base de Dados Azure SQL e Azure Synapse Analytics (anteriormente SQL Warehouse Data).
+- Ligar os pontos finais do serviço de rede virtual ON para Azure Database for PostgreSQL utilizando a tag de serviço **Microsoft.Sql** também permite os pontos finais para todos os serviços de Base de Dados Azure: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database e Azure Synapse Analytics.
 
 - O suporte para os pontos finais do serviço VNet é apenas para servidores otimizados para fins gerais e memória.
 

@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: ba3cc376edef1e6dc8fbf859e456219a1fd3ca60
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: f65ee85b37e74f0ca16ccf6988eb2117231c3bc5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635767"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452204"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ (FAQ do Azure Data Factory)
 
@@ -67,7 +67,7 @@ Os utilizadores também podem utilizar as APIs de REST documentadas para interag
 ### <a name="iterative-development-and-debugging-by-using-visual-tools"></a>Desenvolvimento iterativo e depuragem utilizando ferramentas visuais
 As ferramentas visuais da Azure Data Factory permitem o desenvolvimento iterativo e a depuração. Pode criar os seus oleodutos e fazer ensaios utilizando a capacidade **de Debug** na tela do gasoduto sem escrever uma única linha de código. Pode ver os resultados dos seus testes na janela **de saída** da sua tela de pipeline. Após o seu teste ter sucesso, pode adicionar mais atividades ao seu oleoduto e continuar a depurar de forma iterativa. Também pode cancelar os seus testes depois de estarem em curso. 
 
-Não é obrigado a publicar as suas alterações no serviço de fábrica de dados antes de selecionar a **Debug** . Isto é útil em cenários em que pretende certificar-se de que as novas adições ou alterações funcionarão como esperado antes de atualizar os fluxos de trabalho da sua fábrica de dados em ambientes de desenvolvimento, teste ou produção. 
+Não é obrigado a publicar as suas alterações no serviço de fábrica de dados antes de selecionar a **Debug**. Isto é útil em cenários em que pretende certificar-se de que as novas adições ou alterações funcionarão como esperado antes de atualizar os fluxos de trabalho da sua fábrica de dados em ambientes de desenvolvimento, teste ou produção. 
 
 ### <a name="ability-to-deploy-ssis-packages-to-azure"></a>Capacidade de implantar pacotes SSIS para a Azure 
 Se quiser mover as suas cargas de trabalho SSIS, pode criar uma Fábrica de Dados e providenciar um tempo de integração Azure-SSIS. Um tempo de integração Azure-SSIS é um cluster totalmente gerido de VMs (nóns) Azure que se dedicam a executar os seus pacotes SSIS na nuvem. Para obter instruções passo a passo, consulte os [pacotes SSIS de implantação para o tutorial de Azure.](./tutorial-deploy-ssis-packages-azure.md) 
@@ -95,9 +95,9 @@ Desde o lançamento inicial de pré-visualização pública em 2017, a Data Fact
 ## <a name="what-is-the-integration-runtime"></a>Qual é o tempo de integração?
 O tempo de integração é a infraestrutura de computação que a Azure Data Factory utiliza para fornecer as seguintes capacidades de integração de dados em vários ambientes de rede:
 
-- **Movimento de dados** : Para o movimento de dados, o tempo de integração move os dados entre as lojas de dados de origem e destino, ao mesmo tempo que fornece suporte para conectores incorporados, conversão de formato, mapeamento de colunas e transferência de dados performante e escalável.
+- **Movimento de dados**: Para o movimento de dados, o tempo de integração move os dados entre as lojas de dados de origem e destino, ao mesmo tempo que fornece suporte para conectores incorporados, conversão de formato, mapeamento de colunas e transferência de dados performante e escalável.
 - **Atividades de** expedição : Para transformação, o tempo de integração proporciona capacidade para executar pacotes SSIS de forma nativa.
-- **Executar pacotes SSIS** : O tempo de integração executa de forma nativa pacotes SSIS num ambiente computacional gerido do Azure. O tempo de integração também suporta o envio e monitorização de atividades de transformação em execução em uma variedade de serviços de computação, tais como Azure HDInsight, Azure Machine Learning, SQL Database e SQL Server.
+- **Executar pacotes SSIS**: O tempo de integração executa de forma nativa pacotes SSIS num ambiente computacional gerido do Azure. O tempo de integração também suporta o envio e monitorização de atividades de transformação em execução em uma variedade de serviços de computação, tais como Azure HDInsight, Azure Machine Learning, SQL Database e SQL Server.
 
 Pode implementar um ou muitos casos do tempo de execução da integração, conforme necessário para mover e transformar dados. O tempo de integração pode funcionar numa rede pública Azure ou numa rede privada (no local, rede virtual Azure ou nuvem privada virtual da Amazon Web Services [VPC]). 
 
@@ -118,7 +118,7 @@ Os fluxos de dados são objetos que constrói visualmente na Data Factory que tr
 ### <a name="activities"></a>Atividades
 As atividades representam uma fase de processamento num pipeline. Por exemplo, pode utilizar uma atividade Copy para copiar dados de uma loja de dados para outra loja de dados. Da mesma forma, você pode usar uma atividade de Hive, que executa uma consulta de Hive em um cluster Azure HDInsight para transformar ou analisar seus dados. O Data Factory suporta três tipos de atividades: atividades de movimento de dados, atividades de transformação de dados e atividades de controlo.
 
-### <a name="datasets"></a>Conjuntos de dados
+### <a name="datasets"></a>Conjuntos de Dados
 Os conjuntos de dados representam estruturas de dados nos arquivos de dados, que simplesmente apontam ou referenciam os dados que pretende utilizar nas suas atividades como entrada ou saída. 
 
 ### <a name="linked-services"></a>Serviços ligados
@@ -150,7 +150,7 @@ Para obter mais informações sobre os conceitos do Data Factory, veja os artigo
 
 - [Dataset and linked services](concepts-datasets-linked-services.md) (Conjuntos de dados e serviços ligados)
 - [Pipelines e atividades](concepts-pipelines-activities.md)
-- [Runtime de integração](concepts-integration-runtime.md)
+- [Tempo de execução da integração](concepts-integration-runtime.md)
 
 ## <a name="what-is-the-pricing-model-for-data-factory"></a>Qual é o modelo de preços para a Data Factory?
 Para obter detalhes sobre os preços da Azure Data Factory, consulte [os detalhes dos preços da Data Factory](https://azure.microsoft.com/pricing/details/data-factory/).
@@ -190,7 +190,7 @@ Quando a Microsoft fornecer ajuda ou resolução de problemas com fluxos de dado
 
 ### <a name="how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory"></a>Como posso aceder aos dados utilizando os outros 90 tipos de conjuntos de dados na Data Factory?
 
-A funcionalidade de fluxo de dados de mapeamento permite atualmente a Azure SQL Database, Azure Synapse Analytics (anteriormente SQL Data Warehouse), ficheiros de texto delimitados do armazenamento de Azure Blob ou Azure Data Lake Storage Gen2, e ficheiros Parquet do armazenamento blob ou data lake storage Gen2 nautócton para fonte e pia. 
+A funcionalidade de fluxo de dados de mapeamento permite atualmente a base de dados Azure SQL, Azure Synapse Analytics, ficheiros de texto delimitados a partir do armazenamento de Azure Blob blob ou da Azure Data Lake Storage Gen2, e ficheiros Parquet de armazenamento blob ou data lake de armazenamento Gen2 na sua terra natal para origem e pia. 
 
 Utilize a atividade Copy para encenar dados de qualquer um dos outros conectores e, em seguida, execute uma atividade de Fluxo de Dados para transformar dados depois de encenado. Por exemplo, o seu pipeline irá primeiro copiar para o armazenamento blob, e então uma atividade de Fluxo de Dados usará um conjunto de dados na fonte para transformar esses dados.
 

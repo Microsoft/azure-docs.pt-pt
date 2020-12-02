@@ -1,6 +1,6 @@
 ---
-title: Conecte-se ao SYNapse SQL com o Azure Data Studio (pré-visualização)
-description: Utilize o Azure Data Studio (pré-visualização) para ligar e consultar o Synapse SQL em Azure Synapse Analytics.
+title: Ligue ao Synapse SQL com o Azure Data Studio
+description: Utilize o Azure Data Studio para ligar e consultar o Synapse SQL em Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3af28ef575f770a5b8c3fb73ade1f9c53be66843
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 580dfe779ff0f550524781076d3e27805ffd6689
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685754"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451664"
 ---
-# <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Conecte-se ao SYNapse SQL com o Azure Data Studio (pré-visualização)
+# <a name="connect-to-synapse-sql-with-azure-data-studio"></a>Ligue ao Synapse SQL com o Azure Data Studio
 
 > [!div class="op_single_selector"]
 >
@@ -26,7 +26,7 @@ ms.locfileid: "94685754"
 > * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Pode utilizar [o Azure Data Studio (pré-visualização)](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para ligar e consultar o Synapse SQL em Azure Synapse Analytics. 
+Pode utilizar [o Azure Data Studio)](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para ligar e consultar o Synapse SQL em Azure Synapse Analytics. 
 
 ## <a name="connect"></a>Ligar
 
@@ -42,7 +42,7 @@ A ligação requer os seguintes parâmetros:
 * **Base de dados:** Nome da base de dados
 
 > [!NOTE]
-> Se você gostaria de usar piscina **SQL sem servidor (pré-visualização)** o URL deve parecer:
+> Se você gostaria de usar piscina **SQL sem servidor,** o URL deve parecer:
 >
 > - `<Azure Synapse workspace name>`ondemand.sql.azuresynapse.net.
 >
@@ -87,7 +87,7 @@ OPENROWSET(
     FORMAT='PARQUET'
 )
 ```
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 Explore outras formas de se conectar ao SQL da Sinapse: 
 
 - [SSMS](get-started-ssms.md)

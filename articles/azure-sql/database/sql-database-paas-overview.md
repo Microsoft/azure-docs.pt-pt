@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: bf7e99f6e6201afefd316deafe37e38088fb9fae
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 0bd6300f4b9dbcf76b5447a0fb58502b7aebf311
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187124"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451417"
 ---
 # <a name="what-is-azure-sql-database"></a>O que é a Base de Dados SQL do Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -200,7 +200,7 @@ Com a Base de Dados SQL, criar e manter aplicações é mais fácil e produtivo.
 |[Azure Data Studio](/sql/azure-data-studio/)|Uma ferramenta de base de dados transversal que funciona no Windows, macOS e Linux.|
 |[SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)|Uma aplicação gratuita e transferível para o cliente para gerir qualquer infraestrutura SQL, desde o SQL Server até à BASE de Dados SQL.|
 |[Ferramentas de dados do servidor SQL no Estúdio Visual](/sql/ssdt/download-sql-server-data-tools-ssdt)|Uma aplicação gratuita e transferível para o cliente para o desenvolvimento de bases de dados relacionais do SQL Server, bases de dados na Base de Dados Azure SQL, pacotes de Serviços de Integração, modelos de dados de serviços de análise e relatórios de Serviços de Relatórios.|
-|[Visual Studio Code](https://code.visualstudio.com/docs)|Um editor de código gratuito, transferível e aberto para Windows, macOS e Linux. Suporta extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consulta do Microsoft SQL Server, Azure SQL Database e Azure Azure Synapse Analytics (anteriormente SQL Data Warehouse).|
+|[Visual Studio Code](https://code.visualstudio.com/docs)|Um editor de código gratuito, transferível e aberto para Windows, macOS e Linux. Suporta extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consulta do Microsoft SQL Server, Azure SQL Database e Azure Azure Synapse Analytics.|
 
 A SQL Database suporta aplicações de construção com Python, Java, Node.js, PHP, Ruby e .NET em macOS, Linux e Windows. A Base de Dados SQL suporta as mesmas [bibliotecas de ligações](connect-query-content-reference-guide.md#libraries) que o SQL Server.
 

@@ -6,12 +6,12 @@ ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 26b155484dafac4a63fe2a6c7ff292ee8bbacbc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ce9183fad50c43ea7070f5fa09e0d445caf89df
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317213"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451257"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Tutorial: Criar um gráfico de métricas no Azure Monitor
 O explorador de métricas é uma característica do Azure Monitor no portal Azure que permite criar gráficos a partir de valores métricos, correlacionar visualmente tendências e investigar picos e mergulhos em valores métricos. Use o explorador de métricas para investigar a saúde e utilização dos seus recursos Azure ou para traçar gráficos a partir de métricas personalizadas. 
@@ -50,7 +50,7 @@ Pode abrir métricas exploradores a partir do menu Azure Monitor ou a partir do 
 
     ![Selecione uma métrica](media/tutorial-metrics-explorer/metric-picker.png)
 
-4. Opcionalmente, altere a **agregação**métrica. Isto define como os valores métricos serão agregados ao longo do tempo granularidade para o gráfico. Por exemplo, se a granularidade do tempo estiver definida para 15 minutos e a agregação for definida para resumir, então cada ponto do gráfico será a soma de todos os valores recolhidos ao longo de cada segmento de 15 minutos.
+4. Opcionalmente, altere a **agregação** métrica. Isto define como os valores métricos serão agregados ao longo do tempo granularidade para o gráfico. Por exemplo, se a granularidade do tempo estiver definida para 15 minutos e a agregação for definida para resumir, então cada ponto do gráfico será a soma de todos os valores recolhidos ao longo de cada segmento de 15 minutos.
 
     ![A screenshot mostra um gráfico intitulado Sum Ingress para contosoretailweb.](media/tutorial-metrics-explorer/chart.png)
 
@@ -85,5 +85,5 @@ Pode personalizar o estilo de gráfico, o título e modificar as definições av
 Agora que aprendeu a trabalhar com métricas no Azure Monitor, aprenda a usar métricas para enviar alertas pró-ativos.
 
 > [!div class="nextstepaction"]
-> [Criar, ver e gerir alertas de métricas com o Azure Monitor](../platform/alerts-metric.md)
+> [Criar, ver e gerir alertas de métricas com o Azure Monitor](../platform/metrics-charts.md#create-alert-rules)
 

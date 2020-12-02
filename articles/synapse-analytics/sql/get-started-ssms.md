@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4239b5400e919621dfff001ca7e6cb9de1626658
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: da698a1a8d91273321d4633abd683a06cb4cf403
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686213"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451620"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Conecte-se ao SQL Synapse com o SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -26,9 +26,9 @@ ms.locfileid: "94686213"
 > 
 > 
 
-Pode utilizar [o SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) para ligar e consultar o Synapse SQL em Azure Synapse Analytics através de um pool SQL sem servidor (pré-visualização) ou recursos dedicados do pool SQL. 
+Pode utilizar [o SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) para ligar e consultar o Synapse SQL em Azure Synapse Analytics através de uma piscina SQL sem servidor ou recursos de piscina SQL dedicados. 
 
-### <a name="supported-tools-for-serverless-sql-pool-preview"></a>Ferramentas suportadas para piscina SQL sem servidor (pré-visualização)
+### <a name="supported-tools-for-serverless-sql-pool"></a>Ferramentas suportadas para piscina SQL sem servidor
 
 [O Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) está totalmente suportado a partir da versão 1.18.0. O SSMS é parcialmente suportado a partir da versão 18.5, pode usá-lo apenas para ligar e consultar.
 
@@ -63,7 +63,7 @@ Para ligar ao Synapse SQL utilizando uma piscina SQL dedicada, siga estes passos
     ![Explore AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
-### <a name="serverless-sql-pool-preview"></a>Piscina SQL sem servidor (pré-visualização)
+### <a name="serverless-sql-pool"></a>Conjunto de SQL sem servidor
 
 Para ligar ao Sinaapse SQL utilizando a piscina SQL sem servidor, siga estes passos: 
 
@@ -124,7 +124,7 @@ Agora que estabeleceu uma ligação de base de dados, pode consultar os dados.
    
     ![Resultados de consulta 2](./media/get-started-ssms/results.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que pode ligar e consultar, tente [visualizar os dados com o Power BI](get-started-power-bi-professional.md).
 
 Para configurar o seu ambiente para a autenticação do Azure Ative Directory, consulte [Authenticate to Synapse SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

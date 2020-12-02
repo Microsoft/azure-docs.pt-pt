@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: dfc812771f0eeb8dcb0d95bdad1e76ed0b12297e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c56d83e551265f3fb4de106cb8fa77efd6dcbabc
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754439"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452118"
 ---
 # <a name="how-to-plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>Como planear uma oferta de serviços de consultoria no mercado comercial
 
@@ -36,7 +36,7 @@ Para saber mais sobre as diferenças entre o AppSource e o Azure Marketplace, co
 
 ## <a name="eligibility-requirements"></a>Requisitos de elegibilidade
 
-Para demonstrar aos clientes a sua experiência numa área, deve cumprir um conjunto de requisitos de elegibilidade antes de publicar uma oferta de serviço de consultoria. Os requisitos dependem do produto no cerne da sua oferta. A lista completa dos requisitos de elegibilidade para cada produto primário está nas políticas de [certificação dos serviços de consultoria.](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services)
+Para demonstrar aos clientes a sua experiência numa área, deve cumprir um conjunto de requisitos de elegibilidade antes de publicar uma oferta de serviço de consultoria. Os requisitos dependem do produto no cerne da sua oferta. A lista completa dos requisitos de elegibilidade para cada produto primário está nas políticas de [certificação dos serviços de consultoria.](/legal/marketplace/certification-policies#800-consulting-services)
 
 > [!NOTE]
 > Para alguns produtos primários, você deve ter uma competência Gold ou Silver Microsoft na sua área de solução. Para obter mais informações, consulte [as Competências da Rede de Parceiros da Microsoft.](https://partner.microsoft.com/membership/competencies)
@@ -84,7 +84,7 @@ Quando criar a sua oferta de serviço de consultoria no Partner Center, introduz
 
 Para ajudar a criar a sua oferta mais facilmente, prepare alguns destes itens com antecedência. Os seguintes itens são necessários, salvo indicação em contrário.
 
-**Nome** : Este nome aparecerá como o título da sua listagem de oferta no mercado comercial. O nome pode ser marcado. Não pode conter emojis (a menos que sejam os símbolos da marca e dos direitos de autor) e deve estar limitado a 50 caracteres. O nome deve incluir a duração e o tipo de serviço da oferta para maximizar a otimização do motor de busca (SEO). O formato requerido é *Nome: Duração + tipo* . Não inclua o nome da sua empresa a menos que seja também o nome do produto. Eis alguns exemplos:
+**Nome**: Este nome aparecerá como o título da sua listagem de oferta no mercado comercial. O nome pode ser marcado. Não pode conter emojis (a menos que sejam os símbolos da marca e dos direitos de autor) e deve estar limitado a 50 caracteres. O nome deve incluir a duração e o tipo de serviço da oferta para maximizar a otimização do motor de busca (SEO). O formato requerido é *Nome: Duração + tipo*. Não inclua o nome da sua empresa a menos que seja também o nome do produto. Eis alguns exemplos:
 
 |Não diga que |Diga  |
 |---|---|
@@ -94,7 +94,7 @@ Para ajudar a criar a sua oferta mais facilmente, prepare alguns destes itens co
 
 **Resumo dos resultados** da pesquisa : Descreva o propósito ou objetivo da sua oferta em 200 caracteres ou menos. Este resumo é utilizado no mercado comercial que enumera os resultados da pesquisa. Não devia ser idêntico ao título. Considere incluir as suas palavras-chave seo de topo.
 
-**Descrição** : Esta descrição será exibida na listagem do mercado comercial. Considere incluir uma proposta de valor, benefícios-chave, base de utilizadores pretendida, e qualquer categoria ou associações do setor.
+**Descrição**: Esta descrição será exibida na listagem do mercado comercial. Considere incluir uma proposta de valor, benefícios-chave, base de utilizadores pretendida, e qualquer categoria ou associações do setor.
 
 Ao escrever a descrição, siga estes critérios, de acordo com o seu tipo de serviço:
 
@@ -119,13 +119,13 @@ Pode utilizar tags HTML para formatar a sua descrição. Pode introduzir até 2.
 
 **Procurar palavras-chave** (opcional): Forneça até três palavras-chave de pesquisa que os clientes podem usar para encontrar a sua oferta nas lojas online. Não precisa de incluir a oferta **Nome** e **Descrição.**
 
-**Duração** : a sua oferta de serviço de consultoria deve ter uma duração pré-determinada até 10 semanas.
+**Duração**: a sua oferta de serviço de consultoria deve ter uma duração pré-determinada até 10 semanas.
 
-**Informações de contacto** : no Partner Center, ser-lhe-á pedido que forneça nome, endereço de e-mail e número de telefone de duas pessoas na sua empresa (pode ser um dos dois contactos). Usaremos esta informação para comunicar consigo sobre a sua oferta. Esta informação não é mostrada aos clientes, mas pode ser fornecida aos parceiros cloud Solution Provider (CSP).
+**Informações de contacto**: no Partner Center, ser-lhe-á pedido que forneça nome, endereço de e-mail e número de telefone de duas pessoas na sua empresa (pode ser um dos dois contactos). Usaremos esta informação para comunicar consigo sobre a sua oferta. Esta informação não é mostrada aos clientes, mas pode ser fornecida aos parceiros cloud Solution Provider (CSP).
 
-**Documentos comprovativos** : carrene pelo menos um e até três documentos PDF voltados para o cliente que fornecem informações sobre a sua oferta. Por exemplo, podem ser livros brancos ou brochuras.
+**Documentos comprovativos**: carrene pelo menos um e até três documentos PDF voltados para o cliente que fornecem informações sobre a sua oferta. Por exemplo, podem ser livros brancos ou brochuras.
 
-**Meios de comunicação do mercado – logotipos** : Forneça um ficheiro PNG para o logotipo de grande dimensão. O Partner Center irá usá-lo para criar um pequeno logótipo. Pode substituir opcionalmente o pequeno logótipo por uma imagem diferente mais tarde.
+**Meios de comunicação do mercado – logotipos**: Forneça um ficheiro PNG para o logotipo de grande dimensão. O Partner Center irá usá-lo para criar um pequeno logótipo. Pode substituir opcionalmente o pequeno logótipo por uma imagem diferente mais tarde.
 
 * Grande (de 216 x 216 a 350 x 350 px, necessário)
 * Pequeno (48 x 48 px, opcional)
@@ -139,7 +139,7 @@ Siga estas diretrizes para os seus logotipos:
 * Se utilizar um fundo transparente, certifique-se de que o logótipo e o texto não são brancos, pretos ou azuis.
 * Evite gradientes no logotipo ou no fundo. Não coloque texto no logótipo, nem mesmo o nome da empresa ou da marca.
 
-**Marketplace media – screenshots** : Adicione pelo menos uma e até cinco imagens que demonstrem a sua oferta. Todas as imagens devem ter 1280 x 720 pixels de tamanho e em . Formato PNG.
+**Marketplace media – screenshots**: Adicione pelo menos uma e até cinco imagens que demonstrem a sua oferta. Todas as imagens devem ter 1280 x 720 pixels de tamanho e em . Formato PNG.
 
 **Marketplace media – vídeos** (opcional): pode adicionar até quatro vídeos que demonstrem a sua oferta. Os vídeos devem ser apresentados no YouTube ou Vimeo e ter uma miniatura (ficheiro PNG 1280 x 720).
 
