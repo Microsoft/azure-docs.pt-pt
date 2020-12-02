@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 290990e312a7f591539686ecce1eec1ac742dd60
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c0dcaec9c8e9a310af1fd6fc319e0784694610e2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999302"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463091"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados da Amazon Redshift usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -101,7 +101,7 @@ Em alternativa, pode utilizar o tipo **RelationalSource,** que inclui o Amazon R
 
 O comando Amazon Redshift [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) descarrega os resultados de uma consulta a um ou mais ficheiros sobre o Amazon S3. Este comando é recomendado pela Amazon para copiar grandes conjuntos de dados da Redshift.
 
-**Exemplo: Copiar dados da Amazon Redshift para a Azure Synapse Analytics (anteriormente SQL Data Warehouse)**
+**Exemplo: Copiar dados da Amazon Redshift para a Azure Synapse Analytics**
 
 Este exemplo copia dados da Amazon Redshift para a Azure Synapse Analytics. O exemplo utiliza o comando Redshift **UNLOAD,** dados de cópias encenados e Microsoft PolyBase.
 

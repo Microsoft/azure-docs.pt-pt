@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 06f308b4e0b2df0487a351ae38f16f3872961cfb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 17765d89cacfb6083df5ac911d2b24d573fba511
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89436261"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463075"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introdução ao Azure Data Factory 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -35,7 +35,7 @@ Por exemplo, uma empresa de jogos recolhe registos produzidos pelos jogos na clo
 
 Para analisar estes registos, a empresa tem de utilizar dados de referência, como informações do cliente, informações do jogo, informações de campanhas de marketing, que se encontram num arquivo de dados no local. Por isso, a empresa pretende ingerir dados de registo provenientes do arquivo de dados na cloud e dados de referência provenientes do arquivo de dados no local. 
 
-Em seguida, quer processar os dados através do Hadoop na cloud (Azure HDInsight). Pretendem publicar os dados dos resultados num armazém de dados em nuvem, como o Azure Synapse Analytics (antigo SQL Data Warehouse) ou uma loja de dados no local, como o SQL Server. A empresa quer que este fluxo de trabalho seja executado uma vez por semana. 
+Em seguida, quer processar os dados através do Hadoop na cloud (Azure HDInsight). Pretendem publicar os dados dos resultados num armazém de dados em nuvem, como o Azure Synapse Analytics ou uma loja de dados no local, como o SQL Server. A empresa quer que este fluxo de trabalho seja executado uma vez por semana. 
 
 Precisa de uma plataforma onde seja possível criar um fluxo de trabalho que faça a ingestão de dados em arquivos de dados no local e na cloud. A empresa também tem de transformar ou processar os dados através dos serviços de computação existentes, como o Hadoop, e publicar os resultados num arquivo de dados no local ou na cloud para consumo das aplicações de BI. 
 
@@ -100,7 +100,7 @@ Para obter mais informações, veja [Mover dados através da Atividade de Cópia
 ### <a name="custom-net-activities"></a>Atividades .NET personalizadas
 Crie uma atividade .NET personalizada se precisar de mover dados de e para um arquivo de dados que a Atividade de Cópia não suporte ou para transformar dados com a sua própria lógica. Para obter detalhes sobre como criar e utilizar uma atividade personalizada, veja [Utilizar atividades personalizadas num pipeline do Azure Data Factory](data-factory-use-custom-activities.md).
 
-### <a name="datasets"></a>Conjuntos de dados
+### <a name="datasets"></a>Conjuntos de Dados
 Uma atividade aceita zero ou mais conjuntos de dados como entradas e um ou mais conjuntos de dados como saídas. Os conjuntos de dados representam estruturas de dados dentro dos arquivos de dados. Estas estruturas apontam ou referenciam os dados que quer utilizar nas suas atividades (como entradas ou saídas). 
 
 Por exemplo, um conjunto de dados de blobs do Azure especifica o contentor de blobs e a pasta no armazenamento de blobs do Azure a partir dos quais o pipeline deve ler os dados. Em alternativa, um conjunto de dados de tabela SQL do Azure especifica a tabela na qual os dados de saída são escritos pela atividade. 

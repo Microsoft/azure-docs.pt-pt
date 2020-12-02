@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 05/08/2018
-ms.openlocfilehash: 538802cc2129a8e8f379c8b569bd1f8696097dab
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9126dbcfbfe9e3a94514ebf45685bdfc55dd0306
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314186"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463000"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Análise de equipe baseada em máquina virtual de ciência de dados e ambiente de IA 
 A [Data Science Virtual Machine](overview.md) (DSVM) fornece um ambiente rico na plataforma Azure, com software pré-construído para inteligência artificial (IA) e análise de dados.
@@ -38,7 +38,7 @@ Os principais blocos de construção de um ambiente de análise de equipas empre
 Esta série fornece orientações e ponteiros para cada um dos tópicos anteriores. Não cobre todas as considerações e requisitos para a implementação de DSVMs em grandes configurações empresariais. Aqui estão alguns outros recursos Azure que pode usar ao implementar instâncias DSVM na sua empresa:
 
 * [Segurança da rede](../../security/fundamentals/network-overview.md)
-* [Monitorização](../../azure-monitor/insights/monitor-vm-azure.md) e [gestão](../../virtual-machines/maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252fwindows%252ftoc.json)
+* [Monitorização](../../azure-monitor/insights/monitor-vm-azure.md) e [gestão](../../virtual-machines/maintenance-and-updates.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Registo e auditoria](../../security/fundamentals/log-audit.md)
 * [Controlo de acesso baseado em funções do Azure (RBAC do Azure)](../../role-based-access-control/overview.md)
 * [Definição de políticas e execução](../../governance/policy/overview.md)

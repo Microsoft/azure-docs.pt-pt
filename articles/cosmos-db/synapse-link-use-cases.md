@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 7621a19b510d302454465f9fcbacec27a14dddf9
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9855a53ebdf7501907b3e1e63d59823d3a0b0209
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340180"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463120"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link para o Azure Cosmos DB: casos de utilização da análise quase em tempo real
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -53,9 +53,9 @@ Com base em arquitetura anterior, você pode alcançar os seguintes casos de uso
 
   Synapse Link for Azure Cosmos DB permite a inteligência empresarial rica (BI)/cenários de reporte:
 
-  * Consultar dados operacionais da loja analítica Azure Cosmos DB utilizando a integração nativa com o servidor Synapse SQL sem servidor e a total expressividade da linguagem T-SQL.
+  * Consultar dados operacionais da loja analítica Azure Cosmos DB utilizando a integração nativa com piscina SQL sem servidor e total expressividade da linguagem T-SQL.
 
-  * Modele e publique painéis bi refrescantes auto sobre Azure Cosmos DB através do suporte sem servidor Sinaapse SQL para ferramentas bi familiares. Por exemplo, Serviços de Análise Azure, Power BI Premium, etc.
+  * Modele e publique painéis de BI auto refrescantes sobre a Azure Cosmos DB através do suporte de piscina SQL sem servidor para ferramentas bi familiares. Por exemplo, Serviços de Análise Azure, Power BI Premium, etc.
 
 Seguem-se algumas orientações para a integração de dados para o lote & dados de streaming para a Azure Cosmos DB:
 
@@ -143,4 +143,4 @@ Para saber mais, consulte os seguintes documentos:
 
 * [Faísca Apache em Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md)
 
-* [Suporte de tempo sem servidor SQL no Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)
+* [Suporte de runtime de piscina sem servidor SQL em Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)

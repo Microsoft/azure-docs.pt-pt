@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: a76df67d1ef9d203d5e5d54cb95bb8fc90f70180
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d19310dbd54c8bd5f9854ff86af051b68c5cd378
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980747"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463289"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação de centro de distribuição digital
 
@@ -34,8 +34,7 @@ Pode criar uma aplicação utilizando os seguintes passos
 
 1. Navegue para o site do gestor de aplicações Azure IoT Central. **Selecione Construir** a partir da barra de navegação à esquerda e, em seguida, clique no **separador 'Varejo'.**
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot mostrando como selecionar o modelo de aplicação do centro de distribuição digital](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
+    :::image type="content" source="media/tutorial-iot-central-ddc/iotc-retail-homepage.png" alt-text="Modelo de aplicação de centro de distribuição digital":::
 
 2. Selecione o separador **de varejo** e selecione **Criar app** sob **aplicação digital do centro de distribuição**
 
@@ -45,11 +44,9 @@ Pode criar uma aplicação utilizando os seguintes passos
    **Informações de Faturação**: Os dados do Diretório, da Subscrição Azure e da Região são necessários para a disponibilização dos recursos.
    **Criar:** Selecione criar na parte inferior da página para implementar a sua aplicação.
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot mostrando como criar uma aplicação a partir do modelo de aplicação do centro de distribuição digital](./media/tutorial-iot-central-ddc/ddc-create.png)
+   :::image type="content" source="media/tutorial-iot-central-ddc/ddc-create.png" alt-text="Screenshot mostrando como criar uma aplicação a partir do modelo de aplicação do centro de distribuição digital":::
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot mostrando as opções de faturação quando cria a aplicação](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
+   :::image type="content" source="media/tutorial-iot-central-ddc/ddc-create-billinginfo.png" alt-text="Screenshot mostrando as opções de faturação quando cria a aplicação":::
 
 ## <a name="walk-through-the-application-dashboard"></a>Caminhe pelo painel de aplicações 
 
@@ -108,7 +105,7 @@ Selecione o separador de empregos para ver cinco empregos diferentes que existem
 > ![Screenshot mostrando a lista de empregos na aplicação do centro de distribuição digital](./media/tutorial-iot-central-ddc/ddc-jobs.png)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
-Se não continuar a utilizar esta aplicação, elimine o **Administration**modelo de aplicação visitando  >  **as definições de Aplicação da** Administração e clique em **Eliminar**.
+Se não continuar a utilizar esta aplicação, elimine o **Administration** modelo de aplicação visitando  >  **as definições de Aplicação da** Administração e clique em **Eliminar**.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot mostrando como apagar a aplicação quando terminar com ela](./media/tutorial-iot-central-ddc/ddc-cleanup.png)

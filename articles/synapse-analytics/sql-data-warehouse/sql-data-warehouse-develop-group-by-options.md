@@ -1,30 +1,30 @@
 ---
 title: Usando grupo por opções
-description: Dicas para implementar grupo por opções na piscina Synapse SQL.
+description: Dicas para implementar grupo por opções para piscinas SQL dedicadas em Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 260bd7cc6402a7cb4ed17d004d0f61b7462c51d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: cdac3b1e502a203c272db75eb4345446b0f7c0c8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213453"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462758"
 ---
-# <a name="group-by-options-in-synapse-sql-pool"></a>Grupo por opções na piscina Synapse SQL
+# <a name="group-by-options-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Grupo por opções para piscinas SQL dedicadas em Azure Synapse Analytics
 
-Neste artigo, você encontrará dicas para implementar grupo por opções na piscina SQL.
+Neste artigo, você encontrará dicas para implementar grupo por opções em piscinas SQL dedicadas.
 
 ## <a name="what-does-group-by-do"></a>O que o GRUPO BY faz?
 
-A cláusula [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL agrega dados a um conjunto sumário de linhas. O GROUP BY tem algumas opções que a piscina SQL não suporta. Estas opções têm soluções alternativas, que são as seguintes:
+A cláusula [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL agrega dados a um conjunto sumário de linhas. O GROUP BY tem algumas opções que a piscina SQL dedicada não suporta. Estas opções têm soluções alternativas, que são as seguintes:
 
 * GRUPO BY com ROLLUP
 * CONJUNTOS DE AGRUPAMENTO

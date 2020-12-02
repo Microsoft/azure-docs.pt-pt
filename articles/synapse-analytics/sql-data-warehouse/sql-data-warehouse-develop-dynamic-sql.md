@@ -1,30 +1,30 @@
 ---
 title: Usando SQL dinâmico
-description: Dicas para soluções de desenvolvimento utilizando SQL dinâmico na piscina Sinaapse SQL.
+description: Dicas para soluções de desenvolvimento utilizando SQL dinâmico para piscinas SQL dedicadas em Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: bce79b8e18b3ec6f1fd139af280086281bbdda98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 52bc7bdc63f754d52bf4a69097c1dd309a6dc3ec
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213470"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462773"
 ---
-# <a name="dynamic-sql-in-synapse-sql-pool"></a>SQL dinâmico na piscina Sinaapse SQL
+# <a name="dynamic-sql-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>SQL dinâmico para piscinas SQL dedicadas em Azure Synapse Analytics
 
-Incluído neste artigo são dicas para soluções de desenvolvimento usando SQL dinâmico em piscina SQL.
+Incluído neste artigo estão dicas para soluções de desenvolvimento usando SQL dinâmico em piscinas SQL dedicadas.
 
 ## <a name="dynamic-sql-example"></a>Exemplo dinâmico do SQL
 
-Ao desenvolver o código de aplicação para piscina SQL, poderá ser necessário utilizar sql dinâmico para ajudar a fornecer soluções flexíveis, genéricas e modulares. O pool SQL não suporta tipos de dados blob neste momento.
+Ao desenvolver código de aplicação para piscinas SQL dedicadas, poderá ser necessário utilizar SQL dinâmico para ajudar a fornecer soluções flexíveis, genéricas e modulares. Piscinas SQL dedicadas não suportam tipos de dados blob neste momento.
 
 Não suportar tipos de dados blob pode limitar o tamanho das suas cordas, uma vez que os tipos de dados blob incluem tanto os tipos de varchar(máx) como os nvarchar (max).
 

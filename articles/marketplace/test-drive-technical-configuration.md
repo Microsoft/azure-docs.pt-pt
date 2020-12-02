@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: de85e4eb553f623790b472e79f8f97487ba96b48
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 553eba3898a5ea42e5d478603e35e82c68abcab1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95751118"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462892"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuração técnica da versão de teste
 
@@ -38,9 +38,9 @@ A Microsoft pode remover a complexidade da configuração de um test drive hospe
 
 - **Nome de função** (obrigatório) – Forneça o nome de função de segurança que definiu no seu test drive Dynamics 365 personalizado, que será atribuído ao utilizador durante a sua unidade de teste (por exemplo, função de test-drive).
 
-Para obter ajuda sobre como configurar o seu ambiente Dynamics 365 para test drive e conceder permissão appSource para provisão e deprovisionar utilizadores de test drive no seu inquilino, siga [estas instruções](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup).
+Para obter ajuda sobre como configurar o seu ambiente Dynamics 365 para test drive e conceder permissão appSource para provisão e deprovisionar utilizadores de test drive no seu inquilino, siga [estas instruções](./test-drive-azure-subscription-setup.md).
 
-Para obter instruções passo a passo sobre a listagem e configuração do seu Test Drive hospedado, visite a configuração detalhada para a página [de test drive hospedada.](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config)
+Para obter instruções passo a passo sobre a listagem e configuração do seu Test Drive hospedado, visite a configuração detalhada para a página [de test drive hospedada.](./test-drive-hosted-detailed-config.md)
 
 ## <a name="logic-app-test-drive"></a>Unidade de teste de aplicativo lógico
 
@@ -95,7 +95,7 @@ A opção **de listagem test drive** encontrada no separador Test **drive** no P
 
 Se estiver atualmente a criar o seu test drive no Partner Center, **selecione Guardar o rascunho** antes de continuar.
 
-Para obter instruções passo a passo sobre a listagem e configuração do seu Test Drive hospedado, visite a configuração detalhada para a página [de test drive hospedada.](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config)
+Para obter instruções passo a passo sobre a listagem e configuração do seu Test Drive hospedado, visite a configuração detalhada para a página [de test drive hospedada.](./test-drive-hosted-detailed-config.md)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 

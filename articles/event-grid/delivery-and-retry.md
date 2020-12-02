@@ -3,12 +3,12 @@ title: Entrega e reagem à grelha de eventos Azure
 description: Descreve como a Azure Event Grid fornece eventos e como lida com mensagens não entregues.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 9a7bde33e322183f86c3c51d30bb004d06fa1406
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 51473cf457a1c713e6694edd23c344be8c4d439e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345358"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463236"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e redação de mensagem da Grelha de Eventos
 
@@ -57,7 +57,7 @@ Para obter mais informações sobre a utilização do Azure CLI com a Grade de [
 
 Quando o EventGrid recebe um erro para uma tentativa de entrega de eventos, a EventGrid decide se deve voltar a tentar a entrega ou a carta morta ou largar o evento com base no tipo de erro. 
 
-Se o erro devolvido pelo ponto final subscrito for um erro relacionado com a configuração que não pode ser corrigido com retornas (por exemplo, se o ponto final for eliminado), o EventGrid ou executa o evento de rotulação morta ou deixa cair o evento se a letra morta não estiver configurada.
+Se o erro devolvido pelo ponto final subscrito for um erro relacionado com a configuração que não pode ser corrigido com recauchutadas (por exemplo, se o ponto final for eliminado), o EventGrid realizará a letra morta do evento ou abandonará o evento se a letra morta não estiver configurada.
 
 Seguem-se os tipos de pontos finais para os quais não acontece novamente:
 

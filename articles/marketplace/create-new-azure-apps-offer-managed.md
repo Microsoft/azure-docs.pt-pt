@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 85f5beb6188b1f6987934f1c39c579d5a3028a5e
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 61ee0b769664d1f574177e27b5b1fb10e9845035
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579492"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463097"
 ---
 # <a name="configure-a-managed-application-plan"></a>Configurar um plano de candidatura gerido
 
@@ -23,13 +23,13 @@ Este artigo aplica-se apenas aos planos de candidatura geridos para uma oferta d
 
 Todos os planos devem estar disponíveis em pelo menos um mercado. No **separador de Preços e Disponibilidade,** pode configurar os mercados em que este plano estará disponível, o preço, e se tornará o plano visível para todos ou apenas para clientes específicos (também chamado de plano privado).
 
-1. Em **Mercados** , selecione a ligação **de mercados de edição.**
+1. Em **Mercados**, selecione a ligação **de mercados de edição.**
 1. Na caixa de diálogo que aparece, selecione as localizações do mercado onde pretende disponibilizar o seu plano. Deve selecionar um mínimo de um e máximo de 141 mercados.
 
     > [!NOTE]
     > Esta caixa de diálogo inclui uma caixa de pesquisa e uma opção para filtrar apenas em países "Tax Remitted", em que a Microsoft remete as vendas e usa o imposto em seu nome.
 
-1. **Selecione Guardar** , para fechar a caixa de diálogo.
+1. **Selecione Guardar**, para fechar a caixa de diálogo.
 
 ## <a name="define-pricing"></a>Definir preços
 
@@ -118,7 +118,7 @@ Na caixa **versão** fornece-se a versão atual da configuração técnica. Incr
 
 ### <a name="upload-a-package-file"></a>Faça upload de um ficheiro de pacote
 
-No **ficheiro Package (.zip)** , arraste o seu ficheiro de embalagem para a caixa cinzenta ou selecione a **navegação para o(s)** link de ficheiros.
+No **ficheiro Pacote (.zip)**, arraste o seu ficheiro de pacote para a caixa cinzenta ou selecione a **navegação para o(s)** link de ficheiros.
 
 > [!NOTE]
 > Se tiver um problema de upload de ficheiros, certifique-se de que a rede local não bloqueia o `https://upload.xboxlive.com` serviço utilizado pelo Partner Center.
@@ -135,10 +135,10 @@ Para ativar o acesso do JIT a este plano, selecione a caixa de verificação **d
 
 Selecione o modo de implementação **Completo** ou **Incremental.**
 
-- No modo **Completo,** uma redistribuição da aplicação pelo cliente resultará na remoção de recursos no grupo de recursos geridos se os recursos não forem definidos no [mainTemplate.jsem](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md).
+- No modo **Completo,** uma redistribuição da aplicação pelo cliente resultará na remoção de recursos no grupo de recursos geridos se os recursos não forem definidos no [mainTemplate.jsem](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template).
 - No modo **Incremental,** uma redistribuição da aplicação deixa os recursos existentes inalterados.
 
-Para saber mais sobre os modos de implementação, consulte os [modos de implementação do Gestor de Recursos Azure](/azure/azure-resource-manager/deployment-modes).
+Para saber mais sobre os modos de implementação, consulte os [modos de implementação do Gestor de Recursos Azure](../azure-resource-manager/templates/deployment-modes.md).
 
 ### <a name="provide-a-notification-endpoint-url"></a>Fornecer um URL de ponto final de notificação
 
@@ -164,7 +164,7 @@ Complete os seguintes passos para Global Azure e Azure Government Cloud, conform
 
 Pode configurar um máximo de cinco políticas e apenas um exemplo de cada opção Políticas. Algumas políticas requerem parâmetros adicionais.
 
-1. Nas **definições de Política** , selecione a política + Adicionar a política **(máx. 5).**
+1. Nas **definições de Política**, selecione a política + Adicionar a política **(máx. 5).**
 1. Na caixa **Nome,** insira o nome de atribuição de política (limitado a 50 caracteres).
 1. A partir da caixa de **listas Políticas,** selecione a política Azure que será aplicada aos recursos criados pela aplicação gerida na subscrição do cliente.
 1. Na caixa **de parâmetros de política,** forneça o parâmetro sobre o qual devem ser aplicadas as políticas de auditoria e diagnóstico.

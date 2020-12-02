@@ -1,5 +1,5 @@
 ---
-title: Utilize transações no pool Sinaapse SQL
+title: Utilize transações no pool SQL Azure Synapse Analytics
 description: Este artigo inclui dicas para implementar transações e desenvolver soluções no pool Synapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -9,17 +9,18 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 03/22/2019
 ms.author: xiaoyul
+ms.custom: azure-synapse
 ms.reviewer: igorstan
-ms.openlocfilehash: 40a9e5268b7fccc5c01775c10e55eee47f1aaf3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a3c0863bb35f0988d7928bb9a2857f6aceded6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213385"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463212"
 ---
-# <a name="use-transactions-in-synapse-sql-pool"></a>Utilize transações no pool Sinaapse SQL
+# <a name="use-transactions-in-a-sql-pool-in-azure-synapse"></a>Utilize transações numa piscina SQL em Azure Synapse 
 
-Este artigo inclui dicas para implementar transações e desenvolver soluções no pool SQL.
+Este artigo inclui dicas para implementar transações e desenvolver soluções num pool SQL.
 
 ## <a name="what-to-expect"></a>O que esperar
 
@@ -27,7 +28,7 @@ Como seria de esperar, o pool SQL suporta transações como parte da carga de tr
 
 ## <a name="transaction-isolation-levels"></a>Níveis de isolamento de transações
 
-A piscina SQL implementa transações acid. O nível de isolamento do suporte transacional é incumpridor de READ UNCOMMITTEDED.  Pode alterá-lo para READ COMMITTED SNAPSHOT ISOLATION, ligando a READ_COMMITTED_SNAPSHOT opção de base de dados para uma base de dados do utilizador quando ligado à base de dados principal.  
+A piscina SQL implementa transações acid. O nível de isolamento do suporte transacional é incumpridor de READ UNCOMMITTEDED.  Pode alterá-lo para READ COMMITTED SNAPSHOT ISOLATION, ligando a READ_COMMITTED_SNAPSHOT opção de base de dados para uma piscina SQL do utilizador quando ligado à base de dados principal.  
 
 Uma vez ativadas, todas as transações nesta base de dados são executadas sob LEITURA DE ISOLAMENTO INSTANTÂNEO E a definição de LEITURA NÃO COMPROMETIDA ao nível da sessão não será honrada. Consulte [as opções ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para obter mais informações.
 

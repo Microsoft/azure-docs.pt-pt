@@ -1,6 +1,6 @@
 ---
-title: Melhores práticas para piscina Sinaapse SQL em Azure Synapse Analytics (anteriormente SQL DW)
-description: Recomendações e boas práticas para o desenvolvimento de soluções para piscina SQL em Azure Synapse Analytics (anteriormente SQL DW).
+title: Boas práticas para piscina SQL dedicada (anteriormente SQL DW)
+description: Recomendações e boas práticas para o desenvolvimento de soluções para piscinas SQL dedicadas (anteriormente SQL DW) em Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: cf841da85dc929366991d6aed8f3d400ab3b31cc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 9802e6553d553aae4f13194dc9951d1a17af6f66
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489647"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462875"
 ---
-# <a name="best-practices-for-synapse-sql-pool-in-azure-synapse-analytics-formerly-sql-dw"></a>Melhores práticas para piscina Sinaapse SQL em Azure Synapse Analytics (anteriormente SQL DW)
+# <a name="best-practices-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Boas práticas para piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics
 
-Este artigo é uma coleção de boas práticas para ajudá-lo a alcançar o melhor desempenho da sua implementação de [piscina SQL.](sql-data-warehouse-overview-what-is.md)  O objetivo deste artigo é dar-lhe alguma orientação básica e destacar áreas importantes de foco.  
+Este artigo é uma coleção de boas práticas para ajudá-lo a obter o melhor desempenho a partir da sua [implantação dedicada sql pool (anteriormente SQL DW).](sql-data-warehouse-overview-what-is.md)  O objetivo deste artigo é dar-lhe alguma orientação básica e destacar áreas importantes de foco.  
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Reduzir os custos com a colocação em pausa e o dimensionamento
 
@@ -27,7 +27,7 @@ Para obter mais informações sobre a redução de custos através da colocaçã
 
 ## <a name="maintain-statistics"></a>Manter as estatísticas
 
-A piscina SQL pode ser configurada para detetar e criar automaticamente estatísticas sobre colunas.  Os planos de consulta criados pelo otimizador são tão bons quanto as estatísticas disponíveis.  
+A piscina SQL dedicada (anteriormente SQL DW) pode ser configurada para detetar e criar automaticamente estatísticas sobre colunas.  Os planos de consulta criados pelo otimizador são tão bons quanto as estatísticas disponíveis.  
 
 Recomendamos que ative AUTO_CREATE_STATISTICS para as suas bases de dados e mantenha as estatísticas atualizadas diariamente ou após cada carga para garantir que as estatísticas sobre colunas utilizadas nas suas consultas estão sempre atualizadas.
 
@@ -40,7 +40,7 @@ Consulte também [estatísticas de tabelas,](sql-data-warehouse-tables-statistic
 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>Utilize DMVs para monitorizar e otimizar as suas consultas
 
-A piscina SQL tem vários DMVs que podem ser usados para monitorizar a execução de consultas.  O Monitor da sua carga de trabalho utilizando dMVs artigo detalhes instruções passo a passo sobre como olhar os detalhes de uma consulta de execução.  
+Piscina de SQL dedicada (anteriormente SQL DW) tem vários DMVs que podem ser usados para monitorizar a execução de consultas.  O [Monitor da sua carga de trabalho utilizando dMVs](sql-data-warehouse-manage-monitor.md) artigo detalhes instruções passo a passo sobre como olhar os detalhes de uma consulta de execução.  
 
 Para encontrar rapidamente as consultas nestas DMVs, pode ajudar se utilizar a opção LABEL com as suas consultas.
 
@@ -62,7 +62,7 @@ Ver também [INSERIR](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synap
 
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>Utilize o PolyBase para carregar e exportar dados rapidamente
 
-A piscina SQL suporta dados de carregamento e exportação através de várias ferramentas, incluindo Azure Data Factory, PolyBase e BCP.  Para pequenas quantidades de dados em que o desempenho não é essencial, qualquer ferramenta pode ser suficiente para as suas necessidades.  No entanto, quando estiver a carregar ou a exportar grandes volumes de dados ou se for preciso um desempenho rápido, o PolyBase é a melhor escolha.  
+O pool de SQL dedicado (anteriormente SQL DW) suporta dados de carregamento e exportação através de várias ferramentas, incluindo Azure Data Factory, PolyBase e BCP.  Para pequenas quantidades de dados em que o desempenho não é essencial, qualquer ferramenta pode ser suficiente para as suas necessidades.  No entanto, quando estiver a carregar ou a exportar grandes volumes de dados ou se for preciso um desempenho rápido, o PolyBase é a melhor escolha.  
 
 A PolyBase foi concebida para alavancar a natureza distribuída do sistema e carregará e exportará magnitudes de dados mais rapidamente do que qualquer outra ferramenta.  Os carregamentos do PolyBase podem ser executados com CTAS ou INSERT INTO.   
 
@@ -74,13 +74,13 @@ A Azure Data Factory também suporta cargas PolyBase e pode obter um desempenho 
 > [!NOTE]
 > Para maximizar a produção ao utilizar ficheiros de texto gzip, descole os ficheiros em 60 ou mais ficheiros para maximizar o paralelismo da sua carga.  Para um débito total mais rápido, considere carregar dados em simultâneo.
 
-Consulte também [os dados de carga](design-elt-data-loading.md), Guia para a [utilização de PolyBase,](guidance-for-loading-data.md) [SQL pool loading padrões e estratégias,](https://blogs.msdn.microsoft.com/sqlcat/20../../) [Carregar dados com Azure Data Factory,]( ../../data-factory/load-azure-sql-data-warehouse.md) [mover dados com Azure Data Factory,](../../data-factory/transform-data-using-machine-learning.md) [CRIAR formato de ficheiro externo,](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [criar tabela como selecionado (CTAS)](sql-data-warehouse-develop-ctas.md).
+Consulte também [os dados de carga,](design-elt-data-loading.md) [Guia para a utilização de PolyBase](guidance-for-loading-data.md), [Padrões e estratégias de carregamento de piscinas SQL dedicados, Dados](https://blogs.msdn.microsoft.com/sqlcat/20../../) [de Carga com Azure Data Factory,]( ../../data-factory/load-azure-sql-data-warehouse.md) [Mover dados com Azure Data Factory,](../../data-factory/transform-data-using-machine-learning.md) [CRIAR Formato de FICHEIRO EXTERNO,](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [Criar tabela como selecionado (CTAS)](sql-data-warehouse-develop-ctas.md).
 
 ## <a name="load-then-query-external-tables"></a>Carregar e consultar tabelas externas
 
 Apesar do Polybase, também conhecido como tabelas externas, poder ser a forma mais rápida de carregar dados, não é o ideal para consultas. Atualmente, as tabelas Polybase suportam apenas ficheiros blob Azure e armazenamento do Lago de Dados Azure. Estes ficheiros não têm quaisquer recursos de computação a apoiá-los.  
 
-Como resultado, o pool SQL não pode descarregar este trabalho e, portanto, deve ler todo o ficheiro carregando-o para a temperatura para ler os dados.  Portanto, se tiver várias consultas a estes dados, é melhor carregar estes dados uma vez e que as consultas utilizem a tabela local.
+Como resultado, o pool DE SQL dedicado não pode descarregar este trabalho e, portanto, deve ler todo o ficheiro carregando-o para a temperatura para ler os dados.  Portanto, se tiver várias consultas a estes dados, é melhor carregar estes dados uma vez e que as consultas utilizem a tabela local.
 
 Consulte também [o Guia para a utilização do PolyBase.](guidance-for-loading-data.md)
 
@@ -101,9 +101,9 @@ Consulte também [a visão geral da tabela,](sql-data-warehouse-tables-overview.
 
 ## <a name="do-not-over-partition"></a>Não crie partições em demasia
 
-Embora os dados de partição possam ser eficazes para manter os seus dados através da comutação de partição ou otimização de digitalizações com eliminação de divisórias, ter demasiadas divisórias pode abrandar as suas consultas.  Muitas vezes, uma estratégia de partição de alta granularidade, que pode funcionar bem no SQL Server pode não funcionar bem na piscina SQL.  
+Embora os dados de partição possam ser eficazes para manter os seus dados através da comutação de partição ou otimização de digitalizações com eliminação de divisórias, ter demasiadas divisórias pode abrandar as suas consultas.  Muitas vezes, uma estratégia de partição de alta granularidade, que pode funcionar bem no SQL Server pode não funcionar bem em piscina SQL dedicada (anteriormente SQL DW).  
 
-Ter demasiadas partições pode também reduzir a eficácia de índices columnstore em cluster se cada partição tiver menos de 1 milhão de linhas.  Tenha em mente que nos bastidores, a SQL partilha os seus dados em 60 bases de dados, por isso, se criar uma tabela com 100 divisórias, isso resulta em 6000 divisórias.  
+Ter demasiadas partições pode também reduzir a eficácia de índices columnstore em cluster se cada partição tiver menos de 1 milhão de linhas.  Tenha em mente que nos bastidores, divisórias de piscinas SQL dedicadas os seus dados para si em 60 bases de dados, por isso, se criar uma tabela com 100 divisórias, isso resulta em 6000 divisórias.  
 
 Cada carga de trabalho é diferente, pelo que o melhor conselho é experimentar o particionamento para ver o que funciona melhor para a sua carga de trabalho.  Considere menos granularidade do que a que poderá ter funcionado para si no SQL Server.  Por exemplo, considere utilizar partições semanais ou mensais, em vez de partições diárias.
 
@@ -145,13 +145,13 @@ Consulte também [tabelas temporárias,](sql-data-warehouse-tables-temporary.md)
 
 ## <a name="optimize-clustered-columnstore-tables"></a>Otimizar tabelas columnstore em cluster
 
-Os índices de loja de colunas agrupados são uma das formas mais eficientes de armazenar os seus dados na piscina SQL.  Por predefinição, as tabelas na piscina SQL são criadas como Clustered ColumnStore.  Para obter o melhor desempenho das consultas em tabelas columnstore, ter uma boa qualidade de segmento é importante.  
+Os índices de lojas de colunas agrupados são uma das formas mais eficientes de armazenar os seus dados numa piscina DE SQL dedicada.  Por predefinição, as tabelas na piscina SQL dedicada são criadas como Clustered ColumnStore.  Para obter o melhor desempenho das consultas em tabelas columnstore, ter uma boa qualidade de segmento é importante.  
 
 Quando as linhas são escritas em tabelas columnstore sob pressão de memória, a qualidade de segmento de columnstore poderá sofrer consequências.  A qualidade de segmento pode ser medida pelo número de linhas num Grupo de Linhas comprimido.  Consulte as [causas da má qualidade do índice de colunas](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality) no artigo [índices](sql-data-warehouse-tables-index.md) de tabela para instruções passo a passo sobre a deteção e melhoria da qualidade do segmento para tabelas de colunas agrupadas.  
 
 Como os segmentos de lojas de colunas de alta qualidade são importantes, é uma boa ideia usar iDs de utilizadores que estão na classe de recursos médios ou grandes para carregar dados. A utilização de unidades de [armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md) mais baixas significa que pretende atribuir uma classe de recursos maior ao utilizador de carregamento.
 
-Uma vez que as tabelas de lojas de colunas geralmente não empurram os dados para um segmento de loja de colunas comprimidos até que haja mais de 1 milhão de linhas por tabela e cada mesa de bilhar SQL é dividida em 60 tabelas, como regra geral, as mesas de loja de colunas não beneficiarão uma consulta a menos que a mesa tenha mais de 60 milhões de linhas.  Para tabelas com menos de 60 milhões de linhas, pode não fazer qualquer sentido ter um índice columnstore.  Também poderá não prejudicar.  
+Uma vez que as tabelas de lojas de colunas geralmente não empurram os dados para um segmento de loja de colunas comprimidos até que haja mais de 1 milhão de linhas por tabela e cada mesa de bilhar SQL dedicada é dividida em 60 mesas, como regra do polegar, as mesas de loja de colunas não beneficiarão uma consulta a menos que a tabela tenha mais de 60 milhões de linhas.  Para tabelas com menos de 60 milhões de linhas, pode não fazer qualquer sentido ter um índice columnstore.  Também poderá não prejudicar.  
 
 Além disso, se dividir os dados, deverá ter em consideração que cada partição tem de ter 1 milhão de linhas para beneficiar de um índice columnstore em cluster.  Se uma mesa tiver 100 divisórias, terá de ter pelo menos 6 mil milhões de linhas para beneficiar de uma loja de colunas agrupadas (60 distribuições *100 divisórias* 1 milhão de linhas).  
 
@@ -164,7 +164,7 @@ Consulte também [Índices de tabela](sql-data-warehouse-tables-index.md), [Guia
 
 ## <a name="use-larger-resource-class-to-improve-query-performance"></a>Utilize a classe de recursos maior para melhorar o desempenho da consulta
 
-O pool SQL utiliza grupos de recursos como forma de alocar a memória a consultas.  Fora da caixa, todos os utilizadores são atribuídos à classe de pequenos recursos, que concede 100 MB de memória por distribuição.  Uma vez que existem sempre 60 distribuições e cada distribuição recebe um mínimo de 100 MB, a alocação de memória total é de 6000 MB ou apenas abaixo de 6 GB em todo o sistema.  
+O pool de SQL dedicado usa grupos de recursos como forma de alocar a memória a consultas.  Fora da caixa, todos os utilizadores são atribuídos à classe de pequenos recursos, que concede 100 MB de memória por distribuição.  Uma vez que existem sempre 60 distribuições e cada distribuição recebe um mínimo de 100 MB, a alocação de memória total é de 6000 MB ou apenas abaixo de 6 GB em todo o sistema.  
 
 Algumas consultas, como associações grandes ou carregamentos para tabelas columnstore em cluster, irão beneficiar de alocações de memória superiores.  Algumas consultas, como as sondagens puras, não darão nenhum benefício.  No entanto, a utilização de classes de recursos maiores reduz a convívio, pelo que deverá ter em consideração este impacto antes de transferir todos os seus utilizadores para uma grande classe de recursos.
 

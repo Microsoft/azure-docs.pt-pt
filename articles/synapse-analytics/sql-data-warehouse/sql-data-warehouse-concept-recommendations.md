@@ -1,5 +1,5 @@
 ---
-title: Recomendações do SQL da Sinapse
+title: Recomendações dedicadas ao sql pool Azure Advisor
 description: Conheça as recomendações do Synapse SQL e como são geradas
 services: synapse-analytics
 author: kevinvngo
@@ -11,18 +11,18 @@ ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e4564005e3b9cc9673cc20596d4114d102174b9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 667629b7f613b11f40528b039c7525339b7a62d0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85482858"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462868"
 ---
-# <a name="synapse-sql-recommendations"></a>Recomendações do SQL da Sinapse
+# <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Recomendações do Azure Advisor para piscina SQL dedicada em Azure Synapse Analytics
 
-Este artigo descreve as recomendações do Synapse SQL servidas através do Azure Advisor.  
+Este artigo descreve as recomendações dedicadas da piscina SQL disponíveis no Azure Advisor.  
 
-A Synapse SQL fornece recomendações para garantir que a carga de trabalho do seu armazém de dados seja consistentemente otimizada para o desempenho. As recomendações estão fortemente integradas com [o Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para lhe proporcionar as melhores práticas diretamente dentro do [portal Azure.](https://aka.ms/Azureadvisor) A Synapse SQL recolhe recomendações de telemetria e superfícies para a sua carga de trabalho ativa numa cadência diária. Os cenários de recomendação apoiados são descritos a seguir, juntamente com a forma de aplicar as ações recomendadas.
+O pool dedicado SQL fornece recomendações para garantir que a carga de trabalho do seu armazém de dados é consistentemente otimizada para o desempenho. As recomendações estão fortemente integradas com [o Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para lhe proporcionar as melhores práticas diretamente dentro do [portal Azure.](https://aka.ms/Azureadvisor) Piscina dedicada SQL recolhe recomendações de telemetria e superfícies para a sua carga de trabalho ativa numa cadência diária. Os cenários de recomendação apoiados são descritos a seguir, juntamente com a forma de aplicar as ações recomendadas.
 
 Pode [consultar as suas recomendações](https://aka.ms/Azureadvisor) hoje! 
 
@@ -73,4 +73,4 @@ O desempenho da consulta pode degradar-se quando há uma alta contenção tempor
 
 ## <a name="data-loading-misconfiguration"></a>Confirmação errada de carregamento de dados
 
-Deve sempre carregar dados de uma conta de armazenamento na mesma região que a sua piscina SQL para minimizar a latência. Utilize a [declaração COPY para ingestão de dados de produção elevada](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) e divida os seus ficheiros encenados na sua conta de armazenamento para maximizar a produção. Se não puder utilizar a declaração COPY, pode utilizar a API sqlBulkCopy ou o BCP com um tamanho de lote elevado para uma melhor produção. Para orientação adicional de carregamento de dados, visite a seguinte [documentação.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data) 
+Deve sempre carregar dados de uma conta de armazenamento na mesma região que a sua piscina SQL dedicada para minimizar a latência. Utilize a [declaração COPY para ingestão de dados de produção elevada](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) e divida os seus ficheiros encenados na sua conta de armazenamento para maximizar a produção. Se não puder utilizar a declaração COPY, pode utilizar a API sqlBulkCopy ou o BCP com um tamanho de lote elevado para uma melhor produção. Para orientação adicional de carregamento de dados, visite a seguinte [documentação.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data) 

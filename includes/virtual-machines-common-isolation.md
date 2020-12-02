@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: sttsinar
 ms.custom: include file
-ms.openlocfilehash: 3d65b574fc1479d000d347020823166a4d4b968b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: bd31152c6742271658cf4fd7ac2a5e2957651c84
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410587"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96477166"
 ---
 O Azure Compute oferece tamanhos de máquinas virtuais que são isolados a um tipo de hardware específico e dedicados a um único cliente. Os tamanhos isolados vivem e operam na geração específica de hardware e serão depreciados quando a geração de hardware for reformada.
 
@@ -25,10 +25,13 @@ Além disso, uma vez que os VMs de tamanho isolado são grandes, os clientes pod
 As atuais ofertas de máquinas virtuais isoladas incluem:
 * Standard_E64is_v3
 * Standard_E64i_v3
+* Standard_E80ids_v4
+* Standard_E80is_v4
 * Standard_M128ms
 * Standard_GS5
 * Standard_G5
 * Standard_F72s_v2
+
 
 > [!NOTE]
 > Os tamanhos VM isolados têm um tempo de vida limitado de hardware. Veja abaixo os detalhes
@@ -47,16 +50,16 @@ Como os tamanhos de VM isolados são tamanhos ligados ao hardware, o Azure forne
 
 ## <a name="faq"></a>FAQ
 ### <a name="q-is-the-size-going-to-get-retired-or-only-isolation-feature-is"></a>P: O tamanho vai ficar reformado ou só é a característica de "isolamento"?
-**R** : Se o tamanho da máquina virtual não tiver o subscrito "i", apenas a função "isolamento" será retirada. Se não for necessário um isolamento, não haverá qualquer ação a tomar e o VM continuará a funcionar como esperado. Exemplos incluem Standard_DS15_v2, Standard_D15_v2, Standard_M128ms etc. Se o tamanho da máquina virtual incluir o subscrito "i", então o tamanho vai ser retirado.
+**R**: Se o tamanho da máquina virtual não tiver o subscrito "i", apenas a função "isolamento" será retirada. Se não for necessário um isolamento, não haverá qualquer ação a tomar e o VM continuará a funcionar como esperado. Exemplos incluem Standard_DS15_v2, Standard_D15_v2, Standard_M128ms etc. Se o tamanho da máquina virtual incluir o subscrito "i", então o tamanho vai ser retirado.
 
 ### <a name="q-is-there-a-downtime-when-my-vm-lands-on-a-non-isolated-hardware"></a>P: Há algum tempo de paragem quando o meu vm aterra num hardware não isolado?
-**R** : Se não houver necessidade de isolamento, não são necessárias medidas e não haverá tempo de inatividade.
+**R**: Se não houver necessidade de isolamento, não são necessárias medidas e não haverá tempo de inatividade.
 
 ### <a name="q-is-there-any-cost-delta-for-moving-to-a-non-isolated-virtual-machine"></a>P: Existe algum custo delta para se mudar para uma máquina virtual não isolada?
 **A:** Não
 
 ### <a name="q-when-are-the-other-isolated-sizes-going-to-retire"></a>P: Quando é que os outros tamanhos isolados se vão reformar?
-**R** : Forneceremos lembretes com 12 meses de antecedência da depreciação oficial do tamanho isolado.
+**R**: Forneceremos lembretes com 12 meses de antecedência da depreciação oficial do tamanho isolado.
 
 ### <a name="q-im-an-azure-service-fabric-customer-relying-on-the-silver-or-gold-durability-tiers-does-this-change-impact-me"></a>P: Sou um cliente de tecido de serviço Azure que conta com os níveis de durabilidade prateada ou dourada. Esta mudança tem impacto em mim?
 **A:** Não. As garantias fornecidas pelos Tiers de [Durabilidade](../articles/service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) da Service Fabric continuarão a funcionar mesmo após esta alteração. Se necessitar de isolamento físico de hardware por outras razões, poderá ainda ter de tomar uma das ações descritas acima. 

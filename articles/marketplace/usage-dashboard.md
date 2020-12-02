@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 5e2bdec8b3c628f1d470acb3e27bb18eabbc71ac
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 563ccdb0633f94acccf3ade9faf1c40c28f108ac
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565543"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462933"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de utilização na análise do mercado comercial
 
@@ -21,7 +21,7 @@ Este artigo fornece informações sobre o dashboard de utilização no Partner C
 Para aceder ao dashboard de utilização no Partner Center, no **Mercado Comercial,** selecione **[Analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **o Uso**.
 
 >[!NOTE]
-> Para definições detalhadas de terminologia analítica, consulte [terminologia de análise de mercado comercial e questões comuns.](./partner-center-portal/faq-terminology.md)
+> Para definições detalhadas de terminologia analítica, consulte [terminologia de análise de mercado comercial e questões comuns.](./analytics-faq.md)
 
 ## <a name="usage-dashboard"></a>Dashboard de utilização
 
@@ -175,9 +175,9 @@ O **separador De Utilização Medido** mostra informações de utilização para
 
     :::image type="content" source="./media/usage-dashboard/metered-usage.png" alt-text="Ilustra a tabela de utilização normalizada VM no painel de instrumentos de utilização.":::
 
-- **Tendência de sobreatenção por SKU** : Representa a tendência da quantidade de utilização da dimensão do medidor selecionada pela SKU/planos. Os cinco primeiros planos com a maior quantidade de utilização para a oferta selecionada são apresentados.
+- **Tendência de sobreatenção por SKU**: Representa a tendência da quantidade de utilização da dimensão do medidor selecionada pela SKU/planos. Os cinco primeiros planos com a maior quantidade de utilização para a oferta selecionada são apresentados.
 
-- **Tendência de sobreavalagem por clientes** : O conselho de administração do cliente representa uma lista empilhada de clientes com as horas de utilização mais altas e são apresentados num _quadro de líderes,_ classificado pela maior utilização do contador personalizado. Selecione um cliente no quadro de líderes para ver a tendência de utilização excessiva de uma dimensão de contador selecionado.
+- **Tendência de sobreavalagem por clientes**: O conselho de administração do cliente representa uma lista empilhada de clientes com as horas de utilização mais altas e são apresentados num _quadro de líderes,_ classificado pela maior utilização do contador personalizado. Selecione um cliente no quadro de líderes para ver a tendência de utilização excessiva de uma dimensão de contador selecionado.
 
     :::image type="content" source="./media/usage-dashboard/metered-usage-by-customers.png" alt-text="Ilustra a tabela de Utilização Medido pelos Clientes no painel de instrumentos de utilização.":::
 
@@ -194,4 +194,4 @@ Se tiver várias ofertas que usam medidores personalizados, o relatório de util
 - Para máquinas virtuais (VM) oferece métricas de utilização e faturação medido, consulte [o Use Dashboard em análise de mercado comercial.](usage-dashboard.md)
 - Para obter uma lista dos seus pedidos de descarregamento nos últimos 30 dias, consulte [downloads dashboard em análise de mercado comercial.](./partner-center-portal/downloads-dashboard.md)
 - Para ver uma visão consolidada do feedback do cliente para as ofertas no Azure Marketplace e no Microsoft AppSource, consulte [o painel de análise de Avaliações & de Avaliações no Partner Center](./partner-center-portal/ratings-reviews.md).
-- Para perguntas frequentes sobre análise de mercado comercial e para um dicionário abrangente de termos de dados, consulte a terminologia de análise de [mercado comercial e questões comuns.](./partner-center-portal/faq-terminology.md)
+- Para perguntas frequentes sobre análise de mercado comercial e para um dicionário abrangente de termos de dados, consulte a terminologia de análise de [mercado comercial e questões comuns.](./analytics-faq.md)

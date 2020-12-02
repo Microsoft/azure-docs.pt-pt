@@ -1,26 +1,23 @@
 ---
-title: Configure e use Azure Synapse Link para Azure Cosmos DB (pré-visualização)
+title: Configurar e utilizar o Azure Synapse Link para o Azure Cosmos DB
 description: Saiba como ativar a ligação Synapse para contas DB Azure Cosmos, crie um recipiente com loja analítica ativada, ligue a base de dados Azure Cosmos ao espaço de trabalho da Synapse e faça consultas.
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: 3355b502033451f58ac2289a81414e62823e459b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 32b64cd0d83c51a77b7bc58bde80e00e1980c233
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175955"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463321"
 ---
-# <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configure e use Azure Synapse Link para Azure Cosmos DB (pré-visualização)
+# <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Configurar e utilizar o Azure Synapse Link para o Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 [Azure Synapse Link for Azure Cosmos DB](synapse-link.md) é uma capacidade de processamento transacional e analítico híbrido nativo da nuvem (HTAP) que lhe permite executar perto de análises em tempo real sobre dados operacionais em Azure Cosmos DB. A Synapse Link cria uma integração apertada e perfeita entre a Azure Cosmos DB e a Azure Synapse Analytics.
-
-> [!IMPORTANT]
-> Para utilizar o Azure Synapse Link, certifique-se de que fornece a sua conta DB Azure Cosmos & espaço de trabalho Azure Synapse Analytics numa das regiões apoiadas. A azure Synapse Link está atualmente disponível nas seguintes regiões de Azure: EUA West Central, East US2, North Europe, West Europe, South Central US, Southeast Asia, Australia East, East U2, UK South.
 
 O Azure Synapse Link está disponível para recipientes Azure Cosmos DB SQL API ou para Azure Cosmos DB API para coleções de DB mongo. Utilize os seguintes passos para executar consultas analíticas com a Ligação Azure Synapse para Azure Cosmos DB:
 
@@ -28,14 +25,14 @@ O Azure Synapse Link está disponível para recipientes Azure Cosmos DB SQL API 
 * [Criar uma loja analítica ativada recipiente DB Azure Cosmos](#create-analytical-ttl)
 * [Ligue a sua base de dados DB Azure Cosmos a um espaço de trabalho da Synapse](#connect-to-cosmos-database)
 * [Consultar a loja analítica usando a Faísca de Sinapse](#query-analytical-store-spark)
-* [Consultar a loja analítica usando o sinapse SQL sem servidor](#query-analytical-store-sql-on-demand)
-* [Use o sinapse SQL sem servidor para analisar e visualizar dados em Power BI](#analyze-with-powerbi)
+* [Consultar a loja analítica usando piscina SQL sem servidor](#query-analytical-store-sql-on-demand)
+* [Use piscina SQL sem servidor para analisar e visualizar dados no Power BI](#analyze-with-powerbi)
 
 ## <a name="enable-azure-synapse-link-for-azure-cosmos-db-accounts"></a><a id="enable-synapse-link"></a>Ativar a Ligação Azure Synapse para contas DB do Azure Cosmos
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta Azure,](create-sql-api-dotnet.md#create-account)ou selecione uma conta DB Azure Cosmos existente.
 
@@ -43,7 +40,7 @@ O Azure Synapse Link está disponível para recipientes Azure Cosmos DB SQL API 
 
 1. Selecione **Synapse Link** da lista de funcionalidades.
 
-   :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Encontre a funcionalidade de pré-visualização do Synapse Link":::
+   :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Encontre a função Synapse Link":::
 
 1. Em seguida, solicita-lhe que ative o link sinapse na sua conta. Selecione **Ativar**. Este processo pode demorar 1 a 5 minutos a ser concluído.
 
@@ -218,11 +215,11 @@ Utilize as instruções no artigo da [loja analítica Da Consulta Azure Cosmos D
 
 ## <a name="query-the-analytical-store-using-serverless-sql-pool-in-azure-synapse-analytics"></a><a id="query-analytical-store-sql-on-demand"></a> Consultar a loja analítica utilizando a piscina SQL sem servidor em Azure Synapse Analytics
 
-O pool SQL sem servidor permite-lhe consultar e analisar dados nos seus contentores DB Azure Cosmos que estão ativados com a Azure Synapse Link. Pode analisar dados em quase tempo real sem afetar o desempenho das suas cargas de trabalho transacionais. Oferece uma sintaxe T-SQL familiar para consultar dados da loja analítica e conectividade integrada a uma ampla gama de ferramentas de consulta bi e ad-hoc através da interface T-SQL. Para saber mais, consulte a loja de analítica De consulta utilizando o artigo [sem servidor Synapse SQL.](../synapse-analytics/sql/query-cosmos-db-analytical-store.md)
+O pool SQL sem servidor permite-lhe consultar e analisar dados nos seus contentores DB Azure Cosmos que estão ativados com a Azure Synapse Link. Pode analisar dados em quase tempo real sem afetar o desempenho das suas cargas de trabalho transacionais. Oferece uma sintaxe T-SQL familiar para consultar dados da loja analítica e conectividade integrada a uma ampla gama de ferramentas de consulta bi e ad-hoc através da interface T-SQL. Para saber mais, consulte a [loja analítica da Consulta utilizando o artigo de piscina SQL sem servidor.](../synapse-analytics/sql/query-cosmos-db-analytical-store.md)
 
-## <a name="use-synapse-sql-serverless-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>Use o sinapse SQL sem servidor para analisar e visualizar dados em Power BI
+## <a name="use-serverless-sql-pool-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>Use piscina SQL sem servidor para analisar e visualizar dados no Power BI
 
-Pode construir uma base de dados sem servidor Sinaapse SQL e visualizações sobre a Synapse Link para Azure Cosmos DB. Mais tarde, você pode consultar os contentores Azure Cosmos e, em seguida, construir um modelo com Power BI sobre essas vistas para refletir essa consulta. Para saber mais, veja como usar [o sinapse SQL sem servidor para analisar os dados do Azure Cosmos DB com o artigo Synapse Link.](synapse-link-power-bi.md)
+Você pode construir uma base de dados de piscina SQL sem servidor e vistas sobre Synapse Link para Azure Cosmos DB. Mais tarde, você pode consultar os contentores Azure Cosmos e, em seguida, construir um modelo com Power BI sobre essas vistas para refletir essa consulta. Para saber mais, veja como usar a [piscina SQL sem servidor para analisar os dados do Azure Cosmos DB com o artigo Synapse Link.](synapse-link-power-bi.md)
 
 ## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
 
@@ -238,10 +235,10 @@ Para saber mais, consulte os seguintes documentos:
 
 * [Ligação Azure Synapse para Azure Cosmos DB.](synapse-link.md)
 
-* [Visão geral da loja analítica Azure Cosmos DB.](analytical-store-introduction.md)
+* [Descrição geral do arquivo analítico do Azure Cosmos DB.](analytical-store-introduction.md)
 
 * [Perguntas frequentes sobre Synapse Link para Azure Cosmos DB.](synapse-link-frequently-asked-questions.md)
 
 * [Faísca Apache em Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md).
 
-* [Suporte de tempo sem servidor SQL no Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).
+* [Suporte de runtime de piscina sem servidor SQL em Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).

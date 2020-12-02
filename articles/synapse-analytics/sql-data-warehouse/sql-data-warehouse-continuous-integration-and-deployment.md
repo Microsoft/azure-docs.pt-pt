@@ -1,6 +1,6 @@
 ---
-title: Integração e implementação contínua
-description: Experiência de devOps de base de dados de classe empresarial para armazenamento de dados com suporte incorporado para integração e implementação contínua usando Gasodutos Azure.
+title: Integração contínua e implantação para piscina SQL dedicada
+description: Experiência de DevOps de classe empresarial para piscina DE SQL dedicada em Azure Synapse Analytics com suporte incorporado para integração contínua e implementação usando Pipelines Azure.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 061be5addd0c236db5d982e6103e3cf455b9c361
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 35f503e7214fa91962c91c35611fc9447302f9fc
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480535"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462814"
 ---
-# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Integração contínua e implantação para armazenamento de dados
+# <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integração contínua e implantação para piscina SQL dedicada em Azure Synapse Analytics
 
 Este simples tutorial descreve como integrar o seu projeto de base de dados sql server (SSDT) com Azure DevOps e alavancar a Azure Pipelines para configurar a integração e implementação contínuas. Este tutorial é o segundo passo na construção do seu oleoduto de integração e implantação contínua para armazenamento de dados.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 - Passe pelo tutorial de [integração](sql-data-warehouse-source-control-integration.md) de controlo de fonte
 
@@ -60,7 +60,7 @@ Neste momento, você tem um ambiente simples onde qualquer check-in no seu ramo 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Explore a arquitetura da [piscina Synapse SQL](massively-parallel-processing-mpp-architecture.md)
-- Crie rapidamente [uma piscina SQL](create-data-warehouse-portal.md)
+- Explore [a arquitetura dedicada da piscina SQL (anteriormente SQL DW)](massively-parallel-processing-mpp-architecture.md)
+- Crie [rapidamente uma piscina SQL dedicada (anteriormente SQL DW)](create-data-warehouse-portal.md)
 - [Carregar dados de exemplo](load-data-from-azure-blob-storage-using-polybase.md)
 - Explore [vídeos](sql-data-warehouse-videos.md)

@@ -1,5 +1,5 @@
 ---
-title: Piscina SQL sem servidor (pré-visualização)
+title: Conjunto de SQL sem servidor
 description: Saiba mais sobre a piscina SQL sem servidor em Azure Synapse Analytics.
 services: synapse analytics
 author: filippopovic
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e0d47567c3bc0b05c47efafa3bdc8b297a7bdbea
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 34ce36f0ff348f896b7c2ea680c113b5e9e4ea09
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306868"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463172"
 ---
-# <a name="serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics 
+# <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Piscina SQL sem servidor em Azure Synapse Analytics 
 
-Cada espaço de trabalho Azure Synapse Analytics (pré-visualização) vem com pontos finais sem servidor SQL (pré-visualização) que pode usar para consultar dados no lago.
+Cada espaço de trabalho Azure Synapse Analytics vem com pontos finais sem servidor SQL que você pode usar para consultar dados no lago.
 
 Serverless SQL pool é um serviço de consulta sobre os dados no seu lago de dados. Permite-lhe aceder aos seus dados através das seguintes funcionalidades:
  

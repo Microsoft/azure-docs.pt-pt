@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 827d571a6545d0aaffb0f96134fcf094eaa5f26b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1b7069cb723bffd758c3603cc957329dd6d2a9b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980608"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463275"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação de gestão de inventário inteligente
 
@@ -35,22 +35,19 @@ Pode criar uma aplicação utilizando os seguintes passos
 
 1. Navegue para o site do gestor de aplicações Azure IoT Central. **Selecione Construir** a partir da barra de navegação à esquerda e, em seguida, clique no **separador 'Varejo'.**
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot mostrando como selecionar o modelo de aplicação de gestão de inventário inteligente](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png" alt-text="Screenshot mostrando como selecionar o modelo de aplicação de gestão de inventário inteligente":::
 
 2. Selecione o separador **De Varejo** e selecione **Criar app** sob **gestão de inventário inteligente**
 
 3. **Criar aplicação** abrirá novo formulário de aplicação e preencherá os detalhes solicitados como mostra abaixo.
-   **Nome da aplicação**: pode utilizar o nome sugerido por defeito ou introduzir o nome da sua aplicação amigável.
-   **URL**: pode utilizar URL padrão sugerido ou inserir o seu AMIGÁVEL URL memorável único. Em seguida, recomenda-se a definição predefinida se já tiver uma Subscrição Azure. Você pode começar com um plano de preços de teste gratuito de 7 dias e optar por converter-se a um plano de preços padrão a qualquer momento antes que o trilho gratuito expire.
-   **Informações de Faturação**: Os dados do Diretório, da Subscrição Azure e da Região são necessários para a disponibilização dos recursos.
-   **Criar:** Selecione criar na parte inferior da página para implementar a sua aplicação.
+    **Nome da aplicação**: pode utilizar o nome sugerido por defeito ou introduzir o nome da sua aplicação amigável.
+    **URL**: pode utilizar URL padrão sugerido ou inserir o seu AMIGÁVEL URL memorável único. Em seguida, recomenda-se a definição predefinida se já tiver uma Subscrição Azure. Você pode começar com um plano de preços de teste gratuito de 7 dias e optar por converter-se a um plano de preços padrão a qualquer momento antes que o trilho gratuito expire.
+    **Informações de Faturação**: Os dados do Diretório, da Subscrição Azure e da Região são necessários para a disponibilização dos recursos.
+    **Criar:** Selecione criar na parte inferior da página para implementar a sua aplicação.
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot mostrando como criar uma app a partir do modelo de aplicação de gestão de inventário inteligente](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png" alt-text="Screenshot mostrando como criar uma app a partir do modelo de aplicação de gestão de inventário inteligente":::
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot mostrando as opções de faturação quando cria a aplicação](./media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png" alt-text="Screenshot mostrando as opções de faturação quando cria a aplicação":::
 
 ## <a name="walk-through-the-application"></a>Caminhe pela aplicação 
 
@@ -107,7 +104,7 @@ Selecione o separador de empregos para ver cinco empregos diferentes que existem
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se não continuar a utilizar esta aplicação, elimine o **Administration**modelo de aplicação visitando  >  **as definições de Aplicação da** Administração e clique em **Eliminar**.
+Se não continuar a utilizar esta aplicação, elimine o **Administration** modelo de aplicação visitando  >  **as definições de Aplicação da** Administração e clique em **Eliminar**.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot mostrando como apagar a aplicação quando terminar com ela](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
