@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 12/01/2020
 ms.author: victorh
-ms.openlocfilehash: 3c09e75a98e5342ab54710e05466755d86705b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 923c6b685d20ff68788e7d9cfcb45ebaecb535e3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399436"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490113"
 ---
 # <a name="what-are-security-partner-providers"></a>O que são fornecedores de parceiros de segurança?
 
@@ -22,7 +22,7 @@ Com uma configuração rápida, pode proteger um hub com um parceiro de seguran�
 
 Pode implementar centros seguros configurados com o parceiro de segurança à sua escolha em várias regiões do Azure para obter conectividade e segurança para os seus utilizadores em qualquer parte do mundo nessas regiões. Com a capacidade de utilizar a oferta do parceiro de segurança para o tráfego de aplicações Internet/SaaS, e a Azure Firewall para tráfego privado nos centros seguros, pode agora começar a construir a sua vantagem de segurança no Azure que está perto dos seus utilizadores e aplicações distribuídos globalmente.
 
-Os parceiros de segurança suportados são **ZScaler,** **Check Point** (pré-visualização) e **iboss** (pré-visualização).
+Os parceiros de segurança apoiados são **Zscaler,** **[Check Point](check-point-overview.md)** e **iboss.**
 
 ![Fornecedores de parceiros de segurança](media/trusted-security-partners/trusted-security-partners.png)
 

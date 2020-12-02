@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 94cb40522a9e463fea2efae329daf910b5386cdd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: bf593eab54233ab65435585485dd8e3940f5addb
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832607"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489824"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Gestão de Identidade Azure e controlo de segurança de acessos as melhores práticas
 
@@ -229,12 +229,12 @@ Garantir o acesso privilegiado é um primeiro passo crítico para proteger os at
 
 As contas privilegiadas são contas que administram e gerem sistemas de TI. Os ciberataques têm como alvo estas contas para ter acesso aos dados e sistemas de uma organização. Para garantir um acesso privilegiado, deverá isolar as contas e sistemas do risco de serem expostos a um utilizador malicioso.
 
-Recomendamos que desenvolva e siga um roteiro para garantir o acesso privilegiado contra os ciberataques. Para obter informações sobre a criação de um roteiro detalhado para garantir identidades e acessos geridos ou relatados em Azure AD, Microsoft Azure, Microsoft 365 e outros serviços na nuvem, [reveja a garantia de acesso privilegiado para implementações híbridas e em nuvem em Azure AD](../../active-directory/users-groups-roles/directory-admin-roles-secure.md).
+Recomendamos que desenvolva e siga um roteiro para garantir o acesso privilegiado contra os ciberataques. Para obter informações sobre a criação de um roteiro detalhado para garantir identidades e acessos geridos ou relatados em Azure AD, Microsoft Azure, Microsoft 365 e outros serviços na nuvem, [reveja a garantia de acesso privilegiado para implementações híbridas e em nuvem em Azure AD](../../active-directory/roles/security-planning.md).
 
-O seguinte resume as melhores práticas encontradas na [garantia de acesso privilegiado para implantações híbridas e em nuvem em Azure AD:](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)
+O seguinte resume as melhores práticas encontradas na [garantia de acesso privilegiado para implantações híbridas e em nuvem em Azure AD:](../../active-directory/roles/security-planning.md)
 
 **Melhores práticas**: Gerir, controlar e monitorizar o acesso a contas privilegiadas.   
-**Detalhe**: Ligue [a Azure AD Gestão de Identidade Privilegiada](../../active-directory/users-groups-roles/directory-admin-roles-secure.md). Depois de ligar a Gestão de Identidade Privilegiada, receberá mensagens de correio de notificação para alterações privilegiadas na função de acesso. Estas notificações fornecem um alerta precoce quando utilizadores adicionais são adicionados a funções altamente privilegiadas no seu diretório.
+**Detalhe**: Ligue [a Azure AD Gestão de Identidade Privilegiada](../../active-directory/roles/security-planning.md). Depois de ligar a Gestão de Identidade Privilegiada, receberá mensagens de correio de notificação para alterações privilegiadas na função de acesso. Estas notificações fornecem um alerta precoce quando utilizadores adicionais são adicionados a funções altamente privilegiadas no seu diretório.
 
 **Melhores práticas**: Certifique-se de que todas as contas de administração crítica são geridas contas AZure AD.
 **Detalhe**: Remova quaisquer contas de consumidores de funções de administração crítica (por exemplo, contas da Microsoft como hotmail.com, live.com e outlook.com).
@@ -261,10 +261,10 @@ O seguinte resume as melhores práticas encontradas na [garantia de acesso privi
 **Melhores práticas**: Defina pelo menos duas contas de acesso de emergência.   
 **Detalhe**: As contas de acesso de emergência ajudam as organizações a restringir o acesso privilegiado num ambiente existente do Azure Ative Directory. Estas contas são altamente privilegiadas e não são atribuídas a indivíduos específicos. As contas de acesso de emergência limitam-se a cenários em que as contas administrativas normais não podem ser utilizadas. As organizações devem limitar o uso da conta de emergência apenas ao tempo necessário.
 
-Avaliar as contas que são atribuídas ou elegíveis para o papel de administrador global. Se não vir contas apenas na nuvem utilizando o domínio (destinado a `*.onmicrosoft.com` acesso de emergência), crie-as. Para obter mais informações, consulte [gerir as contas administrativas de acesso de emergência em Azure AD](../../active-directory/users-groups-roles/directory-emergency-access.md).
+Avaliar as contas que são atribuídas ou elegíveis para o papel de administrador global. Se não vir contas apenas na nuvem utilizando o domínio (destinado a `*.onmicrosoft.com` acesso de emergência), crie-as. Para obter mais informações, consulte [gerir as contas administrativas de acesso de emergência em Azure AD](../../active-directory/roles/security-emergency-access.md).
 
 **Melhores práticas**: Tenha um processo de "break glass" em caso de emergência.
-**Detalhe**: Siga os passos na [garantia de acesso privilegiado para implantações híbridas e em nuvem em Azure AD](../../active-directory/users-groups-roles/directory-admin-roles-secure.md).
+**Detalhe**: Siga os passos na [garantia de acesso privilegiado para implantações híbridas e em nuvem em Azure AD](../../active-directory/roles/security-planning.md).
 
 **Melhores práticas**: Exigir que todas as contas de administração críticas sejam sem palavra-passe (preferencial) ou exijam autenticação multi-factor.
 **Detalhe**: Utilize a [aplicação Microsoft Authenticator](../../active-directory/authentication/howto-authentication-passwordless-phone.md) para iniciar serção em qualquer conta AD Azure sem utilizar uma palavra-passe. Tal como o [Windows Hello for Business,](/windows/security/identity-protection/hello-for-business/hello-identity-verification)o Microsoft Authenticator utiliza a autenticação baseada em chaves para permitir uma credencial do utilizador que está ligada a um dispositivo e utiliza a autenticação biométrica ou um PIN.
@@ -284,25 +284,25 @@ Exigir autenticação multi-factor Azure AD no início de sessão para todos os 
 **Detalhe**: Utilize o Microsoft 365 Attack Simulator ou uma oferta de terceiros para executar cenários de ataque realistas na sua organização. Isto pode ajudá-lo a encontrar utilizadores vulneráveis antes que ocorra um ataque real.
 
 **Melhores práticas**: Tome medidas para mitigar as técnicas atacadas mais utilizadas.  
-**Detalhe**: [Identifique as contas da Microsoft em funções administrativas que precisam de ser mudadas para contas de trabalho ou escolas](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
+**Detalhe**: [Identifique as contas da Microsoft em funções administrativas que precisam de ser mudadas para contas de trabalho ou escolas](../../active-directory/roles/security-planning.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
 
-[Garantir contas de utilizador separadas e encaminhamento de correio para contas de administrador global](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)  
+[Garantir contas de utilizador separadas e encaminhamento de correio para contas de administrador global](../../active-directory/roles/security-planning.md)  
 
-[Certifique-se de que as palavras-passe das contas administrativas mudaram recentemente](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
+[Certifique-se de que as palavras-passe das contas administrativas mudaram recentemente](../../active-directory/roles/security-planning.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
 
-[Ligue a sincronização do hash da palavra-passe](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)  
+[Ligue a sincronização do hash da palavra-passe](../../active-directory/roles/security-planning.md#turn-on-password-hash-synchronization)  
 
-[Requerem autenticação multi-factor para os utilizadores em todas as funções privilegiadas, bem como utilizadores expostos](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
+[Requerem autenticação multi-factor para os utilizadores em todas as funções privilegiadas, bem como utilizadores expostos](../../active-directory/roles/security-planning.md#require-multi-factor-authentication-for-users-in-privileged-roles-and-exposed-users)  
 
-[Obtenha a sua Microsoft 365 Secure Score (se utilizar o Microsoft 365)](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#obtain-your-office-365-secure-score-if-using-office-365)  
+[Obtenha a sua Microsoft 365 Secure Score (se utilizar o Microsoft 365)](../../active-directory/roles/security-planning.md#obtain-your-microsoft-365-secure-score-if-using-microsoft-365)  
 
-[Reveja a orientação de segurança da Microsoft 365 (se utilizar o Microsoft 365)](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#review-the-office-365-security-and-compliance-guidance-if-using-office-365)  
+[Reveja a orientação de segurança da Microsoft 365 (se utilizar o Microsoft 365)](../../active-directory/roles/security-planning.md#review-the-microsoft-365-security-and-compliance-guidance-if-using-microsoft-365)  
 
-[Configure o Microsoft 365 Activity Monitoring (se utilizar o Microsoft 365)](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#configure-office-365-activity-monitoring-if-using-office-365)  
+[Configure o Microsoft 365 Activity Monitoring (se utilizar o Microsoft 365)](../../active-directory/roles/security-planning.md#configure-microsoft-365-activity-monitoring-if-using-microsoft-365)  
 
-[Estabelecer proprietários de planos de resposta a incidentes/emergências](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#establish-incidentemergency-response-plan-owners)  
+[Estabelecer proprietários de planos de resposta a incidentes/emergências](../../active-directory/roles/security-planning.md#establish-incidentemergency-response-plan-owners)  
 
-[Contas administrativas privilegiadas seguras no local](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)
+[Contas administrativas privilegiadas seguras no local](../../active-directory/roles/security-planning.md#turn-on-password-hash-synchronization)
 
 Se não garantir acesso privilegiado, poderá descobrir que tem demasiados utilizadores em funções altamente privilegiadas e que são mais vulneráveis a ataques. Atores maliciosos, incluindo ciberataques, muitas vezes visam contas de administração e outros elementos de acesso privilegiado para ter acesso a dados e sistemas sensíveis usando roubo de credenciais.
 

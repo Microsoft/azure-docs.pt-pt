@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 550418761e91a8292761d7595ff32d939c0d542e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9410a38f7bc7a787fc439b5ad51f4a49f76771f8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350403"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488787"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorizar o Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -83,7 +83,7 @@ As métricas e registos que pode recolher são discutidos nas seguintes secçõe
 
 A Azure Cosmos DB proporciona uma experiência personalizada para trabalhar com métricas. Pode analisar métricas para Azure Cosmos DB com métricas de outros serviços Azure usando o explorador de Métricas abrindo **métricas** a partir do menu **Azure Monitor.** Consulte [o Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) para obter detalhes sobre a utilização desta ferramenta. Também pode verificar como monitorizar a [latência do lado do servidor,](monitor-server-side-latency.md) [solicitar o uso da unidade](monitor-request-unit-usage.md)e a [utilização normalizada da unidade de pedido](monitor-normalized-request-units.md) para os seus recursos DB Azure Cosmos.
 
-Para obter uma lista das métricas da plataforma recolhidas para a Azure Cosmos DB, consulte o artigo [Monitorar as métricas de referência de dados do Azure Cosmos DB]monitor-cosmos-db-reference.md#metrics).
+Para obter uma lista das métricas da plataforma recolhidas para a Azure Cosmos DB, consulte o artigo [de referência de dados da Azure Cosmos DB.](monitor-cosmos-db-reference.md#metrics)
 
 Todas as métricas para Azure Cosmos DB estão no nome **cosmos DB métricas padrão**. Pode utilizar as seguintes dimensões com estas métricas ao adicionar um filtro a um gráfico:
 

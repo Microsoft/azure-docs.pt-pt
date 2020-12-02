@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 08/29/2019
-  ms.openlocfilehash: 26968a6cdc7682c7e94d3276832ae6cbd418294b
-  ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+  ms.openlocfilehash: a96ff0e329fb00888645949f2eab5652d15cb941
+  ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93042731"
+  ms.lasthandoff: 12/02/2020
+  ms.locfileid: "96489688"
 highlightedContent:
   items:
   - title: Introdução à segurança do Azure
@@ -189,7 +189,7 @@ conceptualContent:
     - url: ./fundamentals/network-best-practices.md
       itemType: concept
       text: Melhores práticas de segurança
-    - url: /azure/ddos-protection/fundamental-best-practices
+    - url: ../ddos-protection/fundamental-best-practices.md
       itemType: concept
       text: Proteção contra DDOS
   - title: Segurança de infraestrutura

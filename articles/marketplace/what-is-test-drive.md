@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 06/19/2020
-ms.openlocfilehash: 304e1ab475213bde2644c8241905408ade5672ed
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 193e7bd78046a1d73cb55171c15c9cb6a7278297
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489969"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490045"
 ---
 # <a name="what-is-a-test-drive"></a>O que é uma versão de teste?
 
@@ -24,7 +24,7 @@ Os seus clientes também beneficiam de um test drive. Ao permitir-lhes experimen
 
 Os test drives são casos geridos que lançam a sua solução ou aplicação a pedido para os clientes que a solicitam. Uma vez atribuída uma instância de test drive, está disponível para utilização por esse cliente durante um período definido. Após o fim do período, é então apagado para criar espaço para outro cliente.
 
-Como editor, gere e configura as definições de test drive no Partner Center. Os detalhes de configuração técnica variam dependendo do tipo de oferta. Para obter orientações detalhadas, consulte a [configuração técnica](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration)do test drive .
+Como editor, gere e configura as definições de test drive no Partner Center. Os detalhes de configuração técnica variam dependendo do tipo de oferta. Para obter orientações detalhadas, consulte a [configuração técnica](./test-drive-technical-configuration.md)do test drive .
 
 Os potenciais clientes descobrem o seu test drive como CTA na sua oferta no [AppSource.](https://appsource.microsoft.com/en-US/) Eles fornecem as suas informações de contacto e concordam com os termos da sua oferta e a política de privacidade, e depois têm acesso ao seu ambiente pré-configurado para experimentá-lo por um período fixo. Os clientes recebem um teste prático e auto-guiado das principais funcionalidades e benefícios do seu produto e você recebe uma vantagem valiosa.
 
@@ -43,7 +43,7 @@ Existem diferentes unidades de teste disponíveis no mercado comercial para ofer
 - Aplicação lógica (apenas no modo de suporte)
 - Power BI
 
-Para obter mais informações sobre a configuração de um destes test drives, consulte a [configuração técnica do test drive](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration). 
+Para obter mais informações sobre a configuração de um destes test drives, consulte a [configuração técnica do test drive](./test-drive-technical-configuration.md). 
 
 ### <a name="azure-resource-manager-test-drive"></a>Unidade de teste do Gestor de Recursos Azure
 
@@ -65,7 +65,7 @@ Um test drive hospedado remove a complexidade da configuração, permitindo que 
 
 ### <a name="logic-app-test-drive"></a>Unidade de teste de aplicativo lógico
 
-Este tipo de test drive não é hospedado pela Microsoft e utiliza modelos Azure Resource Manager (ARM) para tipos de oferta Dinâmica AX/CRM. Terá de executar o modelo ARM para criar os recursos necessários na sua subscrição Azure. Logic App Test Drive está atualmente apenas no modo de suporte e não é recomendado pela Microsoft Para detalhes sobre a configuração de uma Unidade de Teste de Aplicação Lógica, consulte [a configuração técnica do test drive](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
+Este tipo de test drive não é hospedado pela Microsoft e utiliza modelos Azure Resource Manager (ARM) para tipos de oferta Dinâmica AX/CRM. Terá de executar o modelo ARM para criar os recursos necessários na sua subscrição Azure. Logic App Test Drive está atualmente apenas no modo de suporte e não é recomendado pela Microsoft Para detalhes sobre a configuração de uma Unidade de Teste de Aplicação Lógica, consulte [a configuração técnica do test drive](./test-drive-technical-configuration.md).
 
 ### <a name="power-bi-test-drive"></a>Unidade de teste bi de potência
 

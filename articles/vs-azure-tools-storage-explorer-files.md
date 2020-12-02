@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: f9a828b78dc5ba6bdbc77e22daa75be4182015f0
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 84f6473c25a5be11eeda7cd2b311d93a7226a78c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95805703"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488396"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Utilizar o Explorador de Armazenamento com o Armazenamento de Ficheiros do Azure
 
@@ -31,7 +31,7 @@ Para executar os passos descritos neste artigo, é necessário o seguinte:
 
 - [Transferir e instalar o Explorador de Armazenamento](https://www.storageexplorer.com/)
 
-- [Ligue-se a uma conta ou serviço de armazenamento Azure](/azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [Ligue-se a uma conta ou serviço de armazenamento Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-file-share"></a>Criar Partilhas de Ficheiros
 
@@ -47,7 +47,7 @@ Os passos seguintes mostram como criar uma partilha de ficheiros no Explorador d
 
     ![Criar a Partilha de Ficheiros](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-1. É apresentada uma caixa de texto abaixo da pasta **File Shares (Partilhas de Ficheiros)**. Introduza o nome da partilha de ficheiros. Veja a secção [Regras de nomenclatura de partilhas](/azure/storage/storage-dotnet-how-to-use-blobs) para obter uma lista das regras e restrições à nomenclatura das partilhas de ficheiros.
+1. É apresentada uma caixa de texto abaixo da pasta **File Shares (Partilhas de Ficheiros)**. Introduza o nome da partilha de ficheiros. Veja a secção [Regras de nomenclatura de partilhas](./storage/blobs/storage-quickstart-blobs-dotnet.md) para obter uma lista das regras e restrições à nomenclatura das partilhas de ficheiros.
 
     ![Dar um nome à partilha](media/vs-azure-tools-storage-explorer-files/image2.png)
 
@@ -77,7 +77,7 @@ Os passos seguintes mostram como ver os conteúdos de uma partilha de ficheiros 
 
 ## <a name="delete-a-file-share"></a>Eliminar partilhas de ficheiros
 
-É fácil criar e eliminar partilhas de ficheiros, conforme necessário. (Para saber como eliminar ficheiros individuais, veja a secção [Gerir ficheiros numa partilha de ficheiros](/azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
+É fácil criar e eliminar partilhas de ficheiros, conforme necessário. (Para saber como eliminar ficheiros individuais, veja a secção [Gerir ficheiros numa partilha de ficheiros](./vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container).)
 
 Os passos seguintes mostram como eliminar uma partilha de ficheiros no Explorador de Armazenamento:
 
@@ -97,7 +97,7 @@ Os passos seguintes mostram como eliminar uma partilha de ficheiros no Explorado
 
 ## <a name="copy-a-file-share"></a>Copiar partilhas de ficheiros
 
-O Explorador de Armazenamento permite-lhe copiar partilhas de ficheiros para a área de transferências e, em seguida, copiá-las para outra conta de armazenamento. (Para saber como copiar ficheiros individuais, veja a secção [Gerir ficheiros numa partilha de ficheiros](/azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
+O Explorador de Armazenamento permite-lhe copiar partilhas de ficheiros para a área de transferências e, em seguida, copiá-las para outra conta de armazenamento. (Para saber como copiar ficheiros individuais, veja a secção [Gerir ficheiros numa partilha de ficheiros](./vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container).)
 
 Os passos seguintes mostram como copiar uma partilha de ficheiros de uma conta de armazenamento para outra.
 
@@ -117,7 +117,7 @@ Os passos seguintes mostram como copiar uma partilha de ficheiros de uma conta d
 
 ## <a name="get-the-sas-for-a-file-share"></a>Obter a SAS de uma partilha de ficheiros
 
-As [assinaturas de acesso partilhado (SAS)](/azure/storage/storage-dotnet-shared-access-signature-part-1) disponibilizam acesso delegado a recursos na sua conta de armazenamento. Isto significa que pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento durante um determinado período de tempo e com um conjunto de permissões especificadas, sem ter de partilhar as chaves de acesso da conta.
+As [assinaturas de acesso partilhado (SAS)](./storage/common/storage-sas-overview.md) disponibilizam acesso delegado a recursos na sua conta de armazenamento. Isto significa que pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento durante um determinado período de tempo e com um conjunto de permissões especificadas, sem ter de partilhar as chaves de acesso da conta.
 
 Os passos seguintes mostram como criar uma SAS para uma partilha de ficheiros:
 

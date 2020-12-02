@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/30/2020
 ms.author: memildin
-ms.openlocfilehash: f26fffe8e6b2be6ede064b4750d012b3e4535c66
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 5ac96d703ea646d26b84d6d6486d9ee44ad87cd2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433323"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490130"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -129,7 +129,7 @@ As **atualizações do Sistema devem ser instaladas na** recomendação das suas
 
 - Dados enriquecidos para a recomendação do Azure Resource Graph (ARG). A ARG é um serviço Azure projetado para fornecer uma exploração eficiente de recursos. Você pode usar ARG para consultar em escala através de um determinado conjunto de subscrições para que você possa efetivamente governar o seu ambiente. 
 
-    Para o Azure Security Center, pode utilizar o ARG e a [Língua De Consulta de Kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) para consultar uma ampla gama de dados de postura de segurança.
+    Para o Azure Security Center, pode utilizar o ARG e a [Língua De Consulta de Kusto (KQL)](/azure/data-explorer/kusto/query/) para consultar uma ampla gama de dados de postura de segurança.
 
     Anteriormente, se questionou esta recomendação em ARG, a única informação disponível era que a recomendação precisa de ser remediada numa máquina. A seguinte consulta da versão melhorada irá devolver cada atualização do sistema em falta agrupadas por máquina.
 
@@ -172,7 +172,7 @@ Principais capacidades:
 
 [Saiba mais sobre a implementação do scanner de vulnerabilidade integrado nas suas máquinas híbridas.](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines)
 
-[Saiba mais sobre os servidores ativados do Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/).
+[Saiba mais sobre os servidores ativados do Azure Arc](../azure-arc/servers/index.yml).
 
 
 ### <a name="azure-firewall-recommendation-added-preview"></a>Recomendação do Azure Firewall adicionada (pré-visualização)
@@ -206,7 +206,7 @@ Saiba mais [na remoção de um padrão do seu painel de instrumentos.](update-re
 
 O Azure Resource Graph é um serviço em Azure que é projetado para fornecer uma exploração eficiente de recursos com a capacidade de consultar em escala através de um determinado conjunto de subscrições para que possa governar eficazmente o seu ambiente. 
 
-Para o Azure Security Center, pode utilizar o ARG e a [Língua De Consulta de Kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) para consultar uma ampla gama de dados de postura de segurança. Por exemplo:
+Para o Azure Security Center, pode utilizar o ARG e a [Língua De Consulta de Kusto (KQL)](/azure/data-explorer/kusto/query/) para consultar uma ampla gama de dados de postura de segurança. Por exemplo:
 
 - Utilizações de inventário de ativos (ARG)
 - Documentamos uma consulta de amostra ARG sobre como [identificar contas sem autenticação de vários fatores (MFA) ativada](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
@@ -295,7 +295,7 @@ extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
 
 Saiba mais nos seguintes links:
 - [Como criar consultas com o Explorador do Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
-- [Linguagem de Consulta Kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
+- [Linguagem de Consulta Kusto (KQL)](/azure/data-explorer/kusto/query/)
 
 
 ## <a name="september-2020"></a>Setembro de 2020

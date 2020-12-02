@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 09/15/2020
-ms.openlocfilehash: 52cb5ac5423aac0599ba2827667ee670dde286a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01232aa101e2964354acfbeb6cea341a0da33ca6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331663"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489895"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Sistema de Proteção de Dados do Cliente para o Microsoft Azure
 
@@ -64,7 +64,7 @@ O Sistema de Proteção de Dados do Cliente está atualmente ativado para pedido
 - Conjunto de dimensionamento de máquinas virtuais – Windows e Linux
 
 > [!NOTE]
-> As instâncias iaaS Classic não são suportadas pelo Lockbox do Cliente. Se tiver cargas de trabalho em casos clássicos do IaaS, recomendamos que as emigres de modelos de implementação Classic para Resource Manager. Para obter instruções, veja [Migração suportada por plataforma dos recursos IaaS clássicos para o Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+> As instâncias iaaS Classic não são suportadas pelo Lockbox do Cliente. Se tiver cargas de trabalho em casos clássicos do IaaS, recomendamos que as emigres de modelos de implementação Classic para Resource Manager. Para obter instruções, veja [Migração suportada por plataforma dos recursos IaaS clássicos para o Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 #### <a name="detailed-audit-logs"></a>Registos de auditoria detalhados
 

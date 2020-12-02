@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 526947c4d2db9fd87727fdd60c33bcaa9e75c6ff
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 8a82fd6e6dc1bea0804c429f3af46884f004de69
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699870"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489773"
 ---
-# <a name="azure-network-security-overview"></a>Visão geral da segurança da rede Azure
+# <a name="azure-network-security-overview"></a>Descrição geral da segurança de rede do Azure
 
 A segurança da rede poderia ser definida como o processo de proteção dos recursos contra o acesso ou ataque não autorizados, aplicando controlos ao tráfego de rede. O objetivo é garantir que apenas o tráfego legítimo seja permitido. O Azure inclui uma infraestrutura robusta de rede para suportar os requisitos de conectividade de aplicação e serviço. A conectividade da rede é possível entre os recursos localizados em Azure, entre os recursos alojados no local e a Azure, e de e para a internet e Azure.
 
@@ -332,7 +332,7 @@ A Microsoft fornece uma proteção DDoS conhecida como **Basic** como parte da P
 
 Saiba mais:
 
-* [Visão geral da proteção do DDOS](../../virtual-network/ddos-protection-overview.md)
+* [Visão geral da proteção do DDOS](../../ddos-protection/ddos-protection-overview.md)
 
 ## <a name="azure-front-door"></a>Azure Front Door
 

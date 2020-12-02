@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: c707f6108c73a268bcac18c45afb70ae17185bb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 877200cbafbe68fa6161025572abfddad651e172
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308117"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490725"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Compreensão conceptual dos certificados X.509 CA na indústria IoT
 
@@ -40,6 +40,8 @@ Um atributo diferenciante da autenticação X.509 CA é uma relação de um para
 Outro atributo importante da autenticação X.509 CA é a simplificação da logística da cadeia de abastecimento. A autenticação segura dos dispositivos requer que cada dispositivo detenha um segredo único como uma chave como base para a confiança. Na autenticação baseada em certificados, este segredo é uma chave privada. Um fluxo típico de fabrico de dispositivos envolve vários passos e guardiões. Gerir seguramente as chaves privadas do dispositivo em vários guardiões e manter a confiança é difícil e dispendioso. A utilização de certificados as autoridades resolvem este problema, inscrevendo cada guardião numa cadeia criptográfica de confiança em vez de lhes confiarem chaves privadas do dispositivo. Cada guardião, por sua vez, sinaliza dispositivos na respetiva fase de processo do fluxo de fabrico. O resultado geral é uma cadeia de fornecimento ideal com responsabilidade incorporada através da utilização da cadeia criptográfica de confiança. Vale a pena notar que este processo é o que mais segurança gera quando os dispositivos protegem as suas chaves privadas únicas. Para tal, exortamos à utilização de Módulos Secure de Hardware (HSM) capazes de gerar chaves privadas internamente que nunca verão a luz do dia.
 
 Este artigo oferece uma visão de ponta a ponta da utilização da autenticação X.509 CA, desde a configuração da cadeia de fornecimento até à ligação do dispositivo, ao mesmo tempo que utiliza um exemplo do mundo real para solidificar a compreensão.
+
+Também pode utilizar grupos de inscrição com o Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS) para lidar com o fornecimento de dispositivos aos hubs. Para obter mais informações sobre a utilização de DPS para a disponibilização de dispositivos de certificado X.509, consulte [Tutorial: Forneça vários dispositivos X.509 utilizando grupos de inscrição](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).
 
 ## <a name="introduction"></a>Introdução
 
@@ -75,7 +77,7 @@ O processo de criação de um certificado de CA Self-Signed X.509 é semelhante 
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>Registe o certificado X.509 no IoT Hub
 
-A Empresa-X precisa de registar o X.509 CA para ioT Hub, onde servirá para autenticar Smart-X-Widgets à medida que se ligam. Este é um processo único que permite autenticar e gerir qualquer número de dispositivos Smart-X-Widget. Este processo é uma única vez devido a uma relação entre certificados de autoridade e dispositivos e constitui também uma das principais vantagens de usar o método de autenticação X.509 CA. A alternativa é carregar as impressões digitais individuais do certificado para cada dispositivo Smart-X-Widget, aumentando assim os custos operacionais.
+A Empresa-X precisa de registar o X.509 CA para ioT Hub, onde servirá para autenticar Smart-X-Widgets à medida que se ligam. Este é um processo único que permite autenticar e gerir qualquer número de dispositivos Smart-X-Widget. Trata-se de um processo único devido a uma relação entre certificados de CA e certificados de dispositivo assinados pelo certificado de AC ou por um certificado intermédio. Esta relação constitui uma das principais vantagens da utilização do método de autenticação X.509 CA. A alternativa é carregar as impressões digitais individuais do certificado para cada dispositivo Smart-X-Widget, aumentando assim os custos operacionais.
 
 Registar o certificado X.509 CA é um processo em duas etapas, o upload do certificado e o comprovativo de posse de certificado.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2020
 ms.author: terrylan
-ms.openlocfilehash: dfacf124f8db0e5323c9abff56c4a78f85f6f014
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af61b6ee1e69d175f47170df30f75832033d61d5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816138"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489722"
 ---
 # <a name="penetration-testing"></a>Testes de penetração
 
@@ -46,7 +46,7 @@ Os testes padrão que pode realizar incluem:
 Um tipo de teste de caneta que não pode realizar é qualquer tipo de ataque [de Negação de Serviço (DoS).](https://en.wikipedia.org/wiki/Denial-of-service_attack) Este teste inclui iniciar um ataque do DoS em si, ou realizar testes relacionados que possam determinar, demonstrar ou simular qualquer tipo de ataque DoS.
 
 >[!Note]
->A Microsoft estabeleceu uma parceria com a BreakingPoint Cloud para construir uma interface onde pode gerar tráfego contra endereços IP públicos ativados pela Proteção DDoS para simulações. Para saber mais sobre a simulação da Cloud BreakPoint, consulte [a deteção de DDoS validada.](../../virtual-network/manage-ddos-protection.md#validate-ddos-detection)
+>A Microsoft estabeleceu uma parceria com a BreakingPoint Cloud para construir uma interface onde pode gerar tráfego contra endereços IP públicos ativados pela Proteção DDoS para simulações. Para saber mais sobre a simulação da Cloud BreakPoint, consulte [a deteção de DDoS validada.](../../ddos-protection/manage-ddos-protection.md#validate-and-test)
 
 ## <a name="next-steps"></a>Passos seguintes
 

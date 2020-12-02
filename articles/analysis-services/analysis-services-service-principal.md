@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5d114017d5e5dfecfe20afc69849763a87aadd41
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b04b9ababfe0e4c2a60d14044b9d3ee120837dc5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015324"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491048"
 ---
 # <a name="automation-with-service-principals"></a>Automatização com principais de serviço
 
@@ -24,14 +24,14 @@ Os Serviços de Análise também apoiam operações realizadas por identidades g
 
 ## <a name="create-service-principals"></a>Criar principais de serviço
  
-Os principais de serviço podem ser criados no portal Azure ou utilizando o PowerShell. Para saber mais, veja:
+Os principais de serviço podem ser criados no portal Azure ou utilizando o PowerShell. Para saber mais, consulte:
 
 [Criar um principal de serviço – portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Criar principal de serviço - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Armazenar ativos de credencial e certificados na Azure Automation
 
-As credenciais e certificados principais do serviço podem ser armazenados de forma segura na Azure Automation para operações de runbook. Para saber mais, veja:
+As credenciais e certificados principais do serviço podem ser armazenados de forma segura na Azure Automation para operações de runbook. Para saber mais, consulte:
 
 [Ativos credenciais na Azure Automation](../automation/shared-resources/credentials.md)   
 [Recursos de certificados na Automatização do Azure](../automation/shared-resources/certificates.md)
@@ -92,7 +92,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO e ADOMD 
 
-Ao ligar-se a aplicações Web e aplicações cliente, os pacotes instaláveis das [bibliotecas cliente AMO e ADOMD](/analysis-services/client-libraries?view=azure-analysis-services-current) (versão 15.0.2 e superior) do NuGet suportam principais de serviço em cadeias de ligação através da seguinte sintaxe: `app:AppID` e palavra-passe ou `cert:thumbprint`. 
+Ao ligar-se a aplicações Web e aplicações cliente, os pacotes instaláveis das [bibliotecas cliente AMO e ADOMD](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) (versão 15.0.2 e superior) do NuGet suportam principais de serviço em cadeias de ligação através da seguinte sintaxe: `app:AppID` e palavra-passe ou `cert:thumbprint`. 
 
 No seguinte exemplo, `appID` e `password` são utilizados para executar uma operação de atualização da base de dados modelo:
 

@@ -1,18 +1,18 @@
 ---
 title: Integração de dados utilizando a Azure Data Factory e a Azure Data Share
 description: Copiar, transformar e partilhar dados usando a Azure Data Factory e a Azure Data Share
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 11f4e7c50acc8256722949a50760c574d3b9d9e9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0a578f1edb51efd5f0905e663d42bf5a6fbfc783
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318238"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489059"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integração de dados utilizando a Azure Data Factory e a Azure Data Share
 
@@ -22,23 +22,23 @@ ms.locfileid: "93318238"
 
 Desde permitir que a ETL/ELT sem códigos crie uma visão abrangente sobre os seus dados, as melhorias na Azure Data Factory capacitarão os seus engenheiros de dados a trazerem com confiança mais dados e, portanto, mais valor, para a sua empresa. A Azure Data Share permitir-lhe-á fazer negócios para a partilha de negócios de forma governada.
 
-Neste workshop, você usará Azure Data Factory (ADF) para ingerir dados da Azure SQL Database em Azure Data Lake Storage Gen2 (ADLS Gen2). Assim que aterrar os dados no lago, irá transformá-lo através do mapeamento dos fluxos de dados, o serviço de transformação nativa da fábrica de dados, e afundá-lo em Azure Synapse Analytics (anteriormente SQL DW). Em seguida, partilhará a tabela com dados transformados, juntamente com alguns dados adicionais utilizando a Azure Data Share. 
+Neste workshop, você usará Azure Data Factory (ADF) para ingerir dados da Azure SQL Database em Azure Data Lake Storage Gen2 (ADLS Gen2). Assim que aterrar os dados no lago, irá transformá-lo através do mapeamento dos fluxos de dados, o serviço de transformação nativa da fábrica de dados, e afundá-lo em Azure Synapse Analytics. Em seguida, partilhará a tabela com dados transformados, juntamente com alguns dados adicionais utilizando a Azure Data Share. 
 
 Os dados usados neste laboratório são dados de táxi de Nova Iorque. Para importá-lo na sua base de dados na Base de Dados SQL, descarregue o [ficheiro bacpac de dados de táxi.](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Subscrição do Azure** : se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-* **Base de Dados Azure SQL** : Se não tiver um DB SQL, aprenda a [criar uma conta DB SQL](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal)
+* **Base de Dados Azure SQL**: Se não tiver um DB SQL, aprenda a [criar uma conta DB SQL](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal)
 
-* **Conta de armazenamento Azure Data Lake Storage Gen2** : Se não tiver uma conta de armazenamento ADLS Gen2, aprenda a [criar uma conta de armazenamento ADLS Gen2](../storage/common/storage-account-create.md).
+* **Conta de armazenamento Azure Data Lake Storage Gen2**: Se não tiver uma conta de armazenamento ADLS Gen2, aprenda a [criar uma conta de armazenamento ADLS Gen2](../storage/common/storage-account-create.md).
 
-* **Azure Synapse Analytics (anteriormente SQL DW)** : Se não tiver um Azure Synapse Analytics (anteriormente SQL DW), aprenda a [criar um exemplo de Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
+* **Azure Synapse Analytics (anteriormente SQL DW)**: Se não tiver um Azure Synapse Analytics (anteriormente SQL DW), aprenda a [criar um exemplo de Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
-* **Azure Data Factory** : Se ainda não criou uma fábrica de dados, veja como [criar uma fábrica de dados.](./quickstart-create-data-factory-portal.md)
+* **Azure Data Factory**: Se ainda não criou uma fábrica de dados, veja como [criar uma fábrica de dados.](./quickstart-create-data-factory-portal.md)
 
-* **Azure Data Share** : Se não criou uma partilha de dados, veja como [criar uma partilha de dados](../data-share/share-your-data.md#create-a-data-share-account).
+* **Azure Data Share**: Se não criou uma partilha de dados, veja como [criar uma partilha de dados](../data-share/share-your-data.md#create-a-data-share-account).
 
 ## <a name="set-up-your-azure-data-factory-environment"></a>Confiem do seu ambiente Azure Data Factory
 
@@ -308,7 +308,7 @@ Já completou a parte da fábrica de dados deste laboratório. Publique os seus 
 
 ## <a name="share-data-using-azure-data-share"></a>Partilhar dados através da Azure Data Share
 
-Nesta secção, você vai aprender a configurar uma nova partilha de dados usando o portal Azure. Isto implicará a criação de uma nova partilha de dados que conterá conjuntos de dados da Azure Data Lake Store Gen2 e Azure Synapse Analytics (anteriormente SQL Data Warehouse). Em seguida, configurará um calendário instantâneo, que dará aos consumidores de dados a opção de atualizar automaticamente os dados que estão a ser partilhados com eles. Em seguida, convidará os destinatários para a sua partilha de dados. 
+Nesta secção, você vai aprender a configurar uma nova partilha de dados usando o portal Azure. Isto implicará a criação de uma nova partilha de dados que conterá conjuntos de dados da Azure Data Lake Store Gen2 e Azure Synapse Analytics. Em seguida, configurará um calendário instantâneo, que dará aos consumidores de dados a opção de atualizar automaticamente os dados que estão a ser partilhados com eles. Em seguida, convidará os destinatários para a sua partilha de dados. 
 
 Uma vez criada uma partilha de dados, trocará de chapéus e tornar-se-á o *consumidor de dados.* Como consumidor de dados, você vai andar pelo fluxo de aceitar um convite de partilha de dados, configurando onde gostaria que os dados fossem recebidos e mapeando conjuntos de dados para diferentes locais de armazenamento. Em seguida, irá ativar uma imagem instantânea, que irá copiar os dados partilhados consigo para o destino especificado. 
 
@@ -330,9 +330,9 @@ Uma vez criada uma partilha de dados, trocará de chapéus e tornar-se-á o *con
 
 1. Em **nome de partilha,** especifique um nome à sua escolha. Este é o nome da partilha que será visto pelo seu consumidor de dados, por isso certifique-se de lhe dar um nome descritivo como TaxiData.
 
-1. Em **Descrição** , coloque uma frase que descreve o conteúdo da partilha de dados. A partilha de dados conterá dados mundiais de viagem de táxi que são armazenados em várias lojas, incluindo a Azure Synapse Analytics e a Azure Data Lake Store. 
+1. Em **Descrição**, coloque uma frase que descreve o conteúdo da partilha de dados. A partilha de dados conterá dados mundiais de viagem de táxi que são armazenados em várias lojas, incluindo a Azure Synapse Analytics e a Azure Data Lake Store. 
 
-1. Nos **Termos de Utilização** , especifique um conjunto de termos aos quais pretende que o seu consumidor de dados adira. Alguns exemplos incluem "Não distribua estes dados fora da sua organização" ou "Consulte o acordo legal". 
+1. Nos **Termos de Utilização**, especifique um conjunto de termos aos quais pretende que o seu consumidor de dados adira. Alguns exemplos incluem "Não distribua estes dados fora da sua organização" ou "Consulte o acordo legal". 
 
     ![Partilhar detalhes](media/lab-data-flow-data-share/ads-details.png)
 
@@ -342,7 +342,7 @@ Uma vez criada uma partilha de dados, trocará de chapéus e tornar-se-á o *con
 
     ![Adicionar conjunto de dados 1](media/lab-data-flow-data-share/add-dataset.png)
 
-1. Selecione **Azure Synapse Analytics** (anteriormente SQL Data Warehouse) para selecionar uma tabela da Azure Synapse Analytics em que as suas transformações ADF aterraram.
+1. Selecione **Azure Synapse Analytics** para selecionar uma tabela da Azure Synapse Analytics em que as suas transformações ADF aterraram.
 
     ![Adicionar conjunto de dados sql](media/lab-data-flow-data-share/add-dataset-sql.png)
 
@@ -432,7 +432,7 @@ Pode ser solicitado que selecione uma subscrição. Certifique-se de selecionar 
 
 1. Selecione o Grupo de Subscrição e Recursos que já existe para o seu laboratório. 
 
-1. Para **conta de partilha de dados** , selecione **DataConsumer**. Também pode criar uma nova conta de partilha de dados. 
+1. Para **conta de partilha de dados**, selecione **DataConsumer**. Também pode criar uma nova conta de partilha de dados. 
 
 1. Ao lado **do nome de partilha Recebido,** irá notar que o nome de ação padrão é o nome especificado pelo provedor de dados. Dê à partilha um nome amigável que descreva os dados que está prestes a receber, por **exemplo, TaxiDataShare**.
 
@@ -468,7 +468,7 @@ Pode ser solicitado que selecione uma subscrição. Certifique-se de selecionar 
     
     (Opcional) Pode optar por receber os dados no seu lago de dados em formato csv ou parquet. 
 
-1. Junto ao **tipo de dados Target** , selecione Azure SQL Database. 
+1. Junto ao **tipo de dados Target**, selecione Azure SQL Database. 
 
 1. Selecione a conta de Subscrição, Grupo de Recursos e Armazenamento em que tem estado a trabalhar. 
 

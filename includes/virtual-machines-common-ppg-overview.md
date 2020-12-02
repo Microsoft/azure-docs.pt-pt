@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: daed8dc62fdfd86ecf785a0bfd83b2b6c0b4cc03
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e2be62180907e94401548774b3403db0f36caca3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025646"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488477"
 ---
 A colocação de VMs numa única região reduz a distância física entre os casos. Colocá-los dentro de uma única zona de disponibilidade também os aproximará fisicamente. No entanto, à medida que a pegada Azure cresce, uma única zona de disponibilidade pode abranger vários centros de dados físicos, o que pode resultar numa latência de rede com impacto na sua aplicação. 
 
@@ -82,7 +82,7 @@ Se um grupo de colocação de proximidade `Not Aligned` for, pode parar o deallo
 Se houver uma falha de atribuição devido a restrições de implantação, poderá ter de parar o negócio de todos os recursos no grupo de colocação de proximidade afetado (incluindo os recursos alinhados) primeiro e, em seguida, reiniciá-los para restaurar o alinhamento.
 
 ## <a name="best-practices"></a>Melhores práticas 
-- Para a latência mais baixa, utilize grupos de colocação de proximidade juntamente com a rede acelerada. Para obter mais informações, consulte [Criar uma máquina virtual Linux com rede acelerada](../articles/virtual-network/create-vm-accelerated-networking-cli.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) ou criar uma máquina virtual Windows com Rede [Acelerada](../articles/virtual-network/create-vm-accelerated-networking-powershell.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
+- Para a latência mais baixa, utilize grupos de colocação de proximidade juntamente com a rede acelerada. Para obter mais informações, consulte [Criar uma máquina virtual Linux com rede acelerada](../articles/virtual-network/create-vm-accelerated-networking-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou criar uma máquina virtual Windows com Rede [Acelerada](../articles/virtual-network/create-vm-accelerated-networking-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Implemente todos os tamanhos VM num único modelo. Para evitar a aterragem em hardware que não suporta todos os SKUs e tamanhos VM que você precisa, inclua todos os níveis de aplicação em um único modelo para que todos sejam implantados ao mesmo tempo.
 - Se estiver a escrever a sua implementação utilizando o PowerShell, o CLI ou o SDK, poderá obter um erro de atribuição `OverconstrainedAllocationRequest` . Neste caso, deve parar/negociar todos os VM existentes e alterar a sequência no script de implementação para começar com os tamanhos VM SKU/tamanhos que falharam. 
 - Ao reutilizar um grupo de colocação existente a partir do qual os VMs foram eliminados, aguarde que a supressão esteja completa antes de lhe adicionar VMs.

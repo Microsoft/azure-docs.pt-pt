@@ -1,5 +1,5 @@
 ---
-title: Erro de paragem do Windows - Mau funcionamento do hardware
+title: Erro de paragem do Windows - Avaria de hardware
 description: Este artigo fornece medidas para resolver problemas em que as máquinas virtuais do Windows Server 2008 falham com uma mensagem de erro que afirma que houve uma avaria no hardware.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/13/2020
 ms.author: v-mibufo
-ms.openlocfilehash: eb4e0a246d6a33c3fad5f44b99a37997e4462f05
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 18622d60f3a33658fadfd28c53c93a07b4b438a9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663863"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488651"
 ---
-# <a name="windows-stop-error---hardware-malfunction"></a>Erro de paragem do Windows - Mau funcionamento do hardware
+# <a name="windows-stop-error---hardware-malfunction"></a>Erro de paragem do Windows - Avaria de hardware
 
 Este artigo fornece medidas para resolver problemas em que as máquinas virtuais do Windows Server 2008 falham com uma mensagem de erro que afirma que houve uma avaria no hardware.
 
@@ -63,7 +63,7 @@ Este ecrã aparecerá quando o SO convidado não foi configurado corretamente e 
     ```
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
     ```
-    [Ver mais informações sobre o comando REG ADD](https://docs.microsoft.com/windows-server/administration/windows-commands/reg-add)
+    [Ver mais informações sobre o comando REG ADD](/windows-server/administration/windows-commands/reg-add)
 4. *(Opcional)* Coleção de despejo de memória de configuração:
 
     ```
@@ -77,13 +77,13 @@ Este ecrã aparecerá quando o SO convidado não foi configurado corretamente e 
     BCDEDIT /ems {current} on, or bcdedit /ems '{current}' on if you are using PowerShell
     BCDEDIT /emssettings EMSPORT:1 EMSBAUDRATE:115200 
     ```
-    [Ver mais informações sobre o comando BCDEDIT](https://docs.microsoft.com/windows-server/administration/windows-commands/bcdedit)
+    [Ver mais informações sobre o comando BCDEDIT](/windows-server/administration/windows-commands/bcdedit)
 6. Reiniciar o VM com o seguinte comando:
 
     ```
     SHUTDOWN /r /t 0 /f 
     ```
-    [Ver mais informações sobre o comando SHUTDOWN](https://docs.microsoft.com/windows-server/administration/windows-commands/shutdown)
+    [Ver mais informações sobre o comando SHUTDOWN](/windows-server/administration/windows-commands/shutdown)
 
 > [!IMPORTANT]
 > A questão deve agora ser corrigida!
@@ -165,7 +165,7 @@ Antes de reconstruir o VM, é aconselhável ativar a recolha de despejos de mem�
 
 * Utilize [o passo 5 dos Comandos de Reparação VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para reconstruir o VM.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Resolução de problemas Azure Erros de Arranque de Máquina Virtual](./boot-error-troubleshoot.md)

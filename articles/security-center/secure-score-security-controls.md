@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2020
 ms.author: memildin
-ms.openlocfilehash: 0e853a4ce1e3891ddffd2f9fb1315da49a896933
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 3cd536d051f3e227ba86429ae3f1633bf6c2e82f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433227"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490538"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Pontuação de segurança no Centro de Segurança do Azure
 
@@ -80,7 +80,7 @@ Por exemplo, ferramentas construídas em cima da pontuação segura API, consult
 
 ### <a name="get-your-secure-score-from-azure-resource-graph-arg"></a>Obtenha a sua pontuação segura a partir do Azure Resource Graph (ARG)
 
-O Azure Resource Graph fornece acesso instantâneo à informação de recursos em todos os seus ambientes em nuvem com capacidades robustas de filtragem, agrupamento e triagem. É uma forma rápida e eficiente de consultar informações através de subscrições Azure programáticas ou dentro do portal Azure. [Saiba mais sobre o Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/).
+O Azure Resource Graph fornece acesso instantâneo à informação de recursos em todos os seus ambientes em nuvem com capacidades robustas de filtragem, agrupamento e triagem. É uma forma rápida e eficiente de consultar informações através de subscrições Azure programáticas ou dentro do portal Azure. [Saiba mais sobre o Azure Resource Graph](../governance/resource-graph/index.yml).
 
 Para aceder à pontuação segura para várias subscrições com ARG:
 

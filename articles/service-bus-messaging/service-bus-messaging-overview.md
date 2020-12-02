@@ -3,12 +3,12 @@ title: Descrição geral de mensagens do Service Bus do Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral de alto nível da Azure Service Bus, um corretor de mensagens de integração empresarial totalmente gerido.
 ms.topic: overview
 ms.date: 11/20/2020
-ms.openlocfilehash: bb894800482cb2b7b4e5d699ab050bd5c93ad038
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ca04b4a41489fba61e7c0ee2bb3f4f7f0b8b80f4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345308"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489484"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
 O Microsoft Azure Service Bus é um corretor de mensagens empresarial totalmente gerido com filas de mensagens e tópicos de subscrição pública. O Service Bus é utilizado para dissociar aplicações e serviços entre si, proporcionando os seguintes benefícios:
@@ -23,9 +23,9 @@ Os dados são transferidos entre diferentes aplicações e serviços utilizando 
 Alguns cenários comuns de mensagens são:
 
 * *Mensagens.* Transfira dados empresariais, tais como encomendas de vendas ou compras, revistas ou movimentos de inventário.
-* *Desaconsição de candidaturas.* Melhorar a fiabilidade e escalabilidade das aplicações e serviços. O produtor e o consumidor não têm de estar online ou prontamente disponíveis ao mesmo tempo. A [carga é nivelada](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling) de modo que os picos de tráfego não sobrecarregam um serviço. 
-* *Equilíbrio de carga*. Permitir que vários [consumidores concorrentes](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers) leiam a partir de uma fila ao mesmo tempo, cada um obtendo de forma segura a propriedade exclusiva para mensagens específicas. 
-* *Tópicos e subscrições.* Ativar 1:*n* relações entre [editores e assinantes,](https://docs.microsoft.com/azure/architecture/patterns/publisher-subscriber)permitindo aos assinantes selecionarem mensagens específicas a partir de um fluxo de mensagens publicado.
+* *Desaconsição de candidaturas.* Melhorar a fiabilidade e escalabilidade das aplicações e serviços. O produtor e o consumidor não têm de estar online ou prontamente disponíveis ao mesmo tempo. A [carga é nivelada](/azure/architecture/patterns/queue-based-load-leveling) de modo que os picos de tráfego não sobrecarregam um serviço. 
+* *Equilíbrio de carga*. Permitir que vários [consumidores concorrentes](/azure/architecture/patterns/competing-consumers) leiam a partir de uma fila ao mesmo tempo, cada um obtendo de forma segura a propriedade exclusiva para mensagens específicas. 
+* *Tópicos e subscrições.* Ativar 1:*n* relações entre [editores e assinantes,](/azure/architecture/patterns/publisher-subscriber)permitindo aos assinantes selecionarem mensagens específicas a partir de um fluxo de mensagens publicado.
 * *Transações*. Permite-lhe fazer várias operações, todas no âmbito de uma transação atómica. Por exemplo, as seguintes operações podem ser feitas no âmbito de uma transação.  
 
     1. Obtenha uma mensagem de uma fila.
@@ -138,11 +138,11 @@ Para proteção contra tráfego indesejado, o Service Bus fornece [funcionalidad
 
 As bibliotecas de clientes do Service Bus totalmente suportadas estão disponíveis através do Azure SDK.
 
-- [Ônibus de serviço Azure para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/service-bus?view=azure-dotnet&preserve-view=true)
-- [Bibliotecas de ônibus de serviço Azure para Java](https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-stable&preserve-view=true)
+- [Ônibus de serviço Azure para .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true&view=azure-dotnet)
+- [Bibliotecas de ônibus de serviço Azure para Java](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-stable)
 - [Fornecedor de ônibus de serviço Azure para Java JMS 2.0](how-to-use-java-message-service-20.md)
-- [Módulos de ônibus de serviço Azure para JavaScript e TypeScript](https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest&preserve-view=true)
-- [Bibliotecas de ônibus de serviço Azure para Python](https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python&preserve-view=true)
+- [Módulos de ônibus de serviço Azure para JavaScript e TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true&view=azure-node-latest)
+- [Bibliotecas de ônibus de serviço Azure para Python](/python/api/overview/azure/servicebus?preserve-view=true&view=azure-python)
 
 [O protocolo principal da Azure Service Bus é AMQP 1.0](service-bus-amqp-overview.md) e pode ser usado a partir de qualquer cliente protocolo compatível com AMQP 1.0. Vários clientes amqp de código aberto têm amostras que demonstram explicitamente a interoperabilidade do Service Bus. Reveja o [guia de protocolo AMQP 1.0](service-bus-amqp-protocol-guide.md) para entender como utilizar as funcionalidades do Service Bus com clientes AMQP 1.0 diretamente.
 
