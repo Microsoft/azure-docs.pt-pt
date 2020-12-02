@@ -8,16 +8,16 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: 36f519ce41ccfbfb48ca696ed2a61c6131a75998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca3dd410474af0a42a3cd5b4217c3bba90b8ff1a
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906321"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511989"
 ---
 # <a name="protect-windows-admin-center-resources-with-security-center"></a>Proteja os recursos do Centro de Administração do Windows com o Centro de Segurança
 
-O Windows Admin Center é uma ferramenta de gestão para os seus servidores Windows. É uma localização única para os administradores do sistema acederem à maioria das ferramentas de administração mais usadas. A partir do Windows Admin Center, pode embarcar diretamente nos seus servidores on-prem no Azure Security Center. Em seguida, pode ver um resumo das suas recomendações de segurança e alertas diretamente na experiência do Windows Admin Center.
+O Windows Admin Center é uma ferramenta de gestão para os seus servidores Windows. É uma localização única para os administradores do sistema acederem à maioria das ferramentas de administração mais usadas. A partir do Windows Admin Center, pode embarcar diretamente nos seus servidores no local para o Centro de Segurança Azure. Em seguida, pode ver um resumo das suas recomendações de segurança e alertas diretamente na experiência do Windows Admin Center.
 
 > [!NOTE]
 > A subscrição do Azure e o espaço de trabalho associado do Log Analytics precisam de ter o Azure Defender ativado de forma a permitir a integração do Windows Admin Center.
@@ -29,7 +29,7 @@ Quando tiver acedido com sucesso a um servidor do Windows Admin Center para o Az
 * Ver alertas de segurança e recomendações dentro da extensão do Centro de Segurança no Windows Admin Center
 * Veja a postura de segurança e recupere informações detalhadas adicionais dos servidores geridos do Windows Admin Center no Security Center dentro do portal Azure (ou através de uma API)
 
-Ao combinar estas duas ferramentas, o Security Center torna-se o seu único painel de vidro para visualizar todas as suas informações de segurança, qualquer que seja o recurso: proteger o seu Windows Admin Center gerido por servidores on-prem, os seus VMs e quaisquer cargas de trabalho paaS adicionais.
+Ao combinar estas duas ferramentas, o Security Center torna-se o seu único painel de vidro para visualizar todas as suas informações de segurança, qualquer que seja o recurso: proteger o seu Windows Admin Center gerido servidores no local, os seus VMs e quaisquer cargas de trabalho paaS adicionais.
 
 ## <a name="onboard-windows-admin-center-managed-servers-into-security-center"></a>A bordo do Windows Admin Center geriu servidores no Centro de Segurança
 

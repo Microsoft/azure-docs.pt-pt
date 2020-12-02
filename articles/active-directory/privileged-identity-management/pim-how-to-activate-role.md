@@ -10,22 +10,22 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/06/2020
+ms.date: 11/18/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38992c15c23216aa81cda566a333d8e45f90b17e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 079dcdc9d1667809779489c5d1126bc85cafb881
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004692"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511344"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Ativar as minhas funções do Microsoft Azure AD no PIM
 
 O Azure Ative Directory (Azure AD) Privileged Identity Management (PIM) simplifica a forma como as empresas gerem o acesso privilegiado a recursos em Azure AD e outros serviços online da Microsoft, como o Microsoft 365 ou o Microsoft Intune.  
 
-Se foi elegível para um cargo administrativo, então deve ativar a atribuição de funções quando precisar de realizar ações privilegiadas. Por exemplo, se ocasionalmente gere as funcionalidades do Microsoft 365, os administradores privilegiados da sua organização podem não fazer de si um Administrador Global permanente, uma vez que essa função também tem impacto noutros serviços. Em vez disso, tornam-no elegível para funções de Azure AD, como o Exchange Online Administrator. Pode solicitar a ativação dessa função quando precisar dos seus privilégios, e depois terá o controlo do administrador durante um período de tempo pré-determinado.
+Se foi *elegível* para um cargo administrativo, então deve *ativar* a atribuição de funções quando precisar de realizar ações privilegiadas. Por exemplo, se ocasionalmente gere as funcionalidades da Microsoft 365, os administradores privilegiados da sua organização podem não fazer de si um Administrador Global permanente, uma vez que essa função também tem impacto noutros serviços. Em vez disso, tornar-te-iam elegíveis para funções de Azure AD, como o Exchange Online Administrator. Pode solicitar a ativação dessa função quando precisar dos seus privilégios, e depois terá o controlo do administrador durante um período de tempo pré-determinado.
 
 Este artigo destina-se a administradores que necessitem de ativar o seu papel AZURE AD na Gestão de Identidade Privilegiada.
 
@@ -56,19 +56,19 @@ Quando precisar de assumir um papel de AD Azure, pode solicitar a ativação abr
 
     ![Funções de AD AZure - A minha lista de funções elegíveis](./media/pim-how-to-activate-role/activate-link.png)
 
-1. **Selecione Ativar** para abrir a página Ativar.
+1. **Selecione Ativar** para abrir o painel Ativar.
 
     ![Funções AD AZure - página de ativação contém duração e âmbito](./media/pim-how-to-activate-role/activate-page.png)
 
-1. Se a sua função necessitar de autenticação multi-factor, **selecione Verifique a sua identidade antes de prosseguir**. Só tem de autenticar uma vez por sessão.
-
-    ![Verifique a minha identidade com o MFA antes da ativação da função](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
-
-1. **Selecione Verifique a minha identidade** e siga as instruções para fornecer uma verificação adicional de segurança.
+1. Selecione **a verificação adicional necessária**"** e siga as instruções para fornecer uma verificação adicional de segurança. É-lhe exigido que autente apenas uma vez por sessão.
 
     ![Tela para fornecer verificação de segurança, como um código PIN](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
-1. Se pretender especificar um âmbito reduzido, selecione **Scope** para abrir o painel do filtro. No painel de filtros, pode especificar os recursos Azure AD aos quais precisa de acesso. É uma boa prática pedir acesso apenas aos recursos de que precisa.
+1. Após a autenticação de vários fatores, **selecione Ativar antes de prosseguir**.
+
+    ![Verifique a minha identidade com o MFA antes de a função ser ativada](./media/pim-how-to-activate-role/activate-role-mfa-banner.png)
+
+1. Se pretender especificar um âmbito reduzido, selecione **Scope** para abrir o painel do filtro. No painel de filtros, pode especificar os recursos Azure AD aos quais precisa de acesso. É uma boa prática pedir acesso aos menos recursos de que precisa.
 
 1. Se necessário, especifique uma hora de início de ativação personalizada. A função AD AZure seria ativada após o tempo selecionado.
 
@@ -126,9 +126,9 @@ Quando você precisa assumir um papel AD Azure, você pode solicitar a ativaçã
 
 1. Open **Azure AD Gestão de Identidade Privilegiada.** Para obter informações sobre como adicionar o azulejo privilegiado de Gestão de Identidade ao seu painel de instrumentos, consulte [Começar a utilizar a Gestão de Identidade Privilegiada.](pim-getting-started.md)
 
-1. Clique **nos papéis de AD Azure**.
+1. Selecione **funções AD Azure**.
 
-1. Clique nas **minhas funções** para ver uma lista das suas funções elegíveis para a Azure AD.
+1. Selecione **as minhas funções** para ver uma lista das suas funções elegíveis para Azure AD.
 
     ![Funções Azure AD - As minhas funções que mostram a lista de funções elegíveis ou ativas](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
 
@@ -136,17 +136,17 @@ Quando você precisa assumir um papel AD Azure, você pode solicitar a ativaçã
 
     ![Funções de Ad Azure - A minha lista de funções elegíveis mostrando link Activate](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
 
-1. Clique **em Ativar** para abrir o painel de detalhes de ativação de funções.
+1. **Selecione Ativar** para abrir o painel de detalhes de ativação de funções.
 
-1. Se a sua função necessitar de autenticação multi-factor (MFA), clique em **Verificar a sua identidade antes de prosseguir**. Só tem de autenticar uma vez por sessão.
+1. Se a sua função necessitar de autenticação multi-factor (MFA), **selecione Verifique a sua identidade antes de prosseguir**. Só tem de autenticar uma vez por sessão.
 
     ![Verifique o meu painel de identidade com MFA antes da ativação do papel](./media/pim-how-to-activate-role/directory-roles-my-roles-mfa.png)
 
-1. Clique **em Verificar a minha identidade** e siga as instruções para fornecer uma verificação adicional de segurança.
+1. **Selecione Verifique a minha identidade** e siga as instruções para fornecer uma verificação adicional de segurança.
 
     ![Página adicional de verificação de segurança perguntando como contactá-lo](./media/pim-how-to-activate-role/additional-security-verification.png)
 
-1. Clique **em Ativar** para abrir o painel de ativação.
+1. **Selecione Ativar** para abrir o painel de ativação.
 
     ![Painel de ativação para especificar hora de início, duração, bilhete e razão](./media/pim-how-to-activate-role/directory-roles-activate.png)
 
@@ -158,13 +158,13 @@ Quando você precisa assumir um papel AD Azure, você pode solicitar a ativaçã
 
     ![Painel de ativação completo com uma hora de início, duração, bilhete e razão personalizado](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
 
-1. Clique **em Ativar**.
+1. **Selecione Ativar**.
 
     Se a função não necessitar de aprovação, aparece um painel de estado de **ativação** que apresenta o estado da ativação.
 
     ![Página de estado de ativação mostrando os três estágios de ativação](./media/pim-how-to-activate-role/activation-status.png)
 
-    Assim que todas as fases estiverem concluídas, clique na ligação **Iniciar** para assinar fora do portal Azure. Quando voltar a entrar no portal, pode agora usar o papel.
+    Uma vez concluídas todas as fases, selecione a ligação **Iniciar** para assinar fora do portal Azure. Quando voltar a entrar no portal, pode agora usar o papel.
 
     Se a [função necessitar de aprovação](./azure-ad-pim-approval-workflow.md) para ser ativada, aparecerá uma notificação Azure no canto superior direito do seu navegador informando-o de que o pedido está pendente de aprovação.
 
@@ -174,9 +174,9 @@ Pode visualizar o estado dos seus pedidos pendentes para ativar.
 
 1. Abrir Azure AD Gestão de Identidade Privilegiada.
 
-1. Clique **nos papéis de AD Azure**.
+1. Selecione **funções AD Azure**.
 
-1. Clique nos **meus pedidos** para ver uma lista dos seus pedidos.
+1. Selecione **Os meus pedidos** para ver uma lista dos seus pedidos.
 
     ![Funções AD AD - A minha lista de pedidos](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
@@ -188,13 +188,13 @@ Se completar as suas tarefas de administrador mais cedo, também pode desativar 
 
 1. Abrir Azure AD Gestão de Identidade Privilegiada.
 
-1. Clique **nos papéis de AD Azure**.
+1. Selecione **funções AD Azure**.
 
-1. Clique nos **meus papéis.**
+1. Selecione **os meus papéis.**
 
-1. Clique **em funções Ative** para ver a sua lista de funções ativas.
+1. Selecione **funções Ative** para ver a sua lista de funções ativas.
 
-1. Encontre o papel que acabou de usar e, em seguida, clique em **Desativar**.
+1. Encontre o papel que acabou de usar e, em seguida, **selecione Desativar**.
 
 ## <a name="cancel-a-pending-request-previous-version"></a>Cancelar um pedido pendente (versão anterior)
 
@@ -202,13 +202,13 @@ Se não necessitar de ativação de uma função que exija aprovação, pode can
 
 1. Abrir Azure AD Gestão de Identidade Privilegiada.
 
-1. Clique **nos papéis de AD Azure**.
+1. Selecione **funções AD Azure**.
 
-1. Clique nos **meus pedidos.**
+1. Selecione **os meus pedidos.**
 
-1. Para o papel que pretende cancelar, clique no botão **Cancelar.**
+1. Para o papel que pretende cancelar, selecione o botão **Cancelar.**
 
-    Quando clicar em Cancelar, o pedido será cancelado. Para ativar novamente o papel, terá de apresentar um novo pedido de ativação.
+    Quando selecionar **Cancelar,** o pedido será cancelado. Para ativar novamente o papel, terá de apresentar um novo pedido de ativação.
 
    ![A minha lista de pedidos com o botão Cancelar realçado](./media/pim-how-to-activate-role/directory-role-cancel.png)
 

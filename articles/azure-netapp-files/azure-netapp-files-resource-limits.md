@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 12/01/2020
 ms.author: b-juche
-ms.openlocfilehash: 6963a1f39534573bca39431febe391e89d462875
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: aaffc63690894f43329763064ae89a105274953c
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072786"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511938"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites de recurso para os Azure NetApp Files
 
@@ -29,25 +29,25 @@ Compreender os limites de recursos dos Ficheiros Azure NetApp ajuda-o a gerir os
 
 A tabela que se segue descreve os limites de recursos para ficheiros Azure NetApp:
 
-|  Recurso  |  Limite predefinido  |  Ajustável através de pedido de apoio  |
+|  Resource  |  Limite predefinido  |  Ajustável através de pedido de apoio  |
 |----------------|---------------------|--------------------------------------|
-|  Número de contas do NetApp por região de Azure   |  10    |  Yes   |
-|  Número de piscinas de capacidade por conta NetApp   |    25     |   Yes   |
-|  Número de volumes por subscrição   |    500     |   Yes   |
-|  Número de volumes por piscina de capacidade     |    500   |    Yes     |
-|  Número de instantâneos por volume       |    255     |    No        |
-|  Número de sub-redes delegadas em Ficheiros Azure NetApp (Microsoft.NetApp/volumes) por Rede Virtual Azure    |   1   |    No    |
-|  Número de IPs usados num VNet (incluindo VNets imediatamente espreitados) com ficheiros Azure NetApp   |    1000   |    No   |
-|  Tamanho mínimo de uma piscina de capacidade única   |  4 TiB     |    No  |
-|  Tamanho máximo de uma piscina de capacidade única    |  500 TiB   |   No   |
-|  Tamanho mínimo de um único volume    |    100 GiB    |    No    |
-|  Tamanho máximo de um único volume     |    100 TiB    |    No    |
-|  Tamanho máximo de um único ficheiro     |    16 TiB    |    No    |    
-|  Tamanho máximo dos metadados do diretório num único diretório      |    320 MB    |    No    |    
-|  Número máximo de ficheiros[(maxfiles)](#maxfiles)por volume     |    100 milhões    |    Yes    |    
-|  Produção mínima atribuída para um volume QoS manual     |    1 MiB/s   |    No    |    
-|  Produção máxima atribuída para um volume QoS manual     |    4.500 MiB/s    |    No    |    
-|  Número de volumes de proteção de dados de replicação entre regiões (volumes de destino)     |    5    |    Yes    |     
+|  Número de contas do NetApp por região de Azure por subscrição  |  10    |  Sim   |
+|  Número de piscinas de capacidade por conta NetApp   |    25     |   Sim   |
+|  Número de volumes por subscrição   |    500     |   Sim   |
+|  Número de volumes por piscina de capacidade     |    500   |    Sim     |
+|  Número de instantâneos por volume       |    255     |    Não        |
+|  Número de sub-redes delegadas em Ficheiros Azure NetApp (Microsoft.NetApp/volumes) por Rede Virtual Azure    |   1   |    Não    |
+|  Número de IPs usados num VNet (incluindo VNets imediatamente espreitados) com ficheiros Azure NetApp   |    1000   |    Não   |
+|  Tamanho mínimo de uma piscina de capacidade única   |  4 TiB     |    Não  |
+|  Tamanho máximo de uma piscina de capacidade única    |  500 TiB   |   Não   |
+|  Tamanho mínimo de um único volume    |    100 GiB    |    Não    |
+|  Tamanho máximo de um único volume     |    100 TiB    |    Não    |
+|  Tamanho máximo de um único ficheiro     |    16 TiB    |    Não    |    
+|  Tamanho máximo dos metadados do diretório num único diretório      |    320 MB    |    Não    |    
+|  Número máximo de ficheiros[(maxfiles)](#maxfiles)por volume     |    100 milhões    |    Sim    |    
+|  Produção mínima atribuída para um volume QoS manual     |    1 MiB/s   |    Não    |    
+|  Produção máxima atribuída para um volume QoS manual     |    4.500 MiB/s    |    Não    |    
+|  Número de volumes de proteção de dados de replicação entre regiões (volumes de destino)     |    5    |    Sim    |     
 
 Para mais informações, consulte [as PERGUNTAS Frequentes de Gestão de Capacidade.](azure-netapp-files-faqs.md#capacity-management-faqs)
 
@@ -83,13 +83,13 @@ Do plano de navegação do portal Azure:
 4. No separador Detalhes:
     1. Na caixa Descrição, forneça as seguintes informações para o tipo de recurso correspondente:
 
-        |  Recurso  |    Recursos-mãe      |    Novos limites solicitados     |    Motivo para o aumento de quota       |
+        |  Resource  |    Recursos-mãe      |    Novos limites solicitados     |    Motivo para o aumento de quota       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
         |  Conta |  *ID da Subscrição*   |  *Novo número de **conta** máxima solicitado*    |  *Que cenário ou caso de utilização motivou o pedido?*  |
         |  Conjunto    |  *ID de subscrição, conta NetApp URI*  |  *Solicitado novo número máximo **de piscina***   |  *Que cenário ou caso de utilização motivou o pedido?*  |
         |  Volume  |  *ID de subscrição, conta NetApp URI, pool de capacidade URI*   |  *Novo número máximo de **volume** solicitado*     |  *Que cenário ou caso de utilização motivou o pedido?*  |
         |  Maxfiles  |  *ID de subscrição, conta NetApp URI, pool de capacidade URI, volume URI*   |  *Pedido novo número máximo **de maxfiles***     |  *Que cenário ou caso de utilização motivou o pedido?*  |    
-        |  Volumes de proteção de dados de replicação entre regiões  |  *ID de subscrição, conta NetApp de destino URI, pool de capacidade de destino URI, conta uri fonte NetApp, pool de capacidade de origem URI, volume de origem URI*   |  *Solicitado novo número máximo de **volumes de proteção de dados de replicação entre regiões (volumes de destino)***     |  *Que cenário ou caso de utilização motivou o pedido?*  |    
+        |  Volumes de proteção de dados de replicação entre regiões  |  *ID de subscrição, conta NetApp de destino URI, pool de capacidade de destino URI, conta uri fonte NetApp, pool de capacidade de origem URI, volume de origem URI*   |  *Solicitou novo número máximo de **volumes de proteção de dados de replicação entre regiões (volumes de destino)** _     |  _What cenário ou caso de utilização motivou o pedido?*  |    
 
     2. Especifique o método de suporte adequado e forneça as informações do seu contrato.
 

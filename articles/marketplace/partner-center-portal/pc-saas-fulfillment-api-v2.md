@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d6449a00886b7366bcd1f6e2fcec910fd3cb38db
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1ea326cc4537176c0ddcff070f4dc3b3f77f4b58
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461038"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512040"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>SaaS cumpre APIs versão 2 no mercado comercial
 
@@ -20,7 +20,7 @@ Este artigo detalha as APIs que permitem aos parceiros vender o seu software com
 
 ## <a name="managing-the-saas-subscription-life-cycle"></a>Gerir o ciclo de vida de subscrição saaS
 
-O mercado comercial gere todo o ciclo de vida de uma subscrição SaaS após a sua compra pelo utilizador final.  Utiliza a página de aterragem, APIs de Realização, APIs de Operações e o webhook como um mecanismo para impulsionar a ativação, utilização, atualizações e cancelamentos reais da subscrição do SaaS.  A conta do utilizador final baseia-se no estado da subscrição saaS que a Microsoft mantém. 
+O mercado comercial gere todo o ciclo de vida de uma subscrição SaaS após a sua compra pelo utilizador final. Utiliza a página de aterragem, APIs de Realização, APIs de Operações e o webhook como um mecanismo para impulsionar a ativação, utilização, atualizações e cancelamentos reais da subscrição do SaaS. A conta do utilizador final baseia-se no estado da subscrição saaS que a Microsoft mantém. 
 
 ### <a name="states-of-a-saas-subscription"></a>Estados de uma assinatura SaaS
 
@@ -44,11 +44,11 @@ Um exemplo desta chamada `https://contoso.com/signup?token=<blob>` é, enquanto 
 
 O URL da página de aterragem deve estar a funcionar todos os dias, todos os dias, e pronto para receber sempre novas chamadas da Microsoft. Se a página de aterragem ficar indisponível, os clientes não poderão inscrever-se no serviço SaaS e começar a usá-la.
 
-Em seguida, a editora deve passar o *token* de volta para a Microsoft, chamando a [API SaaS Resolve](#resolve-a-purchased-subscription), e introduzindo o token como o valor do parâmetro do `x-ms-marketplace-token header` cabeçalho.  Como resultado da chamada resolve a API, o token é trocado por detalhes da compra do SaaS, como iD exclusivo da compra, ID de oferta comprada e ID do plano adquirido.
+Em seguida, a editora deve passar o *token* de volta para a Microsoft, chamando a [API SaaS Resolve](#resolve-a-purchased-subscription), e introduzindo o token como o valor do parâmetro do `x-ms-marketplace-token header` cabeçalho. Como resultado da chamada resolve a API, o token é trocado por detalhes da compra do SaaS, como iD exclusivo da compra, ID de oferta comprada e ID do plano adquirido.
 
 Na página de aterragem, o cliente deve ser inscrito na nova ou existente conta SaaS via Azure Ative Directory (Azure AD) single sign-on (SSO).
 
-O editor deve implementar sSO para fornecer a experiência do utilizador exigida pela Microsoft para este fluxo. Certifique-se de que utiliza a aplicação AD Azure multitenant e permite tanto contas de trabalho como escolas ou contas pessoais da Microsoft ao configurar sSO.  Este requisito aplica-se apenas à página de aterragem, para utilizadores redirecionados para o serviço SaaS quando já assinaram com as credenciais da Microsoft. SSO não é necessário para todos os insurretos para o serviço SaaS.
+O editor deve implementar sSO para fornecer a experiência do utilizador exigida pela Microsoft para este fluxo. Certifique-se de que utiliza a aplicação AD Azure multitenant e permite tanto contas de trabalho como escolas ou contas pessoais da Microsoft ao configurar sSO. Este requisito aplica-se apenas à página de aterragem, para utilizadores redirecionados para o serviço SaaS quando já assinaram com as credenciais da Microsoft. SSO não é necessário para todos os insurretos para o serviço SaaS.
 
 > [!NOTE]
 >Se o SSO exigir que um administrador conceda permissão a uma aplicação, a descrição da oferta no Partner Center deve revelar que é necessário acesso ao nível de administração. Esta divulgação é para cumprir as [políticas de certificação do mercado comercial.](/legal/marketplace/certification-policies#10003-authentication-options)
@@ -82,11 +82,11 @@ Apenas uma subscrição ativa pode ser atualizada. Enquanto a subscrição está
 
 ##### <a name="update-initiated-from-the-commercial-marketplace"></a>Atualização iniciada a partir do mercado comercial
 
-Neste fluxo, o cliente altera o plano de subscrição ou a quantidade de lugares do portal Azure ou do Microsoft 365 Admin Center.  
+Neste fluxo, o cliente altera o plano de subscrição ou a quantidade de lugares do portal Azure ou do Microsoft 365 Admin Center.
 
-1. Após a introdução de uma atualização, a Microsoft chamará o URL webhook da editora, configurado no campo **Connection Webhook** no Partner Center, com um valor adequado para *a ação* e outros parâmetros relevantes.  
+1. Após a introdução de uma atualização, a Microsoft chamará o URL webhook da editora, configurado no campo **Connection Webhook** no Partner Center, com um valor adequado para *a ação* e outros parâmetros relevantes. 
 1. O lado da editora deve escrutinar as alterações necessárias ao serviço SaaS e notificar a Microsoft quando terminar, ligando para o [Estado de Atualização da Operação API](#update-the-status-of-an-operation).
-1. Se o patch for enviado com *estado de falha,* o processo de atualização não terminará no lado da Microsoft.  A assinatura SaaS manterá o plano existente e a quantidade de lugares.
+1. Se o patch for enviado com *estado de falha,* o processo de atualização não terminará no lado da Microsoft. A assinatura SaaS manterá o plano existente e a quantidade de lugares.
 
 > [!NOTE]
 > A editora deverá invocar patch para [atualizar o Estado da Operação API](#update-the-status-of-an-operation) com uma resposta De Falha/Sucesso dentro de uma janela temporal de *10 segundos* após receber a notificação webhook. Se o estado de funcionamento do PATCH não for recebido dentro dos 10 segundos, o plano de alteração é *automaticamente corrigido como Sucesso*. 
@@ -101,7 +101,7 @@ Neste fluxo, o cliente altera o plano de subscrição ou a quantidade de lugares
 
 1. O código do editor deve ligar para a [API](#change-the-plan-on-the-subscription) do Plano de Alteração e/ou para a [API de Alteração de Quantidade](#change-the-quantity-of-seats-on-the-saas-subscription) antes de e fazer a alteração solicitada no lado da editora. 
 
-1. A Microsoft aplicará a alteração à subscrição e, em seguida, notificará o editor através **do Connection Webhook** para aplicar a mesma alteração.  
+1. A Microsoft aplicará a alteração à subscrição e, em seguida, notificará o editor através **do Connection Webhook** para aplicar a mesma alteração.
 
 1. Só então o editor deve fazer a alteração necessária à subscrição saaS e notificar a Microsoft quando a alteração for feita chamando [a Atualização estado da Operação API](#update-the-status-of-an-operation).
 
@@ -113,7 +113,7 @@ A sequência de API requer um cenário de atualização iniciado pelo lado da ed
 
 Este estado indica que o pagamento de um cliente pelo serviço SaaS não foi recebido. A editora será notificada desta alteração no estado de subscrição do SaaS pela Microsoft. A notificação é feita através de uma chamada para webhook com o parâmetro *de ação* definido para *Suspenso*.
 
-A editora pode ou não fazer alterações no serviço SaaS do lado da editora. Recomendamos que o editor disponibilize esta informação ao cliente suspenso e limites ou bloqueie o acesso do cliente ao serviço SaaS.  Há uma probabilidade de o pagamento nunca ser recebido.
+A editora pode ou não fazer alterações no serviço SaaS do lado da editora. Recomendamos que o editor disponibilize esta informação ao cliente suspenso e limites ou bloqueie o acesso do cliente ao serviço SaaS. Há uma probabilidade de o pagamento nunca ser recebido.
 
 A Microsoft dá ao cliente um período de carência de 30 dias antes de cancelar automaticamente a subscrição. Quando uma subscrição está no estado *suspenso:*
 
@@ -126,26 +126,26 @@ O estado de subscrição é alterado para Suspenso do lado da Microsoft antes qu
 
 Esta ação indica que o instrumento de pagamento do cliente voltou a ser válido, foi feito um pagamento para a subscrição do SaaS e a subscrição está a ser reposta. Neste caso: 
 
-1. A Microsoft chama webhook com um parâmetro *de ação* definido para o valor *de Reinserção.*  
+1. A Microsoft chama webhook com um parâmetro *de ação* definido para o valor *de Reinserção.*
 1. A editora garante que a subscrição está totalmente operacional novamente no lado da editora.
-1. A editora chama à API a [Operação Patch com](#update-the-status-of-an-operation) estatuto de sucesso.  
+1. A editora chama à API a [Operação Patch com](#update-the-status-of-an-operation) estatuto de sucesso.
 1. O processo De reintegração é bem sucedido e o cliente é novamente cobrado para a subscrição saaS. 
 
 Se o patch for enviado com *estado de falha,* o processo de reintegração não terminará no lado da Microsoft e a subscrição permanecerá *suspensa*.
 
-Apenas uma subscrição suspensa pode ser reintegrada.  A assinatura suspensa do SaaS permanece em estado *suspenso* enquanto está a ser reintegrada.  Após o final desta operação, o estado da subscrição passará a ser *Ativo*.
+Apenas uma subscrição suspensa pode ser reintegrada. A assinatura suspensa do SaaS permanece em estado *suspenso* enquanto está a ser reintegrada. Após o final desta operação, o estado da subscrição passará a ser *Ativo*.
 
 #### <a name="renewed-subscribed"></a>Renovado *(Subscrito)*
 
-A subscrição saaS é automaticamente renovada pela Microsoft no final do período de subscrição de um mês ou um ano.  O padrão para a definição de renovação automática é *verdadeiro* para todas as subscrições saaS. As subscrições Ative SaaS continuarão a ser renovadas com uma cadência regular. A Microsoft não notifica o editor quando uma subscrição está a ser renovada. Um cliente pode desativar a renovação automática de uma subscrição SaaS através do Portal de Administração Microsoft 365 ou através do portal Azure.  Neste caso, a subscrição do SaaS será automaticamente cancelada no final do atual período de faturação.  Os clientes também podem cancelar a subscrição do SaaS a qualquer momento.
+A subscrição saaS é automaticamente renovada pela Microsoft no final do período de subscrição de um mês ou um ano. O padrão para a definição de renovação automática é *verdadeiro* para todas as subscrições saaS. As subscrições Ative SaaS continuarão a ser renovadas com uma cadência regular. A Microsoft não notifica o editor quando uma subscrição está a ser renovada. Um cliente pode desativar a renovação automática de uma subscrição SaaS através do Portal de Administração Microsoft 365. Neste caso, a subscrição do SaaS será automaticamente cancelada no final do atual período de faturação. Os clientes também podem cancelar a subscrição do SaaS a qualquer momento.
 
-Apenas as subscrições ativas são renovadas automaticamente.  As subscrições permanecem ativas durante o processo de renovação, e se a renovação automática for bem sucedida.  Após a renovação, as datas de início e fim do prazo de subscrição são atualizadas para as datas do novo termo.
+Apenas as subscrições ativas são renovadas automaticamente. As subscrições permanecem ativas durante o processo de renovação, e se a renovação automática for bem sucedida. Após a renovação, as datas de início e fim do prazo de subscrição são atualizadas para as datas do novo termo.
 
 Se uma renovação automática falhar devido a um problema com o pagamento, a subscrição será *suspensa* e a editora será notificada.
 
 #### <a name="canceled-unsubscribed"></a>Cancelado *(Não inscrito)* 
 
-As subscrições chegam a este estado em resposta a uma ação explícita de cliente ou CSP pelo cancelamento de uma subscrição do site da editora, do portal Azure ou do Microsoft 365 Admin Center.  Uma subscrição também pode ser cancelada implicitamente, em resultado do não pagamento de dívidas, depois de ter estado no estado *suspenso* por 30 dias.
+As subscrições chegam a este estado em resposta a uma ação explícita de cliente ou CSP pelo cancelamento de uma subscrição do site da editora, do portal Azure ou do Microsoft 365 Admin Center. Uma subscrição também pode ser cancelada implicitamente, em resultado do não pagamento de dívidas, depois de ter estado no estado *suspenso* por 30 dias.
 
 Após a editora receber uma chamada webhook de cancelamento, devem reter os dados do cliente para recuperação a pedido durante pelo menos sete dias. Só então os dados do cliente podem ser eliminados.
 
@@ -163,7 +163,7 @@ Esta secção documenta as APIs de Subscrição e Operações do SaaS.
 * Obtenha uma lista de aplicações pendentes de operações que estão à espera de serem reconhecidas pela editora.
 
 > [!NOTE]
-> A versão TLS versão 1.2 será aplicada logo que a versão mínima para comunicações HTTPS. Certifique-se de que utiliza esta versão TLS no seu código.  As versões TLS 1.0 e 1.1 serão em breve depreciadas.
+> A versão TLS versão 1.2 será aplicada logo que a versão mínima para comunicações HTTPS. Certifique-se de que utiliza esta versão TLS no seu código. As versões TLS 1.0 e 1.1 serão em breve depreciadas.
 
 ### <a name="subscription-apis"></a>APIs de subscrição
 

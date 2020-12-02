@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 046cca4e683a8f14893bf48ac8601b138a7c28a7
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: daa7c657a47414b01197bed3644caefeda98af1c
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630282"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512176"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração StorSimple 8100 e 8600 para Azure File Sync
 
@@ -56,7 +56,7 @@ As ações de ficheiros Azure retêm importantes aspetos de fidelidade de fichei
 
 Este artigo centra-se nos passos de migração. Se quiser saber mais sobre o Azure File Sync antes de migrar, consulte os seguintes artigos:
 
-* [Visão geral do Azure File Sync](./storage-sync-files-planning.md "Descrição Geral")
+* [Visão geral do Azure File Sync](./storage-sync-files-planning.md "Descrição geral")
 * [Guia de implementação de Sincronização de Ficheiros Azure](storage-sync-files-deployment-guide.md)
 
 ### <a name="storsimple-service-data-encryption-key"></a>Chave de encriptação de dados de serviço StorSimple
@@ -320,8 +320,8 @@ No final da Fase 3, terá gerido os seus trabalhos de serviço de transformaçã
 
 Existem duas estratégias principais para aceder às suas partilhas de ficheiros Azure:
 
-* **Azure File Sync** : [Implementar o Azure File Sync](#deploy-azure-file-sync) para uma instância do Windows Server no local. O Azure File Sync tem todas as vantagens de uma cache local, tal como o StorSimple.
-* **Acesso direto a partilhas** : [Implementar acesso direto à partilha](#deploy-direct-share-access). Utilize esta estratégia se o seu cenário de acesso para uma determinada partilha de ficheiros Azure não beneficiar do caching local, ou deixar de ter a capacidade de hospedar uma instância do Windows Server no local. Aqui, os seus utilizadores e aplicações continuarão a aceder a ações SMB ao longo do protocolo SMB. Estas ações já não se encontram num servidor no local, mas diretamente na nuvem.
+* **Azure File Sync**: [Implementar o Azure File Sync](#deploy-azure-file-sync) para uma instância do Windows Server no local. O Azure File Sync tem todas as vantagens de uma cache local, tal como o StorSimple.
+* **Acesso direto a partilhas**: [Implementar acesso direto à partilha](#deploy-direct-share-access). Utilize esta estratégia se o seu cenário de acesso para uma determinada partilha de ficheiros Azure não beneficiar do caching local, ou deixar de ter a capacidade de hospedar uma instância do Windows Server no local. Aqui, os seus utilizadores e aplicações continuarão a aceder a ações SMB ao longo do protocolo SMB. Estas ações já não se encontram num servidor no local, mas diretamente na nuvem.
 
 Já devia ter decidido qual a melhor opção para si na [Fase 1](#phase-1-prepare-for-migration) deste guia.
 
@@ -418,7 +418,7 @@ Quando utiliza o Azure File Sync para uma partilha de ficheiros Azure, é import
 Você pode usar o portal Azure para ver quando o seu espaço de nome chegou completamente.
 
 * Inscreva-se no portal Azure e vá para o seu grupo de sincronização. Verifique o estado de sincronização do seu grupo de sincronização e ponto final do servidor.
-* A direção interessante é o download. Se o ponto final do servidor for recentemente provisionado, irá mostrar **a sincronização inicial** , o que indica que o espaço de nome ainda está a descer.
+* A direção interessante é o download. Se o ponto final do servidor for recentemente provisionado, irá mostrar **a sincronização inicial**, o que indica que o espaço de nome ainda está a descer.
 Depois disso muda para qualquer coisa menos **sincronização inicial,** o seu espaço de nome será totalmente povoado no servidor. Agora pode prosseguir com um RoboCopy local.
 
 #### <a name="windows-server-event-viewer"></a>Espectador de eventos do Servidor do Windows
@@ -429,7 +429,7 @@ Também pode utilizar o Visualizador de Eventos na sua instância do Windows Ser
 1. Vá e abra **microsoft\FileSync\Agente\Telemetria**.
 1. Procure o mais recente **evento 9102,** que corresponde a uma sessão de sincronização completa.
 1. Selecione **Detalhes** e confirme que está a olhar para um evento onde o valor **SyncDirection** é **Download.**
-1. Para o momento em que o seu espaço de nome tiver concluído o download para o servidor, haverá um único evento com **Scenario** , o valor **FullGhostedSync** , e **HResult**  =  **0**.
+1. Para o momento em que o seu espaço de nome tiver concluído o download para o servidor, haverá um único evento com **Scenario**, o valor **FullGhostedSync**, e **HResult**  =  **0**.
 1. Se perder esse evento, também pode procurar outros **eventos 9102** com Download e Cenário **SyncDirection**  =  **Download** **Scenario**  =  **"RegularSync"** do SyncDirection. Encontrar um destes eventos também indica que o espaço de nomes terminou o download e a sincronização progrediu para sessões regulares de sincronização, quer haja algo para sincronizar ou não neste momento.
 
 ### <a name="a-final-robocopy"></a>Um RoboCopy final
@@ -448,7 +448,7 @@ Neste momento, existem diferenças entre a instância do Windows Server no local
 RoboCopy tem vários parâmetros. O exemplo a seguir mostra um comando acabado e uma lista de razões para escolher estes parâmetros.
 
 ```console
-Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Antecedentes:
@@ -475,6 +475,14 @@ Antecedentes:
    :::column-end:::
    :::column span="1":::
       Saídas para a janela da consola. Usado em conjunto com a saída para um ficheiro de registo.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /NP
+   :::column-end:::
+   :::column span="1":::
+      Omite o registo de progresso para manter o registo legível.
    :::column-end:::
 :::row-end:::
 :::row:::

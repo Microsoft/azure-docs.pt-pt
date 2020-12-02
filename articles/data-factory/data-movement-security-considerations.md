@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: b381f2f1871ea7e26950d5b02d5906a50c6129d3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9e34ce05d055e6933ecfbacf672bb8b1eba544bd
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445022"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512312"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações de segurança para o movimento de dados na Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -32,7 +32,7 @@ Numa solução do Data Factory, pode criar um ou mais [pipelines](concepts-pipel
 
 Embora a Data Factory esteja disponível apenas em poucas regiões, o serviço de movimento de dados está [disponível globalmente](concepts-integration-runtime.md#integration-runtime-location) para garantir a conformidade, eficiência e custos reduzidos de saída da rede. 
 
-A Azure Data Factory não armazena quaisquer dados exceto credenciais de serviço ligadas para lojas de dados em nuvem, que são encriptadas através de certificados. Com a Data Factory, cria fluxos de trabalho baseados em dados para orquestrar o movimento de dados entre lojas de [dados apoiadas,](copy-activity-overview.md#supported-data-stores-and-formats)e o processamento de dados utilizando [serviços de computação](compute-linked-services.md) noutras regiões ou num ambiente no local. Também pode monitorizar e gerir fluxos de trabalho utilizando SDKs e Azure Monitor.
+A Azure Data Factory, incluindo o Integration Runtime, não armazena quaisquer dados, exceto credenciais de serviço ligadas para lojas de dados em nuvem, que são encriptadas através de certificados. Com a Data Factory, cria fluxos de trabalho baseados em dados para orquestrar o movimento de dados entre lojas de [dados apoiadas,](copy-activity-overview.md#supported-data-stores-and-formats)e o processamento de dados utilizando [serviços de computação](compute-linked-services.md) noutras regiões ou num ambiente no local. Também pode monitorizar e gerir fluxos de trabalho utilizando SDKs e Azure Monitor.
 
 A Data Factory foi certificada para:
 
@@ -187,7 +187,7 @@ As seguintes lojas de dados em nuvem requerem que você permita o endereço IP d
 - [Base de Dados SQL do Azure](../azure-sql/database/firewall-configure.md) 
 - [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-- [BD do Cosmos para o Azure](../cosmos-db/how-to-configure-firewall.md)
+- [Azure Cosmos DB](../cosmos-db/how-to-configure-firewall.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes

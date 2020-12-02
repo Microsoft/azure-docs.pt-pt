@@ -300,7 +300,7 @@
         - name: Instâncias reservadas
           items:
             - name: Pré-pagamento de VMs
-              href: prepay-reserved-vm-instances.md
+              href: ../prepay-reserved-vm-instances.md
             - name: O que são as reservas do Azure?
               href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
             - name: Flexibilidade do tamanho da instância de VM
@@ -570,7 +570,7 @@
             - name: Criar um anfitrião do Bastion
               items:
                 - name: Portal
-                  href: ../../bastion/bastion-create-host-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                  href: ../../bastion/tutorial-create-host-portal.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
                 - name: PowerShell
                   href: ../../bastion/bastion-create-host-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                 - name: CLI
@@ -650,6 +650,7 @@
         - name: Trocar o disco de SO
           href: os-disk-swap.md
         - name: Etiquetar uma VM
+          href: time-sync.md
           items:
             - name: Portal
               href: ../tag-portal.md
@@ -660,7 +661,6 @@
             - name: Modelo
               href: ../tag-template.md
             - name: Sincronização da hora
-          href: time-sync.md
         - name: Executar scripts numa VM
           href: run-scripts-in-vm.md
           items:
@@ -863,8 +863,6 @@
           href: install-mongodb.md
         - name: SAP no Azure
           href: ../workloads/sap/get-started.md
-        - name: Cluster MATLAB
-          href: matlab-mdcs-cluster.md
         - name: Visual Studio
           href: using-visual-studio-vm.md
         - name: Computação de Alto Desempenho (HPC)

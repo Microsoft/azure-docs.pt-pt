@@ -12,26 +12,26 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 12/01/2020
 ms.author: b-juche
-ms.openlocfilehash: 9740506da2c03996db756175551867ed43575a7c
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 682a97738e94c2a8188b4976a229d6a850a5b6ac
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488184"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512006"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
 O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NFSv4.1), SMBv3 ou protocolo duplo (NFSv3 e SMB). O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto. Este artigo mostra-lhe como criar um volume SMBv3.
 
-## <a name="before-you-begin"></a>Antes de começar 
+## <a name="before-you-begin"></a>Before you begin 
 Tem de ter um conjunto de capacidade já configurado.   
 [Criar um pool de capacidade](azure-netapp-files-set-up-capacity-pool.md)   
 Uma sub-rede deve ser delegada nos Ficheiros Azure NetApp.  
 [Delegar uma sub-rede ao Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 
-## <a name="requirements-for-active-directory-connections"></a>Requisitos para ligações de Diretório Ativo
+## <a name="requirements-for-active-directory-connections"></a>Requisitos das ligações do Active Directory
 
  É necessário criar ligações ative diretoria antes de criar um volume SMB. Os requisitos para ligações de Diretório Ativo são os seguintes: 
 
@@ -84,7 +84,7 @@ Uma sub-rede deve ser delegada nos Ficheiros Azure NetApp.
 
 * O Azure NetApp Files suporta [a assinatura LDAP,](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server)que permite a transmissão segura do tráfego LDAP entre o serviço Azure NetApp Files e os controladores de [domínio ative directy direcionados](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). Se estiver a seguir as orientações do Microsoft Advisory [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) para a assinatura do LDAP, deverá ativar a funcionalidade de assinatura LDAP nos Ficheiros Azure NetApp, verificando a caixa **de assinatura LDAP** na janela ['Join Ative Directory'.](#create-an-active-directory-connection) 
 
-    A configuração [de ligação ao canal LDAP](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) não tem qualquer efeito no serviço Azure NetApp Files. 
+    Só a configuração [de ligação ao canal LDAP](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) não tem qualquer efeito no serviço Azure NetApp Files. No entanto, se utilizar tanto o canal LDAP como o LDAP seguro (por exemplo, LDAPS `start_tls` ou), então a criação de volume SMB falhará.
 
 Consulte O Azure NetApp Files [SMB FAQs](./azure-netapp-files-faqs.md#smb-faqs) sobre informações adicionais de AD. 
 

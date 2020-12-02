@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 10/21/2020
-ms.openlocfilehash: e0da478e221fe392135362cd74cbdd8baca101ef
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 12/02/2020
+ms.openlocfilehash: 360f0ce60a35bc96c6dd8e46d636f07124d01255
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421367"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511921"
 ---
 # <a name="execute-python-script-module"></a>Execute o módulo de script python
 
@@ -59,6 +59,36 @@ if spec is None:
 
 > [!WARNING]
 > O módulo Excute Python Script não suporta a instalação de pacotes que dependem de bibliotecas extra-nativas com comando como "apt-get", como Java, PyODBC e etc. Isto porque este módulo é executado num ambiente simples com Python pré-instalado apenas e com permissão não administrada.  
+
+## <a name="access-to-registered-datasets"></a>Acesso a conjuntos de dados registados
+
+Pode consultar o seguinte código de amostra para aceder aos [conjuntos de dados registados](../how-to-create-register-datasets.md) no seu espaço de trabalho:
+
+```Python
+def azureml_main(dataframe1 = None, dataframe2 = None):
+
+    # Execution logic goes here
+    print(f'Input pandas.DataFrame #1: {dataframe1}')
+    from azureml.core import Run
+    run = Run.get_context(allow_offline=True)
+    ws = run.experiment.workspace
+
+    from azureml.core import Dataset
+    dataset = Dataset.get_by_name(ws, name='test-register-tabular-in-designer')
+    dataframe1 = dataset.to_pandas_dataframe()
+     
+    # If a zip file is connected to the third input port,
+    # it is unzipped under "./Script Bundle". This directory is added
+    # to sys.path. Therefore, if your zip file contains a Python file
+    # mymodule.py you can import it using:
+    # import mymodule
+
+    # Return value must be of a sequence of pandas.DataFrame
+    # E.g.
+    #   -  Single return value: return dataframe1,
+    #   -  Two return values: return dataframe1, dataframe2
+    return dataframe1,
+```
 
 ## <a name="upload-files"></a>Carregar ficheiros
 O módulo de script de Python executante suporta o upload de ficheiros utilizando o [Azure Machine Learning Python SDK](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#upload-file-name--path-or-stream-).
@@ -180,7 +210,7 @@ O módulo de script execute python contém o código Python de amostra que pode 
     + A função de ponto de entrada deve ter dois argumentos de entrada `Param<dataframe1>` `Param<dataframe2>` e, mesmo quando estes argumentos não são usados no seu script.
     + Os ficheiros com fecho ligados à terceira porta de entrada são desapertados e armazenados no diretório `.\Script Bundle` , que também é adicionado ao Python `sys.path` . 
 
-    Se o seu ficheiro .zip `mymodule.py` contiver, importe-o utilizando `import mymodule` .
+    Se o seu ficheiro .zip `mymodule.py` contiver, importe-o `import mymodule` utilizando.
 
     Dois conjuntos de dados podem ser devolvidos ao designer, que deve ser uma sequência de tipo `pandas.DataFrame` . Pode criar outras saídas no seu código Python e escrevê-las diretamente no armazenamento Azure.
 
@@ -197,9 +227,9 @@ Os resultados de quaisquer cálculos pelo código Python incorporado devem ser f
 
 O módulo devolve dois conjuntos de dados:  
   
-+ **Resultados Dataset 1** , definido pelo primeiro quadro de dados de pandas devolvidos num script Python.
++ **Resultados Dataset 1**, definido pelo primeiro quadro de dados de pandas devolvidos num script Python.
 
-+ **Resultado Dataset 2** , definido pelo segundo quadro de dados de pandas devolvidos em um script Python.
++ **Resultado Dataset 2**, definido pelo segundo quadro de dados de pandas devolvidos em um script Python.
 
 ## <a name="preinstalled-python-packages"></a>Pacotes Python pré-instalados
 Os pacotes pré-instalados são:

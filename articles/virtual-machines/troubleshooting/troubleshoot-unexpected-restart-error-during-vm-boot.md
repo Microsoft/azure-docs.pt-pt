@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 186b1c46303be59e191a1754361e07a2003b997a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfeb040893ae2be5842959ed8458bd713bebe6ee
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87036187"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512142"
 ---
 # <a name="os-start-up--computer-restarted-unexpectedly-or-encountered-an-unexpected-error"></a>Start-up os OS – Computador reiniciou inesperadamente ou encontrou um erro inesperado
 
@@ -37,31 +37,27 @@ Quando utilizar [diagnósticos boot](./boot-diagnostics.md) para visualizar a im
 
 ## <a name="cause"></a>Causa
 
-A máquina está a tentar fazer uma bota inicial de uma [imagem generalizada](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation), mas encontra problemas devido a um ficheiro de resposta personalizado (unattend.xml) a ser processado. Os ficheiros de resposta personalizados não são suportados no Azure. 
+A máquina está a tentar fazer uma bota inicial de uma [imagem generalizada](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation), mas encontra problemas devido a um ficheiro de resposta personalizado (Unattend.xml) a ser processado. **Os ficheiros de resposta personalizados não são suportados no Azure**. 
 
 O ficheiro de resposta é um ficheiro XML especial que contém definições e valores de definição para as definições de configuração que pretende automatizar durante a instalação de uma instalação do sistema operativo Windows Server. As opções de configuração incluem instruções sobre como dividir discos, onde encontrar a imagem do Windows a ser instalada, chaves do produto a aplicar e outros comandos que gostaria de executar.
 
-No Azure, os ficheiros de resposta personalizados não são suportados. Se especificou um ficheiro **Unattend.xml** personalizado utilizando a `sysprep /unattend:<your file’s name>` opção, este erro pode ocorrer.
+Mais uma vez, os ficheiros de resposta personalizados não são suportados no Azure. Assim, esta situação ocorre quando uma imagem foi preparada para ser usada em Azure, mas especificou um ficheiro Unattend.xml personalizado utilizando **o SYSPREP** com uma bandeira semelhante ao seguinte comando:
 
-Em Azure, utilize a opção **Enter System Out-of-Box Experience (OOBE)** em **Sysprep.exe**, ou utilize em vez do `sysprep /oobe` ficheiro Unattend.xml.
+`sysprep /oobe /generalize /unattend:<your file’s name> /shutdown`
 
-Este problema é criado na maioria das vezes enquanto você está usando **Sysprep.exe** com um VM no local para carregar um VM generalizado para Azure. Nesta situação, você também pode estar interessado em como carregar corretamente um VM generalizado.
+Em Azure, utilize a opção **Enter System Out-of-Box Experience (OOBE)** na **ferramenta de preparação do sistema GUI**, ou utilize em vez do ficheiro `sysprep /oobe` Unattend.xml.
+
+Este problema é criado na maioria das vezes enquanto você está usando sysprep com um VM no local para carregar um VM generalizado para Azure. Nesta situação, você também pode estar interessado em como carregar corretamente um VM generalizado.
 
 ## <a name="solution"></a>Solução
 
-### <a name="replace-unattended-answer-file-option"></a>Substitua a opção de ficheiro de resposta não acompanhada
+### <a name="do-not-use-unattendxml"></a>Não utilize Unattend.xml
 
-Esta situação ocorre quando uma imagem foi preparada para ser usada em Azure, mas usou um ficheiro de resposta personalizado, que não é suportado em Azure, e você usou **sYSPREP** com uma bandeira semelhante ao seguinte comando:
-
-`sysprep /oobe /generalize /unattend:<NameOfYourAnswerFile.XML> /shutdown`
-
-- No comando anterior, `<NameOfYourAnswerFile.XML>` substitua-o pelo nome do seu ficheiro.
-
-Para corrigir este problema, siga [a orientação do Azure sobre a preparação/captura de uma imagem](../windows/upload-generalized-managed.md) e prepare uma nova imagem generalizada. Durante o sysprep, não utilize `/unattend:<answerfile>` a bandeira. Em vez disso, utilize apenas as bandeiras abaixo:
+Para corrigir este problema, siga [a orientação do Azure sobre a preparação/captura de uma imagem](../windows/upload-generalized-managed.md) e prepare uma nova imagem generalizada. Durante o sysprep, **não utilize `/unattend:<your file’s name>` a bandeira**. Em vez disso, utilize apenas as bandeiras abaixo:
 
 `sysprep /oobe /generalize /shutdown`
 
-- **Fora da experiência** fora da caixa (OOBE) é a definição suportada para VMs Azure.
+- Fora da experiência fora da caixa (OOBE) é a definição suportada para VMs Azure.
 
 Pode também utilizar a **ferramenta de preparação** do sistema GUI para realizar a mesma tarefa que o comando acima, selecionando as opções apresentadas abaixo:
 

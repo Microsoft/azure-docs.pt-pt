@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: a5c0d8bb47b337b0415565a0b6dad5c6822d0b94
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fd71f4eb56974b93637c23eddc81e5f33ce788b8
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781741"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512159"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -107,6 +107,14 @@ Faça upload de ficheiros e diretórios utilizando um token SAS e caracteres wil
 ```azcopy
 azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
+
+Faça upload de ficheiros e diretórios para a conta de Armazenamento Azure e descreva as etiquetas codificadas de cadeia de consulta na bolha. 
+
+- Para definir tags {key = "bla bla", val = "foo"} e {key = "bla bla 2", val = "bar"}, utilize a seguinte sintaxe : `azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+    
+- As chaves e os valores são codificados por URL e os pares de valor-chave são separados por um ampersand ('&')
+
+- Ao definir tags nas bolhas, existem permissões adicionais ('t' para tags) em SAS sem as quais o serviço devolverá o erro de autorização.
 
 Faça o download de um único ficheiro utilizando a autenticação OAuth. Se ainda não tiver iniciado sessão no AzCopy, execute o `azcopy login` comando antes de executar o seguinte comando.
 
@@ -214,9 +222,19 @@ Copie um subconjunto de baldes utilizando um símbolo wildcard (*) no nome do ba
 - azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
+Transfira ficheiros e diretórios para a conta de Armazenamento Azure e descreva as etiquetas codificadas de cadeia de consulta na bolha. 
+
+- Para definir tags {key = "bla bla", val = "foo"} e {key = "bla bla 2", val = "bar"}, utilize a seguinte sintaxe : `azcopy cp "https://[account].blob.core.windows.net/[source_container]/[path/to/directory]?[SAS]" "https://[account].blob.core.windows.net/[destination_container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+        
+- As chaves e os valores são codificados por URL e os pares de valor-chave são separados por um ampersand ('&')
+    
+- Ao definir tags nas bolhas, existem permissões adicionais ('t' para tags) em SAS sem as quais o serviço devolverá o erro de autorização.
+
 ## <a name="options"></a>Opções
 
 **--backup** Ativa o SeBackupPrivilege do Windows para uploads, ou SeRestorePrivilege para downloads, para permitir que o AzCopy veja e leia todos os ficheiros, independentemente das permissões do sistema de ficheiros, e para restaurar todas as permissões. Requer que a conta que executa a AzCopy já tenha estas permissões (por exemplo, tem direitos de administrador ou é membro do `Backup Operators` grupo). Esta bandeira ativa privilégios que a conta já tem.
+
+**--blob-tags conjunto** tags em bolhas para categorizar dados na sua conta de armazenamento.
 
 **---tip** string tipo blob Define o tipo de bolha no destino. Isto é utilizado para o upload de bolhas e ao copiar entre contas `Detect` (padrão). Valores válidos `Detect` `BlockBlob` incluem, , e `PageBlob` `AppendBlob` . Ao copiar entre contas, um valor de `Detect` faz com que a AzCopy utilize o tipo de bolha de origem para determinar o tipo de bolha de destino. Ao carregar um ficheiro, `Detect` determina se o ficheiro é um VHD ou um ficheiro VHDX baseado na extensão do ficheiro. Se o ficheiro for um ficheiro VHD ou VHDX, a AzCopy trata o ficheiro como uma bolha de página. (predefinição "Detetar")
 
@@ -306,4 +324,4 @@ Copie um subconjunto de baldes utilizando um símbolo wildcard (*) no nome do ba
 
 ## <a name="see-also"></a>Ver também
 
-- [azcopia](storage-ref-azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

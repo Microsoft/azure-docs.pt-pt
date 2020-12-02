@@ -1,14 +1,14 @@
 ---
 title: Aprenda Azure Policy para Kubernetes
 description: Saiba como a Azure Policy usa o Rego e o Open Policy Agent para gerir clusters que executam Kubernetes em Azure ou no local.
-ms.date: 09/29/2020
+ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1e85d7af26e52ea38c09ec0c052b5c6a2787bb80
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: e2b9253d8ce60d5dc77d406e3c9d0469539f2c77
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146301"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511336"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Compreender o Azure Policy para clusters do Kubernetes
 
@@ -25,7 +25,7 @@ A Azure Policy for Kubernetes suporta os seguintes ambientes de cluster:
 - [Motor AKS](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> Os addons para AKS Engine e Arc ativados Kubernetes estão em **pré-visualização** . A Azure Policy for Kubernetes suporta apenas piscinas de nól de Linux e definições políticas incorporadas. As definições políticas incorporadas estão na categoria **Kubernetes.** As definições de política de pré-visualização limitadas com o efeito **EnforceOPAConstraint** e **EnforceRegoPolicy** e a categoria **de Serviço Kubernetes conexa** são _depreciadas._ Em vez disso, utilize a _auditoria_ de efeitos e _negue_ com o modo Fornecedor de Recursos `Microsoft.Kubernetes.Data` .
+> Os addons para AKS Engine e Arc ativados Kubernetes estão em **pré-visualização**. A Azure Policy for Kubernetes suporta apenas piscinas de nól de Linux e definições políticas incorporadas. As definições políticas incorporadas estão na categoria **Kubernetes.** As definições de política de pré-visualização limitadas com o efeito **EnforceOPAConstraint** e **EnforceRegoPolicy** e a categoria **de Serviço Kubernetes conexa** são _depreciadas._ Em vez disso, utilize a _auditoria_ de efeitos e _negue_ com o modo Fornecedor de Recursos `Microsoft.Kubernetes.Data` .
 
 ## <a name="overview"></a>Descrição geral
 
@@ -62,7 +62,7 @@ As seguintes limitações gerais aplicam-se ao Add-on de Política Azure para os
 As seguintes limitações aplicam-se apenas ao Add-on da Política Azure para a AKS:
 
 - [A política de segurança AKS Pod](../../../aks/use-pod-security-policies.md) e o Add-on de Política Azure para a AKS não podem ser ambos ativados. Para obter mais informações, consulte [a limitação de segurança da cápsula AKS](../../../aks/use-pod-security-on-azure-policy.md#limitations).
-- Espaços de nome automaticamente excluídos pelo Azure Policy Add-on para avaliação: _kube-system,_ _gatekeeper-system_ e _aks-periscope_ .
+- Espaços de nome automaticamente excluídos pelo Azure Policy Add-on para avaliação: _kube-system,_ _gatekeeper-system_ e _aks-periscope_.
 
 ## <a name="recommendations"></a>Recomendações
 
@@ -384,11 +384,11 @@ Para atribuir uma definição de política ao seu cluster Kubernetes, deve ser-l
 
 Encontre as definições de política incorporadas para gerir o seu cluster utilizando o portal Azure com os seguintes passos:
 
-1. Inicie o serviço Azure Policy no portal Azure. Selecione **Todos os serviços** no painel esquerdo e, em seguida, procure e selecione **Política** .
+1. Inicie o serviço Azure Policy no portal Azure. Selecione **Todos os serviços** no painel esquerdo e, em seguida, procure e selecione **Política**.
 
-1. No painel esquerdo da página Política Azure, selecione **Definições** .
+1. No painel esquerdo da página Política Azure, selecione **Definições**.
 
-1. A partir da caixa de lista de categorias, utilize **Selecione tudo** para limpar o filtro e, em seguida, selecione **Kubernetes** .
+1. A partir da caixa de lista de categorias, utilize **Selecione tudo** para limpar o filtro e, em seguida, selecione **Kubernetes**.
 
 1. Selecione a definição de política e, em seguida, selecione o botão **Atribuir.**
 
@@ -405,13 +405,13 @@ Encontre as definições de política incorporadas para gerir o seu cluster util
 
    - **Desativado** - Não aplique a política no cluster. Os pedidos de admissão de Kubernetes com violações não são negados. Os resultados da avaliação da conformidade ainda estão disponíveis. Ao lançar novas definições de política para executar clusters, a opção _de desativada_ é útil para testar a definição de política, uma vez que os pedidos de admissão com violações não são negados.
 
-1. Selecione **Seguinte** .
+1. Selecione **Seguinte**.
 
 1. Definir **valores de parâmetros**
 
-   - Para excluir os espaços de nomes de Kubernetes da avaliação de políticas, especifique a lista de espaços de nome em exclusões de espaço **de nome de parâmetros** . É recomendado excluir: _sistema kube,_ _gatekeeper-system,_ e _azure-arc_ .
+   - Para excluir os espaços de nomes de Kubernetes da avaliação de políticas, especifique a lista de espaços de nome em exclusões de espaço **de nome de parâmetros**. É recomendado excluir: _sistema kube,_ _gatekeeper-system,_ e _azure-arc_.
 
-1. Selecione **Rever + criar** .
+1. Selecione **Rever + criar**.
 
 Alternadamente, utilize a [política De atribuir uma política - Portal](../assign-policy-portal.md) quickstart para encontrar e atribuir uma política de Kubernetes. Procure uma definição de política de Kubernetes em vez da amostra 'audit vms'.
 
@@ -436,6 +436,14 @@ A cada 15 minutos, o complemento pede uma varredura completa do aglomerado. Depo
 > [!NOTE]
 > Cada relatório de conformidade na Azure Policy para os seus clusters Kubernetes inclui todas as violações nos últimos 45 minutos. A hora indica quando ocorreu uma violação.
 
+Outras considerações:
+
+- Se a subscrição do cluster for registada no Azure Security Center, então as políticas do Azure Security Center Kubernetes são aplicadas automaticamente no cluster.
+
+- Quando uma política de negação é aplicada em cluster com os recursos existentes de Kubernetes, qualquer recurso pré-existente que não esteja em conformidade com a nova política continua a funcionar. Quando o recurso não conforme é reagendado num nó diferente, o Gatekeeper bloqueia a criação de recursos.
+
+- Quando um cluster tem uma política de negação que valida recursos, o utilizador não verá uma mensagem de rejeição ao criar uma implementação. Por exemplo, considere uma implementação de Kubernetes que contenha réplicas e cápsulas. Quando um utilizador `kubectl describe deployment $MY_DEPLOYMENT` executa, não devolve uma mensagem de rejeição como parte dos acontecimentos. No entanto, `kubectl describe replicasets.apps $MY_DEPLOYMENT` devolve os eventos associados à rejeição.
+
 ## <a name="logging"></a>Registo
 
 Como controlador/contentor Kubernetes, tanto as cápsulas _de política_ azul como de _gatekeeper_ mantêm registos no cluster Kubernetes. Os registos podem ser expostos na página **Insights** do cluster Kubernetes.
@@ -452,6 +460,10 @@ kubectl logs <gatekeeper pod name> -n gatekeeper-system
 ```
 
 Para mais informações, consulte [o Gatekeeper de Debugging](https://github.com/open-policy-agent/gatekeeper#debugging) na documentação gatekeeper.
+
+## <a name="troubleshooting-the-add-on"></a>Resolução de problemas do add-on
+
+Para obter mais informações sobre a resolução de problemas do Add-on para Kubernetes, consulte a [secção Kubernetes](/azure/governance/policy/troubleshoot/general#add-on-for-kubernetes-general-errors) do artigo de resolução de problemas da Política Azure.
 
 ## <a name="remove-the-add-on"></a>Remova o addon
 

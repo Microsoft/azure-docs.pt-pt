@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: vikancha
-ms.openlocfilehash: 7c3423e8bd5cd3e38c05205842845bec2243ed83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edbd8b2fefb90bb95bfcd08c126a42c810ad081b
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653507"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511604"
 ---
 # <a name="ncast4_v3-series-in-preview"></a>NCasT4_v3 série (Na pré-visualização) 
 
@@ -32,12 +32,12 @@ As máquinas virtuais da série NCasT4_v3 são alimentadas por [GPUs Nvidia Tesl
 [Suporte de geração VM](generation-2.md): Geração 1<br>
 <br>
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória gpu: GiB | Discos de dados máximos | NICs máximos |
+| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória gpu: GiB | Discos de dados máximos | Max NICs / Largura de banda esperada (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC4as_T4_v3 |4 |28 |180 | 1 | 16 | 8 | 2 |
-| Standard_NC8as_T4_v3 |8 |56 |360 | 1 | 16 | 16 | 4  |
-| Standard_NC16as_T4_v3 |16 |110 |360 | 1 | 16 | 32 | 8  |
-| Standard_NC64as_T4_v3 |64 |440 |2880 | 4 | 64 | 32 | 8  |
+| Standard_NC4as_T4_v3 |4 |28 |180 | 1 | 16 | 8 | 2 / 8000 |
+| Standard_NC8as_T4_v3 |8 |56 |360 | 1 | 16 | 16 | 4 / 8000  |
+| Standard_NC16as_T4_v3 |16 |110 |360 | 1 | 16 | 32 | 8 / 8000  |
+| Standard_NC64as_T4_v3 |64 |440 |2880 | 4 | 64 | 32 | 8 / 32000  |
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]

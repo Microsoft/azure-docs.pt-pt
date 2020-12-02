@@ -12,14 +12,14 @@ ms.subservice: sql-dw
 ms.date: 05/11/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 47002a59bf085b2a943a40a0804fd9b9a2a75092
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 3ab0188fa44eeb09e3981b8e1809832948963d47
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422234"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511646"
 ---
-# <a name="getting-started-with-visual-studio-2019"></a>Começar com o Visual Studio 2019
+# <a name="getting-started-with-visual-studio-2019"></a>Introdução ao Visual Studio 2019
 
 Visual Studio **2019** SQL Server Data Tools (SSDT) é uma única ferramenta que lhe permite fazer o seguinte:
 
@@ -42,8 +42,7 @@ Há alturas em que as versões de funcionalidades para Synapse SQL podem não in
 - [Gestão da carga de trabalho](sql-data-warehouse-workload-management.md) - grupos de carga de trabalho e classificadores
 - [Segurança ao nível da linha](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (incluindo funções avaliadas em tabelas)
   - Envie um [bilhete de apoio ou voto](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) para obter o suporte da funcionalidade.
-- [Máscara de dados dinâmica](/sql/relational-databases/security/dynamic-data-masking?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#defining-a-dynamic-data-mask)
-   - Envie um [bilhete de apoio ou voto](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) para obter o suporte da funcionalidade.
+  - Envie um [bilhete de apoio ou voto](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) para obter o suporte da funcionalidade.
 - Tabelas com uma [coluna de identidade](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15)
 - Algumas funcionalidades T-SQL, tais como:
    - *Cláusula DENTRO DO GRUPO* na função de corda [STRING_AGG.](/sql/t-sql/functions/string-agg-transact-sql?view=sqlallproducts-allversions)

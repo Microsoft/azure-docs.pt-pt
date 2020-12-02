@@ -14,19 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: c1873e21db1c586453dc9e9fe890268d8797303a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: aa9160f01ed0040123bd8ac932cfd2443f557bb6
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367011"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511734"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: Investigar incidentes com Azure Sentinel
 
 > [!IMPORTANT]
-> O gráfico de investigação está atualmente em pré-visualização pública.
-> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> O gráfico de investigação encontra-se atualmente em **PREVIEW**. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais adicionais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
 
 
 Este tutorial ajuda-o a investigar incidentes com a Azure Sentinel. Depois de ligar as suas fontes de dados ao Azure Sentinel, pretende ser notificado quando algo suspeito acontece. Para que possa fazê-lo, o Azure Sentinel permite criar regras avançadas de alerta, que geram incidentes que pode atribuir e investigar.
@@ -46,7 +44,7 @@ Um incidente pode incluir vários alertas. É uma agregação de todas as provas
 
 ## <a name="how-to-investigate-incidents"></a>Como investigar incidentes
 
-1. Selecione **Incidentes**. A página **Incidentes** permite-lhe saber quantos incidentes tem, quantos estão abertos, quantos já definiu em **curso**e quantos estão fechados. Para cada incidente, pode ver a hora que ocorreu, e o estado do incidente. Olhe para a gravidade para decidir quais incidentes lidar primeiro.
+1. Selecione **Incidentes**. A página **Incidentes** permite-lhe saber quantos incidentes tem, quantos estão abertos, quantos já definiu em **curso** e quantos estão fechados. Para cada incidente, pode ver a hora que ocorreu, e o estado do incidente. Olhe para a gravidade para decidir quais incidentes lidar primeiro.
 
     ![Ver gravidade do incidente](media/tutorial-investigate-cases/incident-severity.png)
 
@@ -83,7 +81,9 @@ Para usar o gráfico de investigação:
 1. Selecione um incidente e, em seguida, **selecione Investigar**. Isto leva-o ao gráfico da investigação. O gráfico fornece um mapa ilustrativo das entidades diretamente ligadas ao alerta e cada recurso conectado mais.
 
    > [!IMPORTANT] 
-   > Só poderá investigar o incidente se utilizar os campos de mapeamento da entidade quando configurar a sua regra de análise. O gráfico da investigação requer que o seu incidente original inclua entidades.
+   > - Só poderá investigar o incidente se utilizar os campos de mapeamento da entidade quando configurar a sua regra de análise. O gráfico da investigação requer que o seu incidente original inclua entidades.
+   >
+   > - Azure Sentinel apoia atualmente a investigação de **incidentes até 30 dias** de idade.
 
    ![Ver mapa](media/tutorial-investigate-cases/map1.png)
 
@@ -99,7 +99,7 @@ Para usar o gráfico de investigação:
 
     ![Ver alertas relacionados](media/tutorial-investigate-cases/related-alerts.png)
 
-1. Para cada consulta de exploração, pode selecionar a opção de abrir os resultados do evento bruto e a consulta utilizada no Log Analytics, selecionando **Eventos \> **.
+1. Para cada consulta de exploração, pode selecionar a opção de abrir os resultados do evento bruto e a consulta utilizada no Log Analytics, selecionando **Eventos \>**.
 
 1. Para entender o incidente, o gráfico dá-lhe uma linha temporal paralela.
 
@@ -123,7 +123,7 @@ Uma vez resolvido um incidente particular (por exemplo, quando a sua investigaç
 
 Depois de escolher a classificação adequada, adicione algum texto descritivo no campo **Comentário.** Isto será útil no caso de precisar de se referir a este incidente. Clique **em Aplicar** quando terminar e o incidente será encerrado.
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="Screenshot que destaca as classificações disponíveis na lista de classificação Select.":::
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a investigar incidentes usando Azure Sentinel. Continue a tutorial para [responder a ameaças usando livros de jogadas automatizados](tutorial-respond-threats-playbook.md).

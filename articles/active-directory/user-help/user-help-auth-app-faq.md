@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 65bd5a89d132a575817480d0609109a3f379e969
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f0cb7d4ebe428da4a370433b3e90a829f30489db
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833967"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512210"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Perguntas frequentes (FAQ) sobre a aplicação Microsoft Authenticator
 
@@ -32,6 +32,14 @@ A aplicação Microsoft Authenticator substituiu a aplicação Azure Authenticat
 **P:** O registo de um dispositivo que concorda em dar à empresa ou ao serviço acesso ao meu dispositivo?
 
 **R:** Registar um dispositivo dá acesso aos serviços da sua organização e não permite o acesso da sua organização ao seu dispositivo.
+
+## <a name="too-many-app-permissions"></a>Demasiadas permissões de aplicativos
+
+**P:** Porque é que a aplicação solicita tantas permissões?
+
+**R**: Aqui está a lista completa de permissões que podem ser pedidas e como são usadas pela app. As permissões específicas que vê dependerão do tipo de telefone que tem.
+
+- **Localização**. Às vezes, a sua organização quer saber a sua localização antes de permitir o acesso a determinados recursos. A aplicação só solicitará esta permissão se a sua organização tiver uma política que exija localização. 
 
 ### <a name="legacy-apns-support-deprecated"></a>Apoio legado APNs deprecado
 

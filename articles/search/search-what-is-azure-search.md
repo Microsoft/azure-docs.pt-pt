@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/24/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 1d5047a9be6b4cf53304858d12a0cb7b49b575ca
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c36a88317f71d08094b43d06cc7ba86985a73ca0
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499922"
+ms.locfileid: "96511853"
 ---
 # <a name="what-is-azure-cognitive-search"></a>O que é o Azure Cognitive Search?
 
@@ -22,10 +22,11 @@ Azure Cognitive Search[é](whats-new.md#new-service-name)um serviço de pesquisa
 
 Quando cria um serviço de Pesquisa Cognitiva, obtém-se:
 
-+ um motor de busca que realiza a indexação e execução de consultas
-+ Análise e transformação centradas em IA de imagens e texto indiferenciado durante a indexação
-+ armazenamento persistente de índices de pesquisa que cria e gere
-+ uma linguagem de consulta para compor consultas simples a consultas complexas
++ Um motor de busca que realiza a indexação e execução de consultas
++ Armazenamento persistente de índices de pesquisa que cria e gere
++ Uma linguagem de consulta para compor consultas simples e complexas
++ Análise centrada em IA, criando conteúdo pesmável a partir de imagens, texto em bruto, ficheiros de aplicações
++ Integração com dados do Azure através de indexadores de pesquisa, automatização da importação de dados e atualização
 
 Em termos arquitetónicos, um serviço de pesquisa situa-se entre as lojas de dados externos que contêm os seus dados não indexados, e uma aplicação de cliente que envia pedidos de consulta para um índice de pesquisa e trata a resposta.
 
