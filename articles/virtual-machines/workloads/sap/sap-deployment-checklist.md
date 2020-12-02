@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ac75ab31f8c9cdd9405115db4f5c35d28707e29f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 06d20dd47ceb71b51e226d662892eab06b072685
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950368"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500942"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Cargas de trabalho sap em Azure: lista de verificação de planeamento e implantação
 
@@ -243,8 +243,8 @@ Nesta fase, colete o que experimentou e aprendeu durante as suas implementaçõe
     - O Azure Premium Storage é utilizado para discos sensíveis à latência ou quando é necessário um [SLA single-VM de 99,9%.](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)
     - O acelerador Azure Write é implantado corretamente.
         - Certifique-se de que, dentro dos VMs, os espaços de armazenamento ou os conjuntos de listras foram construídos corretamente através de discos que necessitam de Write Accelerator.
-        - Verifique a [configuração do software RAID no Linux](../../linux/configure-raid.md).
-        - Verifique a [configuração do LVM em VMs Linux em Azure](../../linux/configure-lvm.md).
+        - Verifique a [configuração do software RAID no Linux](/previous-versions/azure/virtual-machines/linux/configure-raid).
+        - Verifique a [configuração do LVM em VMs Linux em Azure](/previous-versions/azure/virtual-machines/linux/configure-lvm).
     - [Os discos geridos Azure](https://azure.microsoft.com/services/managed-disks/) são utilizados exclusivamente.
     - Os VMs foram implantados nos conjuntos de disponibilidade corretos e zonas de disponibilidade.
     - [O Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) está ativado nos VMs utilizados na camada de aplicação SAP e na camada SAP DBMS.

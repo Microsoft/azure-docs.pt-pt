@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: twooley
 ms.custom: include file
-ms.openlocfilehash: 297641bbaccb44739d67fdd26f0c1f64062bba46
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7098f23e9b5b6f56fbbe761335afc65375aea680
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95560579"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509225"
 ---
 **A azure Data Lake Storage Gen2** não é um tipo de serviço ou conta de armazenamento dedicado. É o mais recente lançamento de capacidades que são dedicadas à análise de big data.  Estas capacidades estão disponíveis numa conta de armazenamento v2 ou BlockBlobStorage para fins gerais, e pode obtê-las, permitindo a funcionalidade **de espaço hierárquico** da conta. Para alvos de escala, consulte estes artigos. 
 
 - [Alvos de escala para armazenamento Blob](../articles/storage/blobs/scalability-targets.md#scale-targets-for-blob-storage).
-- [Metas de escala para contas de armazenamento padrão](../articles/storage/common/scalability-targets-standard-account.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#scale-targets-for-standard-storage-accounts).
+- [Metas de escala para contas de armazenamento padrão](../articles/storage/common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#scale-targets-for-standard-storage-accounts).
 
 **A azure Data Lake Storage Gen1** é um serviço dedicado. É um repositório de hiperesciente em toda a empresa para grandes cargas analíticas de dados. Você pode usar Data Lake Storage Gen1 para capturar dados de qualquer tamanho, tipo e velocidade de ingestão em um único lugar para análise operacional e exploratória. Não há limite para a quantidade de dados que pode armazenar numa conta da Data Lake Storage Gen1.
 

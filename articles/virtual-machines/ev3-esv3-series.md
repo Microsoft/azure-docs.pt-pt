@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: daberry
-ms.openlocfilehash: 250223c5c15a0179fe105e66e7004f8920c5eb34
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 07564955e9cfa6931e461df00ef50a237a66b9b3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637620"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500687"
 ---
 # <a name="ev3-and-esv3-series"></a>Séries Ev3 e Esv3
 
@@ -80,7 +80,7 @@ Esv3 série VM's feature Intel® Hyper-Threading Technology.
 
 <sup>2</sup> A instância é isolada para hardware dedicado a um único cliente.
 
-<sup>3</sup> VMs da série Esv3 podem [rebentar o](linux/disk-bursting.md) seu desempenho em disco e chegar ao seu máximo de explosão por até 30 minutos de cada vez.
+<sup>3</sup> VMs da série Esv3 podem [rebentar o](./disk-bursting.md) seu desempenho em disco e chegar ao seu máximo de explosão por até 30 minutos de cada vez.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

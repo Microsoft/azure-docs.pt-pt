@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ef481b73b6dc42bc35252c08ae8d63b9de95b2ba
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 1a7e8e71e26af241d16095a5fa1e6a02a7e3d4c2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325099"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500772"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quais são os tipos de disco disponíveis no Azure?
 
@@ -84,7 +84,7 @@ Ao providenciar um disco de armazenamento premium, ao contrário do armazenament
 
 Os tamanhos Premium SSD inferiores ao P30 oferecem agora o rebentamento do disco e podem rebentar o seu IOPS por disco até 3.500 e a sua largura de banda até 170 MB/s. A explosão é automatizada e funciona com base num sistema de crédito. Os créditos são automaticamente acumulados num balde de rutura quando o tráfego de disco está abaixo do objetivo de desempenho previsto e os créditos são automaticamente consumidos quando o tráfego rebenta para além do objetivo, até ao limite máximo de rajada. O limite máximo de rutura define o teto do disco IOPS & largura de banda mesmo que tenha créditos de rutura para consumir. A explosão do disco proporciona uma melhor tolerância às mudanças imprevisíveis dos padrões de IO. Pode aproveitar melhor para o arranque do disco OS e aplicações com tráfego espinhoso.    
 
-O suporte de rebentamento de discos será ativado em novas implementações de tamanhos de disco aplicáveis por padrão, sem necessidade de ação do utilizador. Para os discos existentes dos tamanhos aplicáveis, pode ativar a explosão com qualquer uma das opções: desprender e recolocar o disco ou parar e reiniciar o VM anexado. Todos os tamanhos de disco originais rebentados começarão com um balde de crédito de rajada completa quando o disco é ligado a uma Máquina Virtual que suporta uma duração máxima no limite máximo de rajada de 30 minutos. Para saber mais sobre como estourar o trabalho em Discos Azure, veja [o Premium SSD a rebentar.](linux/disk-bursting.md) 
+O suporte de rebentamento de discos será ativado em novas implementações de tamanhos de disco aplicáveis por padrão, sem necessidade de ação do utilizador. Para os discos existentes dos tamanhos aplicáveis, pode ativar a explosão com qualquer uma das opções: desprender e recolocar o disco ou parar e reiniciar o VM anexado. Todos os tamanhos de disco originais rebentados começarão com um balde de crédito de rajada completa quando o disco é ligado a uma Máquina Virtual que suporta uma duração máxima no limite máximo de rajada de 30 minutos. Para saber mais sobre como estourar o trabalho em Discos Azure, veja [o Premium SSD a rebentar.](./disk-bursting.md) 
 
 ### <a name="transactions"></a>Transações
 

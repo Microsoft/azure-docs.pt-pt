@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: 3564bf0db3e85ed1d2d1716fd50e48838a94d40a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4a06d40c3052fef9a484dc98220a0ad7cccd33bb
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026733"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509186"
 ---
 Uma das características centrais do serviço de fala é a capacidade de reconhecer e transcrever a fala humana (muitas vezes referida como discurso-a-texto). Neste arranque rápido, aprende-se a usar o Speech SDK nas suas apps e produtos para realizar conversão de fala a texto de alta qualidade.
 
@@ -263,5 +263,5 @@ phraseList.clear();
 
 As listas de frases são apenas uma opção para melhorar a precisão do reconhecimento. Também pode: 
 
-* [Melhorar a precisão com Discurso Personalizado](../../../how-to-custom-speech.md)
+* [Melhorar a precisão com Discurso Personalizado](../../../custom-speech-overview.md)
 * [Melhorar a precisão com modelos de inquilinos](../../../tutorial-tenant-model.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 42dfa499e0a44d0b468d3a234e9dc88904c361b0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 47d994a572d2fb0a76e1b6a713b61b70cccbd659
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025598"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509122"
 ---
 Aqui estão as restrições de utilização e outros limites de serviço do serviço do Azure Active Directory (Azure AD).
 
@@ -30,4 +30,4 @@ Aqui estão as restrições de utilização e outros limites de serviço do serv
 | Painel de Acesso |Não há limite para o número de aplicações que podem ser vistas no Painel de Acesso por utilizador, independentemente das licenças atribuídas.  |
 | Relatórios | Pode ser visto um máximo de 1000 linhas ou transferido em qualquer relatório. Quaisquer dados adicionais são truncados. |
 | Unidades administrativas | Um recurso AD Azure pode ser membro de não mais de 30 unidades administrativas. |
-| Funções e permissões do Azure AD | <ul><li>Um máximo de 30 [funções personalizadas Azure AD](/azure/active-directory//users-groups-roles/roles-custom-overview?context=azure%252factive-directory%252fusers-groups-roles%252fcontext%252fugr-context) podem ser criadas numa organização AZure AD.</li><li>Um grupo não pode ser adicionado como dono de um [grupo.](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%252factive-directory%252fusers-groups-roles%252fcontext%252fugr-context#object-ownership)</li><li>A capacidade de um utilizador ler as informações dos inquilinos de outros utilizadores só pode ser restringida pelo interruptor da organização Azure AD para desativar o acesso de todos os utilizadores não administrativos a todas as informações dos inquilinos (não recomendado). Para obter mais informações, consulte [Para restringir as permissões padrão para os utilizadores membros](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%252factive-directory%252fusers-groups-roles%252fcontext%252fugr-context#restrict-member-users-default-permissions).</li><li>Pode levar até 15 minutos ou assinar/assinar antes de advogações de funções de administrador e revogações.</li></ul> |
+| Funções e permissões do Azure AD | <ul><li>Um máximo de 30 [funções personalizadas Azure AD](/azure/active-directory//users-groups-roles/roles-custom-overview?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) podem ser criadas numa organização AZure AD.</li><li>Um grupo não pode ser adicionado como dono de um [grupo.](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context#object-ownership)</li><li>A capacidade de um utilizador ler as informações dos inquilinos de outros utilizadores só pode ser restringida pelo interruptor da organização Azure AD para desativar o acesso de todos os utilizadores não administrativos a todas as informações dos inquilinos (não recomendado). Para obter mais informações, consulte [Para restringir as permissões padrão para os utilizadores membros](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context#restrict-member-users-default-permissions).</li><li>Pode levar até 15 minutos ou assinar/assinar antes de advogações de funções de administrador e revogações.</li></ul> |

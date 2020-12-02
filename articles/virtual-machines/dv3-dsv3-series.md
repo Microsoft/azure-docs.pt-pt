@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: 3ac90d3cabc179ecd1c1e421fd026a584f7158e3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3d0735b99de3e0c68b48747d69e4720a9cbb3416
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368575"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500704"
 ---
 # <a name="dv3-and-dsv3-series"></a>Séries Dv3 e Dsv3
 
@@ -70,7 +70,7 @@ Os VMs da série Dsv3 apresentam Tecnologia intel® Hyper-Threading.
 | Standard_D48s_v3 | 48 | 192 | 384 | 32 | 96000/768 (1200)   | 96000/2000  |76800/1152 | 80000/2000 | 8/24000 |
 | Standard_D64s_v3 | 64 | 256 | 512 | 32 | 128000/1024 (1600) | 128000/2000 |80000/1200 | 80000/2000 | 8/30000 |
 
-<sup>1</sup>  VMs série Dsv3 pode [rebentar](linux/disk-bursting.md) o seu desempenho em disco e chegar ao seu máximo de explosão por até 30 minutos de cada vez.
+<sup>1</sup>  VMs série Dsv3 pode [rebentar](./disk-bursting.md) o seu desempenho em disco e chegar ao seu máximo de explosão por até 30 minutos de cada vez.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 11/19/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
-ms.openlocfilehash: a6ea3925f3b6bc786be6a4855b2f3bfb6b402d70
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d9a9d3c303739e68b5b8ef28053d6cf0b071f955
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455183"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501061"
 ---
 # <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Encriptação para espaços de trabalho Azure Synapse Analytics
 
@@ -47,13 +47,13 @@ Os dados dos seguintes componentes da Sinapse são encriptados com a chave gerid
 Os espaços de trabalho podem ser configurados para permitir a dupla encriptação com uma chave gerida pelo cliente no momento da criação do espaço de trabalho. Selecione a opção "Ativar a encriptação dupla utilizando uma chave gerida pelo cliente" no separador "Segurança" ao criar o seu novo espaço de trabalho. Pode optar por introduzir um URI identificador de chave ou selecionar a partir de uma lista de cofres chave na **mesma região** que o espaço de trabalho. O cofre-chave em si precisa de ter **proteção de purga ativada**.
 
 > [!IMPORTANT]
-> Atualmente, a definição de configuração para dupla encriptação não pode ser alterada após a criação do espaço de trabalho.
+> A definição de configuração para dupla encriptação não pode ser alterada após a criação do espaço de trabalho.
 
 :::image type="content" source="./media/workspaces-encryption/workspaces-encryption.png" alt-text="Este diagrama mostra a opção que deve ser selecionada para permitir um espaço de trabalho para dupla encriptação com uma chave gerida pelo cliente.":::
 
 ### <a name="key-access-and-workspace-activation"></a>Acesso chave e ativação do espaço de trabalho
 
-O modelo de encriptação Azure Synapse com chaves geridas pelo cliente envolve o espaço de trabalho que acede às chaves no Cofre da Chave Azure para encriptar e desencriptar conforme necessário. As teclas são disponibilizações acessíveis ao espaço de trabalho através de uma política de acesso ou do acesso RBAC do Cofre de Chaves Azure[(pré-visualização).](../../key-vault/general/rbac-guide.md) Ao conceder permissões através de uma política de acesso a Azure Key Vault, escolha a opção "Apenas para aplicação" durante a criação de políticas.
+O modelo de encriptação Azure Synapse com chaves geridas pelo cliente envolve o espaço de trabalho que acede às chaves no Cofre da Chave Azure para encriptar e desencriptar conforme necessário. As teclas são disponibilizações acessíveis ao espaço de trabalho através de uma política de acesso ou do acesso RBAC do Cofre de Chaves Azure[(pré-visualização).](../../key-vault/general/rbac-guide.md) Ao conceder permissões através de uma política de acesso a Azure Key Vault, escolha a opção ["Apenas para aplicação"](../../key-vault/general/secure-your-key-vault.md#key-vault-authentication-options) durante a criação de políticas (selecione a identidade gerida do espaço de trabalho e não a adicione como uma aplicação autorizada).
 
  A identidade gerida pelo espaço de trabalho deve ser concedida as permissões que necessita no cofre da chave antes de o espaço de trabalho poder ser ativado. Esta abordagem faseada da ativação do espaço de trabalho garante que os dados no espaço de trabalho são encriptados com a chave gerida pelo cliente. Note que a encriptação pode ser ativada ou desativada para piscinas SQL dedicadas, cada pool não está ativado para encriptação por padrão.
 
@@ -76,6 +76,9 @@ Após a criação do seu espaço de trabalho (com dupla encriptação ativada), 
 Pode alterar a chave gerida pelo cliente utilizada para encriptar dados a partir da página **de Encriptação** no portal Azure. Também aqui pode escolher uma nova chave usando um identificador de chave ou selecionar a partir de Key Vaults a que tem acesso na mesma região que o espaço de trabalho. Se escolher uma chave num cofre de chaves diferente dos anteriormente utilizados, conceda o espaço de trabalho de identidade gerida "Get", "Wrap" e permissões "Desembrulhar" no novo cofre da chave. O espaço de trabalho validará o seu acesso ao novo cofre-chave e todos os dados no espaço de trabalho serão reencriptados com a nova chave.
 
 :::image type="content" source="./media/workspaces-encryption/workspace-encryption-management.png" alt-text="Este diagrama mostra a secção de encriptação do espaço de trabalho no portal Azure.":::
+
+>[!IMPORTANT]
+>Ao alterar a chave de encriptação de um espaço de trabalho, mantenha a chave até a substituir no espaço de trabalho por uma nova chave. Isto é para permitir a desencriptação de dados com a tecla antiga antes de ser reencri encriptada com a nova chave.
 
 As políticas Azure Key Vaults para rotação automática e periódica de teclas ou ações nas teclas podem resultar na criação de novas versões-chave. Pode optar por reen encriptar todos os dados do espaço de trabalho com a versão mais recente da chave ativa. Para reencriptá-la, altere a chave do portal Azure para uma chave temporária e, em seguida, volte a ser a chave que pretende utilizar para encriptação. Como exemplo, para atualizar a encriptação de dados utilizando a versão mais recente da chave ativa Key1, altere a chave gerida pelo cliente do espaço de trabalho para a chave temporária, Key2. Aguarde a encriptação com a Key2 para terminar. Em seguida, mude a chave gerida pelo cliente do espaço de trabalho de volta para os dados key1 no espaço de trabalho será reencri encriptada com a versão mais recente do Key1.
 

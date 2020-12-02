@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 44980977f366bc40ceff9c7b5751d5657c79ccc2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 21216625ed99a595b0ceeeea90e0cd00ce447498
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94482630"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509179"
 ---
 Uma das características centrais do serviço de fala é a capacidade de reconhecer e transcrever a fala humana (muitas vezes referida como discurso-a-texto). Neste arranque rápido, aprende-se a usar o Speech SDK nas suas apps e produtos para realizar conversão de fala a texto de alta qualidade.
 
@@ -224,5 +224,5 @@ phrase_list_grammar.clear()
 
 As listas de frases são apenas uma opção para melhorar a precisão do reconhecimento. Também pode: 
 
-* [Melhorar a precisão com Discurso Personalizado](../../../how-to-custom-speech.md)
+* [Melhorar a precisão com Discurso Personalizado](../../../custom-speech-overview.md)
 * [Melhorar a precisão com modelos de inquilinos](../../../tutorial-tenant-model.md)

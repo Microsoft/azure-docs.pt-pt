@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 325e28b9fde349fc4bf01d2b130bee0be0684962
-ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
+ms.openlocfilehash: 6982b782fdd6b5b269c1562c54be3478c58bbce9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96299603"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501002"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipos de Armazenamento do Azure para a carga de trabalho SAP
 O Azure tem inúmeros tipos de armazenamento que diferem muito em capacidades, produção, latência e preços. Alguns dos tipos de armazenamento não são, ou de usutilizável limitado para cenários SAP. Enquanto que vários tipos de armazenamento Azure são bem adequados ou otimizados para cenários específicos de carga de trabalho SAP. Especialmente para o SAP HANA, alguns tipos de armazenamento Azure foram certificados para o uso com SAP HANA. Neste documento, estamos a analisar os diferentes tipos de armazenamento e a descrever a sua capacidade e usabilidade com cargas de trabalho SAP e componentes SAP.
@@ -164,7 +164,7 @@ O armazenamento premium Azure não preenche os KPI'kPI's de latência de armazen
 
 
 ### <a name="azure-burst-functionality-for-premium-storage"></a>Funcionalidade de explosão Azure para armazenamento premium
-Para discos de armazenamento premium Azure menores ou iguais a 512 GiB na capacidade, é oferecida a funcionalidade de explosão. A forma exata como funciona a explosão do disco é descrita no artigo [Disco rebentando](../../linux/disk-bursting.md). Ao ler o artigo, compreende o conceito de acumulação de IOPS e produção nos tempos em que a sua carga de trabalho de I/S está abaixo do IOPS nominal e da produção dos discos (para mais detalhes sobre a produção nominal ver [preços do Disco Gerido).](https://azure.microsoft.com/pricing/details/managed-disks/) Você vai acumular o delta do IOPS e a produção entre o seu uso atual e os valores nominais do disco. As rajadas estão limitadas a um máximo de 30 minutos.
+Para discos de armazenamento premium Azure menores ou iguais a 512 GiB na capacidade, é oferecida a funcionalidade de explosão. A forma exata como funciona a explosão do disco é descrita no artigo [Disco rebentando](../../disk-bursting.md). Ao ler o artigo, compreende o conceito de acumulação de IOPS e produção nos tempos em que a sua carga de trabalho de I/S está abaixo do IOPS nominal e da produção dos discos (para mais detalhes sobre a produção nominal ver [preços do Disco Gerido).](https://azure.microsoft.com/pricing/details/managed-disks/) Você vai acumular o delta do IOPS e a produção entre o seu uso atual e os valores nominais do disco. As rajadas estão limitadas a um máximo de 30 minutos.
 
 Os casos ideais em que esta funcionalidade de explosão pode ser planeada serão provavelmente os volumes ou discos que contêm ficheiros de dados para os diferentes DBMS. Espera-se que a carga de trabalho de E/S contra esses volumes, especialmente com sistemas de pequena a média gama, se pareça com:
 
@@ -376,4 +376,3 @@ Leia os artigos:
 
 - [Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](./dbms_guide_general.md)
 - [Configurações de armazenamento da máquina virtual do Azure do SAP HANA](./hana-vm-operations-storage.md)
- 

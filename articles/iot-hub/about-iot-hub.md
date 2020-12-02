@@ -13,12 +13,12 @@ ms.custom:
 - 'role: System Architecture'
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 7f1acc44a80d5ef70145997698a928e6f9ce0d48
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: a460d77a032f36505c8036bc60aa37017f630e55
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888883"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501146"
 ---
 # <a name="what-is-azure-iot-hub"></a>O que é o IoT Hub do Azure?
 
@@ -91,6 +91,7 @@ Existe um [Contrato de Nível de Serviço para o Hub IoT](https://azure.microsof
 Utilize as bibliotecas do [Azure IoT Device SDK](./iot-hub-devguide-sdks.md) para criar aplicações que são executadas nos seus dispositivos e que interagem com o Hub IoT. As plataformas suportadas incluem múltiplas distribuições do Linux, Windows e sistemas operativos em tempo real. As linguagens suportadas incluem:
 
 * C
+* Incorporado C
 * C#
 * Java
 * Python
@@ -120,7 +121,7 @@ Cada subscrição do Azure tem limites de quota predefinidos para evitar o abuso
 
 * [A limitação do Hub IoT e o que significa para si](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
 
-## <a name="iot-hub-on-azure-stack-hub-preview"></a>IoT Hub no Azure Stack Hub (pré-visualização)
+## <a name="iot-hub-on-azure-stack-hub-preview"></a>Hub IoT no Azure Stack Hub (pré-visualização)
 
 O IoT Hub no Azure Stack Hub (pré-visualização) permite-lhe criar soluções híbridas de IoT. O IoT Hub é um serviço gerido, funcionando como um centro de mensagens centrais para a comunicação bidicional entre a sua aplicação IoT e os dispositivos que gere. Você pode usar o IoT Hub no Azure Stack Hub para construir soluções IoT com comunicações confiáveis e seguras entre dispositivos IoT e suas soluções no local.
 

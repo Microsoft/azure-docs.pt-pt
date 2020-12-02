@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: c88b777e08bc165caefa14fe28d43c498e3fefcd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a016781e5b05c8f43c043bf1f3368a58064e43ad
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790377"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501265"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Insight de desempenho de consulta para base de dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,15 +41,15 @@ O Insight de Desempenho da Consulta requer que [a Loja de Consultas](/sql/relati
 
 Você precisa das seguintes permissões [de controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md) para usar o Insight de Desempenho de Consulta:
 
-* **As** permissões de leitor , **Proprietário** , **Contribuinte** , **DB DB** ou **SQL Server Contributor** são necessárias para visualizar as principais consultas e gráficos que consomem recursos.
-* **O Proprietário** , **Contribuinte** , **SqL DB Contributor,** ou **permissões de contribuinte do sql server** são necessárias para visualizar texto de consulta.
+* **As** permissões de leitor , **Proprietário**, **Contribuinte**, **DB DB** ou **SQL Server Contributor** são necessárias para visualizar as principais consultas e gráficos que consomem recursos.
+* **O Proprietário**, **Contribuinte**, **SqL DB Contributor,** ou **permissões de contribuinte do sql server** são necessárias para visualizar texto de consulta.
 
 ## <a name="use-query-performance-insight"></a>Utilizar o Query Performance Insight
 
 Consulta Performance Insight é fácil de usar:
 
 1. Abra o [portal Azure](https://portal.azure.com/) e encontre uma base de dados que pretende examinar.
-2. A partir do menu do lado esquerdo, abra **o Smart Performance**  >  **Query Performance Insight** .
+2. A partir do menu do lado esquerdo, abra **o Smart Performance**  >  **Query Performance Insight**.
   
    ![Consulta Performance Insight no menu](./media/query-performance-insight-use/tile.png)
 
@@ -85,9 +85,9 @@ Por predefinição, o Query Performance Insight mostra as cinco principais consu
    >
    > Para uma comparação mais fina (até um minuto), considere criar um gráfico de utilização DTU personalizado:
    >
-   > 1. No portal Azure, selecione **Azure SQL Database**  >  **Monitoring** .
-   > 2. Selecione **Métricas** .
-   > 3. Selecione **+Adicionar gráfico** .
+   > 1. No portal Azure, selecione **Azure SQL Database**  >  **Monitoring**.
+   > 2. Selecione **Métricas**.
+   > 3. Selecione **+Adicionar gráfico**.
    > 4. Selecione a percentagem de DTU na tabela.
    > 5. Além disso, selecione **Last 24 horas** no menu superior esquerdo e altere-o para um minuto.
    >
@@ -160,7 +160,7 @@ As consultas de longa duração têm o maior potencial para bloquear recursos po
 Para identificar consultas de longa duração:
 
 1. Abra o **separador Personalizado** em Consulta Performance Insight para a base de dados selecionada.
-2. Altere as métricas para **a duração** .
+2. Altere as métricas para **a duração**.
 3. Selecione o número de consultas e o intervalo de observação.
 4. Selecione a função de agregação:
 
@@ -177,9 +177,9 @@ Para identificar consultas de longa duração:
    >
    > Para compreender o consumo de DTU de base de dados com mais detalhes (até um minuto), considere criar um gráfico personalizado no portal Azure:
    >
-   > 1. Selecione **Azure SQL Database**  >  **Monitoring** .
-   > 2. Selecione **Métricas** .
-   > 3. Selecione **+Adicionar gráfico** .
+   > 1. Selecione **Azure SQL Database**  >  **Monitoring**.
+   > 2. Selecione **Métricas**.
+   > 3. Selecione **+Adicionar gráfico**.
    > 4. Selecione a percentagem de DTU na tabela.
    > 5. Além disso, selecione **Last 24 horas** no menu superior esquerdo e altere-o para um minuto.
    >
@@ -238,14 +238,14 @@ O segundo caso acontece quando a Loja de Consultas não está ativada, ou os par
 
 Existem dois tipos de políticas de retenção:
 
-* **Com base em tamanho** : Se esta política for definida como **AUTO,** limpará os dados automaticamente quando se atingir o tamanho máximo próximo.
-* **Com base no tempo** : Por defeito, esta política está definida para 30 dias. Se a Loja de Consulta ficar sem espaço, eliminará informações de consulta com mais de 30 dias.
+* **Com base em tamanho**: Se esta política for definida como **AUTO,** limpará os dados automaticamente quando se atingir o tamanho máximo próximo.
+* **Com base no tempo**: Por defeito, esta política está definida para 30 dias. Se a Loja de Consulta ficar sem espaço, eliminará informações de consulta com mais de 30 dias.
 
 Pode definir a política de captura para:
 
-* **Todas** : A Loja de Consultas captura todas as consultas.
-* **Auto** : A Loja de Consultas ignora consultas e consultas pouco frequentes com a duração insignificante da compilação e execução. Os limiares para a contagem de execuções, a duração da compilação e a duração do tempo de execução são determinados internamente. Esta é a opção por defeito.
-* **Nenhuma** : A Loja de Consultas deixa de capturar novas consultas, mas as estatísticas de tempo de execução para consultas já capturadas ainda são recolhidas.
+* **Todas**: A Loja de Consultas captura todas as consultas.
+* **Auto**: A Loja de Consultas ignora consultas e consultas pouco frequentes com a duração insignificante da compilação e execução. Os limiares para a contagem de execuções, a duração da compilação e a duração do tempo de execução são determinados internamente. Esta é a opção por defeito.
+* **Nenhuma**: A Loja de Consultas deixa de capturar novas consultas, mas as estatísticas de tempo de execução para consultas já capturadas ainda são recolhidas.
 
 Recomendamos que se ajustem todas as políticas para **AUTO** e a política de limpeza para 30 dias executando os seguintes comandos da [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) ou do portal Azure. (Substitua `YourDB` pelo nome da base de dados.)
 

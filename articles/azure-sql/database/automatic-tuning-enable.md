@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 12/03/2019
-ms.openlocfilehash: 35fc4b18ee5a98270f715a969354df2be5000150
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35e2a73b0cfae104cee417e7d4a159e7fd169a17
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444085"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500908"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Permitir a sintonização automática no portal Azure para monitorizar consultas e melhorar o desempenho da carga de trabalho
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -83,7 +83,7 @@ Por favor, note que DROP_INDEX opção neste momento não é compatível com apl
 
 Uma vez selecionada a configuração desejada, clique em **Aplicar**.
 
-### <a name="rest-api"></a>Repouso API
+### <a name="rest-api"></a>API REST
 
 Para saber mais sobre a utilização de uma API REST para permitir a sintonização automática numa única base de dados, consulte os [métodos Azure SQL Database de sintonização automática UPDATE e GET HTTP](/rest/api/sql/databaseautomatictuning).
 

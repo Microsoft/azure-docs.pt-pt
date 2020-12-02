@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: reference
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 0c89dc28a330e319e18a6289e5f6759c56e46ae8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 139673e46421aa0dc19298697872fbff5fe587af
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791278"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501214"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Eventos alargados na Base de Dados Azure SQL 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -81,7 +81,7 @@ A funcionalidade de eventos alargados é suportada por várias [vistas de catál
 | **sys.database_event_session_targets** |Retorna uma linha para cada alvo de evento para uma sessão de evento. |
 | **sys.database_event_sessions** |Retorna uma linha para cada sessão de eventos na base de dados. |
 
-No Microsoft SQL Server, as vistas de catálogo semelhantes têm nomes que incluem *.server \_* em vez de *.database \_* . O padrão do nome é como **sys.server_event_%.**
+No Microsoft SQL Server, as vistas de catálogo semelhantes têm nomes que incluem *.server \_* em vez de *.database \_*. O padrão do nome é como **sys.server_event_%.**
 
 ## <a name="new-dynamic-management-views-dmvs"></a>Novas visões dinâmicas de gestão [(DMVs)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)
 
@@ -97,7 +97,7 @@ A Azure SQL Database tem [pontos de vista dinâmicos de gestão (DMVs)](/sql/rel
 
 No Microsoft SQL Server, as vistas de catálogo semelhantes são nomeadas sem a parte da base de *\_ dados* do nome, tais como:
 
-- **sys.dm_xe_sessions** , em vez de nome<br/>**sys.dm_xe_database_sessions.**
+- **sys.dm_xe_sessions**, em vez de nome<br/>**sys.dm_xe_database_sessions.**
 
 ### <a name="dmvs-common-to-both"></a>DMVs comuns a ambos
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 8594ce713a8675505e0ee3051018b05992b160a9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a9146099951aba223a7b201c1613e1ec0ba617d4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025763"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509291"
 ---
 **Última atualização do documento**: 12 de novembro de 2019 10:00 PST.
 
@@ -21,7 +21,7 @@ A divulgação de uma [nova classe de vulnerabilidades de CPU](https://portal.ms
 
 A Microsoft implementou mitigações em todos os nossos serviços na nuvem. A infraestrutura que gere o Azure e isola as cargas de trabalho dos clientes uns dos outros está protegida. Isto significa que um potencial intruso que usa a mesma infraestrutura não pode atacar a sua aplicação usando estas vulnerabilidades.
 
-O Azure está a utilizar [a manutenção de preservação da memória](../articles/virtual-machines/maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#maintenance-that-doesnt-require-a-reboot) sempre que possível, para minimizar o impacto do cliente e eliminar a necessidade de reinicialização. O Azure continuará a utilizar estes métodos ao fazer atualizações a nível do sistema para o anfitrião e proteger os nossos clientes.
+O Azure está a utilizar [a manutenção de preservação da memória](../articles/virtual-machines/maintenance-and-updates.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#maintenance-that-doesnt-require-a-reboot) sempre que possível, para minimizar o impacto do cliente e eliminar a necessidade de reinicialização. O Azure continuará a utilizar estes métodos ao fazer atualizações a nível do sistema para o anfitrião e proteger os nossos clientes.
 
 Mais informações sobre como a segurança é integrada em todos os aspetos do Azure estão disponíveis no site da [Documentação de Segurança Azure.](../articles/security/index.yml) 
 

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 6ad8f3e146c13e7b88752b8ef6d514346542ce26
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 748ac448ad8bf5c06e5be8b7a4a8b00a9b7af84b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672269"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500891"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Encontre e aplique recomendações de desempenho
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,11 +25,11 @@ Pode utilizar o portal Azure para encontrar recomendações de desempenho que po
 
 ## <a name="viewing-recommendations"></a>Recomendações de visualização
 
-Para visualizar e aplicar recomendações de desempenho, precisa das permissões corretas [de controlo de acesso baseado em funções (Azure RBAC)](../../role-based-access-control/overview.md) em Azure. **Leitor** , **Permissões de Contribuinte DB SQL** são necessárias para visualizar recomendações, e **Proprietário,** **permissões de contribuinte dB SQL** são necessárias para executar quaisquer ações; criar ou largar índices e cancelar a criação de índices.
+Para visualizar e aplicar recomendações de desempenho, precisa das permissões corretas [de controlo de acesso baseado em funções (Azure RBAC)](../../role-based-access-control/overview.md) em Azure. **Leitor**, **Permissões de Contribuinte DB SQL** são necessárias para visualizar recomendações, e **Proprietário,** **permissões de contribuinte dB SQL** são necessárias para executar quaisquer ações; criar ou largar índices e cancelar a criação de índices.
 
 Utilize os seguintes passos para encontrar recomendações de desempenho no portal Azure:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Vá a todas as bases de **dados** SQL de todos os  >  serviços e selecione a sua base de **dados.**
 3. Navegue na **recomendação de Desempenho** para ver as recomendações disponíveis para a base de dados selecionada.
 
@@ -86,9 +86,9 @@ Se a sua lista de recomendações contiver itens que pretende remover da lista, 
 
 Se desejar, pode adicionar artigos descartados de volta à lista **de Recomendações:**
 
-1. Na página **Recomendações,** clique **em Ver descartado** .
+1. Na página **Recomendações,** clique **em Ver descartado**.
 2. Selecione um item descartado da lista para ver os seus detalhes.
-3. Opcionalmente, clique em **Desfazer Descartar** para adicionar o índice de volta à lista principal de **Recomendações** .
+3. Opcionalmente, clique em **Desfazer Descartar** para adicionar o índice de volta à lista principal de **Recomendações**.
 
 > [!NOTE]
 > Tenha em atenção que se a [sintonização automática](automatic-tuning-overview.md) da Base de Dados SQL estiver ativada e se tiver descartado manualmente uma recomendação da lista, essa recomendação nunca será aplicada automaticamente. Descartar uma recomendação é uma forma útil de os utilizadores terem a sintonização automática ativada em casos em que exigem que uma recomendação específica não seja aplicada.
@@ -112,7 +112,7 @@ Uma vez selecionada a configuração desejada, clique em Aplicar.
 
 ### <a name="manually-apply-recommendations-through-t-sql"></a>Aplicar manualmente recomendações através do T-SQL
 
-Selecione qualquer recomendação e, em seguida, clique **em Ver Script** . Execute este script na sua base de dados para aplicar manualmente a recomendação.
+Selecione qualquer recomendação e, em seguida, clique **em Ver Script**. Execute este script na sua base de dados para aplicar manualmente a recomendação.
 
 *Os índices que são executados manualmente não são monitorizados e validados para o impacto do desempenho pelo serviço,* pelo que é sugerido que monitorize estes índices após a criação para verificar se fornecem ganhos de desempenho e os ajustam ou apagam se necessário. Para obter detalhes sobre a criação de índices, consulte [CREATE INDEX (Transact-SQL)](/sql/t-sql/statements/create-index-transact-sql). Além disso, as recomendações aplicadas manualmente permanecerão ativas e apresentadas na lista de recomendações para 24-48 horas. antes que o sistema os retire automaticamente. Se quiser remover uma recomendação mais cedo, pode descartá-la manualmente.
 

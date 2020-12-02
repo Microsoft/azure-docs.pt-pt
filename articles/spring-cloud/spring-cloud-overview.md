@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 159851f5b1ca38cc34da785b39229a6a91e1e4dd
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 74ebdafb835aff75f282b9d6ac02d8ccf672a2be
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090697"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501095"
 ---
 # <a name="what-is-azure-spring-cloud"></a>O que é o Azure Spring Cloud?
 
@@ -48,7 +48,7 @@ O Azure Spring Cloud permite-lhe escalar facilmente os micro-serviços no seu pa
 
 ## <a name="application-monitoring"></a>Monitorização da aplicação
 
-As ferramentas de rastreio distribuídas da Spring Cloud permitem aos desenvolvedores depurar e monitorizar as complexas interligações entre microserviços numa aplicação.  Ao integrar [a Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) com o Azure's Application [Insights,](../azure-monitor/insights/insights-overview.md)o Azure fornece uma poderosa capacidade de rastreio distribuído diretamente do portal Azure.  Para saber mais, complete este [tutorial.](spring-cloud-tutorial-distributed-tracing.md)
+As ferramentas de rastreio distribuídas da Spring Cloud permitem aos desenvolvedores depurar e monitorizar as complexas interligações entre microserviços numa aplicação.  Ao integrar [a Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) com o Azure's Application [Insights,](../azure-monitor/monitor-reference.md)o Azure fornece uma poderosa capacidade de rastreio distribuído diretamente do portal Azure.  Para saber mais, complete este [tutorial.](spring-cloud-tutorial-distributed-tracing.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
