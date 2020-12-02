@@ -12,20 +12,23 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/27/2020
+ms.date: 12/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30724edafdee0c04f0c8b004ce335072b4ce0fd4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 759781fd61cd42d05f2823d390e99d128dd2fcac
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367453"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512397"
 ---
 # <a name="management-capabilities-for-privileged-access-azure-ad-groups-preview"></a>Capacidades de gestão para acesso privilegiado Grupos AD de acesso (pré-visualização)
 
 Na Gestão de Identidade Privilegiada (PIM), pode agora atribuir elegibilidade para adesão ou propriedade de grupos de acesso privilegiados. A partir desta pré-visualização, pode atribuir funções incorporadas ao Azure Ative Directory (Azure AD) a grupos de nuvem e utilizar o PIM para gerir a elegibilidade e ativação do membro do grupo e do proprietário. Para obter mais informações sobre grupos atribuíveis por funções em Azure AD, consulte [use grupos de nuvem para gerir atribuições de funções no Azure Ative Directory (pré-visualização)](../roles/groups-concept.md).
+
+>[!Important]
+> Para atribuir um grupo privilegiado de acesso a uma função de acesso administrativo ao Centro de Intercâmbio, Segurança e Conformidade, ou SharePoint, utilize a experiência do portal AD AD **Ad Roles and Administrators** e não na experiência dos Grupos de Acesso Privilegiados para tornar o utilizador ou grupo elegível para ativação no grupo.
 
 ## <a name="require-different-policies-for-each-role-assignable-group"></a>Requerem políticas diferentes para cada grupo atribuível
 

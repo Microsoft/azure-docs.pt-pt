@@ -3,29 +3,31 @@ title: Azure Defender para SQL - os benefícios e funcionalidades
 description: Conheça os benefícios e funcionalidades do Azure Defender para a SQL.
 author: memildin
 ms.author: memildin
-ms.date: 11/22/2020
+ms.date: 11/30/2020
 ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 102d4916caf9dcae577006b6b847979f98ab3673
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c2fc1bf065bce3ca844c5284168d8ff96fa065bf
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499905"
+ms.locfileid: "96512244"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Introdução ao Azure Defender para o SQL
 
 O Azure Defender for SQL inclui dois planos do Azure Defender que alargam o pacote de segurança de [dados](../azure-sql/database/azure-defender-for-sql.md) do Azure Security Center para proteger as suas bases de dados e os seus dados onde quer que estejam localizados. 
 
+> [!VIDEO https://www.youtube.com/embed/V7RdB6RSVpc]
+
 ## <a name="availability"></a>Disponibilidade
 
 |Aspeto|Detalhes|
 |----|:----|
-|Estado de libertação:|**Azure Defender para servidores de base de dados Azure SQL** - Geralmente disponível (GA)<br>**Azure Defender para servidores SQL em máquinas** - Pré-visualização<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Estado de libertação:|**Azure Defender para servidores de base de dados Azure SQL** - Geralmente disponível (GA)<br>**Azure Defender para servidores SQL em máquinas** - Geralmente disponível (GA) |
 |Preços:|Os dois planos que formam **o Azure Defender para o SQL** são faturados como mostrado na [página de preços](security-center-pricing.md)|
-|Versões SQL protegidas:|SQL em máquinas virtuais Azure - [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) e [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md)<br>[Servidores SQL ativados pelo Arco](/sql/sql-server/azure-arc/overview) (inclui servidores SQL no local)<br>Bases [de dados únicas](../azure-sql/database/single-database-overview.md) do Azure SQL e [piscinas elásticas](../azure-sql/database/elastic-pool-overview.md)<br>[Instância Gerida do SQL no Azure](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Azure Synapse Analytics dedicada piscina SQL](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)|
+|Versões SQL protegidas:|[SQL em máquinas virtuais Azure](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)<br>[Azure Arc ativou servidores SQL](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)<br>Servidores SQL no local em máquinas Windows sem Arco Azure<br>Bases [de dados únicas](../azure-sql/database/single-database-overview.md) do Azure SQL e [piscinas elásticas](../azure-sql/database/elastic-pool-overview.md)<br>[Instância Gerida do SQL no Azure](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Azure Synapse Analytics (anteriormente SQL DW) piscina SQL dedicada](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
 |||
 
@@ -34,11 +36,15 @@ O Azure Defender for SQL inclui dois planos do Azure Defender que alargam o paco
 **O Azure Defender para a SQL** compreende dois planos separados do Azure Defender:
 
 - **O Azure Defender para servidores de base de dados Azure SQL** protege:
-  - [Base de Dados SQL do Azure](../azure-sql/database/sql-database-paas-overview.md)
-  - [Instância Gerida do SQL no Azure](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
-  - [Piscina SQL dedicada em Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+    - [Base de Dados SQL do Azure](../azure-sql/database/sql-database-paas-overview.md)
+    - [Instância Gerida do SQL no Azure](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
+    - [Piscina SQL dedicada em Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
-- **O Azure Defender para servidores SQL em máquinas (Preview)** alarga as proteções para os seus Servidores SQL nativos do Azure para suportar totalmente ambientes híbridos e proteger servidores SQL (todas as versões suportadas) hospedados em Azure, outros ambientes em nuvem e até mesmo máquinas no local
+- **O Azure Defender para servidores SQL em máquinas** alarga as proteções para os seus SqL Servers nativos do Azure para suportar totalmente ambientes híbridos e proteger servidores SQL (todas as versões suportadas) hospedados em Azure, outros ambientes em nuvem e até mesmo máquinas no local:
+    - [SQL Server nas Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/sql-server/)
+    - Servidores SQL no local:
+        - [SQL Server preparado para Azure Arc (pré-visualização)](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)
+        - [SQL Server em funcionamento em máquinas Windows sem Arco Azure](../azure-monitor/platform/agent-windows.md)
 
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-sql"></a>Quais são os benefícios do Azure Defender para a SQL?
@@ -52,11 +58,11 @@ Estes dois planos incluem funcionalidade para identificar e mitigar potenciais v
 
 ## <a name="what-kind-of-alerts-does-azure-defender-for-sql-provide"></a>Que tipo de alertas o Azure Defender para o SQL fornece?
 
-Alertas de segurança são acionados quando há:
+Alertas de segurança enriquecidos de ameaças são desencadeados quando há:
 
 - **Potenciais ataques de injeção de SQL** - incluindo vulnerabilidades detetadas quando as aplicações geram uma declaração SQL defeituosa na base de dados
 - **Padrões anómalos** de acesso e consulta de bases de dados - por exemplo, um número anormalmente elevado de tentativas de inscrição falhadas com credenciais diferentes (uma tentativa de força bruta)
-- **Atividade de base de dados suspeita** - por exemplo, uma alteração no destino de armazenamento de exportação para uma operação de importação e exportação de SQL
+- **Atividade de base de dados suspeita** - por exemplo, um utilizador legítimo que acede a um Servidor SQL a partir de um computador violado que comunicava com um servidor C&C de mineração de cripto-mineração
 
 Os alertas incluem detalhes do incidente que os desencadeou, bem como recomendações sobre como investigar e remediar ameaças.
 
@@ -66,8 +72,10 @@ Os alertas incluem detalhes do incidente que os desencadeou, bem como recomenda�
 
 Neste artigo, você aprendeu sobre Azure Defender para a SQL.
 
+> [!div class="nextstepaction"]
+> [Verifique os seus servidores SQL para vulnerabilidades com o Azure Defender](defender-for-sql-usage.md)
+
 Para obter material relacionado, consulte os seguintes artigos: 
 
-- [Como ativar o Azure Defender para servidores SQL em máquinas](defender-for-sql-usage.md)
 - [Como ativar o Azure Defender para servidores de base de dados SQL](../azure-sql/database/azure-defender-for-sql.md)
-- [A lista de alertas do Azure Defender para o SQL](alerts-reference.md#alerts-sql-db-and-warehouse)
+- [A lista de alertas de segurança para servidores SQL](alerts-reference.md#alerts-sql-db-and-warehouse)

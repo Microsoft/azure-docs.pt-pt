@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 278c842d6e6f73bff5468f601eea77f8b140a07c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 473ed1f14d77470e31c2f14665a12542a70a2a98
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444439"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512303"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Tutorial: Use uma identidade gerida para ligar o Key Vault a uma aplicação web Azure em .NET
 
 [Azure Key Vault](./overview.md) fornece uma forma de armazenar credenciais e outros segredos com segurança aumentada. Mas o seu código precisa de autenticar no Cofre de Chaves para os recuperar. [Identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md) ajudam a resolver este problema, dando aos serviços Azure uma identidade gerida automaticamente no Azure Ative Directory (Azure AD). Pode utilizar esta identidade para autenticar qualquer serviço que suporte a autenticação AZure AD, incluindo o Key Vault, sem ter de apresentar credenciais no seu código.
 
-Neste tutorial, você usará uma identidade gerida para autenticar uma aplicação web Azure com um cofre de chaves Azure. Você usará a biblioteca cliente [Azure Key Vault 4 para .NET](/dotnet/api/overview/azure/key-vault) e [o Azure CLI](/cli/azure/get-started-with-azure-cli). Os mesmos princípios básicos aplicam-se quando utiliza a linguagem de desenvolvimento à sua escolha, Azure PowerShell, e/ou o portal Azure.
+Neste tutorial, você usará uma identidade gerida para autenticar uma aplicação web Azure com um cofre de chaves Azure. Você usará a [biblioteca secreta Azure Key Vault para .NET](/dotnet/api/overview/azure/key-vault) e o [Azure CLI](/cli/azure/get-started-with-azure-cli). Os mesmos princípios básicos aplicam-se quando utiliza a linguagem de desenvolvimento à sua escolha, Azure PowerShell, e/ou o portal Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -253,9 +253,11 @@ Também pode atribuir políticas de acesso utilizando o [portal Azure](./assign-
 
 ### <a name="modify-the-app-to-access-your-key-vault"></a>Modifique a app para aceder ao cofre da chave
 
+Neste tutorial, você usará a biblioteca secreta do [Azure Key Vault](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.secrets-readme) para fins de demonstração. Também pode utilizar [a biblioteca de clientes de certificados Azure Key Vault,](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.certificates-readme)ou [biblioteca de clientes chave Azure Key Vault](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.keys-readme).
+
 #### <a name="install-the-packages"></a>Instalar as embalagens
 
-A partir da janela do terminal, instale a biblioteca cliente Azure Key Vault para pacotes .NET:
+A partir da janela do terminal, instale a biblioteca secreta do Azure Key Vault para pacotes de biblioteca de clientes .NET e Azure Identity:
 
 ```console
 dotnet add package Azure.Identity
@@ -318,12 +320,11 @@ git push azure master
 http://<your-webapp-name>.azurewebsites.net
 ```
 
-Onde antes de ver "Olá Mundo!", deve agora ver o valor do seu segredo exibido: "Sucesso!"
+Onde antes de ver "Olá Mundo!", deve agora ver o valor do seu segredo exibido.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Utilize o Cofre de Chaves Azure com aplicações implantadas numa máquina virtual em .NET](./tutorial-net-virtual-machine.md)
 - Saiba mais sobre [identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md)
-- Saiba mais sobre [identidades geridas para o Serviço de Aplicações](../../app-service/overview-managed-identity.md?tabs=dotnet)
 - Ver o [Guia do Desenvolvedor](./developers-guide.md)
 - [Acesso seguro a um cofre de chaves](./secure-your-key-vault.md)

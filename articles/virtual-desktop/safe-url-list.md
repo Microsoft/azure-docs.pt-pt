@@ -1,21 +1,21 @@
 ---
-title: Lista de URL seguro do Windows Virtual Desktop - Azure
+title: Windows Virtual Desktop lista de URL necessária - Azure
 description: Uma lista de URLs que deve desbloquear para garantir que a sua implementação virtual do Windows funciona como pretendido.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 12/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3d19a60fd6a22eb9245722c6ff69d3b39c05d29e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 6b3fdc18a04dadf4bf1cf380c7bb51d21f826633
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023178"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512346"
 ---
-# <a name="safe-url-list"></a>Lista de URLs seguros
+# <a name="required-url-list"></a>Lista de URL necessária
 
-Terá de desbloquear certos URLs para que a sua implementação virtual do Windows desktop funcione corretamente. Este artigo lista estes URLs para que saiba quais são seguros.
+Para implementar e utilizar o Windows Virtual Desktop, tem de desbloquear certos URLs para que as suas máquinas virtuais (VMs) possam aceder a esses ambientes a qualquer momento. Este artigo lista os URLs necessários para desbloquear.
 
 ## <a name="virtual-machines"></a>Máquinas virtuais
 
@@ -53,7 +53,7 @@ As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ter ac
 |*.servicebus.usgovcloudapi.net|443|Tráfego de agentes|AzureCloud|
 |*xt.table.core.usgovcloudapi.net|443|Tráfego de agentes|AzureCloud|
 |Kms.core.usgovcloudapi.net|1688|Ativação do Windows|Internet|
-|mrsglobalstugviffx.core.usgovcloudapi.net|443|Atualizações da pilha de agente e SXS|AzureCloud|
+|mrsglobalstugviffx.blob.core.usgovcloudapi.net|443|Atualizações da pilha de agente e SXS|AzureCloud|
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Suporte ao portal Azure|AzureCloud|
 | 169.254.169.254 | 80 | [Ponto final do serviço de metadados Azure Instance](../virtual-machines/windows/instance-metadata-service.md) | N/D |
 | 168.63.129.16 | 80 | [Monitorização de sessão de saúde anfitrião](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/D |
@@ -68,10 +68,14 @@ A tabela que se segue lista URLs opcionais aos que as suas máquinas virtuais Az
 |*.prod.do.dsp.mp.microsoft.com|443|Windows Update|Nenhum|
 |login.windows.net|443|Iniciar sôms nos Serviços Online da Microsoft, Microsoft 365|login.microsoftonline.us|
 |*.sfx.ms|443|Atualizações para software de cliente OneDrive|oneclient.sfx.ms|
-|*.digicert.com|443|Verificação de revogação do certificado|Nenhum|
+|*.digicert.com|443|Verificação de revogação de certificados|Nenhum|
+|*.azure-dns.com|443|Resolução do Azure DNS|Nenhum|
+|*.azure-dns.net|443|Resolução do Azure DNS|Nenhum|
 
 >[!NOTE]
 >O Windows Virtual Desktop não tem atualmente uma lista de intervalos de endereços IP que possa desbloquear para permitir o tráfego de rede. Só apoiamos o desbloqueio de URLs específicos neste momento.
+>
+>Se estiver a utilizar um Firewall de Próxima Geração (NGFW), terá de utilizar uma lista dinâmica especificamente feita para iPs Azure para se certificar de que pode ligar-se.
 >
 >Para obter uma lista de URLs seguros relacionados com o Office, incluindo urls relacionados com o Azure Ative Directory, consulte [os intervalos de URLs e endereços IP do Office 365](/office365/enterprise/urls-and-ip-address-ranges).
 >

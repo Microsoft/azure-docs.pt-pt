@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: a68501bd1189993b4dd0c2acdecaa7434fa51dcc
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d2446e866c0e12d50a0759373682f4f62bc4bba0
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488039"
+ms.locfileid: "96512227"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor Logs Clusters Dedicados
 
-Azure Monitor Logs Clusters dedicados são uma opção de implementação que permite capacidade avançada para os clientes do Azure Monitor Logs. Os clientes com clusters dedicados podem escolher os espaços de trabalho a serem hospedados nestes clusters.
+Azure Monitor Logs Clusters dedicados são uma opção de implementação que permite capacidades avançadas para os clientes do Azure Monitor Logs. Os clientes com clusters dedicados podem escolher os espaços de trabalho a serem hospedados nestes clusters.
 
 As capacidades que requerem agrupamentos dedicados são:
 
@@ -52,7 +52,7 @@ Existem dois modos de faturação para uso num cluster. Estes podem ser especifi
 
 2. **Espaços de trabalho**: os custos de reserva de capacidade para o seu Cluster são atribuídos proporcionalmente aos espaços de trabalho no Cluster (após contabilização das dotações por nó do Centro de [Segurança Azure](../../security-center/index.yml) para cada espaço de trabalho.)
 
-Note que se o seu espaço de trabalho estiver a utilizar o nível de preços por nó, quando estiver ligado a um cluster, será faturado com base em dados ingeridos contra a Reserva de Capacidade do cluster, e não mais por nó. As alocações de dados por nó do Centro de Segurança Azure continuarão a ser aplicadas.
+Se o seu espaço de trabalho estiver a utilizar o nível de preços por nó, quando estiver ligado a um cluster, será faturado com base em dados ingeridos contra a Reserva de Capacidade do cluster, e não mais por nó. As alocações de dados por nó do Centro de Segurança Azure continuarão a ser aplicadas.
 
 Mais detalhes são faturação para clusters dedicados Log Analytics estão disponíveis [aqui.]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters)
 
