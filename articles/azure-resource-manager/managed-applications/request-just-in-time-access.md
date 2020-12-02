@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: evanhi
-ms.openlocfilehash: 5e1a929924e2c291e0044da99f3ae5d7d1c3b894
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f839eb04e0c036b5059e35fac16d9c702646cbd7
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371575"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435693"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Ativar e solicitar acesso just-in-time para aplicações geridas azure
 
@@ -72,7 +72,7 @@ Ao criar a sua oferta no Partner Center, certifique-se de que ativa o acesso ao 
 
 1. Inscreva-se no portal do Mercado Comercial no [Centro de Parceiros.](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)
 
-1. Para orientar a criação de uma nova aplicação gerida, siga os passos na [Oferta de Aplicação Azure.](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)
+1. Para orientar a criação de uma nova aplicação gerida, siga os passos na [Oferta de Aplicação Azure.](../../marketplace/create-new-azure-apps-offer.md)
 
 1. Na página **de configuração técnica,** selecione a caixa **de verificação de acesso Enable just-in-time (JIT).**
 
@@ -88,7 +88,7 @@ Para enviar um pedido de acesso JIT:
 
 1. Selecione **JIT Access** para a aplicação gerida a que necessita aceder.
 
-1. Selecione **Funções Elegíveis**e selecione **Ative** na coluna ACTION para a função desejada.
+1. Selecione **Funções Elegíveis** e selecione **Ative** na coluna ACTION para a função desejada.
 
    ![Ativar pedido de acesso](./media/request-just-in-time-access/send-request.png)
 

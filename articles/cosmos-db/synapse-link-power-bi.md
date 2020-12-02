@@ -1,24 +1,27 @@
 ---
 title: Power BI e piscina SQL sem servidor para analisar dados DB do Azure Cosmos com Synapse Link
-description: Aprenda a construir uma base de dados sem servidor sinapse SQL e vistas sobre a Synapse Link para Azure Cosmos DB, consultar os contentores DB do Azure Cosmos e, em seguida, construir um modelo com Power BI sobre essas vistas.
+description: Aprenda a construir uma base de dados de piscinas SQL sem servidor e vistas sobre a Synapse Link para Azure Cosmos DB, consultar os contentores DB do Azure Cosmos e, em seguida, construir um modelo com Power BI sobre essas vistas.
 author: ArnoMicrosoft
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: 55a73ada39f4f48aeb22c5482bd85d1092d54c35
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 959070ca431c3397779a2a22c16f03b3adebbb35
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342254"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444504"
 ---
-# <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Use power BI e serverless Synapse SQL pool para analisar os dados DB do Azure Cosmos com Synapse Link (pré-visualização) 
+# <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Use power BI e serverless Synapse SQL pool (pré-visualização) para analisar dados DB do Azure Cosmos com Synapse Link 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Neste artigo, você aprende a construir uma base de dados de piscinas SQL sem servidor e vistas sobre Synapse Link para Azure Cosmos DB. Você vai consultar os recipientes DB Azure Cosmos e, em seguida, construir um modelo com Power BI sobre essas vistas para refletir essa consulta.
 
 Neste cenário, utilizará dados falsos sobre as vendas de produtos Surface numa loja de retalho parceira. Irá analisar as receitas por loja com base na proximidade com as grandes famílias e no impacto da publicidade para uma semana específica. Neste artigo, cria **duas vistas chamadas RetailSales** e **StoreDemographics** e uma consulta entre eles. Pode obter os dados do produto da amostra deste [repo GitHub.](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData)
+
+> [!IMPORTANT]
+> O suporte para a piscina sql sem servidor sinaapse para Azure Synapse Link para Azure Cosmos DB está atualmente em pré-visualização. Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -55,7 +58,7 @@ Create database RetailCosmosDB
 
 Em seguida, crie múltiplas vistas em diferentes recipientes Synapse Link habilitados Azure Cosmos. As vistas permitir-lhe-ão utilizar o T-SQL para se juntar e consultar dados do Azure Cosmos DB sentados em diferentes contentores.  Certifique-se de selecionar a base **de dados RetailCosmosDB** ao criar as vistas.
 
-Os seguintes scripts mostram como criar vistas em cada recipiente. Para simplificar, vamos utilizar a [função automática](analytical-store-introduction.md#analytical-schema) de inferência de esquemas do Sinaapse SQL sem servidor sobre os recipientes ativados synapse Link:
+Os seguintes scripts mostram como criar vistas em cada recipiente. Para simplificar, vamos utilizar a [função automática](analytical-store-introduction.md#analytical-schema) de inferência de esquema da piscina SQL sem servidor sobre os recipientes ativados synapse Link:
 
 
 ### <a name="retailsales-view"></a>Vista RetailSales:

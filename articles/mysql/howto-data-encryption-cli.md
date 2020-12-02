@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 07d2e9fa98c24695a119c651539d4003ecd8524a
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: ac87e8394eaa609f7c57eaf9d83fe11a2bdb04f6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242097"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435829"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Encriptação de dados para Azure Database para MySQL utilizando o Azure CLI
 
@@ -35,7 +35,7 @@ Saiba como utilizar o CLI Azure para configurar e gerir a encriptação de dados
 
 * Para utilizar um cofre-chave existente, deve ter as seguintes propriedades para utilizar como chave gerida pelo cliente:
 
-  * [Excluir suave](../key-vault/general/soft-delete-overview.md)
+  * [Eliminação recuperável](../key-vault/general/soft-delete-overview.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
@@ -46,11 +46,22 @@ Saiba como utilizar o CLI Azure para configurar e gerir a encriptação de dados
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
+  * Dias de retenção definidos para 90 dias
+  ```azurecli-interactive
+    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
+    ```
 
 * A chave deve ter os seguintes atributos para usar como chave gerida pelo cliente:
   * Sem data de validade
   * Não incapacitado
   * Executar **obter,** **embrulhar,** **desembrulhar** operações
+  * atributo de nível de recuperação definido para **Recuperável**.
+
+Pode verificar os atributos acima da chave utilizando o seguinte comando:
+
+```azurecli-interactive
+az keyvault key show --vault-name <key_vault_name> -n <key_name>
+```
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Definir as permissões certas para operações chave
 
@@ -68,7 +79,7 @@ Saiba como utilizar o CLI Azure para configurar e gerir a encriptação de dados
    az mysql server update --name  <server name>  -g <resource_group> --assign-identity
    ```
 
-2. Descreva as **permissões chave** **(Obter,** **Embrulhar,** **Desembrulhar)** para o **principal** , que é o nome do servidor MySQL.
+2. Descreva as **permissões chave** **(Obter,** **Embrulhar,** **Desembrulhar)** para o **principal**, que é o nome do servidor MySQL.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>

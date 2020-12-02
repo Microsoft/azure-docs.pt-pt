@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: negoe
-ms.reviewer: negoe,celested
+ms.reviewer: marsma, negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: d27498748f03fb101d165351ec80c77d57f78f1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da1ea6462d22242d23629bcec192d7760314dfed
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88141504"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444804"
 ---
 # <a name="national-clouds"></a>Clouds nacionais
 
@@ -60,8 +60,8 @@ A tabela que se segue lista os URLs de base para os pontos finais Azure AD utili
 
 Pode formar pedidos para a autorização AD do Azure ou pontos finais simbólicos utilizando o URL de base específico da região apropriado. Por exemplo, para a Azure Alemanha:
 
-  - O ponto final comum de autorização é `https://login.microsoftonline.de/common/oauth2/v2.0/authorize` .
-  - O ponto final comum simbólico é `https://login.microsoftonline.de/common/oauth2/v2.0/token` .
+- O ponto final comum de autorização é `https://login.microsoftonline.de/common/oauth2/v2.0/authorize` .
+- O ponto final comum simbólico é `https://login.microsoftonline.de/common/oauth2/v2.0/token` .
 
 Para aplicações de inquilino único, substitua o "comum" nos URLs anteriores com o seu ID ou nome do seu inquilino. Um exemplo é `https://login.microsoftonline.de/contoso.com`.
 
@@ -76,9 +76,10 @@ Para aprender a construir uma aplicação utilizando a plataforma de identidade 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre:
+Saiba como utilizar a Biblioteca de Autenticação da [Microsoft (MSAL) num ambiente nacional em nuvem](msal-national-cloud.md).
+
+Documentação nacional em nuvem:
 
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
 - [Azure Alemanha](../../germany/index.yml)
-- [Básicos de autenticação AD AZure](./authentication-vs-authorization.md)

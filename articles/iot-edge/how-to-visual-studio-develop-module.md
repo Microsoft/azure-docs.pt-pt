@@ -8,12 +8,12 @@ ms.author: kgremban
 ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 1883ffdff20bbbef8efec1440854f01a21a281dc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2ae6d46198d979f91de5bf31d389f75961b4ab88
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994524"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437172"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use o Visual Studio 2019 para desenvolver e depurar módulos para Azure IoT Edge
 
@@ -32,7 +32,7 @@ Este artigo mostra-lhe como usar as Ferramentas de Borda Azure IoT para o Visual
 
 Este artigo pressupõe que utilize um computador ou máquina virtual que executa o Windows como máquina de desenvolvimento. Nos computadores Windows, pode desenvolver módulos Windows ou Linux. Para desenvolver módulos Windows, utilize um computador Windows que executa a versão 1809/build 17763 ou mais recente. Para desenvolver módulos Linux, utilize um computador Windows que satisfaça os [requisitos para o Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
-Como este artigo utiliza o Visual Studio 2019 como a principal ferramenta de desenvolvimento, instale o Visual Studio. Certifique-se de que inclui o desenvolvimento do **Azure** e o desenvolvimento do Desktop com cargas de trabalho **C++** na sua instalação Visual Studio 2019. Pode [modificar o Visual Studio 2019](/visualstudio/install/modify-visual-studio?view=vs-2019) para adicionar as cargas de trabalho necessárias.
+Como este artigo utiliza o Visual Studio 2019 como a principal ferramenta de desenvolvimento, instale o Visual Studio. Certifique-se de que inclui o desenvolvimento do **Azure** e o desenvolvimento do Desktop com cargas de trabalho **C++** na sua instalação Visual Studio 2019. Pode [modificar o Visual Studio 2019](/visualstudio/install/modify-visual-studio?view=vs-2019&preserve-view=true) para adicionar as cargas de trabalho necessárias.
 
 Depois de o seu Visual Studio 2019 estar pronto, também precisa das seguintes ferramentas e componentes:
 

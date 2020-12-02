@@ -2,13 +2,13 @@
 title: Fornecedores de recursos por serviços Azure
 description: Lista todos os espaços de nome do fornecedor de recursos para O Gestor de Recursos Azure e mostra o serviço Azure para esse espaço de nome.
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.openlocfilehash: 7c8e535978bff38146caee1a3b5177d5befaa6a1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 11/30/2020
+ms.openlocfilehash: fffac8fef8742cf1f151de06ba6b528035a6668d
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185866"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436832"
 ---
 # <a name="resource-providers-for-azure-services"></a>Resource providers for Azure services (Fornecedor de recursos para serviços do Azure)
 
@@ -20,7 +20,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | --------------------------- | ------------- |
 | Microsoft.AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
 | Microsoft.Addons | núcleo |
-| Microsoft.ADHybridHealthService<sup>1</sup> | [Azure Active Directory](../../active-directory/index.yml) |
+| Microsoft.ADHybridHealthService - [registado](#registration) | [Azure Active Directory](../../active-directory/index.yml) |
 | Microsoft.Advisor | [Assistente do Azure](../../advisor/index.yml) |
 | Microsoft.AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.AnalysisServices | [Azure Analysis Services](../../analysis-services/index.yml) |
@@ -28,7 +28,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.AppConfiguration | [Configuração da Aplicação Azure](../../azure-app-configuration/index.yml) |
 | Microsoft.AppPlatform | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft.Attestation | Serviço Azure Attestation |
-| Microsoft.Autorização<sup>1</sup> | [Azure Resource Manager](../index.yml) |
+| Microsoft.Authorization - [registado](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [Automatização](../../automation/index.yml) |
 | Microsoft.AutonomousSystems | [Sistemas Autónomos](https://www.microsoft.com/ai/autonomous-systems) |
 | Microsoft.AVS | [Solução VMware no Azure](../../azure-vmware/index.yml) |
@@ -37,7 +37,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.AzureStack | núcleo |
 | Microsoft.AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
-| Microsoft.Billing<sup>1</sup> | [Cost Management e Faturação](/azure/billing/) |
+| Microsoft.Billing - [registado](#registration) | [Cost Management e Faturação](/azure/billing/) |
 | Microsoft.BingMaps | [Mapas Bing](/BingMaps/#pivot=main&panel=BingMapsAPI) |
 | Microsoft.Blockchain | [Azure Blockchain Service](../../blockchain/workbench/index.yml) |
 | Microsoft.BlockchainTokens | [Azure Blockchain Tokens](https://azure.microsoft.com/services/blockchain-tokens/) |
@@ -52,15 +52,15 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.ClassicInfrastructureMigrate | Migração de modelo de implantação clássica |
 | Microsoft.ClassicNetwork | Rede virtual de modelo de implementação clássica |
 | Microsoft.ClassicStorage | Armazenamento clássico de modelo de implementação |
-| Microsoft.ClassicSubscription<sup>1</sup> | Modelo de implementação clássica |
+| Microsoft.ClassicSubscription - [registado](#registration) | Modelo de implementação clássica |
 | Microsoft.CognitiveServices | [Serviços Cognitivos](../../cognitive-services/index.yml) |
-| Microsoft.Commerce<sup>1</sup> | núcleo |
+| Microsoft.Commerce - [registado](#registration) | núcleo |
 | Microsoft.Compute | [Máquinas Virtuais](../../virtual-machines/index.yml)<br />[Conjuntos de Dimensionamento de Máquinas Virtuais](../../virtual-machine-scale-sets/index.yml) |
-| Microsoft.Consumption<sup>1</sup> | [Cost Management](/azure/cost-management/) |
+| Microsoft.Consumption - [registado](#registration) | [Cost Management](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Container Instances](../../container-instances/index.yml) |
 | Microsoft.ContainerRegistry | [Container Registry](../../container-registry/index.yml) |
 | Microsoft.ContainerService | [Azure Kubernetes Service (AKS)](../../aks/index.yml) |
-| Microsoft.CostManagement<sup>1</sup> | [Cost Management](/azure/cost-management/) |
+| Microsoft.CostManagement - [registado](#registration) | [Cost Management](/azure/cost-management/) |
 | Microsoft.CostManagementExports | [Cost Management](/azure/cost-management/) |
 | Microsoft.CustomerLockbox | [Sistema de Proteção de Dados do Cliente para o Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) |
 | Microsoft.CustomProviders | [Fornecedores Personalizados do Azure](../custom-providers/overview.md) |
@@ -90,7 +90,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.EnterpriseKnowledgeGraph | Gráfico de conhecimento da empresa |
 | Microsoft.EventGrid | [Event Grid](../../event-grid/index.yml) |
 | Microsoft.EventHub | [Hubs de Eventos](../../event-hubs/index.yml) |
-| Microsoft.Features<sup>1</sup> | [Azure Resource Manager](../index.yml) |
+| Microsoft.Features - [registado](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.GuestConfiguration | [Azure Policy](../../governance/policy/index.yml) |
 | Microsoft.HanaOnAzure | [SAP HANA nas Instâncias Grandes do Azure](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
 | Microsoft.HardwareSecurityModules | [Azure Dedicated HSM](../../dedicated-hsm/index.yml) |
@@ -120,7 +120,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.Maps | [Azure Maps](../../azure-maps/index.yml) |
 | Microsoft.Marketplace | núcleo |
 | Microsoft.MarketplaceApps | núcleo |
-| Microsoft.MarketplaceOrdering<sup>1</sup> | núcleo |
+| Microsoft.MarketplaceOrdering - [registado](#registration) | núcleo |
 | Microsoft.Media | [Serviços de Multimédia](../../media-services/index.yml) |
 | Microsoft.Microservices4Spring | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
@@ -135,7 +135,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.Peering | [Azure Peering Service](../../peering-service/index.yml) |
 | Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft.Portal<sup>1</sup> | [Portal do Azure](../../azure-portal/index.yml) |
+| Microsoft.Portal - [registado](#registration) | [Portal do Azure](../../azure-portal/index.yml) |
 | Microsoft.PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft.PowerPlatform | [Power Platform](/power-platform/) |
@@ -144,15 +144,15 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.RecoveryServices | [Azure Site Recovery](../../site-recovery/index.yml) |
 | Microsoft.RedHatopenShift | [Azure Red Hat OpenShift](../../virtual-machines/linux/openshift-get-started.md) |
 | Microsoft.Relay | [Reencaminhamento do Azure](../../azure-relay/relay-what-is-it.md) |
-| Microsoft.ResourceGraph<sup>1</sup> | [Azure Resource Graph](../../governance/resource-graph/index.yml) |
+| Microsoft.ResourceGraph - [registado](#registration) | [Azure Resource Graph](../../governance/resource-graph/index.yml) |
 | Microsoft.ResourceHealth | [Azure Service Health](../../service-health/index.yml) |
-| Microsoft.Resources<sup>1</sup> | [Azure Resource Manager](../index.yml) |
+| Microsoft.Resources - [registado](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.SaaS | núcleo |
 | Microsoft.Scheduler | [Scheduler](../../scheduler/index.yml) |
 | Microsoft.Search | [Azure Cognitive Search](../../search/index.yml) |
 | Microsoft.Security | [Centro de Segurança](../../security-center/index.yml) |
 | Microsoft.SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
-| Microsoft.SerialConsole<sup>1</sup> | [Consola em série Azure para Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
+| Microsoft.SerialConsole - [registado](#registration) | [Consola em série Azure para Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |
 | Microsoft.ServiceFabricMesh | [Service Fabric Mesh](../../service-fabric-mesh/index.yml) |
@@ -168,7 +168,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.StorSimple | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
 | Microsoft.Subscrição | núcleo |
-| microsoft.support<sup>1</sup> | núcleo |
+| microsoft.support - [registrado](#registration) | núcleo |
 | Microsoft.Synapse | [Azure Synapse Analytics](/azure/sql-data-warehouse/) |
 | Microsoft.TimeSeriesInsights | [Azure Time Series Insights](../../time-series-insights/index.yml) |
 | Microsoft.Token | Token |
@@ -181,9 +181,14 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.WindowsDefenderATP | [Proteção Avançada Contra Ameaças do Microsoft Defender](../../security-center/security-center-wdatp.md) |
 | Microsoft.WindowsESU | Atualizações de segurança alargadas |
 | Microsoft.WindowsIoT | [Windows 10 IoT Core Services](/windows-hardware/manufacture/iot/iotcoreservicesoverview) |
-| Microsoft.WorkloadMonitor<sup>1</sup> | [Azure Monitor](../../azure-monitor/index.yml) |
+| Microsoft.WorkloadMonitor | [Azure Monitor](../../azure-monitor/index.yml) |
 
-<sup>1</sup> Registado por predefinição
+## <a name="registration"></a>Registo
+
+Os fornecedores de recursos acima com os que estão marcados **- registados** são registados por padrão para a sua subscrição. Para utilizar os outros fornecedores de recursos, tem de [os registar](resource-providers-and-types.md). No entanto, muitos fornecedores de recursos estão registados para si quando toma determinadas ações. Por exemplo, se criar um recurso através do portal, o portal regista automaticamente quaisquer fornecedores de recursos não registados que sejam necessários. Ao utilizar recursos através de um [modelo de Gestor de Recursos Azure,](../templates/overview.md)todos os fornecedores de recursos necessários também estão registados.
+
+> [!IMPORTANT]
+> Só registe um fornecedor de recursos quando estiver pronto para o utilizar. O passo de registo permite-lhe manter os privilégios mínimos dentro da sua subscrição. Um utilizador malicioso não pode usar fornecedores de recursos que não estejam registados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 351a9742e9d839a8e217fdea35cad922acc3339f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ede4e5dd781851c781407a8acea640e3e501f259
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095677"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436390"
 ---
 # <a name="handling-review-feedback-for-azure-application-offers"></a>Lidar com comentários de revisão para ofertas de aplicações da Azure
 
@@ -39,7 +39,7 @@ Utilize o seguinte procedimento para rever as questões documentadas no pedido d
     [![Puxe a página inicial do pedido](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Clique nesta imagem para expandir.*
 
-1. (Opcional) No lado direito da janela, na secção **Políticas,** selecione a mensagem de assunto (neste exemplo: **Validação de Políticas falhou** ) para investigar os detalhes de baixo nível do problema, incluindo os ficheiros de registo associados. Os erros são normalmente apresentados na parte inferior dos ficheiros de registo.
+1. (Opcional) No lado direito da janela, na secção **Políticas,** selecione a mensagem de assunto (neste exemplo: **Validação de Políticas falhou**) para investigar os detalhes de baixo nível do problema, incluindo os ficheiros de registo associados. Os erros são normalmente apresentados na parte inferior dos ficheiros de registo.
 
 1. No menu do lado esquerdo da página inicial, selecione **Ficheiros** para exibir os ficheiros da lista que compõem os ativos técnicos desta oferta. Os revisores da Microsoft deveriam ter adicionado comentários descrevendo os problemas críticos descobertos. No exemplo seguinte, foram descobertas duas questões.
 
@@ -57,4 +57,4 @@ Utilize o seguinte procedimento para rever as questões documentadas no pedido d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de corrigir as questões críticas documentadas nas relações públicas de revisão, deve [republicar a sua oferta de aplicações Azure](./create-new-azure-apps-offer.md#publish).
+Depois de corrigir as questões críticas documentadas nas relações públicas de revisão, deve [republicar a sua oferta de aplicações Azure](../create-new-azure-apps-offer.md).

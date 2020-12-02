@@ -3,15 +3,15 @@ title: Adicione um utilizador como criador de laboratório nos Serviços Azure L
 description: Este artigo mostra como adicionar um utilizador ao papel de Criador de Laboratório para uma conta de laboratório nos Serviços do Laboratório Azure. Os criadores do laboratório podem criar laboratórios dentro desta conta de laboratório.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5fdeb33dab60a2fb9f1680295c355e2c7c0e775a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6c89483744f943926f126701d28988358627a27
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399487"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435965"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Adicione criadores de laboratório a uma conta de laboratório nos Serviços do Laboratório Azure
-Este artigo mostra-lhe como adicionar utilizadores como criadores de laboratório a uma conta de laboratório nos Serviços Azure Lab. Estas utilizações podem então criar laboratórios de sala de aula na conta do laboratório. 
+Este artigo mostra-lhe como adicionar utilizadores como criadores de laboratório a uma conta de laboratório nos Serviços Azure Lab. Estas utilizações podem então criar laboratórios na conta do laboratório. 
 
 ## <a name="add-microsoft-user-account-to-lab-creator-role"></a>Adicione a conta de utilizador da Microsoft à função De Criador de Laboratório
 Para configurar um laboratório de sala de aula numa conta de laboratório, o utilizador tem de ser membro da função **Criador de Laboratório** na conta de laboratório. A conta que utilizou para criar a conta de laboratório é adicionada automaticamente a esta função. Se estiver a planear utilizar a mesma conta de utilizador para criar um laboratório de sala de aula, pode ignorar este passo. Para utilizar outra conta de utilizador para criar um laboratório de sala de aula, siga os passos abaixo: 
@@ -66,4 +66,4 @@ Consulte os seguintes artigos:
 - [Como dono de laboratório, crie e gere laboratórios](how-to-manage-classroom-labs.md)
 - [Como dono de laboratório, crie e publique modelos](how-to-create-manage-template.md)
 - [Como dono de laboratório, configurar e controlar o uso de um laboratório](how-to-configure-student-usage.md)
-- [Como utilizador de laboratório, aceda aos laboratórios de sala de aula](how-to-use-classroom-lab.md)
+- [Como utilizador de laboratório, aceder a laboratórios](how-to-use-classroom-lab.md)

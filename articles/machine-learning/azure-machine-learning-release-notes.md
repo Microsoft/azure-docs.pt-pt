@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 53a30f92adaf25d87897e98834cda2d5f92b874c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 03825e0f091df01b98355dd6789eb5c9cb2897b0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012276"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444532"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -43,7 +43,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
     + Documentação melhorada `OutputDatasetConfig.register_on_complete` para incluir o comportamento do que vai acontecer quando o nome já existir.
     + Especificar a entrada de conjuntos de dados e os nomes de saída que têm o potencial de colidir com variáveis ambientais comuns resultará agora num aviso
     + Parâmetro reutilizado `grant_workspace_access` ao registar datastores. Desa cosdem-no `True` para aceder a dados por trás da rede virtual do Machine Learning Studio.
-      [Saiba mais](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+      [Saiba mais](./how-to-enable-studio-virtual-network.md)
     + O serviço ligado API é refinado. Em vez de fornecer id de recursos, temos 3 parâmetros separados sub_id, rg e nome definidos na configuração.
     + De forma a permitir que os clientes se auto-resolvam problemas de corrupção, permitir que a sincronização do espaço de trabalho seja um método público.
     + Esta alteração permite que uma corda vazia seja usada como um valor para um script_param
@@ -109,8 +109,8 @@ Saiba mais sobre [a rotulagem de segmentação de casos de imagem.](how-to-label
 
 ### <a name="azure-machine-learning-studio-notebooks-experience-october-update"></a>Experiência de cadernos do estúdio de aprendizagem de máquinas Azure (atualização de outubro)
 + **Novas funcionalidades**
-  + [Suporte total da rede virtual](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
-  + [Modo de Foco](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#focus-mode)
+  + [Suporte total da rede virtual](./how-to-enable-studio-virtual-network.md)
+  + [Modo de Foco](./how-to-run-jupyter-notebooks.md#focus-mode)
   + Guardar cadernos Ctrl-S
   + Números de linha
 

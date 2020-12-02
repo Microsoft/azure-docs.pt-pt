@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: e29aeb7570ad6daba9d6fc652291471fa246bf0a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: b75964f8cfc41efc35858284dbffded3aa406eb6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674623"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436067"
 ---
 # <a name="marketplace-metered-billing-apis"></a>APIs de faturação medido no mercado
 
@@ -20,7 +20,7 @@ As APIs de faturação medido devem ser utilizadas quando a editora cria dimens�
 
 Para obter mais informações sobre a criação de dimensões de medição personalizadas para o SaaS, consulte [a faturação com contador saaS.](saas-metered-billing.md)
 
-Para obter mais informações sobre a criação de dimensões de medição personalizadas para uma oferta de aplicação Azure com um plano de aplicações gerido, consulte a [secção de configuração técnica da criação de uma nova oferta de Apps Azure).](create-new-azure-apps-offer.md#technical-configuration)
+Para obter mais informações sobre a criação de dimensões de medição personalizadas para uma oferta de aplicação Azure com um plano de aplicações gerido, consulte [configurar os detalhes de configuração da sua aplicação Azure.](../create-new-azure-apps-offer.md#configure-your-azure-application-offer-setup-details)
 
 ## <a name="enforcing-tls-12-note"></a>Aplicação TLS 1.2 Nota
 

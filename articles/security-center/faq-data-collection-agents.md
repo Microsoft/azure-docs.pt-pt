@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 2ea9fdcb11bd88755c0972fa166d1d94068ce60e
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 64fa6c72e3bc37276dd108e3981bbefb5a2021a7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638819"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444520"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - Perguntas sobre recolha de dados, agentes e espaços de trabalho
 
@@ -86,9 +86,9 @@ A localização do espaço de trabalho predefinido depende da sua região de Azu
 - Para VMs na Austrália, a localização do espaço de trabalho é a Austrália
 
 
-## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Que dados são recolhidos pelo agente Log Analytics?
+## <a name="what-security-events-are-collected-by-the-log-analytics-agent"></a>Que eventos de segurança são recolhidos pelo agente Log Analytics?
 
-Para obter uma lista completa das aplicações e serviços monitorizados pelo agente, veja [o que é monitorizado pelo Azure Monitor?](../azure-monitor/monitor-reference.md#azure-services)
+Para obter uma lista completa dos eventos de segurança recolhidos pelo agente, consulte que tipos de [eventos são armazenados para as definições de eventos de segurança "Comuns" e "Mínimos"?](security-center-enable-data-collection.md#what-event-types-are-stored-for-common-and-minimal)
 
 > [!IMPORTANT]
 > Note que para alguns serviços, como o Azure Firewall, se tiver ativado o registo e escolhido um recurso chatty para registar (por exemplo, definir o log para *verbose),* poderá ver impactos significativos nas necessidades de armazenamento do seu espaço de trabalho Log Analytics. 
@@ -250,7 +250,7 @@ Se o ativou, mas agora quer desativá-lo:
 
 ## <a name="how-do-i-enable-data-collection"></a>Como posso permitir a recolha de dados?
 
-Pode ativar a recolha de dados para a sua subscrição Azure na política de Segurança. Para ativar a recolha de dados. [Inscreva-se no portal Azure](https://portal.azure.com), **selecione Browse,** selecione **Security Center** e selecione a política **de Segurança**. Selecione a subscrição que deseja para permitir o provisionamento automático. Quando seleciona uma política de segurança de subscrição - a **recolha de dados** abre. Sob **provisão automática** , selecione **On**.
+Pode ativar a recolha de dados para a sua subscrição Azure na política de Segurança. Para ativar a recolha de dados. [Inscreva-se no portal Azure](https://portal.azure.com), **selecione Browse,** selecione **Security Center** e selecione a política **de Segurança**. Selecione a subscrição que deseja para permitir o provisionamento automático. Quando seleciona uma política de segurança de subscrição - a **recolha de dados** abre. Sob **provisão automática**, selecione **On**.
 
 
 ## <a name="what-happens-when-data-collection-is-enabled"></a>O que acontece quando a recolha de dados está ativada?

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4d2300e36bd06313cf889f40f37d672d66534db6
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3279150d0cb7b287f0a78581094a51356033596c
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538398"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435744"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Quickstart: Criar uma Base de Dados Azure para servidor MariaDB utilizando o Azure CLI
 
@@ -21,9 +21,9 @@ Pode utilizar a CLI do Azure para criar e gerir recursos do Azure a partir da li
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se instalar e utilizar a CLI localmente, para este início rápido, tem de executar a versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+- Este artigo requer a versão 2.0 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 Se tiver várias subscrições, escolha a subscrição que contém o recurso ou a subscrição na qual é cobrado. Para selecionar um ID de subscrição específico na sua conta, utilize o comando [az account set](/cli/azure/account#az-account-set):
 
@@ -45,18 +45,18 @@ az group create --name myresourcegroup --location westus
 
 Crie um servidor do Azure Database for MariaDB com o comando [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create). Cada servidor pode gerir múltiplas bases de dados. Geralmente, é utilizada uma base de dados em separado para cada projeto ou para cada utilizador.
 
-Definição | Valor da amostra | Description
+Definição | Valor da amostra | Descrição
 ---|---|---
 name | **mydemoserver** | Introduza um nome exclusivo que identifique o servidor do Azure Database for MariaDB. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
 resource-group | **grupo myresource** | Introduza o nome do grupo de recursos do Azure.
-sku-name | **GP_Gen5_2** | O nome do SKU. Segue o *preço* da convenção de \_ *nível de cálculo* \_ *vCores* em abreviatura. Para obter mais informações sobre o parâmetro **sku-name** , veja a secção abaixo desta tabela.
+sku-name | **GP_Gen5_2** | O nome do SKU. Segue o *preço* da convenção de \_ *nível de cálculo* \_ *vCores* em abreviatura. Para obter mais informações sobre o parâmetro **sku-name**, veja a secção abaixo desta tabela.
 backup-retention | **7** | Quando tempo se deve reter uma cópia de segurança. A unidade é dias. Intervalo: 7 a 35. 
 geo-redundant-backup | **Desativado** | Se as cópias de segurança georredundantes devem estar ativadas para este servidor. Valores permitidos: **Ativado,** **incapacitado**.
 localização | **westus** | A localização do Azure para o servidor.
 ssl-enforcement | **Ativado** | Se SSL deve ser ativado para este servidor. Valores permitidos: **Ativado,** **incapacitado**.
 storage-size | **51200** | A capacidade de armazenamento do servidor (a unidade é megabytes). Os tamanhos de armazenamento válidos são 5120 MB (mínimo) com aumentos em incrementos de 1024 MB. Para obter mais informações sobre os limites de tamanho de armazenamento, veja [Escalões de preço](./concepts-pricing-tiers.md). 
 versão | **10.2** | A versão do motor principal de MariaDB.
-admin-user | **myadmin** | O nome de utilizador para o início de sessão do administrador. O parâmetro **admin-user** não pode ser **azure_superuser** , **admin** , **administrator** , **root** , **guest** ou **public**.
+admin-user | **myadmin** | O nome de utilizador para o início de sessão do administrador. O parâmetro **admin-user** não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
 admin-password | *sua senha* | A palavra-passe do utilizador administrador. A palavra-passe tem de conter entre 8 e 128 carateres. Tem de conter carateres das três categorias seguintes: letras em maiúsculas do inglês, letras em minúsculas do inglês, números e carateres não alfanuméricos.
 
 O valor do parâmetro sku-name segue a convenção {escalão de preço} \_ {geração de computação} \_ {vCores}, conforme os exemplos abaixo:
@@ -206,7 +206,7 @@ Para ligar ao servidor com a ferramenta de linha de comandos mysql:
 
 1. Abra o MySQL Workbench no computador cliente. Se ainda não estiver instalado, [transfira](https://dev.mysql.com/downloads/workbench/) e instale a aplicação.
 
-2. Na caixa de diálogo **Configurar Ligação Nova** , no separador **Parâmetros** , introduza as informações seguintes:
+2. Na caixa de diálogo **Configurar Ligação Nova**, no separador **Parâmetros**, introduza as informações seguintes:
 
    ![Configurar uma ligação nova](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
 
@@ -223,7 +223,7 @@ Para ligar ao servidor com a ferramenta de linha de comandos mysql:
 
 4. Selecione a ligação para ligar com êxito ao servidor.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não precisa dos recursos que utilizou neste início rápido para outro início rápido ou tutorial, pode eliminá-los ao executar o seguinte comando: 
 

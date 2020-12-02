@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: f07efcc18f3eff7e40232941befb563cd236266b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: bd9199bc73e56ec36343b30d9b24f0b48799835e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95013031"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445184"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Use um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para a aprendizagem de máquinas Azure
 
@@ -41,7 +41,7 @@ Para obter mais informações, consulte [Implementar uma aplicação com o model
 
 ## <a name="limitations"></a>Limitações
 
-* Ao criar um novo espaço de trabalho, pode permitir que o espaço de trabalho crie os serviços Azure que necessita automaticamente ou que preste serviços existentes. Ao fornecer serviços existentes, estes serviços devem estar todos na mesma subscrição do Azure que o espaço de trabalho.
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## <a name="workspace-resource-manager-template"></a>Modelo de gestor de recursos de espaço de trabalho
 
@@ -683,7 +683,7 @@ Para adicionar a rede virtual que contém outro espaço de trabalho e ponto fina
     az network private-dns link vnet create --name mylinkname --registration-enabled true --resource-group myresourcegroup --virtual-network myvirtualnetworkid --zone-name privatelink.api.azureml.ms
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Implementar recursos com modelos de Gestor de Recursos e Gestor de Recursos REST API](../azure-resource-manager/templates/deploy-rest.md).
 * [Criar e implantar grupos de recursos Azure através do Visual Studio.](../azure-resource-manager/templates/create-visual-studio-deployment-project.md)

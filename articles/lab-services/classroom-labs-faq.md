@@ -1,17 +1,17 @@
 ---
-title: Laboratórios de sala de aula em Azure Lab Services — FAQ / Microsoft Docs
-description: Este artigo fornece respostas a perguntas frequentes (FAQ) sobre laboratórios de sala de aula em Azure Lab Services.
+title: Laboratórios em Serviços de Laboratório Azure — FAQ / Microsoft Docs
+description: Este artigo fornece respostas a perguntas frequentes (FAQ) sobre laboratórios em Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ca35d70bc1106e46df4e3c68889b03679fd54b86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 757af8f30e9a71a3889d9f625c87a002af2e1302
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85443303"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437189"
 ---
-# <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratórios de sala de aula em Azure Lab Services — Perguntas frequentes (FAQ)
-Obtenha respostas para algumas das perguntas mais comuns sobre laboratórios de sala de aula em Azure Lab Services. 
+# <a name="labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratórios em Serviços de Laboratório Azure — Perguntas frequentes (FAQ)
+Obtenha respostas para algumas das perguntas mais comuns sobre laboratórios nos Serviços de Laboratório Azure. 
 
 ## <a name="quotas"></a>Quotas
 
@@ -19,23 +19,24 @@ Obtenha respostas para algumas das perguntas mais comuns sobre laboratórios de 
 A quota que definiu para um laboratório é para cada aluno durante toda a duração do laboratório. E o [tempo de funcionamento programado dos VM não](how-to-create-schedules.md) conta com a quota atribuída a um utilizador. A quota é para o tempo fora do horário horário que um aluno gasta em VMs.  Para obter mais informações sobre quotas, consulte [Definição de quotas para utilizadores.](how-to-configure-student-usage.md#set-quotas-for-users)
 
 ### <a name="if-educator-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Se a educadora liga um VM estudantil, isso afeta a quota de estudante? 
-N.º Nenhum. Quando a educadora liga o VM do aluno, não afeta a quota atribuída ao aluno. 
+Não. Nenhum. Quando a educadora liga o VM do aluno, não afeta a quota atribuída ao aluno. 
 
 ## <a name="schedules"></a>Agendas
 
 ### <a name="do-all-vms-in-the-lab-start-automatically-when-a-schedule-is-set"></a>Todos os VMs no laboratório começam automaticamente quando um horário é definido? 
-N.º Nem todos os VMs. Apenas os VMs que são atribuídos aos utilizadores num horário. Os VMs que não são atribuídos a um utilizador não são iniciados automaticamente. É por desígnio. 
+Não. Nem todos os VMs. Apenas os VMs que são atribuídos aos utilizadores num horário. Os VMs que não são atribuídos a um utilizador não são iniciados automaticamente. É por desígnio. 
 
 ## <a name="lab-accounts"></a>Contas de laboratório
 
 ### <a name="why-am-i-not-able-to-create-a-lab-because-of-unavailability-of-the-address-range"></a>Por que não posso criar um laboratório por causa da indisponibilidade do intervalo de endereços? 
-Os laboratórios de sala de aula podem criar VMs de laboratório dentro de um intervalo de endereços IP que especifique ao criar a sua conta de laboratório no portal Azure. Quando um intervalo de endereços é fornecido, cada laboratório que é criado depois de ter atribuído 512 endereços IP para VMs de laboratório. O intervalo de endereços para a conta do laboratório deve ser grande o suficiente para acomodar todos os laboratórios que pretende criar na conta do laboratório. 
+
+Os laboratórios podem criar VMs de laboratório dentro de um intervalo de endereços IP que especifique ao criar a sua conta de laboratório no portal Azure. Quando um intervalo de endereços é fornecido, cada laboratório que é criado depois de ter atribuído 512 endereços IP para VMs de laboratório. O intervalo de endereços para a conta do laboratório deve ser grande o suficiente para acomodar todos os laboratórios que pretende criar na conta do laboratório. 
 
 Por exemplo, se tiver um bloco de /19 - 10.0.0.0/19, este intervalo de endereços acomoda 8192 endereços IP e 16 laboratórios (8192/512 = 16 laboratórios). Neste caso, a criação de laboratório falha na criação do 17º laboratório.
 
 ### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Que gamas de portas devo abrir na definição de firewall da minha organização para ligar às máquinas virtuais do Laboratório via RDP/SSH?
 
-Os portos são: 49152-65535. Os laboratórios da sala de aula sentam-se atrás de um equilibrador de carga. Cada laboratório tem um único endereço IP público e cada máquina virtual no laboratório tem uma porta única. 
+Os portos são: 49152-65535. Os laboratórios sentam-se atrás de um equilibrador de carga. Cada laboratório tem um único endereço IP público e cada máquina virtual no laboratório tem uma porta única. 
 
 Também pode ver o endereço IP privado de cada máquina virtual no separador de piscina de **máquina virtual** da página inicial para laboratório no portal Azure. Se republica um laboratório, o endereço IP público do laboratório não mudará, mas o número de IP e porta privado de cada máquina virtual no laboratório pode mudar. Pode saber mais no artigo: [Firewall settings for Azure Lab Services](how-to-configure-firewall-settings.md).
 
@@ -49,7 +50,7 @@ Consulte [gamas IP Azure e Tags de Serviço — Public Cloud](https://www.micros
 Quando um administrador te adiciona como criador de laboratório a uma conta de laboratório, é-te dada a permissão para criar laboratórios. Mas não tem as permissões para editar quaisquer definições dentro da conta do laboratório, incluindo a lista de imagens de máquinas virtuais ativadas. Para ativar imagens adicionais, contacte o administrador da conta de laboratório para o fazer por si, ou peça ao administrador para o adicionar como contribuinte à conta de laboratório. A função Colaborador dará-lhe as permissões para editar a lista de imagens de máquina virtual na conta de laboratório.
 
 ### <a name="can-i-attach-additional-disks-to-a-virtual-machine"></a>Posso anexar discos adicionais a uma máquina virtual?
-N.º não é possível anexar discos adicionais a um VM num laboratório de sala de aula. 
+Não. não é possível anexar discos adicionais a um VM num laboratório de sala de aula. 
 
 ## <a name="users"></a>Utilizadores
 

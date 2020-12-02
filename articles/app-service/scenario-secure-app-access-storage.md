@@ -7,15 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: c596b0d218c0b935fa1f3e971067160e52d87af1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.custom: azureday1
+ms.openlocfilehash: 72b1d4fe864c23c0ac065e47d96ab0c78866defa
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183129"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435846"
 ---
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>Tutorial: Access Azure Storage a partir de uma aplicação web
 
@@ -27,7 +28,7 @@ Pretende adicionar acesso ao plano de dados Azure (Azure Storage, Azure SQL Data
 
 Uma identidade gerida a partir do Azure Ative Directory (Azure AD) permite ao Serviço de Aplicações aceder aos recursos através do controlo de acesso baseado em funções (RBAC), sem exigir credenciais de aplicações. Depois de atribuir uma identidade gerida à sua aplicação web, a Azure cuida da criação e distribuição de um certificado. As pessoas não têm que se preocupar em gerir segredos ou credenciais de aplicativos.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -211,6 +212,8 @@ az role assignment create --assignee $spID --role 'Storage Blob Data Contributor
 
 A classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) é usada para obter uma credencial simbólica para o seu código para autorizar pedidos para o Azure Storage. Crie uma instância da classe [DefaultAzureCredential,](/dotnet/api/azure.identity.defaultazurecredential) que utiliza a identidade gerida para ir buscar fichas e anexá-las ao cliente de serviço. O seguinte exemplo de código obtém a credencial de token autenticada e usa-a para criar um objeto de cliente de serviço, que carrega uma nova bolha.
 
+Para ver este código como parte de uma aplicação de amostra, consulte a [amostra no GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/1-WebApp-storage-managed-identity).
+
 ### <a name="install-client-library-packages"></a>Instalar pacotes de bibliotecas de clientes
 
 Instale o [pacote Blob Storage NuGet](https://www.nuget.org/packages/Azure.Storage.Blobs/) para trabalhar com o Blob Storage e a biblioteca de [clientes Azure Identity para o pacote .NET NuGet](https://www.nuget.org/packages/Azure.Identity/) para autenticar com credenciais AD AZure. Instale as bibliotecas do cliente utilizando a interface de linha de comando .NET Core ou a consola de gestores de pacotes no Estúdio Visual.
@@ -285,7 +288,7 @@ static public async Task UploadBlob(string accountName, string containerName, st
 }
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se terminou este tutorial e já não precisa da aplicação web ou dos recursos associados, [limpe os recursos que criou.](scenario-secure-app-clean-up-resources.md)
 

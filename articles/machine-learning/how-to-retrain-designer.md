@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d8ef4d9f768d6fdcf976c9317d1abec3d4533824
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d754674fe3aa65fa9fd8540b05083979ce96aff8
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554806"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437121"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer"></a>Retrain modelos com Azure Machine Learning designer
 
@@ -47,7 +47,11 @@ O oleoduto utilizado neste artigo é uma versão alterada de um pipeline de amos
 
 ## <a name="create-a-pipeline-parameter"></a>Criar um parâmetro de pipeline
 
-Crie parâmetros de gasoduto para definir dinâmicamente variáveis em tempo de execução. Para este exemplo, irá alterar o caminho dos dados de treino de um valor fixo para um parâmetro, para que possa reconverter o seu modelo em diferentes dados.
+Os parâmetros do gasoduto são utilizados para construir oleodutos versáteis que podem ser reenviados mais tarde com valores de parâmetros variados. Alguns cenários comuns são a atualização de conjuntos de dados ou alguns hiper-parâmetros para a reconversão. Crie parâmetros de gasoduto para definir dinâmicamente variáveis em tempo de execução. 
+
+Os parâmetros do gasoduto podem ser adicionados à fonte de dados ou parâmetros do módulo num oleoduto. Quando o gasoduto é reenviado, os valores destes parâmetros podem ser especificados.
+
+Para este exemplo, irá alterar o caminho dos dados de treino de um valor fixo para um parâmetro, para que possa reconverter o seu modelo em diferentes dados. Também pode adicionar outros parâmetros do módulo como parâmetros de pipeline de acordo com a sua caixa de utilização.
 
 1. Selecione o módulo **de Dados de Importação.**
 
@@ -60,31 +64,22 @@ Crie parâmetros de gasoduto para definir dinâmicamente variáveis em tempo de 
 
 1. Mouseover the **Path** field, e selecione as elipses acima do campo **Caminho** que aparecem.
 
-    ![Screenshot que mostra como criar um parâmetro de pipeline](media/how-to-retrain-designer/add-pipeline-parameter.png)
-
 1. **Selecione Adicionar ao parâmetro do gasoduto**.
 
 1. Forneça um nome de parâmetro e um valor padrão.
 
-   > [!NOTE]
-   > Pode inspecionar e editar os parâmetros do pipeline selecionando o ícone de engrenagem **De Definições** ao lado do título do projeto do seu pipeline. 
+   ![Screenshot que mostra como criar um parâmetro de pipeline](media/how-to-retrain-designer/add-pipeline-parameter.png)
 
 1. Selecione **Guardar**.
 
+   > [!NOTE]
+   > Também pode separar um parâmetro do módulo do parâmetro do pipeline no painel de detalhes do módulo, semelhante à adição de parâmetros de pipeline.
+   >
+   > Pode inspecionar e editar os parâmetros do pipeline selecionando o ícone de engrenagem **De Definições** ao lado do título do projeto do seu pipeline. 
+   >    - Depois de se separar, pode eliminar o parâmetro do gasoduto na **vidraça de definição.**
+   >    - Também pode adicionar um parâmetro de pipeline no painel **de Definições** e, em seguida, aplicá-lo em algum parâmetro do módulo.
+
 1. Submeta o curso do gasoduto.
-
-## <a name="find-a-trained-model"></a>Encontre um modelo treinado
-
-O designer guarda toda a produção do pipeline, incluindo modelos treinados, para a conta de armazenamento de espaço de trabalho predefinido. Também pode aceder a modelos treinados diretamente no designer:
-
-1. Aguarde que o oleoduto termine de funcionar.
-1. Selecione o módulo **Modelo de Comboio.**
-1. No painel de detalhes do módulo, à direita da tela, selecione **Outputs + logs**.
-1. Pode encontrar o seu modelo em **Outras saídas** juntamente com registos de execução.
-1. Em alternativa, selecione o ícone **de saída 'Ver'.** A partir daqui, pode seguir as instruções do diálogo para navegar diretamente na sua datastore. 
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot que mostra como baixar o modelo treinado](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="publish-a-training-pipeline"></a>Publicar um pipeline de formação
 

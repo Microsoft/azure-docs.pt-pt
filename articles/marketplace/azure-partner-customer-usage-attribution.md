@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 3728fdd07172f2402ddb1dc7434ddb1993b984b1
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e9e630f4199e0bfb67509f008f403c0a7a490887
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95999880"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436696"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Parceiro de mercado comercial e atribuição de uso do cliente
 
@@ -32,7 +32,7 @@ A atribuição de utilização do cliente suporta três opções de implementaç
 >
 >- A atribuição de utilização do cliente destina-se a novas implementações e NÃO suporta a marcação de recursos existentes que já foram implementados.
 >
->- A atribuição de utilização do cliente é necessária para ofertas [da Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) publicadas no Azure Marketplace.
+>- A atribuição de utilização do cliente é necessária para ofertas [da Azure Application](./create-new-azure-apps-offer.md) publicadas no Azure Marketplace.
 >
 >- Nem todos os serviços da Azure são compatíveis com a atribuição de utilização do cliente. Os Azure Kubernetes Services (AKS) e vM Scale Sets conheceram hoje problemas que causam sub-reportagem do uso.
 
@@ -64,7 +64,7 @@ Os GUIDs devem estar registados no Partner Center para permitir a atribuição d
 Depois de adicionar um GUID ao seu modelo ou ao agente do utilizador, e registar o GUID no Partner Center, as futuras implementações são rastreadas.
 
 > [!NOTE]
-> Se estiver a publicar a sua oferta [de Aplicação Azure](./partner-center-portal/create-new-azure-apps-offer.md) para o Azure Marketplace através do Partner Center, qualquer novo GUID utilizado dentro do seu modelo será automaticamente registado no perfil do Centro de Parceiros quando o modelo estiver carregado.  
+> Se estiver a publicar a sua oferta [de Aplicação Azure](./create-new-azure-apps-offer.md) para o Azure Marketplace através do Partner Center, qualquer novo GUID utilizado dentro do seu modelo será automaticamente registado no perfil do Centro de Parceiros quando o modelo estiver carregado.  
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard).
 
@@ -90,7 +90,7 @@ Muitas soluções parceiras são implementadas usando modelos de Gestor de Recur
 > [!NOTE]
 > Para obter mais informações sobre a criação e publicação de modelos de solução, consulte
 > * [Crie e implemente o seu primeiro modelo de Gestor de Recursos.](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
->* [Oferta de Aplicação Azure](./partner-center-portal/create-new-azure-apps-offer.md).
+>* [Oferta de Aplicação Azure](./create-new-azure-apps-offer.md).
 >* Vídeo: [Modelos de solução de construção e aplicações geridas para o Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 

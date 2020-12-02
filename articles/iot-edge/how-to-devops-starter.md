@@ -1,18 +1,18 @@
 ---
 title: Pipeline CI/CD com Azure DevOps Starter - Azure IoT Edge / Microsoft Docs
 description: O Azure DevOps Starter facilita o arranque do Azure. Ajuda-o a lançar uma aplicação Azure IoT Edge à sua escolha em poucos passos rápidos.
-author: shizn
+author: kgremban
 ms.author: kgremban
 ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d57c1828b9456851d37a65b88eb5f8ea860a80fe
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 97dc0fe5a3720a41dd63583c222762d832d636ea
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045861"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437002"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Criar um pipeline CI/CD para IoT Edge com Azure DevOps Starter
 
@@ -26,13 +26,13 @@ DevOps Starter cria um oleoduto CI/CD em Azure DevOps. Pode criar uma nova organ
 
 1. Inicie sessão no [portal do Microsoft Azure](https://portal.azure.com).
 
-1. No painel esquerdo, **selecione Criar um recurso**e, em seguida, procurar por **DevOps Starter**.  
+1. No painel esquerdo, **selecione Criar um recurso** e, em seguida, procurar por **DevOps Starter**.  
 
 1. Selecione **Criar**.
 
 ## <a name="create-a-new-application-pipeline"></a>Criar um novo pipeline de aplicações
 
-1. O seu módulo Azure IoT Edge pode ser escrito em [C#](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [Python,](tutorial-python-module.md) [C](tutorial-c-module.md) e [Java](tutorial-java-module.md). Selecione o seu idioma preferido para iniciar uma nova aplicação: **.NET**, **Node.js**, **Python,** **C**ou **Java**. Selecione **Seguinte** para continuar.
+1. O seu módulo Azure IoT Edge pode ser escrito em [C#](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [Python,](tutorial-python-module.md) [C](tutorial-c-module.md) e [Java](tutorial-java-module.md). Selecione o seu idioma preferido para iniciar uma nova aplicação: **.NET**, **Node.js**, **Python,** **C** ou **Java**. Selecione **Seguinte** para continuar.
 
    ![Selecione o idioma para criar uma nova aplicação](./media/how-to-devops-starter/select-language.png)
 
@@ -74,14 +74,14 @@ DevOps Starter criou um repositório Git para o seu projeto em Azure Repos. Nest
 
    ![Ver repositório gerado em Azure Repos](./media/how-to-devops-starter/view-repositories.png)
 
-> [!NOTE]
-> Os passos seguintes passam por usando o navegador web para fazer alterações de código. Se pretender clonar o seu repositório localmente, selecione **Clone** a partir da parte superior direita da janela. Utilize o URL fornecido para clonar o seu repositório Git no Código do Estúdio Visual ou na sua ferramenta de desenvolvimento preferida.
+   > [!NOTE]
+   > Os passos seguintes passam por usando o navegador web para fazer alterações de código. Se pretender clonar o seu repositório localmente, selecione **Clone** a partir da parte superior direita da janela. Utilize o URL fornecido para clonar o seu repositório Git no Código do Estúdio Visual ou na sua ferramenta de desenvolvimento preferida.
 
 2. O repositório já contém código para um módulo chamado **FilterModule** baseado no idioma de aplicação que escolheu no processo de criação. Abra os **módulos/FilterModule/module.jsno** ficheiro.
 
    ![Abra module.jsem arquivo em Azure Repos](./media/how-to-devops-starter/open-module-json.png)
 
-3. Note que este ficheiro utiliza [Azure DevOps para construir variáveis](/azure/devops/pipelines/build/variables?view=vsts#build-variables) no parâmetro da **versão.** Esta configuração garante que uma nova versão do módulo será criada sempre que uma nova construção for executado.
+3. Note que este ficheiro utiliza [Azure DevOps para construir variáveis](/azure/devops/pipelines/build/variables#build-variables) no parâmetro da **versão.** Esta configuração garante que uma nova versão do módulo será criada sempre que uma nova construção for executado.
 
 ## <a name="examine-the-cicd-pipeline"></a>Examinar o gasoduto CI/CD
 
@@ -101,7 +101,7 @@ Nas secções anteriores, o Azure DevOps Starter configurau automaticamente um p
 
    ![Editar os detalhes do pipeline](./media/how-to-devops-starter/edit-build-pipeline.png)
 
-5. **Selecione Guardar & fila**e, em seguida, selecione **Guardar**. É opcional comentar.
+5. **Selecione Guardar & fila** e, em seguida, selecione **Guardar**. É opcional comentar.
 
 6. Selecione **Triggers** do menu de gasoduto de construção. O DevOps Starter criou automaticamente um gatilho de CI, e cada compromisso com o repositório inicia uma nova construção.  Opcionalmente, pode optar por incluir ou excluir os ramos do processo de CI.
 
@@ -109,7 +109,7 @@ Nas secções anteriores, o Azure DevOps Starter configurau automaticamente um p
 
 8. Selecione **Histórico**. O painel de história contém um rasto de auditoria das recentes alterações à construção. A Azure Pipelines regista quaisquer alterações que sejam feitas ao oleoduto de construção, e permite comparar versões.
 
-9. Quando terminar de explorar o oleoduto de construção, navegue para o oleoduto de libertação correspondente. Selecione **Versões** em **Pipelines**e, em seguida, selecione **Editar** para ver os detalhes do pipeline.
+9. Quando terminar de explorar o oleoduto de construção, navegue para o oleoduto de libertação correspondente. Selecione **Versões** em **Pipelines** e, em seguida, selecione **Editar** para ver os detalhes do pipeline.
 
     ![Ver gasoduto de libertação](media/how-to-devops-starter/release-pipeline.png)
 
@@ -125,7 +125,7 @@ Nas secções anteriores, o Azure DevOps Starter configurau automaticamente um p
 
 14. Selecione o nome de um lançamento para ver mais informações sobre o mesmo.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode eliminar o Azure App Service e outros recursos relacionados que criou quando já não precisa deles. Utilize a funcionalidade **Eliminar** no painel de arranque de devOps.
 

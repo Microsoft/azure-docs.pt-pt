@@ -1,23 +1,23 @@
 ---
 title: 'Tutorial: Language Understanding Bot Node.js v4'
-description: Utilizando Node.js, construa um chat bot integrado com a compreensão da linguagem (LUIS) neste tutorial. Este chatbot utiliza a aplicação Recursos Humanos para implementar rapidamente uma solução de bot. O bot é criado com a versão 4 do Bot Framework e o bot de aplicação Web do Azure.
+description: Use este tutorial para construir um chat bot integrado com a compreensão da linguagem (LUIS). Este chatbot utiliza a aplicação Recursos Humanos para implementar rapidamente uma solução de bot.
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/23/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: d070a03a81f70cdbf2c721cc67a3bc40c5d731fc
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: dd5f97f2b1c2ad51dda3446412cd936e45c5982e
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018740"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436900"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Tutorial: Use um Bot de aplicação web ativado com compreensão de linguagem em Node.js
 
 Use Node.js para construir um chat bot integrado com a compreensão da linguagem (LUIS). O bot é construído com o recurso [bot da app](/azure/bot-service/) Azure Web e a versão Bot [Framework](https://github.com/Microsoft/botbuilder-dotnet) V4.
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 > [!div class="checklist"]
 > * Criar um bot de aplicação Web. Este processo cria uma aplicação LUIS nova.
@@ -390,7 +390,7 @@ Faça uma pergunta ao Bot para a intenção do Voo do Livro.
 
 [!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja mais [amostras](https://github.com/microsoft/botframework-solutions) com bots de conversação.
 

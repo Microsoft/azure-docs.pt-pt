@@ -7,15 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: bdd6dbf790bcf2ec97be33504e51ca3db2eb3ef7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.custom: azureday1
+ms.openlocfilehash: facc6a4ab8344f9f72fc7abc27433c18ab435504
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182993"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436543"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>Tutorial: Aceda ao Microsoft Graph a partir de uma aplicação segura como a aplicação
 
@@ -25,7 +26,7 @@ Saiba como aceder ao Microsoft Graph a partir de uma aplicação web em execuç�
 
 Pretende ligar para o Microsoft Graph para a aplicação web. Uma forma segura de dar acesso à sua aplicação web aos dados é utilizar uma [identidade gerida atribuída pelo sistema.](../active-directory/managed-identities-azure-resources/overview.md) Uma identidade gerida a partir do Azure Ative Directory permite ao Serviço de Aplicações aceder a recursos através do controlo de acesso baseado em funções (RBAC), sem exigir credenciais de aplicações. Depois de atribuir uma identidade gerida à sua aplicação web, a Azure cuida da criação e distribuição de um certificado. Não tem que se preocupar em gerir segredos ou credenciais de aplicativos.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -121,6 +122,8 @@ Em **Overview**, selecione **Permissões**, e verá as permissões adicionais pa
 
 A classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) é usada para obter uma credencial simbólica para o seu código para autorizar pedidos ao Microsoft Graph. Crie uma instância da classe [DefaultAzureCredential,](/dotnet/api/azure.identity.defaultazurecredential) que utiliza a identidade gerida para ir buscar fichas e anexá-las ao cliente de serviço. O seguinte exemplo de código obtém a credencial de token autenticada e usa-a para criar um objeto de cliente de serviço, que recebe os utilizadores do grupo.
 
+Para ver este código como parte de uma aplicação de amostra, consulte a [amostra no GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity).
+
 ### <a name="install-the-microsoftgraph-client-library-package"></a>Instale o pacote da biblioteca do cliente Microsoft.Graph
 
 Instale o [pacote Microsoft.Graph NuGet](https://www.nuget.org/packages/Microsoft.Graph) no seu projeto utilizando a interface de linha de comando .NET Core ou a consola de gestores de pacotes no Estúdio Visual.
@@ -204,7 +207,7 @@ public async Task OnGetAsync()
 }
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se terminou este tutorial e já não precisa da aplicação web ou dos recursos associados, [limpe os recursos que criou.](scenario-secure-app-clean-up-resources.md)
 

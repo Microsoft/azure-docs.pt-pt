@@ -1,5 +1,5 @@
 ---
-title: Tabela de referência para todos os alertas do Azure Defender no Centro de Segurança Azure
+title: Tabela de referência para todos os alertas de segurança no Centro de Segurança Azure
 description: Este artigo lista os alertas de segurança visíveis no painel Azure Defender do Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6d001e638b00cace1dd81d9631f498a911ca19a4
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: c5ee275fb92ff2c3787bef7868665c19fea2109c
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96014606"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436781"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança – um guia de referência
 
-Este artigo lista os alertas de segurança que poderá receber do Azure Defender. Os alertas mostrados no seu ambiente dependem dos recursos e serviços que está a proteger, bem como da sua configuração personalizada.
+Este artigo lista os alertas de segurança que poderá receber do Azure Security Center e quaisquer planos do Azure Defender que tenha ativado. Os alertas mostrados no seu ambiente dependem dos recursos e serviços que está a proteger, bem como da sua configuração personalizada.
 
 Para aprender a responder a estes alertas, consulte [Gerir e responder aos alertas de segurança no Centro de Segurança Azure.](security-center-managing-and-responding-alerts.md)
 

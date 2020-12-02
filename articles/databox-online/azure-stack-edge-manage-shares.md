@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: d7ff32b33a8eab5c6729d84d38fec2e5b2c87449
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d43b70c8f958ad37b6ac2d0ee043d5f07d11da9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777212"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444585"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro"></a>Utilize o portal Azure para gerir ações no Azure Stack Edge Pro
 
@@ -47,14 +47,14 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
     
     Os nomes das partilhas só podem conter números, letras minúsculas e hífenes. O nome da partilha tem de ter entre 3 e 63 carateres e começar com uma letra ou um número. Cada hífen tem de ser precedido e seguido de um caráter que não seja um hífen.
 
-3. Selecione um **Tipo** para a partilha. O tipo pode ser **SMB** ou **NFS**, sendo que SMB é a predefinição. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux. Dependendo se escolher a partilha SMB ou NFS, as opções apresentadas são ligeiramente diferentes.
+3. Selecione um **Tipo** para a partilha. O tipo pode ser **SMB** ou **NFS,** sendo o SMB o padrão. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux. Dependendo se escolher a partilha SMB ou NFS, as opções apresentadas são ligeiramente diferentes.
 
 4. Forneça uma **Conta de armazenamento** onde reside a partilha. É criado um contentor na conta de armazenamento com o nome da partilha, se o contentor ainda não existir. Se o contentor já existir, é utilizado o contentor existente.
 
 5. Na lista de dropdown, escolha o **serviço de Armazenamento** a partir de blob de bloco, blob de página ou ficheiros. O tipo de serviço escolhido depende do formato no qual pretende que os dados residam no Azure. Por exemplo, neste caso, queremos que os dados residam como blobs de bloco em Azure, daí **selecionarmos Block Blob**. Se escolher **o Page Blob,** deve certificar-se de que os seus dados estão alinhados com 512 bytes. Utilize **o blob page** para VHDs ou VHDX que estejam sempre alinhados com 512 bytes.
 
    > [!IMPORTANT]
-   > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge Pro ou Data Box Gateway. Para obter mais informações, consulte [Definir e gerir políticas de imutabilidade para armazenamento de bolhas](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge Pro ou Data Box Gateway. Para obter mais informações, consulte [Definir e gerir políticas de imutabilidade para armazenamento de bolhas](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
 6. Este passo depende de estar a criar uma partilha SMB ou NFS.
    - **Se criar uma partilha SMB** - no campo **Utilizador local com todos os privilégios**, escolha **Criar novo** ou **Utilizar existente**. Se criar um novo utilizador local, forneça o **nome de utilizador**, a **palavra-passe** e, em seguida, confirme a palavra-passe. Esta ação atribui as permissões ao utilizador local. Depois de ter atribuído as permissões aqui, pode utilizar o Explorador de Ficheiros para modificar estas permissões.
@@ -68,7 +68,7 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
 7. Para aceder facilmente às ações dos módulos de computação Edge, utilize o ponto de montagem local. **Selecione Utilize a partilha com o cálculo Edge** para que a partilha seja montada automaticamente após a sua criação. Quando esta opção é selecionada, o módulo Edge também pode utilizar o cálculo com o ponto de montagem local.
 
-8. Clique em **Criar** para criar a partilha. Será notificado de que a criação da partilha está em curso. Depois de criar a partilha com as definições especificadas, o painel **Partilhas** é atualizado para refletir a nova partilha.
+8. Clique em **Criar** para criar a partilha. Será notificado de que a criação da partilha está em curso. Após a criação da partilha com as definições especificadas, a lâmina **de partilha** atualiza-se para refletir a nova ação.
 
 ## <a name="add-a-local-share"></a>Adicione uma parte local
 
@@ -80,7 +80,7 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
     
     Os nomes das partilhas só podem conter números, letras minúsculas e hífenes. O nome da partilha tem de ter entre 3 e 63 carateres e começar com uma letra ou um número. Cada hífen tem de ser precedido e seguido de um caráter que não seja um hífen.
 
-3. Selecione um **Tipo** para a partilha. O tipo pode ser **SMB** ou **NFS**, sendo que SMB é a predefinição. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux. Dependendo se escolher a partilha SMB ou NFS, as opções apresentadas são ligeiramente diferentes.
+3. Selecione um **Tipo** para a partilha. O tipo pode ser **SMB** ou **NFS,** sendo o SMB o padrão. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux. Dependendo se escolher a partilha SMB ou NFS, as opções apresentadas são ligeiramente diferentes.
 
 4. Para aceder facilmente às ações dos módulos de computação Edge, utilize o ponto de montagem local. Selecione **Utilize a partilha com o cálculo Edge** para que o módulo Edge possa utilizar o cálculo com o ponto de montagem local.
 
@@ -92,7 +92,7 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
    ![Criar ações locais](media/azure-stack-edge-manage-shares/add-local-share-2.png)
 
-    Vê uma notificação de que a criação de ações está em curso. Depois de criar a partilha com as definições especificadas, o painel **Partilhas** é atualizado para refletir a nova partilha.
+    Vê uma notificação de que a criação de ações está em curso. Após a criação da partilha com as definições especificadas, a lâmina **de partilha** atualiza-se para refletir a nova ação.
 
    ![Ver atualizações Partilhar lâmina](media/azure-stack-edge-manage-shares/add-local-share-3.png)
     

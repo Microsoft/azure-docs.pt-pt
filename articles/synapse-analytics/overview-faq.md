@@ -1,0 +1,153 @@
+---
+title: FAQ - Azure Synapse Analytics (pré-visualização de espaços de trabalho)
+description: FAQ para Azure Synapse Analytics (pré-visualização de espaços de trabalho)
+services: synapse-analytics
+author: saveenr
+ms.service: synapse-analytics
+ms.topic: overview
+ms.subservice: overview
+ms.date: 10/25/2020
+ms.author: saveenr
+ms.reviewer: jrasnick
+ms.openlocfilehash: 5acfc8c01f375164979e1fb051563fcfb2da3bd3
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436261"
+---
+# <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Azure Synapse Analytics (pré-visualização de espaços de trabalho) frequentemente perguntas
+
+Neste guia, encontrará as perguntas mais frequentes para a Azure Synapse Analytics.
+
+[!INCLUDE [preview](includes/note-preview.md)]
+
+## <a name="general"></a>Geral
+
+### <a name="q-what-rbac-roles-exist-and-how-i-use-them-to-secure-a-synapse-workspace"></a>P: Quais os papéis do RBAC e como os uso para garantir um espaço de trabalho da Sinapse?
+
+R: A azure Synapse introduz uma série de funções e âmbitos para atribuí-los que simplificarão a segurança do seu espaço de trabalho.
+
+Funções DE Sinapse RBAC:
+* Administrador da Sinapse
+* Colaborador da Sinapse
+* Autor de artefactos de sinapse
+* Leitor de artefactos de sinapse
+* Gestor de Computação de Sinaapse
+* Utilizador credencial de sinapse
+* Administrador de ponto final gerido pela Synapse
+* Leitor de Sinapse
+
+Âmbitos DO RBAC de Sinapse:
+* Área de trabalho 
+* Piscina de faíscas
+* Runtime de integração
+* Serviço ligado
+* Credencial
+
+Além disso, com piscinas SQL dedicadas você tem todas as mesmas funcionalidades de segurança que você conhece e ama.
+
+### <a name="q-how-can-i-cost-control-for-the-capabilities-inside-a-synapse-workspace-such-as-dedicated-sql-pools-serverless-spark-pools-and-serverless-sql-pools"></a>P: Como posso controlar as capacidades dentro de um espaço de trabalho da Synapse, tais como piscinas SQL dedicadas, piscinas de faíscas sem servidor e piscinas SQL sem servidor?
+
+R: Como ponto de partida, a Azure Synapse trabalha com a análise de custos incorporada e os alertas de custos disponíveis ao nível da subscrição do Azure.
+
+- Piscinas SQL dedicadas - você tem visibilidade direta sobre o custo e controlo sobre o custo, porque você cria e especifica os tamanhos de piscinas SQL dedicadas. Pode controlar ainda mais o que os utilizadores podem criar ou escalar piscinas SQL dedicadas com funções Azure RBAC.
+
+- Piscinas SQL sem servidor - você tem controlos de monitorização e gestão de custos que lhe permitem limitar os gastos a um nível diário, semanal e mensal. [Consulte a gestão de custos para a piscina SQL sem servidor](./sql/data-processed.md) para obter mais informações. 
+
+- Serverless Spark pools - você pode restringir quem pode criar piscinas Spark com funções DE RBAC Synapse.  
+
+### <a name="q-will-synapse-workspace-support-folder-organization-of-objects-and-granularity-at-ga"></a>P: Irá o espaço de trabalho Synapse apoiar a organização de pastas de objetos e granularidade na GA?
+
+R: Os espaços de trabalho da Sinapse suportam pastas definidas pelo utilizador.
+
+### <a name="q-can-i-link-more-than-one-power-bi-workspaces-to-a-single-azure-synapse-workspace"></a>P: Posso ligar mais do que um espaço de trabalho Power BI a um único espaço de trabalho Azure Synapse?
+    
+R: Atualmente, só é possível ligar um espaço de trabalho power BI a um espaço de trabalho Azure Synapse. 
+
+### <a name="q-is-synapse-link-to-cosmos-db-ga"></a>P: A Synapse Link para Cosmos DB GA?
+
+R: Synapse Link for Apache Spark is GA. Synapse Link para piscina SQL sem servidor está em Visualização Pública.
+
+### <a name="q-does-azure-synapse-workspace-support-cicd"></a>P: A azure Synapse workspace Suporta CI/CD? 
+
+A: Sim! Todos os artefactos do Pipeline, cadernos, scripts SQL e definições de trabalho spark vão residir em GIT. Todas as definições de piscina serão armazenadas em GIT como Modelos ARM. Os objetos de piscina SQL dedicados (esquemas, mesas, vistas, etc.) serão geridos com projetos de base de dados com suporte ci/CD.
+
+## <a name="pipelines"></a>Pipelines
+
+### <a name="q-how-do-i-ensure-i-know-what-credential-is-being-used-to-run-a-pipeline"></a>P: Como posso garantir que sei que credencial está a ser usada para executar um oleoduto? 
+
+R: Cada atividade num Gasoduto De Sinapse é executada utilizando a credencial especificada dentro do serviço ligado.
+
+### <a name="q-are-ssis-irs-supported-in-synapse-integrate"></a>P: As SSIS IRs são suportadas na Integração do Sinapse?
+
+A: Não neste momento. 
+
+### <a name="q-how-do-i-migrate-existing-pipelines-from-azure-data-factory-to-an-azure-synapse-workspace"></a>P: Como posso migrar os oleodutos existentes da Azure Data Factory para um espaço de trabalho Azure Synapse?
+
+R: Neste momento, deve recriar manualmente os seus oleodutos Azure Data Factory e artefactos relacionados manualmente. 
+
+## <a name="apache-spark"></a>Apache Spark
+
+### <a name="q-what-is-the-difference-between-apache-spark-for-synapse-and-apache-spark"></a>P: Qual é a diferença entre Apache Spark para Synapse e Apache Spark?
+
+R: Apache Spark for Synapse IS Apache Spark com suporte adicional para integrações com outros serviços (AAD, AzureML, etc.) e bibliotecas adicionais (mssparktuils, Hummingbird) e configurações de desempenho pré-afinadas.
+
+Qualquer carga de trabalho que esteja atualmente a funcionar no Apache Spark funcionará na MSFT Spark sem alterações. 
+
+### <a name="q-what-versions-of-spark-are-available"></a>P: Que versões de Spark estão disponíveis?
+
+R: Azure Synapse Apache Spark suporta totalmente a Faísca 2.4. Para obter uma lista completa de componentes principais e versão atualmente suportada consulte [o suporte da versão Apache Spark ](./spark/apache-spark-version-support.md).
+
+### <a name="q-is-there-an-equivalent-of-dbutils-in-azure-synapse-spark"></a>P: Existe um equivalente de DButils em Azure Synapse Spark?
+
+R: Sim, Azure Synapse Apache Spark fornece a biblioteca **mssparkutils.** Para obter documentação completa do utilitário consulte [Introdução aos utilitários Microsoft Spark](./spark/microsoft-spark-utilities.md).
+
+### <a name="q-how-do-i-set-session-parameters-in-apache-spark"></a>P: Como posso definir parâmetros de sessão em Apache Spark?
+
+R: Para definir parâmetros de sessão, utilize a magia de configuração %%disponível. É necessário um reinício da sessão para que os parâmetros produzam efeitos. 
+
+### <a name="q-how-do-i-set-cluster-level-parameters-in-a-serverless-spark-pool"></a>P: Como posso definir parâmetros de nível de cluster numa piscina de faísca sem servidor?
+
+R: Para definir parâmetros de nível de cluster, pode fornecer um ficheiro spark.conf para a piscina Spark. Esta piscina honrará então os parâmetros passados no arquivo config. 
+
+### <a name="q-can-i-run-a-multi-user-spark-cluster-in-azure-synapse-analytics"></a>P: Posso executar um cluster de faíscas multiutilizador em Azure Synapse Analytics?
+ 
+R: A Azure Synapse fornece motores construídos de propósito para casos específicos de utilização. Apache Spark for Synapse é projetado como um serviço de trabalho e não um modelo de cluster. Há dois cenários em que as pessoas pedem um modelo de cluster multiutilizador.
+
+**Cenário #1: Muitos utilizadores acedem a um cluster para servir dados para fins bi.**
+
+A forma mais fácil de realizar esta tarefa é cozinhar os dados com a Spark e, em seguida, aproveitar as capacidades de serviço da Synapse SQL para que possam ligar o Power BI a esses conjuntos de dados.
+
+**Cenário #2: Ter vários desenvolvedores num único cluster para economizar dinheiro.**
+ 
+Para satisfazer este cenário, você deve dar a cada desenvolvedor uma piscina Spark sem servidor que está definida para usar um pequeno número de recursos Spark. Uma vez que as piscinas Spark sem servidor não custam nada, até que sejam usadas ativamente minimiza o custo quando existem vários desenvolvedores. As piscinas partilham metadados (mesas spark) para que possam trabalhar facilmente uns com os outros.
+
+### <a name="q-how-do-i-include-manage-and-install-libraries"></a>P: Como incluo, gero e instalo bibliotecas 
+
+R: Pode instalar pacotes externos através de um ficheiro requirements.txt enquanto cria a piscina Spark, a partir do espaço de trabalho da sinapse, ou a partir do portal Azure. Ver [Gerir bibliotecas para Apache Spark em Azure Synapse Analytics](./spark/apache-spark-azure-portal-add-libraries.md).
+
+## <a name="dedicated-sql-pools"></a>Piscinas SQL dedicadas
+
+### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-pools"></a>P: Quais são as diferenças funcionais entre piscinas SQL dedicadas e piscinas sem servidor
+
+R: Pode encontrar uma lista completa de diferenças nas [diferenças de características T-SQL no Synapse SQL](./sql/overview-features.md).
+
+### <a name="q-now-that-azure-synapse-is-ga-how-do-i-move-my-dedicated-sql-pools-that-were-previously-standalone-into-azure-synapse"></a>P: Agora que a Azure Synapse é GA, como mudo as minhas piscinas SQL dedicadas que antes eram autónomas para a Azure Synapse? 
+
+R: Não há "movimento" ou "migração". Pode optar por ativar novas funcionalidades de espaço de trabalho nas suas piscinas existentes. Se o fizer, não haverá alterações de rutura, em vez disso poderá utilizar novas funcionalidades como o Synapse Studio, Spark e piscinas SQL sem servidor.
+
+### <a name="q-what-is-the-default-deployment-of-dedicated-sql-pools-now"></a>P: Qual é agora a implantação padrão de Piscinas SQL dedicadas? 
+
+R: Por padrão, todas as novas piscinas SQL dedicadas serão implantadas num espaço de trabalho; no entanto, se precisar ainda pode criar uma piscina SQL dedicada (anteriormente SQL DW) num fator de forma autónoma. 
+
+
+### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-sql-pool"></a>Q: Quais são as diferenças funcionais entre piscinas SQL dedicadas e piscina SQL sem servidor 
+
+R: Pode encontrar uma lista completa de diferenças nas [diferenças de características T-SQL no Synapse SQL](./sql/overview-features.md).
+
+## <a name="next-steps"></a>Passos seguintes
+
+* [Começa com o Azure Synapse Analytics](get-started.md)
+* [Criar uma área de trabalho](quickstart-create-workspace.md)
+* [Utilizar conjunto de SQL sem servidor](quickstart-sql-on-demand.md)

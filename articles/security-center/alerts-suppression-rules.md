@@ -1,6 +1,6 @@
 ---
 title: Usando regras de supressão de alertas para suprimir falsos positivos ou outros alertas de segurança indesejados no Centro de Segurança Azure.
-description: Este artigo explica como usar as regras de supressão do Azure Security Center para esconder alertas indesejados do Azure Defender
+description: Este artigo explica como usar as regras de supressão do Azure Security Center para esconder alertas de segurança indesejados
 author: memildin
 manager: rkarlin
 services: security-center
@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: b954d6ed29074aa9261611f0d1bb79b5917d03f2
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 4f5049d1589b741e60db69c782107cab1f047b77
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372664"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436798"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Alertas de Supressão do Azure Defender
 
@@ -26,7 +26,7 @@ Esta página explica como pode usar regras de supressão de alertas para suprimi
 |Estado de libertação:|Pré-visualizar<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Preços:|Gratuito<br>(A maioria dos alertas de segurança só estão disponíveis com o Azure Defender)|
 |Funções e permissões necessárias:|**Administração de segurança** e **Proprietário** pode criar/eliminar regras.<br>**O leitor de segurança** e **o Reader** podem ver as regras.|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -60,11 +60,11 @@ Para criar uma regra diretamente no portal Azure:
 
 1. Na página de alertas de segurança do Centro de Segurança:
 
-    - Localize o alerta específico que não quer ver mais, e a partir do menu de elipses (...) para o alerta, **selecione Criar regra de supressão** :
+    - Localize o alerta específico que não quer ver mais, e a partir do menu de elipses (...) para o alerta, **selecione Criar regra de supressão**:
 
         [![**Criar regra de supressão** opção](media/alerts-suppression-rules/auto-dismiss-future-option.png)](media/alerts-suppression-rules/auto-dismiss-future-option.png#lightbox)
 
-    - Ou, selecione o link das **regras** de supressão no topo da página e a partir da página de regras de supressão selecione **Criar nova regra de supressão** :
+    - Ou, selecione o link das **regras** de supressão no topo da página e a partir da página de regras de supressão selecione **Criar nova regra de supressão**:
 
         ![Criar novo botão de regra de supressão**](media/alerts-suppression-rules/create-new-suppression-rule.png)
 
@@ -129,7 +129,7 @@ Os métodos HTTP relevantes para as regras de supressão na API REST são:
 
 - **PUT:** Criar ou atualizar uma regra de supressão numa subscrição especificada.
 
-- **GET** :
+- **GET**:
 
     - Para listar todas as regras configuradas para uma subscrição especificada. Este método devolve uma série de regras aplicáveis.
 
@@ -137,7 +137,7 @@ Os métodos HTTP relevantes para as regras de supressão na API REST são:
 
     - Para simular o impacto de uma regra de supressão ainda na fase de conceção. Esta chamada identifica qual dos seus alertas existentes teria sido dispensado se a regra estivesse ativa.
 
-- **DELETE** : Elimina uma regra existente (mas não altera o estado dos alertas já dispensados).
+- **DELETE**: Elimina uma regra existente (mas não altera o estado dos alertas já dispensados).
 
 Para obter todos os detalhes e exemplos de utilização, consulte a documentação da [API.](/rest/api/securitycenter/) 
 

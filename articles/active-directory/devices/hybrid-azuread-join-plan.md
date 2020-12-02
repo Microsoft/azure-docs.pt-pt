@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 955e77bc947baed889de24ce34e7acec737164f6
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: f13dfa4221f8f09c24cce3a451f3180d15ee3b99
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097308"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435762"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planeie o seu Azure Ative Directory híbrido junte-se à implementação
 
@@ -106,6 +106,8 @@ Se os dispositivos associados ao domínio do Windows 10 forem [Azure AD registad
 
 - A partir do lançamento do Windows 10 1903, os TPMs 1.2 não são utilizados com a junta híbrida Azure AD e os dispositivos com esses TPMs serão considerados como se não tivessem um TPM.
 
+- As alterações da UPN são suportadas apenas a partir da atualização do Windows 10 2004. Para dispositivos anteriores à atualização do Windows 10 2004, os utilizadores teriam problemas de Acesso SSO e Condicional nos seus dispositivos. Para resolver este problema, é necessário desagregá-lo a partir do Azure AD (executar "dsregcmd/leave" com privilégios elevados) e voltar a juntar-se (acontece automaticamente). No entanto, os utilizadores que se inscrevam no Windows Hello for Business não enfrentam este problema.
+
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Revisão validação controlada da ad híbrida Azure aderir
 
 Quando todos os pré-requisitos estiverem em vigor, os dispositivos Windows registar-se-ão automaticamente como dispositivos no seu inquilino AZure AD. O estado destas identidades do dispositivo em Azure AD é referido como a ad Azure híbrido. Mais informações sobre os conceitos abrangidos por este artigo podem ser encontradas no artigo [Introdução à gestão de identidade de dispositivo no Azure Ative Directory](overview.md).
@@ -162,7 +164,7 @@ Por vezes, os seus utilizadores de AD no local, UPNs, podem ser diferentes dos s
 
 O quadro abaixo fornece detalhes sobre o suporte para estes UPNs AD no local no Windows 10 Hybrid AD
 
-| Tipo de UPN AD no local | Tipo de domínio | Versão do Windows 10 | Description |
+| Tipo de UPN AD no local | Tipo de domínio | Versão do Windows 10 | Descrição |
 | ----- | ----- | ----- | ----- |
 | Roteável | Federados | A partir de 1703 lançamento | Disponível em Geral |
 | Não-encaminhável | Federados | A partir de 1803 lançamento | Disponível em Geral |

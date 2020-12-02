@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: d59e37cdcb6f530b08e980cf75d8834aed332252
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a16dbeedc2362f4a263d59a673dbb4358f7ba034
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315329"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436492"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Tutorial: Configurar e usar métricas e troncos com um hub IoT
 
@@ -42,9 +42,9 @@ Neste tutorial, vai realizar as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+- Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-* Precisa do .NET Core SDK 2.1 ou superior na sua máquina de desenvolvimento. Pode transferir o SDK de .NET Core para múltiplas plataformas em [.NET](https://www.microsoft.com/net/download/all).
+- Precisa do .NET Core SDK 2.1 ou superior na sua máquina de desenvolvimento. Pode transferir o SDK de .NET Core para múltiplas plataformas em [.NET](https://www.microsoft.com/net/download/all).
 
   Pode verificar qual a versão atual do C# no seu computador de desenvolvimento através do seguinte comando:
 
@@ -52,11 +52,11 @@ Neste tutorial, vai realizar as seguintes tarefas:
   dotnet --version
   ```
 
-* Uma conta de e-mail capaz de receber correio.
+- Uma conta de e-mail capaz de receber correio.
 
-* Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste tutorial utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+- Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste tutorial utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="set-up-resources"></a>Configurar recursos
 
@@ -68,7 +68,7 @@ Aqui estão os passos necessários.
 
 2. Criar um hub IoT.
 
-3. Crie um espaço de trabalho Log Analytics.
+3. Criar uma área de trabalho do Log Analytics.
 
 4. Registe uma identidade do dispositivo para o dispositivo simulado que envia mensagens para o seu hub IoT. Guarde a cadeia de ligação do dispositivo para configurar o dispositivo simulado.
 
@@ -156,9 +156,9 @@ Para criar uma definição de diagnóstico para enviar registos de recursos do I
 
 1. No painel **de definição** de Diagnóstico, dê à definição um nome descritivo, como "Enviar ligações e telemetria para registos".
 
-1. Em **detalhes de categoria** , selecione **Connections** and **Device Telemetry**.
+1. Em **detalhes de categoria**, selecione **Connections** and **Device Telemetry**.
 
-1. Em **Detalhes do Destino** , selecione Enviar para Registar **Analytics,** em seguida, use o picker do espaço de trabalho Log Analytics para selecionar o espaço de trabalho que anota anteriormente. Quando terminar, a definição de diagnóstico deve ser semelhante à seguinte imagem:
+1. Em **Detalhes do Destino**, selecione Enviar para Registar **Analytics,** em seguida, use o picker do espaço de trabalho Log Analytics para selecionar o espaço de trabalho que anota anteriormente. Quando terminar, a definição de diagnóstico deve ser semelhante à seguinte imagem:
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/add-diagnostic-setting.png" alt-text="Screenshot mostrando as definições finais de registo de diagnóstico.":::
 
@@ -170,7 +170,7 @@ Agora vamos usar o explorador de métricas para criar um gráfico que exibe mét
 
 1. No painel esquerdo do seu hub IoT, selecione **Métricas** na secção **de Monitorização.**
 
-1. Na parte superior do ecrã, selecione **Últimas 24 horas (Automática)**. No dropdown que aparece, selecione **Last 4 horas** para **intervalo de tempo** , deslovide a **granularidade do tempo** para **1 minuto** , e selecione **Local** para show **time como**. **Selecione Aplicar** para guardar estas definições. A definição deve agora dizer **Hora Local: Últimas 4 horas (1 minuto)**.
+1. Na parte superior do ecrã, selecione **Últimas 24 horas (Automática)**. No dropdown que aparece, selecione **Last 4 horas** para **intervalo de tempo**, deslovide a **granularidade do tempo** para **1 minuto**, e selecione **Local** para show **time como**. **Selecione Aplicar** para guardar estas definições. A definição deve agora dizer **Hora Local: Últimas 4 horas (1 minuto)**.
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-select-time-range.png" alt-text="Screenshot mostrando as definições de tempo das métricas.":::
 
@@ -180,7 +180,7 @@ Agora vamos usar o explorador de métricas para criar um gráfico que exibe mét
 
 1. Agora **selecione Adicione métrica** para adicionar outra métrica ao gráfico. Em **Métrica,** selecione **número total de mensagens utilizadas.** **A agregação** será automaticamente definida para **Avg**. Note mais uma vez que o título da tabela mudou para incluir esta métrica.
 
-   Agora, o seu ecrã mostra a métrica minimizada das *mensagens de telemetria enviadas* , mais a nova métrica para o *número total de mensagens utilizadas*.
+   Agora, o seu ecrã mostra a métrica minimizada das *mensagens de telemetria enviadas*, mais a nova métrica para o *número total de mensagens utilizadas*.
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-total-number-of-messages-used.png" alt-text="Screenshot que mostra a adição de número total de mensagens usadas métricas para cartografar.":::
 
@@ -206,7 +206,7 @@ Para configurar alertas métricos:
 
 1. Vá ao seu hub IoT no portal Azure.
 
-1. Em **Monitorização** , **selecione Alertas**. Em seguida, selecione **Nova regra de alerta**.  O painel de regras de **alerta de criação** abre-se.
+1. Em **Monitorização**, **selecione Alertas**. Em seguida, selecione **Nova regra de alerta**.  O painel de regras de **alerta de criação** abre-se.
 
     :::image type="content" source="media/tutorial-use-metrics-and-diags/create-alert-rule-pane.png" alt-text="Screenshot mostrando o painel de regras de alerta Criar.":::
 
@@ -219,23 +219,23 @@ Para configurar alertas métricos:
 
 1. Primeiro, configure a condição de que o alerta dispare.
 
-    1. Em **Condição** , **selecione a condição de seleção**. No painel de lógica de **sinal configurado,** escreva "telemetria" na caixa de pesquisa e selecione **mensagens de telemetria enviadas**.
+    1. Em **Condição**, **selecione a condição de seleção**. No painel de lógica de **sinal configurado,** escreva "telemetria" na caixa de pesquisa e selecione **mensagens de telemetria enviadas**.
 
        :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-telemetry-messages-sent.png" alt-text="Screenshot mostrando a seleção da métrica.":::
 
     1. No painel de lógica de **sinal de configuração,** desfaça ou confirme os seguintes campos na **lógica de Alerta** (pode ignorar o gráfico):
 
-       **Limiar** :  *Estático*.
+       **Limiar**:  *Estático*.
 
-       **Operador** : *Maior que*.
+       **Operador**: *Maior que*.
 
-       **Tipo de agregação** : *Total*.
+       **Tipo de agregação**: *Total*.
 
        **Valor limiar:** 1000.
 
-       **Granularidade agregada (Período)** : *5 minutos*.
+       **Granularidade agregada (Período)**: *5 minutos*.
 
-       **Frequência de avaliação** : *A cada 1 minuto*
+       **Frequência de avaliação**: *A cada 1 minuto*
 
         :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-set-conditions.png" alt-text="Screenshot mostrando as definições de condições de alerta.":::
 
@@ -245,7 +245,7 @@ Para configurar alertas métricos:
 
 1. Agora,configem a ação para o alerta.
 
-    1. Voltando ao painel **de regras de alerta Criar,** em **Ações** , **selecione Select action group**. No **Selecione um grupo de ação para anexar a este** painel de regras de alerta, selecione **Criar grupo de ação**.
+    1. Voltando ao painel **de regras de alerta Criar,** em **Ações**, **selecione Select action group**. No **Selecione um grupo de ação para anexar a este** painel de regras de alerta, selecione **Criar grupo de ação**.
 
     1. No **separador Básicos** no painel de **grupo de ação Create,** dê ao seu grupo de ação um nome e um nome de exibição.
 
@@ -285,17 +285,17 @@ Para configurar alertas métricos:
 
     * No painel de lógica de **sinal de configuração,** desafie ou confirme os seguintes campos (pode ignorar o gráfico):
 
-       **Limiar** :  *Estático*.
+       **Limiar**:  *Estático*.
 
-       **Operador** : *Maior que*.
+       **Operador**: *Maior que*.
 
-       **Tipo de agregação** : *Máximo*.
+       **Tipo de agregação**: *Máximo*.
 
        **Valor limiar:** 4000.
 
-       **Granularidade agregada (Período)** : *1 minuto*.
+       **Granularidade agregada (Período)**: *1 minuto*.
 
-       **Frequência de avaliação** : *A cada 1 minuto*
+       **Frequência de avaliação**: *A cada 1 minuto*
 
        Estas definições indicam que o sinal dispara quando o número de mensagens atinge 4000. A métrica é avaliada a cada minuto.
 
@@ -303,7 +303,7 @@ Para configurar alertas métricos:
 
     * Para os detalhes de alerta, escolha um nome e descrição diferentes do que fez anteriormente.
 
-1. Selecione **Alertas** , em **Monitorização** no painel esquerdo do seu hub IoT. **Selecione Gerir as regras** de alerta no menu no topo do painel **de alertas.** O **painel do Regimento** abre. Devem agora ver os vossos dois alertas:
+1. Selecione **Alertas**, em **Monitorização** no painel esquerdo do seu hub IoT. **Selecione Gerir as regras** de alerta no menu no topo do painel **de alertas.** O **painel do Regimento** abre. Devem agora ver os vossos dois alertas:
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/rules-management.png" alt-text="Screenshot mostrando o painel de regras com as novas regras de alerta.":::
 

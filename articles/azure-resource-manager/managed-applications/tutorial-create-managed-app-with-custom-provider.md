@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f327749d1bdfb8cf2cba00cf4c5f68b4b2b77999
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 50a65583c41dd94b174a33432afcf42b31e67df0
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379558"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437053"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Tutorial: Criar aplicação gerida com ações e recursos personalizados
 
@@ -41,7 +41,7 @@ Para completar este tutorial, precisa de saber:
 
 Neste tutorial, cria-se uma aplicação gerida e o seu grupo de recursos geridos conterá a instância personalizada do fornecedor, a conta de armazenamento e a função. A Função Azure utilizada neste exemplo implementa uma API que trata de operações personalizadas de fornecedores para ações e recursos. A Conta de Armazenamento Azure é usada como armazenamento básico para os seus recursos de fornecedor personalizados.
 
-A definição de interface de utilizador para criar uma instância de aplicação gerida inclui `funcname` e `storagename` elementos de entrada. O nome e o nome da função de armazenamento devem ser globalmente únicos. Por predefinição, os ficheiros de função serão implantados a partir do pacote de função da [amostra,](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip)mas pode alterá-lo adicionando um elemento de entrada para um link de pacotecreateUiDefinition.js *em* :
+A definição de interface de utilizador para criar uma instância de aplicação gerida inclui `funcname` e `storagename` elementos de entrada. O nome e o nome da função de armazenamento devem ser globalmente únicos. Por predefinição, os ficheiros de função serão implantados a partir do pacote de função da [amostra,](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip)mas pode alterá-lo adicionando um elemento de entrada para um link de pacotecreateUiDefinition.js *em*:
 
 ```json
 {
@@ -254,7 +254,7 @@ az managedapp definition create \
 
 3. Fornecer valores para a criação de uma definição de Catálogo de Serviços:
 
-    * Forneça um **nome** único para a definição de Catálogo de Serviço, **Nome de Exibição** e *Descrição* (opcional).
+    * Forneça um **nome** único para a definição de Catálogo de Serviço, **Nome de Exibição** e *Descrição*(opcional).
     * Selecione a **Subscrição,** **Grupo de Recursos** e **Localização** onde será criada a definição de aplicação. Pode utilizar o mesmo grupo de recursos que é utilizado para o pacote zip ou criar um novo grupo de recursos.
     * Para um **Pacote File Uri,** forneça o caminho para o ficheiro zip que criou no passo anterior.
 
@@ -353,6 +353,6 @@ Se tiver dúvidas sobre aplicações geridas azure, tente perguntar no [Stack Ov
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para publicar a aplicação gerida no Microsoft Azure Marketplace, veja [Aplicações geridas do Azure no Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
+Para publicar a aplicação gerida no Microsoft Azure Marketplace, veja [Aplicações geridas do Azure no Marketplace](../../marketplace/create-new-azure-apps-offer.md).
 
 Saiba mais sobre [a Azure Custom Providers.](../custom-providers/overview.md)

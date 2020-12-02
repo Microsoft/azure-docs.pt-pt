@@ -2,17 +2,17 @@
 title: Métricas do Monitor Azure para Gateway de Aplicação
 description: Saiba como usar métricas para monitorizar o desempenho do gateway de aplicações
 services: application-gateway
-author: abshamsft
+author: surajmb
 ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
-ms.author: absha
-ms.openlocfilehash: c072e7c1339a2217a3c167be3237029bd71429c2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.author: surmb
+ms.openlocfilehash: be629d9f8441ad40fe15f005f4aeb0ec5565a7ec
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397744"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437070"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para Gateway de Aplicação
 
@@ -62,7 +62,7 @@ A Application Gateway fornece várias métricas de tempo incorporadas relacionad
 
 Estas métricas podem ser usadas para determinar se o abrandamento observado se deve à rede do cliente, ao desempenho do Gateway de Aplicação, à rede de backend e à saturação da pilha de backend, ao desempenho da aplicação de backend ou ao tamanho do ficheiro grande.
 
-Por exemplo, se houver um pico na tendência do tempo de *resposta do backend first byte,* mas a tendência *do tempo de ligação backend* é estável, então pode ser deduzido que a porta de entrada da Aplicação para retrocedimentar a latência e o tempo necessário para estabelecer a ligação é estável, e o pico é causado devido a um aumento no tempo de resposta da aplicação backend. Por outro lado, se o pico no *tempo de resposta do byte de Backend estiver* associado a um pico correspondente no tempo de *ligação backend* , então pode deduzir-se que a rede entre o Gateway de Aplicação e o servidor backend ou a pilha de backend do servidor TCP saturaram. 
+Por exemplo, se houver um pico na tendência do tempo de *resposta do backend first byte,* mas a tendência *do tempo de ligação backend* é estável, então pode ser deduzido que a porta de entrada da Aplicação para retrocedimentar a latência e o tempo necessário para estabelecer a ligação é estável, e o pico é causado devido a um aumento no tempo de resposta da aplicação backend. Por outro lado, se o pico no *tempo de resposta do byte de Backend estiver* associado a um pico correspondente no tempo de *ligação backend*, então pode deduzir-se que a rede entre o Gateway de Aplicação e o servidor backend ou a pilha de backend do servidor TCP saturaram. 
 
 Se notar um pico no *tempo de resposta do último byte do Backend,* mas o tempo de resposta do *byte backend first* é estável, então pode ser deduzido que o pico é devido a um ficheiro maior sendo solicitado.
 
@@ -162,7 +162,7 @@ Para o Gateway de Aplicação, estão disponíveis as seguintes métricas:
 
 - **Pedidos Falhados**
 
-  Número de pedidos que o Application Gateway serviu com códigos de erro do servidor 5xx. Isto inclui os códigos 5xx que são gerados a partir do Gateway de Aplicação, bem como os códigos 5xx que são gerados a partir do backend. A contagem de pedidos pode ser filtrada para mostrar a contagem por cada combinação de definição de pool-http de backend/específico.
+  Número de pedidos que falharam devido a problemas de ligação. Esta contagem inclui pedidos que falharam devido ao excesso da definição HTTP "Pedido de tempo" e pedidos que falharam devido a problemas de ligação entre o gateway de aplicação e o backend. Esta contagem não inclui falhas devido à não disponibilização de backend saudável. As respostas 4xx e 5xx do backend também não são consideradas como parte desta métrica.
 
 - **Estado de resposta**
 

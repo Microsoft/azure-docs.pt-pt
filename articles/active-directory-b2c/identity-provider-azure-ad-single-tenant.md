@@ -12,12 +12,12 @@ ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e4fa4b64c6519df90d5883e8c5760b3ed2ce0337
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a079cfe155119a6afe8575767dd3e7c09a564f9a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004464"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445627"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurar o sº de inscrição para uma organização específica do Azure Ative Directory em Azure Ative Directory B2C
 
@@ -29,7 +29,7 @@ Para utilizar um Diretório Ativo Azure (Azure AD) como fornecedor de [identidad
 
 1. Certifique-se de que está a usar o diretório que contém o inquilino Azure AD B2C. Selecione o filtro **de subscrição Diretório +** no menu superior e escolha o diretório que contém o seu inquilino Azure AD B2C.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
-1. Selecione **os fornecedores de identidade**e, em seguida, selecione novo fornecedor **OpenID Connect**.
+1. Selecione **os fornecedores de identidade** e, em seguida, selecione novo fornecedor **OpenID Connect**.
 1. Insira um **nome**. Por exemplo, *insira Contoso Azure AD*.
 1. Para **o url metadados,** introduza o seguinte URL substituindo `{tenant}` pelo nome de domínio do seu inquilino AZure AD:
 
@@ -43,7 +43,7 @@ Para utilizar um Diretório Ativo Azure (Azure AD) como fornecedor de [identidad
 1. Para **identificação do cliente,** introduza o ID da aplicação que gravou anteriormente.
 1. Para **segredo do Cliente,** insira o segredo do cliente que gravou anteriormente.
 1. Para o **Âmbito,** insira o `openid profile` .
-1. Deixe os valores predefinidos para o **tipo de resposta**e modo **resposta**.
+1. Deixe os valores predefinidos para o **tipo de resposta** e modo **resposta**.
 1. (Opcional) Para a **sugestão de Domínio,** insira `contoso.com` . Para obter mais informações, consulte [Configurar o insusimento direto utilizando o Azure Ative Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
 1. No âmbito **do mapeamento de reclamações do fornecedor de identidade,** selecione as seguintes reclamações:
 
@@ -51,6 +51,6 @@ Para utilizar um Diretório Ativo Azure (Azure AD) como fornecedor de [identidad
     * **Nome do visor**: *nome*
     * **Nome próprio**: *given_name*
     * **Apelido**: *family_name*
-    * **E-mail**: *unique_name*
+    * **E-mail**: *preferred_username*
 
 1. Selecione **Guardar**.

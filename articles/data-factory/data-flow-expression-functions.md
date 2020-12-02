@@ -3,18 +3,16 @@ title: Funções de expressão no fluxo de dados de mapeamento
 description: Saiba mais sobre funções de expressão no fluxo de dados de mapeamento.
 author: kromerm
 ms.author: makromer
-manager: anandsub
-ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/06/2020
-ms.openlocfilehash: 5645bd37ec466619a4093d767db1c846b90a4365
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/01/2020
+ms.openlocfilehash: 875b84613bede922b01b1043f2d6dab9aedbc2e8
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997869"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436934"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressões de transformação de dados no fluxo de dados de mapeamento
 
@@ -86,48 +84,6 @@ ___
 <code><b>atan2(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Devolve o ângulo em radiais entre o eixo x positivo de um plano e o ponto dado pelas coordenadas.  
 * ``atan2(0, 0) -> 0.0``  
-___
-### <code>byOrigin</code>
-<code><b>byOrigin(<i>&lt;column name&gt;</i> : string, [<i>&lt;origin stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Seleciona um valor de coluna pelo nome no fluxo de origem. O segundo argumento é o nome do fluxo de origem. Se houver vários fósforos, o primeiro jogo é devolvido. Se não corresponder, devolve um valor NUDO. O valor devolvido tem de ser digitado por uma das funções de conversão do tipo (TO_DATE, TO_STRING...). Os nomes das colunas conhecidos na hora do design devem ser abordados apenas pelo seu nome. As entradas computadas não são suportadas, mas pode utilizar substituições de parâmetros.  
-* ``toString(byOrigin('ancestor', 'ancestorStream'))``
-___
-### <code>byOrigins</code>
-<code><b>byOrigins(<i>&lt;column names&gt;</i> : array, [<i>&lt;origin stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Seleciona uma série de colunas pelo nome no fluxo. O segundo argumento é o fluxo de onde se originou. Se houver vários fósforos, o primeiro jogo é devolvido. Se não corresponder, devolve um valor NUDO. O valor devolvido tem de ser digitado por uma das funções de conversão do tipo (TO_DATE, TO_STRING ...) Os nomes das colunas conhecidos na hora do design devem ser abordados apenas pelo seu nome. As entradas computadas não são suportadas, mas pode utilizar substituições de parâmetros.
-* ``toString(byOrigins(['ancestor1', 'ancestor2'], 'ancestorStream'))``
-___
-### <code>byName</code>
-<code><b>byName(<i>&lt;column name&gt;</i> : string, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Seleciona um valor de coluna pelo nome no fluxo. Pode passar um nome de fluxo opcional como segundo argumento. Se houver vários fósforos, o primeiro jogo é devolvido. Se não corresponder, devolve um valor NUDO. O valor devolvido tem de ser digitado por uma das funções de conversão do tipo (TO_DATE, TO_STRING...).  Os nomes das colunas conhecidos na hora do design devem ser abordados apenas pelo seu nome. As entradas computadas não são suportadas, mas pode utilizar substituições de parâmetros.  
-* ``toString(byName('parent'))``  
-* ``toLong(byName('income'))``  
-* ``toBoolean(byName('foster'))``  
-* ``toLong(byName($debtCol))``  
-* ``toString(byName('Bogus Column'))``  
-* ``toString(byName('Bogus Column', 'DeriveStream'))``  
-___
-### <code>byNames</code>
-<code><b>byNames(<i>&lt;column names&gt;</i> : array, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Selecione uma série de colunas pelo nome no fluxo. Pode passar um nome de fluxo opcional como segundo argumento. Se houver vários fósforos, o primeiro jogo é devolvido. Se não houver correspondência para uma coluna, toda a saída é um valor NU. O valor devolvido requer funções de conversão de tipo (toDate, toString, ...).  Os nomes das colunas conhecidos na hora do design devem ser abordados apenas pelo seu nome. As entradas computadas não são suportadas, mas pode utilizar substituições de parâmetros.
-* ``toString(byNames(['parent', 'child']))``
-* ``byNames(['parent']) ? string``
-* ``toLong(byNames(['income']))``
-* ``byNames(['income']) ? long``
-* ``toBoolean(byNames(['foster']))``
-* ``toLong(byNames($debtCols))``
-* ``toString(byNames(['a Column']))``
-* ``toString(byNames(['a Column'], 'DeriveStream'))``
-* ``byNames(['orderItem']) ? (itemName as string, itemQty as integer)``
-___
-### <code>byPosition</code>
-<code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
-Seleciona um valor de coluna pela sua posição relativa(1) no fluxo. Se a posição estiver fora dos limites, devolve um valor NUDO. O valor devolvido tem de ser digitado por uma das funções de conversão do tipo (TO_DATE, TO_STRING ...) As entradas computadas não são suportadas, mas pode utilizar substituições de parâmetros.  
-* ``toString(byPosition(1))``  
-* ``toDecimal(byPosition(2), 10, 2)``  
-* ``toBoolean(byName(4))``  
-* ``toString(byName($colName))``  
-* ``toString(byPosition(1234))``  
 ___
 ### <code>case</code>
 <code><b>case(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, <i>&lt;false_expression&gt;</i> : any, ...) => any</b></code><br/><br/>
@@ -480,7 +436,7 @@ ___
 * ``levenshtein('boys', 'girls') -> 4``  
 ___
 ### <code>like</code>
-<code><b>like(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></código><br/><br/> O padrão é uma cadeia que é correspondida literalmente. As exceções são os seguintes símbolos especiais: _ corresponde a qualquer personagem na entrada (semelhante a . em expressões de posix l ar regu) % corresponde a zero ou mais caracteres na entrada (semelhante a .* em expressões de regul a r posix).
+<code><b>like(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></código><br/><br/> O padrão é uma cadeia que é correspondida literalmente. As exceções são os seguintes símbolos especiais: _ corresponde a qualquer personagem na entrada (similar to  . em expressões regu ''posix'' l ar ) % corresponde a zero ou mais caracteres na entrada similar to . * (em expressões regul ''posix''). a r
 O personagem de fuga é "". Se um personagem de fuga preceder um símbolo especial ou outro personagem de fuga, o seguinte personagem é combinado literalmente. É inválido escapar de qualquer other character.  
 * ``like('icecream', 'ice%') -> true``  
 ___
@@ -730,7 +686,8 @@ ___
 * ``sort(['a3', 'b2', 'c1'], iif(right(#item1, 1) >= right(#item2, 1), 1, -1)) -> ['c1', 'b2', 'a3']``  
 ___
 ### <code>soundex</code>
-<code><b>soundex(<i>&lt;value1&gt;</i> : string) => string</b></código><br/><br/> Obtém o código soundex for the string.  
+<code><b>soundex(<i>&lt;value1&gt;</i> : string) => string</b></código><br /><br/>
+Gets t h e 'soundex'' códigofor the string.  
 * ``soundex('genius') -> 'G520'``  
 ___
 ### <code>split</code>
@@ -773,86 +730,6 @@ ___
 ### <code>tanh</code>
 <code><b>tanh(<i>&lt;value1&gt;</i> : number) => double</b></código><br/><br/> Calcula uma hipérbolec tangent value.  
 * ``tanh(0) -> 0.0``  
-___
-### <code>toBase64</code>
-<code><b>toBase64(<i>&lt;value1&gt;</i> : string) => string</b></código><br/><br/> Codifica o dado string in base64.  
-* ``toBase64('bojjus') -> 'Ym9qanVz'``  
-___
-### <code>toBinary</code>
-<code><b>toBinary(<i>&lt;value1&gt;</i> : any) => binary</b></código><br/><br/> Converte qualquer numérico/data/timetamp/string para binário representation.  
-* ``toBinary(3) -> [0x11]``  
-___
-### <code>toBoolean</code>
-<code><b>toBoolean(<i>&lt;value1&gt;</i> : string) => boolean</b></código><br/><br/> Converte um valor de ('t', 'true', 'y', 'sim', '1') para verdadeiro e ('f', 'falso', 'n', 'não', '0') a falso e NUO para any other value.  
-* ``toBoolean('true') -> true``  
-* ``toBoolean('n') -> false``  
-* ``isNull(toBoolean('truthy')) -> true``  
-___
-### <code>toDate</code>
-<code><b>toDate(<i>&lt;string&gt;</i> : any, [<i>&lt;date format&gt;</i> : string]) => date</b></código><br/><br/> Converte a cadeia de data de entrada até à data usando um formulário de data de entrada opcional at. Refer Java's `S i mpleDateFormat para formatos disponíveis. Se o formato da data de entrada for omitido, o formato predefinido é yyyy-[M]M-[d]d. Os formatos aceites são :[yyyyyy-[M]M, yyyy-[M]M-[d]d,yyyy-[M]M-[d]dT* ].  
-* ``toDate('2012-8-18') -> toDate('2012-08-18')``  
-* ``toDate('12/18/2012', 'MM/dd/yyyy') -> toDate('2012-12-18')``  
-___
-### <code>toDecimal</code>
-<code><b>toDecimal(<i>&lt;value&gt;</i> : any, [<i>&lt;precision&gt;</i> : integral], [<i>&lt;scale&gt;</i> : integral], [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => decimal(10,0)</b></código><br/><br/> Converte qualquer numérico ou cadeia para um valor decimal. Se a precisão e a escala não forem especificadas, é incumprida (10,2). Um formato decimal java opcional pode ser usado para a conversão. Um formato local opcional sob a forma de linguagem BCP47 como en-US, de, zh-CN.  
-* ``toDecimal(123.45) -> 123.45``  
-* ``toDecimal('123.45', 8, 4) -> 123.4500``  
-* ``toDecimal('$123.45', 8, 4,'$###.00') -> 123.4500``  
-* ``toDecimal('Ç123,45', 10, 2, 'Ç###,##', 'de') -> 123.45``  
-___
-### <code>toDouble</code>
-<code><b>toDouble(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => double</b></código><br/><br/> Converte qualquer numérico ou cadeia para um valor duplo. Um formato decimal java opcional pode ser usado para a conversão. Um formato local opcional sob a forma de linguagem BCP47 como en-US, de, zh-CN.  
-* ``toDouble(123.45) -> 123.45``  
-* ``toDouble('123.45') -> 123.45``  
-* ``toDouble('$123.45', '$###.00') -> 123.45``  
-* ``toDouble('Ç123,45', 'Ç###,##', 'de') -> 123.45``  
-___
-### <code>toFloat</code>
-<code><b>toFloat(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => float</b></código><br/><br/> Converte qualquer numérico ou cadeia para um valor flutuante. Um formato decimal java opcional pode ser usado para a conversão. Rio Truncates any double.  
-* ``toFloat(123.45) -> 123.45f``  
-* ``toFloat('123.45') -> 123.45f``  
-* ``toFloat('$123.45', '$###.00') -> 123.45f``  
-___
-### <code>toInteger</code>
-<code><b>toInteger(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => integer</b></código><br/><br/> Converte qualquer numérico ou cadeia para um valor inteiro. Um formato decimal java opcional pode ser usado para a conversão. Truncates por muito tempo, float, double.  
-* ``toInteger(123) -> 123``  
-* ``toInteger('123') -> 123``  
-* ``toInteger('$123', '$###') -> 123``  
-___
-### <code>toLong</code>
-<code><b>toLong(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => long</b></código><br/><br/> Converte qualquer numérico ou cadeia a um valor longo. Um formato decimal java opcional pode ser usado para a conversão. Truncates umy float, double.  
-* ``toLong(123) -> 123``  
-* ``toLong('123') -> 123``  
-* ``toLong('$123', '$###') -> 123``  
-___
-### <code>toShort</code>
-<code><b>toShort(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => short</b></código><br/><br/> Converte qualquer numérico ou cadeia a um valor curto. Um formato decimal java opcional pode ser usado para a conversão. Truncates qualquer inteiro, longo, float, double.  
-* ``toShort(123) -> 123``  
-* ``toShort('123') -> 123``  
-* ``toShort('$123', '$###') -> 123``  
-___
-### <code>toString</code>
-<code><b>toString(<i>&lt;value&gt;</i> : any, [<i>&lt;number format/date format&gt;</i> : string]) => string</b></código><br/><br/> Converte um tipo de dados primitivo para uma cadeia. Para números e data, um formato pode ser especificado. Se não for especificado, o sistema por defeito é escolhido. O formato decimal de Java é utilizado para números. Consulte o Java SimpleDateFormat para todos os formatos possíveis de data; a t is yyyy-MM-dd.  
-* ``toStri ng(10) -> '10'``  
-* ``toString('engineer') -> 'engineer'``  
-* ``toString(123456.789, '##,###.##') - > '123,456.79'``  
-* ``toString(123.78, '000000.000') - forma > '000123.780'``  
-* ``toString(12345, '##0.#####E0') padrão-> '12.345E3'``  
-* ``toString(toDate('2018-12-31')) -> '2018-12-31'``  
-* ``isNull(toString(toDate('2018-12-31', 'MM/dd/yy'))) -> true``  
-* ``toString(4 == 20) -> 'false'``  
-___
-### <code>toTimestamp</code>
-<code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></código><br/><br/> Converte uma cadeia para um timetamp dado um formato de timetamp opcional. Se a estampação de tempo for omitida, é utilizado o padrão padrão yyyy-[M]M-[d]d hh:mm:mm:ss[.f...] Você pode passar um timezone opcional sob a forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. O timetamp suporta até milissegundo precisão com o valor de 9 99. Refer Java's `S i mpleDateFormat para formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  
-* ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``  
-* ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``  
-* ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``  
-* ``millisecond(toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``  
-___
-### <code>toUTC</code>
-<code><b>toUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></código><br/><br/> Converte o tempota ponto para UTC. Você pode passar um timezone opcional sob a forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. Está em incumprimento da classe timezo ne. Refer Java's `S i mpleDateFormat para formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  
-* ``toUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
-* ``toUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
 ___
 ### <code>translate</code>
 <code><b>translate(<i>&lt;string to translate&gt;</i> : string, <i>&lt;lookup characters&gt;</i> : string, <i>&lt;replace characters&gt;</i> : string) => string</b></código><br/><br/> Substitua um conjunto de caracteres por outro conjunto de caracteres na cadeia. Os caracteres têm 1 t o 1 replacement.  
@@ -1051,38 +928,8 @@ ___
 * ``varianceSample(sales)``  
 ___
 ### <code>varianceSampleIf</code>
-<code><b>varianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></código><br/><br/> Com base num critério, obtém a variação nce of a column.  
-* ``varianceSampleIf(region ==  'West' imparcial, vendas)'' ## W funções indow As seguintes funções só estão disponíveis na janelatransformations.
-___
-### <code>cumeDist</code>
-<code><b>cumeDist() => integer</b></código><br/><br/> A função CumeDist calcula a posição de um valor relativo a todos os valores da partição. O resultado é o número de linhas anteriores ou iguais à linha atual na ordem da partição dividida pelo número total de linhas na divisória da janela. Quaisquer valores de empate na ordem avaliarão até the same position.  
-* ``cumeDist()``  
-___
-### <code>denseRank</code>
-<code><b>denseRank() => integer</b></código><br/><br/> Calcula a classificação de um valor num grupo de valores especificados na ordem de uma janela por cláusula. O resultado é um mais o número de linhas anteriores ou iguais à linha atual na ordem da partição. Os valores não produzirão lacunas na sequência. Dense Rank funciona mesmo quando os dados não são classificados e procura change in values.  
-* ``denseRank()``  
-___
-### <code>lag</code>
-<code><b>lag(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look before&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></código><br/><br/> Obtém o valor do primeiro parâmetro avaliado n linhas antes da linha atual. O segundo parâmetro é o número de linhas para olhar para trás e o valor padrão é 1. Se não houver tantas linhas um valor de nulo é devolvido a menos que um val padrãoue is specified.  
-* ``lag(amount, 2)``  
-* ``lag(amount, 2000, 100)``  
-___
-### <code>lead</code>
-<code><b>lead(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look after&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></código><br/><br/> Obtém o valor do primeiro parâmetro avaliado n linhas após a linha atual. O segundo parâmetro é o número de linhas para olhar para a frente e o valor padrão é 1. Se não houver tantas linhas um valor de nulo é devolvido a menos que um val padrãoue is specified.  
-* ``lead(amount, 2)``  
-* ``lead(amount, 2000, 100)``  
-___
-### <code>nTile</code>
-<code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></código><br/><br/> A função NTile divide as linhas para cada tição windo w pa r em baldes 'n' que variam f rom 1 a no máximo 'n'. Os valores do balde diferirão no máximo 1. Se o número de linhas na partição não se dividir uniformemente no número de baldes, então os valores restantes são distribuídos um por balde, começando pelo primeiro balde. A função NTile é útil para o cálculo de tertiles, quarteis, deciles e outras estatísticas sumárias comuns. A função calcula duas variáveis durante a inicialização: O tamanho de um balde regular terá uma linha extra adicionada. Ambas as variáveis são baseadas no tamanho da partição atual. Durante o processo de cálculo, a função mantém o registo do número de linha atual, do número atual do balde e do número de linha em que o balde mudará (baldeSEtenha). Quando o número de linha atual atinge o limiar do balde, o valor do balde é aumentado por um e o limiar é aumentado pelo tamanho do balde (mais um extra se o bu cket is padded). atual * ``nTile()``  
-* ``nTile(numOfBuckets)``  
-___
-### <code>rank</code>
-<code><b>rank() => integer</b></código><br/><br/> Calcula a classificação de um valor num grupo de valores especificados na ordem de uma janela por cláusula. O resultado é um mais o número de linhas anteriores ou iguais à linha atual na ordem da partição. Os valores produzirão lacunas na sequência. Rank funciona mesmo quando os dados não são classificados e procura change in values.  
-* ``rank()``  
-___
-### <code>rowNumber</code>
-<code><b>rowNumber() => integer</b></código><br/><br/> Atribui uma numeração de linha sequencial para linhas numa janela starting with 1.  
-* ``rowNumber()``* ``
+<code><b>varianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></código><br/><br/> Com base num critério, obtém a variação imparcialnce of a column.  
+* ``varianceSampleIf(region == 'West', sales)``* ``
  @(
        name = 'Mark',
        types = [
@@ -1268,8 +1115,8 @@ Gets the levenshtein distance between two strings.
 ___
 ### <code>like</code>
 <code><b>like(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></code><br/><br/>
-The pattern is a string that is matched literally. The exceptions are the following special symbols:  _ matches any one character in the input (similar to . in posix regular expressions)
-  % matches zero or more characters in the input (similar to .* in posix regular expressions).
+The pattern is a string that is matched literally. The exceptions are the following special symbols:  _ matches any one character in the input (similar to . in ```posix``` regular expressions)
+  % matches zero or more characters in the input (similar to .* in ```posix``` regular expressions).
   The escape character is ''. If an escape character precedes a special symbol or another escape character, the following character is matched literally. It is invalid to escape any other character.  
 * ``like('icecream', 'ice%') -> true``  
 ___
@@ -1582,7 +1429,7 @@ Sorts the array using the provided predicate function. Sort expects a reference 
 ___
 ### <code>soundex</code>
 <code><b>soundex(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
-Gets the soundex code for the string.  
+Gets the ```soundex``` code for the string.  
 * ``soundex('genius') -> 'G520'``  
 ___
 ### <code>split</code>
@@ -1633,99 +1480,6 @@ ___
 <code><b>tanh(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calculates a hyperbolic tangent value.  
 * ``tanh(0) -> 0.0``  
-___
-### <code>toBase64</code>
-<code><b>toBase64(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
-Encodes the given string in base64.  
-* ``toBase64('bojjus') -> 'Ym9qanVz'``  
-___
-### <code>toBinary</code>
-<code><b>toBinary(<i>&lt;value1&gt;</i> : any) => binary</b></code><br/><br/>
-Converts any numeric/date/timestamp/string to binary representation.  
-* ``toBinary(3) -> [0x11]``  
-___
-### <code>toBoolean</code>
-<code><b>toBoolean(<i>&lt;value1&gt;</i> : string) => boolean</b></code><br/><br/>
-Converts a value of ('t', 'true', 'y', 'yes', '1') to true and ('f', 'false', 'n', 'no', '0') to false and NULL for any other value.  
-* ``toBoolean('true') -> true``  
-* ``toBoolean('n') -> false``  
-* ``isNull(toBoolean('truthy')) -> true``  
-___
-### <code>toDate</code>
-<code><b>toDate(<i>&lt;string&gt;</i> : any, [<i>&lt;date format&gt;</i> : string]) => date</b></code><br/><br/>
-Converts input date string to date using an optional input date format. Refer Java's `SimpleDateFormat` class for available formats. If the input date format is omitted, default format is yyyy-[M]M-[d]d. Accepted formats are :[ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ].  
-* ``toDate('2012-8-18') -> toDate('2012-08-18')``  
-* ``toDate('12/18/2012', 'MM/dd/yyyy') -> toDate('2012-12-18')``  
-___
-### <code>toDecimal</code>
-<code><b>toDecimal(<i>&lt;value&gt;</i> : any, [<i>&lt;precision&gt;</i> : integral], [<i>&lt;scale&gt;</i> : integral], [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => decimal(10,0)</b></code><br/><br/>
-Converts any numeric or string to a decimal value. If precision and scale are not specified, it is defaulted to (10,2).An optional Java decimal format can be used for the conversion. An optional locale format in the form of BCP47 language like en-US, de, zh-CN.  
-* ``toDecimal(123.45) -> 123.45``  
-* ``toDecimal('123.45', 8, 4) -> 123.4500``  
-* ``toDecimal('$123.45', 8, 4,'$###.00') -> 123.4500``  
-* ``toDecimal('Ç123,45', 10, 2, 'Ç###,##', 'de') -> 123.45``  
-___
-### <code>toDouble</code>
-<code><b>toDouble(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => double</b></code><br/><br/>
-Converts any numeric or string to a double value. An optional Java decimal format can be used for the conversion. An optional locale format in the form of BCP47 language like en-US, de, zh-CN.  
-* ``toDouble(123.45) -> 123.45``  
-* ``toDouble('123.45') -> 123.45``  
-* ``toDouble('$123.45', '$###.00') -> 123.45``  
-* ``toDouble('Ç123,45', 'Ç###,##', 'de') -> 123.45``  
-___
-### <code>toFloat</code>
-<code><b>toFloat(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => float</b></code><br/><br/>
-Converts any numeric or string to a float value. An optional Java decimal format can be used for the conversion. Truncates any double.  
-* ``toFloat(123.45) -> 123.45f``  
-* ``toFloat('123.45') -> 123.45f``  
-* ``toFloat('$123.45', '$###.00') -> 123.45f``  
-___
-### <code>toInteger</code>
-<code><b>toInteger(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => integer</b></code><br/><br/>
-Converts any numeric or string to an integer value. An optional Java decimal format can be used for the conversion. Truncates any long, float, double.  
-* ``toInteger(123) -> 123``  
-* ``toInteger('123') -> 123``  
-* ``toInteger('$123', '$###') -> 123``  
-___
-### <code>toLong</code>
-<code><b>toLong(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => long</b></code><br/><br/>
-Converts any numeric or string to a long value. An optional Java decimal format can be used for the conversion. Truncates any float, double.  
-* ``toLong(123) -> 123``  
-* ``toLong('123') -> 123``  
-* ``toLong('$123', '$###') -> 123``  
-___
-### <code>toShort</code>
-<code><b>toShort(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => short</b></code><br/><br/>
-Converts any numeric or string to a short value. An optional Java decimal format can be used for the conversion. Truncates any integer, long, float, double.  
-* ``toShort(123) -> 123``  
-* ``toShort('123') -> 123``  
-* ``toShort('$123', '$###') -> 123``  
-___
-### <code>toString</code>
-<code><b>toString(<i>&lt;value&gt;</i> : any, [<i>&lt;number format/date format&gt;</i> : string]) => string</b></code><br/><br/>
-Converts a primitive datatype to a string. For numbers and date a format can be specified. If unspecified the system default is picked.Java decimal format is used for numbers. Refer to Java SimpleDateFormat for all possible date formats; the default format is yyyy-MM-dd.  
-* ``toString(10) -> '10'``  
-* ``toString('engineer') -> 'engineer'``  
-* ``toString(123456.789, '##,###.##') -> '123,456.79'``  
-* ``toString(123.78, '000000.000') -> '000123.780'``  
-* ``toString(12345, '##0.#####E0') -> '12.345E3'``  
-* ``toString(toDate('2018-12-31')) -> '2018-12-31'``  
-* ``isNull(toString(toDate('2018-12-31', 'MM/dd/yy'))) -> true``  
-* ``toString(4 == 20) -> 'false'``  
-___
-### <code>toTimestamp</code>
-<code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts a string to a timestamp given an optional timestamp format. If the timestamp is omitted the default pattern yyyy-[M]M-[d]d hh:mm:ss[.f...] is used. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. Timestamp supports up to millisecond accuracy with value of 999. Refer Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  
-* ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``  
-* ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``  
-* ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``  
-* ``millisecond(toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``  
-___
-### <code>toUTC</code>
-<code><b>toUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts the timestamp to UTC. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It is defaulted to the current timezone. Refer Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  
-* ``toUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
-* ``toUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
 ___
 ### <code>translate</code>
 <code><b>translate(<i>&lt;string to translate&gt;</i> : string, <i>&lt;lookup characters&gt;</i> : string, <i>&lt;replace characters&gt;</i> : string) => string</b></code><br/><br/>
@@ -1976,45 +1730,206 @@ ___
 <code><b>varianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Based on a criteria, gets the unbiased variance of a column.  
 * ``varianceSampleIf(region == 'West', sales)``  
-## Window functions
-The following functions are only available in window transformations.
+
+## <a name="conversion-functions"></a>Funções de conversão
+
+As funções de conversão são usadas para converter dados e tipos de dados
+
+### <code>toBase64</code>
+<code><b>toBase64(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
+Codifica a cadeia dada na base64.  
+* ``toBase64('bojjus') -> 'Ym9qanVz'``  
+___
+### <code>toBinary</code>
+<code><b>toBinary(<i>&lt;value1&gt;</i> : any) => binary</b></code><br/><br/>
+Converte qualquer numérico/data/timetamp/string para representação binária.  
+* ``toBinary(3) -> [0x11]``  
+___
+### <code>toBoolean</code>
+<code><b>toBoolean(<i>&lt;value1&gt;</i> : string) => boolean</b></code><br/><br/>
+Converte um valor de ('t', 'true', 'y', 'sim', '1') para verdadeiro e ('f', 'falso', 'n', 'não', '0') a falso e NUO por qualquer outro valor.  
+* ``toBoolean('true') -> true``  
+* ``toBoolean('n') -> false``  
+* ``isNull(toBoolean('truthy')) -> true``  
+___
+### <code>toByte</code>
+<code><b>toByte(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => byte</b></code><br/><br/>
+Converte qualquer numérico ou corda para um valor byte. Um formato decimal java opcional pode ser usado para a conversão.  
+* ``toByte(123)``
+* ``123``
+* ``toByte(0xFF)``
+* ``-1``
+* ``toByte('123')``
+* ``123``
+___
+### <code>toDate</code>
+<code><b>toDate(<i>&lt;string&gt;</i> : any, [<i>&lt;date format&gt;</i> : string]) => date</b></code><br/><br/>
+Converte o string da data de entrada até à data utilizando um formato de data de entrada opcional. Consulte a classe de Java `SimpleDateFormat` para formatos disponíveis. Se o formato da data de entrada for omitido, o formato predefinido é yyyy-[M]M-[d]d. Os formatos aceites são :[yyyyyy-[M]M, yyyy-[M]M-[d]d,yyyy-[M]M-[d]dT*] ].  
+* ``toDate('2012-8-18') -> toDate('2012-08-18')``  
+* ``toDate('12/18/2012', 'MM/dd/yyyy') -> toDate('2012-12-18')``  
+___
+### <code>toDecimal</code>
+<code><b>toDecimal(<i>&lt;value&gt;</i> : any, [<i>&lt;precision&gt;</i> : integral], [<i>&lt;scale&gt;</i> : integral], [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => decimal(10,0)</b></code><br/><br/>
+Converte qualquer numérico ou corda para um valor decimal. Se a precisão e a escala não forem especificadas, é incumprida (10,2). Um formato decimal java opcional pode ser usado para a conversão. Um formato local opcional sob a forma de idioma BCP47 como en-US, de, zh-CN.  
+* ``toDecimal(123.45) -> 123.45``  
+* ``toDecimal('123.45', 8, 4) -> 123.4500``  
+* ``toDecimal('$123.45', 8, 4,'$###.00') -> 123.4500``  
+* ``toDecimal('Ç123,45', 10, 2, 'Ç###,##', 'de') -> 123.45``  
+___
+### <code>toDouble</code>
+<code><b>toDouble(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => double</b></code><br/><br/>
+Converte qualquer numérico ou corda para um valor duplo. Um formato decimal java opcional pode ser usado para a conversão. Um formato local opcional sob a forma de idioma BCP47 como en-US, de, zh-CN.  
+* ``toDouble(123.45) -> 123.45``  
+* ``toDouble('123.45') -> 123.45``  
+* ``toDouble('$123.45', '$###.00') -> 123.45``  
+* ``toDouble('Ç123,45', 'Ç###,##', 'de') -> 123.45``  
+___
+### <code>toFloat</code>
+<code><b>toFloat(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => float</b></code><br/><br/>
+Converte qualquer numérico ou corda para um valor flutuante. Um formato decimal java opcional pode ser usado para a conversão. Truncates qualquer duplo.  
+* ``toFloat(123.45) -> 123.45f``  
+* ``toFloat('123.45') -> 123.45f``  
+* ``toFloat('$123.45', '$###.00') -> 123.45f``  
+___
+### <code>toInteger</code>
+<code><b>toInteger(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => integer</b></code><br/><br/>
+Converte qualquer numérico ou corda para um valor inteiro. Um formato decimal java opcional pode ser usado para a conversão. Truncates qualquer longo, flutuar, duplo.  
+* ``toInteger(123) -> 123``  
+* ``toInteger('123') -> 123``  
+* ``toInteger('$123', '$###') -> 123``  
+___
+### <code>toLong</code>
+<code><b>toLong(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => long</b></code><br/><br/>
+Converte qualquer numérico ou corda a um valor longo. Um formato decimal java opcional pode ser usado para a conversão. Truncates qualquer boia, duplo.  
+* ``toLong(123) -> 123``  
+* ``toLong('123') -> 123``  
+* ``toLong('$123', '$###') -> 123``  
+___
+### <code>toShort</code>
+<code><b>toShort(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => short</b></code><br/><br/>
+Converte qualquer numérico ou corda a um valor curto. Um formato decimal java opcional pode ser usado para a conversão. Truncates qualquer inteiro, longo, flutuante, duplo.  
+* ``toShort(123) -> 123``  
+* ``toShort('123') -> 123``  
+* ``toShort('$123', '$###') -> 123``  
+___
+### <code>toString</code>
+<code><b>toString(<i>&lt;value&gt;</i> : any, [<i>&lt;number format/date format&gt;</i> : string]) => string</b></code><br/><br/>
+Converte um tipo de dados primitivo a uma corda. Para números e data, um formato pode ser especificado. Se não for especificado, o sistema por defeito é escolhido. O formato decimal de Java é utilizado para números. Consulte o Java SimpleDateFormat para todos os formatos possíveis de data; o formato predefinido é yyy-MM-dd.  
+* ``toString(10) -> '10'``  
+* ``toString('engineer') -> 'engineer'``  
+* ``toString(123456.789, '##,###.##') -> '123,456.79'``  
+* ``toString(123.78, '000000.000') -> '000123.780'``  
+* ``toString(12345, '##0.#####E0') -> '12.345E3'``  
+* ``toString(toDate('2018-12-31')) -> '2018-12-31'``  
+* ``isNull(toString(toDate('2018-12-31', 'MM/dd/yy'))) -> true``  
+* ``toString(4 == 20) -> 'false'``  
+___
+### <code>toTimestamp</code>
+<code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
+Converte uma corda para um timetamp dado um formato de timetamp opcional. Se a estampação de tempo for omitida, é utilizado o padrão padrão yyyy-[M]M-[d]d hh:mm:mm:ss[.f...] Você pode passar um timezone opcional sob a forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. O timetamp suporta até milissegundo precisão com o valor de 999. Consulte a classe de Java `SimpleDateFormat` para formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  
+* ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``  
+* ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``  
+* ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``  
+* ``millisecond(toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``  
+___
+### <code>toUTC</code>
+<code><b>toUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
+Converte a hora de tempo para UTC. Você pode passar um timezone opcional sob a forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. Está em incumprimento do atual timezone. Consulte a classe de Java `SimpleDateFormat` para formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  
+* ``toUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
+* ``toUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
+
+## <a name="metafunctions"></a>Metafunções
+
+As metafunções funcionam principalmente nos metadados no fluxo de dados
+
+### <code>byItem</code>
+<code><b>byItem(<i>&lt;parent column&gt;</i> : any, <i>&lt;column name&gt;</i> : string) => any</b></code><br/><br/>
+Encontre um sub-item dentro de uma estrutura ou matriz de estrutura Se houver vários fósforos, o primeiro fósforo é devolvido. Se não corresponder, devolve um valor NUDO. O valor devolvido tem de ser digitado por uma das ações de conversão do tipo(? data, ? corda...).  Os nomes das colunas conhecidos na hora do design devem ser abordados apenas pelo seu nome. As entradas computadas não são suportadas, mas pode utilizar substituições de parâmetros * ``byItem( byName('customer'), 'orderItems') ? (itemName as string, itemQty as integer)``
+* ````
+* ``byItem( byItem( byName('customer'), 'orderItems'), 'itemName') ? string``
+* ````
+___
+### <code>byOrigin</code>
+<code><b>byOrigin(<i>&lt;column name&gt;</i> : string, [<i>&lt;origin stream name&gt;</i> : string]) => any</b></code><br/><br/>
+Seleciona um valor de coluna pelo nome no fluxo de origem. O segundo argumento é o nome do fluxo de origem. Se houver vários fósforos, o primeiro jogo é devolvido. Se não corresponder, devolve um valor NUDO. O valor devolvido tem de ser digitado por uma das funções de conversão do tipo (TO_DATE, TO_STRING...). Os nomes das colunas conhecidos na hora do design devem ser abordados apenas pelo seu nome. As entradas computadas não são suportadas, mas pode utilizar substituições de parâmetros.  
+* ``toString(byOrigin('ancestor', 'ancestorStream'))``
+___
+### <code>byOrigins</code>
+<code><b>byOrigins(<i>&lt;column names&gt;</i> : array, [<i>&lt;origin stream name&gt;</i> : string]) => any</b></code><br/><br/>
+Seleciona uma série de colunas pelo nome no fluxo. O segundo argumento é o fluxo de onde se originou. Se houver vários fósforos, o primeiro jogo é devolvido. Se não corresponder, devolve um valor NUDO. O valor devolvido tem de ser digitado por uma das funções de conversão do tipo (TO_DATE, TO_STRING ...) Os nomes das colunas conhecidos na hora do design devem ser abordados apenas pelo seu nome. As entradas computadas não são suportadas, mas pode utilizar substituições de parâmetros.
+* ``toString(byOrigins(['ancestor1', 'ancestor2'], 'ancestorStream'))``
+___
+### <code>byName</code>
+<code><b>byName(<i>&lt;column name&gt;</i> : string, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
+Seleciona um valor de coluna pelo nome no fluxo. Pode passar um nome de fluxo opcional como segundo argumento. Se houver vários fósforos, o primeiro jogo é devolvido. Se não corresponder, devolve um valor NUDO. O valor devolvido tem de ser digitado por uma das funções de conversão do tipo (TO_DATE, TO_STRING...).  Os nomes das colunas conhecidos na hora do design devem ser abordados apenas pelo seu nome. As entradas computadas não são suportadas, mas pode utilizar substituições de parâmetros.  
+* ``toString(byName('parent'))``  
+* ``toLong(byName('income'))``  
+* ``toBoolean(byName('foster'))``  
+* ``toLong(byName($debtCol))``  
+* ``toString(byName('Bogus Column'))``  
+* ``toString(byName('Bogus Column', 'DeriveStream'))``  
+___
+### <code>byNames</code>
+<code><b>byNames(<i>&lt;column names&gt;</i> : array, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
+Selecione uma série de colunas pelo nome no fluxo. Pode passar um nome de fluxo opcional como segundo argumento. Se houver vários fósforos, o primeiro jogo é devolvido. Se não houver correspondência para uma coluna, toda a saída é um valor NU. O valor devolvido requer funções de conversão de tipo (toDate, toString, ...).  Os nomes das colunas conhecidos na hora do design devem ser abordados apenas pelo seu nome. As entradas computadas não são suportadas, mas pode utilizar substituições de parâmetros.
+* ``toString(byNames(['parent', 'child']))``
+* ``byNames(['parent']) ? string``
+* ``toLong(byNames(['income']))``
+* ``byNames(['income']) ? long``
+* ``toBoolean(byNames(['foster']))``
+* ``toLong(byNames($debtCols))``
+* ``toString(byNames(['a Column']))``
+* ``toString(byNames(['a Column'], 'DeriveStream'))``
+* ``byNames(['orderItem']) ? (itemName as string, itemQty as integer)``
+___
+### <code>byPosition</code>
+<code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
+Seleciona um valor de coluna pela sua posição relativa(1) no fluxo. Se a posição estiver fora dos limites, devolve um valor NUDO. O valor devolvido tem de ser digitado por uma das funções de conversão do tipo (TO_DATE, TO_STRING ...) As entradas computadas não são suportadas, mas pode utilizar substituições de parâmetros.  
+* ``toString(byPosition(1))``  
+* ``toDecimal(byPosition(2), 10, 2)``  
+* ``toBoolean(byName(4))``  
+* ``toString(byName($colName))``  
+* ``toString(byPosition(1234))``  
+
+## <a name="window-functions"></a>Funções do Windows
+As seguintes funções só estão disponíveis em transformações de janelas.
 ___
 ### <code>cumeDist</code>
 <code><b>cumeDist() => integer</b></code><br/><br/>
-The CumeDist function computes the position of a value relative to all values in the partition. The result is the number of rows preceding or equal to the current row in the ordering of the partition divided by the total number of rows in the window partition. Any tie values in the  ordering will evaluate to the same position.  
+A função CumeDist calcula a posição de um valor relativo a todos os valores da partição. O resultado é o número de linhas anteriores ou iguais à linha atual na ordem da partição dividida pelo número total de linhas na divisória da janela. Quaisquer valores de empate na ordem avaliarão para a mesma posição.  
 * ``cumeDist()``  
 ___
 ### <code>denseRank</code>
 <code><b>denseRank() => integer</b></code><br/><br/>
-Computes the rank of a value in a group of values specified in a window's order by clause. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will not produce gaps in the sequence. Dense Rank works even when data is not sorted and looks for change in values.  
+Calcula o grau de valor num grupo de valores especificados na ordem de uma janela por cláusula. O resultado é um mais o número de linhas anteriores ou iguais à linha atual na ordem da partição. Os valores não produzirão lacunas na sequência. Dense Rank funciona mesmo quando os dados não são classificados e procura mudanças de valores.  
 * ``denseRank()``  
 ___
 ### <code>lag</code>
 <code><b>lag(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look before&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
-Gets the value of the first parameter evaluated n rows before the current row. The second parameter is the number of rows to look back and the default value is 1. If there are not as many rows a value of null is returned unless a default value is specified.  
+Obtém o valor do primeiro parâmetro avaliado nas linhas n antes da linha atual. O segundo parâmetro é o número de linhas para olhar para trás e o valor padrão é 1. Se não houver tantas linhas, um valor de nulo é devolvido a menos que seja especificado um valor padrão.  
 * ``lag(amount, 2)``  
 * ``lag(amount, 2000, 100)``  
 ___
 ### <code>lead</code>
 <code><b>lead(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look after&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
-Gets the value of the first parameter evaluated n rows after the current row. The second parameter is the number of rows to look forward and the default value is 1. If there are not as many rows a value of null is returned unless a default value is specified.  
+Obtém o valor do primeiro parâmetro avaliado nas linhas n após a linha atual. O segundo parâmetro é o número de linhas para olhar para a frente e o valor padrão é 1. Se não houver tantas linhas, um valor de nulo é devolvido a menos que seja especificado um valor padrão.  
 * ``lead(amount, 2)``  
 * ``lead(amount, 2000, 100)``  
 ___
 ### <code>nTile</code>
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
-The NTile function divides the rows for each window partition into `n` buckets ranging from 1 to at most `n`. Bucket values will differ by at most 1. If the number of rows in the partition does not divide evenly into the number of buckets, then the remainder values are distributed one per bucket, starting with the first bucket. The NTile function is useful for the calculation of tertiles, quartiles, deciles, and other common summary statistics. The function calculates two variables during initialization: The size of a regular bucket will have one extra row added to it. Both variables are based on the size of the current partition. During the calculation process the function keeps track of the current row number, the current bucket number, and the row number at which the bucket will change (bucketThreshold). When the current row number reaches bucket threshold, the bucket value is increased by one and the threshold is increased by the bucket size (plus one extra if the current bucket is padded).  
+A ```NTile``` função divide as linhas para cada divisória de janela em `n` baldes que variam de 1 a no máximo `n` . Os valores do balde diferirão no máximo 1. Se o número de linhas na partição não se dividir uniformemente no número de baldes, então os valores restantes são distribuídos um por balde, começando pelo primeiro balde. A ```NTile``` função é útil para o cálculo ```tertiles``` de, quartiles, deciles e outras estatísticas sumárias comuns. A função calcula duas variáveis durante a inicialização: O tamanho de um balde regular terá uma linha extra adicionada. Ambas as variáveis são baseadas no tamanho da partição atual. Durante o processo de cálculo, a função mantém o registo do número de linha atual, do número atual do balde e do número de linha em que o balde mudará (baldeSEtenha). Quando o número da linha atual atinge o limiar do balde, o valor do balde é aumentado por um e o limiar é aumentado pelo tamanho do balde (mais um extra se o balde atual for acolchoado).  
 * ``nTile()``  
 * ``nTile(numOfBuckets)``  
 ___
 ### <code>rank</code>
 <code><b>rank() => integer</b></code><br/><br/>
-Computes the rank of a value in a group of values specified in a window's order by clause. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will produce gaps in the sequence. Rank works even when data is not sorted and looks for change in values.  
+Calcula o grau de valor num grupo de valores especificados na ordem de uma janela por cláusula. O resultado é um mais o número de linhas anteriores ou iguais à linha atual na ordem da partição. Os valores produzirão lacunas na sequência. O rank funciona mesmo quando os dados não são classificados e procura mudanças de valores.  
 * ``rank()``  
 ___
 ### <code>rowNumber</code>
 <code><b>rowNumber() => integer</b></code><br/><br/>
-Assigns a sequential row numbering for rows in a window starting with 1.  
+Atribui uma numeração de linha sequencial para linhas numa janela a partir de 1.  
 * ``rowNumber()``  
 
 ## <a name="next-steps"></a>Passos seguintes

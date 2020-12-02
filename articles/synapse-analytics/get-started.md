@@ -10,16 +10,16 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/17/2020
-ms.openlocfilehash: f55e266b548ea3b43a50d9500a427dfe1199b73f
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: b1339a0ab5be9004643cf2e9f86203eba9a2cc72
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699768"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445063"
 ---
 # <a name="get-started-with-azure-synapse-analytics"></a>Começar com Azure Synapse Analytics
 
-Este tutorial é um guia passo a passo através das principais áreas de recurso da Azure Synapse Analytics. O tutorial é o ponto de partida ideal para alguém que quer uma visita guiada através dos cenários-chave do Azure Synapse Analytics. Depois de seguir os passos no tutorial, você terá um espaço de trabalho synapse totalmente funcional no qual você pode começar a analisar dados usando piscina SQL dedicada, piscina SQL sem servidor, ou Apache Spark.
+Este tutorial é um guia passo a passo através das principais áreas de recurso da Azure Synapse Analytics. O tutorial é o ponto de partida ideal para alguém que quer uma visita guiada através dos cenários-chave do Azure Synapse Analytics. Depois de seguir os passos no tutorial, você terá um espaço de trabalho Synapse. Este tutorial também inclui etapas para [permitir um espaço de trabalho para a sua piscina SQL dedicada (anteriormente SQL DW)](./sql-data-warehouse/workspace-connected-create.md). Uma vez criado o seu espaço de trabalho, pode começar a analisar dados usando piscina SQL dedicada, piscina SQL sem servidor ou piscina Apache Spark sem servidor.
 
 Siga os passos *para que os* dois, como mostrado abaixo, faça um tour por muitas das capacidades e aprenda a exercitar as suas principais características.
 

@@ -1,22 +1,22 @@
 ---
-title: 'Quickstart: Obtenha intenção com APIs DE REST - LUIS'
-description: Neste rest API quickstart, use uma aplicação pública disponível LUIS para determinar a intenção de um utilizador de texto de conversação.
+title: Como obter uma intenção usando a API REST
+description: Neste artigo, utilize uma aplicação pública disponível LUIS para determinar a intenção de um utilizador a partir de texto de conversação.
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 05/18/2020
+ms.topic: conceptual
+ms.date: 11/30/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: d03ebc1ec5730f1905ce1ee5b9c484312f5aeee1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b49d90ffe2a262895727fdd4ef5f8a7950104102
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316354"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437019"
 ---
-# <a name="quickstart-get-intent-with-rest-apis"></a>Quickstart: Obtenha intenção com APIs de DESCANSO
+# <a name="how-to-get-an-intent-using-the-rest-apis"></a>Como obter uma intenção usando as APIs REST
 
-Neste arranque rápido, utilizará uma aplicação LUIS para determinar a intenção de um utilizador a partir de texto sonoro. Envie a intenção do utilizador como texto para o ponto final de previsão HTTP da aplicação Pizza. No ponto final, a LUIS aplica o modelo da app Pizza para analisar o texto de linguagem natural para significado, determinando a intenção geral e extraindo dados relevantes para o domínio da app.
+Neste artigo, utilizará uma aplicação LUIS para determinar a intenção de um utilizador a partir de texto sonoro. Envie a intenção do utilizador como texto para o ponto final de previsão HTTP da aplicação Pizza. No ponto final, a LUIS aplica o modelo da app Pizza para analisar o texto de linguagem natural para significado, determinando a intenção geral e extraindo dados relevantes para o domínio da app.
 
 Para este artigo, precisa de uma conta gratuita do [LUIS](https://www.luis.ai).
 

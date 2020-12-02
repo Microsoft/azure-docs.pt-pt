@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: Monitorização do desempenho da aplicação para aplicações Java em qualquer ambiente sem necessidade de modificação de código. Mapa de rastreio e aplicação distribuídos.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 36e2b419da2bccdf2f5f13227457172cf644994c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7046e4a1aeeda5e537208c79858c95c79e188348
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351542"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437206"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java aplicação codificada monitorizando Azure Monitor Application Insights
 
@@ -127,15 +127,16 @@ Consulte [as opções de configuração](./java-standalone-config.md) para obter
 * Micrometro (incluindo métricas do actuador de bota de mola)
 * Métricas JMX
 
-## <a name="sending-custom-telemetry-from-your-application"></a>Envio de telemetria personalizada a partir da sua aplicação
+## <a name="send-custom-telemetry-from-your-application"></a>Envie telemetria personalizada a partir da sua aplicação
 
 O nosso objetivo em 3.0+ é permitir-lhe enviar a sua telemetria personalizada usando APIs padrão.
 
-Apoiamos o Micrometro, a API openTelemetry e os quadros populares de registo. O Application Insights Java 3.0 irá capturar automaticamente a telemetria e correlacioná-la juntamente com toda a telemetria auto-recolhida.
+Apoiamos micrometros, quadros de registo populares, e a Aplicação Insights Java 2.x SDK até agora.
+Application Insights Java 3.0 captura automaticamente a telemetria enviada através destas APIs e correlaciona-a com telemetria recolhida automaticamente.
 
 ### <a name="supported-custom-telemetry"></a>Telemetria personalizada suportada
 
-O quadro abaixo representa os tipos de telemetria personalizados atualmente suportados que pode permitir complementar o agente Java 3.0. Resumindo, as métricas personalizadas são suportadas através de micrometros, as exceções personalizadas e os vestígios podem ser ativados através de quadros de registo, e qualquer tipo de telemetria personalizada é suportada através do [Application Insights Java 2.x SDK](#sending-custom-telemetry-using-application-insights-java-sdk-2x). 
+O quadro abaixo representa os tipos de telemetria personalizados atualmente suportados que pode permitir complementar o agente Java 3.0. Resumindo, as métricas personalizadas são suportadas através de micrometros, as exceções personalizadas e os vestígios podem ser ativados através de quadros de registo, e qualquer tipo de telemetria personalizada é suportada através do [Application Insights Java 2.x SDK](#send-custom-telemetry-using-application-insights-java-2x-sdk).
 
 |                     | Micrometer | Log4j, logback, JUL | 2.x SDK |
 |---------------------|------------|---------------------|---------|
@@ -149,82 +150,101 @@ O quadro abaixo representa os tipos de telemetria personalizados atualmente supo
 
 Não estamos a planear lançar um SDK com o Application Insights 3.0 neste momento.
 
-Application Insights Java 3.0 já está a ouvir a telemetria que é enviada para a Aplicação Insights Java SDK 2.x. Esta funcionalidade é uma parte importante da história de upgrade para os utilizadores existentes em 2.x, e preenche uma lacuna importante no nosso suporte de telemetria personalizado até que a API OpenTelemetry seja GA.
+Application Insights Java 3.0 já está a ouvir a telemetria que é enviada para a Aplicação Insights Java 2.x SDK. Esta funcionalidade é uma parte importante da história de upgrade para os utilizadores existentes em 2.x, e preenche uma lacuna importante no nosso suporte de telemetria personalizado até que a API OpenTelemetry seja GA.
 
-## <a name="sending-custom-telemetry-using-application-insights-java-sdk-2x"></a>Envio de telemetria personalizada usando Application Insights Java SDK 2.x
+### <a name="send-custom-metrics-using-micrometer"></a>Envie métricas personalizadas usando o Micrometro
+
+Adicione micrometro à sua aplicação:
+
+```xml
+<dependency>
+  <groupId>io.micrometer</groupId>
+  <artifactId>micrometer-core</artifactId>
+  <version>1.6.1</version>
+</dependency>
+```
+
+Utilize o [registo global](https://micrometer.io/docs/concepts#_global_registry) do Micrometro para criar um medidor:
+
+```java
+static final Counter counter = Metrics.counter("test_counter");
+```
+
+e usá-lo para registar métricas:
+
+```java
+counter.increment();
+```
+
+### <a name="send-custom-traces-and-exceptions-using-your-favorite-logging-framework"></a>Envie vestígios e exceções personalizados usando a sua estrutura de registo favorito
+
+Log4j, Logback e java.util.logging são instrumentados automaticamente, e o registo realizado através destas estruturas de registo é recolhido automaticamente como vestígio e telemetria de exceção.
+
+Por predefinição, a exploração madeireira só é recolhida quando essa sessão é realizada ao nível info ou acima.
+Consulte as opções de [configuração](./java-standalone-config.md#auto-collected-logging) para como alterar este nível.
+
+Se pretender anexar dimensões personalizadas aos seus registos, pode utilizar [o Log4j 1 MDC,](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html) [o Log4j 2 MDC,](https://logging.apache.org/log4j/2.x/manual/thread-context.html)ou [o Logback MDC,](http://logback.qos.ch/manual/mdc.html)e o Application Insights Java 3.0 capturará automaticamente essas propriedades MDC como dimensões personalizadas no seu vestígio e telemetria de exceção.
+
+### <a name="send-custom-telemetry-using-application-insights-java-2x-sdk"></a>Envie telemetria personalizada usando Application Insights Java 2.x SDK
 
 Adicione `applicationinsights-core-2.6.0.jar` à sua aplicação (todas as versões 2.x são suportadas pela Application Insights Java 3.0, mas vale a pena usar as últimas se tiver escolha):
 
 ```xml
-  <dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>applicationinsights-core</artifactId>
-    <version>2.6.0</version>
-  </dependency>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-core</artifactId>
+  <version>2.6.0</version>
+</dependency>
 ```
 
 Criar um TelemetriaClient:
 
   ```java
-private static final TelemetryClient telemetryClient = new TelemetryClient();
+static final TelemetryClient telemetryClient = new TelemetryClient();
 ```
 
-e usá-lo para enviar telemetria personalizada.
+e usá-lo para enviar telemetria personalizada:
 
-### <a name="events"></a>Eventos
+##### <a name="events"></a>Eventos
 
-  ```java
+```java
 telemetryClient.trackEvent("WinGame");
 ```
-### <a name="metrics"></a>Métricas
 
-Pode enviar telemetria métrica através [do Micrometro:](https://micrometer.io)
+##### <a name="metrics"></a>Métricas
 
 ```java
-  Counter counter = Metrics.counter("test_counter");
-  counter.increment();
+telemetryClient.trackMetric("queueLength", 42.0);
 ```
 
-Ou também pode utilizar a Aplicação Insights Java SDK 2.x:
+##### <a name="dependencies"></a>Dependências
 
 ```java
-  telemetryClient.trackMetric("queueLength", 42.0);
+boolean success = false;
+long startTime = System.currentTimeMillis();
+try {
+    success = dependency.call();
+} finally {
+    long endTime = System.currentTimeMillis();
+    RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
+    telemetry.setTimestamp(new Date(startTime));
+    telemetry.setDuration(new Duration(endTime - startTime));
+    telemetryClient.trackDependency(telemetry);
+}
 ```
 
-### <a name="dependencies"></a>Dependências
+##### <a name="logs"></a>Registos
 
 ```java
-  boolean success = false;
-  long startTime = System.currentTimeMillis();
-  try {
-      success = dependency.call();
-  } finally {
-      long endTime = System.currentTimeMillis();
-      RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
-      telemetry.setTimestamp(new Date(startTime));
-      telemetry.setDuration(new Duration(endTime - startTime));
-      telemetryClient.trackDependency(telemetry);
-  }
+telemetryClient.trackTrace(message, SeverityLevel.Warning, properties);
 ```
 
-### <a name="logs"></a>Registos
-Pode enviar telemetria de registo personalizado através da sua estrutura de registo favorito.
-
-Ou também pode utilizar a Aplicação Insights Java SDK 2.x:
+##### <a name="exceptions"></a>Exceções
 
 ```java
-  telemetryClient.trackTrace(message, SeverityLevel.Warning, properties);
-```
-
-### <a name="exceptions"></a>Exceções
-Pode enviar telemetria de exceção personalizada através da sua estrutura de registo favorito.
-
-Ou também pode utilizar a Aplicação Insights Java SDK 2.x:
-
-```java
-  try {
-      ...
-  } catch (Exception e) {
-      telemetryClient.trackException(e);
-  }
+try {
+    ...
+} catch (Exception e) {
+    telemetryClient.trackException(e);
+}
 ```

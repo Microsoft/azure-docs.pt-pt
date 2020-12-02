@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: 02fd0a4c7d931f439ab85af8d90de323105e21f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c45445415f3eaa7cb0f9069dd5f64b57c19e5836
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096704"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437155"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrar centenas de terabytes de dados para o Azure Cosmos DB 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -29,11 +29,11 @@ As estratégias de migração da Azure Cosmos DB diferem atualmente com base na 
 
 As ferramentas existentes para a migração de dados para a Azure Cosmos DB têm algumas limitações que se tornam especialmente evidentes em larga escala:
 
- * **Capacidades limitadas de escala** : Para migrar terabytes de dados para a Azure Cosmos DB o mais rapidamente possível, e para consumir eficazmente toda a produção a fortalhada, os clientes da migração devem ter a capacidade de escalar indefinidamente.  
+ * **Capacidades limitadas de escala**: Para migrar terabytes de dados para a Azure Cosmos DB o mais rapidamente possível, e para consumir eficazmente toda a produção a fortalhada, os clientes da migração devem ter a capacidade de escalar indefinidamente.  
 
-* **Falta de rastreio e de verificação de progressos** : É importante acompanhar o progresso da migração e ter um ponto de verificação enquanto migra grandes conjuntos de dados. Caso contrário, qualquer erro que ocorra durante a migração irá parar a migração, e você tem que iniciar o processo do zero. Não seria produtivo reiniciar todo o processo de migração quando 99% do processo já está concluído.  
+* **Falta de rastreio e de verificação de progressos**: É importante acompanhar o progresso da migração e ter um ponto de verificação enquanto migra grandes conjuntos de dados. Caso contrário, qualquer erro que ocorra durante a migração irá parar a migração, e você tem que iniciar o processo do zero. Não seria produtivo reiniciar todo o processo de migração quando 99% do processo já está concluído.  
 
-* **Falta de fila de letras mortas** : Dentro de grandes conjuntos de dados, em alguns casos pode haver problemas com partes dos dados de origem. Além disso, pode haver problemas transitórios com o cliente ou a rede. Qualquer um destes casos não deve fazer com que toda a migração falhe. Embora a maioria das ferramentas de migração tenha capacidades robustas de retenção que se protegem contra questões intermitentes, nem sempre é suficiente. Por exemplo, se menos de 0,01% dos documentos de dados de origem forem superiores a 2 MB de tamanho, fará com que o documento escreva para falhar no Azure Cosmos DB. Idealmente, é útil que a ferramenta de migração persista estes documentos "falhados" para outra fila de letras mortas, que pode ser processada após a migração. 
+* **Falta de fila de letras mortas**: Dentro de grandes conjuntos de dados, em alguns casos pode haver problemas com partes dos dados de origem. Além disso, pode haver problemas transitórios com o cliente ou a rede. Qualquer um destes casos não deve fazer com que toda a migração falhe. Embora a maioria das ferramentas de migração tenha capacidades robustas de retenção que se protegem contra questões intermitentes, nem sempre é suficiente. Por exemplo, se menos de 0,01% dos documentos de dados de origem forem superiores a 2 MB de tamanho, fará com que o documento escreva para falhar no Azure Cosmos DB. Idealmente, é útil que a ferramenta de migração persista estes documentos "falhados" para outra fila de letras mortas, que pode ser processada após a migração. 
 
 Muitas destas limitações estão a ser corrigidas para ferramentas como a fábrica de Dados Azure, serviços de migração de dados Azure. 
 
@@ -142,12 +142,6 @@ Após a conclusão dos pré-requisitos, pode migrar dados com os seguintes passo
 6. Alguns destes erros podem dever-se a documentos incorretos nos dados de origem. Estes devem ser identificados e corrigidos. Em seguida, deve repetir o passo de importação das divisórias falhadas para reingressá-las. 
 
 Uma vez concluída a migração, pode validar que a contagem de documentos em Azure Cosmos DB é a mesma que a contagem de documentos na base de dados de origem. Neste exemplo, o tamanho total em Azure Cosmos DB acabou por ser de 65 terabytes. Após a migração, a indexação pode ser ligada seletivamente e as RUs podem ser reduzidas para o nível exigido pelas operações da carga de trabalho.
-
-## <a name="contact-the-azure-cosmos-db-team"></a>Contacte a equipa DB da Azure Cosmos
-Embora possa seguir este guia para migrar com sucesso grandes conjuntos de dados para Azure Cosmos DB, para migrações em larga escala, recomenda-se que contacte a equipa de produtos DB da Azure Cosmos para validar a modelação de dados e uma revisão geral da arquitetura. Com base no seu conjunto de dados e carga de trabalho, a equipa do produto também pode sugerir outras otimizações de desempenho e custos que possam ser aplicáveis a si. Para contactar a equipa DB da Azure Cosmos para obter assistência com migrações em larga escala, pode abrir um bilhete de apoio ao abrigo do tipo de problema "General Advisory" e do subtipo de problemas de "Grandes migrações (TB+)" como mostrado abaixo.
-
-:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="Configuração da ferramenta de migração":::
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/21/2020
-ms.openlocfilehash: 42b586062378c59b66ca945880bf723418264071
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 949992418cb19c5c69ed8da92e9c2f0fc5f2f791
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95241935"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445428"
 ---
 # <a name="creating-a-synapse-workspace"></a>Criação de um espaço de trabalho sinapse
 
@@ -28,7 +28,7 @@ Para completar os passos deste tutorial, precisa de ter acesso a um grupo de rec
 ## <a name="create-a-synapse-workspace-in-the-azure-portal"></a>Criar um espaço de trabalho sinapse no portal Azure
 
 1. Abra o [portal Azure](https://portal.azure.com)e na pesquisa superior para **Synapse**.
-1. Nos resultados da pesquisa, em **Serviços,** selecione **Azure Synapse Analytics (pré-visualização de espaços de trabalho)**.
+1. Nos resultados da pesquisa, em **Serviços,** selecione **Azure Synapse Analytics**.
 1. **Selecione Adicionar** para criar um espaço de trabalho.
 1. No **Básico, insira** a sua **Assinatura** Preferida, **Grupo de Recursos,** **Região,** e, em seguida, escolha um nome de espaço de trabalho. Neste tutorial, usaremos **o meu espaço de trabalho.**
 1. Navegue para **selecionar data lake storage Gen 2**. 
@@ -36,6 +36,10 @@ Para completar os passos deste tutorial, precisa de ter acesso a um grupo de rec
 1. Clique no **Sistema de Ficheiros** e nomeie os **utilizadores.** Isto irá criar um recipiente chamado **utilizadores**
 1. O espaço de trabalho utilizará esta conta de armazenamento como a conta de armazenamento "primária" para as tabelas Spark e os registos de aplicações Spark.
 1. Selecione **Rever + criar** > **Criar**. O seu espaço de trabalho está pronto em poucos minutos.
+
+> [!NOTE]
+> Para permitir funcionalidades de espaço de trabalho a partir de uma piscina SQL dedicada existente (anteriormente SQL DW) consulte como [ativar um espaço de trabalho para a sua piscina DE SQL dedicada (anteriormente SQL DW)](./sql-data-warehouse/workspace-connected-create.md).
+
 
 ## <a name="open-synapse-studio"></a>Open Synapse Studio
 
@@ -54,6 +58,9 @@ Depois de criar o seu espaço de trabalho Azure Synapse, tem duas formas de abri
 
 Uma piscina SQL dedicada consome recursos faturados desde que esteja ativo. Pode fazer uma pausa na piscina mais tarde para reduzir custos.
 
+> [!NOTE] 
+> Ao criar uma nova piscina SQL dedicada (anteriormente SQL DW) no seu espaço de trabalho, a página dedicada de fornecimento de piscinas SQL abrirá. O provisionamento terá lugar no servidor lógico SQL.
+
 ## <a name="create-a-serverless-apache-spark-pool"></a>Crie uma piscina Apache Spark sem servidor
 
 1. No Synapse Studio, no painel do lado esquerdo, **selecione Gerir**  >  **as piscinas Apache Spark**.
@@ -69,7 +76,7 @@ A piscina Spark diz ao Azure Synapse quantos recursos de faíscas usar. Paga ape
 
 Cada espaço de trabalho vem com uma piscina SQL sem servidor pré-construída chamada **Built-in**. Esta piscina não pode ser apagada. As piscinas SQL sem servidor permitem-lhe utilizar o SQL sem ter de reservar capacidade com piscinas SQL dedicadas. Ao contrário das piscinas SQL dedicadas, a faturação de um pool SQL sem servidor baseia-se na quantidade de dados digitalizados para executar a consulta, e não no número de capacidade atribuída à piscina.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Analise usando uma piscina SQL dedicada](get-started-analyze-sql-pool.md)

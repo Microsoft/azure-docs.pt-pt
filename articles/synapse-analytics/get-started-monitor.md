@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 10/15/2020
-ms.openlocfilehash: 2970bb58bb73d52c75729b00a8209a9c576d4ec0
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: c2260cc0d2c6b889b44c738576e33abceebe23f1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427416"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444395"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Monitorize o seu espaço de trabalho de sinapse
 
@@ -47,6 +47,9 @@ Abra o Estúdio Synapse e navegue até ao centro **monitor.** Aqui, você pode v
 1. Selecione uma **Piscina** para monitorizar. Agora você pode ver todos os pedidos SQL que estão executando ou executado no seu espaço de trabalho nessa piscina.
 1. Encontre um pedido SQL específico e sobressaa o rato sobre esse item. Assim que pairar, verá um ícone de script SQL aparecer.
 1. Clique no ícone de script SQL para ver o texto completo do pedido SQL.
+
+    > [!NOTE] 
+    > Os pedidos SQL submetidos através do Synapse Studio num espaço de trabalho habilitado a piscina SQL (anteriormente SQL DW) podem ser vistos no centro do Monitor. Para todas as outras atividades de monitorização, você pode ir ao portal Azure dedicada à monitorização da piscina SQL (anteriormente SQL DW).
 
 ## <a name="next-steps"></a>Passos seguintes
 

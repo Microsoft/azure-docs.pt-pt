@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 0bbb18a82de508f79cd2fd5dde58c1cf33520950
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 57b54fbe20df4eb74ee17c7b5ac83d773114463b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887404"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437376"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treina automaticamente um modelo de previsão da série de tempo
 
@@ -146,6 +146,7 @@ A tabela a seguir resume estes parâmetros adicionais. Consulte [a documentaçã
 |`forecast_horizon`|Define quantos períodos para a frente gostaria de prever. O horizonte está em unidades da frequência da série-tempo. As unidades baseiam-se no intervalo de tempo dos seus dados de treino, por exemplo, mensais, semanais que o meteorologista deve prever.|✓|
 |`enable_dnn`|[Ativar as NNNs de Previsão]().||
 |`time_series_id_column_names`|O(s) nome da coluna(s) usado para identificar exclusivamente as séries de tempo em dados que têm várias linhas com a mesma marca de tempo. Se os identificadores de séries temporquiçantes não forem definidos, presume-se que o conjunto de dados seja uma série de tempo. Para saber mais sobre séries únicas, consulte o [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).||
+|`freq`| A frequência de dataset da série de tempo. Este parâmetro representa o período com que se espera que ocorram eventos, tais como diariamente, semanalmente, anualmente, etc. A frequência deve ser um [pseudónimo de pandas.](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)||
 |`target_lags`|Número de linhas para atrasar os valores-alvo com base na frequência dos dados. O lag é representado como uma lista ou inteiro único. O lag deve ser usado quando a relação entre as variáveis independentes e a variável dependente não corresponde ou correlaciona por defeito. ||
 |`feature_lags`| As funcionalidades a ficar para trás serão automaticamente decididas por ML automatizado quando `target_lags` estiverem definidas e `feature_lags` definidas para `auto` . Permitir atrasos de funcionalidades pode ajudar a melhorar a precisão. Os lags de funções são desativados por padrão. ||
 |`target_rolling_window_size`|*n* períodos históricos a utilizar para gerar valores previstos, <= tamanho do conjunto de treino. Se omitido, *n* é o tamanho completo do conjunto de treino. Especifique este parâmetro quando apenas pretende considerar uma certa quantidade de história ao treinar o modelo. Saiba mais sobre [a agregação de janelas de rolamento de alvos](#target-rolling-window-aggregation).||
@@ -297,7 +298,7 @@ from azureml.automl.core.forecasting_parameters import ForecastingParameters
 forecast_parameters = ForecastingParameters(time_column_name='day_datetime', 
                                             forecast_horizon=50,
                                             short_series_handling_config='auto',
-                                            freq = 50
+                                            freq = '7',
                                             target_lags='auto')
 ```
 A tabela seguinte resume as definições disponíveis para `short_series_handling_config` .

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 7669b49735843bf941c52aee5cc3b71d1644c01a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b381f2f1871ea7e26950d5b02d5906a50c6129d3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635818"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445022"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações de segurança para o movimento de dados na Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -51,8 +51,8 @@ Se estiver interessado na conformidade do Azure e na forma como o Azure assegura
 
 Neste artigo, analisamos considerações de segurança nos seguintes dois cenários de movimento de dados: 
 
-- **Cenário em nuvem** : Neste cenário, tanto a sua fonte como o seu destino são acessíveis ao público através da internet. Estes incluem serviços de armazenamento em nuvem geridos, tais como Azure Storage, Azure Synapse Analytics (anteriormente SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, serviços SaaS como Salesforce, e protocolos web como FTP e OData. Encontre uma lista completa de fontes de dados suportadas em [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)
-- **Cenário híbrido** : Neste cenário, a sua fonte ou o seu destino está por trás de uma firewall ou dentro de uma rede corporativa no local. Ou, a loja de dados está numa rede privada ou rede virtual (na maioria das vezes a fonte) e não é acessível ao público. Os servidores de base de dados alojados em máquinas virtuais também se enquadram neste cenário.
+- **Cenário em nuvem**: Neste cenário, tanto a sua fonte como o seu destino são acessíveis ao público através da internet. Estes incluem serviços de armazenamento em nuvem geridos como Azure Storage, Azure Synapse Analytics, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, serviços SaaS como Salesforce, e protocolos web como FTP e OData. Encontre uma lista completa de fontes de dados suportadas em [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)
+- **Cenário híbrido**: Neste cenário, a sua fonte ou o seu destino está por trás de uma firewall ou dentro de uma rede corporativa no local. Ou, a loja de dados está numa rede privada ou rede virtual (na maioria das vezes a fonte) e não é acessível ao público. Os servidores de base de dados alojados em máquinas virtuais também se enquadram neste cenário.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -60,8 +60,8 @@ Neste artigo, analisamos considerações de segurança nos seguintes dois cenár
 
 ### <a name="securing-data-store-credentials"></a>Garantir credenciais de armazenamento de dados
 
-- **Armazenar credenciais encriptadas numa loja gerida pela Azure Data Factory** . A Data Factory ajuda a proteger as suas credenciais de loja de dados encriptando-as com certificados geridos pela Microsoft. Estes certificados são rodados de dois em dois anos (que inclui a renovação de certificados e a migração de credenciais). Para obter mais informações sobre a segurança do Azure Storage, consulte [a visão geral da segurança do Azure Storage](../storage/blobs/security-recommendations.md).
-- **Armazenar credenciais no Cofre da Chave Azure** . Também pode armazenar a credencial da loja de dados no [Cofre da Chave Azure.](https://azure.microsoft.com/services/key-vault/) A Data Factory recupera a credencial durante a execução de uma atividade. Para obter mais informações, consulte [a credencial da Loja no Cofre da Chave Azure.](store-credentials-in-key-vault.md)
+- **Armazenar credenciais encriptadas numa loja gerida pela Azure Data Factory**. A Data Factory ajuda a proteger as suas credenciais de loja de dados encriptando-as com certificados geridos pela Microsoft. Estes certificados são rodados de dois em dois anos (que inclui a renovação de certificados e a migração de credenciais). Para obter mais informações sobre a segurança do Azure Storage, consulte [a visão geral da segurança do Azure Storage](../storage/blobs/security-recommendations.md).
+- **Armazenar credenciais no Cofre da Chave Azure**. Também pode armazenar a credencial da loja de dados no [Cofre da Chave Azure.](https://azure.microsoft.com/services/key-vault/) A Data Factory recupera a credencial durante a execução de uma atividade. Para obter mais informações, consulte [a credencial da Loja no Cofre da Chave Azure.](store-credentials-in-key-vault.md)
 
 ### <a name="data-encryption-in-transit"></a>Encriptação de dados em trânsito
 Se a loja de dados em nuvem suportar HTTPS ou TLS, todas as transferências de dados entre os serviços de movimento de dados na Data Factory e uma loja de dados em nuvem são através de um canal seguro HTTPS ou TLS.
@@ -113,9 +113,9 @@ As credenciais podem ser armazenadas dentro da fábrica de dados ou ser [referen
  
 - **Armazenar credenciais localmente.** Se utilizar diretamente o cmdlet **Set-AzDataFactoryV2LinkedService** com as cordas de ligação e credenciais em linha no JSON, o serviço ligado é encriptado e armazenado em tempo de integração auto-hospedado.  Neste caso, as credenciais fluem através do serviço de backend Azure, que é extremamente seguro, para a máquina de integração auto-hospedada onde é finalmente encriptada e armazenada. O tempo de integração auto-hospedado utiliza o [DPAPI](/previous-versions/ms995355(v=msdn.10)) do Windows para encriptar os dados sensíveis e informações credenciais.
 
-- **Armazenar credenciais no Cofre da Chave Azure** . Também pode armazenar a credencial da loja de dados no [Cofre da Chave Azure.](https://azure.microsoft.com/services/key-vault/) A Data Factory recupera a credencial durante a execução de uma atividade. Para obter mais informações, consulte [a credencial da Loja no Cofre da Chave Azure.](store-credentials-in-key-vault.md)
+- **Armazenar credenciais no Cofre da Chave Azure**. Também pode armazenar a credencial da loja de dados no [Cofre da Chave Azure.](https://azure.microsoft.com/services/key-vault/) A Data Factory recupera a credencial durante a execução de uma atividade. Para obter mais informações, consulte [a credencial da Loja no Cofre da Chave Azure.](store-credentials-in-key-vault.md)
 
-- **Armazenar credenciais localmente sem fluir as credenciais através do backend de Azure para o tempo de integração auto-hospedado** . Se pretender encriptar e armazenar credenciais localmente no tempo de integração auto-hospedado sem ter de fluir as credenciais através do backend da fábrica de dados, siga os passos nas [credenciais de Encriptação para lojas de dados no local na Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Todos os conectores suportam esta opção. O tempo de integração auto-hospedado utiliza o [DPAPI](/previous-versions/ms995355(v=msdn.10)) do Windows para encriptar os dados sensíveis e informações credenciais. 
+- **Armazenar credenciais localmente sem fluir as credenciais através do backend de Azure para o tempo de integração auto-hospedado**. Se pretender encriptar e armazenar credenciais localmente no tempo de integração auto-hospedado sem ter de fluir as credenciais através do backend da fábrica de dados, siga os passos nas [credenciais de Encriptação para lojas de dados no local na Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Todos os conectores suportam esta opção. O tempo de integração auto-hospedado utiliza o [DPAPI](/previous-versions/ms995355(v=msdn.10)) do Windows para encriptar os dados sensíveis e informações credenciais. 
 
    Utilize o **cmdlet New-AzDataFactoryV2LinkedServiceEncryptedCredential** para encriptar credenciais de serviço ligadas e detalhes sensíveis no serviço ligado. Em seguida, pode utilizar o JSON devolvido (com o elemento **CriptografadoCredential** na cadeia de ligação) para criar um serviço ligado utilizando o **cmdlet Set-AzDataFactoryV2LinkedService.**  
 

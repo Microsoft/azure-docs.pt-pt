@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 0b3bec9c4d4476b95279e35953ff89177f4488d4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 63d03559b2a30020ed2e8bd1cd030855b8fb20b7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305828"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445093"
 ---
 # <a name="azure-synapse-analytics-output-from-azure-stream-analytics"></a>Saída Azure Synapse Analytics da Azure Stream Analytics
 
-[A Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) (anteriormente SQL Data Warehouse) é um serviço de análise ilimitado que reúne o armazenamento de dados da empresa e a análise de Big Data. 
+[A Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) é um serviço de análise ilimitado que reúne armazenamento de dados da empresa e análise de Big Data. 
 
 Os empregos do Azure Stream Analytics podem ser colocados numa mesa de bilhar SQL dedicada no Azure Synapse Analytics e podem processar taxas de produção até 200MB/seg. Isto suporta as necessidades de análise em tempo real mais exigentes e necessidades de processamento de dados em percursos quentes para cargas de trabalho, tais como relatórios e dashboarding.  
 
@@ -28,7 +28,7 @@ Para utilizar o Azure Synapse como saída, tem de se certificar de que tem a con
 
 A tabela que se segue lista os nomes dos imóveis e as suas descrições para a criação da saída am Azure Synapse Analytics.
 
-|Nome da propriedade|Description|
+|Nome da propriedade|Descrição|
 |-|-|
 |Alias de saída |Um nome amigável usado em consultas para direcionar a saída de consulta para esta base de dados. |
 |Base de Dados |nome de piscina SQL dedicado para onde está a enviar a sua saída. |

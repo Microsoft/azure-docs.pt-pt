@@ -5,12 +5,12 @@ author: emaher
 ms.topic: overview
 ms.date: 09/16/2020
 ms.author: enewman
-ms.openlocfilehash: ac390fb6624ffc762f77b676c778165e7382f73f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 71d59e8bcf7b4078255d6b119e9d62f366e46033
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91334043"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437325"
 ---
 # <a name="architecture-fundamentals-in-azure-lab-services"></a>Fundamentos da Arquitetura nos Serviços do Laboratório Azure
 
@@ -20,7 +20,7 @@ A Azure Lab Services fornece algumas áreas que lhe permitem utilizar os seus pr
 
 Abaixo está a arquitetura básica de um laboratório de sala de aula.  A conta do laboratório está hospedada na sua assinatura. Os VMs do aluno, juntamente com os recursos necessários para apoiar os VMs estão hospedados numa subscrição propriedade da Lab Services. Vamos falar sobre o que está nas assinaturas do Serviço de Laboratório mais detalhadamente.
 
-![Arquitetura básica de laboratórios de sala de aula](./media/classroom-labs-fundamentals/labservices-basic-architecture.png)
+![arquitetura básica laboratórios](./media/classroom-labs-fundamentals/labservices-basic-architecture.png)
 
 ## <a name="hosted-resources"></a>Recursos Hospedados
 

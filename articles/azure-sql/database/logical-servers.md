@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 38133a63d65e45a4d1c83e9752dcaa01a86da33e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e0736e58983d4c28b8f2f4a20241cd36ac84fdfa
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782897"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445373"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>O que é um servidor SQL lógico na Base de Dados Azure SQL e Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,7 +26,7 @@ Na Base de Dados Azure SQL e Azure Synapse Analytics, um servidor é uma constru
 
 Este servidor é distinto de uma instância sql Server que você pode estar familiarizado no mundo do local. Especificamente, não existem garantias sobre a localização das bases de dados ou base de dados de armazém de dados em relação ao servidor que as gere. Além disso, nem a Base de Dados Azure SQL nem a Azure Synapse expõem qualquer acesso ou funcionalidades ao nível de instância. Em contraste, as bases de dados de casos em um caso gerido são todas fisicamente co-localizadas - da mesma forma que você está familiarizado com o SQL Server no mundo das máquinas no local ou virtual.
 
-Quando cria um servidor, fornece uma conta de login do servidor e uma palavra-passe que tem direitos administrativos para a base de dados principal nesse servidor e todas as bases de dados criadas nesse servidor. Esta conta inicial é uma conta de login SQL. A Azure SQL Database e Synapse Analytics suportam a autenticação SQL e a autenticação do Diretório Ativo Azure para a autenticação. Para obter informações sobre logins e autenticação, consulte [Bases de Dados e Logins em Base de Dados Azure SQL](logins-create-manage.md). A autenticação do Windows não é suportada.
+Quando cria um servidor, fornece uma conta de login do servidor e uma palavra-passe que tem direitos administrativos para a base de dados principal nesse servidor e todas as bases de dados criadas nesse servidor. Esta conta inicial é uma conta de login SQL. A Azure SQL Database e Azure Synapse Analytics suportam a autenticação SQL e a autenticação do Diretório Ativo Azure para a autenticação. Para obter informações sobre logins e autenticação, consulte [Bases de Dados e Logins em Base de Dados Azure SQL](logins-create-manage.md). A autenticação do Windows não é suportada.
 
 Um servidor na BASE de Dados SQL e Azure Synapse:
 

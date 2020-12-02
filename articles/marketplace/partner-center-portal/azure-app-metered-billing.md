@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: b82478338603750a76718da956d74e23d242692e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d015cec30e516541b50c2acfac38fad898965e1b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896539"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436356"
 ---
 # <a name="managed-application-metered-billing"></a>Faturação gerida com medidos de aplicação 
 
@@ -22,7 +22,7 @@ Com o serviço de medição marketplace, pode criar planos de aplicação gerido
 
 Para que um plano de candidatura gerido utilize faturação medido, deve:
 
-* Satisfaça todos os requisitos de oferta conforme descrito na [Create a azure application offer](create-new-azure-apps-offer.md).
+* Satisfaça todos os requisitos de oferta conforme descrito na [Create a azure application offer](../create-new-azure-apps-offer.md).
 * Configure **preços** para cobrar aos clientes o custo mensal do seu serviço. O preço pode ser zero se não quiser cobrar uma taxa fixa e, em vez disso, depender inteiramente da faturação medido.
 * Definir **as dimensões de faturação** para os eventos de medição que o cliente pagará em cima da taxa fixa.
 * Integre-se com o [serviço de medição de marketplace APIs](./marketplace-metering-service-apis.md) para informar a Microsoft de eventos faturantes.
@@ -56,9 +56,9 @@ Um cliente Azure que subscreve o serviço CoA pode analisar e gerar relatórios 
 
 As dimensões de faturação são usadas para comunicar ao cliente sobre como serão faturadas para usar o software.  Estas dimensões também são usadas para comunicar eventos de uso à Microsoft. São definidos da seguinte forma:
 
-* **Identificador de dimensão** : o identificador imutável referenciado ao emitir eventos de utilização.
-* **Nome de dimensão** : o nome de exibição associado à dimensão, por exemplo "mensagens de texto enviadas".
-* **Unidade de medida** : descrição da unidade de faturação, por exemplo "por mensagem de texto" ou "por 100 e-mails".
+* **Identificador de dimensão**: o identificador imutável referenciado ao emitir eventos de utilização.
+* **Nome de dimensão**: o nome de exibição associado à dimensão, por exemplo "mensagens de texto enviadas".
+* **Unidade de medida**: descrição da unidade de faturação, por exemplo "por mensagem de texto" ou "por 100 e-mails".
 * **Preço por unidade:** o preço de uma unidade da dimensão.
 * **Quantidade incluída para o prazo mensal:** quantidade de dimensão incluída por mês para os clientes que pagam a mensalidade recorrente, deve ser um número inteiro.
 
@@ -67,7 +67,7 @@ As dimensões da faturação são partilhadas em todos os planos para uma oferta
 Os atributos, que definem a dimensão em si, são partilhados em todos os planos para uma oferta. Antes de publicar a oferta, uma alteração feita a estes atributos a partir do contexto de qualquer plano irá afetar a definição de dimensão em todos os planos. Uma vez publicada a oferta, estes atributos deixarão de ser editáveis. Os atributos são:
 
 * Identificador
-* Nome
+* Name
 * Unidade de medida
 
 Os outros atributos de uma dimensão são específicos de cada plano e podem ter valores diferentes de plano a plano.  Antes de publicar o plano, pode editar estes valores e só este plano será afetado. Uma vez publicado o plano, estes atributos deixarão de ser editáveis. Os atributos são:
@@ -93,7 +93,7 @@ Uma dimensão utilizada com o serviço de medição marketplace representa uma c
 Uma vez que uma oferta é publicada com uma dimensão, os detalhes de nível de oferta para essa dimensão não podem mais ser alterados:
 
 * Identificador
-* Nome
+* Name
 * Unidade de medida
 
 Uma vez publicado um plano, os detalhes do plano já não podem ser alterados:

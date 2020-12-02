@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: e8f9a8e1d10e39e37480e06a25fcc0e203a104ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ddcd7e5c3e5651062f88b261e7003fb0dd2ef3b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378734"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435999"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Estratégias de autenticação do serviço de medição do mercado
 
@@ -52,21 +52,21 @@ Para obter mais informações sobre estes tokens, consulte [os tokens de acesso 
 
 #### <a name="uri-parameter"></a>*Parâmetro URI*
 
-|  **Nome do parâmetro** |  **Necessário**  |  **Descrição**          |
+|  **Nome do parâmetro** |  **Obrigatório**  |  **Descrição**          |
 |  ------------------ |--------------- | ------------------------  |
 |  `tenantId`         |   Verdadeiro         | Identificação do inquilino do pedido registado de Azure AD.   |
 | | | |
 
 #### <a name="request-header"></a>*Cabeçalho de pedido*
 
-|  **Nome do cabeçalho**    |  **Necessário**  |  **Descrição**          |
+|  **Nome do cabeçalho**    |  **Obrigatório**  |  **Descrição**          |
 |  ------------------ |--------------- | ------------------------  |
 |  `Content-Type`     |   Verdadeiro         | Tipo de conteúdo associado ao pedido. O valor predefinido é `application/x-www-form-urlencoded`.  |
 | | | |
 
 #### <a name="request-body"></a>*Corpo de pedido*
 
-|  **Nome da propriedade**  |  **Necessário**  |  **Descrição**          |
+|  **Nome da propriedade**  |  **Obrigatório**  |  **Descrição**          |
 |  ------------------ |--------------- | ------------------------  |
 |  `Grant_type`       |   Verdadeiro         | Tipo grant. Utilize `client_credentials`. |
 |  `Client_id`        |   Verdadeiro         | Identificador de cliente/aplicação associado à aplicação Azure AD.|
@@ -76,7 +76,7 @@ Para obter mais informações sobre estes tokens, consulte [os tokens de acesso 
 
 #### <a name="response"></a>*Response*
 
-|  **Nome**    |  **Tipo**  |  **Descrição**          |
+|  **Name**    |  **Tipo**  |  **Descrição**          |
 |  ------------------ |--------------- | ----------------------  |
 |  `200 OK`     |   `TokenResponse`    | Pedido bem sucedido.  |
 | | | |
@@ -155,5 +155,5 @@ Por exemplo, siga os passos abaixo para autenticar usando um VM do Windows,
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Criar uma oferta de aplicações do Azure](./create-new-azure-apps-offer.md)
+* [Criar uma oferta de aplicações do Azure](../create-new-azure-apps-offer.md)
 * [Planear uma oferta SaaS](../plan-saas-offer.md)

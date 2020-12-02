@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 002c718466b9e13d2f92fbea6dd055eb13d4d3a7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 41d98750f3c869eff5abf7482a9bb04435407318
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789119"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436764"
 ---
 # <a name="introduction-to-azure-defender"></a>Introdução ao Azure Defender
 
@@ -61,7 +61,7 @@ Para alargar a proteção a máquinas virtuais e bases de dados SQL que se encon
 
 
 
-## <a name="azure-defender-alerts"></a>Alertas do Azure Defender 
+## <a name="security-alerts"></a>Alertas de segurança 
 
 Quando o Azure Defender deteta uma ameaça em qualquer área do seu ambiente, gera um alerta. Estes alertas descrevem detalhes dos recursos afetados, sugeriram medidas de reparação e, em alguns casos, uma opção para desencadear uma aplicação lógica em resposta.
 

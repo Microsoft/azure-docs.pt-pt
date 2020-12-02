@@ -4,13 +4,13 @@ description: Neste arranque rápido, cria-se as partes básicas de uma app, inte
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/19/2020
-ms.openlocfilehash: 74866c65111fae9e6fb3b79d9b59819b14b03c16
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/30/2020
+ms.openlocfilehash: a5443dce9fc8bc028232f66f45b537a46858f35a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131477"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436679"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Quickstart: Criar uma nova app no portal LUIS
 
@@ -20,7 +20,7 @@ Neste arranque rápido, constrói-se uma nova app no portal LUIS. Em primeiro lu
 
 ## <a name="create-an-app"></a>Criar uma aplicação
 
-Para criar uma aplicação, clique **em + Nova aplicação.** 
+Para criar uma aplicação, selecione **+ Nova aplicação.** 
 
 Na janela que aparece, insira as seguintes informações:
 
@@ -28,10 +28,10 @@ Na janela que aparece, insira as seguintes informações:
 |---------|---------|
 |Nome     | Um nome para a sua aplicação. Por exemplo, "domótica". Obrigatório.        |
 |Cultura     | A linguagem que a sua aplicação compreende e fala. Obrigatório.   |
-|Description | Uma descrição para o seu aplicativo. Opcional.
+|Descrição | Uma descrição para o seu aplicativo. Opcional.
 |Recurso de previsão | O recurso de previsão que receberá consultas. Opcional. |
 
-Selecione **Done** (Concluído).
+Selecione **Concluído**.
 
 >[!NOTE]
 >A cultura não pode ser alterada assim que a aplicação for criada.
@@ -53,11 +53,11 @@ As _duas intenções diferentes_ da aplicação alinham-se com as seguintes inte
 
 Para criar intenções, complete os seguintes passos:
 
-1. Após a criação da aplicação, certifique-se de que está na página **Intenções** da secção **Build.** Selecione **Criar** .
+1. Após a criação da aplicação, certifique-se de que está na página **Intenções** da secção **Build.** Selecione **Criar**.
 
    [![Screenshot de selecionar 'Criar' para criar novas intenções](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
-1. Introduza o nome de `FindForm` intenção, e, em seguida, selecione **Feito** .
+1. Introduza o nome de `FindForm` intenção, e, em seguida, selecione **Feito**.
 
 ## <a name="add-an-example-utterance"></a>Adicione um exemplo de expressão
 
@@ -102,7 +102,7 @@ Para devolver o número do formulário na resposta de previsão do tempo de exec
 
 1. Introduza o `FormNumber` nome, selecione o tipo de entidade **Regex.**
 
-1. Introduza a expressão regular, `hrf-[0-9]{6}` no campo **Regex.** Esta entrada corresponde aos caracteres `hrf-` literais, e permite exatamente seis dígitos, em seguida, selecione **Criar** .
+1. Introduza a expressão regular, `hrf-[0-9]{6}` no campo **Regex.** Esta entrada corresponde aos caracteres `hrf-` literais, e permite exatamente seis dígitos, em seguida, selecione **Criar**.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot da criação de entidade de expressão regular](./media/get-started-portal-build-app/create-regular-expression-entity.png)
@@ -157,7 +157,7 @@ Utilize o painel de **teste** interativo no portal LUIS para validar que a entid
 
    A intenção prevista é corretamente **FindForm** com mais de 90% de confiança (0,977). A entidade **FormNumber** é extraída com um valor de hrf-234098.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar este arranque rápido e não estiver a avançar para o próximo quickstart, selecione **As minhas aplicações** a partir do menu de navegação de topo. Em seguida, selecione a caixa de verificação esquerda da aplicação da lista e selecione  **Delete** da barra de ferramentas de contexto acima da lista.
 

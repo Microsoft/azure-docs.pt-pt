@@ -1,25 +1,25 @@
 ---
-title: 'Quickstart: Mude o modelo com REST APIs - LUIS'
+title: Como alterar o seu modelo LUIS utilizando a REST API
 titleSuffix: Azure Cognitive Services
-description: Neste rest API quickstart, adicione palavras de exemplo para alterar um modelo e treinar a app.
+description: Neste artigo, adicione palavras de exemplo para mudar um modelo e treinar a app.
 services: cognitive-services
 manager: nitinme
 ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 06/03/2020
+ms.topic: conceptual
+ms.date: 11/30/2020
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 84b3b592f46124dcd5b4e59775361c243dc67754
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7346037ad804da4f68a2bc6512494c461d7fc5bd
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91534680"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436186"
 ---
-# <a name="quickstart-change-model-with-rest-apis"></a>Quickstart: Mude o modelo com APIs REST
+# <a name="how-to-change-the-luis-model-with-rest-apis"></a>Como alterar o modelo LUIS com APIs REST
 
-Neste quickstart, você vai adicionar palavras de exemplo a uma app Pizza e treinar a app. As expressões de exemplo são texto de utilizador de conversação mapeado para uma intenção. Ao conceder expressões de exemplo para intenções, ensina o LUIS sobre quais são os tipos de texto fornecido pelo utilizador que pertencem a que intenção.
+Neste artigo, você vai adicionar palavras de exemplo a uma app Pizza e treinar a app. As expressões de exemplo são texto de utilizador de conversação mapeado para uma intenção. Ao conceder expressões de exemplo para intenções, ensina o LUIS sobre quais são os tipos de texto fornecido pelo utilizador que pertencem a que intenção.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# and REST](./includes/get-started-get-model-rest-csharp.md)]

@@ -6,14 +6,14 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 936e98b3efa27f2d0a85c373ccae0ab223f4fd95
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 7d50185169b22a136ce81bd3aebae235cf49498b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340911"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436628"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Acesso seguro aos dados no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -169,7 +169,7 @@ A entidade pode agora ler os recursos da Azure Cosmos DB.
 
 ## <a name="delete-or-export-user-data"></a>Eliminar ou exportar dados dos utilizadores
 
-O Azure Cosmos DB permite-lhe pesquisar, selecionar, modificar e eliminar quaisquer dados pessoais localizados na base de dados ou recolhas. A Azure Cosmos DB fornece APIs para encontrar e apagar dados pessoais no entanto, é sua responsabilidade usar as APIs e definir a lógica necessária para apagar os dados pessoais. Cada API multi-modelo (SQL, MongoDB, Gremlin, Cassandra, Table) fornece diferentes SDKs linguísticos que contêm métodos para pesquisar e eliminar dados pessoais. Também pode ativar a [funcionalidade de tempo de vida (TTL)](time-to-live.md) para apagar automaticamente os dados após um período especificado, sem incorrer em qualquer custo adicional.
+Como serviço de base de dados, o Azure Cosmos DB permite-lhe pesquisar, selecionar, modificar e eliminar quaisquer dados localizados na sua base de dados ou contentores. No entanto, é da sua responsabilidade utilizar as APIs fornecidas e definir a lógica necessária para encontrar e apagar quaisquer dados pessoais, se necessário. Cada API multi-modelo (SQL, MongoDB, Gremlin, Cassandra, Table) fornece diferentes SDKs linguísticos que contêm métodos para pesquisar e apagar dados com base em predicados personalizados. Também pode ativar a [funcionalidade de tempo de vida (TTL)](time-to-live.md) para apagar automaticamente os dados após um período especificado, sem incorrer em qualquer custo adicional.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 

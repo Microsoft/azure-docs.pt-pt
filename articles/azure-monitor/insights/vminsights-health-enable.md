@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
-ms.openlocfilehash: 647256949d1f8f13439a0a5db87f3b02d697d32b
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 20d38e5caee67ca8bb13877d3162401fa245dc2d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95318138"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444776"
 ---
 # <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Ativar o Azure Monitor para a saúde dos hóspedes VMs (pré-visualização)
 O Azure Monitor para a saúde dos hóspedes em VMs permite-lhe visualizar a saúde de uma máquina virtual, tal como definida por um conjunto de medições de desempenho que são amostradas a intervalos regulares. Este artigo descreve como ativar esta funcionalidade na sua subscrição e como ativar a monitorização do hóspede para cada máquina virtual.
@@ -87,7 +87,7 @@ São necessários três passos para permitir a utilização de máquinas virtuai
 > [!NOTE]
 > Se ativar uma máquina virtual utilizando o portal Azure, a regra de recolha de dados descrita aqui é criada para si. Neste caso, não precisa de executar este passo.
 
-A configuração para os monitores no Azure Monitor para a saúde dos hóspedes VMs é armazenada nas [Regras de Recolha de Dados (DCR)](../platform/data-collection-rule-overview.md). Instale a regra de recolha de dados definida no modelo de Gestor de Recursos abaixo para permitir que todos os monitores para as máquinas virtuais com a extensão de saúde do hóspede. Cada máquina virtual com a extensão de saúde do hóspede necessitará de uma associação com esta regra.
+A configuração para os monitores no Azure Monitor para a saúde dos hóspedes VMs é armazenada nas [Regras de Recolha de Dados (DCR)](../platform/data-collection-rule-overview.md). Cada máquina virtual com a extensão de saúde do hóspede necessitará de uma associação com esta regra.
 
 > [!NOTE]
 > Pode criar regras adicionais de recolha de dados para modificar a configuração padrão dos monitores, tal como descrito na [monitorização configure no Azure Monitor para a saúde dos hóspedes VMs (pré-visualização)](vminsights-health-configure.md).
@@ -115,7 +115,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
 
 ---
 
-
+A regra de recolha de dados definida no modelo de Gestor de Recursos abaixo permite todos os monitores para as máquinas virtuais com a extensão de saúde do hóspede. Deve incluir fontes de dados para cada um dos contadores de desempenho utilizados pelos monitores.
 
 ```json
 {
@@ -138,7 +138,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
     "dataCollectionRuleLocation": {
       "type": "string",
       "metadata": {
-        "description": "The location code in which the data colleciton rule should be deployed. Examples: eastus, westeurope, etc"
+        "description": "The location code in which the data collection rule should be deployed. Examples: eastus, westeurope, etc"
       }
     }
   },
@@ -151,6 +151,19 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
       "properties": {
         "description": "Data collection rule for VM Insights health.",
         "dataSources": {
+          "performanceCounters": [
+              {
+                  "name": "VMHealthPerfCounters",
+                  "streams": [ "Microsoft-Perf" ],
+                  "scheduledTransferPeriod": "PT1M",
+                  "samplingFrequencyInSeconds": 60,
+                  "counterSpecifiers": [
+                      "\\LogicalDisk(*)\\% Free Space",
+                      "\\Memory\\Available Bytes",
+                      "\\Processor(_Total)\\% Processor Time"
+                  ]
+              }
+          ],
           "extensions": [
             {
               "name": "Microsoft-VMInsights-Health",
@@ -170,7 +183,11 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
                     }
                   }
                 ]
-              }
+              },
+              "inputDataSources": [
+                  "VMHealthPerfCounters"
+              ]
+
             }
           ]
         },
@@ -181,7 +198,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
               "name": "Microsoft-HealthStateChange-Dest"
             }
           ]
-        },
+        },                  
         "dataFlows": [
           {
             "streams": [
@@ -205,7 +222,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "healthDataCollectionRuleResourceId": {
+      "destinationWorkspaceResourceId": {
         "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"
       },
       "dataCollectionRuleLocation": {
@@ -217,7 +234,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
 
 
 
-## <a name="install-guest-health-extension-and-associate-with-data-collection-rule"></a>Instale a extensão de saúde dos hóspedes e associe-se à regra da recolha de dados
+### <a name="install-guest-health-extension-and-associate-with-data-collection-rule"></a>Instale a extensão de saúde dos hóspedes e associe-se à regra da recolha de dados
 Utilize o seguinte modelo de Gestor de Recursos para ativar uma máquina virtual para a saúde do hóspede. Isto instala a extensão de saúde do hóspede e cria a associação com a regra de recolha de dados. Pode implementar este modelo utilizando qualquer [método de implementação para modelos de Gestor de Recursos](../../azure-resource-manager/templates/deploy-powershell.md).
 
 
@@ -370,14 +387,11 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
       },
       "healthDataCollectionRuleResourceId": {
         "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/dataCollectionRules/Microsoft-VMInsights-Health"
-      },
-      "healthExtensionVersion": {
-        "value": "private-preview"
       }
   }
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Personalizar monitores ativados pelo Azure Monitor para VMs](vminsights-health-configure.md)

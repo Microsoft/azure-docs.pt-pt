@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 2f262b328efcc341c93f1e5c31cab8cbd3ecbf6b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5a2238f5c1561abb1e11d69aa6d0bfe761097c64
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184642"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437308"
 ---
 # <a name="azure-monitor-for-networks"></a>Azure Monitor para Redes
 O Azure Monitor for Networks proporciona uma visão abrangente da [saúde](../../service-health/resource-health-checks-resource-types.md) e métricas para todos os recursos de rede [implantados,](../platform/metrics-supported.md) sem necessidade de qualquer configuração. Também fornece acesso a capacidades de monitorização de rede como [Connection Monitor,](../../network-watcher/connection-monitor-preview.md) [registo de fluxos para grupos de segurança de rede (NSGs)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)e [Traffic Analytics](../../network-watcher/traffic-analytics.md). E fornece outras funcionalidades [de diagnóstico de](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) rede.
@@ -26,7 +26,7 @@ O Azure Monitor for Networks está estruturado em torno destes componentes-chave
 
 A página Azure Monitor for Networks **Overview** fornece uma forma fácil de visualizar o inventário dos seus recursos de networking, juntamente com a saúde dos recursos e alertas. Está dividido em quatro áreas funcionais fundamentais: pesquisa e filtragem, saúde de recursos e métricas, alertas e vista de dependência.
 
-[ ![ Screenshot que mostra a página de visão geral](media/network-insights-overview/overview.png)](media/network-insights-overview/overview.png)#lightbox)
+[![Captura de ecrã a mostrar a página Descrição geral](media/network-insights-overview/overview.png)](media/network-insights-overview/overview.png#lightbox)
 
 ### <a name="search-and-filtering"></a>Pesquisa e filtragem
 Pode personalizar a vista para a saúde dos recursos e alertas utilizando filtros como **Subscrição,** **Grupo de Recursos** e **Tipo**.

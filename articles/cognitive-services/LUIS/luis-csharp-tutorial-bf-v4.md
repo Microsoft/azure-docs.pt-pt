@@ -6,18 +6,18 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a8d6481bdf3476f8f91c437138f4b6f1ebd1f1de
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 4114dd712028895da03835a2730ebd7a6ab971a4
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058204"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436883"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Tutorial: Use um Bot de aplicação web ativado com compreensão de idioma em C #
 
-Use C# para construir um chat bot integrado com compreensão linguística (LUIS). O bot é construído com o recurso [bot da app](https://docs.microsoft.com/azure/bot-service/) Azure Web e a versão Bot [Framework](https://github.com/Microsoft/botbuilder-dotnet) V4.
+Use C# para construir um chat bot integrado com compreensão linguística (LUIS). O bot é construído com o recurso [bot da app](/azure/bot-service/) Azure Web e a versão Bot [Framework](https://github.com/Microsoft/botbuilder-dotnet) V4.
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 > [!div class="checklist"]
 > * Criar um bot de aplicação Web. Este processo cria uma aplicação LUIS nova.
@@ -318,13 +318,13 @@ No Visual Studio 2019, inicie o bot. É aberta uma janela de browser com o site 
 
 1. Inicie o emulador De Estrutura bot e selecione **Open Bot**.
 1. No **Open um diálogo** pop-up bot, insira o seu URL bot, tal como `http://localhost:3978/api/messages` . A `/api/messages` rota é o endereço web para o bot.
-1. Introduza a **palavra-passe**do ID da **Aplicação microsoft** e da aplicação da Microsoft , encontrada no **appsettings.jsno** ficheiro na raiz do código bot que descarregou e, em seguida, selecione **Connect**.
+1. Introduza a **palavra-passe** do ID da **Aplicação microsoft** e da aplicação da Microsoft , encontrada no **appsettings.jsno** ficheiro na raiz do código bot que descarregou e, em seguida, selecione **Connect**.
 
 1. No emulador Bot Framework, insira `Book a flight from Seattle to Berlin tomorrow` e obtenha a mesma resposta para o bot básico que recebeu no Teste de Web **Chat** numa secção anterior.
 
     [![A screenshot mostra o Emulador De Estrutura bot com uma resposta básica do bot.](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
-1. Selecione **Sim**. O bot responde com um resumo das suas ações.
+1. Selecione **Yes** (Sim). O bot responde com um resumo das suas ações.
 1. A partir do registo do emulador Desaquisador do Quadro bot, selecione a linha que inclui `<- trace LuisV3 Trace` . Isto mostra a resposta JSON da LUIS para a intenção e entidades da expressão.
 
     [![A screenshot mostra uma resposta básica do bot com o LuisV3 Trace selecionado e a resposta JSON realçada.](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
@@ -336,4 +336,4 @@ No Visual Studio 2019, inicie o bot. É aberta uma janela de browser com o site 
 Veja mais [amostras](https://github.com/microsoft/botframework-solutions) com bots de conversação.
 
 > [!div class="nextstepaction"]
-> [Construa uma app de compreensão de linguagem com um domínio de assunto personalizado](luis-quickstart-intents-only.md)
+> [Construa uma app de compreensão de linguagem com um domínio de assunto personalizado](./tutorial-intents-only.md)

@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 23cf8a79c4978ccb3a65ad968b2ed5a01bb3d0ec
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 554b3ad1dbe1e736300387aefde195b9054ab326
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242335"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437104"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Base de Dados Azure para encriptação de dados MySQL com uma chave gerida pelo cliente
 
@@ -36,9 +36,9 @@ A encriptação de dados com chaves geridas pelo cliente para a Base de Dados Az
 
 ## <a name="terminology-and-description"></a>Terminologia e descrição
 
-**Chave de encriptação de dados (DEK)** : Uma chave AES256 simétrica usada para encriptar uma divisória ou bloco de dados. Encriptar cada bloco de dados com uma chave diferente torna os ataques de análise cripto mais difícil. O acesso aos DEKs é necessário pelo fornecedor de recursos ou pela instância de aplicação que está a encriptar e desencriptar um bloco específico. Quando substituir um DEK por uma nova chave, apenas os dados do bloco associado devem ser reencri encriptados com a nova chave.
+**Chave de encriptação de dados (DEK)**: Uma chave AES256 simétrica usada para encriptar uma divisória ou bloco de dados. Encriptar cada bloco de dados com uma chave diferente torna os ataques de análise cripto mais difícil. O acesso aos DEKs é necessário pelo fornecedor de recursos ou pela instância de aplicação que está a encriptar e desencriptar um bloco específico. Quando substituir um DEK por uma nova chave, apenas os dados do bloco associado devem ser reencri encriptados com a nova chave.
 
-**Chave de encriptação (KEK)** : Uma chave de encriptação usada para encriptar os DEKs. Um KEK que nunca sai do Key Vault permite que os próprios DEKs sejam encriptados e controlados. A entidade que tem acesso à KEK pode ser diferente da entidade que requer o DEK. Uma vez que o KEK é obrigado a desencriptar os DEKs, o KEK é efetivamente um único ponto pelo qual os DEKs podem ser efetivamente eliminados pela supressão do KEK.
+**Chave de encriptação (KEK)**: Uma chave de encriptação usada para encriptar os DEKs. Um KEK que nunca sai do Key Vault permite que os próprios DEKs sejam encriptados e controlados. A entidade que tem acesso à KEK pode ser diferente da entidade que requer o DEK. Uma vez que o KEK é obrigado a desencriptar os DEKs, o KEK é efetivamente um único ponto pelo qual os DEKs podem ser efetivamente eliminados pela supressão do KEK.
 
 Os DEKs, encriptados com os KEKs, são armazenados separadamente. Apenas uma entidade com acesso ao KEK pode desencriptar estes DEKs. Para obter mais informações, consulte [a Segurança em encriptação em repouso](../security/fundamentals/encryption-atrest.md).
 
@@ -48,9 +48,9 @@ Os DEKs, encriptados com os KEKs, são armazenados separadamente. Apenas uma ent
 
 Para que um servidor MySQL utilize chaves geridas pelo cliente armazenadas no Cofre de Chaves para encriptação do DEK, um administrador do Key Vault dá os seguintes direitos de acesso ao servidor:
 
-* **obter** : Para recuperar a parte pública e as propriedades da chave no cofre chave.
-* **wrapKey** : Para ser capaz de encriptar o DEK. O DEK encriptado está armazenado na Base de Dados Azure para o MySQL.
-* **desembrulharKey** : Para ser capaz de desencriptar o DEK. A Azure Database for MySQL precisa do DEK desencriptado para encriptar/desencriptar os dados
+* **obter**: Para recuperar a parte pública e as propriedades da chave no cofre chave.
+* **wrapKey**: Para ser capaz de encriptar o DEK. O DEK encriptado está armazenado na Base de Dados Azure para o MySQL.
+* **desembrulharKey**: Para ser capaz de desencriptar o DEK. A Azure Database for MySQL precisa do DEK desencriptado para encriptar/desencriptar os dados
 
 O administrador-chave do cofre também pode [permitir o registo de eventos de auditoria do Key Vault,](../azure-monitor/insights/key-vault-insights-overview.md)para que possam ser auditados mais tarde.
 
@@ -61,14 +61,17 @@ Quando o servidor está configurado para utilizar a chave gerida pelo cliente ar
 Seguem-se os requisitos para a configuração do Cofre de Chaves:
 
 * A Key Vault e a Azure Database for MySQL devem pertencer ao mesmo inquilino do Azure Ative Directory (Azure AD). O Key Vault e as interações do servidor não são suportados. O recurso "Key Vault" em movimento requer que reconfigure a encriptação de dados.
-* Ativar a função de eliminação suave no cofre da chave, para proteger da perda de dados se uma chave acidental (ou cofre de chaves) acontecer. Os recursos eliminados por 90 dias são retidos, a menos que o utilizador os recupere ou purgue entretanto. As ações de recuperação e purga têm as suas próprias permissões associadas a uma política de acesso ao Cofre-Chave. A função de eliminação suave está desligada por padrão, mas pode ative-la através do PowerShell ou do Azure CLI (note que não é possível ative-lo através do portal Azure).
+* Ativar o [soft-delete](.. /key-vault/general/soft-delete-overview.md) no cofre da chave com período de retenção definido para **90 dias,** para proteger da perda de dados se uma chave acidental (ou cofre de chaves) acontecer. Os recursos eliminados por 90 dias por defeito, a menos que o período de retenção seja explicitamente definido para <=90 dias. As ações de recuperação e purga têm as suas próprias permissões associadas a uma política de acesso ao Cofre-Chave. A função de eliminação suave está desligada por padrão, mas pode ative-la através do PowerShell ou do Azure CLI (note que não é possível ative-lo através do portal Azure).
+* Ativar a [função Proteção de Purga](../key-vault/general/soft-delete-overview.md#purge-protection) no cofre da chave com o período de retenção definido para **90 dias**. A proteção contra a purga só pode ser ativada quando se ativa uma eliminação suave. Pode ser ligado através do Azure CLI ou do PowerShell. Quando a proteção contra a purga estiver acesa, um cofre ou um objeto no estado apagado não podem ser purgados até que o período de retenção tenha passado. As abóbadas e objetos apagados ainda podem ser recuperados, garantindo que a política de retenção será seguida. 
 * Conceda à Base de Dados Azure para o acesso do MySQL ao cofre de chaves com as permissões get, wrapKey e desembrulhar, utilizando a sua identidade gerida única. No portal Azure, a identidade única de 'Serviço' é criada automaticamente quando a encriptação de dados é ativada no MySQL. Consulte [a encriptação de dados configurar o MySQL](howto-data-encryption-portal.md) para obter instruções detalhadas e passo a passo quando estiver a utilizar o portal Azure.
 
 Seguem-se os requisitos para a configuração da chave gerida pelo cliente:
 
 * A chave gerida pelo cliente para encriptar o DEK só pode ser assimétrica, RSA 2048.
-* A data de ativação da chave (se definida) deve ser uma data e hora no passado. A data de validade (se definida) deve ser uma data e hora futuras.
+* A data de ativação da chave (se definida) deve ser uma data e hora no passado. A data de validade não está definida.
 * A chave deve estar no estado *ativado.*
+* A chave deve ter [uma eliminação suave](../key-vault/general/soft-delete-overview.md) com o período de retenção definido para **90 dias**.
+* O kay deve ter [a proteção de purga ativada.](../key-vault/general/soft-delete-overview.md#purge-protection)
 * Se estiver [a importar uma chave existente](/rest/api/keyvault/ImportKey/ImportKey) para o cofre da chave, certifique-se de que a fornece nos formatos de ficheiros suportados `.pfx` (, , `.byok` . `.backup`
 
 ## <a name="recommendations"></a>Recomendações
@@ -80,7 +83,7 @@ Quando está a utilizar a encriptação de dados utilizando uma chave gerida pel
 * Certifique-se de que o Cofre-Chave e a Base de Dados Azure para o MySQL residem na mesma região, para garantir um acesso mais rápido para o invólucro DEK e desembrulhar operações.
 * Bloqueie o Azure KeyVault apenas para **o ponto final privado e redes selecionadas** e permita apenas serviços *confiáveis* da Microsoft para garantir os recursos.
 
-    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Diagrama que mostra uma visão geral de Bring Your Own Key":::
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="serviço de confiança com AKV":::
 
 Aqui estão as recomendações para configurar uma chave gerida pelo cliente:
 
@@ -90,13 +93,13 @@ Aqui estão as recomendações para configurar uma chave gerida pelo cliente:
 
 ## <a name="inaccessible-customer-managed-key-condition"></a>Condição chave gerida pelo cliente inacessível
 
-Quando configurar a encriptação de dados com uma chave gerida pelo cliente no Key Vault, é necessário um acesso contínuo a esta chave para que o servidor se mantenha on-line. Se o servidor perder o acesso à chave gerida pelo cliente no Key Vault, o servidor começa a negar todas as ligações dentro de 10 minutos. O servidor emite uma mensagem de erro correspondente e altera o estado do servidor para *Inacessível* . Parte da razão pela qual o servidor pode chegar a este estado são:
+Quando configurar a encriptação de dados com uma chave gerida pelo cliente no Key Vault, é necessário um acesso contínuo a esta chave para que o servidor se mantenha on-line. Se o servidor perder o acesso à chave gerida pelo cliente no Key Vault, o servidor começa a negar todas as ligações dentro de 10 minutos. O servidor emite uma mensagem de erro correspondente e altera o estado do servidor para *Inacessível*. Parte da razão pela qual o servidor pode chegar a este estado são:
 
 * Se criarmos um servidor Point In Time Restore para a sua Base de Dados Azure para o MySQL, que tem encriptação de dados ativada, o servidor recém-criado estará em estado *inacessível.* Pode corrigi-lo através do [portal Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) ou [do CLI.](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers)
 * Se criarmos uma réplica de leitura para a sua Base de Dados Azure para o MySQL, que tem encriptação de dados ativada, o servidor de réplica estará em estado *inacessível.* Pode corrigi-lo através do [portal Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) ou [do CLI.](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers)
 * Se eliminar o KeyVault, a Base de Dados Azure para o MySQL não poderá aceder à chave e deslocar-se-á para o estado *inacessível.* Recupere o [Cofre de Chaves](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) e revalida a encriptação de dados para disponibilizar o servidor . *Available*
-* Se eliminarmos a chave do KeyVault, a Base de Dados Azure para o MySQL não poderá aceder à chave e mudar-se-á para o estado *inacessível.* Recupere a [Chave](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) e revalida a encriptação de dados para tornar o servidor *disponível* .
-* Se a chave armazenada no Azure KeyVault expirar, a chave tornar-se-á inválida e a Base de Dados Azure para o MySQL transitará para o estado *inacessível.* Prolongue a data de validade da chave utilizando [o CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) e, em seguida, revalidar a encriptação de dados para tornar o servidor *disponível* .
+* Se eliminarmos a chave do KeyVault, a Base de Dados Azure para o MySQL não poderá aceder à chave e mudar-se-á para o estado *inacessível.* Recupere a [Chave](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) e revalida a encriptação de dados para tornar o servidor *disponível*.
+* Se a chave armazenada no Azure KeyVault expirar, a chave tornar-se-á inválida e a Base de Dados Azure para o MySQL transitará para o estado *inacessível.* Prolongue a data de validade da chave utilizando [o CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) e, em seguida, revalidar a encriptação de dados para tornar o servidor *disponível*.
 
 ### <a name="accidental-key-access-revocation-from-key-vault"></a>Revogação acidental do acesso à chave do Cofre de Chaves
 
@@ -135,11 +138,11 @@ Para a Base de Dados Azure para o MySQL, o suporte para encriptação de dados e
 * Esta funcionalidade é suportada apenas em regiões e servidores que suportam armazenamento até 16 TB. Para a lista de regiões de Azure que suportam o armazenamento até 16TB, consulte a secção de armazenamento em documentação [aqui](concepts-pricing-tiers.md#storage)
 
     > [!NOTE]
-    > - Todos os novos servidores MySQL criados nas regiões acima listadas, o suporte para encriptação com as chaves do gestor de clientes está **disponível** . O servidor Point In Time Restored (PITR) ou a réplica de leitura não se qualificam embora, em teoria, sejam "novos".
+    > - Todos os novos servidores MySQL criados nas regiões acima listadas, o suporte para encriptação com as chaves do gestor de clientes está **disponível**. O servidor Point In Time Restored (PITR) ou a réplica de leitura não se qualificam embora, em teoria, sejam "novos".
     > - Para validar se o seu servidor a provisionado suportar até 16TB, pode ir à lâmina de nível de preços no portal e ver o tamanho máximo de armazenamento suportado pelo seu servidor provisionado. Se conseguir mover o slider até 4TB, o seu servidor poderá não suportar a encriptação com as teclas geridas pelo cliente. No entanto, os dados são encriptados usando sempre as teclas geridas pelo serviço. Por favor, contacte AskAzureDBforMySQL@service.microsoft.com se tiver alguma pergunta.
 
 * A encriptação só é suportada com a chave criptográfica RSA 2048.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como configurar a [encriptação de dados com uma chave gerida pelo cliente para a sua base de dados Azure para o MySQL utilizando o portal Azure](howto-data-encryption-portal.md).
+Saiba como configurar a encriptação de dados com uma chave gerida pelo cliente para a sua base de dados Azure para o MySQL utilizando o [portal Azure](howto-data-encryption-portal.md) e [o Azure CLI](howto-data-encryption-cli.md).

@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 78600b7b57a7c30fc609434a700f13fa21e079ce
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 35bb17a5cdfcc6aff4a513a594a08283ab1f1305
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019264"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437036"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ligar um dispositivo a jusante a um gateway do Azure IoT Edge
 
@@ -100,7 +100,7 @@ Deve ver uma mensagem que diz: "Atualizar certificados em /etc/ssl/certs... 1 ad
 
 Os seguintes passos são um exemplo de como instalar um certificado de CA num anfitrião do Windows. Este exemplo pressupõe que está a utilizar o certificado **azure-iot-test-only.root.ca.cert.pem** a partir dos artigos pré-requisitos, e que copiou o certificado para um local no dispositivo a jusante.
 
-Pode instalar certificados utilizando o [Certificado de Importação](/powershell/module/pkiclient/import-certificate?view=win10-ps) da PowerShell como administrador:
+Pode instalar certificados utilizando o [Certificado de Importação](/powershell/module/pkiclient/import-certificate) da PowerShell como administrador:
 
 ```powershell
 import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
