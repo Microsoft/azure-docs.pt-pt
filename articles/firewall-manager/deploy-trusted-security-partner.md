@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 06/30/2020
+ms.date: 12/01/2020
 ms.author: victorh
-ms.openlocfilehash: 3323f73c137905fbe677c68d3830d7f609fa0172
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 906687e08c9f31890a9ecec9154079e704512832
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85611582"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485727"
 ---
 # <a name="deploy-a-security-partner-provider"></a>Implementar um fornecedor de parceiros de segurança
 
@@ -21,7 +21,11 @@ ms.locfileid: "85611582"
 Para saber mais sobre cenários apoiados e diretrizes de boas práticas, veja [o que são os fornecedores de parceiros de segurança?](trusted-security-partners.md)
 
 
-Os parceiros integrados de Segurança de Terceiros como um serviço (SECaaS) estão agora disponíveis em todas as regiões de nuvem pública Azure. A integração **da Zscaler** estará geralmente disponível a 3 de julho de 2020. **O Check Point** é um parceiro apoiado pela SECaaS e estará em pré-visualização a 3 de julho de 2020. A integração **do iboss** estará geralmente disponível a 31 de julho de 2020.
+Estão agora disponíveis parceiros integrados de Segurança de terceiros como um serviço (SECaaS): 
+
+- **Zscaler**
+- **[Check Point](check-point-overview.md)**
+- **iboss**
 
 ## <a name="deploy-a-third-party-security-provider-in-a-new-hub"></a>Implementar um fornecedor de segurança de terceiros num novo hub
 
@@ -81,15 +85,15 @@ Para configurar túneis para o VPN Gateway do seu hub virtual, os fornecedores d
 1. Siga o seu parceiro com instruções para completar a configuração. Isto inclui submeter informações de AAD para detetar e ligar ao hub, atualizar as políticas de saída e verificar o estado de conectividade e registos.
 
    - [Zscaler: Configurar a integração virtual WAN do Microsoft Azure](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration).
-   - [Check Point (pré-visualização): Configurar a integração virtual WAN do Microsoft Azure](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm).
-   - [iboss (pré-visualização): Configurar a integração virtual WAN do Microsoft Azure](https://www.iboss.com/blog/securing-microsoft-azure-with-iboss-saas-network-security). 
+   - [Check Point: Configurar a integração do Microsoft Azure Virtual WAN](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm).
+   - [iboss: Configurar a integração virtual WAN da Microsoft Azure](https://www.iboss.com/blog/securing-microsoft-azure-with-iboss-saas-network-security). 
    
 2. Pode olhar para o estado de criação do túnel no portal Azure Virtual WAN em Azure. Assim que os túneis mostrarem **ligados** tanto no Azure como no portal do parceiro, continue com os próximos passos para definir rotas para selecionar quais os ramos e VNets que devem enviar o tráfego de Internet para o parceiro.
 
 ## <a name="configure-route-settings"></a>Configurar definições de rota
 
 1. Navegue pelo Azure Firewall Manager -> Secured Hubs. 
-2. Selecione um hub. O estatuto do Hub deve agora mostrar **provisionado** em vez de **Conexão**de Segurança Pendente .
+2. Selecione um hub. O estatuto do Hub deve agora mostrar **provisionado** em vez de **Conexão** de Segurança Pendente .
 
    Certifique-se de que o fornecedor de terceiros pode ligar-se ao hub. Os túneis na porta de entrada da VPN devem estar num estado **ligado.** Este estado é mais reflexo da ligação entre o centro e o parceiro de terceiros, em comparação com o estado anterior.
 3. Selecione o hub e navegue para **definições de rota**.
@@ -99,7 +103,7 @@ Para configurar túneis para o VPN Gateway do seu hub virtual, os fornecedores d
 
    Isto apenas indica que tipo de tráfego deve ser encaminhado para o centro, mas ainda não afeta as rotas em VNets ou ramos. Estas rotas não são propagadas a todos os VNets/ramos ligados ao hub por padrão.
 5. Tem de selecionar **ligações seguras** e selecionar as ligações em que estas rotas devem ser definidas. Isto indica quais vNets/branches podem começar a enviar tráfego de Internet para o fornecedor de terceiros.
-6. A partir **das definições**de Rota , selecione **ligações Seguras** no tráfego da Internet e, em seguida, selecione o VNet ou os ramos *(sites* em WAN Virtual) a serem protegidos. Selecione **tráfego de Internet seguro**.
+6. A partir **das definições** de Rota , selecione **ligações Seguras** no tráfego da Internet e, em seguida, selecione o VNet ou os ramos *(sites* em WAN Virtual) a serem protegidos. Selecione **tráfego de Internet seguro**.
    ![Tráfego de Internet seguro](media/deploy-trusted-security-partner/secure-internet-traffic.png)
 7. Navegue de volta para a página dos hubs. O estatuto de fornecedor de **parceiros** de segurança do centro deve agora ser **garantido.**
 

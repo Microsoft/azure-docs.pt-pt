@@ -3,20 +3,20 @@ title: Atividade web na Fábrica de Dados Azure
 description: Saiba como pode utilizar a Web Activity, uma das atividades de fluxo de controlo suportadas pela Data Factory, para invocar um ponto final REST a partir de um oleoduto.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: e74361d6fb3eb1f9708f39f198506d16c7c046c4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8ee23adf569a6afafc57dac786cd907a3481abde
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635104"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485812"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade web na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -70,10 +70,10 @@ A atividade Web pode ser utilizada para chamar um ponto final REST personalizado
 
 ## <a name="type-properties"></a>Tipo de propriedades
 
-Propriedade | Descrição | Valores permitidos | Obrigatório
+Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
 name | Nome da atividade web | String | Sim
-tipo | Tem de ser definido para **WebActivity** . | String | Sim
+tipo | Tem de ser definido para **WebActivity**. | String | Sim
 método | Desarre-se o método API para o ponto final do alvo. | Cadeia. <br/><br/>Tipos suportados: "GET", "POST", "PUT" | Sim
 url | Ponto final e caminho | Corda (ou expressão com resultadoTipo de corda). A atividade excederá o tempo limite após um minuto com um erro se não receber uma resposta do ponto final. | Sim
 cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir a língua e escrever num pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Corda (ou expressão com resultadoType de corda) | Sim, é necessário um cabeçalho do tipo conteúdo. `"headers":{ "Content-Type":"application/json"}`

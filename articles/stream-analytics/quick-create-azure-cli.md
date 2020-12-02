@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: 4e50560d2f090c99d1f354ebbc11ab2357dd61e8
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 48ef9cc48f48cec92ae57774e5d89e300ee43385
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874734"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485387"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Azure CLI
 
@@ -94,7 +94,7 @@ Os blocos de código Azure CLI seguintes criam uma conta de armazenamento de bol
    az storage account keys list -g streamanalyticsrg -n <storage-account>
    ```
 
-3. Crie um contentor para armazenar blobs com o comando [az storage container create](/cli/azure/storage/container). Utilize a chave da conta de armazenamento para autorizar a operação para criar o recipiente. Para obter mais informações sobre a autorização de operações de dados com o Azure CLI, consulte [Autorizar o acesso aos dados de blob ou fila com o Azure CLI](../storage/common/authorize-data-operations-cli.md).
+3. Crie um contentor para armazenar blobs com o comando [az storage container create](/cli/azure/storage/container). Utilize a chave da conta de armazenamento para autorizar a operação para criar o recipiente. Para obter mais informações sobre a autorização de operações de dados com o Azure CLI, consulte [Autorizar o acesso aos dados de blob ou fila com o Azure CLI](../storage/blobs/authorize-data-operations-cli.md).
 
    ```azurecli
    az storage container create \

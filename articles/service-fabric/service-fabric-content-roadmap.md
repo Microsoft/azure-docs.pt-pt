@@ -3,12 +3,12 @@ title: Saiba mais sobre o Azure Service Fabric
 description: Conheça os conceitos centrais e as principais áreas do Azure Service Fabric. Fornece uma visão geral alargada do Tecido de Serviço e como criar microserviços.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 07b41f10430592e6035bfe0179cb717d0bc5c8b0
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 36215dd3419050cf498a749b5caf927c3c4e275a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681742"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485455"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Quer aprender sobre o Service Fabric?
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços dimensionáveis e fiáveis.  O Tecido de Serviço tem uma grande área de superfície, no entanto, e há muito a aprender.  Este artigo fornece uma sinopse de Tecido de Serviço e descreve os conceitos fundamentais, modelos de programação, ciclo de vida da aplicação, testes, clusters e monitorização de saúde. Leia a [Visão Geral](service-fabric-overview.md) e [O que são microserviços?](service-fabric-overview-microservices.md) Este artigo não contém uma lista completa de conteúdos, mas liga-se a uma visão geral e a receber artigos para todas as áreas do Service Fabric. 
@@ -51,7 +51,7 @@ O diagrama seguinte mostra a relação entre aplicações e instâncias de servi
 
 As réplicas de cada partição estão espalhadas pelos nós do cluster, o que permite que o estado do seu serviço de nome [seja dimensionado.](service-fabric-concepts-scalability.md) À medida que os dados precisam de crescer, as divisórias crescem e o Service Fabric reequilibra as divisórias através dos nós para fazer uso eficiente dos recursos de hardware. Se adicionar novos nós ao cluster, o Tecido de Serviço reequilibrará as réplicas de partição através do aumento do número de nós. O desempenho geral da aplicação melhora e a contenção para o acesso à memória diminui. Se os nós do cluster não estiverem a ser utilizados de forma eficiente, pode diminuir o número de nós no cluster. O Tecido de Serviço reequilibra novamente as réplicas de partição através do número reduzido de nós para melhor utilizar o hardware em cada nó.
 
-Dentro de uma partição, os serviços apátridas têm casos, enquanto os serviços de nomes estatais têm réplicas. Normalmente, os serviços apátridas só têm uma divisão, uma vez que não têm estado interno, embora [existam exceções.](https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-partitioning#partition-service-fabric-stateless-services) As instâncias de partição prevêem [disponibilidade.](service-fabric-availability-services.md) Se uma instância falhar, outras instâncias continuam a funcionar normalmente e, em seguida, o Tecido de Serviço cria uma nova instância. Os serviços com nomes imponentes mantêm o seu estado dentro de réplicas e cada divisória tem o seu próprio conjunto de réplicas. As operações de leitura e escrita são realizadas numa réplica (chamada Primária). As alterações ao estado das operações de escrita são replicadas para várias outras réplicas (chamadas Secundários Ativos). Em caso de falha de uma réplica, o Service Fabric constrói uma nova réplica a partir das réplicas existentes.
+Dentro de uma partição, os serviços apátridas têm casos, enquanto os serviços de nomes estatais têm réplicas. Normalmente, os serviços apátridas só têm uma divisão, uma vez que não têm estado interno, embora [existam exceções.](./service-fabric-concepts-partitioning.md#partition-service-fabric-stateless-services) As instâncias de partição prevêem [disponibilidade.](service-fabric-availability-services.md) Se uma instância falhar, outras instâncias continuam a funcionar normalmente e, em seguida, o Tecido de Serviço cria uma nova instância. Os serviços com nomes imponentes mantêm o seu estado dentro de réplicas e cada divisória tem o seu próprio conjunto de réplicas. As operações de leitura e escrita são realizadas numa réplica (chamada Primária). As alterações ao estado das operações de escrita são replicadas para várias outras réplicas (chamadas Secundários Ativos). Em caso de falha de uma réplica, o Service Fabric constrói uma nova réplica a partir das réplicas existentes.
 
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Microsserviços com e sem monitorização de estado para o Service Fabric
 O Service Fabric permite-lhe criar aplicações que consistem em microsserviços ou contentores. Os microsserviços sem estado (como gateways de protocolos e proxies Web) não mantêm um estado mutável fora dos pedidos nem na respetiva resposta do serviço. As funções de trabalho dos Serviços Cloud do Azure são um exemplo de serviço sem estado. Os microsserviços com estado (como contas de utilizador, bases de dados, dispositivos, carrinhos de compras e filas) mantêm um estado mutável e autoritativo para lá do pedido e da respetiva resposta. As aplicações à escala da cloud dos nossos dias são compostas por uma combinação de microsserviços com e sem estado. 
@@ -182,7 +182,7 @@ O fluxo de trabalho global de monitorização e diagnósticos consiste em três 
 
 Vários produtos estão disponíveis que cobrem estas três áreas, e você é livre de escolher diferentes tecnologias para cada um. Para mais informações, leia [Monitorização e diagnósticos para O Tecido de Serviço Azure.](service-fabric-diagnostics-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como criar um [cluster no Azure](service-fabric-cluster-creation-via-portal.md) ou um [cluster autónomo no Windows](service-fabric-cluster-creation-for-windows-server.md).
 * Experimente criar um serviço com os modelos de programação [Reliable Services](service-fabric-reliable-services-quick-start.md) ou [Reliable Actors](service-fabric-reliable-actors-get-started.md).
 * Saiba como [migrar dos Serviços cloud.](service-fabric-cloud-services-migration-differences.md)
