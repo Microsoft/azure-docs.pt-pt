@@ -1,6 +1,6 @@
 ---
-title: Dados de importação e exportação entre piscinas Apache Spark sem servidor (pré-visualização) e piscinas SQL
-description: Este artigo fornece informações sobre como usar o conector personalizado para mover dados entre piscinas SQL dedicadas e piscinas Apache Spark sem servidor (pré-visualização).
+title: Dados de importação e exportação entre piscinas Apache Spark sem servidor e piscinas SQL
+description: Este artigo fornece informações sobre como usar o conector personalizado para mover dados entre piscinas SQL dedicadas e piscinas Apache Spark sem servidor.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: ee82fbaa9687e064747908600c7e5c9017f8f1a9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 178fc12fe8e8e20af8deb40c62990c279af4ab64
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323895"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452842"
 ---
 # <a name="introduction"></a>Introdução
 
-O conector Azure Synapse Apache Para Synapse SQL foi concebido para transferir eficientemente dados entre piscinas Apache Spark sem servidor (pré-visualização) e piscinas SQL em Azure Synapse. O conector Azure Synapse Apache para Synapse SQL funciona apenas em piscinas SQL dedicadas, não funciona com piscina SQL sem servidor.
+O conector Azure Synapse Apache Para Synapse SQL foi concebido para transferir eficientemente dados entre piscinas Apache Spark sem servidor e piscinas SQL em Azure Synapse. O conector Azure Synapse Apache para Synapse SQL funciona apenas em piscinas SQL dedicadas, não funciona com piscina SQL sem servidor.
 
 ## <a name="design"></a>Design
 

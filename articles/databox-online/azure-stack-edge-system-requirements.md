@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: a1a0462b82629b16bd8ccbe269fb1a917357d542
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4deeec1b6c9db80c15b001efb7b40bdb4bb9d515
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883504"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452640"
 ---
 # <a name="azure-stack-edge-pro-system-requirements"></a>Requisitos do sistema Azure Stack Edge Pro
 
@@ -62,7 +62,7 @@ Utilize a seguinte tabela para configuração de porta para os servidores que ho
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Saída       | WAN        | Sim      | Saída aberta para provisão IoT Edge. Esta configuração é necessária quando se utilizam scripts manuais ou serviço de provisionamento de dispositivos Azure IoT (DPS).|
 
-Para obter informações completas, aceda às [regras de configuração de Firewall e porta para a implementação do IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+Para obter informações completas, aceda às [regras de configuração de Firewall e porta para a implementação do IoT Edge](../iot-edge/troubleshoot.md).
 
 ## <a name="url-patterns-for-firewall-rules"></a>Padrões de URL para regras de firewall
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2250a2565aa4fbab32daed54830fb701a3a2a1ac
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 27210dad3e32d4a308310ff114499ca468c4deac
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636192"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452281"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Ambientes computativos suportados pela versão 1 da Azure Data Factory
 > [!NOTE]
@@ -49,7 +49,7 @@ A Microsoft atualiza a lista de versões HDInsight suportadas com os mais recent
 Depois de 15 de dezembro de 2017:
 
 - Já não é possível criar clusters HDInsight baseados em Linux na versão 3.3 (ou versões anteriores) utilizando um serviço ligado a hdinsight a pedido na versão 1 da Data Factory. 
-- Se as propriedades [ **do osType** e **da versão**](#azure-hdinsight-on-demand-linked-service) não forem explicitamente especificadas na definição JSON para um serviço ligado à base de dados 1 a pedido da Data Factory, o valor predefinido é alterado de **Versão=3.1, osType=Windows** para **Versão= \<latest HDI default version\> https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning) (, osType=Linux** .
+- Se as propriedades [ **do osType** e **da versão**](#azure-hdinsight-on-demand-linked-service) não forem explicitamente especificadas na definição JSON para um serviço ligado à base de dados 1 a pedido da Data Factory, o valor predefinido é alterado de **Versão=3.1, osType=Windows** para **Versão= \<latest HDI default version\> https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning) (, osType=Linux**.
 
 Depois de 31 de julho de 2018:
 
@@ -58,7 +58,7 @@ Depois de 31 de julho de 2018:
 ### <a name="recommended-actions"></a>Ações recomendadas
 
 - Para garantir que pode utilizar os mais recentes componentes e correções do ecossistema Hadoop, atualize as propriedades do [ **osType** e **versão**](#azure-hdinsight-on-demand-linked-service) da versão 1 da Data Factory afetada, as definições de serviço on-demand HDInsight para as versões HDInsight baseadas em Linux (HDInsight 3.6). 
-- Antes de 15 de dezembro de 2017, teste data factory versão 1 Hive, Pig, MapReduce e Hadoop que referenciam o serviço ligado afetado. Certifique-se de que são compatíveis com os novos valores padrão **de osType** e **versão** **(Versão=3.6** , **osType=Linux)** ou com a versão hdInsight explícita e o tipo de SO a que está a atualizar. 
+- Antes de 15 de dezembro de 2017, teste data factory versão 1 Hive, Pig, MapReduce e Hadoop que referenciam o serviço ligado afetado. Certifique-se de que são compatíveis com os novos valores padrão **de osType** e **versão** **(Versão=3.6**, **osType=Linux)** ou com a versão hdInsight explícita e o tipo de SO a que está a atualizar. 
   Para saber mais sobre compatibilidade, consulte [Migrar de um cluster HDInsight baseado no Windows para um cluster baseado em Linux](../../hdinsight/index.yml) e [quais são os componentes e versões Hadoop disponíveis com HDInsight?](../../hdinsight/hdinsight-component-versioning.md) 
 - Para continuar a utilizar um serviço ligado à hdinsight da versão 1 da Data Factory para criar clusters HDInsight baseados no Windows, defina explicitamente **os OsType** para **o Windows** antes de 15 de dezembro de 2017. Recomendamos que emigre para os clusters HDInsight baseados em Linux antes de 31 de julho de 2018. 
 - Se estiver a utilizar um serviço ligado a HDInsight a pedido para executar a versão 1 DotNet Custom Activity, atualize a definição JSON de Atividade Personalizada DotNet para, em vez disso, utilizar um serviço ligado a Azure Batch. Para obter mais informações, consulte [utilizar as atividades personalizadas num oleoduto da Data Factory.](./data-factory-use-custom-activities.md) 
@@ -121,7 +121,7 @@ O JSON seguinte define um serviço hdinsight baseado na procura do Linux. A Data
 ### <a name="properties"></a>Propriedades
 | Propriedade                     | Descrição                              | Obrigatório |
 | ---------------------------- | ---------------------------------------- | -------- |
-| tipo                         | Defina a propriedade tipo para **HDInsightOnDemand** . | Sim      |
+| tipo                         | Defina a propriedade tipo para **HDInsightOnDemand**. | Sim      |
 | clusterSize                  | O número de trabalhadores e nó de dados no cluster. O cluster HDInsight é criado com 2 nós de cabeça, além do número de nós de trabalhadores que especifica para esta propriedade. Os nós são de tamanho Standard_D3, que tem 4 núcleos. Um aglomerado de nó de 4 trabalhadores leva 24 núcleos \* (4 4 = 16 núcleos para os nóns dos trabalhadores, mais 2 \* 4 = 8 núcleos para os nosdes da cabeça). Para obter mais informações sobre o nível Standard_D3, consulte [os clusters Hadoop baseados em Linux em HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Sim      |
 | timeToLive                   | O tempo de inatividade permitido para o cluster HDInsight a pedido. Especifica quanto tempo o cluster HDInsight on-demand permanece vivo quando uma atividade é terminada, se não houver outros empregos ativos no cluster.<br /><br />Por exemplo, se uma corrida de atividade demorar 6 minutos e **o tempoToLive** estiver definido para 5 minutos, o cluster permanece vivo durante 5 minutos após os 6 minutos de processamento da atividade. Se outra atividade for executada na janela de 6 minutos, é processada pelo mesmo cluster.<br /><br />A criação de um cluster HDInsight a pedido é uma operação dispendiosa (pode demorar algum tempo). Utilize esta definição conforme necessário para melhorar o desempenho de uma fábrica de dados reutilizando um cluster HDInsight a pedido.<br /><br />Se definir o **valor do tempoToLive** para **0,** o cluster é eliminado assim que a atividade termina. No entanto, se definir um valor elevado, o cluster pode ficar inativo, resultando desnecessariamente em custos elevados. É importante definir o valor apropriado com base nas suas necessidades.<br /><br />Se o valor **timeToLive** for definido adequadamente, vários oleodutos podem partilhar o caso do cluster HDInsight a pedido. | Sim      |
 | versão                      | A versão do cluster HDInsight. Para ver versões HDInsight permitidas, consulte [ver versões HDInsight suportadas](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions). Se este valor não for especificado, a [versão padrão mais recente](../../hdinsight/hdinsight-component-versioning.md) do HDI é utilizada. | Não       |
@@ -232,7 +232,7 @@ Este tipo de configuração é suportado para os seguintes ambientes computativo
 * Azure Batch
 * Azure Machine Learning Studio (clássico)
 * Azure Data Lake Analytics
-* Azure SQL Database, Azure Synapse Analytics (anteriormente SQL Data Warehouse), SQL Server
+* Azure SQL Database, Azure Synapse Analytics, SQL Server
 
 ## <a name="azure-hdinsight-linked-service"></a>Serviço ligado a Azure HDInsight
 Pode criar um serviço ligado a HDInsight para registar o seu próprio cluster HDInsight com data factory.
@@ -257,7 +257,7 @@ Pode criar um serviço ligado a HDInsight para registar o seu próprio cluster H
 ### <a name="properties"></a>Propriedades
 | Propriedade          | Descrição                              | Obrigatório |
 | ----------------- | ---------------------------------------- | -------- |
-| tipo              | Defina a propriedade tipo para **HDInsight** . | Sim      |
+| tipo              | Defina a propriedade tipo para **HDInsight**. | Sim      |
 | clusterUri        | O URI do cluster HDInsight.        | Sim      |
 | nome de utilizador          | O nome da conta de utilizador a utilizar para ligar a um cluster HDInsight existente. | Sim      |
 | palavra-passe          | A palavra-passe para a conta de utilizador.   | Sim      |
@@ -305,7 +305,7 @@ Outra opção é fornecer o ponto final **do batchUri.** Por exemplo:
 ### <a name="properties"></a>Propriedades
 | Propriedade          | Descrição                              | Obrigatório |
 | ----------------- | ---------------------------------------- | -------- |
-| tipo              | Desa estabaja a propriedade tipo **para AzureBatch** . | Sim      |
+| tipo              | Desa estabaja a propriedade tipo **para AzureBatch**. | Sim      |
 | accountName       | O nome da conta do Lote.         | Sim      |
 | acessoKey         | A chave de acesso para a conta Batch.  | Sim      |
 | poolName          | O nome da piscina de VMs.    | Sim      |
@@ -330,7 +330,7 @@ Pode criar um serviço ligado ao Azure Machine Learning Studio (clássico) para 
 ```
 
 ### <a name="properties"></a>Propriedades
-| Propriedade   | Descrição                              | Obrigatório |
+| Propriedade   | Descrição                              | Necessário |
 | ---------- | ---------------------------------------- | -------- |
 | Tipo       | Desa esta medida a **AzureML.** | Sim      |
 | mlEndpoint | O URL de pontuação do lote.                   | Sim      |
@@ -343,7 +343,7 @@ A tabela a seguir descreve as propriedades genéricas que são utilizadas na def
 
 | Propriedade                 | Descrição                              | Obrigatório                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| tipo                 | Desaperte a propriedade tipo para **AzureDataLakeAnalytics** . | Sim                                      |
+| tipo                 | Desaperte a propriedade tipo para **AzureDataLakeAnalytics**. | Sim                                      |
 | accountName          | O nome da conta Data Lake Analytics.  | Sim                                      |
 | dataLakeAnalyticsUri | O Data Lake Analytics URI.           | Não                                       |
 | subscriptionId       | O ID de assinatura Azure.                    | Não<br /><br />(Se não for especificada, a subscrição da fábrica de dados é utilizada.) |
@@ -354,7 +354,7 @@ Para o seu serviço ligado ao Data Lake Analytics, pode escolher entre autentica
 
 #### <a name="service-principal-authentication-recommended"></a>Autenticação principal do serviço (recomendado)
 Para utilizar a autenticação principal do serviço, registe uma entidade de aplicação no Azure Ative Directory (Azure AD). Em seguida, conceda ao Azure AD acesso à Data Lake Store. Para etapas detalhadas, consulte [a autenticação do Serviço ao Serviço.](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md) Tome nota dos seguintes valores, que utiliza para definir o serviço ligado:
-* ID da Aplicação
+* ID da aplicação
 * Chave de aplicação 
 * ID do inquilino
 

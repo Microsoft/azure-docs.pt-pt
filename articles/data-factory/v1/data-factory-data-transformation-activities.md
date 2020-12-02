@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 91755dd1b5eea9f72978e09a605fc47d41ff3dee
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: dfe8863f38da0aeb701b063f051a199e27745eeb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371720"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453354"
 ---
 # <a name="transform-data-in-azure-data-factory-version-1"></a>Transformar dados na versão 1 da Azure Data Factory
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "92371720"
 > * [MapReduce](data-factory-map-reduce.md)  
 > * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
 > * [Azure Machine Learning Studio (clássico)](data-factory-azure-ml-batch-execution-activity.md) 
-> * [Procedimento armazenado](data-factory-stored-proc-activity.md)
+> * [Procedimento Armazenado](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
 > * [.NET personalizado](data-factory-use-custom-activities.md)
 
@@ -65,7 +65,7 @@ Com o tempo, os modelos preditivos no Estúdio (clássico) experiências de pont
 Consulte [as atividades do Use Azure Machine Learning Studio (clássico)](data-factory-azure-ml-batch-execution-activity.md) para mais detalhes sobre estas atividades do Studio (clássico). 
 
 ## <a name="stored-procedure-activity"></a>Atividade de procedimento armazenado
-Pode utilizar a atividade do Procedimento Armazenado do SQL server num oleoduto da Data Factory para invocar um procedimento armazenado numa das seguintes lojas de dados: Azure SQL Database, Azure Synapse Analytics (anteriormente SQL Data Warehouse), SQL Server Database na sua empresa ou um VM Azure. Consulte o artigo [de atividades do procedimento](data-factory-stored-proc-activity.md) armazenado para mais detalhes.  
+Pode utilizar a atividade do Procedimento Armazenado do SQL server num oleoduto da Data Factory para invocar um procedimento armazenado numa das seguintes lojas de dados: Azure SQL Database, Azure Synapse Analytics, SQL Server Database na sua empresa ou um Azure VM. Consulte o artigo [de atividades do procedimento](data-factory-stored-proc-activity.md) armazenado para mais detalhes.  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Atividade U-SQL do Data Lake Analytics
 Data Lake Analytics U-SQL Activity executa um script U-SQL em um cluster Azure Data Lake Analytics. Consulte o artigo [de atividade u-SQL da Data Analytics](data-factory-usql-activity.md) para obter mais detalhes. 
@@ -93,7 +93,7 @@ A Azure Data Factory apoia as seguintes atividades de transformação de dados e
 | [MapReduce](data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
 | [Atividades do Azure Machine Learning Studio (clássico): Execução de Lote e Recurso de Atualização](data-factory-azure-ml-batch-execution-activity.md) |VM do Azure |
-| [Procedimento armazenado](data-factory-stored-proc-activity.md) |Azure SQL, Azure Synapse Analytics ou SQL Server |
+| [Procedimento Armazenado](data-factory-stored-proc-activity.md) |Azure SQL, Azure Synapse Analytics ou SQL Server |
 | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |Azure Data Lake Analytics |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] ou Azure Batch |
 

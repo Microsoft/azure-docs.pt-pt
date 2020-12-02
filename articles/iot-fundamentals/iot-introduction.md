@@ -10,12 +10,12 @@ ms.author: dobett
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 6ecc79eb52acbe393ac2777a0ec388e538a7f8fd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d2afd88500801f1e2b1e4da5a1e267bddfa69fc7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978905"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453020"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>O que é Azure Internet of Things (IoT)?
 
@@ -74,7 +74,7 @@ Por exemplo, numa solução de monitorização remota para uma estação de bomb
 
 Para exemplos da vida real de como as organizações usam Azure IoT, consulte [os Estudos de Caso Técnicos da Microsoft para IoT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured). 
 
-Para um debate aprofundado da arquitetura do IoT, veja [Microsoft Azure IoT Reference Architecture (Arquitetura de Referência do Microsoft Azure IoT)](https://aka.ms/iotrefarchitecture).
+Para um debate aprofundado da arquitetura do IoT, veja [Microsoft Azure IoT Reference Architecture (Arquitetura de Referência do Microsoft Azure IoT)](/azure/architecture/reference-architectures/iot).
 
 ## <a name="next-steps"></a>Passos seguintes
 

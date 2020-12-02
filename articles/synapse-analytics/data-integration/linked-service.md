@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: feabfe505601276269c2774e3b39dd5cbaa32087
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fb3c7dd7b3d7e8e42e230eedcd0d1b43af104327
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022926"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452528"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Garantir um serviço ligado com links privados
 
@@ -69,7 +69,7 @@ Estabeleceu agora uma ligação segura e privada entre a Synapse e o seu serviç
 ## <a name="next-steps"></a>Passos seguintes
 
 
-Para desenvolver uma maior compreensão do ponto final privado gerido no Synapse Analytics, consulte [os pontos finais privados geridos.](../security/synapse-workspace-managed-private-endpoints.md)
+Para desenvolver uma maior compreensão do ponto final privado gerido no Azure Synapse Analytics, consulte [os pontos finais privados geridos](../security/synapse-workspace-managed-private-endpoints.md).
 
 
-Para obter mais informações sobre a integração de dados para a Synapse Analytics, consulte os [dados de Ingeste num](data-integration-data-lake.md) artigo do Data Lake.
+Para obter mais informações sobre a integração de dados para a Azure Synapse Analytics, consulte os [dados de Ingeste num](data-integration-data-lake.md) artigo do Data Lake.

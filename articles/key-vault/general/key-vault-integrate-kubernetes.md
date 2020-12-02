@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: b7d587f2be5141f7de82e9294b1fdb9fba4a6a41
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: c628ba780ae64fceb32322fdb2004d69e2ebf24b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488648"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452754"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o fornecedor Azure Key Vault para o motorista CSI Secrets Store em Kubernetes
 
@@ -121,21 +121,21 @@ Para criar o seu próprio objeto SecretProviderClass personalizado com parâmetr
 
 Na amostra, o ficheiro IML da SecretProviderClass preenche os parâmetros em falta. São necessários os seguintes parâmetros:
 
-* **utilizadorAssignedIdentityID** : # [REQUIRED] Se estiver a utilizar um principal de serviço, utilize o ID do cliente para especificar qual a identidade gerida atribuída pelo utilizador a utilizar. Se estiver a usar uma identidade atribuída ao utilizador como identidade gerida pelo VM, especifique a identificação do cliente da identidade. Se o valor estiver vazio, é por defeito utilizar a identidade atribuída ao sistema no VM 
-* **keyvaultName** : O nome do seu cofre chave
-* **objetos** : O recipiente para todo o conteúdo secreto que pretende montar
-    * **nome do objeto** : O nome do conteúdo secreto
-    * **objectType** : O tipo de objeto (segredo, chave, certificado)
+* **utilizadorAssignedIdentityID**: # [REQUIRED] Se estiver a utilizar um principal de serviço, utilize o ID do cliente para especificar qual a identidade gerida atribuída pelo utilizador a utilizar. Se estiver a usar uma identidade atribuída ao utilizador como identidade gerida pelo VM, especifique a identificação do cliente da identidade. Se o valor estiver vazio, é por defeito utilizar a identidade atribuída ao sistema no VM 
+* **keyvaultName**: O nome do seu cofre chave
+* **objetos**: O recipiente para todo o conteúdo secreto que pretende montar
+    * **nome do objeto**: O nome do conteúdo secreto
+    * **objectType**: O tipo de objeto (segredo, chave, certificado)
 * **grupo** de recursos : O nome do grupo de recursos # [OBRIGATÓRIO para a versão < 0.0.4] o grupo de recursos do KeyVault
-* **subscriçãoId** : O ID de subscrição do seu cofre-chave # [OBRIGATÓRIO para a versão < 0.0.4] o ID de subscrição do KeyVault
-* **tenantID** : O ID do inquilino, ou iD diretório, do seu cofre chave
+* **subscriçãoId**: O ID de subscrição do seu cofre-chave # [OBRIGATÓRIO para a versão < 0.0.4] o ID de subscrição do KeyVault
+* **tenantID**: O ID do inquilino, ou iD diretório, do seu cofre chave
 
 Documentação de todos os campos necessários está disponível aqui: [Link](https://github.com/Azure/secrets-store-csi-driver-provider-azure#create-a-new-azure-key-vault-resource-or-use-an-existing-one)
 
 O modelo atualizado é mostrado no seguinte código. Descarregue-o como um ficheiro YAML e preencha os campos necessários. Neste exemplo, o cofre chave é **contosoKeyVault5**. Tem dois segredos, **o segredo1** e **o segredo2.**
 
 > [!NOTE] 
-> Se estiver a utilizar identidades geridas, desaprote o valor **da entidade usePodId** como *verdadeiro* , e desaprote o **valoridárioidídeo** do utilizador como um par de aspas **(""** ). 
+> Se estiver a utilizar identidades geridas, desaprote o valor **da entidade usePodId** como *verdadeiro*, e desaprote o **valoridárioidídeo** do utilizador como um par de aspas **(""**). 
 
 ```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
@@ -362,4 +362,4 @@ Verifique se o conteúdo do segredo está exposto.
 
 Para ajudar a garantir que o cofre da chave é recuperável, consulte:
 > [!div class="nextstepaction"]
-> [Ligue a eliminação suave](./soft-delete-cli.md)
+> [Ligue a eliminação suave](./key-vault-recovery.md)

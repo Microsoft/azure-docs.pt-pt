@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 742c69709eee19a37abdb3e5330cd7fb8ce315b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65584b2a6a3bdfbb863c26dac688b20279c4b54d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89436396"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452294"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Adicione a tolerância à falha na Atividade de Cópia saltando linhas incompatíveis
 
@@ -48,7 +48,7 @@ A Copy Activity suporta três cenários para detetar, saltar e registar dados in
     Por exemplo: Copiar dados de um servidor SQL para uma base de dados SQL. Uma chave primária é definida na base de dados SQL do lavatório, mas nenhuma chave primária é definida no servidor SQL de origem. As linhas duplicadas existentes na fonte não podem ser copiadas para a pia. Copiar A Atividade copia apenas a primeira linha dos dados de origem na pia. As linhas de origem subsequentes que contêm o valor da chave primária duplicada são detetadas como incompatíveis e ignoradas.
 
 >[!NOTE]
->Esta funcionalidade não se aplica quando a atividade de cópia é configurada para invocar mecanismos externos de carregamento de dados, incluindo [a Azure Synapse Analytics (ex-SQL Data Warehouse) PolyBase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) ou [Amazon Redshift Unload](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). Para carregar dados no Azure Synapse Analytics utilizando o PolyBase, utilize o suporte nativo de tolerância à falha da PolyBase especificando "[poliBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" na atividade da cópia.
+>Esta funcionalidade não se aplica quando a atividade de cópia é configurada para invocar mecanismos externos de carregamento de dados, incluindo [a Azure Synapse Analytics PolyBase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) ou [Amazon Redshift Unload](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). Para carregar dados no Azure Synapse Analytics utilizando o PolyBase, utilize o suporte nativo de tolerância à falha da PolyBase especificando "[poliBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" na atividade da cópia.
 
 ## <a name="configuration"></a>Configuração
 O exemplo a seguir fornece uma definição JSON para configurar saltar as linhas incompatíveis na Atividade de Cópia:

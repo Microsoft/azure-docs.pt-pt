@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/21/2020
-ms.openlocfilehash: 5790094571563d3ca8576480a6296a73756fb6a6
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 7420a7c6355fbcd70ce57fbb36ab29d1241df31f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540421"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453332"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitorização na Base de Dados Azure para MariaDB
 Monitorizar dados sobre os seus servidores ajuda-o a resolver problemas e a otimizar a sua carga de trabalho. A Azure Database for MariaDB fornece várias métricas que dão uma visão do comportamento do seu servidor.
@@ -25,7 +25,7 @@ Para orientação passo a passo, consulte [como configurar alertas](howto-alert-
 ### <a name="list-of-metrics"></a>Lista de métricas
 Estas métricas estão disponíveis para Azure Database for MariaDB:
 
-|Métrica|Nome de exibição métrica|Unidade|Description|
+|Metric|Nome de exibição métrica|Unidade|Descrição|
 |---|---|---|---|
 |cpu_percent|CPU por cento|Percentagem|A percentagem de CPU em uso.|
 |memory_percent|Por cento da memória|Percentagem|A percentagem de memória em uso.|
@@ -67,7 +67,6 @@ Saiba mais sobre como configurar notificações no documento [de notificações 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações sobre como aceder e exportar métricas utilizando o portal Azure, REST API ou CLI, consulte a Visão Geral das [Métricas Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Para obter mais informações sobre como aceder e exportar métricas utilizando o portal Azure, REST API ou CLI, consulte a Visão Geral das [Métricas Azure](../azure-monitor/platform/data-platform.md).
 - Veja [como configurar alertas](howto-alert-metric.md) para orientação sobre a criação de um alerta sobre uma métrica.
 - Saiba mais sobre [as notificações de manutenção planeadas](./concepts-planned-maintenance-notification.md) na Base de Dados Azure para MariaDB.
-

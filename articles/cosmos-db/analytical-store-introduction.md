@@ -1,24 +1,21 @@
 ---
-title: O que é Azure Cosmos DB Analytical Store (Preview)?
+title: O que é a Loja Azure Cosmos DB Analytical?
 description: Saiba mais sobre a loja transacional Azure Cosmos DB (baseada em linha) e analítica (baseada em colunas). Benefícios da loja analítica, impacto no desempenho para cargas de trabalho em larga escala e sincronização automática de dados da loja transacional para a loja analítica
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 9cde9586d453632ceaa61de7c095a5f95d1ea2e4
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 5dc233348188791404f826870b235d2bdfa4c202
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337411"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452856"
 ---
-# <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é a loja analítica Azure Cosmos DB (Preview)?
+# <a name="what-is-azure-cosmos-db-analytical-store"></a>O que é a loja analítica Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
-
-> [!IMPORTANT]
-> A loja analítica Azure Cosmos DB está atualmente em pré-visualização. Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 A loja analítica Azure Cosmos DB é uma loja de colunas totalmente isolada para permitir análises em larga escala contra dados operacionais no seu Azure Cosmos DB, sem qualquer impacto nas suas cargas de trabalho transacionais. 
 
@@ -36,7 +33,7 @@ Os gasodutos ETL tornam-se também complexos ao lidar com atualizações aos dad
 
 A loja analítica Azure Cosmos DB aborda os desafios de complexidade e latência que ocorrem com os oleodutos tradicionais da ETL. A loja analítica Azure Cosmos DB pode sincronizar automaticamente os seus dados operacionais numa loja de colunas separada. O formato da loja de colunas é adequado para consultas analíticas em larga escala a serem realizadas de forma otimizada, resultando em melhorar a latência de tais consultas.
 
-Utilizando o Azure Synapse Link, pode agora construir soluções HTAP sem ETL ligando diretamente à loja analítica Azure Cosmos DB da Synapse Analytics. Permite-lhe executar análises em larga escala em tempo real nos seus dados operacionais.
+Utilizando o Azure Synapse Link, pode agora construir soluções HTAP sem ETL ligando diretamente à loja analítica Azure Cosmos DB da Azure Synapse Analytics. Permite-lhe executar análises em larga escala em tempo real nos seus dados operacionais.
 
 ## <a name="features-of-analytical-store"></a>Características da loja analítica 
 
@@ -181,10 +178,10 @@ A autenticação com a loja analítica é a mesma que a loja transacional para u
 
 A loja analítica está otimizada para proporcionar escalabilidade, elasticidade e desempenho para cargas de trabalho analíticas sem qualquer dependência dos tempos de cálculo. A tecnologia de armazenamento é auto-gerida para otimizar as suas cargas de trabalho de análise sem esforços manuais.
 
-Ao dissociar o sistema de armazenamento analítico do sistema de computação analítica, os dados na loja analítica Azure Cosmos DB podem ser consultados simultaneamente a partir dos diferentes tempos de execução analíticos suportados pela Azure Synapse Analytics. A partir de hoje, a Synapse Analytics suporta o Apache Spark e o SQL sem servidor com a loja analítica Azure Cosmos DB.
+Ao dissociar o sistema de armazenamento analítico do sistema de computação analítica, os dados na loja analítica Azure Cosmos DB podem ser consultados simultaneamente a partir dos diferentes tempos de execução analíticos suportados pela Azure Synapse Analytics. A partir de hoje, a Azure Synapse Analytics suporta a Apache Spark e a piscina SQL sem servidor com loja analítica Azure Cosmos DB.
 
 > [!NOTE]
-> Só é possível ler na loja de análise utilizando o tempo de funcionação do Synapse Analytics. Pode escrever os dados de volta à sua loja transacional como uma camada de serviço.
+> Só pode ler na loja de análise utilizando o tempo de funcionamento do Azure Synapse Analytics. Pode escrever os dados de volta à sua loja transacional como uma camada de serviço.
 
 ## <a name="pricing"></a><a id="analytical-store-pricing"></a> Preços
 
@@ -194,10 +191,7 @@ A loja analítica segue um modelo de preços baseado no consumo onde é cobrado:
 
 * Operações de escrita analítica: a sincronização totalmente gerida das atualizações de dados operacionais para a loja analítica a partir da loja transacional (auto-sincronização)
 
-* Operações de leitura analítica: as operações de leitura realizadas contra a loja analítica da Synapse Analytics Spark e dos tempos de funcionação sem servidor SQL.
-
-> [!NOTE]
-> A loja analítica Azure Cosmos DB está atualmente disponível em pré-visualização pública, livre de quaisquer encargos.
+* Operações de leitura analítica: as operações de leitura realizadas contra a loja analítica da piscina Azure Synapse Spark e os tempos de funcionamento da piscina SQL sem servidor.
 
 Os preços das lojas analíticas são separados do modelo de preços da loja de transações. Não existe nenhum conceito de RUs a provisionados na loja analítica. Consulte [a página de preços da Azure Cosmos DB,](https://azure.microsoft.com/pricing/details/cosmos-db/)para obter todos os detalhes sobre o modelo de preços para a loja analítica.
 

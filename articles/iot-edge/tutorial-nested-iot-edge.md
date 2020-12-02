@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: cd0fd7ac004d07b71a69a3e59c9cfd4727d98eb6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 28b34ecaf51406b35c67d3838714691390f5adf7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184676"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453058"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Tutorial: Criar uma hierarquia de dispositivos IoT Edge (Pré-visualização)
 
@@ -27,7 +27,7 @@ Você pode estruturar uma hierarquia de dispositivos para que apenas a camada su
 
 O objetivo deste tutorial é criar uma hierarquia de dispositivos IoT Edge que simula um ambiente de produção. No final, irá implantar o [módulo Sensor de Temperatura Simulado](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.simulated-temperature-sensor) num dispositivo de camada inferior sem acesso à Internet, descarregando imagens de contentores através da hierarquia.
 
-Para atingir este objetivo, este tutorial acompanha-o através da criação de uma hierarquia de dispositivos IoT Edge, implantando recipientes de tempo de execução IoT Edge para os seus dispositivos e configurando os seus dispositivos localmente. Neste tutorial, vai aprender a:
+Para atingir este objetivo, este tutorial acompanha-o através da criação de uma hierarquia de dispositivos IoT Edge, implantando recipientes de tempo de execução IoT Edge para os seus dispositivos e configurando os seus dispositivos localmente. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -50,10 +50,10 @@ Este tutorial usa uma hierarquia de dois dispositivos para a simplicidade. Um di
 Para criar uma hierarquia de dispositivos IoT Edge, você precisará:
 
 * Um computador (Windows ou Linux) com conectividade à Internet.
-* Dois dispositivos Linux para configurar como dispositivos IoT Edge. Se não tiver dispositivos disponíveis, pode utilizar [máquinas virtuais Azure.](https://docs.microsoft.com/azure/virtual-machines/linux/)
-* Uma conta Azure com uma subscrição válida. Se não tiver uma [subscrição do Azure,](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Dois dispositivos Linux para configurar como dispositivos IoT Edge. Se não tiver dispositivos disponíveis, pode utilizar [máquinas virtuais Azure.](../virtual-machines/linux/index.yml)
+* Uma conta Azure com uma subscrição válida. Se não tiver uma [subscrição do Azure,](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Um [hub IoT](../iot-hub/iot-hub-create-through-portal.md) de nível gratuito ou padrão em Azure.
-* Azure CLI v2.3.1 com a extensão Azure IoT v0.10.6 ou superior instalada. Este tutorial usa a [Azure Cloud Shell.](https://docs.microsoft.com/azure/cloud-shell/overview) Se não está familiarizado com a Azure Cloud Shell, [consulte um quickstart para obter detalhes.](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#use-azure-cloud-shell)
+* Azure CLI v2.3.1 com a extensão Azure IoT v0.10.6 ou superior instalada. Este tutorial usa a [Azure Cloud Shell.](../cloud-shell/overview.md) Se não está familiarizado com a Azure Cloud Shell, [consulte um quickstart para obter detalhes.](./quickstart-linux.md#use-azure-cloud-shell)
 
 Você também pode experimentar este cenário seguindo a amostra de [IoT Azure IoT](https://aka.ms/iotedge-nested-sample)scripted, que implementa máquinas virtuais Azure como dispositivos pré-configurados para simular um ambiente de fábrica.
 
@@ -597,7 +597,7 @@ You can also view these messages through the [Azure Cloud Shell](https://shell.a
    az iot hub monitor-events -n <iothub_name> -d <lower-layer-device-name>
    ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode eliminar as configurações locais e os recursos Azure que criou neste artigo para evitar encargos.
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: de4661bcfd7106d515480e39dc4660f44f469a3d
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 81c1b84bff04e62f2dabeb3880f4103112139ee0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631704"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453561"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Perguntas frequentes
 > [!NOTE]
@@ -72,7 +72,7 @@ A tabela seguinte fornece uma lista de ambientes computativos apoiados pela Data
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning Studio (clássico)](data-factory-compute-linked-services.md#azure-machine-learning-studio-classic-linked-service) |[Atividades de estúdio (clássicos): Execução de Lote e Recurso de Atualização](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure Synapse Analytics (anteriormente SQL Data Warehouse)](data-factory-compute-linked-services.md#azure-synapse-analytics-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimento armazenado](data-factory-stored-proc-activity.md) |
+| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure Synapse Analytics,](data-factory-compute-linked-services.md#azure-synapse-analytics-linked-service) [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimento Armazenado](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Como é que a Azure Data Factory se compara com os Serviços de Integração de Servidores SQL (SSIS)? 
 Consulte a [Azure Data Factory vs. SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) apresentação de um dos nossos MVPs (Profissionais Mais Valorizados): Reza Rad. Algumas das recentes alterações na Data Factory podem não estar listadas no slide deck. Estamos continuamente a adicionar mais capacidades à Azure Data Factory. Estamos continuamente a adicionar mais capacidades à Azure Data Factory. Iremos incorporar estas atualizações na comparação das tecnologias de integração de dados da Microsoft ainda este ano.   
@@ -141,7 +141,7 @@ No exemplo acima, outros LinkedServiceName1 e outros LinkedServiceName2 represen
 ### <a name="why-are-my-input-slices-not-in-ready-state"></a>Porque é que as minhas fatias de entrada não estão em Estado pronto?
 Um erro comum não é estabelecer a propriedade **externa** **verdadeiramente** no conjunto de dados de entrada quando os dados de entrada são externos à fábrica de dados (não produzidos pela fábrica de dados).
 
-No exemplo seguinte, basta definir **externo** para verdadeiro no **conjunto de dados1** .  
+No exemplo seguinte, basta definir **externo** para verdadeiro no **conjunto de dados1**.  
 
 **DataFactory1** Pipeline 1: dataset1 -> atividade1 -> dataset2 -> atividade2 -> dataset3 Pipeline 2: dataset3-> activity3 -> dataset44
 

@@ -12,17 +12,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: 72af066cbff809521c34bb8db88ab0b3e5092fc4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ce528e268e0ed1e34f53e32196bceef5ad8a2fcb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841143"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452499"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL Database e regras de firewall IP Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Quando cria um novo servidor na Base de Dados Azure SQL ou no Azure Synapse Analytics nomeado *mysqlserver*, por exemplo, uma firewall de nível de servidor bloqueia todo o acesso ao ponto final público do servidor (que é acessível *a mysqlserver.database.windows.net).* Para simplificar, a *BASE de Dados SQL* é utilizada para se referir tanto à Base de Dados SQL como à Azure Synapse Analytics (antiga SQL Data Warehouse).
+Quando cria um novo servidor na Base de Dados Azure SQL ou no Azure Synapse Analytics nomeado *mysqlserver*, por exemplo, uma firewall de nível de servidor bloqueia todo o acesso ao ponto final público do servidor (que é acessível *a mysqlserver.database.windows.net).* Para simplificar, a *BASE de Dados SQL* é utilizada para se referir tanto à Base de Dados SQL como à Azure Synapse Analytics.
 
 > [!IMPORTANT]
 > Este artigo *não* se aplica a *Azure SQL Managed Instance*. Para obter informações sobre a configuração da rede, consulte [Ligar a sua aplicação a Azure SQL Managed Instance](../managed-instance/connect-application-instance.md).
@@ -111,7 +111,7 @@ Para poder criar e gerir regras de firewall de IP para o Azure SQL Server, ter�
 - no papel [de Gestor de Segurança SQL](../../role-based-access-control/built-in-roles.md#sql-security-manager)
 - o proprietário do recurso que contém o Servidor Azure SQL
 
-## <a name="create-and-manage-ip-firewall-rules"></a>Criar e gerir regras de firewall IP
+## <a name="create-and-manage-ip-firewall-rules"></a>Criar e gerir regras de firewall de IP
 
 Cria a primeira definição de firewall ao nível do servidor utilizando o [portal Azure](https://portal.azure.com/) ou programáticamente utilizando [a Azure PowerShell](/powershell/module/az.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule)ou uma [API AZure REST](/rest/api/sql/firewallrules/createorupdate). Cria e gere regras adicionais de firewall IP ao nível do servidor utilizando estes métodos ou Transact-SQL.
 

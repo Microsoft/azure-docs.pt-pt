@@ -1,6 +1,6 @@
 ---
-title: Proteger uma base de dados
-description: Dicas para garantir uma piscina SQL dedicada e desenvolver soluções no Azure Synapse Analytics.
+title: Garantir uma piscina SQL dedicada (anteriormente SQL DW)
+description: Dicas para garantir uma piscina SQL dedicada (anteriormente SQL DW) e desenvolver soluções no Azure Synapse Analytics.
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -11,14 +11,14 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: f6c1370cab573926183a937b8e749ef490c19334
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ce09488e2323aada5f99494ef3920681b685ec0b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317705"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453641"
 ---
-# <a name="secure-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Garanta uma piscina SQL dedicada em Azure Synapse Analytics
+# <a name="secure-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Garantir uma piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics
 
 > [!div class="op_single_selector"]
 >
@@ -27,7 +27,7 @@ ms.locfileid: "93317705"
 > * [Encriptação (Portal)](sql-data-warehouse-encryption-tde.md)
 > * [Encriptação (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
-Este artigo irá acompanhá-lo através do básico de garantir a sua piscina DE SQL dedicada. Em particular, este artigo inicia-o com recursos para limitar o acesso, proteger dados e monitorizar atividades usando um pool de SQL dedicado.
+Este artigo irá acompanhá-lo através dos fundamentos de garantir a sua piscina SQL dedicada (anteriormente SQL DW). Em particular, este artigo inicia-o com recursos para limitar o acesso, proteger dados e monitorizar atividades usando piscinas SQL dedicadas (anteriormente SQL DW).
 
 ## <a name="connection-security"></a>Segurança da Ligação
 
@@ -35,15 +35,15 @@ A Segurança da Ligação diz respeito à forma como restringe e protege as liga
 
 As regras de firewall são usadas tanto pelo [servidor lógico SQL](../../azure-sql/database/logical-servers.md) como pelas suas bases de dados para rejeitar tentativas de ligação de endereços IP que não tenham sido explicitamente aprovadas. Para permitir ligações a partir da sua aplicação ou endereço IP público da sua máquina cliente, tem primeiro de criar uma regra de firewall ao nível do servidor utilizando o portal Azure, REST API ou PowerShell.
 
-Como uma boa prática, deve restringir ao máximo as gamas de endereços IP permitidas através da firewall ao nível do servidor.  Para aceder à sua piscina SQL dedicada a partir do seu computador local, certifique-se de que a firewall da sua rede e computador local permite a comunicação de saída na porta TCP 1433.  
+Como uma boa prática, deve restringir ao máximo as gamas de endereços IP permitidas através da firewall ao nível do servidor.  Para aceder à sua piscina SQL dedicada (anteriormente SQL DW) a partir do seu computador local, certifique-se de que a firewall da sua rede e computador local permite a comunicação de saída na porta TCP 1433.  
 
-A Azure Synapse Analytics utiliza regras de firewall IP de nível de servidor. Não suporta regras de firewall IP ao nível da base de dados. Para mais informações, consulte [as regras de firewall da Base de Dados Azure SQL](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Piscina SQL dedicada (anteriormente SQL DW) utiliza regras de firewall IP de nível de servidor. Não suporta regras de firewall IP ao nível da base de dados. Para mais informações, consulte [as regras de firewall da Base de Dados Azure SQL](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
-As ligações ao seu pool SQL dedicado são encriptadas por padrão.  A modificação das definições de ligação para desativar a encriptação é ignorada.
+As ligações à sua piscina SQL dedicada (anteriormente SQL DW) são encriptadas por padrão.  A modificação das definições de ligação para desativar a encriptação é ignorada.
 
 ## <a name="authentication"></a>Autenticação
 
-A autenticação diz respeito à forma como prova a sua identidade quando se liga à base de dados. O pool dedicado SQL suporta atualmente a autenticação do servidor SQL com um nome de utilizador e senha, e com o Azure Ative Directory.
+A autenticação diz respeito à forma como prova a sua identidade quando se liga à base de dados. Pool SQL dedicado (anteriormente SQL DW) suporta atualmente a Autenticação do Servidor SQL com um nome de utilizador e senha, e com O Diretório Ativo Azure.
 
 Quando criou o servidor para a sua base de dados, especificou um login de "administrador do servidor" com um nome de utilizador e senha. Utilizando estas credenciais, pode autenticar em qualquer base de dados desse servidor como o proprietário da base de dados, ou "dbo" através da Autenticação do Servidor SQL.
 
@@ -57,7 +57,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'Str0ng_password';
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-Em seguida, conecte-se à sua **base de dados de piscinas SQL dedicada** com o seu login de administração do servidor e crie um utilizador de base de dados com base no login do servidor que criou.
+Em seguida, conecte-se ao seu **pool DE SQL dedicado (anteriormente SQL DW)** com o seu login de administração do servidor e crie um utilizador de base de dados com base no login do servidor que criou.
 
 ```sql
 -- Connect to the database and create a database user
@@ -96,7 +96,7 @@ A gestão de bases de dados e servidores a partir do portal Azure ou a utilizaç
 
 ## <a name="encryption"></a>Encriptação
 
-A Encriptação de Dados Transparente (TDE) ajuda a proteger contra a ameaça de atividade maliciosa encriptando e desencriptando os seus dados em repouso. Quando encripta a sua base de dados, as cópias de segurança associadas e os ficheiros de registo de transações são encriptados sem que sejam necessárias quaisquer alterações nas suas aplicações. A TDE encripta o armazenamento de uma base de dados completa ao utilizar uma chave simétrica denominada chave de encriptação de base de dados.
+A Encriptação de Dados Transparente (TDE) ajuda a proteger contra a ameaça de atividade maliciosa encriptando e desencriptando os seus dados em repouso. Quando encripta a sua base de dados, as cópias de segurança associadas e os ficheiros de registo de transações são encriptados sem que sejam necessárias quaisquer alterações nas suas aplicações. A Encriptação de Dados Transparente encripta o armazenamento de uma base de dados completa ao utilizar uma chave simétrica chamada chave de encriptação de base de dados.
 
 Na Base de Dados SQL, a chave de encriptação da base de dados está protegida por um certificado de servidor incorporado. O certificado de servidor incorporado é único para cada servidor. A Microsoft roda automaticamente estes certificados pelo menos a cada 90 dias. O algoritmo de encriptação utilizado é AES-256. Para obter uma descrição geral do TDE, consulte [a Encriptação de Dados Transparente.](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
@@ -104,4 +104,4 @@ Pode encriptar a sua base de dados utilizando o [portal Azure](sql-data-warehous
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter detalhes e exemplos sobre a ligação ao seu armazém com diferentes protocolos, consulte [Connect to dedicated SQL pool](../sql/connect-overview.md).
+Para obter detalhes e exemplos sobre a ligação ao seu armazém com diferentes protocolos, consulte [Connect to dedicated SQL pool (anteriormente SQL DW)](sql-data-warehouse-connect-overview.md).

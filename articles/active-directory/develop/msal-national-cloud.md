@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: negoe
-ms.reviewer: nacanuma
+ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 566c429fc70ae3f0fc18f024b745d8142535932c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2f631ad650b20110084ff902043447f26c2d4ab3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348412"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453607"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Use o MSAL num ambiente de nuvem nacional
 
@@ -150,9 +150,9 @@ Para ativar a sua aplicação MSAL Python para nuvens soberanas:
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
 
-- Para ligar para o gráfico da Microsoft requer um URL específico do ponto final do Gráfico que depende da nuvem que estiver a utilizar. Para encontrar pontos finais do Microsoft Graph para todas as nuvens nacionais, consulte os [pontos finais de raiz do microsoft Graph e Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Ligar para a API do Gráfico microsoft requer um URL de ponto final específico da nuvem que está a usar. Para encontrar pontos finais do Microsoft Graph para todas as nuvens nacionais, consulte os [pontos finais de raiz do microsoft Graph e Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-    Aqui está um exemplo de um ponto final gráfico, com âmbito:
+    Aqui está um exemplo de um ponto final do Microsoft Graph, com âmbito:
 
     ```json
     "endpoint" : "https://graph.microsoft.us/v1.0/me"
@@ -173,7 +173,7 @@ Aqui está uma autoridade exemplo:
 "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
 ```
 
-- Para ligar para o gráfico da Microsoft requer um URL específico do ponto final do Gráfico que depende da nuvem que estiver a utilizar. Para encontrar pontos finais do Microsoft Graph para todas as nuvens nacionais, consulte os [pontos finais de raiz do microsoft Graph e Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Ligar para a API do Gráfico microsoft requer um URL de ponto final específico da nuvem que está a usar. Para encontrar pontos finais do Microsoft Graph para todas as nuvens nacionais, consulte os [pontos finais de raiz do microsoft Graph e Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 Aqui está um exemplo de um ponto final gráfico, com âmbito:
 
@@ -222,9 +222,10 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre:
+Consulte [os pontos finais](authentication-national-cloud.md) de autenticação em nuvem nacional para obter uma lista dos URLs do portal Azure e pontos finais simbólicos para cada nuvem.
 
-- [Autenticação em Nuvens Nacionais](authentication-national-cloud.md)
+Documentação nacional em nuvem:
+
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
 - [Azure Alemanha](../../germany/index.yml)

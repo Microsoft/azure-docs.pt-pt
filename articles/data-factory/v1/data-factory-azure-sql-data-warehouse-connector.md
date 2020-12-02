@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de/para a Azure Synapse Analytics (anteriormente SQL Data Warehouse)
-description: Saiba como copiar dados de/para a Azure Synapse Analytics (anteriormente SQL Data Warehouse) utilizando a Azure Data Factory
+title: Copiar dados de/para a Azure Synapse Analytics
+description: Saiba como copiar dados de/para a Azure Synapse Analytics usando a Azure Data Factory
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 55582fb8c4fc80ab005a01ec015035963404e639
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 0d071599b72f6a71bdff815f514311fb87f53d5b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637416"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452366"
 ---
-# <a name="copy-data-to-and-from-azure-synapse-analytics-formerly-sql-data-warehouse-using-azure-data-factory"></a>Copiar dados de e para a Azure Synapse Analytics (anteriormente SQL Data Warehouse) usando Azure Data Factory
+# <a name="copy-data-to-and-from-azure-synapse-analytics-using-azure-data-factory"></a>Copiar dados de e para a Azure Synapse Analytics usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](data-factory-azure-sql-data-warehouse-connector.md)
 > * [Versão 2 (versão atual)](../connector-azure-sql-data-warehouse.md)
@@ -42,7 +42,7 @@ Pode copiar dados das seguintes lojas de dados **para a Azure Synapse Analytics:
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 > [!TIP]
-> Ao copiar dados do SQL Server ou da Base de Dados Azure SQL para Azure Synapse Analytics, se a tabela não existir na loja de destino, a Data Factory pode criar automaticamente a tabela no Synapse Analytics utilizando o esquema da tabela na loja de dados de origem. Consulte [a criação da tabela Auto](#auto-table-creation) para mais detalhes.
+> Ao copiar dados do SQL Server ou da Azure SQL Database para a Azure Synapse Analytics, se a tabela não existir na loja de destino, a Data Factory pode criar automaticamente a tabela no Azure Synapse Analytics utilizando o esquema da tabela na loja de dados de origem. Consulte [a criação da tabela Auto](#auto-table-creation) para mais detalhes.
 
 ## <a name="supported-authentication-type"></a>Tipo de autenticação suportada
 O conector Azure Synapse Analytics suporta a autenticação básica.
@@ -50,9 +50,9 @@ O conector Azure Synapse Analytics suporta a autenticação básica.
 ## <a name="getting-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia que move dados de/para um Azure Synapse Analytics utilizando diferentes ferramentas/APIs.
 
-A forma mais fácil de criar um pipeline que copie dados de/para a Azure Synapse Analytics é utilizar o assistente de dados Copy. Consulte [Tutorial: Carregue os dados em Synapse Analytics com Data Factory](../load-azure-sql-data-warehouse.md) para uma rápida passagem pela criação de um pipeline utilizando o assistente de dados Copy.
+A forma mais fácil de criar um pipeline que copie dados de/para a Azure Synapse Analytics é utilizar o assistente de dados Copy. Consulte [Tutorial: Carregue os dados no Azure Synapse Analytics com data factory](../load-azure-sql-data-warehouse.md) para uma rápida passagem pela criação de um pipeline utilizando o assistente de dados Copy.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio** , **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API** . Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
 
 Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
@@ -96,7 +96,7 @@ Enquanto que as propriedades disponíveis na secção de tipos de atividade vari
 ### <a name="sqldwsource"></a>SqlDWSource
 Quando a fonte é do tipo **SqlDWSource,** as seguintes propriedades estão disponíveis na secção **typeProperties:**
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: selecione * do MyTable. |Não |
 | sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê dados da tabela de origem. |Nome do procedimento armazenado. A última declaração SQL deve ser uma declaração SELECT no procedimento armazenado. |Não |
@@ -142,11 +142,11 @@ GO
 ### <a name="sqldwsink"></a>SqlDWSink
 **SqlDWSink** suporta as seguintes propriedades:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | sqlWriterCleanUpScript |Especifique uma consulta para a Copy Activity para executar de modo a que os dados de uma fatia específica seja limpo. Para mais detalhes, consulte a [secção de repetibilidade](#repeatability-during-copy). |Uma declaração de consulta. |Não |
 | permitir A Base DePoly |Indica se deve utilizar a PolyBase (quando aplicável) em vez do mecanismo BULKINSERT. <br/><br/> **A utilização do PolyBase é a forma recomendada de carregar dados no Azure Synapse Analytics.** Consulte [o PolyBase para carregar dados na secção Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) para obter constrangimentos e detalhes. |Verdadeiro <br/>Falso (predefinição) |Não |
-| poliBaseSettings |Um grupo de propriedades que podem ser especificadas quando a propriedade **allowPolybase** é definida como **verdadeira** . |&nbsp; |Não |
+| poliBaseSettings |Um grupo de propriedades que podem ser especificadas quando a propriedade **allowPolybase** é definida como **verdadeira**. |&nbsp; |Não |
 | rejeitarValue |Especifica o número ou percentagem de linhas que podem ser rejeitadas antes da consulta falhar. <br/><br/>Saiba mais sobre as opções de rejeição da PolyBase na secção **de Argumentos** do tema CREATE EXTERNAL [TABLE (Transact-SQL).](/sql/t-sql/statements/create-external-table-transact-sql) |0 (padrão), 1, 2, ... |Não |
 | rejeitarType |Especifica se a opção rejeitar oValue é especificada como um valor literal ou uma percentagem. |Valor (padrão), Percentagem |Não |
 | rejeitarSampleValue |Determina o número de linhas a recuperar antes que o PolyBase recalcule a percentagem de linhas rejeitadas. |1, 2, ... |Sim, se **rejeitarType** é **percentagem** |
@@ -193,14 +193,14 @@ A Azure Synapse Analytics PolyBase suporta diretamente a Azure Blob e a Azure Da
 
 Se os requisitos não forem cumpridos, a Azure Data Factory verifica as definições e volta automaticamente ao mecanismo BULKINSERT para o movimento de dados.
 
-1. **O serviço ligado à fonte** é do tipo: **AzureStorage** ou **AzureDataLakeStore com autenticação principal do serviço** .
+1. **O serviço ligado à fonte** é do tipo: **AzureStorage** ou **AzureDataLakeStore com autenticação principal do serviço**.
 2. O conjunto de **dados** de entrada é do tipo: **AzureBlob** ou **AzureDataLakeStore,** e o tipo de formato sob `type` propriedades é **OrcFormat,** **ParquetFormat** ou **TextFormat** com as seguintes configurações:
 
-   1. `rowDelimiter` deve ser **\n** .
-   2. `nullValue` está definido para **corda vazia** (""), ou está definido `treatEmptyAsNull` para **verdade** .
-   3. `encodingName`está definido para **utf-8** , que é o valor **padrão.**
+   1. `rowDelimiter` deve ser **\n**.
+   2. `nullValue` está definido para **corda vazia** (""), ou está definido `treatEmptyAsNull` para **verdade**.
+   3. `encodingName`está definido para **utf-8**, que é o valor **padrão.**
    4. `escapeChar`, `quoteChar` `firstRowAsHeader` e `skipLineCount` não estão especificados.
-   5. `compression` não pode ser **compressões,** **GZip,** ou **Deflate** .
+   5. `compression` não pode ser **compressões,** **GZip,** ou **Deflate**.
 
       ```JSON
       "typeProperties": {
@@ -314,7 +314,7 @@ A Data Factory cria a tabela na loja de destino com o mesmo nome de tabela na lo
 | SmallMoney | SmallMoney |
 | Binário | Binário |
 | Varbinário | Varbinário (até 8000) |
-| Date | Date |
+| Data | Data |
 | DateTime | DateTime |
 | DataTime2 | DataTime2 |
 | Hora | Hora |
@@ -511,7 +511,7 @@ Os dados são escritos para uma nova bolha a cada hora (frequência: hora, inter
 
 **Copiar atividade num oleoduto com SqlDWSource e BlobSink:**
 
-O pipeline contém uma Atividade de Cópia que está configurada para utilizar os conjuntos de dados de entrada e saída e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **SqlDWSource** e o tipo **de pia** é definido para **BlobSink** . A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados na hora passada para copiar.
+O pipeline contém uma Atividade de Cópia que está configurada para utilizar os conjuntos de dados de entrada e saída e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **SqlDWSource** e o tipo **de pia** é definido para **BlobSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados na hora passada para copiar.
 
 ```JSON
 {
@@ -695,7 +695,7 @@ A amostra copia dados para uma tabela chamada "MyTable" em Azure Synapse Analyti
 ```
 **Copiar a atividade num oleoduto com BlobSource e SqlDWSink:**
 
-O pipeline contém uma Atividade de Cópia que está configurada para utilizar os conjuntos de dados de entrada e saída e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **BlobSource** e o tipo **de pia** é definido para **SqlDWSink** .
+O pipeline contém uma Atividade de Cópia que está configurada para utilizar os conjuntos de dados de entrada e saída e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **BlobSource** e o tipo **de pia** é definido para **SqlDWSink**.
 
 ```JSON
 {

@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 4a9aaca8128570af74370213e9848e26dec25156
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a9a5f6a4644717227d0b659407e9ba0bc56675
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89490263"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452416"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>Copie várias tabelas a granel utilizando a Azure Data Factory utilizando a PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Este tutorial demonstra **a cópia de uma série de tabelas da Base de Dados Azure SQL para a Azure Synapse Analytics (anteriormente SQL Data Warehouse)**. Também pode aplicar o mesmo padrão noutros cenários de cópia. Por exemplo, copiar tabelas do SQL Server/Oracle para a Base de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiar caminhos diferentes do Blob para tabelas de Base de Dados SQL do Azure.
+Este tutorial demonstra **a cópia de uma série de tabelas da Base de Dados Azure SQL para a Azure Synapse Analytics**. Também pode aplicar o mesmo padrão noutros cenários de cópia. Por exemplo, copiar tabelas do SQL Server/Oracle para a Base de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiar caminhos diferentes do Blob para tabelas de Base de Dados SQL do Azure.
 
 A um nível elevado, este tutorial envolve os seguintes passos:
 
@@ -263,7 +263,7 @@ Neste tutorial, vai criar conjuntos de dados de origem e sink, que especificam a
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
     ```
 
-### <a name="create-a-dataset-for-sink-synapse-analytics"></a>Criar um conjunto de dados para afundar a Synapse Analytics
+### <a name="create-a-dataset-for-sink-azure-synapse-analytics"></a>Criar um conjunto de dados para afundar Azure Synapse Analytics
 
 1. Crie um ficheiro JSON com o nome **AzureSqlDWDataset.json** na pasta **C:\ADFv2TutorialBulkCopy**, com o seguinte conteúdo: "tableName" está definido como um parâmetro; mais à frente, a atividade de cópia que faz referência a este conjunto de dados transmite o valor real para o conjunto de dados.
 

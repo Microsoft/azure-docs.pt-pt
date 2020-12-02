@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: acc98cd2a724abc779954a5f22c73a5a7c6b9db4
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 3fb24c3809099550406e8c5ad4cc4c58fbee3999
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302436"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453089"
 ---
 # <a name="azure-security-baseline-for-azure-lighthouse"></a>Linha de segurança Azure para o Farol de Azure
 
@@ -22,7 +22,7 @@ Para ver como o Azure Lighthouse mapeia completamente para o Azure Security Benc
 
 ## <a name="identity-management"></a>Gestão de Identidades
 
-*Para obter mais informações, veja [Referência de Segurança do Azure: Gestão de Identidades](/azure/security/benchmarks/security-controls-v2-identity-management).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Gestão de Identidades](../security/benchmarks/security-controls-v2-identity-management.md).*
 
 ### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Uniformizar o Azure Active Directory como o sistema central de identidade e autenticação
 
@@ -32,19 +32,19 @@ Para ver como o Azure Lighthouse mapeia completamente para o Azure Security Benc
 
 Com o Azure Lighthouse, os utilizadores designados num inquilino gerente têm uma função Azure incorporada que lhes permite aceder a subscrições delegadas e/ou grupos de recursos no inquilino de um cliente. Todas as funções incorporadas são atualmente suportadas, exceto para Proprietário ou quaisquer funções incorporadas com permissão DataActions. A função de Administrador de Acesso ao Utilizador é suportada apenas para uso limitado na atribuição de funções a identidades geridas. As funções personalizadas e as funções clássicas de administrador de subscrição não são suportadas.
 
-- [Arrendamento em Diretório Ativo Azure](../active-directory/develop/single-and-multi-tenant-apps.md) 
+- [Inquilinos no Azure Active Directory](../active-directory/develop/single-and-multi-tenant-apps.md) 
 
 - [Como criar e configurar instâncias do Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 
 
-- [Utilizar fornecedores de identidade externos para aplicação](/azure/active-directory/b2b/identity-providers) 
+- [Utilizar fornecedores de identidade externos para a aplicação](../active-directory/external-identities/identity-providers.md) 
 
-- [Qual é a pontuação de segurança de identidade no Azure Ative Directory](../active-directory/fundamentals/identity-secure-score.md)
+- [O que é a pontuação de segurança de identidade no Azure Active Directory?](../active-directory/fundamentals/identity-secure-score.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="im-2-manage-application-identities-securely-and-automatically"></a>IM-2: Gerir as identidades da aplicação de forma segura e automática
+### <a name="im-2-manage-application-identities-securely-and-automatically"></a>IM-2: Gerir identidades de aplicação de forma segura e automática
 
 **Orientação**: As identidades geridas pelo Azure podem autenticar para os serviços e recursos da Azure que suportam a autenticação AZure. A autenticação é ativada através de regras de concessão de acesso pré-definidas, evitando credenciais codificadas em código fonte ou ficheiros de configuração. Com o Azure Lighthouse, os utilizadores com a função de Administrador de Acesso ao Utilizador na subscrição de um cliente podem criar uma identidade gerida no inquilino desse cliente. Embora esta função não seja geralmente suportada com o Farol Azure, pode ser usada neste cenário específico, permitindo aos utilizadores com esta permissão atribuir uma ou mais funções incorporadas específicas a identidades geridas.
 
@@ -90,7 +90,7 @@ Os prestadores de serviços que utilizam o Farol Azure podem encaminhar os regis
 
 - [Relatórios de atividades de auditoria em Azure AD](../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [Como ver os inícios de sessão de risco do Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Como ver os inícios de sessão de risco do Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Gerir espaços de trabalho do Azure Sentinel em escala](how-to/manage-sentinel-workspaces.md)
 
@@ -100,7 +100,7 @@ Os prestadores de serviços que utilizam o Farol Azure podem encaminhar os regis
 
 **Responsabilidade**: Cliente
 
-### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: Restringir o acesso a recurso Azure com base em condições
+### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: Restringir o acesso aos recursos do Azure com base em condições
 
 **Orientação**: O Farol Azure não suporta uma capacidade de acesso condicional para recursos delegados do cliente. No inquilino gerente, utilize o acesso condicional Azure AD para um controlo de acesso mais granular com base em condições definidas pelo utilizador, tais como exigir logins de utilizadores de determinadas gamas IP até à utilização de Autenticação Multi-Factor (MFA). Uma gestão de sessão de autenticação granular também pode ser usada através da política de acesso condicional Azure AD para diferentes casos de uso. 
 
@@ -108,7 +108,7 @@ Você deve exigir MFA para todos os utilizadores do seu inquilino gerente, inclu
 
 - [Visão geral do acesso condicional do Azure](../active-directory/conditional-access/overview.md)
 
-- [Políticas de Acesso Condicional comuns](../active-directory/conditional-access/concept-conditional-access-policy-common.md)
+- [Políticas comuns de acesso condicional](../active-directory/conditional-access/concept-conditional-access-policy-common.md)
 
 - [Configurar a gestão de sessões de autenticação com o Acesso Condicional](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
 
@@ -118,7 +118,7 @@ Você deve exigir MFA para todos os utilizadores do seu inquilino gerente, inclu
 
 ## <a name="privileged-access"></a>Acesso Privilegiado
 
-*Para obter mais informações, veja [Referência de Segurança do Azure: Acesso Privilegiado](/azure/security/benchmarks/security-controls-v2-privileged-access).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Acesso Privilegiado](../security/benchmarks/security-controls-v2-privileged-access.md).*
 
 ### <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: Proteger e limitar utilizadores com muitos privilégios
 
@@ -126,7 +126,7 @@ Você deve exigir MFA para todos os utilizadores do seu inquilino gerente, inclu
 
 Para aceder aos dados do Registo de Atividade ao nível do inquilino, deve ser atribuída uma conta à função incorporada do Leitor de Monitorização Azure no âmbito raiz (/). Uma vez que a função de Monitoring Reader no âmbito raiz é um amplo nível de acesso, recomendamos que atribua esta função a uma conta principal de serviço, em vez de a um utilizador individual ou a um grupo. Esta atribuição deve ser executada por um utilizador que tenha a função de Administrador Global com acesso adicional elevado. Este acesso elevado deve ser adicionado imediatamente antes de então fazer a atribuição da função e, em seguida, removido quando a atribuição estiver concluída.
 
-- [Permissões das funções de administrador no Azure AD](/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
+- [Permissões das funções de administrador no Azure AD](../active-directory/roles/permissions-reference.md)
 
 - [Atribuição de acesso a dados de registo de atividade ao nível do inquilino](how-to/monitor-delegation-changes.md)
 
@@ -134,7 +134,7 @@ Para aceder aos dados do Registo de Atividade ao nível do inquilino, deve ser a
 
 **Responsabilidade**: Cliente
 
-### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: Restringir o acesso administrativo a sistemas críticos de negócios
+### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: Restringir o acesso administrativo a sistemas críticos da empresa
 
 **Orientação**: O Azure Lighthouse utiliza o controlo de acesso baseado em funções Azure (Azure RBAC) para isolar o acesso a sistemas críticos de negócio, limitando quais as contas que têm acesso privilegiado às subscrições e grupos de gestão em que se encontram.
 
@@ -178,13 +178,13 @@ Nota: que alguns serviços da Azure apoiam utilizadores e funções locais que n
 
 **Responsabilidade**: Cliente
 
-### <a name="pa-4-set-up-emergency-access-in-azure-ad"></a>PA-4: Criar acesso de emergência em Azure AD
+### <a name="pa-4-set-up-emergency-access-in-azure-ad"></a>PA-4: Configurar o acesso de emergência no AAD
 
-**Orientação**: O Farol Azure está integrado com o Azure Ative Directory para gerir os seus recursos. Para evitar que seja acidentalmente bloqueado fora da sua organização Azure AD, crie uma conta de acesso de emergência para acesso quando não puder ser utilizada uma conta administrativa normal. As contas de acesso de emergência são geralmente altamente privilegiadas, e não devem ser atribuídas a indivíduos específicos. As contas de acesso de emergência limitam-se a cenários de emergência ou "vidro quebrado", onde as contas administrativas normais não podem ser utilizadas.
+**Orientação**: O Farol Azure está integrado com o Azure Ative Directory para gerir os seus recursos. Para evitar que seja acidentalmente bloqueado fora da sua organização Azure AD, crie uma conta de acesso de emergência para acesso quando não puder ser utilizada uma conta administrativa normal. As contas de acesso de emergência são, normalmente, altamente privilegiadas e não devem ser atribuídas a indivíduos específicos. As contas de acesso de emergência são limitadas a cenários de emergência ou de “interrupção de emergência”, em que as contas administrativas normais não podem ser utilizadas.
 
-Deve certificar-se de que as credenciais (como palavra-passe, certificado ou cartão inteligente) para contas de acesso de emergência são mantidas seguras e conhecidas apenas por indivíduos autorizados a usá-las apenas em caso de emergência.
+Deve garantir que as credenciais (por exemplo, palavra-passe, certificado ou smart card) das contas de acesso de emergência são mantidas em segurança e só são conhecidas por indivíduos que estão autorizados a utilizá-las apenas para uma emergência.
 
-- [Gerir contas de acesso de emergência em Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Gerir contas de acesso de emergência no AAD](../active-directory/roles/security-emergency-access.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -202,13 +202,13 @@ Deve certificar-se de que as credenciais (como palavra-passe, certificado ou car
 
 **Responsabilidade**: Cliente
 
-### <a name="pa-6-use-privileged-access-workstations"></a>PA-6: Utilize postos de trabalho privilegiados de acesso
+### <a name="pa-6-use-privileged-access-workstations"></a>PA-6: Utilizar estações de trabalho privilegiadas
 
-**Orientação**: Estações de trabalho seguras e isoladas são de importância crucial para a segurança de funções sensíveis como administradores, desenvolvedores e operadores de serviços críticos. Dependendo dos seus requisitos, pode utilizar estações de trabalho de utilizador altamente seguras e/ou Azure Bastion para executar tarefas administrativas com o Farol Azure em ambientes de produção. Utilize o Azure Ative Directory, Microsoft Defender Advanced Threat Protection (ATP) e/ou Microsoft Intune para implementar uma estação de trabalho segura e gerida para tarefas administrativas. As estações de trabalho seguras podem ser geridas centralmente para impor a configuração segura, incluindo a autenticação forte, linhas de base de software e hardware, e acesso lógico e de rede restrito. 
+**Orientação**: As estações de trabalho seguras e isoladas são de importância crítica para a segurança de funções confidenciais, por exemplo, administradores, programadores e operadores de serviço de importância crítica. Dependendo dos seus requisitos, pode utilizar estações de trabalho de utilizador altamente seguras e/ou Azure Bastion para executar tarefas administrativas com o Farol Azure em ambientes de produção. Utilize o Azure Active Directory, a Proteção Avançada Contra Ameaças do Microsoft Defender (ATP) e/ou o Microsoft Intune para implementar uma estação de trabalho de utilizador gerida e segura para tarefas administrativas. As estações de trabalho seguras podem ser geridas centralmente para impor a configuração segura, incluindo a autenticação forte, linhas de base de software e hardware, e acesso lógico e de rede restrito. 
 
 - [Compreender estações de trabalho de acesso privilegiada](../active-directory/devices/concept-azure-managed-workstation.md)
 
-- [Implementar uma estação de trabalho de acesso privilegiada](../active-directory/devices/howto-azure-managed-workstation.md)
+- [Implementar uma estação de trabalho de acesso privilegiado](../active-directory/devices/howto-azure-managed-workstation.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -236,7 +236,7 @@ Para delegar os recursos do cliente a um inquilino gerente, uma implantação de
 
 ## <a name="asset-management"></a>Gestão de Recursos
 
-*Para obter mais informações, veja [Referência de Segurança do Azure: Gestão de Ativos](/azure/security/benchmarks/security-controls-v2-asset-management).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Gestão de Ativos](../security/benchmarks/security-controls-v2-asset-management.md).*
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: Certifique-se de que a equipa de segurança tem visibilidade para os riscos dos ativos
 
@@ -256,7 +256,7 @@ Nota: para obter visibilidade para cargas de trabalho e serviços, poderão ser 
 
 **Responsabilidade**: Cliente
 
-### <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: Garantir que a equipa de segurança tem acesso ao inventário de ativos e metadados
+### <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: Garantir que a equipa de segurança tem acesso aos metadados e inventário dos recursos
 
 **Orientação**: As equipas de segurança dos clientes podem rever os registos de atividades para ver a atividade tomada pelos prestadores de serviços que utilizam o Farol Azure. 
 
@@ -270,15 +270,15 @@ Se um prestador de serviços quiser permitir que a sua equipa de segurança reve
 
 **Responsabilidade**: Cliente
 
-### <a name="am-3-use-only-approved-azure-services"></a>AM-3: Utilize apenas serviços Azure aprovados
+### <a name="am-3-use-only-approved-azure-services"></a>AM-3: Utilizar apenas os serviços do Azure aprovados
 
-**Orientação**: Utilize a Política Azure para auditar e restringir quais os serviços que os utilizadores podem prestação no seu ambiente. Utilize o Gráfico de Recursos Azure para consultar e descobrir recursos dentro das suas subscrições. Também pode utilizar o Azure Monitor para criar regras para desencadear alertas quando for detetado um serviço não aprovado.
+**Orientação**: Utilize a Política Azure para auditar e restringir quais os serviços que os utilizadores podem prestação no seu ambiente. Utilize o Azure Resource Graph para consultar e detetar recursos dentro das subscrições. Também pode utilizar o Azure Monitor para criar regras para acionar alertas quando um serviço não aprovado for detetado.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md) 
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
 - [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/built-in-policies.md#general) 
 
-- [Como criar consultas com o Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
+- [Como criar consultas com o Explorador do Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -316,7 +316,7 @@ Utilize a capacidade de deteção de ameaças incorporada do Azure Security Cent
 
 Além disso, use o Azure Sentinel para construir regras de análise, que caçam ameaças que correspondem a critérios específicos em todo o ambiente do seu cliente. As regras geram incidentes quando os critérios são combinados, para que possa investigar cada incidente. O Azure Sentinel também pode importar inteligência de ameaça de terceiros para aumentar a sua capacidade de deteção de ameaças. 
 
-- [Proteção contra ameaças no Centro de Segurança do Azure](/azure/security-center/threat-protection)
+- [Proteção contra ameaças no Centro de Segurança do Azure](../security-center/azure-defender.md)
 
 - [Guia de referência do Centro de Segurança Azure alerta](../security-center/alerts-reference.md)
 
@@ -346,13 +346,13 @@ O Centro de Segurança do Azure também pode alertar para determinadas atividade
 
 - [Ativar o Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) 
 
-- [Proteção contra ameaças no Centro de Segurança do Azure](/azure/security-center/threat-protection)
+- [Proteção contra ameaças no Centro de Segurança do Azure](../security-center/azure-defender.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: Permitir a exploração de madeira para recursos Azure
+### <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: Ativar o registo dos recursos do Azure
 
 **Orientação**: Os registos de atividade, que estão automaticamente disponíveis, contêm todas as operações de escrita (PUT, POST, DELETE) para os seus recursos do Farol Azure, exceto operações de leitura (GET). Os registos de atividade podem ser utilizados para encontrar um erro na resolução de problemas ou para monitorizar como um utilizador na sua organização modificou um recurso.
 
@@ -372,7 +372,7 @@ Os clientes que tenham delegado subscrições para o Azure Lighthouse podem ver 
 
 **Responsabilidade**: Partilhada
 
-### <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: Centralizar a gestão e análise de registos de segurança
+### <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: Centralizar a análise e gestão do registo de segurança
 
 **Orientação**: Centralizar o armazenamento e análise de registos para permitir a correlação. Para cada fonte de registo, certifique-se de que atribuiu um titular de dados, orientação de acesso, localização de armazenamento, que ferramentas são usadas para processar e aceder aos dados, e requisitos de retenção de dados.
 
@@ -398,7 +398,7 @@ Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que s
 
 **Responsabilidade**: Cliente
 
-### <a name="lt-6-configure-log-storage-retention"></a>LT-6: Retenção de armazenamento de madeira configurada
+### <a name="lt-6-configure-log-storage-retention"></a>LT-6: Configurar a retenção de armazenamento dos registos
 
 **Orientação**: O Farol Azure não produz atualmente quaisquer registos relacionados com a segurança. Os clientes que pretendam visualizar a atividade do prestador de serviços podem configurar a retenção de registos de acordo com os requisitos de conformidade, regulação e negócio. 
 
@@ -418,7 +418,7 @@ No Azure Monitor, pode definir o período de retenção do espaço de trabalho d
 
 ## <a name="incident-response"></a>Resposta a Incidentes
 
-*Para obter mais informações, veja [Referência de Segurança do Azure: Resposta a Incidentes](/azure/security/benchmarks/security-controls-v2-incident-response).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Resposta a Incidentes](../security/benchmarks/security-controls-v2-incident-response.md).*
 
 ### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: Preparação – atualizar o processo de resposta a incidentes para o Azure
 
@@ -444,9 +444,9 @@ No Azure Monitor, pode definir o período de retenção do espaço de trabalho d
 
 ### <a name="ir-3-detection-and-analysis--create-incidents-based-on-high-quality-alerts"></a>IR-3: Deteção e análise – criar incidentes com base em alertas de alta qualidade
 
-**Orientação**: Certifique-se de que tem um processo para criar alertas de alta qualidade e medir a qualidade dos alertas. Desta forma, pode aprender lições com os incidentes passados e priorizar os alertas para os analistas, para que estes não percam tempo a lidar com falsos positivos. 
+**Orientação**: garanta que tem um processo para criar alertas de alta qualidade e medir a qualidade dos alertas. Desta forma, pode aprender lições com os incidentes passados e priorizar os alertas para os analistas, para que estes não percam tempo a lidar com falsos positivos. 
 
-Alertas de alta qualidade podem ser construídos com base na experiência de incidentes passados, fontes comunitárias validadas e ferramentas projetadas para gerar e limpar alertas fundindo e correlacionando diversas fontes de sinal. 
+Podem ser desenvolvidos alertas de alta qualidade com base na experiência de incidentes passados, origens da comunidade validadas e ferramentas designadas para gerar e limpar alertas através da fusão e correlação de origens de sinais diversas. 
 
 O Azure Security Center fornece alertas de alta qualidade em muitos ativos da Azure. Pode utilizar o conector de dados ASC para transmitir os alertas para o Azure Sentinel. O Azure Sentinel permite-lhe criar regras de alertas avançadas para gerar incidentes automaticamente para investigações. 
 
@@ -500,7 +500,7 @@ Além disso, marque os recursos com etiquetas e crie um sistema de nomenclatura 
 
 - [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
-- [Utilizar etiquetas para organizar os recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -524,7 +524,7 @@ Além disso, marque os recursos com etiquetas e crie um sistema de nomenclatura 
 
 *Para obter mais informações, veja [Referência de Segurança do Azure: Gestão da Postura e da Vulnerabilidade](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
 
-### <a name="pv-1-establish-secure-configurations-for-azure-services"></a>PV-1: Estabelecer configurações seguras para os serviços Azure 
+### <a name="pv-1-establish-secure-configurations-for-azure-services"></a>PV-1: Estabelecer configurações seguras para os serviços do Azure 
 
 **Orientação**: O Azure Lighthouse suporta abaixo as políticas específicas do serviço que estão disponíveis no Azure Security Center para auditar e impor configurações dos seus recursos Azure. Isto pode ser configurado em iniciativas do Azure Security Center ou da Azure Policy.
 
@@ -544,7 +544,7 @@ Pode utilizar a Azure Blueprints para automatizar a implementação e configura�
 
 **Responsabilidade**: Cliente
 
-### <a name="pv-2-sustain-secure-configurations-for-azure-services"></a>PV-2: Sustente configurações seguras para serviços Azure
+### <a name="pv-2-sustain-secure-configurations-for-azure-services"></a>PV-2: Suportar configurações seguras para os serviços do Azure
 
 **Orientação**: O Azure Lighthouse suporta abaixo as políticas específicas do serviço que estão disponíveis no Azure Security Center para auditar e impor configurações dos seus recursos Azure. Isto pode ser configurado em iniciativas do Azure Security Center ou da Azure Policy.
 
@@ -583,7 +583,7 @@ Para ter a certeza de que os seus testes de penetração não infringem as polí
 
 ## <a name="governance-and-strategy"></a>Governação e Estratégia
 
-*Para obter mais informações, veja [Referência de Segurança do Azure: Governação e Estratégia](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Governação e Estratégia](../security/benchmarks/security-controls-v2-governance-strategy.md).*
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: Definir a gestão dos ativos e a estratégia de proteção de dados 
 
@@ -601,18 +601,18 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 
 -   Estratégia de controlo de acesso obrigatória, de acordo com a classificação dos dados organizacionais
 
--   Utilização de capacidades de proteção de dados nativas e de terceiros da Azure
+-   Utilização de capacidades de proteção de dados de terceiros e nativas do Azure
 
 -   Requisitos de encriptação de dados para casos de utilização de dados em trânsito e inativos
 
 -   Normas criptográficas adequadas
 
 Para obter mais informações, veja as seguintes referências:
-- [Recomendação de Arquitetura de Segurança do Azure - Armazenamento, dados e encriptação](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Recomendação de Arquitetura de Segurança do Azure - Armazenamento, dados e encriptação](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Noções Básicas da Segurança do Azure - Segurança, encriptação e armazenamento de dados do Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework - Melhores práticas de segurança e encriptação de dados do Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [Cloud Adoption Framework - Melhores práticas de segurança e encriptação de dados do Azure](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Referência de Segurança do Azure - Gestão de ativos](/azure/security/benchmarks/security-controls-v2-incident-response)
 
@@ -726,7 +726,7 @@ Para obter mais informações, veja as seguintes referências:
 
 ### <a name="gs-7-define-logging-and-threat-response-strategy"></a>GS-7: Definir a estratégia de resposta a ameaças e registos
 
-**Orientação**: Crie uma estratégia de resposta a ameaças e registos para detetar e remediar rapidamente as ameaças e cumprir, em paralelo, os requisitos de conformidade. Priorize fornecer aos analistas alertas de alta qualidade e experiências perfeitas para que se concentrem em ameaças em vez de integração e passos manuais. 
+**Orientação**: Crie uma estratégia de resposta a ameaças e registos para detetar e remediar rapidamente as ameaças e cumprir, em paralelo, os requisitos de conformidade. Dê prioridade a proporcionar aos analistas alertas de alta qualidade e experiências totalmente integradas, para que se possam focar nas ameaças em vez de se focarem na integração e passos manuais. 
 
 Esta estratégia deve incluir orientações, políticas e normas documentadas para os seguintes elementos: 
 
@@ -762,5 +762,5 @@ Para obter mais informações, veja as seguintes referências:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Veja a [Descrição geral da Referência de Segurança do Azure v2](/azure/security/benchmarks/overview)
-- Saiba mais sobre as [linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Veja a [Descrição geral da Referência de Segurança do Azure v2](../security/benchmarks/overview.md)
+- Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 3aea2322129c383a385168c54001464da5dae276
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 9a4c331d82695aecb53990fd604ade82f3361959
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95520089"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452921"
 ---
 # <a name="features"></a>Funcionalidades
 
@@ -49,7 +49,7 @@ As versões anteriores também suportadas incluem: `3.0.2`
 | paging                         | Parcial   | Parcial   | Parcial   | `self` e `next` são apoiados                     |
 | intermediários                 | Não        | Não        | Não        |                                                     |
 
-## <a name="search"></a>Pesquisa
+## <a name="search"></a>Pesquisar
 
 Todos os tipos de parâmetros de pesquisa são suportados. 
 
@@ -135,7 +135,7 @@ Atualmente, as ações permitidas para um determinado papel são aplicadas *glob
 
 ## <a name="service-limits"></a>Limites do serviço
 
-* [**Unidades de Pedido (RUs)**](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) - Pode configurar até 10.000 RUs no portal da Azure API para FHIR. Você precisará de um mínimo de 400 RUs ou 10 RUs/GB, o que for maior. Se você precisar de mais de 10.000 RUs, você pode colocar um bilhete de apoio para que este aumente. O máximo disponível é de 1.000.000.
+* [**Unidades de Pedido (RUs)**](../cosmos-db/concepts-limits.md) - Pode configurar até 10.000 RUs no portal da Azure API para FHIR. Você precisará de um mínimo de 400 RUs ou 10 RUs/GB, o que for maior. Se você precisar de mais de 10.000 RUs, você pode colocar um bilhete de apoio para que este aumente. O máximo disponível é de 1.000.000.
 
 * **Conexões e instâncias simultâneas** - Por dafault, tem cinco ligações simultâneas em duas instâncias no cluster (para um total de 10 pedidos simultâneos). **Instances** Se você acredita que precisa de mais pedidos simultâneos, abra um bilhete de apoio com detalhes sobre suas necessidades.
 

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 117b0db4f04c3fd631f6692d288945019507f5c6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 819f84eeb7540050fb001111690fb6d2ba484b2a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632809"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452312"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidade gerida do Data Factory
 
@@ -32,7 +32,7 @@ Ao criar uma fábrica de dados, pode ser criada uma identidade gerida juntamente
 A identidade gerida para data factory beneficia as seguintes características:
 
 - [Armazenar credencial em Azure Key Vault,](store-credentials-in-key-vault.md)caso em que a identidade gerida pela fábrica de dados é usada para a autenticação do Cofre da Chave Azure.
-- Conectores incluindo [armazenamento Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md), e [Azure Synapse Analytics (anteriormente SQL Data Warehouse)](connector-azure-sql-data-warehouse.md).
+- Conectores incluindo [armazenamento Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md), e [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md).
 - [Atividade web](control-flow-web-activity.md).
 
 ## <a name="generate-managed-identity"></a>Gerar identidade gerida
@@ -79,7 +79,7 @@ Ligue abaixo da API com secção "identidade" no organismo de pedido:
 PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2018-06-01
 ```
 
-**Órgão de pedido** : adicione "identidade": { "tipo": "SystemAssigned" }.
+**Órgão de pedido**: adicione "identidade": { "tipo": "SystemAssigned" }.
 
 ```json
 {
@@ -201,7 +201,7 @@ Ligue abaixo da API no pedido:
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
 ```
 
-**Resposta** : Obterá resposta como mostrada no exemplo abaixo. A secção "identidade" é povoada em conformidade.
+**Resposta**: Obterá resposta como mostrada no exemplo abaixo. A secção "identidade" é povoada em conformidade.
 
 ```json
 {

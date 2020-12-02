@@ -1,14 +1,14 @@
 ---
 title: Visão geral do agente Windows da máquina conectada
 description: Este artigo fornece uma visão detalhada do agente de servidores ativado Azure Arc disponível, que suporta a monitorização de máquinas virtuais hospedadas em ambientes híbridos.
-ms.date: 09/30/2020
+ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8a66f99f535013b8aac52fdee43b91a8c734b10a
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 1bc9546e6db35153424ba670f8157adb86d19b71
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577588"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452950"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores ativado pelo Azure Arc
 
@@ -31,7 +31,7 @@ O pacote de agente da máquina conectada Azure contém vários componentes lógi
     * A atribuição de hóspedes é armazenada localmente por 14 dias. Dentro do período de 14 dias, se o agente 'Máquina Conectada' voltar a ligar-se ao serviço, as atribuições de política são reaplicadas.
     * As atribuições são eliminadas após 14 dias e não são transferidas para a máquina após o período de 14 dias.
 
-* O agente de extensão gere extensões VM, incluindo instalação, desinstalação e atualização. As extensões são descarregadas a partir do Azure e copiadas para a `%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads` pasta no Windows, e para o Linux. `/opt/GC_Ext/downloads` No Windows, a extensão é instalada para o seguinte caminho `%SystemDrive%\Packages\Plugins\<extension>` , e no Linux a extensão é instalada para `/var/lib/waagent/<extension>` .
+* O agente de extensão gere extensões VM, incluindo instalação, desinstalação e atualização. As extensões são descarregadas a partir do Azure e copiadas para a `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` pasta no Windows, e para o Linux. `/opt/GC_Ext/downloads` No Windows, a extensão é instalada para o seguinte caminho `%SystemDrive%\Packages\Plugins\<extension>` , e no Linux a extensão é instalada para `/var/lib/waagent/<extension>` .
 
 ## <a name="download-agents"></a>Agentes de descarregamento
 
@@ -170,9 +170,9 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
     |%ProgramData%\AzureConnectedMachineAgent |Contém os ficheiros de configuração do agente.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Contém os tokens adquiridos.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |Contém o ficheiro de configuração do agente `agentconfig.json` que regista as suas informações de registo com o serviço.|
-    |%SystemDrive%\Program Files\ArcConnectedMachineAgent\ExtensionService\GC | Caminho de instalação que contém os ficheiros do agente de configuração do hóspede. |
+    |%ProgramFiles%\ArcConnectedMachineAgent\ExtensionService\GC | Caminho de instalação que contém os ficheiros do agente de configuração do hóspede. |
     |%ProgramData%\GuestConfig |Contém as políticas (aplicadas) do Azure.|
-    |%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads | As extensões são descarregadas a partir de Azure e copiadas aqui.|
+    |%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads | As extensões são descarregadas a partir de Azure e copiadas aqui.|
 
 * Os seguintes serviços Windows são criados na máquina-alvo durante a instalação do agente.
 
@@ -190,26 +190,26 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
 * Existem vários ficheiros de registo disponíveis para resolução de problemas. São descritos na tabela seguinte.
 
-    |Registo |Descrição |
+    |Registar |Descrição |
     |----|------------|
     |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Regista detalhes do serviço e interação dos agentes (HIMDS) com o Azure.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Contém a saída dos comandos da ferramenta azcmagent, quando o argumento verboso (v) é utilizado.|
     |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent.log |Regista detalhes da atividade de serviço da DSC,<br> em particular, a conectividade entre o serviço HIMDS e a Política Azure.|
     |%ProgramaData%\GuestConfig\gc_agent_logs\gc_agent_telemetry.txt |Grava detalhes sobre telemetria de serviço DSC e registo verboso.|
-    |%SystemDrive%\ProgramData\GuestConfig\ext_mgr_logs|Grava detalhes sobre o componente do agente de extensão.|
-    |%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>|Grava detalhes da extensão instalada.|
+    |%ProgramData%\GuestConfig\ext_mgr_logs|Grava detalhes sobre o componente do agente de extensão.|
+    |%ProgramData%\GuestConfig\extension_logs\<Extension>|Grava detalhes da extensão instalada.|
 
 * O grupo de segurança local **Aplicações de extensão de agente híbrido são criadas.**
 
 * Durante a desinstalação do agente, os seguintes artefactos não são removidos.
 
-    * *%ProgramData%\AzureConnectedMachineAgent\Log
+    * %ProgramData%\AzureConnectedMachineAgent\Log
     * %ProgramData%\AzureConnectedMachineAgent e subdiretórios
     * %ProgramData%\GuestConfig
 
 ### <a name="linux-agent-installation-details"></a>Detalhes da instalação do agente Linux
 
-O agente da Máquina Conectada para o Linux é fornecido no formato de pacote preferido para a distribuição (. RPM ou . DEB) que está hospedado no [repositório](https://packages.microsoft.com/)de pacotes da Microsoft. O agente está instalado e configurado com o pacote de scripts de concha [Install_linux_azcmagent.sh](https://aka.ms/azcmagent).
+O agente da Máquina Conectada para o Linux é fornecido no formato de pacote preferido para a distribuição (. RPM ou . DEB) que está hospedado no [repositório](https://packages.microsoft.com/)de pacotes da Microsoft. O agente está instalado e configurado com o pacote de scripts da concha [Install_linux_azcmagent.sh](https://aka.ms/azcmagent).
 
 Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as seguintes alterações adicionais de configuração a nível do sistema.
 
@@ -234,7 +234,7 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 * Existem vários ficheiros de registo disponíveis para resolução de problemas. São descritos na tabela seguinte.
 
-    |Registo |Descrição |
+    |Registar |Descrição |
     |----|------------|
     |/var/opt/azcmagent/log/himds.log |Regista detalhes do serviço e interação dos agentes (HIMDS) com o Azure.|
     |/var/opt/azcmagent/log/azcmagent.log |Contém a saída dos comandos da ferramenta azcmagent, quando o argumento verboso (v) é utilizado.|

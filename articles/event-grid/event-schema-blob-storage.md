@@ -3,12 +3,12 @@ title: Armazenamento Azure Blob como fonte de grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos de armazenamento de blob com Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: a914edbb6f624617766c77b277d7ee8e6ad08bd9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1a81b30fcb775f5e8bc99bda70307f7f1aed9796
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023964"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452538"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Armazenamento Azure Blob como fonte de grade de eventos
 
@@ -33,11 +33,11 @@ Estes eventos são desencadeados quando um cliente cria, substitui ou elimina um
  |**Microsoft.Storage.BlobDeleted** |Acionado quando uma bolha é apagada. <br>Especificamente, este evento é desencadeado quando os clientes ligam para a `DeleteBlob` operação que está disponível na API Blob REST. |
 
 > [!NOTE]
-> Se pretender garantir que o evento **Microsoft.Storage.BlobCreated** só é acionado quando um Block Blob estiver completamente comprometido, filtre o evento para chamadas `CopyBlob` , e REST `PutBlob` `PutBlockList` API. Estas chamadas API desencadeiam o evento **Microsoft.Storage.BlobCreated** apenas depois de os dados estiverem totalmente comprometidos com uma Blob de Bloco. Para aprender a criar um filtro, consulte [eventos de filtro para grelha de eventos.](./how-to-filter-events.md)
+> Para **o Azure Blob Storage**, se quiser garantir que o evento **Microsoft.Storage.BlobCreated** só é acionado quando um Block Blob está completamente comprometido, filtre o evento para as `CopyBlob` chamadas , e REST `PutBlob` `PutBlockList` API. Estas chamadas API desencadeiam o evento **Microsoft.Storage.BlobCreated** apenas depois de os dados estiverem totalmente comprometidos com uma Blob de Bloco. Para aprender a criar um filtro, consulte [eventos de filtro para grelha de eventos.](./how-to-filter-events.md)
 
 ### <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Lista dos eventos para Azure Data Lake Storage Gen 2 REST APIs
 
-Estes eventos são desencadeados se você ativar um espaço hierárquico de nomes na conta de armazenamento, e os clientes ligam para Azure Data Lake Storage Gen2 REST APIs. Para obter mais informações sobre a Azure Data Lake Storage Gen2, consulte [Introdução ao Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
+Estes eventos são desencadeados se você ativar um espaço hierárquico de nomes na conta de armazenamento, e os clientes usam Azure Data Lake Storage Gen2 REST APIs. Para obter mais informações sobre a Azure Data Lake Storage Gen2, consulte [Introdução ao Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
 |Nome do evento|Descrição|
 |----------|-----------|
@@ -49,7 +49,7 @@ Estes eventos são desencadeados se você ativar um espaço hierárquico de nome
 |**Microsoft.Storage.DirectoryDeleted**|Acionado quando um diretório é apagado. <br>Especificamente, este evento é desencadeado quando os clientes usam a `DeleteDirectory` operação que está disponível na API de Armazenamento de Data Lake De Azure.|
 
 > [!NOTE]
-> Se quiser garantir que o evento **Microsoft.Storage.BlobCreated** só é acionado quando um Block Blob estiver completamente comprometido, filtre o evento para a `FlushWithClose` chamada REST API. Esta chamada API dispara o evento **Microsoft.Storage.BlobCreated** apenas depois de os dados estiverem totalmente comprometidos com uma Blob de Bloco. Para aprender a criar um filtro, consulte [eventos de filtro para grelha de eventos.](./how-to-filter-events.md)
+> Para **o Azure Data Lake Storage Gen2**, se quiser garantir que o evento **Microsoft.Storage.BlobCreated** é acionado apenas quando um Block Blob estiver completamente comprometido, filtre o evento para a `FlushWithClose` chamada REST API. Esta chamada API dispara o evento **Microsoft.Storage.BlobCreated** apenas depois de os dados estiverem totalmente comprometidos com uma Blob de Bloco. Para aprender a criar um filtro, consulte [eventos de filtro para grelha de eventos.](./how-to-filter-events.md)
 
 <a name="example-event"></a>
 ### <a name="the-contents-of-an-event-response"></a>O conteúdo de uma resposta do evento
@@ -307,17 +307,17 @@ O objeto de dados tem as seguintes propriedades:
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | api | string | A operação que desencadeou o evento. |
-| clienteRequestId | string | um id de pedido fornecido pelo cliente para a operação de API de armazenamento. Este id pode ser usado para correlacionar com os registos de diagnóstico de Armazenamento Azure usando o campo "cliente-pedido-id" nos registos, e pode ser fornecido em pedidos do cliente usando o cabeçalho "x-ms-cliente-pedido-id". Ver [Formato de Registo](/rest/api/storageservices/storage-analytics-log-format). |
-| requestId | string | Id de pedido gerado pelo serviço para a operação de API de armazenamento. Pode ser usado para correlacionar com os registos de diagnóstico de armazenamento Azure usando o campo "solicit-id-header" nos registos e é devolvido do início da chamada API no cabeçalho 'x-ms-request-id'. Ver [Formato de Registo](/rest/api/storageservices/storage-analytics-log-format). |
-| eTag | string | O valor que pode usar para realizar operações condicionalmente. |
+| clienteRequestId | string | um ID de pedido fornecido pelo cliente para a operação de API de armazenamento. Este ID pode ser usado para correlacionar com os registos de diagnóstico do Azure Storage utilizando o campo "cliente-pedido-id" nos registos, e pode ser fornecido em pedidos do cliente usando o cabeçalho "x-ms-cliente-pedido-id". Ver [Formato de Registo](/rest/api/storageservices/storage-analytics-log-format). |
+| requestId | string | ID de pedido gerado pelo serviço para a operação de API de armazenamento. Pode ser usado para correlacionar com os registos de diagnóstico de armazenamento Azure usando o campo "solicit-id-header" nos registos e é devolvido do início da chamada API no cabeçalho 'x-ms-request-id'. Ver [Formato de Registo](/rest/api/storageservices/storage-analytics-log-format). |
+| eTag | string | O valor que pode usar para executar operações condicionalmente. |
 | conteúdoType | string | O tipo de conteúdo especificado para a bolha. |
 | contentAver | número inteiro | O tamanho da bolha em bytes. |
 | BlobType | string | O tipo de bolha. Os valores válidos são "BlockBlob" ou "PageBlob". |
 | conjunto de conteúdos | número | A compensação em bytes de uma operação de escrita realizada no ponto em que a aplicação de desencadeamento de eventos completou a escrita para o ficheiro. <br>Aparece apenas para eventos desencadeados em contas de armazenamento blob que têm um espaço hierárquico de nomes.|
 | destinationUrl |string | A url do ficheiro que existirá após a conclusão da operação. Por exemplo, se um ficheiro for renomeado, a `destinationUrl` propriedade contém o url do nome do novo ficheiro. <br>Aparece apenas para eventos desencadeados em contas de armazenamento blob que têm um espaço hierárquico de nomes.|
-| fonteUrl |string | A url do ficheiro que existe antes da operação. Por exemplo, se um ficheiro for renomeado, `sourceUrl` contém o url do nome original do ficheiro antes da operação do rebatizador. <br>Aparece apenas para eventos desencadeados em contas de armazenamento blob que têm um espaço hierárquico de nomes. |
-| url | string | O caminho para a bolha. <br>Se o cliente utilizar uma API Blob REST, então o url tem esta estrutura: *\<storage-account-name\> .blob.core.windows.net/ \<container-name\> / \<file-name\>*. <br>Se o cliente utilizar uma API de Armazenamento de Data Lake, então o url tem esta estrutura: *\<storage-account-name\> .dfs.core.windows.net/ \<file-system-name\> / \<file-name\>*. |
-| recursivo | string | `True` realizar a operação em todas as diretórios infantis; caso `False` contrário. <br>Aparece apenas para eventos desencadeados em contas de armazenamento blob que têm um espaço hierárquico de nomes. |
+| fonteUrl |string | A url do ficheiro que existe antes da operação ser feita. Por exemplo, se um ficheiro for renomeado, `sourceUrl` contém o url do nome original do ficheiro antes da operação do renome. <br>Aparece apenas para eventos desencadeados em contas de armazenamento blob que têm um espaço hierárquico de nomes. |
+| url | string | O caminho para a bolha. <br>Se o cliente utilizar uma API Blob REST, então o url tem esta estrutura: `<storage-account-name>.blob.core.windows.net\<container-name>\<file-name>` . <br>Se o cliente utilizar uma API de Armazenamento de Data Lake, então o url tem esta estrutura: `<storage-account-name>.dfs.core.windows.net/<file-system-name>/<file-name>` . |
+| recursivo | string | `True` executar a operação em todas as diretórios infantis; caso `False` contrário. <br>Aparece apenas para eventos desencadeados em contas de armazenamento blob que têm um espaço hierárquico de nomes. |
 | sequenciador | string | Um valor de corda opaco que representa a sequência lógica de eventos para qualquer nome de bolha em particular.  Os utilizadores podem usar a comparação de cordas padrão para entender a sequência relativa de dois eventos no mesmo nome blob. |
 | armazenamentoDiagnósticos | objeto | Dados de diagnóstico ocasionalmente incluídos pelo serviço de Armazenamento Azure. Quando presente, deve ser ignorado pelos consumidores de eventos. |
 

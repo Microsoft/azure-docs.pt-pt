@@ -1,6 +1,6 @@
 ---
-title: Melhorar o desempenho do índice de lojas de colunas
-description: Reduza os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas dentro de cada grupo de filas.
+title: Melhorar o desempenho do índice de loja de colunas para piscinas SQL dedicadas
+description: Reduza os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas dentro de cada grupo de linhas em piscina SQL dedicada.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 5308599f43788b35dbe278ddbbea2253c2f94cb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6984ad41c07f7790a746dbd197c18dce2aa83e2f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797773"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453722"
 ---
-# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizar a qualidade do grupo de remo para a loja de colunas
+# <a name="maximizing-rowgroup-quality-for-columnstore-indexes-in-dedicated-sql-pool"></a>Maximizar a qualidade do grupo de linha para índices de loja de colunas em piscina SQL dedicada 
 
 A qualidade do grupo rowgroup é determinada pelo número de linhas num grupo de linhas. Aumentar a memória disponível pode maximizar o número de linhas que um índice de loja de colunas comprime em cada grupo de linha.  Utilize estes métodos para melhorar as taxas de compressão e o desempenho da consulta para os índices de loja de colunas.
 
@@ -99,7 +99,7 @@ A memória máxima necessária para comprimir um grupo de linha é aproximadamen
 
 As cordas longas são comprimidas com um método de compressão concebido para comprimir texto. Este método de compressão utiliza um *dicionário* para armazenar padrões de texto. O tamanho máximo de um dicionário é de 16 MB. Há apenas um dicionário para cada longa coluna de cordas no grupo de linha.
 
-Para uma discussão aprofundada sobre os requisitos de memória da loja de colunas, consulte o vídeo [Synapse SQL pool scaling: configuração e orientação](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
+Para uma discussão aprofundada sobre os requisitos de memória da loja de colunas, consulte o vídeo [SqL Pool Scaling dedicado: configuração e orientação](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Formas de reduzir os requisitos de memória
 
@@ -122,7 +122,7 @@ Requisitos adicionais de memória para a compressão das cordas:
 
 ### <a name="avoid-over-partitioning"></a>Evite a sobre-partição
 
-Os índices de loja de colunas criam um ou mais grupos de linha por partição. Para a piscina SQL em Azure Synapse Analytics, o número de divisórias cresce rapidamente porque os dados são distribuídos e cada distribuição é dividida.
+Os índices de loja de colunas criam um ou mais grupos de linha por partição. Para piscina SQL dedicada em Azure Synapse Analytics, o número de divisórias cresce rapidamente porque os dados são distribuídos e cada distribuição é dividida.
 
 Se a mesa tiver muitas divisórias, pode não haver filas suficientes para preencher os grupos de filas. A falta de linhas não cria pressão de memória durante a compressão. Mas, leva a grupos de remo que não alcançam o melhor desempenho de consulta de colunas.
 
@@ -165,4 +165,4 @@ Para aumentar o subsídio de memória para uma consulta de carga, pode aumentar 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para encontrar mais formas de melhorar o desempenho da piscina SQL, consulte a [visão geral](cheat-sheet.md)do Desempenho.
+Para encontrar mais formas de melhorar o desempenho para uma piscina SQL dedicada, consulte a [visão geral](cheat-sheet.md)do Desempenho.

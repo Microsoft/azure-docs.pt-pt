@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
 ms.date: 10/28/2020
-ms.openlocfilehash: 6b6ae2ffca420dc126d56c0f1cfed9188dec0e47
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e5e58f8592fcf8627870c3a574335bbe34394064
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185611"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452453"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -112,7 +112,7 @@ Para obter mais informações sobre a elevada disponibilidade em Hiperescala, co
 
 ## <a name="accelerated-database-recovery-adr"></a>Recuperação acelerada da base de dados (ADR)
 
-[A Accelerated Database Recovery (ADR)](../accelerated-database-recovery.md) é uma nova funcionalidade de motor de base de dados que melhora consideravelmente a disponibilidade da base de dados, especialmente na presença de transações de longa duração. A ADR está atualmente disponível para Azure SQL Database, Azure SQL Managed Instance e Azure Synapse Analytics (anteriormente SQL Data Warehouse).
+[A Accelerated Database Recovery (ADR)](../accelerated-database-recovery.md) é uma nova funcionalidade de motor de base de dados que melhora consideravelmente a disponibilidade da base de dados, especialmente na presença de transações de longa duração. A ADR está atualmente disponível para Azure SQL Database, Azure SQL Managed Instance e Azure Synapse Analytics.
 
 ## <a name="testing-application-fault-resiliency"></a>Teste de resiliência da falha da aplicação
 

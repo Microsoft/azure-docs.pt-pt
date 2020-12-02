@@ -2,19 +2,21 @@
 title: Fornecedores de recursos por serviços Azure
 description: Lista todos os espaços de nome do fornecedor de recursos para O Gestor de Recursos Azure e mostra o serviço Azure para esse espaço de nome.
 ms.topic: conceptual
-ms.date: 11/30/2020
-ms.openlocfilehash: fffac8fef8742cf1f151de06ba6b528035a6668d
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.date: 12/01/2020
+ms.openlocfilehash: faea6badc24d0152e94fc507cafdb15932d1ea3e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436832"
+ms.locfileid: "96452632"
 ---
 # <a name="resource-providers-for-azure-services"></a>Resource providers for Azure services (Fornecedor de recursos para serviços do Azure)
 
 Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam para os serviços Azure.
 
 ## <a name="match-resource-provider-to-service"></a>Combine o fornecedor de recursos ao serviço
+
+Os fornecedores de recursos com os que estão marcados **- registados** são registados por padrão para a sua subscrição. Para mais informações, consulte [o Registo.](#registration)
 
 | Espaço de nome do fornecedor de recursos | Serviço do Azure |
 | --------------------------- | ------------- |

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9e00e0e5a34eecd6974e8919ce0d0e16f48757f3
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ba444a497fa4fccab6b8dec1fadb3383420e4d49
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540974"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452973"
 ---
 # <a name="manage-digital-twins"></a>Gerir duplos digitais
 
@@ -99,7 +99,7 @@ Pode aceder aos detalhes de qualquer gémeo digital chamando o `GetDigitalTwin()
 ```csharp
 object result = await client.GetDigitalTwin(id);
 ```
-Esta chamada devolve dados gémeos como um tipo de objeto fortemente digitado, como `BasicDigitalTwin` . Aqui está um exemplo de como usar isto para ver detalhes gémeos:
+Esta chamada devolve dados gémeos como um tipo de objeto fortemente digitado, como `BasicDigitalTwin` . `BasicDigitalTwin` é uma classe de ajudante de serialização incluída com o SDK, que irá devolver os metadados e propriedades gémeos principais na forma pré-parsed. Aqui está um exemplo de como usar isto para ver detalhes gémeos:
 
 ```csharp
 Response<BasicDigitalTwin> twin = client.GetDigitalTwin("myRoomId");
@@ -117,7 +117,7 @@ Apenas as propriedades que foram definidas pelo menos uma vez são devolvidas qu
 
 Para recuperar vários gémeos utilizando uma única chamada de API, consulte os exemplos de consulta da API em [*Como-a-: Consultar o gráfico gémeo*](how-to-query-graph.md).
 
-Considere o seguinte modelo (escrito em [Linguagem de Definição de Gémeos Digitais (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)que define uma *Lua* :
+Considere o seguinte modelo (escrito em [Linguagem de Definição de Gémeos Digitais (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)que define uma *Lua*:
 
 ```json
 {
@@ -176,21 +176,7 @@ As propriedades definidas do gémeo digital são devolvidas como propriedades de
     - Estado de sincronização para cada propriedade escrita. Isto é mais útil para dispositivos, onde é possível que o serviço e o dispositivo tenham estatutos divergentes (por exemplo, quando um dispositivo está offline). Atualmente, esta propriedade aplica-se apenas a dispositivos físicos ligados ao IoT Hub. Com os dados na secção de metadados, é possível compreender o estado total de uma propriedade, bem como os últimos timetamps modificados. Para obter mais informações sobre o estado de sincronização, consulte [este tutorial do IoT Hub](../iot-hub/tutorial-device-twins.md) sobre o estado do dispositivo sincronizado.
     - Metadados específicos do serviço, como do IoT Hub ou da Azure Digital Twins. 
 
-Pode analisar o JSON devolvido para o gémeo utilizando uma biblioteca de análise JSON à sua escolha, tal como `System.Text.Json` .
-
-Também pode utilizar a classe de ajudante de serialização `BasicDigitalTwin` que está incluída com o SDK, que irá devolver os metadados e propriedades gémeos principais em forma pré-analisada. Segue-se um exemplo:
-
-```csharp
-Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_Id);
-Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-foreach (string prop in twin.Contents.Keys)
-{
-    if (twin.Contents.TryGetValue(prop, out object value))
-        Console.WriteLine($"Property '{prop}': {value}");
-}
-```
-
-Pode ler mais sobre as aulas de ajudante de serialização em [*Como-a-: Use as APIs e SDKs de Gémeos Digitais Azure*](how-to-use-apis-sdks.md).
+Pode ler mais sobre as aulas de ajudantes de serialização, como `BasicDigitalTwin` em [*How-to: Use as APIs e SDKs das Gémeas Digitais Azure*](how-to-use-apis-sdks.md).
 
 ## <a name="view-all-digital-twins"></a>Ver todos os gémeos digitais
 

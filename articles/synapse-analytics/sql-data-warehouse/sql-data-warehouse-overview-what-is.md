@@ -1,6 +1,6 @@
 ---
-title: O que é Azure Synapse Analytics (anteriormente SQL DW)?
-description: A azure Synapse Analytics (anteriormente SQL DW) é um serviço de análise ilimitado que reúne o armazenamento de dados da empresa e a análise de Big Data.
+title: O que é a piscina SQL dedicada (anteriormente SQL DW)?
+description: Piscina de SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics é a funcionalidade de armazenamento de dados da empresa em Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,37 +10,30 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 8840791c7b18d1efa499c2826a6eaf041a6da787
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2f9ab6dacde0259905368d8a0cb788dde77bbfb2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317480"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453653"
 ---
-# <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>O que é Azure Synapse Analytics (anteriormente SQL DW)?
+# <a name="what-is-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>O que é a piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics?
+
+O Azure Synapse Analytics é um serviço de análise que combina o armazenamento de dados empresariais e a análise de Macrodados. Pool DE SQL dedicado (anteriormente SQL DW) refere-se às funcionalidades de armazenamento de dados da empresa que estão disponíveis no Azure Synapse Analytics.
+
+
+
+![Piscina SQL dedicada (anteriormente SQL DW) em relação a Azure Synapse](./media/sql-data-warehouse-overview-what-is/dedicated-sql-pool.png)
+
+
+
+Piscina DE SQL dedicada (anteriormente SQL DW) representa uma coleção de recursos analíticos que são a provisionados ao utilizar o SQL synapse. O tamanho de uma piscina SQL dedicada (anteriormente SQL DW) é determinado por Unidades de Armazenamento de Dados (DWU).
+
+Uma vez criado o seu pool DE SQL dedicado, você pode importar big data com consultas simples [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL, e, em seguida, usar a potência do motor de consulta distribuído para executar análises de alto desempenho. À medida que integra e analisa os dados, o pool de SQL dedicado (anteriormente SQL DW) tornar-se-á a única versão da verdade com que o seu negócio pode contar para insights mais rápidos e robustos.
 
 > [!NOTE]
->Explore a [documentação Azure Synapse (pré-visualização de espaços de trabalho).](../overview-what-is.md)
->
-
-Azure Synapse é um serviço de análise que reúne armazenamento de dados da empresa e análise de Big Data. Dá-lhe a liberdade de consultar dados nos seus termos, através de recursos a pedido ou aprovisionados sem servidor, em escala. O Azure Synapse Analytics junta estes dois mundos com uma experiência unificada para ingerir, preparar, gerir e apresentar dados mais para as suas necessidades imediatas de BI e de machine learning.
-
-Azure Synapse tem quatro componentes:
-
-- Sinapse SQL: Análise completa baseada em T-SQL – Geralmente Disponível
-  - Piscina SQL dedicada (pagamento por DWU a provisionado)
-  - Piscina SQL sem servidor (pagamento por TB processado) (pré-visualização)
-- Faísca: Faísca Apache profundamente integrada (pré-visualização)
-- Pipelines synapse: Integração de dados híbridos (pré-visualização)
-- Estúdio: Experiência unificada do utilizador. (pré-visualização)
-
-## <a name="dedicated-sql-pool-in-azure-synapse"></a>Piscina SQL dedicada em Azure Synapse
-
-Pool DE SQL dedicado refere-se às funcionalidades de armazenamento de dados da empresa que estão geralmente disponíveis em Azure Synapse.
-
-O pool de SQL dedicado representa uma coleção de recursos analíticos que estão sendo a provisionados ao utilizar o SQL da Synapse. O tamanho de uma piscina SQL dedicada é determinado por Unidades de Armazenamento de Dados (DWU).
-
-Importe big data com consultas simples [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL e, em seguida, use a potência do motor de consulta distribuído para executar análises de alto desempenho. À medida que integra e analisa os dados, o Synapse SQL tornar-se-á a única versão da verdade com que o seu negócio pode contar para insights mais rápidos e robustos. 
+>Explore a [documentação Azure Synapse Analytics](../overview-what-is.md).
+> 
 
 ## <a name="key-component-of-a-big-data-solution"></a>Componente chave de uma solução de big data
 
@@ -48,9 +41,9 @@ O armazenamento de dados é um componente chave de uma solução de big data bas
 
 ![Solução de armazém de dados](./media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png)
 
-Numa solução de dados na cloud, os dados são ingeridos em arquivos de macrodados de várias origens. Assim que estiverem num arquivo de macrodados, o Hadoop, o Spark e os algoritmos de machine learning preparam os dados. Quando os dados estão prontos para análise complexa, o pool de SQL dedicado utiliza a PolyBase para consultar as grandes lojas de dados. A PolyBase utiliza consultas T-SQL padrão para trazer os dados para mesas de bilhar SQL dedicadas.
+Numa solução de dados na cloud, os dados são ingeridos em arquivos de macrodados de várias origens. Assim que estiverem num arquivo de macrodados, o Hadoop, o Spark e os algoritmos de machine learning preparam os dados. Quando os dados estão prontos para análise complexa, o pool de SQL dedicado utiliza a PolyBase para consultar as grandes lojas de dados. A PolyBase utiliza consultas padrão T-SQL para trazer os dados para mesas dedicadas de piscina SQL (anteriormente SQL DW).
 
-Pool SQL dedicado armazena dados em tabelas relacionais com armazenamento de colunaar. Este formato reduz significativamente os custos de armazenamento de dados e melhora o desempenho das consultas. Quando os dados estiverem armazenados, poderá executar análises em grande escala. Comparativamente aos sistemas de bases de dados tradicionais, as consultas de análise são concluídas em segundos em vez de minutos, ou horas em vez de dias.
+Piscina SQL dedicada (anteriormente SQL DW) armazena dados em tabelas relacionais com armazenamento colunar. Este formato reduz significativamente os custos de armazenamento de dados e melhora o desempenho das consultas. Quando os dados estiverem armazenados, poderá executar análises em grande escala. Comparativamente aos sistemas de bases de dados tradicionais, as consultas de análise são concluídas em segundos em vez de minutos, ou horas em vez de dias.
 
 Os resultados das análises podem ser enviados para aplicações ou bases de dados de relatórios em todo o mundo. Em seguida, os analistas empresariais podem obter informações para tomar decisões mais adequadas.
 

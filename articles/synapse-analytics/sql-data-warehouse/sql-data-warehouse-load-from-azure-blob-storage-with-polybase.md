@@ -1,26 +1,26 @@
 ---
-title: Carregar dados de retalho contoso para Synapse SQL
-description: Utilize comandos PolyBase e T-SQL para carregar duas tabelas dos dados de retalho Contoso em Synapse SQL.
+title: Carregue os dados de retalho da Contoso para piscinas SQL dedicadas
+description: Utilize comandos PolyBase e T-SQL para carregar duas tabelas dos dados de retalho Contoso em piscinas SQL dedicadas.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/17/2018
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 904ce55f376e42156b014056b1226512b2784742
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbe61444404b16a09a1e0d2bdead72ac53a60744
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461702"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452893"
 ---
-# <a name="load-contoso-retail-data-to-synapse-sql"></a>Carregar dados de retalho contoso para Synapse SQL 
+# <a name="load-contoso-retail-data-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Carregue os dados de retalho da Contoso em piscinas SQL dedicadas em Azure Synapse Analytics
 
-Neste tutorial, aprende-se a usar comandos PolyBase e T-SQL para carregar duas tabelas a partir dos dados de retalho contoso para o Synapse SQL.
+Neste tutorial, aprende-se a usar comandos PolyBase e T-SQL para carregar duas tabelas a partir dos dados de retalho da Contoso em piscinas SQL dedicadas.
 
 Neste tutorial você:
 
@@ -28,13 +28,13 @@ Neste tutorial você:
 2. Carregue os dados públicos na sua base de dados
 3. Execute otimizações após o fim da carga.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
-Para executar este tutorial, você precisa de uma conta Azure que já tem um SQL Synapse. Se não tiver um armazém de dados a forrado, consulte [criar um armazém de dados e definir a regra de firewall ao nível do servidor](create-data-warehouse-portal.md).
+Para executar este tutorial, você precisa de uma conta Azure que já tem uma piscina SQL dedicada. Se não tiver um armazém de dados a forrado, consulte [criar um armazém de dados e definir a regra de firewall ao nível do servidor](create-data-warehouse-portal.md).
 
 ## <a name="configure-the-data-source"></a>Configure a fonte de dados
 
-A PolyBase utiliza objetos externos T-SQL para definir a localização e atributos dos dados externos. As definições de objetos externos são armazenadas em Sinaapse SQL. Os dados são armazenados externamente.
+A PolyBase utiliza objetos externos T-SQL para definir a localização e atributos dos dados externos. As definições de objetos externos são armazenadas em piscinas SQL dedicadas. Os dados são armazenados externamente.
 
 ## <a name="create-a-credential"></a>Criar uma credencial
 
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Otimizar a compressão da loja de colunas
 
-Por padrão, o Synapse SQL armazena a tabela como um índice de loja de colunas agrupado. Depois de concluída uma carga, algumas das linhas de dados podem não ser comprimidas na loja de colunas.  Há diferentes razões para isto acontecer. Para saber mais, consulte [gerir os índices de loja de colunas.](sql-data-warehouse-tables-index.md)
+Por padrão, as piscinas SQL dedicadas armazenam a tabela como um índice de loja de colunas agrupado. Depois de concluída uma carga, algumas das linhas de dados podem não ser comprimidas na loja de colunas.  Há diferentes razões para isto acontecer. Para saber mais, consulte [gerir os índices de loja de colunas.](sql-data-warehouse-tables-index.md)
 
 Para otimizar o desempenho da consulta e a compressão da loja de colunas após uma carga, reconstrua a tabela para forçar o índice da loja de colunas a comprimir todas as linhas.
 

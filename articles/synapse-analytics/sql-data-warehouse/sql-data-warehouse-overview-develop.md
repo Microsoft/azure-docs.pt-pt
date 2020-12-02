@@ -1,6 +1,6 @@
 ---
-title: Recursos para o desenvolvimento de uma piscina SQL dedicada em Azure Synapse Analytics
-description: Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para uma piscina de SQL dedicada em Azure Synapse Analytics.
+title: Recursos para o desenvolvimento de uma piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics
+description: Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para uma piscina DE SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,22 +10,22 @@ ms.subservice: sql-dw
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f158655cd7aeba647480325966c7f0cfcf65b13c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6b34c70b453c26fe27a51e1aa802564864640cb9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322141"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453678"
 ---
-# <a name="design-decisions-and-coding-techniques-for-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Decisões de design e técnicas de codificação para uma piscina SQL dedicada em Azure Synapse Analytics 
+# <a name="design-decisions-and-coding-techniques-for-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Decisões de design e técnicas de codificação para uma piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics 
 
- Neste artigo, você encontrará recursos adicionais para ajudá-lo a entender melhor as principais decisões de design, recomendações e técnicas de codificação para uma piscina de SQL dedicada em Azure Synapse.
+ Neste artigo, você encontrará recursos adicionais para ajudá-lo a entender melhor as principais decisões de design, recomendações e técnicas de codificação para uma piscina DE SQL dedicada (anteriormente SQL DW) em Azure Synapse.
 
 ## <a name="key-design-decisions"></a>Principais decisões de design
 
-Os seguintes artigos destacam conceitos e decisões de design para o desenvolvimento de um armazém de dados distribuído utilizando a capacidade dedicada de piscina SQL em Azure Synapse:
+Os seguintes artigos destacam conceitos e decisões de design para o desenvolvimento de um armazém de dados distribuído utilizando a capacidade dedicada de piscina SQL (anteriormente SQL DW) em Azure Synapse:
 
-* [conexões](../sql/connect-overview.md)
+* [conexões](sql-data-warehouse-connect-overview.md)
 * [concurrency](resource-classes-for-workload-management.md)
 * [transações](sql-data-warehouse-develop-transactions.md)
 * [esquemas definidos pelo utilizador](sql-data-warehouse-develop-user-defined-schemas.md)
@@ -37,7 +37,7 @@ Os seguintes artigos destacam conceitos e decisões de design para o desenvolvim
 
 ## <a name="development-recommendations-and-coding-techniques"></a>Recomendações de desenvolvimento e técnicas de codificação
 
-Os seguintes artigos apresentam técnicas de codificação específicas, dicas e recomendações para o desenvolvimento de uma piscina SQL dedicada:
+Os seguintes artigos apresentam técnicas de codificação específicas, dicas e recomendações para o desenvolvimento de uma piscina SQL dedicada (anteriormente SQL DW):
 
 * [procedimentos armazenados](sql-data-warehouse-develop-stored-procedures.md)
 * [rótulos](sql-data-warehouse-develop-label.md)

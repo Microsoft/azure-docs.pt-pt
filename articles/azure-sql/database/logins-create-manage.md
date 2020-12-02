@@ -13,19 +13,19 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: 940ea0ac471604b22c64dc008eebd8b580121cf7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d03bce1566d4f56a576c980723571f587296236f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782744"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452434"
 ---
-# <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizar o acesso à base de dados SQL, à SqL Managed Instance e ao Azure Synapse Analytics
+# <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizar o acesso à Base de Dados SQL, ao SQL Managed Instance e ao Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Neste artigo, aprende-se:
 
-- Opções para configurar a Base de Dados Azure SQL, Azure SQL Managed Instance e Azure Synapse Analytics (anteriormente SQL Data Warehouse) para permitir aos utilizadores executar tarefas administrativas e aceder aos dados armazenados nestas bases de dados.
+- Opções para configurar a Base de Dados Azure SQL, Azure SQL Gestd Instance e Azure Synapse Analytics para permitir aos utilizadores executar tarefas administrativas e aceder aos dados armazenados nestas bases de dados.
 - A configuração de acesso e autorização após a criação inicial de um novo servidor.
 - Como adicionar logins e contas de utilizador na base de dados principal e contas de utilizador e, em seguida, conceder essas permissões administrativas.
 - Como adicionar contas de utilizador em bases de dados de utilizadores, quer associadas a logins, quer como contas de utilizador contidas.
@@ -46,7 +46,7 @@ Quando um utilizador tenta ligar-se a uma base de dados, fornece uma conta de ut
 
   Com este método de autenticação, o utilizador submete um nome de conta de utilizador e solicita que o serviço utilize as informações credenciais armazenadas no Diretório Azure Ative (Azure AD).
 
-**Logins e utilizadores** : Uma conta de utilizador numa base de dados pode ser associada a um login que é armazenado na base de dados principal ou pode ser um nome de utilizador que é armazenado numa base de dados individual.
+**Logins e utilizadores**: Uma conta de utilizador numa base de dados pode ser associada a um login que é armazenado na base de dados principal ou pode ser um nome de utilizador que é armazenado numa base de dados individual.
 
 - Um **login** é uma conta individual na base de dados principal, à qual uma conta de utilizador numa ou mais bases de dados pode ser ligada. Com o início de sessão, as informações das credenciais da conta de utilizador são armazenadas no início de sessão.
 - Uma **conta de utilizador** é uma conta individual em qualquer base de dados que possa estar, mas não tem de estar, ligada a um login. Com uma conta de utilizador não associada a um início de sessão, as informações das credenciais são armazenadas na conta de utilizador.
@@ -68,7 +68,7 @@ Para identificar as contas do administrador de uma base de dados, abra o portal 
 ![Screenshot que realça a opção do menu Propriedades.](./media/logins-create-manage/sql-admins2.png)
 
 > [!IMPORTANT]
-> O nome de login não pode ser alterado depois de ter sido criado. Para redefinir a palavra-passe para a administração do servidor, aceda ao [portal Azure](https://portal.azure.com), clique em **SQL Servers** , selecione o servidor da lista e, em seguida, clique em **Redefinir a Palavra-passe** . Para redefinir a palavra-passe para a SqL Managed Instance, vá ao portal Azure, clique na instância e clique na **palavra-passe Reset** . Também pode utilizar o PowerShell ou o Azure CLI.
+> O nome de login não pode ser alterado depois de ter sido criado. Para redefinir a palavra-passe para a administração do servidor, aceda ao [portal Azure](https://portal.azure.com), clique em **SQL Servers**, selecione o servidor da lista e, em seguida, clique em **Redefinir a Palavra-passe**. Para redefinir a palavra-passe para a SqL Managed Instance, vá ao portal Azure, clique na instância e clique na **palavra-passe Reset**. Também pode utilizar o PowerShell ou o Azure CLI.
 
 ## <a name="create-additional-logins-and-users-having-administrative-permissions"></a>Criar logins adicionais e utilizadores com permissões administrativas
 

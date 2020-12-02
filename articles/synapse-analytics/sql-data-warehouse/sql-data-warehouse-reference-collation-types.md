@@ -1,6 +1,6 @@
 ---
 title: Tipos de colagem de armazém de dados
-description: Tipos de colagem suportados para piscina SQL dedicada em Azure Synapse Analytics.
+description: Tipos de colagem suportados para piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics.
 services: synapse-analytics
 author: antvgski
 manager: igorstan
@@ -11,16 +11,16 @@ ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8d76d70c4c84f1d63d4643e1fba3f66d3541beff
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 39b89f8d303c10eead63839420141a74d3d3c74c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305265"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452774"
 ---
-# <a name="database-collation-support-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Suporte de colagem de base de dados para piscina SQL dedicada em Azure Synapse Analytics 
+# <a name="database-collation-support-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Suporte de colagem de base de dados para piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics 
 
-Pode alterar a colagem da base de dados predefinida a partir do portal Azure quando criar uma nova base de dados dedicada à piscina SQL. Esta capacidade torna ainda mais fácil criar uma nova base de dados utilizando uma das 3800 colagens de dados suportadas.
+Pode alterar a colagem da base de dados padrão a partir do portal Azure quando criar uma nova piscina SQL dedicada (anteriormente SQL DW). Esta capacidade torna ainda mais fácil criar uma nova base de dados utilizando uma das 3800 colagens de dados suportadas.
 
 As colagens fornecem as regras de local, página de código, ordem de classificação e sensibilidade ao carácter para tipos de dados baseados em caracteres. Uma vez escolhidos, todas as colunas e expressões que necessitem de informações de colagem herdam a colagem escolhida a partir da definição da base de dados. A herança predefinida pode ser ultrapassada declarando explicitamente uma colagem diferente para um tipo de dados baseado em caracteres.
 

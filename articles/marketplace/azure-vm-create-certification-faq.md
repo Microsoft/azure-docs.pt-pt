@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 5124e7084a8e878e54e594424ec0926410f002ca
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: eb290b8c154c40388bfb3e7f9cbac7b645aa9609
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682490"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452679"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Certificação de máquina virtual de resolução de problemas
 
@@ -46,7 +46,7 @@ Para ativar extensões VM:
 1. Selecione o seu Linux VM.
 1. Ir para as **definições de Diagnóstico**.
 1. Ativar as matrizes de base atualizando a **conta de Armazenamento.**
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
    ![Screenshot que mostra como ativar a monitorização ao nível do hóspede.](./media/create-vm/vm-certification-issues-solutions-1.png)
 
@@ -474,7 +474,7 @@ Se todas as imagens que são tiradas do Azure Marketplace forem reutilizadas, o 
 
 * Para **o Windows,** generalize as imagens do Windows utilizando `sysreptool` .
 
-  Para obter mais informações sobre a ferramenta, consulte a `sysreptool` [visão geral da preparação do sistema (Sysprep).](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)
+  Para obter mais informações sobre a ferramenta, consulte a `sysreptool` [visão geral da preparação do sistema (Sysprep).](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)
 
 ## <a name="datadisk-errors"></a>Erros do DataDisk
 
@@ -604,7 +604,7 @@ Em seguida, reeditar a oferta.
 
 Para completar o processo de publicação, consulte [Rever e publicar ofertas.](review-publish-offer.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar as propriedades da oferta de VM](azure-vm-create-properties.md)
 - [Recompensas de mercado ativas](partner-center-portal/marketplace-rewards.md)

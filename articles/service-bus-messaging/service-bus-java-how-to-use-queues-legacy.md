@@ -5,12 +5,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 68d8270c4ca3cff07f3a70c6022b963f750ad4e9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 774f9e485c58712ea8648a148c92b6f9ef6a58c0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022115"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452611"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Quickstart: Use filas de autocarros da Azure Service com a Java para enviar e receber mensagens
 
@@ -18,7 +18,8 @@ ms.locfileid: "96022115"
 Neste tutorial, você aprende a criar aplicações Java para enviar mensagens e receber mensagens de uma fila de ônibus de serviço Azure. 
 
 > [!WARNING]
->  Este quickstart utiliza o pacote de serviços azure-servicebus atualmente disponível (GA). Para um arranque rápido que utilize o novo pacote de serviços de mensagens azure que está em **pré-visualização**, consulte [Enviar e receber mensagens usando o azure-messaging-servicebus](service-bus-java-how-to-use-queues.md). 
+>  Este quickstart utiliza os antigos pacotes de serviços azure. Para obter um arranque rápido que utilize o mais recente pacote de serviços de mensagens azure, consulte [Enviar e receber mensagens usando o azure-messaging-servicebus](service-bus-java-how-to-use-queues.md). 
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar os [benefícios do seu assinante MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)
