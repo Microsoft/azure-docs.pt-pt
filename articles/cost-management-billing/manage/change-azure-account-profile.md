@@ -32,21 +32,21 @@ Se pretender atualizar as suas informações de perfil de utilizador do Azure Ac
 ## <a name="update-an-mosp-billing-account-address"></a>Atualizar o endereço de uma conta de faturação MOSP
 
 1. Inicie sessão no portal do Azure com o endereço de e-mail que tem a permissão do administrador de conta na conta.
-1. Procure **Cost Management + Faturação** .  
+1. Procure **Cost Management + Faturação**.  
     ![Captura de ecrã que mostra onde procurar cost management + billing no portal do Azure](./media/change-azure-account-profile/search-cmb.png)
 1. Selecione **Propriedades** no lado esquerdo.  
     ![Captura de ecrã que mostra as propriedades da conta de faturação do MOSP](./media/change-azure-account-profile/update-contact-information-select-properties.png)
-1. Selecione **Atualizar endereço para faturação** para atualizar os endereços do comprador e de faturação. Introduza o novo endereço e, em seguida, selecione **Guardar** .  
+1. Selecione **Atualizar endereço para faturação** para atualizar os endereços do comprador e de faturação. Introduza o novo endereço e, em seguida, selecione **Guardar**.  
     ![Captura de ecrã que mostra o endereço de atualização da conta de faturação do MOSP](./media/change-azure-account-profile/update-contact-information-mosp.png)
 
 ## <a name="update-an-mca-billing-account-sold-to-address"></a>Atualizar o endereço do comprador de uma conta de faturação MCA
 
 1. Inicie sessão no portal do Azure com o endereço de e-mail que tem um proprietário ou uma função de contribuidor na conta de faturação de um Contrato de Cliente Microsoft.
-1. Procure **Cost Management + Faturação** .  
+1. Procure **Cost Management + Faturação**.  
     ![Captura de ecrã que mostra onde procurar no portal do Azure](./media/change-azure-account-profile/search-cmb.png)
-1. Selecione **Propriedades** no lado esquerdo e, em seguida, selecione **Atualizar comprador** .  
+1. Selecione **Propriedades** no lado esquerdo e, em seguida, selecione **Atualizar comprador**.  
     ![Captura de ecrã que mostra as propriedades de uma conta de faturação do MCA, onde o endereço de venda pode ser modificado](./media/change-azure-account-profile/update-sold-to-list-properties-mca.png)
-1. Introduza o novo endereço e selecione **Guardar** .  
+1. Introduza o novo endereço e selecione **Guardar**.  
     ![Captura de ecrã que mostra a atualização do endereço de venda de uma conta do MCA](./media/change-azure-account-profile/update-sold-to-save-mca.png)
 
     > [!IMPORTANT]
@@ -55,14 +55,14 @@ Se pretender atualizar as suas informações de perfil de utilizador do Azure Ac
 ## <a name="update-an-mca-billing-account-address"></a>Atualizar o endereço de uma conta de faturação MCA
 
 1. Inicie sessão no portal do Azure com o endereço de e-mail que tem um proprietário ou uma função de contribuidor numa conta ou perfil de faturação de um MCA.
-1. Procure **Cost Management + Faturação** .  
+1. Procure **Cost Management + Faturação**.  
 1. Selecione **Perfis de faturação** no lado esquerdo.
 1. Selecione um perfil de faturação para atualizar o endereço para faturação.  
     ![Captura de ecrã que mostra a página Perfis de faturação, na qual pode selecionar um perfil de faturação](./media/change-azure-account-profile/update-bill-to-list-profiles-mca.png)
 1. Selecione **Propriedades** no lado esquerdo.
-1. Selecione **Atualizar endereço** .  
+1. Selecione **Atualizar endereço**.  
     ![Captura de ecrã que mostra onde atualizar o endereço](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
-1. Introduza o novo endereço e, em seguida, selecione **Guardar** .  
+1. Introduza o novo endereço e, em seguida, selecione **Guardar**.  
     ![Captura de ecrã que mostra a atualização do endereço](./media/change-azure-account-profile/update-bill-to-save-mca.png)
 
 ## <a name="service-and-marketing-emails"></a>E-mails de serviço e marketing
@@ -95,7 +95,7 @@ Pode alterar o seu endereço de e-mail de contacto ao utilizar um dos seguintes 
 Para recusar a receção de e-mails de marketing:
 
 1. Aceda ao [formulário de pedido](https://account.microsoft.com/profile/permissions-link-request) para submeter um pedido através do endereço de e-mail do perfil. Receberá uma ligação por e-mail para atualizar as suas preferências.
-1. Selecione a ligação para abrir a página **Gerir permissões de comunicação** . Esta página mostra os tipos de comunicações de marketing que recebe no endereço de e-mail. Desmarque as seleções que já não quer e, em seguida, selecione **Guardar** .  
+1. Selecione a ligação para abrir a página **Gerir permissões de comunicação**. Esta página mostra os tipos de comunicações de marketing que recebe no endereço de e-mail. Desmarque as seleções que já não quer e, em seguida, selecione **Guardar**.  
     ![Exemplo da página para gerir permissões de comunicação](./media/change-azure-account-profile/manage-communication-permissions.png)
 
 Quando recusa comunicações de marketing, continua a receber notificações de serviço, com base na sua conta.
@@ -117,7 +117,7 @@ A alteração do país ou da região para uma conta existente não é suportada.
 1. Inicie sessão no portal do Azure, selecione **Subscrição** no painel esquerdo e, em seguida, selecione a subscrição para a qual pretende mudar o nome.
 1. Selecione **Descrição Geral** e, em seguida, selecione **Mudar o nome** na barra de comandos.  
     ![Exemplo de mudança de nome da subscrição do Azure](./media/change-azure-account-profile/rename-sub.png)
-1. Depois de alterar o nome, selecione **Guardar** .
+1. Depois de alterar o nome, selecione **Guardar**.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
