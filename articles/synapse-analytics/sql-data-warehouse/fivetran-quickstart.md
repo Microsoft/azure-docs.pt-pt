@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Fivetran e armazém de dados'
-description: Começa com a Fivetran e um armazém de dados Azure Synapse Analytics.
+title: 'Quickstart: Fivetran e piscina SQL dedicada (anteriormente SQL DW)'
+description: Começa com a Fivetran e a piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 96e679c0b284cc649dbde3fba1b640f4e09df05e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f332c3b0bd53d80d4a8471f53c56ecab611787c1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001852"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456370"
 ---
-# <a name="quickstart-fivetran-with-data-warehouse"></a>Quickstart: Fivetran com armazém de dados 
+# <a name="quickstart-fivetran-with-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Quickstart: Fivetran com piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics 
 
-Este quickstart descreve como configurar um novo utilizador fivetran para trabalhar com um armazém de dados Azure Synapse Analytics a provisionado com uma piscina SQL. O artigo assume que tem um armazém de dados existente.
+Este quickstart descreve como configurar um novo utilizador Fivetran para trabalhar com uma piscina SQL dedicada (anteriormente SQL DW). O artigo assume que você tem uma piscina SQL dedicada existente (anteriormente SQL DW).
 
 ## <a name="set-up-a-connection"></a>Configurar uma ligação
 
-1. Encontre o nome e o nome de base de dados totalmente qualificados que utiliza para ligar ao seu armazém de dados.
+1. Encontre o nome e o nome de base de dados totalmente qualificados que utiliza para ligar à sua piscina SQL dedicada (anteriormente SQL DW).
     
-    Se precisar de ajuda para encontrar esta informação, consulte [o Connect to your data warehouse](../sql/connect-overview.md).
+    Se precisar de ajuda para encontrar esta informação, consulte [Connect à sua piscina SQL dedicada (anteriormente SQL DW)](sql-data-warehouse-connection-strings.md).
 
 2. No assistente de configuração, escolha se liga a sua base de dados diretamente ou utilizando um túnel SSH.
 
@@ -34,13 +34,13 @@ Este quickstart descreve como configurar um novo utilizador fivetran para trabal
 
    Se optar por ligar-se através de um túnel SSH, o Fivetran liga-se a um servidor separado da sua rede. O servidor fornece um túnel SSH para a sua base de dados. Tem de utilizar este método se a sua base de dados estiver numa sub-rede inacessível numa rede virtual.
 
-3. Adicione o endereço IP **52.0.2.4** à firewall de nível do servidor para permitir a entrada de ligações à sua instância de armazém de dados a partir de Fivetran.
+3. Adicione o endereço IP **52.0.2.4** à firewall de nível do servidor para permitir a entrada de ligações à sua piscina SQL dedicada (anteriormente SQL DW) a partir de Fivetran.
 
    Para obter mais informações, consulte [Criar uma regra de firewall ao nível do servidor](create-data-warehouse-portal.md#create-a-server-level-firewall-rule).
 
 ## <a name="set-up-user-credentials"></a>Configurar credenciais de utilizador
 
-1. Conecte-se ao seu armazém de dados utilizando o SQL Server Management Studio (SSMS) ou a ferramenta que preferir. Inscreva-se como um utilizador de administração de servidor. Em seguida, executar os seguintes comandos SQL para criar um utilizador para Fivetran:
+1. Conecte-se à sua piscina SQL dedicada (anteriormente SQL DW) utilizando o SQL Server Management Studio (SSMS) ou a ferramenta que preferir. Inscreva-se como um utilizador de administração de servidor. Em seguida, executar os seguintes comandos SQL para criar um utilizador para Fivetran:
 
     - Na base de dados principal: 
     
@@ -48,7 +48,7 @@ Este quickstart descreve como configurar um novo utilizador fivetran para trabal
       CREATE LOGIN fivetran WITH PASSWORD = '<password>'; 
       ```
 
-    - Na base de dados do armazém de dados:
+    - Na base de dados dedicada sql pool (anteriormente SQL DW):
 
       ```sql
       CREATE USER fivetran_user_without_login without login;
@@ -56,7 +56,7 @@ Este quickstart descreve como configurar um novo utilizador fivetran para trabal
       GRANT IMPERSONATE on USER::fivetran_user_without_login to fivetran;
       ```
 
-2. Conceda ao utilizador Fivetran as seguintes permissões para o seu armazém de dados:
+2. Conceda ao utilizador Fivetran as seguintes permissões para a sua piscina SQL dedicada (anteriormente SQL DW):
 
     ```sql
     GRANT CONTROL to fivetran;
@@ -77,7 +77,7 @@ Este quickstart descreve como configurar um novo utilizador fivetran para trabal
 
 ## <a name="connect-from-fivetran"></a>Ligar a partir de Fivetran
 
-Para se ligar ao seu armazém de dados a partir da sua conta Fivetran, insira as credenciais que utiliza para aceder ao seu armazém de dados: 
+Para ligar à sua piscina SQL dedicada (anteriormente SQL DW) a partir da sua conta Fivetran, insira as credenciais que utiliza para aceder à sua piscina DE SQL dedicada (anteriormente SQL DW): 
 
 * Anfitrião (nome do seu servidor).
 * Porto, porto.

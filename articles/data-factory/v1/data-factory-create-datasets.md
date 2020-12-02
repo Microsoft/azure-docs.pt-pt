@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ddb99fd7a7ce8265a6e9c63555cd6a226caacc4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45150e00db1885a4ca4d083a8a54cbfd4da0bb10
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440733"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456936"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Conjuntos de dados na Azure Data Factory (versão 1)
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -32,9 +32,9 @@ Este artigo descreve quais são os conjuntos de dados, como são definidos no fo
 > Se é novo na Data Factory, consulte [a Introdução à Fábrica de Dados Azure](data-factory-introduction.md) para uma visão geral. Se não tiver experiência prática na criação de fábricas de dados, poderá obter uma melhor compreensão lendo o tutorial de transformação de [dados](data-factory-build-your-first-pipeline.md) e o tutorial de [movimento de dados.](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 
 ## <a name="overview"></a>Descrição geral
-Uma fábrica de dados pode ter um ou mais pipelines. Um **oleoduto** é um agrupamento lógico de **atividades** que juntos desempenham uma tarefa. As atividades num pipeline definem as ações a executar nos seus dados. Por exemplo, pode utilizar uma atividade de cópia para copiar dados de uma base de dados do SQL Server para o armazenamento de Azure Blob. Em seguida, você pode usar uma atividade de Hive que executa um script hive em um cluster Azure HDInsight para processar dados do armazenamento Blob para produzir dados de saída. Finalmente, poderá utilizar uma segunda atividade de cópia para copiar os dados de saída para a Azure Synapse Analytics (ex-SQL Data Warehouse), além das quais são construídas soluções de reporte de informação de inteligência empresarial (BI). Para obter mais informações sobre os oleodutos e atividades, consulte [Pipelines e atividades na Azure Data Factory.](data-factory-create-pipelines.md)
+Uma fábrica de dados pode ter um ou mais pipelines. Um **oleoduto** é um agrupamento lógico de **atividades** que juntos desempenham uma tarefa. As atividades num pipeline definem as ações a executar nos seus dados. Por exemplo, pode utilizar uma atividade de cópia para copiar dados de uma base de dados do SQL Server para o armazenamento de Azure Blob. Em seguida, você pode usar uma atividade de Hive que executa um script hive em um cluster Azure HDInsight para processar dados do armazenamento Blob para produzir dados de saída. Finalmente, poderá utilizar uma segunda atividade de cópia para copiar os dados de saída para a Azure Synapse Analytics, além das quais são construídas soluções de reporte de informação de business intelligence (BI). Para obter mais informações sobre os oleodutos e atividades, consulte [Pipelines e atividades na Azure Data Factory.](data-factory-create-pipelines.md)
 
-Uma atividade pode tomar zero ou mais **conjuntos de dados de**entrada , e produzir um ou mais conjuntos de dados de saída. Um conjunto de dados de entrada representa a entrada para uma atividade no pipeline, e um conjunto de dados de saída representa a saída para a atividade. Os conjuntos de dados identificam dados dentro de diferentes arquivos de dados, como tabelas, ficheiros, pastas e documentos. Por exemplo, um conjunto de dados Azure Blob especifica o recipiente blob e a pasta no armazenamento blob a partir do qual o pipeline deve ler os dados.
+Uma atividade pode tomar zero ou mais **conjuntos de dados de** entrada , e produzir um ou mais conjuntos de dados de saída. Um conjunto de dados de entrada representa a entrada para uma atividade no pipeline, e um conjunto de dados de saída representa a saída para a atividade. Os conjuntos de dados identificam dados dentro de diferentes arquivos de dados, como tabelas, ficheiros, pastas e documentos. Por exemplo, um conjunto de dados Azure Blob especifica o recipiente blob e a pasta no armazenamento blob a partir do qual o pipeline deve ler os dados.
 
 Antes de criar um conjunto de dados, crie um **serviço ligado** para ligar a sua loja de dados à fábrica de dados. Os serviços ligados são muito semelhantes às cadeias de ligação, que definem as informações de ligação necessárias para que o Data Factory se possa ligar a recursos externos. Os conjuntos de dados identificam dados dentro das lojas de dados ligadas, tais como tabelas SQL, ficheiros, pastas e documentos. Por exemplo, um serviço ligado ao Azure Storage liga uma conta de armazenamento à fábrica de dados. Um conjunto de dados Azure Blob representa o recipiente blob e a pasta que contém as bolhas de entrada a serem processadas.
 
@@ -193,12 +193,12 @@ Cada coluna da estrutura contém as seguintes propriedades:
 | --- | --- | --- |
 | name |O nome da coluna. |Sim |
 | tipo |Tipo de dados da coluna.  |Não |
-| cultura |. Cultura baseada na NET a ser utilizada quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset` . A predefinição é `en-us`. |Não |
+| cultura |.Cultura baseada em NET a ser utilizada quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset` . A predefinição é `en-us`. |Não |
 | formato |Cadeia de formato a utilizar quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset` . |Não |
 
 As seguintes diretrizes ajudam-no a determinar quando incluir informações de estrutura e o que incluir na secção de **estrutura.**
 
-* **Para fontes de dados estruturadas, especifique**a secção de estrutura apenas se quiser que as colunas de origem do mapa afundem colunas, e os seus nomes não são os mesmos. Este tipo de fonte de dados estruturada armazena esquema de dados e informação de tipo, juntamente com os próprios dados. Exemplos de fontes de dados estruturadas incluem sql server, Oracle e tabela Azure.
+* **Para fontes de dados estruturadas, especifique** a secção de estrutura apenas se quiser que as colunas de origem do mapa afundem colunas, e os seus nomes não são os mesmos. Este tipo de fonte de dados estruturada armazena esquema de dados e informação de tipo, juntamente com os próprios dados. Exemplos de fontes de dados estruturadas incluem sql server, Oracle e tabela Azure.
   
     Uma vez que a informação do tipo já está disponível para fontes de dados estruturadas, não deve incluir informações do tipo quando incluir a secção de estrutura.
 * **Para esquemas sobre fontes de dados de leitura (especificamente armazenamento blob),** pode optar por armazenar dados sem armazenar qualquer esquema ou tipo de informação com os dados. Para este tipo de fontes de dados, inclua a estrutura quando pretende mapear colunas de origem para afundar colunas. Também inclua a estrutura quando o conjunto de dados é uma entrada para uma atividade de cópia, e os tipos de dados de dados de origem devem ser convertidos para tipos nativos para o lavatório.
@@ -316,7 +316,7 @@ A menos que um conjunto de dados seja produzido pela Data Factory, deve ser marc
 
 | Nome | Descrição | Obrigatório | Valor predefinido |
 | --- | --- | --- | --- |
-| dataDelaia |É o momento de atrasar a verificação da disponibilidade dos dados externos para a fatia dada. Por exemplo, pode atrasar uma verificação de hora a hora utilizando esta definição.<br/><br/>A regulação aplica-se apenas ao presente momento. Por exemplo, se forem 13:00 pm agora e este valor é de 10 minutos, a validação começa às 13:10.<br/><br/>Note que esta definição não afeta fatias no passado. Fatias com **dados de fim de tempo de**  +  **fatiaDela agora**são  <  **Now** processadas sem demora.<br/><br/>Os tempos superiores às 23:59 horas devem ser especificados utilizando o `day.hours:minutes:seconds` formato. Por exemplo, para especificar 24 horas, não use 24:00:00. Em vez disso, use 1:00:00:00. Se utilizar 24:00:00, é tratado como 24 dias (24.00:00:00). Por 1 dia e 4 horas, especifique 1:04:00:00. |Não |0 |
+| dataDelaia |É o momento de atrasar a verificação da disponibilidade dos dados externos para a fatia dada. Por exemplo, pode atrasar uma verificação de hora a hora utilizando esta definição.<br/><br/>A regulação aplica-se apenas ao presente momento. Por exemplo, se forem 13:00 pm agora e este valor é de 10 minutos, a validação começa às 13:10.<br/><br/>Note que esta definição não afeta fatias no passado. Fatias com **dados de fim de tempo de**  +  **fatiaDela agora** são  <  **Now** processadas sem demora.<br/><br/>Os tempos superiores às 23:59 horas devem ser especificados utilizando o `day.hours:minutes:seconds` formato. Por exemplo, para especificar 24 horas, não use 24:00:00. Em vez disso, use 1:00:00:00. Se utilizar 24:00:00, é tratado como 24 dias (24.00:00:00). Por 1 dia e 4 horas, especifique 1:04:00:00. |Não |0 |
 | retryInterval |O tempo de espera entre um fracasso e a próxima tentativa. Esta definição aplica-se ao tempo presente. Se a tentativa anterior falhar, a próxima tentativa é após o período **de retryInterval.** <br/><br/>Se são 13:00 agora, começamos a primeira tentativa. Se a duração para completar a primeira verificação de validação for de 1 minuto e a operação falhar, a próxima repetição é de 1:00 + 1min (duração) + 1min (intervalo de repetição) = 1:02 PM. <br/><br/>Para fatias no passado, não há atraso. A repetição acontece imediatamente. |Não |00:01:00 (1 minuto) |
 | retryTimeout |O tempo limite para cada tentativa de repetição.<br/><br/>Se esta propriedade estiver definida para 10 minutos, a validação deve ser concluída dentro de 10 minutos. Se demorar mais de 10 minutos a efetuar a validação, o tempo de retítu disso.<br/><br/>Se todas as tentativas para o tempo de validação, a fatia é marcada como **TimedOut**. |Não |00:10:00 (10 minutos) |
 | máximaSRetry |O número de vezes para verificar a disponibilidade dos dados externos. O valor máximo permitido é de 10. |Não |3 |

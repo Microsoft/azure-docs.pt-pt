@@ -1,6 +1,6 @@
 ---
-title: Piscina SQL sem servidor (pré-visualização) autoajuda
-description: Esta secção contém informações que podem ajudá-lo a resolver problemas com piscina SQL sem servidor (pré-visualização).
+title: Autoajuda da piscina SQL sem servidor
+description: Esta secção contém informações que podem ajudá-lo a resolver problemas com a piscina SQL sem servidor.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,23 +9,23 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: aefdb90c3e6c8d3abc3924ecebb2aa46739e99ad
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 12ff369cb931eb36014b7c9598b036afdc158750
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682626"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457181"
 ---
-# <a name="self-help-for-serverless-sql-pool-preview"></a>Autoajuda para piscina SQL sem servidor (pré-visualização)
+# <a name="self-help-for-serverless-sql-pool"></a>Autoajuda para piscina SQL sem servidor
 
-Este artigo contém informações sobre como resolver problemas mais frequentes com piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics.
+Este artigo contém informações sobre como resolver problemas mais frequentes com piscina SQL sem servidor em Azure Synapse Analytics.
 
 ## <a name="serverless-sql-pool-is-grayed-out-in-synapse-studio"></a>Piscina SQL sem servidor é acinzentada no Estúdio Synapse
 
 Se o Synapse Studio não conseguir estabelecer ligação à piscina SQL sem servidor, irá notar que a piscina SQL sem servidor está acinzentada ou mostra o estado "Offline". Normalmente, este problema ocorre quando um dos seguintes casos acontece:
 
-1) A sua rede impede a comunicação ao backend Azure Synapse. O caso mais frequente é que o porto 1443 está bloqueado. Para que a piscina SQL sem servidor funcione, desbloqueie esta porta. Outros problemas poderiam impedir que a piscina SQL sem servidor funcionasse também, [visite o guia completo de resolução de problemas para obter mais informações.](../troubleshoot/troubleshoot-synapse-studio.md)
-2) Você não tem permissões para iniciar sessão na piscina SQL sem servidor. Para ter acesso, um dos administradores do espaço de trabalho Azure Synapse deve adicioná-lo ao administrador do espaço de trabalho ou à função de administrador do SQL. [Visite o guia completo sobre o controlo de acessos para mais informações.](access-control.md)
+1) A sua rede impede a comunicação ao backend Azure Synapse. O caso mais frequente é a porta 1443 estar bloqueada. Para que a piscina SQL sem servidor funcione, desbloqueie esta porta. Outros problemas poderiam impedir que a piscina SQL sem servidor funcionasse também, [visite o guia completo de resolução de problemas para obter mais informações.](../troubleshoot/troubleshoot-synapse-studio.md)
+2) Você não tem permissões para iniciar sessão na piscina SQL sem servidor. Para obter acesso, um dos administradores da área de trabalho do Azure Synapse deverá adicioná-lo à função de administrador da área de trabalho ou de administrador do SQL. [Veja o guia completo sobre o controlo de acesso para obter mais informações](access-control.md).
 
 ## <a name="query-fails-because-file-cannot-be-opened"></a>Consulta falha porque o ficheiro não pode ser aberto
 
@@ -37,7 +37,7 @@ Se a sua consulta falhar com a mensagem de erro "Esta consulta não pode ser exe
 
 - Certifique-se de que os tipos de dados de tamanhos razoáveis são utilizados. Além disso, especifique o esquema para ficheiros Parquet para colunas de cordas, uma vez que serão VARCHAR(8000) por padrão. 
 
-- Se a sua consulta tiver como alvo ficheiros CSV, considere [criar estatísticas](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview). 
+- Se a sua consulta tiver como alvo ficheiros CSV, considere [criar estatísticas](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
 
 - Visite as [melhores práticas de desempenho para a piscina SQL sem servidor](best-practices-sql-on-demand.md) para otimizar a consulta.  
 
@@ -49,7 +49,7 @@ Se a sua consulta falhar com a mensagem de erro:
 
 significa que a base de dados principal no pool SQL sem servidor não suporta a criação de:
   - Tabelas externas
-  - Fontes de dados externas
+  - Origens de dados externas
   - Credenciais de âmbito de dados
   - Formatos de ficheiros externos
 
@@ -71,7 +71,7 @@ CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat]
 WITH ( FORMAT_TYPE = PARQUET)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Reveja os seguintes artigos para saber mais sobre como usar a piscina SQL sem servidor:
 

@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3d9d41e80f78af7087c80592d927c193e494eab8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b458b8d76111db6b32d188d9784e56d7fae303b9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442399"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456839"
 ---
 # <a name="use-case---product-recommendations"></a>Caso de Utilização - Recomendações do Produto
 A Azure Data Factory é um dos muitos serviços utilizados para implementar o Conjunto de Inteligência Cortana de aceleradores de soluções.  Consulte a página [cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) para mais detalhes sobre esta suite. Neste documento, descrevemos um caso de uso comum que os utilizadores do Azure já resolveram e implementaram usando a Azure Data Factory e outros serviços de componentes da Cortana Intelligence.
@@ -41,7 +41,7 @@ Por último, os retalhistas precisam de medir a eficácia da sua abordagem, acom
 ## <a name="solution-overview"></a>Descrição Geral da Solução
 Este caso de uso de exemplo foi resolvido e implementado por utilizadores reais do Azure através da utilização da Azure Data Factory e de outros serviços de componentes da Cortana Intelligence, incluindo [HDInsight](https://azure.microsoft.com/services/hdinsight/) e [Power BI](https://powerbi.microsoft.com/).
 
-O retalhista on-line utiliza uma loja Azure Blob, um SQL Server no local, base de dados Azure SQL e um mercado de dados relacional como as suas opções de armazenamento de dados ao longo do fluxo de trabalho.  A loja blob contém informações do cliente, dados de comportamento do cliente e dados de informação do produto. Os dados de informação do produto incluem informações sobre a marca de produtos e um catálogo de produtos armazenado no local num Azure Synapse Analytics (anteriormente SQL Data Warehouse). 
+O retalhista on-line utiliza uma loja Azure Blob, um SQL Server no local, base de dados Azure SQL e um mercado de dados relacional como as suas opções de armazenamento de dados ao longo do fluxo de trabalho.  A loja blob contém informações do cliente, dados de comportamento do cliente e dados de informação do produto. Os dados de informação do produto incluem informações sobre a marca de produtos e um catálogo de produtos armazenado no local num Azure Synapse Analytics. 
 
 Todos os dados são combinados e alimentados num sistema de recomendação de produto para entregar recomendações personalizadas baseadas nos interesses e ações do cliente, enquanto o utilizador navega nos produtos do catálogo no site. Os clientes também vêem produtos relacionados com o produto que estão a analisar com base em padrões globais de utilização do site que não estão relacionados com nenhum utilizador.
 

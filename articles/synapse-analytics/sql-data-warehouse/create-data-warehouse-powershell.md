@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Criar uma piscina Sinapse SQL com Azure PowerShell'
-description: Crie rapidamente uma piscina Sinapse SQL com uma regra de firewall ao nível do servidor utilizando a Azure PowerShell.
+title: 'Quickstart: Criar uma piscina SQL dedicada (anteriormente SQL DW) com Azure PowerShell'
+description: Crie rapidamente uma piscina SQL dedicada (anteriormente SQL DW) com uma regra de firewall ao nível do servidor utilizando a Azure PowerShell.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,23 +11,23 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse    , devx-track-azurepowershell
-ms.openlocfilehash: 5408944f16509f83c30b9ee066d6f0a93dab95f0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0ce94b62d67048896cdf7355043ec2dde7f2df79
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91567660"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456591"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-with-azure-powershell"></a>Quickstart: Criar uma piscina Sinapse SQL com Azure PowerShell
+# <a name="quickstart-create-a-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Quickstart: Criar uma piscina SQL dedicada (anteriormente SQL DW) com Azure PowerShell
 
-Crie um pool Sinapse SQL (armazém de dados) em Azure Synapse Analytics utilizando a Azure PowerShell.
+Crie uma piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics utilizando a Azure PowerShell.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 > [!IMPORTANT]
-> A criação de uma piscina SQL pode resultar num novo serviço de faturação.  Para mais informações, consulte [os preços do Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> A criação de uma piscina SQL dedicada (anteriormente SQL DW) pode resultar num novo serviço de faturação.  Para mais informações, consulte [os preços do Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -93,7 +93,7 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurar uma regra de firewall ao nível do servidor
 
-Crie uma [regra de firewall ao nível](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) do servidor utilizando o comando [New-AzSqlServerFirewallRule.](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Uma regra de firewall ao nível do servidor permite que uma aplicação externa, como o SQL Server Management Studio ou o utilitário SQLCMD, se conecte a uma piscina SQL através da firewall do serviço de piscina SQL.
+Crie uma [regra de firewall ao nível](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) do servidor utilizando o comando [New-AzSqlServerFirewallRule.](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Uma regra de firewall ao nível do servidor permite que uma aplicação externa, como o SQL Server Management Studio ou o utilitário SQLCMD, se conecte a uma piscina SQL dedicada (anteriormente SQL DW) através da firewall dedicada do serviço de piscina SQL.
 
 No exemplo seguinte, a firewall apenas é aberta para outros recursos do Azure. Para ativar a conectividade externa, altere o endereço IP para um endereço adequado para o seu ambiente. Para abrir todos os endereços IP, utilize 0.0.0.0 como o endereço IP inicial e 255.255.255.255 como o endereço final.
 
@@ -107,9 +107,9 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 > Os pontos finais SQL comunicam-se sobre a porta 1433. Se estiver a tentar ligar-se a partir de uma rede corporativa, o tráfego de saída sobre a porta 1433 pode não ser permitido pela firewall da sua rede. Em caso afirmativo, não poderá ligar-se ao seu servidor a menos que o seu departamento de TI abra a porta 1433.
 >
 
-## <a name="create-a-sql-pool"></a>Criar uma piscina SQL
+## <a name="create-a-dedicated-sql-pool-formerly-sql-dw"></a>Crie uma piscina SQL dedicada (anteriormente SQL DW)
 
-O exemplo a seguir cria uma piscina SQL utilizando as variáveis previamente definidas.  Especifica o objetivo de serviço como DW100c, que é um ponto de partida mais baixo para a sua piscina SQL.
+O exemplo a seguir cria uma piscina SQL dedicada (anteriormente SQL DW) utilizando as variáveis previamente definidas.  Especifica o objetivo de serviço como DW100c, que é um ponto de partida de baixo custo para a sua piscina DE SQL dedicada (anteriormente SQL DW).
 
 ```Powershell
 New-AzSqlDatabase `
@@ -125,10 +125,10 @@ New-AzSqlDatabase `
 Os parâmetros necessários são:
 
 * **Nome solicitado do ServiçoObjetivo**: A quantidade de unidades de armazém de [dados](what-is-a-data-warehouse-unit-dwu-cdwu.md) que está a solicitar. Aumentar este montante aumenta o custo do cálculo. Para obter uma lista de valores suportados, consulte [os limites de memória e de concordância](memory-concurrency-limits.md).
-* **Nome base de dados**: O nome da piscina SQL que está a criar.
+* **Nome base de dados**: O nome da piscina SQL dedicada (anteriormente SQL DW) que está a criar.
 * **Nome do servidor**: O nome do servidor que está a utilizar para criação.
 * **Nome do Grupo de Recursos**: Grupo de recursos que está a utilizar. Para localizar grupos de recursos disponíveis na sua subscrição, utilize Get-AzureResource.
-* **Edição**: Deve ser "DataWarehouse" para criar uma piscina SQL.
+* **Edição**: Deve ser "DataWarehouse" para criar uma piscina SQL dedicada (anteriormente SQL DW).
 
 Os parâmetros opcionais são:
 
@@ -137,7 +137,7 @@ Os parâmetros opcionais são:
 
 Para obter mais informações sobre as opções de parâmetros, consulte [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido.
 
@@ -151,4 +151,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Criou agora uma piscina SQL, criou uma regra de firewall e está ligado à sua piscina SQL. Para saber mais, continue os dados de Carga no artigo [da piscina SQL.](load-data-from-azure-blob-storage-using-polybase.md)
+Criou agora uma piscina SQL dedicada (anteriormente SQL DW), criou uma regra de firewall e está ligada à sua piscina SQL dedicada. Para saber mais, continue os dados de Carga num artigo [dedicado à piscina SQL.](load-data-from-azure-blob-storage-using-polybase.md)

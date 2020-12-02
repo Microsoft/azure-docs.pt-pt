@@ -1,6 +1,6 @@
 ---
-title: Migrar a sua piscina SQL para a Gen2
-description: Instruções para migrar uma piscina SQL existente para a Gen2 e o calendário de migração por região.
+title: Migrar a sua piscina SQL dedicada (anteriormente SQL DW) para a Gen2
+description: Instruções para migrar uma piscina SQL dedicada existente (anteriormente SQL DW) para a Gen2 e o calendário de migração por região.
 services: synapse-analytics
 author: mlee3gsd
 ms.author: anjangsh
@@ -12,16 +12,16 @@ ms.topic: article
 ms.subservice: sql-dw
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: eebde4470ba2635a5287cb3b0103fa49e0e243e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 512775369bd7787c6228c6d452be0e236ddf5cc2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441005"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456340"
 ---
-# <a name="upgrade-your-sql-pool-to-gen2"></a>Atualize a sua piscina SQL para a Gen2
+# <a name="upgrade-your-dedicated-sql-pool-formerly-sql-dw-to-gen2"></a>Atualize a sua piscina SQL dedicada (anteriormente SQL DW) para a Gen2
 
-A Microsoft está a ajudar a reduzir o custo de entrada de uma piscina SQL.  Níveis de cálculo mais baixos capazes de lidar com consultas exigentes estão agora disponíveis para piscina SQL. Leia o anúncio completo [Suporte de nível de computação inferior para a Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). A nova oferta está disponível nas regiões anotados no quadro abaixo. Para as regiões apoiadas, as piscinas Gen1 SQL existentes podem ser atualizadas para a Gen2 através de:
+A Microsoft está a ajudar a reduzir o custo de entrada de executar uma piscina SQL dedicada (anteriormente SQL DW).  Níveis de computação mais baixos capazes de lidar com consultas exigentes estão agora disponíveis para piscina SQL dedicada (anteriormente SQL DW). Leia o anúncio completo [Suporte de nível de computação inferior para a Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). A nova oferta está disponível nas regiões anotados no quadro abaixo. Para as regiões apoiadas, a piscina SQL dedicada à Gen1 existente (anteriormente SQL DW) pode ser atualizada para a Gen2 através de:
 
 - **O processo de atualização automática:** As atualizações automáticas não arrancam assim que o serviço estiver disponível numa região.  Quando as atualizações automáticas começarem numa região específica, serão efetuadas atualizações individuais de armazém de dados durante o seu horário de manutenção selecionado.
 - [**Auto-actualização para a Gen2:**](#self-upgrade-to-gen2) Pode controlar quando fazer um upgrade para a Gen2. Se a sua região ainda não estiver apoiada, pode restaurar de um ponto de restauração diretamente para uma instância Gen2 numa região apoiada.
@@ -43,9 +43,9 @@ O quadro seguinte resume por região quando o nível de cálculo da Baixa Gen2 e
 
 ## <a name="automatic-upgrade-process"></a>Processo de atualização automática
 
-Com base no gráfico de disponibilidade acima, vamos agendar upgrades automatizados para as suas instâncias da Gen1. Para evitar interrupções inesperadas na disponibilidade da piscina SQL, as atualizações automatizadas serão programadas durante o seu horário de manutenção. A capacidade de criar uma nova instância gen1 será desativada nas regiões submetidas a um upgrade automático para a Gen2. A Gen1 será depreciada assim que as atualizações automáticas estiverem concluídas. Para obter mais informações sobre os horários, consulte [um horário de manutenção](maintenance-scheduling.md#view-a-maintenance-schedule)
+Com base no gráfico de disponibilidade acima, vamos agendar upgrades automatizados para as suas instâncias da Gen1. Para evitar interrupções inesperadas na disponibilidade da piscina SQL dedicada (anteriormente SQL DW), as atualizações automatizadas serão programadas durante o seu horário de manutenção. A capacidade de criar uma nova instância gen1 será desativada nas regiões submetidas a um upgrade automático para a Gen2. A Gen1 será depreciada assim que as atualizações automáticas estiverem concluídas. Para obter mais informações sobre os horários, consulte [um horário de manutenção](maintenance-scheduling.md#view-a-maintenance-schedule)
 
-O processo de atualização envolverá uma breve queda na conectividade (aproximadamente 5 min) à medida que reiniciamos a sua piscina SQL.  Uma vez reiniciada a sua piscina SQL, estará totalmente disponível para utilização. No entanto, poderá sofrer uma degradação no desempenho enquanto o processo de atualização continua a atualizar os ficheiros de dados em segundo plano. O tempo total para a degradação do desempenho vai variar consoante o tamanho dos ficheiros de dados.
+O processo de upgrade envolverá uma breve queda na conectividade (aproximadamente 5 min) à medida que reiniciamos a sua piscina DE SQL dedicada (anteriormente SQL DW).  Uma vez reiniciada a sua piscina SQL (anteriormente SQL DW), estará totalmente disponível para utilização. No entanto, poderá sofrer uma degradação no desempenho enquanto o processo de atualização continua a atualizar os ficheiros de dados em segundo plano. O tempo total para a degradação do desempenho vai variar consoante o tamanho dos ficheiros de dados.
 
 Também pode acelerar o processo de atualização de ficheiros de dados executando [a reconstrução do Alter Index](sql-data-warehouse-tables-index.md) em todas as tabelas de colunas primárias utilizando uma SLO maior e classe de recursos após o reinício.
 
@@ -54,12 +54,12 @@ Também pode acelerar o processo de atualização de ficheiros de dados executan
 
 ## <a name="self-upgrade-to-gen2"></a>Auto-upgrade para a Gen2
 
-Você pode optar por auto-upgrade seguindo estes passos em uma piscina Gen1 SQL existente. Se optar por fazer um auto-upgrade, deve completá-lo antes do início do processo de atualização automática na sua região. Ao fazê-lo, evita-se qualquer risco de as atualizações automáticas provocarem um conflito.
+Você pode optar por auto-upgrade seguindo estes passos em uma piscina SQL dedicada gen1 existente (anteriormente SQL DW). Se optar por fazer um auto-upgrade, deve completá-lo antes do início do processo de atualização automática na sua região. Ao fazê-lo, evita-se qualquer risco de as atualizações automáticas provocarem um conflito.
 
-Existem duas opções para realizar um auto-upgrade.  Você pode atualizar a sua piscina SQL atual no local ou você pode restaurar uma piscina Gen1 SQL em um caso Gen2.
+Existem duas opções para realizar um auto-upgrade.  Você pode atualizar seu atual pool SQL dedicado (anteriormente SQL DW) no lugar ou você pode restaurar uma piscina SQL dedicada Gen1 (anteriormente SQL DW) em um exemplo Gen2.
 
-- [Upgrade no local](upgrade-to-latest-generation.md) - Esta opção irá atualizar a sua piscina Gen1 SQL existente para a Gen2. O processo de atualização envolverá uma breve queda na conectividade (aproximadamente 5 min) à medida que reiniciamos a sua piscina SQL.  Uma vez reiniciada a sua piscina SQL, estará totalmente disponível para utilização. Se sentir problemas durante a atualização, abra um pedido de [apoio](sql-data-warehouse-get-started-create-support-ticket.md) e refira a "atualização gen2" como a causa possível.
-- [Upgrade do ponto de restauro](sql-data-warehouse-restore-points.md) - Crie um ponto de restauro definido pelo utilizador na sua piscina atual gen1 SQL e, em seguida, restaure diretamente para uma instância Gen2. A piscina gen1 SQL existente permanecerá no lugar. Uma vez concluída a restauração, a sua piscina Gen2 SQL estará totalmente disponível para utilização.  Uma vez executado todos os processos de teste e validação na instância de Gen2 restaurada, a instância original da Gen1 pode ser eliminada.
+- [Upgrade no local](upgrade-to-latest-generation.md) - Esta opção irá atualizar a sua piscina SQL dedicada à Gen1 (anteriormente SQL DW) para a Gen2. O processo de upgrade envolverá uma breve queda na conectividade (aproximadamente 5 min) à medida que reiniciamos a sua piscina DE SQL dedicada (anteriormente SQL DW).  Uma vez reiniciado, estará totalmente disponível para utilização. Se sentir problemas durante a atualização, abra um pedido de [apoio](sql-data-warehouse-get-started-create-support-ticket.md) e refira a "atualização gen2" como a causa possível.
+- [Upgrade do ponto de restauro](sql-data-warehouse-restore-points.md) - Crie um ponto de restauro definido pelo utilizador na sua piscina SQL dedicada à Gen1 (anteriormente SQL DW) e, em seguida, restaure diretamente para uma instância Gen2. A piscina SQL dedicada à Gen1 existente (anteriormente SQL DW) permanecerá no lugar. Uma vez concluída a restauração, a sua piscina SQL dedicada à Gen2 (anteriormente SQL DW) estará totalmente disponível para utilização.  Uma vez executado todos os processos de teste e validação na instância de Gen2 restaurada, a instância original da Gen1 pode ser eliminada.
 
   - Passo 1: A partir do portal Azure, [crie um ponto de restauro definido pelo utilizador](sql-data-warehouse-restore-active-paused-dw.md).
   - Passo 2: Ao restaurar de um ponto de restauro definido pelo utilizador, desaponte o "Nível de desempenho" para o seu nível gen2 preferido.
@@ -71,7 +71,7 @@ Para acelerar o processo de migração de dados de fundo, pode forçar imediatam
 > [!NOTE]
 > A reconstrução do Alter Index é uma operação offline e as tabelas não estarão disponíveis até que a reconstrução esteja concluída.
 
-Se encontrar algum problema com a sua piscina SQL, crie um pedido de [apoio](sql-data-warehouse-get-started-create-support-ticket.md) e refira a "atualização gen2" como a causa possível.
+Se encontrar algum problema com a sua piscina SQL dedicada (anteriormente SQL DW), crie um pedido de [apoio](sql-data-warehouse-get-started-create-support-ticket.md) e referência "atualização Gen2" como a causa possível.
 
 Para mais informações, consulte [Upgrade para a Gen2](upgrade-to-latest-generation.md).
 
@@ -89,12 +89,12 @@ Para mais informações, consulte [Upgrade para a Gen2](upgrade-to-latest-genera
 
 - R: Pode atualizar no local ou fazer upgrade a partir de um ponto de restauro.
 
-  - A atualização no lugar fará com que a sua piscina SQL faça uma pausa momentânea e retome.  Um processo de fundo continuará enquanto a piscina SQL está on-line.  
+  - A atualização no local fará com que a sua piscina SQL dedicada (anteriormente SQL DW) faça uma pausa momentânea e retome.  Um processo de fundo continuará enquanto a piscina de SQL dedicada (anteriormente SQL DW) está on-line.  
   - Demora mais tempo se estiver a atualizar através de um ponto de restauro, porque a atualização passará por todo o processo de restauro.
 
 **P: Quanto tempo demorará a atualização automática?**
 
-- R: O tempo de paragem real para a atualização é apenas o tempo necessário para parar e retomar o serviço, que está entre 5 a 10 minutos. Após o período de indisponibilidade breve, um processo em segundo plano vai executar uma migração de armazenamento. O tempo de duração do processo de fundo depende do tamanho da sua piscina SQL.
+- R: O tempo de paragem real para a atualização é apenas o tempo necessário para parar e retomar o serviço, que está entre 5 a 10 minutos. Após o período de indisponibilidade breve, um processo em segundo plano vai executar uma migração de armazenamento. O tempo de duração do processo de fundo depende do tamanho da sua piscina SQL dedicada (anteriormente SQL DW).
 
 **P: Quando será feita esta atualização automática?**
 
@@ -110,7 +110,7 @@ Para mais informações, consulte [Upgrade para a Gen2](upgrade-to-latest-genera
 
 **P: Posso desativar o geo-backup?**
 
-- R: Não. Geo-backup é uma funcionalidade de empresa para preservar a disponibilidade da sua piscina SQL no caso de uma região ficar indisponível. Abra um [pedido de apoio](sql-data-warehouse-get-started-create-support-ticket.md) se tiver mais preocupações.
+- R: Não. Geo-backup é uma funcionalidade de empresa para preservar a disponibilidade da sua piscina SQL (anteriormente SQL DW) no caso de uma região ficar indisponível. Abra um [pedido de apoio](sql-data-warehouse-get-started-create-support-ticket.md) se tiver mais preocupações.
 
 **P: Existe uma diferença na sintaxe T-SQL entre a Gen1 e a Gen2?**
 

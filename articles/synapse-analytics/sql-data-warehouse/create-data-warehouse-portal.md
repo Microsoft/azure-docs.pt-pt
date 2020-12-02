@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Criar e consultar uma piscina Sinapse SQL (portal Azure)'
-description: Criar e consultar uma piscina Sinapse SQL utilizando o portal Azure
+title: 'Quickstart: Criar e consultar uma piscina SQL dedicada (portal Azure)'
+description: Criar e consultar uma piscina SQL dedicada utilizando o portal Azure
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 05/28/2019
 ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 470892aa46d3f75ce8e17200f7d0549ae14b0e86
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3d4884fd64c773647f78a98dc7aeb1063d539edf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023791"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456738"
 ---
-# <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Quickstart: Criar e consultar uma piscina Sinapse SQL utilizando o portal Azure
+# <a name="quickstart-create-and-query-a-dedicated-sql-pool-in-azure-synapse-analytics-using-the-azure-portal"></a>Quickstart: Criar e consultar uma piscina SQL dedicada em Azure synapse Analytics usando o portal Azure
 
-Crie e questione rapidamente um pool Sinapse SQL (data warehouse) em Azure Synapse Analytics (anteriormente SQL DW) utilizando o portal Azure.
+Crie e questione rapidamente um pool Sinapse SQL (data warehouse) em Azure Synapse Analytics utilizando o portal Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -178,7 +178,7 @@ A Azure Synapse Analytics usa t-SQL como linguagem de consulta. Para abrir uma j
 
    ![Consultar dbo.dimCustomer](./media/create-data-warehouse-portal/query-customer.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Está a ser cobrado por unidades de armazém de dados e os dados armazenaram a sua piscina SQL. Estes recursos de computação e armazenamento são faturados em separado.
 
@@ -190,7 +190,7 @@ Siga estes passos para limpar os recursos que já não precisa.
 
 1. Inscreva-se no [portal Azure,](https://portal.azure.com)selecione a sua piscina SQL.
 
-   ![Limpar recursos](./media/create-data-warehouse-portal/clean-up-resources.png)
+   ![Limpar os recursos](./media/create-data-warehouse-portal/clean-up-resources.png)
 
 2. Para parar o cálculo, selecione o **botão Pausa.** Quando a piscina SQL é pausada, vê-se um botão **Resume.** Para retomar o cálculo, **selecione Resume**.
 
@@ -204,6 +204,6 @@ Quer otimizar e economizar nos gastos na nuvem?
 
 [!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o carregamento de dados no seu pool SQL, continue a carregar os dados da Load no artigo [da piscina SQL.](load-data-from-azure-blob-storage-using-polybase.md)

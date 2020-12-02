@@ -5,18 +5,19 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 5005bcad6a11d31dde8ce44556af2c3db30a6a5f
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 33d8aa9be6a6ee4182e49e658bd41ebf6da588e5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432990"
+ms.locfileid: "96456563"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Quickstart: Use tópicos e subscrições de Service Bus com a Java
 Neste quickstart, você escreve código Java para enviar mensagens para um tópico Azure Service Bus e, em seguida, receber mensagens de subscrições para esse tópico. 
 
 > [!WARNING]
->  Este quickstart utiliza o pacote de serviços azure-servicebus atualmente disponível (GA). Para um arranque rápido que utilize o novo pacote de serviços de mensagens azure que está em **pré-visualização**, consulte [Enviar e receber mensagens usando o azure-messaging-servicebus](service-bus-java-how-to-use-topics-subscriptions.md).
+>  Este quickstart utiliza os antigos pacotes de serviços azure. Para obter um arranque rápido que utilize o mais recente pacote de serviços de mensagens azure, consulte [Enviar e receber mensagens usando o azure-messaging-servicebus](service-bus-java-how-to-use-topics-subscriptions.md).
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

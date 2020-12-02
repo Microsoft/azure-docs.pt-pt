@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 036cb15cf16b5f90dc17ccdce378a073a398d403
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cf40990d59aff984226244f520e6f8f937713fd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86181340"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456483"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Orientação de design para usar mesas replicadas na piscina Sinaapse SQL
 
@@ -26,19 +26,19 @@ Este artigo dá recomendações para a conceção de tabelas replicadas no seu e
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que está familiarizado com os conceitos de distribuição de dados e movimento de dados no pool SQL.Para mais informações, consulte o artigo [arquitetura.](massively-parallel-processing-mpp-architecture.md)
+Este artigo pressupõe que está familiarizado com os conceitos de distribuição de dados e movimento de dados no pool SQL.  Para mais informações, consulte o artigo [arquitetura.](massively-parallel-processing-mpp-architecture.md)
 
-Como parte do design de mesa, compreenda o máximo possível sobre os seus dados e como os dados são consultados.Por exemplo, considere estas questões:
+Como parte do design de mesa, compreenda o máximo possível sobre os seus dados e como os dados são consultados.  Por exemplo, considere estas questões:
 
 - Qual é o tamanho da mesa?
 - Com que frequência a mesa é refrescada?
-- Tenho tabelas de factos e dimensões numa base de dados de piscinas SQL?
+- Tenho tabelas de fatos e dimensões numa piscina SQL?
 
 ## <a name="what-is-a-replicated-table"></a>O que é uma mesa replicada?
 
 Uma tabela replicada tem uma cópia completa da tabela acessível em cada nó computacional. A replicação de uma tabela elimina a necessidade de transferir dados entre nós de Computação antes de se proceder a uma associação ou agregação. Uma vez que a tabela tem várias cópias, as mesas replicadas funcionam melhor quando o tamanho da mesa é inferior a 2 GB comprimido.  2 GB não é um limite difícil.  Se os dados forem estáticos e não mudarem, pode replicar tabelas maiores.
 
-O diagrama seguinte mostra uma tabela replicada que está acessível em cada nó computacional. Na piscina SQL, a tabela replicada é totalmente copiada para uma base de dados de distribuição em cada nó Compute.
+O diagrama seguinte mostra uma tabela replicada que está acessível em cada nó computacional. Na piscina SQL, a tabela replicada é totalmente copiada para uma base de dados de distribuição em cada nó de cálculo.
 
 ![Tabela replicada](./media/design-guidance-for-replicated-tables/replicated-table.png "Tabela replicada")  
 
@@ -51,8 +51,8 @@ Considere usar uma tabela replicada quando:
 
 As tabelas replicadas podem não produzir o melhor desempenho de consulta quando:
 
-- A tabela tem operações frequentes de inserção, atualização e eliminação.As operações de linguagem de manipulação de dados (DML) requerem uma reconstrução da tabela replicada.A reconstrução frequentemente pode causar um desempenho mais lento.
-- A base de dados de piscinas SQL é escalada frequentemente. Escalar uma base de dados de piscinas SQL altera o número de nós compute, que incorrem na reconstrução da tabela replicada.
+- A tabela tem operações frequentes de inserção, atualização e eliminação. As operações de linguagem de manipulação de dados (DML) requerem uma reconstrução da tabela replicada. A reconstrução frequentemente pode causar um desempenho mais lento.
+- A piscina SQL é dimensionada com frequência. Escalar uma piscina SQL altera o número de nós Compute, que incorrem na reconstrução da tabela replicada.
 - A tabela tem um grande número de colunas, mas as operações de dados normalmente acedem apenas a um pequeno número de colunas. Neste cenário, em vez de replicar toda a tabela, pode ser mais eficaz distribuir a tabela e, em seguida, criar um índice nas colunas frequentemente acedidas. Quando uma consulta requer movimento de dados, o pool SQL apenas move dados para as colunas solicitadas.
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Use tabelas replicadas com predicados de consulta simples
@@ -174,8 +174,8 @@ Esta consulta utiliza o DMV [sys.pdw_replicated_table_cache_state](/sql/relation
 
 ```sql
 SELECT [ReplicatedTable] = t.[name]
-  FROM sys.tables t  
-  JOIN sys.pdw_replicated_table_cache_state c  
+  FROM sys.tables t  
+  JOIN sys.pdw_replicated_table_cache_state c  
     ON c.object_id = t.object_id
   JOIN sys.pdw_table_distribution_properties p
     ON p.object_id = t.object_id

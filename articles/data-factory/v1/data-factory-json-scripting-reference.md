@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6372976d85c7fdce2a729047d3ae36911412ecf1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7c4985e32371f029285733117721931e09a30e67
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019672"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456953"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referência de scripts JSON
 > [!NOTE]
@@ -377,7 +377,7 @@ Clique no link para a loja que está interessado em ver os esquemas JSON para se
 | &nbsp; |Azure Data Lake Store |
 | &nbsp; |[BD do Cosmos para o Azure](#azure-cosmos-db) |
 | &nbsp; |[Base de Dados SQL do Azure](#azure-sql-database) |
-| &nbsp; |[Azure Synapse Analytics (anteriormente SQL Data Warehouse)](#azure-synapse-analytics) |
+| &nbsp; |[Azure Synapse Analytics](#azure-synapse-analytics) |
 | &nbsp; |[Azure Cognitive Search](#azure-cognitive-search) |
 | &nbsp; |[Armazenamento de tabelas do Azure](#azure-table-storage) |
 | **Bases de dados** |[Amazon Redshift](#amazon-redshift) |
@@ -1224,7 +1224,7 @@ Se estiver a copiar dados para a Azure Synapse Analytics, descreva o **tipo** de
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | sqlWriterCleanUpScript |Especifique uma consulta para a Copy Activity para executar de modo a que os dados de uma fatia específica seja limpo. |Uma declaração de consulta. |Não |
-| permitir A Base DePoly |Indica se deve utilizar a PolyBase (quando aplicável) em vez do mecanismo BULKINSERT. <br/><br/> **A utilização do PolyBase é a forma recomendada de carregar dados em Synapse Analytics.** |Verdadeiro <br/>Falso (predefinição) |Não |
+| permitir A Base DePoly |Indica se deve utilizar a PolyBase (quando aplicável) em vez do mecanismo BULKINSERT. <br/><br/> **A utilização do PolyBase é a forma recomendada de carregar dados no Azure Synapse Analytics.** |Verdadeiro <br/>Falso (predefinição) |Não |
 | poliBaseSettings |Um grupo de propriedades que podem ser especificadas quando a propriedade **allowPolybase** é definida como **verdadeira**. |&nbsp; |Não |
 | rejeitarValue |Especifica o número ou percentagem de linhas que podem ser rejeitadas antes da consulta falhar. <br/><br/>Saiba mais sobre as opções de rejeição da PolyBase na secção **de Argumentos** do tema CREATE EXTERNAL [TABLE (Transact-SQL).](/sql/t-sql/statements/create-external-table-transact-sql) |0 (padrão), 1, 2, ... |Não |
 | rejeitarType |Especifica se a opção rejeitar oValue é especificada como um valor literal ou uma percentagem. |Valor (padrão), Percentagem |Não |
@@ -4826,7 +4826,7 @@ A tabela que se segue lista os ambientes computacionais suportados pela Data Fac
 | [Azure Batch](#azure-batch) |[Atividade personalizada do .NET](#net-custom-activity) |
 | [Azure Machine Learning Studio (clássico)](#azure-machine-learning-studio-classic) | [Azure Machine Learning Studio (clássico) Atividade de execução de lote,](#azure-machine-learning-studio-classic-batch-execution-activity) [Azure Machine Learning Studio (clássico) Atualização De Recursos Atividade](#azure-machine-learning-studio-classic-update-resource-activity) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](#data-lake-analytics-u-sql-activity) |
-| [Azure SQL Database](#azure-sql-database), [Azure Synapse Analytics,](#azure-synapse-analytics) [SQL Server](#sql-server-stored-procedure) |[Procedimento armazenado](#stored-procedure-activity) |
+| [Azure SQL Database](#azure-sql-database), [Azure Synapse Analytics,](#azure-synapse-analytics) [SQL Server](#sql-server-stored-procedure) |[Procedimento Armazenado](#stored-procedure-activity) |
 
 ## <a name="on-demand-azure-hdinsight-cluster"></a>Cluster Azure HDInsight a pedido
 O serviço Azure Data Factory pode criar automaticamente um cluster HDInsight baseado no Windows/Linux para processar dados. O cluster é criado na mesma região que a conta de armazenamento (propriedade linkedServiceName no JSON) associada ao cluster. Pode executar as seguintes atividades de transformação neste serviço ligado: [atividade personalizada .NET,](#net-custom-activity) [atividade de Hive,](#hdinsight-hive-activity) [atividade do porco,](#hdinsight-pig-activity) [atividade mapReduce,](#hdinsight-mapreduce-activity)atividade de streaming Hadoop, [atividade spark](#hdinsight-spark-activity).

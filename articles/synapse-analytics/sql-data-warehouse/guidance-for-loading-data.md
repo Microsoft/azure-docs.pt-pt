@@ -1,30 +1,30 @@
 ---
-title: Dados que carregam as melhores práticas para a piscina Sinapse SQL
-description: Recomendações e otimizações de desempenho para carregamento de dados utilizando o pool Synapse SQL.
+title: Dados que carregam as melhores práticas para piscinas SQL dedicadas
+description: Recomendações e otimizações de desempenho para carregamento de dados utilizando piscinas SQL dedicadas em Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 34a536ea535fa222340bd004253ee54b9c13bea9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39625914f179dfc8d5511b9a3d386cc8332b7efa
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441226"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456308"
 ---
-# <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Melhores práticas para carregar dados usando piscina Sinapse SQL
+# <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Melhores práticas para carregar dados usando piscinas SQL dedicadas em Azure Synapse Analytics
 
-Neste artigo, você vai aprender recomendações e otimizações de desempenho para carregar dados usando pool SQL.
+Neste artigo, você vai aprender recomendações e otimizações de desempenho para carregar dados usando pool SQL dedicado.
 
 ## <a name="preparing-data-in-azure-storage"></a>Preparar dados no Armazenamento do Azure
 
-Para minimizar a latência, coloque a sua camada de armazenamento e a sua piscina SQL.
+Para minimizar a latência, coloque a sua camada de armazenamento e a sua piscina SQL dedicada.
 
 Ao exportar dados para um Formato de Ficheiro ORC, poderá obter erros de memória esgotada Java quando existem colunas de texto grandes. Para contornar esta limitação, exporte apenas um subconjunto de colunas.
 
@@ -34,7 +34,7 @@ Divida grandes ficheiros comprimidos em ficheiros mais pequenos comprimidos.
 
 ## <a name="running-loads-with-enough-compute"></a>Executar cargas com computação suficiente
 
-Para a velocidade de carregamento mais rápida, execute apenas uma tarefa de carregamento de cada vez. Se isso não for viável, executar um número mínimo de cargas simultaneamente. Se espera um grande trabalho de carregamento, considere aumentar a sua piscina SQL antes da carga.
+Para a velocidade de carregamento mais rápida, execute apenas uma tarefa de carregamento de cada vez. Se isso não for viável, executar um número mínimo de cargas simultaneamente. Se espera um grande trabalho de carregamento, considere aumentar a sua piscina SQL dedicada antes da carga.
 
 Para executar cargas com recursos de computação adequados, crie utilizadores de carregamento designados para a execução de cargas. Classifique cada utilizador de carga a um grupo de carga específico. Para executar uma carga, inscreva-se como um dos utilizadores de carregamento e, em seguida, carregue a carga. A carga é de funcionada com o grupo de trabalho do utilizador.  
 
@@ -47,10 +47,10 @@ Este exemplo cria um utilizador de carregamento classificado para um grupo de ca
    CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Ligue-se à piscina SQL e crie um utilizador. O seguinte código pressupõe que está ligado à base de dados chamada mySampleDataWarehouse. Mostra como criar um utilizador chamado carregador e dá ao utilizador permissões para criar tabelas e carregar utilizando a [declaração COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Em seguida, classifica o utilizador para o grupo de carga de trabalho DataLoads com o máximo de recursos. 
+Ligue-se à piscina SQL dedicada e crie um utilizador. O seguinte código pressupõe que está ligado à base de dados chamada mySampleDataWarehouse. Mostra como criar um utilizador chamado carregador e dá ao utilizador permissões para criar tabelas e carregar utilizando a [declaração COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Em seguida, classifica o utilizador para o grupo de carga de trabalho DataLoads com o máximo de recursos. 
 
 ```sql
-   -- Connect to the SQL pool
+   -- Connect to the dedicated SQL pool
    CREATE USER loader FOR LOGIN loader;
    GRANT ADMINISTER DATABASE BULK OPERATIONS TO loader;
    GRANT INSERT ON <yourtablename> TO loader;
@@ -76,7 +76,7 @@ Para executar uma carga com recursos para o grupo de carga de carga, inscreva-se
 
 ## <a name="allowing-multiple-users-to-load-polybase"></a>Permitindo que vários utilizadores carreguem (PolyBase)
 
-Muitas vezes é necessário ter vários utilizadores a carregar dados numa piscina SQL. O carregamento com a [tabela CREATE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (PolyBase) requer permissões de CONTROLO da base de dados.  A permissão de CONTROL permite controlar o acesso a todos os esquemas.
+Muitas vezes é necessário que vários utilizadores carreguem dados numa piscina de SQL dedicada. O carregamento com a [tabela CREATE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (PolyBase) requer permissões de CONTROLO da base de dados.  A permissão de CONTROL permite controlar o acesso a todos os esquemas.
 
 Poderá não querer que todos os utilizadores de carregamento tenham acesso de controlo em todos os esquemas. Para limitar as permissões, utilize a instrução DENY CONTROL.
 
@@ -91,9 +91,9 @@ User_A e user_B estão agora bloqueados do esquema do outro departamento.
 
 ## <a name="loading-to-a-staging-table"></a>Carregar para uma tabela de teste
 
-Para obter a velocidade de carregamento mais rápida para mover dados para uma mesa de bilhar SQL, carregue os dados numa tabela de preparação.  Definir a tabela de testes como uma área dinâmica para dados e utilizar o round-robin como opção de distribuição.
+Para obter a velocidade de carregamento mais rápida para mover dados para uma mesa de bilhar SQL dedicada, carregue os dados numa tabela de preparação.  Definir a tabela de testes como uma área dinâmica para dados e utilizar o round-robin como opção de distribuição.
 
-Considere que o carregamento é geralmente um processo em duas etapas em que primeiro carrega para uma mesa de preparação e, em seguida, insira os dados numa mesa de bilhar SQL de produção. Se a tabela de produção utiliza uma distribuição hash, o tempo total para carregar e inserir poderá ser mais rápido, se definir a tabela de testes com a distribuição hash.
+Considere que o carregamento é geralmente um processo em duas etapas em que primeiro carrega para uma mesa de preparação e, em seguida, insira os dados numa mesa de bilhar SQL dedicada à produção. Se a tabela de produção utiliza uma distribuição hash, o tempo total para carregar e inserir poderá ser mais rápido, se definir a tabela de testes com a distribuição hash.
 
 O carregamento para a tabela de teste demora mais tempo, mas o segundo passo de inserção das linhas na tabela de produção não implica o movimento de dados entre as distribuições.
 
@@ -111,7 +111,7 @@ Quando existe pressão de memória, o índice columnstore poderá não conseguir
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumente o tamanho do lote ao utilizar a API da SqLBulkCopy ou do BCP
 
-O carregamento com a declaração COPY proporcionará a maior produção com piscina SQL. Se não puder utilizar o COPY para carregar e tiver de utilizar a [API da SqLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) ou [do BCP,](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)deve considerar o aumento do tamanho do lote para uma melhor produção.
+O carregamento com a declaração COPY proporcionará a maior produção com piscinas SQL dedicadas. Se não puder utilizar o COPY para carregar e tiver de utilizar a [API da SqLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) ou [do BCP,](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)deve considerar o aumento do tamanho do lote para uma melhor produção.
 
 > [!TIP]
 > Um tamanho de lote entre 100 K e 1M é a linha de base recomendada para determinar a capacidade ideal do tamanho do lote.

@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4e6b0afab5c86131575d0e3d12b9984a8463f5a3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 68c9e594201f0d0689a289e13f2c4ebf909c2f87
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321097"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457108"
 ---
 # <a name="load-1-tb-into-azure-synapse-analytics-under-15-minutes-with-data-factory"></a>Carregue 1 TB em Azure Synapse Analytics em menos de 15 minutos com data factory
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte [os dados de Cópia de ou para a Azure Synapse Analytics (anteriormente SQL Data Warehouse) utilizando a Data Factory](../connector-azure-sql-data-warehouse.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte [os dados de Copy para ou a partir do Azure Synapse Analytics utilizando a Data Factory](../connector-azure-sql-data-warehouse.md).
 
 
 [A Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) é uma base de dados baseada na nuvem, capaz de processar volumes maciços de dados, tanto relacionais como não relacionais.  Construído sobre a arquitetura de processamento massivamente paralelo (MPP), o Azure Synapse Analytics está otimizado para a carga de trabalho do armazém de dados da empresa.  Oferece elasticidade em nuvem com a flexibilidade para escalar o armazenamento e calcular de forma independente.
@@ -122,7 +122,7 @@ Este artigo fornece instruções passo a passo para mover dados para a Azure Syn
       1. Selecione **Utilizar existente** para selecionar um grupo de recursos já existente.
       2. Selecione **Criar novo** para introduzir um nome para um grupo de recursos.
    4. Selecione uma **localização** para a fábrica de dados.
-   5. Selecione a caixa de verificação **Afixar ao dashboard** , na parte inferior do painel.  
+   5. Selecione a caixa de verificação **Afixar ao dashboard**, na parte inferior do painel.  
    6. Clique em **Criar**.
 4. Após a criação estar concluída, vê a lâmina da **Fábrica de Dados** como mostrado na seguinte imagem:
 
@@ -137,7 +137,7 @@ Este artigo fornece instruções passo a passo para mover dados para a Azure Syn
 ## <a name="step-1-configure-data-loading-schedule"></a>Passo 1: Configurar o calendário de carregamento de dados
 O primeiro passo é configurar o calendário de carregamento de dados.  
 
-Na página **Propriedades** :
+Na página **Propriedades**:
 
 1. **Insira copyFromBlobToAzureSqlDataWarehouse** para **nome de tarefa**
 2. Selecione **Executar uma vez agora** a opção.   
