@@ -10,16 +10,16 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 11/17/2020
-ms.openlocfilehash: ae7b15bf2e2efd72184110a105f68815516569ab
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9014469ca063ca52be0965ecbd4e8b21709d10a0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843915"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455171"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analisar dados com piscinas SQL dedicadas
 
-O Azure Synapse Analytics fornece-lhe a capacidade de analisar dados com uma piscina DE SQL dedicada. Neste tutorial, você usará os dados do Táxi nyc para explorar as capacidades de uma piscina SQL desatada.
+O Azure Synapse Analytics fornece-lhe a capacidade de analisar dados com uma piscina DE SQL dedicada. Neste tutorial, você usará os dados do TÁXI NYC para explorar as capacidades de uma piscina SQL dedicada.
 
 ## <a name="load-the-nyc-taxi-data-into-sqlpool1"></a>Carregue os dados do táxi de NYC em SQLPOOL1
 
@@ -94,8 +94,9 @@ O Azure Synapse Analytics fornece-lhe a capacidade de analisar dados com uma pis
 
     Esta consulta mostra como as distâncias totais de viagem e a distância média da viagem se relacionam com o número de passageiros.
 1. Na janela de resultados do script SQL, altere a **Visualização** para **Gráfico** para ver uma visualização dos resultados como um gráfico de linha.
-
-
+    
+    > [!NOTE]
+    > Um espaço de trabalho habilitado a piscina SQL (anteriormente SQL DW) pode ser identificado através da ponta da ferramenta no centro de dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

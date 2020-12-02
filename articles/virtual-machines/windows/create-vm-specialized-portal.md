@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: 5a541dce94cc25958e3c3a6a058e015c8c5e3db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31677482660a48e2bb4c71b81b04681eba725fcd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283253"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455131"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Criar um VM a partir de um VHD utilizando o portal Azure
 
@@ -26,7 +26,10 @@ Existem várias formas de criar uma máquina virtual (VM) em Azure:
  
 - Pode criar um VM Azure a partir de um VHD no local, carregando o VHD no local e ligando-o a um novo VM. Utiliza o PowerShell ou outra ferramenta para carregar o VHD numa conta de armazenamento e, em seguida, cria um disco gerido a partir do VHD. Para mais informações, consulte [upload de um VHD especializado.](create-vm-specialized.md#option-2-upload-a-specialized-vhd) 
 
-Não utilize um disco especializado se quiser criar vários VMs. Em vez disso, para implementações maiores, [crie uma imagem](capture-image-resource.md) e, em seguida, use essa imagem para criar [vários VMs](create-vm-generalized-managed.md).
+> [!IMPORTANT]
+> 
+> Quando se utiliza um disco especializado para criar um novo VM, o novo VM mantém o nome de computador do VM original. Outras informações específicas do computador (por exemplo, CMID) também são mantidas e, em alguns casos, esta informação duplicada pode causar problemas. Ao copiar um VM, esteja ciente de que tipos de informações específicas do computador as suas aplicações dependem.  
+> Assim, não utilize um disco especializado se quiser criar vários VMs. Em vez disso, para implementações maiores, [crie uma imagem](capture-image-resource.md) e, em seguida, use essa imagem para criar [vários VMs](create-vm-generalized-managed.md).
 
 Recomendamos que limite o número de implementações simultâneas a 20 VMs a partir de um único instantâneo ou VHD. 
 
@@ -64,7 +67,7 @@ Depois de ter o VHD de disco gerido que pretende utilizar, pode criar o VM no po
 5. Na página Basics para o novo VM, **insira** um **nome de máquina Virtual** e selecione um grupo de **Recursos** existente ou crie um novo.
 6. Para **tamanho**, selecione **Alterar tamanho** para aceder à página **Tamanho.**
 7. Selecione uma linha de tamanho VM e, em seguida, escolha **Selecione**.
-8. Na página **networking,** pode deixar o portal criar todos os novos recursos ou pode selecionar um grupo de **segurança virtual** e de **rede**existente. O portal cria sempre uma nova interface de rede e endereço IP público para o novo VM. 
+8. Na página **networking,** pode deixar o portal criar todos os novos recursos ou pode selecionar um grupo de **segurança virtual** e de **rede** existente. O portal cria sempre uma nova interface de rede e endereço IP público para o novo VM. 
 9. Na página **Gestão,** escame quaisquer alterações às opções de monitorização.
 10. Na página **de Configuração do Convidado,** adicione quaisquer extensões conforme necessário.
 11. Quando terminar, selecione **Review + create**. 

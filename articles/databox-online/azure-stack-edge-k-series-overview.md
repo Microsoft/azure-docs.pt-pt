@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 4bae9e28a22a99d092db2bf887f0cd790e04c52a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 23ec79b7e3989c9749edf98d930ad8305324c9da
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318569"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454012"
 ---
 # <a name="what-is-the-azure-stack-edge-mini-r"></a>O que é o Azure Stack Edge Mini R?
 
@@ -26,7 +26,7 @@ Este artigo fornece-lhe uma visão geral da solução Azure Stack Edge Mini R, c
 
 O Azure Stack Edge Mini R tem as seguintes capacidades:
 
-|Funcionalidade |Descrição  |
+|Funcionalidade |Description  |
 |---------|---------|
 |Hardware acidentado| Hardware robusto projetado para ambientes agressivos.|
 |Ultra portátil| Ultra portátil, fator de forma acionado por bateria.|
@@ -45,7 +45,7 @@ O Azure Stack Edge Mini R tem as seguintes capacidades:
 
 Aqui estão os vários cenários em que o Azure Stack Edge Mini R pode ser usado para a rápida aprendizagem automática (ML) inferenização na borda e dados de pré-processamento antes de enviá-lo para a Azure.
 
-- **Inferência com Azure Machine Learning** - Com O Azure Stack Edge Mini R, pode executar modelos ML para obter resultados rápidos que podem ser atuados antes de os dados serem enviados para a nuvem. O conjunto completo de dados pode opcionalmente ser transferido para continuar a treinar e melhorar os seus modelos ML. Para obter mais informações sobre como utilizar os modelos acelerados de hardware Azure ML no dispositivo Azure Stack Edge Mini R, consulte [os modelos acelerados de hardware Azure ML no Azure Stack Edge Mini R](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Inferência com Azure Machine Learning** - Com O Azure Stack Edge Mini R, pode executar modelos ML para obter resultados rápidos que podem ser atuados antes de os dados serem enviados para a nuvem. O conjunto completo de dados pode opcionalmente ser transferido para continuar a treinar e melhorar os seus modelos ML. Para obter mais informações sobre como utilizar os modelos acelerados de hardware Azure ML no dispositivo Azure Stack Edge Mini R, consulte [os modelos acelerados de hardware Azure ML no Azure Stack Edge Mini R](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
 
 - **Dados de pré-processamento** - Transforme os dados através de opções de computação, tais como contentores ou máquinas virtuais, antes de os enviar para a Azure para criar um conjunto de dados mais aactivo. O pré-processamento pode ser utilizado para:
 
@@ -83,5 +83,3 @@ Dispositivo físico Azure Stack Edge Mini R, recurso Azure e conta de armazename
 ## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os requisitos do [sistema Azure Stack Edge Mini R](azure-stack-edge-gpu-system-requirements.md).
-
-

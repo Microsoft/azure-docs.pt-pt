@@ -4,12 +4,12 @@ description: Configure uma ação GitHub que automatiza passos para construir, e
 ms.topic: article
 ms.date: 08/20/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 221ecbe5fbe2cdea4105362c43a5765bcc298d46
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0068b9869e5ef7a3b6c0fd21c1b69cdae1d4ab4b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843660"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454823"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Configurar uma ação do GitHub para criar uma instância de contentor
 
@@ -56,7 +56,7 @@ No fluxo de trabalho GitHub, você precisa fornecer credenciais Azure para auten
 Primeiro, obtenha a identificação de recursos do seu grupo de recursos. Substitua o nome do seu grupo no seguinte comando [de exibição de grupo az:][az-group-show]
 
 ```azurecli
-groupId=$(az group show \
+$groupId=$(az group show \
   --name <resource-group-name> \
   --query id --output tsv)
 ```

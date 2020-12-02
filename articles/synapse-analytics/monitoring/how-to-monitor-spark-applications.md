@@ -6,17 +6,17 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 10/16/2020
+ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 72fe7965f3e2b7ce0cdd53e4ec6e122e5bcbc6ee
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c1545efc43d034dba5b8ffe8d19b9bbee95dff68
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746266"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455471"
 ---
-# <a name="use-synapse-studio-preview-to-monitor-your-apache-spark-applications"></a>Use o Synapse Studio (pré-visualização) para monitorizar as suas aplicações Apache Spark
+# <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Use o Synapse Studio para monitorizar as suas aplicações Apache Spark
 
 Com a Azure Synapse Analytics, você pode usar a Spark para executar cadernos, empregos e outros tipos de aplicações nas suas piscinas Spark no seu espaço de trabalho.
 
@@ -41,8 +41,6 @@ Selecione **as aplicações Apache Spark** para ver a lista de aplicações apac
 Pode filtrar a lista de aplicações apache spark para as que lhe interessam. Os filtros na parte superior do ecrã permitem especificar um campo no qual gostaria de filtrar.
 
 Por exemplo, pode filtrar a vista para ver apenas as aplicações Apache Spark que contêm o nome "vendas":
-
-![Botão de filtro](./media/common/filter-button.png)
 
 ![Filtro de amostra](./media/how-to-monitor-spark-applications/filter-example.png)
 

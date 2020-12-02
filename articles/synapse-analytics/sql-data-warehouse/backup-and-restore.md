@@ -1,40 +1,40 @@
 ---
 title: Backup e restauro - instantâneos, geo-redundantes
-description: Saiba como o backup e o restauro funcionam na piscina Azure Synapse Analytics SQL. Utilize cópias de segurança para restaurar o seu armazém de dados para um ponto de restauro na região primária. Use backups geo-redundantes para restaurar uma região geográfica diferente.
+description: Saiba como o backup e o restauro funcionam na piscina dedicada SQL da Azure Synapse Analytics. Utilize cópias de segurança para restaurar o seu armazém de dados para um ponto de restauro na região primária. Use backups geo-redundantes para restaurar uma região geográfica diferente.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 03/04/2020
-ms.author: anjangsh
+ms.date: 11/13/2020
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: d4a08035b03c104555c39311bfb812218cca44b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 254e07d5a3266927c9677107772b4ac2dbfd2ce0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85482552"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454394"
 ---
-# <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Backup e restauro na piscina Azure Synapse SQL
+# <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Backup e restauro na piscina SQL dedicada Azure Synapse
 
-Aprenda a usar backup e restaurar na piscina Azure Synapse SQL. Utilize pontos de restauro de piscina SQL para recuperar ou copiar o seu armazém de dados para um estado anterior na região primária. Utilize backups geo redundantes de armazém de dados para restaurar uma região geográfica diferente.
+Aprenda a usar backup e restaurar na piscina Azure Synapse Dedicada SQL. Utilize pontos de restauro de piscinas SQL dedicados para recuperar ou copiar o seu armazém de dados para um estado anterior na região primária. Utilize backups geo redundantes de armazém de dados para restaurar uma região geográfica diferente.
 
 ## <a name="what-is-a-data-warehouse-snapshot"></a>O que é um instantâneo de armazém de dados
 
-Um *instantâneo de armazém de dados* cria um ponto de restauro que pode aproveitar para recuperar ou copiar o seu armazém de dados para um estado anterior.  Uma vez que a piscina SQL é um sistema distribuído, um instantâneo de armazém de dados consiste em muitos ficheiros que estão localizados no armazenamento do Azure. As imagens captam alterações incrementais dos dados armazenados no seu armazém de dados.
+Um *instantâneo de armazém de dados* cria um ponto de restauro que pode aproveitar para recuperar ou copiar o seu armazém de dados para um estado anterior.  Uma vez que a piscina SQL dedicada é um sistema distribuído, um instantâneo de armazém de dados consiste em muitos ficheiros que estão localizados no armazenamento do Azure. As imagens captam alterações incrementais dos dados armazenados no seu armazém de dados.
 
-Um *armazém de dados* restaurado é um novo armazém de dados que é criado a partir de um ponto de restauração de um armazém de dados existente ou eliminado. Restaurar o seu armazém de dados é uma parte essencial de qualquer estratégia de continuidade de negócios e recuperação de desastres porque recria os seus dados após corrupção acidental ou eliminação. O armazém de dados é também um mecanismo poderoso para criar cópias do seu armazém de dados para fins de teste ou desenvolvimento.  As taxas de restauro da piscina SQL podem variar dependendo do tamanho da base de dados e da localização do armazém de dados de origem e alvo.
+Um *armazém de dados* restaurado é um novo armazém de dados que é criado a partir de um ponto de restauração de um armazém de dados existente ou eliminado. Restaurar o seu armazém de dados é uma parte essencial de qualquer estratégia de continuidade de negócios e recuperação de desastres porque recria os seus dados após corrupção acidental ou eliminação. O armazém de dados é também um mecanismo poderoso para criar cópias do seu armazém de dados para fins de teste ou desenvolvimento. As taxas de restauro de piscinas SQL dedicadas podem variar dependendo do tamanho e localização da base de dados do armazém de dados de origem e destino.
 
 ## <a name="automatic-restore-points"></a>Pontos de Restauro Automático
 
-Os instantâneos são uma característica incorporada que cria pontos de restauro. Não tens de ativar esta capacidade. No entanto, a piscina SQL deve estar em estado ativo para a criação de pontos de restauração. Se a piscina SQL for pausada frequentemente, não podem ser criados pontos de restauro automáticos, por isso certifique-se de criar um ponto de restauro definido pelo utilizador antes de fazer uma pausa na piscina SQL. Os pontos de restauro automáticos não podem ser atualmente eliminados pelos utilizadores, uma vez que o serviço utiliza estes pontos de restauro para manter as SLAs para recuperação.
+Os instantâneos são uma característica incorporada que cria pontos de restauro. Não tens de ativar esta capacidade. No entanto, a piscina de SQL dedicada deve estar em estado ativo para a criação de pontos de restauração. Se for pausado com frequência, não podem ser criados pontos de restauro automáticos, por isso certifique-se de criar um ponto de restauro definido pelo utilizador antes de fazer uma pausa na piscina SQL dedicada. Os pontos de restauro automáticos não podem ser atualmente eliminados pelos utilizadores, uma vez que o serviço utiliza estes pontos de restauro para manter as SLAs para recuperação.
 
-As fotos do seu armazém de dados são tiradas ao longo do dia criando pontos de restauração que estão disponíveis durante sete dias. Este período de retenção não pode ser alterado. A piscina SQL suporta um objetivo de oito horas de ponto de recuperação (RPO). Pode restaurar o seu armazém de dados na região primária a partir de qualquer um dos instantâneos tirados nos últimos sete dias.
+As fotos do seu armazém de dados são tiradas ao longo do dia criando pontos de restauração que estão disponíveis durante sete dias. Este período de retenção não pode ser alterado. A piscina dedicada SQL suporta um objetivo de oito horas de ponto de recuperação (RPO). Pode restaurar o seu armazém de dados na região primária a partir de qualquer um dos instantâneos tirados nos últimos sete dias.
 
-Para ver quando a última foto começou, execute esta consulta na sua piscina SQL on-line.
+Para ver quando a última foto começou, execute esta consulta na sua piscina SQL dedicada online.
 
 ```sql
 select   top 1 *
@@ -48,28 +48,28 @@ order by run_id desc
 Esta funcionalidade permite-lhe ativar manualmente instantâneos para criar pontos de restauro do seu armazém de dados antes e depois de grandes modificações. Esta capacidade garante que os pontos de restauro são logicamente consistentes, o que fornece proteção adicional de dados em caso de interrupções de carga de trabalho ou erros do utilizador para um tempo de recuperação rápida. Os pontos de restauro definidos pelo utilizador estão disponíveis durante sete dias e são automaticamente eliminados em seu nome. Não é possível alterar o período de retenção dos pontos de restauro definidos pelo utilizador. **42 pontos de restauro definidos** pelo utilizador são garantidos a qualquer momento, pelo que devem ser [eliminados](https://go.microsoft.com/fwlink/?linkid=875299) antes de criar outro ponto de restauro. Pode ativar instantâneos para criar pontos de restauro definidos pelo utilizador através do [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) ou do portal Azure.
 
 > [!NOTE]
-> Se necessitar de pontos de restauro superiores a 7 dias, por favor vote nesta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Também pode criar um ponto de restauro definido pelo utilizador e restaurar do ponto de restauro recém-criado para um novo armazém de dados. Uma vez restaurado, tem a piscina SQL on-line e pode fazer uma pausa indefinidamente para economizar custos de cálculo. A base de dados pausada incorre em encargos de armazenamento à taxa de armazenamento Azure Premium. Se precisar de uma cópia ativa do armazém de dados restaurado, pode retomar o que deve demorar apenas alguns minutos.
+> Se necessitar de pontos de restauro superiores a 7 dias, por favor vote nesta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Também pode criar um ponto de restauro definido pelo utilizador e restaurar do ponto de restauro recém-criado para um novo armazém de dados. Uma vez restaurado, você tem a piscina SQL dedicada on-line e pode fazê-lo indefinidamente para economizar custos de cálculo. A base de dados pausada incorre em encargos de armazenamento à taxa de armazenamento Azure Premium. Se precisar de uma cópia ativa do armazém de dados restaurado, pode retomar o que deve demorar apenas alguns minutos.
 
 ### <a name="restore-point-retention"></a>Restaurar a retenção de pontos
 
 As seguintes listas listam os detalhes para períodos de retenção de pontos de restauração:
 
-1. A piscina SQL elimina um ponto de restauro quando atinge o período de retenção de 7 dias **e** quando existem pelo menos 42 pontos de restauro total (incluindo o definido pelo utilizador e o automático).
-2. As fotografias não são tiradas quando uma piscina SQL é pausada.
+1. A piscina SQL dedicada elimina um ponto de restauro quando atinge o período de retenção de 7 dias **e** quando existem pelo menos 42 pontos de restauro total (incluindo o definido pelo utilizador e o automático).
+2. As fotografias não são tiradas quando uma piscina SQL dedicada é pausada.
 3. A idade de um ponto de restauração é medida pelos dias de calendário absoluto a partir do momento em que o ponto de restauração é tomado, incluindo quando a piscina SQL é pausada.
-4. Em qualquer momento, uma piscina SQL é garantida para ser capaz de armazenar até 42 pontos de restauro definidos pelo utilizador e 42 pontos de restauro automáticos, desde que estes pontos de restauro não tenham atingido o período de retenção de 7 dias
-5. Se um instantâneo for tirado, a piscina SQL é então pausada por mais de 7 dias, e depois retoma, o ponto de restauro persistirá até que existam 42 pontos de restauro total (incluindo definidos pelo utilizador e automáticos)
+4. Em qualquer momento, um pool DE SQL dedicado é garantido para ser capaz de armazenar até 42 pontos de restauro definidos pelo utilizador e 42 pontos de restauro automáticos, desde que estes pontos de restauro não tenham atingido o período de retenção de 7 dias
+5. Se um instantâneo for tirado, a piscina de SQL dedicada é então pausada por mais de 7 dias, e depois retomada, o ponto de restauro persistirá até que existam 42 pontos de restauro total (incluindo definidos pelo utilizador e automáticos)
 
 ### <a name="snapshot-retention-when-a-sql-pool-is-dropped"></a>Retenção instantânea quando uma piscina SQL é largada
 
-Quando se deixa cair uma piscina SQL, uma foto final é criada e guardada durante sete dias. Pode restaurar a piscina SQL até ao ponto de restauro final criado na eliminação. Se a piscina SQL for largada em estado de pausa, não é tirada nenhuma fotografia. Nesse cenário, certifique-se de criar um ponto de restauro definido pelo utilizador antes de deixar cair a piscina SQL.
+Quando você larga uma piscina SQL dedicada, um instantâneo final é criado e guardado por sete dias. Pode restaurar a piscina SQL dedicada ao ponto de restauro final criado na eliminação. Se a piscina SQL dedicada for largada em estado de pausa, não é tirada nenhuma fotografia. Nesse cenário, certifique-se de criar um ponto de restauro definido pelo utilizador antes de deixar cair a piscina SQL dedicada.
 
 > [!IMPORTANT]
-> Se eliminar o servidor que hospeda uma piscina SQL, todas as bases de dados que pertencem ao servidor também são eliminadas e não podem ser recuperadas. Não é possível restaurar um servidor apagado.
+> Se eliminar o servidor/espaço de trabalho que alberga uma piscina SQL dedicada, todas as bases de dados que pertencem ao servidor/espaço de trabalho também são eliminadas e não podem ser recuperadas. Não é possível restaurar um servidor apagado.
 
 ## <a name="geo-backups-and-disaster-recovery"></a>Geo-backups e recuperação de desastres
 
-Um geo-backup é criado uma vez por dia para um [centro de dados emparelhado](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). A RPO para um geo-restauro é de 24 horas. Pode restaurar o geo-backup para um servidor em qualquer outra região onde a piscina SQL é suportada. Um geo-backup garante que pode restaurar o armazém de dados no caso de não conseguir aceder aos pontos de restauro na sua região primária.
+Um geo-backup é criado uma vez por dia para um [centro de dados emparelhado](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). A RPO para um geo-restauro é de 24 horas. Pode restaurar o geo-backup para um servidor em qualquer outra região onde a piscina SQL dedicada é suportada. Um geo-backup garante que pode restaurar o armazém de dados no caso de não conseguir aceder aos pontos de restauro na sua região primária.
 
 > [!NOTE]
 > Se necessitar de um RPO mais curto para geo-backups, vote nesta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse). Também pode criar um ponto de restauro definido pelo utilizador e restaurar do ponto de restauro recém-criado para um novo armazém de dados numa região diferente. Uma vez restaurado, tem o armazém de dados on-line e pode fazê-lo indefinidamente para economizar custos de cálculo. A base de dados pausada incorre em encargos de armazenamento à taxa de armazenamento Azure Premium. Se precisar de uma cópia ativa do armazém de dados, pode retomar o que deve demorar apenas alguns minutos.
@@ -88,9 +88,9 @@ Para obter mais informações sobre os preços da Azure Synapse, consulte [os pr
 
 Cada instantâneo cria um ponto de restauro que representa o tempo que o instantâneo começou. Para restaurar um armazém de dados, você escolhe um ponto de restauro e emite um comando de restauro.  
 
-Pode manter o armazém de dados restaurado e o atual, ou apagar um deles. Se pretender substituir o armazém de dados atual pelo armazém de dados restaurado, pode renomeá-lo utilizando [a ALTER DATABASE (pool SQL)](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) com a opção NOME MODIFICAR.
+Pode manter o armazém de dados restaurado e o atual, ou apagar um deles. Se pretender substituir o atual armazém de dados pelo armazém de dados restaurado, pode renomeá-lo utilizando [a BASE DE DADOS ALTER](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) com a opção MODIFICAR NOME.
 
-Para restaurar um armazém de dados, consulte [restaurar uma piscina SQL.](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal)
+Para restaurar um armazém de dados, consulte [restaurar uma piscina SQL dedicada.](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal)
 
 Para restaurar um armazém de dados eliminado ou pausado, pode [criar um bilhete de apoio.](sql-data-warehouse-get-started-create-support-ticket.md)
 
@@ -100,7 +100,7 @@ Se precisar de restaurar diretamente através da subscrição, vote nesta capaci
 
 ## <a name="geo-redundant-restore"></a>Restauro geo-redundante
 
-Você pode [restaurar a sua piscina SQL](sql-data-warehouse-restore-from-geo-backup.md#restore-from-an-azure-geographical-region-through-powershell) para qualquer região que suporte piscina SQL ao nível de desempenho escolhido.
+Você pode [restaurar a sua piscina SQL dedicada](sql-data-warehouse-restore-from-geo-backup.md#restore-from-an-azure-geographical-region-through-powershell) a qualquer região que suporte piscina SQL dedicada ao seu nível de desempenho escolhido.
 
 > [!NOTE]
 > Para realizar uma restauração geo-redundante não deve ter optado por sair desta funcionalidade.

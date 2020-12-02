@@ -1,6 +1,6 @@
 ---
 title: Autenticação do Azure Active Directory
-description: Saiba como utilizar o Azure Ative Directy para autenticação com Azure SQL Database, Azure SQL Managed Instance e Azure Synapse Analytics
+description: Saiba como utilizar o Azure Ative Directy para autenticação com Azure SQL Database, Azure SQL Managed Instance e Synapse SQL in Azure Synapse Analytics
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
@@ -11,18 +11,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
-ms.openlocfilehash: a57de3d6beda5336f480f20137a9ccaa014b012d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a636c0e2a41b636f30ada14d4f16a022f2890b71
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675087"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454294"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Utilize a autenticação do Diretório Ativo Azure
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-A autenticação Azure Ative Directory (Azure AD) é um mecanismo de ligação à [Base de Dados Azure SQL](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), e [Azure Synapse Analytics (anteriormente SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) utilizando identidades em Azure AD.
+A autenticação Azure Ative Directory (Azure AD) é um mecanismo de ligação à [Base de Dados Azure SQL](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), e [Synapse SQL in Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) utilizando identidades em Azure AD.
 
 > [!NOTE]
 > Este artigo aplica-se à Base de Dados Azure SQL, SQL Managed Instance e Azure Synapse Analytics.
@@ -61,7 +61,7 @@ As etapas de configuração incluem os seguintes procedimentos para configurar e
 6. Conecte-se à sua base de dados utilizando identidades Azure AD.
 
 > [!NOTE]
-> Para aprender a criar e povoar a Azure AD, e depois configurar a Azure AD com Azure SQL Database, SQL Managed Instance e Azure Synapse, consulte [Configure Azure AD com Azure SQL Database](authentication-aad-configure.md).
+> Para aprender a criar e povoar a AD AD, e depois configurar a Azure AD com Azure SQL Database, SQL Managed Instance e Synapse SQL in Azure Synapse Analytics, consulte [Configure Azure AD com Base de Dados Azure SQL](authentication-aad-configure.md).
 
 ## <a name="trust-architecture"></a>Confie na arquitetura
 
@@ -153,7 +153,7 @@ Os seguintes métodos de autenticação são suportados para os principais servi
   - A adição de principais servidores AD (logins) para SQL Managed Instance permite a possibilidade de criar vários principais servidores AD Azure (logins) que podem ser adicionados à `sysadmin` função.
 - Apenas um administrador AD AZure para o servidor pode inicialmente ligar-se ao servidor ou caso gerido usando uma conta do Azure Ative Directory. O administrador ative directory pode configurar os utilizadores subsequentes da base de dados Azure AD.
 - Recomendamos que se ajuste o tempo limite de ligação para 30 segundos.
-- SQL Server 2016 Management Studio e SQL Server Data Tools for Visual Studio 2015 (versão 14.0.60311.1April 2016 ou posterior) suportam a autenticação do Azure Ative Directory. (A autenticação AZURE AD é suportada pelo **Fornecedor de Dados-Quadro .NET para SqlServer** ; pelo menos versão .NET Framework 4.6). Por isso, as versões mais recentes destas ferramentas e aplicações de nível de dados (DAC e BACPAC) podem utilizar a autenticação AD Azure.
+- SQL Server 2016 Management Studio e SQL Server Data Tools for Visual Studio 2015 (versão 14.0.60311.1April 2016 ou posterior) suportam a autenticação do Azure Ative Directory. (A autenticação AZURE AD é suportada pelo **Fornecedor de Dados-Quadro .NET para SqlServer**; pelo menos versão .NET Framework 4.6). Por isso, as versões mais recentes destas ferramentas e aplicações de nível de dados (DAC e BACPAC) podem utilizar a autenticação AD Azure.
 - Começando com a versão 15.0.1, [utilitário sqlcmd](/sql/tools/sqlcmd-utility) e suporte [de utilitário do BCP](/sql/tools/bcp-utility) Ative Directy Interactive autenticação com autenticação multi-factor.
 - As Ferramentas de Dados do Servidor SQL para o Visual Studio 2015 requerem pelo menos a versão abril de 2016 das Ferramentas de Dados (versão 14.0.60311.1). Atualmente, os utilizadores de Azure AD não são mostrados no SSDT Object Explorer. Como solução alternativa, veja os utilizadores em [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql).
 - [O Microsoft JDBC Driver 6.0 para o SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) suporta a autenticação AD AZure. Consulte também [a Definição das Propriedades de Ligação](/sql/connect/jdbc/setting-the-connection-properties).

@@ -9,16 +9,16 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 2597aa1f0589fea75af0a3ac41244e3718d5eb3e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a5d84b936679cdd5ebd5bec4938d6db7fcb641e7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307962"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455503"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>Quickstart: Criar um novo serviço de aprendizagem automática Azure em Synapse
 
-Neste arranque rápido, você vai ligar um espaço de trabalho Synapse Analytics a um espaço de trabalho Azure Machine Learning. A ligação destes espaços de trabalho permite-lhe alavancar o Azure Machine Learning a partir de várias experiências na Synapse.
+Neste arranque rápido, você vai ligar um espaço de trabalho Azure Synapse Analytics a um espaço de trabalho Azure Machine Learning. A ligação destes espaços de trabalho permite-lhe alavancar o Azure Machine Learning a partir de várias experiências na Synapse.
 
 Por exemplo, esta ligação a um espaço de trabalho de aprendizagem automática Azure permite estas experiências:
 
@@ -80,4 +80,4 @@ Este passo vai criar um novo diretor de serviços. Se quiser utilizar um diretor
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Assistente de pontuação de modelo de machine learning - piscina de SQL dedicada](tutorial-sql-pool-model-scoring-wizard.md)
-- [Capacidades de aprendizagem automática em Azure Synapse Analytics (pré-visualização de espaços de trabalho)](what-is-machine-learning.md)
+- [Capacidades de aprendizagem automática em Azure Synapse Analytics](what-is-machine-learning.md)

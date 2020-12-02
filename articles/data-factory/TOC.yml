@@ -257,9 +257,9 @@
           href: connector-azure-file-storage.md
         - name: Base de Dados SQL do Azure
           href: connector-azure-sql-database.md
-        - name: Instância Gerida do Azure SQL
+        - name: Instância Gerida do SQL do Azure
           href: connector-azure-sql-managed-instance.md
-        - name: Azure Synapse Analytics (anteriormente SQL Data Warehouse)
+        - name: Azure Synapse Analytics
           href: connector-azure-sql-data-warehouse.md
         - name: Table Storage do Azure
           href: connector-azure-table-storage.md

@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: 64bef8a1cd4353ed9602c36cf728a0d727458251
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 512f6044e46fba49ea1c63a89d11135751e7ce43
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675135"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455982"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Criar alertas para a Base de Dados Azure SQL e Azure Synapse Analytics utilizando o portal Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "92675135"
 
 ## <a name="overview"></a>Descrição geral
 
-Este artigo mostra como configurar alertas para bases de dados na Base de Dados Azure SQL e Azure Synapse Analytics (antigo ARMAZÉM DE DADOS SQL) utilizando o portal Azure. Os alertas podem enviar-lhe um e-mail ou chamar um gancho web quando alguma métrica (por exemplo, tamanho da base de dados ou utilização do CPU) atinge o limiar.
+Este artigo mostra como configurar alertas para bases de dados em Azure SQL Database e Azure Synapse Analytics usando o portal Azure. Os alertas podem enviar-lhe um e-mail ou chamar um gancho web quando alguma métrica (por exemplo, tamanho da base de dados ou utilização do CPU) atinge o limiar.
 
 > [!NOTE]
 > Para obter instruções específicas para a Azure SQL, consulte [criar alertas para a exemplo gerida do Azure SQL](../managed-instance/alerts-create.md).
@@ -57,13 +57,13 @@ Pode configurar e obter informações sobre regras de alerta usando
 3. Selecione o botão **nova regra de alerta** para abrir a página regra **Criar.**
   ![Criar regra](./media/alerts-insights-configure-portal/create-rule.png)
 
-4. Na secção **Condição,** clique em **Adicionar** .
+4. Na secção **Condição,** clique em **Adicionar**.
   ![Definir condição](./media/alerts-insights-configure-portal/create-rule.png)
 5. Na página lógica de **sinal de configuração,** selecione um sinal.
   ![Selecione sinal](./media/alerts-insights-configure-portal/select-signal.png)
 6. Depois de selecionar um sinal, como **a percentagem de CPU,** aparece a página lógica de **sinal de configuração.**
   ![Configurar lógica de sinal](./media/alerts-insights-configure-portal/configure-signal-logic.png)
-7. Nesta página, configurar esse tipo de limiar, operador, tipo de agregação, valor limiar, granularidade agregação e frequência de avaliação. Em seguida, clique em **Fazer** .
+7. Nesta página, configurar esse tipo de limiar, operador, tipo de agregação, valor limiar, granularidade agregação e frequência de avaliação. Em seguida, clique em **Fazer**.
 8. Na **regra Criar,** selecione um grupo de **Ação** existente ou crie um novo grupo. Um grupo de ação permite-lhe definir as medidas a tomar quando ocorre uma condição de alerta.
   ![Definir grupo de ação](./media/alerts-insights-configure-portal/action-group.png)
 

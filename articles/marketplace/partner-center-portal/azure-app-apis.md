@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 87f27f316914f3efce5a750f50471c65dceca84e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9863ed24da9e427f885a4794bda7e103b0c1cc8e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127846"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455450"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>Parceiro Center submissão API para apps Azure a bordo no Partner Center
 
@@ -43,7 +43,7 @@ Para utilizar a API de submissão da Microsoft Store, deve associar uma aplicaç
 1. No Partner Center, [associe a conta partner center da sua organização com o diretório AD da sua organização.](/windows/uwp/publish/associate-azure-ad-with-partner-center)
 1. Em seguida, a partir da página **de Utilizadores** na secção de **definições** de Conta do Partner Center, [adicione a aplicação AD Azure](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#add-azure-ad-applications-to-your-partner-center-account) que representa a app ou serviço que utilizará para aceder às submissões para a sua conta Partner Center. Certifique-se de atribuir esta aplicação à função **Manager.** Se a aplicação ainda não existir no seu diretório AD Azure, pode [criar uma nova aplicação AD AZure no Partner Center](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account).
 1. Volte à página **do Utilizadores,** clique no nome da sua aplicação AD Azure para ir às definições da aplicação e copie os valores de ID e **Identificação** do Cliente do **Inquilino.**
-1. Clique **Em Adicionar nova tecla** . No ecrã seguinte, copie o valor **chave.** Não poderá aceder a esta informação novamente depois de sair desta página. Para obter mais informações, consulte [gerir as teclas para uma aplicação AD Azure](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
+1. Clique **Em Adicionar nova tecla**. No ecrã seguinte, copie o valor **chave.** Não poderá aceder a esta informação novamente depois de sair desta página. Para obter mais informações, consulte [gerir as teclas para uma aplicação AD Azure](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
 
 ### <a name="step-2-obtain-an-azure-ad-access-token"></a>Passo 2: Obter um token de acesso AD Azure
 
@@ -73,5 +73,5 @@ https://apidocs.microsoft.com/services/partneringestion/
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como criar [um ativo técnico Azure VM](create-azure-container-technical-assets.md)
-* Saiba como criar uma oferta de [recipiente azure](create-azure-container-offer.md)
+* Saiba como criar [um ativo técnico Azure VM](../create-azure-container-technical-assets.md)
+* Saiba como criar uma oferta de [recipiente azure](../create-azure-container-offer.md)

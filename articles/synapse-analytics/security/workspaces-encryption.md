@@ -8,17 +8,17 @@ ms.subservice: security
 ms.date: 11/19/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
-ms.openlocfilehash: 17dbdbbef45e0068601835197a1177ee20d98ca3
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: a6ea3925f3b6bc786be6a4855b2f3bfb6b402d70
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296799"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455183"
 ---
-# <a name="encryption-for-azure-synapse-analytics-workspaces-preview"></a>Encriptação para Azure Synapse Analytics (pré-visualização de espaços de trabalho)
+# <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Encriptação para espaços de trabalho Azure Synapse Analytics
 
 Este artigo descreverá:
-* Encriptação de dados em repouso em espaços de trabalho Azure Synapse Analytics.
+* Encriptação de dados em repouso em espaços de trabalho Synapse Analytics.
 * Configuração de espaços de trabalho synapse para permitir encriptação com uma chave gerida pelo cliente.
 * Chaves de gestão usadas para encriptar dados em espaços de trabalho.
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1, automl
-ms.openlocfilehash: f4546433f5bd20e2f001d6d868d8adfb4b9bf8c0
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: b03eb8015d318471cf8bf11fc5a3cd94044d2cfe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920377"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455592"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 
@@ -46,7 +46,7 @@ Para este artigo que precisa,
     Para instalar o SDK pode, 
     * Crie uma instância computacional, que instala automaticamente o SDK e está pré-configurada para fluxos de trabalho ML. Consulte [Criar e gerir uma instância de cálculo de Aprendizagem automática Azure](how-to-create-manage-compute-instance.md) para obter mais informações. 
 
-    * [Instale `automl` o pacote por si mesmo,](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment)que inclui a [instalação predefinição](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py#default-install&preserve-view=true) do SDK.
+    * [Instale `automl` o pacote por si mesmo,](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment)que inclui a [instalação predefinição](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py#default-install) do SDK.
 
 ## <a name="select-your-experiment-type"></a>Selecionar o tipo de experimentação
 

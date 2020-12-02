@@ -1,6 +1,6 @@
 ---
 title: Limites de memória e concência
-description: Ver os limites de memória e de concordância atribuídos aos vários níveis de desempenho e classes de recursos em Azure Synapse Analytics.
+description: Veja os limites de memória e de concordância atribuídos aos vários níveis de desempenho e classes de recursos para piscina SQL dedicada em Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 5b72694f93ed5b712a0f684887df5b69a7b35c72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb0ad93fb4a1269b4cca02b114c0427f0c44a31b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441685"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455343"
 ---
-# <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limites de memória e concência para Azure Synapse Analytics
+# <a name="memory-and-concurrency-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Limites de memória e concuência para piscina SQL dedicada em Azure Synapse Analytics
 
 Ver os limites de memória e de concordância atribuídos aos vários níveis de desempenho e classes de recursos em Azure Synapse Analytics.  
 

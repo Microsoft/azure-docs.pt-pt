@@ -12,18 +12,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: c5caf48dd4e2860ec5f4815eb38629ad66391a2c
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 5558480f568e802637deb30c9f1b41c00826c9b5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990113"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454493"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configure e gere a autenticação AD AD com Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Este artigo mostra-lhe como criar e povoar um exemplo de Diretório Ativo Azure (Azure AD) e, em seguida, usar Azure AD com [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), e [Azure Synapse Analytics (anteriormente SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Para uma visão geral, consulte [a autenticação do Azure Ative Directory](authentication-aad-overview.md).
+Este artigo mostra-lhe como criar e povoar um exemplo de Diretório Ativo Azure (Azure AD) e, em seguida, usar Azure AD com [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), e [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Para uma visão geral, consulte [a autenticação do Azure Ative Directory](authentication-aad-overview.md).
 
 ## <a name="azure-ad-authentication-methods"></a>Métodos de autenticação AD AZure
 
@@ -532,7 +532,7 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 
 As orientações sobre problemas de resolução de problemas com a autenticação AZure AD podem ser encontradas no seguinte blog: <https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral de logins, utilizadores, funções de base de dados e permissões na Base de Dados SQL, consulte [Logins, utilizadores, funções de base de dados e contas de utilizador.](logins-create-manage.md)
 - Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](/sql/relational-databases/security/authentication-access/principals-database-engine).

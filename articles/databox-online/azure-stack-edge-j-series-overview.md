@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 11ed87f8cf5aabb86f709d938acc4c31b737ca91
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d95c4bb0345051cc79dadca5fa7cc11932a9512a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318602"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454036"
 ---
 # <a name="what-is-the-azure-stack-edge-pro-r"></a>O que é o Azure Stack Edge Pro R?
 
@@ -26,7 +26,7 @@ Este artigo fornece-lhe uma visão geral da solução Azure Stack Edge Pro R, ca
 
 Azure Stack Edge Pro R tem as seguintes capacidades:
 
-|Funcionalidade |Descrição  |
+|Funcionalidade |Description  |
 |---------|---------|
 |Hardware acidentado| Hardware de classe de servidor acidentado projetado para ambientes agressivos. Dispositivo contido num caso de trânsito portátil. |
 |Gerido em nuvem     |O dispositivo e o serviço são geridos através do portal Azure.|
@@ -45,7 +45,7 @@ Azure Stack Edge Pro R tem as seguintes capacidades:
 
 Aqui estão os vários cenários em que o Azure Stack Edge Pro R pode ser usado para a rápida aprendizagem automática (ML) inferenização na borda e dados de pré-processamento antes de enviá-lo para a Azure.
 
-- **Inferência com Azure Machine Learning** - Com Azure Stack Edge Pro R, pode executar modelos ML para obter resultados rápidos que podem ser atuados antes de os dados serem enviados para a nuvem. O conjunto completo de dados pode opcionalmente ser transferido para continuar a treinar e melhorar os seus modelos ML. Para obter mais informações sobre como utilizar os modelos acelerados de hardware Azure ML no dispositivo Azure Stack Edge Pro R, consulte [os modelos acelerados de hardware Azure ML no Azure Stack Edge Pro R](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Inferência com Azure Machine Learning** - Com Azure Stack Edge Pro R, pode executar modelos ML para obter resultados rápidos que podem ser atuados antes de os dados serem enviados para a nuvem. O conjunto completo de dados pode opcionalmente ser transferido para continuar a treinar e melhorar os seus modelos ML. Para obter mais informações sobre como utilizar os modelos acelerados de hardware Azure ML no dispositivo Azure Stack Edge Pro R, consulte [os modelos acelerados de hardware Azure ML no Azure Stack Edge Pro R](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
 
 - **Dados de pré-processamento** - Transforme os dados antes de enviá-los para a Azure para criar um conjunto de dados mais accível. O pré-processamento pode ser utilizado para:
 
@@ -83,4 +83,3 @@ Dispositivo físico Azure Stack Edge Pro R, recurso Azure e conta de armazenamen
 
 - Reveja os requisitos do [sistema Azure Stack Edge Pro R](azure-stack-edge-gpu-system-requirements.md).
 <!--- Understand the [Azure Stack Edge Pro R limits](azure-stack-edge-limits.md).-->
-

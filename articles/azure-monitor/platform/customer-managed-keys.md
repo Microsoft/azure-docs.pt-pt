@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/18/2020
-ms.openlocfilehash: c2a9dbb5fa821d408835cd1bcbf3e6afdade36e1
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: 17648b9bc973285764bb0bd6242506122a043780
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317491"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454257"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente do Azure Monitor 
 
@@ -43,7 +43,7 @@ Após a configuração, quaisquer dados ingeridos em espaços de trabalho ligado
 
 ![Customer-Managed visão geral chave](media/customer-managed-keys/cmk-overview.png)
 
-1. Key Vault
+1. Cofre de Chaves
 2. Log Analytics *Cluster* recurso tendo gerido identidade com permissões para Key Vault -- A identidade é propagada para o armazenamento de cluster de Log Analytics dedicado
 3. Cluster dedicado log analytics
 4. Espaços de trabalho ligados ao recurso *Cluster* 
@@ -656,6 +656,12 @@ Saiba mais sobre [o Lockbox do Cliente para o Microsoft Azure](../../security/fu
 
 - A ligação do espaço de trabalho ao cluster falhará se estiver ligada a outro cluster.
 
+- O Lockbox não está disponível na China atualmente. 
+
+- [A dupla encriptação](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) é configurada automaticamente para clusters criados a partir de outubro de 2020 em regiões apoiadas. Pode verificar se o seu cluster está configurado para encriptação dupla através de um pedido GET no cluster e observando o `"isDoubleEncryptionEnabled"` valor da propriedade - é para `true` clusters com encriptação dupla ativada. 
+  - Se criar um cluster e obter um erro "<nome da região> não suporta a Dupla Encriptação para clusters.", ainda pode criar o cluster sem a Double Encryption. Adicione `"properties": {"isDoubleEncryptionEnabled": false}` propriedade no corpo de pedido REST.
+  - A definição de encriptação dupla não pode ser alterada após a criação do cluster.
+
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 - Comportamento com disponibilidade de Cofre chave
@@ -682,10 +688,6 @@ Saiba mais sobre [o Lockbox do Cliente para o Microsoft Azure](../../security/fu
 - Algumas operações são longas e podem demorar algum tempo a concluir -- estas são criação de cluster, atualização da chave de cluster e eliminação de clusters. Pode verificar o estado da operação de duas formas:
   1. ao utilizar o REST, copie o valor de URL Azure-AsyncOperation da resposta e siga a verificação do estado das [operações assíncronos](#asynchronous-operations-and-status-check).
   2. Envie pedido GET para cluster ou espaço de trabalho e observe a resposta. Por exemplo, o espaço de trabalho desvinculado não terá o *clusterResourceId* sob *funcionalidades*.
-
-- [A dupla encriptação](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) é configurada automaticamente para clusters criados a partir de outubro de 2020 em regiões apoiadas. Pode verificar se o seu cluster está configurado para encriptação dupla através de um pedido GET no cluster e observando o `"isDoubleEncryptionEnabled"` valor da propriedade - é para `true` clusters com encriptação dupla ativada. 
-  - Se criar um cluster e obter um erro "<nome da região> não suporta a Dupla Encriptação para clusters.", ainda pode criar o cluster sem a Double Encryption. Adicione `"properties": {"isDoubleEncryptionEnabled": false}` o corpo de pedido DE REST.
-  - A definição de encriptação dupla não pode ser alterada após a criação do cluster.
 
 - Mensagens de erro
   

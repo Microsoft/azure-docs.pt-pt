@@ -7,18 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 3df7d3d01dcd5e5b097eba53ef0dae29e86fd0a5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cddc7f4f453f22b0cb36b1d3a1e9c2fba2dcabaf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973262"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455103"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Create a Windows VM from a specialized disk by using PowerShell (Utilizar o PowerShell para criar uma VM do Windows a partir de um disco especializado)
 
 Crie um novo VM anexando um disco gerido especializado como o disco DE. Um disco especializado é uma cópia de um disco rígido virtual (VHD) de um VM existente que contém as contas de utilizador, aplicações e outros dados do estado a partir do seu VM original. 
-
-Quando se utiliza um VHD especializado para criar um novo VM, o novo VM mantém o nome de computador do VM original. Outras informações específicas do computador também são mantidas e, em alguns casos, esta informação duplicada pode causar problemas. Ao copiar um VM, esteja ciente de que tipos de informações específicas do computador as suas aplicações dependem.
 
 Tem várias opções:
 * [Utilize um disco gerido existente.](#option-1-use-an-existing-disk) Esta opção é útil se tiver um VM que não esteja a funcionar corretamente. Pode eliminar o VM e depois reutilizar o disco gerido para criar um novo VM. 
@@ -28,6 +26,11 @@ Tem várias opções:
 Também pode utilizar o portal Azure para [criar um novo VM a partir de um VHD especializado.](create-vm-specialized-portal.md)
 
 Este artigo mostra-lhe como usar discos geridos. Se tiver uma implantação antiga que exija a utilização de uma conta de armazenamento, consulte [criar um VM a partir de um VHD especializado numa conta de armazenamento.](/previous-versions/azure/virtual-machines/windows/sa-create-vm-specialized)
+
+> [!IMPORTANT]
+> 
+> Quando se utiliza um disco especializado para criar um novo VM, o novo VM mantém o nome de computador do VM original. Outras informações específicas do computador (por exemplo, CMID) também são mantidas e, em alguns casos, esta informação duplicada pode causar problemas. Ao copiar um VM, esteja ciente de que tipos de informações específicas do computador as suas aplicações dependem.  
+> Assim, não utilize um disco especializado se quiser criar vários VMs. Em vez disso, para implementações maiores, [crie uma imagem](capture-image-resource.md) e, em seguida, use essa imagem para criar [vários VMs](create-vm-generalized-managed.md).
 
 Recomendamos que limite o número de implementações simultâneas a 20 VMs de um único VHD ou instantâneo. 
 

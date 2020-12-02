@@ -12,12 +12,12 @@ metadata:
   author: alkohli
   ms.author: alkohli
   ms.date: 09/08/2020
-  ms.openlocfilehash: 2995a94f1b56144afd191bc3e8eb97c2da4593ef
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 03072f5a30cdf73e1bdde695d3c034ac201aea3e
+  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90902991"
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96451091"
 landingContent:
 - title: Sobre o Azure Stack Edge e o Data Box Gateway
   linkLists:
@@ -36,9 +36,9 @@ landingContent:
   - linkListType: architecture
     links:
     - text: Escolher as opções de transferência de dados do Azure
-      url: /azure/storage/common/storage-choose-data-transfer-solution
+      url: ../storage/common/storage-choose-data-transfer-solution.md
     - text: Utilizar a transferência de rede ou offline
-      url: /azure/storage/common/storage-solution-large-dataset-low-network#offline-transfer-or-network-transfer
+      url: ../storage/common/storage-solution-large-dataset-low-network.md#offline-transfer-or-network-transfer
   - linkListType: whats-new
     links:
     - text: Notas de versão de 2009
@@ -80,7 +80,7 @@ landingContent:
   - linkListType: download
     links:
     - text: Exemplos - C# para Azure Stack Edge Pro GPU
-      url: https://docs.microsoft.com/samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
+      url: /samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
 - title: Gerir
   linkLists:
   - linkListType: how-to-guide

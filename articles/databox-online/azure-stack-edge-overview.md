@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/09/2020
 ms.author: alkohli
-ms.openlocfilehash: 7030030699668b3d316743955dabfb2cc175f6e1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 51469c23574f55c102f0c6fb98e5aa5178b59a4a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90893875"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455739"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-fpga"></a>O que é o Azure Stack Edge Pro com FPGA?
 
@@ -27,7 +27,7 @@ Azure Stack Edge Pro com FPGA é uma solução de Hardware-as-a-service. A Micro
 
 Aqui estão os vários cenários em que o Azure Stack Edge Pro pode ser usado para a rápida aprendizagem automática (ML) inferening on the edge and preprocessing data antes de enviá-lo para Azure.
 
-- **Inferência com Azure Machine Learning** - Com O Azure Stack Edge Pro, pode executar modelos ML para obter resultados rápidos que podem ser atuados antes de os dados serem enviados para a nuvem. O conjunto completo de dados pode opcionalmente ser transferido para continuar a treinar e melhorar os seus modelos ML. Para obter mais informações sobre como utilizar os modelos acelerados de hardware Azure ML no dispositivo Azure Stack Edge Pro, consulte [os modelos acelerados de hardware Azure ML no Azure Stack Edge Pro](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Inferência com Azure Machine Learning** - Com O Azure Stack Edge Pro, pode executar modelos ML para obter resultados rápidos que podem ser atuados antes de os dados serem enviados para a nuvem. O conjunto completo de dados pode opcionalmente ser transferido para continuar a treinar e melhorar os seus modelos ML. Para obter mais informações sobre como utilizar os modelos acelerados de hardware Azure ML no dispositivo Azure Stack Edge Pro, consulte [os modelos acelerados de hardware Azure ML no Azure Stack Edge Pro](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
 
 - **Dados de pré-processamento** - Transforme os dados antes de enviá-los para a Azure para criar um conjunto de dados mais accível. O pré-processamento pode ser utilizado para: 
 
@@ -42,7 +42,7 @@ Aqui estão os vários cenários em que o Azure Stack Edge Pro pode ser usado pa
 
 Azure Stack Edge Pro tem as seguintes capacidades:
 
-|Funcionalidade |Descrição  |
+|Funcionalidade |Description  |
 |---------|---------|
 |Inferencing acelerado da IA| Habilitado pela FPGA incorporada.|
 |Computação       |Permite a análise, o processamento e a filtragem de dados.|
@@ -78,7 +78,7 @@ A solução Azure Stack Edge Pro é composta por recurso Azure Stack Edge, dispo
 
 Dispositivo físico Azure Stack Edge Pro, recurso Azure e conta de armazenamento alvo para a qual transfere dados nem todos têm de estar na mesma região.
 
-- **Disponibilidade de recursos** - Para uma lista de todas as regiões onde o recurso Azure Stack Edge está disponível, consulte [os produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all) O Azure Stack Edge Pro também pode ser implantado na Nuvem do Governo de Azure. Para mais informações, veja [o que é o Governo Azure?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
+- **Disponibilidade de recursos** - Para uma lista de todas as regiões onde o recurso Azure Stack Edge está disponível, consulte [os produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all) O Azure Stack Edge Pro também pode ser implantado na Nuvem do Governo de Azure. Para mais informações, veja [o que é o Governo Azure?](../azure-government/documentation-government-welcome.md)
     
 - **Contas de Armazenamento de Destino** - as contas de armazenamento que armazenam os dados estão disponíveis em todas as regiões do Azure. As regiões onde as contas de armazenamento armazenam os dados do Azure Stack Edge Pro devem estar localizadas perto do local onde o dispositivo está localizado para um desempenho ótimo. Uma conta de armazenamento localizada longe do dispositivo resulta em latências longas e desempenho mais lento.
 

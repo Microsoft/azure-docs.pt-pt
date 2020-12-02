@@ -9,16 +9,16 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.openlocfilehash: b20f2ce88695cb68de496d126c5e3cd52f9eb6c8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 38b0f23a44a16125726e7810b2045d244a2e6b06
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316137"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454658"
 ---
 # <a name="quickstart-create-a-serverless-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Quickstart: Criar uma piscina Apache Spark sem servidor em Azure Synapse Analytics usando ferramentas web
 
-Neste arranque rápido, aprende-se a criar uma piscina Apache Spark sem servidor (pré-visualização) em Azure Synapse utilizando ferramentas web. Em seguida, aprende a ligar-se à piscina Apache Spark e a executar consultas Spark SQL contra ficheiros e tabelas. O Apache Spark permite uma análise de dados e computação de clusters rápidas através do processamento dentro da memória. Para obter informações sobre a Spark in Azure Synapse, consulte [a visão geral: Apache Spark on Azure Synapse](./spark/apache-spark-overview.md).
+Neste arranque rápido, você aprende a criar uma piscina Apache Spark sem servidor em Azure Synapse usando ferramentas web. Em seguida, aprende a ligar-se à piscina Apache Spark e a executar consultas Spark SQL contra ficheiros e tabelas. O Apache Spark permite uma análise de dados e computação de clusters rápidas através do processamento dentro da memória. Para obter informações sobre a Spark in Azure Synapse, consulte [a visão geral: Apache Spark on Azure Synapse](./spark/apache-spark-overview.md).
 
 > [!IMPORTANT]
 > A faturação de casos de Spark é prostimada por minuto, quer esteja a usá-las ou não. Certifique-se de que desliga a sua instância Spark depois de ter terminado de a utilizar ou de definir um curto período de tempo. Para obter mais informações, consulte a secção **Limpar recursos** deste artigo.

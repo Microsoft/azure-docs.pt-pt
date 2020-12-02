@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 8fbf765168fd848a2ae349badf4017289b5a4380
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 413a93a145ae063a3aab4066ed62365e154d744a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952272"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454117"
 ---
 # <a name="use-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Use o portal Azure para gerir ações no seu Azure Stack Edge Pro
 
@@ -74,7 +74,7 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
 3. Selecione um **Tipo** para a partilha. O tipo pode ser **SMB** ou **NFS,** sendo o SMB o padrão. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux. Dependendo se escolher a partilha SMB ou NFS, as opções apresentadas são ligeiramente diferentes.
 
    > [!IMPORTANT]
-   > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge Pro ou Data Box Gateway. Para obter mais informações, consulte [Definir e gerir políticas de imutabilidade para armazenamento de bolhas](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge Pro ou Data Box Gateway. Para obter mais informações, consulte [Definir e gerir políticas de imutabilidade para armazenamento de bolhas](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
 4. Para aceder facilmente às ações dos módulos de computação Edge, utilize o ponto de montagem local. Selecione **Utilize a partilha com o cálculo Edge** para que o módulo Edge possa utilizar o cálculo com o ponto de montagem local.
 

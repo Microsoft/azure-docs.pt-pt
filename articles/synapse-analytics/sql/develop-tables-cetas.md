@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: df0198ba77e1661bb18aa72285e100ca070966a8
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 8ffb3a0948267ea40a5d0511de63a80ad23584d1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331741"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454678"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS com Sinaapse SQL
 
-Pode utilizar CREATE EXTERNAL TABLE AS SELECT (CETAS) em pool SQL dedicado ou piscina SQL sem servidor (pré-visualização) para completar as seguintes tarefas:  
+Pode utilizar a CRIAÇÃO DE TABELA EXTERNA AS SELECT (CETAS) em piscina SQL dedicada ou piscina SQL sem servidor para completar as seguintes tarefas:  
 
 - Criar uma tabela externa
 - Exportar, paralelamente, os resultados de uma declaração seleta Transact-SQL para:

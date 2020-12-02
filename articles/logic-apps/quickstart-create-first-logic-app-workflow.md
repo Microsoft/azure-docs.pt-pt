@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: 7433c51b45b0d8459ad1959b29f61660537b8851
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 9d402599c4d6732ce92b8c64af6f660bcedbc4ba
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337462"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455054"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>Quickstart: Crie o seu primeiro fluxo de trabalho de Apps Lógicas - Portal Azure
 
@@ -69,7 +69,7 @@ Se quiser aprender a criar e gerir a sua primeira aplicação lógica através d
 
    ![Screenshot da página de implementação de recursos, mostrando o botão selecionado, "Ir para o recurso".](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
 
-   O Estruturador da Aplicação Lógica é aberto e mostra uma página com um vídeo de introdução e os acionadores habitualmente utilizados. Em **Modelos** , selecione **Aplicação Lógica em Branco**.
+   O Estruturador da Aplicação Lógica é aberto e mostra uma página com um vídeo de introdução e os acionadores habitualmente utilizados. Em **Modelos**, selecione **Aplicação Lógica em Branco**.
 
    ![Screenshot do Logic Apps Designer, mostrando a galeria do modelo e o modelo selecionado, "Blank Logic App".](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
@@ -112,7 +112,7 @@ A sua aplicação lógica está agora ao vivo, no entanto, não faz outra coisa 
 
 ## <a name="add-the-send-email-action"></a>Adicione a ação "enviar e-mail"
 
-Depois de [adicionar um gatilho para a sua aplicação lógica,](#add-rss-trigger)deve então adicionar uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) para determinar a resposta quando a sua aplicação lógica verifica o feed RSS e aparece um novo item. Também pode criar aplicações lógicas com ações muito mais complexas, como no tutorial para [o processamento de e-mails com Apps Lógicas, Funções Azure e Azure Storage.](/azure/logic-apps/tutorial-process-email-attachments-workflow)
+Depois de [adicionar um gatilho para a sua aplicação lógica,](#add-rss-trigger)deve então adicionar uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) para determinar a resposta quando a sua aplicação lógica verifica o feed RSS e aparece um novo item. Também pode criar aplicações lógicas com ações muito mais complexas, como no tutorial para [o processamento de e-mails com Apps Lógicas, Funções Azure e Azure Storage.](./tutorial-process-email-attachments-workflow.md)
 
 > [!NOTE]
 > Este exemplo utiliza o Office 365 Outlook como serviço de e-mail. Se estiver a utilizar outro serviço de e-mail suportado na sua aplicação lógica, a interface do utilizador pode parecer diferente. No entanto, os conceitos básicos de ligação a outro serviço de e-mail permanecem os mesmos.
@@ -145,7 +145,7 @@ Depois de [adicionar um gatilho para a sua aplicação lógica,](#add-rss-trigge
 
 1. No Enviar uma ação **por e-mail,** especifique quais as informações a incluir na notificação por e-mail.
 
-   1. Na caixa **Para** , introduza o endereço de e-mail do destinatário. Para este exemplo, utilize o seu endereço de e-mail.
+   1. Na caixa **Para**, introduza o endereço de e-mail do destinatário. Para este exemplo, utilize o seu endereço de e-mail.
 
         > [!NOTE]
         > A lista **de conteúdos dinâmicos Add** aparece quando clica dentro da caixa **''To'** e de certas outras caixas de entrada no Logic Apps Designer. Este exemplo utiliza conteúdo dinâmico num passo posterior. A lista **de conteúdos dinâmicos Add** mostra quaisquer saídas disponíveis do passo anterior, que pode utilizar como entradas para a ação atual.
@@ -167,7 +167,7 @@ Depois de [adicionar um gatilho para a sua aplicação lógica,](#add-rss-trigge
 
       ![Screenshot do Logic Apps Designer, mostrando a ação "Enviar um e-mail" e um tema de e-mail exemplo com a propriedade incluída "Feed title".](./media/quickstart-create-first-logic-app-workflow/send-email-feed-title.png)
 
-      Se aparecer um laço "Para cada um" no designer, então selecionou um símbolo para uma matriz; por exemplo, o **token categorias-Item.** Para estes tipos de tokens, o estruturador adiciona automaticamente este ciclo à volta da ação que faz referência a esse token. Desta forma, a aplicação lógica realiza a mesma ação em cada item da matriz. Para remover o laço, selecione as **elipses** **(...** ) na barra de título do loop e, em seguida, selecione **Delete**.
+      Se aparecer um laço "Para cada um" no designer, então selecionou um símbolo para uma matriz; por exemplo, o **token categorias-Item.** Para estes tipos de tokens, o estruturador adiciona automaticamente este ciclo à volta da ação que faz referência a esse token. Desta forma, a aplicação lógica realiza a mesma ação em cada item da matriz. Para remover o laço, selecione as **elipses** **(...**) na barra de título do loop e, em seguida, selecione **Delete**.
 
    1. Na caixa **Body,** insira o conteúdo para o corpo de e-mail. Neste exemplo, o conteúdo inclui três propriedades com texto descritivo para cada: `Title:` , a propriedade do título de **alimentação;** `Date published:` , o Feed publicado **na** propriedade; `Link:` e, a propriedade de **feed principal** link. Para adicionar linhas em branco a uma caixa de edição, prima Shift + Enter.
 
@@ -203,7 +203,7 @@ Se não estiver a receber e-mails de notificação da aplicação lógica como e
 * Verifique a pasta de lixo ou spam da sua conta de e-mail, caso a mensagem tenha sido filtrada incorretamente.
 * Certifique-se de que o feed RSS que está a utilizar publicou artigos desde a última verificação agendada ou manual.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar de testar esta aplicação lógica de amostra, limpe a aplicação lógica e quaisquer recursos relacionados, eliminando o grupo de recursos que criou para este exemplo.
 

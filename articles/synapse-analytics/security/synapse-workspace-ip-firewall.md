@@ -8,22 +8,22 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 00b4f38f4a2a44b88718224db2b2442033816f83
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3cbd9fd697bbae8779f5b2b9fa4ab817efce30ac
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313898"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454630"
 ---
-# <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Regras de firewall IP Azure Synapse Analytics (pré-visualização)
+# <a name="azure-synapse-analytics-ip-firewall-rules"></a>Regras de firewall IP Azure Synapse Analytics
 
 Este artigo irá explicar as regras de firewall IP e ensiná-lo a configurá-las em Azure Synapse Analytics.
 
 ## <a name="ip-firewall-rules"></a>Regras de firewall IP
 
-As regras de firewall IP concedem ou negam o acesso ao seu espaço de trabalho Synapse com base no endereço IP originário de cada pedido. Pode configurar as regras de firewall IP para o seu espaço de trabalho. As regras de firewall IP configuradas ao nível do espaço de trabalho aplicam-se a todos os pontos finais públicos do espaço de trabalho (piscinas SQL dedicadas, piscina SQL sem servidor e desenvolvimento).
+As regras de firewall de IP concedem ou negam o acesso à área de trabalho do Synapse com base no endereço IP de origem de cada pedido. Pode configurar as regras de firewall de IP para a área de trabalho. As regras de firewall IP configuradas ao nível do espaço de trabalho aplicam-se a todos os pontos finais públicos do espaço de trabalho (piscinas SQL dedicadas, piscina SQL sem servidor e desenvolvimento).
 
-## <a name="create-and-manage-ip-firewall-rules"></a>Criar e gerir regras de firewall IP
+## <a name="create-and-manage-ip-firewall-rules"></a>Criar e gerir regras de firewall de IP
 
 Existem duas formas de as regras de firewall IP serem adicionadas a um espaço de trabalho synapse. Para adicionar uma firewall IP ao seu espaço de trabalho, selecione **Segurança + networking** e verifique **Permitir ligações de todos os endereços IP** durante a criação do espaço de trabalho.
 

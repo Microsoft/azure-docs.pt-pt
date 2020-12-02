@@ -1,6 +1,6 @@
 ---
-title: Folha de batota para Azure Synapse Analytics (anteriormente SQL DW)
-description: Encontre links e boas práticas para construir rapidamente as suas soluções Azure Synapse Analytics (anteriormente SQL DW).
+title: Folha de batota para piscina SQL dedicada (anteriormente SQL DW)
+description: Encontre links e boas práticas para construir rapidamente a sua piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,18 +10,18 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 648f06ef1af5d6dce9fa3583c6358d3bd173f209
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a236cf99d3131e83619cfab06e8ec028938a87ba
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319679"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454611"
 ---
-# <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Folha de batota para Azure Synapse Analytics (anteriormente SQL DW)
+# <a name="cheat-sheet-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytic"></a>Folha de batota para piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytic
 
-Esta folha de batota fornece dicas úteis e boas práticas para a construção de soluções Azure Synapse.
+Esta folha de batota fornece dicas úteis e boas práticas para a construção de soluções dedicadas de piscina SQL (anteriormente SQL DW).
 
-O gráfico seguinte mostra o processo de estruturação de um armazém de dados:
+O gráfico a seguir mostra o processo de conceção de um armazém de dados com piscina SQL dedicada (anteriormente SQL DW):
 
 ![Desenho](./media/cheat-sheet/picture-flow.png)
 
@@ -121,13 +121,13 @@ Os grupos de recursos são usados como forma de alocar a memória a consultas. S
 
 Se reparar em que as consultas demoram demasiado tempo, confirme se os utilizadores não são executados em classes de recursos grandes. Estas classes consomem muitos blocos de simultaneidade e podem fazer com que outras consultas sejam colocadas em fila.
 
-Finalmente, ao utilizar a Gen2 da [piscina SQL,](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)cada classe de recursos obtém 2,5 vezes mais memória do que a Gen1.
+Finalmente, ao utilizar a Gen2 de [piscina SQL dedicada (anteriormente SQL DW),](sql-data-warehouse-overview-what-is.md)cada classe de recursos recebe 2,5 vezes mais memória do que a Gen1.
 
 Saiba mais como trabalhar com [classes de recursos e a simultaneidade](resource-classes-for-workload-management.md).
 
 ## <a name="lower-your-cost"></a>Reduza os custos
 
-Uma característica chave do Azure Synapse é a capacidade de [gerir recursos computacional](sql-data-warehouse-manage-compute-overview.md). Você pode parar a piscina SQL quando você não está usando-o, o que impede a faturação de recursos compute. Pode dimensionar os recursos para satisfazer as suas necessidades em termos de desempenho. Par pôr em pausa, utilize o [portal do Azure](pause-and-resume-compute-portal.md) ou o [PowerShell](pause-and-resume-compute-powershell.md). Para dimensionar, utilize o [portal do Azure](quickstart-scale-compute-portal.md), o [Powershell](quickstart-scale-compute-powershell.md), o [T-SQL](quickstart-scale-compute-tsql.md) ou uma [API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+Uma característica chave do Azure Synapse é a capacidade de [gerir recursos computacional](sql-data-warehouse-manage-compute-overview.md). Você pode parar a sua piscina de SQL dedicada (anteriormente SQL DW) quando você não está usando-o, o que impede a faturação de recursos compute. Pode dimensionar os recursos para satisfazer as suas necessidades em termos de desempenho. Par pôr em pausa, utilize o [portal do Azure](pause-and-resume-compute-portal.md) ou o [PowerShell](pause-and-resume-compute-powershell.md). Para escalar, utilize o [portal Azure](quickstart-scale-compute-portal.md), [PowerShell,](quickstart-scale-compute-powershell.md) [T-SQL](quickstart-scale-compute-tsql.md)ou uma [API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Agora, dimensione automaticamente sempre que quiser com as Funções do Azure:
 
@@ -137,8 +137,8 @@ Agora, dimensione automaticamente sempre que quiser com as Funções do Azure:
 
 Recomendamos olhar para a Base de Dados SQL e o Azure Analysis Services numa arquitetura hub-and-spoke. Esta solução pode proporcionar isolamento de cargas de trabalho entre diferentes grupos de utilizadores e utilizar, ao mesmo tempo, funcionalidades avançadas de segurança da Base de Dados SQL e do Azure Analysis Services. Também é uma forma de dar simultaneidade ilimitada aos seus utilizadores.
 
-Saiba mais sobre [arquiteturas típicas que aproveitam a Azure Synapse.](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/)
+Saiba mais sobre [arquiteturas típicas que aproveitam a piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics.](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/)
 
-Implemente em um clique nos seus porta-vozes em bases de dados SQL a partir da piscina SQL:
+Implemente em um clique nos seus porta-vozes em bases de dados SQL a partir de pool SQL dedicado (anteriormente SQL DW):
 
 [![Imagem mostrando um botão marcado "Implementar para Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwSpokeDbTemplate%2Fazuredeploy.json)
