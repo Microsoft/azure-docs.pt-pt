@@ -7,19 +7,43 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 0acd0d1d463280cddc8c1f4bb389a056d474ea38
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 12/01/2020
+ms.openlocfilehash: 1b23d6c7952e60ee693bb481fec04d358654632c
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101278"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530498"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um nível de preços para Azure Cognitive Search
 
-Quando cria um serviço de Pesquisa Cognitiva Azure, [é criado](search-create-service-portal.md) um recurso a um nível de preços que é fixado para o tempo de vida do serviço. Os níveis incluem Free, Basic, Standard e Storage Optimized. Standard e Storage Optimized estão disponíveis com várias configurações e capacidades.
+Ao [criar um serviço de pesquisa,](search-create-service-portal.md)escolha um nível de preços que seja fixado para o tempo de vida do serviço. O nível selecionado determina:
 
-A maioria dos clientes começa com o nível Free para que possam avaliar o serviço. Após a avaliação, é comum criar um segundo serviço num dos níveis mais altos para desenvolvimento e implantação de produção.
++ Quantidade de índices e outros objetos (limites máximos)
++ Tamanho e velocidade das divisórias (armazenamento físico)
++ Taxa faturada, um custo fixo que também flexiona com o número de divisórias e réplicas em uso
+
+Além disso, algumas [funcionalidades premium](#premium-features) vêm com requisitos de nível.
+
+## <a name="tier-descriptions"></a>Descrições de nível
+
+Os níveis incluem **Free,** **Basic,** **Standard** e **Storage Optimized**. Standard e Storage Optimized estão disponíveis com várias configurações e capacidades.
+
+A imagem que se segue do portal Azure mostra os níveis disponíveis, menos os preços (que pode encontrar no portal e na [página de preços](https://azure.microsoft.com/pricing/details/search/). 
+
+![Níveis de preços da Pesquisa Cognitiva Azure](media/search-sku-tier/tiers.png "Níveis de preços da Pesquisa Cognitiva Azure")
+
+**O free** cria um serviço de pesquisa limitado para projetos mais pequenos, como executar tutoriais e amostras de código. Internamente, réplicas e divisórias são partilhadas entre vários subscritores. Não é possível escalar um serviço gratuito ou executar cargas de trabalho significativas.
+
+**Basic** e **Standard** são os níveis de faturação mais utilizados, sendo a **Standard** o padrão. Com recursos dedicados sob o seu controlo, pode implementar projetos maiores, otimizar o desempenho e aumentar a capacidade.
+
+Alguns níveis são otimizados para certos tipos de trabalho. Por exemplo, **Standard 3 High Density (S3 HD)** é um *modo de hospedagem* para S3, onde o hardware subjacente é otimizado para um grande número de índices menores e destina-se a cenários de multitenância. O S3 HD tem a mesma carga por unidade que o S3, mas o hardware é otimizado para leituras rápidas de ficheiros num grande número de índices menores.
+
+Os níveis **otimizados de armazenamento** oferecem uma maior capacidade de armazenamento a um preço mais baixo por TB do que os níveis Standard. A troca primária é uma maior latência de consulta, que deve validar para os seus requisitos específicos de aplicação. Para saber mais sobre as considerações de desempenho deste nível, consulte as considerações de [Desempenho e otimização.](search-performance-optimization.md)
+
+Pode saber mais sobre os vários níveis na [página de preços,](https://azure.microsoft.com/pricing/details/search/)nos limites de Serviço no artigo [Azure Cognitive Search](search-limits-quotas-capacity.md) e na página do portal quando estiver a prestar um serviço.
+
+<a name="premium-features"></a>
 
 ## <a name="feature-availability-by-tier"></a>Disponibilidade de recursos por nível
 
@@ -35,34 +59,13 @@ A tabela a seguir descreve restrições de características relacionadas com o n
 
 A maioria das funcionalidades estão disponíveis em todos os níveis, incluindo funcionalidades gratuitas, mas funcionalidades intensivas de recursos podem não funcionar bem a menos que lhe dê capacidade suficiente. Por exemplo, [o enriquecimento](cognitive-search-concept-intro.md) de IA tem habilidades de longa duração que o tempo de serviço livre, a menos que o conjunto de dados seja pequeno.
 
-## <a name="tiers"></a>Escalões
-
-Os níveis são diferenciados por:
-
-+ Quantidade de índices e indexantes (limites máximos)
-+ Tamanho e velocidade das divisórias (armazenamento físico)
-
-O nível selecionado determina a taxa de faturação. A imagem que se segue do portal Azure mostra os níveis disponíveis, menos os preços (que pode encontrar no portal e na [página de preços](https://azure.microsoft.com/pricing/details/search/). **Free,** **Basic**e **Standard** são os níveis mais comuns.
-
-**O free** cria um serviço de pesquisa limitado para projetos mais pequenos, incluindo quickstarts e tutoriais. Internamente, réplicas e divisórias são partilhadas entre vários subscritores. Não é possível escalar um serviço gratuito ou executar cargas de trabalho significativas.
-
-**Basic** e **Standard** são os níveis de faturação mais utilizados, sendo a **Standard** o padrão. Com recursos dedicados sob o seu controlo, pode implementar projetos maiores, otimizar o desempenho e definir a capacidade.
-
-![Níveis de preços da Pesquisa Cognitiva Azure](media/search-sku-tier/tiers.png "Níveis de preços da Pesquisa Cognitiva Azure")
-
-Alguns níveis são otimizados para certos tipos de trabalho. Por exemplo, **Standard 3 High Density (S3 HD)** é um *modo de hospedagem* para S3, onde o hardware subjacente é otimizado para um grande número de índices menores e destina-se a cenários de multitenância. O S3 HD tem a mesma carga por unidade que o S3, mas o hardware é otimizado para leituras rápidas de ficheiros num grande número de índices menores.
-
-Os níveis **otimizados de armazenamento** oferecem uma maior capacidade de armazenamento a um preço mais baixo por TB do que os níveis Standard. A troca primária é uma maior latência de consulta, que deve validar para os seus requisitos específicos de aplicação.  Para saber mais sobre as considerações de desempenho deste nível, consulte as considerações de [Desempenho e otimização.](search-performance-optimization.md)
-
-Pode saber mais sobre os vários níveis na [página de preços,](https://azure.microsoft.com/pricing/details/search/)nos limites de Serviço no artigo [Azure Cognitive Search](search-limits-quotas-capacity.md) e na página do portal quando estiver a prestar um serviço.
-
 ## <a name="billable-events"></a>Eventos faturais
 
 Uma solução construída na Azure Cognitive Search pode incorrer em custos das seguintes formas:
 
-+ Custo do próprio serviço, com execução 24x7, na configuração mínima (uma partição e réplica)
++ [Custo do próprio serviço,](#service-costs) com execução 24x7, na configuração mínima (uma partição e réplica), à taxa base
 
-+ Capacidade de adição (réplicas ou divisórias)
++ Capacidade de adição (réplicas ou divisórias), onde os custos aumentam a incrementos da taxa de faturação
 
 + Taxas de largura de banda (transferência de dados de saída)
 
@@ -87,7 +90,7 @@ Quando estimar o custo de uma solução de pesquisa, lembre-se que os preços e 
 A utilização [de indexantes](search-indexer-overview.md) pode afetar a faturação, dependendo da localização dos seus serviços. Pode eliminar totalmente as taxas de saída de dados se criar o serviço de Pesquisa Cognitiva Azure na mesma região que os seus dados. Aqui estão algumas informações da página de preços da [largura de banda:](https://azure.microsoft.com/pricing/details/bandwidth/)
 
 + A Microsoft não cobra por quaisquer dados de entrada a qualquer serviço no Azure, nem por quaisquer dados de saída da Azure Cognitive Search.
-+ Em soluções multiserviços, não há qualquer custo para os dados que cruzam o fio quando todos os serviços estão na mesma região.
++ Em soluções multi-serviços, não há qualquer custo para os dados que cruzam o fio quando todos os serviços estão na mesma região.
 
 Os encargos aplicam-se aos dados de saída se os serviços estiverem em diferentes regiões. Estas acusações não fazem parte da sua conta de Pesquisa Cognitiva Azure. São mencionados aqui porque se estiver a usar dados ou indexadores enriquecidos com IA para extrair dados de diferentes regiões, verá os custos refletidos na sua conta geral.
 
@@ -149,7 +152,7 @@ Na Pesquisa Cognitiva Azure, a capacidade é estruturada como *réplicas* e *div
 
 ### <a name="evaluating-capacity"></a>Avaliação da capacidade
 
-A capacidade e os custos de funcionamento do serviço andam de mãos dadas. Os níveis impõem limites a dois níveis: armazenamento e recursos. Devias pensar em ambos, porque qualquer que seja o limite que atinges primeiro é o limite efetivo.
+A capacidade e os custos de funcionamento do serviço andam de mãos dadas. Os níveis impõem limites a dois níveis: armazenamento e conteúdo (número de índices, por exemplo). Devias pensar em ambos, porque qualquer que seja o limite que atinges primeiro é o limite efetivo.
 
 Os requisitos de negócio normalmente ditam o número de índices que você precisa. Por exemplo, pode precisar de um índice global para um grande repositório de documentos. Ou pode precisar de vários índices baseados na região, aplicação ou nicho de negócio.
 

@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2241049e5c3cb5039a73c0f7637f7e3553d2e227
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 878d59445dde839ca9e702ac0c49af676e48a42f
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326882"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531195"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Visão geral da migração: SQL Server para SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -63,7 +63,7 @@ Algumas diretrizes gerais para ajudá-lo a escolher o nível de serviço certo e
 Pode escolher recursos de computação e armazenamento durante a implementação e, em seguida, alterá-los depois de usar o [portal Azure](../../database/scale-resources.md) sem incorrer em tempo de inatividade para a sua aplicação. 
 
 > [!IMPORTANT]
-> Qualquer discrepância nos [requisitos de rede virtuais geridos](../../managed-instance/connectivity-architecture-overview.md#network-requirements) pode impedi-lo de criar novos casos ou usar os existentes. Saiba mais sobre [a criação](../../managed-instance/virtual-network-subnet-create-arm-template.md?branch=release-ignite-arc-data)de redes novas   e [configuradas.](../../managed-instance/vnet-existing-add-subnet.md?branch=release-ignite-arc-data)   
+> Qualquer discrepância nos [requisitos de rede virtuais geridos](../../managed-instance/connectivity-architecture-overview.md#network-requirements) pode impedi-lo de criar novos casos ou usar os existentes. Saiba mais sobre [a criação](../../managed-instance/virtual-network-subnet-create-arm-template.md)de redes novas   e [configuradas.](../../managed-instance/vnet-existing-add-subnet.md?branch=release-ignite-arc-data)   
 
 ### <a name="sql-server-vm-alternative"></a>Alternativa SQL Server VM
 

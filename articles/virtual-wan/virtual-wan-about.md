@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 69525173aa5c4af536105a4e897ee4860f021b6c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 641ed73f507d35d7af548d0164ef8e80979be217
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187442"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530481"
 ---
 # <a name="what-is-azure-virtual-wan"></a>O que é a WAN Virtual do Azure?
 
@@ -124,9 +124,9 @@ Para obter informações sobre a localização, consulte os [parceiros e locais 
 
 As tabelas de rotas têm agora características de associação e propagação. Uma tabela de rotas pré-existente é uma tabela de rotas que não tem estas funcionalidades. Se tiver rotas pré-existentes no encaminhamento do hub e quiser utilizar as novas capacidades, considere o seguinte:
 
-* **Clientes STANDARD VIRTUAL WAN com rotas pré-existentes no hub virtual**: Se tiver rotas pré-existentes na secção de encaminhamento para o hub no portal Azure, terá de as eliminar primeiro e, em seguida, tentar criar novas tabelas de rotas (disponíveis na secção Tabelas de Rota para o hub no portal Azure).
+* **Clientes STANDARD VIRTUAL WAN com rotas pré-existentes no hub virtual**: Se tiver rotas pré-existentes na secção de encaminhamento para o hub no portal Azure, terá de as eliminar primeiro e, em seguida, tentar criar novas tabelas de rotas (disponíveis na secção Tabelas de Rota para o hub no portal Azure). É altamente encorajado a fazer o passo de eliminação para todos os hubs em um WAN Virtual.
 
-* **Clientes Básicos DE WAN Virtual com rotas pré-existentes no hub virtual**: Se tiver rotas pré-existentes na secção de encaminhamento para o hub no portal Azure, terá de os eliminar primeiro e, em seguida, **atualizar** o seu BASIC Virtual WAN para O WAN Virtual Padrão. Consulte [a Atualização de um WAN virtual de Basic para Standard](upgrade-virtual-wan.md).
+* **Clientes Básicos DE WAN Virtual com rotas pré-existentes no hub virtual**: Se tiver rotas pré-existentes na secção de encaminhamento para o hub no portal Azure, terá de os eliminar primeiro e, em seguida, **atualizar** o seu BASIC Virtual WAN para O WAN Virtual Padrão. Consulte [a Atualização de um WAN virtual de Basic para Standard](upgrade-virtual-wan.md). É altamente encorajado a fazer o passo de eliminação para todos os hubs em um WAN Virtual.
 
 ## <a name="faq"></a><a name="faq"></a>FAQ
 

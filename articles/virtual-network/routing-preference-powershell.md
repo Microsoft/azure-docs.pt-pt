@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: 47e1701accd0ef7cce2a08b230682f4f8d5d8ed4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 92c8c4504384c3130df0d9b72ef7df21353bb3d5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491507"
+ms.locfileid: "96530566"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-powershell"></a>Configure a preferência de encaminhamento para um endereço IP público usando a Azure PowerShell
 
@@ -26,7 +26,7 @@ Este artigo mostra-lhe como configurar a preferência de encaminhamento através
 
 * Máquina virtual
 * Conjuntos de dimensionamento de máquinas virtuais
-* Serviço de Kubernetes do Azure (AKS)
+* Azure Kubernetes Service (AKS)
 * Equilibrador de carga virado para a Internet
 * Gateway de Aplicação
 * Azure Firewall

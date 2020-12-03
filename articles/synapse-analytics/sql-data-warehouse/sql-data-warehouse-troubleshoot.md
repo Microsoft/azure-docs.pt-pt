@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 6da80ec4c9c3c4e6c95eb1c9001596ffe3dd5711
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c69df88828a179cf1dce7bd35ac19c518b07903d
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447858"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530719"
 ---
 # <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Resolução de problemas piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics
 
@@ -45,6 +45,7 @@ Este artigo lista problemas comuns de resolução de problemas em piscina sql de
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | A exportação de cordas vazias utilizando o CETAS resultará em valores NULOS nos ficheiros Parquet e ORC. Note que se estiver a exportar cordas vazias de colunas com restrições NÃO NULAS, o CETAS resultará em registos rejeitados e a exportação pode potencialmente falhar. | Remova as cordas vazias ou a coluna ofensiva na declaração SELECT do seu CETAS. |
+| O carregamento de um valor fora do intervalo de 0-127 numa coluna minúscula para o formato de ficheiro Parquet e ORC não é suportado. | Especifique um tipo de dados maior para a coluna-alvo.           |
 
 ## <a name="performance"></a>Desempenho
 

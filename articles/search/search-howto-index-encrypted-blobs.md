@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
-ms.openlocfilehash: f0295c27f1d193b0dcd7829a11b4aabe0edb659b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4bab8def514df21d948d67f3cfba846c43917be2
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286351"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530940"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Como indexar bolhas encriptadas usando indexadores blob e skillsets em Azure Cognitive Search
 
@@ -36,7 +36,7 @@ Este exemplo pressupõe que já fez o upload dos seus ficheiros para o Azure Blo
 
 + [Armazenamento do Azure](https://azure.microsoft.com/services/storage/)
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) na mesma subscrição que a Azure Cognitive Search. O cofre da chave deve ter **proteção de eliminação** e **purga** ativada.
-+ [Pesquisa Cognitiva Azure](search-create-service-portal.md) num [nível de faturação](search-sku-tier.md#tiers) (Básico ou superior, em qualquer região)
++ [Pesquisa Cognitiva Azure](search-create-service-portal.md) num [nível de faturação](search-sku-tier.md#tier-descriptions) (Básico ou superior, em qualquer região)
 + [Função do Azure](https://azure.microsoft.com/services/functions/)
 + [Aplicação de ambiente de trabalho Postman](https://www.getpostman.com/)
 
@@ -60,7 +60,7 @@ Operacionalmente, a habilidade DecryptBlobFile leva o símbolo DE URL e SAS para
 
 1. Navegue para o seu Azure Key Vault no portal. [Crie uma política de acesso](../key-vault/general/assign-access-policy-portal.md) no Cofre da Chave Azure que concede acesso chave à habilidade personalizada.
  
-    1. Em **Definições** , selecione **políticas de acesso** e, em seguida, selecione Adicionar a política de **acesso**
+    1. Em **Definições**, selecione **políticas de acesso** e, em seguida, selecione Adicionar a política de **acesso**
      
        ![Keyvault adicionar política de acesso](media/indexing-encrypted-blob-files/keyvault-access-policies.jpg "Políticas de acesso keyvault")
 
@@ -128,29 +128,28 @@ Para obter o valor `admin-key` para , use a chave api-api de pesquisa cognitiva 
 
 ![Separador de variáveis de aplicativo do carteiro](media/indexing-encrypted-blob-files/postman-variables-window.jpg "Janela de variáveis do carteiro")
 
-
 | Variável    | Onde obtê-lo |
 |-------------|-----------------|
 | `admin-key` | Na página **Chaves** do serviço de Pesquisa Cognitiva Azure.  |
-| `search-service-name` | O nome do serviço de Pesquisa Cognitiva Azure. A URL `https://{{search-service-name}}.search.windows.net` é. | 
-| `storage-connection-string` | Na conta de armazenamento, no separador **Chaves de Acesso,** selecione **a tecla1** Connection  >  **string**. | 
-| `storage-container-name` | O nome do recipiente blob que tem os ficheiros encriptados a serem indexados. | 
-| `function-uri` |  Na Função Azure sob **Essencial** na página principal. | 
-| `function-code` | Na Função Azure, navegando nas **teclas App,** clicando para mostrar a chave **predefinida** e copiando o valor. | 
+| `search-service-name` | O nome do serviço de Pesquisa Cognitiva Azure. A URL `https://{{search-service-name}}.search.windows.net` é. |
+| `storage-connection-string` | Na conta de armazenamento, no separador **Chaves de Acesso,** selecione **a tecla1** Connection  >  **string**. |
+| `storage-container-name` | O nome do recipiente blob que tem os ficheiros encriptados a serem indexados. |
+| `function-uri` |  Na Função Azure sob **Essencial** na página principal. |
+| `function-code` | Na Função Azure, navegando nas **teclas App,** clicando para mostrar a chave **predefinida** e copiando o valor. |
 | `api-version` | Sair como **2020-06-30**. |
-| `datasource-name` | Deixe como **blobs-ds encriptados.** | 
-| `index-name` | Deixe como **idx criptografado.** | 
-| `skillset-name` | Deixe como **blobs-ss encriptados.** | 
-| `indexer-name` | Deixe como **ixr criptografado.** | 
+| `datasource-name` | Deixe como **blobs-ds encriptados.** |
+| `index-name` | Deixe como **idx criptografado.** |
+| `skillset-name` | Deixe como **blobs-ss encriptados.** |
+| `indexer-name` | Deixe como **ixr criptografado.** |
 
 ### <a name="review-the-request-collection-in-postman"></a>Reveja a recolha de pedidos no Carteiro
 
-Ao executar este guia, deve emitir quatro pedidos HTTP: 
+Ao executar este guia, deve emitir quatro pedidos HTTP:
 
-- **Pedido DE PUT para criar o índice** : Este índice contém os dados que a Azure Cognitive Search utiliza e devolve.
-- **Pedido de PUBLICAÇÃO para criar a fonte de dados** : Esta fonte de dados liga o seu serviço de Pesquisa Cognitiva Azure à sua conta de armazenamento e, portanto, ficheiros blob encriptados. 
-- **Pedido de CRIAÇÃO do skillset** : O skillset especifica a definição de habilidade personalizada para a Função Azure que irá desencriptar os dados do ficheiro blob, e um [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) para extrair o texto de cada documento depois de ter sido desencriptado.
-- **PUT pedido para criar o indexante** : Executar o indexante lê os dados, aplica o skillset e armazena os resultados. Tem de fazer este pedido por último.
+- **Pedido DE PUT para criar o índice**: Este índice contém os dados que a Azure Cognitive Search utiliza e devolve.
+- **Pedido de PUBLICAÇÃO para criar a fonte de dados**: Esta fonte de dados liga o seu serviço de Pesquisa Cognitiva Azure à sua conta de armazenamento e, portanto, ficheiros blob encriptados. 
+- **Pedido de CRIAÇÃO do skillset**: O skillset especifica a definição de habilidade personalizada para a Função Azure que irá desencriptar os dados do ficheiro blob, e um [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) para extrair o texto de cada documento depois de ter sido desencriptado.
+- **PUT pedido para criar o indexante**: Executar o indexante lê os dados, aplica o skillset e armazena os resultados. Tem de fazer este pedido por último.
 
 O [código fonte](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json) contém uma coleção do Carteiro que tem os quatro pedidos, bem como alguns pedidos úteis de acompanhamento. Para emitir os pedidos, no Carteiro, selecione o separador para os pedidos e selecione **Enviar** por cada um deles.
 

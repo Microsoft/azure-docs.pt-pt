@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 55a1255ffa82aec8ea7b9e1ec2bbc6746b9b0636
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: bae214fb8eff9747bf3f79323d8eb9ce1cb6cdb7
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523502"
+ms.locfileid: "96531603"
 ---
 # <a name="synapse-rbac-roles"></a>Papéis de Sinapse RBAC
 
@@ -28,12 +28,11 @@ Para os utilizadores familiarizados com as funções DE RBAC da Sinapse fornecid
 - **São introduzidos novos âmbitos de nível inferior** para várias funções.  Estes âmbitos permitem que as funções sejam restritas a recursos ou objetos específicos.
 
 >[!Note]
->- As novas funções e os âmbitos de nível inferior estão atualmente em pré-visualização.  
->- As funções de Administrador de Faíscas Apache e Administrador da SQL serão depreciadas numa futura versão a favor das novas funções de RBAC da Sinapse.  Você é encorajado a adotar as novas funções de pré-visualização, que são totalmente suportadas, e fornecer feedback sobre a sua utilização.
+>- As **novas funções e os âmbitos de nível inferior estão atualmente em pré-visualização.**  É encorajado a utilizar estas novas funções e âmbitos, que são totalmente apoiados, e a fornecer feedback sobre a sua utilização.
 
 ## <a name="built-in-synapse-rbac-roles-and-scopes"></a>Funções e âmbitos e âmbitos de RBAC de Sinapse incorporados
 
-A tabela a seguir descreve cada papel incorporado e os âmbitos em que estas funções podem ser utilizadas.
+A tabela a seguir descreve as funções incorporadas e os âmbitos em que podem ser utilizados.
 
 >[!Note]
 > Os utilizadores com qualquer papel DE RBAC da Synapse em qualquer âmbito têm automaticamente a função de Utilizador Synapse no âmbito do espaço de trabalho. 

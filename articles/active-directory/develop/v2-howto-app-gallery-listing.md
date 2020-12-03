@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 12/02/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 6374164bb5049742d63a669b4c1e552c93967977
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 396d6f69673f8758d8d1302f8d10b8a92e5f50b4
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173384"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530760"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publique a sua app na galeria de aplicações AZure AD
 
@@ -168,14 +168,25 @@ Para saber mais sobre WS-Fed no ASP.NET Core, consulte [os utilizadores autentic
 
 Crie uma aplicação web que tenha uma página de sessão html. Certifique-se de que a sua aplicação suporta a autenticação do formulário para que a abóbada de senha possa ser feita para obter um único sinal de acesso ao trabalho como esperado.
 
+## <a name="step-3---implement-scim-user-provisioning-in-your-app"></a>Passo 3 - Implementar o provisionamento do utilizador SCIM na sua app
+Apoiar o fornecimento [scim](https://aka.ms/scimoverview) é um passo opcional, mas altamente recomendado, na construção da sua aplicação. O suporte ao padrão SCIM é fácil de fazer e permite que os clientes criem e atualizem automaticamente as contas dos utilizadores na sua aplicação, sem depender de processos manuais como o upload de ficheiros CSV. Além disso, os clientes podem automatizar a remoção dos utilizadores e manter os membros do grupo em sincronização, o que não pode ser realizado com uma solução como a SAML JIT. 
 
-## <a name="step-3---create-your-azure-tenant-and-test-your-app"></a>Passo 3 - Crie o seu inquilino Azure e teste a sua app
+### <a name="learn-about-scim"></a>Saiba mais sobre o SCIM
+Para saber mais sobre os padrões e benefícios do SCIM para os seus clientes, consulte [o fornecimento com o SCIM - a começar.](https://aka.ms/scimoverview)
+
+### <a name="understand-the-azure-ad-scim-implementation"></a>Compreender a implementação do Azure AD SCIM
+Para saber mais sobre a implementação do Azure AD SCIM, consulte [a construção de um ponto final SCIM e configuure o fornecimento do utilizador com a Ad AZure](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).
+
+### <a name="implement-scim"></a>Implementar SCIM
+A Azure AD fornece código de [referência](https://aka.ms/scimoverview) para ajudá-lo a construir um ponto final SCIM. Há também muitas bibliotecas /referências de terceiros que você pode encontrar no github.  
+
+## <a name="step-4---create-your-azure-tenant-and-test-your-app"></a>Passo 4 - Crie o seu inquilino Azure e teste a sua app
 
 Você precisará de um inquilino AZure AD para testar a sua app. Para configurar o seu ambiente de desenvolvimento, consulte [Quickstart: Crie um inquilino.](quickstart-create-new-tenant.md)
 
 Em alternativa, um inquilino AZure AD vem com cada subscrição da Microsoft 365. Para configurar um ambiente de desenvolvimento gratuito do Microsoft 365, consulte [o Programa de Desenvolvimento microsoft 365](/office/developer-program/microsoft-365-developer-program).
 
-Uma vez que você tem um inquilino, você precisa ativar e testar um único sinal no acesso. 
+Uma vez que você tem um inquilino, você precisa testar um único sinal e [provisionamento](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
 
 **Para aplicações OIDC ou Juramento,** [Registe a sua candidatura](quickstart-register-app.md) como uma aplicação multi-arrendatário. Selecione as Contas em qualquer diretório organizacional e opção de contas pessoais da Microsoft em tipos de Conta Suportada.
 
@@ -184,7 +195,7 @@ Uma vez que você tem um inquilino, você precisa ativar e testar um único sina
 Você também pode [converter um pedido de inquilino único para multi-inquilino,](howto-convert-app-to-be-multi-tenant.md) se necessário.
 
 
-## <a name="step-4---create-and-publish-documentation"></a>Passo 4 - Criar e publicar documentação
+## <a name="step-5---create-and-publish-documentation"></a>Passo 5 - Criar e publicar documentação
 
 ### <a name="documentation-on-your-site"></a>Documentação no seu site
 
@@ -206,13 +217,14 @@ Recomendamos que a sua documentação no seu site inclua, no mínimo, os seguint
 * Etapas de teste para utilizadores-piloto
 * Informações de resolução de problemas, incluindo códigos de erro e mensagens
 * Mecanismos de apoio aos clientes
+* Detalhes sobre o seu ponto final SCIM, incluindo os recursos e atributos suportados
 
 ### <a name="documentation-on-the-microsoft-site"></a>Documentação no Site da Microsoft
 
 Ao listar a sua aplicação na Azure Ative Directory Application Gallery, que também publica a sua aplicação no Azure Marketplace, a Microsoft gerará documentação para os nossos clientes mútuos explicando o processo passo a passo. Pode ver um exemplo [aqui.](../saas-apps/tutorial-list.md) Esta documentação é criada com base na sua submissão à galeria, e pode atualizá-la facilmente se estoissar a sua aplicação utilizando a sua conta GitHub.
 
 
-## <a name="step-5---submit-your-app"></a>Passo 5 - Submeter a sua app
+## <a name="step-6---submit-your-app"></a>Passo 6 - Submeter a sua app
 
 Depois de ter testado que a integração da sua aplicação funciona com a Azure AD, submeta o seu pedido de candidatura no [portal da Rede de Aplicações](https://microsoft.sharepoint.com/teams/apponboarding/Apps)da Microsoft .
 
@@ -262,7 +274,7 @@ Se pretender adicionar a sua aplicação à lista na galeria utilizando a palavr
 
 ![Listagem de uma aplicação SSO de palavra-passe na galeria](./media/howto-app-gallery-listing/passwordsso.png)
 
-Se estiver a implementar um ponto final [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 para o provisionamento do utilizador, selecione a opção como mostrado. 
+Se estiver a implementar um ponto final [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 para o provisionamento do utilizador, selecione a opção como mostrado. Ao fornecer o esquema no pedido de embarque, siga as instruções [aqui](https://docs.microsoft.com/azure/active-directory/app-provisioning/export-import-provisioning-configuration) para descarregar o seu esquema. Usaremos o esquema que configuraste ao testar a aplicação não-galeria para construir a aplicação da galeria. 
 
    ![Pedido de provisionamento de utilizadores](./media/howto-app-gallery-listing/user-provisioning.png)
 
@@ -301,7 +313,7 @@ A cronologia do processo de listagem de uma aplicação OpenID Connect na galeri
 Para qualquer escalada, envie um e-mail para a [Equipa de Integração Azure AD SSO](mailto:SaaSApplicationIntegrations@service.microsoft.com), e responderemos o mais rapidamente possível.
 
 
-## <a name="step-6---join-the-microsoft-partner-network"></a>Passo 6 - Junte-se à rede de parceiros da Microsoft
+## <a name="step-7---join-the-microsoft-partner-network"></a>Passo 7 - Junte-se à rede de parceiros da Microsoft
 A Microsoft Partner Network fornece acesso instantâneo a recursos exclusivos, programas, ferramentas e conexões. Para aderir à rede e criar o seu plano de mercado, consulte [os clientes comerciais Reach.](https://partner.microsoft.com/explore/commercial#gtm)
 
 

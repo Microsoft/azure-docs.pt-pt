@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: ef3f9f8d75049051ad568abf1163014a78b0cda3
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 9a6faec2542337eedbe4aafb69f1061582f92cc7
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324742"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531586"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar grupos de disponibilidade para SQL Server em máquinas virtuais RHEL em Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -1132,6 +1132,34 @@ Para garantir que a configuração tenha sido bem sucedida até agora, vamos tes
     sudo pcs resource move ag_cluster-clone <VM2> --master
     ```
 
+   Também pode especificar uma opção adicional para que o constrangimento temporário criado para mover o recurso para um nó desejado seja automaticamente desativado, e não tenha de executar os passos 2 e 3 abaixo.
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master lifetime=30S
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master lifetime=30S
+    ```
+
+   Outra alternativa para automatizar os passos 2 e 3 abaixo que limpam a restrição temporária no próprio comando de movimento de recursos é combinando múltiplos comandos numa única linha. 
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master && sleep 30 && pcs resource clear ag_cluster-master
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master && sleep 30 && pcs resource clear ag_cluster-clone
+    ```
+    
 2. Se verificar novamente os seus constrangimentos, verá que foi adicionado outro constrangimento devido à falha manual:
     
     **RHEL 7**

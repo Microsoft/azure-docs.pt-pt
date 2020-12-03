@@ -6,15 +6,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: 3c3a20d8401affc519e118c7f2295339990e7dee
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: dd4586128bf2ce657352c0a1d4608637ecf9dba9
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186512"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531229"
 ---
 # <a name="azure-monitor-logs-overview"></a>Descrição geral dos Registos do Azure Monitor
-Azure Monitor Logs é uma característica do Azure Monitor que recolhe e organiza dados de registo e desempenho a partir de [recursos monitorizados.](../monitor-reference.md) Dados de diferentes fontes, como [registos](platform-logs-overview.md) de plataformas a partir de serviços Azure, dados de registo e desempenho de [agentes de máquinas virtuais,](agents-overview.md)e dados de utilização e desempenho de aplicações podem ser consolidados num único espaço de trabalho para que possam ser [analisados](../app/app-insights-overview.md) em conjunto usando uma linguagem de consulta sofisticada que é capaz de analisar rapidamente milhões de registos. Pode realizar uma consulta simples que apenas recupera um conjunto específico de registos ou realiza análises de dados sofisticadas para identificar padrões críticos nos seus dados de monitorização. Trabalhe com consultas de registo e seus resultados interativamente usando Log Analytics, use-os em regras de alerta para br notificou proativamente de problemas, ou visualizar os seus resultados em um livro ou painel de instrumentos.
+Azure Monitor Logs é uma característica do Azure Monitor que recolhe e organiza dados de registo e desempenho a partir de [recursos monitorizados.](../monitor-reference.md) Dados de diferentes fontes, como [registos](platform-logs-overview.md) de plataformas a partir de serviços Azure, dados de registo e desempenho de [agentes de máquinas virtuais,](agents-overview.md)e dados de utilização e desempenho de aplicações podem ser consolidados num único espaço de trabalho para que possam ser [analisados](../app/app-insights-overview.md) em conjunto usando uma linguagem de consulta sofisticada que é capaz de analisar rapidamente milhões de registos. Pode realizar uma consulta simples que apenas recupera um conjunto específico de registos ou realiza análises de dados sofisticadas para identificar padrões críticos nos seus dados de monitorização. Trabalhe com consultas de registo e seus resultados interativamente usando Log Analytics, use-os em regras de alerta para ser notificado proativamente de problemas, ou visualizar os seus resultados em um livro ou painel de instrumentos.
 
 > [!NOTE]
 > Azure Monitor Logs é metade da plataforma de dados que suporta o Azure Monitor. O outro é [a Azure Monitor Metrics](data-platform-metrics.md) que armazena dados numéricos numa base de dados de séries temporizadas. Isto torna estes dados mais leves do que os dados em Registos monitores do Azure e capazes de suportar cenários em tempo real tornando-os particularmente úteis para alertar e detetar rapidamente problemas. As métricas só podem armazenar dados numéricos numa determinada estrutura, enquanto os Logs podem armazenar uma variedade de diferentes tipos de dados cada um com a sua própria estrutura. Também pode realizar análises complexas em dados de Registos utilizando consultas de registo que não podem ser usadas para análise de dados de Métricas.

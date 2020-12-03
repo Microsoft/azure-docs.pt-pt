@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: b695205c08f9039fbf91eaeddb7622b784d81d12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69ac1e82c267dee521143c4ed5f6c2be4d32e2ea
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400592"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531331"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerir a utilização e os custos do Application Insights
 
@@ -74,7 +74,7 @@ Os custos de Insights de Aplicação são adicionados à sua conta Azure. Pode v
 ### <a name="using-data-volume-metrics"></a>Usando métricas de volume de dados
 <a id="understanding-ingested-data-volume"></a>
 
-Para saber mais sobre os seus volumes de dados, selecionando **Métricas** para o seu recurso Application Insights, adicione um novo gráfico. Para a métrica do gráfico, em **métricas baseadas em Log,** selecione **volume de ponto de dados**. Clique **em Aplicar a divisão**e selecionar grupo por ** `Telemetryitem` tipo**.
+Para saber mais sobre os seus volumes de dados, selecionando **Métricas** para o seu recurso Application Insights, adicione um novo gráfico. Para a métrica do gráfico, em **métricas baseadas em Log,** selecione **volume de ponto de dados**. Clique **em Aplicar a divisão** e selecionar grupo por **`Telemetryitem` tipo**.
 
 ![Use métricas para olhar para o volume de dados](./media/pricing/10-billing.png)
 
@@ -148,7 +148,7 @@ union (AppAvailabilityResults),
       (AppRequests),
       (AppSystemEvents),
       (AppTraces)
-| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
 | summarize sum(_BilledSize) by _ResourceId, bin(TimeGenerated, 1d)
 | render areachart
 ```
@@ -167,7 +167,7 @@ union (AppAvailabilityResults),
       (AppRequests),
       (AppSystemEvents),
       (AppTraces)
-| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
 | where _ResourceId contains "<myAppInsightsResourceName>"
 | summarize sum(_BilledSize) by Type, bin(TimeGenerated, 1d)
 | render areachart

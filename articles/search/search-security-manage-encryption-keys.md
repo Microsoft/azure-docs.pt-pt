@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4fb20b221858c4717d67e0777afbe5c067c00a69
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8295e619cfda0d4b83a7356d5fd21d4b80f83849
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499616"
+ms.locfileid: "96530889"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configure as chaves geridas pelo cliente para encriptação de dados na Pesquisa Cognitiva Azure
 
-A Azure Cognitive Search encripta automaticamente o conteúdo indexado em repouso com [as teclas geridas pelo serviço](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). Se for necessária mais proteção, pode complementar a encriptação padrão com uma camada de encriptação adicional utilizando as teclas que cria e gere no Cofre da Chave Azure. Este artigo acompanha-o através dos passos da configuração da encriptação CMK.
+A Azure Cognitive Search encripta automaticamente o conteúdo indexado em repouso com [as teclas geridas pelo serviço](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). Se for necessária mais proteção, pode complementar a encriptação padrão com uma camada de encriptação adicional utilizando as teclas que cria e gere no Cofre da Chave Azure. Este artigo acompanha-o através dos passos de configuração da encriptação de chaves gerida pelo cliente.
 
-A encriptação CMK depende do [Cofre da Chave Azure](../key-vault/general/overview.md). Pode criar as suas próprias chaves de encriptação e armazená-las num cofre de chaves, ou pode utilizar os APIs do Azure Key Vault para gerar chaves de encriptação. Com o Azure Key Vault, também pode auditar a utilização da chave se [ativar o registo](../key-vault/general/logging.md).  
+A encriptação de chaves gerida pelo cliente depende do [Cofre da Chave Azure](../key-vault/general/overview.md). Pode criar as suas próprias chaves de encriptação e armazená-las num cofre de chaves, ou pode utilizar os APIs do Azure Key Vault para gerar chaves de encriptação. Com o Azure Key Vault, também pode auditar a utilização da chave se [ativar o registo](../key-vault/general/logging.md).  
 
 A encriptação com teclas geridas pelo cliente é aplicada a índices individuais ou mapas de sinónimo quando esses objetos são criados, e não é especificado no próprio nível de serviço de pesquisa. Apenas novos objetos podem ser encriptados. Não é possível encriptar conteúdo que já existe.
 
@@ -31,7 +31,7 @@ As chaves não precisam de estar todas no mesmo cofre. Um único serviço de pes
 
 ## <a name="double-encryption"></a>Encriptação dupla
 
-Para os serviços criados após 1 de agosto de 2020 e em regiões específicas, o âmbito da encriptação CMK inclui discos temporários, alcançando [a dupla encriptação completa,](search-security-overview.md#double-encryption)atualmente disponível nestas regiões: 
+Para os serviços criados após 1 de agosto de 2020 e em regiões específicas, o âmbito da encriptação chave gerida pelo cliente inclui discos temporários, alcançando [a dupla encriptação completa,](search-security-overview.md#double-encryption)atualmente disponível nestas regiões: 
 
 + E.U.A. Oeste 2
 + E.U.A. Leste
@@ -39,13 +39,13 @@ Para os serviços criados após 1 de agosto de 2020 e em regiões específicas, 
 + US Gov - Virginia
 + US Gov - Arizona
 
-Se estiver a utilizar uma região diferente, ou um serviço criado antes de 1 de agosto, então a encriptação CMK está limitada apenas ao disco de dados, excluindo os discos temporários utilizados pelo serviço.
+Se estiver a utilizar uma região diferente, ou um serviço criado antes de 1 de agosto, então a encriptação da chave gerida limita-se apenas ao disco de dados, excluindo os discos temporários utilizados pelo serviço.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Neste cenário são utilizadas as seguintes ferramentas e serviços.
 
-+ [Pesquisa Cognitiva Azure](search-create-service-portal.md) num [nível de faturação](search-sku-tier.md#tiers) (Básico ou superior, em qualquer região).
++ [Pesquisa Cognitiva Azure](search-create-service-portal.md) num [nível de faturação](search-sku-tier.md#tier-descriptions) (Básico ou superior, em qualquer região).
 + [Azure Key Vault](../key-vault/general/overview.md), pode criar um cofre de chaves utilizando [o portal Azure,](../key-vault//general/quick-create-portal.md) [Azure CLI](../key-vault//general/quick-create-cli.md)ou [Azure PowerShell](../key-vault//general/quick-create-powershell.md). na mesma subscrição que a Azure Cognitive Search. O cofre da chave deve ter **proteção de eliminação** e **purga** ativada.
 + [Diretório Ativo Azure](../active-directory/fundamentals/active-directory-whatis.md). Se não tiver um, [crie um novo inquilino.](../active-directory/develop/quickstart-create-new-tenant.md)
 
@@ -56,7 +56,7 @@ Deve ter uma aplicação de pesquisa que possa criar o objeto encriptado. Neste 
 
 ## <a name="1---enable-key-recovery"></a>1 - Permitir a recuperação das chaves
 
-Devido à natureza da encriptação com chaves geridas pelo cliente, ninguém pode recuperar os seus dados se a chave do cofre da Chave Azure for eliminada. Para evitar a perda de dados causada por supressões acidentais das chaves do Cofre, deve ser ativada a proteção contra a eliminação e purga no cofre da chave. A eliminação suave é ativada por padrão, pelo que só encontrará problemas se o desativar propositadamente. A proteção de purga não é ativada por padrão, mas é necessária para encriptação CMK de pesquisa cognitiva Azure. Para obter mais informações, consulte [as vistas](../key-vault/general/soft-delete-overview.md) gerais da proteção para eliminar e [purgar.](../key-vault/general/soft-delete-overview.md#purge-protection)
+Devido à natureza da encriptação com chaves geridas pelo cliente, ninguém pode recuperar os seus dados se a chave do cofre da Chave Azure for eliminada. Para evitar a perda de dados causada por supressões acidentais das chaves do Cofre, deve ser ativada a proteção contra a eliminação e purga no cofre da chave. A eliminação suave é ativada por padrão, pelo que só encontrará problemas se o desativar propositadamente. A proteção de purga não é ativada por padrão, mas é necessária para encriptação de chaves gerida pelo cliente na Pesquisa Cognitiva. Para obter mais informações, consulte [as vistas](../key-vault/general/soft-delete-overview.md) gerais da proteção para eliminar e [purgar.](../key-vault/general/soft-delete-overview.md#purge-protection)
 
 Pode definir ambas as propriedades utilizando os comandos portal, PowerShell ou Azure CLI.
 
@@ -377,7 +377,7 @@ As condições que o impedirão de adotar esta abordagem simplificada incluem:
 
 ## <a name="work-with-encrypted-content"></a>Trabalhar com conteúdo encriptado
 
-Com a encriptação CMK, irá notar latência tanto para indexar como para consultas devido ao trabalho extra de encriptação/desencriptação. A Azure Cognitive Search não regista a atividade de encriptação, mas pode monitorizar o acesso à chave através do registo do cofre de chaves. Recomendamos que [ative o registo](../key-vault/general/logging.md) como parte da configuração do cofre de chaves.
+Com a encriptação de chave gerida pelo cliente, irá notar latência tanto para indexar como para consultas devido ao trabalho extra de encriptação/desencriptação. A Azure Cognitive Search não regista a atividade de encriptação, mas pode monitorizar o acesso à chave através do registo do cofre de chaves. Recomendamos que [ative o registo](../key-vault/general/logging.md) como parte da configuração do cofre de chaves.
 
 Espera-se que a rotação da chave ocorra ao longo do tempo. Sempre que roda as teclas, é importante seguir esta sequência:
 
