@@ -4,15 +4,15 @@ description: Neste artigo, aprende-se a implantar e configurar a Azure Firewall 
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 12/02/2020
+ms.date: 12/03/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: ca4e313d4836764009feccf5acfaefe48b01b55e
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: e39e27dbeb9394d19a9d7fd8791c147e11a56bdb
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531767"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558895"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Implementar e configurar firewall Azure usando Azure PowerShell
 
@@ -243,7 +243,7 @@ Então agora verificaste que as regras da firewall estão a funcionar:
 * Pode resolver nomes DNS com o servidor DNS externo configurado.
 * Pode navegar para o único FQDN permitido, mas não para quaisquer outros.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Pode manter os seus recursos de firewall para o próximo tutorial, ou se já não for necessário, eliminar o grupo de recursos **Test-FW-RG** para eliminar todos os recursos relacionados com firewall:
 

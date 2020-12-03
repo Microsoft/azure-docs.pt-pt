@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 003203ef1a25102f9fd3c50001603dbd5d33ce5a
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 48c835070329b5cb0892b10760d37708e46bfa1d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565975"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559138"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutorial: Manipular modelos
 
@@ -152,7 +152,7 @@ Os limites de um modelo são definidos pela caixa que contém todo o modelo - ta
     }
     ```
 
-Agora, quando o script **RemoteBounds** for adicionado ao mesmo objeto de jogo que o **RemoteRenderedModel** , um **BoxCollider** será adicionado se necessário e quando o modelo atingir o seu `Loaded` estado, os limites serão automaticamente questionados e aplicados ao **BoxCollider.**
+Agora, quando o script **RemoteBounds** for adicionado ao mesmo objeto de jogo que o **RemoteRenderedModel**, um **BoxCollider** será adicionado se necessário e quando o modelo atingir o seu `Loaded` estado, os limites serão automaticamente questionados e aplicados ao **BoxCollider.**
 
 1. Utilizando o **TestModel** GameObject criado anteriormente, adicione o componente **RemoteBounds.**
 1. Confirme que o guião é adicionado.
@@ -176,7 +176,7 @@ Este tutorial está a usar o MRTK para interação com os objetos. A maior parte
 1. Prima o botão De reprodução da Unidade para reproduzir a cena e abra o menu **Model Tools** dentro do **AppMenu**.
 ![Ver controlador](./media/model-with-view-controller.png)
 
-O **AppMenu** tem um sub menu **Model Tools** que implementa um controlador de vista para encadernação com o modelo. Quando o GameObject contiver um componente **RemoteBounds,** o controlador de visualização adicionará um componente [**BoundingBox,**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html) que é um componente MRTK que torna uma caixa de delimitação em torno de um objeto com um **BoxCollider**. Um [**ObjectManipulator,**](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/api/Microsoft.MixedReality.Toolkit.Experimental.UI.ObjectManipulator.html?q=ObjectManipulator)responsável pelas interações manuais. Estes scripts combinados permitir-nos-ão mover, rodar e escalar o modelo renderizado remotamente.
+O **AppMenu** tem um sub menu **Model Tools** que implementa um controlador de vista para encadernação com o modelo. Quando o GameObject contiver um componente **RemoteBounds,** o controlador de visualização adicionará um componente [**BoundingBox,**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html) que é um componente MRTK que torna uma caixa de delimitação em torno de um objeto com um **BoxCollider**. Um [**ObjectManipulator,**](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/api/Microsoft.MixedReality.Toolkit.UI.ObjectManipulator.html)responsável pelas interações manuais. Estes scripts combinados permitir-nos-ão mover, rodar e escalar o modelo renderizado remotamente.
 
 1. Mova o rato para o painel de jogo e clique no seu interior para lhe dar o foco.
 1. Utilizando a [simulação manual do MRTK,](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/InputSimulation/InputSimulationService.html#hand-simulation)prima e segure a tecla Shift esquerda.

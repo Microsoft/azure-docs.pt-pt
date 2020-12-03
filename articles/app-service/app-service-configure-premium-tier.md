@@ -6,12 +6,12 @@ ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e6b8c7d54cf24d810a1f32082d816c908966f63c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 204e087908ff978880966332b4619935dc6f0458
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739692"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559121"
 ---
 # <a name="configure-premiumv3-tier-for-azure-app-service"></a>Configure nível PremiumV3 para serviço de aplicações Azure
 
@@ -19,7 +19,7 @@ O novo nível de preços **PremiumV3** dá-lhe processadores mais rápidos, arma
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para aumentar uma aplicação para **o PremiumV3,** é necessário ter uma aplicação do Azure App Service que funciona num nível de preços inferior ao **PremiumV3** , e a aplicação deve estar a ser executada numa implementação do App Service que suporte o PremiumV3.
+Para aumentar uma aplicação para **o PremiumV3,** é necessário ter uma aplicação do Azure App Service que funciona num nível de preços inferior ao **PremiumV3**, e a aplicação deve estar a ser executada numa implementação do App Service que suporte o PremiumV3.
 
 <a name="availability"></a>
 
@@ -42,9 +42,9 @@ az appservice list-locations --sku P1V3
 
 O nível de preços de uma aplicação de Serviço de Aplicações está definido no plano de Serviço de [Aplicações](overview-hosting-plans.md) que executa. Pode criar um plano de Serviço de Aplicações por si só ou como parte da criação de aplicações.
 
-Ao configurar o plano de Serviço de Aplicações no <a href="https://portal.azure.com" target="_blank">portal Azure,</a>selecione **o nível de preços** . 
+Ao configurar o plano de Serviço de Aplicações no <a href="https://portal.azure.com" target="_blank">portal Azure,</a>selecione **o nível de preços**. 
 
-Selecione **Produção** , em seguida, selecione **P1V3,** **P2V3** ou **P3V3** , em seguida, clique em **Aplicar** .
+Selecione **Produção**, em seguida, selecione **P1V3,** **P2V3** ou **P3V3**, em seguida, clique em **Aplicar**.
 
 ![Screenshot mostrando os níveis de preços recomendados para a sua aplicação.](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
@@ -59,11 +59,11 @@ Dependendo do ambiente de hospedagem, a escalada pode exigir passos extra.
 
 No <a href="https://portal.azure.com" target="_blank">portal Azure,</a>abra a sua página de aplicações do Serviço de Aplicações.
 
-Na navegação à esquerda da sua página de aplicações do Serviço de Aplicações, selecione **Scale up (Plano de Serviço de Aplicações)** .
+Na navegação à esquerda da sua página de aplicações do Serviço de Aplicações, selecione **Scale up (Plano de Serviço de Aplicações)**.
 
 ![Screenshot mostrando como aumentar o seu plano de serviço de aplicações.](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
-Selecione **Produção** , em seguida, selecione **P1V3,** **P2V3** ou **P3V3** , em seguida, clique em **Aplicar** .
+Selecione **Produção**, em seguida, selecione **P1V3,** **P2V3** ou **P3V3**, em seguida, clique em **Aplicar**.
 
 ![Screenshot mostrando os níveis de preços recomendados para a sua aplicação.](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
@@ -79,10 +79,10 @@ Alguns planos do Serviço de Aplicações não podem escalar até ao nível Prem
 
 ## <a name="scale-up-from-an-unsupported-resource-group-and-region-combination"></a>Dimensione a partir de um grupo de recursos não suportado e combinação de região
 
-Se a sua aplicação funcionar numa implementação do Serviço de Aplicações onde o **PremiumV3** não está disponível, ou se a sua aplicação funciona numa região que atualmente não suporta **o PremiumV3,** tem de voltar a implementar a sua app para tirar partido do **PremiumV3** .  Tem duas opções:
+Se a sua aplicação funcionar numa implementação do Serviço de Aplicações onde o **PremiumV3** não está disponível, ou se a sua aplicação funciona numa região que atualmente não suporta **o PremiumV3,** tem de voltar a implementar a sua app para tirar partido do **PremiumV3**.  Tem duas opções:
 
-- Crie uma aplicação num novo grupo de recursos e com um novo plano de Serviço de Aplicações. Ao criar o plano de Serviço de Aplicações, selecione um nível **PremiumV3.** Este passo garante que o plano de Serviço de Aplicações é implantado numa unidade de implantação que suporta **o PremiumV3** . Em seguida, recolocar o seu código de aplicação na aplicação recém-criada. Mesmo que reduza o plano do Serviço de Aplicações para um nível mais baixo para economizar custos, pode sempre voltar a escalar para **o PremiumV3** porque a unidade de implantação o suporta.
-- Se a sua aplicação já funciona num nível **Premium** existente, então pode clonar a sua aplicação com todas as definições de aplicações, cordas de ligação e configuração de implementação num novo plano de serviço de aplicações que utilize **o PremiumV3** .
+- Crie uma aplicação num novo grupo de recursos e com um novo plano de Serviço de Aplicações. Ao criar o plano de Serviço de Aplicações, selecione um nível **PremiumV3.** Este passo garante que o plano de Serviço de Aplicações é implantado numa unidade de implantação que suporta **o PremiumV3**. Em seguida, recolocar o seu código de aplicação na aplicação recém-criada. Mesmo que reduza o plano do Serviço de Aplicações para um nível mais baixo para economizar custos, pode sempre voltar a escalar para **o PremiumV3** porque a unidade de implantação o suporta.
+- Se a sua aplicação já funciona num nível **Premium** existente, então pode clonar a sua aplicação com todas as definições de aplicações, cordas de ligação e configuração de implementação num novo plano de serviço de aplicações que utilize **o PremiumV3**.
 
     ![Screenshot mostrando como clonar a sua aplicação.](media/app-service-configure-premium-tier/clone-app.png)
 
@@ -90,7 +90,7 @@ Se a sua aplicação funcionar numa implementação do Serviço de Aplicações 
 
 ## <a name="moving-from-premium-container-to-premium-v3-sku"></a>Passar de Recipiente Premium para Premium V3 SKU
 
-Se tiver uma aplicação que está a utilizar o Pré-visualização Premium Container SKU e gostaria de se mudar para o novo Premium V3 SKU, precisa de recolocar a sua app para tirar partido do **PremiumV3** . Para isso, consulte a primeira opção em [Escala a partir de um grupo de recursos não suportado e combinação de região](#scale-up-from-an-unsupported-resource-group-and-region-combination)
+Se tiver uma aplicação que está a utilizar o Pré-visualização Premium Container SKU e gostaria de se mudar para o novo Premium V3 SKU, precisa de recolocar a sua app para tirar partido do **PremiumV3**. Para isso, consulte a primeira opção em [Escala a partir de um grupo de recursos não suportado e combinação de região](#scale-up-from-an-unsupported-resource-group-and-region-combination)
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 
@@ -98,7 +98,7 @@ Pode automatizar a criação de aplicações no nível **PremiumV3** com scripts
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-O seguinte comando cria um plano de Serviço de Aplicações em _P1V2_ . Podes executá-lo na Cloud Shell. As opções `--sku` para são P1V3, _P2V3_ e _P3V3._
+O seguinte comando cria um plano de Serviço de Aplicações em _P1V3_. Podes executá-lo na Cloud Shell. As opções `--sku` para são P1V3, _P2V3_ e _P3V3._
 
 ```azurecli-interactive
 az appservice plan create \
@@ -111,7 +111,7 @@ az appservice plan create \
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-O seguinte comando cria um plano de Serviço de Aplicações em _P1V3_ . As opções `-WorkerSize` para são _Pequenas,_ _Médias_ e _Grandes._
+O seguinte comando cria um plano de Serviço de Aplicações em _P1V3_. As opções `-WorkerSize` para são _Pequenas,_ _Médias_ e _Grandes._
 
 ```powershell
 New-AzAppServicePlan -ResourceGroupName <resource_group_name> `

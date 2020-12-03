@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 9650633e1eaffdb588b3a31cd5a2f305c36e7a25
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 84e257111e8da0546cf104e0cc5d3ac95a9294ba
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741300"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558679"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implantação local de Git para o Serviço de Aplicações Azure
 
@@ -31,9 +31,9 @@ Para seguir os passos neste guia:
   git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
   ```
 
-[!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 ## <a name="deploy-with-kudu-build-server"></a>Implementar com o servidor de construção kudu
 
@@ -80,7 +80,7 @@ Utilize o URL que retorna para implementar a sua aplicação no passo seguinte.
    git remote add azure <url>
    ```
    
-1. Empurre para o comando Azure com `git push azure master` . 
+1. Empurre para o comando Azure com `git push azure main` . 
    
 1. Na janela **Git Credential Manager,** introduza a [palavra-passe do utilizador de implementação,](#configure-a-deployment-user)não a sua palavra-passe de entrada de Azure.
    
@@ -104,22 +104,22 @@ Para ativar a implementação local do Git para a sua aplicação com Azure Pipe
 
 1. Selecione a sua aplicação Azure App Service e selecione **o Centro de Implementação** no menu esquerdo.
    
-1. Na página **'Centro de Implantação',** selecione **Local Git** e, em seguida, selecione **Continue** . 
+1. Na página **'Centro de Implantação',** selecione **Local Git** e, em seguida, selecione **Continue**. 
    
    ![Selecione Git local e, em seguida, selecione Continue](media/app-service-deploy-local-git/portal-enable.png)
    
-1. Na página do **fornecedor Build,** selecione **Azure Pipelines (Preview)** e, em seguida, selecione **Continue** . 
+1. Na página do **fornecedor Build,** selecione **Azure Pipelines (Preview)** e, em seguida, selecione **Continue**. 
    
    ![Selecione Azure Pipelines (Preview) e, em seguida, selecione Continue.](media/app-service-deploy-local-git/pipeline-builds.png)
 
-1. Na página **Configure,** configurar uma nova organização Azure DevOps, ou especificar uma organização existente, e, em seguida, selecionar **Continue** .
+1. Na página **Configure,** configurar uma nova organização Azure DevOps, ou especificar uma organização existente, e, em seguida, selecionar **Continue**.
    
    > [!NOTE]
    > Se a sua organização Azure DevOps existente não estiver listada, poderá ter de ligá-la à sua subscrição Azure. Para obter mais informações, consulte [Definir o seu pipeline de desbloqueio de CD](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
    
-1. Dependendo do nível de preços do seu [plano de aplicação,](https://azure.microsoft.com/pricing/details/app-service/plans/)poderá ver uma **página de paragem para a paragem.** Escolha se [ativar as ranhuras de implantação](deploy-staging-slots.md)e, em seguida, selecione **Continue** .
+1. Dependendo do nível de preços do seu [plano de aplicação,](https://azure.microsoft.com/pricing/details/app-service/plans/)poderá ver uma **página de paragem para a paragem.** Escolha se [ativar as ranhuras de implantação](deploy-staging-slots.md)e, em seguida, selecione **Continue**.
    
-1. Na página **Resumo,** reveja as definições e, em seguida, **selecione Terminar** .
+1. Na página **Resumo,** reveja as definições e, em seguida, **selecione Terminar**.
    
 1. Quando o Gasoduto Azure estiver pronto, copie o URL do repositório Git da página **do Centro de Implantação** para utilizar no passo seguinte. 
    
@@ -131,7 +131,7 @@ Para ativar a implementação local do Git para a sua aplicação com Azure Pipe
    git remote add azure <url>
    ```
    
-1. Empurre para o comando Azure com `git push azure master` . 
+1. Empurre para o comando Azure com `git push azure main` . 
    
 1. Na página **Git Credential Manager,** inscreva-se com o seu nome de utilizador visualstudio.com. Para outros métodos de autenticação, consulte [a visão geral da autenticação dos Serviços Azure DevOps](/vsts/git/auth-overview?view=vsts).
    
@@ -149,8 +149,8 @@ Pode ver as seguintes mensagens de erro comuns quando utiliza o Git para publica
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|A aplicação não está a funcionar.|Inicie a aplicação no portal Azure. A implementação do Git não está disponível quando a aplicação web é interrompida.|
 |`Couldn't resolve host 'hostname'`|As informações de endereço do telecomando "azul" estão incorretas.|Utilize o `git remote -v` comando para listar todos os telecomandos, juntamente com o URL associado. Verifique se o URL do telecomando 'azul' está correto. Se necessário, remova e recrie este telecomando utilizando o URL correto.|
-|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|Não especificou um ramo `git push` durante, ou não definiu o `push.default` valor em `.gitconfig` .|Corra `git push` novamente, especificando o ramo principal: `git push azure master` .|
-|`src refspec [branchname] does not match any.`|Tentaste empurrar para um ramo que não o mestre no controlo remoto do "azul".|Corra `git push` novamente, especificando o ramo principal: `git push azure master` .|
+|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|Não especificou um ramo `git push` durante, ou não definiu o `push.default` valor em `.gitconfig` .|Corra `git push` novamente, especificando o ramo principal: `git push azure main` .|
+|`src refspec [branchname] does not match any.`|Tentou empurrar para um ramo diferente do principal no controlo remoto do "azul".|Corra `git push` novamente, especificando o ramo principal: `git push azure main` .|
 |`RPC failed; result=22, HTTP code = 5xx.`|Este erro pode ocorrer se tentar empurrar um repositório de git grande sobre HTTPS.|Mude a configuração do git na máquina local para fazer o `postBuffer` maior. Por exemplo: `git config --global http.postBuffer 524288000`.|
 |`Error - Changes committed to remote repository but your web app not updated.`|Implementou uma aplicação Node.js com uma _package.jsno_ ficheiro que especifica módulos adicionais necessários.|Reveja as `npm ERR!` mensagens de erro antes deste erro para mais contexto na falha. São as causas conhecidas deste erro e as `npm ERR!` respetivas mensagens:<br /><br />**package.jsmal formados no ficheiro:**`npm ERR! Couldn't read dependencies.`<br /><br />**O módulo nativo não tem uma distribuição binária para o Windows:**<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />ou <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 

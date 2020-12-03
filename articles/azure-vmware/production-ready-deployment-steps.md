@@ -3,12 +3,12 @@ title: Planeamento da implementação da Solução VMware Azure
 description: Este artigo descreve um fluxo de trabalho de implementação de Solução VMware Azure.  O resultado final é um ambiente pronto para a criação e migração de máquinas virtuais (VM).
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 1ef83a568e41fe99f1e8e385a599de9c5ab7c0ca
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1d1deebd56717c63a745500198eb8df9e3687b49
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95529738"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558696"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planeamento da implementação da Solução VMware Azure
 
@@ -25,13 +25,13 @@ Os processos deste arranque rápido resultam num ambiente pronto para a produç�
 Identifique a subscrição que pretende utilizar para implementar a Solução VMware Azure.  Pode criar uma nova subscrição ou reutilizar uma existente.
 
 >[!NOTE]
->A subscrição deve ser associada a um Acordo de Empresa da Microsoft.
+>A subscrição deve ser associada a um Acordo de Empresa da Microsoft ou a um plano Azure do Fornecedor de Soluções Cloud. Para obter mais informações, consulte [Como ativar o recurso Azure VMware Solution](enable-azure-vmware-solution.md).
 
 ## <a name="resource-group"></a>Grupo de recursos
 
 Identifique o grupo de recursos que pretende utilizar para a sua Solução Azure VMware.  Geralmente, um grupo de recursos é criado especificamente para a Azure VMware Solution, mas você pode usar um grupo de recursos existente.
 
-## <a name="region"></a>Region
+## <a name="region"></a>Região
 
 Identifique a região que pretende que a Azure VMware Solution seja implementada.  Para mais informações, consulte os [Produtos Azure Disponíveis por Guia da Região.](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-vmware)
 

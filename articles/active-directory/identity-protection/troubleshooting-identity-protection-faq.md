@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba22745923f1b157c477dce0b5704c7e278e748e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6eb63a4a0b7b7fdefd636d3460b182f8d907dd36
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96176006"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558934"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Perguntas frequentes proteção de identidade no Diretório Ativo Azure
 
@@ -82,9 +82,11 @@ Todas as deteções de risco estão documentadas no artigo [O que é o risco](co
 
 - Ao recebermos este feedback, movemos o estado de risco de inscrição (não do utilizador) para **confirmado seguro** e o nível de risco para **-** .
 
-- Além disso, fornecemos a informação aos nossos sistemas de aprendizagem automática para futuras melhorias na avaliação de riscos.
+- Além disso, fornecemos a informação aos nossos sistemas de aprendizagem automática para futuras melhorias na avaliação de riscos. 
 
     > [!NOTE]
+    >Hoje, selecionar confirmar segurança numa entrada não impede por si só que futuras entradas com as mesmas propriedades sejam sinalizadas como arriscadas. A melhor forma de treinar o sistema para aprender as propriedades de um utilizador é usar a política de entrada de risco com o MFA. Quando um insiná-lo de risco é solicitado para MFA e o utilizador responde com sucesso ao pedido, o sign-in pode ter sucesso e ajudar a treinar o sistema sobre o comportamento do utilizador legítimo.
+    >
     > Se acreditar que o utilizador não está comprometido, utilize **o risco do utilizador desprezado** ao nível do utilizador em vez de utilizar o cofre **Confirmado** no nível de inscrição. Um **risco de utilizador dedessaltado** ao nível do utilizador fecha o risco do utilizador e todas as insuposições de risco passadas e deteções de risco.
 
 ### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-detections-are-shown-in-identity-protection"></a>Porque é que estou a ver um utilizador com uma pontuação de risco baixa (ou acima), mesmo que não sejam apresentados insusitados de risco ou deteções de risco na Proteção de Identidade?

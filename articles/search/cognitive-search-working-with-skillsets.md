@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.openlocfilehash: f1d8715fcadeda5ccd1a98192a70939b0c359c88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a893ee1923ba4b2bec53b20fb164337bd65902
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84976681"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558118"
 ---
 # <a name="skillset-concepts-in-azure-cognitive-search"></a>Conceitos de Skillset em Pesquisa Cognitiva Azure
 
@@ -115,7 +115,7 @@ Cada habilidade requer um contexto. Um contexto determina:
 
 + Forma das entradas. Para coleções de vários níveis, definir o contexto para a coleção dos pais irá afetar a forma da entrada para a habilidade. Por exemplo, se tiver uma árvore de enriquecimento com uma lista de países/regiões, cada uma enriquecida com uma lista de estados contendo uma lista de códigos ZIP.
 
-|Contexto|Input|Forma de Entrada|Invocação de Habilidades|
+|Contexto|Entrada|Forma de Entrada|Invocação de Habilidades|
 |-------|-----|--------------|----------------|
 |`/document/countries/*` |`/document/countries/*/states/*/zipcodes/*` |Uma lista de todos os códigos ZIP no país/região |Uma vez por país/região |
 |`/document/countries/*/states/*` |«/documento/países/*/estados/*/zipcodes/*». |Uma lista de códigos ZIP no estado | Uma vez por combinação de país/região e estado|
@@ -222,8 +222,6 @@ A abordagem do shaper é mais verbosa do que a formação inline, mas garante qu
 Para estender o exemplo, pode optar por remover a modelação inline e usar uma habilidade de modelador para criar um novo nó para as frases-chave. Para criar uma forma projetada em três tabelas, ou seja, `hotelReviewsDocument` `hotelReviewsPages` as `hotelReviewsKeyPhrases` duas opções são descritas nas seguintes secções.
 
 #### <a name="shaper-skill-and-projection"></a>Habilidade e projeção do shaper
-
-Este 
 
 > [!Note]
 > Algumas colunas da tabela de documentos foram removidas deste exemplo por brevidade.

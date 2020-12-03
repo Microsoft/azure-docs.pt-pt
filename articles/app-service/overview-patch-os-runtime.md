@@ -4,12 +4,12 @@ description: Saiba como o Azure App Service atualiza o SISTEMA e os tempos de ex
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 31b2d39f5d0d125d2bf23ac72718d9b386b48923
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8b52223aea0f0bdfecf58906ac192e893da3b47d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833491"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558492"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Correção de SO e tempo de execução no Serviço de Aplicações Azure
 
@@ -51,7 +51,7 @@ Atualizações e depreciações de tempo de execução são anunciadas aqui:
 
 ### <a name="new-patch-updates"></a>Novas atualizações de patch
 
-As atualizações de patch para a versão .NET, PHP, Java SDK ou Tomcat/Jetty são aplicadas automaticamente, sobrepondo a instalação existente com a nova versão. Node.js atualizações de patch são instaladas lado a lado com as versões existentes (semelhantes às versões principais e menores na secção seguinte). As novas versões de patch Python podem ser instaladas manualmente através de [extensões do local,](https://azure.microsoft.com/blog/azure-web-sites-extensions/)lado a lado com as instalações python incorporadas.
+As atualizações de patch para a versão .NET, PHP, Java SDK ou Tomcat são aplicadas automaticamente, sobrepondo a instalação existente com a versão mais recente. Node.js atualizações de patch são instaladas lado a lado com as versões existentes (semelhantes às versões principais e menores na secção seguinte). As novas versões de patch Python podem ser instaladas manualmente através de [extensões do local,](https://azure.microsoft.com/blog/azure-web-sites-extensions/)lado a lado com as instalações python incorporadas.
 
 ### <a name="new-major-and-minor-versions"></a>Novas versões principais e menores
 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: c67d4dbb68048d273b1f9acd83a8460447e5abe4
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2920aad07ac54a19962f552debb8cfa809e17294
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748901"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558356"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Crie uma aplicação multi-contentor (pré-visualização) utilizando uma configuração Docker Compose
 
@@ -21,13 +21,13 @@ ms.locfileid: "92748901"
 
 A [Aplicação Web para Contentores](overview.md#app-service-on-linux) proporciona uma forma flexível de utilizar imagens do Docker. Este quickstart mostra como implementar uma aplicação multi-contentores (pré-visualização) para a Web App para contentores na [Cloud Shell](../cloud-shell/overview.md) utilizando uma configuração Docker Compose.
 
-Este início rápido deverá ser concluído no Cloud Shell, mas também poderá executar estes comandos localmente com a [CLI do Azure](/cli/azure/install-azure-cli) (2.0.32 ou posterior). 
-
 ![Aplicação com vários contentores de exemplo na Aplicação Web para Contentores][1]
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+Este artigo requer a versão 2.0.32 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
@@ -55,7 +55,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-Na Cloud Shell, crie um grupo de recursos com o [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) comando. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *E.U.A. Centro-Sul* . Para ver todas as localizações suportadas para o Serviço de Aplicações no Linux no escalão **Standard** , execute o comando [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
+Na Cloud Shell, crie um grupo de recursos com o [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) comando. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *E.U.A. Centro-Sul*. Para ver todas as localizações suportadas para o Serviço de Aplicações no Linux no escalão **Standard**, execute o comando [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"

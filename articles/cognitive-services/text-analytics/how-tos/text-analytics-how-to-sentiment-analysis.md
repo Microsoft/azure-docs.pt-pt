@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 11/11/2020
+ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 2c592a959dfb9d4e93f97488a9ac1b1f6683c23e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0437704709e863cdbc62321c8a4b79015564e362
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968276"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558764"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Como: Análise de sentimento e mineração de opinião
 
-A funcionalidade de Análise de Sentimento da API de Análise de Texto analytics fornece duas formas de detetar sentimentos positivos e negativos. Se enviar um pedido de Análise de Sentimento, a API devolverá rótulos de sentimento (tais como "negativo", "neutro" e "positivo") e pontuações de confiança a nível da frase e do documento. Também pode enviar pedidos de Mineração de Opinião utilizando o ponto final de Análise de Sentimento, que fornece informações granulares sobre os pareceres relacionados com aspetos (como os atributos de produtos ou serviços) em texto.
+A funcionalidade de Análise de Sentimento da API de Análise de Texto analytics fornece duas formas de detetar sentimentos positivos e negativos. Se enviar um pedido de Análise de Sentimento, a API devolverá rótulos de sentimento (tais como "negativo", "neutro" e "positivo") e pontuações de confiança a nível da frase e do documento. Também pode enviar pedidos de Mineração de Opinião utilizando o ponto final de Análise de Sentimento, que fornece informações granulares sobre os pareceres relacionados com aspetos (como os atributos de produtos ou serviços) em texto. 
 
 Os modelos de IA utilizados pela API são fornecidos pelo serviço, basta enviar conteúdo para análise.
 
@@ -51,13 +51,14 @@ Os resultados de confiança variam de 1 a 0. Pontuações mais próximas de 1 in
 
 ## <a name="opinion-mining"></a>Mineração de Opinião
 
-Opinion Mining é uma característica da Análise do Sentimento, a partir da versão 3.1-preview.1. Também conhecida como Análise de Sentimento baseada em Aspetos no Processamento de Linguagem Natural (NLP), esta funcionalidade fornece mais informações granulares sobre as opiniões relacionadas com aspetos (como os atributos de produtos ou serviços) em texto.
+Opinion Mining é uma característica da Análise do Sentimento, a partir da versão 3.1-preview.1. Também conhecida como Análise de Sentimento baseada em Aspetos no Processamento de Linguagem Natural (NLP), esta funcionalidade fornece mais informações granulares sobre as opiniões relacionadas com aspetos (como os atributos de produtos ou serviços) em texto. 
 
 Por exemplo, se um cliente deixar feedback sobre um hotel como "O quarto era ótimo, mas o pessoal não era amigável.", a Opinion Mining localizará aspetos no texto e as suas opiniões e sentimentos associados. A Análise de Sentimento só pode relatar um sentimento negativo.
 
 :::image type="content" source="../media/how-tos/opinion-mining.png" alt-text="Um diagrama do exemplo de Mineração de Opinião" lightbox="../media/how-tos/opinion-mining.png":::
 
-Para obter a Opinion Mining nos seus resultados, deve incluir a `opinionMining=true` bandeira num pedido de análise de sentimento. Os resultados da Mineração de Opinião serão incluídos na resposta da análise do sentimento.
+Para obter a Opinion Mining nos seus resultados, deve incluir a `opinionMining=true` bandeira num pedido de análise de sentimento. Os resultados da Mineração de Opinião serão incluídos na resposta da análise do sentimento. A mineração de opinião é uma extensão da Análise do Sentimento e está incluída no seu [nível atual de preços.](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)
+
 
 ## <a name="sending-a-rest-api-request"></a>Envio de um pedido de API REST 
 

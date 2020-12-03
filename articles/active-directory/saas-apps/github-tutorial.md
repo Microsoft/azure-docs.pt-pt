@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o GitHub Microsoft Docs'
-description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o GitHub.
+title: 'Tutorial: Integração do Azure Ative Directory com uma Organização GitHub Enterprise Cloud Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e uma GitHub Enterprise Cloud Organization.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: cb5ef751a3fc2241924eaee1c5da9507006389cc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 67a17aaa647d9aa6943b37d54fc0e3308ad8955f
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92449277"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558543"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Tutorial: Azure Ative Directory integração única (SSO) com GitHub
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-a-github-enterprise-cloud-organization"></a>Tutorial: Azure Ative Directory integração única (SSO) com uma GitHub Enterprise Cloud Organization
 
-Neste tutorial, você vai aprender a integrar GitHub com Azure Ative Directory (Azure AD). Quando integrar o GitHub com a AD Azure, pode:
+Neste tutorial, você vai aprender a integrar uma **GitHub** Enterprise Cloud Organization com Azure Ative Directory (Azure AD). Quando integrar uma GitHub Enterprise Cloud Organization com Azure AD, pode:
 
 * Controle em Azure AD que tem acesso à sua GitHub Enterprise Cloud Organization.
 * Gerencie o acesso à sua GitHub Enterprise Cloud Organization numa localização central - o portal Azure.
@@ -29,7 +29,7 @@ Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consult
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração AD da Azure com o GitHub, precisa dos seguintes itens:
+Para configurar a integração AZure AD com uma GitHub Enterprise Cloud Organization, precisa dos seguintes itens:
 
 * Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
 * Uma organização GitHub criada em [GitHub Enterprise Cloud,](https://help.github.com/articles/github-s-products/#github-enterprise)que requer o [plano de faturação](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) da GitHub Enterprise
@@ -52,7 +52,7 @@ Para configurar a integração do GitHub no AD Azure, precisa adicionar o GitHub
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Add a partir da secção **da galeria,** escreva **GitHub** na caixa de pesquisa.
-1. Selecione **GitHub** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. Selecione **GitHub Enterprise Cloud - Organização** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-github"></a>Configurar e testar Azure AD único sinal para GitHub
 
@@ -123,7 +123,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao GitHub.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **GitHub**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

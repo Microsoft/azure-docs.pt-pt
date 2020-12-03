@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbe22a1af8fbf61629fa9df1267416ca3822884b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 2cef20f38c751bb81194559aaad7994c270d1e8c
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840088"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558186"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação sem palavras-passe para Azure Ative Directory
 
@@ -135,7 +135,11 @@ Os seguintes fornecedores oferecem chaves de segurança FIDO2 de diferentes fato
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 | Gemalto (Grupo Thales) | [https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/](https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/) |
 | OneSpan Inc. | [https://www.onespan.com/products/fido](https://www.onespan.com/products/fido) |
-| IDmelon Technologies Inc. | [https://www.idmelon.com/#idmelon](https://www.idmelon.com/#idmelon) | 
+| IDmelon Technologies Inc. | [https://www.idmelon.com/#idmelon](https://www.idmelon.com/#idmelon) |
+| Hipersecu | [https://www.hypersecu.com/hyperfido](https://www.hypersecu.com/hyperfido) |
+| Vincss | [https://passwordless.vincss.net](https://passwordless.vincss.net) |
+| KONA I | [https://konai.com/business/security/fido](https://konai.com/business/security/fido) |
+| Excelsecu | [https://www.excelsecu.com/productdetail/esecufido2secu.html](https://www.excelsecu.com/productdetail/esecufido2secu.html) |
 
 > [!NOTE]
 > Se comprar e planear usar chaves de segurança baseadas em NFC, precisa de um leitor NFC suportado para a chave de segurança. O leitor NFC não é um requisito ou limitação do Azure. Consulte o fornecedor para obter a sua chave de segurança baseada no NFC para obter uma lista de leitores NFC suportados.

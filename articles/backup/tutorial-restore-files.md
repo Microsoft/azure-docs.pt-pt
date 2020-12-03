@@ -4,12 +4,12 @@ description: Saiba como realizar restauros ao nível do ficheiro numa VM do Azur
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 236b2c2c7799ef6a0df1da2ddded0e689349e222
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d977919b806be32b84001a9b91dc9e396fbd63ce
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842214"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557914"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restaurar ficheiros para uma máquina virtual no Azure
 
@@ -21,13 +21,15 @@ O Azure Backup cria pontos de recuperação que são armazenados em cofres de re
 > * Ligar um ponto de recuperação a uma VM
 > * Restaurar ficheiros a partir de um ponto de recuperação
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão 2.0.18 do CLI Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial requer uma VM Linux que tenha sido protegida com o Azure Backup. Para simular um processo de recuperação e eliminação acidental de ficheiro, elimine uma página de um servidor Web. Se precisar de uma VM Linux que execute um servidor Web e tenha sido protegida com o Azure Backup, veja [Realizar uma cópia de segurança de uma máquina virtual no Azure com a CLI](quick-backup-vm-cli.md).
+
+Prepare o seu ambiente:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Este artigo requer a versão 2.0.18 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="backup-overview"></a>Descrição geral da Cópia de Segurança
 

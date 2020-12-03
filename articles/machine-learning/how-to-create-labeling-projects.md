@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 450d471beebbcc554a6d534fb2d5361778f158bc
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 74e9224b30ccee274eaf52ba47a0ec05573c2e9d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992323"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558730"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
 
@@ -109,7 +109,7 @@ Se pretende adicionar novas imagens ao seu conjunto de dados, utilize a atualiza
 
 Para adicionar mais imagens ao seu projeto, utilize o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) para fazer o upload para a pasta apropriada no armazenamento de bolhas. 
 
-Verifique a caixa para **Ativar a atualização incremental** quando pretender que o seu projeto monitorize continuamente novos dados na datastore.
+Verifique a caixa para **Ativar a atualização incremental** quando pretender que o seu projeto monitorize continuamente novos dados na datastore. Estes dados serão retirados do seu projeto uma vez por dia quando estiver ativado.
 
 Desmarque esta caixa se não quiser que novas imagens que apareçam na datastore sejam adicionadas ao seu projeto.
 
@@ -256,7 +256,7 @@ O ficheiro COCO é criado na loja blob padrão do espaço de trabalho Azure Mach
 
 ![Conjunto de dados exportado](./media/how-to-create-labeling-projects/exported-dataset.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Tutorial: Crie o seu primeiro projeto de rotulagem de classificação de imagem.](tutorial-labeling.md)
 * Rotular imagens para [classificação de imagem ou deteção de objetos](how-to-label-images.md)

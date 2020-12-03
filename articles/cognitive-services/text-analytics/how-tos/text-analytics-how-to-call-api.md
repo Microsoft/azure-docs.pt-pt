@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 90a4da2aadbbdf07d851e4407d2d417fc76d32af
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 5985c30973f703b897fa2eedc2be3b939d97900b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512329"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559002"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API de Sms Analytics REST
 
@@ -52,9 +52,9 @@ Consulte a tabela abaixo para ver quais as características que podem ser utiliz
 
 
 > [!NOTE]
-> Necessitará de um recurso Text Analytics utilizando um [nível de preços](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Standard (S) se quiser utilizar os `/analyze` pontos finais ou `/health` finais.
+> * Necessitará de um recurso Text Analytics utilizando um [nível de preços](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Standard (S) se quiser utilizar os `/analyze` pontos finais ou `/health` finais.
 
-1.  Primeiro, vá ao [portal Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) e crie um novo recurso Text Analytics, se ainda não o tiver. Escolha o **nível de preços Standard (S)** se quiser utilizar os `/analyze` `/health` pontos finais ou finais.
+1.  Primeiro, vá ao [portal Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) e crie um novo recurso Text Analytics, se ainda não o tiver. Escolha o **nível de preços Standard (S)** se quiser utilizar os `/analyze` `/health` pontos finais ou finais. O `/analyze` ponto final está incluído no seu [nível de preços.](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)
 
 2.  Selecione a região que pretende utilizar para o seu ponto final.  Por favor, note que os `/analyze` `/health` pontos finais estão disponíveis apenas nas seguintes regiões: West US 2, East US 2, Central US, North Europe e West Europe.
 
@@ -71,8 +71,8 @@ O formato para pedidos de API é o mesmo para todas as operações sincronizadas
 
 | Elemento | Valores válidos | Necessário? | Utilização |
 |---------|--------------|-----------|-------|
-|`id` |O tipo de dados é string, mas na prática os IDs de documento tendem a ser inteiros. | Obrigatório | O sistema utiliza os IDs que fornece para estruturar a saída. Códigos linguísticos, frases-chave e pontuações de sentimento são gerados para cada ID no pedido.|
-|`text` | Texto cru não estruturado, até 5.120 caracteres. | Obrigatório | Para a deteção de idiomas, o texto pode ser expresso em qualquer língua. Para análise de sentimentos, extração de frases-chave e identificação de entidades, o texto deve estar numa [língua suportada](../language-support.md). |
+|`id` |O tipo de dados é string, mas na prática os IDs de documento tendem a ser inteiros. | Necessário | O sistema utiliza os IDs que fornece para estruturar a saída. Códigos linguísticos, frases-chave e pontuações de sentimento são gerados para cada ID no pedido.|
+|`text` | Texto cru não estruturado, até 5.120 caracteres. | Necessário | Para a deteção de idiomas, o texto pode ser expresso em qualquer língua. Para análise de sentimentos, extração de frases-chave e identificação de entidades, o texto deve estar numa [língua suportada](../language-support.md). |
 |`language` | Código [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de 2 caracteres para uma [língua suportada](../language-support.md) | Varia | Necessário para a análise de sentimentos, extração de frases-chave e ligação de entidades; opcional para a deteção de linguagem. Não há erro se o excluirmos, mas a análise é enfraquecida sem ela. O código linguístico deve corresponder ao `text` que fornece. |
 
 Segue-se um exemplo de um pedido de API para os pontos finais sincronizados de Text Analytics. 
@@ -89,7 +89,7 @@ Segue-se um exemplo de um pedido de API para os pontos finais sincronizados de T
 }
 ```
 
-#### <a name="analyze"></a>[Análise](#tab/analyze)
+#### <a name="analyze"></a>[Analisar](#tab/analyze)
 
 > [!NOTE]
 > O último pré-relanço da biblioteca de clientes Text Analytics permite-lhe ligar para operações de Análise Assíncronica utilizando um objeto cliente. Pode encontrar exemplos no GitHub:
@@ -105,14 +105,14 @@ O `/analyze` ponto final permite-lhe escolher qual das funcionalidades de Análi
 | Elemento | Valores válidos | Necessário? | Utilização |
 |---------|--------------|-----------|-------|
 |`displayName` | Cadeia | Opcional | Usado como nome de exibição para o identificador único para o trabalho.|
-|`analysisInput` | Inclui o `documents` campo abaixo | Obrigatório | Contém a informação para os documentos que pretende enviar. |
-|`documents` | Inclui os `id` campos e `text` campos abaixo | Obrigatório | Contém informações para cada documento enviado e o texto em bruto do documento. |
-|`id` | Cadeia | Obrigatório | Os IDs que fornece são usados para estruturar a saída. |
-|`text` | Texto cru não estruturado, até 125.000 caracteres. | Obrigatório | Deve estar na língua inglesa, que é a única língua atualmente apoiada. |
-|`tasks` | Inclui as seguintes funcionalidades de Análise de Texto: `entityRecognitionTasks` , `keyPhraseExtractionTasks` ou `entityRecognitionPiiTasks` . | Obrigatório | Um ou mais dos recursos de Text Analytics que pretende utilizar. Note que `entityRecognitionPiiTasks` tem um parâmetro opcional que pode ser definido para ou `domain` `pii` `phi` . Se não for especificado, o sistema falha em `pii` . |
-|`parameters` | Inclui os `model-version` campos e `stringIndexType` campos abaixo | Obrigatório | Este campo está incluído nas tarefas de recurso acima escolhidas. Contêm informações sobre a versão modelo que pretende utilizar e o tipo de índice. |
-|`model-version` | Cadeia | Obrigatório | Especifique qual a versão do modelo que está a ser chamado de que pretende utilizar.  |
-|`stringIndexType` | Cadeia | Obrigatório | Especifique o descodificador de texto que corresponda ao seu ambiente de programação.  Os tipos suportados são `textElement_v8` (predefinido), `unicodeCodePoint` `utf16CodeUnit` . . Consulte o [artigo Text offset](../concepts/text-offsets.md#offsets-in-api-version-31-preview) para obter mais informações.  |
+|`analysisInput` | Inclui o `documents` campo abaixo | Necessário | Contém a informação para os documentos que pretende enviar. |
+|`documents` | Inclui os `id` campos e `text` campos abaixo | Necessário | Contém informações para cada documento enviado e o texto em bruto do documento. |
+|`id` | Cadeia | Necessário | Os IDs que fornece são usados para estruturar a saída. |
+|`text` | Texto cru não estruturado, até 125.000 caracteres. | Necessário | Deve estar na língua inglesa, que é a única língua atualmente apoiada. |
+|`tasks` | Inclui as seguintes funcionalidades de Análise de Texto: `entityRecognitionTasks` , `keyPhraseExtractionTasks` ou `entityRecognitionPiiTasks` . | Necessário | Um ou mais dos recursos de Text Analytics que pretende utilizar. Note que `entityRecognitionPiiTasks` tem um parâmetro opcional que pode ser definido para ou `domain` `pii` `phi` . Se não for especificado, o sistema falha em `pii` . |
+|`parameters` | Inclui os `model-version` campos e `stringIndexType` campos abaixo | Necessário | Este campo está incluído nas tarefas de recurso acima escolhidas. Contêm informações sobre a versão modelo que pretende utilizar e o tipo de índice. |
+|`model-version` | Cadeia | Necessário | Especifique qual a versão do modelo que está a ser chamado de que pretende utilizar.  |
+|`stringIndexType` | Cadeia | Necessário | Especifique o descodificador de texto que corresponda ao seu ambiente de programação.  Os tipos suportados são `textElement_v8` (predefinido), `unicodeCodePoint` `utf16CodeUnit` . . Consulte o [artigo Text offset](../concepts/text-offsets.md#offsets-in-api-version-31-preview) para obter mais informações.  |
 |`domain` | Cadeia | Opcional | Só se aplica como parâmetro da `entityRecognitionPiiTasks` tarefa e pode ser definido para ou `pii` `phi` . Não é especificado `pii` se não especificado.  |
 
 ```json
@@ -160,9 +160,9 @@ O formato dos pedidos de API ao Text Analytics para a API de saúde é o mesmo q
 
 | Elemento | Valores válidos | Necessário? | Utilização |
 |---------|--------------|-----------|-------|
-|`id` |O tipo de dados é string, mas na prática os IDs de documento tendem a ser inteiros. | Obrigatório | O sistema utiliza os IDs que fornece para estruturar a saída. |
-|`text` | Texto cru não estruturado, até 5.120 caracteres. | Obrigatório | Note que apenas o texto em inglês está atualmente suportado. |
-|`language` | Código [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de 2 caracteres para uma [língua suportada](../language-support.md) | Obrigatório | Apenas `en` está atualmente apoiado. |
+|`id` |O tipo de dados é string, mas na prática os IDs de documento tendem a ser inteiros. | Necessário | O sistema utiliza os IDs que fornece para estruturar a saída. |
+|`text` | Texto cru não estruturado, até 5.120 caracteres. | Necessário | Note que apenas o texto em inglês está atualmente suportado. |
+|`language` | Código [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de 2 caracteres para uma [língua suportada](../language-support.md) | Necessário | Apenas `en` está atualmente apoiado. |
 
 Segue-se um exemplo de um pedido da API para o Texto Analytics para os pontos finais de saúde. 
 
@@ -204,7 +204,7 @@ No Carteiro (ou noutra ferramenta de teste web da API), adicione o ponto final p
 | Reconhecimento de entidade nomeada - PII | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
 | Reconhecimento de entidade nomeada - PHI | POST |  `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii?domain=phi` |
 
-#### <a name="analyze"></a>[Análise](#tab/analyze)
+#### <a name="analyze"></a>[Analisar](#tab/analyze)
 
 | Funcionalidade | Tipo de pedido | Pontos finais de recursos |
 |--|--|--|
@@ -272,7 +272,7 @@ As respostas sincronizadas do ponto final variam consoante o ponto final que uti
 + [Análise de sentimento](text-analytics-how-to-sentiment-analysis.md#view-the-results)
 + [Reconhecimento de entidades](text-analytics-how-to-entity-linking.md#view-results)
 
-# <a name="analyze"></a>[Análise](#tab/analyze)
+# <a name="analyze"></a>[Analisar](#tab/analyze)
 
 Se for bem sucedido, o pedido GET ao `/analyze` ponto final devolverá um objeto que contenha as tarefas atribuídas. Por exemplo, `keyPhraseExtractionTasks`. Estas tarefas contêm o objeto de resposta da função de Análise de Texto apropriado. Consulte os seguintes artigos para mais informações.
 

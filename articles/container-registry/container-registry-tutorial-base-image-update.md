@@ -4,12 +4,12 @@ description: Neste tutorial, aprende-se a configurar uma Tarefa de Registo de Co
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 32b4dbe2563731664030dbc32c2b570ccc3e1d12
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 342f7fc37edb3a1623b72c57e8766b1a484d0e8d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030650"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559155"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutorial: Automatizar a imagem do contentor quando uma imagem base é atualizada num registo de contentores Azure 
 
@@ -32,10 +32,10 @@ Neste tutorial:
 
 Este tutorial pressupõe que já configuraste o teu ambiente e completaste os passos nos dois primeiros tutoriais da série, nos quais:
 
-* Criar um registo de contentor do Azure
-* Bifurcar um repositório de exemplo
-* Clonar um repositório de exemplo
-* Criar token de acesso pessoal do GitHub
+- Criar um registo de contentor do Azure
+- Bifurcar um repositório de exemplo
+- Clonar um repositório de exemplo
+- Criar token de acesso pessoal do GitHub
 
 Se ainda não o fez, complete os seguintes tutoriais antes de prosseguir:
 
@@ -44,6 +44,9 @@ Se ainda não o fez, complete os seguintes tutoriais antes de prosseguir:
 [Automatizar as compilações da imagem de contentor com o Azure Container Registry Tasks](container-registry-tutorial-build-task.md)
 
 ### <a name="configure-the-environment"></a>Configurar o ambiente
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+- Este artigo requer a versão 2.0.46 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 Preencha estas variáveis de ambiente da shell com os valores adequados para o seu ambiente. Este passo não é estritamente necessário, mas facilita um pouco a execução dos comandos da CLI do Azure com várias linhas neste tutorial. Se não preencher estas variáveis ambientais, deve substituir manualmente cada valor onde quer que apareça nos comandos de exemplo.
 

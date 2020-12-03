@@ -3,12 +3,12 @@ title: Ativar a identidade gerida no grupo de contentores
 description: Saiba como ativar uma identidade gerida em Instâncias de Contentores Azure que possa autenticar com outros serviços Azure
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 23f2347593137a4846c8fd22e3b90f22db39bda3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67ef17b77a9db92e539dd860a3083760fe1160db
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259620"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558951"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Como utilizar identidades geridas com o Azure Container Instances
 
@@ -45,9 +45,9 @@ Para utilizar uma identidade gerida, a identidade deve ter acesso a um ou mais r
 * Atualmente não é possível utilizar uma identidade gerida num grupo de contentores implantado numa rede virtual.
 * Não é possível utilizar uma identidade gerida para retirar uma imagem do Registo de Contentores Azure ao criar um grupo de contentores. A identidade só está disponível dentro de um recipiente de funcionamento.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão Azure CLI 2.0.49 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
+- Este artigo requer a versão 2.0.49 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-an-azure-key-vault"></a>Criar um cofre de chaves Azure
 

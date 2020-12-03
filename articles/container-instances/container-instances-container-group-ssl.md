@@ -3,12 +3,12 @@ title: Ativar TLS com recipiente sidecar
 description: Criar um ponto final SSL ou TLS para um grupo de contentores que funciona em Instâncias de Contentores Azure, executando o Nginx num recipiente de sidecar
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: f7f5d8e8136f4357067888f5a39fa0c3635122d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6587a84e7cbe655c509f74e9e39e93010e7058be
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86169855"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558084"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Ativar um ponto final TLS num recipiente de sidecar
 
@@ -22,9 +22,9 @@ Neste exemplo, o grupo de contentores expõe apenas a porta 443 para nginx com o
 
 Consulte [os próximos passos](#next-steps) para outras abordagens para permitir o TLS num grupo de contentores.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Pode utilizar o Azure Cloud Shell ou uma instalação local do Azure CLI para completar este artigo. Se quiser usá-lo localmente, recomenda-se a versão 2.0.55 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
+- Este artigo requer a versão 2.0.55 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
 
@@ -32,7 +32,7 @@ Para configurar o Nginx como fornecedor de TLS, precisa de um certificado TLS/SS
 
 Para criar um certificado TLS/SSL auto-assinado, utilize a ferramenta [OpenSSL](https://www.openssl.org/) disponível na Azure Cloud Shell e muitas distribuições Linux, ou utilize uma ferramenta cliente comparável no seu sistema operativo.
 
-Primeiro criar um pedido de certificado (.ficheiro csr) num diretório local:
+Primeiro criar um pedido de certificado (.csr arquivo) num diretório de trabalho local:
 
 ```console
 openssl req -new -newkey rsa:2048 -nodes -keyout ssl.key -out ssl.csr
@@ -241,5 +241,5 @@ Enquanto este artigo utiliza o Nginx no sidecar, pode utilizar outro fornecedor 
 Se colocar o seu grupo de contentores numa [rede virtual Azure,](container-instances-vnet.md)pode considerar outras opções para ativar um ponto final TLS para uma instância de recipiente de backend, incluindo:
 
 * [Proxies de Funções Azure](../azure-functions/functions-proxies.md)
-* [Gestão de API do Azure](../api-management/api-management-key-concepts.md)
+* [Gestão AZURE API](../api-management/api-management-key-concepts.md)
 * [Azure Application Gateway](../application-gateway/overview.md) - consulte um [modelo de implementação de](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet)amostras .

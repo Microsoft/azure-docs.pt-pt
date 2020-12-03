@@ -4,12 +4,12 @@ description: Saiba como configurar um recipiente personalizado no Azure App Serv
 ms.topic: article
 ms.date: 09/22/2020
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 9f71efbf7cc606efd598880e90ade3a549402245
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2aece0550d7b78ac4312e71b2671de4a64e4b86b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787062"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557931"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configurar um contentor personalizado para o Serviço de Aplicações do Azure
 
@@ -139,7 +139,17 @@ Pode utilizar o *diretório C:\home* no sistema de ficheiros da sua aplicação 
 
 Quando o armazenamento persistente é desativado, os escritos para o `C:\home` diretório não são persistidos. [Os registos de anfitrião do Docker e os registos dos contentores](#access-diagnostic-logs) são guardados num armazenamento partilhado persistente e predefinido que não está ligado ao recipiente. Quando o armazenamento persistente é ativado, todos os escritos para o `C:\home` diretório são persistidos e podem ser acedidos por todas as instâncias de uma aplicação de escala, e o log é acessível em `C:\home\LogFiles` .
 
-Por predefinição, o armazenamento persistente é *desativado* e a definição não está exposta nas Definições de Aplicação. Para o ativar, defina a definição da `WEBSITES_ENABLE_APP_SERVICE_STORAGE` aplicação através da [Cloud Shell](https://shell.azure.com). Em Bash:
+::: zone-end
+
+::: zone pivot="container-linux"
+
+Pode utilizar o *diretório /home* no sistema de ficheiros da sua aplicação para persistir ficheiros em todo o recomeço e partilhá-los em todos os casos. A `/home` aplicação na sua aplicação é fornecida para permitir que a sua aplicação de contentores tenha acesso a um armazenamento persistente.
+
+Quando o armazenamento persistente é desativado, então escreve para o `/home` diretório não são persistidos em recomeçar apps ou em vários casos. A única exceção é o `/home/LogFiles` diretório, que é usado para armazenar o Docker e os troncos de contentores. Quando o armazenamento persistente é ativado, todos os escritos para o `/home` diretório são persistidos e podem ser acedidos por todos os casos de uma aplicação de escala.
+
+::: zone-end
+
+Por predefinição, o armazenamento persistente é desativado e a definição não é exposta nas definições da aplicação. Para o ativar, defina a definição da `WEBSITES_ENABLE_APP_SERVICE_STORAGE` aplicação através da [Cloud Shell](https://shell.azure.com). Em Bash:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
@@ -150,28 +160,6 @@ No PowerShell:
 ```azurepowershell-interactive
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=true}
 ```
-
-::: zone-end
-
-::: zone pivot="container-linux"
-
-Pode utilizar o *diretório /home* no sistema de ficheiros da sua aplicação para persistir ficheiros em todo o recomeço e partilhá-los em todos os casos. A `/home` aplicação na sua aplicação é fornecida para permitir que a sua aplicação de contentores tenha acesso a um armazenamento persistente.
-
-Quando o armazenamento persistente é desativado, então escreve para o `/home` diretório não são persistidos em recomeçar apps ou em vários casos. A única exceção é o `/home/LogFiles` diretório, que é usado para armazenar o Docker e os troncos de contentores. Quando o armazenamento persistente é ativado, todos os escritos para o `/home` diretório são persistidos e podem ser acedidos por todos os casos de uma aplicação de escala.
-
-Por predefinição, o armazenamento persistente é *ativado* e a definição não está exposta nas Definições de Aplicação. Para desativá-la, defina a definição da `WEBSITES_ENABLE_APP_SERVICE_STORAGE` aplicação através da [Cloud Shell](https://shell.azure.com). Em Bash:
-
-```azurecli-interactive
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
-```
-
-No PowerShell:
-
-```azurepowershell-interactive
-Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=false}
-```
-
-::: zone-end
 
 > [!NOTE]
 > Também pode [configurar o seu próprio armazenamento persistente.](configure-connect-to-azure-storage.md)
@@ -212,7 +200,7 @@ Existem várias formas de aceder aos registos do Docker:
 
 ### <a name="in-azure-portal"></a>No portal Azure
 
-Os registos do Docker são apresentados no portal, na página **de Definições** de Contentores da sua aplicação. Os registos são truncados, mas pode descarregar todos os registos clicando **em Download** . 
+Os registos do Docker são apresentados no portal, na página **de Definições** de Contentores da sua aplicação. Os registos são truncados, mas pode descarregar todos os registos clicando **em Download**. 
 
 ### <a name="from-the-kudu-console"></a>Da consola Kudu
 

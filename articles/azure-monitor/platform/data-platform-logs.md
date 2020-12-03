@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: dd4586128bf2ce657352c0a1d4608637ecf9dba9
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 69fda41249ced8518e430af8305c0cb10822b214
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531229"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559070"
 ---
 # <a name="azure-monitor-logs-overview"></a>Descrição geral dos Registos do Azure Monitor
 Azure Monitor Logs é uma característica do Azure Monitor que recolhe e organiza dados de registo e desempenho a partir de [recursos monitorizados.](../monitor-reference.md) Dados de diferentes fontes, como [registos](platform-logs-overview.md) de plataformas a partir de serviços Azure, dados de registo e desempenho de [agentes de máquinas virtuais,](agents-overview.md)e dados de utilização e desempenho de aplicações podem ser consolidados num único espaço de trabalho para que possam ser [analisados](../app/app-insights-overview.md) em conjunto usando uma linguagem de consulta sofisticada que é capaz de analisar rapidamente milhões de registos. Pode realizar uma consulta simples que apenas recupera um conjunto específico de registos ou realiza análises de dados sofisticadas para identificar padrões críticos nos seus dados de monitorização. Trabalhe com consultas de registo e seus resultados interativamente usando Log Analytics, use-os em regras de alerta para ser notificado proativamente de problemas, ou visualizar os seus resultados em um livro ou painel de instrumentos.
@@ -25,7 +25,7 @@ A tabela a seguir descreve algumas das diferentes formas de utilização de Regi
 
 |  |  |
 |:---|:---|
-| **Análise** | Use [o Log Analytics](../log-query/log-analytics-tutorial.md) no portal Azure para escrever consultas de [registo](../log-query/log-query-overview.md) e analise interativamente dados de registo usando um poderoso motor de análise |
+| **Analisar** | Use [o Log Analytics](../log-query/log-analytics-tutorial.md) no portal Azure para escrever consultas de [registo](../log-query/log-query-overview.md) e analise interativamente dados de registo usando um poderoso motor de análise |
 | **Alerta** | Configure uma [regra de alerta de registo](alerts-log.md) que envia uma notificação ou toma [medidas automatizadas](action-groups.md) quando os resultados da consulta correspondem a um resultado específico. |
 | **Visualizar** | Resultados da consulta de pinos renderizados como tabelas ou gráficos para um [painel de instrumentos Azure](../../azure-portal/azure-portal-dashboards.md).<br>Crie um [livro para](./workbooks-overview.md) combinar com vários conjuntos de dados num relatório interativo. <br>Exporte os resultados de uma consulta ao [Power BI](powerbi.md) para utilizar diferentes visualizações e partilhar com utilizadores fora do Azure.<br>Exporte os resultados de uma consulta à [Grafana](grafana-plugin.md) para alavancar o seu dashboarding e combinar com outras fontes de dados.|
 | **Informações** | Informações [de](../monitor-reference.md#insights-and-core-solutions) suporte que proporcionam uma experiência de monitorização personalizada para aplicações e serviços específicos.  |
@@ -42,7 +42,7 @@ Uma vez criado um espaço de trabalho Log Analytics, tem de configurar diferente
 
 
 ## <a name="log-analytics-workspaces"></a>Áreas de trabalho do Log Analytics
-Os dados recolhidos pelo Azure Monitor Logs são [armazenados](./design-logs-deployment.md)em mais um espaço de trabalho log analytics . O espaço de trabalho define a localização geográfica dos dados, os direitos de acesso que definem os utilizadores que podem aceder aos dados, e as definições de configuração, como o nível de preços e a retenção de dados.  
+Os dados recolhidos pelo Azure Monitor Logs são [armazenados](./design-logs-deployment.md)num ou mais espaços de trabalho do Log Analytics . O espaço de trabalho define a localização geográfica dos dados, os direitos de acesso que definem os utilizadores que podem aceder aos dados, e as definições de configuração, como o nível de preços e a retenção de dados.  
 
 Tem de criar pelo menos um espaço de trabalho para utilizar os Registos do Monitor Azure. Um único espaço de trabalho pode ser suficiente para todos os seus dados de monitorização, ou pode optar por criar múltiplos espaços de trabalho dependendo dos seus requisitos. Por exemplo, pode ter um espaço de trabalho para os seus dados de produção e outro para testes. 
 

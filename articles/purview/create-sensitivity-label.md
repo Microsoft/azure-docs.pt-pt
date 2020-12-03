@@ -6,13 +6,13 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/22/2020
-ms.openlocfilehash: b286533da90565429f96c5701aaa72dab0fb21d0
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 12/03/2020
+ms.openlocfilehash: 195ddfcc3c781c1866a7751f989c9460463edbb9
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555199"
+ms.locfileid: "96558169"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Rotular automaticamente os seus dados em Azure Purview
 
@@ -36,13 +36,7 @@ A Purview utiliza as mesmas classificações, também conhecidas como tipos de i
 > Enquanto as classificações são correspondidas diretamente (um número de segurança social tem uma classificação do Número de **Segurança Social),** as etiquetas de sensibilidade são aplicadas quando uma ou mais classificações e cenários são encontrados em conjunto. 
 > 
 
-As etiquetas de sensibilidade em Azure Purview podem ser usadas para:
-
-- **Aplicar automaticamente rótulos** em ficheiros e colunas de bases de dados
-
-- **Controle** quem pode ou não aceder aos seus dados
-
-- **Impor definições de proteção**, tais como encriptação, em dados rotulados
+As etiquetas de sensibilidade no Azure Purview podem ser utilizadas para aplicar automaticamente rótulos em ficheiros e colunas de bases de dados.
 
 Para obter mais informações, veja:
 
