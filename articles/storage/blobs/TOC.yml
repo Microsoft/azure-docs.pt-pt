@@ -205,8 +205,6 @@
                   href: scalability-targets-premium-page-blobs.md
                 - name: Fornecedor de recursos de armazenamento
                   href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Simultaneidade
-          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Localizar, procurar e compreender dados de blob'
           items:
             - name: Utilizar etiquetas de índice de blobs para gerir e localizar dados de blob
@@ -457,6 +455,8 @@
               href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Iniciar a ativação pós-falha da conta
               href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Gerir a simultaneidade
+          href: concurrency-manage.md
         - name: Utilizar um emulador de armazenamento
           items:
             - name: Utilizar o emulador de open-source Azurite

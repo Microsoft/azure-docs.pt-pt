@@ -312,6 +312,22 @@ groups:
     title: JavaScript
   - id: programming-language-rest-api
     title: API REST
+- id: programming-languages-computer-vision
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-go
+    title: Ir
+  - id: programming-language-rest-api
+    title: API REST
 - id: programming-languages-set-diberry-3core
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação
@@ -859,9 +875,9 @@ groups:
   - id: programming-languages-objectivec-swift
     title: Objective-C/Swift
 metadata:
-  ms.openlocfilehash: 865416b79c28956112e342fbf5d9e05aa3b2db08
-  ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+  ms.openlocfilehash: 23b11aa4d6726294c7f4482f53e5ce99d04eddd3
+  ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/23/2020
-  ms.locfileid: "95508038"
+  ms.lasthandoff: 12/02/2020
+  ms.locfileid: "96532878"
