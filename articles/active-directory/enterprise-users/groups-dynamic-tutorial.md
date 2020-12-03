@@ -6,25 +6,26 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74e8311002b8769ee816d8abb37eca70cad8c221
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: bc891a7b07305fc0ef55376d7b6fbb262d740bb5
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95490821"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547496"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: Adicionar ou remover membros de grupos automaticamente
 
 No Azure Ative Directory (Azure AD), pode adicionar ou remover automaticamente os utilizadores a grupos de segurança ou grupos Microsoft 365, pelo que nem sempre tem de o fazer manualmente. Sempre que quaisquer propriedades de um utilizador ou dispositivo mudam, a Azure AD avalia todas as regras dinâmicas do grupo na sua organização AZure AD para ver se a alteração deve adicionar ou remover membros.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar um grupo de utilizadores convidados automaticamente povoados de uma empresa parceira
 > * Atribuir licenças para o grupo às características do parceiro específico para acesso por parte dos utilizadores convidados

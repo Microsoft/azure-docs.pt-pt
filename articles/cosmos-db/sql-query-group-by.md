@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: tisande
-ms.openlocfilehash: 71314e6999031f52ebbfc582b43684ab5a17a261
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d9cafc100ddd4b553577c447e82334e6ee7d1b6d
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93338803"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545456"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>GRUPO POR cláusula em Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,7 +41,7 @@ O GRUPO POR cláusula divide os resultados da consulta de acordo com os valores 
 
 ## <a name="remarks"></a>Observações
   
-  Quando uma consulta utiliza uma cláusula GRUPO A, a cláusula SELECT só pode conter o subconjunto de propriedades e funções do sistema incluídas na cláusula GRUPO A. Uma exceção são [as funções agregadas](sql-query-aggregates.md)do sistema , que podem aparecer na cláusula SELECT sem serem incluídas na cláusula GROUP BY. Também pode sempre incluir valores literais na cláusula SELECT.
+  Quando uma consulta utiliza uma cláusula GRUPO A, a cláusula SELECT só pode conter o subconjunto de propriedades e funções do sistema incluídas na cláusula GRUPO A. Uma exceção são [as funções agregadas](sql-query-aggregate-functions.md), que podem aparecer na cláusula SELECT sem serem incluídas na cláusula GROUP BY. Também pode sempre incluir valores literais na cláusula SELECT.
 
   A cláusula GRUPO A Cláusula deve ser após a cláusula SELECT, FROM e WHERE e antes da cláusula OFFSET LIMIT. Atualmente não pode utilizar o GROUP BY com uma cláusula ORDER BY, mas está previsto.
 
@@ -192,4 +192,4 @@ Os resultados são:
 
 - [Introdução](sql-query-getting-started.md)
 - [Cláusula SELECT](sql-query-select.md)
-- [Funções agregadas](sql-query-aggregates.md)
+- [Funções agregadas](sql-query-aggregate-functions.md)

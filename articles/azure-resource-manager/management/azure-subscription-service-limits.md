@@ -3,12 +3,12 @@ title: Limites e quotas de subscrição do Azure
 description: Fornece uma lista de limites comuns de subscrição e serviço da Azure, quotas e constrangimentos. Este artigo inclui informações sobre como aumentar limites, juntamente com valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 810d503f1abdc14ad2d255a89aebe7c10954a889
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4d56c5c3fd33d1cda05e23d5bc53e7540428671b
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186206"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547853"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limites de subscrição e serviços da Azure, quotas e constrangimentos
 
@@ -311,6 +311,10 @@ O quadro a seguir aplica-se aos SKUs V1, V2, Standard e WAF, salvo indicação e
 ### <a name="private-link-limits"></a>Limites do Private Link
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
+
+## <a name="purview-limits"></a>Limites de competência
+
+Os valores mais recentes para as quotas Azure Purview podem ser encontrados na página de [quotas Azure Purview](../../purview/how-to-manage-quotas.md)
 
 ### <a name="traffic-manager-limits"></a>Limites do Gestor de Tráfego
 

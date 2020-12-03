@@ -240,6 +240,9 @@
         - name: Vídeo a Pedido
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-encoding.md
+    - name: Arquiteturas dos Serviços de Multimédia
+      displayName: architectures
+      href: architectures-concept.md
     - name: Resolução de problemas
       items:
         - name: Perguntas mais frequentes
@@ -405,7 +408,7 @@
           href: /python/api/overview/azure/mediaservices/management
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
-        - name: Go
+        - name: Ir
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.media/allversions

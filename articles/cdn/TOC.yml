@@ -111,8 +111,8 @@
     - name: Analisar
       href: cdn-log-analysis.md
       items:
-        - name: Registo não processados HTTP
-          href: enable-raw-logs.md
+        - name: 'Monitorização, métricas e registos de acesso'
+          href: monitoring-and-access-log.md
         - name: Registos de diagnóstico do Azure
           href: cdn-azure-diagnostic-logs.md
         - name: Ferramentas de análise para CDN do Azure a partir da Verizon

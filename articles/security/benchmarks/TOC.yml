@@ -129,6 +129,8 @@
       href: ../../load-balancer/security-baseline.md
     - name: Linha de base de segurança do Azure Machine Learning
       href: ../../machine-learning/security-baseline.md
+    - name: Linha de base de segurança das Aplicações Geridas do Azure
+      href: ../../azure-resource-manager/managed-applications/security-baseline.md
     - name: Linha de base de segurança do Azure Monitor
       href: ../../azure-monitor/security-baseline.md
     - name: Linha de base de segurança do Azure Migrate
@@ -201,7 +203,7 @@
       href: ../../site-recovery/security-baseline.md
     - name: Linha de base de segurança do Stream Analytics
       href: ../../stream-analytics/security-baseline.md
-    - name: Linha de base de segurança do Synapse Analytics
+    - name: Linha de base de segurança do Azure Synapse Analytics
       href: ../../synapse-analytics/security-baseline.md
     - name: Linha de base de segurança do Gestor de Tráfego
       href: ../../traffic-manager/security-baseline.md

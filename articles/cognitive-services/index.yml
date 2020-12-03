@@ -12,12 +12,12 @@ metadata:
   manager: nitinme
   ms.custom: custom-portals-hub
   ms.date: 08/28/2020
-  ms.openlocfilehash: b758aaf1d71dd0136ed3390feb981d5e360abf7d
-  ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+  ms.openlocfilehash: c4c364a6c448fcee3d3c7ad3b3b2b0c4d32fec92
+  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/12/2020
-  ms.locfileid: "94565692"
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96462974"
 highlightedContent:
   items:
   - title: O que são os Serviços Cognitivos?
@@ -147,7 +147,7 @@ conceptualContent:
       text: Serviços Cognitivos para Macrodados
     - url: ./big-data/getting-started.md
       itemType: get-started
-      text: Utilizar os Serviços Cognitivos no Azure Databricks e no Synapse Analytics
+      text: Utilizar os Serviços Cognitivos no Azure Databricks e no Azure Synapse Analytics
     - url: ./big-data/samples-python.md
       itemType: reference
       text: Amostras de Python

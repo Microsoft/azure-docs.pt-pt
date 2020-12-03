@@ -68,7 +68,7 @@
             - name: Noções básicas
               href: data-lake-analytics-u-sql-get-started.md
             - name: Referência de linguagem
-              href: /u-sql/
+              href: 'https://docs.microsoft.com/u-sql'
             - name: Catálogo
               href: data-lake-analytics-u-sql-catalog.md
             - name: Operadores definidos pelo utilizador
@@ -79,8 +79,6 @@
               href: data-lake-analytics-u-sql-r-extensions.md
             - name: Extensões cognitivas
               href: data-lake-analytics-u-sql-cognitive.md
-            - name: Guia de Programação
-              href: data-lake-analytics-u-sql-programmability-guide.md
         - name: Visual Studio
           items:
             - name: Instalar
@@ -115,6 +113,28 @@
               href: data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md
             - name: Executar local e depurar
               href: data-lake-tools-for-vscode-local-run-and-debug.md
+        - name: Guia de Programação
+          items:
+            - name: Descrição geral do guia de programação
+              href: data-lake-analytics-u-sql-programmability-guide.md
+            - name: Guia de programação - UDT e UDAGG
+              href: data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md
+            - name: Guia de programação - UDO
+              items:
+                - name: Descrição geral dos objetos definidos pelo utilizador
+                  href: data-lake-analytics-u-sql-programmability-guide-UDO.md
+                - name: Utilizar o extrator definido pelo utilizador
+                  href: data-lake-analytics-u-sql-programmability-guide-extractor.md
+                - name: Utilizar o dispositivo de saída definido pelo utilizador
+                  href: data-lake-analytics-u-sql-programmability-guide-outputter.md
+                - name: Utilizar o processador definido pelo utilizador
+                  href: data-lake-analytics-u-sql-programmability-guide-processor.md
+                - name: Utilizar o aplicador definido pelo utilizador
+                  href: data-lake-analytics-u-sql-programmability-guide-applier.md
+                - name: Utilizar o combinador definido pelo utilizador
+                  href: data-lake-analytics-u-sql-programmability-guide-combiner.md
+                - name: Utilizar o redutor definido pelo utilizador
+                  href: data-lake-analytics-u-sql-programmability-guide-reducer.md
     - name: Agendar tarefas de U-SQL
       items:
         - name: Programar tarefas com o SSIS

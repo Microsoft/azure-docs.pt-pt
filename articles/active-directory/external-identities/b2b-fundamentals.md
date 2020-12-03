@@ -5,31 +5,32 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 11/30/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b87881ad5533724f08de3b2f348d1487f763ab04
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0f9ea8b1c1346deee9fed591493607270f18ad5b
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442172"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547768"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Azure Ative Directy B2B boas práticas
 Este artigo contém recomendações e boas práticas para a colaboração entre empresas (B2B) no Azure Ative Directory (Azure AD).
 
    > [!IMPORTANT]
-   > **A partir de 31 de março de 2021, a**Microsoft deixará de apoiar o resgate de convites através da criação de contas Ead AZure não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optar em autenticação de senha única por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
+   > **A partir de março de 2021, a** Microsoft deixará de apoiar o resgate de convites através da criação de contas de AD não geridas ("virais" ou "just-in-time") e inquilinos para cenários de colaboração B2B. Nessa altura, a funcionalidade de código de acesso de e-mail será ativada para todos os inquilinos existentes e ativada por padrão para novos inquilinos. Estamos a ativar a funcionalidade de código de acesso de e-mail uma vez porque fornece um método de autenticação de recuo sem emenda para os utilizadores convidados. No entanto, tem a opção de desativar esta funcionalidade se optar por não a utilizar. Para mais detalhes, consulte [a autenticação de código de acesso](one-time-passcode.md) de email uma vez
+
 
 ## <a name="b2b-recommendations"></a>Recomendações B2B
 | Recomendação | Comentários |
 | --- | --- |
 | Para uma experiência de inscrição ideal, federa com fornecedores de identidade | Sempre que possível, federa diretamente com fornecedores de identidade para permitir que os utilizadores convidados inscrevam-se nas suas apps e recursos partilhados sem terem de criar contas microsoft accounts (MSAs) ou Azure AD. Pode utilizar a funcionalidade da [federação](google-federation.md) do Google para permitir que os utilizadores de hóspedes B2B assinem o seu contrato com as suas contas google. Ou, pode utilizar a [funcionalidade Direct federation (pré-visualização)](direct-federation.md) para configurar uma federação direta com qualquer organização cujo fornecedor de identidade (IdP) suporte o protocolo SAML 2.0 ou WS-Fed. |
-| Utilize a funcionalidade de código de acesso único (pré-visualização) do Email para hóspedes B2B que não podem autenticar por outros meios | A funcionalidade [de código de acesso único (pré-visualização)](one-time-passcode.md) do Email autentica os utilizadores convidados B2B quando não podem ser autenticados através de outros meios, como o Azure AD, uma conta Microsoft (MSA) ou a federação do Google. Quando o utilizador convidado resgatar um convite ou aceder a um recurso partilhado, pode solicitar um código temporário, que é enviado para o seu endereço de e-mail. Depois introduzem este código para continuarem a iniciar sessão. |
+| Utilize a funcionalidade de código de acesso único do Email para hóspedes B2B que não podem autenticar por outros meios | A funcionalidade [de código de acesso de email](one-time-passcode.md) autentica os utilizadores convidados B2B quando não podem ser autenticados através de outros meios, como o Azure AD, uma conta Microsoft (MSA) ou a federação do Google. Quando o utilizador convidado resgatar um convite ou aceder a um recurso partilhado, pode solicitar um código temporário, que é enviado para o seu endereço de e-mail. Depois introduzem este código para continuarem a iniciar sessão. |
 | Adicionar uma imagem corporativa à sua página de início de sessão | Pode personalizar a sua página de sôr-in para que seja mais intuitiva para os seus utilizadores convidados B2B. Veja como [adicionar marca da empresa para iniciar sing e páginas do Painel de Acesso](../fundamentals/customize-branding.md). |
 | Adicione a sua declaração de privacidade à experiência de resgate de utilizadores de hóspedes B2B | Pode adicionar o URL da declaração de privacidade da sua organização ao processo de resgate de convites pela primeira vez para que um utilizador convidado consinta nos seus termos de privacidade para continuar. Ver [Como fazer: Adicione as informações de privacidade da sua organização no Diretório Ativo Azure](../fundamentals/active-directory-properties-area.md). |
 | Utilize a função de convite a granel (pré-visualização) para convidar vários utilizadores convidados B2B ao mesmo tempo | Convide vários utilizadores convidados para a sua organização ao mesmo tempo, utilizando a funcionalidade de pré-visualização de convites a granel no portal Azure. Esta funcionalidade permite-lhe fazer o upload de um ficheiro CSV para criar utilizadores convidados B2B e enviar convites a granel. Consulte [tutorial para utilizadores B2B convidativos a granel.](tutorial-bulk-invite.md) |

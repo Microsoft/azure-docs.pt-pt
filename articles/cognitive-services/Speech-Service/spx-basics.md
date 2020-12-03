@@ -10,16 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: bead348e64fcee4cc5b790f975c9da5200ee796b
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: acc19d9a04909dcf0e79c93e0c8a3fb8225ee1b4
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422404"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546914"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Conheça os fundamentos do Discurso CLI
 
-Neste artigo, você aprende os padrões básicos de uso do CLI do discurso, uma ferramenta de linha de comando para usar o serviço De Discurso sem escrever código. Pode testar rapidamente as principais características do serviço Speech, sem criar ambientes de desenvolvimento ou escrever qualquer código, para ver se os seus casos de uso podem ser adequadamente cumpridos. Além disso, o CLI do Discurso está pronto para a produção e pode ser usado para automatizar fluxos de trabalho simples no serviço Discurso, utilizando `.bat` ou shell scripts.
+Neste artigo, você aprende os padrões básicos de uso do CLI do discurso, uma ferramenta de linha de comando para usar o serviço De Discurso sem escrever código. Pode testar rapidamente as principais características do serviço Speech, sem criar ambientes de desenvolvimento ou escrever qualquer código, para ver se os seus casos de uso podem ser adequadamente cumpridos. O Speech CLI está pronto para a produção e pode ser usado para automatizar fluxos de trabalho simples no serviço Discurso, utilizando `.bat` ou shell scripts.
+
+Este artigo pressupõe que você tem conhecimento de trabalho da solicitação de comando, terminal ou PowerShell.
 
 [!INCLUDE [](includes/spx-setup.md)]
 
@@ -45,11 +47,24 @@ Introduza o seguinte comando para ver opções para o comando de reconhecimento:
 spx help recognize
 ```
 
-Agora utilize o serviço Desempenhado para realizar algum reconhecimento de voz utilizando o microfone predefinido executando o seguinte comando.
+Agora, vamos usar o CLI do discurso para realizar o reconhecimento da fala usando o microfone padrão do seu sistema. 
+
+>[!WARNING]
+> Se estiver a usar um contentor Docker, este comando não funcionará.
+
+Execute este comando:
 
 ```shell
 spx recognize --microphone
 ```
+
+Com o CLI do Discurso também pode reconhecer a fala a partir de um ficheiro áudio.
+
+```shell
+spx recognize --file /path/to/file.wav
+```
+> [!TIP]
+> Se estiver a reconhecer a fala a partir de um ficheiro áudio num recipiente Docker, certifique-se de que o ficheiro áudio está localizado no diretório que montou no degrau anterior.
 
 Depois de entrar no comando, o SPX começará a ouvir áudio no dispositivo de entrada ativo atual e para depois de premir `ENTER` . O discurso gravado é então reconhecido e convertido em texto na saída da consola. A síntese de texto-a-discurso também é fácil de fazer utilizando o CLI do discurso. 
 

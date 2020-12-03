@@ -1,0 +1,113 @@
+### YamlMime:Landing
+title: Azure Synapse Analytics
+summary: O Azure Synapse é um serviço de análise ilimitado que junta o armazenamento de dados empresariais e a análise de macrodados. Dá-lhe a liberdade de consultar dados nos seus termos, através de recursos a pedido ou aprovisionados sem servidor, em escala.
+metadata:
+  title: Azure Synapse Analytics
+  description: O Azure Synapse é um serviço de análise ilimitado que junta o armazenamento de dados empresariais e a análise de macrodados. Dá-lhe a liberdade de consultar dados nos seus termos, através de recursos a pedido ou aprovisionados sem servidor, em escala.
+  services: synapse-analytics
+  ms.service: synapse-analytics
+  ms.subservice: overview
+  ms.topic: landing-page
+  ms.collection: collection
+  author: julieMSFT
+  ms.author: jrasnick
+  ms.date: 12/01/2020
+  ms.openlocfilehash: 6de11d0830c332d19a133592b060caca1382b667
+  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96463351"
+landingContent:
+- title: Acerca do Azure Synapse Analytics
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure Synapse
+      url: overview-what-is.md
+    - text: Sugestões e melhores práticas
+      url: overview-cheat-sheet.md
+    - text: FAQ
+      url: overview-faq.md
+- title: SQL do Synapse
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Arquitetura do Azure Synapse SQL
+      url: ./sql/overview-architecture.md
+  - linkListType: quickstart
+    links:
+    - text: Utilizar conjunto de SQL sem servidor
+      url: quickstart-sql-on-demand.md
+    - text: Criar um conjunto de SQL dedicado com o Synapse Studio
+      url: quickstart-create-sql-pool-studio.md
+- title: Introdução ao Azure Synapse Analytics
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Introdução passo a passo
+      url: get-started.md
+    - text: PASSO 1 - Criar e configurar uma área de trabalho do Synapse
+      url: get-started-create-workspace.md
+    - text: PASSO 2 - Analisar com um conjunto de SQL dedicado
+      url: get-started-analyze-sql-pool.md
+    - text: PASSO 3 - Analisar com o Apache Spark
+      url: get-started-analyze-spark.md
+    - text: PASSO 4 - Analisar com um conjunto de SQL sem servidor
+      url: get-started-analyze-sql-on-demand.md
+    - text: PASSO 5 - Analisar dados numa conta de armazenamento
+      url: get-started-analyze-storage.md
+    - text: PASSO 6 - Orquestrar com pipelines
+      url: get-started-pipelines.md
+    - text: PASSO 7 - Visualizar dados com o Power BI
+      url: get-started-visualize-power-bi.md
+    - text: PASSO 8 - Monitorar atividades
+      url: get-started-monitor.md
+    - text: PASSO 9 - Explorar o Centro de conhecimento
+      url: get-started-knowledge-center.md
+- title: Apache Spark
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Apache Spark no Azure Synapse Analytics
+      url: ./spark/apache-spark-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Criar um conjunto do Apache Spark sem servidor com o Synapse Studio
+      url: quickstart-create-apache-spark-pool-studio.md
+- title: Synapse Link
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Synapse Link para o Azure Cosmos DB
+      url: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+  - linkListType: quickstart
+    links:
+    - text: Ligar ao Azure Synapse Link para Cosmos DB
+      url: quickstart-connect-synapse-link-cosmos-db.md
+- title: Machine Learning
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Machine Learning no Azure Synapse
+      url: ./machine-learning/what-is-machine-learning.md
+  - linkListType: quickstart
+    links:
+    - text: Criar um novo serviço associado do Azure Machine Learning
+      url: ./machine-learning/quickstart-integrate-azure-machine-learning.md
+  - linkListType: tutorial
+    links:
+    - text: Assistente de classificação de modelos para conjuntos de SQL
+      url: ./machine-learning/tutorial-sql-pool-model-scoring-wizard.md
+- title: Pipeline e fluxo de dados
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Pipeline e atividades
+      url: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+  - linkListType: quickstart
+    links:
+    - text: Transformar dados
+      url: quickstart-data-flow.md
+    - text: Carregar dados para conjunto de SQL
+      url: quickstart-copy-activity-load-sql-pool.md

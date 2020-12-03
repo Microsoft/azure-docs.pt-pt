@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/02/2020
 ms.author: yushwang
-ms.openlocfilehash: a77ee3c4301d278f98b571402514663dcfc9ca52
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 47d14c5ee7f6c4816bf15351e9cb28a2aaa72b4c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657929"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546850"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Sobre os requisitos criptográficos e gateways Azure VPN
 
@@ -29,6 +29,8 @@ Quando as ligações IKEv1 e IKEv2 são aplicadas no mesmo gateway VPN, o trâns
 ## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>Sobre os parâmetros da política do IPsec e do IKE para gateways Azure VPN
 
 O padrão de protocolo IPsec e IKE suporta uma ampla gama de algoritmos criptográficos em várias combinações. Se não solicitar uma combinação específica de algoritmos e parâmetros criptográficos, os gateways Azure VPN usam um conjunto de propostas padrão. Os conjuntos de políticas predefinidos foram escolhidos para maximizar a interoperabilidade com uma ampla gama de dispositivos VPN de terceiros em configurações predefinidos. Como resultado, as políticas e o número de propostas não podem abranger todas as combinações possíveis de algoritmos criptográficos disponíveis e pontos fortes fundamentais.
+
+### <a name="default-policy"></a>Política de incumprimento
 
 A política padrão definida para gateway Azure VPN está listada no artigo: [Sobre dispositivos VPN e parâmetros IPsec/IKE para ligações site-to-site VPN Gateway](vpn-gateway-about-vpn-devices.md).
 
@@ -57,7 +59,7 @@ Pode criar uma política IPsec/IKE e aplicar-se a uma ligação nova ou existent
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte [a política de configuração IPsec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md) para instruções passo a passo sobre a configuração da política personalizada IPsec/IKE numa ligação.
 

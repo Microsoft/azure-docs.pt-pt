@@ -7,20 +7,20 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6425809cfa6dde20b8ef2b1f6d4cfaf04cbef6e6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c6b2b8e3374c362f937aa5cfe106e8da9f9aa39f
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647091"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548006"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Criar gestão de grupos de self-service no Azure Ative Directory 
 
@@ -59,7 +59,7 @@ Quando os utilizadores podem criar grupos, todos os utilizadores da sua organiza
 > [!NOTE]
 > É necessária uma licença Azure Ative Directory Premium (P1 ou P2) para que os utilizadores solicitem a adesão a um grupo de segurança ou ao grupo Microsoft 365 e que os proprietários aprovem ou neguem pedidos de adesão. Sem uma licença Azure Ative Directory Premium, os utilizadores ainda podem gerir os seus grupos no Painel de Acesso, mas não podem criar um grupo que exija a aprovação do proprietário no Painel de Acesso, e não podem solicitar a adesão a um grupo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Estes artigos fornecem informações adicionais acerca do Azure Active Directory.
 

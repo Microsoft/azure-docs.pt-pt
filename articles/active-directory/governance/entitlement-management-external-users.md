@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dd1234e13f77f1ea95327a0a489e9a97cdc0ffd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0fae7a62f062478c5fee45d172b88d0132f3a8f8
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362506"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546136"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Reger o acesso dos utilizadores externos na gestão dos direitos da AD Azure
 
@@ -57,7 +57,7 @@ O diagrama e as etapas seguintes fornecem uma visão geral de como os utilizador
 
 1. O pedido vai para o [estado de entrega.](entitlement-management-process.md)
 
-1. Utilizando o processo de convite B2B, é criada uma conta de utilizador convidada no seu**diretório (Requestor A (Convidado)** neste exemplo. Se for definida uma [lista de admissões ou uma lista de negação,](../external-identities/allow-deny-list.md) a definição da lista será aplicada.
+1. Utilizando o processo de convite B2B, é criada uma conta de utilizador convidada no seu **diretório (Requestor A (Convidado)** neste exemplo. Se for definida uma [lista de admissões ou uma lista de negação,](../external-identities/allow-deny-list.md) a definição da lista será aplicada.
 
 1. O utilizador convidado tem acesso a todos os recursos do pacote de acesso. Pode levar algum tempo para que as alterações sejam feitas no AD AZure e em outros Serviços Microsoft Online ou aplicações SaaS conectadas. Para obter mais informações, consulte [Quando as alterações são aplicadas](entitlement-management-access-package-resources.md#when-changes-are-applied).
 
@@ -84,7 +84,7 @@ Para garantir que pessoas fora da sua organização podem solicitar pacotes de a
 - Permitir que os hóspedes convidem outros hóspedes para o seu diretório significa que os convites dos hóspedes podem ocorrer fora da gestão de direitos. Recomendamos que **os hóspedes possam convidar** para o **Nº** apenas para permitir convites devidamente governados.
 - Se estiver a utilizar a lista de autorizações B2B, deve certificar-se de que qualquer domínio que pretenda associar-se à gestão de direitos é adicionado à lista. Em alternativa, se estiver a utilizar a lista de negação B2B, deve certificar-se de que qualquer domínio com o qual pretende associar-se não é adicionado à lista.
 - Se criar uma política de gestão de direitos para **todos os utilizadores** (todas as organizações conectadas + quaisquer novos utilizadores externos) e um utilizador não pertencer a uma organização conectada no seu diretório, uma organização conectada será automaticamente criada para eles quando solicitar o pacote. Qualquer B2B permite ou nega as definições da lista que tiver terá precedência. Portanto, certifique-se de incluir os domínios que pretende incluir nesta política na sua lista de autorizações se estiver a utilizar um, e exclua-os da sua lista de negação se estiver a utilizar uma lista de negação.
-- Se pretender criar uma política de gestão de direitos que inclua **Todos os utilizadores** (Todas as organizações conectadas + quaisquer novos utilizadores externos), tem primeiro de ativar a autenticação de código de acesso de e-mail para o seu diretório. Para obter mais informações, consulte a autenticação de código de acesso de [email (pré-visualização)](../external-identities/one-time-passcode.md#opting-in-to-the-preview).
+- Se pretender criar uma política de gestão de direitos que inclua **Todos os utilizadores** (Todas as organizações conectadas + quaisquer novos utilizadores externos), tem primeiro de ativar a autenticação de código de acesso de e-mail para o seu diretório. Para obter mais informações, consulte a autenticação de código de acesso de [email (pré-visualização)](../external-identities/one-time-passcode.md).
 - Para obter mais informações sobre as definições de colaboração externa Azure AD B2B, consulte [a colaboração externa do Enable B2B e gere quem pode convidar os hóspedes.](../external-identities/delegate-invitations.md)
 
     ![Definições de colaboração externa Azure AD](./media/entitlement-management-external-users/collaboration-settings.png)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 5c7050042d59156e1203b5830d710e61bd8eb382
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 98698264f0beb25a8b4f74861f1150ae889d7115
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341897"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546343"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Funções definidas pelo utilizador (UDFs) em Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -144,4 +144,4 @@ Como os exemplos anteriores mostram, os UDFs integram o poder da linguagem JavaS
 
 - [Introdução ao Azure Cosmos DB](introduction.md)
 - [Funções de sistema](sql-query-system-functions.md)
-- [Agregados](sql-query-aggregates.md)
+- [Agregados](sql-query-aggregate-functions.md)

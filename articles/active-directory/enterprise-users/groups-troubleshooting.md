@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: troubleshooting
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d114896319929a0506f0201905d72d081b6408a4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 41bfdf11bad28ab772b68839a5a7bf7776eb4dff
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94650518"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548108"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Resolução de problemas e resolver problemas de grupos
 
@@ -70,7 +70,7 @@ Atualmente, não há forma de desencadear automaticamente o grupo a ser processa
 | Erro: O operador não é suportado no atributo. |(user.accountEnabled -contém verdadeiro) |(user.accountEnabled -eq true)<br/><br/>O operador utilizado não é suportado para o tipo de propriedade (neste exemplo, -contém não pode ser usado no tipo boolean). Utilize os operadores corretos para o tipo de propriedade. |
 | Erro: Erro de compilação de consultas. | 1. (user.department -eq "Sales") (user.department -eq "Marketing")<br>2. (user.userPrincipalName -match "* @domain.ext ") | 1. Operador desaparecido. Use -e ou -ou -ou dois se juntem a predicados<br>(user.department -eq "Sales") -ou (user.department -eq "Marketing")<br>2. Erro na expressão regular utilizado com -match<br>(user.userPrincipalName -match ".* @domain.ext ")<br>ou alternativamente: (user.userPrincipalName -match " @domain.ext $") |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Estes artigos fornecem informações adicionais acerca do Azure Active Directory.
 

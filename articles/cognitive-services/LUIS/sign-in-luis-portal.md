@@ -7,14 +7,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 09/08/2020
 ms.topic: how-to
-ms.author: a-sakand
-author: skandil
-ms.openlocfilehash: d801971ca62c416c66608b40aab3e8052fe941a1
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.author: nitinme
+author: nitinme
+ms.openlocfilehash: ae51dca466a9aaf489ba4628e13a5e13de25b9bc
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931415"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546867"
 ---
 # <a name="sign-in-to-luis-portal"></a>Iniciar sessão no portal LUIS
 
@@ -36,7 +36,7 @@ Uma conta, que não está associada a uma subscrição do Azure, tem o ícone Az
 
 Uma conta associada a uma subscrição do Azure permite-lhe selecionar a sua subscrição e recurso para utilizar.
 
-:::image type="content" source="media/sign-in/resource-selection.png" alt-text="Imagem parcial da barra de navegação LUIS com ícone Azure.":::
+:::image type="content" source="media/sign-in/resource-selection.png" alt-text="Imagem parcial do portal LUIS com caixas de entrega de recursos de subscrição e autoria.":::
 
 ## <a name="sign-in-with-account-associated-with-an-azure-subscription"></a>Inscreva-se com conta associada a uma subscrição do Azure
 
@@ -50,11 +50,11 @@ Uma conta associada a uma subscrição do Azure permite-lhe selecionar a sua sub
 
     [Saiba mais sobre as teclas de autoria e arranque.](luis-how-to-azure-subscription.md#luis-resources) Ambos os recursos dão-lhe 1 milhão de transações de autoria gratuitas e 1000 transações de ponto final de previsão gratuita.
 
-    :::image type="content" source="media/sign-in/signup-landing-page.png" alt-text="Imagem parcial da barra de navegação LUIS com ícone Azure.":::
+    :::image type="content" source="media/sign-in/signup-landing-page.png" alt-text="Tiro parcial no ecrã para escolher um tipo de recurso de autoria de compreensão linguística.":::
 
 1. Utilize um recurso de autoria existente
 
-    :::image type="content" source="media/sign-in/signup-choose-resource.png" alt-text="Imagem parcial da barra de navegação LUIS com ícone Azure.":::
+    :::image type="content" source="media/sign-in/signup-choose-resource.png" alt-text="Escolha o recurso de autoria":::
 
     Se já tem recursos de autoria LUIS na sua subscrição e associa um à sua conta LUIS durante a sing-in, escolha a opção **Utilização do Recurso de Autoria existente** e forneça as seguintes informações:
 
@@ -67,7 +67,7 @@ Uma conta associada a uma subscrição do Azure permite-lhe selecionar a sua sub
 
 1. Criar um novo recurso de autoria
 
-    :::image type="content" source="media/sign-in/signup-create-resource.png" alt-text="Imagem parcial da barra de navegação LUIS com ícone Azure.":::
+    :::image type="content" source="media/sign-in/signup-create-resource.png" alt-text="Criar recurso de autoria":::
 
     Ao **criar um novo recurso de autoria,** forneça as seguintes informações:
 
@@ -78,7 +78,7 @@ Uma conta associada a uma subscrição do Azure permite-lhe selecionar a sua sub
 
 1. Depois de escolher o seu caminho, pode demorar alguns segundos até que apareça um sinal que diga "A sua conta foi migrada com sucesso. Termine selecionando **Continue**.
 
-    :::image type="content" source="media/sign-in/signup-confirm-2.png" alt-text="Imagem parcial da barra de navegação LUIS com ícone Azure.":::
+    :::image type="content" source="media/sign-in/signup-confirm-2.png" alt-text="Confirmar recurso de autoria":::
 
     > [!Note]
     > Se tiver uma subscrição e pelo menos um recurso de autoria na região igual ao que está a inscrever-se no portal, poderá iniciar sessão automática na LUIS migrada e associada a um recurso sem a necessidade de escolher qual o caminho a seguir.
@@ -90,7 +90,7 @@ Uma conta associada a uma subscrição do Azure permite-lhe selecionar a sua sub
 
 1. Termine selecionando **Continue**. Iniciará automaticamente o sôm- se-á com uma chave de teste/arranque. Isto significa que eventualmente será obrigado a [migrar](luis-migration-authoring.md#migration-steps) a sua conta e a ligar as suas aplicações a um recurso de autoria. Para passar pelo processo de migração, terá de se inscrever para um [Azure Free Trial](https://azure.microsoft.com/free/).
 
-    :::image type="content" source="media/sign-in/signup-no-subscription.png" alt-text="Imagem parcial da barra de navegação LUIS com ícone Azure.":::
+    :::image type="content" source="media/sign-in/signup-no-subscription.png" alt-text="Sem cenário de subscrição":::
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

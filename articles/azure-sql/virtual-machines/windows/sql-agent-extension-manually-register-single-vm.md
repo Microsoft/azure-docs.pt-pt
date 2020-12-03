@@ -14,12 +14,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c82ea3328938b42a26df03c7e83776e1a1a69b20
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 48c996b6c7d0024b256908565c57032fe3e18514
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557800"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545643"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Registar SQL Server VM com extensão do agente SQL IaaS
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ Registar o seu SQL Server VM com a [extensão SQL IaaS Agent](sql-server-iaas-ag
 Este artigo ensina-o a registar um único SQL Server VM com a extensão sql IaaS Agent. Em alternativa, pode registar automaticamente todos [automatically](sql-agent-extension-automatic-registration-all-vms.md) os VMs do SQL Server ou [vários VMs scripts a granel](sql-agent-extension-manually-register-vms-bulk.md).
 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Registar-se com a [extensão sql Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md) cria o _recurso_ **de máquina virtual SQL** dentro da sua subscrição, que é um recurso _separado_ do recurso da máquina virtual. Desregralar o seu SQL Server VM da extensão removerá o _recurso_ **da máquina virtual SQL,** mas não deixará cair a máquina virtual real.
 
@@ -104,7 +104,7 @@ Registe um SQL Server VM em modo leve com o Azure CLI:
 
   ```azurecli-interactive
   # Register Enterprise or Standard self-installed VM in Lightweight mode
-  az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type PAYG 
+  az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type <license_type> 
   ```
 
 
@@ -119,7 +119,7 @@ Registar um SQL Server VM em modo leve com Azure PowerShell:
           
   # Register SQL VM with 'Lightweight' SQL IaaS agent
   New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-    -LicenseType PAYG -SqlManagementType LightWeight  
+    -LicenseType <license_type>  -SqlManagementType LightWeight  
   ```
 
 ---
@@ -140,10 +140,10 @@ Para registar o seu SQL Server VM diretamente em modo completo (e possivelmente 
 
 ### <a name="noagent-management-mode"></a>Modo de gestão NoAgent 
 
-SQL Server 2008 e 2008 R2 instalado no Windows Server 2008 _(não R2_ ) pode ser registado com a extensão SQL IaaS Agent no [modo NoAgent](sql-server-iaas-agent-extension-automate-management.md#management-modes). Esta opção garante a conformidade e permite que o SQL Server VM seja monitorizado no portal Azure com funcionalidade limitada.
+SQL Server 2008 e 2008 R2 instalado no Windows Server 2008 _(não R2_) pode ser registado com a extensão SQL IaaS Agent no [modo NoAgent](sql-server-iaas-agent-extension-automate-management.md#management-modes). Esta opção garante a conformidade e permite que o SQL Server VM seja monitorizado no portal Azure com funcionalidade limitada.
 
 
-Para o **tipo de licença,** especifique: `AHUB` , ou `PAYG` `DR` . Para a **oferta de imagem** , especifique ou `SQL2008-WS2008``SQL2008R2-WS2008`
+Para o **tipo de licença,** especifique: `AHUB` , ou `PAYG` `DR` . Para a **oferta de imagem**, especifique ou `SQL2008-WS2008``SQL2008R2-WS2008`
 
 Para registar o seu SQL Server 2008 ( `SQL2008-WS2008` ) ou 2008 R2 ( `SQL2008R2-WS2008` ) na instância do Windows Server 2008, utilize o seguinte corte de código Azure CLI ou Azure PowerShell: 
 

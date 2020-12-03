@@ -20,11 +20,11 @@
       href: tutorial-track-usage.md
 - name: Conceitos
   items:
-    - name: Descrição geral dos Laboratórios de Sala de Aula
+    - name: Descrição geral dos laboratórios
       href: classroom-labs-overview.md
-    - name: Conceitos dos Laboratórios de Sala de Aula
+    - name: Conceitos dos laboratórios
       href: classroom-labs-concepts.md
-    - name: Fundamentos da arquitetura dos Laboratórios de Sala de Aula
+    - name: Fundamentos da arquitetura dos laboratórios
       href: classroom-labs-fundamentals.md
     - name: Limites de capacidade
       href: capacity-limits.md
@@ -36,7 +36,7 @@
           href: classroom-labs-scenarios.md
         - name: Utilizar o Lab Services para o hackathon
           href: hackathon-labs.md
-        - name: Laboratórios de sala de aula - tipos de aula
+        - name: laboratórios - tipos de aulas
           items:
             - name: Descrição geral dos tipos de aula
               href: class-types.md
@@ -112,9 +112,9 @@
           href: lab-account-owner-support-information.md
         - name: Carregar uma imagem personalizada para a Shared Image Gallery
           href: upload-custom-image-shared-image-gallery.md
-    - name: Criar e configurar laboratórios de sala de aula (educador)
+    - name: Criar e configurar laboratórios (educador)
       items:
-        - name: Criar e gerir laboratórios de sala de aula
+        - name: Criar e gerir laboratórios
           href: how-to-manage-classroom-labs.md
         - name: Utilizar o dashboard
           href: use-dashboard.md
@@ -150,9 +150,9 @@
           href: lab-creator-support-information.md
         - name: Aceder às VMs dos estudantes a partir da vista do educador
           href: instructor-access-virtual-machines.md
-    - name: Ligar-se a VMs em laboratórios de sala de aula (estudante)
+    - name: Ligar a VMs em laboratórios (estudante)
       items:
-        - name: Aceder a laboratórios de sala de aula
+        - name: Aceder a laboratórios
           href: how-to-use-classroom-lab.md
         - name: Ligar a VMs do Linux
           href: how-to-use-remote-desktop-linux-student.md

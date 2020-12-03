@@ -39,6 +39,8 @@
       href: restart-resize-error-troubleshooting.md
     - name: 'Reiniciar, Encerrar ou Parar serviços'
       href: boot-error-troubleshoot-windows.md
+    - name: Problemas com um disco de SO completo numa máquina virtual do Linux
+      href: os-disk-full-linux.md
 - name: Reinício inesperado
   items:
     - name: Reinícios inesperados de VMs com VHDs ligadas

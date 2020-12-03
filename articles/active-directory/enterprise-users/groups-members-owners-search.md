@@ -6,19 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3cc80ffe9fbdb9ee2222d86dbfa842113e2d4d3
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: d78a2a4e0f14d99a7a1ecada915857f59422bb58
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503076"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547377"
 ---
 # <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Grupos de pesquisa e membros (pré-visualização) no Azure Ative Directory
 

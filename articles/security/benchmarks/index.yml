@@ -13,12 +13,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 12/23/2019
-  ms.openlocfilehash: ed638f6cd90abefdf5fbeaddf21ddb3a98322c07
-  ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+  ms.openlocfilehash: 761fc5e86acd6fa46f1d03f960a3987e540a925a
+  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/10/2020
-  ms.locfileid: "94409115"
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96461124"
 landingContent:
 - title: Acerca da Referência de Segurança do Azure
   linkLists:
@@ -82,7 +82,7 @@ landingContent:
       url: ../../hdinsight/security-baseline.md
     - text: Linha de base de segurança do Stream Analytics
       url: ../../stream-analytics/security-baseline.md
-    - text: Linha de base de segurança do Synapse Analytics
+    - text: Linha de base de segurança do Azure Synapse Analytics
       url: ../../synapse-analytics/security-baseline.md
 - title: Linhas de base de segurança de computação
   linkLists:
