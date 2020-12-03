@@ -3,36 +3,65 @@ title: Upgrade a partir de 2.x - Azure Monitor Application Insights Java
 description: Upgrade a partir de Azure Monitor Application Insights Java 2.x
 ms.topic: conceptual
 ms.date: 11/25/2020
-ms.openlocfilehash: d1d09c09afbabd40a32cbb80f1901112c37ac3da
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9a0e8237d81428b1ecab95627fe106a563d2090c
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355138"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532452"
 ---
-# <a name="upgrading-from-application-insights-java-sdk-2x"></a>Upgrade a partir de Application Insights Java SDK 2.x
+# <a name="upgrading-from-application-insights-java-2x-sdk"></a>Upgrade a partir de Application Insights Java 2.x SDK
 
-Se já estiver a utilizar o Application Insights Java SDK 2.x na sua aplicação, não há necessidade de a remover.
-O agente Java 3.0 irá detetá-lo e capturar e correlacionar qualquer telemetria personalizada que está a enviar através do Java SDK 2.x, enquanto suprimiu qualquer auto-recolha realizada pelo Java SDK 2.x para evitar a telemetria duplicada.
+Se já estiver a utilizar o Application Insights Java 2.x SDK na sua aplicação, não há necessidade de a remover.
+O agente Java 3.0 irá detetá-lo e capturar e correlacionar qualquer telemetria personalizada que está a enviar através do 2.x SDK, enquanto suprimi qualquer auto-coleção realizada pelo 2.x SDK para evitar a telemetria duplicada.
 
 Se estava a usar o agente Application Insights 2.x, tem de remover o `-javaagent:` arg JVM que estava a apontar para o agente 2.x.
 
+O resto deste documento descreve limitações e alterações que poderá encontrar ao atualizar de 2.x para 3.0, bem como algumas soluções alternativas que poderá achar úteis.
+
 ## <a name="telemetryinitializers-and-telemetryprocessors"></a>TelemetriaInitializadores e TelemetriaProcessadores
 
-Java SDK 2.x TelemetriaInitializadores e TelemetriaProcessadores não serão executados quando utilizar o agente 3.0.
+Os 2.x TelemetriaInitializadores e Processos de Telemetria não serão executados quando utilizar o agente 3.0.
 Muitos dos casos de utilização anteriormente necessários podem ser resolvidos em 3.0 configurando [dimensões personalizadas](./java-standalone-config.md#custom-dimensions) ou configurando processadores de [telemetria](./java-standalone-telemetry-processors.md).
 
 ## <a name="multiple-applications-in-a-single-jvm"></a>Múltiplas aplicações num único JVM
 
 Atualmente, 3.0 suporta apenas uma única [cadeia de ligação e nome de função](./java-standalone-config.md#connection-string-and-role-name) por processo de execução. Em particular, não é possível ter várias aplicações web tomcat na mesma implementação de tomcat usando diferentes cadeias de conexão ou diferentes nomes de papéis ainda.
 
-## <a name="http-request-telemetry-names"></a>HTTP solicitar nomes de telemetria
+## <a name="operation-names"></a>Nomes de operação
 
-HTTP Solicitam nomes de telemetria em 3.0 alterados para geralmente fornecer uma melhor visão agregada no Portal de Insights de Aplicação U/X.
+Os nomes de operação em 3.0 mudaram para geralmente fornecer uma melhor visão agregada no Portal de Insights de Aplicação U/X.
 
-No entanto, para algumas aplicações, ainda pode preferir a vista agregada no U/X que foi fornecida pelos nomes anteriores da telemetria, caso em que pode utilizar a funcionalidade de pré-visualização dos processadores de telemetria em 3.0 para voltar aos nomes anteriores.
+:::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-3-0.png" alt-text="Nomes de operação em 3.0":::
 
-### <a name="to-prefix-the-telemetry-name-with-the-http-method-get-post-etc"></a>Para pré-fixo o nome da telemetria com o método http `GET` (, `POST` , etc.):
+No entanto, para algumas aplicações, ainda pode preferir a vista agregada no U/X que foi fornecida pelos nomes de operação anteriores, caso em que pode utilizar a funcionalidade de processadores de [telemetria](./java-standalone-telemetry-processors.md) (pré-visualização) em 3.0 para replicar o comportamento anterior.
+
+### <a name="prefix-the-operation-name-with-the-http-method-get-post-etc"></a>Prefixar o nome da operação com o método http `GET` `POST` (, , etc.)
+
+No 2.x SDK, os nomes da operação foram prefixados pelo método http `GET` `POST` (, etc.), por exemplo
+
+:::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-prefixed-by-http-method.png" alt-text="Nomes de operação prefixados por método http":::
+
+O snippet abaixo configura 3 processadores de telemetria que combinam para replicar o comportamento anterior.
+Os processadores de telemetria executam as seguintes ações (por ordem):
+
+1. O primeiro processador de telemetria é um processador de envergadura (tem `span` tipo), o que significa que se aplica a `requests` e `dependencies` .
+
+   Corresponderá a qualquer extensão que tenha um atributo nomeado `http.method` e tenha um nome de extensão que comece por `/` .
+
+   Em seguida, extrairá esse nome de extensão num atributo chamado `tempName` .
+
+2. O segundo processador de telemetria é também um processador de envergadura.
+
+   Corresponderá a qualquer extensão que tenha um atributo chamado `tempName` .
+
+   Em seguida, atualizará o nome da extensão, concatenando os dois atributos `http.method` `tempName` e, separado por um espaço.
+
+3. O último processador de telemetria é um processador de atributos (tem `attribute` tipo), o que significa que se aplica a toda a telemetria que tem atributos (atualmente `requests` , e `dependencies` `traces` ).
+
+   Corresponderá a qualquer telemetria que tenha um atributo chamado `tempName` .
+
+   Em seguida, eliminará o atributo denominado `tempName` , para que não seja reportado como uma dimensão personalizada.
 
 ```
 {
@@ -83,7 +112,40 @@ No entanto, para algumas aplicações, ainda pode preferir a vista agregada no U
 }
 ```
 
-### <a name="to-set-the-telemetry-name-to-the-full-url-path"></a>Para definir o nome da telemetria para o caminho completo do URL
+### <a name="set-the-operation-name-to-the-full-path"></a>Desacorda o nome da operação no caminho completo
+
+Além disso, no 2.x SDK, em alguns casos, os nomes da operação continham o caminho completo, por exemplo.
+
+:::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-with-full-path.png" alt-text="Nomes de operação com percurso completo":::
+
+O snippet abaixo configura 4 processadores de telemetria que combinam para replicar o comportamento anterior.
+Os processadores de telemetria executam as seguintes ações (por ordem):
+
+1. O primeiro processador de telemetria é um processador de envergadura (tem `span` tipo), o que significa que se aplica a `requests` e `dependencies` .
+
+   Corresponderá a qualquer extensão que tenha um atributo chamado `http.url` .
+
+   Em seguida, atualizará o nome de intervalo com o `http.url` valor do atributo.
+
+   Este seria o fim, exceto que `http.url` se parece com algo `http://host:port/path` como, e é provável que só queiras o `/path` papel.
+
+2. O segundo processador de telemetria é também um processador de envergadura.
+
+   Corresponderá a qualquer extensão que tenha um atributo nomeado `http.url` (por outras palavras, qualquer extensão que o primeiro processador corresponda).
+
+   Em seguida, extrairá a parte do caminho do nome da extensão num atributo denominado `tempName` .
+
+3. O terceiro processador de telemetria é também um processador de envergadura.
+
+   Corresponderá a qualquer extensão que tenha um atributo chamado `tempPath` .
+
+   Em seguida, atualizará o nome de intervalo a partir do atributo `tempPath` .
+
+4. O último processador de telemetria é um processador de atributos (tem `attribute` tipo), o que significa que se aplica a toda a telemetria que tem atributos (atualmente `requests` , e `dependencies` `traces` ).
+
+   Corresponderá a qualquer telemetria que tenha um atributo chamado `tempPath` .
+
+   Em seguida, eliminará o atributo denominado `tempPath` , para que não seja reportado como uma dimensão personalizada.
 
 ```
 {
@@ -94,7 +156,6 @@ No entanto, para algumas aplicações, ainda pode preferir a vista agregada no U
         "include": {
           "matchType": "strict",
           "attributes": [
-            { "key": "http.method" },
             { "key": "http.url" }
           ]
         },
@@ -107,7 +168,6 @@ No entanto, para algumas aplicações, ainda pode preferir a vista agregada no U
         "include": {
           "matchType": "strict",
           "attributes": [
-            { "key": "http.method" },
             { "key": "http.url" }
           ]
         },
@@ -145,3 +205,15 @@ No entanto, para algumas aplicações, ainda pode preferir a vista agregada no U
   }
 }
 ```
+
+## <a name="dependency-names"></a>Nomes de dependência
+
+Os nomes de dependência em 3.0 também mudaram, novamente para fornecer uma melhor visão agregada no Portal de Insights de Aplicação U/X.
+
+Mais uma vez, para algumas aplicações, pode ainda preferir a vista agregada no U/X que foi fornecida pelos nomes anteriores da dependência, caso em que pode usar técnicas semelhantes às anteriores para replicar o comportamento anterior.
+
+## <a name="operation-name-on-dependencies"></a>Nome da operação sobre dependências
+
+Anteriormente no 2.x SDK, o nome de operação da telemetria de pedido também foi definido na telemetria de dependência.
+Application Insights Java 3.0 já não povoa o nome da operação na telemetria de dependência.
+Se quiser ver o nome da operação para o pedido que é o pai da telemetria de dependência, pode escrever uma consulta de Logs (Kusto) para se juntar da tabela de dependência à tabela de pedidos.

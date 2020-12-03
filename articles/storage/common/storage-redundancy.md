@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 12/02/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: fbc24db21ee43e3c2aef3d0164e8510a79508fd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57cde2c5c0a1caf7ad5182cad8db72ab8aa7c908
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658584"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531788"
 ---
-# <a name="azure-storage-redundancy"></a>Redundância de armazenamento Azure
+# <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
-O Azure Storage armazena sempre várias cópias dos seus dados para que esteja protegido contra eventos planeados e não planeados, incluindo falhas de hardware transitórios, falhas de rede ou de energia e desastres naturais maciços. A redundância garante que a sua conta de armazenamento cumpre o [Acordo de Nível de Serviço (SLA) para o Armazenamento Azure,](https://azure.microsoft.com/support/legal/sla/storage/) mesmo face a falhas.
+O Azure Storage armazena sempre várias cópias dos seus dados para que esteja protegido contra eventos planeados e não planeados, incluindo falhas de hardware transitórios, falhas de rede ou de energia e desastres naturais maciços. A redundância garante que a sua conta de armazenamento cumpre os seus objetivos de disponibilidade e durabilidade mesmo face a falhas.
 
-Ao decidir qual a opção de despedimento melhor para o seu cenário, considere as trocas entre custos mais baixos e maior disponibilidade e durabilidade. Os fatores que ajudam a determinar qual a opção de redundância que deve escolher incluem:  
+Ao decidir qual a opção de despedimento melhor para o seu cenário, considere as trocas entre custos mais baixos e maior disponibilidade. Os fatores que ajudam a determinar qual a opção de redundância que deve escolher incluem:  
 
 - Como os seus dados são replicados na região primária
 - Se os seus dados são replicados para uma segunda região que está geograficamente distante da região primária, para proteger contra desastres regionais
@@ -51,7 +51,7 @@ LRS é uma boa escolha para os seguintes cenários:
 
 O armazenamento redundante de zona (ZRS) replica os seus dados de armazenamento Azure sincronizados em três zonas de disponibilidade de Azure na região primária. Cada zona de disponibilidade é uma localização física separada com energia, refrigeração e rede independentes, A ZRS oferece durabilidade para objetos de dados de armazenamento Azure de pelo menos 99.9999999999999999999999999999 (12 9's) durante um determinado ano.
 
-Com o ZRS, os seus dados ainda estão acessíveis tanto para operações de leitura como para escrever, mesmo que uma zona fique indisponível. Se uma zona ficar indisponível, o Azure realiza atualizações de rede, como a repontagem de DNS. Estas atualizações podem afetar a sua aplicação se aceder a dados antes de as atualizações terem sido concluídas. Ao conceber aplicações para ZRS, siga práticas para o manuseamento transitório de falhas, incluindo implementar políticas de retrip com recuo exponencial.
+Com o ZRS, os seus dados ainda estão acessíveis tanto para operações de leitura como para escrever, mesmo que uma zona fique indisponível. Se uma zona ficar indisponível, o Azure realiza atualizações de rede, como a re-apontamento de DNS. Estas atualizações podem afetar a sua aplicação se aceder a dados antes de as atualizações terem sido concluídas. Ao conceber aplicações para ZRS, siga práticas para o manuseamento transitório de falhas, incluindo implementar políticas de retrip com recuo exponencial.
 
 Um pedido de escrita para uma conta de armazenamento que está a usar o ZRS acontece sincronizadamente. A operação de escrita só regressa com sucesso depois de os dados forem escritos a todas as réplicas nas três zonas de disponibilidade.
 
@@ -63,7 +63,7 @@ O quadro que se segue mostra quais os tipos de contas de armazenamento que supor
 
 | Tipo de conta de armazenamento | Regiões suportadas | Serviços suportados |
 |--|--|--|
-| Finalidade geral v2<sup>1</sup> | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br />  Europa Ocidental<br /> França Central<br /> Leste do Japão<br /> África do Sul Norte<br /> Sul do Reino Unido<br /> E.U.A. Central<br /> E.U.A Leste<br /> E.U.A. Leste 2<br /> E.U.A. Oeste 2 | Blobs de blocos<br /> Bolhas de página<sup>2</sup><br /> Ações de ficheiros (padrão)<br /> Tabelas<br /> Filas<br /> |
+| Finalidade geral v2<sup>1</sup> | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br />  Europa Ocidental<br /> França Central<br /> Leste do Japão<br /> Norte da África do Sul<br /> Sul do Reino Unido<br /> E.U.A. Central<br /> E.U.A Leste<br /> E.U.A. Leste 2<br /> E.U.A. Oeste 2 | Blobs de blocos<br /> Bolhas de página<sup>2</sup><br /> Ações de ficheiros (padrão)<br /> Tabelas<br /> Filas<br /> |
 | BlockBlobStorage<sup>1</sup> | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br /> Europa Ocidental<br /> E.U.A Leste <br /> E.U.A. Leste 2 <br /> E.U.A. Oeste 2| Bolhas de bloco premium apenas |
 | Arquitorage de arquivos | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br /> Europa Ocidental<br /> E.U.A Leste <br /> E.U.A. Leste 2 <br /> E.U.A. Oeste 2 | Os ficheiros premium partilham apenas |
 
@@ -153,11 +153,9 @@ A tabela a seguir descreve parâmetros-chave para cada opção de redundância:
 
 | Parâmetro | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| Durabilidade por cento de objetos ao longo de um dado ano<sup>1</sup> | pelo menos 99.9999999999999999 % (11 9's) | pelo menos 99.9999999999999999999 % (12 9's) | pelo menos 99.999999999999999999999999999999999 (16 9's) | pelo menos 99.999999999999999999999999999999999 (16 9's) |
-| Disponibilidade SLA para pedidos de leitura<sup>1</sup> | Pelo menos 99,9% (99% para o nível de acesso fresco) | Pelo menos 99,9% (99% para o nível de acesso fresco) | Pelo menos 99,9% (99% para nível de acesso fresco) para GRS<br /><br />Pelo menos 99,99% (99,9% para o nível de acesso cool) para RA-GRS | Pelo menos 99,9% (99% para nível de acesso fresco) para GZRS<br /><br />Pelo menos 99,99% (99,9% para o nível de acesso cool) para RA-GZRS |
-| Disponibilidade SLA para pedidos de escrita<sup>1</sup> | Pelo menos 99,9% (99% para o nível de acesso fresco) | Pelo menos 99,9% (99% para o nível de acesso fresco) | Pelo menos 99,9% (99% para o nível de acesso fresco) | Pelo menos 99,9% (99% para o nível de acesso fresco) |
-
-<sup>1</sup> Para obter informações sobre garantias de armazenamento Azure para durabilidade e disponibilidade, consulte o [Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/).
+| Durabilidade por cento de objetos ao longo de um determinado ano | pelo menos 99.9999999999999999 % (11 9's) | pelo menos 99.9999999999999999999 % (12 9's) | pelo menos 99.999999999999999999999999999999999 (16 9's) | pelo menos 99.999999999999999999999999999999999 (16 9's) |
+| Disponibilidade para pedidos de leitura | Pelo menos 99,9% (99% para o nível de acesso fresco) | Pelo menos 99,9% (99% para o nível de acesso fresco) | Pelo menos 99,9% (99% para nível de acesso fresco) para GRS<br /><br />Pelo menos 99,99% (99,9% para o nível de acesso cool) para RA-GRS | Pelo menos 99,9% (99% para nível de acesso fresco) para GZRS<br /><br />Pelo menos 99,99% (99,9% para o nível de acesso cool) para RA-GZRS |
+| Disponibilidade para pedidos de escrita | Pelo menos 99,9% (99% para o nível de acesso fresco) | Pelo menos 99,9% (99% para o nível de acesso fresco) | Pelo menos 99,9% (99% para o nível de acesso fresco) | Pelo menos 99,9% (99% para o nível de acesso fresco) |
 
 ### <a name="durability-and-availability-by-outage-scenario"></a>Durabilidade e disponibilidade por cenário de paralisação
 
@@ -191,7 +189,7 @@ Para obter informações sobre preços para cada opção de redundância, consul
 
 O Azure Storage verifica regularmente a integridade dos dados armazenados através de verificações cíclicas de redundância (CRCs). Se for detetada corrupção de dados, é reparada com dados redundantes. O Azure Storage também calcula os dados de verificação em todo o tráfego de rede para detetar a corrupção de pacotes de dados ao armazenar ou recuperar dados.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Verifique a propriedade da Última Hora do Sincronização para obter uma conta de armazenamento](last-sync-time-get.md)
 - [Alterar a opção de despedimento para uma conta de armazenamento](redundancy-migration.md)

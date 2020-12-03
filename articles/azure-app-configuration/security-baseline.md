@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a885f027250a915347fea758c7c7978af0f45f49
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 79a99ad37c526103fc3068562d62ed40defc983b
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302518"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532385"
 ---
 # <a name="azure-security-baseline-for-azure-app-configuration"></a>Linha de base de segurança Azure para configuração de aplicativoS Azure
 
@@ -22,7 +22,7 @@ Para ver como a Configuração da Aplicação Azure mapeia completamente para o 
 
 ## <a name="network-security"></a>Segurança de Rede
 
-*Para mais informações, consulte o [Benchmark de Segurança Azure: Segurança da Rede](../security/benchmarks/security-controls-v2-network-security.md).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Segurança de Rede](../security/benchmarks/security-controls-v2-network-security.md).*
 
 ### <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1: Implementar a segurança para o tráfego interno
 
@@ -54,7 +54,7 @@ Para ligar duas ou mais redes virtuais em Azure, utilize o espreitamento de rede
 
 **Responsabilidade**: Cliente
 
-### <a name="ns-3-establish-private-network-access-to-azure-services"></a>NS-3: Estabelecer acesso à rede privada aos serviços da Azure
+### <a name="ns-3-establish-private-network-access-to-azure-services"></a>NS-3: Estabelecer o acesso à rede privada para os serviços do Azure
 
 **Orientação**: Utilize o Azure Private Link para permitir o acesso privado à Configuração de Aplicações Azure a partir das suas redes virtuais sem atravessar a internet.
 
@@ -120,7 +120,7 @@ Nota: Se tiver um requisito regulamentar ou outro para a utilização do IDS/IPS
 - Recursos da Microsoft Cloud, como o portal Azure, Azure Storage, Azure Virtual Machine (Linux e Windows), Azure Key Vault, PaaS e SaaS.
 - recursos da sua organização, como as aplicações no Azure, ou os recursos da rede empresarial.
 
-A proteção do Azure AD deve ser prioritária na prática de segurança da cloud para a sua organização. O Azure AD fornece uma pontuação segura de identidade para ajudá-lo a avaliar a postura de segurança de identidade em relação às recomendações de boas práticas da Microsoft. Utilize a pontuação para determinar até que ponto é que a sua configuração corresponde às recomendações de melhores práticas e para fazer melhorias à postura de segurança.
+A proteção do Azure AD deve ser prioritária na prática de segurança da cloud para a sua organização. O AAD proporciona uma pontuação de segurança de identidade para o ajudar a avaliar a postura de segurança de identidade relativamente às recomendações de melhores práticas da Microsoft. Utilize a pontuação para determinar até que ponto é que a sua configuração corresponde às recomendações de melhores práticas e para fazer melhorias à postura de segurança.
 
 O Azure fornece as seguintes funções incorporadas do Azure para autorizar o acesso aos dados de Configuração de Aplicações utilizando Azure AD e OAuth:
 
@@ -136,7 +136,7 @@ Para obter mais informações, veja as seguintes referências:
 
 - [Como criar e configurar instâncias do Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-- [Qual é a pontuação de segurança de identidade no Azure Ative Directory](../active-directory/fundamentals/identity-secure-score.md)
+- [O que é a pontuação de segurança de identidade no Azure Active Directory?](../active-directory/fundamentals/identity-secure-score.md)
 
 - [Autorizar o acesso à Configuração de Aplicações Azure usando Azure AD](concept-enable-rbac.md)
 
@@ -144,7 +144,7 @@ Para obter mais informações, veja as seguintes referências:
 
 **Responsabilidade**: Cliente
 
-### <a name="im-2-manage-application-identities-securely-and-automatically"></a>IM-2: Gerir as identidades da aplicação de forma segura e automática
+### <a name="im-2-manage-application-identities-securely-and-automatically"></a>IM-2: Gerir identidades de aplicação de forma segura e automática
 
 **Orientação**: Utilize identidades geridas pelo Azure para aceder à Configuração da Aplicação Azure a partir de contas não humanas, como outros serviços Azure. Recomenda-se a utilização de funcionalidades de identidade geridas pelo Azure em vez de criar uma conta humana mais poderosa para aceder ou executar os seus recursos para limitar a necessidade de gerir credenciais adicionais. A Azure App Configuration também pode ser atribuída uma identidade gerida para autenticar de forma nativa a outros serviços/recursos Azure que suportam a autenticação AD do Azure. Isto pode ser útil para permitir um fácil acesso da Configuração de Aplicações ao Cofre de Chaves Azure ao recuperar segredos. Ao utilizar identidades geridas, a identidade é gerida pela plataforma Azure e não requer que forneça ou rode quaisquer segredos.
 
@@ -238,33 +238,33 @@ A Azure Advanced Threat Protection (ATP) é uma solução de segurança que pode
 
 **Responsabilidade**: Cliente
 
-### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: Restringir o acesso a recurso Azure com base em condições
+### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: Restringir o acesso aos recursos do Azure com base em condições
 
-**Orientação**: A Azure App Configuration suporta o acesso condicional do Azure Ative Directory (Azure AD) para um controlo de acesso mais granular baseado em condições definidas pelo utilizador, como logins de utilizadores de determinadas gamas IP terão de utilizar MFA para login. A política de gestão da sessão de autenticação granular também pode ser usada para diferentes casos de utilização. Estas políticas de acesso condicional aplicar-se-ão apenas às contas dos utilizadores que estejam a autenticar a AZure AD para aceder e gerir o serviço de Configuração de Aplicações, mas não se aplicarão aos principais serviços ou cadeias de ligação que se liguem ao seu recurso de configuração.
+**Orientação**: A Azure App Configuration suporta o acesso condicional do Azure Ative Directory (Azure AD) para um controlo de acesso mais granular baseado em condições definidas pelo utilizador, como logins de utilizadores de determinadas gamas IP terão de utilizar MFA para login. A política de gestão de sessão de autenticação granular também pode ser utilizada para diferentes casos de utilização. Estas políticas de acesso condicional aplicar-se-ão apenas às contas dos utilizadores que estejam a autenticar a AZure AD para aceder e gerir o serviço de Configuração de Aplicações, mas não se aplicarão aos principais serviços ou cadeias de ligação que se liguem ao seu recurso de configuração.
 
-- [Visão geral do acesso condicional do Azure](../active-directory/conditional-access/overview.md)
+- [Descrição geral do acesso condicional do Azure](../active-directory/conditional-access/overview.md)
 
-- [Políticas comuns de acesso condicional](../active-directory/conditional-access/concept-conditional-access-policy-common.md)
+- [Políticas de acesso condicional comuns](../active-directory/conditional-access/concept-conditional-access-policy-common.md)
 
-- [Configurar gestão de sessão de autenticação com acesso condicional](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
+- [Configurar a gestão da sessão de autenticação com o acesso condicional](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="im-7-eliminate-unintended-credential-exposure"></a>IM-7: Eliminar exposição credencial não intencional
+### <a name="im-7-eliminate-unintended-credential-exposure"></a>IM-7: Eliminar a exposição de credenciais involuntária
 
-**Orientação**: A configuração da aplicação Azure permite que os clientes armazenem configurações que possam conter identidades ou segredos. Recomenda-se implementar o Scanner Credencial para identificar credenciais dentro das configurações. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault.
+**Orientação**: A configuração da aplicação Azure permite que os clientes armazenem configurações que possam conter identidades ou segredos. Recomenda-se implementar o Scanner Credencial para identificar credenciais dentro das configurações. O Scanner de Credenciais também vai incentivar a movimentação das credenciais descobertas para localizações mais seguras, por exemplo, o Azure Key Vault.
 
 Utilize o serviço de configuração de aplicações Azure juntamente com o Cofre da Chave Azure. Guarde quaisquer credenciais no Key Vault e, em seguida, ligue-se a estas credenciais criando uma referência key Vault no seu recurso de configuração de aplicação. Quando a Configuração da Aplicação cria estas referências, armazena os URIs dos valores do Cofre chave em vez dos próprios valores. As aplicações podem ligar-se à Configuração de Aplicações para recuperar quaisquer credenciais do Key Vault.
 
-Para o GitHub, pode utilizar funcionalidades de digitalização secretas nativas para identificar credenciais ou outra forma de segredo dentro do código.
+No GitHub, pode utilizar a funcionalidade de análise de segredos nativos para identificar as credenciais ou outra forma de segredos no código.
 
 - [Tutorial para usar referências de cofre de chaves em uma ASP.NET Core App](use-key-vault-references-dotnet-core.md)
 
 - [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-- [Digitalização secreta de GitHub](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
+- [Análise de segredos do GitHub](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -295,7 +295,7 @@ As Chaves de Acesso são altamente privilegiadas e devem ser rodadas regularment
 
 **Responsabilidade**: Cliente
 
-### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: Restringir o acesso administrativo a sistemas críticos de negócios
+### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: Restringir o acesso administrativo a sistemas críticos da empresa
 
 **Orientação**: A Azure App Configuration usa O RBAC Azure para isolar o acesso a sistemas críticos de negócio, limitando quais as contas que têm acesso privilegiado. O Azure RBAC é suportado pela Configuração de Aplicações ao nível dos recursos. Para obter configurações críticas de negócio silo de forma segura, armazenar esta informação no seu próprio recurso de Configuração de Aplicações. Dentro de um recurso, o acesso granular também está disponível através de contas ou chaves de acesso apenas de leitura, bem como rotulagem e marcação.
 
@@ -335,13 +335,13 @@ Nota: As identidades geridas são sugeridas sempre que possível para autentica�
 
 **Responsabilidade**: Cliente
 
-### <a name="pa-4-set-up-emergency-access-in-azure-ad"></a>PA-4: Criar acesso de emergência em Azure AD
+### <a name="pa-4-set-up-emergency-access-in-azure-ad"></a>PA-4: Configurar o acesso de emergência no AAD
 
-**Orientação**: A Azure App Configuration está integrada com o Azure Ative Directory para gerir os seus recursos. Para evitar que seja acidentalmente bloqueado fora da sua organização Azure AD, crie uma conta de acesso de emergência para acesso quando não puder ser utilizada uma conta administrativa normal. As contas de acesso de emergência são geralmente altamente privilegiadas, e não devem ser atribuídas a indivíduos específicos. As contas de acesso de emergência limitam-se a cenários de emergência ou "vidro quebrado", onde as contas administrativas normais não podem ser utilizadas.
+**Orientação**: A Azure App Configuration está integrada com o Azure Ative Directory para gerir os seus recursos. Para evitar que seja acidentalmente bloqueado fora da sua organização Azure AD, crie uma conta de acesso de emergência para acesso quando não puder ser utilizada uma conta administrativa normal. As contas de acesso de emergência são, normalmente, altamente privilegiadas e não devem ser atribuídas a indivíduos específicos. As contas de acesso de emergência são limitadas a cenários de emergência ou de “interrupção de emergência”, em que as contas administrativas normais não podem ser utilizadas.
 
-Deve certificar-se de que as credenciais (como palavra-passe, certificado ou cartão inteligente) para contas de acesso de emergência são mantidas seguras e conhecidas apenas por indivíduos autorizados a usá-las apenas em caso de emergência.
+Deve garantir que as credenciais (por exemplo, palavra-passe, certificado ou smart card) das contas de acesso de emergência são mantidas em segurança e só são conhecidas por indivíduos que estão autorizados a utilizá-las apenas para uma emergência.
 
-- [Gerir contas de acesso de emergência em Azure AD](../active-directory/roles/security-emergency-access.md)
+- [Gerir contas de acesso de emergência no AAD](../active-directory/roles/security-emergency-access.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -359,13 +359,13 @@ Deve certificar-se de que as credenciais (como palavra-passe, certificado ou car
 
 **Responsabilidade**: Cliente
 
-### <a name="pa-6-use-privileged-access-workstations"></a>PA-6: Utilize postos de trabalho privilegiados de acesso
+### <a name="pa-6-use-privileged-access-workstations"></a>PA-6: Utilizar estações de trabalho privilegiadas
 
-**Orientação**: Estações de trabalho seguras e isoladas são de importância crucial para a segurança de funções sensíveis como administradores, desenvolvedores e operadores de serviços críticos. Utilize estações de trabalho de utilizador altamente seguras e/ou Azure Bastion para tarefas administrativas relacionadas com a Configuração da Aplicação. Utilize o Azure Ative Directory, Microsoft Defender Advanced Threat Protection (ATP) e/ou Microsoft Intune para implementar uma estação de trabalho segura e gerida para tarefas administrativas. As estações de trabalho seguras podem ser geridas centralmente para impor uma configuração segura, incluindo bases de autenticação forte, software e hardware, restrições lógicos e acesso à rede.
+**Orientação**: As estações de trabalho seguras e isoladas são de importância crítica para a segurança de funções confidenciais, por exemplo, administradores, programadores e operadores de serviço de importância crítica. Utilize estações de trabalho de utilizador altamente seguras e/ou Azure Bastion para tarefas administrativas relacionadas com a Configuração da Aplicação. Utilize o Azure Active Directory, a Proteção Avançada Contra Ameaças do Microsoft Defender (ATP) e/ou o Microsoft Intune para implementar uma estação de trabalho de utilizador gerida e segura para tarefas administrativas. As estações de trabalho seguras podem ser geridas centralmente para impor uma configuração segura, incluindo uma autenticação forte e linhas de base de software e hardware e acesso de rede e lógico restrito.
 
 - [Compreender estações de trabalho de acesso privilegiada](../active-directory/devices/concept-azure-managed-workstation.md) 
 
-- [Implementar uma estação de trabalho de acesso privilegiada](../active-directory/devices/howto-azure-managed-workstation.md)
+- [Implementar uma estação de trabalho de acesso privilegiado](../active-directory/devices/howto-azure-managed-workstation.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -447,7 +447,7 @@ Para obter mais informações, veja as seguintes referências:
 
 **Responsabilidade**: Partilhada
 
-### <a name="dp-4-encrypt-sensitive-information-in-transit"></a>DP-4: Criptografar informações sensíveis em trânsito
+### <a name="dp-4-encrypt-sensitive-information-in-transit"></a>DP-4: Encriptar informações confidenciais em trânsito
 
 **Orientação**: Para complementar os controlos de acesso, os dados em trânsito devem ser protegidos contra ataques "fora da banda" utilizando encriptação. Isto ajuda a garantir que os atacantes não podem ler ou modificar facilmente os dados.
 
@@ -497,15 +497,15 @@ Nota: para obter visibilidade para cargas de trabalho e serviços, poderão ser 
 
 **Responsabilidade**: Cliente
 
-### <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: Garantir que a equipa de segurança tem acesso ao inventário de ativos e metadados
+### <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: Garantir que a equipa de segurança tem acesso aos metadados e inventário dos recursos
 
-**Orientação**: Certifique-se de que as equipas de segurança têm acesso a um inventário continuamente atualizado de ativos no Azure, como a Configuração da App Azure. As equipas de segurança precisam frequentemente deste inventário para avaliar a exposição potencial da sua organização a riscos emergentes, e como um contributo para melhorias contínuas de segurança. Crie um grupo de Diretório Ativo Azure para conter a equipa de segurança autorizada da sua organização e atribua-lhes o acesso de leitura a todos os recursos de Configuração de Aplicações Azure, isto pode ser simplificado por uma única atribuição de papel de alto nível dentro da sua subscrição.
+**Orientação**: Certifique-se de que as equipas de segurança têm acesso a um inventário continuamente atualizado de ativos no Azure, como a Configuração da App Azure. As equipas de segurança, normalmente, precisam deste inventário para avaliar o potencial de exposição da organização a riscos emergentes e como um ponto de entrada para melhorias contínuas à segurança. Crie um grupo de Diretório Ativo Azure para conter a equipa de segurança autorizada da sua organização e atribua-lhes o acesso de leitura a todos os recursos de Configuração de Aplicações Azure, isto pode ser simplificado por uma única atribuição de papel de alto nível dentro da sua subscrição.
 
 A funcionalidade de inventário do Azure Security Center e o Azure Resource Graph podem consultar e descobrir todos os recursos nas suas subscrições, incluindo serviços Azure, aplicações e recursos de rede.
 
 Aplique etiquetas nos seus recursos Azure, grupos de recursos e subscrições para organizá-las logicamente numa taxonomia. Cada etiqueta é composta por um nome e um par de valor. Por exemplo, pode aplicar o nome "Ambiente" e o valor "Produção" em todos os recursos na produção.
 
-- [Como criar consultas com o Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
+- [Como criar consultas com o Explorador do Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
 - [Gestão de inventário de ativos do Azure Security Center](../security-center/asset-inventory.md)
 
@@ -515,15 +515,15 @@ Aplique etiquetas nos seus recursos Azure, grupos de recursos e subscrições pa
 
 **Responsabilidade**: Cliente
 
-### <a name="am-3-use-only-approved-azure-services"></a>AM-3: Utilize apenas serviços Azure aprovados
+### <a name="am-3-use-only-approved-azure-services"></a>AM-3: Utilizar apenas os serviços do Azure aprovados
 
-**Orientação**: A Azure App Configuration suporta implementações baseadas em recursos Azure e aplicação de configuração usando a Política de Azure. Utilize a Política Azure para auditar e restringir quais os serviços que os utilizadores podem prestação no seu ambiente. Utilize o Gráfico de Recursos Azure para consultar e descobrir recursos dentro das suas subscrições. Também pode utilizar o Azure Monitor para criar regras para desencadear alertas quando for detetado um serviço não aprovado.
+**Orientação**: A Azure App Configuration suporta implementações baseadas em recursos Azure e aplicação de configuração usando a Política de Azure. Utilize o Azure Policy para auditar e restringir que serviços os utilizadores podem aprovisionar no ambiente. Utilize o Azure Resource Graph para consultar e detetar recursos dentro das subscrições. Também pode utilizar o Azure Monitor para criar regras para acionar alertas quando um serviço não aprovado for detetado.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/built-in-policies.md#general)
 
-- [Como criar consultas com o Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
+- [Como criar consultas com o Explorador do Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -581,7 +581,7 @@ Outro método para aceder ao seu recurso de configuração de configuração de 
 
 **Responsabilidade**: Cliente
 
-### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Permitir o registo de atividades da rede Azure
+### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Ativar o registo para atividades de rede do Azure
 
 **Orientação**: A Azure App Configuration não implanta quaisquer recursos diretamente numa rede virtual. No entanto, a Configuração de Aplicações permite-lhe utilizar pontos finais privados para se conectar de forma segura à Configuração de Aplicações Azure a partir de uma rede virtual. A Azure App Configuration também não produz ou processa registos de consulta de DNS que teriam de ser ativados.
 
@@ -598,7 +598,7 @@ Para obter mais informações, veja as seguintes referências:
 
 **Responsabilidade**: Cliente
 
-### <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: Permitir a exploração de madeira para recursos Azure
+### <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: Ativar o registo dos recursos do Azure
 
 **Orientação**: Os registos de atividade, que estão automaticamente disponíveis, contêm todas as operações de escrita (PUT, POST, DELETE) para os seus recursos de Configuração de Aplicações, exceto operações de leitura (GET). Os registos de atividade podem ser utilizados para encontrar um erro na resolução de problemas ou para monitorizar como um utilizador na sua organização modificou um recurso. Para a Configuração da Aplicação, os registos de atividade só estão disponíveis no plano de controlo e são surgidos pelo Gestor de Recursos Azure (ARM). O registo de planos de dados para configuração de aplicações não é suportado pelo cliente. Os registos de recursos Azure também não estão disponíveis para serem configurados.
 
@@ -610,7 +610,7 @@ Para obter mais informações, veja as seguintes referências:
 
 **Responsabilidade**: Cliente
 
-### <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: Centralizar a gestão e análise de registos de segurança
+### <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: Centralizar a análise e gestão do registo de segurança
 
 **Orientação**: Centralizar o armazenamento e análise de registos para permitir a correlação. Para cada fonte de registo, certifique-se de que atribuiu um titular de dados, orientação de acesso, localização de armazenamento, que ferramentas são usadas para processar e aceder aos dados, e requisitos de retenção de dados.
 
@@ -626,7 +626,7 @@ Além disso, ative e a bordo dados para Azure Sentinel ou um SIEM de terceiros. 
 
 **Responsabilidade**: Cliente
 
-### <a name="lt-6-configure-log-storage-retention"></a>LT-6: Retenção de armazenamento de madeira configurada
+### <a name="lt-6-configure-log-storage-retention"></a>LT-6: Configurar a retenção de armazenamento dos registos
 
 **Orientação**: Certifique-se de que quaisquer contas de armazenamento ou espaços de trabalho do Log Analytics utilizados para armazenar registos de configuração de aplicações tem o período de retenção de registo definido de acordo com os regulamentos de conformidade da sua organização. Utilize o espaço de trabalho Azure Storage, Data Lake ou Log Analytics para armazenamento de longo prazo e arquivo.
 
@@ -668,9 +668,9 @@ No Azure Monitor, pode definir o período de retenção do espaço de trabalho d
 
 ### <a name="ir-3-detection-and-analysis--create-incidents-based-on-high-quality-alerts"></a>IR-3: Deteção e análise – criar incidentes com base em alertas de alta qualidade
 
-**Orientação**: Certifique-se de que tem um processo para criar alertas de alta qualidade e medir a qualidade dos alertas. Desta forma, pode aprender lições com os incidentes passados e priorizar os alertas para os analistas, para que estes não percam tempo a lidar com falsos positivos. 
+**Orientação**: garanta que tem um processo para criar alertas de alta qualidade e medir a qualidade dos alertas. Desta forma, pode aprender lições com os incidentes passados e priorizar os alertas para os analistas, para que estes não percam tempo a lidar com falsos positivos. 
 
-Alertas de alta qualidade podem ser construídos com base na experiência de incidentes passados, fontes comunitárias validadas e ferramentas projetadas para gerar e limpar alertas fundindo e correlacionando diversas fontes de sinal. 
+Podem ser desenvolvidos alertas de alta qualidade com base na experiência de incidentes passados, origens da comunidade validadas e ferramentas designadas para gerar e limpar alertas através da fusão e correlação de origens de sinais diversas. 
 
 O Azure Security Center fornece alertas de alta qualidade em muitos ativos da Azure. Pode utilizar o conector de dados ASC para transmitir os alertas para o Azure Sentinel. O Azure Sentinel permite-lhe criar regras de alertas avançadas para gerar incidentes automaticamente para investigações. 
 
@@ -748,7 +748,7 @@ Além disso, marque os recursos com etiquetas e crie um sistema de nomenclatura 
 
 *Para obter mais informações, veja [Referência de Segurança do Azure: Gestão da Postura e da Vulnerabilidade](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
 
-### <a name="pv-1-establish-secure-configurations-for-azure-services"></a>PV-1: Estabelecer configurações seguras para os serviços Azure 
+### <a name="pv-1-establish-secure-configurations-for-azure-services"></a>PV-1: Estabelecer configurações seguras para os serviços do Azure 
 
 **Orientação**: A Azure App Configuration suporta abaixo políticas específicas do serviço que estão disponíveis no Azure Security Center para auditar e impor configurações dos seus recursos Azure. Isto pode ser configurado em iniciativas do Azure Security Center ou da Azure Policy.
 - A Configuração da Aplicação deve utilizar uma chave gerida pelo cliente: as teclas geridas pelo cliente fornecem uma proteção de dados melhorada, permitindo-lhe gerir as suas chaves de encriptação. Isto é frequentemente necessário para satisfazer os requisitos de conformidade.
@@ -770,7 +770,7 @@ Você pode usar Azure Blueprints para automatizar a implementação e configura�
 
 **Responsabilidade**: Partilhada
 
-### <a name="pv-2-sustain-secure-configurations-for-azure-services"></a>PV-2: Sustente configurações seguras para serviços Azure
+### <a name="pv-2-sustain-secure-configurations-for-azure-services"></a>PV-2: Suportar configurações seguras para os serviços do Azure
 
 **Orientação**: Utilize o Centro de Segurança Azure para monitorizar a sua linha de base de configuração e impor a política do Azure. A política do Azure para a configuração da aplicação inclui: 
 - A Configuração da Aplicação deve utilizar uma chave gerida pelo cliente: as teclas geridas pelo cliente fornecem uma proteção de dados melhorada, permitindo-lhe gerir as suas chaves de encriptação. Isto é frequentemente necessário para satisfazer os requisitos de conformidade.
@@ -801,13 +801,13 @@ Para ter a certeza de que os seus testes de penetração não infringem as polí
 
 ## <a name="backup-and-recovery"></a>Cópia de Segurança e Recuperação
 
-*Para mais informações, consulte o [Benchmark de Segurança Azure: Backup and Recovery](../security/benchmarks/security-controls-v2-backup-recovery.md).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Cópia de Segurança e Recuperação](../security/benchmarks/security-controls-v2-backup-recovery.md).*
 
-### <a name="br-4-mitigate-risk-of-lost-keys"></a>BR-4: Mitigar o risco de chaves perdidas
+### <a name="br-4-mitigate-risk-of-lost-keys"></a>BR-4: Mitigar o risco de perda de chaves
 
-**Orientação**: Certifique-se de que tem medidas para prevenir e recuperar da perda de chaves. Ativar a proteção de eliminação e purga suave no Cofre da Chave Azure para proteger as chaves contra a eliminação acidental ou maliciosa.
+**Orientação**: Certifique-se de que tem medidas para prevenir e recuperar da perda de chaves. Ative a eliminação recuperável e a proteção contra remoção no Azure Key Vault para proteger as chaves contra a eliminação maliciosa ou acidental.
 
-- [Como permitir a eliminação suave e a proteção de purga no Cofre de Chaves](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
+- [Como ativar a eliminação recuperável e a proteção contra remoção no Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -833,18 +833,18 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 
 -   Estratégia de controlo de acesso obrigatória, de acordo com a classificação dos dados organizacionais
 
--   Utilização de capacidades de proteção de dados nativas e de terceiros da Azure
+-   Utilização de capacidades de proteção de dados de terceiros e nativas do Azure
 
 -   Requisitos de encriptação de dados para casos de utilização de dados em trânsito e inativos
 
 -   Normas criptográficas adequadas
 
 Para obter mais informações, veja as seguintes referências:
-- [Recomendação de Arquitetura de Segurança do Azure - Armazenamento, dados e encriptação](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
+- [Recomendação de Arquitetura de Segurança do Azure - Armazenamento, dados e encriptação](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Noções Básicas da Segurança do Azure - Segurança, encriptação e armazenamento de dados do Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework - Melhores práticas de segurança e encriptação de dados do Azure](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
+- [Cloud Adoption Framework - Melhores práticas de segurança e encriptação de dados do Azure](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Referência de Segurança do Azure - Gestão de ativos](/azure/security/benchmarks/security-controls-v2-asset-management)
 

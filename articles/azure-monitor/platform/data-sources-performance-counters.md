@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 54e7a781ba9ed3cd4b53e1028c4a3bb79c256aed
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 533d4a83ea73b98e26a57febc077a607bcb25465
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012617"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532312"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Recolher fontes de dados de desempenho do Windows e do Linux com o agente Log Analytics
 Os contadores de desempenho no Windows e linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operativos e aplicações.  O Azure Monitor pode recolher contadores de desempenho de agentes do Log Analytics em intervalos frequentes para análises de Tempo Real Próximo (NRT), além de agregar dados de desempenho para análise e reporte a longo prazo.
@@ -50,15 +50,14 @@ Siga este procedimento para adicionar um novo contador de desempenho do Windows 
 
 ### <a name="linux-performance-counters"></a>Balcões de desempenho linux
 
-![Configures balcões de desempenho linux](media/data-sources-performance-counters/configure-linux.png)
+![Configures balcões de desempenho linux](media/data-sources-performance-counters/configure-linux-1.png)
 
 Siga este procedimento para adicionar um novo contador de desempenho Linux para recolher.
 
-1. Por predefinição, todas as alterações de configuração são automaticamente empurradas para todos os agentes.  Para os agentes Linux, é enviado um ficheiro de configuração para o coletor de dados Fluentd.  Se desejar modificar este ficheiro manualmente em cada agente Linux, desmarque a caixa *Aplique abaixo a configuração nas minhas máquinas Linux* e siga as orientações abaixo.
-2. Digite o nome do contador na caixa de texto no *objeto de formato(instância)\contador*.  Quando começa a escrever, é-lhe apresentada uma lista de contadores comuns.  Pode selecionar um contador da lista ou escrever num dos seus.  
-3. Clique **+** ou prima **Enter** para adicionar o contador à lista de outros contadores para o objeto.
-4. Todos os contadores para um objeto usam o mesmo **Intervalo de Amostra.**  A predefinição é de 10 segundos.  Altere isto para um valor mais elevado de até 1800 segundos (30 minutos) se quiser reduzir os requisitos de armazenamento dos dados de desempenho recolhidos.
-5. Quando terminar de adicionar contadores, clique no botão **Guardar** na parte superior do ecrã para guardar a configuração.
+1. Digite o nome do contador na caixa de texto no *objeto de formato(instância)\contador*.  Quando começa a escrever, é-lhe apresentada uma lista de contadores comuns.  Pode selecionar um contador da lista ou escrever num dos seus.  
+1. Clique **+** ou prima **Enter** para adicionar o contador à lista de outros contadores para o objeto.
+1. Todos os contadores para um objeto usam o mesmo **Intervalo de Amostra.**  A predefinição é de 10 segundos.  Altere isto para um valor mais elevado de até 1800 segundos (30 minutos) se quiser reduzir os requisitos de armazenamento dos dados de desempenho recolhidos.
+1. Quando terminar de adicionar contadores, clique no botão **Guardar** na parte superior do ecrã para guardar a configuração.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configurar contadores de desempenho do Linux no ficheiro de configuração
 Em vez de configurar os contadores de desempenho do Linux utilizando o portal Azure, tem a opção de editar ficheiros de configuração no agente Linux.  As métricas de desempenho a recolher são controladas pela configuração em **/etc/opt/microsoft/omsagent/ \<workspace id\> /conf/omsagent.conf**.

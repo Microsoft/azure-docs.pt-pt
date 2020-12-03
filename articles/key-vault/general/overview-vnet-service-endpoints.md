@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: a1159da782a8cb822bf726173ad0d0bcd9da844a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9cbce00e2c2743aec57cd857b6f38d20bce33698
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460888"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532912"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos finais de serviço de rede virtual para Azure Key Vault
 
@@ -77,10 +77,10 @@ Aqui está uma lista de serviços fidedignos que podem aceder a um cofre chave s
 |Azure Databricks|[Serviço de análise rápido, fácil e colaborativo apache spark baseado em Apache Spark](/azure/databricks/scenarios/what-is-azure-databricks)|
 |Gestão de API do Azure|[Implementar certificados para domínio personalizado a partir do Cofre de Chaves usando MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
 |Azure Data Factory|[Buscar credenciais de loja de dados no Cofre de Dados da Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
-|Azure Event Hubs|[Permitir o acesso a um cofre chave para cenário de chaves geridas pelo cliente](../../event-hubs/configure-customer-managed-key.md)|
-|Azure Service Bus|[Permitir o acesso a um cofre chave para cenário de chaves geridas pelo cliente](../../service-bus-messaging/configure-customer-managed-key.md)|
+|Hubs de Eventos do Azure|[Permitir o acesso a um cofre chave para cenário de chaves geridas pelo cliente](../../event-hubs/configure-customer-managed-key.md)|
+|Service Bus do Azure|[Permitir o acesso a um cofre chave para cenário de chaves geridas pelo cliente](../../service-bus-messaging/configure-customer-managed-key.md)|
 |Importar/Exportar do Microsoft Azure| [Utilize chaves geridas pelo cliente no Cofre chave Azure para o serviço de importação/exportação](../../storage/common/storage-import-export-encryption-key-portal.md)
-|Registo de Contentores do Azure|[Encriptação do registo utilizando chaves geridas pelo cliente](../../container-registry/container-registry-customer-managed-keys.md)<br><br/>[Transferir artefactos para outro registo](../../container-registry/container-registry-transfer-images.md)
+|Registo de Contentores do Azure|[Encriptação do registo utilizando chaves geridas pelo cliente](../../container-registry/container-registry-customer-managed-keys.md)
 
 > [!NOTE]
 > Tem de configurar as políticas de acesso ao Cofre chave relevantes para permitir que os serviços correspondentes tenham acesso ao Key Vault.

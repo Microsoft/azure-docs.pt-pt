@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: a0e0f61da52ce00fb2eb4b4a7d95ab74082f9472
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3eb9df0a0fde5d99bbeb3c2da182b5957fdea1e3
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541713"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532929"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planear e gerir os custos para a Azure Machine Learning
 
@@ -35,13 +35,13 @@ Quando treina os seus modelos de machine learning, utilize clusters de cálculo 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A análise de custos suporta diferentes tipos de contas do Azure. Para ver a lista completa dos tipos de contas suportados, veja [Compreender os dados do Cost Management](../cost-management-billing/costs/understand-cost-mgt-data.md). Para ver os dados dos custos, precisa de ter, pelo menos, acesso de leitura na sua conta do Azure. 
+A análise de custos suporta diferentes tipos de contas do Azure. Para ver a lista completa dos tipos de contas suportados, veja [Compreender os dados do Cost Management](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). Para ver os dados dos custos, precisa de ter, pelo menos, acesso de leitura na sua conta do Azure. 
 
-Para obter informações sobre a atribuição de acesso aos dados do Azure Cost Management, veja [Atribuir acesso aos dados](../cost-management-billing/costs/assign-access-acm-data.md).
+Para obter informações sobre a atribuição de acesso aos dados do Azure Cost Management, veja [Atribuir acesso aos dados](../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-## <a name="estimate-costs"></a>Cálculo de custos
+## <a name="estimate-costs-before-using-azure-machine-learning"></a>Estimativa de custos antes de usar Azure Machine Learning
 
-Utilize a [calculadora de preços Azure](https://azure.microsoft.com/pricing/calculator/) para estimar os custos antes de criar os recursos numa conta Azure Machine Learning. À esquerda, selecione **AI + Machine Learning** e, em seguida, selecione **Azure Machine Learning** para começar.  
+Utilize a [calculadora de preços Azure](https://azure.microsoft.com/pricing/calculator?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) para estimar os custos antes de criar os recursos numa conta Azure Machine Learning. À esquerda, selecione **AI + Machine Learning** e, em seguida, selecione **Azure Machine Learning** para começar.  
 
 A imagem que se segue mostra a estimativa de custos utilizando a calculadora:
 
@@ -49,23 +49,58 @@ A imagem que se segue mostra a estimativa de custos utilizando a calculadora:
 
 Ao adicionar novos recursos ao seu espaço de trabalho, volte a esta calculadora e adicione aqui o mesmo recurso para atualizar as suas estimativas de custos.
 
-Para mais informações, consulte [os preços de Aprendizagem automática Azure.](https://azure.microsoft.com/pricing/details/machine-learning/)
+Para mais informações, consulte [os preços de Aprendizagem automática Azure.](https://azure.microsoft.com/pricing/details/machine-learning?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
-## <a name="get-cost-alerts"></a>Receba alertas de custos
+## <a name="understand-the-full-billing-model-for-azure-machine-learning"></a>Compreenda o modelo completo de faturação para Azure Machine Learning
 
-Crie orçamentos para gerir [custos](../cost-management-billing/costs/tutorial-acm-create-budgets.md) e criar [alertas](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) que notifiquem automaticamente as partes interessadas de anomalias de gastos e riscos de gastos excessivos. Os alertas são baseados nos gastos em comparação com os orçamentos e os limites de custos. Orçamentos e alertas são criados para subscrições e grupos de recursos Azure, por isso são úteis como parte de uma estratégia global de monitorização de custos. No entanto, os orçamentos e alertas podem ter uma funcionalidade limitada para gerir os custos individuais do serviço Azure, porque são projetados para controlar os custos a um nível mais elevado.
+O Azure Machine Learning funciona na infraestrutura Azure que acumula custos juntamente com a Azure Machine Learning quando implementa o novo recurso. É importante entender que infraestruturas adicionais podem acumular custos. Tens de gerir esse custo quando fazes alterações aos recursos implantados. 
 
-## <a name="monitor-costs"></a>Monitorizar os custos
+### <a name="costs-that-typically-accrue-with-azure-machine-learning"></a>Custos que normalmente se acumulam com a Azure Machine Learning
 
-Ao utilizar recursos com a Azure Machine Learning, incorre em custos. Os custos da unidade de utilização do recurso Azure variam em intervalos de tempo (segundos, minutos, horas e dias) ou mediante utilização da unidade. Assim que a utilização do Azure Machine Learning começa, os custos são incorridos. Veja estes custos no painel de análise de [custos](../cost-management-billing/costs/quick-acm-cost-analysis.md) no portal Azure.
+Quando cria recursos para um espaço de trabalho Azure Machine Learning, também são criados recursos para outros serviços Azure. A saber:
 
-Pode ver os custos em gráficos e tabelas para diferentes intervalos de tempo. Também é possível ver os custos com os orçamentos e os custos previstos. Mudar para vistas mais longas ao longo do tempo ajuda a identificar as tendências de gastos e ver onde poderia ter ocorrido gastos excessivos. Se criou orçamentos, veja onde excederam.  
+* [Registo do Contentor de Azure](https://azure.microsoft.com/pricing/details/container-registry?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) Conta básica
+* [Armazenamento do blob do bloco Azure](https://azure.microsoft.com/pricing/details/storage/blobs?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) (finalidade geral v1)
+* [Cofre de Chaves](https://azure.microsoft.com/pricing/details/key-vault?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+* [Application Insights](https://azure.microsoft.com/en-us/pricing/details/monitor?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+ 
+### <a name="costs-might-accrue-after-resource-deletion"></a>Os custos podem acumular-se após a supressão de recursos
 
-Não verá uma área de serviço separada para machine learning.  Em vez disso, verá os vários recursos que adicionou aos seus espaços de trabalho de Machine Learning. 
+Quando elimina um espaço de trabalho de Aprendizagem automática Azure no portal Azure ou com o Azure CLI, os seguintes recursos continuam a existir. Continuam a acumular custos até os eliminares.
 
-Note que, embora o espaço de trabalho machine learning em si não tenha custos diretos, você é cobrado sobre recursos de computação geridos. Portanto, se você adicionar tags aos espaços de trabalho, uma vez que não há nenhum custo direto sobre ele, o painel de análise de custos refletirá isso para o espaço de trabalho. Para uma gestão precisa dos custos através de tags, terá de marcar os recursos compute associados.  
+* Registo de Contentores do Azure
+* Armazenamento blob bloco Azure
+* Key Vault
+* Application Insights
 
-## <a name="use-azure-machine-learning-compute-cluster-amlcompute"></a>Use o cluster compute de aprendizagem automática Azure (AmlCompute)
+Para eliminar o espaço de trabalho juntamente com estes recursos dependentes, utilize o SDK:
+
+```python
+ws.delete(delete_dependent_resources=True)
+```
+
+Se criar o Serviço Azure Kubernetes (AKS) no seu espaço de trabalho, ou se anexar quaisquer recursos de computação ao seu espaço de trabalho, deve eliminá-los separadamente no [portal Azure.](https://portal.azure.com)
+
+### <a name="using-monetary-credit-with-azure-machine-learning"></a>Usando crédito monetário com aprendizagem automática Azure
+
+Você pode pagar os custos de Azure Machine Learning com o seu crédito de compromisso monetário EA. No entanto, não pode usar o crédito de compromisso monetário da EA para pagar os encargos de produtos e serviços de terceiros, incluindo os do Azure Marketplace.
+
+
+## <a name="create-budgets"></a>Criar orçamentos
+
+Pode criar [orçamentos](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) para gerir custos e criar [alertas](https://docs.microsoft.com/azure/cost-management/cost-mgt-alerts-monitor-usage-spending?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) que notifiquem automaticamente as partes interessadas das anomalias nos gastos e do risco em fazer gastos excessivos. Os alertas são baseados nos gastos em comparação com os orçamentos e os limites de custos. Orçamentos e alertas são criados para subscrições e grupos de recursos Azure, por isso são úteis como parte de uma estratégia global de monitorização de custos. 
+
+Os orçamentos podem ser criados com filtros para recursos ou serviços específicos em Azure se quiser mais granularidade presente na sua monitorização. Os filtros ajudam a garantir que não crie acidentalmente novos recursos que lhe custem dinheiro adicional. Para saber mais sobre as opções do filtro quando criar um orçamento, consulte [opções de Grupo e filtro](https://docs.microsoft.com/azure/cost-management-billing/costs/group-filter?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+
+## <a name="export-cost-data"></a>Exportar dados de custos
+
+Também pode [exportar os seus dados de custos](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) para uma conta de armazenamento. Isto é útil quando você precisa ou outros para fazer análise adicional de dados para custos. Por exemplo, uma equipa de finanças pode analisar os dados usando o Excel ou o Power BI. Pode exportar os seus custos num horário diário, semanal ou mensal e definir um intervalo de datas personalizado. Exportar dados de custos é a forma recomendada de recuperar conjuntos de dados de custos.
+
+## <a name="other-ways-to-manage-and-reduce-costs-for-azure-machine-learning"></a>Outras formas de gerir e reduzir custos para a Azure Machine Learning
+
+Utilize estas dicas para conter os custos dos seus recursos de cálculo de aprendizagem automática.
+
+### <a name="use-azure-machine-learning-compute-cluster-amlcompute"></a>Use o cluster compute de aprendizagem automática Azure (AmlCompute)
 
 Com a mudança constante de dados, é necessário treino e reciclagem de modelos rápidos e simplificados para manter modelos precisos. No entanto, o treino contínuo tem um custo, especialmente para modelos de aprendizagem profunda em GPUs. 
 
@@ -73,7 +108,7 @@ Os utilizadores do Azure Machine Learning podem utilizar o cluster de cálculo A
 
 Como estas piscinas de computação estão dentro da infraestrutura IaaS da Azure, você pode implantar, escalar e gerir a sua formação com os mesmos requisitos de segurança e conformidade que o resto da sua infraestrutura.  Estas implementações ocorrem na sua subscrição e obedecem às suas regras de governação. Saiba mais sobre [o cálculo Azure Machine Learning](how-to-create-attach-compute-cluster.md).
 
-## <a name="configure-training-clusters-for-autoscaling"></a>Configurar agrupamentos de formação para autoscaling
+### <a name="configure-training-clusters-for-autoscaling"></a>Configurar agrupamentos de formação para autoscaling
 
 Os agrupamentos de autoscalagem baseados nos requisitos da sua carga de trabalho ajudam a reduzir os seus custos para que utilize apenas o que precisa.
 
@@ -92,7 +127,7 @@ Os clusters AmlCompute podem ser configurados para os seus requisitos de carga d
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300
 ```
 
-## <a name="set-quotas-on-resources"></a>Definir quotas em recursos
+### <a name="set-quotas-on-resources"></a>Definir quotas em recursos
 
 AmlCompute vem com uma [configuração de quota (ou limite).](how-to-manage-quotas.md#azure-machine-learning-compute) Esta quota é da família VM (por exemplo, série Dv2, série NCv3) e varia por região para cada subscrição. As subscrições começam com pequenos predefinidos para o fazer andar, mas use esta definição para controlar a quantidade de recursos Amlcompute disponíveis para ser fiado na sua subscrição. 
 
@@ -100,7 +135,7 @@ Também configurar [quota de nível de espaço de trabalho pela família VM,](ho
 
 Para definir quotas ao nível do espaço de trabalho, comece no [portal Azure](https://portal.azure.com).  Selecione qualquer espaço de trabalho na sua subscrição e selecione **Usages + quotas** no painel esquerdo. Em seguida, selecione o **separador quotas configurar** para visualizar as quotas. Você precisa de privilégios no âmbito de subscrição para definir a quota, uma vez que é um cenário que afeta vários espaços de trabalho.
 
-## <a name="set-run-autotermination-policies"></a>Definir políticas de autotermímia de execução 
+### <a name="set-run-autotermination-policies"></a>Definir políticas de autotermímia de execução 
 
 Em alguns casos, deve configurar as suas corridas de treino para limitar a sua duração ou terminá-las mais cedo. Por exemplo, quando estiver a utilizar o hiperparametro incorporado da Azure Machine Learning ou a aprendizagem automática de máquinas.
 
@@ -109,7 +144,7 @@ Aqui estão algumas opções que tem:
 * Para [afinação de hiperparímetros,](how-to-tune-hyperparameters.md#early-termination)defina uma política de rescisão antecipada de uma política de bandit, uma política de paragem mediana ou uma política de seleção de truncação. Para controlar ainda mais as varreduras de hiperparímetro, utilize parâmetros como `max_total_runs` ou `max_duration_minutes` .
 * Para [aprendizagem automática de máquinas,](how-to-configure-auto-train.md#exit)desateia políticas de rescisão semelhantes utilizando a  `enable_early_stopping` bandeira. Utilize também propriedades como `iteration_timeout_minutes` e para controlar a `experiment_timeout_minutes` duração máxima de uma corrida ou para toda a experiência.
 
-## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a> Use VMs de baixa prioridade
+### <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a> Use VMs de baixa prioridade
 
 O Azure permite-lhe utilizar a capacidade excedentária não utilizada à medida que Low-Priority VMs em conjuntos de escala de máquinas virtuais, Batch e o serviço de Machine Learning. Estas dotações são preventivas, mas têm um preço reduzido em comparação com os VM dedicados. Em geral, recomendamos a utilização de VMs Low-Priority para cargas de trabalho em lote. Deve também utilizá-las quando as interrupções forem recuperáveis através de resubmitamentos (para inferencing de lote) ou através de recomeços (para treinos de aprendizagem profunda com verificação de pontos de verificação).
 
@@ -117,7 +152,7 @@ Low-Priority VM têm uma quota única separada do valor de quota dedicado, que �
 
  Low-Priority VMs não funcionam para casos de computação, uma vez que precisam de suportar experiências de cadernos interativos.
 
-## <a name="use-reserved-instances"></a>Utilizar instâncias reservadas
+### <a name="use-reserved-instances"></a>Utilizar instâncias reservadas
 
 Outra forma de economizar em recursos computacional é a Azure Reserved VM Instance. Com esta oferta, compromete-se a cumprir um ano ou três anos de mandato. Estes descontos variam até 72% dos preços de pay-as-you-go e são aplicados diretamente na sua fatura mensal do Azure.
 
@@ -126,7 +161,7 @@ A azure Machine Learning Compute suporta casos reservados inerentemente. Se comp
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre:
-* [Gerir e aumentar as quotas de recursos](how-to-manage-quotas.md)
-* [Gestão de custos com análise de custos.](../cost-management-billing/costs/quick-acm-cost-analysis.md)
-* Crie o computo Azure Machine Learning com [ADK](how-to-create-attach-compute-cluster.md) ou em [estúdio.](how-to-create-attach-compute-studio.md#amlcompute)
+- Saiba [como otimizar o seu investimento em nuvem com a Azure Cost Management.](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-best-practices?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- Saiba mais sobre gestão de custos com [a análise de custos.](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- Saiba como [evitar custos inesperados.](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- Faça o curso de aprendizagem guiada [de Gestão](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) de Custos.

@@ -1,5 +1,5 @@
 ---
-title: Máscara de dados dinâmica
+title: Máscara de dados dinâmicos
 description: A mascaração dinâmica de dados limita a exposição de dados sensíveis, mascarando-os a utilizadores não privilegiados para a Base de Dados Azure SQL, Azure SQL Managed Instance e Azure Synapse Analytics
 services: sql-database
 ms.service: sql-db-mi
@@ -12,17 +12,17 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/04/2020
 tags: azure-synpase
-ms.openlocfilehash: 5442ddab5b4925e40250e63833a634006db7aead
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f8d352dac98f953f7f6d8033d0d9e1376c4da313
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781452"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532249"
 ---
-# <a name="dynamic-data-masking"></a>Máscara de dados dinâmica 
+# <a name="dynamic-data-masking"></a>Máscara de dados dinâmicos 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Azure SQL Database, Azure SQL Managed Instance e Azure Synapse Analytics suportam máscara dinâmica de dados. A mascaração dinâmica de dados limita a exposição sensível aos dados, mascarando-os a utilizadores não privilegiados. 
+Azure SQL Database, Azure SQL Managed Instance e Azure Synapse Analytics suportam máscara dinâmica de dados. A máscara de dados dinâmicos limita a exposição a dados confidenciais ao mascará-los para utilizadores sem privilégios. 
 
 A máscara de dados dinâmica ajuda a evitar acessos não autorizados a dados confidenciais, ao permitir aos clientes designar a quantidade de dados confidenciais a revelar com um impacto mínimo na camada de aplicação. É uma funcionalidade de segurança baseada em políticas que omite os dados confidenciais no conjunto de resultados de uma consulta em campos da base de dados designados, sendo que os dados na base de dados não são alterados.
 
@@ -30,7 +30,7 @@ Por exemplo, um representante de serviço num call center pode identificar chama
 
 ## <a name="dynamic-data-masking-basics"></a>Básicos dinâmicos de mascaramento de dados
 
-Configura uma política dinâmica de mascaramento de dados no portal Azure selecionando a lâmina **de mascaramento de dados dinâmicos** sob **segurança** no painel de configuração da base de dados SQL. Esta função não pode ser definida utilizando o portal Azure Synapse (use PowerShell ou REST API) ou SQL Managed Instance. Para obter mais informações, consulte [a Máscara de Dados Dinâmicos.](/sql/relational-databases/security/dynamic-data-masking)
+Configura uma política dinâmica de mascaramento de dados no portal Azure selecionando a lâmina **de mascaramento de dados dinâmicos** sob **segurança** no painel de configuração da base de dados SQL. Esta função não pode ser definida utilizando o portal para a sql Managed Instance (use PowerShell ou REST API). Para obter mais informações, consulte [a Máscara de Dados Dinâmicos.](/sql/relational-databases/security/dynamic-data-masking)
 
 ### <a name="dynamic-data-masking-permissions"></a>Permissões dinâmicas de mascaramento de dados
 
@@ -46,7 +46,7 @@ A mascaragem dinâmica de dados pode ser configurada pelas funções de administ
 | --- | --- |
 | **Predefinição** |**Mascaramento completo de acordo com os tipos de dados dos campos designados**<br/><br/>• Utilize XXXX ou menos Xs se o tamanho do campo for inferior a 4 caracteres para tipos de dados de cordas (nchar, ntext, nvarchar).<br/>• Utilize um valor zero para tipos de dados numéricos (bigint, bit, decimal, int, money, numérico, pequeno, pequeno dinheiro, minúsculo, flutuante, real).<br/>• Utilize 01-01-1900 para tipos de dados de data/hora (data, data2, data, data, data, tempo de data, hora de data, hora certa).<br/>• Para a variante SQL, é utilizado o valor predefinido do tipo atual.<br/>• Para XML o documento \<masked/> é utilizado.<br/>• Utilize um valor vazio para tipos especiais de dados (tabela de relógios, hierarquia, GUID, binário, imagem, tipos espaciais varbinários). |
 | **Cartão de crédito** |**Método de mascaramento, que expõe os últimos quatro dígitos dos campos designados** e adiciona uma cadeia constante como um prefixo na forma de um cartão de crédito.<br/><br/>XXXX-XXXX-XXXX-1234 |
-| **Email** |**Método de mascaramento, que expõe a primeira letra e substitui o domínio por XXX.com** usando um prefixo de corda constante sob a forma de um endereço de e-mail.<br/><br/>aXX@XXXX.com |
+| **E-mail** |**Método de mascaramento, que expõe a primeira letra e substitui o domínio por XXX.com** usando um prefixo de corda constante sob a forma de um endereço de e-mail.<br/><br/>aXX@XXXX.com |
 | **Número aleatório** |**Método de mascaramento, que gera um número aleatório** de acordo com os limites selecionados e tipos de dados reais. Se os limites designados forem iguais, então a função de máscara é um número constante.<br/><br/>![Screenshot que mostra o método de mascaramento para gerar um número aleatório.](./media/dynamic-data-masking-overview/1_DDM_Random_number.png) |
 | **Texto personalizado** |**Método de mascaramento, que expõe os primeiros e últimos caracteres** e adiciona uma corda de enchimento personalizada no meio. Se a corda original for mais curta do que o prefixo e sufixo expostos, apenas é utilizada a corda de enchimento. <br/>prefixo[enchimento]sufixo]sufixo<br/><br/>![Painel de navegação](./media/dynamic-data-masking-overview/2_DDM_Custom_text.png) |
 

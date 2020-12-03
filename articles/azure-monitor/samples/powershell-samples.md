@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 74211df6f925aaa09a4c87a518056e8ef3206b87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f7ddf94bbd077912cf0d7c2adef2eac548274ca
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078406"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532283"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Amostras de PowerShell monitor Azure Monitor
 Este artigo mostra-lhe a amostra de comandos PowerShell para ajudá-lo a aceder às funcionalidades do Azure Monitor.
@@ -54,7 +54,7 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## <a name="retrieve-activity-log"></a>Registar atividades de recuperação
-Utilize o [cmdlet Get-AzLog.](/powershell/module/az.monitor/get-azlog)  Seguem-se alguns exemplos comuns. O Registo de Atividades realiza os últimos 90 dias de operações. A utilização de datas antes desta hora resulta numa mensagem de erro.  
+Utilize o [cmdlet Get-AzLog.](/powershell/module/az.monitor/get-azlog)  Seguem-se alguns exemplos comuns. O Registo de atividades mantém os últimos 90 dias de operações. A utilização de datas antes desta hora resulta numa mensagem de erro.  
 
 Veja qual a data/hora atuais para verificar as horas a utilizar nos comandos abaixo:
 ```powershell
@@ -94,13 +94,13 @@ Get-AzLog -Caller 'myname@company.com'
 O seguinte comando recupera os últimos 1000 eventos do registo de atividades:
 
 ```powershell
-Get-AzLog -MaxRecord 10
+Get-AzLog -MaxRecord 1000
 ```
 
 `Get-AzLog` suporta muitos outros parâmetros. Consulte a `Get-AzLog` referência para mais informações.
 
 > [!NOTE]
-> `Get-AzLog` só fornece 15 dias de história. A utilização do parâmetro **-MaxRecords** permite-lhe consultar os últimos eventos N, para além de 15 dias. Para aceder a eventos com mais de 15 dias, utilize a amostra REST API ou SDK (amostra C# utilizando o SDK). Se não incluir **o StartTime,** então o valor predefinido é **EndTime** menos uma hora. Se não incluir **o EndTime,** então o valor predefinido é a hora atual. Todos os tempos estão na UTC.
+> `Get-AzLog` só fornece 15 dias de história. A utilização do parâmetro **-MaxRecords** permite-lhe consultar os últimos N eventos, para além dos 15 dias. Para aceder a eventos com mais de 15 dias, utilize a API REST ou o SDK (exemplo de C# com o SDK). Se não incluir o **StartTime**, o valor predefinido será **EndTime** menos uma hora. Se não incluir o **EndTime**, o valor predefinido será a hora atual. Todas as horas estão em UTC.
 > 
 > 
 

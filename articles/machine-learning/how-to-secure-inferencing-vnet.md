@@ -11,14 +11,14 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 3bd4d328c6b0b73a51f325adde988c8f0988ea8a
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: fcaf8f62dcdc43a48ff2ae7ff790ac14ab42e8b6
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873816"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532895"
 ---
-# <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteger um ambiente de inferência do Azure Machine Learning com redes virtuais
+# <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Garantir um ambiente de aprendizagem automática Azure com redes virtuais
 
 Neste artigo, aprende-se a garantir ambientes de inferenização com uma rede virtual em Azure Machine Learning.
 
@@ -252,7 +252,9 @@ aks_target.wait_for_completion(show_output = True)
 As instâncias do recipiente Azure são criadas dinamicamente ao implementar um modelo. Para permitir que o Azure Machine Learning crie ACI dentro da rede virtual, deve ativar a delegação de __sub-redes__ para a sub-rede utilizada pela implantação.
 
 > [!WARNING]
-> Ao utilizar as instâncias do Azure Container numa rede virtual, a rede virtual deve estar no mesmo grupo de recursos que o seu espaço de trabalho de Aprendizagem de Máquinas Azure.
+> Ao utilizar instâncias de contentores Azure numa rede virtual, a rede virtual deve ser:
+> * No mesmo grupo de recursos que o seu espaço de trabalho Azure Machine Learning.
+> * Se o seu espaço de trabalho tiver um __ponto final privado,__ a rede virtual utilizada para instâncias de contentores Azure deve ser a mesma utilizada pelo ponto final privado do espaço de trabalho.
 >
 > Ao utilizar as instâncias do contentor Azure dentro da rede virtual, o Registo de Contentores Azure (ACR) para o seu espaço de trabalho também não pode estar na rede virtual.
 
@@ -265,7 +267,7 @@ Para utilizar o ACI numa rede virtual para o seu espaço de trabalho, utilize os
 
 2. Utilize o modelo utilizando [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), utilize os `vnet_name` parâmetros e `subnet_name` parâmetros. Deslo sente estes parâmetros no nome e na sub-rede de rede virtuais onde permitiu a delegação.
 
-## <a name="limit-outbound-connectivity-from-the-virtual-network"></a>Limitar a conectividade de saída da rede virtual
+## <a name="limit-outbound-connectivity-from-the-virtual-network"></a>Limitar a conectividade de saída na máquina virtual
 
 Se não quiser utilizar as regras de saída predefinidas e pretender limitar o acesso de saída da sua rede virtual, deve permitir o acesso ao Registo de Contentores Azure. Por exemplo, certifique-se de que os seus Grupos de Segurança de Rede (NSG) contêm uma regra que permite o acesso à marca de serviço __AzureContainerRegistry.RegionName__ onde '{RegionName} é o nome de uma região de Azure.
 

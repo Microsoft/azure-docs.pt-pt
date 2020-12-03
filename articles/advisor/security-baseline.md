@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7a3351654bb912eb7a4b532e636ca02fdf08a14d
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 30da040a977f8052f227f19e975915cbbe915102
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301552"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532572"
 ---
 # <a name="azure-security-baseline-for-azure-advisor"></a>Linha de segurança Azure para Azure Advisor
 
@@ -35,13 +35,13 @@ Certifique-se de que a Azure AD é uma alta prioridade na prática de segurança
 
 Note que o Azure AD suporta identidades externas, que permitem aos utilizadores sem conta da Microsoft iniciar súm na sua aplicação e recursos com a sua identidade externa.
 
-- [Arrendamento em Diretório Ativo Azure](../active-directory/develop/single-and-multi-tenant-apps.md) 
+- [Inquilinos no Azure Active Directory](../active-directory/develop/single-and-multi-tenant-apps.md) 
 
 - [Como criar e configurar instâncias do Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 
 
-- [Utilizar fornecedores de identidade externos para aplicação](../active-directory/external-identities/identity-providers.md) 
+- [Utilizar fornecedores de identidade externos para a aplicação](../active-directory/external-identities/identity-providers.md) 
 
-- [Qual é a pontuação de segurança de identidade no Azure Ative Directory](../active-directory/fundamentals/identity-secure-score.md)
+- [O que é a pontuação de segurança de identidade no Azure Active Directory?](../active-directory/fundamentals/identity-secure-score.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -97,15 +97,15 @@ A Proteção Avançada Contra Ameaças (ATP) do Azure é uma solução de segura
 
 **Responsabilidade**: Cliente
 
-### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: Restringir o acesso a recurso Azure com base em condições
+### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: Restringir o acesso aos recursos do Azure com base em condições
 
-**Orientação**: O Azure Advisor suporta a funcionalidade de acesso condicional (Azure AD) do Azure Ative Directory para um controlo de acesso mais granular baseado em condições definidas pelo utilizador. Por exemplo, os logins dos utilizadores de certas gamas IP terão de utilizar a autenticação de vários fatores para iniciar sessão. A política de gestão da sessão de autenticação granular também pode ser usada para diferentes casos de utilização.
+**Orientação**: O Azure Advisor suporta a funcionalidade de acesso condicional (Azure AD) do Azure Ative Directory para um controlo de acesso mais granular baseado em condições definidas pelo utilizador. Por exemplo, os logins dos utilizadores de certas gamas IP terão de utilizar a autenticação de vários fatores para iniciar sessão. A política de gestão de sessão de autenticação granular também pode ser utilizada para diferentes casos de utilização.
 
-- [Visão geral do acesso condicional do Azure](../active-directory/conditional-access/overview.md) 
+- [Descrição geral do acesso condicional do Azure](../active-directory/conditional-access/overview.md) 
 
-- [Políticas comuns de acesso condicional](../active-directory/conditional-access/concept-conditional-access-policy-common.md) 
+- [Políticas de acesso condicional comuns](../active-directory/conditional-access/concept-conditional-access-policy-common.md) 
 
-- [Configurar gestão de sessão de autenticação com acesso condicional](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
+- [Configurar a gestão da sessão de autenticação com o acesso condicional](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -115,7 +115,7 @@ A Proteção Avançada Contra Ameaças (ATP) do Azure é uma solução de segura
 
 *Para obter mais informações, veja [Referência de Segurança do Azure: Acesso Privilegiado](../security/benchmarks/security-controls-v2-privileged-access.md).*
 
-### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: Restringir o acesso administrativo a sistemas críticos de negócios
+### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: Restringir o acesso administrativo a sistemas críticos da empresa
 
 **Orientação**: O Azure Advisor utiliza o controlo de acesso baseado em funções (Azure RBAC) para isolar o acesso a sistemas críticos de negócio, limitando quais as contas que têm acesso privilegiado às subscrições e grupos de gestão a que pertencem.
 
@@ -149,9 +149,9 @@ Note que alguns serviços da Azure suportam utilizadores locais e funções que 
 
 **Responsabilidade**: Cliente
 
-### <a name="pa-6-use-privileged-access-workstations"></a>PA-6: Utilize postos de trabalho privilegiados de acesso
+### <a name="pa-6-use-privileged-access-workstations"></a>PA-6: Utilizar estações de trabalho privilegiadas
 
-**Orientação**: Estações de trabalho seguras e isoladas são de importância crucial para a segurança de funções sensíveis como administradores, desenvolvedores e operadores de serviços críticos. 
+**Orientação**: As estações de trabalho seguras e isoladas são de importância crítica para a segurança de funções confidenciais, por exemplo, administradores, programadores e operadores de serviço de importância crítica. 
 
 Utilize estações de trabalho de utilizador altamente seguras e/ou Bastião Azure para tarefas administrativas. Escolha O Azure Ative Directory (Azure AD), Microsoft Defender Advanced Threat Protection (ATP), incluindo o Microsoft Intune para implementar uma estação de trabalho segura e gerida para tarefas administrativas. 
 
@@ -159,7 +159,7 @@ Gerir centralmente as estações de trabalho seguras para impor a configuração
 
 - [Compreender estações de trabalho de acesso privilegiada](../active-directory/devices/concept-azure-managed-workstation.md) 
  
-- [Implementar uma estação de trabalho de acesso privilegiada](../active-directory/devices/howto-azure-managed-workstation.md)
+- [Implementar uma estação de trabalho de acesso privilegiado](../active-directory/devices/howto-azure-managed-workstation.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -221,7 +221,7 @@ Utilize o Acesso Condicional Azure para limitar a capacidade de um utilizador in
 
 *Para obter mais informações, veja [Referência de Segurança do Azure: Registos e Deteção de Ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
 
-### <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: Permitir a exploração de madeira para recursos Azure
+### <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: Ativar o registo dos recursos do Azure
 
 **Orientação**: Os registos de atividade estão automaticamente disponíveis e contêm todas as operações de escrita (PUT, POST, DELETE) para os seus recursos do Azure Advisor, exceto operações de leitura (GET). 
 
@@ -235,7 +235,7 @@ Os registos de atividade podem ser utilizados para encontrar um erro na resoluç
 
 **Responsabilidade**: Cliente
 
-### <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: Centralizar a gestão e análise de registos de segurança
+### <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: Centralizar a análise e gestão do registo de segurança
 
 **Orientação**: Centralizar o armazenamento e análise de registos para permitir a correlação. Para cada fonte de registo, certifique-se de que atribuiu um titular de dados, orientação de acesso, localização de armazenamento, que ferramentas são usadas para processar e aceder aos dados, e requisitos de retenção de dados.
 
@@ -251,7 +251,7 @@ Além disso, ative e a bordo dados para Azure Sentinel ou um SIEM de terceiros. 
 
 **Responsabilidade**: Cliente
 
-### <a name="lt-6-configure-log-storage-retention"></a>LT-6: Retenção de armazenamento de madeira configurada
+### <a name="lt-6-configure-log-storage-retention"></a>LT-6: Configurar a retenção de armazenamento dos registos
 
 **Orientação**: Certifique-se de que quaisquer contas de armazenamento ou espaços de trabalho do Log Analytics utilizados para armazenar registos do Azure Advisor têm o período de retenção de registo definido de acordo com os regulamentos de conformidade da sua organização.
 No Azure Monitor, pode definir o período de retenção do espaço de trabalho do Log Analytics de acordo com os regulamentos de conformidade da sua organização. Utilize o espaço de trabalho Azure Storage, Data Lake ou Log Analytics para armazenamento de longo prazo e arquivo.
@@ -414,11 +414,11 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 -   Normas criptográficas adequadas
 
 Para obter mais informações, veja as seguintes referências:
-- [Recomendação de Arquitetura de Segurança do Azure - Armazenamento, dados e encriptação](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
+- [Recomendação de Arquitetura de Segurança do Azure - Armazenamento, dados e encriptação](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Noções Básicas da Segurança do Azure - Segurança, encriptação e armazenamento de dados do Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework - Melhores práticas de segurança e encriptação de dados do Azure](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
+- [Cloud Adoption Framework - Melhores práticas de segurança e encriptação de dados do Azure](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Referência de Segurança do Azure - Gestão de ativos](/azure/security/benchmarks/security-controls-v2-asset-management)
 

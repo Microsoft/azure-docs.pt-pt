@@ -1,7 +1,7 @@
 ---
 title: Adulto, picante, conteúdo sangrento - Visão de Computador
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados com a deteção de conteúdo adulto em imagens utilizando o APi de Visão De Computador.
+description: Conceitos relacionados com a deteção de conteúdo adulto em imagens utilizando a API de Visão Computacional.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 5cc8a4508ceeda245fbc10a81e16f3ecf05284c7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5d5961ecae2fbc154ae6f1acd74df2bb74024fa1
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95013610"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532623"
 ---
 # <a name="detect-adult-content"></a>Detetar conteúdo adulto
 
@@ -27,15 +27,14 @@ A Visão Computacional pode detetar material adulto em imagens para que os desen
 
 ## <a name="content-flag-definitions"></a>Definições de bandeira de conteúdo
 
-Dentro da classificação "adulto" estão várias categorias diferentes:
+A classificação "adulto" contém várias categorias diferentes:
 
-- As imagens **adultas** são definidas como aquelas que são explicitamente sexuais na natureza e muitas vezes retratam nudez e atos sexuais.
-- As imagens **picantes** são definidas como imagens que são sexualmente sugestivas na natureza e muitas vezes contêm conteúdo menos sexualmente explícito do que as imagens marcadas como **Adulto.**
-- As imagens **gory** são definidas como aquelas que retratam gore.
+- As imagens **adultas** são explicitamente sexuais na natureza e muitas vezes mostram nudez e atos sexuais.
+- As imagens **picantes** são sexualmente sugestivas na natureza e muitas vezes contêm conteúdo menos sexualmente explícito do que as imagens marcadas como **Adulto.**
+- **Imagens sangrentas** mostram sangue/sangue.
 
 ## <a name="use-the-api"></a>Utilizar a API
 
 Pode detetar conteúdo adulto com a [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) Quando adiciona o valor do `Adult` parâmetro de consulta **visualFeatures,** a API devolve três propriedades booleanas &mdash; `isAdultContent` , e na sua `isRacyContent` resposta `isGoryContent` &mdash; JSON. O método também devolve propriedades &mdash; `adultScore` correspondentes, e que `racyScore` `goreScore` &mdash; representam pontuações de confiança entre zero e uma para cada categoria respetiva.
 
-- [Quickstart: Analisar uma imagem (.NET SDK)](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-- [Quickstart: Analisar uma imagem (REST API)](./quickstarts/csharp-analyze.md)
+- [Quickstart: Computer Vision REST API ou bibliotecas de clientes](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)

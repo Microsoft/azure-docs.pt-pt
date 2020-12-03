@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperfq2
-ms.openlocfilehash: ca8a36584c09d850ed1daab8cba301b244f76526
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a9bf03fd59e6088ce1c1b09a41b2bf55d1f45455
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447022"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532963"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurar a autenticação dos recursos e dos fluxos de trabalho do Azure Machine Learning
 
@@ -27,7 +27,7 @@ Saiba como configurar a autenticação no seu espaço de trabalho Azure Machine 
 
 * __Principal de serviço__: Cria uma conta principal de serviço no Azure Ative Directory e utiliza-a para autenticar ou obter um token. Um principal de serviço é utilizado quando precisa de um _processo automatizado para autenticar_ o serviço sem exigir interação do utilizador. Por exemplo, um script de integração e implantação contínua que treina e testa um modelo sempre que o código de formação muda.
 
-* __Identidade gerida__: Ao utilizar o Azure Machine Learning SDK _numa Máquina Virtual Azure,_ pode ser gerida uma identidade gerida para o Azure. Este fluxo de trabalho permite que o VM se conecte ao espaço de trabalho utilizando a identidade gerida, sem armazenar credenciais no código Python ou levando o utilizador a autenticar. Os clusters de cálculo Azure Machine Learning também podem ser configurados para usar uma identidade gerida para aceder ao espaço de trabalho quando _os modelos de treino._
+* __Identidade gerida__: Ao utilizar o Azure Machine Learning SDK _numa Máquina Virtual Azure,_ pode utilizar uma identidade gerida para o Azure. Este fluxo de trabalho permite que o VM se conecte ao espaço de trabalho utilizando a identidade gerida, sem armazenar credenciais no código Python ou levando o utilizador a autenticar. Os clusters de cálculo Azure Machine Learning também podem ser configurados para usar uma identidade gerida para aceder ao espaço de trabalho quando _os modelos de treino._
 
 > [!IMPORTANT]
 > Independentemente do fluxo de trabalho de autenticação utilizado, o controlo de acesso baseado em funções (Azure RBAC) é utilizado para estender o nível de acesso (autorização) permitido aos recursos. Por exemplo, um processo de administração ou automação pode ter acesso a criar uma instância computacional, mas não usá-lo, enquanto um cientista de dados poderia usá-lo, mas não apagá-lo ou criá-lo. Para obter mais informações, consulte [Gerir o acesso ao espaço de trabalho Azure Machine Learning](how-to-assign-roles.md).

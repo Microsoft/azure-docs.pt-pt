@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0ed56d200c2b5a472dbf93d45ad25156ea02a884
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 90e3464ac9ddf1e839c3a731f79ac2c0771c37ea
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181157"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532711"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Tutorial: Configurar 8x8 para o provisionamento automático do utilizador
 
@@ -50,17 +50,17 @@ Esta secção guia-o através dos passos para configurar o 8x8 para apoiar o pro
 
 ### <a name="to-configure-a-user-provisioning-access-token-in-8x8-configuration-manager"></a>Para configurar um utilizador que adcade o token de acesso no 8x8 Configuration Manager:
 
-1. Iniciar s.A. Entrar no [Gestor de Configuração](https://vo-cm.8x8.com). Selecione **Gestão de Identidades**.
+1. Inscreva-se na [Consola de Administração.](https://admin.8x8.com) Selecione **Gestão de Identidades**.
 
-   ![Gestão de Identidades](./media/8x8-provisioning-tutorial/8x8-identity-management.png)
+   ![Administrador](./media/8x8-provisioning-tutorial/8x8-identity-management.png)
 
 2. Clique no link **de informação do utilizador mostrar** para gerar um token.
 
-   ![Mostrar provisionamento do utilizador](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
+   ![Mostrar](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
 
 3. Copie os **valores de 8x8 URL** e **8x8 API Token.** Estes valores serão introduzidos nos campos **URL** e **Secret Token,** respectivamente, no separador Provisioning da sua aplicação 8x8 no portal Azure.
 
-   ![Url de cópia e token](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png)
+   ![Token](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png)
 
 ## <a name="step-3-add-8x8-from-the-azure-ad-application-gallery"></a>Passo 3. Adicione 8x8 da galeria de aplicações AZure AD
 
@@ -127,8 +127,8 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |name.familyName|String||
    |phoneNumbers[type eq "mobile"].value|String|Número de contato pessoal|
    |phoneNumbers[type eq "work"].value|String|Número de contato pessoal|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||
-   |urn:ietf:params:scim:schemas:extensão:8x8:1.1:User:site|String|Não pode ser atualizado após a criação do utilizador|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|Cadeia||
+   |urn:ietf:params:scim:schemas:extensão:8x8:1.1:User:site|Cadeia|Não pode ser atualizado após a criação do utilizador|
    |região|String|Não mapeado por padrão|
    |timezone|String|Não mapeado por padrão|
 

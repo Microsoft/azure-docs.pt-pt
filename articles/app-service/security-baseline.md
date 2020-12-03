@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 691bb538ea0f46e26c318a68e9f66a9a986eb5d4
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 94ab7e235f0796277d65aebb33d9011fc76b74ce
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301840"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532793"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Linha de base de segurança Azure para o Serviço de Aplicações
 
@@ -201,7 +201,7 @@ Utilize definições de política incorporadas para o Serviço de Aplicações, 
 
 Reveja os links referenciados para obter informações adicionais.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Como configurar tLS de ponta a ponta utilizando o Gateway de Aplicação com o portal](../application-gateway/end-to-end-ssl-portal.md)
 
@@ -343,7 +343,7 @@ Monitorize os ataques contra as suas aplicações de Serviço de Aplicações ut
 
 **Orientação**: O Azure Ative Directory (Azure AD) tem funções incorporadas que devem ser explicitamente atribuídas e consultadas. Utilize o módulo Azure AD PowerShell para realizar consultas ad hoc para descobrir contas que são membros de grupos administrativos.
 
-- [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
+- [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 - [Como utilizar identidades geridas para o Serviço de Aplicações e Funções Azure](overview-managed-identity.md?context=azure%2Factive-directory%2Fmanaged-identities-azure-resources%2Fcontext%2Fmsi-context&amp;tabs=dotnet)
 
@@ -656,7 +656,7 @@ Note que enquanto os discos anexados localmente podem ser usados opcionalmente p
 
 Reveja e siga as recomendações do Security Center para garantir as suas aplicações de Serviço de Aplicações.
 
-- [Como adicionar validação contínua de segurança ao seu pipeline CI/CD](/azure/devops/migrate/security-validation-cicd-pipeline?amp;preserve-view=true&view=azure-devops)
+- [Como adicionar validação contínua de segurança ao seu pipeline CI/CD](/azure/devops/migrate/security-validation-cicd-pipeline?preserve-view=true&view=azure-devops)
 
 - [Como implementar recomendações de avaliação de vulnerabilidade do Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md)
 
@@ -686,7 +686,7 @@ Embora os recursos clássicos do Azure possam ser descobertos através do Gráfi
 
 - [Como criar consultas com gráfico de recursos Azure](../governance/resource-graph/first-query-portal.md)
 
-- [Como ver as suas Subscrições Azure](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [Como ver as suas Subscrições Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Compreender Azure RBAC](../role-based-access-control/overview.md)
 
@@ -739,7 +739,7 @@ Reveja os links referenciados para obter informações adicionais.
 
 Utilize o Gráfico de Recursos Azure para consultar ou descobrir recursos dentro das suas subscrições.  Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados. 
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md) 
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
 - [Como criar consultas com Azure Graph](../governance/resource-graph/first-query-portal.md)
 
@@ -805,7 +805,7 @@ Configure Azure Policy para impor restrições ao tipo de recursos que podem ser
 
 Utilize WebJobs no Serviço de Aplicações para monitorizar aplicações de software não aprovadas implementadas dentro de recursos informáticos . Utilize WebJobs para executar um programa ou script no mesmo caso que uma aplicação web, app API ou aplicativo móvel. Defina configurações do WebJob e monitorização com registos. Na página 'Detalhes', selecione Toggle Output para ver o texto do conteúdo do registo. Note que os WebJobs ainda não estão suportados para o Serviço de Aplicações em Linux.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/built-in-policies.md#general)
 
@@ -829,7 +829,7 @@ Configure Azure Policy para impor restrições ao tipo de recursos que podem ser
 
 Da mesma forma, utilize webJobs no Serviço de Aplicações para inventar aplicações de software não aprovadas implementadas dentro de recursos informáticos. Defina a sua configuração e monitorização com registos. Na página 'Detalhes', selecione Toggle Output para ver o texto do conteúdo do registo. Note que os WebJobs ainda não estão suportados para o Serviço de Aplicações em Linux.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/built-in-policies.md#general)
 
@@ -891,9 +891,9 @@ Aplicar definições políticas incorporadas tais como:
 
 Recomenda-se que documente o processo para aplicar as definições de política incorporada para utilização normalizada.   
 
-- [Como ver pseudónimos disponíveis da Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [Como ver pseudónimos disponíveis da Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -903,7 +903,7 @@ Recomenda-se que documente o processo para aplicar as definições de política 
 
 **Orientação**: Use a Política Azure [negar] e [implementar se não existir] efeitos para impor definições seguras através das suas aplicações Azure App Service.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Compreender efeitos da política do Azure](../governance/policy/concepts/effects.md)
 
@@ -917,9 +917,9 @@ Recomenda-se que documente o processo para aplicar as definições de política 
 
 Utilize o pipeline de Integração Contínua (CI) e entrega contínua (CD) existente para implementar uma configuração segura conhecida.
 
-- [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Documentação de Azure Repos](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
+- [Documentação de Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -929,7 +929,7 @@ Utilize o pipeline de Integração Contínua (CI) e entrega contínua (CD) exist
 
 **Orientação**: Utilize definições de política de Azure incorporadas, bem como pseudónimos da Política Azure no espaço de nomes "Microsoft.Web" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Desenvolver um processo e um oleoduto para gerir exceções políticas.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -941,7 +941,7 @@ Utilize o pipeline de Integração Contínua (CI) e entrega contínua (CD) exist
 
 Aplicar a Política Azure [auditoria], [negar], e [implementar se não existir], efeitos para impor automaticamente configurações para os seus recursos Azure.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -975,7 +975,7 @@ Aplicar a Política Azure [auditoria], [negar], e [implementar se não existir],
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminar a exposição credencial não intencional
 
-**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault.
+**Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner de Credenciais também vai incentivar a movimentação das credenciais descobertas para localizações mais seguras, por exemplo, o Azure Key Vault.
 
 - [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
@@ -1065,7 +1065,7 @@ Por predefinição, os dados numa conta de armazenamento são encriptados com as
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Criar um guia de resposta a incidentes
 
-**Orientação**: Crie um guia de resposta a incidentes para a sua organização. Certifique-se de que existem planos escritos de resposta a incidentes que definem todas as funções de pessoal, bem como fases de tratamento/gestão de incidentes, desde a deteção até à revisão pós-incidente.
+**Orientação**: desenvolva um guia de respostas a incidentes para a sua organização. Confirme que existem planos escritos de resposta a incidentes, que definem todas as funções do pessoal, assim como as fases de manipulação/gestão de incidentes desde a deteção até à análise pós-incidente.
 
 - [Como configurar automatizações de fluxo de trabalho dentro do Centro de Segurança Azure](../security-center/security-center-planning-and-operations-guide.md)
 
@@ -1091,7 +1091,7 @@ Além disso, marque claramente as subscrições (por exemplo, produção, não p
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Procedimentos de resposta à segurança do teste
 
-**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes do seu sistema numa cadência regular. Identifique pontos fracos e lacunas e reveja o plano conforme necessário.
+**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes do seu sistema numa cadência regular. Identifique pontos fracos e lacunas e reavalie o plano, conforme necessário.
 
 - [Consulte a publicação do NIST - Guia para Testes, Formação e Programas de Exercício para Planos e Capacidades de TI](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
@@ -1147,7 +1147,7 @@ Pode encontrar mais informações sobre a estratégia e execução da Red Teamin
 
 **Responsabilidade**: Partilhada
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
 - Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

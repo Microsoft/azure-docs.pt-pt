@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 59d318b3e30b10d73e620a6b0793384dda80ef08
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d841d3b922a5edd0257934566207187ae031c1b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184064"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532181"
 ---
 # <a name="azure-security-baseline-for-azure-resource-manager"></a>Linha de segurança Azure para gestor de recursos Azure
 
@@ -91,9 +91,9 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 **Orientação**: O controlo de acesso baseado em funções (RBAC) permite-lhe gerir o acesso aos recursos Azure através de atribuições de funções. Pode atribuir estas funções aos utilizadores, grupos de diretores de serviço e identidades geridas. Existem funções incorporadas pré-definidas para determinados recursos, e estas funções podem ser inventariadas ou consultadas através de ferramentas como Azure CLI, Azure PowerShell ou o portal Azure.
 
-- [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
+- [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
+- [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -279,7 +279,7 @@ Embora os recursos clássicos do Azure possam ser descobertos através do Azure 
 
 - [Como criar consultas com gráfico de recursos Azure](../../governance/resource-graph/first-query-portal.md)
 
-- [Como ver as suas subscrições Azure](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [Como ver as suas subscrições Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Compreender Azure RBAC](../../role-based-access-control/overview.md)
 
@@ -330,9 +330,9 @@ Mais detalhes relacionados são fornecidos abaixo,
 
 **Orientação**: Use a Política Azure para impor restrições ao tipo de recursos que podem ser criados nas suas subscrições.
 
-Utilize o Gráfico de Recursos Azure para consultar e descobrir recursos dentro das suas subscrições.  Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados.
+Utilize o Azure Resource Graph para consultar e detetar recursos dentro das subscrições.  Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados.
 
-- [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Como criar consultas com gráfico de recursos Azure](../../governance/resource-graph/first-query-portal.md)
 
@@ -349,7 +349,7 @@ Utilize o Gráfico de Recursos Azure para consultar e descobrir recursos dentro 
 
 Mais detalhes relacionados são fornecidos abaixo,
 
-- [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Como negar um tipo específico de recurso com a Política Azure](../../governance/policy/samples/built-in-policies.md#general)
 
@@ -387,7 +387,7 @@ O Azure Resource Manager tem a capacidade de exportar o modelo em JavaScript Obj
 
 Também pode utilizar as recomendações do Azure Security Center como uma base de configuração segura para os seus recursos Azure.
 
-- [Como ver pseudónimos disponíveis da Política Azure](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [Como ver pseudónimos disponíveis da Política Azure](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Tutorial: Criar e gerir políticas para impor o cumprimento](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -421,7 +421,7 @@ Além disso, como administrador, poderá ser necessário bloquear uma subscriç�
 
 **Orientação**: Utilize Azure DevOps para armazenar e gerir de forma segura o seu código como definições personalizadas de Política Azure, modelos de Gestor de Recursos Azure e scripts de configuração de estado desejados. Para aceder aos recursos que gere em Azure DevOps, pode conceder ou negar permissões a utilizadores específicos, grupos de segurança incorporados ou grupos definidos no Azure Ative Directory (Azure AD) se integrados com Azure DevOps, ou Ative Directory se integrados com TFS.
 
-- [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
 - [Sobre permissões e grupos em Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -433,7 +433,7 @@ Além disso, como administrador, poderá ser necessário bloquear uma subscriç�
 
 **Orientação**: Definir e implementar configurações de segurança padrão para recursos Azure utilizando a Política Azure. Use pseudónimos da Azure Policy para criar políticas personalizadas para auditar ou impor a configuração de rede dos seus recursos Azure. Também pode utilizar definições políticas incorporadas relacionadas com os seus recursos específicos.  Além disso, pode utilizar a Azure Automation para implementar alterações de configuração.
 
-- [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Como usar pseudónimos](../../governance/policy/concepts/definition-structure.md#aliases)
 
@@ -445,7 +445,7 @@ Além disso, como administrador, poderá ser necessário bloquear uma subscriç�
 
 **Orientação**: Utilize definições de Política Azure incorporadas, bem como políticas personalizadas para alertar, auditar e impor configurações do sistema. Use a Política Azure [auditoria], [negar], e [implementar se não existir] para impor automaticamente configurações para os seus recursos Azure.
 
-- [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -455,7 +455,7 @@ Além disso, como administrador, poderá ser necessário bloquear uma subscriç�
 
 **Orientação**: Utilize práticas recomendadas ao construir o seu modelo ARM, estas recomendações ajudam-no a evitar problemas comuns ao utilizar um modelo ARM para implementar uma solução.
 
-Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault. 
+Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner de Credenciais também vai incentivar a movimentação das credenciais descobertas para localizações mais seguras, por exemplo, o Azure Key Vault. 
 
 - [Implementar as melhores práticas de segurança do modelo](../templates/template-best-practices.md)
 
@@ -483,7 +483,7 @@ Implementar o Scanner credencial para identificar credenciais dentro do código.
 
 **Orientação**: Utilize Azure DevOps para armazenar e gerir de forma segura o seu código como definições personalizadas de Política Azure, modelos de Gestor de Recursos Azure e scripts de configuração de estado desejados. Para aceder aos recursos que gere em Azure DevOps, pode conceder ou negar permissões a utilizadores específicos, grupos de segurança incorporados ou grupos definidos no Azure Ative Directory (Azure AD) se integrados com Azure DevOps, ou Ative Directory se integrados com TFS.
 
-- [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
 - [Sobre permissões e grupos em Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
