@@ -7,13 +7,13 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: troubleshooting
-ms.date: 11/27/2020
-ms.openlocfilehash: e0b4b31a1d732cbd5cbfaa9b6e5e021caa3adf01
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.date: 12/03/2020
+ms.openlocfilehash: d5cf39cf91b69574fc1423cfe0942b567cf9a278
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301961"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548212"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Problemas de CI-CD, Azure DevOps e GitHub em ADF 
 
@@ -58,7 +58,7 @@ O gasoduto CI/CD falha com o seguinte erro:
 
 #### <a name="recommendation"></a>Recomendação
 
-O erro ocorre porque muitas vezes apagamos um gatilho que é parametrizado, portanto, os parâmetros não estarão disponíveis no modelo ARM (porque o gatilho já não existe). Uma vez que o parâmetro já não está no modelo ARM, temos de atualizar os parâmetros ultrapassados no pipeline DevOps. Caso contrário, sempre que os parâmetros do modelo ARM mudarem, devem atualizar os parâmetros ultrapassados no gasoduto DevOps (na tarefa de implantação).
+O erro ocorre porque muitas vezes apagamos um gatilho, que é parametrizado, portanto, os parâmetros não estarão disponíveis no modelo ARM (porque o gatilho já não existe). Uma vez que o parâmetro já não está no modelo ARM, temos de atualizar os parâmetros ultrapassados no pipeline DevOps. Caso contrário, sempre que os parâmetros do modelo ARM mudarem, devem atualizar os parâmetros ultrapassados no gasoduto DevOps (na tarefa de implantação).
 
 ### <a name="updating-property-type-is-not-supported"></a>A atualização do tipo de propriedade não é suportada
 
@@ -107,7 +107,7 @@ Ao tentar publicar alterações numa Fábrica de Dados, obtém a seguinte mensag
 
 Desprenderam a configuração do Git e voltaram a contê-la com a bandeira "Importar recursos", que define a Fábrica de Dados como "sincronizada". Isto significa que não há alterações na publicação.
 
-**Resolução**
+#### <a name="resolution"></a>Resolução
 
 Desprete a configuração do Git e volte a instalá-la, e certifique-se de não verificar a caixa de verificação "importar recursos existentes".
 
@@ -151,7 +151,7 @@ Criou um papel de cliente como utilizador e não teve a permissão necessária. 
 
 Para resolver o problema, tem de adicionar a seguinte permissão à sua função: *Microsoft.DataFactory/fábricas/consultasFeaturesValue/action*. Esta permissão deve ser incluída por padrão na função "Data Factory Contributor".
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais ajuda na resolução de problemas, experimente os seguintes recursos:
 

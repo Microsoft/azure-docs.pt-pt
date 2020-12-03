@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: rkarlin
-ms.openlocfilehash: 4189cb8628db58343c816535836af82825014b7e
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a8697094a3366e3b82ca65f1b962101243b22f84
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096322"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548924"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Azure Defender para arquitetura IoT
 
@@ -69,7 +69,7 @@ Utilizando machine learning, o motor de deteção de violação de políticas al
 O motor de deteção de malware industrial identifica comportamentos que indicam a presença de malware conhecido, como Conficker, Black Energy, Havex, WannaCry, NotPetya e Triton. 
 
 #### <a name="anomaly-detection-engine"></a>Motor de deteção de anomalias
-O motor de deteção de anomalias deteta comunicações e comportamentos incomuns de máquina-a-máquina (M2M). Ao modelar as redes ics como sequências determinísticas de estados e transições, a plataforma requer um período de aprendizagem mais curto do que abordagens matemáticas genéricas ou análises originalmente desenvolvidas para TI em vez de OT. Também deteta anomalias mais rápidas, com mínimos falsos positivos. Os alertas do motor de deteção de anomalias incluem tentativas de login SMB excessivas e alertas de deteção de plc scan.
+O motor de deteção de anomalias deteta comunicações e comportamentos incomuns de máquina-a-máquina (M2M). Ao modelar as redes ics como sequências determinísticas de estados e transições, a plataforma requer um período de aprendizagem mais curto do que abordagens matemáticas genéricas ou análises originalmente desenvolvidas para TI em vez de OT. Também deteta anomalias mais rápidas, com mínimos falsos positivos. Os alertas do motor de deteção de anomalias incluem tentativas excessivas de sMB e alertas de deteção de PLC.
 
 #### <a name="operational-incident-detection"></a>Deteção de incidentes operacionais
 A deteção de incidentes operacionais deteta problemas operacionais como a conectividade intermitente que pode indicar sinais precoces de falha do equipamento. Por exemplo, suspeita-se que o dispositivo esteja desligado (sem resposta) e o comando plc de paragem Siemens S7 foi enviado alertas.

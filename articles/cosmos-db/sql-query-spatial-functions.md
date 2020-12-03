@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 690a5cef2141af75412eaca207a16c59b37aa3ac
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c9bc614aa044ace0224086c7f18b54783757711a
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93335386"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549145"
 ---
 # <a name="spatial-functions-azure-cosmos-db"></a>Funções espaciais (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,4 +40,4 @@ As seguintes funções de escalar executam uma operação sobre um valor de entr
 - [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)
 - [Funções definidas pelo utilizador](sql-query-udfs.md)
-- [Agregados](sql-query-aggregates.md)
+- [Agregados](sql-query-aggregate-functions.md)

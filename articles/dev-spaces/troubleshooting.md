@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Aprenda a resolver problemas e resolva problemas comuns ao ativar e utilizar espaços Azure Dev
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: a30ae2d78d682427cf53c8f98b0ca70b441d72e1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: bf8c4d2040445fa3417fce02fb4b66216b21f3b5
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636814"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548873"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces resolução de problemas
 
@@ -20,7 +20,7 @@ Este guia contém informações sobre problemas comuns que poderá ter ao utiliz
 
 Se tiver algum problema ao utilizar o Azure Dev Spaces, crie um [problema no repositório Azure Dev Spaces GitHub](https://github.com/Azure/dev-spaces/issues).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para resolver os problemas de forma mais eficaz, pode ajudar a criar registos mais detalhados para revisão.
 
@@ -138,7 +138,7 @@ Streaming build container logs for service 'mywebapi' failed with: Timed out aft
 Container image build failed
 ```
 
-O comando acima mostra que a cápsula do serviço foi atribuída a *virtual-nó-aci-linux* , que é um nó virtual.
+O comando acima mostra que a cápsula do serviço foi atribuída a *virtual-nó-aci-linux*, que é um nó virtual.
 
 Para corrigir este problema, atualize o gráfico Helm para o serviço para remover quaisquer valores *de nodeSelector* ou *tolerações* que permitam que o serviço seja executado num nó virtual. Estes valores são tipicamente definidos no ficheiro do `values.yaml` gráfico.
 
@@ -261,7 +261,7 @@ Este erro ocorre porque a Azure Dev Spaces não suporta atualmente construções
 
 Ao utilizar [o Azure Dev Spaces para ligar o seu cluster AKS à sua máquina de desenvolvimento,](https://code.visualstudio.com/docs/containers/bridge-to-kubernetes)poderá encontrar um problema em que o tráfego de rede não seja reencaminhado entre a sua máquina de desenvolvimento e o seu cluster AKS.
 
-Ao ligar a sua máquina de desenvolvimento ao seu cluster AKS, a Azure Dev Spaces encaminha o tráfego de rede entre o seu cluster AKS e a sua máquina de desenvolvimento modificando o ficheiro da sua máquina de `hosts` desenvolvimento. A Azure Dev Spaces cria uma entrada no `hosts` endereço do serviço Kubernetes que está a substituir como nome de anfitrião. Esta entrada é utilizada com o encaminhamento da porta para o tráfego direto da rede entre a sua máquina de desenvolvimento e o cluster AKS. Se um serviço na sua máquina de desenvolvimento entrar em conflito com a porta do serviço Kubernetes que está a substituir, a Azure Dev Spaces não pode encaminhar o tráfego de rede para o serviço Kubernetes. Por exemplo, o serviço *Windows BranchCache* está normalmente ligado a *0.0.0.0.0:80* , que os conflitos causarão um conflito para o porto 80 em todos os IPs locais.
+Ao ligar a sua máquina de desenvolvimento ao seu cluster AKS, a Azure Dev Spaces encaminha o tráfego de rede entre o seu cluster AKS e a sua máquina de desenvolvimento modificando o ficheiro da sua máquina de `hosts` desenvolvimento. A Azure Dev Spaces cria uma entrada no `hosts` endereço do serviço Kubernetes que está a substituir como nome de anfitrião. Esta entrada é utilizada com o encaminhamento da porta para o tráfego direto da rede entre a sua máquina de desenvolvimento e o cluster AKS. Se um serviço na sua máquina de desenvolvimento entrar em conflito com a porta do serviço Kubernetes que está a substituir, a Azure Dev Spaces não pode encaminhar o tráfego de rede para o serviço Kubernetes. Por exemplo, o serviço *Windows BranchCache* está normalmente ligado a *0.0.0.0.0:80*, que os conflitos causarão um conflito para o porto 80 em todos os IPs locais.
 
 Para corrigir este problema, tem de parar quaisquer serviços ou processos que contraíssem o porto do serviço Kubernetes que está a tentar substituir. Pode utilizar ferramentas, como *o netstat,* para inspecionar que serviços ou processos na sua máquina de desenvolvimento estão em conflito.
 
@@ -378,6 +378,17 @@ spec:
     spec:
       [...]
 ```
+
+### <a name="error-cannot-get-connection-details-for-azure-dev-spaces-controller-abc-because-it-is-in-the-failed-state-something-wrong-might-have-happened-with-your-controller"></a>Erro "Não é possível obter detalhes de ligação para o Controlador de Espaços Azure Dev 'ABC' porque está no estado 'Falhado'. Algo de errado pode ter acontecido com o seu controlador.
+
+Para resolver este problema, tente eliminar o controlador Azure Dev Spaces do cluster e reinstalá-lo:
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+azds controller create --name <cluster name> -g <resource group name> -tn <cluster name>
+```
+
+Além disso, como a Azure Dev Spaces está a ser reformada, por favor considere [migrar para Bridge para Kubernetes,](migrate-to-bridge-to-kubernetes.md) o que proporciona uma melhor experiência.
 
 ## <a name="common-issues-using-visual-studio-and-visual-studio-code-with-azure-dev-spaces"></a>Questões comuns usando Visual Studio e Visual Studio Code com Azure Dev Spaces
 
@@ -501,8 +512,8 @@ Para atualizar a função Azure do utilizador para o controlador:
 1. Abra o painel *de controlo de acesso (IAM).*
 1. Clique no *separador Atribuições de Funções.*
 1. Clique *em Adicionar* e adicione a atribuição de *função*.
-    * Para *Função* , selecione *Contribuinte* ou *Proprietário*.
-    * Para *atribuir acesso a* , selecione *utilizador, grupo ou principal de serviço Azure.*
+    * Para *Função*, selecione *Contribuinte* ou *Proprietário*.
+    * Para *atribuir acesso a*, selecione *utilizador, grupo ou principal de serviço Azure.*
     * Para *obter o seguinte,* procure no utilizador que pretenda obter permissões.
 1. Clique em *Guardar*.
 

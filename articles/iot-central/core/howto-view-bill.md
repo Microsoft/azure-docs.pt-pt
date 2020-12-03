@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8f46c402c8c25a144cd4c12137aeabfdfa31e096
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 50d0119b08d2c76a5f6111e485408ebcdace83c6
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463135"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549026"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>Gerencie a sua conta numa aplicação IoT Central
 
@@ -34,11 +34,11 @@ Para completar este processo de self-service, siga estes passos:
 
 1. Vá à página **de preços** na secção **Administração.**
 
-    ![Estado do julgamento](media/howto-view-bill/freetrialbilling.png)
+    :::image type="content" source="media/howto-view-bill/freetrialbilling.png" alt-text="Estado do julgamento":::
 
 1. Selecione **Converter para um plano pago.**
 
-    ![Converter julgamento](media/howto-view-bill/convert.png)
+    :::image type="content" source="media/howto-view-bill/convert.png" alt-text="Converter julgamento":::
 
 1. Selecione o Diretório Ativo Azure apropriado e, em seguida, a subscrição Azure para usar para a sua aplicação que usa um plano pago.
 
@@ -55,7 +55,7 @@ Na secção de preços, pode atualizar ou desvalorizar o seu plano de preços Az
 
 1. Vá à página **de preços** na secção **Administração.**
 
-    ![Plano de atualização](media/howto-view-bill/pricing.png)
+    :::image type="content" source="media/howto-view-bill/pricing.png" alt-text="Plano de preços de atualização":::
 
 1. Selecione o **Plano** e, em seguida, selecione **Guardar** para atualizar ou downgrade.
 

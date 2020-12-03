@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 79ef46eef4da1beeea1c177ce39a09eea133f545
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9e0c5ae119b734f91e8cfa1e7afb11a96e13035c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089666"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549077"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas mais frequentes sobre as diferentes APIs no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -174,7 +174,7 @@ O idioma de consulta SQL suportado pelas contas API SQL é um subconjunto melhor
 
 ### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>O SQL API suporta funções de agregação SQL?
 
-A API SQL suporta a agregação de baixa latência em qualquer escala através de funções `COUNT` agregadas, e através da gramática `MIN` `MAX` `AVG` `SUM` SQL. Para obter mais informações, consulte [as funções agregadas.](sql-query-aggregates.md)
+A API SQL suporta a agregação de baixa latência em qualquer escala através de funções `COUNT` agregadas, e através da gramática `MIN` `MAX` `AVG` `SUM` SQL. Para obter mais informações, consulte [as funções agregadas.](sql-query-aggregate-functions.md)
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>Como é que a API SQL proporciona concordância?
 

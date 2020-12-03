@@ -6,34 +6,28 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/23/2020
+ms.date: 12/01/2020
 ms.author: alkohli
-ms.openlocfilehash: f5bcb5c42661c375372d4d0b17571d784152dd5f
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 751ac870996fa1a2805bb018c991f85525fd797d
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337292"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548975"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Utilize o UI web local para administrar a sua Caixa de Dados e Caixa de Dados Pesada
 
 Este artigo descreve algumas das tarefas de configuração e gestão realizadas em dispositivos Data Box e Data Box Heavy. Pode gerir os dispositivos Data Box e Data Box Heavy através do portal Azure UI e da UI web local para o dispositivo. Este artigo foca tarefas realizadas através da UI web local.
 
-A UI web local para a Caixa de Dados e para Data Box Heavy é utilizada para a configuração inicial do dispositivo. Também pode utilizar o UI web local para desligar ou reiniciar o dispositivo, executar testes de diagnóstico, atualizar software, ver registos de cópias e gerar um pacote de registo para o Microsoft Support. Num dispositivo Data Box Heavy com dois nós independentes, pode aceder a duas UI locais separadas correspondentes a cada nó do dispositivo.
-
-Este artigo inclui os seguintes tutoriais:
-
-- Gerar um pacote de Suporte
-- Encerrar ou reiniciar o dispositivo
-- Fatura de descarregamento de material (BOM) ou ficheiros manifestos
-- Ver a capacidade disponível do dispositivo
-- Ignorar a validação da soma de verificação
+O UI web local para data box e para data box heavy é usado para a configuração inicial do dispositivo. Também pode utilizar o UI web local para desligar ou reiniciar o dispositivo, executar testes de diagnóstico, atualizar software, ver registos de cópias, apagar dados locais do dispositivo e gerar um pacote de suporte para o Microsoft Support. Num dispositivo Data Box Heavy com dois nós independentes, pode aceder a duas UI locais separadas correspondentes a cada nó do dispositivo.
 
 [!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="generate-support-package"></a>Gerar Pacote de suporte
 
-Se surgir qualquer problema com o dispositivo, pode criar um Pacote de suporte a partir dos registos do sistema. A equipa de Suporte da Microsoft utiliza este pacote para resolver o problema. Para gerar um pacote de suporte, tome os seguintes passos:
+Se surgir qualquer problema com o dispositivo, pode criar um Pacote de suporte a partir dos registos do sistema. A equipa de Suporte da Microsoft utiliza este pacote para resolver o problema.
+
+Para gerar um pacote de suporte, tome os seguintes passos:
 
 1. Na UI web local, vá ao Suporte de **Contato** e selecione **Pacote de Suporte de Criar**.
 
@@ -51,9 +45,29 @@ Se surgir qualquer problema com o dispositivo, pode criar um Pacote de suporte a
 
     ![Criar Pacote de suporte 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
 
+## <a name="erase-local-data-from-your-device"></a>Apagar dados locais do seu dispositivo
+
+Pode utilizar a UI web local para apagar os dados locais do seu dispositivo antes de os devolver ao datacenter Azure.
+
+> [!IMPORTANT]
+> Uma eliminação de dados não pode ser revertida. Antes de apagar os dados locais do seu dispositivo, certifique-se de fazer o back up dos ficheiros.
+
+Para apagar os dados locais do seu dispositivo, execute estes passos:
+
+1. Na UI web local, vá ao **Data apagar.**
+2. Introduza a palavra-passe do dispositivo e **selecione dados de apagamento**.
+
+    ![Opção de apagamento de dados para um dispositivo](media/data-box-local-web-ui-admin/erase-local-data-1.png)
+
+3. Na solicitação de confirmação, selecione **Sim** para continuar. Uma apagamento de dados pode demorar até 50 minutos.
+
+   Certifique-se de fazer o seu back up antes de apagá-lo do dispositivo. Uma eliminação de dados não pode ser revertida.
+
+    ![Pedido de confirmação de apagamento de dados](media/data-box-local-web-ui-admin/erase-local-data-2.png)
+
 ## <a name="shut-down-or-restart-your-device"></a>Encerrar ou reiniciar o dispositivo
 
-Pode desligar ou reiniciar o seu dispositivo utilizando a UI web local. Recomendamos que antes de reiniciar, coloque as partilhas offline no anfitrião e, em seguida, no dispositivo. Ao fazê-lo, minimiza qualquer possibilidade de corrupção de dados. Certifique-se de que a cópia de dados não está em andamento quando desligar o dispositivo.
+Pode desligar ou reiniciar o seu dispositivo utilizando a UI web local. Recomendamos que, antes de reiniciar, desative as ações do hospedeiro e, em seguida, do dispositivo. Ao fazê-lo, minimiza qualquer possibilidade de corrupção de dados. Certifique-se de que a cópia de dados não está em andamento quando desligar o dispositivo.
 
 Para desligar o seu dispositivo, tome os seguintes passos.
 
@@ -160,7 +174,7 @@ Este ficheiro contém a lista de todos os ficheiros que foram copiados na Caixa 
 Pode utilizar o dashboard do dispositivo para ver a capacidade disponível e a utilizada do dispositivo.
 
 1. Na IU de Web local, aceda a **Ver o dashboard**.
-2. Em **Ligar e copiar** , é mostrado o espaço livre e utilizado no dispositivo.
+2. Em **Ligar e copiar**, é mostrado o espaço livre e utilizado no dispositivo.
 
     ![Ver capacidade disponível](media/data-box-local-web-ui-admin/verify-used-space-dashboard.png)
 
@@ -168,7 +182,7 @@ Pode utilizar o dashboard do dispositivo para ver a capacidade disponível e a u
 
 As datas de verificação são geradas para os seus dados por padrão quando se prepara para enviar. Em certos casos raros, dependendo do tipo de dados (tamanhos de ficheiros pequenos), o desempenho pode ser lento. Nesses casos, pode ignorar a soma de verificação.
 
-O cálculo da caixa de controlo durante a preparação do navio é feito apenas para encomendas de importação e não para encomendas de exportação. 
+O cálculo da caixa de controlo durante a preparação do navio é feito apenas para encomendas de importação e não para encomendas de exportação.
 
 Recomendamos vivamente que não desative a soma de verificação, a não ser que o desempenho tenha sido bastante afetado.
 

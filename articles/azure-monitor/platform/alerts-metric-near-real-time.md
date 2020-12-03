@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 9/30/2020
+ms.date: 12/3/2020
 ms.subservice: alerts
-ms.openlocfilehash: d1a1a31d5894338e0deeed27fabcde9fdbf6f588
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: dfcc1f15ebec1337cfa7d484319c7b942ff052b2
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566491"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548244"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos apoiados para alertas métricos no Azure Monitor
 
@@ -85,7 +85,8 @@ Aqui está a lista completa de fontes métricas do Azure Monitor apoiadas pelos 
 |Microsoft.Network/applicationGateways | Sim | Não | [Gateways de aplicação](./metrics-supported.md#microsoftnetworkapplicationgateways) |
 |Microsoft.Network/azurefirewalls | Sim | Não | [Firewalls](./metrics-supported.md#microsoftnetworkazurefirewalls) |
 |Microsoft.Network/dnsZones | Não | Não | [Zonas DNS](./metrics-supported.md#microsoftnetworkdnszones) |
-|Microsoft.Network/expressRouteCircuits | N/D | Não |[Circuitos do ExpressRoute](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft.Network/expressRouteCircuits | Sim | Não |[Circuitos ExpressRoute](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft.Network/expressRoutePorts | Sim | Não |[ExpressRoute Direct](./metrics-supported.md#microsoftnetworkexpressrouteports) |
 |Microsoft.Network/loadBalancers (apenas para SKUs padrão)| Sim| Não | [Balançadores de Carga](./metrics-supported.md#microsoftnetworkloadbalancers) |
 |Microsoft.Network/natGateways| Não | Não | |
 |Microsoft.Network/privateEndpoints| Não | Não | |
@@ -107,6 +108,9 @@ Aqui está a lista completa de fontes métricas do Azure Monitor apoiadas pelos 
 |Microsoft.StorageCache/caches | Sim | Não | |
 |Microsoft.StorageSync/storageSyncServices | Sim | Não | [Serviços de Sincronização de Armazenamento](./metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
 |Microsoft.StreamAnalytics/streamingjobs | Sim | Não | [Stream Analytics](./metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |
+|Microsoft.Synapse/workspaces | Sim | Não | [Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspaces) |
+|Microsoft.Synapse/workspaces/bigDataPools | Sim | Não | [Piscinas de faíscas Apache Spark](./metrics-supported.md#microsoftsynapseworkspacesbigdatapools) |
+|Microsoft.Synapse/workspaces/sqlPools | Sim | Não | [Piscinas SQL Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspacessqlpools) |
 |Microsoft.VMWareCloudSimple/virtualMachines | Sim | Não | [Máquinas Virtuais do CloudSimple](./metrics-supported.md#microsoftvmwarecloudsimplevirtualmachines) |
 |Microsoft.Web/hostingEnvironments/multiRolePools | Sim | Não | [Piscinas multi-role de ambiente de serviço de aplicativos](./metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft.Web/hostingEnvironments/workerPools | Sim | Não | [Piscinas de trabalhadores do ambiente do serviço de aplicações](./metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: d8b6e932f4cd5f4119d93f3fed7db524f65cbc1f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: cfa81b6ec5f10218a70de6b9b55e502d87898194
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93338956"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549184"
 ---
 # <a name="date-and-time-functions-azure-cosmos-db"></a>Funções de data e hora (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -32,10 +32,10 @@ As seguintes funções escalar permitem-lhe obter a data e hora atuais do UTC em
 
 As seguintes funções permitem manipular facilmente o DateTime, o relógio e os valores do tiquetaque:
 
-* [DataTimeAdd](sql-query-datetimeadd.md)
-* [DataTimediff](sql-query-datetimediff.md)
+* [DateTimeAdd](sql-query-datetimeadd.md)
+* [DateTimeDiff](sql-query-datetimediff.md)
 * [DateTimeFromParts](sql-query-datetimefromparts.md)
-* [DataTimePart](sql-query-datetimepart.md)
+* [DateTimePart](sql-query-datetimepart.md)
 * [DateTimeToTicks](sql-query-datetimetoticks.md)
 * [DateTimeToTimestamp](sql-query-datetimetotimestamp.md)
 * [TicksToDateTime](sql-query-tickstodatetime.md)
@@ -46,4 +46,4 @@ As seguintes funções permitem manipular facilmente o DateTime, o relógio e os
 - [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)
 - [Funções definidas pelo utilizador](sql-query-udfs.md)
-- [Agregados](sql-query-aggregates.md)
+- [Agregados](sql-query-aggregate-functions.md)

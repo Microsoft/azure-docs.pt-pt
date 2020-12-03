@@ -9,14 +9,12 @@
       href: whats-new.md
 - name: Guias de Início Rápido
   items:
-    - name: Utilizar a biblioteca de cliente
+    - name: Utilizar as bibliotecas de cliente
       href: quickstarts-sdk/client-library.md
     - name: Utilizar a API REST
       items:
         - name: Analisar uma imagem remota
           items:
-            - name: cURL
-              href: QuickStarts/curl-analyze.md
             - name: Ir
               href: QuickStarts/go-analyze.md
             - name: Java
@@ -37,8 +35,6 @@
           items:
             - name: C#
               href: QuickStarts/CSharp-thumb.md
-            - name: cURL
-              href: QuickStarts/curl-thumb.md
             - name: Ir
               href: QuickStarts/go-thumb.md
             - name: Java
@@ -63,8 +59,6 @@
           items:
             - name: C#
               href: QuickStarts/CSharp-print-text.md
-            - name: cURL
-              href: QuickStarts/curl-print-text.md
             - name: Ir
               href: QuickStarts/go-print-text.md
             - name: Java

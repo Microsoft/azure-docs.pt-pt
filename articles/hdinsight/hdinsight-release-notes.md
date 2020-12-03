@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: d4983ecd1b8afe1ec6bd3cc31df8b711cebaddf1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 00b5d220cdbc511a309d55cfca2049508049fa30
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350267"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549009"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de lançamento do Azure HDInsight
 
@@ -46,8 +46,9 @@ O tipo de cluster de serviços HDInsight 3.6 ML Services estará terminando o su
 ### <a name="disabled-vm-sizes"></a>Tamanhos VM desativados
 A partir de 16 de novembro de 2020, o HDInsight vai bloquear novos clientes que criam clusters utilizando standand_A8, standand_A9, standand_A10 e standand_A11 tamanhos VM. Os clientes existentes que utilizaram estes tamanhos VM nos últimos três meses não serão afetados. A partir de 9 de janeiro de 2021, o HDInsight bloqueará todos os clientes que criam clusters utilizando standand_A8, standand_A9, standand_A10 e standand_A11 tamanhos VM. Os aglomerados existentes funcionarão como estão. Considere mudar-se para HDInsight 4.0 para evitar uma possível interrupção do sistema/suporte.
 
-### <a name="behavior-changes"></a>Mudanças de comportamento
-Nenhuma mudança de comportamento para esta libertação.
+## <a name="behavior-changes"></a>Mudanças de comportamento
+### <a name="add-nsg-rule-checking-before-scaling-operation"></a>Adicione verificação de regras NSG antes da operação de escalonamento
+HDInsight adicionou grupos de segurança de rede (NSGs) e rotas definidas pelo utilizador (UDRs) verificando com a operação de escala. A mesma validação é feita para a escala de clusters, além da criação de clusters. Esta validação ajuda a prevenir erros imprevisíveis. Se a validação não passar, o escalonamento falha. Saiba mais sobre como configurar os NSGs e uDRs corretamente, consulte [os endereços IP de gestão hdInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
 
 ## <a name="upcoming-changes"></a>Próximas alterações
 As seguintes alterações irão ocorrer nos próximos lançamentos.

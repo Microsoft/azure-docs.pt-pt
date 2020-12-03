@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: e2ed3680a0867ab8f7e2ad41603883f07a4be427
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: fec3f25c4b401ff7c3bc73d249b716b9c12e6529
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655753"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548550"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>PASSO 2: Configurar a sua solução de segurança para enviar mensagens CEF
 
@@ -34,12 +34,13 @@ Se a sua solução de segurança já tiver um conector existente, utilize as ins
 - [Cisco](connect-cisco.md)
 - [ExtraHop Reveal(x)](connect-extrahop.md)
 - [F5 ASM](connect-f5.md)  
+- [Produtos da Forcepoint](connect-forcepoint-casb-ngfw.md)
 - [Fortinet](connect-fortinet.md)
+- [Illusive Networks AMS](connect-illusive-attack-management-system.md)
 - [One Identity Safeguard](connect-one-identity.md)
 - [Palo Alto Networks](connect-paloalto.md)
 - [Trend Micro Deep Security](connect-trend-micro.md)
-- [Zscaler](connect-zscaler.md)   
-
+- [Zscaler](connect-zscaler.md)
 ## <a name="configure-any-other-solution"></a>Configure qualquer outra solução
 
 Se não existir um conector para a sua solução de segurança específica, utilize as seguintes instruções genéricas para encaminhar os registos para o agente CEF.
@@ -50,14 +51,24 @@ Se não existir um conector para a sua solução de segurança específica, util
     - Formato = CEF
     - Endereço IP - certifique-se de enviar as mensagens CEF para o endereço IP da máquina virtual que dedicou para este fim.
 
-   > [!NOTE]
-   > Esta solução suporta o Syslog RFC 3164 ou o RFC 5424.
+   Esta solução suporta o Syslog RFC 3164 ou o RFC 5424.
 
-1. Para utilizar o esquema relevante no Log Analytics para os eventos CEF, procure `CommonSecurityLog` .
+1. Para pesquisar eventos CEF em Log Analytics, `CommonSecurityLog` insira na janela de consulta.
 
 1. Continue a PASSO 3: [valide a conectividade](connect-cef-verify.md).
 
-## <a name="next-steps"></a>Próximos passos
+> [!NOTE]
+> **Alterar a fonte do campo TimeGenerated**
+>
+> - Por predefinição, o agente Log Analytics povoa o campo *TimeGenerated* no esquema com o momento em que o agente recebeu o evento do daemon Syslog. Como resultado, o momento em que o evento foi gerado no sistema de origem não é registado em Azure Sentinel.
+>
+> - Pode, no entanto, executar o seguinte comando, que irá descarregar e executar o `TimeGenerated.py` script. Este script configura o agente Log Analytics para povoar o campo *TimeGenerated* com a hora original do evento no seu sistema de origem, em vez do tempo que foi recebido pelo agente.
+>
+>    ```bash
+>    wget -O TimeGenerated.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/TimeGenerated.py && python TimeGenerated.py {ws_id}
+>    ```
+
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a ligar os aparelhos CEF ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

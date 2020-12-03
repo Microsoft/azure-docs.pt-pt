@@ -67,6 +67,8 @@
       items:
         - name: Editar pares de Perguntas e Respostas
           href: How-To/edit-knowledge-base.md
+        - name: Adicionar etiquetas de metadados
+          href: Quickstarts/add-question-metadata-portal.md
         - name: Adicionar pedidos de seguimento
           href: How-To/multiturn-conversation.md
           displayName: 'multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question'

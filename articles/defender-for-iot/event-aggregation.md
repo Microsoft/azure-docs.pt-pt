@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 12/03/2020
 ms.author: mlottner
-ms.openlocfilehash: aec750d246ce99fa65431e23ef68e70418db0017
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f7575697706363c082a4e6374b3df7a49e65cdf
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940940"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548856"
 ---
 # <a name="defender-for-iot-event-aggregation"></a>Defender para agregação de eventos IoT
 
-O Defender para agentes de segurança IoT recolhe dados e eventos do sistema a partir do seu dispositivo local e envia estes dados para a nuvem Azure para processamento e análise. O agente de segurança recolhe muitos tipos de eventos de dispositivos, incluindo novos processos e novos eventos de conexão. Tanto novos eventos de processo como novos eventos de conexão podem ocorrer legitimamente frequentemente num dispositivo dentro de um segundo, e embora importante para uma segurança robusta e abrangente, o número de mensagens que os agentes de segurança são forçados a enviar pode rapidamente alcançar ou exceder a sua quota IoT Hub e limites de custos. No entanto, estes eventos contêm informações de segurança altamente valiosas que são cruciais para proteger o seu dispositivo.
+O Defender para os agentes de segurança IoT recolhe dados e eventos do sistema a partir do seu dispositivo local e envia estes dados para a nuvem Azure para processamento e análise. O agente de segurança recolhe muitos tipos de eventos de dispositivos, incluindo novos processos e novos eventos de conexão. Tanto novos eventos de processo como novos eventos de conexão podem ocorrer legitimamente frequentemente num dispositivo dentro de um segundo, e embora importante para uma segurança robusta e abrangente, o número de mensagens que os agentes de segurança são forçados a enviar pode rapidamente alcançar ou exceder a sua quota IoT Hub e limites de custos. No entanto, estes eventos contêm informações de segurança altamente valiosas que são cruciais para proteger o seu dispositivo.
 
 Para reduzir a quota e os custos adicionais, mantendo os seus dispositivos protegidos, o Defender for IoT Agents agrega este tipo de eventos.
 
