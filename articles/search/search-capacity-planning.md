@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 76084a9ddd6842194bb4c6b25d62e62c2ed2d4a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92dcbfd360938724bb65b734d7c69ea61d7826b0
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89660306"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533048"
 ---
 # <a name="adjust-the-capacity-of-an-azure-cognitive-search-service"></a>Ajuste a capacidade de um serviço de Pesquisa Cognitiva Azure
 
 Antes [de fornecer um serviço de pesquisa](search-create-service-portal.md) e bloquear um nível de preços específico, desloque alguns minutos para entender como funciona a capacidade e como pode ajustar réplicas e divisórias para acomodar a flutuação da carga de trabalho.
 
-A capacidade é uma função do [nível que escolhes](search-sku-tier.md) (os níveis determinam as características do hardware) e a combinação de replicação e partição necessária para cargas de trabalho projetadas. Pode aumentar ou diminuir o número de réplicas ou divisórias individualmente. Dependendo do nível e do tamanho do ajuste, a adição ou redução da capacidade pode demorar entre 15 minutos e várias horas.
+A capacidade é uma função do [nível que escolhes](search-sku-tier.md) (os níveis determinam as características do hardware) e a combinação de replicação e partição necessária para cargas de trabalho projetadas. Uma vez criado um serviço, pode aumentar ou diminuir o número de réplicas ou divisórias de forma independente. Os custos aumentarão com cada recurso físico adicional, mas uma vez terminadas as grandes cargas de trabalho, pode reduzir a escala para baixar a sua fatura. Dependendo do nível e do tamanho do ajuste, a adição ou redução da capacidade pode demorar entre 15 minutos e várias horas.
 
 Ao modificar a atribuição de réplicas e divisórias, recomendamos a utilização do portal Azure. O portal impõe limites às combinações admissíveis que se mantêm abaixo dos limites máximos de um nível. No entanto, se necessitar de uma abordagem de provisionamento baseada em scripts ou códigos, o [Azure PowerShell](search-manage-powershell.md) ou a [API Management REST](/rest/api/searchmanagement/services) são soluções alternativas.
 
@@ -36,7 +36,7 @@ A capacidade é expressa em *unidades de busca* que podem ser atribuídas em com
 
 O diagrama seguinte mostra a relação entre réplicas, divisórias, fragmentos e unidades de busca. Mostra um exemplo de como um único índice é distribuído por quatro unidades de pesquisa num serviço com duas réplicas e duas divisórias. Cada uma das quatro unidades de pesquisa armazena apenas metade dos fragmentos do índice. As unidades de busca na coluna esquerda armazenam a primeira metade dos fragmentos, compreendendo a primeira divisória, enquanto as da coluna direita armazenam a segunda metade dos fragmentos, compreendendo a segunda divisória. Como há duas réplicas, há duas cópias de cada fragmento de índice. As unidades de pesquisa na primeira fila armazenam uma cópia, compreendendo a primeira réplica, enquanto as da linha inferior armazenam outra cópia, compreendendo a segunda réplica.
 
-:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Os índices de pesquisa são fragmentos através de divisórias.&quot;:::
+:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Os índices de pesquisa são fragmentos através de divisórias.":::
 
 O diagrama acima é apenas um exemplo. Muitas combinações de divisórias e réplicas são possíveis, até um máximo de 36 unidades de pesquisa totais.
 
@@ -44,7 +44,7 @@ Na Pesquisa Cognitiva, a gestão de fragmentos é um detalhe de implementação 
 
 + Anomalias no ranking: As pontuações de pesquisa são calculadas primeiro no nível de fragmento e, em seguida, agregadas num único conjunto de resultados. Dependendo das características do conteúdo de fragmentos, os jogos de um fragmento podem ser classificados acima dos fósforos em outro. Se notar rankings não intuitivos nos resultados da pesquisa, é mais provável que seja devido aos efeitos do fragmento, especialmente se os índices forem pequenos. Pode evitar estas anomalias no ranking, optando por [calcular pontuações globais em todo o índice](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), mas fazê-lo incorrerá numa penalidade de desempenho.
 
-+ Anomalias autocompletas: Consultas autocompletas, onde os jogos são feitos nos primeiros vários caracteres de um termo parcialmente introduzido, aceitam um parâmetro difuso que perdoa pequenos desvios na ortografia. Para o autocompleto, a correspondência difusa é limitada aos termos dentro do fragmento atual. Por exemplo, se um fragmento contiver &quot;Microsoft&quot; e um termo parcial de &quot;micor&quot; for introduzido, o motor de busca corresponderá à &quot;Microsoft" nesse fragmento, mas não em outros fragmentos que mantenham as partes restantes do índice.
++ Anomalias autocompletas: Consultas autocompletas, onde os jogos são feitos nos primeiros vários caracteres de um termo parcialmente introduzido, aceitam um parâmetro difuso que perdoa pequenos desvios na ortografia. Para o autocompleto, a correspondência difusa é limitada aos termos dentro do fragmento atual. Por exemplo, se um fragmento contiver "Microsoft" e um termo parcial de "micor" for introduzido, o motor de busca corresponderá à "Microsoft" nesse fragmento, mas não em outros fragmentos que mantenham as partes restantes do índice.
 
 ## <a name="when-to-add-nodes"></a>Quando adicionar os nódes
 

@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: inhenkel
-ms.openlocfilehash: e00079190371b3ae0e318aaadd8cf724d9d339d0
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: c14dbe4253696e01e99111a24319e455c1d551e9
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512726"
+ms.locfileid: "96534000"
 ---
 # <a name="media-services-architectures"></a>Arquiteturas de Serviços de Mídia
 
@@ -30,12 +30,6 @@ Uma solução de streaming ao vivo permite-lhe capturar vídeo em tempo real e t
 Esta solução baseia-se nos serviços geridos azure: Media Services e Content Delivery Network. Estes serviços funcionam num ambiente de alta disponibilidade, remendado e suportado, permitindo-lhe focar na sua solução em vez do ambiente em que se encontram.
 
 Consulte [os meios digitais de streaming](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-media-live-stream) ao vivo no centro de Arquitetura Azure.
-
-## <a name="instant-broadcasting-on-serverless-architecture"></a>Radiodifusão instantânea na arquitetura sem servidor
-
-Simplificar comunicações e atualizações em tempo real usando código sem servidor. Esta arquitetura utiliza Funções Azure, Serviço SignalR, uma conta de armazenamento e uma base de dados SQL.
-
-Consulte [a transmissão instantânea em Arquitetura Sem Servidor](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/instant-broadcasting-on-serverless-architecture) no centro de arquitetura Azure.
 
 ## <a name="video-on-demand-digital-media"></a>Multimédia digital de vídeo a pedido
 

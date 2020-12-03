@@ -3,17 +3,17 @@ title: Quais as novidades no Windows Virtual Desktop? - Azure
 description: Novas funcionalidades e atualizações de produtos para o Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 11/11/2020
+ms.date: 12/02/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: c82312b40955b392243bf616ee991c0108a13fb5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e267de136271991446444a47a470dd52789b3613
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537395"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533966"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Quais as novidades no Windows Virtual Desktop?
 
@@ -25,6 +25,31 @@ Atualizações de Ambiente de Trabalho Virtual do Windows regularmente. Este art
 - Correções de erros
 
 Este artigo é atualizado mensalmente. Certifique-se de voltar aqui muitas vezes para acompanhar novas atualizações.
+
+## <a name="november-2020"></a>Novembro de 2020
+
+### <a name="azure-portal-experience"></a>Experiência do portal Azure
+
+Corrigimos dois bugs na experiência do utilizador do portal Azure:
+
+- O nome amigável da aplicação desktop já não está substituído no fluxo de trabalho "Add VM".
+- O separador anfitrião da sessão irá agora carregar se os anfitriões da sessão fizerem parte de conjuntos de escala.
+
+### <a name="fslogix-client-version-2009"></a>Cliente FSLogix, versão 2009 
+
+Lançámos uma nova versão do cliente FSLogix com muitas correções e melhorias. Saiba mais na [nossa publicação de blog.](https://social.msdn.microsoft.com/Forums/en-US/defe5828-fba4-4715-a68c-0e4d83eefa6b/release-notes-for-fslogix-apps-release-2009-29762130127?forum=FSLogix)
+
+### <a name="rdp-shortpath-public-preview"></a>Pré-visualização pública do VIADP Shortpath
+
+O RDP Shortpath introduz conectividade direta ao anfitrião da sessão virtual do Windows desktop utilizando VPNs ponto a local e site-a-site e ExpressRoute. Introduz também o protocolo de transporte URCP. O RDP Shortpath foi concebido para reduzir a latência e o lúpulo de rede de forma a melhorar a experiência do utilizador. Saiba mais no [Windows Virtual Desktop RDP Shortpath](shortpath.md).
+
+### <a name="azdesktopvirtualization-version-201"></a>Az.DesktopVirtualization, versão 2.0.1
+
+Lançamos a versão 2.0.1 dos cmdlets virtual do Windows Desktop. Esta atualização inclui cmdlets que lhe permitirão gerir o MsIX App Attach. Pode baixar a nova versão [na galeria PowerShell.](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.0.1)
+
+### <a name="azure-advisor-updates"></a>Atualizações do Azure Advisor
+
+O Azure Advisor tem agora uma nova recomendação para orientação de proximidade no Windows Virtual Desktop. Saiba mais [no site da Azure.](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/)
 
 ## <a name="october-2020"></a>Outubro de 2020
 
@@ -139,7 +164,7 @@ Agora pode fazer as seguintes coisas com o portal Azure no Windows Virtual Deskt
 
 ### <a name="diagnostics"></a>Diagnóstico
 
-Lançamos novas consultas pré-construídas para o espaço de trabalho do Log Analytics. Para aceder às consultas, aceda a **Registos** e na **categoria** , selecione **Windows Virtual Desktop**. Saiba mais no [Use Log Analytics para a funcionalidade de diagnóstico](diagnostics-log-analytics.md).
+Lançamos novas consultas pré-construídas para o espaço de trabalho do Log Analytics. Para aceder às consultas, aceda a **Registos** e na **categoria**, selecione **Windows Virtual Desktop**. Saiba mais no [Use Log Analytics para a funcionalidade de diagnóstico](diagnostics-log-analytics.md).
 
 ### <a name="update-for-remote-desktop-client-for-android"></a>Atualização para cliente de desktop remoto para Android
 
@@ -174,7 +199,6 @@ Eis o que esta mudança faz por si:
 - As funções de monitorização que costumavam ser feitas através do PowerShell ou da aplicação web do Serviço de Diagnóstico mudaram-se agora para Log Analytics no portal Azure. Também tem agora duas opções para visualizar os seus relatórios. Pode executar consultas kusto e usar livros de trabalho para criar relatórios visuais.
 
 - Já não é obrigado a concluir o consentimento do Azure Ative Directory (Azure AD) para utilizar o Windows Virtual Desktop. Nesta atualização, o inquilino Azure AD na sua assinatura Azure autentica os seus utilizadores e fornece controlos Azure RBAC para os seus administradores.
-
 
 ### <a name="powershell-support"></a>Suporte do PowerShell
 

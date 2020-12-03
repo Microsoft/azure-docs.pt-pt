@@ -4,12 +4,12 @@ description: Crie a sua primeira aplicação de contentor do Linux no Azure Serv
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: d085f8704850cdbb03e21b15b3cca7c8998b96fb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0481cc2d36f7882bbd8eea9b984c3dc388de5dee
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004233"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96534085"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -87,10 +87,17 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
-## <a name="build-the-image"></a>Criar a imagem
-Execute o comando `docker build` para criar a imagem que executa a sua aplicação Web. Abra uma janela do PowerShell e navegue para *c:\temp\helloworldapp*. Execute o seguinte comando:
+## <a name="login-to-docker-and-build-the-image"></a>Faça login no Docker e construa a imagem
 
-```bash
+Em seguida, criaremos a imagem que executa a sua aplicação web. Ao tirar imagens públicas do Docker (como `python:2.7-slim` no nosso Dockerfile), é uma boa prática autenticar com a sua conta Docker Hub em vez de fazer um pedido de tração anónimo.
+
+> [!NOTE]
+> Ao fazer pedidos de chamadas anónimas frequentes, poderá ver erros do Docker semelhantes `ERROR: toomanyrequests: Too Many Requests.` ou `You have reached your pull rate limit.` autenticar o Docker Hub para evitar estes erros. Consulte [Gerir o conteúdo público com o Registo de Contentores Azure](../container-registry/buffer-gate-public-content.md) para obter mais informações.
+
+Abra uma janela do PowerShell e navegue para o diretório que contém o Dockerfile. Em seguida, execute os seguintes comandos:
+
+```
+docker login
 docker build -t helloworldapp .
 ```
 

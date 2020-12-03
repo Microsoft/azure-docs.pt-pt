@@ -14,12 +14,12 @@ ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: visão computacional, aplicações de visão computacional, serviço de visão computacional
-ms.openlocfilehash: 1b4768781c45733590639b4a382fecfdb02adf48
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 566424f9344d1eeff258a0391fa3635d5a12aae6
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95532295"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533117"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
@@ -114,4 +114,4 @@ Tal como acontece com todos os Serviços Cognitivos, os desenvolvedores que usam
 
 Começa com a Visão De Computador seguindo o guia de arranque rápido na tua linguagem de desenvolvimento preferida:
 
-- [Quickstart: Biblioteca de clientes da Visão De Computador](./quickstarts-sdk/client-library.md)
+- [Quickstart: Computer Vision REST API ou bibliotecas de clientes](./quickstarts-sdk/client-library.md)

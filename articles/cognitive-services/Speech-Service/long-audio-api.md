@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: 0a538deb3b7da19261e1bc2b7c0d29f35315f786
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 255cfe11f8601abc89a1d96f702f453c2af1ccbd
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015418"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533065"
 ---
 # <a name="long-audio-api-preview"></a>API de áudio longo (pré-visualização)
 
@@ -287,15 +287,11 @@ A API áudio longa está disponível em várias regiões com pontos finais únic
 
 | Região | Ponto final |
 |--------|----------|
-| Leste da Austrália | `https://australiaeast.customvoice.api.speech.microsoft.com` |
-| Canadá Central | `https://canadacentral.customvoice.api.speech.microsoft.com` |
 | E.U.A. Leste | `https://eastus.customvoice.api.speech.microsoft.com` |
 | Índia Central | `https://centralindia.customvoice.api.speech.microsoft.com` |
-| E.U.A. Centro-Sul | `https://southcentralus.customvoice.api.speech.microsoft.com` |
 | Sudeste Asiático | `https://southeastasia.customvoice.api.speech.microsoft.com` |
 | Sul do Reino Unido | `https://uksouth.customvoice.api.speech.microsoft.com` |
 | Europa Ocidental | `https://westeurope.customvoice.api.speech.microsoft.com` |
-| E.U.A. Oeste 2 | `https://westus2.customvoice.api.speech.microsoft.com` |
 
 ## <a name="audio-output-formats"></a>Formatos de saída de áudio
 

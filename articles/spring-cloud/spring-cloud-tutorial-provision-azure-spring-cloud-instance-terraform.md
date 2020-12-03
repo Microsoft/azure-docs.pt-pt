@@ -1,24 +1,24 @@
 ---
-title: Tutorial - Provisionar uma instância Azure Spring Cloud com terraforme
+title: Aprovisionar uma instância do Azure Spring Cloud com terraform
 description: Provisionar um exemplo de Nuvem de primavera Azure com Terraform.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: ed66da991df4dbe89c327a9a28ee28527c3da87b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 060ef2d08b849706b47b24748142c608292971b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091649"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533796"
 ---
-# <a name="tutorial-provision-an-azure-spring-cloud-instance-with-terraform"></a>Tutorial: Provisionar um exemplo de nuvem de primavera azure com Terraform
+# <a name="provision-an-azure-spring-cloud-instance-with-terraform"></a>Provisionar um exemplo de Nuvem de primavera Azure com Terraform
 
 **Este artigo aplica-se a:** ✔️ Java ✔️ C #
 
-Este tutorial cria uma instância Azure Spring Cloud usando Terraform. Os procedimentos acompanham-no através da criação dos seguintes recursos:
+Este exemplo cria uma instância Azure Spring Cloud usando Terraform. Os procedimentos acompanham-no através da criação dos seguintes recursos:
 
 > [!div class="checklist"]
 > * Grupo de Recursos
@@ -72,7 +72,7 @@ Este tutorial cria uma instância Azure Spring Cloud usando Terraform. Os proced
     }
     ```
 
-1. Guarde o ficheiro** &lt; (Ctrl>S)** e saia do editor** &lt; (CTRL>Q).**
+1. Guarde o ficheiro **&lt; (Ctrl>S)** e saia do editor **&lt; (CTRL>Q).**
 
 ## <a name="apply-the-configuration"></a>Aplicar a configuração
 
@@ -143,7 +143,7 @@ Esta secção mostra como atualizar a configuração para ativar o registo e mé
     }
     ```
 
-1. Guarde o ficheiro** &lt; (CTRL>S),** e saia do editor (** &lt; CTRL>Q).**
+1. Guarde o ficheiro **&lt; (CTRL>S),** e saia do editor (**&lt; CTRL>Q).**
 
 1. Como na secção anterior, executar o seguinte comando para então fazer as alterações:
 
@@ -157,11 +157,11 @@ Esta secção mostra como atualizar a configuração para ativar o registo e mé
     terraform apply plan.out
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine os recursos criados neste artigo.
 
-Executar o comando [de destruição de terraformes](https://www.terraform.io/docs/commands/destroy.html) para remover os recursos Azure criados neste tutorial:
+Executar o comando [de destruição de terraformes](https://www.terraform.io/docs/commands/destroy.html) para remover os recursos Azure criados neste exercício:
 
 ```bash
 terraform destroy -auto-approve

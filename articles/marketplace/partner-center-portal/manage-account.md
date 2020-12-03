@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 11/02/2020
-ms.openlocfilehash: 8b372cc0fc19c6bf163d9d4e61cde6ce74cb3f28
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: cc853285e193dd3ac4e348525b8bf0db9f8cb023
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95538391"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533949"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gerir a sua conta de mercado comercial no Partner Center
 
@@ -293,7 +293,7 @@ Se a sua aplicação AD Azure ler e escrever dados no Microsoft Azure AD, precis
 Os utilizadores da sua empresa podem ser atribuídos às seguintes funções e permissões para o programa de marketplace comercial no Partner Center:
 
 - **Proprietário**
-  - "Esta é a pessoa que criou a conta pela primeira vez e tem acesso total à mesma, incluindo a capacidade de criar e editar todos os utilizadores de contas e alterar todas as definições financeiras e de conta. Uma conta geralmente tem apenas um proprietário.
+  - Esta é a pessoa que criou a conta pela primeira vez e tem acesso total à mesma, incluindo a capacidade de criar e editar todos os utilizadores de conta e alterar todas as definições financeiras e de conta. Uma conta geralmente tem apenas um proprietário.
 - **Gestor**
   - Pode aceder a todas as funcionalidades da conta da Microsoft, exceto definições de impostos e pagamentos
   - Pode gerir utilizadores, funções e contas de trabalho (inquilinos)

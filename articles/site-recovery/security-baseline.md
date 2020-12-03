@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f6d17b007fcccd87aed17a9ec3ca039b9559ab6d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 860bc9440547a4c62336ccc573859ec56b3400b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492238"
+ms.locfileid: "96533864"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Linha de base de segurança Azure para recuperação do local
 
@@ -164,9 +164,9 @@ Visualizar e consultar os resultados dos registos e configurar alertas para toma
 
 **Orientação**: Não são atribuídas funções por defeito. Têm de ser explicitamente atribuídos com base nas necessidades empresariais. Quaisquer atribuições de funções podem ser verificadas com o PowerShell CLI ou com o Azure Ative Directory (Azure AD) para descobrir contas que sejam membros de grupos administrativos.
 
-- [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
+- [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
+- [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -224,7 +224,7 @@ Crie um processo para rastrear a identidade e o controlo de acesso para contas a
 
 - [Estações de Trabalho de Acesso Privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Planejando uma implementação de autenticação multi-factor Azure AD baseada na nuvem](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planear a implementação da Multi-Factor Authentication do Azure AD com base na cloud](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -431,7 +431,7 @@ Embora os recursos clássicos do Azure possam ser descobertos através do Gráfi
 
 - [Como criar consultas com Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Como ver as suas Subscrições Azure](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [Como ver as suas Subscrições Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Compreender Azure RBAC](../role-based-access-control/overview.md)
 
@@ -530,7 +530,7 @@ Compreender como criar e gerir políticas no Azure é importante para manter a c
 **Orientação**: Defina e implemente configurações de segurança padrão para o cofre dos Serviços de Recuperação com a Política Azure. 
 
 Utilize pseudónimos da Política Azure no espaço de nomes "Microsoft.RecoveryServices" para criar políticas personalizadas para auditar ou impor a configuração dos recursos de cofre de serviços de recuperação do serviço de recuperação de locais.
-- [Como ver pseudónimos disponíveis da Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [Como ver pseudónimos disponíveis da Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -553,9 +553,9 @@ Utilize pseudónimos da Política Azure no espaço de nomes "Microsoft.RecoveryS
 
 **Orientação**: Escolha O Azure Repos para armazenar e gerir o seu código de forma segura se estiver a utilizar definições personalizadas da Política Azure para os seus Cofres de Serviços de Recuperação e recursos relacionados.
 
-- [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Documentação de Azure Repos](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
+- [Documentação de Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -656,7 +656,7 @@ Todos os recursos de armazenamento utilizados pelos metadados dos serviços de r
 
 Isto está fora do alcance do cliente e a equipa de Recuperação do Site trata-o internamente. O cliente pode fazer backup das chaves do Cofre em Azure.
 
-- [Como backup chaves chave cofre em Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [Como backup chaves chave cofre em Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -666,7 +666,7 @@ Isto está fora do alcance do cliente e a equipa de Recuperação do Site trata-
 
 **Orientação**: Ensaio periodicamente restaura as teclas geridas pelo cliente.
 
-- [Como restaurar chaves chave do cofre em Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [Como restaurar chaves chave do cofre em Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 

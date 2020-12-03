@@ -1,20 +1,20 @@
 ---
-title: Tutorial - Configurar autoescala para aplicações de microserviços
+title: Configurar o dimensionamento automático para aplicações de microsserviços
 description: Este artigo descreve como configurar as definições de Autoscale para as suas aplicações utilizando o portal Microsoft Azure ou o Azure CLI.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 6023d1ebd27ebaccacfce85ce0f49b7ef87e17ad
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d59d5de0d98380be215747c7daa33721fcebf33c
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742674"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533830"
 ---
-# <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Tutorial: Configurar autoescala para aplicações de microserviços
+# <a name="set-up-autoscale-for-microservice-applications"></a>Configurar o dimensionamento automático para aplicações de microsserviços
 
 **Este artigo aplica-se a:** ✔️ Java ✔️ C #
 
@@ -30,7 +30,7 @@ Para seguir estes procedimentos, é necessário:
 
 ## <a name="navigate-to-the-autoscale-page-in-the-azure-portal"></a>Navegue para a página autoescala no portal Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Vá à página geral da nuvem **de** primavera do Azure.
 3. Selecione o grupo de recursos que contém o seu serviço.
 4. Selecione o separador **Apps** em **Definições** no menu no painel de navegação esquerdo.

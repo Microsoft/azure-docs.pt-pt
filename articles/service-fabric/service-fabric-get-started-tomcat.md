@@ -4,12 +4,12 @@ description: Crie um recipiente Linux para expor uma aplicação em execução n
 ms.topic: conceptual
 ms.date: 6/08/2018
 ms.author: pepogors
-ms.openlocfilehash: 1a699f3b35970270a9800162a6d8717682a168ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3de97bc277195dff2daf5868c0eb9aec5d6e27c0
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75614422"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96534034"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Criar recipiente de tecido de serviço executando o servidor Apache Tomcat em Linux
 Apache Tomcat é uma implementação popular e aberta das tecnologias Java Servlet e Java Server. Este artigo mostra-lhe como construir um recipiente com Apache Tomcat e uma simples aplicação Web, colocar o recipiente num cluster de Tecido de Serviço que funciona o Linux e ligar-se à aplicação Web.  
@@ -52,9 +52,10 @@ Siga os passos nesta secção para construir uma imagem docker baseada numa imag
    Consulte a [referência Dockerfile](https://docs.docker.com/engine/reference/builder/) para obter mais informações.
 
 
-4. Executar o `docker build` comando para criar a imagem que executa a sua aplicação web:
+4. Faça login no Docker e execute o `docker build` comando para criar a imagem que executa a sua aplicação web:
 
    ```bash
+   docker login
    docker build . -t tomcattest
    ```
 
@@ -99,7 +100,7 @@ Siga os passos nesta secção para construir uma imagem docker baseada numa imag
    ```
 
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>Empurre a imagem de Tomcat para o seu registo de contentores
-Agora que verificou que a imagem do Tomcat funciona num contentor no seu computador de desenvolvimento, empurre-a para um repositório num registo de contentores. Este artigo utiliza o Registo do Contentor Azure para armazenar a imagem, mas, com alguma modificação de etapas, pode utilizar qualquer registo de contentores que escolher. Neste artigo presume-se que o nome do registo é *miognositry* e o nome completo do registo é myregistry.azurecr.io. Mude-as adequadamente para o seu cenário. 
+Agora que verificou que a imagem do Tomcat funciona num contentor no seu computador de desenvolvimento, empurre-a para um repositório num registo de contentores para reduzir a [perturbação](../container-registry/buffer-gate-public-content.md) no desenvolvimento da sua imagem e fluxos de trabalho de implantação. Este artigo utiliza o Registo do Contentor Azure para armazenar a imagem, mas, com alguma modificação de etapas, pode utilizar qualquer registo de contentores que escolher. Neste artigo presume-se que o nome do registo é *miognositry* e o nome completo do registo é myregistry.azurecr.io. Mude-as adequadamente para o seu cenário. 
 
 1. Corra `docker login` para iniciar sôms no registo do seu contentor com [as suas credenciais de registo](../container-registry/container-registry-authentication.md).
 
@@ -139,7 +140,7 @@ Agora que empurrou a imagem do Tomcat para um registo de contentores, pode const
 
    ![Gerador Yeoman do Service Fabric para contentores](./media/service-fabric-get-started-tomcat/yo-generator.png)
 
-10. No manifesto de serviço (*ServiceFabricTomcat/ServiceFabricTomcat/TomcatServicePkg/ServiceManifest.xml), *adicione o seguinte XML sob a etiqueta Root **ServiceManfest** para abrir a porta onde a sua aplicação está a ouvir pedidos. A etiqueta **Endpoint** declara o protocolo e a porta para o ponto final. Para este artigo, o serviço contentorizado escuta no porto 8080: 
+10. No manifesto de serviço (*ServiceFabricTomcat/ServiceFabricTomcat/TomcatServicePkg/ServiceManifest.xml),* adicione o seguinte XML sob a etiqueta Root **ServiceManfest** para abrir a porta onde a sua aplicação está a ouvir pedidos. A etiqueta **Endpoint** declara o protocolo e a porta para o ponto final. Para este artigo, o serviço contentorizado escuta no porto 8080: 
 
    ```xml
    <Resources>
@@ -152,7 +153,7 @@ Agora que empurrou a imagem do Tomcat para um registo de contentores, pode const
    </Resources>
    ```
 
-11. No manifesto de aplicação (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml), *sob a etiqueta **ServiceManifestImport,** adicione o seguinte XML. Substitua o **Nome** de Conta e **a Palavra-passe** na etiqueta **RepositoryCredentials** pelo nome do seu registo de contentores e pela palavra-passe necessária para o iniciar.
+11. No manifesto de aplicação (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml),* sob a etiqueta **ServiceManifestImport,** adicione o seguinte XML. Substitua o **Nome** de Conta e **a Palavra-passe** na etiqueta **RepositoryCredentials** pelo nome do seu registo de contentores e pela palavra-passe necessária para o iniciar.
 
    ```xml
    <Policies>

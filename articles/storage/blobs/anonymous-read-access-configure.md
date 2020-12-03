@@ -10,12 +10,12 @@ ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: a808a6bb0d4dc75f02147bbfdd74d17b34e96f6e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: feac7b890c973b1541c5362f860432687082953f
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313983"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533881"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurar o público anónimo ler acesso a contentores e bolhas
 
@@ -53,7 +53,7 @@ A não permitir o acesso público à conta de armazenamento impede o acesso anó
 
 Para permitir ou proibir o acesso público a uma conta de armazenamento, configurar a propriedade **AllowBlobPublicAccess** da conta. Esta propriedade está disponível para todas as contas de armazenamento que são criadas com o modelo de implementação do Gestor de Recursos Azure. Para mais informações, consulte [a visão geral da conta de Armazenamento.](../common/storage-account-overview.md)
 
-A propriedade **AllowBlobPublicAccess** não é definida por padrão e não devolve um valor até que o descreva explicitamente. A conta de armazenamento permite o acesso público quando o valor da propriedade é **nulo** ou **verdadeiro.**
+A propriedade **AllowBlobPublicAccess** não está definida para uma conta de armazenamento por padrão e não devolve um valor até que o tenha definido explicitamente. A conta de armazenamento permite o acesso público quando o valor da propriedade é **nulo** ou **verdadeiro.**
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
@@ -132,8 +132,8 @@ az storage account show \
 Para permitir ou proibir o acesso público a uma conta de armazenamento com um modelo, crie um modelo com a propriedade **AllowBlobPublicAccess** definida como **verdadeira** ou **falsa**. Os passos seguintes descrevem como criar um modelo no portal Azure.
 
 1. No portal Azure, escolha **Criar um recurso.**
-1. Em **Search the Marketplace** , **digitar a implementação do modelo** e, em seguida, premir **ENTER**.
-1. Escolha a **implementação do modelo (implementar usando modelos personalizados) (pré-visualização)** , escolha **Criar** e, em seguida, escolha **Construir o seu próprio modelo no editor**.
+1. Em **Search the Marketplace**, **digitar a implementação do modelo** e, em seguida, premir **ENTER**.
+1. Escolha a **implementação do modelo (implementar usando modelos personalizados) (pré-visualização)**, escolha **Criar** e, em seguida, escolha **Construir o seu próprio modelo no editor**.
 1. No editor de modelo, cole no JSON seguinte para criar uma nova conta e definir a propriedade **AllowBlobPublicAccess** para **verdadeiro** ou **falso**. Lembre-se de substituir os espaços reservados em suportes angulares pelos seus próprios valores.
 
     ```json

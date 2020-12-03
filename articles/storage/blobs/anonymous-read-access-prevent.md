@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 12/02/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 01a5c696a41b9361c35e7af90f68088acea2944b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f12a899d3b6daa3b233e6a799871afca1e24d046
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913781"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533757"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedir que o público anónimo leia o acesso a contentores e bolhas
 
@@ -166,6 +166,8 @@ New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 
 Para verificar a definição de acesso público através de um conjunto de contas de armazenamento com o melhor desempenho, pode utilizar o Azure Resource Graph Explorer no portal Azure. Para saber mais sobre a utilização do Explorador de Gráficos de Recurso, consulte [Quickstart: Execute a sua primeira consulta de Gráfico de Recursos utilizando o Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md).
 
+A propriedade **AllowBlobPublicAccess** não está definida para uma conta de armazenamento por padrão e não devolve um valor até que o tenha definido explicitamente. A conta de armazenamento permite o acesso público quando o valor da propriedade é **nulo** ou **verdadeiro.**
+
 Executando a seguinte consulta no Resource Graph Explorer devolve uma lista de contas de armazenamento e exibe a definição de acesso público para cada conta:
 
 ```kusto
@@ -174,6 +176,10 @@ resources
 | extend allowBlobPublicAccess = parse_json(properties).allowBlobPublicAccess
 | project subscriptionId, resourceGroup, name, allowBlobPublicAccess
 ```
+
+A imagem a seguir mostra os resultados de uma consulta através de uma subscrição. Note que para contas de armazenamento onde a propriedade **AllowBlobPublicAccess** foi explicitamente definida, aparece nos resultados como **verdadeiro** ou **falso**. Se a propriedade **AllowBlobPublicAccess** não tiver sido definida para uma conta de armazenamento, aparece como em branco (ou nulo) nos resultados da consulta.
+
+:::image type="content" source="media/anonymous-read-access-prevent/check-public-access-setting-accounts.png" alt-text="Screenshot mostrando resultados de consulta para a definição de acesso público através de contas de armazenamento":::
 
 ## <a name="use-azure-policy-to-audit-for-compliance"></a>Utilizar a Política Azure para auditar o cumprimento
 

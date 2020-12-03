@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2020
 ms.author: memildin
-ms.openlocfilehash: 304604b649381daa887b4d313ffd0f773f015a0b
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: bbc36dbb2a17d379d31a9a235898500aea36247d
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122221"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533915"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Melhorar a conformidade regulamentar
 
@@ -34,7 +34,10 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para passar pelas funcionalidades abrangidas por este tutorial, [o Azure Defender](azure-defender.md) tem de estar ativado. Pode experimentar gratuitamente o Azure Defender durante 30 dias.
+Para passar pelas características abrangidas por este tutorial:
+
+- [O Azure Defender](azure-defender.md) tem de estar ativado. Pode experimentar gratuitamente o Azure Defender durante 30 dias.
+- Tem de ser inscrito com uma conta que tenha acesso ao leitor aos dados de conformidade da política **(O Leitor** de Segurança é insuficiente). O papel do **leitor global** para a subscrição funcionará. No mínimo, terá de ter funções **de Contribuidor de Política de Recursos** e **Administração de Segurança** atribuídas.
 
 ##  <a name="assess-your-regulatory-compliance"></a>Avalie a sua conformidade regulamentar
 

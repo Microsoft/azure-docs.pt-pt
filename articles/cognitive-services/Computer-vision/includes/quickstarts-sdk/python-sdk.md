@@ -9,14 +9,19 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 0fd094b7364263acb2abbe7bed2d65392155a930
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7ce17ea720b604db59586cb0e99987afebfe057e
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95096823"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533331"
 ---
 <a name="HOLTop"></a>
+
+Utilize a biblioteca do cliente da Visão De Computador para:
+
+* Analise uma imagem para tags, descrição de texto, rostos, conteúdo adulto, e muito mais.
+* Leia texto impresso e manuscrito com a API de Leitura.
 
 [Documentação de referência](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-computervision)  |  [Pacote (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-computervision/)  |  [Amostras](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -183,7 +188,7 @@ Execute a aplicação com o `python` comando no seu ficheiro quickstart.
 python quickstart-file.py
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 
@@ -191,7 +196,7 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 * [CLI do Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, aprendeu a usar a biblioteca de Visão de Computador para Python para fazer tarefas de base. Em seguida, explore a documentação de referência para saber mais sobre a biblioteca.
 

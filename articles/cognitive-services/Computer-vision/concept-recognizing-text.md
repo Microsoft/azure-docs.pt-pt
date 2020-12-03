@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 73887515eea344e920455e3c24f3eae3d5ad515a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 50cce15d14561bb1c8ebfdbbeeedd99dc8efcda1
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95013741"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532997"
 ---
 # <a name="optical-character-recognition-ocr"></a>Reconhecimento ótico de carateres (OCR)
 
@@ -133,7 +133,7 @@ Veja o seguinte exemplo de uma resposta JSON bem sucedida:
 ### <a name="read-32-preview-adds-text-line-style-latin-languages-only"></a>Ler 3.2 pré-visualização adiciona estilo de linha de texto (apenas línguas latinas)
 A [API de pré-visualização Leitura 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) produz um objeto **de aparência** classificando se cada linha de texto é estilo de impressão ou caligrafia, juntamente com uma pontuação de confiança. Esta funcionalidade é suportada apenas para línguas latinas.
 
-Comece com os [quickstarts OCR SDK de Leitura de Visão de Computador](./quickstarts-sdk/client-library.md) e os [quickstarts da API de Read REST](./QuickStarts/CSharp-hand-text.md) para começar a integrar as capacidades de OCR nas suas aplicações.
+Comece com a API do [Computação Vision REST ou a biblioteca de clientes](./quickstarts-sdk/client-library.md) para começar a integrar as capacidades de OCR nas suas aplicações.
 
 ## <a name="supported-languages-for-print-text"></a>Línguas suportadas para texto de impressão
 A [API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) de leitura suporta a extração de texto impresso em línguas inglesa, espanhola, alemã, francesa, italiana, portuguesa e neerlandesa.
@@ -195,9 +195,8 @@ Tal como acontece com todos os serviços cognitivos, os desenvolvedores que util
 > [!NOTE]
 > As operações Do Computador Vison 2.0 RecogniseText estão em vias de ser depreciadas a favor da nova API de leitura abrangida por este artigo. Os clientes existentes devem [transitar para a utilização de operações de Leitura](upgrade-api-versions.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Começa com os [quickstarts SDK de leitura de visão de computador](./quickstarts-sdk/client-library.md) em C#, Java, JavaScript ou Python.
-- Utilize os [quickstarts API de Read REST](./QuickStarts/CSharp-hand-text.md) em C#, Java, JavaScript ou Python para aprender a usar as APIs REST REST.
+- Começa com a API do [Computação Vision REST ou com as rápidas partidas da biblioteca do cliente.](./quickstarts-sdk/client-library.md)
 - Saiba mais sobre a [API Read REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
 - Saiba mais sobre a [API de pré-visualização pública Read 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) com suporte adicional para chinês e japonês simplificado.

@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/25/2020
+ms.date: 12/02/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: dcc84dc252001721a3848a008a3db80dcc7822d2
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: c90b7ce86e06669696a4b9f7e0b2f5287e9dd97e
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301269"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533201"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Resolver Problemas dos Conectores do Azure Data Factory
 
@@ -205,7 +205,7 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 - **Resolução**: Reenexsitar a atividade da cópia após vários minutos.
                   
 
-## <a name="azure-synapse-analytics-formerly-sql-data-warehouseazure-sql-databasesql-server"></a>Azure Synapse Analytics (anteriormente SQL Data Warehouse)/Azure SQL Database/SQL Server
+## <a name="azure-synapse-analyticsazure-sql-databasesql-server"></a>Azure Synapse Analytics/Azure SQL Database/SQL Server
 
 ### <a name="error-code--sqlfailedtoconnect"></a>Código de erro: SqlFailedToConnect
 
@@ -488,7 +488,28 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 
 - **Recomendação:** Reencaúndio do gasoduto. Se continuar a falhar, tente reduzir o paralelismo. Se ainda falhar, contacte o suporte da dinâmica.
 
+## <a name="excel-format"></a>Formato Excel
 
+### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Tempo limite ou desempenho lento ao analisar grande ficheiro Excel
+
+- **Sintomas:**
+
+    1. Quando criar o conjunto de dados do Excel e importar esquemas a partir de ligação/loja, dados de pré-visualização, lista ou atualização de folhas de cálculo, poderá atingir um erro de tempo limite se o ficheiro excel for grande em tamanho.
+    2. Quando utilizar a atividade de cópia para copiar dados de um grande ficheiro Excel (>= 100MB) para outras lojas de dados, poderá experimentar um desempenho lento ou um problema OOM.
+
+- **Causa:** 
+
+    1. Para operações como a importação de esquemas, pré-visualização de dados e listagem de folhas de cálculo no conjunto de dados excel, o tempo limite é de 100 e estático. Para um grande ficheiro Excel, estas operações podem não terminar dentro do valor de tempo limite.
+
+    2. A atividade de cópia ADF lê toda a memória do ficheiro Excel e depois localiza a folha de cálculo e as células especificadas para ler dados. Este comportamento deve-se às utilizações subjacentes da SDK ADF.
+
+- **Resolução:** 
+
+    1. Para importar esquemas, pode gerar um ficheiro de amostra menor, que é um subconjunto de ficheiro original, e escolher "esquema de importação a partir de ficheiro de amostra" em vez de "esquema de importação de conexão/loja".
+
+    2. Para a listagem do ponto de trabalho, no dropdown da folha de cálculo, pode clicar em "Editar" e inserir o nome/índice da folha.
+
+    3. Para copiar um grande ficheiro excel (>100MB) noutra loja, pode utilizar a fonte Do Fluxo de Dados excel que o streaming desportivo lê e executa melhor.
 
 ## <a name="json-format"></a>Formato JSON
 
@@ -710,7 +731,7 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 - **Mensagem:**`Invalid 'ordinal' property for sink column under 'mappings' property. Ordinal: %Ordinal;.`
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais ajuda para resolver problemas, experimente estes recursos:
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: alkohli
-ms.openlocfilehash: c34240f55c091583cfed8c8fe966ae272d1fb453
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8bb07827d26efce3ab3454f370afb116ba13eb19
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467877"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533813"
 ---
 # <a name="deployment-checklist-for-your-azure-stack-edge-mini-r-device"></a>Lista de verificação de implementação para o seu dispositivo Azure Stack Edge Mini R  
 
@@ -41,7 +41,7 @@ Utilize a seguinte lista de verificação para garantir que tem estas informaç�
 | Ativação  | Requerer a chave de ativação a partir do recurso Azure Stack Edge.    | Uma vez gerada, a chave expira em 3 dias. |
 
 <!--
-| (Optional) MAC Address            | If MAC address needs to be whitelisted, get the address of the connected port from local UI of the device. |                                                                                                                   |
+| (Optional) MAC Address            | If MAC address needs to be approved, get the address of the connected port from local UI of the device. |                                                                                                                   |
 | (Optional) Network switch port    | Device hosts Hyper-V VMs for compute. Some network switch port configurations don’t accommodate these setups by default.                                                                                                        |                                                                                                                   |-->
 
 

@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 5/11/2020
-ms.openlocfilehash: 3a08b73a74d30a99ba3c360f012d5917f1d0c8bf
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 12/2/2020
+ms.openlocfilehash: 2cfd391daa13a100a56bb10b79b27eda80902374
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129733"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533617"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utilização de dados de referência para procuras no Stream Analytics
 
@@ -111,13 +111,13 @@ Pode utilizar [a Azure SQL Managed Instance](../azure-sql/managed-instance/sql-m
 
 ## <a name="size-limitation"></a>Limitação de tamanho
 
-Recomenda-se a utilização de conjuntos de dados de referência inferiores a 300 MB para melhor desempenho. A utilização de dados de referência superiores a 300 MB é suportada em postos de trabalho com 6 SUs ou mais. Esta funcionalidade encontra-se em pré-visualização e não deve ser utilizada na produção. A utilização de dados de referência muito grandes pode ter impacto no desempenho do seu trabalho. À medida que a complexidade da consulta aumenta para incluir o processamento declarado, como agregados encadernados, juntas temporais e funções analíticas temporais, espera-se que o tamanho máximo suportado dos dados de referência diminua. Se o Azure Stream Analytics não conseguir carregar os dados de referência e realizar operações complexas, o trabalho ficará sem memória e falhará. Nesses casos, a métrica de utilização de SU % chegará a 100%.    
+Recomenda-se a utilização de conjuntos de dados de referência inferiores a 300 MB para melhor desempenho. Os conjuntos de dados de referência 5 GB ou inferior são suportados em empregos com 6 SUs ou mais. A utilização de dados de referência muito grandes pode ter impacto na latência do seu trabalho. À medida que a complexidade da consulta aumenta para incluir o processamento declarado, como agregados encadernados, juntas temporais e funções analíticas temporais, espera-se que o tamanho máximo suportado dos dados de referência diminua. Se o Azure Stream Analytics não conseguir carregar os dados de referência e realizar operações complexas, o trabalho ficará sem memória e falhará. Nesses casos, a métrica de utilização de SU % chegará a 100%.    
 
 |**Número de unidades de streaming**  |**Tamanho recomendado**  |
 |---------|---------|
 |1   |50 MB ou inferior   |
 |3   |150 MB ou inferior   |
-|6 e mais além   |300 MB ou inferior. A utilização de dados de referência superiores a 300 MB é suportada na pré-visualização e pode ter impacto no desempenho do seu trabalho.    |
+|6 e mais além   |5 GB ou inferior.    |
 
 O suporte à compressão não está disponível para dados de referência.
 
