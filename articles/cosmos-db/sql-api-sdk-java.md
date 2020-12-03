@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 87ff11c33c909c7398ebced54ec81907dab2d991
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0b48b8d954b132caab96e5978c90687899ea04c2
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080537"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549230"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para API SQL: Lançar notas e recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "93080537"
 Este é o Azure Cosmos DB Sync Java SDK v2 para a SQL API que suporta operações sincronizadas.
 
 > [!IMPORTANT]  
-> Este *não* é o mais recente Java SDK para Azure Cosmos DB! Considere usar [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) para o seu projeto. Para atualizar, siga as instruções no [guia Migrador para Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) e o guia [Reator vs RxJava.](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) 
+> Este *não* é o mais recente Java SDK para Azure Cosmos DB! Considere usar [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) para o seu projeto. Para atualizar, siga as instruções no [guia Migrador para Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) e o guia [Reator vs RxJava.](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) 
 >
 
 | |  |
@@ -175,7 +175,7 @@ Este é o Azure Cosmos DB Sync Java SDK v2 para a SQL API que suporta operaçõe
 * Corrigiu alguns bugs no recipiente de sessão que podem causar uma exceção "Recurso proprietário não encontrado" para pedidos imediatamente após a criação da recolha.
 
 ### <a name="195"></a><a name="1.9.5"></a>1.9.5
-* Suporte adicional para consultas de agregação (COUNT, MIN, MAX, SUM e AVG). Consulte [o suporte de agregação](sql-query-aggregates.md).
+* Suporte adicional para consultas de agregação (COUNT, MIN, MAX, SUM e AVG). Consulte [o suporte de agregação](sql-query-aggregate-functions.md).
 * Apoio adicional para o feed de mudança.
 * Apoio adicional para informações de quotas de recolha através de RequestOptions.setPopulateQuotaInfo.
 * Suporte adicionado para script de procedimento armazenado registando através de RequestOptions.setScriptLoggingEnabled.
