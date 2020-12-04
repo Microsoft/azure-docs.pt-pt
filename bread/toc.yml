@@ -464,6 +464,9 @@
         - name: Transferência online do Data Box
           tocHref: /azure/databox-online/
           topicHref: /azure/databox-online/
+        - name: Data Box Gateway
+          tocHref: /azure/databox-gateway/
+          topicHref: /azure/databox-gateway/
     - name: Catálogo de Dados
       tocHref: /azure/data-catalog/
       topicHref: /azure/data-catalog/
@@ -908,3 +911,6 @@
         - name: Reservas
           tocHref: /azure/cost-management-billing/reservations/
           topicHref: /azure/cost-management-billing/reservations/
+    - name: Competência
+      tocHref: /azure/purview/
+      topicHref: /azure/purview/
