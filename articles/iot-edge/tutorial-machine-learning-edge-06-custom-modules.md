@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 199da0586a061bccdf8a6ff8a1f53df2f703512f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2c7503cf51ab74dc486f83de8033bfe4850a8c68
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959446"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575062"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: Criar e implementar módulos IoT Edge personalizados
 
@@ -804,6 +804,10 @@ Ao iniciar sessão no dispositivo IoT Edge (o Linux VM no nosso caso), pode obte
    ```bash
    sudo docker exec -it avroFileWriter bash
    ```
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Este tutorial faz parte de um conjunto onde cada artigo baseia-se no trabalho feito nos anteriores. Por favor, espere para limpar todos os recursos até completar o tutorial final.
 
 ## <a name="next-steps"></a>Passos seguintes
 

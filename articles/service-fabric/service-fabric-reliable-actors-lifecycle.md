@@ -1,17 +1,15 @@
 ---
 title: Visão geral do ciclo de vida do ator do Azure Service Fabric
 description: Explica o ciclo de vida fiável do ator de tecido de serviço, a recolha de lixo e a eliminação manual dos atores e do seu estado
-author: amanbha
 ms.topic: conceptual
 ms.date: 10/06/2017
-ms.author: amanbha
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3cea6213b2c6f2797d46f865afe1e13cbf4aaff6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88db4bb2376cbc418d6954e274a18a6c18a280d1
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016704"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576048"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo de vida do ator, recolha automática de lixo e eliminação manual
 Um ator é ativado na primeira vez que uma chamada é feita para qualquer um dos seus métodos. Um ator é desativado (lixo recolhido pelos atores em tempo de execução) se não for utilizado por um período de tempo configurável. Um ator e o seu estado também podem ser apagados manualmente a qualquer momento.

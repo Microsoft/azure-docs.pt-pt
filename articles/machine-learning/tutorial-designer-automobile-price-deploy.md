@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: designer
-ms.openlocfilehash: 28358db2e538867957fcc8d4984cf1c028f9ab2c
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 14be695f2f58b9738af11a3d2ca3f06592a1cc6e
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030374"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575963"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implementar um modelo de machine learning com o designer
 
@@ -117,13 +117,13 @@ Após o fim da implementação, pode ver o seu ponto de chegada em tempo real in
 
 Para obter mais informações sobre o consumo do seu serviço web, consulte [Consumir um modelo implementado como um webservice](how-to-consume-web-service.md)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu os passos-chave na forma de criar, implementar e consumir um modelo de aprendizagem automática no designer. Para saber mais sobre como pode usar o designer para resolver outros tipos de problemas, consulte os outros pipelines de amostras.
+Neste tutorial, aprendeu os passos-chave na forma de criar, implementar e consumir um modelo de aprendizagem automática no designer. Para saber mais sobre como pode usar o designer veja os seguintes links:
 
-> [!div class="nextstepaction"]
-> [Amostras de designers](samples-designer.md)
++ [Amostras de](samples-designer.md)design : Aprenda a usar o designer para resolver outros tipos de problemas.
++ [Utilize o estúdio Azure Machine Learning numa rede virtual Azure](how-to-enable-studio-virtual-network.md).

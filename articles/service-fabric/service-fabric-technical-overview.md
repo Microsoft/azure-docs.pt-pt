@@ -5,13 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: masnider
-ms.custom: sfrev
-ms.openlocfilehash: 7b2f1a170a792e0b4d069258264407c121dab3ae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2ac4b81a284ed8c38bc9cefccd08db5afa51d600
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018839"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575946"
 ---
 # <a name="service-fabric-terminology-overview"></a>Visão geral da terminologia do tecido de serviço
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 27cf5fef027b1e4786c0ff77f9f673bafea15f98
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9ef585d83c0606bedaf4c0a05c6c87fd52423b9a
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487274"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575538"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte linguístico e de voz para o serviço de fala
 
@@ -36,17 +36,19 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Linguagem                          | Local (BCP-47) | Personalizações                                   |
+| Idioma                          | Local (BCP-47) | Personalizações                                   |
 |-----------------------------------|--------|--------------------------------------------------|
 |Árabe (Bahrein), padrão moderno  |`ar-BH` | Modelo de linguagem                                   |
 |Árabe (Egito)                     |`ar-EG` | Modelo de linguagem                                   |
 |Árabe (Iraque)                      |`ar-IQ` | Modelo de linguagem                                   |
+|Árabe (Israel)                              |`ar-IL` | Modelo de linguagem                                                   |
 |Árabe (Jordânia)                    |`ar-JO` | Modelo de linguagem                                   |
 |Árabe (Kuwait)                    |`ar-KW` | Modelo de linguagem                                   |
 |Árabe (Líbano)                   |`ar-LB` | Modelo de linguagem                                   |
 |Árabe (Omã)                      |`ar-OM` | Modelo de linguagem                                   |
 |Árabe (Qatar)                     |`ar-QA` | Modelo de linguagem                                   |
 |Árabe (Arábia Saudita)              |`ar-SA` | Modelo de linguagem                                   |
+|Árabe (Estado da Palestina)            |`ar-PS` | Modelo de linguagem                                   |
 |Árabe (Síria)                     |`ar-SY` | Modelo de linguagem                                   |
 |Árabe (Emirados Árabes Unidos)      |`ar-AE` | Modelo de linguagem                                   |
 |Búlgaro (Bulgária)               |`bg-BG` | Modelo de linguagem                                   |
@@ -64,6 +66,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |Inglês (Índia)                    |`en-IN` | Modelo acústico<br>Modelo de linguagem                 |
 |Inglês (Irlanda)                  |`en-IE` | Modelo de linguagem                                   |
 |Inglês (Nova Zelândia)              |`en-NZ` | Modelo acústico<br>Modelo de linguagem                 |
+|Inglês (Nigéria)                          |`en-NG` | Modelo de linguagem                                                     |
 |Inglês (Filipinas)              |`en-PH` | Modelo de linguagem                                   |
 |Inglês (Singapura)                |`en-SG` | Modelo de linguagem                                   |
 |Inglês (África do Sul)             |`en-ZA` | Modelo de linguagem                                   |
@@ -103,6 +106,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |Espanhol (República Dominicana)       |`es-DO` | Modelo de linguagem                                   |
 |Espanhol (Equador)                  |`es-EC` | Modelo de linguagem                                   |
 |Espanhol (El Salvador)              |`es-SV` | Modelo de linguagem                                   |
+|Espanhol (Guiné Equatorial)            |`es-GQ` | Modelo de linguagem                                   |
 |Espanhol (Guatemala)                |`es-GT` | Modelo de linguagem                                   |
 |Espanhol (Honduras)                 |`es-HN` | Modelo de linguagem                                   |
 |Espanhol (México)                   |`es-MX` | Modelo acústico<br>Modelo de linguagem                 |
@@ -134,7 +138,7 @@ O texto-a-discurso neural é um novo tipo de síntese da fala alimentada por red
 
 As vozes neurais podem ser usadas para tornar as interações com chatbots e assistentes de voz mais naturais e envolventes, converter textos digitais como e-books em audiolivros e melhorar os sistemas de navegação no carro. Com a prosódia natural humana e a clara articulação das palavras, as vozes neurais reduzem significativamente a fadiga auditiva quando os utilizadores interagem com os sistemas de IA.
 
-| Linguagem | Região | Sexo | Nome de voz | Suporte de estilo |
+| Idioma | Região | Sexo | Nome de voz | Suporte de estilo |
 |---|---|---|---|---|
 | Árabe (Egito) | `ar-EG` | Mulheres | `ar-EG-SalmaNeural` | Geral |
 | Árabe (Arábia Saudita) | `ar-SA` | Mulheres | `ar-SA-ZariyahNeural` | Geral |
@@ -209,7 +213,7 @@ As vozes neurais podem ser usadas para tornar as interações com chatbots e ass
 
 Abaixo as vozes neurais estão na pré-visualização pública. 
 
-| Linguagem                         | Região  | Sexo | Nome de voz                             | Suporte de estilo |
+| Idioma                         | Região  | Sexo | Nome de voz                             | Suporte de estilo |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
 | Chinês (Mandarim, Simplificado) | `zh-CN` | Homens   | `zh-CN-YunxiNeural` <sup>Novo</sup> | Geral, vários estilos disponíveis [usando SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinês (Mandarim, Simplificado) | `zh-CN` | Mulheres | `zh-CN-XiaohanNeural` <sup>Novo</sup> | Geral, vários estilos disponíveis [usando SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
@@ -239,7 +243,7 @@ Para aprender como pode configurar e ajustar vozes neurais, tais como Estilos de
 
 Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, que permitem converter texto em discurso sintetizado. Para obter mais informações sobre a disponibilidade regional, consulte [as regiões.](regions.md#standard-and-neural-voices)
 
-| Linguagem | Local (BCP-47) | Sexo | Nome de voz |
+| Idioma | Local (BCP-47) | Sexo | Nome de voz |
 |--|--|--|--|
 | Árabe (árabe) | `ar-EG` | Mulheres | `ar-EG-Hoda`|
 | Árabe (Arábia Saudita) | `ar-SA` | Homens | `ar-SA-Naayf`|
@@ -416,7 +420,7 @@ A API **de Tradução de Discursos** apoia diferentes línguas para a tradução
 
 Consulte a tabela seguinte para as línguas suportadas para as várias APIs de reconhecimento de altifalantes. Consulte a [visão geral](speaker-recognition-overview.md) para obter informações adicionais sobre o reconhecimento de colunas.
 
-| Linguagem | Local (BCP-47) | Verificação dependente de texto | Verificação independente de texto | Identificação independente de texto |
+| Idioma | Local (BCP-47) | Verificação dependente de texto | Verificação independente de texto | Identificação independente de texto |
 |----|----|----|----|----|
 |Inglês (E.U.A.)  |  en-PT  |  sim  |  sim  |  sim |
 |Chinês (mandarim, simplificado) | zh-CN     |     n/a |     sim |     sim|

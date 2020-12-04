@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperfq2
-ms.openlocfilehash: 514f2e9a82a50f95f9c054c6a54e7b5af3c0af15
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a312c0ff255df4545181755ae6accd0d7dfb13a2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96167782"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574858"
 ---
 # <a name="introduction-to-azure-functions"></a>Introdução às Funções do Azure
 
@@ -43,7 +43,7 @@ Os seguintes são um conjunto comum, _mas de forma alguma exaustivo,_ de cenári
 | **Executar tarefas programadas** | Execute o código em [horários definidos](./functions-bindings-timer.md) |
 | **Criar sistemas de fila de mensagens fiáveis** | Processar filas de mensagens usando [armazenamento de fila,](./functions-bindings-storage-queue.md) [ônibus de serviço](./functions-bindings-service-bus.md)ou centros de [eventos](./functions-bindings-event-hubs.md) |
 | **Analisar fluxos de dados IoT** | Recolher e processar [dados de dispositivos IoT](./functions-bindings-event-iot.md) |
-| **Processar dados em tempo real** | Utilizar [Funções e Sinal R](./functions-bindings-signalr-service.md) para responder aos dados no momento |
+| **Processar dados em tempo real** | Utilizar [Funções e SignalR](./functions-bindings-signalr-service.md) para responder aos dados no momento |
 
 À medida que constrói as suas funções, tem as seguintes opções e recursos disponíveis:
 

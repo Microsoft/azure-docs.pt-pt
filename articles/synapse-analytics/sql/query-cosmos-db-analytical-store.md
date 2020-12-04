@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 439337233e24dfcae2c8c911a9224fd3394d6846
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a7e9cdb18d109abeef7d7d7237444ac55f9e7da1
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462690"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576354"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Dados DB de consulta Azure Cosmos com uma piscina SQL sem servidor em Azure Synapse Link Preview
 
@@ -33,6 +33,12 @@ Neste artigo, você aprenderá a escrever uma consulta com uma piscina SQL sem s
 
 ## <a name="overview"></a>Descrição geral
 
+O pool SQL sem servidor permite-lhe consultar o armazenamento analítico Azure Cosmos DB utilizando `OPENROWSET` a função. 
+- `OPENROWSET` com chave em linha. Esta sintaxe pode ser usada para consultar coleções DB Azure Cosmos sem necessidade de preparar credenciais.
+- `OPENROWSET` que a credencial referenciada que contém a chave da conta Cosmos DB. Esta sintaxe pode ser usada para criar vistas sobre coleções DB Azure Cosmos.
+
+### <a name="openrowset-with-key"></a>[OPENROWSET com chave](#tab/openrowset-key)
+
 Para suportar a consulta e análise de dados numa loja analítica Azure Cosmos DB, um pool SQL sem servidor utiliza a seguinte `OPENROWSET` sintaxe:
 
 ```sql
@@ -45,17 +51,39 @@ OPENROWSET(
 
 A cadeia de conexão DB Azure Cosmos especifica o nome da conta DB Azure Cosmos, nome da base de dados, chave principal de conta de base de dados e um nome de região opcional para a `OPENROWSET` função.
 
-> [!IMPORTANT]
-> Certifique-se de que está a utilizar alguma colagem de base de dados UTF-8, por exemplo, `Latin1_General_100_CI_AS_SC_UTF8` porque os valores de cadeia numa loja analítica Azure Cosmos DB estão codificados como texto UTF-8.
-> Um desfasamento entre codificação de texto no ficheiro e colagem pode causar erros inesperados de conversão de texto.
-> Pode alterar facilmente a colagem predefinida da base de dados atual utilizando a declaração T-SQL `alter database current collate Latin1_General_100_CI_AI_SC_UTF8` .
-
 A cadeia de ligação tem o seguinte formato:
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>;key=<database account master key>'
 ```
 
 O nome do recipiente DB Azure Cosmos é especificado sem aspas na `OPENROWSET` sintaxe. Se o nome do recipiente tiver caracteres especiais, por exemplo, um traço (-), o nome deve ser embrulhado dentro de suportes quadrados `[]` () na `OPENROWSET` sintaxe.
+
+### <a name="openrowset-with-credential"></a>[OPENROWSET com credencial](#tab/openrowset-credential)
+
+Pode utilizar `OPENROWSET` a sintaxe que referencia a credencial:
+
+```sql
+OPENROWSET( 
+       PROVIDER = 'CosmosDB',
+       CONNECTION = '<Azure Cosmos DB connection string without account key>',
+       OBJECT = '<Container name>',
+       [ CREDENTIAL | SERVER_CREDENTIAL ] = '<credential name>'
+    )  [ < with clause > ] AS alias
+```
+
+A cadeia de ligação Azure Cosmos DB não contém chave neste caso. A cadeia de ligação tem o seguinte formato:
+```sql
+'account=<database account name>;database=<database name>;region=<region name>'
+```
+
+A chave principal da conta de base de dados é colocada na credencial credencial de nível de servidor ou na base de dados. 
+
+---
+
+> [!IMPORTANT]
+> Certifique-se de que está a utilizar alguma colagem de base de dados UTF-8, por exemplo, `Latin1_General_100_CI_AS_SC_UTF8` porque os valores de cadeia numa loja analítica Azure Cosmos DB estão codificados como texto UTF-8.
+> Um desfasamento entre codificação de texto no ficheiro e colagem pode causar erros inesperados de conversão de texto.
+> Pode alterar facilmente a colagem predefinida da base de dados atual utilizando a declaração T-SQL `alter database current collate Latin1_General_100_CI_AI_SC_UTF8` .
 
 > [!NOTE]
 > Uma piscina SQL sem servidor não suporta consultar uma loja de transações Azure Cosmos DB.
@@ -76,6 +104,9 @@ Para acompanhar este artigo mostrando como consultar os dados DB da Azure Cosmos
 
 A forma mais fácil de explorar dados em Azure Cosmos DB é utilizando a capacidade de inferência automática de esquemas. Ao omitir a `WITH` cláusula da `OPENROWSET` declaração, pode instruir a piscina SQL sem servidor para autodetectar (inferir) o esquema da loja analítica do contentor DB Azure Cosmos.
 
+
+### <a name="openrowset-with-key"></a>[OPENROWSET com chave](#tab/openrowset-key)
+
 ```sql
 SELECT TOP 10 *
 FROM OPENROWSET( 
@@ -83,6 +114,25 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
+
+### <a name="openrowset-with-credential"></a>[OPENROWSET com credencial](#tab/openrowset-credential)
+
+```sql
+/*  Setup - create server-level or database scoped credential with Azure Cosmos DB account key:
+    CREATE CREDENTIAL MyCosmosDbAccountCredential
+    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+*/
+SELECT TOP 10 *
+FROM OPENROWSET(
+      PROVIDER = 'CosmosDB',
+      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
+      OBJECT = 'EcdcCases',
+      SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
+    ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
+```
+
+---
+
 No exemplo anterior, instruímos a piscina SQL sem servidor para ligar à `covid` base de dados na conta DB Azure Cosmos `MyCosmosDbAccount` autenticada utilizando a tecla DB Azure Cosmos (o boneco no exemplo anterior). Acedemos então à `EcdcCases` loja analítica do contentor na `West US 2` região. Uma vez que não há projeção de propriedades específicas, a `OPENROWSET` função irá devolver todas as propriedades dos itens DB do Azure Cosmos.
 
 Assumindo que os itens no contentor Azure Cosmos DB `date_rep` `cases` têm, e `geo_id` propriedades, os resultados desta consulta são mostrados na tabela seguinte:
@@ -119,6 +169,7 @@ Imaginemos que importámos alguns dados do conjunto de dados do [ECDC COVID](htt
 
 Estes documentos JSON planos em Azure Cosmos DB podem ser representados como um conjunto de linhas e colunas em Synapse SQL. A `OPENROWSET` função permite especificar um subconjunto de propriedades que pretende ler e os tipos exatos de colunas na `WITH` cláusula:
 
+### <a name="openrowset-with-key"></a>[OPENROWSET com chave](#tab/openrowset-key)
 ```sql
 SELECT TOP 10 *
 FROM OPENROWSET(
@@ -127,7 +178,21 @@ FROM OPENROWSET(
        EcdcCases
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
-
+### <a name="openrowset-with-credential"></a>[OPENROWSET com credencial](#tab/openrowset-credential)
+```sql
+/*  Setup - create server-level or database scoped credential with Azure Cosmos DB account key:
+    CREATE CREDENTIAL MyCosmosDbAccountCredential
+    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+*/
+SELECT TOP 10 *
+FROM OPENROWSET(
+      PROVIDER = 'CosmosDB',
+      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
+      OBJECT = 'EcdcCases',
+      SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
+    ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
+```
+---
 O resultado desta consulta pode parecer a seguinte tabela:
 
 | date_rep | casos | geo_id |
@@ -137,6 +202,26 @@ O resultado desta consulta pode parecer a seguinte tabela:
 | 2020-08-11 | 163 | RS |
 
 Para obter mais informações sobre os tipos DE SQL que devem ser usados para valores DB Azure Cosmos, consulte as [regras para mapeamentos de tipo SQL](#azure-cosmos-db-to-sql-type-mappings) no final do artigo.
+
+## <a name="create-view"></a>Criar vista
+
+Assim que identificar o esquema, pode preparar uma vista em cima dos seus dados DB Azure Cosmos. Deve colocar a sua chave de conta DB Azure Cosmos numa credencial separada e fazer referência a esta credencial da `OPENROWSET` função. Não guarde a chave da sua conta na definição de visualização.
+
+```sql
+CREATE CREDENTIAL MyCosmosDbAccountCredential
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+GO
+CREATE OR ALTER VIEW EcdcCases
+AS SELECT *
+FROM OPENROWSET(
+      PROVIDER = 'CosmosDB',
+      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
+      OBJECT = 'EcdcCases',
+      SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
+    ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
+```
+
+Não utilize `OPENROWSET` sem esquemas explicitamente definidos porque pode ter impacto no seu desempenho. Certifique-se de que utiliza os tamanhos mais pequenos possíveis para as suas colunas (por exemplo VARCHAR(100) em vez de VARCHAR predefinido (8000)). Deve utilizar uma colagem UTF-8 como colagem de base de dados predefinida ou defini-la como uma combinação explícita de colunas para evitar a [emissão de conversão UTF-8](/troubleshoot/reading-utf8-text). A colisão `Latin1_General_100_BIN2_UTF8` proporciona o melhor desempenho quando os dados do filtro yu utilizam algumas colunas de cordas.
 
 ## <a name="query-nested-objects-and-arrays"></a>Consulta objetos aninhados e matrizes
 
@@ -265,7 +350,7 @@ As contas DB da Azure Cosmos de SQL (Core) suportam tipos de propriedade JSON de
 | Booleano | bit |
 | Número inteiro | bigint |
 | Decimal | float |
-| String | varchar (colagem de base de dados UTF-8) |
+| Cadeia | varchar (colagem de base de dados UTF-8) |
 | Data (cadeia formatada pela ISO) | varchar(30) |
 | Data (relógio UNIX) | bigint |
 | Nulo | `any SQL type` 

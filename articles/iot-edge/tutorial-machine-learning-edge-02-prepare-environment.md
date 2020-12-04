@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f261db8d40e1a1cc1737ff6a3f5c50da661b73e6
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: f9471b6b465b63f48feb3bda82e7827308aae945
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433482"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575403"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Criar um ambiente para aprendizagem automática em IoT Edge
 
@@ -209,6 +209,10 @@ Como parte da criação do hub IoT, o script que fizemos na secção anterior ta
 1. Veja a **consulta de encaminhamento,** que está definida como **verdadeira.** Esta definição significa que todas as mensagens de telemetria do dispositivo corresponderão a esta rota; e, portanto, todas as mensagens serão enviadas para o ponto final **turbofanDeviceStorage.**
 
 1. Como não foram feitas edições, fecha esta página.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Este tutorial faz parte de um conjunto onde cada artigo baseia-se no trabalho feito nos anteriores. Por favor, espere para limpar todos os recursos até completar o tutorial final.
 
 ## <a name="next-steps"></a>Passos seguintes
 

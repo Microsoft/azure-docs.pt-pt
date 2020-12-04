@@ -2,13 +2,13 @@
 title: Filtragem de eventos para Azure Event Grid
 description: Descreve como filtrar eventos ao criar uma subscrição da Azure Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 837209d4197c271598155776b8d171a705e1f454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/03/2020
+ms.openlocfilehash: bc3e84037693fcd909961ba409871d947ef1de7d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120097"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574911"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Compreender a filtragem do evento para subscrições de Grade de Eventos
 
@@ -72,7 +72,7 @@ Se especificar um único filtro com vários valores, é efetuada uma operação 
 ]
 ```
 
-Se especificar vários filtros diferentes, é efetuada uma operação **E,** pelo que cada condição do filtro deve ser satisfeita. Segue-se um exemplo: 
+Se especificar vários filtros diferentes, é feita uma operação **E,** pelo que cada condição do filtro deve ser satisfeita. Eis um exemplo: 
 
 ```json
 "advancedFilters": [
@@ -117,6 +117,23 @@ Os operadores disponíveis para **cordas** são:
 
 Todas as comparações de cordas **não** são sensíveis a casos.
 
+> [!NOTE]
+> Se o evento JSON não contiver a chave de filtro avançada, o filtro é evalado como **não corresponde aos** seguintes operadores: 
+> - NúmeroGreaterThan
+> - NúmeroGreaterThanOrEquals
+> - NúmeroSLessTh
+> - NumberLessThanOrEquals
+> - NúmeroIn
+> - BoolEquals
+> - CordasContains
+> - StringBeginsWith
+> - StringEndsWith
+> - StringIn
+> 
+>O filtro é evaulado conforme **combinado** com os seguintes operadores:
+> - NúmeroNotIn
+> - StringNotIn
+
 ### <a name="key"></a>Chave
 
 Para eventos no esquema da Grelha de Eventos, utilize os seguintes valores para a chave:
@@ -154,7 +171,7 @@ A filtragem avançada tem as seguintes limitações:
 * 5 filtros avançados e 25 valores de filtro em todos os filtros por subscrição da grelha de evento
 * 512 caracteres por valor de corda
 * Cinco valores para **dentro** e **não nos** operadores
-* Chaves com ** `.` (ponto)** caráter neles. Por exemplo: `http://schemas.microsoft.com/claims/authnclassreference` ou `john.doe@contoso.com` . . Atualmente, não há suporte para caracteres de fuga em teclas. 
+* Chaves com **`.` (ponto)** caráter neles. Por exemplo: `http://schemas.microsoft.com/claims/authnclassreference` ou `john.doe@contoso.com` . . Atualmente, não há suporte para personagens de fuga em teclas. 
 
 A mesma chave pode ser utilizada em mais de um filtro.
 

@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 57948cf705d2a58b4f8e19e56121115ba33362ad
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: a427c77ec23bb933f96d8aec54ca33169aee84d4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518639"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576031"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Azure Synapse Analytics frequentemente fez perguntas
 
@@ -83,7 +83,7 @@ A: Não neste momento.
 
 ### <a name="q-how-do-i-migrate-existing-pipelines-from-azure-data-factory-to-an-azure-synapse-workspace"></a>P: Como posso migrar os oleodutos existentes da Azure Data Factory para um espaço de trabalho Azure Synapse?
 
-R: Neste momento, deve recriar manualmente os seus oleodutos Azure Data Factory e artefactos relacionados manualmente. 
+R: Neste momento, deve recriar manualmente os seus oleodutos Azure Data Factory e artefactos conexos exportando o JSON do oleoduto original e importando-o para o seu espaço de trabalho da Sinapse.
 
 ## <a name="apache-spark"></a>Apache Spark
 
@@ -146,6 +146,6 @@ R: Pode encontrar uma lista completa de diferenças nas [diferenças de caracter
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Começa com o Azure Synapse Analytics](get-started.md)
+* [Introdução ao Azure Synapse Analytics](get-started.md)
 * [Criar uma área de trabalho](quickstart-create-workspace.md)
 * [Utilizar conjunto de SQL sem servidor](quickstart-sql-on-demand.md)

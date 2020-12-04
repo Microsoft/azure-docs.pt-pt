@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: ea12bf8a8d93f14c5364864b97d1173fe8602765
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 00f72e1de230cdc68f86010b7b25d86debaa5eb5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554428"
+ms.locfileid: "96575793"
 ---
 # <a name="scan-insights-on-your-data-in-azure-purview"></a>Digitalize informações sobre os seus dados em Azure Purview
 
@@ -20,8 +20,9 @@ Este guia de como aceder, visualizar e filtrar relatórios de insight de verific
 
 Neste guia de como guiar, aprenderá a:
 
-* Veja as informações da sua conta Desídua.
-* Veja os seus exames.
+> [!div class="checklist"]
+> * Veja as informações da sua conta Desídua.
+> * Veja os seus exames.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

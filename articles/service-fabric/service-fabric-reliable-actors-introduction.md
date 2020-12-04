@@ -1,17 +1,15 @@
 ---
 title: Visão geral dos atores fiáveis do tecido de serviço
 description: Introdução ao modelo de programação de Atores Fidedigstão do Tecido de Serviço, baseado no padrão de Ator Virtual.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: adb15d995cd2a9fd604aa6b91360adc88a2804e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a8a7003a69deaf6b74d6fbb8a3cf84b0a78eecf
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89007932"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576388"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Introdução a atores fiáveis de tecido de serviço
 Reliable Actors é uma estrutura de aplicação de tecido de serviço baseada no padrão [de ator virtual.](https://research.microsoft.com/en-us/projects/orleans/) A API de API de Atores Fidedignos fornece um modelo de programação de fio único baseado nas garantias de escalabilidade e fiabilidade fornecidas pela Service Fabric.

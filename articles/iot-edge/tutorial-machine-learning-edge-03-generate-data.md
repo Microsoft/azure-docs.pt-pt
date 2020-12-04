@@ -8,12 +8,12 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ef6e86bbb55a2c51779f2dcf60f802ce549516cb
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 4ac7f300fa88d57efe65c6d79645d4e75ca7edd9
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959684"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575487"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Tutorial: Gerar dados simulados do dispositivo
 
@@ -157,6 +157,10 @@ Os dados que acabámos de enviar para o seu hub IoT foram encaminhados para o co
 1. Os ficheiros estão escritos no formato [Avro.](https://avro.apache.org/) Clique duas vezes num destes ficheiros para abrir outro separador de navegador e render parcialmente os dados. Se for solicitado a abrir o ficheiro num programa, pode escolher o Código VS e renderizar-se-á corretamente.
 
 1. Não há necessidade de tentar ler ou interpretar os dados neste momento; vamos fazê-lo no próximo artigo.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Este tutorial faz parte de um conjunto onde cada artigo baseia-se no trabalho feito nos anteriores. Por favor, espere para limpar todos os recursos até completar o tutorial final.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,16 +1,14 @@
 ---
 title: Gerir aplicações no Visual Studio
 description: Utilize o Visual Studio para criar, desenvolver, embalar, implementar e depurar as suas aplicações e serviços de Tecido de Serviço Azure.
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: mikhegn
-ms.openlocfilehash: d6734f5da0fb7e5c9052b26b55b2d90b068bdbbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fd9295a0dead180767febcc5339ef0a25cb1e48
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75614337"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574552"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Utilize o Visual Studio para simplificar a escrita e gerir as suas aplicações de Tecido de Serviço
 Pode gerir as suas aplicações e serviços Azure Service Fabric através do Visual Studio. Uma vez [configurado o seu ambiente de desenvolvimento,](service-fabric-get-started.md)pode utilizar o Visual Studio para criar aplicações de Tecido de Serviço, adicionar serviços ou pacotes, registar e implementar aplicações no seu cluster de desenvolvimento local.

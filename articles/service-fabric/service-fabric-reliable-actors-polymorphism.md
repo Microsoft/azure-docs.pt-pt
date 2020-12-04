@@ -1,17 +1,15 @@
 ---
 title: Polimorfismo no quadro de atores fiáveis
 description: Construa hierarquias de interfaces e tipos .NET no quadro de Atores Fidedignos para reutilizar as definições de funcionalidade e API.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7552609fc4c85cdd5033e67b1bab7fb58cb6ebf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 568e306979e862c325264a4e12a64d95e6d13c5f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016568"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575997"
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Polimorfismo no quadro de atores fiáveis
 A estrutura de Atores Fidedigtos permite-lhe construir atores usando muitas das mesmas técnicas que usaria no design orientado para objetos. Uma dessas técnicas é o polimorfismo, que permite que tipos e interfaces herdem de pais mais generalizados. A herança no quadro de Atores Fiáveis segue geralmente o modelo .NET com alguns constrangimentos adicionais. No caso de Java/Linux, segue o modelo Java.

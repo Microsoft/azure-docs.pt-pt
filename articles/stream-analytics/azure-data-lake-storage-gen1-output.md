@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 59b4a04231df3b93b093750cc6c9d70982a418a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 688cd7c2e54a6b4c6b5a11705e10c33604324f09
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665349"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576286"
 ---
 # <a name="azure-data-lake-storage-gen-1-output-from-azure-stream-analytics"></a>Azure Data Lake Storage Gen 1 produção da Azure Stream Analytics
 
@@ -36,7 +36,7 @@ A tabela que se segue lista os nomes das propriedades e as suas descrições par
 | Encoding | Se estiver a utilizar o formato CSV ou JSON, deve ser especificado um codificamento. UTF-8 é o único formato de codificação suportado neste momento.|
 | Delimitador | Aplicável apenas para serialização de CSV. Stream Analytics suporta uma série de delimiters comuns para serializar dados de CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical.|
 | Formato | Aplicável apenas para serialização JSON. **A linha separada** especifica que a saída é formatada por cada objeto JSON separado por uma nova linha. Se selecionar **linha separada,** o JSON é lido um objeto de cada vez. Todo o conteúdo por si só não seria um JSON válido.  **A matriz** especifica que a saída é formatada como uma matriz de objetos JSON. Esta matriz só é fechada quando o trabalho parar ou stream Analytics passou para a janela da próxima vez. Em geral, é preferível usar JSON separados de linha, porque não requer qualquer manuseamento especial enquanto o ficheiro de saída ainda está a ser escrito.|
-| Modo de autenticação | Pode autorizar o acesso à sua conta de Armazenamento de Data Lake utilizando [identidade gerida](stream-analytics-managed-identities-adls.md) ou ficha de utilizador. Uma vez que você concede acesso, você pode revogar o acesso alterando a palavra-passe da conta de utilizador, eliminando a saída de Armazenamento de Data Lake para este trabalho, ou eliminando o trabalho stream Analytics. |
+| Modo de autenticação | Pode autorizar o acesso à sua conta de Armazenamento de Data Lake utilizando [identidade gerida](stream-analytics-managed-identities-adls.md) (pré-visualização) ou token do utilizador. Uma vez que você concede acesso, você pode revogar o acesso alterando a palavra-passe da conta de utilizador, eliminando a saída de Armazenamento de Data Lake para este trabalho, ou eliminando o trabalho stream Analytics. |
 
 ## <a name="partitioning"></a>Criação de partições
 

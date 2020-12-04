@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: c8fa2efe708823ff4154edfd58f1b18e0176a990
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ccc5a63da40950fbf9f05e3e029393fce8814d7
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89381211"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576694"
 ---
 # <a name="how-to-market-your-saas-offer"></a>Como comercializar a sua oferta SaaS
 
@@ -23,9 +23,9 @@ Este artigo descreve opções de marketing adicionais que pode escolher se estiv
 
 Fornecer informações sobre a **co-venda com** a página da Microsoft é inteiramente opcional. Mas é necessário para obter _o estatuto de Co-venda Ready_ e IP _Co-sell_ Ready. As equipas de vendas da Microsoft utilizam esta informação para saber mais sobre a sua solução ao avaliar o seu ajuste para as necessidades dos clientes. A informação que fornece neste separador não está disponível diretamente para os clientes.
 
-Para obter detalhes e instruções para configurar o **Co-sell com** o separador Microsoft, consulte [a opção Co-venda no Partner Center](partner-center-portal/commercial-marketplace-co-sell.md).
+Para obter detalhes e instruções para configurar o **Co-sell com** o separador Microsoft, consulte [a opção Co-venda no Partner Center](commercial-marketplace-co-sell.md).
 
-## <a name="resell-through-csps"></a>Revender através de CSPs
+## <a name="resell-through-csps"></a>Revenda através de CSP
 
 Se optar por disponibilizar a sua oferta no programa Cloud Solution Provider (CSP), os CSPs podem vender o seu produto como parte de uma solução agregada aos seus clientes. Para obter mais informações sobre a revenda da sua oferta através do programa CSP e instruções passo a passo para configurar o separador Revender através do separador **CSPs,** consulte o [programa Cloud Solution Provider](cloud-solution-providers.md).
 

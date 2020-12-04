@@ -1,17 +1,15 @@
 ---
 title: Atores confiáveis no tecido de serviço
 description: Descreve como os Atores Fiáveis são em camadas em Serviços Fiáveis e utilizam as funcionalidades da plataforma De Tecido de Serviço.
-author: vturecek
 ms.topic: conceptual
 ms.date: 3/9/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1cd90d4567bde6cd2c4f2a29e2d516b51b79e2af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3bd67e0f71e20a8b5a74b4b38e5b423a14dc08d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016619"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575623"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Como os atores fiáveis usam a plataforma de tecido de serviço
 Este artigo explica como os Atores Fiáveis funcionam na plataforma Azure Service Fabric. Os Atores Fiáveis funcionam num quadro que é hospedado numa implementação de um serviço de confiança estatal chamado serviço de *ator.* O serviço de ator contém todos os componentes necessários para gerir o ciclo de vida e o envio de mensagens para os seus atores:

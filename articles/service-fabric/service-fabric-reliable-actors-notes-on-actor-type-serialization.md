@@ -1,17 +1,15 @@
 ---
 title: Notas de atores fiáveis sobre a serialização do tipo de ator
 description: Discute os requisitos básicos para a definição de classes serializáveis que podem ser usadas para definir estados e interfaces de tecido de serviços fiáveis
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 33a15b3c6f570d3b4d36a205f91bce7b042f3bb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a1118e394046b217a288663659a2c910098e992
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016585"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576014"
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Notas sobre tecido de serviço Fiáveis Atores tipo serialização
 Os argumentos de todos os métodos, tipos de resultados das tarefas devolvidas por cada método numa interface de ator, e objetos armazenados no gestor estatal de um ator devem ser [serializáveis por contratos de dados](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). Isto aplica-se também aos argumentos dos métodos definidos nas [interfaces de eventos de ator.](service-fabric-reliable-actors-events.md) (Os métodos de interface de evento de ator voltam sempre vazios.)

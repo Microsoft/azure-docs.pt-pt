@@ -1,17 +1,15 @@
 ---
 title: Visão geral da comunicação de serviços fiáveis
 description: Visão geral do modelo de comunicação dos Serviços Fiáveis, incluindo a abertura de ouvintes em serviços, a resolução de pontos finais e a comunicação entre serviços.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b45ceaed9f0d3d64a0fc6890549542acc6b1c21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7dc10055633c8e6dd2c645f28b774d5d5f3ac3f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018642"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574331"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Como utilizar as APIs de comunicação de Serviços Fiáveis
 A Azure Service Fabric como plataforma é completamente agnóstica sobre a comunicação entre serviços. Todos os protocolos e pilhas são aceitáveis, da UDP ao HTTP. Cabe ao promotor de serviços escolher como os serviços devem comunicar. A estrutura de aplicação reliable Services fornece pilhas de comunicação incorporadas, bem como APIs que você pode usar para construir seus componentes de comunicação personalizados.
@@ -197,7 +195,7 @@ A Service Fabric fornece APIs que permitem que os clientes e outros serviços pe
 A API de Serviços Fiáveis fornece as seguintes bibliotecas para escrever clientes que comunicam com os serviços.
 
 ### <a name="service-endpoint-resolution"></a>Resolução de ponto final de serviço
-O primeiro passo para a comunicação com um serviço é resolver um endereço final da partição ou instância do serviço com o qual pretende falar. A `ServicePartitionResolver(C#) / FabricServicePartitionResolver(Java)` classe de utilidade é uma primitiva básica que ajuda os clientes a determinar o ponto final de um serviço em tempo de execução. Na terminologia do Tecido de Serviço, o processo de determinação do ponto final de um serviço é referido como a *resolução*do ponto final de serviço .
+O primeiro passo para a comunicação com um serviço é resolver um endereço final da partição ou instância do serviço com o qual pretende falar. A `ServicePartitionResolver(C#) / FabricServicePartitionResolver(Java)` classe de utilidade é uma primitiva básica que ajuda os clientes a determinar o ponto final de um serviço em tempo de execução. Na terminologia do Tecido de Serviço, o processo de determinação do ponto final de um serviço é referido como a *resolução* do ponto final de serviço .
 
 Para se ligar a serviços dentro de um cluster, o ServicePartitionResolver pode ser criado utilizando definições predefinidas. Este é o uso recomendado para a maioria das situações:
 

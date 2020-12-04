@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 44365dec247b9f3135a090cee397cad32598fd29
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f621d11553101c2c0bcfce804b26c218ae58670c
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977872"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576473"
 ---
 # <a name="calling-client-library-overview"></a>Descrição geral da biblioteca de cliente de chamadas
 
@@ -70,6 +70,26 @@ A tabela a seguir representa o conjunto de navegadores e versões suportadas que
 *Note que a versão mais recente do Chrome é suportada para além das duas versões anteriores.<br/>
 
 **Note que as versões Safari 13.1+ são suportadas. O vídeo de saída para o safari macOS ainda não está suportado, mas é suportado no iOS. A partilha de ecrãs de saída só é suportada no iOS do ambiente de trabalho.
+
+## <a name="calling-client---browser-security-model"></a>Cliente chamado - modelo de segurança do navegador
+
+### <a name="user-webrtc-over-https"></a>WebRTC do utilizador sobre HTTPS
+
+As APIs da WebRTC `getUserMedia` exigem que a aplicação que chama estas APIs seja servida em HTTPS.
+
+Para o desenvolvimento local, pode `http://localhost` utilizar.
+
+### <a name="embed-the-communication-services-calling-sdk-in-an-iframe"></a>Incorporar os serviços de comunicação chamando SDK em um iframe
+
+Uma nova [política de permissões (também chamada de política de recursos)](https://www.w3.org/TR/permissions-policy-1/#iframe-allow-attribute) está a ser adotada por vários navegadores. Esta política afeta os cenários de chamada, controlando como as aplicações podem aceder à câmara e microfone de um dispositivo através de um elemento de iframe de origem cruzada.
+
+Se pretender utilizar um iframe para hospedar parte da app a partir de um domínio diferente, deve adicionar o `allow` atributo com o valor correto ao seu iframe.
+
+Por exemplo, este iframe permite o acesso tanto à câmara como ao microfone:
+
+```html
+<iframe allow="camera *; microphone *">
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

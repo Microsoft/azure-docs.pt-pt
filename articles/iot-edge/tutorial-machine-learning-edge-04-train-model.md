@@ -8,12 +8,12 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b9a29e890553d15d19853ec836f8c4296869e143
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8efc0301296f64abfe9b827e943882e930929086
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959633"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575334"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: Treine e implemente um modelo de aprendizagem automática Azure
 
@@ -166,12 +166,12 @@ Para verificar se os cadernos foram concluídos com sucesso, verifique se foram 
 
 1. Verifique se foram criados os seguintes recursos Azure. Alguns nomes de recursos são anexados a caracteres aleatórios.
 
-    | Recurso do Azure | Nome |
+    | Recurso do Azure | Name |
     | --- | --- |
     | Espaço de trabalho de aprendizagem automática | turborfanDemo |
-    | Container Registry | turbofandemoxxxxxxxxxxxxx |
+    | Registo de Contentor | turbofandemoxxxxxxxxxxxxx |
     | Insights de Aplicações | turbofaninsightxxxxxxxxxxxxx |
-    | Cofre de Chaves | turbofankeyvaultbxxxxxxxxxxxxxxx |
+    | Key Vault | turbofankeyvaultbxxxxxxxxxxxxxxx |
     | Armazenamento | turbofanstoragexxxxxxxxxxxxxxx |
 
 ### <a name="debugging"></a>Depurar
@@ -179,6 +179,10 @@ Para verificar se os cadernos foram concluídos com sucesso, verifique se foram 
 Pode inserir declarações python no caderno para depurar, como o `print()` comando para mostrar valores. Se vir variáveis ou objetos que não estejam definidos, execute as células onde são primeiramente declaradas ou instantâneas.
 
 Poderá ter de eliminar ficheiros previamente criados e recursos Azure se precisar de refazer os cadernos.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Este tutorial faz parte de um conjunto onde cada artigo baseia-se no trabalho feito nos anteriores. Por favor, espere para limpar todos os recursos até completar o tutorial final.
 
 ## <a name="next-steps"></a>Passos seguintes
 

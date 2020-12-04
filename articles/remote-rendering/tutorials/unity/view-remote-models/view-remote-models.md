@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bcee951dc85d9c317bad481ebdb91ff6c761371c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 834df29597abaaadad98b232ce75b32a6431cfc2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653677"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574739"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutorial: Visualização de um modelo renderizado remotamente
 
@@ -76,7 +76,7 @@ Tem de modificar o ficheiro `Packages/manifest.json` que está localizado na pas
 
 Depois de modificar e guardar o manifesto, a Unidade irá automaticamente refrescar-se. Confirme que as embalagens foram carregadas na janela do *Projeto:*
 
-:::image type="content" source="./media/confirm-packages.png" alt-text="Novo Projeto de Unidade":::
+:::image type="content" source="./media/confirm-packages.png" alt-text="confirmar importações de pacotes":::
 
 Se os seus pacotes não estiverem a carregar, verifique se a consola Unidade tem erros. Se não tiver erros e ainda não vir nenhuma embalagem na pasta **Pacotes,** verifique o botão de alternação de visibilidade da embalagem.\
 ![Screenshot com uma seta apontando para o botão de visibilidade da embalagem.](./media/unity-package-visibility.png)
@@ -220,7 +220,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     public static RemoteRenderingCoordinator instance;
 
     // AccountDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
-    // For most people '<region>' is either 'westus2' or 'westeurope'
+    // The list of regions is available at https://docs.microsoft.com/azure/remote-rendering/reference/regions
     [SerializeField]
     private string accountDomain = "westus2.mixedreality.azure.com";
     public string AccountDomain

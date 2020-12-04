@@ -3,61 +3,55 @@ title: Configurar o trânsito do gateway de VPN para peering de rede virtual
 description: Configure o trânsito de gateway para o espreitamento da rede virtual, para ligar perfeitamente duas redes virtuais Azure numa só para fins de conectividade.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
-author: yushwang
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.date: 09/02/2020
-ms.author: yushwang
-ms.openlocfilehash: 4175069a21fd568af46a9f7d5aefc73f1574ac0c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 11/30/2020
+ms.author: cherylmc
+ms.openlocfilehash: 2fc12385c78135269b6a73038fd0ad810ebaedd6
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488192"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576205"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurar o trânsito do gateway de VPN para peering de rede virtual
 
-Este artigo ajuda-o a configurar o trânsito do gateway para peering de rede virtual. O [Peering de rede virtual](../virtual-network/virtual-network-peering-overview.md) liga facilmente duas redes virtuais do Azure, ao intercalar as duas redes virtuais numa só para fins de conectividade. O [trânsito do gateway](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) é uma propriedade de peering que permite a uma rede virtual utilizar o gateway de VPN na rede virtual no modo de peering e, assim, permitir a conetividade entre vários locais ou VNet a VNet. O diagrama seguinte mostra como funciona o trânsito do gateway com peering de rede virtual.
+Este artigo ajuda-o a configurar o trânsito do gateway para peering de rede virtual. O [Peering de rede virtual](../virtual-network/virtual-network-peering-overview.md) liga facilmente duas redes virtuais do Azure, ao intercalar as duas redes virtuais numa só para fins de conectividade. [O trânsito gateway](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) é uma propriedade que permite que uma rede virtual use o gateway VPN na rede virtual espreitada para instalações cruzadas ou conectividade VNet-to-VNet. O diagrama seguinte mostra como funciona o trânsito do gateway com peering de rede virtual.
 
-![gateway-transit](./media/vpn-gateway-peering-gateway-transit/gatewaytransit.png)
+![Diagrama de trânsito gateway](./media/vpn-gateway-peering-gateway-transit/gatewaytransit.png)
 
-No diagrama, o trânsito do gateway permite que as redes virtuais em modo de peering utilizem o gateway de VPN do Azure no Hub-RM. A conectividade disponível no gateway de VPN, incluindo ligações S2S, P2S e VNet a VNet, aplica-se às três redes virtuais. A opção de trânsito está disponível para peering entre modelos de implementação idênticos ou diferentes. A restrição é que o gateway de VPN só pode estar na rede virtual com o modelo de implementação Resource Manager, conforme mostrado no diagrama.
+No diagrama, o trânsito do gateway permite que as redes virtuais em modo de peering utilizem o gateway de VPN do Azure no Hub-RM. A conectividade disponível no gateway de VPN, incluindo ligações S2S, P2S e VNet a VNet, aplica-se às três redes virtuais. A opção de trânsito está disponível para espreitar entre os mesmos modelos de implementação, ou diferentes. Se estiver a configurar o trânsito entre diferentes modelos de implementação, a rede virtual do hub e o gateway de rede virtual devem estar no modelo de implementação do Gestor de Recursos e não no modelo clássico de implementação.
+>
 
 Na arquitetura de rede hub-and-spoke, o trânsito do gateway permite que as redes virtuais spoke partilhem o gateway de VPN no hub, em vez de implementar gateways de VPN em todas as redes virtuais spoke. Encaminha para as redes virtuais ligadas de gateway ou as redes no local vão ser propagadas para as tabelas de encaminhamento para as redes virtuais em modo de peering com o trânsito do gateway. Pode desativar a propagação automática da rota do gateway de VPN. Crie uma tabela de encaminhamento com a opção “**Desativar propagação de rotas BGP**” e associe a tabela de encaminhamento às sub-redes para impedir a distribuição de rotas para essas sub-redes. Para obter mais informações, veja [Tabela de encaminhamento da rede virtual](../virtual-network/manage-route-table.md).
 
-Neste documento, descrevemos dois cenários:
+Há dois cenários neste artigo:
 
-1. Ambas as redes virtuais estão a utilizar o modelo de implementação Resource Manager
-2. A rede virtual spoke é clássica e a rede virtual do hub com o gateway está no Resource Manager
-
+* **Mesmo modelo de implementação**: Ambas as redes virtuais são criadas no modelo de implementação do Gestor de Recursos.
+* **Diferentes modelos de implementação**: A rede virtual falada é criada no modelo clássico de implementação, e a rede virtual do hub e gateway estão no modelo de implementação do Gestor de Recursos.
 
 >[!NOTE]
 > Se fizer uma alteração na topologia da sua rede e tiver clientes Windows VPN, o pacote de clientes VPN para clientes Windows deve ser descarregado e instalado novamente para que as alterações sejam aplicadas ao cliente.
 >
 
-## <a name="requirements"></a>Requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
+Antes de começar, verifique se tem as seguintes redes e permissões virtuais:
 
+### <a name="virtual-networks"></a><a name="vnet"></a>Redes virtuais
 
-O exemplo neste documento precisa que os seguintes recursos sejam criados:
+|VNet|Modelo de implementação| Gateway de rede virtual|
+|---|---|---|---|
+| Hub-RM| [Resource Manager](vpn-gateway-howto-site-to-site-resource-manager-portal.md)| [Sim](tutorial-create-gateway-portal.md)|
+| Spoke-RM | [Resource Manager](vpn-gateway-howto-site-to-site-resource-manager-portal.md)| Não |
+| Spoke-Classic | [Clássico](vpn-gateway-howto-site-to-site-classic-portal.md#CreatVNet) | Não |
 
-1. Rede virtual Hub-RM com um gateway de VPN
-2. Rede virtual Spoke-RM
-3. Rede virtual Spoke-Classic com o modelo de implementação clássico
-4. A conta que utiliza precisa das funções e da permissão necessárias. Veja a secção [Permissões](#permissions) deste artigo para obter mais detalhes.
+### <a name="permissions"></a><a name="permissions"></a>Permissões
 
-Consulte os seguintes documentos para obter instruções:
+As contas que utiliza para criar um peering de rede virtual têm de ter as funções ou permissões necessárias. No exemplo abaixo, se estiver a espreitar as duas redes virtuais chamadas **Hub-RM** e **Spoke-Classic,** a sua conta deve ter as seguintes funções ou permissões para cada rede virtual:
 
-1. [Criar um gateway de VPN numa rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-2. [Criar peering de rede virtual com o mesmo modelo de implementação](../virtual-network/tutorial-connect-virtual-networks-portal.md)
-3. [Criar peering de rede virtual com diferentes modelos de implementação](../virtual-network/create-peering-different-deployment-models.md)
-
-## <a name="permissions"></a><a name="permissions"></a>Permissões
-
-As contas que utiliza para criar um peering de rede virtual têm de ter as funções ou permissões necessárias. No exemplo abaixo, se estava a realizar o peering de duas redes virtuais com o nome Hub-RM e Spoke-Classic, a conta tem de ter as seguintes funções ou permissões para cada rede virtual:
-    
-|Rede virtual|Modelo de implementação|Função|Permissões|
+|VNet|Modelo de implementação|Função|Permissões|
 |---|---|---|---|
 |Hub-RM|Resource Manager|[Contribuidor de Rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 | |Clássico|[Contribuidor de Rede Clássica](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/D|
@@ -66,35 +60,55 @@ As contas que utiliza para criar um peering de rede virtual têm de ter as funç
 
 Saiba mais sobre [funções incorporadas](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) e a atribuição de permissões específicas para [funções personalizadas](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (apenas Resource Manager).
 
-## <a name="resource-manager-to-resource-manager-peering-with-gateway-transit"></a>Peering de Resource Manager para Resource Manager com trânsito do gateway
+## <a name="same-deployment-model"></a><a name="same"></a>Mesmo modelo de implantação
 
-Siga as instruções para criar ou atualizar os peerings de rede virtual para ativar o trânsito do gateway.
+Neste cenário, as redes virtuais estão ambas no modelo de implementação do Gestor de Recursos. Utilize os seguintes passos para criar ou atualizar os persiões de rede virtuais para permitir o trânsito de gateway.
 
-1. Crie ou atualize o peering de rede virtual de Spoke-RM para Hub-RM no portal do Azure. Navegue até ao recurso de rede virtual Spoke-RM, clique em “Peerings” e em “Adicionar”:
-    - Defina a opção “Resource Manager”
-    - Selecione a rede virtual Hub-RM na subscrição correspondente
-    - Confirme se a opção “Permitir acesso de rede virtual” está “Ativada”
-    - Defina a opção “**Utilizar gateways remotos**”
-    - Clique em “OK”
+### <a name="to-add-a-peering-and-enable-transit"></a>Para adicionar um espreitamento e permitir o trânsito
 
-      ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
+1. No [portal Azure,](https://portal.azure.com)crie ou atualize a rede virtual que espreita a partir do Hub-RM. Navegue para a rede virtual **Hub-RM.** **Selecione Peerings,** em seguida **, + Adicionar** para abrir Adicionar **olhando**.
+1. Na página **'Adicionar olhando',** configure os valores **desta rede virtual**.
 
-2. Se o peering já tiver sido criado, navegue até ao recurso de peering e, em seguida, ative a opção “**Utilizar gateways remotos**”, semelhante à captura de ecrã mostrada no passo (1)
+   * Nome do link de espreitar: Nomeie o link. Exemplo: **HubrmToSpokerm**
+   * Tráfego para rede virtual remota: **Permitir**
+   * Tráfego reencaminhado a partir de rede virtual remota: **Permitir**
+   * Gateway de rede virtual: **Use o portal desta rede virtual**
 
-3. Crie ou atualize o peering de rede virtual de Hub-RM para Spoke-RM no portal do Azure. Navegue até ao recurso de rede virtual Hub-RM, clique em “Peerings” e em “Adicionar”:
-    - Defina a opção “Resource Manager”
-    - Confirme se a opção “Permitir acesso de rede virtual” está “Ativada”
-    - Selecione a rede virtual “Spoke-RM” na subscrição correspondente
-    - Defina a opção “**Permitir trânsito do gateway**”
-    - Clique em “OK”
+     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-vnet.png" alt-text="Os programas de screenshot adicionam o seu olhar.":::
 
-      ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
+1. Na mesma página, continue a configurar os valores da **rede virtual remota**.
 
-4. Se o peering já tiver sido criado, navegue até ao recurso de peering e, em seguida, ative a opção “**Permitir trânsito do gateway**”, semelhante à captura de ecrã mostrada no passo (3)
+   * Nome do link de espreitar: Nomeie o link. Exemplo: **SpokermtoHubrm**
+   * Modelo de implementação: **Gestor de Recursos**
+   * Rede Virtual: **Spoke-RM**
+   * Tráfego para rede virtual remota: **Permitir**
+   * Tráfego reencaminhado a partir de rede virtual remota: **Permitir**
+   * Gateway de rede virtual: **Use o gateway da rede virtual remota**
 
-5. Verifique se o estado do peering em ambas as redes virtuais é “**Ligado**”
+     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-remote.png" alt-text="A screenshot mostra valores para rede virtual remota.":::
 
-### <a name="powershell-sample"></a>Exemplo do PowerShell
+1. **Selecione Adicionar** para criar o espreitamento.
+1. Verifique o estado de observação como **Conectado** em ambas as redes virtuais.
+
+### <a name="to-modify-an-existing-peering-for-transit"></a>Para modificar um espreitamento existente para o trânsito
+
+Se o espreitamento já foi criado, pode modificar o espreitamento para o trânsito.
+
+1. Navegue para a rede virtual. **Selecione Peerings** e selecione o espreitamento que pretende modificar.
+
+   :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-modify.png" alt-text="A screenshot mostra os seus pares selecionados.":::
+
+1. Atualize o olhar VNet.
+
+   * Tráfego para rede virtual remota: **Permitir**
+   * Tráfego encaminhado para rede virtual; **Permitir**
+   * Gateway de rede virtual: **Use o gateway da rede virtual remota**
+
+     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/modify-peering-settings.png" alt-text="A screenshot mostra modificar o gateway de espreitar.":::
+
+1. **Salve** as definições de espreitar.
+
+### <a name="powershell-sample"></a><a name="ps-same"></a>Exemplo do PowerShell
 
 Também pode utilizar o PowerShell para criar ou atualizar o peering com o exemplo acima. Substitua as variáveis pelos nomes dos grupos de recursos e das redes virtuais.
 
@@ -120,28 +134,30 @@ Add-AzVirtualNetworkPeering `
   -AllowGatewayTransit
 ```
 
-## <a name="classic-to-resource-manager-peering-with-gateway-transit"></a>Peering Clássico para Resource Manager com trânsito do gateway
+## <a name="different-deployment-models"></a><a name="different"></a>Diferentes modelos de implantação
 
-Os passos são semelhantes ao exemplo do Resource Manager, mas as operações são aplicadas apenas na rede virtual Hub-RM.
+Nesta configuração, o **Spoke-Classic** falado está no modelo de implementação clássico e o hub VNet **Hub-RM** está no modelo de implementação do Gestor de Recursos. Ao configurar o trânsito entre os modelos de implantação, o gateway de rede virtual deve ser configurado para o VNet do Gestor de Recursos, e não para o VNet clássico.
 
-1. Crie ou atualize o peering de rede virtual de Hub-RM para Spoke-RM no portal do Azure. Navegue até ao recurso de rede virtual Hub-RM, clique em “Peerings” e em “Adicionar”:
-   - Defina a opção “Clássico” do modelo de implementação de Rede virtual
-   - Selecione a rede virtual “Spoke-Classic” na subscrição correspondente
-   - Confirme se a opção “Permitir acesso de rede virtual” está “Ativada”
-   - Defina a opção “**Permitir trânsito do gateway**”
-   - Clique em “OK”
+Para esta configuração, basta configurar a rede virtual **Hub-RM.** Não precisas de configurar nada no VNet **Clássico.**
 
-     ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
+1. No portal Azure, navegue para a rede virtual **Hub-RM,** **selecione Peerings,** em seguida, selecione **+ Adicionar**.
+1. Na página **'Adicionar olhando',** configurar os seguintes valores:
 
-2. Se o peering já tiver sido criado, navegue até ao recurso de peering e, em seguida, ative a opção “**Permitir trânsito do gateway**”, semelhante à captura de ecrã mostrada no passo (1)
+   * Nome do link de espreitar: Nomeie o link. Exemplo: **HubrmToClassic**
+   * Tráfego para rede virtual remota: **Permitir**
+   * Tráfego reencaminhado a partir de rede virtual remota: **Permitir**
+   * Gateway de rede virtual: **Use o portal desta rede virtual**
+   * Rede virtual remota: **Clássico**
 
-3. Não há nenhuma operação na rede virtual Spoke-Classic
+     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-classic.png" alt-text="Adicionar página de peering para Spoke-Classic":::
 
-4. Verifique se o estado do peering de rede virtual Hub-RM é “**Ligado**”
+1. Verifique se a subscrição está correta e, em seguida, selecione a rede virtual a partir do dropdown.
+1. **Selecione Adicionar** para adicionar o espreitamento.
+1. Verifique o estado de observação como **Conectado** na rede virtual Hub-RM. 
 
-Assim que o estado mostrar “Ligado”, as redes virtuais spoke podem começar a utilizar a conectividade VNet a VNet ou em vários locais através do gateway de VPN na rede virtual do hub.
+Para esta configuração, não precisa de configurar nada na rede virtual **Spoke-Classic.** Uma vez que o estado mostra **Connected**, a rede virtual falada pode utilizar a conectividade através do gateway VPN na rede virtual do hub.
 
-### <a name="powershell-sample"></a>Exemplo do PowerShell
+### <a name="powershell-sample"></a><a name="ps-different"></a>Exemplo do PowerShell
 
 Também pode utilizar o PowerShell para criar ou atualizar o peering com o exemplo acima. Substitua as variáveis e o ID de subscrição por valores da sua rede virtual e dos grupos de recursos e da subscrição. Só precisa de criar peering de rede virtual na rede virtual do hub.
 
@@ -152,7 +168,7 @@ $HubRM   = "Hub-RM"
 $hubrmvnet   = Get-AzVirtualNetwork -Name $HubRM -ResourceGroup $HubRG
 
 Add-AzVirtualNetworkPeering `
-  -Name HubRMToSpokeRM `
+  -Name HubRMToClassic `
   -VirtualNetwork $hubrmvnet `
   -RemoteVirtualNetworkId "/subscriptions/<subscription Id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/Spoke-Classic" `
   -AllowGatewayTransit
@@ -162,3 +178,5 @@ Add-AzVirtualNetworkPeering `
 
 * Saiba mais acerca das [restrições e comportamentos do peering de rede virtual](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) e das [definições do peering de rede virtual](../virtual-network/virtual-network-manage-peering.md#create-a-peering) antes de criar um peering de rede virtual para a utilização de produção.
 * Saiba como [criar uma topologia hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) com peering de rede virtual e trânsito do gateway.
+* [Criar redes virtuais a espreitar com o mesmo modelo de implementação.](../virtual-network/tutorial-connect-virtual-networks-portal.md)
+* [Crie olhando para a rede virtual com diferentes modelos de implementação.](../virtual-network/create-peering-different-deployment-models.md)

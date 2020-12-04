@@ -10,14 +10,14 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 0475e7a7b9bb40e77fe23362ff098350037bdd30
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ca812fc7548e3c70f1faa1e1ed6a34afda3872af
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555282"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575980"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Prever preço do automóvel com o designer
+# <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Prever o preço de um automóvel com o estruturador
 
 
 Neste tutorial de duas partes, aprende-se a usar o designer Azure Machine Learning para treinar e implementar um modelo de machine learning que prevê o preço de qualquer carro. O designer é uma ferramenta de arrastar e largar que permite criar modelos de machine learning sem uma única linha de código.
@@ -48,7 +48,10 @@ Para criar um oleoduto Azure Machine Learning, precisa de um espaço de trabalho
 
 ### <a name="create-a-new-workspace"></a>Criar uma nova área de trabalho
 
-Para utilizar o designer, primeiro precisa de um espaço de trabalho para aprendizagem automática Azure. O espaço de trabalho é o recurso de alto nível para a Azure Machine Learning, fornece um lugar centralizado para trabalhar com todos os artefactos que você cria em Azure Machine Learning.
+Precisa de um espaço de trabalho para aprender máquinas Azure para usar o designer. O espaço de trabalho é o recurso de alto nível para a Azure Machine Learning, fornece um lugar centralizado para trabalhar com todos os artefactos que você cria em Azure Machine Learning. Para obter instruções sobre a criação de um espaço de trabalho, consulte [Criar e gerir espaços de trabalho de Aprendizagem automática Azure.](how-to-manage-workspace.md)
+
+> [!NOTE]
+> Se o seu espaço de trabalho utilizar uma rede Virtual, existem passos de configuração adicionais que deve utilizar para utilizar o designer. Para mais informações, consulte [o estúdio Use Azure Machine Learning numa rede virtual Azure](how-to-enable-studio-virtual-network.md)
 
 ### <a name="create-the-pipeline"></a>Criar o pipeline
 
@@ -130,7 +133,7 @@ Quando treinas um modelo, tens de fazer alguma coisa em relação aos dados que 
 
 1. No painel de detalhes do módulo à direita da tela, **selecione Editar coluna**.
 
-1. Expandir os **nomes da Coluna** cair ao lado de **Incluir** , e selecione Todas  **as colunas**.
+1. Expandir os **nomes da Coluna** cair ao lado de **Incluir**, e selecione Todas  **as colunas**.
 
 1. Selecione **+** o para adicionar uma nova regra.
 
@@ -210,7 +213,7 @@ Treine o modelo dando-lhe um conjunto de dados que inclui o preço. O algoritmo 
     
     Esta opção exibe várias categorias de módulos que pode utilizar para inicializar algoritmos de aprendizagem.
 
-1. Selecione **Regression**  >  **Linear Regression** , e arraste-a para a tela do gasoduto.
+1. Selecione **Regression**  >  **Linear Regression**, e arraste-a para a tela do gasoduto.
 
 1. Na paleta de módulos, expanda a secção **De formação do Módulo,** e arraste o módulo **Train Model** para a tela.
 
@@ -275,13 +278,13 @@ Agora que o seu oleoduto está todo configurado, pode submeter uma corrida de ga
     
     Pode ver o estado de execução e os detalhes no canto superior direito da tela.
     
-    Se for a primeira corrida, pode levar até 20 minutos para o seu oleoduto terminar de funcionar. As definições de computação padrão têm um tamanho mínimo de nó de 0, o que significa que o designer deve alocar recursos depois de estar inativo. As repetidas operações de gasoduto levarão menos tempo, uma vez que os recursos de computação já estão atribuídos. Além disso, o designer utiliza resultados em cache para cada módulo para melhorar ainda mais a eficiência.
+    Se esta for a primeira corrida, pode levar até 20 minutos para o seu oleoduto terminar de funcionar. As definições de computação padrão têm um tamanho mínimo de nó de 0, o que significa que o designer deve alocar recursos depois de estar inativo. As repetidas operações de gasoduto levarão menos tempo, uma vez que os recursos de computação já estão atribuídos. Além disso, o designer utiliza resultados em cache para cada módulo para melhorar ainda mais a eficiência.
 
 ### <a name="view-scored-labels"></a>Ver rótulos pontuados
 
 Após a execução concluída, pode ver os resultados do percurso do gasoduto. Primeiro, veja as previsões geradas pelo modelo de regressão.
 
-1. Clique no módulo **'Modelo de Pontuação'** e selecione **Visualize** para ver a sua saída.
+1. Clique com o botão direito no módulo **'Modelo de pontuação'** e selecione **Visualize** para ver a sua saída.
 
     Aqui pode ver os preços previstos e os preços reais a partir dos dados de teste.
 
@@ -295,11 +298,11 @@ Utilize o **Modelo de Avaliação** para ver como o modelo treinado foi bem exec
 
 As seguintes estatísticas são mostradas para o seu modelo:
 
-* **Erro Absoluto Médio (MAE)** : A média de erros absolutos. Um erro é a diferença entre o valor previsto e o valor real.
-* **Raiz Média Erro Quadrado (RMSE)** : A raiz quadrada da média de erros quadrados de previsões feitas no conjunto de dados do teste.
-* **Erro relativo absoluto** : A média dos erros absolutos relativos à diferença absoluta entre os valores reais e a média de todos os valores reais.
-* **Erro ao quadrado absoluto** : A média dos erros ao quadrado relativos à diferença ao quadrado entre os valores reais e a média de todos os valores reais.
-* **Coeficiente de Determinação** : Também conhecido como valor quadrado R, esta métrica estatística indica o quão bem um modelo se encaixa nos dados.
+* **Erro Absoluto Médio (MAE)**: A média de erros absolutos. Um erro é a diferença entre o valor previsto e o valor real.
+* **Raiz Média Erro Quadrado (RMSE)**: A raiz quadrada da média de erros quadrados de previsões feitas no conjunto de dados do teste.
+* **Erro relativo absoluto**: A média dos erros absolutos relativos à diferença absoluta entre os valores reais e a média de todos os valores reais.
+* **Erro ao quadrado absoluto**: A média dos erros ao quadrado relativos à diferença ao quadrado entre os valores reais e a média de todos os valores reais.
+* **Coeficiente de Determinação**: Também conhecido como valor quadrado R, esta métrica estatística indica o quão bem um modelo se encaixa nos dados.
 
 Em cada uma das estatísticas de erros, quanto mais pequeno, melhor. Um valor menor indica que as previsões estão mais próximas dos valores reais. Para o coeficiente de determinação, quanto mais próximo o seu valor for de um (1.0), melhor serão as previsões.
 

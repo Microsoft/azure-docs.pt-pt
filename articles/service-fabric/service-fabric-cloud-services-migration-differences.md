@@ -1,16 +1,14 @@
 ---
 title: Diferenças entre serviços em nuvem e tecido de serviço
 description: Uma visão geral conceptual para aplicações migratórias dos Serviços cloud para o Tecido de Serviço.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
-ms.openlocfilehash: 763b9977f756075789b826c2f1e01cd41ac60a73
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: c7e7d346b5a39a262d1d55265becadb1c718cc04
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091173"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575776"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Saiba mais sobre as diferenças entre os Serviços cloud e o Tecido de Serviço antes de migrar as aplicações.
 O Microsoft Azure Service Fabric é a plataforma de aplicações cloud de próxima geração para aplicações distribuídas altamente escaláveis e altamente fiáveis. Introduz muitas novidades para a embalagem, implantação, upgrade e gestão de aplicações em nuvem distribuídas. 

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/24/2020
-ms.openlocfilehash: 548deeec456537c64dc5d8ebe95ed1e4802e91c5
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 3f6ff0f81c1979297ed0144eca336cb252c2e787
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349219"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574365"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Quickstart: Ligue uma aplicação Go à API da Azure Cosmos DB para a MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -35,9 +35,7 @@ A aplicação da amostra é uma ferramenta de gestão baseada em linha de comand
 - Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free) Ou [experimente a Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure. Também pode utilizar o [Emulador Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) com a cadeia de ligação `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true` .
 - [Vá](https://golang.org/) instalado no seu computador, e um conhecimento funcional do Go.
 - [Git.](https://git-scm.com/downloads)
-- Se não quiser utilizar a Azure Cloud Shell, [Azure CLI 2.0+](/cli/azure/install-azure-cli)
-
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
@@ -265,7 +263,7 @@ Se estiver a utilizar o Azure Cloud Shell, selecione **Try It**, siga as instru�
 az group create --name myResourceGroup --location "West Europe"
 ```
 
-### <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
+### <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
 
 Crie uma conta Cosmos com o [cosmosdb az criar](/cli/azure/cosmosdb#az-cosmosdb-create) comando.
 
@@ -449,7 +447,7 @@ O `todo` que acabou de apagar não deve estar presente.
 +----------------------------+--------------------------------+-----------+
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

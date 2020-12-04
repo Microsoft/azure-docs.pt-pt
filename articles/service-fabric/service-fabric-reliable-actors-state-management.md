@@ -1,17 +1,15 @@
 ---
 title: Gestão estatal de atores confiáveis
 description: Descreve como o estado de Reliable Actors é gerido, persistido e replicado para alta disponibilidade.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d5859886dbd1211f929be1031237f7e7d9b1fc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: badfc490f26b71881e7970c2c0be3472abfec25a
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89611706"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575606"
 ---
 # <a name="reliable-actors-state-management"></a>Gestão estatal de atores confiáveis
 Os atores fiáveis são objetos de linha única que podem encapsular a lógica e o estado. Como os atores funcionam em Serviços Fiáveis, podem manter o Estado de forma fiável usando os mesmos mecanismos de persistência e replicação. Desta forma, os atores não perdem o seu estado após falhas, após a reativação após a recolha de lixo, ou quando são movidos entre nós num cluster devido ao equilíbrio de recursos ou atualizações.

@@ -7,20 +7,20 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/15/2020
+ms.date: 12/03/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f20a9569121903fd63b919cde223392377872c35
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: fb088d56879ebdf5d439c913ac47a701db5c4a60
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649658"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576252"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Partilhar contas com a Azure AD
 
@@ -74,7 +74,7 @@ Para utilizar a Azure AD para partilhar uma conta, tem de:
 
 Também pode tornar a sua conta partilhada mais segura com a Autenticação Multi-Factor (MFA) (saiba mais sobre [a garantia de aplicações com Azure AD)](../authentication/concept-mfa-howitworks.md)e pode delegar a capacidade de gerir quem tem acesso à aplicação utilizando a gestão do grupo [de self-service Azure AD.](groups-self-service-management.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gestão de Aplicações no Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Proteger aplicativos com acesso condicional](../../active-directory-b2c/overview.md)

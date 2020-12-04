@@ -6,13 +6,13 @@ ms.author: jrasnick
 ms.topic: troubleshooting
 ms.service: synapse-analytics
 ms.subservice: sql
-ms.date: 11/24/2020
-ms.openlocfilehash: 238880cb3f3628df7591e8d08e3057ebfd885900
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/03/2020
+ms.openlocfilehash: 70ce3c82790db0296d5359b5db2e6a323306c309
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466937"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576422"
 ---
 # <a name="troubleshoot-reading-utf-8-text-from-csv-or-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Resolução de problemas leitura texto UTF-8 de ficheiros CSV ou Parquet usando piscina SQL sem servidor em Azure Synapse Analytics
 
@@ -24,11 +24,30 @@ Quando o texto UTF-8 é lido a partir de um ficheiro CSV ou PARQUET utilizando a
 
 A solução para esta questão é utilizar sempre a colagem UTF-8 ao ler texto UTF-8 dos ficheiros CSV ou PARQUET.
 
--   Em muitos casos, basta definir a colisão UTF8 na base de dados (operação de metadados).
--   Se não especificou a colagem utf8 em tabelas externas que lêem os dados utf8, precisa de recriar tabelas externas impactadas e definir a colagem UTF8 nas colunas VARCHAR (operação de metadados).
+- Em muitos casos, basta definir a colisão UTF8 na base de dados (operação de metadados).
+
+   ```sql
+   alter database MyDB
+         COLLATE Latin1_General_100_BIN2_UTF8;
+   ```
+
+- Pode definir explicitamente a colagem na coluna VARCHAR em openrowset ou tabela externa:
+
+   ```sql
+   select geo_id, cases = sum(cases)
+   from openrowset(
+           bulk 'latest/ecdc_cases.parquet', data_source = 'covid', format = 'parquet'
+       ) with ( cases int,
+                geo_id VARCHAR(6) COLLATE Latin1_General_100_BIN2_UTF8 ) as rows
+   group by geo_id
+   ```
+ 
+- Se não especificou a colagem utf8 em tabelas externas que lêem os dados utf8, precisa de recriar tabelas externas impactadas e definir a colagem UTF8 nas colunas VARCHAR (operação de metadados).
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* [Arquivos de Consulta Parquet com Sinapse SQL](../sql/query-parquet-files.md)
+* [Arquivos CSV de consulta com Sinaapse SQL](../sql/query-single-csv-file.md)
 * [CETAS com Sinaapse SQL](../sql/develop-tables-cetas.md)
 * [Quickstart: Use a piscina SQL sem servidor](../quickstart-sql-on-demand.md)

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 93df05fefcf07de90eb6076a3bf43972e6e02b95
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 50a256796ee26c03f21353e8fe268c4300b21ebe
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555901"
+ms.locfileid: "96575856"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registe-se e digitalize uma Base de Dados Azure SQL
 
@@ -113,6 +113,20 @@ O principal do serviço ou identidade gerida deve ter permissão para obter meta
 1. Selecione **Criar** para completar
 1. Se o cofre da chave ainda não estiver ligado ao Purview, terá de [criar uma nova ligação](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account) ao cofre de chaves
 1. Finalmente, [crie uma nova credencial](manage-credentials.md#create-a-new-credential) usando o Principal de Serviço para configurar a sua digitalização
+
+### <a name="firewall-settings"></a>Definições de firewall
+
+O seu servidor de base de dados deve permitir ativar as ligações Azure. Isto permitirá ao Azure Purview alcançar e ligar o servidor. Pode seguir o guia de como fazer [as ligações a partir do interior do Azure.](../azure-sql/database/firewall-configure.md#connections-from-inside-azure)
+
+1. Navegue para a sua conta de base de dados
+1. Selecione o nome do servidor na página **'Vista Geral'**
+1. Selecione **Firewalls > de Segurança e redes virtuais**
+1. Selecione **Sim** para **permitir que os serviços e recursos da Azure acedam a este servidor**
+
+    :::image type="content" source="media/register-scan-azure-sql-database/sql-firewall.png" alt-text="Permitir que os serviços e recursos da Azure acedam a este servidor." border="true":::
+    
+> [!Note]
+> Atualmente, o Azure Purview não suporta a configuração VNET. Portanto, não é possível fazer definições de firewall baseadas em IP.
 
 ## <a name="register-an-azure-sql-database-data-source"></a>Registar uma fonte de dados da Base de Dados Azure SQL
 

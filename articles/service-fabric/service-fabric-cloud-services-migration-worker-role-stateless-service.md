@@ -1,17 +1,15 @@
 ---
 title: Converter aplicativos Azure Cloud Services para o Tecido de Serviço
 description: Este guia compara os serviços de Web e Worker Roles e Service Fabric apátridas para ajudar a migrar dos Serviços cloud para o Tecido de Serviço.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24a411403fc139a7e7fa6644690c57a3b2729bf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf593f793aabf2a0650684ed8d02fe02d756ec2b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89002288"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575742"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia para converter funções web e trabalhadoras para serviços apátridas de tecido de serviço
 Este artigo descreve como migrar os seus serviços web e trabalhadores para serviços apátridas de tecido. Esta é a rota de migração mais simples dos Serviços de Cloud para o Tecido de Serviço para aplicações cuja arquitetura global vai permanecer aproximadamente a mesma.

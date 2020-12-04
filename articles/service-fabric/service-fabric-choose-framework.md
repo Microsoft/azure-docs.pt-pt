@@ -1,16 +1,15 @@
 ---
 title: Descrição geral do modelo de programação do Service Fabric
 description: 'A Service Fabric oferece dois quadros para serviços de construção: a estrutura do ator e o quadro de serviços. Oferecem trocas distintas na simplicidade e no controlo.'
-author: vturecek
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: 8e1c96d0b04140f8c1121cfb74b43969b49cfdda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 523c9e0064d8b78698f1a0dd3544bda58436800c
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260527"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575725"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Descrição geral do modelo de programação do Service Fabric
 
@@ -38,7 +37,7 @@ Exclusivos do Service Fabric, os Serviços Fiáveis também podem ser imponentes
 
 [Saiba mais sobre serviços fiáveis](service-fabric-reliable-services-introduction.md) ou [inicie-se escrevendo o seu primeiro Serviço Fiável.](service-fabric-reliable-services-quick-start.md)
 
-## <a name="aspnet-core"></a>Núcleo de ASP.NET
+## <a name="aspnet-core"></a>ASP.NET Core
 
 ASP.NET Core é um quadro de plataforma cruzada de código aberto para a construção de aplicações modernas baseadas na Internet, tais como aplicações web, aplicações IoT e backends móveis. O Service Fabric integra-se com ASP.NET Core para que possa escrever aplicações de ASP.NET Core apátridas e imponentes que tirem partido das capacidades avançadas de orquestração da Reliable Collections e service fabric.
 

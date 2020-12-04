@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 1e263886d0cc199bb30fd28877be32209ab32a22
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 09a4dc8467b9b3c11c8daeb5ca8c62a0e26e79de
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462386"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575011"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Ciência de dados com uma máquina virtual de ciência de dados do Windows
 
@@ -25,7 +25,7 @@ A DSVM trabalha em estreita colaboração com os serviços da Azure. Pode ler e 
 
 Neste artigo, você vai aprender a usar o seu DSVM para executar tarefas de ciência de dados e interagir com outros serviços Azure. Aqui estão algumas das coisas que pode fazer no DSVM:
 
-- Use um portátil Jupyter para experimentar os seus dados num browser utilizando Python 2, Python 3 e Microsoft R. (o Microsoft R é uma versão de R pronta para a empresa projetada para o desempenho.)
+- Use um Jupyter Notebook para experimentar os seus dados num browser utilizando Python 2, Python 3 e Microsoft R. (o Microsoft R é uma versão de R pronta para a empresa projetada para o desempenho.)
 - Explore dados e desenvolva modelos localmente no DSVM utilizando o Microsoft Machine Learning Server e o Python.
 - Administrar os seus recursos Azure utilizando o portal Azure ou o PowerShell.
 - Estenda o seu espaço de armazenamento e partilhe conjuntos de dados/códigos em larga escala em toda a sua equipa, criando uma partilha de Ficheiros Azure como uma unidade montável no seu DSVM.
@@ -49,8 +49,8 @@ Neste artigo, você vai aprender a usar o seu DSVM para executar tarefas de ciê
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 
-## <a name="use-jupyter-notebooks"></a>Utilizar blocos de notas do Jupyter
-O Jupyter Notebook fornece um IDE baseado no navegador para a exploração e modelação de dados. Pode utilizar Python 2, Python 3 ou R (ambas de código aberto e Servidor Microsoft R) num bloco de notas Jupyter.
+## <a name="use-jupyter-notebooks"></a>Utilizar Blocos de Notas do Jupyter
+O Jupyter Notebook fornece um IDE baseado no navegador para a exploração e modelação de dados. Pode utilizar Python 2, Python 3 ou R (ambas de código aberto e Servidor Microsoft R) num Bloco de Notas Jupyter.
 
 Para iniciar o Bloco de Notas Jupyter, selecione o ícone **Jupyter Notebook** no menu **Iniciar** ou no ambiente de trabalho. No pedido de comando DSVM, também pode executar o comando ```jupyter notebook``` a partir do diretório onde tem cadernos existentes ou onde pretende criar novos cadernos.  
 
@@ -201,7 +201,7 @@ Também pode fazer o upload de dados a partir do ficheiro local no seu VM utiliz
 
 #### <a name="read-data-from-an-azure-blob-python-odbc"></a>Leia os dados de uma bolha de Azure: Python ODBC
 
-Pode utilizar a biblioteca BlobService para ler dados diretamente a partir de uma bolha num bloco de notas do Jupyter ou num programa Python.
+Pode utilizar a biblioteca BlobService para ler dados diretamente de uma bolha num Bloco de Notas do Jupyter ou num programa Python.
 
 Em primeiro lugar, importar as embalagens necessárias:
 

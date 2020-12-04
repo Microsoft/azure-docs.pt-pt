@@ -5,19 +5,20 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5063360cfe066f526d2e65ce8e84479f55af26f4
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 042139a39c28ee4944a7f3f766fc61b163629843
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95490889"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574399"
 ---
 # <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Faça o download de uma lista de utilizadores no portal Azure Ative Directory
 

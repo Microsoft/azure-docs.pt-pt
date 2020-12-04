@@ -1,17 +1,15 @@
 ---
 title: Depurar a sua aplicação no Visual Studio
 description: Melhore a fiabilidade e o desempenho dos seus serviços desenvolvendo-os e depurando-os no Visual Studio num cluster de desenvolvimento local.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 35c4875ca9bf3165fff84164eb3bb7ebe44cf932
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0b7d08d610c883240abedc66c55abba64a74c8e3
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093400"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576320"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Depurar a sua aplicação do Service Fabric com o Visual Studio
 > [!div class="op_single_selector"]
@@ -77,7 +75,7 @@ Se as suas aplicações Service Fabric estiverem a funcionar num cluster de Teci
     ![Permitir depuragem remota][enableremotedebugging]
    
     Esta ação iniciará o processo de permitir a extensão de depuração remota nos seus nós de cluster e configurações de rede necessárias.
-2. Clique com o botão direito no nó de cluster no **Cloud Explorer**e escolha **Attach Debugger**
+2. Clique com o botão direito no nó de cluster no **Cloud Explorer** e escolha **Attach Debugger**
    
     ![Anexar depurar][attachdebugger]
 3. No **Anexar para processar** diálogo, escolha o processo que pretende depurar e clique em **Anexar**

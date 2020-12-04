@@ -1,17 +1,15 @@
 ---
 title: Reentrância em Azure Service Fabric atores
 description: Introdução à reentrância para Service Fabric Reliable Actors, uma forma de logicamente evitar o bloqueio com base no contexto de chamada.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 75512633dae8d9a9f61c37bbc795d8e8d20c4ff1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2356db0eee82a133afad6aa95299ced0595db32
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89007813"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576065"
 ---
 # <a name="reliable-actors-reentrancy"></a>Reentrada de atores fiáveis
 O tempo de execução dos Atores Fidedigdos, por padrão, permite a reentrada lógica baseada no contexto de chamadas. Isto permite que os atores sejam reentrantes se estiverem na mesma cadeia de contexto de chamada. Por exemplo, o ator A envia uma mensagem ao Ator B, que envia uma mensagem ao Ator C. Como parte do processamento da mensagem, se o Ator C chamar o Ator A, a mensagem é reentrante, por isso será permitida. Quaisquer outras mensagens que façam parte de um contexto de chamada diferente serão bloqueadas no Ator A até que termine o processamento.

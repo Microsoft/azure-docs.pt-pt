@@ -2,16 +2,16 @@
 title: Grelha de Eventos Azure - Ativar registos de diagnóstico para tópicos ou domínios
 description: Este artigo fornece instruções passo a passo sobre como ativar registos de diagnóstico para um tópico de grelha de eventos Azure.
 ms.topic: how-to
-ms.date: 07/07/2020
-ms.openlocfilehash: 2d76d3ededd6d241197b26ac357c3b5406f43f02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/03/2020
+ms.openlocfilehash: ff00c1438c49cbc9f9e67eba0cf0acef7991a5a4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297526"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576456"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Ativar registos de diagnóstico para tópicos ou domínios da grelha de eventos Azure
-As definições de diagnóstico permitem aos utilizadores da Grade de Eventos capturar e visualizar **registos de falha de publicação e entrega** numa conta de Armazenamento, num centro de eventos ou num espaço de trabalho do Log Analytics. Este artigo fornece instruções passo a passo para ativar estas definições num tópico de grelha de evento.
+Este artigo fornece instruções passo a passo para permitir configurações de diagnóstico para tópicos ou domínios da Grelha de Eventos.  Estas definições permitem capturar e visualizar registos **de falha de publicação e entrega.** 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -76,7 +76,7 @@ As definições de diagnóstico permitem aos utilizadores da Grade de Eventos ca
 
         ![Arquivar para uma conta de armazenamento Azure](./media/enable-diagnostic-logs-topic/system-topic-select-storage-account.png)
     - Se selecionar **o Stream para um centro de eventos**, selecione Event hub - **Configure**, e, em seguida, selecione o espaço de nomes dos Centros de Eventos, o centro de eventos e a política de acesso. 
-        ![Transmita para um centro de eventos](./media/enable-diagnostic-logs-topic/system-topic-select-event-hub.png)
+        ![Transmitir em fluxo para um hub de eventos](./media/enable-diagnostic-logs-topic/system-topic-select-event-hub.png)
 8. Selecione **Guardar**. Em seguida, selecione **X** no canto direito para fechar a página. 
 9. Agora, de volta à página de **definições de Diagnóstico,** confirme que vê uma nova entrada na tabela **Definições de Diagnóstico.** 
     ![Definição de diagnóstico na lista](./media/enable-diagnostic-logs-topic/system-topic-diagnostic-settings-targets.png)
@@ -87,10 +87,10 @@ As definições de diagnóstico permitem aos utilizadores da Grade de Eventos ca
 
 ## <a name="view-diagnostic-logs-in-azure-storage"></a>Ver registos de diagnóstico no Azure Storage 
 
-1. Uma vez que você ativa uma conta de armazenamento como um destino de captura e a Grade de Eventos começa a emitir registos de diagnóstico, você deve ver novos recipientes nomeados **insights-logs-deliveryfailures** e **insights-logs-publishfures** na conta de armazenamento. 
+1. Uma vez que você ativa uma conta de armazenamento como um destino de captura, a Grade de Evento começa a emitir registos de diagnóstico. Deverá ver novos contentores **nomeados insights-logs-deliveryfailures** e **insights-logs-publishisfailures** na conta de armazenamento. 
 
     ![Armazenamento - recipientes para registos de diagnóstico](./media/enable-diagnostic-logs-topic/storage-containers.png)
-2. Ao navegar por um dos contentores, acabará numa bolha em formato JSON. O ficheiro contém entradas de registo para uma falha de entrega ou uma falha de publicação. O caminho de navegação representa o **ResourceId** do tópico da grelha de evento e o tempotamp (nível de minuto) sobre quando as entradas de registo foram emitidas. O ficheiro blob/JSON, que é transferível, acaba por aderir ao esquema descrito na secção seguinte. 
+2. Ao navegar por um dos contentores, acabará numa bolha no formato JSON. O ficheiro contém entradas de registo para uma falha de entrega ou uma falha de publicação. O caminho de navegação representa o **ResourceId** do tópico da grelha de evento e o tempotamp (nível de minuto) sobre quando as entradas de registo foram emitidas. O ficheiro blob/JSON, que é transferível, acaba por aderir ao esquema descrito na secção seguinte. 
 
     [![Ficheiro JSON no armazenamento ](./media/enable-diagnostic-logs-topic/select-json.png)](./media/enable-diagnostic-logs-topic/select-json.png)
 3. Deve ver conteúdo no ficheiro JSON semelhante ao seguinte exemplo: 
@@ -102,9 +102,8 @@ As definições de diagnóstico permitem aos utilizadores da Grade de Eventos ca
         "eventSubscriptionName": "SAMPLEDESTINATION",
         "category": "DeliveryFailures",
         "operationName": "Deliver",
-        "message": "Message:outcome=NotFound, latencyInMs=2635, systemId=17284f7c-0044-46fb-84b7-59fda5776017, state=FilteredFailingDelivery, deliveryTime=11/1/2019 12:17:10 AM, deliveryCount=0, probationCount=0, deliverySchema=EventGridEvent, eventSubscriptionDeliverySchema=EventGridEvent, fields=InputEvent, EventSubscriptionId, DeliveryTime, State, Id, DeliverySchema, LastDeliveryAttemptTime, SystemId, fieldCount=, requestExpiration=1/1/0001 12:00:00 AM, delivered=False publishTime=11/1/2019 12:17:10 AM, eventTime=11/1/2019 12:17:09 AM, eventType=Type, deliveryTime=11/1/2019 12:17:10 AM, filteringState=FilteredWithRpc, inputSchema=EventGridEvent, publisher=DIAGNOSTICLOGSTEST-EASTUS.EASTUS-1.EVENTGRID.AZURE.NET, size=363, fields=Id, PublishTime, SerializedBody, EventType, Topic, Subject, FilteringHashCode, SystemId, Publisher, FilteringTopic, TopicCategory, DataVersion, MetadataVersion, InputSchema, EventTime, fieldCount=15, url=sb://diagnosticlogstesting-eastus.servicebus.windows.net/, deliveryResponse=NotFound: The messaging entity 'sb://diagnosticlogstesting-eastus.servicebus.windows.net/eh-diagnosticlogstest' could not be found. TrackingId:c98c5af6-11f0-400b-8f56-c605662fb849_G14, SystemTracker:diagnosticlogstesting-eastus.servicebus.windows.net:eh-diagnosticlogstest, Timestamp:2019-11-01T00:17:13, referenceId: ac141738a9a54451b12b4cc31a10dedc_G14:"
+        "message": "Message:outcome=NotFound, latencyInMs=2635, id=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx, systemId=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, state=FilteredFailingDelivery, deliveryTime=11/1/2019 12:17:10 AM, deliveryCount=0, probationCount=0, deliverySchema=EventGridEvent, eventSubscriptionDeliverySchema=EventGridEvent, fields=InputEvent, EventSubscriptionId, DeliveryTime, State, Id, DeliverySchema, LastDeliveryAttemptTime, SystemId, fieldCount=, requestExpiration=1/1/0001 12:00:00 AM, delivered=False publishTime=11/1/2019 12:17:10 AM, eventTime=11/1/2019 12:17:09 AM, eventType=Type, deliveryTime=11/1/2019 12:17:10 AM, filteringState=FilteredWithRpc, inputSchema=EventGridEvent, publisher=DIAGNOSTICLOGSTEST-EASTUS.EASTUS-1.EVENTGRID.AZURE.NET, size=363, fields=Id, PublishTime, SerializedBody, EventType, Topic, Subject, FilteringHashCode, SystemId, Publisher, FilteringTopic, TopicCategory, DataVersion, MetadataVersion, InputSchema, EventTime, fieldCount=15, url=sb://diagnosticlogstesting-eastus.servicebus.windows.net/, deliveryResponse=NotFound: The messaging entity 'sb://diagnosticlogstesting-eastus.servicebus.windows.net/eh-diagnosticlogstest' could not be found. TrackingId:c98c5af6-11f0-400b-8f56-c605662fb849_G14, SystemTracker:diagnosticlogstesting-eastus.servicebus.windows.net:eh-diagnosticlogstest, Timestamp:2019-11-01T00:17:13, referenceId: ac141738a9a54451b12b4cc31a10dedc_G14:"
     }
     ```
-
 ## <a name="next-steps"></a>Passos seguintes
 Para o esquema de registo e outras informações conceptuais sobre registos de diagnóstico para tópicos ou domínios, consulte [registos de diagnóstico](diagnostic-logs.md).

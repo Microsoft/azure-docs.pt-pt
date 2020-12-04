@@ -1,17 +1,15 @@
 ---
 title: Conecte-se e comunique com os serviços em Azure Service Fabric
 description: Saiba como resolver, conectar e comunicar com serviços em Tecido de Serviço.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 715089d40f584fbbaf23f674e4243c92c718e9d1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 11f525eba89dc963deee0ba9a86566361ef644de
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093332"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576303"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Conecte-se e comunique-se com serviços em Tecido de Serviço
 Em Service Fabric, um serviço funciona em algum lugar em um cluster de Tecido de Serviço, normalmente distribuído por vários VMs. Pode ser movido de um lugar para outro, seja pelo proprietário do serviço, ou automaticamente pela Service Fabric. Os serviços não estão estáticos ligados a uma determinada máquina ou endereço.
@@ -62,7 +60,7 @@ Para obter mais detalhes sobre como utilizar o serviço de procuração inversa 
 Os serviços que se conectam entre si dentro de um cluster geralmente podem aceder diretamente aos pontos finais de outros serviços porque os nós de um cluster estão na mesma rede local. Em alguns ambientes, no entanto, um cluster pode estar por trás de um equilibrador de carga que encaminha o tráfego através de um conjunto limitado de portos. Nestes casos, os serviços ainda podem comunicar entre si e resolver endereços usando o Serviço de Nomeação, mas devem ser tomadas medidas adicionais para permitir que os clientes externos se conectem aos serviços.
 
 ## <a name="service-fabric-in-azure"></a>Tecido de serviço em Azure
-Um cluster de tecido de serviço em Azure é colocado atrás de um Balançador de Carga Azure. Todo o tráfego externo para o cluster deve passar pelo equilibrador de carga. O balançador de carga encaminha automaticamente o tráfego para uma determinada porta para um *nó* aleatório que tenha a mesma porta aberta. O Azure Load Balancer só sabe sobre portas abertas nos *nós,* desconhece portas abertas por *serviços*individuais.
+Um cluster de tecido de serviço em Azure é colocado atrás de um Balançador de Carga Azure. Todo o tráfego externo para o cluster deve passar pelo equilibrador de carga. O balançador de carga encaminha automaticamente o tráfego para uma determinada porta para um *nó* aleatório que tenha a mesma porta aberta. O Azure Load Balancer só sabe sobre portas abertas nos *nós,* desconhece portas abertas por *serviços* individuais.
 
 ![Topologia do equilibrador de carga e do tecido de serviço Azure][3]
 

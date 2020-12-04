@@ -5,12 +5,12 @@ description: Saiba como utilizar a adesão do grupo Azure Ative Directory para r
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: f49e9f6b4f5aaf58ff055043b52cfe99e3e39f19
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 89bf785a082ff479dcd824a773123fcd061dc22d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684292"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576116"
 ---
 # <a name="control-access-to-cluster-resources-using-kubernetes-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Controlar o acesso aos recursos de cluster utilizando o controlo de acesso baseado em funções da Kubernetes e as identidades do Azure Ative Directory no Serviço Azure Kubernetes
 
@@ -367,7 +367,7 @@ $ kubectl run nginx-sre --image=nginx --namespace dev
 Error from server (Forbidden): pods is forbidden: User "akssre@contoso.com" cannot create pods in the namespace "dev"
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Neste artigo, criou recursos no cluster AKS e utilizadores e grupos em Azure AD. Para limpar todos estes recursos, executar os seguintes comandos:
 
@@ -388,7 +388,7 @@ az ad group delete --group appdev
 az ad group delete --group opssre
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como proteger os clusters kubernetes, consulte [opções de Acesso e identidade para AKS)][rbac-authorization].
 

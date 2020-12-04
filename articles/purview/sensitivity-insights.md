@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: beaa231eddd57e29578a1d69ee30af05ce7c8d0f
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 74f4391fcd071ac510fc66b2f8bc36ec4549dc47
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554377"
+ms.locfileid: "96575759"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Insights do rótulo de sensibilidade sobre os seus dados em Azure Purview
 
@@ -75,6 +75,7 @@ A Purview utiliza as mesmas classificações, também conhecidas como tipos de i
    |**Principais rótulos aplicados em mesas**     | Mostra as etiquetas de sensibilidade superiores aplicadas às tabelas de bases de dados nos seus dados. |   
    |  **Atividade de rotulagem**  |  Apresenta gráficos separados para ficheiros e tabelas, cada um mostrando o número de ficheiros ou tabelas rotulados ao longo do prazo selecionado. <br>**Padrão:** 30 dias<br>Selecione o filtro **Tempo** acima dos gráficos para selecionar um período de tempo diferente para visualizar.    |
    |    |    |
+
 ## <a name="sensitivity-labeling-insights-drilldown"></a>Perfuração de insights de rotulagem de sensibilidade
 
 Em qualquer um dos seguintes gráficos **de etiquetagem de sensibilidade,** selecione o link **Ver mais** para perfurar para obter mais detalhes:
@@ -98,6 +99,7 @@ Faça qualquer um dos seguintes para saber mais:
 |**Aprofundar ainda mais**     | Para aprofundar uma etiqueta específica, selecione um nome na coluna da **etiqueta Sensibilidade** para visualizar o rótulo por relatório **de origem.** <br><br>Este relatório apresenta dados para a etiqueta selecionada, incluindo o nome de origem, o tipo de origem, o ID de subscrição e o número de ficheiros e tabelas classificados.      |
 |**Procurar ativos**     |  Para navegar pelos ativos encontrados com uma etiqueta ou fonte específica, selecione uma ou mais etiquetas ou fontes, dependendo do relatório que está a visualizar e, em seguida, **selecione Procurar ativos** acima dos :::image type="icon" source="media/insights/ico-browse-assets.png" border="false"::: filtros. <br><br>Os resultados da pesquisa mostram todos os ativos rotulados encontrados para o filtro selecionado.  Para mais informações, consulte [o Catálogo de Dados Azure Purview.](how-to-search-catalog.md)       |
 | | |
+
 ## <a name="sensitivity-label-integration-with-microsoft-365-compliance"></a>Integração de etiquetas de sensibilidade com a conformidade da Microsoft 365
 
 Uma estreita integração com [a Microsoft Information Protection](/microsoft-365/compliance/information-protection) oferecida no Microsoft 365 significa que o Purview permite formas diretas de estender a visibilidade à sua propriedade de dados e classificar e rotular os seus dados.
@@ -108,15 +110,9 @@ Para obter mais informações, consulte [automaticamente os seus dados no Azure 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre os relatórios de insight da Azure Purview
-> [!div class="nextstepaction"]
-> [Insights glossários](glossary-insights.md)
+Saiba mais sobre estes relatórios de insight da Azure Purview:
 
-> [!div class="nextstepaction"]
-> [Digitalizar insights](scan-insights.md)
-
-> [!div class="nextstepaction"]
-> [Insights de classificação](./classification-insights.md)
-
-> [!div class="nextstepaction"]
-> [Insights de extensão de ficheiros](file-extension-insights.md)
+- [Insights glossários](glossary-insights.md)
+- [Digitalizar insights](scan-insights.md)
+- [Insights de classificação](./classification-insights.md)
+- [Insights de extensão de ficheiros](file-extension-insights.md)
