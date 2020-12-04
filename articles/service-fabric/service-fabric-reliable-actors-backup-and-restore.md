@@ -1,17 +1,15 @@
 ---
 title: Backup e restaurar atores de tecido de serviço Azure
 description: Saiba como implementar backup e restaurar os seus atores Azure Service Fabric.
-author: vturecek
 ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9646a8c4b1c138d832b209e51898fb013ca810cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05dfb7d09e68373f52831a9e5233316df95ee552
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006878"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571339"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Implementar backup e restauro de atores fiáveis
 

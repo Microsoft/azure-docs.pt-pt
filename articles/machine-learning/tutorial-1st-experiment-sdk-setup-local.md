@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 1b4ee9f06e8ed8bd47be1075070dea71b42b1cef
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 05ac0f78345e1c1d7643f24410d53b209ab7c375
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349074"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574161"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Tutorial: Começa com a Azure Machine Learning no teu ambiente de desenvolvimento (parte 1 de 4)
 
@@ -52,7 +52,10 @@ Você pode usar as ferramentas mais familiares para você (por exemplo, Conda e 
 pip install azureml-sdk
 ```
 
-## <a name="create-a-directory-structure-for-code"></a>Criar uma estrutura de diretório para código
+> [!div class="nextstepaction"]
+> [Instalei o SDK](?success=install-sdk#dir) [e dei conta de um problema.](https://www.research.net/r/7C8Z3DN?issue=install-sdk)
+
+## <a name="create-a-directory-structure-for-code"></a><a name="dir"></a>Criar uma estrutura de diretório para código
 Recomendamos que crie a seguinte estrutura de diretório simples para este tutorial:
 
 ```markdown
@@ -63,7 +66,11 @@ tutorial
 - `tutorial`: Diretório de alto nível do projeto.
 - `.azureml`: Subdiretório oculto para armazenar ficheiros de configuração de aprendizagem automática Azure.
 
-## <a name="create-an-azure-machine-learning-workspace"></a>Criar uma área de trabalho do Azure Machine Learning
+
+> [!div class="nextstepaction"]
+> [Criei um diretório](?success=create-dir#workspace) [que encontrei um problema.](https://www.research.net/r/7C8Z3DN?issue=create-dir)
+
+## <a name="create-an-azure-machine-learning-workspace"></a><a name="workspace"></a>Criar uma área de trabalho do Azure Machine Learning
 
 Um espaço de trabalho é um recurso de alto nível para a Azure Machine Learning e é um lugar centralizado para:
 
@@ -119,7 +126,10 @@ O ficheiro `.azureml/config.json` contém os metadados necessários para ligar a
 >
 > A autenticação ainda é necessária para interagir com o seu espaço de trabalho de Aprendizagem automática Azure.
 
-## <a name="create-an-azure-machine-learning-compute-cluster"></a>Criar um cluster de cálculo de aprendizagem automática Azure
+> [!div class="nextstepaction"]
+> [Criei um espaço de trabalho](?success=create-workspace#cluster) que [deparou-me com um problema.](https://www.research.net/r/7C8Z3DN?issue=create-workspace)
+
+## <a name="create-an-azure-machine-learning-compute-cluster"></a><a name="cluster"></a> Criar um cluster de cálculo de aprendizagem automática Azure
 
 Crie um script Python no `tutorial` diretório de alto nível chamado `02-create-compute.py` . Preencha-o com o seguinte código para criar um cluster de cálculo Azure Machine Learning que irá autoescalizar entre zero e quatro nós:
 
@@ -168,7 +178,10 @@ tutorial
 └──02-create-compute.py
 ```
 
-## <a name="next-steps"></a>Próximos passos
+> [!div class="nextstepaction"]
+> [Criei um cluster de computação](?success=create-compute-cluster#next-steps) [que deparei com um problema](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)
+
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial de configuração, você tem:
 

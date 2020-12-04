@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6d6a0bdb9a6aaa2d9ca75ccd4a6d71e9046bee4a
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 9ebbe54dd41cd7d7b83ef12f465326db3ef2b9ab
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523551"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572189"
 ---
 # <a name="how-to-review-synapse-rbac-role-assignments"></a>Como rever atribuições de funções do SYNAPSE RBAC
 
@@ -21,7 +21,10 @@ As funções de RBAC sinapse são usadas para atribuir permissões a utilizadore
 
 Este artigo explica como rever as atribuições de funções atuais para um espaço de trabalho.
 
-Com qualquer papel de RBAC da Synapse, pode listar atribuições de funções de Sinapse RBAC para todos os âmbitos, incluindo atribuições para objetos a que não tem acesso. Apenas um administrador da Sinapse pode conceder acesso ao RBAC da Sinapse.   
+Com qualquer papel de RBAC da Synapse, pode listar atribuições de funções de Sinapse RBAC para todos os âmbitos, incluindo atribuições para objetos a que não tem acesso. Apenas um administrador da Sinapse pode conceder acesso ao RBAC da Sinapse.  
+
+>[!Note]
+>Os utilizadores convidados (utilizadores de um inquilino de AD diferente) não podem ver ou gerir atribuições de funções, mesmo que atribuíssem a função de Administrador de Sinapse.    
 
 ## <a name="open-synapse-studio"></a>Open Synapse Studio  
 

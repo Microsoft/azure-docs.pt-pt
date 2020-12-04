@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bbaa44fb64becee85b29cd44bee44e593ec55bf6
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 1095222f332e7a66f684feddf1fdab17704ca658
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372647"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573549"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Ligue as suas contas GCP ao Azure Security Center
 
@@ -39,10 +39,12 @@ Na imagem abaixo pode ver projetos GCP apresentados no painel de visão geral do
 |Estado de libertação:|Pré-visualizar<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |Funções e permissões necessárias:|**Proprietário** ou **Colaborador** na assinatura Azure relevante|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 ## <a name="connect-your-gcp-account"></a>Ligar a conta GCP
+
+Siga os passos abaixo para criar o seu conector de nuvem GCP. 
 
 ### <a name="step-1-set-up-gcp-security-command-center-with-security-health-analytics"></a>Passo 1. Criar o Centro de Comando de Segurança GCP com Análise de Saúde de Segurança
 
@@ -69,13 +71,13 @@ Saiba mais sobre o [Centro de Comando de Segurança API.](https://cloud.google.c
 ### <a name="step-3-create-a-dedicated-service-account-for-the-security-configuration-integration"></a>Passo 3. Criar uma conta de serviço dedicada para a integração da configuração de segurança
 
 1. Na **Consola GCP,** selecione o projeto que pretende ligar ao Centro de Segurança.
-1. No **menu Navegação** , No IAM & opções **de administração,** selecione **contas de Serviço**.
+1. No **menu Navegação**, No IAM & opções **de administração,** selecione **contas de Serviço**.
 1. Selecione **CREATE SERVICE ACCOUNT**.
 1. Introduza um nome de conta e selecione **Criar**.
 1. Especifique a **Função** como **Visualizador de Administração do Centro de Segurança** e selecione **Continue**.
 1. O **acesso dos utilizadores grant a esta** secção de conta de serviço é opcional. Selecione **Concluído**.
 1. Copie o **valor de e-mail** da conta de serviço criada e guarde-o para posterior utilização.
-1. No **menu Navegação** , Opções **de administração & IAM,** selecione **IAM**
+1. No **menu Navegação**, Opções **de administração & IAM,** selecione **IAM**
     1. Mude para o nível de organização.
     1. Selecione **ADD**.
     1. No campo **Novos membros,** cole o **valor de Email** que copiou anteriormente.
@@ -85,7 +87,7 @@ Saiba mais sobre o [Centro de Comando de Segurança API.](https://cloud.google.c
 
 ### <a name="step-4-create-a-private-key-for-the-dedicated-service-account"></a>Passo 4: Criar uma chave privada para a conta de serviço dedicada
 1. Mude para o nível de projeto.
-1. No **menu Navegação** , No IAM & opções **de administração,** selecione **contas de Serviço**.
+1. No **menu Navegação**, No IAM & opções **de administração,** selecione **contas de Serviço**.
 1. Abra a conta de serviço dedicada e selecione Editar.
 1. Na secção **Chaves,** selecione **ADD KEY** e, em seguida, **Crie uma nova tecla**.
 1. No ecrã de teclas privada Create, selecione **JSON** e, em seguida, selecione **CREATE**.

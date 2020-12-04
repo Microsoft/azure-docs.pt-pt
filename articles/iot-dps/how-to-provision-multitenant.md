@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: bcdda8d1bd08a26dcdbec294be88fd4540670596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0c132d1aa7a37dc8e7620352bb7b9a078d79a09
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531428"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571611"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como aprovisionar para arquitetura "multitenancy" 
 
@@ -38,11 +38,8 @@ Este artigo utiliza uma amostra de dispositivo simulada do [Azure IoT C SDK](htt
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclusão do Serviço de Provisionamento de [Dispositivos IoT Hub com o](./quick-setup-auto-provision.md) quickstart do portal Azure.
-
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
+- Conclusão do Serviço de Provisionamento de [Dispositivos IoT Hub com o](./quick-setup-auto-provision.md) quickstart do portal Azure.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-two-regional-iot-hubs"></a>Criar dois centros regionais de IoT
 
@@ -304,7 +301,7 @@ O código de amostra simula uma sequência de arranque do dispositivo que envia 
 
     ![Extrair informações de ponto final do Serviço Aprovisionamento de Dispositivos do painel do portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-1. Abra **~/azure-iot-sdk-c/provisioning \_ cliente/samples/prov \_ dev \_ client \_ sample/prov \_ dev client \_ \_ sample.c** para edição em ambos os VMs.
+1. Abra **a amostra de \_ cliente/amostra de cliente/prov \_ dev dev dev/prov \_ dev \_ \_ \_ \_ dev.c** para edição em ambos os VMs.
 
     ```bash
     vi ~/azure-iot-sdk-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c
@@ -327,7 +324,7 @@ O código de amostra simula uma sequência de arranque do dispositivo que envia 
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-1. Em ambos os VMs, encontre a chamada para `prov_dev_set_symmetric_key_info()` **o prov \_ dev client \_ \_ sample.c** que é comentado.
+1. Em ambos os VMs, encontre a chamada para a `prov_dev_set_symmetric_key_info()` **amostra do cliente prov \_ \_ dev.c \_** que é comentada.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -398,7 +395,7 @@ O código de amostra simula uma sequência de arranque do dispositivo que envia 
 
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretende continuar a trabalhar com os recursos criados neste artigo, pode deixá-los. Se não pretender continuar a utilizar o recurso, utilize as seguintes medidas para eliminar todos os recursos criados por este artigo para evitar encargos desnecessários.
 

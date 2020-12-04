@@ -7,14 +7,14 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: b20391c4d856a5c52b6017ae892ec0b86873dbca
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 82c5a246dca69c0723394e41058c4fc123bbb84e
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491890"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571951"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Authenticate Stream Analytics para Azure Data Lake Storage Gen1 usando identidades geridas
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Authenticate Stream Analytics para Azure Data Lake Storage Gen1 usando identidades geridas (pré-visualização)
 
 O Azure Stream Analytics suporta a autenticação de identidade gerida com a saída da Azure Data Lake Storage (ADLS) Gen1. A identidade é uma aplicação gerida registada no Azure Ative Directory que representa um determinado trabalho de Stream Analytics, e pode ser usada para autenticar a um recurso direcionado. As identidades geridas eliminam as limitações dos métodos de autenticação baseados no utilizador, como a necessidade de reautorização devido a alterações de palavra-passe ou expirações simbólicas do utilizador que ocorrem a cada 90 dias. Adicionalmente, identidades geridas ajudam com a automatização de implementações de trabalho stream Analytics que produção para Azure Data Lake Storage Gen1.
 
@@ -84,7 +84,7 @@ Este artigo mostra-lhe três maneiras de ativar a identidade gerida para um trab
 
    * Descreva automaticamente permissões **de escrever** e **executar** para o prefixo ADLS Gen1 utilizado no trabalho e atribua-o a esta pasta e a todas as crianças.
 
-5. Pode gerar os modelos de Gestor de Recursos com a seguinte propriedade utilizando [o Stream Analytics CI. Cd Nuget versão](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) 1.5.0 ou superior a uma máquina de construção (fora do Visual Studio). Siga os passos de implementação do modelo do Gestor de Recursos na secção seguinte para obter o principal de serviço e conceder acesso ao principal de serviço via PowerShell.
+5. Pode gerar os modelos de Gestor de Recursos com a seguinte propriedade utilizando stream Analytics CI.CD versão [de pacote NuGet](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) 1.5.0 ou superior numa máquina de construção (fora do Visual Studio). Siga os passos de implementação do modelo do Gestor de Recursos na secção seguinte para obter o principal de serviço e conceder acesso ao principal de serviço via PowerShell.
 
 ## <a name="resource-manager-template-deployment"></a>Implementação do modelo do gestor de recursos
 
@@ -182,7 +182,7 @@ A Identidade Gerida criada para um trabalho stream Analytics só é eliminada qu
 ## <a name="limitations"></a>Limitações
 Esta funcionalidade não suporta o seguinte:
 
-1. **Acesso multi-inquilino** : O diretor de serviço criado para um determinado trabalho stream Analytics residirá no inquilino do Azure Ative Directory em que o trabalho foi criado, e não pode ser usado contra um recurso que reside em um inquilino azure Ative Directory. Portanto, você só pode usar MSI em recursos ADLS Gen 1 que estão dentro do mesmo inquilino Azure Ative Directory que o seu trabalho Azure Stream Analytics. 
+1. **Acesso multi-inquilino**: O diretor de serviço criado para um determinado trabalho stream Analytics residirá no inquilino do Azure Ative Directory em que o trabalho foi criado, e não pode ser usado contra um recurso que reside em um inquilino azure Ative Directory. Portanto, você só pode usar MSI em recursos ADLS Gen 1 que estão dentro do mesmo inquilino Azure Ative Directory que o seu trabalho Azure Stream Analytics. 
 
 2. **[Identidade atribuída ao utilizador:](../active-directory/managed-identities-azure-resources/overview.md)** não é suportado. Isto significa que o utilizador não pode introduzir o seu próprio principal de serviço para ser utilizado pelo seu trabalho stream Analytics. O principal do serviço é gerado pela Azure Stream Analytics.
 

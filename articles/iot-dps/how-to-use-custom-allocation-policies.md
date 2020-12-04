@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 9db4328ce6519bef05017ba697d8f0f029f2096a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 26615b82bb9dcbc1247bec9b7a06b579dfa1eb2b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967419"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571645"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como utilizar políticas de alocação personalizadas
 
@@ -44,11 +44,11 @@ Executa os seguintes passos neste artigo:
 
 Os seguintes pré-requisitos são para um ambiente de desenvolvimento do Windows. Para Linux ou macOS, consulte a secção apropriada no preparar o [seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) na documentação SDK.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 com o ['desenvolvimento do ambiente de trabalho com C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitado. Visual Studio 2015 e Visual Studio 2017 também são suportados.
+- [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 com o ['desenvolvimento do ambiente de trabalho com C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitado. Visual Studio 2015 e Visual Studio 2017 também são suportados.
 
-* Versão mais recente do [Git](https://git-scm.com/download/) instalada.
+- Versão mais recente do [Git](https://git-scm.com/download/) instalada.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-the-provisioning-service-and-two-divisional-iot-hubs"></a>Criar o serviço de fornecimento e dois hubs IoT divisionários
 
@@ -133,7 +133,7 @@ Nesta secção, cria-se uma função Azure que implementa a sua política de atr
 
 7. Na página seguinte, para o passo **CREATE A FUNCTION,** selecione o **teia Webhook + API** e, em seguida, selecione **Criar**. É criada uma função chamada **HttpTrigger1** e o portal exibe o conteúdo do ficheiro de código **run.csx.**
 
-8. Referência necessária pacotes Nuget. Para criar o twin do dispositivo inicial, a função de atribuição personalizada utiliza classes que são definidas em dois pacotes Nuget que devem ser carregados no ambiente de hospedagem. Com as Funções Azure, os pacotes Nuget são referenciados através de um ficheiro *fun.host.* Neste passo, guarde e carreize um ficheiro *fun.host.*
+8. Referência necessária pacotes NuGet. Para criar o twin do dispositivo inicial, a função de atribuição personalizada utiliza classes que são definidas em dois pacotes NuGet que devem ser carregados no ambiente de hospedagem. Com as funções Azure, os pacotes NuGet são referenciados através de um ficheiro *fun.host.* Neste passo, guarde e carreize um ficheiro *fun.host.*
 
     1. Copie as seguintes linhas para o seu editor favorito e guarde o ficheiro no seu computador como *fun.host*.
 
@@ -568,7 +568,7 @@ A tabela seguinte mostra cenários esperados e os códigos de erro de resultados
 | O webhook devolve >de código de erro = 429 | A orquestração do DPS vai voltar a tentar várias vezes. A política de retenção é atualmente:<br><br>&nbsp;&nbsp;- Contagem de repetições: 10<br>&nbsp;&nbsp;- Intervalo inicial: 1s<br>&nbsp;&nbsp;- Incremento: 9s | A SDK ignorará o erro e submeterá outra mensagem de estado de obter no tempo especificado |
 | O webhook devolve qualquer outro código de estado | Estado do resultado: Falhado<br><br>Código de erro: CustomAllocationFailed (400207) | SDK regressa PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender continuar a trabalhar com os recursos criados neste artigo, pode deixá-los. Se não pretender continuar a utilizar os recursos, use os seguintes passos para eliminar todos os recursos criados neste artigo para evitar encargos desnecessários.
 

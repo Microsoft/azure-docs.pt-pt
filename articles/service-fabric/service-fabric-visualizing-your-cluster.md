@@ -1,16 +1,14 @@
 ---
 title: Visualizar o seu cluster usando o Azure Service Fabric Explorer
 description: Service Fabric Explorer é uma aplicação para inspecionar e gerir aplicações e nós em nuvem num cluster de tecido de serviço microsoft Azure.
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.author: mikhegn
-ms.openlocfilehash: 5627aa614a7e2819b6f3cc1401c8458552e57219
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a45aff305f97610cb2660c2e3f4b4427b905d7d4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085178"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574060"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizar o cluster com o Service Fabric Explorer
 
@@ -83,7 +81,7 @@ A vista do nó mostra o esquema físico do cluster. Para um determinado nó, pod
 ## <a name="actions"></a>Ações
 O Service Fabric Explorer oferece uma forma rápida de invocar ações sobre nós, aplicações e serviços dentro do seu cluster.
 
-Por exemplo, para eliminar uma instância de aplicação, escolha a aplicação da árvore à esquerda e, em seguida, escolha **Ações**  >  **Eliminar Aplicação** .
+Por exemplo, para eliminar uma instância de aplicação, escolha a aplicação da árvore à esquerda e, em seguida, escolha **Ações**  >  **Eliminar Aplicação**.
 
 ![Eliminação de uma aplicação no Service Fabric Explorer][sfx-delete-application]
 

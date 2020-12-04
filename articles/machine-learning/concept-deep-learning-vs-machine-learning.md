@@ -10,12 +10,12 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 43b03abb2aac13358a2187a0a5dc570c1e45934e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c612e2a95e2596b2732ed8282037c8ded908a0a0
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458488"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571390"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Aprendizagem profunda vs. aprendizagem automática em Azure Machine Learning
 
@@ -93,8 +93,6 @@ A análise de texto baseada em métodos de aprendizagem profunda envolve analisa
 
 As empresas usam aprendizagem profunda para realizar análises de texto para detetar o trading de insider e o cumprimento dos regulamentos governamentais. Outro exemplo comum é a fraude dos seguros: a análise de textos tem sido frequentemente utilizada para analisar grandes quantidades de documentos para reconhecer as hipóteses de um pedido de seguro ser fraude. 
 
-Saiba como utilizar um modelo TensorFlow em Azure Machine Learning: [Classifique os dígitos manuscritos utilizando um modelo TensorFlow](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri)
-
 ## <a name="artificial-neural-networks"></a>Redes neuronais artificiais
 
 As redes neuronais artificiais são formadas por camadas de nós conectados. Os modelos de aprendizagem profunda usam redes neurais que têm um grande número de camadas. 
@@ -118,6 +116,9 @@ As redes neuronais convolucionais têm sido utilizadas em áreas como reconhecim
 ## <a name="next-steps"></a>Passos seguintes
 
 Os seguintes artigos mostram-lhe mais opções para a utilização de modelos de aprendizagem profunda de código aberto em [Azure Machine Learning:](./index.yml?WT.mc_id=docs-article-lazzeri)
+
+
+- [Classifique os dígitos manuscritos utilizando um modelo TensorFlow](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri) 
 
 - [Classifique os dígitos manuscritos utilizando um estimador de TensorFlow e Keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 

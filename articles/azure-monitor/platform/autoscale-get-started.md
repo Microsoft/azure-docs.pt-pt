@@ -4,12 +4,12 @@ description: Saiba como escalar o seu recurso Web App, Cloud Service, Virtual Ma
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: dbfffd98cd05e3ab2efbbe33e05da208fdc05600
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 364309301b403234936da1bac6e1b74af24c2fdb
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518707"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573311"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Começa com a Autoscale em Azure
 Este artigo descreve como configurar as suas definições de Autoscale para o seu recurso no portal Microsoft Azure.
@@ -131,10 +131,10 @@ As equipas de desenvolvimento das grandes empresas precisam frequentemente de ad
 
 ### <a name="behavior"></a>Comportamento
 
-Quando o caminho de verificação de saúde é fornecido, o Serviço de Aplicações irá fazer o caminho em todas as instâncias. Se um código de resposta bem sucedido não for recebido após 5 pings, este caso é considerado "insalubre". Casos pouco saudáveis serão excluídos da rotação do balançador de carga. Pode configurar o número necessário de pings falhados com a definição da `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` aplicação. Esta definição de aplicação pode ser definida para qualquer inteiro entre 2 e 10. Por exemplo, se isto for definido `2` para , as suas instâncias serão removidas do equilibrador de carga após dois pings falhados. Além disso, quando estiver a escalonar ou sair, o Serviço de Aplicações irá verificar o caminho da verificação de saúde para garantir que as novas instâncias estão prontas para pedidos antes de serem adicionadas ao equilibrador de carga.
+Quando o caminho de verificação de saúde é fornecido, o Serviço de Aplicações irá fazer o caminho em todas as instâncias. Se um código de resposta bem sucedido não for recebido após 5 pings, este caso é considerado "insalubre". Casos pouco saudáveis serão excluídos da rotação do balançador de carga se for escalonado para 2 ou mais instâncias e utilizar [o nível básico](../../app-service/overview-hosting-plans.md) ou superior. Pode configurar o número necessário de pings falhados com a definição da `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` aplicação. Esta definição de aplicação pode ser definida para qualquer inteiro entre 2 e 10. Por exemplo, se isto for definido `2` para , as suas instâncias serão removidas do equilibrador de carga após dois pings falhados. Além disso, quando estiver a escalonar ou sair, o Serviço de Aplicações irá verificar o caminho da verificação de saúde para garantir que as novas instâncias estão prontas para pedidos antes de serem adicionadas ao equilibrador de carga.
 
 > [!NOTE]
-> Lembre-se que o seu Plano de Serviço de Aplicações deve ser dimensionado para 2 ou mais instâncias para que a exclusão do balançador de carga ocorra. Se tiver apenas 1 instância, não será removido do equilibrador de carga, mesmo que não seja saudável. 
+> Lembre-se que o seu Plano de Serviço de Aplicações deve ser dimensionado para 2 ou mais instâncias e ser **de nível básico ou superior** para que a exclusão do balançador de carga ocorra. Se tiver apenas 1 instância, não será removido do equilibrador de carga, mesmo que não seja saudável. 
 
 Os casos saudáveis restantes podem experimentar um aumento da carga. Para evitar sobrecarregar as restantes instâncias, não mais de metade dos seus casos serão excluídos. Por exemplo, se um Plano de Serviço de Aplicações for dimensionado para 4 instâncias e 3 não saudáveis, no máximo 2 serão excluídos da rotação do loadbalancer. As outras 2 instâncias (1 saudável e 1 insalubre) continuarão a receber pedidos. No pior dos cenários, em que todos os casos não são saudáveis, nenhum será excluído. Se quiser anular este comportamento, pode definir a definição da `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` aplicação para um valor entre `0` e `100` . Defini-lo para um valor mais elevado significa que mais casos insalubres serão removidos (o valor predefinido é de 50).
 

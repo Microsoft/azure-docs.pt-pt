@@ -1,17 +1,15 @@
 ---
 title: Eliminar atores do Azure Service Fabric
 description: Aprenda a eliminar manualmente e totalmente os atores fiáveis e o seu estado numa aplicação de Tecido de Serviço Azure.
-author: amanbha
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: amanbha
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 80192aef564317e36fba56025aa31c787676d974
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16d4ab6a3c155f897cf9212fb1cd6c34d977b9ec
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006861"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574025"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Eliminar o Reliable Actors e o estado
 A recolha de lixo de atores desativados só limpa o objeto do ator, mas não remove dados que são armazenados no Diretor de Estado de um ator. Quando um ator é reativado, os seus dados são novamente disponibilizados através do Diretor de Estado. Nos casos em que os atores armazenam dados em Gerente de Estado e são desativados mas nunca reativados, pode ser necessário limpar os seus dados.

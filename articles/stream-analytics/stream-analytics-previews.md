@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 8/07/2020
-ms.openlocfilehash: 4179b06759802025f97bd32a355b788c96c9eddb
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a32491453812d74d4bd93f3f97b7e6a32036f65f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123325"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573379"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Funcionalidades de pré-visualização do Azure Stream Analytics
 
@@ -22,7 +22,7 @@ Este artigo resume todas as funcionalidades atualmente em pré-visualização pa
 
 As seguintes funcionalidades estão em visualização pública. Hoje em dia pode aproveitar estas funcionalidades, mas não as utilize no seu ambiente de produção.
 
-### <a name="authenticate-to-sql-database-output-with-managed-identities"></a>Autenticar para a produção da Base de Dados SQL com identidades geridas
+### <a name="authenticate-to-sql-database-output-with-managed-identities-preview"></a>Autenticar para a base de dados SQL com identidades geridas (pré-visualização)
 
 O Azure Stream Analytics suporta [a autenticação de identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) para lavatórios de saída da Base de Dados Azure SQL. Identidades geridas eliminam as limitações dos métodos de autenticação baseados no utilizador, como a necessidade de reauttenenciar devido a alterações de senha. 
 

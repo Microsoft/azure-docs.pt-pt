@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/14/2020
+ms.date: 12/03/2020
 ms.author: joflore
 ms.custom: contperfq1
-ms.openlocfilehash: 988119c34ab0a8ef0e20ec86a7552fb7b4643cd1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d8d709590345982479301f25601fae25fa6f4fae
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967992"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571866"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>O que é o Azure Active Directory Domain Services?
 
@@ -33,7 +33,7 @@ A Azure AD DS integra-se com o seu inquilino AZure AD existente. Esta integraç�
 
 Quando cria um domínio gerido AZure AD DS, define um espaço de nome único. Este espaço de nome é o nome de domínio, como *aaddscontoso.com*. Dois controladores de domínio do Windows Server (DCs) são então implantados na região de Azure selecionada. Esta implantação de DCs é conhecida como um conjunto de réplicas.
 
-Não precisa de gerir, configurar ou atualizar estes DCs. A plataforma Azure trata os DCs como parte do domínio gerido, incluindo cópias de segurança.
+Não precisa de gerir, configurar ou atualizar estes DCs. A plataforma Azure trata os DCs como parte do domínio gerido, incluindo cópias de segurança e encriptação em repouso usando encriptação de disco Azure.
 
 Um domínio gerido é configurado para realizar uma sincronização unidirecional a partir de Azure AD para fornecer acesso a um conjunto central de utilizadores, grupos e credenciais. Pode criar recursos diretamente no domínio gerido, mas não são sincronizados de volta ao Azure AD. Aplicações, serviços e VMs em Azure que se conectam ao domínio gerido podem então usar funcionalidades comuns de DS AD tais como a adesão de domínio, política de grupo, LDAP e a autenticação Kerberos /NTLM.
 

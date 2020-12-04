@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
-ms.openlocfilehash: 1f8cb98ea36fdad9a67eca26c6fbea7ede1f811a
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 96a1eebbdcbf269b06d2ece77987ce7813f1d5f5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94627885"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571067"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Utilize identidades geridas no Serviço Azure Kubernetes
 
@@ -18,7 +18,7 @@ Atualmente, um cluster Azure Kubernetes Service (AKS) (especificamente, o proved
 
 *As identidades geridas* são essencialmente um invólucro em torno dos diretores de serviço, e tornam a sua gestão mais simples. A rotação credencial para o MI ocorre automaticamente a cada 46 dias de acordo com o padrão do Azure Ative Directory. A AKS utiliza tipos de identidade geridos atribuídos pelo sistema e atribuídos pelo utilizador. Estas identidades são atualmente imutáveis. Para saber mais, leia sobre [identidades geridas para recursos Azure.](../active-directory/managed-identities-azure-resources/overview.md)
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Deve ter o seguinte recurso instalado:
 
@@ -40,16 +40,16 @@ A AKS usa várias identidades geridas para serviços incorporados e addons.
 |----------------------------|-----------|----------|
 | Plano de controlo | não visível | Utilizado pela AKS para recursos de rede geridos, incluindo equilibradores de carga ingresss e IPs públicos geridos por AKS | Papel contribuinte para o grupo de recursos nó | Pré-visualizar
 | Kubelet | AKS Cluster Name-agentpool | Autenticação com Registo de Contentores Azure (ACR) | NA (para kubernetes v1.15+) | Atualmente, não é suportado
-| Add-on | AzurenPM | Nenhuma identidade necessária | ND | No
-| Add-on | Monitorização da rede AzureCNI | Nenhuma identidade necessária | ND | No
-| Add-on | azurepolicy (gatekeeper) | Nenhuma identidade necessária | ND | No
-| Add-on | azurepolicy | Nenhuma identidade necessária | ND | No
-| Add-on | Calico | Nenhuma identidade necessária | ND | No
-| Add-on | Dashboard | Nenhuma identidade necessária | ND | No
-| Add-on | HTTPApplicationRouting | Gere os recursos de rede necessários | Função do leitor para grupo de recursos de nó, papel de contribuinte para a zona DNS | No
-| Add-on | Gateway de aplicação ingress | Gere os recursos de rede necessários| Papel contribuinte para o grupo de recursos de nó | No
-| Add-on | omsagent | Usado para enviar métricas AKS para Azure Monitor | Função de editor de métricas de monitorização | No
-| Add-on | Virtual-Node (ACIConnector) | Gere os recursos de rede necessários para as instâncias do contentor Azure (ACI) | Papel contribuinte para o grupo de recursos de nó | No
+| Add-on | AzurenPM | Nenhuma identidade necessária | ND | Não
+| Add-on | Monitorização da rede AzureCNI | Nenhuma identidade necessária | ND | Não
+| Add-on | azurepolicy (gatekeeper) | Nenhuma identidade necessária | ND | Não
+| Add-on | azurepolicy | Nenhuma identidade necessária | ND | Não
+| Add-on | Calico | Nenhuma identidade necessária | ND | Não
+| Add-on | Dashboard | Nenhuma identidade necessária | ND | Não
+| Add-on | HTTPApplicationRouting | Gere os recursos de rede necessários | Função do leitor para grupo de recursos de nó, papel de contribuinte para a zona DNS | Não
+| Add-on | Gateway de aplicação ingress | Gere os recursos de rede necessários| Papel contribuinte para o grupo de recursos de nó | Não
+| Add-on | omsagent | Usado para enviar métricas AKS para Azure Monitor | Função de editor de métricas de monitorização | Não
+| Add-on | Virtual-Node (ACIConnector) | Gere os recursos de rede necessários para as instâncias do contentor Azure (ACI) | Papel contribuinte para o grupo de recursos de nó | Não
 | Projeto OSS | aad-pod-identidade | Permite aplicações para aceder a recursos em nuvem de forma segura com o Azure Ative Directory (AAD) | ND | Passos para conceder permissão em https://github.com/Azure/aad-pod-identity#role-assignment .
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>Criar um cluster AKS com identidades geridas
@@ -105,23 +105,35 @@ Finalmente, obtenha credenciais para aceder ao cluster:
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
-## <a name="update-an-existing-service-principal-based-aks-cluster-to-managed-identities"></a>Atualizar um cluster AKS baseado em serviços existente para identidades geridas
+## <a name="update-an-aks-cluster-to-managed-identities-preview"></a>Atualizar um cluster AKS para identidades geridas (Pré-visualização)
 
-Agora pode atualizar um cluster AKS com identidades geridas utilizando os seguintes comandos CLI.
+Agora pode atualizar um cluster AKS que está a trabalhar com os principais de serviço para trabalhar com identidades geridas utilizando os seguintes comandos CLI.
 
-Primeiro, atualize a Identidade Atribuída ao Sistema:
+Em primeiro lugar, registe a bandeira de características para a identidade atribuída ao sistema:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n MigrateToMSIClusterPreview
+```
+
+Atualizar a identidade atribuída ao sistema:
 
 ```azurecli-interactive
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 
-Em seguida, atualize a Identidade Atribuída ao Utilizador:
+Atualizar a identidade atribuída ao utilizador:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n UserAssignedIdentityPreview
+```
+
+Atualizar a identidade atribuída ao utilizador:
 
 ```azurecli-interactive
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
 ```
 > [!NOTE]
-> Uma vez atualizadas as identidades atribuídas ao Sistema ou atribuídas ao Utilizador para a identidade gerida, execute um `az nodepool upgrade --node-image-only` nos seus nós para completar a atualização para a identidade gerida.
+> Uma vez atualizadas as identidades atribuídas ao sistema ou atribuídas ao utilizador para a identidade gerida, execute um `az nodepool upgrade --node-image-only` nos seus nós para completar a atualização para a identidade gerida.
 
 ## <a name="bring-your-own-control-plane-mi-preview"></a>Traga o seu próprio avião de controlo MI (Preview)
 Uma identidade de plano de controlo personalizado permite o acesso à identidade existente antes da criação do cluster. Isto permite cenários como a utilização de um VNET personalizado ou um Tipo de UDR com uma identidade gerida.

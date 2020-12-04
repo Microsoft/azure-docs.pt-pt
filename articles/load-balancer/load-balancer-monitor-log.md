@@ -1,7 +1,7 @@
 ---
 title: Monitorizar operações, eventos e balcões para o Balanceador de Carga Básica público
 titleSuffix: Azure Load Balancer
-description: Saiba como permitir eventos de alerta e sondar o estado de saúde para o balanceador de carga básica público
+description: Saiba como permitir a exploração madeireira para o Balançador de Carga Azure
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,23 +13,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: f24ab2c646757f0241748336243b0d5f977d081c
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 6742723e24df83ac8112e224f1999f116ab82c94
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698330"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572784"
 ---
-# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registos do Azure Monitor para o Balanceador de Carga Básico público
+# <a name="azure-monitor-logs-for-the-standard-azure-load-balancer"></a>Registos do Monitor Azure para o Balanceador de Carga Standard Azure
 
-Pode utilizar diferentes tipos de registos em Azure para gerir e resolver problemas os Balanceadores básicos de carga. Alguns destes registos podem ser acedidos através do portal. Os registos podem ser transmitidos para um centro de eventos ou para um espaço de trabalho log analytics. Todos os troncos podem ser extraídos do armazenamento de blob Azure e vistos em diferentes ferramentas, tais como Excel e Power BI.  Pode saber mais sobre os diferentes tipos de registos da lista abaixo.
+Pode utilizar diferentes tipos de registos em Azure para gerir e resolver problemas os Balanceadores de Carga Padrão. Os registos podem ser transmitidos para um centro de eventos ou para um espaço de trabalho log analytics. Todos os troncos podem ser extraídos do armazenamento de blob Azure e vistos em diferentes ferramentas, tais como Excel e Power BI.  Pode saber mais sobre os diferentes tipos de registos da lista abaixo.
 
-* **Registos de atividades:** Pode utilizar [registos de atividades para monitorizar as ações sobre recursos](../azure-resource-manager/management/view-activity-logs.md) para ver toda a atividade a ser submetida à subscrição(s) do Azure e ao seu estado. Os registos de atividade são ativados por padrão e podem ser vistos no portal Azure.
-* **Registos de eventos de alerta:** Pode utilizar este registo para visualizar os alertas levantados pelo equilibrador de carga. O estado do balançador de carga é recolhido a cada cinco minutos. Este registo só é escrito se um evento de alerta de balanceador de carga for levantado.
-* **Registos de sondas de saúde:** Pode utilizar este registo para visualizar problemas detetados pela sua sonda de saúde, como o número de casos na sua piscina de backend que não estão a receber pedidos do equilibrador de carga devido a falhas na sonda de saúde. Este registo é escrito quando há uma alteração no estado da sonda de saúde.
+* **Registos de atividades:** Pode utilizar [registos de atividades para monitorizar as ações sobre recursos](../azure-resource-manager/management/view-activity-logs.md) para ver toda a atividade a ser submetida à subscrição(s) do Azure e ao seu estado. Os registos de atividade são ativados por padrão e podem ser vistos no portal Azure. Estes registos estão disponíveis tanto para balanceadores de carga básicos como para padrões.
+* **Métricas padrão do balançador de carga:** Pode utilizar este registo para consultar as métricas exportadas como registos para o seu Balancer de Carga Standard Azure. Estes registos só estão disponíveis para Balanceadores de Carga Padrão.
 
 > [!IMPORTANT]
-> **Os registos de eventos de sonda de saúde não estão atualmente funcionais e estão listados nas [edições conhecidas para o Balançador de Carga Azure](whats-new.md#known-issues).** Os registos só estão disponíveis para os recursos implantados no modelo de implementação do Gestor de Recursos. Não é possível utilizar registos de recursos no modelo clássico de implantação. Para obter mais informações sobre os modelos de implementação, consulte [a implementação do Understanding Resource Manager e a implementação clássica.](../azure-resource-manager/management/deployment-models.md)
+> **Os registos de eventos de alerta de sonda de saúde e de carga não estão atualmente funcionais e estão listados nas [edições conhecidas para o Balançador de Carga Azure](whats-new.md#known-issues).** 
+
+> [!IMPORTANT]
+> Os registos só estão disponíveis para os recursos implantados no modelo de implementação do Gestor de Recursos. Não é possível utilizar registos de recursos no modelo clássico de implantação. Para obter mais informações sobre os modelos de implementação, consulte [a implementação do Understanding Resource Manager e a implementação clássica.](../azure-resource-manager/management/deployment-models.md)
 
 ## <a name="enable-logging"></a>Ativar registo
 
@@ -75,94 +77,30 @@ Inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tiv
     3. Selecione o espaço de **trabalho 'Log Analytics'** na caixa de puxar para baixo.
 
 
-8. Por baixo da secção **LOG** no painel de **definições de Diagnóstico,** selecione a caixa de verificação ao lado de ambas:
-   * **LoadBalancerAlertEvent**
-   * **LoadBalancerProbeHealthStatus**
+8.  Por baixo da secção **MÉTRICA** no painel de **definições de Diagnóstico,** selecione a caixa de verificação ao lado de: **AllMetrics**
 
-9.  Por baixo da secção **MÉTRICA** no painel de **definições de Diagnóstico,** selecione a caixa de verificação ao lado de:
-   * **AllMetrics**
-
-11. Verifique se tudo parece correto e clique em **Guardar** na parte superior do painel de **definições de diagnóstico.**
+9. Verifique se tudo parece correto e clique em **Guardar** na parte superior do painel de **definições de diagnóstico.**
 
 ## <a name="activity-log"></a>Registo de atividades
 
-O registo de atividade é gerado por padrão. Os registos são preservados durante 90 dias na loja de Registos de Eventos da Azure. Saiba mais sobre estes registos lendo os [registos de atividades](../azure-resource-manager/management/view-activity-logs.md) do Ver para monitorizar as ações no artigo de recursos.
-
-## <a name="archive-to-storage-account-logs"></a>Arquivar nos registos da conta de armazenamento
-
-### <a name="alert-event-log"></a>Registo de eventos de alerta
-
-Este registo só é gerado se o tiver ativado numa base de balançador de carga por carga. Os eventos são registados no formato JSON e armazenados na conta de armazenamento que especificou quando ativou a sessão. O exemplo a seguir é de um evento.
-
-```json
-{
-    "time": "2016-01-26T10:37:46.6024215Z",
-    "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-    "category": "LoadBalancerAlertEvent",
-    "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-    "operationName": "LoadBalancerProbeHealthStatus",
-    "properties": {
-        "eventName": "Resource Limits Hit",
-        "eventDescription": "Ports exhausted",
-        "eventProperties": {
-            "public ip address": "40.117.227.32"
-        }
-    }
-}
-```
-
-A saída JSON mostra a propriedade *eventname,* que descreverá o motivo para o equilibrador de carga criar um alerta. Neste caso, o alerta gerado deveu-se à exaustão da porta TCP causada pelos limites IP NAT de origem (SNAT).
-
-### <a name="health-probe-log"></a>Registo de sonda de saúde
-
-Este registo só é gerado se o tiver ativado numa base de balanço por carga, conforme descrito acima. Os dados são armazenados na conta de armazenamento que especificou quando ativou a sessão. É criado um recipiente denominado "insights-logs-loadbalancerprobehealthstatus" e os seguintes dados são registados:
-
-```json
-{
-    "records":[
-    {
-        "time": "2016-01-26T10:37:46.6024215Z",
-        "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-        "category": "LoadBalancerProbeHealthStatus",
-        "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-        "operationName": "LoadBalancerProbeHealthStatus",
-        "properties": {
-            "publicIpAddress": "40.83.190.158",
-            "port": "81",
-            "totalDipCount": 2,
-            "dipDownCount": 1,
-            "healthPercentage": 50.000000
-        }
-    },
-    {
-        "time": "2016-01-26T10:37:46.6024215Z",
-        "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-        "category": "LoadBalancerProbeHealthStatus",
-        "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-        "operationName": "LoadBalancerProbeHealthStatus",
-        "properties": {
-            "publicIpAddress": "40.83.190.158",
-            "port": "81",
-            "totalDipCount": 2,
-            "dipDownCount": 0,
-            "healthPercentage": 100.000000
-        }
-    }]
-}
-```
-
-A saída JSON mostra no campo das propriedades a informação básica para o estado de saúde da sonda. A propriedade *dipDownCount* mostra o número total de casos no back-end, que não estão a receber tráfego de rede devido a respostas de sonda falhadas.
+O registo de atividade é gerado por padrão. Pode ser configurado para ser exportado a nível de [subscrição, seguindo as instruções deste artigo.](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log) Saiba mais sobre estes registos lendo os [registos de atividades](../azure-resource-manager/management/view-activity-logs.md) do Ver para monitorizar as ações no artigo de recursos.
 
 ### <a name="view-and-analyze-the-activity-log"></a>Ver e analisar o registo de atividades
 
 Pode visualizar e analisar dados de registo de atividade utilizando qualquer um dos seguintes métodos:
 
 * **Ferramentas Azure:** Recupere informações do registo de atividade através do Azure PowerShell, da Interface da Linha de Comando Azure (CLI), da API Azure REST ou do portal Azure. As instruções passo a passo para cada método são detalhadas nas operações de Auditoria com o artigo [do Gestor de Recursos.](../azure-resource-manager/management/view-activity-logs.md)
-* **Power BI:** Se ainda não tiver uma conta [Power BI,](https:// .microsoft.com/pricing) pode experimentá-la gratuitamente. Utilizando o [pacote de conteúdos de Registos de Auditoria Azure para Power BI,](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs)pode analisar os seus dados com dashboards pré-configurados ou pode personalizar vistas de acordo com os seus requisitos.
+* **Power BI:** Se ainda não tiver uma conta [Power BI,](https://powerbi.microsoft.com/pricing) pode experimentá-la gratuitamente. Utilizando a integração de [Registos de Auditoria Azure para o Power BI,](https://powerbi.microsoft.com/integrations/azure-audit-logs/)pode analisar os seus dados com dashboards pré-configurados ou pode personalizar vistas de acordo com os seus requisitos.
 
-### <a name="view-and-analyze-the-health-probe-and-event-log"></a>Ver e analisar a sonda de saúde e o registo de eventos
+## <a name="metrics-as-logs"></a>Métricas como Registos
+Utilizando métricas para registar a funcionalidade de exportação fornecida pelo Azure Monitor, é capaz de exportar as suas métricas de Balancer de Carga. Estas métricas gerarão uma entrada de registo para cada intervalo de amostragem de um minuto.
 
-Conecte-se à sua conta de armazenamento e recupere as entradas de registo JSON para registos de eventos e sondas de saúde. Assim que descarregar os ficheiros JSON, pode convertê-los em CSV e visualizar no Excel, Power BI ou qualquer outra ferramenta de visualização de dados.
+A métrica para registar a exportação é ativada a um nível por recurso. Pode ativar estes registos indo para a lâmina de Definições de Diagnóstico, filtrando por Grupo de Recursos e selecionando o Balanceador de Carga para o quais pretende permitir a exportação de métricas. Quando a página de definições de diagnóstico do Balanceador de Carga estiver em cima, selecione AllMetrics para exportar métricas elegíveis como registos.
+
+Consulte a secção [limitações](#limitations) deste artigo para obter limitações métricas de exportação.
+
+### <a name="view-and-analyze-metrics-as-logs"></a>Ver e analisar métricas como registos
+Depois de ativar a AllMetrics nas definições de diagnóstico do seu Balancer de Carga Padrão, se utilizar um espaço de trabalho do Event Hub ou do Log Analytics, estes registos serão preenchidos na tabela AzureMonitor. Se exportar para armazenamento, ligue-se à sua conta de armazenamento e recupere as entradas de registo JSON para registos de eventos e sondas de saúde. Assim que descarregar os ficheiros JSON, pode convertê-los em CSV e visualizar no Excel, Power BI ou qualquer outra ferramenta de visualização de dados. 
 
 > [!TIP]
 > Se estiver familiarizado com os conceitos básicos do Visual Studio para alterar os valores de constantes e variáveis em C#, pode utilizar as [ferramentas de conversor de registo](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponíveis no GitHub.
@@ -173,6 +111,13 @@ Quando a informação de diagnóstico é transmitida para um centro de eventos, 
 ## <a name="send-to-log-analytics"></a>Enviar para o Log Analytics
 Os recursos em Azure podem ter as suas informações de diagnóstico enviadas diretamente para um espaço de trabalho log analytics onde podem ser executadas consultas complexas contra a informação para resolução de problemas e análise.  Para obter mais informações, consulte [registos de recursos do Collect Azure no espaço de trabalho do Log Analytics no Azure Monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="limitations"></a>Limitações
+Existem atualmente as seguintes limitações ao utilizar a funcionalidade de exportação Métricas para Registos para Os Balançadores de Carga:
+* As métricas são atualmente apresentadas usando nomes internos quando exportadas como registos, pode encontrar o mapeamento na tabela abaixo
+* A dimensionalidade das métricas não é preservada. Por exemplo, com métricas como o DipAvailability (Health Probe Status), não será capaz de dividir ou visualizar pelo endereço IP backend
+* Os portos SNAT utilizados e as métricas dos portos de SNAT atribuídos não estão atualmente disponíveis para exportação como registos
 
-[Compreender as sondas do balanceador de carga](load-balancer-custom-probe-overview.md)
+## <a name="next-steps"></a>Passos Seguintes
+* [Reveja as métricas disponíveis para o seu Balanceador de Carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)
+* [Criar e testar consultas seguindo as instruções do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+* Fornecer feedback sobre este artigo ou funcionalidade do Balancer de Carga usando os links abaixo

@@ -3,13 +3,12 @@ title: Garantir um cluster de tecido de serviço Azure
 description: Conheça os cenários de segurança para um cluster de tecidos de serviço Azure, e as várias tecnologias que pode usar para implementá-los.
 ms.topic: conceptual
 ms.date: 08/14/2018
-ms.custom: sfrev
-ms.openlocfilehash: 642356f08a946cae5d2b2d395aaddd8e4dad27ed
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6f7bb785184938fe5c1e20e3c915b0112c7723ee
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682796"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573073"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança do cluster de tecido de serviço
 
@@ -141,7 +140,7 @@ Por predefinição, o certificado de cluster tem privilégios de administração
 > [!NOTE]
 > Todas as operações de gestão num cluster de Tecido de Serviço requerem certificados de servidor. Os certificados de cliente não podem ser usados para gestão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Crie um cluster em Azure usando um modelo de Gestor de Recursos](service-fabric-cluster-creation-via-arm.md)
 * [Utilizar o portal do Azure para criar um cluster](service-fabric-cluster-creation-via-portal.md)

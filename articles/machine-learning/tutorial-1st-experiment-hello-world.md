@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 20173c4ba02f53a526167a5a8e22bd0cedc85594
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 971bac8a0b0951d4e07e139aea6c465a9159b8db
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393223"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96570965"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Tutorial: Executar um "Olá mundo!" Escrita python (parte 2 de 4)
 
@@ -61,7 +61,8 @@ tutorial
 └──02-create-compute.py
 ```
 
-### <a name="test-your-script-locally"></a>Teste o seu script localmente
+
+### <a name="test-your-script-locally"></a><a name="test"></a>Teste o seu script localmente
 
 Pode executar o seu código localmente, utilizando o seu IDE favorito ou um terminal. O código de execução local tem o benefício da depuragem interativa do código.
 
@@ -70,7 +71,10 @@ cd <path/to/tutorial>
 python ./src/hello.py
 ```
 
-## <a name="create-a-control-script"></a>Criar um script de controlo
+> [!div class="nextstepaction"]
+> [Corri o guião localmente](?success=run-local#control-script) [encontrei um problema](https://www.research.net/r/7C2NTH7?issue=run-local)
+
+## <a name="create-a-control-script"></a><a name="control-script"></a> Criar um script de controlo
 
 Um *script de controlo* permite-lhe executar o seu script na `hello.py` nuvem. Usa o script de controlo para controlar como e onde o seu código de aprendizagem automática é executado.  
 
@@ -89,6 +93,8 @@ run = experiment.submit(config)
 aml_url = run.get_portal_url()
 print(aml_url)
 ```
+
+
 
 ### <a name="understand-the-code"></a>Compreender o código
 
@@ -135,7 +141,10 @@ Aqui está uma descrição de como o script de controlo funciona:
    :::column-end:::
 :::row-end:::
 
-## <a name="submit-and-run-your-code-in-the-cloud"></a>Submeta e execute o seu código na nuvem
+> [!div class="nextstepaction"]
+> [Criei o guião de controlo](?success=create-control-script#submit) [que encontrei num problema.](https://www.research.net/r/7C2NTH7?issue=create-control-script)
+
+## <a name="submit-and-run-your-code-in-the-cloud"></a><a name="submit"></a> Submeta e execute o seu código na nuvem
 
 Executa o teu script de controlo, que por sua vez funciona `hello.py` no cluster de cálculo que criaste no tutorial de [configuração](tutorial-1st-experiment-sdk-setup-local.md).
 
@@ -154,7 +163,10 @@ python 03-run-hello.py
 > [!TIP]
 > Se executar este código lhe dá um erro no qual não tem acesso à subscrição, consulte [Ligar a um espaço de trabalho](how-to-manage-workspace.md?tab=python#connect-multi-tenant) para obter informações sobre opções de autenticação.
 
-## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a>Monitorize o seu código na nuvem usando o estúdio
+> [!div class="nextstepaction"]
+> [Apresentei código na nuvem](?success=submit-to-cloud#monitor) [e dei conta de um problema.](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)
+
+## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a><a name="monitor"></a>Monitorize o seu código na nuvem usando o estúdio
 
 A saída conterá uma ligação ao estúdio que se parece com isto: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>` .
 
@@ -185,6 +197,9 @@ Siga o link e vá para o **separador Saídas + registos.** Lá pode ver um `70_d
 Na linha 8, vê-se o "Olá mundo!" saída.
 
 O `70_driver_log.txt` ficheiro contém a saída padrão de uma execução. Este ficheiro pode ser útil quando está a depurar as remotas corridas na nuvem.
+
+> [!div class="nextstepaction"]
+> [Vi o tronco no estúdio.](?success=monitor-in-studio#next-steps) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=monitor-in-studio)
 
 ## <a name="next-steps"></a>Passos seguintes
 

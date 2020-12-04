@@ -1,7 +1,7 @@
 ---
 title: Novidades no Azure Ative Directory business-to-customer (B2C)
 description: Documentação nova e atualizada para o Azure Ative Directory business-to-customer (B2C).
-ms.date: 11/10/2020
+ms.date: 12/03/2020
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,23 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: f89537d1e221ecc9a871343e863f021723965239
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 4c204ec33604ff5edd1551f9728c28e3dcab9a61
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94550076"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571084"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Ative Directory B2C: Quais as novidades
 
 Bem-vindos às novidades da documentação do Azure Ative Directory B2C. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber quais as novidades com o serviço B2C, veja [as novidades do Azure Ative Directory](../active-directory/fundamentals/whats-new.md).
+
+## <a name="november-2020"></a>Novembro de 2020
+
+### <a name="updated-articles"></a>Artigos atualizados
+- [Monitor Azure AD B2C com Monitor Azure](azure-monitor.md)
+- [Tutorial: Ativar a autenticação numa aplicação de uma página com Azure AD B2C](tutorial-single-page-app.md)
+
 
 ## <a name="october-2020"></a>Outubro de 2020
 

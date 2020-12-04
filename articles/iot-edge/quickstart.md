@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 5f6d768e3d863d52cfc91beb799d86fcd854af16
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 791358fe6a9524e3275ed75ce34bdc86123f0ee0
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517636"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572359"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Quickstart: Implemente o seu primeiro módulo IoT Edge num dispositivo Virtual Windows
 
@@ -33,23 +33,23 @@ Este arranque rápido acompanha-o através da criação de uma máquina virtual 
 
 Se não tiver uma subscrição ativa do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Você usa o CLI Azure para completar muitos dos passos neste arranque rápido. O Azure IoT tem uma extensão para ativar uma funcionalidade adicional.
-
-Adicione a extensão Azure IoT à instância Cloud Shell.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+Prepare o seu ambiente para o Azure CLI.
+
+- Utilize [a casca de nuvem Azure](/azure/cloud-shell/quickstart-powershell) utilizando o ambiente PowerShell.
+
+   [![Lançamento incorporado](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)   
+- Se preferir, [instale](/cli/azure/install-azure-cli) o CLI do Azure para executar comandos de referência de CLI.
+   - Se estiver a utilizar uma instalação local, inicie sessão com o CLI do Azure ao utilizar o comando [az login](/cli/azure/reference-index#az-login).  Para concluir o processo de autenticação, siga os passos apresentados no seu terminal.  Veja [Iniciar sessão com o CLI do Azure](/cli/azure/authenticate-azure-cli) para obter opções de início de sessão adicionais.
+  - Quando lhe for pedido, instale as extensões do CLI do Azure durante a primeira utilização.  Para obter mais informações sobre as extensões, veja [Utilizar extensões com o CLI do Azure](/cli/azure/azure-cli-extensions-overview).
+  - Execute o comando [az version](/cli/azure/reference-index?#az_version) para localizar a versão e as bibliotecas dependentes instaladas. Para atualizar para a versão mais recente, execute o comando [az upgrade](/cli/azure/reference-index?#az_upgrade).
+
 Recursos da cloud:
 
-* Um grupo de recursos para gerir todos os recursos que utilizar neste início rápido.
+- Um grupo de recursos para gerir todos os recursos que utilizar neste início rápido.
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
@@ -57,7 +57,7 @@ Recursos da cloud:
 
 Dispositivo IoT Edge
 
-* Uma máquina virtual Windows para funcionar como o seu dispositivo IoT Edge. Pode criar esta máquina virtual utilizando o seguinte comando, substituindo `{password}` por uma senha segura:
+- Uma máquina virtual Windows para funcionar como o seu dispositivo IoT Edge. Pode criar esta máquina virtual utilizando o seguinte comando, substituindo `{password}` por uma senha segura:
 
   ```azurecli-interactive
   az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --size Standard_DS1_v2
@@ -116,7 +116,7 @@ Uma vez que os dispositivos IoT Edge se comportam e podem ser geridos de forma d
 2. Veja a cadeia de ligação do seu dispositivo, que liga o seu dispositivo físico à sua identidade no IoT Hub. Contém o nome do seu hub IoT, o nome do seu dispositivo e, em seguida, uma chave partilhada que autentica ligações entre os dois.
 
    ```azurecli-interactive
-   az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
+   az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
 3. Copie o valor da chave `connectionString` da saída em JSON e guarde-o. Este valor é a cadeia de ligação do dispositivo. Irá utilizar esta cadeia de ligação para configurar o runtime do IoT Edge na secção seguinte.
@@ -169,7 +169,7 @@ Utilize o PowerShell para transferir e instalar o runtime IoT Edge. Utilize a ca
    Initialize-IoTEdge -ContainerOs Windows
    ```
 
-6. Quando lhe for pedido **DeviceConnectionString** , indique a cadeia que copiou na secção anterior. Não inclua as aspas à volta da cadeia de ligação.
+6. Quando lhe for pedido **DeviceConnectionString**, indique a cadeia que copiou na secção anterior. Não inclua as aspas à volta da cadeia de ligação.
 
 ### <a name="view-the-iot-edge-runtime-status"></a>Ver o estado de runtime do IoT Edge
 

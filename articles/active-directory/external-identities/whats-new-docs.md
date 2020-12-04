@@ -1,7 +1,7 @@
 ---
 title: Novidades no Azure Ative Directory identidades externas
 description: Documentação nova e atualizada para as identidades externas do Azure Ative Directory.
-ms.date: 11/10/2020
+ms.date: 12/03/2020
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -9,16 +9,24 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: f7c296b4a5bed0c3e599f59e9f0461295b86f197
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 35fa6909160ca707035ee9fc599e4035c2ae7981
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94550098"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573906"
 ---
 # <a name="azure-active-directory-external-identities-whats-new"></a>Identidades externas do Azure Ative Directory: Quais as novidades
 
 Bem-vindos às novidades da documentação de identidades externas do Azure Ative Directory. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber quais as novidades com o serviço de identidades externas, veja [as novidades no Azure Ative Directory](../fundamentals/whats-new.md).
+
+## <a name="november-2020"></a>Novembro de 2020
+
+### <a name="updated-articles"></a>Artigos atualizados
+- [Partilha externa microsoft 365 e colaboração B2B do Azure Ative (Azure AD)](o365-external-user.md)
+- [Conceder aos recursos na cloud acesso às contas dos parceiros geridas localmente com a colaboração B2B do AAD](hybrid-on-premises-to-cloud.md)
+- [Propriedades de um utilizador de colaboração Azure Ative Directory B2B](user-properties.md)
+
 
 ## <a name="october-2020"></a>Outubro de 2020
 

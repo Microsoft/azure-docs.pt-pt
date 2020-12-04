@@ -7,12 +7,12 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 8884fd56cfc1e18a0a358d6902f7f8bcbfc1f5d3
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 5cb2f7b3b07c20e09d61e97412bc35f03b15cb3b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553883"
+ms.locfileid: "96572155"
 ---
 # <a name="cross-resource-query-azure-data-explorer-using-azure-monitor"></a>Consulta de recursos cruzados Azure Data Explorer usando O Monitor Azure
 O Azure Monitor suporta consultas de serviços cruzados entre Azure Data Explorer, [Application Insights (IA)](/azure/azure-monitor/app/app-insights-overview)e [Log Analytics (LA)](/azure/azure-monitor/platform/data-platform-logs). Em seguida, pode consultar o seu cluster Azure Data Explorer utilizando ferramentas De registo Analytics/Application Insights e encaminhá-lo numa consulta de serviço cruzado. O artigo mostra como fazer uma consulta de serviço cruzado.
@@ -20,7 +20,7 @@ O Azure Monitor suporta consultas de serviços cruzados entre Azure Data Explore
 O fluxo de serviço cruzado Azure Monitor: :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="Monitor Azure e fluxo de serviço cross Explorer Azure Data Explorer.":::
 
 >[!NOTE]
->* O proxy do Azure Monitor está em pré-visualização privada - É necessário permitir a lista.
+>* A consulta de serviço cross monitor Azure Monitor está em pré-visualização privada - AllowListing é necessário.
 >* Contacte a [Equipa de Serviço](mailto:ADXProxy@microsoft.com) com quaisquer perguntas.
 ## <a name="cross-query-your-log-analytics-or-application-insights-resources-and-azure-data-explorer"></a>Consulta cruzada os recursos de Log Analytics ou Application Insights e Azure Data Explorer
 
@@ -66,9 +66,3 @@ O Kusto Explorer inscreve-o automaticamente no inquilino a que a conta de utiliz
 * [Escrever Consultas](https://docs.microsoft.com/azure/data-explorer/write-queries)
 * [Dados de consulta no Azure Monitor usando O Explorador de Dados Azure](https://docs.microsoft.com/azure/data-explorer/query-monitor-data)
 * [Realize consultas de registo de recursos cruzados no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query)
-
-
-
-
-
-

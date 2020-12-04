@@ -1,17 +1,15 @@
 ---
 title: Gerir o estado do tecido de serviço Azure
 description: Saiba como aceder, economizar e remover o estado para um Azure Service Fabric Reliable Ator, e considerações ao desenhar uma aplicação.
-author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e97fadb374fc45110f5071aab48da0a57eef4284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e796232719342883efc2aa5dd377d586f3039ad
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012794"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571322"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Acesso, salvamento e remoção do estado de Atores Fiáveis
 [Os Atores fiáveis](service-fabric-reliable-actors-introduction.md) são objetos de linha única que podem encapsular a lógica e o estado e manter o estado de forma fiável. Cada instância de ator tem o seu próprio [gestor estatal](service-fabric-reliable-actors-state-management.md): uma estrutura de dados semelhante a um dicionário que armazena de forma fiável os pares chave/valor. O gerente do Estado é um invólucro em torno de um fornecedor estatal. Pode usá-lo para armazenar dados independentemente da definição de [persistência.](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication)
@@ -107,7 +105,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 ## <a name="save-state"></a>Salvar estado
 Os métodos de recuperação do gerente do estado devolvem uma referência a um objeto na memória local. Modificar este objeto apenas na memória local não faz com que seja guardado durão. Quando um objeto é recuperado do gerente do Estado e modificado, deve ser reinserido no gestor do Estado para ser salvo duravelmente.
 
-Pode inserir o estado utilizando um *conjunto*incondicional, que é o equivalente à `dictionary["key"] = value` sintaxe:
+Pode inserir o estado utilizando um *conjunto* incondicional, que é o equivalente à `dictionary["key"] = value` sintaxe:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]

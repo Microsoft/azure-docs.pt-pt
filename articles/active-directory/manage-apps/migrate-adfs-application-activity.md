@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1245010ae0b21c5bb8e3ebd93a9fe851d48c858b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 77a43d5bd5f2b228d5ed4384fc1efdca76f8ea0b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835514"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573889"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Utilize o relatório de atividade da aplicação AD FS (pré-visualização) para migrar aplicações para Azure AD
 
@@ -26,9 +26,10 @@ Muitas organizações usam serviços da Federação de Diretórios Ativos (AD FS
 
 O relatório de atividade da aplicação AD FS (pré-visualização) no portal Azure permite identificar rapidamente quais das suas aplicações são capazes de ser migradas para Azure AD. Avalia todos os pedidos de compatibilidade da AD FS com a Azure AD, verifica quaisquer problemas e orienta-se sobre a preparação de pedidos individuais de migração. Com o relatório de atividades da aplicação da AD FS, pode:
 
-* **Descubra aplicações AD FS e abranga a sua migração.** O relatório de atividades de aplicação da AD FS lista todas as aplicações AD FS na sua organização e indica a sua prontidão para a migração para Azure AD.
+* **Descubra aplicações AD FS e abranga a sua migração.** O relatório de atividade da aplicação AD FS lista todas as aplicações AD FS na sua organização que tiveram um login de utilizador ativo nos últimos 30 dias. O relatório indica uma prontidão de aplicações para a migração para Azure AD. O relatório não mostra as partes relacionadas com a Microsoft em FS AD, como o Office 365. Por exemplo, confiar em festas com o nome 'urn:federation:MicrosoftOnline'.
+
 * **Priorizar candidaturas para migração.** Obtenha o número de utilizadores únicos que se inscreveram na aplicação nos últimos 1, 7 ou 30 dias para ajudar a determinar a criticidade ou o risco de migrar a aplicação.
-* **Fazer testes de migração e corrigir problemas.** O serviço de reporte executa automaticamente testes para determinar se uma aplicação está pronta para migrar. Os resultados são apresentados no relatório de atividade da aplicação da AD FS como um estado de migração. Se forem identificados potenciais problemas de migração, obtém orientações específicas sobre como lidar com as questões.
+* **Fazer testes de migração e corrigir problemas.** O serviço de reporte executa automaticamente testes para determinar se uma aplicação está pronta para migrar. Os resultados são apresentados no relatório de atividade da aplicação da AD FS como um estado de migração. Se a configuração AD FS não for compatível com uma configuração AD Azure, obtém orientações específicas sobre como abordar a configuração em Azure AD.
 
 Os dados da atividade da aplicação AD FS estão disponíveis para os utilizadores que recebem qualquer uma destas funções de administração: administrador global, leitor de relatórios, leitor de segurança, administrador de aplicação ou administrador de aplicações na nuvem.
 
@@ -39,6 +40,9 @@ Os dados da atividade da aplicação AD FS estão disponíveis para os utilizado
 * O Azure AD Connect Health para o agente AD FS deve ser instalado.
    * [Saiba mais sobre a Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md)
    * [Começar com a configuração do Azure AD Connect Health e instalar o agente AD FS](../hybrid/how-to-connect-health-agent-install.md)
+
+>[!IMPORTANT] 
+>Existem algumas razões para não ver todas as aplicações que espera depois de ter instalado o Azure AD Connect Health. O relatório de atividade da aplicação AD FS apenas mostra as partes que contam com logins de utilizadores nos últimos 30 dias. Além disso, o relatório não mostrará partes relacionadas com a Microsoft, como o Office 365.
 
 ## <a name="discover-ad-fs-applications-that-can-be-migrated"></a>Descubra aplicações AD FS que podem ser migradas 
 
@@ -74,7 +78,7 @@ O relatório de atividade da aplicação AD FS está disponível no portal Azure
 
 A tabela que se segue lista todos os testes de configuração que são realizados em aplicações AD FS.
 
-|Resultado  |Passe/Aviso/Falha  |Descrição  |
+|Result  |Passe/Aviso/Falha  |Descrição  |
 |---------|---------|---------|
 |Test-ADFSRPAdditionalAuthenticationRules <br> Pelo menos uma regra não migradora foi detetada para a Autorização Adicional.       | Passe/Aviso          | A parte dependente tem regras para solicitar a autenticação de vários fatores (MFA). Para passar para Azure AD, traduza essas regras em políticas de Acesso Condicional. Se estiver a utilizar um MFA no local, recomendamos que se mude para o Azure AD MFA. [Saiba mais sobre o Acesso Condicional.](../authentication/concept-mfa-howitworks.md)        |
 |Test-ADFSRPAdditionalWSFedEndpoint <br> A parte de contemitimento tem AdicionalWSFedEndpoint definido para verdadeiro.       | Aprovado/Reprovado          | A parte de confiança em AD FS permite múltiplos pontos finais de afirmação WS-Fed.Atualmente, a AZure AD só suporta uma.Se tiver um cenário em que este resultado esteja a bloquear a migração, [avise-nos.](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints)     |
@@ -121,6 +125,17 @@ A tabela que se segue lista todos os testes de regras de reclamação que são r
 |EXTERNAL_ATTRIBUTE_STORE      | A declaração de emissão utiliza uma loja de atributos diferente do Ative Directory. Atualmente, a Azure AD não fornece alegações de lojas diferentes que Ative Directory ou Azure AD. Se este resultado estiver a impedi-lo de migrar aplicações para a Azure AD, [avise-nos](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695717-allow-to-source-user-attributes-from-external-dire).          |
 |UNSUPPORTED_ISSUANCE_CLASS      | A declaração de emissão utiliza ADD para adicionar reclamações ao conjunto de reclamações recebidas. Em Azure AD, isto pode ser configurado como múltiplas transformações de reivindicação.Para obter mais informações, consulte [Personalizar reclamações emitidas no token SAML para aplicações empresariais.](../develop/active-directory-claims-mapping.md)         |
 |UNSUPPORTED_ISSUANCE_TRANSFORMATION      | A declaração de emissão utiliza Expressões Regulares para transformar o valor da reivindicação a emitir.Para obter uma funcionalidade semelhante em Azure AD, pode utilizar uma transformação pré-definida como Extract(), Trim(), ToLower, entre outros. Para obter mais informações, consulte [Personalizar reclamações emitidas no token SAML para aplicações empresariais.](../develop/active-directory-saml-claims-customization.md)          |
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+### <a name="cant-see-all-my-ad-fs-applications-in-the-report"></a>Não consigo ver todas as minhas aplicações de AD FS no relatório
+
+ Se instalou a saúde Azure AD Connect, mas ainda vê o pedido para o instalar ou não vê todas as aplicações AD FS no relatório, pode ser que não tenha aplicações AD FS ativas ou as suas aplicações AD FS sejam aplicações da Microsoft.
+ 
+ O relatório de atividade da aplicação AD FS lista todas as aplicações AD FS na sua organização com utilizadores ativos que se inscrevem nos últimos 30 dias. Além disso, o relatório não exibe partes relacionadas com a Microsoft em FS AD como o Office 365. Por exemplo, confiar em festas com o nome 'urn:federation:MicrosoftOnline', 'microsoftonline', 'microsoft:winhello:cert:prov:server' não aparecerá na lista.
+
+
+
 
 
 ## <a name="next-steps"></a>Passos seguintes

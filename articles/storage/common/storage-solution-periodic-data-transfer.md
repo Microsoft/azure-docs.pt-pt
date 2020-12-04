@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 19a4645e2bde4cf6b9f9a78123b334c290581ac4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: a15ebd43861e2116ddbb2d9055b289645962e203
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484537"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573923"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Solutions for periodic data transfer (Soluções para a transferência de dados periódica)
  
@@ -68,6 +68,6 @@ A tabela seguinte resume as diferenças entre as principais capacidades.
 - [Transferir dados com a AzCopy](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
 - [Mais informações sobre transferência de dados com APIs de repouso de armazenamento](/dotnet/api/overview/azure/storage).
 - Compreender como:
-    - [Transferir dados com data box gateway](../../databox-online/data-box-gateway-deploy-add-shares.md).
+    - [Transferir dados com data box gateway](../../databox-gateway/data-box-gateway-deploy-add-shares.md).
     - [Transforme os dados com data box edge antes de enviar para o Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
 - [Saiba como transferir dados com a Azure Data Factory.](../../data-factory/tutorial-bulk-copy-portal.md)

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 41955475f32fe674bcb3ef2d1b6e59c71a008b6b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5c49a6ee25429ab324cea573425ea8b3dd56fdb2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656450"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573617"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure
 
@@ -87,6 +87,9 @@ Para ativar o TLS 1.2:
 
 1. Reinicie o servidor.
 
+> [!Note]
+> A Microsoft está a atualizar os serviços da Azure para utilizar certificados TLS de um conjunto diferente de Autoridades de Certificados De Raiz (CAs). Esta alteração está a ser feita porque os certificados ac atuais não cumprem um dos requisitos de Base do Fórum CA/Browser. Consulte [as alterações do certificado Azure TLS](https://docs.microsoft.com/azure/security/fundamentals/tls-certificate-changes) para obter mais informações.
+
 ## <a name="prepare-your-on-premises-environment"></a>Prepare o seu ambiente no local
 
 Comece por permitir a comunicação aos centros de dados Azure para preparar o seu ambiente para o Azure AD Application Proxy. Se houver uma firewall no caminho, certifique-se de que está aberta. Uma firewall aberta permite ao conector fazer pedidos HTTPS (TCP) ao Application Proxy.
@@ -113,7 +116,7 @@ Permitir o acesso aos seguintes URLs:
 | --- | --- | --- |
 | &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Comunicação entre o conector e o serviço de nuvem Proxy de aplicação |
 | crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP |O conector utiliza estes URLs para verificar os certificados. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS |O conector utiliza estes URLs durante o processo de registo. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 443/HTTPS |O conector utiliza estes URLs durante o processo de registo. |
 | ctldl.windowsupdate.com | 80/HTTP |O conector utiliza este URL durante o processo de registo. |
 
 Pode permitir ligações a &ast; .msappproxy.net, &ast; .servicebus.windows.net e outros URLs acima se a sua firewall ou proxy permitir que ele configuure listas de autorizações DNS. Caso contrário, tem de permitir o acesso às [gamas Azure IP e Tags de Serviço - Nuvem Pública](https://www.microsoft.com/download/details.aspx?id=56519). Os intervalos IP são atualizados todas as semanas.
@@ -235,11 +238,11 @@ Para testar o sinal de inscrição na aplicação:
 
 Para a resolução de problemas, consulte [problemas de procuração de aplicação de resolução de problemas e mensagens de erro](application-proxy-troubleshoot.md).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine os recursos que criou neste tutorial.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, preparou o seu ambiente no local para trabalhar com o Application Proxy e, em seguida, instalou e registou o conector Application Proxy. Em seguida, adicionou um pedido ao seu inquilino AZure AD. Verificou que um utilizador pode inscrever-se na aplicação utilizando uma conta AZure AD.
 

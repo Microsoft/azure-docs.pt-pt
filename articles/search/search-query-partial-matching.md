@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 9f36502eb464f051cd50b51245db69fa76daa915
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/03/2020
+ms.openlocfilehash: 79ba186351cc145e012658abc30572e99b123dbb
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499548"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573991"
 ---
-# <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Pesquisa parcial de prazo e padrões com caracteres especiais (wildcard, regex, padrões)
+# <a name="partial-term-search-and-patterns-with-special-characters-hyphens-wildcard-regex-patterns"></a>Pesquisa parcial e padrões com caracteres especiais (hífens, wildcard, regex, padrões)
 
-Uma *pesquisa de termo parcial* refere-se a consultas compostas por fragmentos de termo, onde em vez de um termo inteiro, você pode ter apenas o início, o meio ou o fim do prazo (às vezes referido como prefixo, infixo ou sufixo consultas). Uma pesquisa de termo parcial pode incluir uma combinação de fragmentos, muitas vezes com caracteres especiais, tais como traços ou cortes que fazem parte da cadeia de consulta. Os casos de uso comuns incluem partes de um número de telefone, URL, códigos ou palavras compostas hifenizadas.
+Uma *pesquisa de termo parcial* refere-se a consultas compostas por fragmentos de termo, onde em vez de um termo inteiro, você pode ter apenas o início, o meio ou o fim do prazo (às vezes referido como prefixo, infixo ou sufixo consultas). Uma pesquisa parcial a termo pode incluir uma combinação de fragmentos, muitas vezes com caracteres especiais como hífens, traços ou cortes que fazem parte da cadeia de consulta. Os casos de uso comuns incluem partes de um número de telefone, URL, códigos ou palavras compostas hifenizadas.
 
 As cadeias parciais de pesquisa e consulta que incluem caracteres especiais podem ser problemáticas se o índice não tiver fichas no formato esperado. Durante a fase de [análise lexical](search-lucene-query-architecture.md#stage-2-lexical-analysis) da indexação (assumindo o analisador padrão padrão), os caracteres especiais são descartados, palavras compostas são divididas e o espaço branco é eliminado; tudo o que pode fazer com que as consultas falhem quando não se encontra qualquer correspondência. Por exemplo, um número de telefone como `+1 (425) 703-6214` (tokenized como `"1"` , - não vai aparecer numa consulta porque esse conteúdo não existe realmente no `"425"` `"703"` `"6214"` `"3-62"` índice. 
 
@@ -26,7 +26,7 @@ A solução é invocar um analisador durante a indexação que preserva uma cade
 > [!TIP]
 > Se você estiver familiarizado com as APIs do Carteiro e do REST, [descarregue a coleção de exemplos de consulta](https://github.com/Azure-Samples/azure-search-postman-samples/) para consultar termos parciais e caracteres especiais descritos neste artigo.
 
-## <a name="what-is-partial-term-search-in-azure-cognitive-search"></a>O que é pesquisa parcial no termo pesquisa cognitiva de Azure
+## <a name="about-partial-term-search"></a>Sobre a pesquisa parcial a prazo
 
 A Azure Cognitive Search analisa todos os termos simbólicos no índice e não encontrará uma correspondência num termo parcial a menos que inclua operadores de espaços reservados wildcard `*` `?` (e) ou formate a consulta como uma expressão regular. Os termos parciais são especificados utilizando estas técnicas:
 
@@ -45,15 +45,15 @@ Para pesquisa parcial de termos ou padrões, e alguns outros formulários de con
 
 Quando precisa de pesquisar em fragmentos ou padrões ou caracteres especiais, pode substituir o analisador padrão com um analisador personalizado que opera de acordo com regras de tokenização mais simples, mantendo toda a cadeia no índice. Dando um passo para trás, a abordagem é assim:
 
-+ Defina um campo para armazenar uma versão intacta da cadeia (assumindo que pretende que o texto analisado e não analisado seja analisado na hora da consulta)
-+ Avaliar e escolher entre os vários analisadores que emitem fichas no nível certo de granularidade
-+ Atribua o analisador ao campo
-+ Construir e testar o índice
+1. Defina um campo para armazenar uma versão intacta da cadeia (assumindo que pretende que o texto analisado e não analisado seja analisado na hora da consulta)
+1. Avaliar e escolher entre os vários analisadores que emitem fichas no nível certo de granularidade
+1. Atribua o analisador ao campo
+1. Construir e testar o índice
 
 > [!TIP]
 > Avaliar os analisadores é um processo iterativo que requer reconstruções frequentes de índices. Pode facilitar este passo utilizando o Carteiro, as APIs REST para [Criar Índice,](/rest/api/searchservice/create-index) [Eliminar Índice,](/rest/api/searchservice/delete-index)[Documentos de Carga](/rest/api/searchservice/addupdate-or-delete-documents)e [Documentos de Busca](/rest/api/searchservice/search-documents). Para documentos de carga, o organismo de pedido deve conter um pequeno conjunto de dados representativos que pretende testar (por exemplo, um campo com números de telefone ou códigos de produto). Com estas APIs na mesma coleção do Carteiro, você pode pedalar através destes passos rapidamente.
 
-## <a name="duplicate-fields-for-different-scenarios"></a>Campos duplicados para diferentes cenários
+## <a name="1---create-a-dedicated-field"></a>1 - Criar um campo dedicado
 
 Os analisadores determinam como os termos são tokenizados num índice. Uma vez que os analisadores são atribuídos numa base por campo, você pode criar campos no seu índice para otimizar para diferentes cenários. Por exemplo, pode definir "featureCode" e "featureCodeRegex" para suportar a pesquisa regular de texto completo no primeiro e o padrão avançado correspondente no segundo. Os analisadores atribuídos a cada campo determinam como o conteúdo de cada campo é tokenizado no índice.  
 
@@ -74,7 +74,9 @@ Os analisadores determinam como os termos são tokenizados num índice. Uma vez 
 },
 ```
 
-## <a name="choose-an-analyzer"></a>Escolha um analisador
+<a name="set-an-analyzer"></a>
+
+## <a name="2---set-an-analyzer"></a>2 - Definir um analisador
 
 Ao escolher um analisador que produz tokens de longo prazo, os seguintes analisadores são escolhas comuns:
 
@@ -98,7 +100,7 @@ Deve ter um índice populoso para trabalhar. Dado um índice existente e um camp
    }
     ```
 
-1. Avalie a resposta para ver como o texto é tokenizado dentro do índice. Note como cada termo é descaixado e terminado. Apenas as consultas que coincidirem com estes tokens devolverão este documento nos resultados. Uma consulta que inclua "10-NOR" falhará.
+1. Avalie a resposta para ver como o texto é tokenizado dentro do índice. Note como cada termo é inferior, hífens removidos e sublípedos divididos em fichas individuais. Apenas as consultas que coincidirem com estes tokens devolverão este documento nos resultados. Uma consulta que inclua "10-NOR" falhará.
 
     ```json
     {
@@ -152,7 +154,7 @@ Deve ter um índice populoso para trabalhar. Dado um índice existente e um camp
 > [!Important]
 > Esteja ciente de que os parsers de consulta muitas vezes em termos de minúsculas em uma expressão de pesquisa ao construir a árvore de consulta. Se estiver a utilizar um analisador que não reduz as entradas de texto durante a indexação, e não estiver a obter resultados esperados, esta pode ser a razão. A solução é adicionar um filtro de ficha minúscula, conforme descrito na secção "Use analisadores personalizados" abaixo.
 
-## <a name="configure-an-analyzer"></a>Configure um analisador
+## <a name="3---configure-an-analyzer"></a>3 - Configurar um analisador
  
 Quer esteja a avaliar os analisadores ou a avançar com uma configuração específica, terá de especificar o analisador na definição de campo e, possivelmente, configurar o próprio analisador se não estiver a utilizar um analisador incorporado. Ao trocar analisadores, normalmente é necessário reconstruir o índice (cair, recriar e recarregar). 
 
@@ -216,7 +218,7 @@ O exemplo a seguir ilustra um analisador personalizado que fornece o tokenizer d
 > [!NOTE]
 > O `keyword_v2` tokenizer e `lowercase` o filtro token são conhecidos do sistema e utilizam as suas configurações padrão, razão pela qual pode fazê-los referenciar pelo nome sem ter de os definir primeiro.
 
-## <a name="build-and-test"></a>Compilar e testar
+## <a name="4---build-and-test"></a>4 - Construir e testar
 
 Depois de definir um índice com analisadores e definições de campo que suportam o seu cenário, carregue documentos que tenham cordas representativas para que possa testar consultas parciais de cordas. 
 
@@ -228,7 +230,7 @@ As secções anteriores explicaram a lógica. Esta secção passa por cada API q
 
 + [Documentos de Carga](/rest/api/searchservice/addupdate-or-delete-documents) importa documentos com a mesma estrutura que o seu índice, bem como conteúdo pesmável. Após este passo, o seu índice está pronto para consultar ou testar.
 
-+ [O Analisador de Testes](/rest/api/searchservice/test-analyzer) foi introduzido no [Choose a analyzer](#choose-an-analyzer). Teste algumas das cordas do seu índice usando uma variedade de analisadores para entender como os termos são tokenizados.
++ [O Analisador de Testes](/rest/api/searchservice/test-analyzer) foi introduzido no [Conjunto de um analisador](#set-an-analyzer). Teste algumas das cordas do seu índice usando uma variedade de analisadores para entender como os termos são tokenizados.
 
 + [Os Documentos de Pesquisa](/rest/api/searchservice/search-documents) explicam como construir um pedido de consulta, utilizando [sintaxe simples](query-simple-syntax.md) ou [sintaxe Lucene completa](query-lucene-syntax.md) para expressões wildcard e regulares.
 

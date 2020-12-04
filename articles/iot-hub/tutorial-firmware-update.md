@@ -15,18 +15,18 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: 432cc733ee31bdaa18d555d9a6aeb6aee9879a44
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b4de685accf665c7555a454ef247ddf589c6ba5f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748530"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572342"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: Implementar um processo de atualização de firmware do dispositivo
 
 Pode ter de atualizar o firmware nos dispositivos ligados ao hub IoT. Por exemplo, pode querer adicionar novas funcionalidades ao firmware ou aplicar patches de segurança. Em muitos cenários de IoT, não é prático visitar fisicamente e, em seguida, aplicar manualmente as atualizações de firmware aos dispositivos. Este tutorial mostra como pode iniciar e monitorizar o processo de atualização de firmware remotamente através de uma aplicação de back-end ligada ao seu hub.
 
-Para criar e monitorizar o processo de atualização de firmware, a aplicação de back-end neste tutorial cria uma _configuração_ no hub IoT. A [gestão de dispositivos automática](./iot-hub-automatic-device-management.md) do Hub IoT utiliza esta configuração para atualizar um conjunto de _propriedades pretendidas dos dispositivos duplos_ em todos os dispositivos chiller. As propriedades pretendidas especificam os detalhes da atualização de firmware necessária. Embora os dispositivos chiller estejam a executar o processo de atualização de firmware, reportam o respetivo estado à aplicação de back-end através das _propriedades reportadas dos dispositivos duplos_ . A aplicação de back-end pode utilizar a configuração para monitorizar as propriedades reportadas enviadas a partir do dispositivo e controlar o processo de atualização de firmware para conclusão:
+Para criar e monitorizar o processo de atualização de firmware, a aplicação de back-end neste tutorial cria uma _configuração_ no hub IoT. A [gestão de dispositivos automática](./iot-hub-automatic-device-management.md) do Hub IoT utiliza esta configuração para atualizar um conjunto de _propriedades pretendidas dos dispositivos duplos_ em todos os dispositivos chiller. As propriedades pretendidas especificam os detalhes da atualização de firmware necessária. Embora os dispositivos chiller estejam a executar o processo de atualização de firmware, reportam o respetivo estado à aplicação de back-end através das _propriedades reportadas dos dispositivos duplos_. A aplicação de back-end pode utilizar a configuração para monitorizar as propriedades reportadas enviadas a partir do dispositivo e controlar o processo de atualização de firmware para conclusão:
 
 ![Processo de atualização de firmware](media/tutorial-firmware-update/Process.png)
 
@@ -38,11 +38,9 @@ Neste tutorial, vai concluir as seguintes tarefas:
 > * Simular o processo de atualização de firmware num dispositivo.
 > * Receber atualizações de estado do dispositivo à medida que a atualização de firmware avança.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Node.js. Precisa de Node.js v10.x.x ou mais tarde na sua máquina de desenvolvimento.
 
@@ -62,7 +60,7 @@ Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dis
 
 Para concluir este tutorial, a sua subscrição do Azure tem de ter um hub IoT com um dispositivo adicionado ao registo de identidades do dispositivo. A entrada no registo de identidades de dispositivos permite que o dispositivo simulado que executará neste tutorial se ligue ao seu hub.
 
-Se ainda não tiver um hub do IoT configurado na sua subscrição, pode configurar um com o seguinte script da CLI. Este script utiliza o nome **tutorial-iot-hub** para o hub do IoT. Quando o executar, deve substituir este nome pelo seu próprio nome exclusivo. O script cria o grupo de recursos e o hub na região **E.U.A. Central** , que pode alterar para uma região mais próxima de si. O script obtém a cadeia de ligação do serviço do hub IoT, que irá utilizar na aplicação de exemplo de back-end para ligar ao seu hub IoT:
+Se ainda não tiver um hub do IoT configurado na sua subscrição, pode configurar um com o seguinte script da CLI. Este script utiliza o nome **tutorial-iot-hub** para o hub do IoT. Quando o executar, deve substituir este nome pelo seu próprio nome exclusivo. O script cria o grupo de recursos e o hub na região **E.U.A. Central**, que pode alterar para uma região mais próxima de si. O script obtém a cadeia de ligação do serviço do hub IoT, que irá utilizar na aplicação de exemplo de back-end para ligar ao seu hub IoT:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -82,7 +80,7 @@ az iot hub show-connection-string --name $hubname --policy-name service -o table
 
 ```
 
-Este tutorial utiliza um dispositivo simulado chamado **MyFirmwareUpdateDevice** . O script seguinte adiciona este dispositivo ao registo de identidades do dispositivo, define um valor de etiqueta e obtém a respetiva cadeia de ligação:
+Este tutorial utiliza um dispositivo simulado chamado **MyFirmwareUpdateDevice**. O script seguinte adiciona este dispositivo ao registo de identidades do dispositivo, define um valor de etiqueta e obtém a respetiva cadeia de ligação:
 
 ```azurecli-interactive
 # Set the name of your IoT hub
@@ -195,11 +193,11 @@ Uma vez que as configurações automáticas do dispositivo são executadas na ho
 
 ![Ver a configuração no portal](./media/tutorial-firmware-update/portalview.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se tenciona concluir o próximo tutorial, saia do grupo de recursos e do hub do IoT e reutilize-os mais tarde.
 
-Se já não precisar do Hub IoT, elimine-o, bem como ao grupo de recursos, no portal. Para tal, selecione o grupo de recursos **tutorial-iot-hub-rg** que contém o seu hub do IoT e clique em **Eliminar** .
+Se já não precisar do Hub IoT, elimine-o, bem como ao grupo de recursos, no portal. Para tal, selecione o grupo de recursos **tutorial-iot-hub-rg** que contém o seu hub do IoT e clique em **Eliminar**.
 
 Em alternativa, utilize a CLI:
 

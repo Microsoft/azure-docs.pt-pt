@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 2d041782e8df795acb120ba1357cec5ef204dc28
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 9032e4c04279d87bf4422d3a87d19fdbecec1a64
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656333"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571798"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores proxy existentes no local
 
@@ -168,6 +168,9 @@ A melhor maneira de identificar e resolver problemas de conectividade do conecto
 
 Pode utilizar a ferramenta de monitorização à sua escolha. Para efeitos deste artigo, utilizamos o Microsoft Message Analyzer.
 
+> [!NOTE]
+> [O Microsoft Message Analyzer (MMA) foi retirado](https://docs.microsoft.com/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f) e os seus pacotes de descarregamento foram removidos dos sites microsoft.com em 25 de novembro de 2019.  Não existe atualmente nenhum substituto da Microsoft para o Microsoft Message Analyzer em desenvolvimento neste momento.  Para funcionalidades semelhantes, considere utilizar uma ferramenta de analisador de protocolo de rede de terceiros, como o Wireshark.
+
 Os exemplos a seguir são específicos do Analisador de Mensagens, mas os princípios podem ser aplicados a qualquer ferramenta de análise.
 
 ### <a name="take-a-capture-of-connector-traffic"></a>Faça uma captura do tráfego do conector
@@ -205,7 +208,7 @@ O filtro anterior mostra apenas os pedidos e respostas dos HTTPs para/a partir d
 
 Se vir outros códigos de resposta, como o 407 ou o 502, isso significa que o representante está a necessitar de autenticação ou não permite o tráfego por outro motivo. Neste momento, contrata a equipa de suporte ao servidor proxy.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Compreenda os conectores Proxy de aplicação AD Azure](application-proxy-connectors.md)
 * Se tiver problemas com problemas de conectividade do conector, faça a sua pergunta na página de perguntas do [Microsoft Q&A para o Azure Ative Directory](/answers/topics/azure-active-directory.html) ou crie um bilhete com a nossa equipa de suporte.

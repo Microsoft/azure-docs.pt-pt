@@ -1,7 +1,7 @@
 ---
 title: Novidades na gestão de aplicações do Azure Ative Directory
 description: Documentação nova e atualizada para a gestão de aplicações do Azure Ative Directory.
-ms.date: 11/05/2020
+ms.date: 12/03/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,16 +9,26 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 10861438334bc804d1b1e4b9a669280f7e09ffde
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 38602482f1a25f212829342fe691d7bb75666d31
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654014"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571016"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestão de aplicações do Azure Ative Directory: Quais as novidades
 
 Bem-vindos às novidades da documentação de gestão de aplicações do Azure Ative Directory. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber quais as novidades com o serviço de gestão de aplicações, veja [as novidades do Azure Ative Directory](../fundamentals/whats-new.md).
+
+## <a name="november-2020"></a>Novembro de 2020
+
+### <a name="new-articles"></a>Artigos novos
+- [Sign-on único baseado em cabeçalho para aplicativos no local com Proxy app AD Ad (Preview)](application-proxy-configure-single-sign-on-with-headers.md)
+
+### <a name="updated-articles"></a>Artigos atualizados
+- [Gestão de aplicações do Azure Ative Directory: Quais as novidades](whats-new-docs.md)
+- [Problemas ao iniciar sessão em aplicações configuradas com o início de sessão único com base no SAML](application-sign-in-problem-federated-sso-gallery.md)
+
 
 ## <a name="october-2020"></a>Outubro de 2020
 
@@ -32,9 +42,9 @@ Bem-vindos às novidades da documentação de gestão de aplicações do Azure A
 
 ### <a name="updated-articles"></a>Artigos atualizados
 
-- [Problemas de inscrição em aplicações configuradas com base em SAML](application-sign-in-problem-federated-sso-gallery.md)
+- [Problemas ao iniciar sessão em aplicações configuradas com o início de sessão único com base no SAML](application-sign-in-problem-federated-sso-gallery.md)
 - [Problema ao instalar o Conector do Agente do Proxy de Aplicações](application-proxy-connector-installation-problem.md)
-- [Autenticação de aplicações móveis dos Serviços da Federação de Diretórios Ativos para o Diretório Ativo do Azure](migrate-adfs-apps-to-azure.md)
+- [Mover a autenticação da aplicação do AD FS para o AAD](migrate-adfs-apps-to-azure.md)
 - [Configurar a forma como os utilizadores finais concedem consentimento às aplicações](configure-user-consent.md)
 
 
@@ -52,7 +62,7 @@ Bem-vindos às novidades da documentação de gestão de aplicações do Azure A
 - [Gerir o consentimento dos pedidos e avaliar os pedidos de consentimento](manage-consent-requests.md)
 - [Visualização de aplicativos usando o seu inquilino Azure AD para gestão de identidade](application-types.md)
 - [Entenda como os utilizadores são atribuídos a apps no Azure Ative Directory](ways-users-get-assigned-to-applications.md)
-- [Gerir a atribuição do utilizador para uma aplicação no Azure Ative Directory](assign-user-or-group-access-portal.md)
+- [Gerir a atribuição de utilizadores para uma aplicação no Azure Active Directory](assign-user-or-group-access-portal.md)
 
 
 ## <a name="august-2020"></a>Agosto de 2020
@@ -65,7 +75,7 @@ Bem-vindos às novidades da documentação de gestão de aplicações do Azure A
 - [Experiências de utilizador final para aplicações no Azure Ative Directory](end-user-experiences.md)
 - [Como utilizar o acesso a aplicações self-service](access-panel-manage-self-service-access.md)
 - [Problemas de resolução de problemas inscrevem-se numa aplicação da Azure AD My Apps](application-sign-in-other-problem-access-panel.md)
-- [Resolução de problemas com base em único sinal de sessão em Azure AD](troubleshoot-password-based-sso.md)
+- [Resolver problemas de início de sessão único baseado em palavra-passe no Microsoft Azure AD](troubleshoot-password-based-sso.md)
 - [Planeie um Azure Ative Directory My Apps](access-panel-deployment-plan.md)
 - [O que é o Início de Sessão Único (SSO)?](what-is-single-sign-on.md)
 - [Tomar medidas sobre aplicações sobreprivilevasas ou suspeitas no Azure Ative Directory](manage-application-permissions.md)

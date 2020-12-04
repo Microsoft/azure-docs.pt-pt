@@ -6,16 +6,16 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
-ms.openlocfilehash: f14ded89ad294abbfaf9861e5f4caf17dd82fb98
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: f1aad2464e4979ecbf35deceaad4de70e05b3004
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490717"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573668"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Utilize identidade gerida para autenticar o seu trabalho Azure Stream Analytics para a saída de armazenamento Azure Blob
+# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Utilize identidade gerida (pré-visualização) para autenticar o seu trabalho Azure Stream Analytics para a saída de armazenamento Azure Blob
 
-[A autenticação de identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) para a saída para o armazenamento Azure Blob dá aos trabalhos stream Analytics acesso direto a uma conta de armazenamento em vez de usar uma cadeia de ligação. Além de uma segurança melhorada, esta funcionalidade também permite escrever dados para uma conta de armazenamento numa Rede Virtual (VNET) dentro do Azure.
+[A autenticação de identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) (pré-visualização) para a saída para o armazenamento Azure Blob dá aos trabalhos stream Analytics acesso direto a uma conta de armazenamento em vez de usar uma cadeia de ligação. Além de uma segurança melhorada, esta funcionalidade também permite escrever dados para uma conta de armazenamento numa Rede Virtual (VNET) dentro do Azure.
 
 Este artigo mostra-lhe como ativar a Identidade Gerida para a(s) saída(s) Blob(s) de um trabalho stream Analytics através do portal Azure e através de uma implementação do Azure Resource Manager.
 

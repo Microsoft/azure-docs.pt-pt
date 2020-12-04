@@ -5,19 +5,20 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cb123b3b06f680932c8237ee4b11a6a9017bc10
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: be3947e3de18f8ccaf47382c4035e187521ac710
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95488560"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571509"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Restaurar a granel utilizadores eliminados no Azure Ative Directory
 

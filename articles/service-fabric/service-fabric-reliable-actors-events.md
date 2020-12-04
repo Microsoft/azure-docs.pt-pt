@@ -1,17 +1,15 @@
 ---
 title: Eventos em atores Azure Service Fabric
 description: Conheça os eventos para Service Fabric Reliable Actors, uma forma eficaz de comunicar entre ator e cliente.
-author: vturecek
 ms.topic: conceptual
 ms.date: 10/06/2017
-ms.author: amanbha
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f5634a33dccb06437f2e5f095e7880221dba9d6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 591e3539715ba0873e44f56a93d05df6552bb1ef
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89007915"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571373"
 ---
 # <a name="actor-events"></a>Eventos de atores
 Os eventos de ator fornecem uma forma de enviar notificações de melhor esforço do ator para os clientes. Os eventos atores são projetados para comunicação de actor-a-cliente e não devem ser usados para comunicação de actor-ator.

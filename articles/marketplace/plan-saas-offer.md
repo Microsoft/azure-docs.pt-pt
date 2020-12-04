@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 9034757539a3dfd8b5e43e97ec518479da396456
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: d2d890db3c246ad7f3d0a56a3df264d5f78bd54d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917550"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571135"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Como planear uma oferta saaS para o mercado comercial
 
@@ -113,10 +113,10 @@ Se a sua oferta SaaS for *simultaneamente* uma solução de TI (Azure Marketplac
 
 | Faturação medido | Plano público | Plano privado | Disponível em: |
 |---|---|---|---|
-| Yes             | Yes         | No           | Azure Marketplace e portal Azure |
-| Yes             | Yes         | Yes          | Azure Marketplace e portal Azure * |
-| Yes             | No          | Yes          | Apenas portal Azure |
-| No              | No          | Yes          | Apenas portal Azure |
+| Sim             | Sim         | Não           | Azure Marketplace e portal Azure |
+| Sim             | Sim         | Sim          | Azure Marketplace e portal Azure * |
+| Sim             | Não          | Sim          | Apenas portal Azure |
+| Não              | Não          | Sim          | Apenas portal Azure |
 |||||
 
 &#42; O plano privado da oferta só estará disponível através do portal Azure
@@ -202,7 +202,7 @@ Para ajudar a criar a sua oferta mais facilmente, prepare alguns destes itens co
   - .png ficheiro
   - Deve incluir uma legenda
 - **Meios - Vídeos** (opcional): Pode adicionar até quatro vídeos com os seguintes requisitos, que demonstram a sua oferta:
-  - Nome
+  - Name
   - URL: Deve ser hospedado apenas no YouTube ou Vimeo.
   - Miniatura: ficheiro de .png 1280 x 720
 
@@ -258,7 +258,7 @@ Pode optar por optar por canais de marketing e vendas suportados pela Microsoft.
 
 - **Revender através de CSPs**: Utilize esta opção para permitir que os parceiros da Microsoft Cloud Solution Providers (CSP) revendam a sua solução como parte de uma oferta agregada. Consulte [o programa Cloud Solution Provider](cloud-solution-providers.md) para obter mais informações.
 
-- **Co-vender com** a Microsoft: Esta opção permite que as equipas de vendas da Microsoft considerem a sua solução elegível para co-venda ip ao avaliar as necessidades dos seus clientes. Consulte [a opção de Co-venda no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) para obter informações detalhadas sobre como preparar a sua oferta para avaliação.
+- **Co-vender com** a Microsoft: Esta opção permite que as equipas de vendas da Microsoft considerem a sua solução elegível para co-venda ip ao avaliar as necessidades dos seus clientes. Consulte [a opção de Co-venda no Partner Center](commercial-marketplace-co-sell.md) para obter informações detalhadas sobre como preparar a sua oferta para avaliação.
 
 ## <a name="next-steps"></a>Passos seguintes
 

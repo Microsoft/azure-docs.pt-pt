@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ce8d014f7ec9ae0a915b69cff033e929f139acc0
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 1feabdfa5b4715427b63e0d419b62d4c41bd1ee5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532096"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572393"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Quickstart: Implemente o seu primeiro módulo IoT Edge num dispositivo Linux virtual
 
@@ -33,23 +33,17 @@ Este quickstart acompanha-o através da criação de uma máquina virtual Linux 
 
 Se não tiver uma subscrição ativa do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Vai utilizar a CLI do Azure para concluir muitos dos passos neste início rápido e o IoT do Azure tem uma extensão para ativar funcionalidades adicionais.
-
-Adicione a extensão Azure IoT à instância Cloud Shell.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+Prepare o seu ambiente para o Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
 Recursos da cloud:
 
-* Um grupo de recursos para gerir todos os recursos que utilizar neste início rápido. Utilizamos o nome de grupo de recursos de exemplo **IoTEdgeResources** ao longo deste quickstart e dos seguintes tutoriais.
+- Um grupo de recursos para gerir todos os recursos que utilizar neste início rápido. Utilizamos o nome de grupo de recursos de exemplo **IoTEdgeResources** ao longo deste quickstart e dos seguintes tutoriais.
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
@@ -228,7 +222,7 @@ Veja as mensagens enviadas a partir do módulo sensor de temperatura:
 
 Também pode ver as mensagens chegarem ao seu hub IoT utilizando a [extensão Azure IoT Hub para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se quiser avançar para os tutoriais do IoT Edge, pode utilizar o dispositivo que registou e configurou neste início rápido. Caso contrário, pode eliminar os recursos Azure que criou para evitar encargos.
 

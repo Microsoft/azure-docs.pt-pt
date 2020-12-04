@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: a4016751944e5b7ec5d32dc586e9034db99c9d73
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: f26b54a18ff137575cac208d70e4693c0b9914a8
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523561"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572291"
 ---
 # <a name="how-to-manage-synapse-rbac-role-assignments-in-synapse-studio"></a>Como gerir atribuições de funções do SYNAPC no Synapse Studio
 
@@ -23,12 +23,13 @@ Este artigo mostra como adicionar e eliminar atribuições de funções de RBAC 
 
 >[!Note]
 >- Para gerir as atribuições de funções do SYNAPSE, é necessário ter a função de Administrador de Sinapse no espaço de trabalho ou num âmbito de nível inferior que inclua os objetos que pretende gerir. Se for administrador da Sinapse no espaço de trabalho, pode conceder acesso a todos os objetos do espaço de trabalho. 
->- Para ajudá-lo a recuperar o acesso a um espaço de trabalho no caso de não serem atribuídos ou disponíveis administradores da Synapse, os utilizadores com permissões para gerir as atribuições de funções **do Azure RBAC** no espaço de trabalho também podem gerir atribuições de funções **de SYNapse RBAC,** permitindo a adição de Administrador de Sinapse ou outras atribuições de funções no SYNAPSE RBAC.
+>- **Os utilizadores convidados** de um inquilino de AD diferente não podem ver ou gerir atribuições de funções, mesmo que atribuíssem a função de Administrador de Sinapse.
+>- Para ajudá-lo a recuperar o acesso a um espaço de trabalho no caso de não serem atribuídos ou disponíveis administradores da Synapse, os utilizadores com permissões para gerir as atribuições de funções **do Azure RBAC** no espaço de trabalho também podem gerir atribuições de funções **de SYNAPSe RBAC,** permitindo a adição de administrador de sinapse ou outras atribuições de funções de Sinapse.
 >- O acesso às piscinas SQL é gerido com permissões SQL.  Com exceção das funções de Administrador da Sinapse e administrador do Synapse SQL, as funções de RBAC da Synapse não concedem acesso a piscinas SQL.
 
 >[!important]
 >- As alterações introduzidas nas atribuições de funções do SYNAPSE RBAC podem demorar 2 a 5 minutos a produzir efeitos. 
->- Se estiver a gerir permissões do SYNAPSE RBAC modificando a adesão a grupos de segurança, então as alterações à adesão são geridas usando o Azure Ative Directory.  As alterações à adesão ao grupo podem demorar vários minutos a produzir efeitos.
+>- Se estiver a gerir permissões do SYNAPSE RBAC modificando a adesão a grupos de segurança, então as alterações à adesão são geridas usando o Azure Ative Directory.  As alterações aos membros do grupo podem demorar entre 10 a 15 minutos ou mais a produzir efeito.
 
 ## <a name="open-synapse-studio"></a>Open Synapse Studio  
 

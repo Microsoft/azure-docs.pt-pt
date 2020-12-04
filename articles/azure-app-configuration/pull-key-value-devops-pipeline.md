@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 15810e65873c685565ccaad6c2dcdc1707713f2c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1c28b4e9821f31f927ef4f640aa664d330cf8792
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182653"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96570999"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Puxe as definições para configuração de aplicativos com gasodutos Azure
 
@@ -27,7 +27,7 @@ A tarefa [de Configuração de Aplicações Azure](https://marketplace.visualstu
 
 ## <a name="create-a-service-connection"></a>Criar uma ligação de serviço
 
-Uma ligação de serviço permite-lhe aceder a recursos na sua subscrição Azure a partir do seu projeto Azure DevOps.
+Uma [ligação](/azure/devops/pipelines/library/service-endpoints) de serviço permite-lhe aceder a recursos na sua subscrição Azure a partir do seu projeto Azure DevOps.
 
 1. Em Azure DevOps, vá ao projeto que contenha o seu pipeline alvo e abra as **definições** do Projeto na parte inferior esquerda.
 1. Em **Pipelines** selecione **ligações de serviço**.

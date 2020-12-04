@@ -6,14 +6,14 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: 469610d7195835a4b68e4d887c5be57a8926ba37
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: dd667202a329148e498d0e25ee15110de5d7448a
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489510"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573413"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Utilize identidade gerida para autenticar o seu trabalho Azure Stream Analytics para Power BI
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>Utilize identidade gerida para autenticar o seu trabalho Azure Stream Analytics para Power BI (pré-visualização)
 
 [A autenticação de identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) para a saída para o Power BI dá aos empregos stream Analytics acesso direto a um espaço de trabalho dentro da sua conta Power BI. Esta funcionalidade permite que as implementações de trabalhos stream Analytics sejam totalmente automatizadas, uma vez que já não é necessário que um utilizador faça login interativamente no Power BI através do portal Azure. Além disso, os trabalhos de longa duração que escrevem para o Power BI estão agora mais bem apoiados, uma vez que não precisará de reautorizar periodicamente o trabalho.
 
@@ -35,7 +35,7 @@ São necessários os seguintes para a utilização desta função:
 
 2. Antes de configurar a saída, dê ao stream Analytics acesso ao seu espaço de trabalho Power BI seguindo as instruções do [trabalho Dor the Stream Analytics para a sua](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) secção de espaço de trabalho Power BI deste artigo.
 
-3. Navegue para a secção **saídas** do trabalho da analítica stream, selecione **+ Adicionar** , e, em seguida, escolha **Power BI**. Em seguida, selecione o botão **'Autorizor'** e faça login com a sua conta Power BI.
+3. Navegue para a secção **saídas** do trabalho da analítica stream, selecione **+ Adicionar**, e, em seguida, escolha **Power BI**. Em seguida, selecione o botão **'Autorizor'** e faça login com a sua conta Power BI.
 
    ![Autorizar com conta Power BI](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-authorize-powerbi.png)
 

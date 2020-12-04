@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: 5bd41396cf075f83fd37a4276f7a30223ec8c1f3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 101f2cfe57624502764d145351a6343cfdd2a334
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96482948"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572869"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Como implementar o Windows 10 no Azure com direitos de hospedagem multitenant 
 Para clientes com Windows 10 Enterprise E3/E5 por utilizador ou Windows Virtual Desktop Access por utilizador (Licenças de subscrição de utilizador ou licenças de subscrição de utilizadores adicionais), os direitos de hospedagem multitenant para o Windows 10 permitem-lhe trazer as suas Licenças do Windows 10 para a nuvem e executar máquinas virtuais do Windows 10 no Azure sem pagar outra licença. Para mais informações, consulte [o Multitenant Hosting para windows 10.](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)
@@ -112,7 +112,7 @@ LicenseType              :
 
 ## <a name="additional-information-about-joining-azure-ad"></a>Informações adicionais sobre a adesão do Azure AD
 >[!NOTE]
->O Azure prevê todos os VMs do Windows com conta de administrador incorporada, que não podem ser usados para aderir à AAD. Por exemplo, *As Definições > Conta > Trabalho de Acesso ou > Escolares não* funcionarão. Tem de criar e iniciar sessão como segunda conta de administrador para se juntar manualmente ao Azure AD. Também pode configurar a Azure AD usando um pacote de provisionamento, use o link é a secção *Etapas Seguintes* para saber mais.
+>O Azure prevê todos os VMs do Windows com conta de administrador incorporada, que não podem ser usados para aderir à AAD. Por exemplo, *As Definições > Conta > Trabalho de Acesso ou > Escolares não* funcionarão. Tem de criar e iniciar sessão como segunda conta de administrador para se juntar manualmente ao Azure AD. Também pode configurar a Azure AD usando um pacote de provisionamento, use o link na secção *Etapas Seguintes* para saber mais.
 >
 >
 
