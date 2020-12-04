@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: c1c6478948aaf207f0ca1adf367840ca3db34649
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: a64d26ad11911e2cb9dcdec027b3ab3e4d22984b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325305"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96584513"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -104,7 +104,7 @@ console.log(`\nCreated an identity with ID: ${identityResponse.communicationUser
 
 ## <a name="issue-access-tokens"></a>Emitir fichas de acesso
 
-Utilize o `issueToken` método para emitir um token de acesso para a identidade dos Serviços de Comunicação já existentes. O parâmetro `scopes` define um conjunto de primitivos que autorizarão este token de acesso. Consulte a [lista de ações apoiadas.](../../concepts/authentication.md) Nova instância de parâmetro `communicationUser` pode ser construída com base na representação de cordas da identidade do Serviço de Comunicação Azure.
+Utilize o `issueToken` método para emitir um token de acesso para uma identidade já existente dos Serviços de Comunicação. O parâmetro `scopes` define um conjunto de primitivos que autorizarão este token de acesso. Consulte a [lista de ações apoiadas.](../../concepts/authentication.md) Nova instância de parâmetro `communicationUser` pode ser construída com base na representação de cordas da identidade do Serviço de Comunicação Azure.
 
 ```javascript
 // Issue an access token with the "voip" scope for an identity
@@ -119,12 +119,11 @@ Os tokens de acesso são credenciais de curta duração que precisam de ser reed
 
 ## <a name="refresh-access-tokens"></a>Atualizar tokens de acesso
 
-Para refrescar um token de acesso, use o `CommunicationUser` objeto para reeditar:
+Tokens de acesso refrescante é tão fácil como chamar `issueToken` com a mesma identidade que foi usado para emitir os tokens. Você também precisa fornecer as `scopes` fichas refrescadas. 
 
-```javascript  
-// Value existingIdentity represents identity of Azure Communication Services stored during identity creation
-identityResponse = new CommunicationUser(existingIdentity);
-tokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
+```javascript
+// // Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
+let refreshedTokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
 ```
 
 

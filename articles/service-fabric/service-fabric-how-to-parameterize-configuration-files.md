@@ -1,16 +1,14 @@
 ---
 title: Parametrizar ficheiros de configuração no Tecido de Serviço Azure
 description: Aprenda a parametrizar ficheiros de configuração em Service Fabric, uma técnica útil para gerir vários ambientes.
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: mikhegn
-ms.openlocfilehash: 4e96a732cffd70b0a5c24e7ebafe214297a72720
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ca376230c427c47e839b2dee96e8daa83ccedf15
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006052"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576762"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Como parametrizar ficheiros de configuração em Tecido de Serviço
 

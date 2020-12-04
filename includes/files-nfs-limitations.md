@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 09/15/2020
+ms.date: 12/02/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 10177dd949ac531027e13cf633b11c16674fd4ab
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: db4bc51b937535b7b53273bf01057d9b6c5198b3
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94386585"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96584457"
 ---
 Durante a pré-visualização, a NFS tem as seguintes limitações:
 
@@ -21,6 +21,7 @@ Durante a pré-visualização, a NFS tem as seguintes limitações:
 - Se a maioria dos seus pedidos forem centrados em metadados, então a latência será pior quando comparada com as operações de leitura/escrita/atualização.
 - Deve criar uma nova conta de armazenamento para criar uma quota NFS.
 - Apenas o plano de gestão REST APIs são suportados. As APIs do plano de dados não estão disponíveis, o que significa que ferramentas como o Storage Explorer não funcionarão com ações NFS nem poderá navegar em dados de partilha de NFS no portal Azure.
+- A azCopy não é suportada atualmente.
 - Disponível apenas para o nível premium.
 - Atualmente apenas disponível com armazenamento localmente redundante (LRS).
 

@@ -6,12 +6,12 @@ ms.author: nimag
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 652566efda4d4f274dc5700d35bcf45c1ebfb9e2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d35e51d097c2d5e0b66c23efa27ae70c065d547c
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92347289"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96584557"
 ---
 Neste arranque rápido, você vai aprender como iniciar uma chamada usando a biblioteca de clientes Azure Communication Services Call para JavaScript.
 
@@ -32,7 +32,7 @@ Abra o seu terminal ou janela de comando crie um novo diretório para a sua apli
 mkdir calling-quickstart && cd calling-quickstart
 ```
 
-Corra `npm init -y` para criar umapackage.js** no** ficheiro com definições predefinidos.
+Corra `npm init -y` para criar umapackage.js **no** ficheiro com definições predefinidos.
 
 ```console
 npm init -y
@@ -62,10 +62,10 @@ A `--save` opção lista a biblioteca como uma dependência do seu **package.jsa
 Este quickstart usa webpack para agregar os ativos da aplicação. Executar o seguinte comando para instalar os pacotes npm webpack, webpack-cli e webpack-dev-server e listá-los como dependências de desenvolvimento no seu **package.jsem**:
 
 ```console
-npm install webpack webpack-cli webpack-dev-server --save-dev
+npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
 ```
 
-Crie um ** ficheiroindex.html** no diretório de raiz do seu projeto. Usaremos este ficheiro para configurar um layout básico que permitirá ao utilizador fazer uma chamada para um Bot de Comunicações Azure.
+Crie um **ficheiroindex.html** no diretório de raiz do seu projeto. Usaremos este ficheiro para configurar um layout básico que permitirá ao utilizador fazer uma chamada para um Bot de Comunicações Azure.
 
 Apresentamos o código a seguir:
 
@@ -124,7 +124,7 @@ As seguintes classes e interfaces lidam com algumas das principais característi
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Tem de ser substituído `<USER_ACCESS_TOKEN>` por um token de acesso válido do utilizador para o seu recurso. Consulte a documentação do [token de acesso ao utilizador](../../access-tokens.md) se ainda não tiver um token disponível. Utilizando o `CallClient` , inicialize um `CallAgent` caso com um que nos `CommunicationUserCredential` permitirá fazer e receber chamadas. Adicione o seguinte código à **client.js: **
+Tem de ser substituído `<USER_ACCESS_TOKEN>` por um token de acesso válido do utilizador para o seu recurso. Consulte a documentação do [token de acesso ao utilizador](../../access-tokens.md) se ainda não tiver um token disponível. Utilizando o `CallClient` , inicialize um `CallAgent` caso com um que nos `CommunicationUserCredential` permitirá fazer e receber chamadas. Adicione o seguinte código à **client.js:**
 
 ```javascript
 async function init() {

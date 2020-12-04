@@ -2,22 +2,22 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: container-service
-author: dlepow
+author: mlearned
 ms.service: container-service
 ms.topic: include
 ms.date: 11/22/2019
-ms.author: danlep
+ms.author: mlearned
 ms.custom: include file
-ms.openlocfilehash: 32edd880e5e455393e60c87f4f963d71a3e59a20
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a42bba1b6524825aa571e4c18319b61b97829792
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026774"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96584617"
 ---
 | Recurso | Limite |
 | --- | :--- |
-| Aglomerados máximos por subscrição | 100 |
+| Aglomerados máximos por subscrição | 1000 |
 | Os nódes máximos por cluster com conjuntos de disponibilidade de máquina virtual e SKU de balanceador de carga básico  | 100 |
 | Os nódes máximos por cluster com conjuntos de balança de máquina virtual e [sKU de balançador de carga padrão][standard-load-balancer] | 1000 (100 nós por [piscina de nó)][node-pool] |
 | Cápsulas máximas por nó: [Rede básica][basic-networking] com Kubenet | 110 |

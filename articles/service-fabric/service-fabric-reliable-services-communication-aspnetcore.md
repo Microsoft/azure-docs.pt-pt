@@ -1,17 +1,15 @@
 ---
 title: Comunicação de serviço com o núcleo ASP.NET
 description: Saiba como usar ASP.NET Core em aplicações apátridas e stateful Azure Service Fabric Reliable Services.
-author: vturecek
 ms.topic: conceptual
 ms.date: 10/12/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 69423e7545178fd74ad44f5cab7b37b6f24b3577
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba5626d477bbd6aa07d89703cc37b157f4cfd4d5
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022195"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576796"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core em Serviço Azure Fabric Reliable Services
 
@@ -88,7 +86,7 @@ O diagrama que se segue mostra o fluxo de pedido com o middleware ativado:
 
 ![Tecido de Serviço ASP.NET Integração core][2]
 
-Tanto a Kestrel como a HTTP.sys `ICommunicationListener` implementações utilizam este mecanismo exatamente da mesma forma. Embora HTTP.sys possa diferenciar internamente os pedidos com base em caminhos DE URL únicos utilizando a funcionalidade de partilha ** de portaHTTP.sys** subjacente, essa funcionalidade *não* é utilizada pela `ICommunicationListener` implementação HTTP.sys. Isto porque resulta em códigos de estado de erro HTTP 503 e HTTP 404 no cenário descrito anteriormente. Isto por sua vez dificulta que os clientes determinem a intenção do erro, uma vez que HTTP 503 e HTTP 404 são normalmente utilizados para indicar outros erros. 
+Tanto a Kestrel como a HTTP.sys `ICommunicationListener` implementações utilizam este mecanismo exatamente da mesma forma. Embora HTTP.sys possa diferenciar internamente os pedidos com base em caminhos DE URL únicos utilizando a funcionalidade de partilha **de portaHTTP.sys** subjacente, essa funcionalidade *não* é utilizada pela `ICommunicationListener` implementação HTTP.sys. Isto porque resulta em códigos de estado de erro HTTP 503 e HTTP 404 no cenário descrito anteriormente. Isto por sua vez dificulta que os clientes determinem a intenção do erro, uma vez que HTTP 503 e HTTP 404 são normalmente utilizados para indicar outros erros. 
 
 Assim, tanto as implementações da Kestrel como HTTP.sys `ICommunicationListener` normalizam o middleware fornecido pelo método de `UseServiceFabricIntegration` extensão. Por isso, os clientes apenas precisam de realizar um ponto final de serviço para re-resolver a ação em respostas HTTP 410.
 
@@ -100,7 +98,7 @@ HTTP.sys é construído na [API](/windows/win32/http/http-api-start-page)do Serv
 >[!NOTE]
 >HTTP.sys implementação funciona apenas na plataforma Windows.
 
-O seguinte diagrama ilustra como HTTP.sys utiliza ** o **HTTP.syscondutor de núcleo no Windows para partilha de porta:
+O seguinte diagrama ilustra como HTTP.sys utiliza **o** HTTP.syscondutor de núcleo no Windows para partilha de porta:
 
 ![diagrama de HTTP.sys][3]
 
@@ -130,7 +128,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="httpsys-in-a-stateful-service"></a>HTTP.sys num serviço imponente
 
-`HttpSysCommunicationListener` não é projetado atualmente para uso em serviços estatais devido a complicações com a funcionalidade de partilha ** deHTTP.sys** portuária subjacente. Para mais informações, consulte a secção seguinte sobre a atribuição dinâmica do porto com HTTP.sys. Para serviços estatais, Kestrel é o servidor web sugerido.
+`HttpSysCommunicationListener` não é projetado atualmente para uso em serviços estatais devido a complicações com a funcionalidade de partilha **deHTTP.sys** portuária subjacente. Para mais informações, consulte a secção seguinte sobre a atribuição dinâmica do porto com HTTP.sys. Para serviços estatais, Kestrel é o servidor web sugerido.
 
 ### <a name="endpoint-configuration"></a>Configuração do ponto final
 
