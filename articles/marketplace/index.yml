@@ -10,12 +10,12 @@ metadata:
   author: mingshen-ms
   ms.author: mingshen
   ms.date: 09/02/2020
-  ms.openlocfilehash: b8b7de41dce5c36cb41db247e177fa5084878fb1
-  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+  ms.openlocfilehash: d3c1c87f85c048a6572eb48f0d1709fb9f0d21df
+  ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/01/2020
-  ms.locfileid: "96462484"
+  ms.lasthandoff: 12/03/2020
+  ms.locfileid: "96572750"
 landingContent:
 - title: Trabalhar no marketplace comercial
   linkLists:
@@ -46,7 +46,7 @@ landingContent:
     - text: Clientes potenciais da oferta do marketplace
       url: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
     - text: Opção de venda conjunta no Centro de Parceiros
-      url: ./partner-center-portal/commercial-marketplace-co-sell.md
+      url: commercial-marketplace-co-sell.md
     - text: Compromisso entre parceiros para venda conjunta
       url: ./marketplace-co-sell.md
     - text: Disponibilize soluções no Microsoft AppSource e no Office

@@ -50,7 +50,7 @@
         - name: Compromisso entre parceiros para venda conjunta
           href: marketplace-co-sell.md
         - name: Opção de venda conjunta no Centro de Parceiros
-          href: partner-center-portal/commercial-marketplace-co-sell.md
+          href: commercial-marketplace-co-sell.md
         - name: Revenda através de Parceiros CSP
           href: cloud-solution-providers.md
         - name: Ligar guia de inclusão do Programa
@@ -382,9 +382,9 @@
     - name: Países e regiões suportados
       href: sell-from-countries.md
     - name: Códigos de país e região de venda conjunta
-      href: partner-center-portal/commercial-marketplace-co-sell-countries.md
+      href: commercial-marketplace-co-sell-countries.md
     - name: Códigos de distrito de venda conjunta
-      href: partner-center-portal/commercial-marketplace-co-sell-states.md
+      href: commercial-marketplace-co-sell-states.md
     - name: Categorias e subcategorias
       href: categories.md
     - name: Etiquetas HTML suportadas
