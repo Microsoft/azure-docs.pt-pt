@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 711b3399d865899770567583a1425faeb9e408ec
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 083d820c989870b2a73217eeebf192f0d540ba36
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555814"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602551"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Tutorial: Digitalizar dados com Azure Purview (Pré-visualização)
 
@@ -146,11 +146,14 @@ Depois de concluída a configuração do catálogo, execute os seguintes scripts
 
    Quando executar o comando, poderá aparecer uma janela pop-up para que possa iniciar sação utilizando as suas credenciais do Azure Ative Directory.
 
-1. Utilize o seguinte comando para executar o kit de arranque. Substitua os `CatalogName` espaços `TenantID` `SubscriptionID` `NewResourceGroupName` reservados e `CatalogResourceGroupName` reservados. Para `NewResourceGroupName` , usar um nome único para o grupo de recursos que irá conter a propriedade de dados.
+1. Utilize o seguinte comando para executar o kit de arranque. Substitua os `CatalogName` espaços `TenantID` `SubscriptionID` `newresourcegroupname` reservados e `CatalogResourceGroupName` reservados. Para `newresourcegroupname` , usar um nome único para o grupo de recursos que irá conter a propriedade de dados.
+
+> [!IMPORTANT]
+> O **nome newresourcegroup pode** ser alfanumérico ou apenas números. **Não são permitidos alfabetos e caracteres especiais.**
 
    ```powershell
    .\RunStarterKit.ps1 -CatalogName <CatalogName> -TenantId <TenantID>`
-   -ResourceGroup <NewResourceGroupName> `
+   -ResourceGroup <newresourcegroupname> `
    -SubscriptionId <SubscriptionID> `
    -CatalogResourceGroup <CatalogResourceGroupName>
    ```
@@ -158,6 +161,9 @@ Depois de concluída a configuração do catálogo, execute os seguintes scripts
 Pode levar até 10 minutos para o ambiente ser configurado. Durante este tempo, poderá ver várias janelas pop-up, que pode ignorar. Não feche a janela **BlobDataCreator.exe;** fecha-se automaticamente quando termina.
 
 Quando vir a `Executing Copy pipeline xxxxxxxxxx-487e-4fc4-9628-92dd8c2c732b` mensagem, aguarde por outro exemplo de **BlobDataCreator.exe** para começar e terminar de correr.
+
+> [!IMPORTANT]
+> Caso o "Número de tarefas ativas" deixe de diminuir, então pode sair da janela do criador do blob e bater na janela da powershell
 
 Após o fim do processo, é criado um grupo de recursos com o nome fornecido. As contas Azure Data Factory, Azure Blob e Azure Data Lake Storage Gen2 estão todas contidas neste grupo de recursos. O grupo de recursos está contido na subscrição especificada.
 

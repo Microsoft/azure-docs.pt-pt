@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: eb1be4c78be0eb7fb943700b168fa82ede4d3861
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9a3a6bd6489baea90ed4143b42a09e7d697bbc50
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458387"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602449"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modelo de fatura pré-construído do Reconhecimento de Formulário
 
@@ -80,8 +80,8 @@ O serviço de Fatura extrairá o texto, as tabelas e 26 campos de fatura. Seguem
 | CustomerId | string | ID de referência para o cliente | CID-12345 |  |
 | Pedido de Compra | string | Um número de referência de pedido de compra | PO-3333 | |  |
 | InvoiceId | string | ID para esta fatura específica (muitas vezes "Número de fatura") | INV-100 | |  |
-| DataDaFatura | date | Data em que a fatura foi emitida | 11/15/2019 | 
-| DueDate | date | O pagamento da data desta fatura é devido | 12/15/2019 | 2019-12-15 | 2019-11-15 |
+| DataDaFatura | data | Data em que a fatura foi emitida | 11/15/2019 | 
+| DueDate | data | O pagamento da data desta fatura é devido | 12/15/2019 | 2019-12-15 | 2019-11-15 |
 | Nome do fornecedor | string | Fornecedor que criou esta fatura | CONTOSO LTD. | |
 | Pagamento de Fornecedores | string | Endereço de correio para o Fornecedor | 123 456th St New York, NY, 10001 | |
 | FornecedorAddressRecipient | string | Nome associado ao VendorAddress | Sede do Contoso | |
@@ -99,17 +99,17 @@ O serviço de Fatura extrairá o texto, as tabelas e 26 campos de fatura. Seguem
 | ServiçoAddressRecipient | string | Nome associado ao ServiceAddress | Serviços Microsoft | |
 | RemessaAddress | string | Remessa explícita ou endereço de pagamento para o cliente | 123 Remit St New York, NY, 10001 |  |
 | RemessaAddressRecipient | string | Nome associado ao RemittanceAddress | Contoso Billing |  |
-| ServiceStartDate | date | Primeira data para o período de serviço (por exemplo, um período de serviço de conta de utilidade) | 14/10/2019 | 2019-10-14 |
-| ServiceEndDate | date | Data de fim do período de serviço (por exemplo, um período de serviço de conta de utilidade) | 11/14/2019 | 2019-11-14 |
+| ServiceStartDate | data | Primeira data para o período de serviço (por exemplo, um período de serviço de conta de utilidade) | 14/10/2019 | 2019-10-14 |
+| ServiceEndDate | data | Data de fim do período de serviço (por exemplo, um período de serviço de conta de utilidade) | 11/14/2019 | 2019-11-14 |
 | Anterior Desequilíbrio | número | Saldo explícito anteriormente não pago | 500,00 € | 500 |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Experimente as suas próprias faturas e amostras na [UI da amostra do reconhecimento de formulários.](https://fott-preview.azurewebsites.net/)
 - Complete um [início rápido da biblioteca do cliente Do Reconhecimento de Formulários](quickstarts/client-library.md) para começar a escrever uma aplicação de processamento de faturas com o Form Recogniser no idioma à sua escolha.
 - Ou, siga o [quickstart de dados](./quickstarts/python-invoices.md) da fatura extrato para implementar a extração de dados de fatura usando Python e a API REST.
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [O que é o Reconhecedor de Formato?](./overview.md)
-* [REST API referenciar docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync)
+* [REST API referenciar docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9843c2794cbb1a96291)

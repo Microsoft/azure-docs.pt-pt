@@ -2,15 +2,15 @@
 title: Teste de caixas para kit de ferramentas de teste
 description: Descreve os testes que são executados pelo kit de ferramentas de teste do modelo ARM.
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: dda8e92c17029126e7f473a6aee03acfc970e04b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9ad659e15a88725e4c3905ab6c623fda7610fd
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378122"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600909"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Casos de teste predefinidos para o kit de ferramentas de teste do modelo ARM
 
@@ -137,9 +137,11 @@ O exemplo que **se segue passa** neste teste.
 
 Nome do teste: **Localização não deve ser codificada**
 
-Os utilizadores do seu modelo podem ter regiões limitadas à sua disposição. Quando define a localização do recurso para `"[resourceGroup().location]"` , o grupo de recursos pode ter sido criado numa região a que outros utilizadores não podem aceder. Esses utilizadores estão impedidos de usar o modelo.
+Os seus modelos devem ter um parâmetro chamado localização. Utilize este parâmetro para definir a localização dos recursos no seu modelo. No modelo principal (nomeado azuredeploy.jsem ou mainTemplate.js), este parâmetro pode predefinir a localização do grupo de recursos. Em modelos ligados ou aninhados, o parâmetro de localização não deve ter uma localização padrão.
 
-Ao definir a localização de cada recurso, utilize um parâmetro que predefini a localização do grupo de recursos. Ao fornecer este parâmetro, os utilizadores podem usar o valor padrão quando conveniente, mas também especificar uma localização diferente.
+Os utilizadores do seu modelo podem ter regiões limitadas à sua disposição. Quando codificar a localização do recurso, os utilizadores podem estar impedidos de criar um recurso nessa região. Os utilizadores podem ser bloqueados mesmo que desemalte a localização do recurso para `"[resourceGroup().location]"` . O grupo de recursos pode ter sido criado numa região a que outros utilizadores não podem aceder. Esses utilizadores estão impedidos de usar o modelo.
+
+Ao fornecer um parâmetro de localização que predefini a localização do grupo de recursos, os utilizadores podem usar o valor padrão quando conveniente, mas também especificar uma localização diferente.
 
 O exemplo a seguir **falha** neste teste porque a localização do recurso está definida para `resourceGroup().location` .
 
@@ -195,7 +197,7 @@ O próximo exemplo usa um parâmetro de localização, mas **falha** neste teste
 }
 ```
 
-Em vez disso, crie um parâmetro que predefini a localização do grupo de recursos, mas permite que os utilizadores forneçam um valor diferente. O exemplo que **se segue passa** neste teste.
+Em vez disso, crie um parâmetro que predefini a localização do grupo de recursos, mas permite que os utilizadores forneçam um valor diferente. O exemplo a seguir **passa** neste teste quando o modelo é usado como o modelo principal.
 
 ```json
 {
@@ -227,6 +229,8 @@ Em vez disso, crie um parâmetro que predefini a localização do grupo de recur
     "outputs": {}
 }
 ```
+
+No entanto, se o exemplo anterior for utilizado como modelo ligado, o teste **falha**. Quando usado como um modelo ligado, remova o valor predefinido.
 
 ## <a name="resources-should-have-location"></a>Os recursos devem ter localização
 
@@ -687,6 +691,6 @@ O exemplo a seguir **falha** porque utiliza uma função [de lista*](template-fu
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender a executar o kit de ferramentas de teste, consulte [o kit de ferramentas de teste do modelo ARM](test-toolkit.md).

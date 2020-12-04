@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect sync V2 endpoint visualização pública / Microsoft Docs
+title: Azure AD Connect Sync V2 endpoint / Microsoft Docs
 description: Este documento cobre atualizações à Azure AD connect sync v2 pontos finais API.
 services: active-directory
 author: billmath
@@ -12,34 +12,24 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b9b73e30094ed7d07e19f4b93f2fe8ab8f6af3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ffb298bca53a06bd1ef14a750648fe6e76fd45ee
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339426"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602109"
 ---
-# <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Azure AD Connect Sync V2 endpoint API (pré-visualização pública) 
+# <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API de ponto final do Azure AD Connect sync V2 
 A Microsoft implementou um novo ponto final (API) para o Azure AD Connect que melhora o desempenho das operações de serviço de sincronização para o Azure Ative Directory. Utilizando o novo ponto final V2, irá experimentar ganhos de desempenho notáveis na exportação e importação para a Azure AD. Este novo ponto final suporta o seguinte:
     
- -  syncing grupos com até 250k membros
+ - syncing grupos com até 250k membros
  - ganhos de desempenho na exportação e importação para a Azure AD
  
 > [!NOTE]
 > Atualmente, o novo ponto final não tem um limite de tamanho de grupo configurado para os grupos Microsoft 365 que estão reensitados. Isto pode ter um efeito no seu Diretório Ativo e latências de ciclo sincronizado. Recomenda-se aumentar gradualmente os tamanhos do grupo.  
 
-
 ## <a name="pre-requisites"></a>Pré-requisitos  
 Para utilizar o novo ponto final V2, terá de utilizar a [versão 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) ou posterior do Azure AD Connect e seguir os passos de implementação abaixo fornecidos para ativar o ponto final V2 para o seu servidor Azure AD Connect.   
-
->[!NOTE]
->Atualmente, esta pré-visualização pública só está disponível na nuvem global do Azure e não está disponível para [nuvens nacionais.](../develop/authentication-national-cloud.md)
-
-### <a name="public-preview-limitations"></a>Limitações da pré-visualização pública  
-Embora esta versão tenha sido submetida a testes extensivos, ainda pode encontrar problemas. Um dos objetivos deste lançamento de pré-visualização pública é encontrar e corrigir tais problemas.  
-
->[!IMPORTANT]
-> Embora o suporte seja fornecido para esta versão de pré-visualização pública, a Microsoft pode nem sempre ser capaz de corrigir todos os problemas que possa encontrar imediatamente. Por esta razão, recomenda-se que use o seu melhor julgamento antes de implementar esta versão no seu ambiente de produção. 
 
 ## <a name="deployment-guidance"></a>Orientação de implantação 
 Terá de implantar a [versão 1.5.30.0 do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) ou mais tarde para utilizar o ponto final V2. Utilize o link fornecido para descarregar. 
@@ -184,19 +174,11 @@ Se tiver ativado o ponto final v2 e precisar de ser revoado, siga estes passos:
 > Ao mudar de ponto final V2 para V1, grupos sincronizados com mais de 50k membros serão eliminados após a execução de uma sincronização completa, tanto para os grupos AD a provisionados a Azure AD como para os grupos unificados microsoft 365 a provisionados a AD. 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes  
-**P: Pode um cliente utilizar esta funcionalidade em produção?**  
-</br>Sim, isto pode ser usado em ambientes de produção, com a ressalva como mencionado anteriormente.
  
-**P: Quem pode o cliente contactar quando as coisas correm mal?**  
-</br>Se precisar de apoio ao utilizar esta função, deverá abrir um caso de suporte. 
+**Quando é que o novo ponto final se tornará o padrão para upgrades e novas instalações?**  
+</br>Estamos a planear um novo lançamento do AADConnect para download em janeiro de 2021. Esta versão utilizará o ponto de final V2 por predefinição e permitirá que grupos de sincronização maiores do que 50K com qualquer configuração adicional. A versão THis será posteriormente publicada para upgrade automático para servidores elegíveis.
  
-**P: Posso esperar atualizações frequentes para a pré-visualização pública?**  
-</br>Há um grau limitado de mudanças em curso durante uma visualização pública.Deve avaliar este risco ao implementar funcionalidades de visualização pública na produção.  
- 
-**Q: Tempo para o próximo marco?**  
-</br>As capacidades de visualização pública podem ser retiradas e possivelmente redesenhadas antes de atingirem mais marcos.  
- 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Azure AD Connect sync: Entenda e personalize a sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)

@@ -1,22 +1,22 @@
 ---
-title: Opção de co-venda no Partner Center Mercado Azure
-description: As informações que fornecer no separador Co-venda da sua oferta serão utilizadas pelas equipas de vendas da Microsoft para saber mais sobre a sua oferta ao avaliar o seu ajuste para as necessidades dos clientes.
+title: Opção de co-venda no mercado comercial Mercado Azure
+description: As informações que fornecer no separador Co-sell com o separador Microsoft da sua oferta serão usadas pelas equipas de vendas da Microsoft para saber mais sobre a sua oferta ao avaliar o seu ajuste para as necessidades dos clientes.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 12/03/2020
-ms.openlocfilehash: f424cd85e26511f8fe3d863b1f2c77bc1e5e7537
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/04/2020
+ms.openlocfilehash: baa99518498b05b0a658627d9908298eb58f7775
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96583014"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602738"
 ---
-# <a name="co-sell-option-in-partner-center"></a>Opção de venda conjunta no Centro de Parceiros
+# <a name="co-sell-option-in-the-commercial-marketplace"></a>Opção de co-venda no mercado comercial
 
-Fornecer informações sobre o separador Co-sell é inteiramente opcional. É necessário obter [o estatuto de Co-venda De Co-venda De Co-venda de Co-venda.](/legal/marketplace/certification-policies.md#3000-requirements-for-co-sell-status) As informações que fornecer serão utilizadas pelas equipas de vendas da Microsoft para saber mais sobre a sua oferta ao avaliar o seu ajuste às necessidades dos clientes. Não está disponível diretamente para os clientes. Para obter mais informações, consulte [Co-vender com a Microsoft.](https://partner.microsoft.com/membership/co-sell-with-microsoft)
+Fornecer informações sobre o separador **Co-sell com o** separador Microsoft é inteiramente opcional. É necessário obter [o estatuto de Co-venda De Co-venda De Co-venda de Co-venda.](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status) As informações que fornecer serão utilizadas pelas equipas de vendas da Microsoft para saber mais sobre a sua oferta ao avaliar o seu ajuste às necessidades dos clientes. Não está disponível diretamente para os clientes. Para obter mais informações, consulte [Co-vender com a Microsoft.](https://partner.microsoft.com/membership/co-sell-with-microsoft)
 
 A opção Co-venda no Partner Center está atualmente disponível nos seguintes tipos de oferta.
 
@@ -117,6 +117,6 @@ Um ponto de partida útil para a construção de diagramas de arquitetura de ref
 
 (O diagrama de arquitetura de referência acima é para um chatbot da indústria vertical que pode ser integrado com sites intranet para ajudar com os cenários de procura prevista através de um algoritmo de Machine Learning usando a cadeia de fornecimento e os dados de programação de fabricação de diferentes sistemas ERP. O bot é projetado para responder a questões sobre quando um vendedor pode comprometer-se em possíveis datas de entrega para uma encomenda.)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para mais informações, consulte [Vender com a Microsoft.](https://partner.microsoft.com/membership/sell-with-microsoft)

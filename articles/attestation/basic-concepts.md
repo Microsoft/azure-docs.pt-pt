@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a4ab8372e23e3621f7d73f8dbc38957c809acc9c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 66401e048413163af0d96da80a0415ee8f9cbb19
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89237287"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601531"
 ---
 # <a name="basic-concepts"></a>Basic Concepts (Conceitos Básicos)
 
@@ -36,13 +36,13 @@ Os fornecedores de atestados são criados com uma política de predefinição pa
 
 A Azure Attestation fornece um fornecedor predefinido em cada região. Os clientes podem optar por utilizar o fornecedor padrão para atestado, ou criar os seus próprios fornecedores com políticas personalizadas. Os fornecedores predefinidos são acessíveis por qualquer utilizador Azure AD e a política associada a um fornecedor predefinido não pode ser alterada.
 
-| Region | Atestar Uri | 
+| Região | Atestar Uri | 
 |--|--|
-| Sul do Reino Unido | https://shareduks.uks.attest.azure.net | 
-| E.U.A. Leste 2 | https://sharedeus2.eus2.attest.azure.net | 
-| E.U.A. Central | https://sharedcus.cus.attest.azure.net | 
-| E.U.A. Leste| https://sharedeus.eus.attest.azure.net | 
-| Canadá Central | https://sharedcac.cac.attest.azure.net | 
+| Sul do Reino Unido | `https://shareduks.uks.attest.azure.net` | 
+| E.U.A. Leste 2 | `https://sharedeus2.eus2.attest.azure.net` | 
+| E.U.A. Central | `https://sharedcus.cus.attest.azure.net` | 
+| E.U.A. Leste| `https://sharedeus.eus.attest.azure.net` | 
+| Canadá Central | `https://sharedcac.cac.attest.azure.net` | 
 
 ## <a name="attestation-request"></a>Pedido de atestado
 
@@ -100,7 +100,7 @@ Exemplo de JWT gerado para um enclave SGX:
 ```
 Afirmações como "exp", "iat", "iss", "nbf" são definidas pelo [JWT RFC](https://tools.ietf.org/html/rfc7517) e as restantes são geradas pela Azure Attestation. Consulte [as reclamações emitidas pela Azure Attestation](claim-sets.md) para obter mais informações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Como autor e assinar uma política de atestado](author-sign-policy.md)
 - [Configurar a Azure Attestation usando o PowerShell](quickstart-powershell.md)

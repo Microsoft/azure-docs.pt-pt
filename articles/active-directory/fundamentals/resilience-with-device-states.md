@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4075cb71cb4dae7ac506c16e3987070cfa10bb09
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: faa334c21e23ecddad287846d34aaf0d72af66cc
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919857"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602189"
 ---
 # <a name="build-resilience-with-device-states"></a>Construir resiliência com estados de dispositivo
 
@@ -44,11 +44,11 @@ Quando um PRT é usado para solicitar o acesso a uma aplicação, o seu disposit
 
 * Para dispositivos pessoais ou empresas iOS e Android implementam a [App Microsoft Authenticator](../user-help/user-help-auth-app-overview.md). Além da autenticação multi-fator e do sinal sem palavra-passe, a aplicação Microsoft Authenticator irá permitir um único sinal através de uma aplicação nativa através de [autenticação intermediada](../develop/brokered-auth.md) com menos pedidos de autenticação para os utilizadores finais.
 
-* Para dispositivos iOS e Android de propriedade pessoal ou empresa, utilize [a gestão de aplicações móveis](https://docs.microsoft.com/mem/intune/apps/app-management.md) para aceder de forma segura aos recursos da empresa com menos pedidos de autenticação. 
+* Para dispositivos iOS e Android de propriedade pessoal ou empresa, utilize [a gestão de aplicações móveis](https://docs.microsoft.com/mem/intune/apps/app-management) para aceder de forma segura aos recursos da empresa com menos pedidos de autenticação. 
 
 * [Utilize o plug-in Microsoft Enterprise SSO para dispositivos Apple (pré-visualização)](../develop/apple-sso-plugin.md). Este regista o dispositivo e fornece SSO em todo o navegador e aplicações AD nativas do Azure. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Recursos de resiliência para administradores e arquitetos
  
 * [Construir resiliência com gestão credencial](resilience-in-credentials.md)

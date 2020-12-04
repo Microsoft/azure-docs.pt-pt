@@ -3,13 +3,15 @@ title: Adicionar o JVM arg - Azure Monitor Application Insights Java
 description: Adicionar o arg JVM para Azure Monitor Application Insights Java
 ms.topic: conceptual
 ms.date: 04/16/2020
+author: MS-jgol
 ms.custom: devx-track-java
-ms.openlocfilehash: 3c9c38d4173413310b715e05c9dcfb9c15be9d4f
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.author: jgol
+ms.openlocfilehash: e665bf734d2141081796f7810eed02eff3b5c5ad
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377638"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601106"
 ---
 # <a name="adding-the-jvm-arg-for-azure-monitor-application-insights-java"></a>Adicionar o arg JVM para Azure Monitor Application Insights Java
 
@@ -170,7 +172,7 @@ Adicione `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` ao exi
 
 ## <a name="websphere-8"></a>WebSphere 8
 
-O Console de Gestão Aberta vai para **servidores > servidores de aplicações webSphere > servidores de aplicação** , escolha os servidores de aplicações apropriados e clique em: 
+O Console de Gestão Aberta vai para **servidores > servidores de aplicações webSphere > servidores de aplicação**, escolha os servidores de aplicações apropriados e clique em: 
 
 ```
 Java and Process Management > Process definition >  Java Virtual Machine

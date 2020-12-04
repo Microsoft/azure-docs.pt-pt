@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d04f689dec3a3c182c0da23007247c20c4f8063d
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 8573e45270dfd1ff984eae3dc5fbf1dc5f2fc6da
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504395"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600868"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Sempre no grupo de disponibilidade no SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -39,7 +39,9 @@ O diagrama a seguir ilustra um grupo de disponibilidade para o SQL Server em VMs
 
 Para aumentar a redundância e a elevada disponibilidade, os VMs do SQL Server devem estar no mesmo [conjunto de disponibilidade,](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview)ou em [diferentes zonas de disponibilidade.](../../../availability-zones/az-overview.md)
 
-Um conjunto de disponibilidade é um agrupamento de recursos que são configurados de modo a que não haja dois terrenos na mesma zona de disponibilidade. Isto evita o impacto de múltiplos recursos no grupo durante os lançamentos de implantação. 
+A colocação de um conjunto de VMs no mesmo conjunto de disponibilidade protege contra falhas dentro de um datacenter causado por falha de equipamento (VMs dentro de um Conjunto de Disponibilidade não partilham recursos) ou de atualizações (VMs dentro de um Conjunto de Disponibilidade não são atualizados ao mesmo tempo). Zonas de disponibilidade protegem contra a falha de todo um datacenter, com cada Zona representando um conjunto de datacenters dentro de uma região.  Ao garantir que os recursos são colocados em diferentes Zonas de Disponibilidade, nenhuma paragem ao nível do datacenter pode tirar todos os seus VMs offline.
+
+Ao criar VMs Azure, deve escolher entre configurar Conjuntos de Disponibilidade vs Zonas de Disponibilidade.  Um Azure Vm não pode participar em ambos.
 
 
 ## <a name="connectivity"></a>Conectividade 
@@ -97,7 +99,7 @@ Para mais informações, consulte [o portal Azure,](availability-group-azure-por
 
 Num cluster de ativação pós-falha convidado da VM IaaS do Azure, recomendamos um único NIC por servidor (nó de cluster) e uma única sub-rede. O azure networking tem redundância física, o que torna NICs adicionais e sub-redes desnecessários em um cluster de hóspedes Azure IaaS VM. Embora o relatório de validação do cluster emita um aviso de que os nós apenas são acessíveis numa única rede, este aviso pode ser ignorado com segurança nos clusters de ativação pós-falha convidados da VM IaaS do Azure. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Reveja as [melhores práticas hadr](hadr-cluster-best-practices.md) e, em seguida, inicie a implementação do seu grupo de disponibilidade utilizando o [portal Azure](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell,](./availability-group-az-commandline-configure.md) [Quickstart Templates](availability-group-quickstart-template-configure.md) ou [manualmente](availability-group-manually-configure-prerequisites-tutorial.md).
 

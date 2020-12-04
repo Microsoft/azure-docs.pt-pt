@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: joflore
-ms.openlocfilehash: 0576fdaa9bdcc90636c3cd2bc90ba2818f1e69e7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 916615808bc1e28b9794b57e08960520e3abd835
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962671"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602279"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Compare os serviços de domínio do diretório ativo auto-geridos, o Azure Ative Directory e os serviços de domínio do diretório ativo geridos a Azure Ative Directory
 
@@ -112,10 +112,13 @@ Com dispositivos Azure AD DS, as aplicações podem usar os protocolos Kerberos 
 | Representação no diretório | Objetos do dispositivo no diretório AD Azure            | Objetos de computador no domínio gerido Azure AD DS                        |
 | Autenticação                  | Protocolos baseados em OAuth / OpenID Connect              | Protocolos Kerberos e NTLM                                               |
 | Gestão                      | Software mobile de Gestão de Dispositivos (MDM) como o Intune | Política de Grupo                                                              |
-| Rede                      | Funciona através da internet                             | Deve ser ligado ou esprevado para a rede virtual onde o domínio gerido é implantado |
+| Redes                      | Funciona através da internet                             | Deve ser ligado ou esprevado para a rede virtual onde o domínio gerido é implantado |
 | Ótimo para...                    | Dispositivos móveis ou desktop do utilizador final                  | VMs do servidor implantados em Azure                                              |
 
-## <a name="next-steps"></a>Passos seguintes
+
+Se o DS DS e a AD AD em prem e Azure estiverem configurados para a autenticação federada utilizando o ADFS, então não existe um haxixe de senha (corrente/válido) disponível em Azure DS. As contas de utilizadores da AD AZure criadas antes da implementação do fed auth podem ter um haxixe de senha antiga, mas isso provavelmente não corresponde a um haxixe da sua palavra-passe on-prem. Assim, a Azure AD DS não será capaz de validar as credenciais dos utilizadores
+
+## <a name="next-steps"></a>Próximos passos
 
 Para começar a utilizar o Azure AD DS, [crie um domínio gerido Azure AD DS utilizando o portal Azure][tutorial-create].
 

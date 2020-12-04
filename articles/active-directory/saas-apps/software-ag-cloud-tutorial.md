@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 11/20/2020
 ms.author: jeedes
-ms.openlocfilehash: ccf945f8bfec85a18493d515dce48f4cb3e3b612
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4acc4c0cec530b8f83648042cd7a417992257543
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182370"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602075"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-software-ag-cloud"></a>Tutorial: Azure Ative Directory integração única (SSO) com Software AG Cloud
 
@@ -77,9 +77,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
+    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://*.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.softwareag.cloud/auth/realms/TENANT-NAME`
+    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://*.softwareag.cloud/auth/realms/TENANT-NAME`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Software AG Cloud](mailto:support@softwareag.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -121,19 +121,19 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1.  Clique na **Administração**
 
-    ![Configurar software AG Cloud1](./media/software-ag-cloud-tutorial/admin.png)
+    ![Configurar software AG Cloud Administration](./media/software-ag-cloud-tutorial/admin.png)
 
 1. Aceda ao **signo único no > Adicionar fornecedor de identidade**
 
-    ![Configurar software AG Cloud2](./media/software-ag-cloud-tutorial/add-identity-provider.png)
+    ![Fornecedor de identidade DE Software CONFIGURAR AG Cloud](./media/software-ag-cloud-tutorial/add-identity-provider.png)
 
 1. Execute os seguintes passos na página seguinte.
 
-    ![Configurar software AG Cloud3](./media/software-ag-cloud-tutorial/saml-1.png)
+    ![Configurar software AG Cloud seguir passos](./media/software-ag-cloud-tutorial/saml-1.png)
 
     a. Na caixa de texto **do nome de exibição** do fornecedor de identidade, dê o nome de `azure ad` .
 
-    b. No **identificador exclusivo do fornecedor de identidade para utilização no Software AG Cloud redireciona** a caixa de texto URI, cole o valor **de ID** da Entidade que copiou a partir do portal Azure.
+    b. No **identificador único do fornecedor de identidade para utilização na** caixa de texto URI de redirecionamento URI do Software AG Cloud, insira um nome único para o Fornecedor de Identidade. O **campo URI de redirecionamento de nuvem de software AG** Cloud será renovado e povoado com o URI. Copie este URI e use-o para configurar o **ID** da Entidade e outras informações no portal Azure de acordo com os padrões definidos.
 
     c. Importe o ficheiro **XML dos metadados da Federação** na **configuração do fornecedor de identidade** e clique em **Seguinte**.
 
@@ -147,12 +147,13 @@ Nesta secção, um utilizador chamado Britta Simon é criado em Software AG Clou
 
 Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-1. Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o URL de entrada de cloud do Software AG, onde pode iniciar o fluxo de login. 
+* Assumindo que o Microsoft Azure está configurado como fornecedor na Cloud Software AG, navegue `www.softwareag.cloud` e clique no botão de Login e introduza o nome ambiente. No ecrã seguinte, clique no link "Iniciar sessão <IDP NAME> com" e introduza as credenciais. Uma vez autenticado, você será iniciado e levado para a página inicial da Cloud Do Software AG.
 
-2. Vá diretamente ao URL de inscrição na nuvem de software AG e inicie o fluxo de login a partir daí.
+* Vá diretamente ao URL de inscrição na nuvem de software AG e inicie o fluxo de login a partir daí.
 
-3. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo de nuvem AG de software no Painel de Acesso, este irá redirecionar para o URL de sinal de cloud do Software AG. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo de Nuvem AG de Software nas Minhas Apps, este irá redirecionar para o SOFTWARE AG Cloud Sign-on URL. Para mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-## <a name="next-steps"></a>Passos seguintes
+
+## <a name="next-steps"></a>Próximos passos
 
 Uma vez configurado software AG Cloud, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

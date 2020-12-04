@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2020
 ms.author: jeedes
-ms.openlocfilehash: f76f6bc77a26a8574218a07321ab72acc9280569
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: af1c0702929e7cd700c8d19ab24e40f9c6f43a21
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517995"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602194"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>Tutorial: Azure Ative Directory integração única (SSO) com a MongoDB Cloud
 
@@ -49,7 +49,7 @@ Para configurar a integração da MongoDB Cloud em AD Azure, precisa adicionar a
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta de trabalho ou escola ou uma conta pessoal da Microsoft.
 1. No painel esquerdo, selecione **Azure Ative Directory**.
-1. Vá a **Aplicações Empresariais**e, em seguida, selecione **Todas as Aplicações**.
+1. Vá a **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar uma nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **da galeria,** **digite a Nuvem MongoDB** na caixa de pesquisa.
 1. Selecione **MongoDB Cloud** a partir dos resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
@@ -84,7 +84,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     b. Na caixa de texto **URL de resposta,** digite um URL que utiliza o seguinte padrão: `https://auth.mongodb.com/sso/saml2/<Customer_Unique>`
 
-1. Selecione **Definir URLs adicionais**e executar o seguinte passo se quiser configurar a aplicação **no** modo iniciado sp:
+1. Selecione **Definir URLs adicionais** e executar o seguinte passo se quiser configurar a aplicação **no** modo iniciado sp:
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL que utiliza o seguinte padrão:  `https://cloud.mongodb.com/sso/<Customer_Unique>`
 
@@ -97,7 +97,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além dos atributos anteriores, a aplicação MongoDB Cloud espera que mais alguns atributos sejam repercutidos na resposta SAML. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ---------------| --------- |
     | e-mail | user.userprincipalname |
     | nomePróprio | user.givenname |
@@ -162,7 +162,7 @@ Quando selecionar o azulejo da nuvem MongoDB no Painel de Acesso, é automaticam
 
 - [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
-- [Inscreva-se no MongoDB Atlas em Azure](https://azuremarketplace.microsoft.com/marketplace/apps/mongodb.mongodb_atlas_may_2020?tab=Overview)
+- [Inscreva-se no MongoDB Atlas em Azure](https://azuremarketplace.microsoft.com/marketplace/apps/mongodb.mdb_atlas_oct2020?tab=Overview)
 
 - [Experimente a Nuvem MongoDB com Azure AD](https://aad.portal.azure.com/)
 

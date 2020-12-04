@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 706fa1666dc327955294fb350b673aed40d6bf48
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 8e21bac5dd78cb9c9f40e6b91ff80fedabb9bc75
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95520667"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602262"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -28,7 +28,7 @@ Uma resposta oportuna a violações de políticas ou questões de segurança req
 
 A implementação inicial da avaliação de acesso contínuo centra-se no Exchange, Teams e SharePoint Online.
 
-Para preparar as suas aplicações para utilizar CAE, consulte [como utilizar apis de avaliação de acesso contínuo ativados nas suas aplicações.](/develop/app-resilience-continuous-access-evaluation.md)
+Para preparar as suas aplicações para utilizar CAE, consulte [como utilizar apis de avaliação de acesso contínuo ativados nas suas aplicações.](/azure/active-directory/develop/app-resilience-continuous-access-evaluation)
 
 ### <a name="key-benefits"></a>Principais vantagens
 
@@ -185,6 +185,6 @@ Se ativar um utilizador logo após o desativar. Haverá alguma latência antes d
 
 A frequência de inscrição será honrada com ou sem CAE.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Anunciando a avaliação contínua do acesso](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933)

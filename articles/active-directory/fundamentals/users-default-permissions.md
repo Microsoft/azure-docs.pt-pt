@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29580564ffa2fed579065e6a8551a6f44597e41a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: d8825dcb2d8dbcf4a1296d8bace84b3d2716687f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433262"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602036"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quais são as permissões de utilizador predefinidas no Azure Ative Directory?
 No Azure Active Directory (Azure AD), é concedido a todos os utilizadores um conjunto de permissões predefinidas. O acesso de um utilizador consiste no tipo de utilizador, nas suas [atribuições de papel](active-directory-users-assign-role-azure-portal.md)e na sua propriedade de objetos individuais. Este artigo descreve essas permissões predefinidas e contém uma comparação entre as predefinições do utilizador membro e convidado. As permissões do utilizador predefinidas só podem ser alteradas nas definições do utilizador em Azure AD.
@@ -32,7 +32,7 @@ O conjunto de permissões por defeito recebidas depende se o utilizador é um me
 
 **Área** | **Permissões dos utilizadores membros** | **Permissões de utilizador de hóspedes predefinidos** | **Permissões restritas do utilizador do hóspede (Pré-visualização)**
 ------------ | --------- | ---------- | ----------
-Utilizadores e contactos | <ul><li>Lista enumerada de todos os utilizadores e contactos<li>Ler todas as propriedades públicas de utilizadores e contactos</li><li>Convidar convidados<li>Alterar a própria palavra-passe<li>Gerir o próprio número de telemóvel<li>Gerir a própria fotografia<li>Invalidar os próprios tokens de atualização</li></ul> | <ul><li>Ler as próprias propriedades<li>Leia o nome do visor, e-mail, sinal no nome, foto, nome principal do utilizador e propriedades do tipo de utilizador de outros utilizadores e contactos<li>Alterar a própria palavra-passe<li>Procure por outro utilizador por Display Name, User Principal Name ou ObjectId (se permitido)<li>Leia informações de gestor e relatório direto de outros utilizadores</li></ul> | <ul><li>Ler as próprias propriedades<li>Alterar a própria palavra-passe</li></ul>
+Utilizadores e contactos | <ul><li>Lista enumerada de todos os utilizadores e contactos<li>Ler todas as propriedades públicas de utilizadores e contactos</li><li>Convidar convidados<li>Alterar a própria palavra-passe<li>Gerir o próprio número de telemóvel<li>Gerir a própria fotografia<li>Invalidar os próprios tokens de atualização</li></ul> | <ul><li>Ler as próprias propriedades<li>Leia o nome do visor, e-mail, sinal no nome, foto, nome principal do utilizador e propriedades do tipo de utilizador de outros utilizadores e contactos<li>Alterar a própria palavra-passe<li>Procure por outro utilizador por ObjectId (se permitido)<li>Leia informações de gestor e relatório direto de outros utilizadores</li></ul> | <ul><li>Ler as próprias propriedades<li>Alterar a própria palavra-passe</li></ul>
 Grupos | <ul><li>Criar grupos de segurança<li>Criar grupos Microsoft 365<li>Lista enumerada de todos os grupos<li>Ler todas as propriedades dos grupos<li>Ler as associações de grupo não oculto<li>Leia membros escondidos do grupo Microsoft 365 para grupo aderido<li>Gerir propriedades, propriedade e adesão de grupos que o utilizador detém<li>Adicionar convidados a grupos detidos<li>Gerir definições de associação dinâmica<li>Eliminar grupos detidos<li>Restaurar grupos Microsoft 365</li></ul> | <ul><li>Ler propriedades de grupos não escondidos, incluindo membros e propriedade (mesmo grupos não acompanhados)<li>Leia membros do grupo Microsoft 365 escondidos para grupos unidos<li>Procure por grupos por Display Name ou ObjectId (se permitido)</li></ul> | <ul><li>Leia o id de objeto para grupos unidos<li>Leia a adesão e a propriedade de grupos unidos em algumas aplicações da Microsoft 365 (se permitido)</li></ul>
 Aplicações | <ul><li>Registar (criar) nova aplicação<li>Lista enumerada de todas as candidaturas<li>Ler as propriedades de aplicações registadas e empresariais<li>Gerir as propriedades da aplicação, atribuições e credenciais para aplicações detidas<li>Criar ou eliminar palavra-passe de aplicação do utilizador<li>Eliminar aplicações detidas<li>Restaurar aplicações detidas</li></ul> | <ul><li>Ler as propriedades de aplicações registadas e empresariais</li></ul> | <ul><li>Ler as propriedades de aplicações registadas e empresariais
 Dispositivos</li></ul> | <ul><li>Lista enumerada de todos os dispositivos<li>Ler todas as propriedades dos dispositivos<li>Gerir todas as propriedades dos dispositivos detidos</li></ul> | Sem permissões | Sem permissões
@@ -140,7 +140,7 @@ Os utilizadores podem realizar as seguintes ações em grupos de propriedade.
 | microsoft.diretório/grupos/restaurar | Restaurar grupos no Diretório Ativo Azure. |
 | microsoft.diretório/grupos/definições/atualização | Atualizar a propriedade grupos.configurações em Azure Ative Directory. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre a definição de restrições de acesso ao utilizador dos hóspedes, consulte [permissões de acesso ao hóspede (pré-visualização) em Azure Ative Directory](../enterprise-users/users-restrict-guest-permissions.md).
 * Para saber mais sobre como atribuir funções de administrador AZure, consulte [atribuir um utilizador às funções de administrador no Azure Ative Directory](active-directory-users-assign-role-azure-portal.md)

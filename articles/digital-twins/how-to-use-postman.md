@@ -1,5 +1,5 @@
 ---
-title: Fazer pedidos com carteiro
+title: Fazer pedidos com o Postman
 titleSuffix: Azure Digital Twins
 description: Aprenda a configurar e use o Carteiro para testar as APIs das Gémeas Digitais Azure.
 ms.author: baanders
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: f9be9dd94aad8c206b562f2c984ec944f70d3957
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5dbe161af172b65919328fca0b272f3b658f1b32
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188046"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600494"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Como usar o Carteiro para enviar pedidos para as APIs das Gémeas Digitais do Azure
 
@@ -130,7 +130,7 @@ Para fazer um pedido de Carteiro a uma das APIs das Gémeas Digitais Azure, voc�
 
 Para proceder a uma consulta de exemplo, este artigo utilizará a API de Consulta (e a sua [documentação de referência)](/rest/api/digital-twins/dataplane/query/querytwins)para consultar todos os gémeos digitais em um caso.
 
-1. Obtenha o URL de pedido e escreva a partir da documentação de referência. Para a API de Consulta, este é *POST. https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31*
+1. Obtenha o URL de pedido e escreva a partir da documentação de referência. Para a API de Consulta, este é *POST. `https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31`*
 1. No Carteiro, desabrocha o tipo de pedido e introduza o URL de pedido, preenchendo os espaços reservados no URL conforme necessário. É aqui que utilizará o nome de **anfitrião** do seu caso na secção [*Pré-Requisitos.*](#prerequisites)
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Nos detalhes do novo pedido, o URL de consulta da documentação de referência foi preenchido na caixa URL do pedido." lightbox="media/how-to-use-postman/postman-request-url.png":::
@@ -154,6 +154,6 @@ Após o envio do pedido, os detalhes da resposta aparecerão na janela do Cartei
 
 Também pode comparar a resposta com os dados de resposta esperados na documentação de referência, para verificar o resultado ou saber mais sobre quaisquer erros que surjam.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as APIs das Gémeas Digitais, leia [*Como fazer: Use as APIs e SDKs de gémeos digitais Azure,*](how-to-use-apis-sdks.md)ou consulte a [documentação de referência para as APIs REST](/rest/api/azure-digitaltwins/).

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14a10d296f8451d582d88b8fbcd20685192d9c6a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4750de0b9b0d44dbe30571e308227d2123b5e447
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96343625"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602092"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivo para o que há de novo no Azure Ative Directory?
 
@@ -1363,7 +1363,7 @@ Para obter mais informações, consulte [upgrade para o modelo de faturação de
 
 Em outubro de 2019, adicionámos estas 35 novas aplicações com apoio da Federação à galeria de aplicações:
 
-[Em Caso de Crise – Mobile](../saas-apps/in-case-of-crisis-mobile-tutorial.md), Juno [Journey](../saas-apps/juno-journey-tutorial.md), [ExponentHR](../saas-apps/exponenthr-tutorial.md), [Tact,](https://tact.ai/assistant/) [OpusCapita Cash Management,](http://cm1.opuscapita.com/tenantname) [Salestim,](https://www.salestim.com/) [Learnster,](../saas-apps/learnster-tutorial.md) [Dynatrace,](../saas-apps/dynatrace-tutorial.md) [HunchBuzz,](https://login.hunchbuzz.com/integrations/azure/process) [Freshworks,](../saas-apps/freshworks-tutorial.md) [eCornell,](../saas-apps/ecornell-tutorial.md) [ShipHazmat,](../saas-apps/shiphazmat-tutorial.md) [Netskope Cloud Security,](../saas-apps/netskope-cloud-security-tutorial.md) [Contentamento](../saas-apps/contentful-tutorial.md), [Bindtuning](https://bindtuning.com/login), [HireVue Coordinate – Europe](https://www.hirevue.com/), [HireVue Coordinate - USOnly](https://www.hirevue.com/), [HireVue Coordinate - US,](https://www.hirevue.com/) [WittyParrot Knowledge Box](https://wittyapi.wittyparrot.com/wittyparrot/api/provision/trail/signup), [Cloudmore](../saas-apps/cloudmore-tutorial.md), [Visit.org,](../saas-apps/visitorg-tutorial.md) [Cambium Xirrus EasyPass Portal,](https://login.xirrus.com/azure-signup) [Paylocity,](../saas-apps/paylocity-tutorial.md) [Mail Luck!](../saas-apps/mail-luck-tutorial.md), [Teamie](https://theteamie.com/), [Velocity for Teams](https://velocity.peakup.org/teams/login), [SIGNL4](https://account.signl4.com/manage), [EAB Navigate IMPL](../saas-apps/eab-navigate-impl-tutorial.md), [ScreenMeet](https://console.screenmeet.com/), [Omega Point](https://pi.ompnt.com/), Speaking Email [for Intune (iPhone)](https://speaking.email/FAQ/98/email-access-via-microsoft-intune), [Talking Email for Office 365 Direct (iPhone/Android)](https://speaking.email/FAQ/126/email-access-via-microsoft-office-365-direct), [ExactCare SSO](../saas-apps/exactcare-sso-tutorial.md), [iHealthHome Care Navigation System](https://ihealthnav.com/account/signin), [Qubie](https://qubie.azurewebsites.net/static/adminTab/authorize.html)
+[Em Caso de Crise – Mobile](../saas-apps/in-case-of-crisis-mobile-tutorial.md), Juno [Journey](../saas-apps/juno-journey-tutorial.md), [ExponentHR](../saas-apps/exponenthr-tutorial.md), [Tact,](https://tact.ai/assistant/) [OpusCapita Cash Management,](https://appsource.microsoft.com/product/web-apps/opuscapitagroupoy-1036255.opuscapita-cm) [Salestim,](https://www.salestim.com/) [Learnster,](../saas-apps/learnster-tutorial.md) [Dynatrace,](../saas-apps/dynatrace-tutorial.md) [HunchBuzz,](https://login.hunchbuzz.com/integrations/azure/process) [Freshworks,](../saas-apps/freshworks-tutorial.md) [eCornell,](../saas-apps/ecornell-tutorial.md) [ShipHazmat,](../saas-apps/shiphazmat-tutorial.md) [Netskope Cloud Security,](../saas-apps/netskope-cloud-security-tutorial.md) [Contentamento](../saas-apps/contentful-tutorial.md), [Bindtuning](https://bindtuning.com/login), [HireVue Coordinate – Europe](https://www.hirevue.com/), [HireVue Coordinate - USOnly](https://www.hirevue.com/), [HireVue Coordinate - US,](https://www.hirevue.com/) [WittyParrot Knowledge Box](https://wittyapi.wittyparrot.com/wittyparrot/api/provision/trail/signup), [Cloudmore](../saas-apps/cloudmore-tutorial.md), [Visit.org,](../saas-apps/visitorg-tutorial.md) [Cambium Xirrus EasyPass Portal,](https://login.xirrus.com/azure-signup) [Paylocity,](../saas-apps/paylocity-tutorial.md) [Mail Luck!](../saas-apps/mail-luck-tutorial.md), [Teamie](https://theteamie.com/), [Velocity for Teams](https://velocity.peakup.org/teams/login), [SIGNL4](https://account.signl4.com/manage), [EAB Navigate IMPL](../saas-apps/eab-navigate-impl-tutorial.md), [ScreenMeet](https://console.screenmeet.com/), [Omega Point](https://pi.ompnt.com/), Speaking Email [for Intune (iPhone)](https://speaking.email/FAQ/98/email-access-via-microsoft-intune), [Talking Email for Office 365 Direct (iPhone/Android)](https://speaking.email/FAQ/126/email-access-via-microsoft-office-365-direct), [ExactCare SSO](../saas-apps/exactcare-sso-tutorial.md), [iHealthHome Care Navigation System](https://ihealthnav.com/account/signin), [Qubie](https://qubie.azurewebsites.net/static/adminTab/authorize.html)
 
 Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../develop/v2-howto-app-gallery-listing.md)
 
@@ -2670,7 +2670,7 @@ Os seguintes campos estão a mudar no esquema de auditoria:
 |Categoria|Este era o campo **de Nome de Serviço.** Agora é o campo **das Categorias de Auditoria.** **O Nome de Serviço** foi renomeado para o campo **DeSema registado.**|<ul><li>Aprovisionamento de Contas</li><li>Diretório do Núcleo</li><li>Reset de senha de autosserviço</li></ul>|<ul><li>Gestão de Utilizadores</li><li>Gestão de Grupos</li><li>Gestão de Aplicações</li></ul>|
 |targetResources|Inclui **TargetResourceType** no nível superior.|&nbsp;|<ul><li>Política</li><li>Aplicação</li><li>Utilizador</li><li>Grupo</li></ul>|
 |registradoByService|Fornece o nome do serviço que gerou o registo de auditoria.|Nulo|<ul><li>Aprovisionamento de Contas</li><li>Diretório do Núcleo</li><li>Reposição personalizada de palavra-passe</li></ul>|
-|Resultado|Fornece o resultado dos registos de auditoria. Anteriormente, isto foi enumerado, mas agora mostramos o valor real.|<ul><li>0</li><li>1</li></ul>|<ul><li>Success</li><li>Falha</li></ul>|
+|Result|Fornece o resultado dos registos de auditoria. Anteriormente, isto foi enumerado, mas agora mostramos o valor real.|<ul><li>0</li><li>1</li></ul>|<ul><li>Success</li><li>Falha</li></ul>|
 
 #### <a name="changed-fields-in-the-sign-in-schema"></a>Campos alterados no esquema de inscrição
 Os seguintes campos estão a mudar no esquema de inscrição:
@@ -2941,7 +2941,7 @@ As seguintes aplicações estão na lista de [aplicações de clientes aprovadas
 
 - Microsoft Stream
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Acesso Condicional baseado em aplicativos Azure AD](../conditional-access/app-based-conditional-access.md)
 
@@ -3291,7 +3291,7 @@ A notificação de aplicações móveis só pode ser ligada como parte de uma po
 
 ---
 
-## <a name="june-2018"></a>junho de 2018
+## <a name="june-2018"></a>Junho de 2018
 
 ### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Aviso de alteração: Correção de segurança para o fluxo de autorização delegado para apps que utilizam Azure AD Activity Logs API
 
@@ -3435,7 +3435,7 @@ Para mais informações sobre a pré-visualização pública, consulte as [funç
 
 ---
 
-## <a name="may-2018"></a>Maio de 2018
+## <a name="may-2018"></a>May 2018
 
 ### <a name="expressroute-support-changes"></a>Alterações de suporte ExpressRoute
 
@@ -3605,7 +3605,7 @@ Para mais informações, consulte [Azure AD B2C: Solicitando fichas de acesso.](
 
 Ao configurar aplicações SSO baseadas em SAML, é capaz de testar a integração na página de configuração. Se encontrar um erro durante a entrada, pode fornecer o erro na experiência de teste e a Azure AD fornece-lhe medidas de resolução para resolver o problema específico.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Configurar o início de sessão único em aplicações que não fazem parte da galeria de aplicações do Azure Active Directory](../manage-apps/view-applications-portal.md)
 - [Como depurar o único sign-on baseado em SAML para aplicações no Azure Ative Directory](../manage-apps/debug-saml-sso-issues.md)
@@ -3740,7 +3740,7 @@ A Azure AD envia uma notificação quando um certificado para um pedido de galer
 
 Alguns utilizadores não receberam notificações para aplicações empresariais configuradas para um único sign-on baseado em SAML. Esta questão foi resolvida. A Azure AD envia notificação para certificados que expiram em 7, 30 e 60 dias. Você pode ver este evento nos registos de auditoria.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Gerir certificados para inscrição única federada no Diretório Ativo Azure](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
 - [Relatório de atividade de auditoria no portal do Azure Active Directory](../reports-monitoring/concept-audit-logs.md)
@@ -3769,7 +3769,7 @@ Suporte de acesso condicional gerido **intune:** Agora pode exigir que os colabo
 
 Leia mais sobre isso na nossa [publicação de blog.](https://cloudblogs.microsoft.com/enterprisemobility/2018/03/15/the-intune-managed-browser-now-supports-azure-ad-sso-and-conditional-access/)
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Acesso Condicional baseado em aplicações de configuração](../conditional-access/app-based-conditional-access.md)
 
@@ -4086,7 +4086,7 @@ As seguintes candidaturas serão adicionadas até ao final de fevereiro:
 
 - Faturação da Microsoft
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Requisito de aplicação de cliente aprovado](../conditional-access/concept-conditional-access-conditions.md#client-apps)
 - [Acesso Condicional baseado em aplicativos Azure AD](../conditional-access/app-based-conditional-access.md)
@@ -4183,7 +4183,7 @@ Com a disponibilidade geral da nova consola da Azure Ative Directory Administrat
 
 Como parte da transição para a nova consola de administração, disponibilizamos 2 novos APIs para recuperar registos de atividade azure. O novo conjunto de APIs fornece uma funcionalidade de filtragem e triagem mais rica, além de proporcionar atividades de auditoria e de inscrição mais ricas. Os dados anteriormente disponíveis através dos relatórios de segurança podem agora ser acedidos através da API de deteção de risco de Proteção de Identidade no Microsoft Graph.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Começar com o Diretório Ativo Azure reportando API](../reports-monitoring/concept-reporting-api.md)
 
@@ -4344,7 +4344,7 @@ As seguintes aplicações estão na lista de [aplicações de clientes aprovadas
 - [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
 - Microsoft StaffHub
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Requisito de aplicação de cliente aprovado](../conditional-access/concept-conditional-access-conditions.md#client-apps)
 - [Acesso Condicional baseado em aplicativos Azure AD](../conditional-access/app-based-conditional-access.md)
@@ -4426,7 +4426,7 @@ Agora pode incluir (ou excluir) o macOS como condição da plataforma do disposi
 - **Certifique-se de que os dispositivos macOS aderem às políticas de conformidade da sua organização definidas no Intune.** No Intune, no portal Azure, pode agora configurar políticas de conformidade para dispositivos macOS.
 - **Restringir o acesso a aplicações em Azure AD a apenas dispositivos macOS compatíveis.** A autoria da política de acesso condicional tem o macOS como uma opção de plataforma de dispositivos separada. Agora pode autoria políticas de Acesso Condicional específicas ao macOS para a aplicação direcionada definida no Azure.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Criar uma política de conformidade para dispositivos macOS com o Intune](/mem/intune/protect/compliance-policy-create-mac-os)
 - [Acesso Condicional em Azure AD](../conditional-access/overview.md)
@@ -4473,7 +4473,7 @@ As seguintes aplicações foram adicionadas à lista de [aplicações de cliente
 - Microsoft Planner
 - Azure Information Protection
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Requisito de aplicação de cliente aprovado](../conditional-access/concept-conditional-access-conditions.md#client-apps)
 - [Acesso Condicional baseado em aplicativos Azure AD](../conditional-access/app-based-conditional-access.md)

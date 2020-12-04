@@ -4,18 +4,18 @@ description: O inventário de Armazenamento Azure é uma ferramenta para ajudar 
 services: storage
 author: mhopkins-msft
 ms.service: storage
-ms.date: 11/04/2020
+ms.date: 12/03/2020
 ms.topic: conceptual
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 149fb9c888c54ea45d273890f3fe2cd59730fa01
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 86ded3dea819702631b1fa04dbc56f727566fc98
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355079"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602687"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Utilize o inventário de bolhas de armazenamento Azure para gerir dados blob (pré-visualização)
 
@@ -23,7 +23,7 @@ A funcionalidade de inventário de blob de armazenamento Azure fornece uma visã
 
 ## <a name="availability"></a>Disponibilidade
 
-O inventário blob é suportado para a versão 2 (GPv2), armazenamento de blocos premium e contas Azure DataLake Storage Gen2 (ADLS Gen2).
+O inventário blob é suportado tanto para as contas de armazenamento de blob de finalidade geral 2 (GPv2) como para as contas de armazenamento de blocos premium blob. Esta funcionalidade é suportada com ou sem a funcionalidade [de espaço hierárquico](data-lake-storage-namespace.md) ativada.
 
 ### <a name="preview-regions"></a>Pré-visualização de regiões
 
@@ -87,7 +87,7 @@ Consulte o JSON para obter uma política de inventário selecionando o separador
 
 | Nome do parâmetro | Tipo de parâmetro        | Notas | Necessário? |
 |----------------|-----------------------|-------|-----------|
-| destino    | String                | O contentor de destino onde todos os ficheiros de inventário serão gerados. O contentor de destino já deve existir. | Sim |
+| destino    | Cadeia                | O contentor de destino onde todos os ficheiros de inventário serão gerados. O contentor de destino já deve existir. | Sim |
 | ativado        | Booleano               | Usado para desativar toda a apólice. Quando definido como **verdadeiro,** o campo ativado pelo nível de regra sobrepõe-se a este parâmetro. Quando desativado, o inventário para todas as regras será desativado. | Sim |
 | regras          | Matriz de objetos de regra | Pelo menos uma regra é necessária numa política. Até 10 regras são apoiadas. | Sim |
 
@@ -99,7 +99,7 @@ Cada regra dentro da política tem vários parâmetros:
 
 | Nome do parâmetro | Tipo de parâmetro                 | Notas | Necessário? |
 |----------------|--------------------------------|-------|-----------|
-| name           | String                         | Um nome de regra pode incluir até 256 caracteres alfanuméricos sensíveis a casos. O nome deve ser único dentro de uma política. | Sim |
+| name           | Cadeia                         | Um nome de regra pode incluir até 256 caracteres alfanuméricos sensíveis a casos. O nome deve ser único dentro de uma política. | Sim |
 | ativado        | Booleano                        | Uma bandeira que permite ativar ou desativar uma regra. O valor predefinido é **verdadeiro.** | Sim |
 | definição     | Definição de regra de inventário JSON | Cada definição é composta por um conjunto de filtro de regras. | Sim |
 
@@ -198,6 +198,6 @@ Evento da amostra:
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Gerir o ciclo de vida do Armazenamento Azure Blob](storage-lifecycle-management-concepts.md)

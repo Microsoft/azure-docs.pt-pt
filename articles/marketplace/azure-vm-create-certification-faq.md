@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: eb290b8c154c40388bfb3e7f9cbac7b645aa9609
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bc1ae4bc2cf64c3e2f996709c086eb23cb8b8385
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452679"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602602"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Certificação de máquina virtual de resolução de problemas
 
@@ -98,7 +98,7 @@ Time Stamp (Carimbo de Data/Hora)|4
 Aplicação do Criador|4
 Versão do Criador|4
 Criador Host OS|4
-Tamanho original|8
+Tamanho Original|8
 Tamanho atual|8
 Geometria do disco|4
 Tipo de Disco|4
@@ -203,7 +203,7 @@ Consulte as seguintes regras para limitações no tamanho do disco de SO. Quando
 
 |SO|Tamanho VHD recomendado|
 |---|---|
-|Linux|30 GB a 1023 GB|
+|Linux|1 GB a 1023 GB|
 |Windows|30 GB a 250 GB|
 
 Uma vez que os VMs permitem o acesso ao sistema operativo subjacente, certifique-se de que o tamanho VHD é suficientemente grande para o VHD. Os discos não são expansíveis sem tempo de inatividade. Utilize um tamanho de disco de 30 GB a 50 GB.
@@ -604,7 +604,7 @@ Em seguida, reeditar a oferta.
 
 Para completar o processo de publicação, consulte [Rever e publicar ofertas.](review-publish-offer.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Configurar as propriedades da oferta de VM](azure-vm-create-properties.md)
 - [Recompensas de mercado ativas](partner-center-portal/marketplace-rewards.md)

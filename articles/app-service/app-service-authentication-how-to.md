@@ -4,12 +4,12 @@ description: Aprenda a personalizar a funcionalidade de autenticação e autoriz
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 0e07dc42a45a697b293e2ebc90bdd92aa924f071
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 85fd7fdba4c62f4837a419af44c83f7e46cb9e39
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302024"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601786"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado da autenticação e autorização no Serviço de Aplicações Azure
 
@@ -24,6 +24,7 @@ Para começar rapidamente, consulte um dos seguintes tutoriais:
 * [Como configurar a sua aplicação para utilizar o início de sessão da conta Microsoft](configure-authentication-provider-microsoft.md)
 * [Como configurar a sua aplicação para utilizar o início de sessão do Twitter](configure-authentication-provider-twitter.md)
 * [Como configurar a sua aplicação para iniciar sessão com um fornecedor OpenID Connect (Pré-visualização)](configure-authentication-provider-openid-connect.md)
+* [Como configurar a sua app para iniciar sessão usando um Login com a Apple (Pré-visualização)](configure-authentication-provider-apple.md)
 
 ## <a name="use-multiple-sign-in-providers"></a>Utilize vários fornecedores de inscrição
 
@@ -41,6 +42,7 @@ Na página de iniciar s indicado, ou na barra de navegação, ou em qualquer out
 <a href="/.auth/login/facebook">Log in with Facebook</a>
 <a href="/.auth/login/google">Log in with Google</a>
 <a href="/.auth/login/twitter">Log in with Twitter</a>
+<a href="/.auth/login/apple">Log in with Apple</a>
 ```
 
 Quando o utilizador clica num dos links, a respetiva página de inscrição abre para iniciar sação no utilizador.
@@ -315,7 +317,6 @@ Os seguintes esgotam possíveis opções de configuração dentro do ficheiro:
         "enabled": <true|false>
     },
     "globalValidation": {
-        "requireAuthentication": <true|false>,
         "unauthenticatedClientAction": "RedirectToLoginPage|AllowAnonymous|Return401|Return403",
         "redirectToProvider": "<default provider alias>",
         "excludedPaths": [
@@ -349,13 +350,13 @@ Os seguintes esgotam possíveis opções de configuração dentro do ficheiro:
             }
         },
         "preserveUrlFragmentsForLogins": <true|false>,
-        "allowedExternalRedirectUri": [
+        "allowedExternalRedirectUrls": [
             "https://uri1.azurewebsites.net/",
             "https://uri2.azurewebsites.net/",
             "url_scheme_of_your_app://easyauth.callback"
         ],
         "cookieExpiration": {
-            "convention": "FixedTime|IdentityProviderDerived",
+            "convention": "FixedTime|IdentityDerived",
             "timeToExpiration": "<timespan>"
         },
         "nonce": {
@@ -437,13 +438,26 @@ Os seguintes esgotam possíveis opções de configuração dentro do ficheiro:
                 "consumerSecretSettingName": "APP_SETTING_CONTAINING TWITTER_CONSUMER_SECRET"
             }
         },
+        "apple": {
+            "enabled": <true|false>,
+            "registration": {
+                "clientId": "<client id>",
+                "clientSecretSettingName": "APP_SETTING_CONTAINING_APPLE_SECRET"
+            },
+            "login": {
+                "scopes": [
+                    "profile",
+                    "email"
+                ]
+            }
+        },
         "openIdConnectProviders": {
             "<providerName>": {
                 "enabled": <true|false>,
                 "registration": {
                     "clientId": "<client id>",
                     "clientCredential": {
-                        "secretSettingName": "<name of app setting containing client secret>"
+                        "clientSecretSettingName": "<name of app setting containing client secret>"
                     },
                     "openIdConnectConfiguration": {
                         "authorizationEndpoint": "<url specifying authorization endpoint>",
@@ -455,7 +469,7 @@ Os seguintes esgotam possíveis opções de configuração dentro do ficheiro:
                 },
                 "login": {
                     "nameClaimType": "<name of claim containing name>",
-                    "scope": [
+                    "scopes": [
                         "openid",
                         "profile",
                         "email"
@@ -486,7 +500,7 @@ Pode alterar a versão de tempo de execução utilizada pela sua aplicação. A 
 
 #### <a name="view-the-current-runtime-version"></a>Ver a versão atual do tempo de execução
 
-Pode ver a versão atual do middleware de autenticação da plataforma, utilizando o CLI Azure ou através de um dos pontos finais HTTP da versão 0-in na sua aplicação.
+Pode ver a versão atual do middleware de autenticação da plataforma, utilizando o CLI Azure ou através de um dos pontos finais HTTP da versão incorporada na sua aplicação.
 
 ##### <a name="from-the-azure-cli"></a>Do Azure CLI
 

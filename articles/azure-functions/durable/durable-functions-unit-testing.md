@@ -3,12 +3,12 @@ title: Teste da unidade de funções duradouras de Azure
 description: Saiba como unir o teste de Funções Duradouras.
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: 86733f8b5b80799bad3e52c643ed27465dfc7641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7786a0a2e2d31086e1938b70e63fe2374e16fe7f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74231231"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601361"
 ---
 # <a name="durable-functions-unit-testing"></a>Testes de unidade de funções duradouras
 
@@ -25,7 +25,7 @@ Os exemplos deste artigo requerem conhecimento dos seguintes conceitos e quadros
 
 * Funções Duráveis
 
-* [xUnit](https://xunit.github.io/) - Estrutura de testes
+* [xUnit](https://github.com/xunit/xunit) - Estrutura de testes
 
 * [moq](https://github.com/moq/moq4) - Quadro de zombaria
 
@@ -176,9 +176,9 @@ E os testes de unidade verificarão o formato da saída. Os testes de unidade po
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceActivityTests.cs)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre xUnit](https://xunit.github.io/docs/getting-started-dotnet-core)
+> [Saiba mais sobre xUnit](https://xunit.net/docs/getting-started/netcore/cmdline)
 > 
 > [Saiba mais sobre moq](https://github.com/Moq/moq4/wiki/Quickstart)

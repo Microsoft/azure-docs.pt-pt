@@ -3,13 +3,15 @@ title: Opções de configuração - Azure Monitor Application Insights Java
 description: Opções de configuração para Azure Monitor Application Insights Java
 ms.topic: conceptual
 ms.date: 11/04/2020
+author: MS-jgol
 ms.custom: devx-track-java
-ms.openlocfilehash: f951048da753a0ba38d6c10dc65bdca5205727f4
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.author: jgol
+ms.openlocfilehash: e9240253b385a0b53868c5a8a79c751c2f7c09c0
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577367"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601089"
 ---
 # <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Opções de configuração para Azure Monitor Application Insights Java
 

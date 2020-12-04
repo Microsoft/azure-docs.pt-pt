@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7f75f764f378118f9a34c1eee467e78ac279e19c
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 994cb250aff2079e32eeef6a0d22466a284481f5
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029052"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602432"
 ---
 # <a name="azure-security-baseline-for-virtual-wan"></a>Linha de segurança Azure para VIRTUAL WAN
 
@@ -22,7 +22,7 @@ Para ver como o VIRTUAL WAN mapeia completamente para o Benchmark de Segurança 
 
 ## <a name="network-security"></a>Segurança de Rede
 
-*Para mais informações, consulte o [Benchmark de Segurança Azure: Segurança da Rede](/azure/security/benchmarks/security-controls-v2-network-security).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Segurança de Rede](/azure/security/benchmarks/security-controls-v2-network-security).*
 
 ### <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1: Implementar a segurança para o tráfego interno
 
@@ -131,7 +131,7 @@ Reveja as informações sobre a utilização do Azure AD em cenários VPN ponto-
 
 - [Configurar autenticação do Diretório Ativo Azure para VPN do utilizador](virtual-wan-point-to-site-azure-ad.md)
 
-- [Arrendamento em Diretório Ativo Azure](../active-directory/develop/single-and-multi-tenant-apps.md) 
+- [Inquilinos no Azure Active Directory](../active-directory/develop/single-and-multi-tenant-apps.md) 
 
 - [Como criar e configurar instâncias do Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
@@ -159,7 +159,7 @@ Certifique-se de que o mais alto nível do método de autenticação forte é ut
 
 **Responsabilidade**: Partilhada
 
-### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: Restringir o acesso a recurso Azure com base em condições
+### <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: Restringir o acesso aos recursos do Azure com base em condições
 
 **Orientação**: Ativar a autenticação multifactorA Azure Ative (Azure AD) para utilizadores VPN (ponto a local) com a autenticação AZure AD. Configure a autenticação multifactor por utilizador ou aproveite a autenticação multifactor com Acesso Condicional. O Acesso Condicional permite um controlo mais fino sobre a forma como deve ser promovido um segundo fator. Pode permitir a atribuição de autenticação multifactor apenas para VPN, e excluir outras aplicações ligadas ao inquilino AZURE AD. 
 
@@ -173,15 +173,15 @@ Note que a autenticação AZure AD só está disponível para gateways utilizand
 
 **Responsabilidade**: Cliente
 
-### <a name="im-7-eliminate-unintended-credential-exposure"></a>IM-7: Eliminar exposição credencial não intencional
+### <a name="im-7-eliminate-unintended-credential-exposure"></a>IM-7: Eliminar a exposição de credenciais involuntária
 
-**Orientação**: A VPN local-a-local em WAN virtual utiliza teclas pré-partilhadas (PSK) que são descobertas, criadas e geridas pelo cliente no seu Cofre de Chaves Azure. Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault.
+**Orientação**: A VPN local-a-local em WAN virtual utiliza teclas pré-partilhadas (PSK) que são descobertas, criadas e geridas pelo cliente no seu Cofre de Chaves Azure. Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner de Credenciais também vai incentivar a movimentação das credenciais descobertas para localizações mais seguras, por exemplo, o Azure Key Vault.
 
-Para o GitHub, pode utilizar funcionalidades de digitalização secretas nativas para identificar credenciais ou outra forma de segredo dentro do código.
+No GitHub, pode utilizar a funcionalidade de análise de segredos nativos para identificar as credenciais ou outra forma de segredos no código.
 
 - [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html) 
 
-- [Digitalização secreta de GitHub](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
+- [Análise de segredos do GitHub](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -191,7 +191,7 @@ Para o GitHub, pode utilizar funcionalidades de digitalização secretas nativas
 
 *Para obter mais informações, veja [Referência de Segurança do Azure: Acesso Privilegiado](/azure/security/benchmarks/security-controls-v2-privileged-access).*
 
-### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: Restringir o acesso administrativo a sistemas críticos de negócios
+### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: Restringir o acesso administrativo a sistemas críticos da empresa
 
 **Orientação**: A Azure Virtual WAN utiliza controlos de acesso baseados em funções (Azure RBAC) para isolar o acesso a sistemas críticos de negócio, limitando quais as contas que têm acesso privilegiado às subscrições e grupos de gestão em que se encontram.
 
@@ -213,7 +213,7 @@ Todos os tipos de controlos de acesso devem ser alinhados com a sua estratégia 
 
 *Para obter mais informações, veja [Referência de Segurança do Azure: Proteção de dados](/azure/security/benchmarks/security-controls-v2-data-protection).*
 
-### <a name="dp-4-encrypt-sensitive-information-in-transit"></a>DP-4: Criptografar informações sensíveis em trânsito
+### <a name="dp-4-encrypt-sensitive-information-in-transit"></a>DP-4: Encriptar informações confidenciais em trânsito
 
 **Orientação**: Utilize VPN ponto-a-local, VPN site e Rota Expressa Encriptada com WAN Virtual para os seus requisitos de conectividade. A encriptação VPN protege os dados em trânsito de ataques 'fora de banda' (como, captura de tráfego) para garantir que os atacantes não podem ler ou modificar os dados. 
 
@@ -249,7 +249,7 @@ Nota: para obter visibilidade para cargas de trabalho e serviços, poderão ser 
 
 **Responsabilidade**: Cliente
 
-### <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: Garantir que a equipa de segurança tem acesso ao inventário de ativos e metadados
+### <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: Garantir que a equipa de segurança tem acesso aos metadados e inventário dos recursos
 
 **Orientação**: Aplique etiquetas nos seus recursos Azure, grupos de recursos e subscrições para organizá-las logicamente numa taxonomia. Cada etiqueta é composta por um nome e um par de valor. Por exemplo, pode aplicar o nome "Ambiente" e o valor "Produção" em todos os recursos na produção. A Azure Virtual WAN também suporta implementações de recursos baseadas em recursos do Azure Resource Manager com as quais pode exportar modelos de ativos. 
 
@@ -261,7 +261,7 @@ Nota: para obter visibilidade para cargas de trabalho e serviços, poderão ser 
 
 **Responsabilidade**: Cliente
 
-### <a name="am-3-use-only-approved-azure-services"></a>AM-3: Utilize apenas serviços Azure aprovados
+### <a name="am-3-use-only-approved-azure-services"></a>AM-3: Utilizar apenas os serviços do Azure aprovados
 
 **Orientação**: Utilize o Azure Monitor para criar regras para acionar alertas quando for detetado um serviço não aprovado. O WAN virtual reúne muitas funcionalidades de networking, segurança e encaminhamento para fornecer uma única interface operacional. Os gateways virtuais wan VPN, gateways ExpressRoute e Azure Firewall têm registo e métricas disponíveis através do Azure Monitor. 
  
@@ -284,7 +284,7 @@ Nota: para obter visibilidade para cargas de trabalho e serviços, poderão ser 
 
 ## <a name="logging-and-threat-detection"></a>Registos e Deteção de Ameaças
 
-*Para obter mais informações, veja [Referência de Segurança do Azure: Registos e Deteção de Ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Registos e Deteção de Ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
 
 ### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Permitir a deteção de ameaças para recursos Azure
 
@@ -328,7 +328,7 @@ Utilize o Azure Security Center para criar alertas sobre certas atividades suspe
 
 **Responsabilidade**: Partilhada
 
-### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Permitir o registo de atividades da rede Azure
+### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Ativar o registo para atividades de rede do Azure
 
 **Orientação**: Monitor Azure Virtual WAN com Monitor Azure. O WAN virtual reúne muitas funcionalidades de networking, segurança e encaminhamento para fornecer uma única interface operacional. Os gateways virtuais wan VPN, gateways ExpressRoute e Azure Firewall têm registo e métricas disponíveis através do Azure Monitor. As entradas de registo de atividade são recolhidas por predefinição e podem ser vistas no portal Azure. Pode utilizar registos de atividades da Azure (anteriormente conhecidos como registos operacionais e registos de auditoria) para visualizar todas as operações submetidas à sua subscrição do Azure.
 
@@ -343,7 +343,7 @@ Uma variedade de registos de diagnóstico também estão disponíveis para O WAN
 
 **Responsabilidade**: Cliente
 
-### <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: Permitir a exploração de madeira para recursos Azure
+### <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: Ativar o registo dos recursos do Azure
 
 **Orientação**: Registos de atividade azure, ativados automaticamente, contêm todas as operações de escrita (PUT, POST, DELETE) para os seus recursos Azure Virtual WAN, exceto operações de leitura (GET). Os registos de atividade podem ser utilizados para encontrar um erro durante a resolução de problemas ou para monitorizar como um utilizador na sua organização modificou um recurso.
 
@@ -359,7 +359,7 @@ Ativar registos de recursos Azure para WAN Virtual. Pode utilizar o Azure Securi
 
 **Responsabilidade**: Partilhada
 
-### <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: Centralizar a gestão e análise de registos de segurança
+### <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: Centralizar a análise e gestão do registo de segurança
 
 **Orientação**: Ative o registo de segurança para O WAN Virtual com monitor Azure. O WAN virtual reúne muitas funcionalidades de networking, segurança e encaminhamento para fornecer uma única interface operacional. Os gateways virtuais wan VPN, gateways ExpressRoute e Azure Firewall têm registo e métricas disponíveis através do Azure Monitor. As entradas de registo de atividade são recolhidas por predefinição e podem ser vistas no portal Azure. Pode utilizar registos de atividades da Azure (anteriormente conhecidos como registos operacionais e registos de auditoria) para visualizar todas as operações submetidas à sua subscrição do Azure. 
 
@@ -378,7 +378,7 @@ A segurança Azure Virtual WAN é fornecida através do Azure Firewall.
 
 **Responsabilidade**: Partilhada
 
-### <a name="lt-6-configure-log-storage-retention"></a>LT-6: Retenção de armazenamento de madeira configurada
+### <a name="lt-6-configure-log-storage-retention"></a>LT-6: Configurar a retenção de armazenamento dos registos
 
 **Orientação**: Configure a sua retenção de registos de acordo com os seus requisitos de conformidade, regulação e negócio. No Azure Monitor, pode definir o período de retenção do espaço de trabalho do Log Analytics de acordo com os regulamentos de conformidade da sua organização. Utilize o espaço de trabalho Azure Storage, Data Lake ou Log Analytics para armazenamento de longo prazo e arquivo.
 
@@ -498,7 +498,7 @@ Além disso, marque os recursos com etiquetas e crie um sistema de nomenclatura 
 
 ## <a name="posture-and-vulnerability-management"></a>Gestão da Postura e da Vulnerabilidade
 
-*Para obter mais informações, veja [Referência de Segurança do Azure: Gestão da Postura e da Vulnerabilidade](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Gestão da Postura e da Vulnerabilidade](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
 
 ### <a name="pv-8-conduct-regular-attack-simulation"></a>PV-8: Realizar simulações de ataques regulares
 
@@ -566,9 +566,9 @@ Para obter mais informações, veja as seguintes referências:
 
 - [Cloud Adoption Framework - Melhores práticas de segurança e encriptação de dados do Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Referência de Segurança do Azure - Gestão de ativos](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Referência de Segurança do Azure - Gestão de ativos](/azure/security/benchmarks/security-controls-v2-asset-management)
 
-- [Referência de Segurança do Azure - Proteção de dados](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Referência de Segurança do Azure - Proteção de dados](/azure/security/benchmarks/security-controls-v2-data-protection)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -596,7 +596,7 @@ Certifique-se de que a estratégia de segmentação está implementada de forma 
 
 **Orientação**: Meça e mitigue continuamente os riscos para os seus ativos individuais e para o ambiente em que estão alojados. Dê prioridade aos ativos de valor alto e a superfícies de ataque muito expostas, como aplicações publicadas, pontos de entrada e saída de rede, pontos finais de utilizador e administrador, etc.
 
-- [Referência de Segurança do Azure - Gestão da postura e das vulnerabilidades](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Referência de Segurança do Azure - Gestão da postura e das vulnerabilidades](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -637,7 +637,7 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 Para obter mais informações, veja as seguintes referências:
 - [Melhor Prática de Segurança do Azure 11 – Arquitetura. Estratégia de segurança única e unificada](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Referência de Segurança do Azure - Segurança de Rede](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Referência de Segurança do Azure - Segurança de Rede](/azure/security/benchmarks/security-controls-v2-network-security)
 
 - [Descrição geral da segurança de rede do Azure](../security/fundamentals/network-overview.md)
 
@@ -665,9 +665,9 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 
 Para obter mais informações, veja as seguintes referências:
 
-- [Referência de Segurança do Azure - Gestão de identidades](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Referência de Segurança do Azure - Gestão de identidades](/azure/security/benchmarks/security-controls-v2-identity-management)
 
-- [Referência de Segurança do Azure - Acesso privilegiado](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Referência de Segurança do Azure - Acesso privilegiado](/azure/security/benchmarks//security-controls-v2-privileged-access)
 
 - [Melhor Prática de Segurança do Azure 11 – Arquitetura. Estratégia de segurança única e unificada](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -699,9 +699,9 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 
 Para obter mais informações, veja as seguintes referências:
 
-- [Referência de Segurança do Azure - Registos e deteção de ameaças](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Referência de Segurança do Azure - Registos e deteção de ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Referência de Segurança do Azure - Resposta a incidentes](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Referência de Segurança do Azure - Resposta a incidentes](/azure/security/benchmarks/security-controls-v2-incident-response)
 
 - [Melhor Prática de Segurança do Azure 4 – Processo. Atualizar os Processos de Resposta a Incidentes para a Cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

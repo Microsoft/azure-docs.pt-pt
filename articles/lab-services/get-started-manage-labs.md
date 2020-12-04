@@ -3,12 +3,12 @@ title: Começar com os Serviços de Laboratório Azure
 description: Este artigo descreve como começar com os Serviços Azure Lab.
 ms.topic: article
 ms.date: 11/18/2020
-ms.openlocfilehash: 6fb0da7f91e0eecdeefecdb6635b657245fda9af
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 44afe13fb6f555b12dfce939ce8e88e3af8dc7ef
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96434435"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602670"
 ---
 # <a name="get-started-with-lab-services"></a>Começar com os Serviços de Laboratório 
 
@@ -115,12 +115,8 @@ Os professores são capazes de adicionar utilizadores de estudantes a um laborat
 
 1. A partir do [site de serviços do Azure Lab](https://labs.azure.com/) clique nos **Utilizadores** do lado esquerdo da janela.
 1. Na parte superior da janela, clique em **Adicionar utilizadores** e selecione **Adicionar por endereço de e-mail**. 
-
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-button.png" alt-text="O botão 'Adicionar utilizadores'":::
 1. No painel **de utilizadores Add** que aparece à direita, insira os endereços de e-mail dos alunos em linhas separadas ou numa única linha, separada por pontos de sedição.
 1. Clique em **Guardar**.
-
-    :::image type="content" source="./media/get-started-manage-labs/add-students.png" alt-text="Adicione os alunos ao seu laboratório":::
 1. A sua lista de utilizadores será agora atualizada com e-mails, status, convite e horário de quota.
 
     Depois de os alunos estarem inscritos num laboratório, os seus nomes serão atualizados com os primeiros e últimos nomes do Azure Ative Directory.
@@ -166,10 +162,10 @@ Uma vez adicionados aos utilizadores ao laboratório, terão de se registar para
 
 Depois de ter convidado utilizadores ou partilhado o link, poderá monitorizar quais os utilizadores que se registaram com sucesso na página **de Utilizadores** na coluna **Status.** 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não vai continuar a usar recursos que criou neste quickstart, apague os recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Configurar uma conta de laboratório](tutorial-setup-lab-account.md)

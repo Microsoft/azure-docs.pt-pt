@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 10ad0b83f3c85b48f9d066e1feec8d8aac4dd057
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: a6a1b41dd4ede055ba81c069c2164bb36da99876
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533677"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602313"
 ---
 # <a name="azure-security-baseline-for-azure-lighthouse"></a>Linha de segurança Azure para o Farol de Azure
 
@@ -306,7 +306,7 @@ Se um prestador de serviços quiser permitir que a sua equipa de segurança reve
 
 ## <a name="logging-and-threat-detection"></a>Registos e Deteção de Ameaças
 
-*Para obter mais informações, veja [Referência de Segurança do Azure: Registos e Deteção de Ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Registos e Deteção de Ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
 
 ### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Permitir a deteção de ameaças para recursos Azure
 
@@ -676,7 +676,7 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 
 -   Estratégia de remediação em diferentes cenários de ameaças e ataques
 
--   Estratégia de entrada e entrada e saída da Internet /azure/security/benchmarks/security-controls-v2-logging-threat-protection
+-   Estratégia de entrada e entrada e saída da Internet /azure/security/benchmarks/security-controls-v2-logging-ins-ação-deteção de ameaças
 -   Estratégia de interconectividade entre a cloud híbrida e o ambiente no local
 
 -   Artefactos de segurança de rede atualizados (por exemplo, diagramas de rede, arquitetura de rede de referência)
@@ -748,7 +748,7 @@ Para obter mais informações, veja as seguintes referências:
 
 - [Referência de Segurança do Azure - Registos e deteção de ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Referência de Segurança do Azure - Resposta a incidentes](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Referência de Segurança do Azure - Resposta a incidentes](/azure/security/benchmarks/security-controls-v2-incident-response)
 
 - [Melhor Prática de Segurança do Azure 4 – Processo. Atualizar os Processos de Resposta a Incidentes para a Cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

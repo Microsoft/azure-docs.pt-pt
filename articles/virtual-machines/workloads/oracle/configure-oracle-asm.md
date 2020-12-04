@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: e5593d530891e39404e0b9760861f2f22ae333d3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6f0b58374ae3eb972993b544117d8cbb98371ce5
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999999"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602619"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurar o Oracle ASM numa máquina virtual Azure Linux  
 
@@ -33,7 +33,7 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execu�
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Para criar um grupo de recursos, utilize o comando [az group create](/cli/azure/group). Um grupo de recursos Azure é um recipiente lógico no qual os recursos da Azure são implantados e geridos. Neste exemplo, um grupo de recursos nomeou *o myResourceGroup* na região *leste.*
+Para criar um grupo de recursos, utilize o [grupo az criar](/cli/azure/group) comando. Um grupo de recursos Azure é um recipiente lógico no qual os recursos da Azure são implantados e geridos. Neste exemplo, um grupo de recursos nomeou *o myResourceGroup* na região *leste.*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -345,7 +345,7 @@ Para este tutorial, o utilizador predefinido é *a grelha* e o grupo predefinido
 
 Para descarregar e preparar o software Oracle Grid Infrastructure, complete os seguintes passos:
 
-1. Descarregue a Infraestrutura oracle Grid a partir da [página de descarregamento](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html)da Oracle ASM . 
+1. Descarregue a Infraestrutura oracle Grid a partir da [página de descarregamento](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html)da Oracle ASM . 
 
    Sob o download intitulado **Oracle Database 12c Release 1 Grid Infrastructure (12.1.0.2.0) para Linux x86-64**, descarregue os dois ficheiros .zip.
 
@@ -574,7 +574,7 @@ Configura com sucesso a Oracle Automated Storage Management na imagem Do Oracle 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Tutorial: Configurar o Oracle DataGuard](configure-oracle-dataguard.md)
 

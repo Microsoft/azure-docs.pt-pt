@@ -11,18 +11,20 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 683a6c9f31947355a5415a5b8b57b621f717af91
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 92d440d019942219b322ef084b45317983d04fbe
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967669"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602245"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Como os objetos e credenciais são sincronizados num domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 
 Objetos e credenciais num domínio gerido por Azure Ative Directory Domain Services (Azure AD DS) podem ser criados localmente dentro do domínio, ou sincronizados a partir de um inquilino do Azure Ative Directory (Azure AD). Quando implementa pela primeira vez O AD DS, uma sincronização automática de sentido único é configurada e começou a replicar os objetos do Azure AD. Esta sincronização unidirecionais continua a ser executada em segundo plano para manter o domínio gerido Azure AD DS atualizado com quaisquer alterações a partir de Azure AD. Não ocorre sincronização desde Azure AD DS até Azure AD.
 
 Num ambiente híbrido, objetos e credenciais de um domínio AD DS no local podem ser sincronizados até Azure AD usando Azure AD Connect. Uma vez que esses objetos são sincronizados com sucesso para Azure AD, a sincronização automática de fundo torna esses objetos e credenciais disponíveis para aplicações usando o domínio gerido.
+
+Se o DS DS e a AD AD em prem e Azure estiverem configurados para a autenticação federada utilizando o ADFS, então não existe um haxixe de senha (corrente/válido) disponível em Azure DS. As contas de utilizadores da AD AZure criadas antes da implementação do fed auth podem ter um haxixe de senha antiga, mas isso provavelmente não corresponde a um haxixe da sua palavra-passe on-prem. Assim, a Azure AD DS não será capaz de validar as credenciais dos utilizadores.
 
 O seguinte diagrama ilustra como funciona a sincronização entre a Azure AD DS, Azure AD e um ambiente opcional no local AD DS:
 
@@ -144,7 +146,7 @@ Para ambientes Azure AD apenas na nuvem, [os utilizadores devem redefinir/altera
 
 Para contas híbridas de utilizadores sincronizadas a partir do ambiente AD DS no local utilizando o Azure AD Connect, é necessário [configurar o Azure AD Connect para sincronizar hashes de palavra-passe nos formatos compatíveis com NTLM e Kerberos.](tutorial-configure-password-hash-sync.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre as especificidades da sincronização da palavra-passe, consulte [como funciona a sincronização de hash de palavra-passe com o Azure AD Connect](../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context).
 

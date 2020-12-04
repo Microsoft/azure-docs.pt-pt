@@ -7,12 +7,12 @@ ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ad5c6f205fc832eb125e52b4135990fc58742e62
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e1eeb85980430e33446329b5f25ff963ab1c8027
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453239"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600834"
 ---
 # <a name="preview-tutorial-create-and-connect-to-time-series-insights-gen2-to-store-visualize-and-analyze-iot-plug-and-play-device-telemetry"></a>Tutorial de Pré-visualização: Criar e Ligar à Série De Tempo Insights Gen2 para armazenar, visualizar e analisar telemetria de ioT plug e play dispositivo
 
@@ -124,7 +124,7 @@ Pode começar a ingerir dados no Azure Time Series Insights Gen2 sem ter predefi
 * O nome do tipo pode ser o nome do modelo ou o nome do visor.
 * A descrição do modelo torna-se a descrição do tipo.
 * Pelo menos uma variável do tipo é criada para cada telemetria com um esquema numérico.
-  * Apenas tipos de dados numéricos podem ser usados para variáveis, mas se um valor for enviado como outro tipo que pode ser convertido, `"0"` por exemplo, pode utilizar uma função de [conversão](/rest/api/time-series-insights/reference-time-series-expression-syntax.md#conversion-functions) como `toDouble` .
+  * Apenas tipos de dados numéricos podem ser usados para variáveis, mas se um valor for enviado como outro tipo que pode ser convertido, `"0"` por exemplo, pode utilizar uma função de [conversão](/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) como `toDouble` .
 * O nome variável pode ser o nome da telemetria ou o nome do visor.
 * Quando definir a expressão variável time series, consulte o nome da telemetria no fio, e é o tipo de dados.
 
@@ -138,7 +138,7 @@ Pode começar a ingerir dados no Azure Time Series Insights Gen2 sem ter predefi
 ![DTDL para tipo de modelo série de tempo](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
 
 > [!NOTE]
-> Este exemplo mostra três variáveis, mas cada tipo pode ter até 100. Diferentes variáveis podem referenciar o mesmo valor de telemetria para realizar diferentes cálculos conforme necessário. Para a lista completa de filtros, agregados e funções escalar consulte a sintaxe de [expressão da série de tempo de Insights Gen2.](/rest/api/time-series-insights/reference-time-series-expression-syntax.md)
+> Este exemplo mostra três variáveis, mas cada tipo pode ter até 100. Diferentes variáveis podem referenciar o mesmo valor de telemetria para realizar diferentes cálculos conforme necessário. Para a lista completa de filtros, agregados e funções escalar consulte a sintaxe de [expressão da série de tempo de Insights Gen2.](/rest/api/time-series-insights/reference-time-series-expression-syntax)
 
 Abra um editor de texto e guarde o seguinte JSON para a sua unidade local:
 
@@ -220,10 +220,10 @@ Volte para o painel de gráficos e expanda a **Frota de Dispositivos > o seu dis
 
 ![Alterar tipo de instância para termóstato2](./media/tutorial-configure-tsi/charting-values.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre as várias opções de gráficos, incluindo tamanho de intervalo e controlos de eixo Y, consulte [o Azure Time Series Insights Explorer](../time-series-insights/concepts-ux-panels.md).
 
 * Para uma visão geral aprofundada do modelo da Série De Tempo do seu ambiente, consulte o Modelo da Série de Tempo no artigo [Azure Time Series Insights Gen2.](../time-series-insights/concepts-model-overview.md)
 
-* Para mergulhar nas APIs de consulta e na sintaxe de expressão da série de tempo, consulte [Azure Time Series Insights Gen2 Consultas APIs](/rest/api/time-series-insights/reference-query-apis.md).
+* Para mergulhar nas APIs de consulta e na sintaxe de expressão da série de tempo, consulte [Azure Time Series Insights Gen2 Consultas APIs](/rest/api/time-series-insights/reference-query-apis).

@@ -3,12 +3,12 @@ title: Trabalhar com proxies em Funções Azure
 description: Visão geral de como usar Proxies de Funções Azure
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 3e08b9cf633162cc7015f47774b043cf58c115a0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fb263239f99bcb4ec4c893b700d5c1cce078659f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020403"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601378"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhar com proxies de funções Azure
 
@@ -55,11 +55,11 @@ A configuração para um proxy não precisa de ser estática. Pode condicioná-l
 ### <a name="reference-local-functions"></a><a name="reference-localhost"></a>Funções locais de referência
 Pode utilizar `localhost` para fazer referência a uma função dentro da mesma aplicação de função diretamente, sem um pedido de procuração de ida e volta.
 
-`"backendurl": "https://localhost/api/httptriggerC#1"` irá referenciar uma função local HTTP desencadeada na rota `/api/httptriggerC#1`
+`"backendUri": "https://localhost/api/httptriggerC#1"` irá referenciar uma função local HTTP desencadeada na rota `/api/httptriggerC#1`
 
  
 >[!Note]  
->Se a sua função utilizar os níveis de autorização *de função, administração ou sys,* terá de fornecer o código e o clientId, de acordo com o URL de função original. Neste caso, a referência seria semelhante: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` Recomendamos que guarde estas chaves nas [definições] de aplicação e as referências às dos seus proxies. Isto evita guardar segredos no seu código fonte. 
+>Se a sua função utilizar os níveis de autorização *de função, administração ou sys,* terá de fornecer o código e o clientId, de acordo com o URL de função original. Neste caso, a referência seria semelhante: `"backendUri": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` Recomendamos que guarde estas chaves nas [definições] de aplicação e as referências às dos seus proxies. Isto evita guardar segredos no seu código fonte. 
 
 ### <a name="reference-request-parameters"></a><a name="request-parameters"></a>Parâmetros de pedido de referência
 

@@ -2,16 +2,16 @@
 title: 'Quickstart: Java web app analytics with Azure Application Insights'
 description: 'Monitorização do Desempenho de Aplicações para aplicações Web Java com o Application Insights. '
 ms.topic: conceptual
-author: lgayhardt
-ms.custom: devx-track-java
-ms.author: lagayhar
 ms.date: 11/22/2020
-ms.openlocfilehash: 288b7463098b1c63b816f5544581e6222c7548c9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
+ms.openlocfilehash: 25d0d409c8112292afd20f052e82494dd8e656ea
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351559"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601310"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Quickstart: Começa com a Application Insights num projeto web da Java
 
@@ -296,7 +296,7 @@ O Application Insights pode testar o seu site em intervalos regulares para verif
 ## <a name="questions-problems"></a>Perguntas? Problemas?
 [Resolução de problemas de Java](java-troubleshoot.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Chamadas de dependência do monitor](java-agent.md)
 * [Contadores de desempenho Unix do monitor](java-collectd.md)
 * Adicione [monitorização das suas páginas Web](javascript.md), para monitorizar os tempos de carregamento da página, as chamadas AJAX e as exceções de browser.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/01/2020
 ms.author: azhussai
-ms.openlocfilehash: 1d88379726cfb6c4218c38b9ccc87005609a9aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ba6b7a69c95951a083628f23be68d811c7768c
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460750"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601616"
 ---
 # <a name="understanding-pricing-for-azure-application-gateway-and-web-application-firewall"></a>Compreender preços para gateway de aplicações Azure e firewall de aplicação web
 
@@ -254,9 +254,19 @@ Se a capacidade de processamento equivale a 10 CUs adicionais estivesse disponí
 
 Preço Fixo = $0.246 * 730 (Horas) = $179,58
 
-Custos Variáveis = $0.008 * (3(Unidades de Instância) * 10 (unidades de capacidade) + 5 (unidades de capacidade adicional) * 730 (Horas) = $204,4
+Custos Variáveis = $0.008 * (3(Unidades de Instância) * 10 (unidades de capacidade) + 10 (unidades de capacidade adicional) ) * 730 (Horas) = $233,6
 
-Custos Totais = $179,58 + $204,4 = $383,98
+Custos Totais = $179,58 + $233,6 = $413,18
+
+No entanto, se a capacidade de processamento equivaler a apenas dizer 7 CUs adicionais estava disponível para utilização nos 3 casos reservados.
+Neste cenário, o recurso Application Gateway está em escala e pode potencialmente levar ao aumento da latência ou pedidos de abandono.
+
+Preço Fixo = $0.246 * 730 (Horas) = $179,58
+
+Custos Variáveis = $0.008 * (3(Unidades de Instância) * 10 (unidades de capacidade) + 7 (unidades de capacidade adicional) * 730 (Horas) = $216,08
+
+Custos Totais = $179,58 + $216,08 = $395,66
+
 
 ![Diagrama de escala manual 2.](./media/pricing/manual-scale-2.png)
 
@@ -377,7 +387,7 @@ Mais métricas como a produção, as ligações atuais e as unidades de computa�
 
 Unidades de Capacidade Observadas em métricas = 49,23
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja os seguintes artigos para saber mais sobre como os preços funcionam no Gateway de Aplicação Azure:
 

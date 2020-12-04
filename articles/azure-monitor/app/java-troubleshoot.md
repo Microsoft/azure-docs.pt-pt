@@ -3,13 +3,15 @@ title: Troubleshoot Application Insights em um projeto web java
 description: Guia de resolução de problemas - monitorizando aplicações java ao vivo com Insights de Aplicação.
 ms.topic: conceptual
 ms.date: 03/14/2019
+author: MS-jgol
 ms.custom: devx-track-java
-ms.openlocfilehash: 8d11eaa76f2133b9fdc66ba4e6bc91e2cc38c51c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.author: jgol
+ms.openlocfilehash: dbc9e48987f527c9579decc3db84091a432a17e5
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972867"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601021"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Resolução de problemas e Q e A para Insights de Aplicações para Java SDK
 
@@ -183,7 +185,7 @@ O Application Insights utiliza `org.apache.http` . Isto é relocalizado dentro d
 >Se ativar a marcação de nível DEBUG para todos os espaços de nome na aplicação, será honrada por todos os módulos de execução, incluindo `org.apache.http` renomeado como `com.microsoft.applicationinsights.core.dependencies.http` . O Application Insights não poderá aplicar a filtragem destas chamadas porque a chamada de registo está a ser feita pela biblioteca Apache. A exploração madeireira de nível DEBUG produz uma quantidade considerável de dados de registo e não é recomendada para casos de produção ao vivo.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 **Criei insights de aplicação para a minha aplicação de servidor Java. O que mais posso fazer?**
 
 * [Monitorize a disponibilidade das suas páginas web][availability]

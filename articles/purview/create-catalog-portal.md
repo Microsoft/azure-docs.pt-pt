@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: 00b504c7bcf51a69d03fb1294de4f52ef35ed163
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: c9e0b155a4cf34373bb6d851241dc62ddd661045
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555997"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602386"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Quickstart: Criar uma conta Azure Purview no portal Azure
 
@@ -26,6 +26,62 @@ Neste arranque rápido, cria-se uma conta Azure Purview.
 * Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
 * Seu próprio [inquilino do Azure Ative Directory.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+
+* A sua conta deve ter permissão para criar recursos na subscrição
+
+* Se tiver **a Azure Policy** a bloquear todas as aplicações da criação de conta de **Armazenamento** e espaço **de nomes EventHub,** tem de abrir exceções de política utilizando a etiqueta, que poderá ser inserida durante o processo de criação de uma conta Purview. A razão principal é que para cada Conta Desembaraço criada, precisa de criar um Grupo de Recursos gerido e dentro deste grupo de recursos, uma conta de Armazenamento e um espaço de nomes EventHub.
+    1. Navegue até ao portal Azure e procure **política**
+    1. Siga [Criar uma definição de política personalizada](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition) ou modificar a política existente para adicionar duas exceções com o operador e `not` `resourceBypass` etiqueta:
+
+        ```json
+        {
+          "mode": "All",
+          "policyRule": {
+            "if": {
+              "anyOf": [
+              {
+                "allOf": [
+                {
+                  "field": "type",
+                  "equals": "Microsoft.Storage/storageAccounts"
+                },
+                {
+                  "not": {
+                    "field": "tags['<resourceBypass>']",
+                    "exists": true
+                  }
+                }]
+              },
+              {
+                "allOf": [
+                {
+                  "field": "type",
+                  "equals": "Microsoft.EventHub/namespaces"
+                },
+                {
+                  "not": {
+                    "field": "tags['<resourceBypass>']",
+                    "exists": true
+                  }
+                }]
+              }]
+            },
+            "then": {
+              "effect": "deny"
+            }
+          },
+          "parameters": {}
+        }
+        ```
+        
+        > [!Note]
+        > A etiqueta pode ser qualquer coisa `resourceBypass` além e cabe-lhe a si definir valor ao criar o Purview em últimos passos, desde que a política possa detetar a etiqueta.
+
+        :::image type="content" source="./media/create-catalog-portal/policy-definition.png" alt-text="Screenshot mostrando como criar definição de política.":::
+
+    1. [Crie uma atribuição de política](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) utilizando a política personalizada criada.
+
+        [![Screenshot mostrando como criar atribuição de políticas](./media/create-catalog-portal/policy-assignment.png)](./media/create-catalog-portal/policy-assignment.png#lightbox)
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -61,9 +117,17 @@ Se necessário, siga estes passos para configurar a sua subscrição para permit
     1. Insira um **nome de conta Purview** para o seu catálogo. Espaços e símbolos não são permitidos.
     1. Escolha uma  **localização** e, em seguida, selecione **Seguinte: Configuração**.
 1. No **separador Configuração,** selecione o tamanho da **Plataforma** desejada - os valores permitidos são 4 unidades de capacidade (CU) e 16 CU. Selecione **Seguinte: Tags**.
-1. No separador **Tags,** pode adicionar opcionalmente uma ou mais etiquetas. Estas tags são para uso apenas no portal Azure, e não em Azure Purview.
+1. No separador **Tags,** pode adicionar opcionalmente uma ou mais etiquetas. Estas tags são para uso apenas no portal Azure, e não em Azure Purview. 
+
+    > [!Note] 
+    > Se tiver **a Política Azure** e precisar de adicionar exceções como nos **Pré-requisitos,** tem de adicionar a etiqueta correta. Por exemplo, pode adicionar `resourceBypass` tag: :::image type="content" source="./media/create-catalog-portal/add-purview-tag.png" alt-text="Adicionar tag à conta 'Purview'.":::
+
 1. Selecione **& criar** e, em seguida, selecione **Criar**. Leva alguns minutos para completar a criação. A nova instância da conta Azure Purview, recém-criada, aparece na lista na sua página **de contas Purview.**
 1. Quando o novo provisionamento de conta estiver completo, **selecione Vá para o recurso**.
+
+    > [!Note]
+    > Se o provisionamento falhou com o `Conflict` estatuto, isso significa que existe uma política Azure que bloqueia a Criação de uma conta de **Armazenamento** e espaço **de nomes EventHub**. É preciso passar pelos **passos pré-requisitos** para acrescentar exceções.
+    > :::image type="content" source="./media/create-catalog-portal/purview-conflict-error.png" alt-text="Mensagem de erro de conflito de competência":::
 
 1. Selecione **a conta de competência de lançamento**.
 
@@ -95,7 +159,7 @@ Se ao clicar em Adicionar vê duas escolhas que mostram ambas marcadas (desativa
 
 1. Clique em **Guardar**.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se já não precisar desta conta Azure Purview, elimine-a com os seguintes passos:
 
@@ -103,7 +167,7 @@ Se já não precisar desta conta Azure Purview, elimine-a com os seguintes passo
 
 2. Selecione a conta Azure Purview que criou no início deste arranque rápido. Selecione **Eliminar**, insira o nome da conta e, em seguida, selecione **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a criar uma conta Azure Purview.
 

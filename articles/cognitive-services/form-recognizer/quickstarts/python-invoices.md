@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/12/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 7c6b5406728817c3dd700ec285d9af77c9d3cf60
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 2ed8bdd167814ea21fced89042bdcf80fd3a73df
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96009318"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602653"
 ---
 # <a name="quickstart-extract-invoice-data-using-the-form-recognizer-rest-api-with-python"></a>Quickstart: Extrair dados da fatura utilizando o Formulário Reconhecedor REST API com Python
 
@@ -30,7 +30,7 @@ Para completar este arranque rápido, você deve ter:
 - Um documento de fatura. Pode utilizar a fatura da [amostra](../media/sample-invoice.jpg) para este arranque rápido.
 
 > [!NOTE]
-> Este quickstart usa um ficheiro local. Para utilizar um documento de fatura acedido por URL, consulte a [documentação de referência](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeInvoiceAsync).
+> Este quickstart usa um ficheiro local. Para utilizar um documento de fatura acedido por URL, consulte a [documentação de referência](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync).
 
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso de reconhecimento de formulários
 
@@ -285,11 +285,11 @@ if __name__ == '__main__':
 1. Abra uma janela da linha de comandos.
 1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python form-recognizer-invoice.py {file name or folder name}` o script Python pode ser executado com uma única fatura ou uma pasta como parâmetro e irá desautor o ficheiro JSON ".invoice.jsligado" e os valores extraídos das faturas num ficheiro CSV "-invoiceResults.csv" com os resultados. Ao correr numa pasta, irá analisar todos os ficheiros "pdf", "jpg", "jpeg","png","bmp", "tif", "tiff" e executá-los com a API.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, utilizou o Formulário Reconhecedor REST API com Python para extrair o conteúdo das faturas. Em seguida, consulte a documentação de referência para explorar mais aprofundadamente a API do Reconhecimento de Formulários.
 
 > [!div class="nextstepaction"]
-> [Documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeInvoiceAsync)
+> [Documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)
 
    

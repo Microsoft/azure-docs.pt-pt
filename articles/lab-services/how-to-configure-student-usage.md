@@ -2,39 +2,74 @@
 title: Configurar configurações de utilização em laboratórios de Serviços de Laboratório Azure
 description: Aprenda a configurar o número de alunos para um laboratório, registei-os no laboratório, controle o número de horas que podem usar o VM, e muito mais.
 ms.topic: article
-ms.date: 11/11/2020
-ms.openlocfilehash: e768c74d338cf21eb56660fe3790fc1f0f3ec80d
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.date: 12/01/2020
+ms.openlocfilehash: 3b05246445aea708312891ec631a35da3bc1eb8e
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96434554"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602636"
 ---
 # <a name="add-and-manage-lab-users"></a>Adicionar e gerir utilizadores de laboratório
 
 Este artigo descreve como adicionar utilizadores estudantes a um laboratório, registá-los no laboratório, controlar o número de horas adicionais que podem usar a máquina virtual (VM), e muito mais. 
 
-## <a name="add-users-to-a-lab"></a>Adicionar utilizadores a um laboratório
+Quando adiciona os utilizadores, por padrão, a opção **de acesso Restrict** é ligada e, a menos que estejam na lista de utilizadores, os alunos não podem inscrever-se no laboratório mesmo que tenham um link de registo. Apenas os utilizadores listados podem registar-se no laboratório utilizando o link de registo que envia. Pode desligar **o acesso Restrict,** que permite aos alunos inscreverem-se no laboratório desde que tenham o link de registo. 
 
-Nesta secção, adicione os alunos a um laboratório manualmente ou carregando um ficheiro CSV. Faça o seguinte:
+Este artigo mostra como adicionar utilizadores a um laboratório.
+
+## <a name="add-users-from-an-azure-ad-group"></a>Adicionar utilizadores de um grupo AD Azure
+
+### <a name="overview"></a>Descrição geral
+
+Pode agora sincronizar uma lista de utilizadores de laboratório para um grupo existente do Azure Ative Directory (Azure AD) para que não tenha de adicionar ou eliminar manualmente os utilizadores. 
+
+Um grupo Azure AD pode ser criado dentro do Azure Ative Directory da sua organização para gerir o acesso a recursos organizacionais e aplicações baseadas na nuvem. Para saber mais, consulte [os grupos AD Azure.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups) Se a sua organização utilizar os serviços Microsoft Office 365 ou Azure, a sua organização já terá administradores que gerem o seu Azure Ative Directory. 
+
+### <a name="sync-users-with-azure-ad-group"></a>Sincronizar utilizadores com o grupo AZure AD
+
+> [!IMPORTANT]
+> Certifique-se de que a lista de utilizadores está vazia. Se houver utilizadores existentes dentro de um laboratório que adicionou manualmente ou através da importação de um ficheiro CSV, a opção de sincronizar o laboratório a um grupo existente não aparecerá. 
+
+1. Inscreva-se no site da [Azure Lab Services](https://labs.azure.com/).
+1. Selecione o laboratório com o quais pretende trabalhar.
+1. No painel esquerdo, **selecione Utilizadores**. 
+1. Clique **em Sync a partir do grupo**. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-sync-group.png" alt-text="Adicione os utilizadores sincronizando a partir de um grupo AD Azure":::
+    
+1. Será solicitado a escolher um grupo AD Azure existente para sincronizar o seu laboratório. 
+    
+    Se não vir um grupo AD Azure na lista, pode ser devido às seguintes razões:
+
+    -   Se você é um utilizador convidado para um Azure Ative Directory (normalmente se você está fora da organização que detém o AD Azure), e você não é capaz de procurar grupos dentro do Azure AD. Neste caso, não poderá adicionar um grupo AD Azure ao laboratório neste caso. 
+    -   Os grupos AD AZure criados através de Equipas não aparecem nesta lista. Pode adicionar a app Azure Lab Services dentro de Equipas para criar e gerir laboratórios diretamente a partir do mesmo. Consulte mais informações sobre [a gestão da lista de utilizadores de um laboratório dentro de Equipas](how-to-manage-user-lists-within-teams.md). 
+1. Uma vez que escolheu o grupo AD Azure para sincronizar o seu laboratório para, clique em **Adicionar**.
+1. Assim que um laboratório estiver sincronizado, irá puxar todos dentro do grupo AD Azure para o laboratório como utilizadores, e verá a lista de utilizadores atualizada. Só as pessoas deste grupo AD Azure terão acesso ao seu laboratório. A lista de utilizadores será atualizada a cada 24 horas para corresponder à mais recente adesão do grupo AZURE AD. Também pode clicar no botão Sync no separador Utilizadores para sincronizar manualmente as alterações mais recentes do grupo AD Azure.
+1. Convide os utilizadores para o seu laboratório clicando no botão **Convidar Todos,** que enviará um e-mail a todos os utilizadores com o link de registo para o laboratório. 
+
+### <a name="automatic-management-of-virtual-machines-based-on-changes-to-the-azure-ad-group"></a>Gestão automática de máquinas virtuais com base em alterações ao grupo AZURE AD 
+
+Uma vez que o laboratório é sincronizado com um grupo AD Azure, o número de máquinas virtuais no laboratório corresponderá automaticamente ao número de utilizadores do grupo. Não poderá mais atualizar manualmente a capacidade do laboratório. Quando um utilizador é adicionado ao grupo AZure AD, um laboratório adicionará automaticamente uma máquina virtual para esse utilizador. Quando um utilizador é eliminado do grupo AD Azure, um laboratório apagará automaticamente a máquina virtual do utilizador do laboratório. 
+
+## <a name="add-users-manually-from-emails-or-csv-file"></a>Adicione os utilizadores manualmente a partir de e-mails ou ficheiros CSV
+
+Nesta secção, adicione os alunos manualmente (por endereço de e-mail ou carregando um ficheiro CSV). 
+
+### <a name="add-users-by-email-address"></a>Adicionar utilizadores por endereço de e-mail
 
 1. No painel esquerdo, **selecione Utilizadores**. 
+1. Clique **em Adicionar os utilizadores manualmente**. 
 
-    Por padrão, a opção **de acesso Restrict** é ligada e, a menos que estejam na lista de utilizadores, os alunos não podem inscrever-se no laboratório mesmo que tenham um link de registo. Apenas os utilizadores listados podem registar-se no laboratório utilizando o link de registo que envia. Neste procedimento, adicione utilizadores à lista. Em alternativa, pode desligar **o acesso Restrict,** que permite aos alunos inscreverem-se no laboratório desde que tenham o link de registo. 
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-manually.png" alt-text="Adicione os utilizadores manualmente":::
+1. **Selecione Adicionar por endereço de e-mail** (predefinição), insira os endereços de e-mail dos alunos em linhas separadas ou numa única linha separada por pontos de ligação. 
 
-1. No topo do painel de **Utilizadores,** **selecione Adicionar utilizadores** e, em seguida, selecione **Adicionar por endereço de e-mail**. 
-
-    ![O botão "Adicionar utilizadores"](./media/how-to-configure-student-usage/add-users-button.png)
-
-1. No painel **de utilizadores Add,** insira os endereços de e-mail dos alunos em linhas separadas ou numa única linha separada por pontos de ligação. 
-
-    ![Adicionar endereços de e-mail dos utilizadores](./media/how-to-configure-student-usage/add-users-email-addresses.png)
-
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-email-addresses.png" alt-text="Adicionar endereços de e-mail dos utilizadores":::
 1. Selecione **Guardar**. 
 
     A lista apresenta os endereços de e-mail e os status dos utilizadores atuais, quer estejam registados no laboratório ou não. 
 
-    ![Lista de utilizadores](./media/how-to-configure-student-usage/list-of-added-users.png)
+    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="Lista de utilizadores":::
 
     > [!NOTE]
     > Depois de os alunos estarem registados no laboratório, a lista mostra os seus nomes. O nome que é mostrado na lista é construído usando os primeiros e últimos nomes dos alunos no Diretório Ativo Azure. 
@@ -47,23 +82,15 @@ Um ficheiro de texto CSV é utilizado para armazenar dados tabulares separados p
 
 1. No Microsoft Excel, crie um ficheiro CSV que lista os endereços de e-mail dos alunos numa coluna.
 
-    ![Lista de utilizadores num ficheiro CSV](./media/how-to-configure-student-usage/csv-file-with-users.png)
-
+    :::image type="content" source="./media/how-to-configure-student-usage/csv-file-with-users.png" alt-text="Lista de utilizadores num ficheiro CSV":::
 1. Na parte superior do painel de **Utilizadores,** **selecione Adicionar utilizadores** e, em seguida, selecione **Upload CSV**.
-
-    ![O botão "Upload CSV"](./media/how-to-configure-student-usage/upload-csv-button.png)
-
 1. Selecione o ficheiro CSV que contém os endereços de e-mail dos alunos e, em seguida, selecione **Open**.
 
     A janela **'Adicionar' apresenta** a lista de endereços de e-mail a partir do ficheiro CSV. 
-
-    ![A janela "Adicionar utilizadores" com endereços de e-mail do ficheiro CSV](./media/how-to-configure-student-usage/add-users-window.png)
-
 1. Selecione **Guardar**. 
-
 1. No painel **de Utilizadores,** veja a lista de alunos adicionados. 
 
-    ![Lista de utilizadores adicionados no painel "Utilizadores"](./media/how-to-configure-student-usage/list-of-added-users.png)
+    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="Lista de utilizadores adicionados no painel de Utilizadores":::
 
 ## <a name="send-invitations-to-users"></a>Enviar convites aos utilizadores
 
@@ -211,8 +238,7 @@ Se ainda não ligaram a sua conta GitHub a uma conta da Microsoft, podem fazer o
 
     ![O botão "Exportação CSV"](./media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
 
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte os seguintes artigos:
 

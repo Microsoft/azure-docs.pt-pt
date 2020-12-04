@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 77e34e4a18012f15b9e907e3b9efc1965b98f824
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3222c790ccd0cee936b246253a16b5c434c61c8
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612125"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602211"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciais de certificado de autenticação de aplicativos da plataforma de identidade da Microsoft
 
@@ -36,7 +36,7 @@ Para calcular a afirmação, pode utilizar uma das muitas bibliotecas JWT no idi
 | --- | --- |
 | `alg` | Deve ser **RS256** |
 | `typ` | Deve ser **JWT** |
-| `x5t` | O hash de certificado X.509 (também conhecido como impressão *digital*SHA-1 do cert ) representação hex codificada como um valor de cadeia Base64. Por exemplo, dado um haxixe de certificado X.509 `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (Hex), a `x5t` reclamação seria `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64). |
+| `x5t` | O hash de certificado X.509 (também conhecido como impressão *digital* SHA-1 do cert ) representação hexa negra codificada como um valor de corda Base64url. Por exemplo, dado um haxixe de certificado X.509 `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (Hex), a `x5t` reclamação seria `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64url). |
 
 ### <a name="claims-payload"></a>Sinistros (carga útil)
 
@@ -136,7 +136,7 @@ As afirmações dos clientes podem ser usadas em qualquer lugar que um segredo d
 |`client_assertion_type`|`urn:ietf:params:oauth:client-assertion-type:jwt-bearer`| Trata-se de um valor fixo, indicando que está a utilizar uma credencial de certificado. |
 |`client_assertion`| JWT |Este é o JWT criado acima. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 A [biblioteca MSAL.NET lida com este cenário](msal-net-client-assertions.md) numa única linha de código.
 

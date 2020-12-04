@@ -3,12 +3,15 @@ title: Processadores de telemetria (pré-visualização) - Azure Monitor Applica
 description: Processadores de telemetria para Azure Monitor Application Insights Java
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: e3c41a7a9968a7de743f0c513b1f2b194501d0df
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
+ms.openlocfilehash: 316243e130345ce1b009e065cf9d8250c501ee84
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425801"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601038"
 ---
 # <a name="telemetry-processors-preview-for-azure-monitor-application-insights-java"></a>Processadores de telemetria (pré-visualização) para Azure Monitor Application Insights Java
 

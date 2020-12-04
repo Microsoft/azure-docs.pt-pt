@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 5985c30973f703b897fa2eedc2be3b939d97900b
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 3d3c452dd883316520e0c28f01c241af74d597c8
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559002"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602789"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API de Sms Analytics REST
 
@@ -261,6 +261,8 @@ Se fez a chamada para os `/analyze` pontos finais assíncronos ou `/health` fina
 
 4. A resposta será um único documento JSON, com um item para cada documento ID fornecido no pedido.
 
+Por favor, note que tanto para assíncronos `/analyze` como `/health` para operações, os resultados do pedido GET no passo 2 acima estão disponíveis por 24 horas a partir do momento em que o trabalho foi criado.  Este tempo é indicado pelo `expirationDateTime` valor na resposta GET.  Após este período de tempo, os resultados são purgados e já não estão disponíveis para recuperação.    
+
 ## <a name="example-api-responses"></a>Exemplo respostas da API
  
 # <a name="synchronous"></a>[Synchronous (Síncrono)](#tab/synchronous)
@@ -339,7 +341,7 @@ Consulte o seguinte artigo para obter mais informações para o Texto Analytics 
 
 --- 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Descrição geral da Análise de Texto](../overview.md)
 * [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)</br>

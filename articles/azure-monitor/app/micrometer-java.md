@@ -2,16 +2,16 @@
 title: Como utilizar o Micrometro com Azure Application Insights Java SDK
 description: Um guia passo a passo sobre a utilização do Micrometro com as aplicações De Mola Insights de Aplicação e aplicações de arranque não-Mola.
 ms.topic: conceptual
-author: lgayhardt
+author: MS-jgol
 ms.custom: devx-track-java
-ms.author: lagayhar
+ms.author: jgol
 ms.date: 11/01/2018
-ms.openlocfilehash: 30bd45cee962395ad6c6b87e393ea0f1b7329908
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: a80684fbaa34f8906d321f56d3819039d3798ecb
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616846"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600987"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk-not-recommended"></a>Como utilizar o Micrometro com Azure Application Insights Java SDK (não recomendado)
 
@@ -278,7 +278,7 @@ Adicione o seguinte código de ligação ao ficheiro de configuração:
     New GuavaCacheMetrics().bind(registry);
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre o Micrometro, consulte a documentação oficial do [Micrometro.](https://micrometer.io/docs)
 * Para saber mais sobre a primavera em Azure, consulte a documentação oficial [da primavera sobre Azure.](/java/azure/spring-framework/?view=azure-java-stable)

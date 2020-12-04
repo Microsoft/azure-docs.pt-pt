@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: f495de13c20aa2953f55e2837fab15a6c62e1083
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9032fcaf35265c791913f5b69fb0972bada6885f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467763"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602466"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Use o Azure Monitor com o seu espaço de trabalho Azure Synapse Analytics
 
@@ -107,7 +107,6 @@ Aqui estão os registos emitidos pela Azure Synapse Analytics espaços de trabal
 |-------------------------------|-------------------------------------------------|-------------|
 | SynapseGatewayApiReques     | GatewayApiRequests             | Pedidos de Azure Synapse gateway API. |
 | Operações De SinapseRbac         | Operações De SinapseRbac          | Operações de controlo de acesso baseado em funções (SRBAC) da Azure Synapse. |
-| SynapseBuiltinSqlPoolRequestsEnded   | BuiltInSqlReqsEnded    | Terminou os pedidos de SQL sem servidor sem servidor do Azure Synapse. |
 
 ### <a name="dedicated-sql-pool-logs"></a>Troncos de piscina SQL dedicados
 
@@ -178,7 +177,7 @@ Crie ou adicione configurações de diagnóstico para o seu espaço de trabalho,
 
 Após alguns momentos, a nova definição aparece na sua lista de configurações para o seu espaço de trabalho, piscina SQL dedicada ou piscina Apache Spark. Os registos de diagnóstico são transmitidos para esse espaço de trabalho assim que novos dados de eventos são gerados. Podem decorrer até 15 minutos entre quando um evento é emitido e quando aparece no Log Analytics.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a monitorização do gasoduto, consulte o gasoduto Monitor que funciona no artigo [do Synapse Studio.](how-to-monitor-pipeline-runs.md) 
 

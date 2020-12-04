@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcb63931f883c6061ded996621a09aacbacd14af
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 766fd80ae5f7450c8e45d10afa4612a788a8d5fc
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919845"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602161"
 ---
 # <a name="resilience-through-monitoring-and-analytics"></a>Resiliência através da monitorização e análise
 
@@ -41,7 +41,7 @@ Por exemplo, acompanhe as seguintes métricas, uma vez que uma queda súbita em 
 
   - **Taxa de sucesso (%)**: Pedidos bem sucedidos/Número total de pedidos.
 
-  Aceda aos [indicadores-chave](https://docs.microsoft.com/azure/active-directory-b2c/view-audit-logs) em [insights de aplicação](https://docs.microsoft.com/azure/active-directory-b2c/analytics-with-application-insights) onde são armazenados registos baseados em políticas Azure AD B2C, [registos](https://docs.microsoft.coms/azure/active-directory-b2c/analytics-with-application-insights)de auditoria e registos de login.  
+  Aceda aos [indicadores-chave](https://docs.microsoft.com/azure/active-directory-b2c/view-audit-logs) em [insights de aplicação](https://docs.microsoft.com/azure/active-directory-b2c/analytics-with-application-insights) onde são armazenados registos baseados em políticas Azure AD B2C, [registos](https://docs.microsoft.com/azure/active-directory-b2c/analytics-with-application-insights)de auditoria e registos de login.  
 
    - **Visualizações**: Utilizar o Log analytics constrói dashboards para monitorizar visualmente os indicadores-chave.
 
@@ -61,7 +61,7 @@ Por exemplo, acompanhe as seguintes métricas, uma vez que uma queda súbita em 
   - **Abandone as viagens Azure AD B2C**: Utilize o [livro](https://github.com/azure-ad-b2c/siem#list-of-abandon-journeys) para acompanhar a lista de viagens abandonadas do Azure AD B2C onde o utilizador iniciou a viagem de inscrição ou inscrição, mas nunca terminou. Fornece-lhe detalhes sobre o ID da política e a repartição das medidas que são tomadas pelo utilizador antes de abandonar a viagem.
   - **Azure AD B2C monitorando livros**: Utilize os [livros de monitorização](https://github.com/azure-ad-b2c/siem), que inclui o painel Azure AD B2C, operações de autenticação multi-factor (MFA), relatório de acesso condicional e registos de pesquisa por correlaid, para obter melhores informações sobre a saúde do seu ambiente Azure AD B2C.
   
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Recursos de resiliência para desenvolvedores Azure AD B2C](resilience-b2c.md)
   - [Experiência resiliente do utilizador final](resilient-end-user-experience.md)

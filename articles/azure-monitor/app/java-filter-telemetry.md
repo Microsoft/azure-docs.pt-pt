@@ -3,13 +3,15 @@ title: Filtrar a azure Application Insights telemetria na sua aplicação web Ja
 description: Reduza o tráfego de telemetria filtrando os eventos que não precisa de monitorizar.
 ms.topic: conceptual
 ms.date: 3/14/2019
+author: MS-jgol
 ms.custom: devx-track-java
-ms.openlocfilehash: 329f07a530a584a14d5312631ec977773e70af29
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.author: jgol
+ms.openlocfilehash: 9a57874652fa5ee58f39483903be211305c683f2
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378198"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601242"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrar telemetria na sua aplicação web Java
 
@@ -267,7 +269,7 @@ Terá de criar os seus próprios parâmetros de filtro `application.properties` 
 
 * Verifique se forneceu valores de parâmetros válidos. Por exemplo, as durações devem ser inteiros. Valores inválidos farão com que o filtro seja ignorado. Se o filtro personalizado lançar uma exceção de um método de construção ou de conjunto, este será ignorado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Amostragem](./sampling.md) - Considere a amostragem como uma alternativa que não distorce as suas métricas.
 

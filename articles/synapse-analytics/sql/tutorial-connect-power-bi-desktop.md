@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7ee2e1e6a46ce07d95797362cde313dc8e0b0fa5
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6b45bad7c439fb98737f0caee08b2996323fbd3b
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683544"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602704"
 ---
 # <a name="tutorial-use-serverless-sql-pool-with-power-bi-desktop--create-a-report"></a>Tutorial: Use a piscina SQL sem servidor com o Power BI Desktop & criar um relatório
 
@@ -151,14 +151,14 @@ Crie o relatório para Power BI Desktop utilizando os seguintes passos:
 
    ![Selecione colunas de interesse para gerar um relatório de mapa.](./media/tutorial-connect-power-bi-desktop/step-6-select-columns-of-interest.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Uma vez feito o uso deste relatório, elimine os recursos com os seguintes passos:
 
 1. Apagar a credencial para a conta de armazenamento
 
    ```sql
-   DROP EXTENAL DATA SOURCE AzureOpenData
+   DROP EXTERNAL DATA SOURCE AzureOpenData
    ```
 
 2. Apagar a vista

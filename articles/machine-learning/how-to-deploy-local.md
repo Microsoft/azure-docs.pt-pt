@@ -10,14 +10,14 @@ author: lobrien
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy
-ms.openlocfilehash: 1d2e25f76d9a68eeb01a45c34651fe1537297980
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 71f393897dff266f1b0922a19eefd70cffea133d
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510578"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600358"
 ---
-# <a name="deploy-on-your-local-machines-models-trained-with-azure-machine-learning"></a>Implemente nos modelos de máquinas locais treinados com Azure Machine Learning
+# <a name="deploy-models-trained-with-azure-machine-learning-on-your-local-machines"></a>Implementar modelos treinados com Azure Machine Learning nas suas máquinas locais 
 
 Este artigo descreve como usar o computador local como alvo para treinar ou implementar modelos criados em Azure Machine Learning. A Azure Machine Learning é flexível o suficiente para trabalhar com a maioria dos quadros de aprendizagem de máquinas Python. As soluções de aprendizagem automática geralmente têm dependências complexas que podem ser difíceis de duplicar. Este artigo irá mostrar-lhe como equilibrar o controlo total com facilidade de utilização.
 
@@ -248,7 +248,7 @@ Pode então encontrar o seu modelo recentemente registado no separador Azure Mac
 
 Para obter mais informações sobre o upload e atualização de modelos e ambientes, consulte [o modelo de Registo e implemente localmente com utilizações avançadas.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local-advanced.ipynb)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações sobre a gestão de ambientes, consulte [Criar & utilizar ambientes de software em Azure Machine Learning](how-to-use-environments.md).
 - Para saber mais sobre o acesso aos dados da sua loja de dados, consulte [o Connect to storage services on Azure.](how-to-access-data.md)
