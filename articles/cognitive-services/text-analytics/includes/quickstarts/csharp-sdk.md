@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/07/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: a0ed1ef796412211d1d0871d3e09aed4f7346ae5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 35d5940fbc001d1806711afb14aa4a549bcb1826
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979531"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96615812"
 ---
 <a name="HOLTop"></a>
 
@@ -28,7 +28,7 @@ ms.locfileid: "94979531"
 
 # <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-[v2 Documentação](/dotnet/api/overview/azure/cognitiveservices/client/textanalytics)  |  de referência [v2 Código](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics)  |  fonte da biblioteca [v2 Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/)  |  [v2 Amostras](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
+[v2 Documentação](/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet)  |  de referência [v2 Código](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics)  |  fonte da biblioteca [v2 Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/)  |  [v2 Amostras](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
 
 ---
 
@@ -176,10 +176,10 @@ Se estiver a utilizar a versão `3.x` do serviço, pode utilizar uma instância 
 
 * [Análise de sentimento](#sentiment-analysis)
 * [Mineração de opinião](#opinion-mining)
-* [Deteção linguística](#language-detection)
+* [Deteção de idioma](#language-detection)
 * [Reconhecimento de Entidades Nomeadas](#named-entity-recognition-ner)
 * [Ligação de entidades](#entity-linking)
-* [Extração de frase-chave](#key-phrase-extraction)
+* [Extração de expressões-chave](#key-phrase-extraction)
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
