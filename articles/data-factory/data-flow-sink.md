@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/17/2020
-ms.openlocfilehash: 63be912986542741359cd5e88227f06905d42647
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: da89d4fbc3f9e03e76d901c2215e4f16c5273013
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350879"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621115"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do sumidouro no fluxo de dados de mapeamento
 
@@ -103,6 +103,10 @@ Por predefinição, os dados são escritos a vários lavatórios numa ordem não
 > Ao utilizar [pesquisas em cache,](./concepts-data-flow-expression-builder.md#cached-lookup)certifique-se de que o seu pedido de pia tem os lavatórios em cache definidos para 1, o mais baixo (ou primeiro) na encomenda.
 
 ![Pedido de pia personalizado](media/data-flow/cache-2.png "Pedido de pia personalizado")
+
+### <a name="sink-groups"></a>Grupos de afundanços
+
+Pode agrupar-se juntando aplicando o mesmo número de encomenda para uma série de pias. A ADF tratará esses lavatórios como grupos que podem executar em paralelo. As opções para a execução paralela surgirão na atividade de fluxo de dados do gasoduto.
 
 ## <a name="error-row-handling"></a>Processamento da linha de erro
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 50cce15d14561bb1c8ebfdbbeeedd99dc8efcda1
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 37a989082b63dc101bb519fea1cc4ef16c76ae49
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532997"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621540"
 ---
 # <a name="optical-character-recognition-ocr"></a>Reconhecimento ótico de carateres (OCR)
 
@@ -147,7 +147,7 @@ A [pré-visualização pública da API read 3.2](https://westus.dev.cognitive.mi
 A operação Read suporta atualmente a extração de texto manuscrito exclusivamente em inglês.
 
 ## <a name="use-the-rest-api-and-sdk"></a>Utilize a REST API e a SDK
-A [API Read 3.x REST](./QuickStarts/CSharp-hand-text.md) é a opção preferida para a maioria dos clientes devido à facilidade de integração e à rápida produtividade fora da caixa. O Azure e o serviço de Visão Computacional lidam com escala, desempenho, segurança de dados e necessidades de conformidade enquanto se concentra em satisfazer as necessidades dos seus clientes.
+A [API Read 3.x REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) é a opção preferida para a maioria dos clientes devido à facilidade de integração e à rápida produtividade fora da caixa. O Azure e o serviço de Visão Computacional lidam com escala, desempenho, segurança de dados e necessidades de conformidade enquanto se concentra em satisfazer as necessidades dos seus clientes.
 
 ## <a name="deploy-on-premise-with-docker-containers"></a>Implantar no local com contentores Docker
 O [recipiente Read Docker (pré-visualização)](./computer-vision-how-to-install-containers.md) permite-lhe implantar as novas capacidades de OCR no seu próprio ambiente local. Os contentores são ótimos para requisitos específicos de governação de dados e segurança.

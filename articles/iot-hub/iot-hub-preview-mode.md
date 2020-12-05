@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: jlian
-ms.openlocfilehash: 5299a049ab2cc2246a861dd3fb81f466b56afad3
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 864870c4392b12477c321c86afd9da848120490c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603484"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621710"
 ---
 # <a name="turn-on-preview-mode-for-iot-hub-to-try-select-new-features"></a>Ligue o modo de pré-visualização para ioT Hub para experimentar novas funcionalidades
 
@@ -66,14 +66,14 @@ Uma vez criado, um IoT Hub no modo de pré-visualização mostra sempre este ban
 
 *Não* utilize um hub IoT no modo de pré-visualização para a produção. O modo de pré-visualização destina-se *apenas* a visualizar as funcionalidades selecionadas listadas no topo desta página. Algumas outras limitações ao modo de pré-visualização IoT Hub são
 
-- Algumas funcionalidades existentes do IoT Hub, tais como ligação privada, identidade gerida, streams de dispositivos e falha de falha podem funcionar inesperadamente ou não.
+- Algumas funcionalidades existentes do IoT Hub, tais como filtro IP, ligação privada, identidade gerida, streams de dispositivos e falhade acidentes podem funcionar inesperadamente ou não.
 - Um hub IoT no modo de pré-visualização não pode ser alterado ou atualizado para um hub IoT normal.
 - Não podemos garantir o [IoT Hub SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/v1_2/) normal - não use para produção.
 
 > [!TIP]
 > O modo de pré-visualização não é necessário para [os fluxos de dispositivos](iot-hub-device-streams-overview.md) e [para o rastreio distribuído](iot-hub-distributed-tracing.md). Para utilizar estas funcionalidades de pré-visualização mais antigas, siga a sua documentação normalmente. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para visualizar o suporte MQTT 5, consulte [a visão geral de suporte do IoT Hub MQTT 5 (pré-visualização)](iot-hub-mqtt-5.md)
 - Para visualizar o certificado do servidor ECC, consulte o [certificado de Eptografia de Eptografia de Curva Elíptica (ECC) (pré-visualização)](iot-hub-tls-support.md#elliptic-curve-cryptography-ecc-server-tls-certificate-preview)

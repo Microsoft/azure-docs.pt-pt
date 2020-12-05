@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 7754da168465c58c1481f355f3597a621a99609e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: fc2d1c5dca4265bc0f0c26dd0a6c62a7e1698a38
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92522313"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621489"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-openathens"></a>Tutorial: Azure Ative Directory integração única (SSO) com OpenAthens
 
@@ -114,7 +114,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a OpenAthens.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **OpenAthens**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -136,11 +136,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Screenshot que mostra a página do site da empresa "OpenAthens" com "Conexões" selecionadas a partir do separador "Gestão".](./media/openathens-tutorial/tutorial_openathens_application1.png)
 
-1. Selecione **SAML 1.1/2.0**e, em seguida, selecione o **botão Configure.**
+1. Selecione **SAML 1.1/2.0** e, em seguida, selecione o **botão Configure.**
 
     ![Screenshot que mostra o "Selecione o tipo de sistema de autenticação local". diálogo com "S A M L 1.1/2.0" e o botão "Configurar" selecionado.](./media/openathens-tutorial/tutorial_openathens_application2.png)
 
-1. Para adicionar a configuração, selecione o botão **Browse** para carregar o ficheiro metadados .xml que descarregou a partir do portal Azure e, em seguida, selecione **Adicionar**.
+1. Para adicionar a configuração, selecione o botão **Browse** para carregar os metadados .xml ficheiro que descarregou a partir do portal Azure e, em seguida, selecione **Add**.
 
     ![Screenshot que mostra o "Add S A M L authentication system". diálogo com a ação "Procurar" e "Adicionar botão selecionado.](./media/openathens-tutorial/tutorial_openathens_application3.png)
 
@@ -150,7 +150,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     a. No **mapeamento do nome do visor**, selecione **Use attribut**.
 
-    b. Na caixa **de texto do nome do Visor,** introduza o valor `http://schema.microsoft.com/identity/claims/displayname` .
+    b. Na caixa **de texto do nome do Visor,** introduza o valor `http://schemas.microsoft.com/identity/claims/displayname` .
 
     c. No **mapeamento exclusivo do utilizador**, selecione Use **attribute**.
 

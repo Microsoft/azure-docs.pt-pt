@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: c689c83e50a42885900f62d1a65d0aa75f36f2ec
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 188bc14de502640ae05f1d1eb55330d86cee50b4
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014036"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621484"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Parceiros virtuais wan e localizações de hub virtual
 
@@ -60,7 +60,7 @@ Estes parceiros têm ofertas **de Aplicação Gerida** que estão agora disponí
 |[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Guia de implantação de Barracuda CloudGen WAN](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
 |[Cisco Cloud Service Router (CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| Durante a pré-visualização pública da Cisco Cloud Services (CSR) WAN no hub da VWAN, a Cisco exige que o cliente final se registe como cliente Cisco EFT (Early Field Trial), enviando um vwan_public_preview@external.cisco.com e-mail e solicitando o vManage Deployment Guide. |
 
-Os seguintes parceiros estão programados para trazer a NVA nas ofertas do Virtual Hub num futuro próximo: Citrix, Versa Networks e VeloCloud.
+Os seguintes parceiros estão programados para trazer a NVA nas ofertas do Virtual Hub num futuro próximo: Aviatrix, Citrix, VeloCloud e Versa Networks.
 
 ## <a name="locations"></a><a name="locations"></a>Localizações
 

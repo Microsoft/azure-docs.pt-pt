@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 1a9d5fe69cd9d853d0bf8ec971f31518bbf47c9a
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 31ae4605b6cc9e26c89beea692fe61fcbda49c4c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504701"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621506"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Cache Azure para Redis com Link Privado Azure (Visualização pública)
 Neste artigo, você vai aprender a criar uma rede virtual e um Azure Cache para o caso Redis com um ponto final privado usando o portal Azure. Você também vai aprender a adicionar um ponto final privado a um Azure Cache existente para o exemplo de Redis.
@@ -111,8 +111,8 @@ Demora um pouco para a cache criar. Pode monitorizar o progresso na cache Azure 
     
 > [!IMPORTANT]
 > 
-> Há uma `publicNetworkAccess` bandeira que é por `Enabled` defeito. 
-> Esta bandeira destina-se a permitir opcionalmente o acesso ao ponto final público e privado à cache, se estiver definido para `Enabled` . Se estiver `Disabled` definido, só permitirá o acesso ao ponto final privado. Pode definir o valor `Disabled` com o seguinte pedido PATCH.
+> Há uma `publicNetworkAccess` bandeira que é por `Disabled` defeito. 
+> Esta bandeira destina-se a permitir opcionalmente o acesso ao ponto final público e privado à cache, se estiver definido para `Enabled` . Se estiver `Disabled` definido, só permitirá o acesso ao ponto final privado. Pode definir o valor para `Disabled` ou com o seguinte pedido `Enabled` PATCH. Edite o valor para refletir qual a bandeira que deseja para o seu cache.
 > ```http
 > PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
 > {    "properties": {
@@ -212,8 +212,9 @@ Se o seu cache já for uma cache injetada em VNet, os pontos finais privados nã
 ### <a name="what-features-are-not-supported-with-private-endpoints"></a>Que características não são suportadas com pontos finais privados?
 Geo-replicação, regras de firewall, suporte para consolas de portal, múltiplos pontos finais por cache agrupado, persistência nas regras de firewall e redundância de zona. 
 
-### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-from-public-network-access"></a>Como posso mudar o meu ponto final privado para ser desativado do acesso à rede pública?
-Há uma `publicNetworkAccess` bandeira que é por `Enabled` defeito. Esta bandeira destina-se a permitir opcionalmente o acesso ao ponto final público e privado à cache, se estiver definido para `Enabled` . Se estiver `Disabled` definido, só permitirá o acesso ao ponto final privado. Pode definir o valor `Disabled` com o seguinte pedido PATCH.
+### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access"></a>Como posso alterar o meu ponto final privado para ser desativado ou habilitado a partir do acesso à rede pública?
+Há uma `publicNetworkAccess` bandeira que é por `Disabled` defeito. Esta bandeira destina-se a permitir opcionalmente o acesso ao ponto final público e privado à cache, se estiver definido para `Enabled` . Se estiver `Disabled` definido, só permitirá o acesso ao ponto final privado. Pode definir o valor para `Disabled` ou com o seguinte pedido `Enabled` PATCH. Edite o valor para refletir qual a bandeira que deseja para o seu cache.
+
 ```http
 PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
 {    "properties": {

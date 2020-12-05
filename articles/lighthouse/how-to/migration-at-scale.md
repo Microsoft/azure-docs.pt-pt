@@ -1,14 +1,14 @@
 ---
 title: Gerir projetos de migração em escala com a Azure Migrate
 description: Saiba como utilizar eficazmente a Azure Migrate em recursos de clientes delegados.
-ms.date: 12/3/2020
+ms.date: 12/4/2020
 ms.topic: how-to
-ms.openlocfilehash: 184307814bd3ceae6047734946f79b0ba5cb2e10
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: d1a01149c80b30f279f7d68551946c3ffe404d5e
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603410"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621574"
 ---
 # <a name="manage-migration-projects-at-scale-with-azure-migrate"></a>Gerir projetos de migração em escala com a Azure Migrate
 
@@ -38,7 +38,7 @@ Esta abordagem minimiza a mudança de contexto para prestadores de serviços que
 
 O fluxo de trabalho para este modelo será semelhante ao seguinte:
 
-1. O cliente está [a bordo do Farol de Azure.](onboard-customer.md) O papel incorporado do Contribuinte é necessário para a identidade que será usada com Azure Migrate.
+1. O cliente está [a bordo do Farol de Azure.](onboard-customer.md) O papel incorporado do Contribuinte é necessário para a identidade que será usada com Azure Migrate. Consulte o modelo de amostra de [gestão de recursos-azmigrate delegado](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) para um exemplo utilizando esta função.
 1. O utilizador designado assina no inquilino gerente no portal Azure, e depois vai para Azure Migrate. Este utilizador [cria um projeto Azure Migrate,](/migrate/create-manage-projects.md)selecionando a subscrição de clientes delegados apropriado.
 1. Em seguida, o utilizador [executa passos para a descoberta e avaliação](../../migrate/tutorial-discover-vmware.md).
 
@@ -60,7 +60,7 @@ Esta abordagem permite que os prestadores de serviços iniciem rapidamente proje
 
 O fluxo de trabalho para este modelo será semelhante ao seguinte:
 
-1. O cliente está [a bordo do Farol de Azure.](onboard-customer.md) O papel incorporado do Contribuinte é necessário para a identidade que será usada com Azure Migrate.
+1. O cliente está [a bordo do Farol de Azure.](onboard-customer.md) O papel incorporado do Contribuinte é necessário para a identidade que será usada com Azure Migrate. Consulte o modelo de amostra de [gestão de recursos-azmigrate delegado](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) para um exemplo utilizando esta função.
 1. O utilizador designado assina no inquilino gerente no portal Azure, e depois vai para Azure Migrate. Este utilizador [cria um projeto Azure Migrate](/migrate/create-manage-projects.md) numa subscrição pertencente ao inquilino gerente.
 1. Em seguida, o utilizador [executa passos para a descoberta e avaliação](../../migrate/tutorial-discover-vmware.md). Os VMs no local serão descobertos e avaliados no âmbito do projeto de migração criado no inquilino gerente, migrando depois de lá.
 
@@ -68,13 +68,15 @@ O fluxo de trabalho para este modelo será semelhante ao seguinte:
 
 1. Quando estiver pronto, proceda com a migração selecionando a subscrição do cliente delegado como destino-alvo para replicar e migrar as cargas de trabalho. Os recursos recém-criados existirão na subscrição do cliente, enquanto os dados de avaliação e recursos relativos ao projeto de migração permanecerão no inquilino gestor.
 
+NOTA: Tem de modificar o ficheiro de parâmetros para refletir o seu ambiente antes de se implantar https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate
+
 ## <a name="partner-recognition-for-customer-migrations"></a>Reconhecimento de parceiros para migrações de clientes
 
 Como membro da [Microsoft Partner Network,](https://partner.microsoft.com)pode ligar o ID do seu parceiro às credenciais utilizadas para gerir os recursos do cliente delegado. Através do Partner Admin Link (PAL), a Microsoft pode atribuir influência e a Azure consumiu receitas à sua organização com base nas tarefas que executa para os clientes, incluindo projetos de migração.
 
 Para obter mais informações, veja [Ligar o seu ID de parceiro para controlar o impacto nos recursos delegados](partner-earned-credit.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [Azure Migrate.](../../migrate/migrate-services-overview.md)
 - Conheça as [experiências de gestão de inquilinos cruzados.](../concepts/cross-tenant-management-experience.md)

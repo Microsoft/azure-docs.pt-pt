@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 7cf18e2d375d7a45c3641876b8a3ed5974882927
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 87758100299eb170a7950a1a7a2c6bd2029b27fb
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010032"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621557"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verifique e resolução de problemas INSTALAÇÃO DE ALTA Disponibilidade DA ESCALA SAP HANA em SLES 12 SP3 
 
@@ -45,6 +45,9 @@ Todos os testes para a escala SAP HANA em combinação com a replicação do sis
 A SUSE publicou uma [descrição detalhada desta configuração otimizada pelo desempenho.][sles-hana-scale-out-ha-paper]
 
 Para os tipos de máquinas virtuais suportados para a escala SAP HANA, verifique o [diretório IAAS certificado da SAP HANA][sap-hana-iaas-list].
+
+> [!NOTE]
+> Este artigo contém referências aos termos *mestre* e *escravo,* termos que a Microsoft já não utiliza. Quando estes termos forem removidos do software, removê-los-emos deste artigo.
 
 Houve um problema técnico com a escala SAP HANA em combinação com várias sub-redes e vNICs e criação de HSR. É obrigatório usar as mais recentes manchas SAP HANA 2.0 onde este problema foi corrigido. São suportadas as seguintes versões SAP HANA: 
 

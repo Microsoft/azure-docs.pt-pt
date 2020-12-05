@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 0fda0b659dd2500e811fac1f53c99a9987276185
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ef284661d44f700cf0b5282efcd2e6f7b94fa3b6
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537478"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621523"
 ---
 # <a name="azure-cache-for-redis-network-isolation-options"></a>Cache Azure para opções de isolamento da rede Redis 
 Neste artigo, você vai aprender como determinar a melhor solução de isolamento de rede para suas necessidades. Vamos analisar os fundamentos da Azure Private Link, da injeção da Rede Virtual Azure (VNet) e das Regras de Firewall do Azure Com as suas vantagens e limitações.  
@@ -22,7 +22,7 @@ O Azure Private Link fornece conectividade privada de uma rede virtual para os s
 ### <a name="advantages"></a>Vantagens
 * Suportado em Cache Basic, Standard e Premium Azure para instâncias Redis. 
 * Ao utilizar [o Azure Private Link,](../private-link/private-link-overview.md)pode ligar-se a uma instância Azure Cache a partir da sua rede virtual através de um ponto final privado, que é atribuído um endereço IP privado numa sub-rede dentro da rede virtual. Com isto, as instâncias cache estão disponíveis tanto dentro do VNet como publicamente.  
-* Uma vez criado um ponto final privado, o acesso à rede pública pode ser restringido através da `publicNetworkAccess` bandeira. Esta bandeira é definida `Enabled` por padrão, dando-lhe a opção de permitir o acesso de ligação pública e privada à cache. Se estiver `Disabled` definido, só permitirá o acesso de ligação privada. Pode definir o valor `Disabled` com um pedido PATCH. Para obter mais informações, consulte [Azure Cache for Redis com Azure Private Link (Preview)](cache-private-link.md). 
+* Uma vez criado um ponto final privado, o acesso à rede pública pode ser restringido através da `publicNetworkAccess` bandeira. Esta bandeira é definida `Disabled` por padrão, o que só permitirá o acesso de ligações privadas. Pode definir o valor para `Enabled` ou com um pedido `Disabled` PATCH. Para obter mais informações, consulte [Azure Cache for Redis com Azure Private Link (Preview)](cache-private-link.md). 
 * Todas as dependências de cache externas não afetarão as regras NSG da VNet.
 
 ### <a name="limitations"></a>Limitações 

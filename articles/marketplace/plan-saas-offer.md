@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: d2d890db3c246ad7f3d0a56a3df264d5f78bd54d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 5f7278a688147842b7dbfab79a20afea2b4a9288
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571135"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621608"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Como planear uma oferta saaS para o mercado comercial
 
@@ -113,10 +113,10 @@ Se a sua oferta SaaS for *simultaneamente* uma solução de TI (Azure Marketplac
 
 | Faturação medido | Plano público | Plano privado | Disponível em: |
 |---|---|---|---|
-| Sim             | Sim         | Não           | Azure Marketplace e portal Azure |
-| Sim             | Sim         | Sim          | Azure Marketplace e portal Azure * |
-| Sim             | Não          | Sim          | Apenas portal Azure |
-| Não              | Não          | Sim          | Apenas portal Azure |
+| Yes             | Yes         | No           | Azure Marketplace e portal Azure |
+| Yes             | Yes         | Yes          | Azure Marketplace e portal Azure * |
+| Yes             | No          | Yes          | Apenas portal Azure |
+| No              | No          | Yes          | Apenas portal Azure |
 |||||
 
 &#42; O plano privado da oferta só estará disponível através do portal Azure
@@ -150,7 +150,7 @@ Quando [criar uma nova oferta SaaS](create-new-saas-offer.md) no Partner Center,
 6. Política de privacidade
 7. Nome da oferta
 8. Resumo
-9. Descrição
+9. Description
 10. Screenshots/vídeos
 11. Documentos
 
@@ -250,15 +250,15 @@ O exemplo a seguir mostra uma repartição de custos e pagamentos para demonstra
 | Microsoft paga-lhe 80% do custo da sua licença<br>`*` Para aplicações SaaS qualificadas, a Microsoft paga 90% do custo da sua licença| $80,00 por mês<br>``*`` $90,00 por mês |
 |||
 
-**`*` Taxa reduzida de serviço no Mercado** – Para certas ofertas da SaaS que publicou no mercado comercial, a Microsoft reduzirá a sua Taxa de Serviço de Marketplace de 20% (conforme descrito no Microsoft Publisher Agreement) para 10%. Para que a sua(s) oferta(s) se qualifique, a sua(s) oferta(s) deve ter sido designada pela Microsoft como Azure IP Co-venda incentivado. A elegibilidade deve ser cumprida pelo menos cinco (5) dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado para o mês. A Taxa reduzida de Serviço de Marketplace também se aplica à Azure IP Co-vender VMs, Apps Geridas e quaisquer outras ofertas de ias transacionáveis qualificadas disponibilizadas através do mercado comercial.
+**`*` Taxa reduzida de serviço no Mercado** – Para certas ofertas da SaaS que publicou no mercado comercial, a Microsoft reduzirá a sua Taxa de Serviço de Marketplace de 20% (conforme descrito no Microsoft Publisher Agreement) para 10%. Para que a sua(s) oferta(s) se qualifique, a sua(s) oferta(s) deve ter sido designada pela Microsoft como Azure IP Co-venda incentivado. A elegibilidade deve ser cumprida pelo menos cinco (5) dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado para o mês. Para obter mais informações sobre a elegibilidade de co-venda de IP, consulte [requisitos para o estado de co-venda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). A Taxa reduzida de Serviço de Marketplace também se aplica à Azure IP Co-vender VMs, Apps Geridas e quaisquer outras ofertas de ias transacionáveis qualificadas disponibilizadas através do mercado comercial.
 
 ## <a name="additional-sales-opportunities"></a>Oportunidades de venda adicionais
 
 Pode optar por optar por canais de marketing e vendas suportados pela Microsoft. Ao criar a sua oferta no Partner Center, verá dois separadores no final do processo:
 
-- **Revender através de CSPs**: Utilize esta opção para permitir que os parceiros da Microsoft Cloud Solution Providers (CSP) revendam a sua solução como parte de uma oferta agregada. Consulte [o programa Cloud Solution Provider](cloud-solution-providers.md) para obter mais informações.
+- **Revender através de CSPs**: Utilize esta opção para permitir que os parceiros da Microsoft Cloud Solution Providers (CSP) revendam a sua solução como parte de uma oferta agregada. Para obter mais informações sobre este programa, consulte o [programa Cloud Solution Provider](cloud-solution-providers.md).
 
-- **Co-vender com** a Microsoft: Esta opção permite que as equipas de vendas da Microsoft considerem a sua solução elegível para co-venda ip ao avaliar as necessidades dos seus clientes. Consulte [a opção de Co-venda no Partner Center](commercial-marketplace-co-sell.md) para obter informações detalhadas sobre como preparar a sua oferta para avaliação.
+- **Co-vender com** a Microsoft: Esta opção permite que as equipas de vendas da Microsoft considerem a sua solução elegível para co-venda ip ao avaliar as necessidades dos seus clientes. Para obter mais informações sobre a elegibilidade de co-venda, consulte [os requisitos para o estatuto de co-venda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Para obter informações detalhadas sobre como preparar a sua oferta para avaliação, consulte [a opção Co-venda no Partner Center](commercial-marketplace-co-sell.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/11/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 13716210ae967c9d4a7f21fb5a6c4afdb9033be1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8a345c2feaeea933af3fdce591283716443fbfda
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467686"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621676"
 ---
 # <a name="enabling-synapse-workspace-features-on-a-dedicated-sql-pool-formerly-sql-dw-in-your-region"></a>Ativar as funcionalidades do espaço de trabalho da Synapse numa piscina SQL dedicada (anteriormente SQL DW) na sua região.
 
@@ -30,7 +30,7 @@ O quadro seguinte resume por região onde não é suportada a capacidade de ativ
 | Índia do Sul |31 de março de 2021 |
 | Oeste da Índia |31 de março de 2021 |
 | Suíça Oeste |31 de março de 2021 |
-| Uae Norte |1 de junho de 2020 |1 de julho de 2020 |
+| Uae Norte |31 de março de 2021 |
 
 ## <a name="next-steps"></a>Passos seguintes
 Começando com [o Synapse Workspace e Studio.](../get-started.md)

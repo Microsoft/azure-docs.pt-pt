@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f9471b6b465b63f48feb3bda82e7827308aae945
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: b62790fd8f01b7ffb2df4d242b97e8464c11399b
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575403"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621132"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Criar um ambiente para aprendizagem automática em IoT Edge
 
@@ -217,12 +217,6 @@ Este tutorial faz parte de um conjunto onde cada artigo baseia-se no trabalho fe
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criámos um Hub IoT e configuramos uma rota para uma conta de Armazenamento Azure. Em seguida, enviaremos dados de um conjunto de dispositivos simulados através do IoT Hub para a conta de armazenamento. Mais tarde no tutorial, depois de configurarmos o nosso dispositivo e módulos IoT Edge, vamos revisitar rotas e olhar um pouco mais para a consulta de encaminhamento.
-
-Para obter mais informações sobre os passos abordados nesta parte do tutorial de Machine Learning on IoT Edge, consulte:
-
-* [Noções básicas do IoT do Azure](../iot-fundamentals/index.yml)
-* [Configurar o encaminhamento de mensagens com ioT Hub](../iot-hub/tutorial-routing.md)
-* [Criar um hub IoT utilizando o portal Azure](../iot-hub/iot-hub-create-through-portal.md)
 
 Continue até ao próximo artigo para criar um dispositivo simulado para monitorizar.
 

@@ -4,16 +4,16 @@ description: Saiba como configurar os pontos finais da rede de ficheiros Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/17/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 880eeb87d8727d65b2aaecdad8b0ed9ccaacea7a
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 079d7aa9b654a318c7269a41605c3e146b08f127
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629857"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621336"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configurar pontos finais da rede Azure Files
 
@@ -45,15 +45,26 @@ Pode configurar os seus pontos finais para restringir o acesso à rede à sua co
 
 A criação de um ponto final privado para a sua conta de armazenamento resultará na implementação dos seguintes recursos Azure:
 
-- **Um ponto final privado** : Um recurso Azure que representa o ponto final privado da conta de armazenamento. Pode pensar nisto como um recurso que liga uma conta de armazenamento e uma interface de rede.
-- **Uma interface de rede (NIC)** : A interface de rede que mantém um endereço IP privado dentro da rede/sub-rede virtual especificada. Este é exatamente o mesmo recurso que é implantado quando se implanta uma máquina virtual, no entanto, em vez de ser atribuído a um VM, é propriedade do ponto final privado.
-- **Uma zona privada de DNS** : Se nunca implementou um ponto final privado para esta rede virtual antes, uma nova zona privada de DNS será implantada para a sua rede virtual. Será também criado um registo de DNS para a conta de armazenamento nesta zona de DNS. Se já implementou um ponto final privado nesta rede virtual, será adicionado um novo recorde A para a conta de armazenamento na zona de DNS existente. A implantação de uma zona DE DNS é opcional, por muito recomendada que seja, e necessária se estiver a montar as suas partilhas de ficheiros Azure com um responsável de serviço AD ou a utilizar a API filerest.
+- **Um ponto final privado**: Um recurso Azure que representa o ponto final privado da conta de armazenamento. Pode pensar nisto como um recurso que liga uma conta de armazenamento e uma interface de rede.
+- **Uma interface de rede (NIC)**: A interface de rede que mantém um endereço IP privado dentro da rede/sub-rede virtual especificada. Este é exatamente o mesmo recurso que é implantado quando se implanta uma máquina virtual, no entanto, em vez de ser atribuído a um VM, é propriedade do ponto final privado.
+- **Uma zona privada de DNS**: Se nunca implementou um ponto final privado para esta rede virtual antes, uma nova zona privada de DNS será implantada para a sua rede virtual. Será também criado um registo de DNS para a conta de armazenamento nesta zona de DNS. Se já implementou um ponto final privado nesta rede virtual, será adicionado um novo recorde A para a conta de armazenamento na zona de DNS existente. A implantação de uma zona DE DNS é opcional, por muito recomendada que seja, e necessária se estiver a montar as suas partilhas de ficheiros Azure com um responsável de serviço AD ou a utilizar a API filerest.
 
 > [!Note]  
 > Este artigo utiliza o sufixo DNS da conta de armazenamento para as regiões públicas do Azure, `core.windows.net` . Este comentário também se aplica às nuvens soberanas de Azure, como a nuvem do Governo dos EUA Azure e a nuvem Azure China - basta substituir os sufixos apropriados para o seu ambiente. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-private-portal](../../../includes/storage-files-networking-endpoints-private-portal.md)]
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+[!INCLUDE [storage-files-networking-endpoints-private-powershell](../../../includes/storage-files-networking-endpoints-private-powershell.md)]
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+[!INCLUDE [storage-files-networking-endpoints-private-cli](../../../includes/storage-files-networking-endpoints-private-cli.md)]
+---
+
+## <a name="verify-connectivity"></a>Verificar conectividade
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Se tiver uma máquina virtual dentro da sua rede virtual, ou tiver configurado o reencaminhamento de DNS como descrito no [reencaminhamento de DNS para Ficheiros Azure,](storage-files-networking-dns.md)pode testar que o seu ponto final privado foi configurado corretamente executando os seguintes comandos da PowerShell, da linha de comando ou do terminal (funciona para Windows, Linux ou macOS). Deve substituir `<storage-account-name>` pelo nome da conta de armazenamento adequada:
 
@@ -74,7 +85,6 @@ Aliases:  storageaccount.file.core.windows.net
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-[!INCLUDE [storage-files-networking-endpoints-private-powershell](../../../includes/storage-files-networking-endpoints-private-powershell.md)]
 
 Se tiver uma máquina virtual dentro da sua rede virtual, ou tiver configurado o reencaminhamento de DNS como descrito na [configuração do encaminhamento de DNS para ficheiros Azure,](storage-files-networking-dns.md)pode testar que o seu ponto final privado foi configurado corretamente com os seguintes comandos:
 
@@ -101,7 +111,6 @@ IP4Address : 192.168.0.5
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-[!INCLUDE [storage-files-networking-endpoints-private-cli](../../../includes/storage-files-networking-endpoints-private-cli.md)]
 
 Se tiver uma máquina virtual dentro da sua rede virtual, ou tiver configurado o reencaminhamento de DNS como descrito na [configuração do encaminhamento de DNS para ficheiros Azure,](storage-files-networking-dns.md)pode testar que o seu ponto final privado foi configurado corretamente com os seguintes comandos:
 
@@ -127,10 +136,9 @@ storageaccount.file.core.windows.net      canonical name = storageaccount.privat
 Name:   storageaccount.privatelink.file.core.windows.net
 Address: 192.168.0.5
 ```
-
 ---
 
-### <a name="restrict-public-endpoint-access"></a>Restringir o acesso ao ponto final público
+## <a name="restrict-public-endpoint-access"></a>Restringir o acesso ao ponto final público
 
 Limitar o acesso ao ponto final público requer primeiro que desative o acesso geral ao ponto final público. O acesso incapacitante ao ponto final público não afeta os pontos finais privados. Depois de desativado o ponto final público, pode selecionar redes específicas ou endereços IP que possam continuar a aceder ao mesmo. Em geral, a maioria das políticas de firewall para uma conta de armazenamento restringem o acesso em rede a uma ou mais redes virtuais.
 

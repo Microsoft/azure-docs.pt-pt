@@ -8,17 +8,20 @@ ms.topic: article
 ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 01f02efd36c51f3969ee53e9efc78fbe1664b187
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 54bde8c9dd47e88ffdc831ccb9f7833720583238
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486543"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621387"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Alta disponibilidade de IBM Db2 LUW em VMs Azure no SUSE Linux Enterprise Server com Pacemaker
 
 O IBM Db2 para Linux, UNIX e Windows (LUW) na configuração de alta disponibilidade e recuperação de [desastres (HADR)](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html) consiste num nó que executa uma instância de base de dados primária e pelo menos um nó que executa uma instância de base de dados secundária. As alterações à instância da base de dados primária são replicadas numa instância de base de dados secundária sincronizada ou assíncronia, dependendo da sua configuração. 
 
+> [!NOTE]
+> Este artigo contém referências aos termos *mestre* e *escravo,* termos que a Microsoft já não utiliza. Quando estes termos forem removidos do software, removê-los-emos deste artigo.
+   
 Este artigo descreve como implantar e configurar as máquinas virtuais Azure (VMs), instalar a estrutura do cluster e instalar o IBM Db2 LUW com configuração HADR. 
 
 O artigo não abrange como instalar e configurar a IBM Db2 LUW com instalação de software HADR ou SAP. Para ajudá-lo a realizar estas tarefas, fornecemos referências aos manuais de instalação SAP e IBM. Este artigo centra-se em peças específicas para o ambiente Azure. 
@@ -27,7 +30,7 @@ As versões IBM Db2 suportadas são 10.5 e posteriormente, como documentado na n
 
 Antes de iniciar uma instalação, consulte as seguintes notas e documentação SAP:
 
-| Nota SAP | Descrição |
+| Nota SAP | Description |
 | --- | --- |
 | [1928533] | Aplicações SAP no Azure: Produtos suportados e tipos de VM Azure |
 | [2015553] | SAP on Azure: Pré-requisitos de apoio |
@@ -53,7 +56,7 @@ Antes de iniciar uma instalação, consulte as seguintes notas e documentação 
 | [IBM Db2 HADR 11.1][db2-hadr-11.1] |
 | [IBM DB2 HADR R 10.5][db2-hadr-10.5] |
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Para obter uma elevada disponibilidade, a IBM Db2 LUW com HADR é instalada em pelo menos duas máquinas virtuais Azure, que são implantadas num [conjunto de disponibilidades Azure](../../windows/tutorial-availability-sets.md) ou em [zonas de disponibilidade Azure.](./sap-ha-availability-zones.md) 
 
 Os gráficos a seguir exibem uma configuração de dois VMs de servidor de base de dados Azure. Ambos os servidores de base de dados Azure VMs têm o seu próprio armazenamento anexado e estão em funcionamento. Em HADR, uma das caixas de dados de uma das VMs do Azure tem o papel da primeira instância. Todos os clientes estão ligados a esta primeira instância. Todas as alterações nas transações de base de dados são persistiu localmente no registo de transações Db2. À medida que os registos de registo de transações são persistidos localmente, os registos são transferidos via TCP/IP para a caixa de dados no segundo servidor de base de dados, no servidor de espera ou na instância de standby. A instância de espera atualiza a base de dados local, transmitindo os registos de registos de transações transferidos. Desta forma, o servidor de espera é mantido sincronizado com o servidor primário.
@@ -492,7 +495,7 @@ O arquivo de registos é realizado apenas pela base de dados primária. Se alter
 
 Recomendamos configurar uma partilha comum de NFS onde os registos são escritos de ambos os nós. A quota da NFS tem de estar altamente disponível. 
 
-Você pode usar ações NFS altamente disponíveis para transportes ou um diretório de perfil. Para obter mais informações, consulte:
+Você pode usar ações NFS altamente disponíveis para transportes ou um diretório de perfil. Para obter mais informações, veja:
 
 - [Alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server][nfs-ha] 
 - [Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP](./high-availability-guide-suse-netapp-files.md)

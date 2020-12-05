@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: a915b5a348e3167d2cf81906b19abd9850584ce9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 694f501efc565ed498c1c8d8e2e38326277e8605
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460975"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621421"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Planeie um pedido gerido pela Azure para uma oferta de candidatura da Azure
 
@@ -32,7 +32,7 @@ Utilize uma Aplicação Azure: Plano de candidatura gerido quando forem necessá
 | ------------ | ------------- |
 | Uma subscrição do Azure | As aplicações geridas devem ser implementadas na subscrição de um cliente, mas podem ser geridas por terceiros. |
 | Faturação e medição | Os recursos são fornecidos na subscrição Azure de um cliente. Os VMs que utilizam o modelo de pagamento pay-as-you-go são transacionados com o cliente através da Microsoft e faturados através da subscrição Azure do cliente. <br><br> Para os VMs de sua própria licença, a Microsoft fatura quaisquer custos de infraestrutura que sejam incorridos na subscrição do cliente, mas você transaciona diretamente as taxas de licenciamento de software com o cliente. |
-| Disco rígido virtual compatível com Azure (VHD) | Os VMs devem ser construídos em Windows ou Linux. Para obter mais informações, consulte:<br> • [Criar um ativo técnico Azure VM](./azure-vm-create-certification-faq.md#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (para VHDs windows).<br> •  [Distribuição linux endossada no Azure](../virtual-machines/linux/endorsed-distros.md) (para Os VHDs Linux). |
+| Disco rígido virtual compatível com Azure (VHD) | Os VMs devem ser construídos em Windows ou Linux. Para obter mais informações, veja:<br> • [Criar um ativo técnico Azure VM](./azure-vm-create-certification-faq.md#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (para VHDs windows).<br> •  [Distribuição linux endossada no Azure](../virtual-machines/linux/endorsed-distros.md) (para Os VHDs Linux). |
 | Atribuição de utilização dos clientes | Todas as novas ofertas de aplicações da Azure também devem incluir uma [atribuição de utilização do cliente parceiro Azure](azure-partner-customer-usage-attribution.md) GUID. Para obter mais informações sobre a atribuição de utilização do cliente e como a capacitar, consulte a [atribuição de utilização do cliente do parceiro Azure](azure-partner-customer-usage-attribution.md). |
 | Pacote de implantação | Vai precisar de um pacote de implementação que permitirá aos clientes implementarem o seu plano. Se criar vários planos que exijam a mesma configuração técnica, pode utilizar o mesmo pacote. Para mais detalhes, consulte a secção seguinte: Pacote de implementação. |
 |||
@@ -90,7 +90,7 @@ Os preços são definidos em USD (USD = Dólar dos Estados Unidos) são converti
 O acesso ao JIT permite-lhe solicitar um acesso elevado aos recursos de uma aplicação gerida para resolução de problemas ou manutenção. Sempre tem acesso apenas de leitura aos recursos, mas por um período específico pode ter um maior acesso. Para obter mais informações, consulte [Ativar e solicitar acesso just-in-time para aplicações geridas azure](../azure-resource-manager/managed-applications/request-just-in-time-access.md).
 
 > [!NOTE]
-> Informações que o utilizador deve notar mesmo que desacerte a sua atualização do seu `createUiDefinition.json` ficheiro de forma a suportar esta funcionalidade.
+> Certifique-se de atualizar o seu `createUiDefinition.json` ficheiro de forma a suportar esta funcionalidade.
 
 ## <a name="deployment-mode"></a>Modo de implantação
 
@@ -126,11 +126,11 @@ Pode configurar um máximo de cinco políticas, e apenas um caso de cada tipo de
 
 | Tipo de política | Parâmetros de política necessários |
 | ------------ | ------------- |
-| Encriptação da base de dados Azure SQL | Não |
-| Definições de auditoria do servidor Azure SQL | Sim |
-| Encriptação da Loja Azure Data Lake | Não |
-| Definição de diagnóstico de auditoria | Sim |
-| Conformidade da Localização de Recursos de Auditoria | Não |
+| Encriptação da base de dados Azure SQL | No |
+| Definições de auditoria do servidor Azure SQL | Yes |
+| Encriptação da Loja Azure Data Lake | No |
+| Definição de diagnóstico de auditoria | Yes |
+| Conformidade da Localização de Recursos de Auditoria | No |
 |||
 
 Para cada tipo de apólice que adicionar, deve associar a Standard ou Free Policy SKU. O SKU Standard é necessário para as políticas de auditoria. Os nomes das apólices estão limitados a 50 caracteres.
