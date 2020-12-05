@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 75ccfe7a8e62e519b1df89792211433260a6abf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6584b2ecc54efd257bb30c479fd0f22150e8d9e1
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294718"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608593"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configure mPIO em um anfitrião StorSimple executando CentOS
 Este artigo explica os passos necessários para configurar o IO Multipating (MPIO) no servidor anfitrião Centos 6.6. O servidor anfitrião está ligado ao seu dispositivo Microsoft Azure StorSimple para uma elevada disponibilidade através de iniciadores iSCSI. Descreve em detalhe a descoberta automática de dispositivos multipatas e a configuração específica apenas para volumes StorSimple.
@@ -21,6 +21,9 @@ Este procedimento aplica-se a todos os modelos de dispositivos da série StorSim
 
 > [!NOTE]
 > Este procedimento não pode ser utilizado para um aparelho de nuvem StorSimple. Para obter mais informações, consulte como configurar servidores anfitriões para o seu aparelho em nuvem.
+
+> [!NOTE]
+> Este artigo contém referências ao termo *blacklist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 
 ## <a name="about-multipathing"></a>Sobre multipathing
@@ -438,7 +441,7 @@ Para mais informações, vá à [resolução de problemas para multipatar.](http
 | **Multipathing** |`service multipathd start` |Inicie o daemon multi-path |
 | &nbsp; |`service multipathd stop` |Pare o daemon multi-path |
 | &nbsp; |`service multipathd restart` |Reiniciar o daemon multi-path |
-| &nbsp; |`chkconfig multipathd on` </br> OU </br> `mpathconf -with_chkconfig y` |Permitir que o daemon multi-path comece na hora do arranque |
+| &nbsp; |`chkconfig multipathd on` </br> OR </br> `mpathconf -with_chkconfig y` |Permitir que o daemon multi-path comece na hora do arranque |
 | &nbsp; |`multipathd -k` |Inicie a consola interativa para resolução de problemas |
 | &nbsp; |`multipath -l` |Listar ligações e dispositivos multipatas |
 | &nbsp; |`mpathconf --enable` |Criar um ficheiro mulitpath.conf de amostra em `/etc/mulitpath.conf` |

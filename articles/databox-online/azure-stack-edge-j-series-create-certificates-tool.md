@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 11/24/2020
 ms.author: alkohli
-ms.openlocfilehash: 5e5cb077868a224620d1a23e1ff1aac9c8d9f095
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: ab9559e1e8265b3adf08b36d1a8097a00297c61a
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874479"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96606995"
 ---
 # <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Crie certificados para o seu Azure Stack Edge Pro utilizando a ferramenta Azure Stack Hub Readiness Checker 
 
@@ -23,7 +23,7 @@ Este artigo descreve como criar certificados para o seu Azure Stack Edge Pro uti
 
 ## <a name="using-azure-stack-hub-readiness-checker-tool"></a>Usando a ferramenta de verificação de prontidão do hub de pilha de Azure Stack
 
-Utilize a ferramenta Azure Stack Hub Readiness Checker para criar pedidos de assinatura de certificados (CSRs) para uma implementação do dispositivo Azure Stack Edge Pro. Pode criar estes pedidos depois de fazer um pedido para o dispositivo Azure Stack Edge Pro e esperar que o dispositivo chegue. 
+Utilize a ferramenta Azure Stack Hub Readiness Checker para criar pedidos de assinatura de certificados (CSRs) para uma implementação do dispositivo Azure Stack Edge Pro. Pode criar estes pedidos depois de fazer um pedido para o dispositivo Azure Stack Edge Pro e aguardar a chegada do dispositivo.
 
 > [!NOTE]
 > Utilize esta ferramenta apenas para fins de teste ou desenvolvimento e não para dispositivos de produção. 
@@ -59,21 +59,21 @@ Utilize estes passos para preparar os certificados do dispositivo Azure Stack Ed
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
-    Para verificar a versão instalada, escreva:  
+    Para obter a versão instalada, escreva:  
 
     ```azurepowershell
     Get-InstalledModule -Name Microsoft.AzureStack.ReadinessChecker  | ft Name, Version 
     ```
 
-3. Crie um diretório para todos os certificados se não existir. Escreva: 
+3. Crie um diretório para todos os certificados se ainda não tiver um. Escreva: 
     
     ```azurepowershell
     New-Item "C:\certrequest" -ItemType Directory
     ``` 
     
-4. Para criar um pedido de certificado, forneça as seguintes informações. Se estiver a gerar um certificado VPN, algumas destas entradas não se aplicam. 
+4. Para criar um pedido de certificado, forneça as seguintes informações. Se estiver a gerar um certificado VPN, algumas destas entradas não se aplicam.
     
-    |Entrada |Descrição  |
+    |Entrada |Description  |
     |---------|---------|
     |`OutputRequestPath`|O caminho do arquivo no seu cliente local onde deseja que os pedidos de certificado sejam criados.        |
     |`DeviceName`|O nome do seu dispositivo na página **dispositivos** na UI web local do seu dispositivo. <br> Este campo não é necessário para um certificado VPN.         |
@@ -107,7 +107,7 @@ Utilize estes passos para preparar os certificados do dispositivo Azure Stack Ed
     ```
 
     
-5. Encontrará os ficheiros de pedido de certificado sob o diretório especificado no parâmetro OutputRequestPath acima. Ao utilizar o `MultipleCSR` parâmetro, verá 4 ficheiros com a `.req` extensão. Os ficheiros são os seguintes:
+5. Encontrará os ficheiros de pedido de certificado no diretório especificado no parâmetro OutputRequestPath acima. Ao utilizar o `MultipleCSR` parâmetro, verá os seguintes quatro ficheiros com a `.req` extensão:
 
     
     |Nomes de ficheiros  |Tipo de pedido de certificado  |
@@ -115,17 +115,17 @@ Utilize estes passos para preparar os certificados do dispositivo Azure Stack Ed
     |Começando com o seu `DeviceName`     |Pedido de certificado de UI web local      |
     |Começando com o seu `NodeSerialNumber`     |Pedido de certificado de nó         |
     |Começando com `login`     |Pedido de certificado endpoint do Gestor de Recursos Azure       |
-    |Começando com `wildcard`     |Pedido de certificado de armazenamento blob; contém um wildcard porque cobre todas as contas de armazenamento que pode criar no dispositivo.          |
+    |Começando com `wildcard`     |Pedido de certificado de armazenamento blob. Contém um wildcard porque cobre todas as contas de armazenamento que pode criar no dispositivo.          |
     |Começando com `AzureStackEdgeVPNCertificate`     |Pedido de certificado de cliente VPN.         |
 
-    Também vê uma pasta INF. Isto contém um ficheiro de informação <<dispositivo de borda> em texto claro, explicando os detalhes do certificado.  
+    Também verá uma pasta INF. Isto contém um ficheiro de informação <<dispositivo de borda> em texto claro, explicando os detalhes do certificado.  
 
 
-6. Envie estes ficheiros para a sua autoridade de certificados (interna ou pública). Certifique-se de que o seu CA gera certificados utilizando o seu pedido gerado que satisfaz os requisitos do certificado Azure Stack Edge Pro para [certificados de nó, certificados](azure-stack-edge-j-series-manage-certificates.md#node-certificates) [de ponto final](azure-stack-edge-j-series-manage-certificates.md#endpoint-certificates)e [certificados de UI locais](azure-stack-edge-j-series-manage-certificates.md#local-ui-certificates).
+6. Envie estes ficheiros para a sua autoridade de certificados (interna ou pública). Certifique-se de que o seu CA gera certificados, utilizando o seu pedido gerado, que cumprem os requisitos do certificado Azure Stack Edge Pro para [certificados de nó, certificados](azure-stack-edge-j-series-manage-certificates.md#node-certificates) [de ponto final](azure-stack-edge-j-series-manage-certificates.md#endpoint-certificates)e [certificados de UI locais.](azure-stack-edge-j-series-manage-certificates.md#local-ui-certificates)
 
 ## <a name="prepare-certificates-for-deployment"></a>Preparar certificados para implantação
 
-Os ficheiros de certificado que obtém da sua autoridade de certificados (CA) devem ser importados e exportados com propriedades que correspondam aos requisitos do certificado do dispositivo Azure Stack Edge Pro. Complete os seguintes passos no mesmo sistema onde gerou os pedidos de assinatura do certificado.
+Os ficheiros de certificado que obtém da sua autoridade de certificados (CA) devem ser importados e exportados com propriedades que correspondam aos requisitos de certificado do dispositivo Azure Stack Edge Pro. Complete os seguintes passos no mesmo sistema onde gerou os pedidos de assinatura do certificado.
 
 - Para importar os certificados, siga os passos nos [certificados de importação dos clientes que acedem ao seu dispositivo Azure Stack Edge Pro](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 

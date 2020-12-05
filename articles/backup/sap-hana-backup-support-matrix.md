@@ -4,12 +4,12 @@ description: Neste artigo, conheça os cenários e limitações suportados quand
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: 181d006d0d1f0e5c2f099507be493ced2ce9280b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: cb7f31986b9ebd91c631d2b896600039c93084de
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659748"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607097"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matriz de suporte da cópia de segurança de bases de dados SAP HANA nas VMs do Azure
 
@@ -24,7 +24,7 @@ A Azure Backup suporta a cópia de segurança das bases de dados SAP HANA para a
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Topologia**               | SAP HANA a funcionar apenas em VMs Azure Linux                    | HANA Grandes Instâncias (HLI)                                   |
 | **Regiões**                   | **GA:**<br> **Américas** – Central EUA, Leste dos EUA 2, Leste dos EUA, Norte Central EUA, Centro Sul dos EUA, West Central US, West Central US, West Us, Canadá Central, Canadá Leste, Brasil Sul <br> **Ásia Pacífico** – Austrália Central, Austrália Central 2, Austrália Leste, Austrália Sudeste, Japão Leste, Japão Oeste, Coreia Central, Coreia do Sul, Ásia Oriental, Sudeste Asiático, Índia Central, Índia Central, Índia Ocidental, China Leste, China Norte, China Leste2, China Norte 2 <br> **Europa** – Europa Ocidental, Norte da Europa, França Central, Reino Unido Sul, Reino Unido Oeste, Alemanha Norte, Alemanha Central Ocidental, Suíça Norte, Suíça Oeste, Suíça Norte, Noruega Leste, Noruega Oeste <br> **África / ME** - África do Sul Norte, África do Sul Oeste, Emirados Árabes Unidos Norte, Uae Central  <BR>  **Regiões do Azure Government** | França Sul, Alemanha Central, Alemanha Nordeste, EUA Gov IOWA |
-| **Versões de SO**            | SLES 12 com SP2, SP3, SP4 e SP5; SLES 15 com SP0 e SP1 <br><br>  A partir de 1 de agosto de 2020, o backup SAP HANA para a RHEL (7.4, 7.6, 7,7 & 8.1) está geralmente disponível.                |                                             |
+| **Versões de SO**            | SLES 12 com SP2, SP3, SP4 e SP5; SLES 15 com SP0, SP1, SP2 <br><br>  A partir de 1 de agosto de 2020, o backup SAP HANA para a RHEL (7.4, 7.6, 7,7 & 8.1) está geralmente disponível.                |                                             |
 | **Versões HANA**          | SDC em HANA 1.x, MDC em HANA 2.x <= SPS04 Rev 48, SPS05 (ainda a ser validado para cenários habilitados para encriptação)      |                                                            |
 | **Implantações hana**       | SAP HANA em um único Azure VM - Escalar apenas. <br><br> Para implementações de alta disponibilidade, ambos os nós nas duas máquinas diferentes são tratados como nós individuais com cadeias de dados separadas.               | Aumentar <br><br> Em implementações de alta disponibilidade, a cópia de segurança não falha automaticamente no nó secundário. A cópia de segurança configurante deve ser feita separadamente para cada nó.                                           |
 | **Instâncias HANA**         | Um único caso SAP HANA em um único Azure VM - escala apenas | Múltiplas instâncias SAP HANA em um único VM                  |
@@ -45,7 +45,7 @@ A Azure Backup suporta a cópia de segurança das bases de dados SAP HANA para a
 > [!NOTE]
 > Agora pode [monitorizar a cópia de segurança e restaurar os](./sap-hana-db-manage.md#monitor-manual-backup-jobs-in-the-portal) trabalhos (para a mesma máquina) acionados a partir de clientes nativos da HANA (SAP HANA Studio/ Cockpit/ DBA Cockpit) no portal Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [fazer backup nas bases de dados SAP HANA em execução em VMs Azure](./backup-azure-sap-hana-database.md)
 * Saiba como restaurar as [bases de dados SAP HANA em execução em VMs Azure](./sap-hana-db-restore.md)

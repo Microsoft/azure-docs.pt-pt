@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 1383db44922a044f5e51075b6e1feafa70c78009
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 13644872fca06ad8fc5806326736aea23e504520
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958764"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608661"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Implementar um sistema de escala SAP HANA com nó de espera em VMs Azure utilizando ficheiros Azure NetApp no SUSE Linux Enterprise Server 
 
@@ -86,7 +86,7 @@ Antes de começar, consulte as seguintes notas e documentos SAP:
 * [Aplicações NETApp SAP no Microsoft Azure utilizando ficheiros Azure NetApp][anf-sap-applications-azure]
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Um método para alcançar a alta disponibilidade de HANA é configurando o failover de carro hospedeiro. Para configurar o failover automático do anfitrião, adicione uma ou mais máquinas virtuais ao sistema HANA e configurá-las como nós de espera. Quando o nó ativo falha, um nó de espera assume automaticamente. Na configuração apresentada com máquinas virtuais Azure, obtém-se falha automática utilizando [NFS em Ficheiros Azure NetApp](../../../azure-netapp-files/azure-netapp-files-introduction.md).  
 
@@ -655,6 +655,9 @@ Neste exemplo para implantar o SAP HANA em configuração de escala com nó de e
    > Esteja atento à Nota [SAP 2631285](https://launchpad.support.sap.com/#/notes/2631285). 
 
 ## <a name="test-sap-hana-failover"></a>Teste SAP HANA failover 
+
+> [!NOTE]
+> Este artigo contém referências aos termos *mestre* e *escravo,* termos que a Microsoft já não utiliza. Quando estes termos forem removidos do software, removê-los-emos deste artigo.
 
 1. Simular um nó num nó de trabalhadores da SAP HANA. Faça o seguinte: 
 

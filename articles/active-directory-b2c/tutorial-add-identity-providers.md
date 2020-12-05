@@ -11,12 +11,13 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9f9abf9105da773ec5f8321c0f8e70e20516618c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 166bdb7a2cf15a84e1b826a9a798042c568bb227
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922154"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608236"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Tutorial: Adicione fornecedores de identidade às suas aplicações no Azure Ative Directory B2C
 
@@ -35,7 +36,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Crie um fluxo de utilizador](tutorial-create-user-flows.md) para permitir que os utilizadores se inscrevam e se inscrevam na sua aplicação.
+[Criar um fluxo de utilizador](tutorial-create-user-flows.md) para permitir que os utilizadores se inscrevam e iniciem sessão na sua aplicação.
 
 ## <a name="create-applications"></a>Criar aplicações
 
@@ -61,7 +62,7 @@ Para ativar o sôm-in para utilizadores a partir da Azure AD, você precisa regi
 
     Todos os URLs devem agora estar a utilizar [b2clogin.com](b2clogin.md).
 
-1. Selecione **Registar-se**e, em seguida, grave o **ID de Aplicação (cliente)** que utiliza num passo posterior.
+1. Selecione **Registar-se** e, em seguida, grave o **ID de Aplicação (cliente)** que utiliza num passo posterior.
 1. Em **Gerir** no menu de aplicações, selecione **Certificados & segredos,** em seguida, selecione **Novo segredo do cliente**.
 1. Insira uma **Descrição** para o segredo do cliente. Por exemplo, `Azure AD B2C App Secret`.
 1. Selecione o período de validade. Para esta candidatura, aceite a seleção de **In 1 ano**.
@@ -74,11 +75,11 @@ Para utilizar uma conta do Facebook como fornecedor de identidade no Azure AD B2
 1. Inscreva-se no [Facebook para programadores](https://developers.facebook.com/) com as suas credenciais de conta no Facebook.
 1. Se ainda não o fez, tem de se registar como programador do Facebook. Para isso, **selecione Começar** no canto superior direito da página, aceite as políticas do Facebook e complete as etapas de inscrição.
 1. Selecione **as minhas apps** e, em seguida, **crie app.**
-1. Introduza um **Nome de Exibição** e um **e-mail de contacto**válido.
+1. Introduza um **Nome de Exibição** e um **e-mail de contacto** válido.
 1. Clique **em Criar ID de aplicação.** Isto pode exigir que aceite as políticas da plataforma do Facebook e preencha uma verificação de segurança online.
 1. Selecione **Definições**  >  **Básicas**.
 1. Escolha uma **categoria,** por `Business and Pages` exemplo. Este valor é exigido pelo Facebook, mas não é utilizado pelo Azure AD B2C.
-1. Na parte inferior da página, selecione **Add Platform**e, em seguida, selecione **Website**.
+1. Na parte inferior da página, selecione **Add Platform** e, em seguida, selecione **Website**.
 1. No **URL do Site,** `https://your-tenant-name.b2clogin.com/` insira a substituição `your-tenant-name` pelo nome do seu inquilino.
 1. Introduza um URL para o **URL da Política de Privacidade,** por exemplo `http://www.contoso.com/` . O URL de política de privacidade é uma página que mantém para fornecer informações de privacidade para a sua aplicação.
 1. Selecione **Guardar alterações**.
@@ -97,21 +98,23 @@ Depois de criar o pedido para o fornecedor de identidade que pretende adicionar,
 
 1. Certifique-se de que está a usar o diretório que contém o inquilino Azure AD B2C. Selecione o filtro **de subscrição Diretório +** no menu superior e escolha o diretório que contém o seu inquilino Azure AD B2C.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
-1. Selecione **os fornecedores de identidade**e, em seguida, selecione novo fornecedor **OpenID Connect**.
+1. Selecione **os fornecedores de identidade** e, em seguida, selecione novo fornecedor **OpenID Connect**.
 1. Insira um **nome**. Por exemplo, *insira Contoso Azure AD*.
-1. Para **o url metadados,** introduza o seguinte URL substituindo `your-AD-tenant-domain` pelo nome de domínio do seu inquilino AZure AD:
+1. Para **o url metadados,** introduza o seguinte URL substituindo `{tenant}` pelo nome de domínio do seu inquilino AZure AD:
 
     ```
-    https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
+    https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
     ```
 
-    Por exemplo, `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
+    Por exemplo, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`.
+    Por exemplo, `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`.
 
 1. Para **identificação do cliente,** introduza o ID da aplicação que gravou anteriormente.
 1. Para **segredo do Cliente,** insira o segredo do cliente que gravou anteriormente.
-1. Deixe os valores predefinidos para **Scope,** **Tipo de resposta**e modo **resposta**.
-1. (Opcional) Introduza um valor para **Domain_hint**. Por exemplo, *ContosoAD*. [As dicas de domínio](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) são diretivas que estão incluídas no pedido de autenticação de uma aplicação. Podem ser usados para acelerar o utilizador para a sua página de inscrição federada do IdP. Ou podem ser usados por uma aplicação multi-arrendatário para acelerar o utilizador diretamente para a página de inscrição AZure AD marcada para o seu inquilino.
-1. No **âmbito do mapeamento de reclamações de fornecedor de identidade,** introduza os seguintes valores de mapeamento de reclamações:
+1. Para o **Âmbito,** insira o `openid profile` .
+1. Deixe os valores predefinidos para o **tipo de resposta** e modo **resposta**.
+1. (Opcional) Para a **sugestão de Domínio,** insira `contoso.com` . Para obter mais informações, consulte [Configurar o insusimento direto utilizando o Azure Ative Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
+1. No âmbito **do mapeamento de reclamações do fornecedor de identidade,** selecione as seguintes reclamações:
 
     * **ID do utilizador**: *oid*
     * **Nome do visor**: *nome*
@@ -123,7 +126,7 @@ Depois de criar o pedido para o fornecedor de identidade que pretende adicionar,
 
 ### <a name="add-the-facebook-identity-provider"></a>Adicione o fornecedor de identidade do Facebook
 
-1. Selecione **fornecedores de identidade**e, em seguida, selecione **Facebook**.
+1. Selecione **fornecedores de identidade** e, em seguida, selecione **Facebook**.
 1. Insira um **nome**. Por exemplo, *Facebook*.
 1. Para o ID do **Cliente,** insira o ID da aplicação do Facebook que criou anteriormente.
 1. Para o segredo do **Cliente,** insira a App Secret que gravou.
@@ -133,7 +136,7 @@ Depois de criar o pedido para o fornecedor de identidade que pretende adicionar,
 
 No tutorial que completou como parte dos pré-requisitos, criou um fluxo de utilizador para inscrição e inscrição denominada *B2C_1_signupsignin1*. Nesta secção, adicione os fornecedores de identidade ao *fluxo de utilizador B2C_1_signupsignin1.*
 
-1. Selecione **os fluxos do Utilizador**e, em seguida, selecione o fluxo do utilizador *B2C_1_signupsignin1.*
+1. Selecione **os fluxos do Utilizador** e, em seguida, selecione o fluxo do utilizador *B2C_1_signupsignin1.*
 2. Selecione **fornecedores de identidade**, selecione os fornecedores de identidade **do Facebook** e **Contoso Azure AD** que adicionou.
 3. Selecione **Guardar**.
 
@@ -141,7 +144,7 @@ No tutorial que completou como parte dos pré-requisitos, criou um fluxo de util
 
 1. Na página geral do fluxo de utilizador que criou, selecione **Executar o fluxo do utilizador**.
 1. Para **Aplicação**, selecione a aplicação web chamada *webapp1* que registou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms` .
-1. **Selecione Executar o fluxo do utilizador**e, em seguida, iniciar sôs com um fornecedor de identidade que anteriormente adicionou.
+1. **Selecione Executar o fluxo do utilizador** e, em seguida, iniciar sôs com um fornecedor de identidade que anteriormente adicionou.
 1. Repita os passos 1 a 3 para os outros fornecedores de identidade que adicionou.
 
 Se o sinal em funcionamento for bem sucedido, é redirecionado para `https://jwt.ms` o qual exibe o Token descodificado, semelhante a:

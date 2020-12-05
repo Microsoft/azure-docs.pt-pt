@@ -15,16 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: juergent
-ms.openlocfilehash: fcc247e9e3122515ebe9230f58860df8c6dd3948
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 85f268990ac9e0c04cba1b9c409a232a24ce0d61
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484333"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608639"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Elevada disponibilidade do IBM DB2 LUW nas VMs do Azure no Red Hat Enterprise Linux Server
 
 O IBM Db2 para Linux, UNIX e Windows (LUW) na configuração de alta disponibilidade e recuperação de [desastres (HADR)](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html) consiste num nó que executa uma instância de base de dados primária e pelo menos um nó que executa uma instância de base de dados secundária. As alterações à instância da base de dados primária são replicadas numa instância de base de dados secundária sincronizada ou assíncronia, dependendo da sua configuração. 
+
+> [!NOTE]
+> Este artigo contém referências aos termos *mestre* e *escravo,* termos que a Microsoft já não utiliza. Quando estes termos forem removidos do software, removê-los-emos deste artigo.
 
 Este artigo descreve como implantar e configurar as máquinas virtuais Azure (VMs), instalar a estrutura do cluster e instalar o IBM Db2 LUW com configuração HADR. 
 
@@ -34,7 +37,7 @@ As versões IBM Db2 suportadas são 10.5 e posteriormente, como documentado na n
 
 Antes de iniciar uma instalação, consulte as seguintes notas e documentação SAP:
 
-| Nota SAP | Descrição |
+| Nota SAP | Description |
 | --- | --- |
 | [1928533] | Aplicações SAP no Azure: Produtos suportados e tipos de VM Azure |
 | [2015553] | SAP on Azure: Pré-requisitos de apoio |
@@ -67,7 +70,7 @@ Antes de iniciar uma instalação, consulte as seguintes notas e documentação 
 
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Para obter uma elevada disponibilidade, a IBM Db2 LUW com HADR é instalada em pelo menos duas máquinas virtuais Azure, que são implantadas num [conjunto de disponibilidades Azure](../../windows/tutorial-availability-sets.md) ou em [zonas de disponibilidade Azure.](./sap-ha-availability-zones.md) 
 
 Os gráficos a seguir exibem uma configuração de dois VMs de servidor de base de dados Azure. Ambos os servidores de base de dados Azure VMs têm o seu próprio armazenamento anexado e estão em funcionamento. Em HADR, uma das caixas de dados de uma das VMs do Azure tem o papel da primeira instância. Todos os clientes estão ligados à primeira instância. Todas as alterações nas transações de base de dados são persistiu localmente no registo de transações Db2. À medida que os registos de registo de transações são persistidos localmente, os registos são transferidos via TCP/IP para a caixa de dados no segundo servidor de base de dados, no servidor de espera ou na instância de standby. A instância de espera atualiza a base de dados local, transmitindo os registos de registos de transações transferidos. Desta forma, o servidor de espera é mantido sincronizado com o servidor primário.
@@ -510,7 +513,7 @@ O arquivo de registos é realizado apenas pela base de dados primária. Se alter
 
 Recomendamos configurar uma partilha comum de NFS ou GlusterFS, onde os registos são escritos a partir de ambos os nós. A participação da NFS ou a GlusterFS tem de estar altamente disponível. 
 
-Você pode usar ações NFS altamente disponíveis ou GlusterFS para transportes ou um diretório de perfil. Para obter mais informações, consulte:
+Você pode usar ações NFS altamente disponíveis ou GlusterFS para transportes ou um diretório de perfil. Para obter mais informações, veja:
 
 - [GlusterFS nas VMs do Azure no Red Hat Enterprise Linux para o SAP NetWeaver][glusterfs] 
 - [Alta disponibilidade para SAP NetWeaver em VMs Azure em Red Hat Enterprise Linux com Ficheiros Azure NetApp para aplicações SAP][anf-rhel]

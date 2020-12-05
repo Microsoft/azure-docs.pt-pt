@@ -7,18 +7,18 @@ ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperfq2
-ms.openlocfilehash: a312c0ff255df4545181755ae6accd0d7dfb13a2
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 8b836ac8bd2255abf9a94e532a0599994c3ede89
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574858"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608257"
 ---
 # <a name="introduction-to-azure-functions"></a>Introdução às Funções do Azure
 
 Muitas vezes construímos sistemas para reagir a uma série de eventos críticos. Quer esteja a construir uma API web, a responder a alterações na base de dados, a processar fluxos de dados IoT ou até mesmo a gerir filas de mensagens - cada aplicação precisa de uma forma de executar algum código à medida que estes eventos ocorrem.
 
-Para responder a esta necessidade, a Azure Functions fornece "compute on demand" - e de duas formas significativas.
+Para responder a esta necessidade, a Azure Functions fornece "computação a pedido" de duas formas significativas.
 
 Em primeiro lugar, o Azure Functions permite-lhe implementar a lógica do seu sistema em blocos de código facilmente disponíveis. Estes blocos de código são chamados de "funções". Diferentes funções podem ser executadas sempre que precisar para responder a eventos críticos.
 

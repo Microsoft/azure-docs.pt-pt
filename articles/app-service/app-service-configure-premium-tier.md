@@ -6,12 +6,12 @@ ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 204e087908ff978880966332b4619935dc6f0458
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 7ade24b6478f78a51e0be68ae69ae0b076ecff1f
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559121"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607879"
 ---
 # <a name="configure-premiumv3-tier-for-azure-app-service"></a>Configure nível PremiumV3 para serviço de aplicações Azure
 
@@ -82,7 +82,7 @@ Alguns planos do Serviço de Aplicações não podem escalar até ao nível Prem
 Se a sua aplicação funcionar numa implementação do Serviço de Aplicações onde o **PremiumV3** não está disponível, ou se a sua aplicação funciona numa região que atualmente não suporta **o PremiumV3,** tem de voltar a implementar a sua app para tirar partido do **PremiumV3**.  Tem duas opções:
 
 - Crie uma aplicação num novo grupo de recursos e com um novo plano de Serviço de Aplicações. Ao criar o plano de Serviço de Aplicações, selecione um nível **PremiumV3.** Este passo garante que o plano de Serviço de Aplicações é implantado numa unidade de implantação que suporta **o PremiumV3**. Em seguida, recolocar o seu código de aplicação na aplicação recém-criada. Mesmo que reduza o plano do Serviço de Aplicações para um nível mais baixo para economizar custos, pode sempre voltar a escalar para **o PremiumV3** porque a unidade de implantação o suporta.
-- Se a sua aplicação já funciona num nível **Premium** existente, então pode clonar a sua aplicação com todas as definições de aplicações, cordas de ligação e configuração de implementação num novo plano de serviço de aplicações que utilize **o PremiumV3**.
+- Se a sua aplicação já funciona num nível **Premium** existente, então pode clonar a sua aplicação com todas as definições de aplicações, cordas de ligação e configuração de implementação num novo grupo de recursos num novo plano de serviço de aplicações que utiliza **o PremiumV3**.
 
     ![Screenshot mostrando como clonar a sua aplicação.](media/app-service-configure-premium-tier/clone-app.png)
 

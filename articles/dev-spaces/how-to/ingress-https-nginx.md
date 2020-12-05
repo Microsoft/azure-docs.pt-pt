@@ -6,12 +6,12 @@ ms.topic: conceptual
 description: Aprenda a configurar a Azure Dev Spaces para utilizar um controlador de entrada NGINX personalizado e configuure HTTPS usando esse controlador de entrada
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: e1918b5ce9c0fdba81174f0b36fd1ce51d0df70a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 873057e88809c1aaa8047ac02129d83ca8e9a478
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748828"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608559"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Use um controlador de entrada NGINX personalizado e configuure HTTPS
 
@@ -100,8 +100,8 @@ cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
 Abrir [valores.yaml][values-yaml] e fazer as seguintes atualizações:
-* Substitua todas as instâncias de *<REPLACE_ME_WITH_HOST_SUFFIX>* por *nginx. MY_CUSTOM_DOMAIN* utilizar o seu domínio durante *MY_CUSTOM_DOMAIN* . 
-* Substitua *kubernetes.io/ingress.class: traefik-azds # Dev Spaces-specific* com *kubernetes.io/ingress.class: nginx # Custom Ingress* . 
+* Substitua todas as instâncias de *<REPLACE_ME_WITH_HOST_SUFFIX>* por *nginx. MY_CUSTOM_DOMAIN* utilizar o seu domínio durante *MY_CUSTOM_DOMAIN*. 
+* Substitua *kubernetes.io/ingress.class: traefik-azds # Dev Spaces-specific* com *kubernetes.io/ingress.class: nginx # Custom Ingress*. 
 
 Abaixo está um exemplo de um `values.yaml` ficheiro atualizado:
 
@@ -210,7 +210,7 @@ spec:
 ```
 
 > [!NOTE]
-> Para testes, existe também um [servidor de preparação][letsencrypt-staging-issuer] que pode utilizar para o seu *ClusterIssuer* .
+> Para testes, existe também um [servidor de preparação][letsencrypt-staging-issuer] que pode utilizar para o seu *ClusterIssuer*.
 
 Utilizar `kubectl` para aplicar `letsencrypt-clusterissuer.yaml` .
 
@@ -328,7 +328,7 @@ Saiba mais sobre o funcionamento da Azure Dev Spaces.
 [az-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/a?view=azure-cli-latest#az-network-dns-record-set-a-add-record
-[custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-the-domain
+[custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain
 [dns-zone]: ../../dns/dns-getstarted-cli.md
 [azds-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/azds.yaml
 [azure-account-create]: https://azure.microsoft.com/free

@@ -7,12 +7,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 6fb1ef45ff4e77ab21480a1013a3cec6bcc7cfa1
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: bfab099c3b81164e0d9ffaa009ea13f42aefb875
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030905"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608644"
 ---
 # <a name="install-and-use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Instale e utilize o Emulador Azure Cosmos DB para desenvolvimento e testes locais
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -60,7 +60,7 @@ Como o Emulador DB Azure Cosmos proporciona um ambiente emulado que funciona na 
 Antes de instalar o emulador, certifique-se de que tem os seguintes requisitos de hardware e software:
 
 * Requisitos de software:
-  * Atualmente o Windows Server 2012 R2, Windows Server 2016, 2019 ou Windows 8, 10 host OS são suportados. O sistema operativo anfitrião com Ative Directory ativado não está atualmente suportado.
+  * Atualmente o Windows Server 2016, 2019 ou o Windows 10 host OS são suportados. O sistema operativo anfitrião com Ative Directory ativado não está atualmente suportado.
   * Sistema operativo de 64 bits
 
 * Requisitos mínimos de hardware:
@@ -333,7 +333,7 @@ Para permitir o acesso à rede pela primeira vez, o utilizador deve desligar o e
 
 ## <a name="authenticate-connections-when-using-emulator"></a><a id="authenticate-requests"></a>Autenticar ligações ao utilizar o emulador
 
-Tal como no Azure Cosmos DB na cloud, todos os pedidos que fizer relativamente ao Emulador do Azure Cosmos DB têm de ser autenticados. O Emulador Azure Cosmos DB suporta apenas uma comunicação segura via TLS. O Emulador DB Azure Cosmos suporta uma única conta fixa e uma chave de autenticação bem conhecida para a autenticação da chave primária. Esta conta e chave são as únicas credenciais permitidas para utilização com o Emulador do Azure Cosmos DB. São:
+Tal como no Azure Cosmos DB na cloud, todos os pedidos que fizer relativamente ao Emulador do Azure Cosmos DB têm de ser autenticados. O Emulador Azure Cosmos DB suporta apenas uma comunicação segura via TLS. O Emulador DB Azure Cosmos suporta uma única conta fixa e uma chave de autenticação bem conhecida para a autenticação da chave primária. Esta conta e chave são as únicas credenciais permitidas para utilização com o Emulador do Azure Cosmos DB. A saber:
 
 ```bash
 Account name: localhost:<port>

@@ -5,12 +5,12 @@ description: Saiba como atualizar os nosdes AKS usando as ações do GitHub
 services: container-service
 ms.topic: article
 ms.date: 11/27/2020
-ms.openlocfilehash: 7a24911fd771663c7edbbdf0c8d2d763a74fc586
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 504c99a7305a5010f8dbe56a30b53d6fc3a13c5b
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96535218"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607845"
 ---
 # <a name="apply-security-updates-to-azure-kubernetes-service-aks-nodes-automatically-using-github-actions"></a>Aplicar atualizações de segurança aos nós do Serviço Azure Kubernetes (AKS) utilizando automaticamente as ações do GitHub
 
@@ -170,8 +170,8 @@ Assim que criar o compromisso, o fluxo de trabalho será guardado e pronto para 
 
 > [!NOTE]
 > Para atualizar uma única piscina de nós em vez de todas as piscinas de nós no cluster, adicione o `--name` parâmetro ao comando para `az aks nodepool upgrade` especificar o nome da piscina do nó. Por exemplo:
-> ```
-> inlineScript: az aks nodepool upgrade -g {resourceGroupName} --cluster-name {aksClusterName} --name {{nodePoolName}} --node-image-only
+> ```azurecli-interactive
+> az aks nodepool upgrade -g {resourceGroupName} --cluster-name {aksClusterName} --name {{nodePoolName}} --node-image-only
 > ```
 
 ## <a name="run-the-github-action-manually"></a>Executar a Ação GitHub manualmente

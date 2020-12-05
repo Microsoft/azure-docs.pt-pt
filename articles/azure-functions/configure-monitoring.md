@@ -4,12 +4,12 @@ description: Saiba como ligar a sua aplicação de função a Application Insigh
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperfq2, devx-track-azurecli
-ms.openlocfilehash: 0b8aae707f0fb055677af111f1e88c0a2e19b227
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 02d5ad2e9697c14818a985325267d7caea80f65e
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175751"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607131"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Como configurar a monitorização para as funções do Azure
 
@@ -38,6 +38,9 @@ O madeireiro Azure Functions inclui uma *categoria* para cada registo. A categor
 | **`Host.Results`** | **pedidos** | Estes registos gerados pelo tempo de execução indicam o sucesso ou falha de uma função. Todos estes registos estão escritos ao `Information` nível. Se filtrar ou `Warning` ultrapassar, não verá nenhum destes dados. |
 | **`Microsoft`** | **vestígios** | Categoria de registo totalmente qualificado que reflete um componente de tempo de execução .NET invocado pelo anfitrião.  |
 | **`Worker`** | **vestígios** | Registos gerados pelo processo de trabalho linguístico para non-.NET línguas. Os registos de trabalhadores linguísticos também podem ser registados numa `Microsoft.*` categoria, como `Microsoft.Azure.WebJobs.Script.Workers.Rpc.RpcFunctionInvocationDispatcher` . Estes registos estão escritos ao `Information` nível.|
+
+> [!NOTE]
+> Para funções de biblioteca de classe .NET, estas categorias assumem que está a usar `ILogger` e `ILogger<T>` não. Para saber mais, consulte a [documentação do Funções ILogger](functions-dotnet-class-library.md#ilogger). 
 
 # <a name="v1x"></a>[v1.x](#tab/v1)
 

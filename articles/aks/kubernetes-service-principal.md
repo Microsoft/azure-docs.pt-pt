@@ -4,12 +4,12 @@ description: Criar e gerir um principal de serviço do Azure Active Directory pa
 services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 7f62c7dc7aacf9be4a59498aa5c556e9991ad578
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e95eae3ab8d992bc169e54700e7e31715e72102e
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85298553"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607828"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principais de serviço com o Serviço Kubernetes do Azure (AKS)
 
@@ -17,13 +17,13 @@ Para interagir com as APIs do Azure, um cluster AKS requer um [diretor de servi�
 
 Este artigo mostra como criar e utilizar um principal de serviço para os seus clusters do AKS.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para criar um principal de serviço do Azure AD, tem de ter permissões para registar uma aplicação no seu inquilino do Azure AD e para atribuir a aplicação a uma função na sua subscrição. Se não tiver as permissões necessárias, poderá ter de pedir ao administrador do Microsoft Azure AD ou da subscrição para atribuir as permissões necessárias ou pré-criar um principal de serviço para utilizar com o cluster do AKS.
 
 Se você estiver usando um diretor de serviço de um inquilino AZure AD diferente, há considerações adicionais em torno das permissões disponíveis quando você implanta o cluster. Pode não ter as permissões adequadas para ler e escrever informações de diretório. Para mais informações, consulte [quais são as permissões de utilizador predefinidas no Azure Ative Directory?][azure-ad-permissions]
 
-Também precisa da versão Azure CLI 2.0.59 ou posteriormente instalada e configurada. Corre  `az --version` para encontrar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
+Também precisa da versão Azure CLI 2.0.59 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Criar e utilizar um principal de serviço automaticamente
 
@@ -98,14 +98,13 @@ As seguintes secções detalham as delegações comuns que poderá ter de fazer.
 
 Se utilizar o Registo de Contentores Azure (ACR) como loja de imagens do contentor, tem de conceder permissões ao principal de serviço para que o seu cluster AKS leia e retire imagens. Atualmente, a configuração recomendada é usar o comando [de az aks create][az-aks-create] ou [az aks update][az-aks-update] para integrar-se com um registo e atribuir o papel adequado para o principal serviço. Para obter etapas detalhadas, consulte [Authenticate with Azure Container Registry from Azure Kubernetes Service][aks-to-acr].
 
-### <a name="networking"></a>Redes
+### <a name="networking"></a>Rede
 
 Pode utilizar uma rede avançada onde a rede virtual e os endereços IP da sub-rede ou do ip público se encontram noutro grupo de recursos. Atribuir um dos seguintes conjuntos de permissões de função:
 
 - Crie um [papel personalizado][rbac-custom-role] e defina as seguintes permissões de função:
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
   - *Microsoft.Network/virtualNetworks/subnets/read*
-  - *Microsoft.Network/virtualNetworks/subnets/write*
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*

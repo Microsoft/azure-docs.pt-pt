@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 947b509468857b98b868881bdd48adf67a5d60db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7bdea9239faa4ec66fffa236bea40afd5e628e62
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994639"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607148"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recolha informações sobre a sua infraestrutura DNS com a solução de pré-visualização do DNS Analytics
 
@@ -35,10 +35,10 @@ O quadro que se segue descreve as fontes ligadas suportadas por esta solução:
 
 | **Origem ligada** | **Suporte** | **Descrição** |
 | --- | --- | --- |
-| [Agentes do Windows](../platform/agent-windows.md) | Sim | A solução recolhe informações sobre DNS de agentes do Windows. |
-| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não | A solução não recolhe informações de DNS de agentes linux diretos. |
-| [Grupo de gestão do System Center Operations Manager](../platform/om-agents.md) | Sim | A solução recolhe informações de DNS de agentes de um grupo de gestão de Gestores de Operações conectado. Não é necessária uma ligação direta do agente gestor de operações ao Azure Monitor. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
-| [Conta de armazenamento Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) | Não | O armazenamento Azure não é usado pela solução. |
+| [Agentes do Windows](../platform/agent-windows.md) | Yes | A solução recolhe informações sobre DNS de agentes do Windows. |
+| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | No | A solução não recolhe informações de DNS de agentes linux diretos. |
+| [Grupo de gestão do System Center Operations Manager](../platform/om-agents.md) | Yes | A solução recolhe informações de DNS de agentes de um grupo de gestão de Gestores de Operações conectado. Não é necessária uma ligação direta do agente gestor de operações ao Azure Monitor. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
+| [Conta de armazenamento Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | O armazenamento Azure não é usado pela solução. |
 
 ### <a name="data-collection-details"></a>Detalhes da recolha de dados
 
@@ -57,13 +57,13 @@ A solução começa a recolher dados sem a necessidade de uma configuração adi
 
 No painel de instrumentos de solução, clique em **Configuração** para abrir a página de Configuração do DNS Analytics. Existem dois tipos de alterações de configuração que pode fazer:
 
-- **Nomes de domínio whitelist.** A solução não processa todas as consultas de procura. Mantém uma lista branca de sufixos de nome de domínio. As consultas de procura que resolvem os nomes de domínio que correspondem a sufixos de nome de domínio nesta lista branca não são processadas pela solução. Não processar nomes de domínios whitelisted ajuda a otimizar os dados enviados para o Azure Monitor. A lista branca padrão inclui nomes de domínio público populares, como www.google.com e www.facebook.com. Pode ver a lista completa por defeito deslocando-se.
+- **Nomes de domínio listados permitidos**. A solução não processa todas as consultas de procura. Mantém uma lista de sufixos de nome de domínio. As consultas de procura que resolvem os nomes de domínio que correspondem aos sufixos de nome de domínio nesta lista de admissões não são processadas pela solução. O não processamento de nomes de domínios listados ajuda a otimizar os dados enviados para o Azure Monitor. A lista de admissões por defeito inclui nomes de domínio público populares, como www.google.com e www.facebook.com. Pode ver a lista completa por defeito deslocando-se.
 
   Pode modificar a lista para adicionar qualquer sufixo de nome de domínio que pretenda visualizar insights de procura. Também pode remover qualquer sufixo de nome de domínio que não queira visualizar insights de procura.
 
 - **Limiar de cliente talkativo**. Os clientes DNS que excedam o limiar para o número de pedidos de procura são destacados na lâmina dos **Clientes DNS.** O limiar de incumprimento é de 1.000. Pode editar o limiar.
 
-    ![Nomes de domínio whitelisted](./media/dns-analytics/dns-config.png)
+    ![Nomes de domínio listados permitidos](./media/dns-analytics/dns-config.png)
 
 ## <a name="management-packs"></a>Pacotes de gestão
 
@@ -110,7 +110,7 @@ A informação ajuda-o a identificar:
 - Endereços IP que o nome de domínio resolve.
 - Endereço IP malicioso.
 - Gravidade da questão.
-- Razão para listar o IP malicioso.
+- Razão para bloquear o IP malicioso.
 - Hora de deteção.
 
 **Domínios Consultados**. Fornece os nomes de domínio mais frequentes que são consultados pelos clientes DNS no seu ambiente. Pode ver a lista de todos os nomes de domínio consultados. Também pode aprofundar os detalhes do pedido de procura de um nome de domínio específico na Pesquisa de Registo.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 2e263e1bf8849c3936fdaab713c3fcb3583c114a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5af2c40dd1efa542ac13bd4cf96ba3017810bf00
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489053"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608678"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade de SAP HANA em VMs Azure no SUSE Linux Enterprise Server
 
@@ -78,7 +78,7 @@ Leia primeiro as seguintes notas e artigos SAP:
   * Criação de uma Infraestrutura Otimizada de Desempenho SAP HANA SR (SLES para aplicações SAP 12 SP1). O guia contém todas as informações necessárias para configurar a Replicação do Sistema SAP HANA para o desenvolvimento no local. Utilize este guia como base.
   * Criação de uma Infraestrutura Otimizada de Custo SAP HANA SR (SLES para aplicações SAP 12 SP1)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para obter uma elevada disponibilidade, o SAP HANA está instalado em duas máquinas virtuais. Os dados são replicados utilizando a replicação do sistema HANA.
 
@@ -529,6 +529,10 @@ Em seguida, crie os recursos HANA:
 >
 > Note que a mudança requer breves tempos de inatividade.  
 > Para os clusters pacemaker existentes, se a configuração já foi alterada para usar socat como descrito no [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), não existe qualquer requisito para mudar imediatamente para o agente de recursos azure-lb.
+
+
+> [!NOTE]
+> Este artigo contém referências aos termos *mestre* e *escravo,* termos que a Microsoft já não utiliza. Quando estes termos forem removidos do software, removê-los-emos deste artigo.
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 

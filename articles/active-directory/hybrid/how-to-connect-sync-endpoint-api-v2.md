@@ -8,16 +8,16 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb298bca53a06bd1ef14a750648fe6e76fd45ee
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 07acd71eb1a77592c82b80aa574d79b98c48f60e
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602109"
+ms.locfileid: "96608304"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API de ponto final do Azure AD Connect sync V2 
 A Microsoft implementou um novo ponto final (API) para o Azure AD Connect que melhora o desempenho das operações de serviço de sincronização para o Azure Ative Directory. Utilizando o novo ponto final V2, irá experimentar ganhos de desempenho notáveis na exportação e importação para a Azure AD. Este novo ponto final suporta o seguinte:
@@ -178,7 +178,7 @@ Se tiver ativado o ponto final v2 e precisar de ser revoado, siga estes passos:
 **Quando é que o novo ponto final se tornará o padrão para upgrades e novas instalações?**  
 </br>Estamos a planear um novo lançamento do AADConnect para download em janeiro de 2021. Esta versão utilizará o ponto de final V2 por predefinição e permitirá que grupos de sincronização maiores do que 50K com qualquer configuração adicional. A versão THis será posteriormente publicada para upgrade automático para servidores elegíveis.
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Azure AD Connect sync: Entenda e personalize a sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)

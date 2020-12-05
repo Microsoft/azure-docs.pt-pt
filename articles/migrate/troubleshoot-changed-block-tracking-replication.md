@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: da1f7ce1474513fd9de286495f59aca63d8628b6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 04dcf8edbce7782e6d196271bfa85f2f8d1c5ba3
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377223"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608338"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Problemas de resolução de problemas na migração VMware VM sem agente
 
@@ -49,7 +49,7 @@ Esta secção descreve alguns dos erros comuns e como pode resolvê-los.
 
 **Erro:** "A operação do Cofre de Chaves falhou. Operação : Gerar definição de assinatura de acesso partilhado, Cofre-chave: nome do cofre-chave, Conta de Armazenamento: nome da conta de armazenamento falhou com o erro:"
 
-![Cofre de Chaves](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
+![Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
 
 Este erro ocorre normalmente porque a Política de Acesso ao Utilizador para o Cofre de Chaves não dá ao utilizador atualmente registado as permissões necessárias para configurar contas de armazenamento para serem geridas pelo Key Vault. Para verificar a política de acesso do utilizador no cofre de chaves, aceda à página do cofre key no portal para o cofre chave e selecione as políticas de acesso 
 
@@ -59,7 +59,7 @@ Quando o portal cria o cofre de chaves, também adiciona uma política de acesso
 
 - O outro caso em que isto pode acontecer é quando um utilizador (user1) tentou configurar a replicação inicialmente e encontrou uma falha, mas o cofre-chave já foi criado (e a política de acesso ao utilizador adequadamente atribuída a este utilizador). Agora, num ponto posterior, um utilizador diferente (user2) tenta configurar a replicação, mas a conta de armazenamento gerido configure ou a operação de definição SAS falha, uma vez que não existe uma política de acesso ao utilizador correspondente ao utilizador2 no cofre de chaves.
 
-**Resolução** : Para contornar este problema, crie uma política de acesso ao utilizador para o utilizador2 no teclado que concede ao utilizador 2 permissão para configurar a conta de armazenamento gerida e gerar definições SAS. O Utilizador2 pode fazê-lo a partir da Azure PowerShell utilizando os cmdlets abaixo:
+**Resolução**: Para contornar este problema, crie uma política de acesso ao utilizador para o utilizador2 no teclado que concede ao utilizador 2 permissão para configurar a conta de armazenamento gerida e gerar definições SAS. O Utilizador2 pode fazê-lo a partir da Azure PowerShell utilizando os cmdlets abaixo:
 
 $userPrincipalId = $(Get-AzureRmADUser -UserPrincipalName "user2_email_address"). ID
 
@@ -139,7 +139,7 @@ O componente que tenta replicar dados para o Azure está em baixo ou não respon
     
     Este comando tentará uma ligação TCP e devolverá uma saída.
     
-     - Na saída, verifique o campo " _TcpTestSucceed_ ". Se o valor for " _Verdadeiro_ ", não há problema de conectividade entre o Aparelho Azure Migrate e o Cofre da Chave Azure. Se o valor for "Falso", há um problema de conectividade.
+     - Na saída, verifique o campo "_TcpTestSucceed_". Se o valor for "_Verdadeiro_", não há problema de conectividade entre o Aparelho Azure Migrate e o Cofre da Chave Azure. Se o valor for "Falso", há um problema de conectividade.
     
     **Resolução:** Se este teste falhar, existe um problema de conectividade entre o aparelho Azure Migrate e o Cofre da Chave Azure. Envolva a sua equipa de networking local para verificar problemas de conectividade. Normalmente, pode haver algumas definições de firewall que estão a causar as falhas.
     
@@ -225,7 +225,7 @@ As causas possíveis incluem:
     
     Este comando tentará uma ligação TCP e devolverá uma saída.
     
-    1. Na saída, verifique o campo " _TcpTestSucceed_ ". Se o valor for " _Verdadeiro_ ", não há problema de conectividade entre o Aparelho Azure Migrate e o Cofre da Chave Azure. Se o valor for "Falso", há um problema de conectividade.
+    1. Na saída, verifique o campo "_TcpTestSucceed_". Se o valor for "_Verdadeiro_", não há problema de conectividade entre o Aparelho Azure Migrate e o Cofre da Chave Azure. Se o valor for "Falso", há um problema de conectividade.
     
     **Resolução:** Se este teste falhar, existe um problema de conectividade entre o aparelho Azure Migrate e o Cofre da Chave Azure. Envolva a sua equipa de networking local para verificar problemas de conectividade. Normalmente, pode haver algumas definições de firewall que estão a causar as falhas.
     
@@ -242,7 +242,7 @@ Este erro pode ser resolvido das duas seguintes formas:
 
 Um desses problemas conhecidos que pode causar um reset CBT da máquina virtual em VMware vSphere 5.5 é descrito em [VMware KB 2048201: O Rastreio de Blocos Alterado](https://go.microsoft.com/fwlink/?linkid=2138888) é reiniciado após uma operação de armazenamento vMotion em vSphere 5.x . Se estiver a utilizar o VMware vSphere 5.5, confirme que aplica as atualizações descritas neste artigo da KB.
 
-Em alternativa, pode [redefinir o rastreio de blocos VMware numa máquina virtual utilizando o VMware PowerCLI.
+Em alternativa, pode redefinir o rastreio de bloco alterado VMware numa máquina virtual utilizando o VMware PowerCLI.
 
 ## <a name="an-internal-error-occurred"></a>Ocorreu um erro interno
 
@@ -276,7 +276,7 @@ Se tiver uma máquina virtual com vários discos, poderá encontrar este erro se
 
 Esta questão ocorre quando a geração instantânea deixa de responder. Quando este problema ocorre, pode ver a criação de paragens de tarefa instantânea a 95% ou 99%. Consulte este [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138969) para ultrapassar este problema.
 
-### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Error Message: Ocorreu um erro interno. [Falhou na consolidação dos discos em VM _[Razões]_ ]
+### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Error Message: Ocorreu um erro interno. [Falhou na consolidação dos discos em VM _[Razões]_]
 
 Quando consolidamos os discos no fim do ciclo de replicação, a operação falha. Siga as instruções no [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138970) selecionando a _razão_ adequada para resolver o problema.
 

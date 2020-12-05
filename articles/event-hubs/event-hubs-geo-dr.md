@@ -3,15 +3,15 @@ title: Recuperação de geo-desastres - Azure Event Hubs Microsoft Docs
 description: Como utilizar as regiões geográficas para falhar e realizar a recuperação de desastres nos Hubs de Eventos do Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 1807c22645c3246f4cf18d723fc19da475e4d4f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd2385a6f6e61136a1284171532aedd70a9cc96
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934077"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608355"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de Eventos Azure - Recuperação de geo-desastres 
-Quando regiões inteiras de Azure ou centros de dados (se não forem [utilizadas zonas de disponibilidade)](../availability-zones/az-overview.md) experimentam tempo de inatividade, é fundamental que o processamento de dados continue a operar numa região ou centro de dados diferente. Como tal, *a recuperação de geo-desastres* e *a geo-replicação* são características importantes para qualquer empresa. O Azure Event Hubs suporta a recuperação de geo-desastres e a geo-replicação, ao nível do espaço de nome. 
+Quando regiões inteiras de Azure ou centros de dados (se não forem [utilizadas zonas de disponibilidade)](../availability-zones/az-overview.md) experimentam tempo de inatividade, é fundamental que o processamento de dados continue a operar numa região ou centro de dados diferente. Como tal, *a recuperação de geo-desastres* e *a geo-replicação* são características importantes para qualquer empresa. O Azure Event Hubs suporta a recuperação de geo-desastres e a geo-replicação, ao nível do espaço de nome. 
 
 > [!NOTE]
 > A funcionalidade de recuperação de geo-desastres só está disponível para os [SKUs padrão e dedicados.](https://azure.microsoft.com/pricing/details/event-hubs/)  
@@ -45,10 +45,10 @@ São suportadas as seguintes combinações de espaços de nome primário e secun
 
 | Espaço de nome primário | Espaço de nome secundário | Suportado | 
 | ----------------- | -------------------- | ---------- |
-| Standard | Standard | Sim | 
-| Standard | Dedicada | Sim | 
-| Dedicada | Dedicada | Sim | 
-| Dedicada | Standard | Não | 
+| Standard | Standard | Yes | 
+| Standard | Dedicada | Yes | 
+| Dedicada | Dedicada | Yes | 
+| Dedicada | Standard | No | 
 
 > [!NOTE]
 > Não se pode emparelhar espaços de nomes que estão no mesmo aglomerado dedicado. Pode emparelhar espaços de nomes que estão em aglomerados separados. 
@@ -65,7 +65,7 @@ Primeiro cria-se ou usa-se um espaço de nome primário existente, e um novo esp
 
 ### <a name="example"></a>Exemplo
 
-Num exemplo deste cenário, considere uma solução de Ponto de Venda (POS) que emite mensagens ou eventos. O Event Hubs passa esses eventos para alguma solução de mapeamento ou reformatação, que depois encaminha dados mapeados para outro sistema para posterior processamento. Nessa altura, todos estes sistemas poderão estar alojados na mesma região de Azure. A decisão sobre quando e que parte a falhar depende do fluxo de dados na sua infraestrutura. 
+Num exemplo deste cenário, considere uma solução de Ponto de Venda (POS) que emite mensagens ou eventos. O Event Hubs passa esses eventos para alguma solução de mapeamento ou reformatação, que depois encaminha dados mapeados para outro sistema para posterior processamento. Nessa altura, todos estes sistemas poderão estar alojados na mesma região de Azure. A decisão de quando e de que parte falhar depende do fluxo de dados na sua infraestrutura. 
 
 Pode automatizar falhas quer com sistemas de monitorização, quer com soluções de monitorização personalizadas. No entanto, tal automatização requer planeamento e trabalho extra, que está fora do âmbito deste artigo.
 
@@ -96,7 +96,7 @@ A [amostra no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samp
 
 ## <a name="considerations"></a>Considerações
 
-Note as seguintes considerações a ter em conta com esta versão:
+Note as seguintes considerações a ter em conta:
 
 1. Por design, a recuperação de geo-desastres do Event Hubs não replica dados, pelo que não é possível reutilizar o valor de compensação antigo do seu centro de eventos primário no seu centro de eventos secundário. Recomendamos reiniciar o recetor do evento com um dos seguintes métodos:
 
@@ -106,7 +106,7 @@ Note as seguintes considerações a ter em conta com esta versão:
 
 2. No seu planeamento de falhas, também deve considerar o fator tempo. Por exemplo, se perder conectividade por mais de 15 a 20 minutos, poderá decidir iniciar a falha. 
  
-3. O facto de não se replicarem dados significa que as sessões ativas não são replicadas. Além disso, a deteção duplicada e as mensagens programadas podem não funcionar. Novas sessões, mensagens agendadas e novos duplicados funcionarão. 
+3. O facto de não se replicarem dados significa que as sessões ativas atuais não são replicadas. Além disso, a deteção duplicada e as mensagens programadas podem não funcionar. Novas sessões, mensagens agendadas e novos duplicados funcionarão. 
 
 4. A falha de uma infraestrutura distribuída complexa deve ser [ensaiada](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) pelo menos uma vez. 
 
@@ -154,7 +154,7 @@ A vantagem desta abordagem é que o failover pode acontecer na camada de aplica�
 
 **Falha apenas na aplicação:** Aqui, a aplicação não existirá no VNET-1, mas passará para vNET-2. Uma vez que ambos os pontos finais privados estão configurados tanto no VNET-1 como no VNET-2 para espaços de nome primário e secundário, a aplicação apenas funcionará. 
 
-**Falha apenas**no espaço de nome do Event Hubs : Aqui novamente, uma vez que ambos os pontos finais privados estão configurados em redes virtuais tanto para espaços de nome primário como secundário, a aplicação apenas funcionará. 
+**Falha apenas** no espaço de nome do Event Hubs : Aqui novamente, uma vez que ambos os pontos finais privados estão configurados em redes virtuais tanto para espaços de nome primário como secundário, a aplicação apenas funcionará. 
 
 > [!NOTE]
 > Para obter orientações sobre a recuperação de geo-desastres de uma rede virtual, consulte [Rede Virtual - Continuidade do Negócio](../virtual-network/virtual-network-disaster-recovery-guidance.md).
