@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 11/30/2020
+ms.date: 12/02/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: db33a4c7ef80efecccdec9de48f52e864ace02df
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: bfd062da44e32061e191361011c0001373488cde
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533353"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96739207"
 ---
 Utilize a API de Visão De Computador para:
 
@@ -24,7 +24,8 @@ Utilize a API de Visão De Computador para:
 * Leia texto impresso e manuscrito com a API de Leitura.
 * Gere uma miniatura com corte inteligente
 
-
+> [!NOTE]
+> Este quickstart utiliza comandos cURL para chamar a API REST. Também pode ligar para a API REST utilizando uma linguagem de programação. Veja as amostras do GitHub por exemplo em [C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/ComputerVision/REST), [Python,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/ComputerVision/REST) [Java,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/ComputerVision/REST) [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/ComputerVision/REST)e [Go](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/go/ComputerVision/REST).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
