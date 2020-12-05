@@ -9,12 +9,12 @@ metadata:
   author: dikamath
   ms.author: dikamath
   ms.date: 11/19/2020
-  ms.openlocfilehash: 89601a7d12b2c9479ccc3edf9d37fa0195ac6ee8
-  ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+  ms.openlocfilehash: c460df29183cbf40bee1f539435669121b3ee6ed
+  ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/30/2020
-  ms.locfileid: "96327428"
+  ms.lasthandoff: 12/04/2020
+  ms.locfileid: "96608423"
 landingContent:
 - title: Acerca do Azure VMware Solution
   linkLists:
@@ -124,6 +124,8 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
+    - text: CLI do Azure
+      url: /cli/azure/ext/vmware/vmware
     - text: Azure PowerShell
       url: /powershell/module/az.vmware
     - text: FAQ
