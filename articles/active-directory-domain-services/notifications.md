@@ -2,7 +2,7 @@
 title: Notificações de email para Serviços de Domínio AZure AD / Microsoft Docs
 description: Saiba como configurar notificações de email para alertá-lo sobre problemas num domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: b9af1792-0b7f-4f3e-827a-9426cdb33ba6
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: c273b1a6c497ec8dcb8c5bc5f50ccfccc9fce155
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 4242092af86f8bc06ef9c9eba068ce07725de01f
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968022"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619169"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Configure notificações de e-mail para problemas nos Serviços de Domínio do Diretório Ativo Azure
 

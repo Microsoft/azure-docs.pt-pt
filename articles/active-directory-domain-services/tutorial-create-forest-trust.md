@@ -2,20 +2,20 @@
 title: Tutorial - Criar uma confiança florestal nos Serviços de Domínio Azure AD / Microsoft Docs
 description: Saiba como criar uma floresta de ida e saída para um domínio AD DS no portal Azure para serviços de domínio Azure AD
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: cbdcd170e6c6fb768172acfe3eb3c907714cd560
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 0231689acef3345fb2b0f25170522d59552171ba
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967261"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618336"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Tutorial: Criar uma confiança florestal de saída para um domínio no local em Azure Ative Directory Domain Services
 
@@ -23,7 +23,7 @@ Em ambientes onde não é possível sincronizar hashes de palavra-passe, ou tem 
 
 ![Diagrama de confiança florestal de Azure AD DS para as AD DS no local](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configure o DNS num ambiente AD DS no local para apoiar a conectividade Azure AD DS
@@ -75,7 +75,7 @@ Para resolver corretamente o domínio gerido a partir do ambiente no local, pode
 
 1. Selecione **Iniciar / Ferramentas Administrativas / DNS**
 1. Selecione o servidor DNS, como *o myAD01,* em seguida, selecione **Propriedades**
-1. Escolha **forwarders**e, em seguida, **edite** para adicionar reencaminhadores adicionais.
+1. Escolha **forwarders** e, em seguida, **edite** para adicionar reencaminhadores adicionais.
 1. Adicione os endereços IP do domínio gerido, tais como *10.0.2.4* e *10.0.2.5*.
 
 ## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Criar confiança florestal no domínio do local
@@ -89,8 +89,8 @@ Para configurar a confiança de entrada no domínio AD DS no local, complete os 
 1. Escolha o separador **Trusts,** em seguida, **New Trust**
 1. Introduza o nome para nome de domínio Azure AD DS, como *aaddscontoso.com,* em seguida, selecione **Next**
 1. Selecione a opção de criar um **fundo florestal,** em seguida, para criar uma **única maneira: confiança de entrada.**
-1. Opte por criar a confiança **apenas**para este domínio . No passo seguinte, cria-se a confiança no portal Azure para o domínio gerido.
-1. Opte por utilizar a **autenticação em toda**a Floresta, em seguida, insira e confirme uma senha de confiança. Esta mesma palavra-passe também é inserida no portal Azure na secção seguinte.
+1. Opte por criar a confiança **apenas** para este domínio . No passo seguinte, cria-se a confiança no portal Azure para o domínio gerido.
+1. Opte por utilizar a **autenticação em toda** a Floresta, em seguida, insira e confirme uma senha de confiança. Esta mesma palavra-passe também é inserida no portal Azure na secção seguinte.
 1. Passe pelas próximas janelas com opções predefinidas, em seguida, escolha a opção para **Não, não confirme a confiança de saída**.
 1. Selecione **Acabamento**
 
@@ -152,19 +152,19 @@ Utilizando o VM do Servidor do Windows a que se junta a floresta de recursos Azu
 
 1. Ligue-se ao Windows Server VM aderido à floresta de recursos Azure AD DS utilizando [O Azure Bastion](../bastion/bastion-overview.md) e as suas credenciais de administrador AD DS Azure.
 
-1. Abra **as definições do Windows**e, em seguida, procure e selecione o Centro de Rede e **Partilha**.
+1. Abra **as definições do Windows** e, em seguida, procure e selecione o Centro de Rede e **Partilha**.
 1. Escolha a opção para Alterar definições **de partilha avançadas.**
-1. No **perfil**de domínio , **selecione Ligue a partilha de ficheiros e impressoras** e, em seguida, **guarde as alterações**.
+1. No **perfil** de domínio , **selecione Ligue a partilha de ficheiros e impressoras** e, em seguida, **guarde as alterações**.
 1. Fechar **rede e partilhar centro.**
 
 #### <a name="create-a-security-group-and-add-members"></a>Criar um grupo de segurança e adicionar membros
 
 1. Abra **Utilizadores e Computadores do Active Directory**.
-1. Selecione o nome de domínio à direita, escolha **Novo**e, em seguida, selecione **Unidade Organizacional**.
+1. Selecione o nome de domínio à direita, escolha **Novo** e, em seguida, selecione **Unidade Organizacional**.
 1. Na caixa de nomes, escreva *LocalObjects,* em seguida, selecione **OK**.
 1. Selecione e clique à direita **LocaObjects** no painel de navegação. Selecione **Novo** e, em seguida, **Grupo**.
 1. Digite *FileServerAccess* na caixa **de nomes do grupo.** Para o Âmbito do **Grupo**, selecione **Domain local**, em seguida, escolha **OK**.
-1. No painel de conteúdo, clique **duas vezes em FileServerAccess**. Selecione **Os Membros**, escolha **adicionar**e, em seguida, selecione **Localizações**.
+1. No painel de conteúdo, clique **duas vezes em FileServerAccess**. Selecione **Os Membros**, escolha **adicionar** e, em seguida, selecione **Localizações**.
 1. Selecione o seu Diretório Ativo no local a partir da vista **Localização** e, em seguida, escolha **OK**.
 1. Digite *Utilizadores de Domínio* na **Introdução dos nomes do objeto para selecionar a** caixa. Selecione **Verificar Nomes**, forneça credenciais para o Diretório Ativo no local e, em seguida, selecione **OK**.
 
@@ -179,10 +179,10 @@ Utilizando o VM do Servidor do Windows a que se junta a floresta de recursos Azu
 1. Selecione à direita a pasta e escolha **propriedades.**
 1. Selecione o separador **Segurança** e, em seguida, escolha **Editar.**
 1. Nas permissões para caixa de diálogo *CrossForestShare,* selecione **Add**.
-1. Digite *FileServerAccess* in **Introduza os nomes do objeto para selecionar**e, em seguida, selecione **OK**.
+1. Digite *FileServerAccess* in **Introduza os nomes do objeto para selecionar** e, em seguida, selecione **OK**.
 1. *Selecione FileServerAccess* da lista **de grupos ou nomes de utilizadores.** Na lista **de Permissões para FileServerAccess,** escolha *Permitir* as permissões **de Modificação** e **Escrita** e, em seguida, selecione **OK**.
 1. Selecione o separador **Partilhar** e, em seguida, escolha **Partilha Avançada...**
-1. Escolha **Partilhar esta pasta**e, em seguida, introduzir um nome memorável para a partilha de **ficheiros** em nome de Partilha como *CrossForestShare*.
+1. Escolha **Partilhar esta pasta** e, em seguida, introduzir um nome memorável para a partilha de **ficheiros** em nome de Partilha como *CrossForestShare*.
 1. Selecione **Permissões**. Na lista **de Permissões para Todos,** escolha **Permitir** a permissão **de Alteração.**
 1. Selecione **OK** duas vezes e, em seguida, **Feche**.
 
@@ -190,7 +190,7 @@ Utilizando o VM do Servidor do Windows a que se junta a floresta de recursos Azu
 
 1. Inscreva-se num computador Windows ligado ao seu Ative Directy no local utilizando uma conta de utilizador a partir do seu Ative Directy no local.
 1. Utilizando o **Windows Explorer,** ligue-se à partilha que criou utilizando o nome de anfitrião totalmente qualificado e a partilha como `\\fs1.aaddscontoso.com\CrossforestShare` .
-1. Para validar a permissão de escrita, selecione à direita na pasta, escolha **Novo**e, em seguida, selecione **Documento de Texto**. Utilize o nome predefinido **Novo Documento de Texto**.
+1. Para validar a permissão de escrita, selecione à direita na pasta, escolha **Novo** e, em seguida, selecione **Documento de Texto**. Utilize o nome predefinido **Novo Documento de Texto**.
 
     Se as permissões de escrita forem definidas corretamente, é criado um novo documento de texto. Os seguintes passos abrirão, editarão e eliminarão o ficheiro conforme apropriado.
 1. Para validar a permissão de leitura, abra **novo documento de texto**.

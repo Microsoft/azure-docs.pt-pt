@@ -2,7 +2,7 @@
 title: Alertas e resoluções comuns nos Serviços de Domínio Azure AD Microsoft Docs
 description: Saiba como resolver os alertas comuns gerados como parte do estado de saúde dos Serviços de Domínio do Diretório Ativo Azure
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 54319292-6aa0-4a08-846b-e3c53ecca483
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: 5324018bace0ad530dea8ae94cecdc5b41b618c7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 80011b2ae2a70ce4c540ac31897cc8be4a6580c3
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967601"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618625"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Questões conhecidas: Alertas e resoluções comuns nos Serviços de Domínio do Diretório Ativo do Azure
 

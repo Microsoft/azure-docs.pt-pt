@@ -3,19 +3,22 @@ title: Windows Virtual Desktop lista de URL necessária - Azure
 description: Uma lista de URLs que deve desbloquear para garantir que a sua implementação virtual do Windows funciona como pretendido.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6b3fdc18a04dadf4bf1cf380c7bb51d21f826633
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 70b7042e4006cc59419d0ea6798fe7626a82c086
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512346"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621081"
 ---
 # <a name="required-url-list"></a>Lista de URL necessária
 
-Para implementar e utilizar o Windows Virtual Desktop, tem de desbloquear certos URLs para que as suas máquinas virtuais (VMs) possam aceder a esses ambientes a qualquer momento. Este artigo lista os URLs necessários para desbloquear.
+Para implementar e utilizar o Windows Virtual Desktop, tem de desbloquear certos URLs para que as suas máquinas virtuais (VMs) possam aceder a esses ambientes a qualquer momento. Este artigo lista os URLs necessários para desbloquear para que o Windows Virtual Desktop funcione corretamente. 
+
+>[!IMPORTANT]
+>O Windows Virtual Desktop não suporta implementações que bloqueiem os URLs listados neste artigo.
 
 ## <a name="virtual-machines"></a>Máquinas virtuais
 

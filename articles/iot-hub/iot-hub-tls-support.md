@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jlian
-ms.openlocfilehash: ddb89f60c9fe380012c299afaafb6046bf6849c9
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: f4438aebcb81d665a19a595ac7ade4fea27fc43f
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602755"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621013"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>Suporte de segurança da camada de transporte (TLS) no IoT Hub
 
@@ -22,7 +22,7 @@ Os TLS 1.0 e 1.1 são considerados legados e estão previstos para a depreciaç�
 
 ## <a name="iot-hubs-server-tls-certificate"></a>Certificado TLS do servidor do IoT Hub
 
-Durante um aperto de mão TLS, o IoT Hub apresenta certificados de servidor com chave RSA para clientes de ligação. A sua raiz é a Baltimore Cybertrust Root CA. Recentemente, houve uma alteração dos emitentes por novas autoridades de certificados intermédios (ICAs). Para mais informações, consulte a [atualização do certificado IoT Hub TLS](https://azure.microsoft.com/updates/iot-hub-tls-certificate-update/)
+Durante um aperto de mão TLS, o IoT Hub apresenta certificados de servidor com chave RSA para clientes de ligação. A sua raiz é a Baltimore Cybertrust Root CA. Recentemente, lançámos uma alteração no nosso certificado de servidor TLS para que seja agora emitido pelas novas autoridades de certificados intermédios (ICA). Para mais informações, consulte a [atualização do certificado IoT Hub TLS](https://azure.microsoft.com/updates/iot-hub-tls-certificate-update/).
 
 ### <a name="elliptic-curve-cryptography-ecc-server-tls-certificate-preview"></a>Certificado de Criptografia de Curva Elíptica (ECC) (pré-visualização)
 
@@ -31,7 +31,7 @@ O certificado TLS do servidor ECC do IoT Hub está disponível para pré-visuali
 Para pré-visualizar o certificado de servidor ECC do IoT Hub:
 
 1. [Crie um novo hub IoT com modo de pré-visualização ligado](iot-hub-preview-mode.md).
-1. [Configure o seu cliente](#tls-configuration-for-sdk-and-iot-edge) para incluir *apenas* suítes de cifra ECDSA e *excluir* quaisquer unidades RSA. Estas são as suítes cifra para a pré-visualização pública do certificado ECC:
+1. [Configure o seu cliente](#tls-configuration-for-sdk-and-iot-edge) para incluir *apenas* suítes de cifra ECDSA e *excluir* quaisquer unidades RSA. Estas são as suítes de cifra suportadas para a pré-visualização pública do certificado ECC:
     - `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
     - `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
     - `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`
@@ -110,7 +110,7 @@ Um cliente pode sugerir uma lista de suítes de cifra mais altas para usar duran
 
 Utilize os links abaixo para configurar o TLS 1.2 e permitiu cifras em SDKs cliente IoT Hub.
 
-| Idioma | Versões que suportam TLS 1.2 | Documentação |
+| Linguagem | Versões que suportam TLS 1.2 | Documentação |
 |----------|------------------------------------|---------------|
 | C        | Tag 2019-12-11 ou mais recente            | [Ligação](https://aka.ms/Tls_C_SDK_IoT) |
 | Python   | Versão 2.0.0 ou mais recente             | [Ligação](https://aka.ms/Tls_Python_SDK_IoT) |
@@ -133,10 +133,10 @@ Utilize esta função para especificar o comprimento máximo do fragmento de tex
 O suporte oficial da SDK para esta funcionalidade de pré-visualização pública ainda não está disponível. Para começar
 
 1. [Crie um novo hub IoT com modo de pré-visualização ligado](iot-hub-preview-mode.md).
-1. Configure o seu cliente para definir `SSL_CTX_set_tlsext_max_fragment_length` um destes valores: 2^9, 2^10, 2^11 e 2^12.
+1. Ao utilizar o OpenSSL, ligue [SSL_CTX_set_tlsext_max_fragment_length](https://manpages.debian.org/testing/libssl-doc/SSL_CTX_set_max_send_fragment.3ssl.en.html) para especificar o tamanho do fragmento.
 1. Ligue o seu cliente ao IoT Hub de pré-visualização.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre a segurança do IoT Hub e o controlo de acessos, consulte [o Control access to IoT Hub](iot-hub-devguide-security.md).
 - Para saber mais sobre a utilização do certificado X509 para autenticação do dispositivo, consulte [a autenticação do dispositivo utilizando certificados X.509 CA](iot-hub-x509ca-overview.md)

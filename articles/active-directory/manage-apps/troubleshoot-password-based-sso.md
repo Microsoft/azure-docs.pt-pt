@@ -10,14 +10,14 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 1823de88597756ba3db9aee0dc29501b1ba914a4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d122cedbad41d6984614a0edccb2fd98269710f2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646241"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618081"
 ---
-# <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Resolução de problemas com base em único sinal de sessão em Azure AD
+# <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Resolver problemas de início de sessão único baseado em palavra-passe no Microsoft Azure AD
 
 Para utilizar o sign-on único baseado em palavra-passe (SSO) nas Minhas Apps, a extensão do navegador deve ser instalada. A extensão descarrega automaticamente quando seleciona uma aplicação configurada para SSO baseado em palavras-passe. Para aprender a utilizar as Minhas Apps numa perspetiva de utilizador final, consulte [o portal My Apps.](../user-help/my-apps-portal-end-user-access.md)
 
@@ -30,7 +30,7 @@ Certifique-se de que o único sinal baseado em palavra-passe está configurado. 
 ## <a name="users-not-assigned"></a>Utilizadores não atribuídos
 Certifique-se de que o utilizador está atribuído à aplicação. Para saber mais, consulte [Atribuir um utilizador ou grupo a uma aplicação.](assign-user-or-group-access-portal.md)
 
-## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>As credenciais são preenchidas, mas a extensão não as submete
+## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>As credenciais são preenchidas, mas a extensão não as envia
 
 Este problema normalmente acontece se o fornecedor de aplicações mudou a sua página de entrada recentemente para adicionar um campo, alterou um identificador utilizado para detetar o nome de utilizador e os campos de palavra-passe, ou modificado como a experiência de entrada funciona para a sua aplicação. Felizmente, em muitos casos, a Microsoft pode trabalhar com os fornecedores de aplicações para resolver rapidamente estes problemas.
 
@@ -38,7 +38,7 @@ Embora a Microsoft tenha tecnologias para detetar automaticamente quando as inte
 
 **Se estiver em contacto com o fornecedor desta aplicação,** envie-as à nossa maneira para que a Microsoft possa trabalhar com eles para integrar de forma nativa a sua aplicação com o Azure Ative Directory. Pode enviar o fornecedor para a listagem da [sua aplicação na galeria de aplicações Azure Ative Para](../develop/v2-howto-app-gallery-listing.md) começar.
 
-## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>As credenciais são preenchidas e submetidas, mas a página indica que as credenciais estão incorretas
+## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>As credenciais são preenchidas e enviadas, mas a página indica que as credenciais estão incorretas
 
 Para resolver esta questão, primeiro tente estas coisas:
 
@@ -151,6 +151,13 @@ Se sentir algum destes problemas, faça as seguintes coisas:
 - Tente novamente o processo de captura manual. Certifique-se de que os marcadores vermelhos estão sobre os campos corretos.
 - Se o processo de captura manual parece parar de responder ou a página de inscrição não responder, tente novamente o processo de captura manual. Mas desta vez, depois de concluir o processo, pressione a tecla F12 para abrir a consola de desenvolvimento do seu navegador. Selecione o separador **de consola.** **Digite a janela.location="*&lt; o &gt; URL de entrada de entrada que especificou ao configurar a aplicação*"** e, em seguida, prima Enter. Isto força um redirecionamento de página que termina o processo de captura e armazena os campos que foram capturados.
 
+### <a name="i-cant-add-another-user-to-my-password-based-sso-app"></a>Não posso adicionar outro utilizador à minha aplicação SSO baseada em palavra-passe
+
+A aplicação SSO baseada em palavras-passe tem um limite de 48 utilizadores. Assim, tem um limite de 48 chaves para par de nome de utilizador/palavra-passe por aplicação.
+Se quiser adicionar utilizadores adicionais, pode:
+-   Adicionar instância adicional da app
+-   Remova os utilizadores que já não estão a usar a app primeiro
+
 ## <a name="request-support"></a>Solicitar apoio 
 Se receber uma mensagem de erro quando configurar sSO e atribuir utilizadores, abra um bilhete de apoio. Incluir o máximo possível de informações:
 
@@ -238,6 +245,6 @@ As seguintes informações explicam o que cada item de notificação significa e
     Exemplo:   ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)
 * [Planear uma implementação de As Minhas Aplicações](access-panel-deployment-plan.md)

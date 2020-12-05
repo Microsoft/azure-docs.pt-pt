@@ -9,10 +9,10 @@ ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 46119b9f7cdac47920d4bba8e00c3fc56b0edc78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 12/05/2020
 ms.locfileid: "87494524"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Windows no portal do Azure
@@ -63,7 +63,7 @@ Crie uma ligação de ambiente de trabalho remoto para a máquina virtual. Estas
 
 2. Abra o ficheiro RDP transferido e clique em **Ligar** quando lhe for pedido. 
 
-3. Na janela **Segurança do Windows**, selecione **Mais escolhas** e **Utilizar uma conta diferente**. Digite o nome de utilizador como nome **de** \\ *utilizador*local, introduza a palavra-passe que criou para a máquina virtual e, em seguida, clique em **OK**.
+3. Na janela **Segurança do Windows**, selecione **Mais escolhas** e **Utilizar uma conta diferente**. Digite o nome de utilizador como nome **de** \\ *utilizador* local, introduza a palavra-passe que criou para a máquina virtual e, em seguida, clique em **OK**.
 
 4. Poderá receber um aviso de certificado durante o processo de início de sessão. Clique em **Sim** ou **Continuar** para criar a ligação.
 

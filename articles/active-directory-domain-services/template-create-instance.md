@@ -2,20 +2,20 @@
 title: Ativar os Serviços de Domínio Azure DS usando um modelo Microsoft Docs
 description: Saiba como configurar e ativar os Serviços de Domínio do Diretório Ativo do Azure utilizando um modelo de Gestor de Recursos Azure
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: 30fc6b0b7eae6b3dd3477944a5d9ddacf83c677a
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.author: justinha
+ms.openlocfilehash: e18825da64d0d200f55ce72985ac843b93b1e612
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041678"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618795"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Crie um domínio gerido por Serviços de Domínio de Diretório Ativo Azure usando um modelo de Gestor de Recursos Azure
 
@@ -42,12 +42,12 @@ Quando cria um domínio gerido AZure AD DS, especifica um nome DNS. Existem algu
 
 * **Nome de domínio incorporado:** Por predefinição, é utilizado o nome de domínio incorporado do diretório (um sufixo *.onmicrosoft.com).* Se desejar permitir o acesso seguro do LDAP ao domínio gerido através da internet, não é possível criar um certificado digital para garantir a ligação com este domínio predefinido. A Microsoft detém o domínio *.onmicrosoft.com,* pelo que uma Autoridade de Certificados (CA) não emitirá um certificado.
 * **Nomes de domínio personalizados:** A abordagem mais comum é especificar um nome de domínio personalizado, tipicamente um que já possui e é roteável. Quando utiliza um domínio roteível e personalizado, o tráfego pode fluir corretamente conforme necessário para suportar as suas aplicações.
-* **Sufixos de domínio não-encaminháveis:** Recomendamos geralmente que evite um sufixo de nome de domínio não-encaminhável, como *contoso.local* . O *sufixo .local* não é roteável e pode causar problemas com a resolução dns.
+* **Sufixos de domínio não-encaminháveis:** Recomendamos geralmente que evite um sufixo de nome de domínio não-encaminhável, como *contoso.local*. O *sufixo .local* não é roteável e pode causar problemas com a resolução dns.
 
 > [!TIP]
 > Se criar um nome de domínio personalizado, tenha cuidado com os espaços de nome DNS existentes. Recomenda-se a utilização de um nome de domínio separado de qualquer espaço de nome DNS existente ou no local.
 >
-> Por exemplo, se tiver um espaço de nome DNS existente *de contoso.com,* crie um domínio gerido com o nome de domínio personalizado de *aaddscontoso.com* . Se precisar de utilizar lDAP seguro, deve registar-se e possuir este nome de domínio personalizado para gerar os certificados necessários.
+> Por exemplo, se tiver um espaço de nome DNS existente *de contoso.com,* crie um domínio gerido com o nome de domínio personalizado de *aaddscontoso.com*. Se precisar de utilizar lDAP seguro, deve registar-se e possuir este nome de domínio personalizado para gerar os certificados necessários.
 >
 > Poderá ser necessário criar alguns registos DNS adicionais para outros serviços no seu ambiente, ou reencaminhadores de DNS condicionados entre os espaços de nome DNS existentes no seu ambiente. Por exemplo, se executar um webserver que hospeda um site usando o nome DE DNS raiz, pode haver nomeação de conflitos que requerem entradas adicionais de DNS.
 >
@@ -71,7 +71,7 @@ Em primeiro lugar, registe o fornecedor de recursos de serviços de domínio Azu
 Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
-Crie um diretor de serviço AZure AD utilizando o cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal] para Azure AD DS comunicar e autenticar-se. Um ID de aplicação específico é usado chamado *Serviços de Controlador* de Domínio com um ID de *6ba9a5d4-8456-4118-b521-9c5ca10cdf84* . Não mude esta identificação da aplicação.
+Crie um diretor de serviço AZure AD utilizando o cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal] para Azure AD DS comunicar e autenticar-se. Um ID de aplicação específico é usado chamado *Serviços de Controlador* de Domínio com um ID de *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Não mude esta identificação da aplicação.
 
 ```powershell
 New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"

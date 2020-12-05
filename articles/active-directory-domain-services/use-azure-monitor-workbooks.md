@@ -1,20 +1,20 @@
 ---
 title: Utilize livros de trabalho do Monitor Azure com serviços de domínio Azure AD / Microsoft Docs
 description: Saiba como usar os livros de trabalho do Monitor Azure para rever as auditorias de segurança e compreender problemas num domínio gerido por Serviços de Domínio do Diretório Ativo Azure.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: 5d19cddc82d9fb092887c5cdeba36b8ab7127f94
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.author: justinha
+ms.openlocfilehash: 3067388265fb69b916fe0e179cb896401b7c2dc4
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175139"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618166"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Rever eventos de auditoria de segurança em Azure Ative Directory Domain Services usando livros de trabalho do Azure Monitor
 

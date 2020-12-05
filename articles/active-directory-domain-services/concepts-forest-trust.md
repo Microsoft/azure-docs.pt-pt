@@ -2,20 +2,20 @@
 title: Como os trusts funcionam para os Serviços de Domínio Azure AD Microsoft Docs
 description: Saiba mais sobre como a confiança da floresta funciona com os Serviços de Domínio AZure AD
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 50b400ffa047d3865a9df77912da187de1ce9cc9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 5c72ab7d085de558ee95f3c602ccc6be6160b322
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962620"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620210"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Como as relações de confiança funcionam para as florestas de recursos em Azure Ative Directory Domain Services
 
@@ -190,7 +190,7 @@ O diagrama e os passos seguintes fornecem uma descrição detalhada do processo 
 
 9. *Workstation1* contacta o KDC no *ChildDC2* e negoceia o bilhete para o *Utilizador1* ter acesso ao *FileServer1*.
 
-10. Uma vez que *o Workstation1* tem um bilhete de serviço, envia o bilhete de serviço para *FileServer1,* que lê as credenciais de segurança do *Utilizador1*e constrói um token de acesso em conformidade.
+10. Uma vez que *o Workstation1* tem um bilhete de serviço, envia o bilhete de serviço para *FileServer1,* que lê as credenciais de segurança do *Utilizador1* e constrói um token de acesso em conformidade.
 
 ## <a name="trusted-domain-object"></a>Objeto de domínio fidedigno
 

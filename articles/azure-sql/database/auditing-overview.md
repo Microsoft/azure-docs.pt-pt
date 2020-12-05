@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 11/08/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8cf0652148ad54eeacdec874823ea680f39f670c
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: b09eb03994098f8cb68033f3c42309a77e15f91c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372732"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620996"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria para Azure SQL Database e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -65,6 +65,18 @@ Uma política de auditoria pode ser definida para uma base de dados específica 
     > - Pretende auditar tipos ou categorias de eventos para uma base de dados específica que difere do resto das bases de dados do servidor. Por exemplo, pode ter inserções de mesa que precisam de ser auditadas apenas para uma base de dados específica.
    >
    > Caso contrário, recomendamos que permita apenas uma auditoria ao nível do servidor e deixe a auditoria ao nível da base de dados desativada para todas as bases de dados.
+
+#### <a name="remarks"></a>Observações
+
+- Os registos de auditoria são escritos para **Append Blobs** num armazenamento Azure Blob na sua subscrição Azure
+- Os registos de auditoria estão em formato .xel e podem ser abertos utilizando [o SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
+- Para configurar uma loja de registos imutável para os eventos de auditoria ao nível do servidor ou da base de dados, siga as [instruções fornecidas pelo Azure Storage](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes). Certifique-se de que selecionou **Deixe os apêndices adicionais** quando configurar o armazenamento de bolhas imutáveis.
+- Pode escrever registos de auditoria numa conta de Armazenamento Azure por trás de um VNet ou firewall. Para obter instruções específicas, [escreva a auditoria para uma conta de armazenamento por trás do VNet e da firewall](audit-write-storage-account-behind-vnet-firewall.md).
+- Para obter mais informações sobre o formato de registo, hierarquia da pasta de armazenamento e convenções de nomeação, consulte a [Referência do Formato do Registo de Auditoria blob](./audit-log-format.md).
+- A auditoria em [Réplicas Só de Leitura](read-scale-out.md) é automaticamente ativada. Para mais detalhes sobre a hierarquia das pastas de armazenamento, convenções de nomeação e formato de registo, consulte o Formato de [Registo de Auditoria de Base de Dados SQL](audit-log-format.md).
+- Ao utilizar a autenticação AD AD Azure, os registos de logins falhados *não* aparecerão no registo de auditoria SQL. Para visualizar registos de auditoria de login falhados, é necessário visitar o [portal Azure Ative Directory](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), que regista detalhes destes eventos.
+- Os logins são encaminhados pela porta de entrada para o caso específico onde a base de dados está localizada.  No caso dos logins da AAD, as credenciais são verificadas antes de tentar utilizar esse utilizador para iniciar sessão na base de dados solicitada.  Em caso de avaria, a base de dados solicitada nunca é acedida, pelo que não ocorre qualquer auditoria.  No caso dos logins SQL, as credenciais são verificadas nos dados solicitados, pelo que neste caso podem ser auditadas.  Os logins bem sucedidos, que obviamente chegam à base de dados, são auditados em ambos os casos.
+- Depois de configurar as definições de auditoria, pode ligar a nova funcionalidade de deteção de ameaças e configurar e-mails para receber alertas de segurança. Quando utiliza a deteção de ameaças, recebe alertas proactivos sobre atividades anómalas de bases de dados que podem indicar potenciais ameaças à segurança. Para obter mais informações, consulte [Começar com a deteção de ameaças.](threat-detection-overview.md)
 
 ## <a name="set-up-auditing-for-your-server"></a><a id="setup-auditing"></a>Configurar a auditoria para o seu servidor
 
@@ -120,17 +132,6 @@ Para configurar registos de auditoria de escrita numa conta de armazenamento, se
   - Se alterar o período de retenção de 0 (retenção ilimitada) para qualquer outro valor, note que a retenção só se aplicará aos registos escritos após a alteração do valor da retenção (os registos escritos durante o período em que a retenção foi definida para ilimitada são preservados, mesmo após a retenção ser ativada).
 
   ![conta de armazenamento](./media/auditing-overview/auditing_select_storage.png)
-
-#### <a name="remarks"></a>Observações
-
-- Os registos de auditoria são escritos para **Append Blobs** num armazenamento Azure Blob na sua subscrição Azure
-- Os registos de auditoria estão em formato .xel e podem ser abertos utilizando [o SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
-- Para configurar uma loja de registos imutável para os eventos de auditoria ao nível do servidor ou da base de dados, siga as [instruções fornecidas pelo Azure Storage](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes). Certifique-se de que selecionou **Deixe os apêndices adicionais** quando configurar o armazenamento de bolhas imutáveis.
-- Pode escrever registos de auditoria numa conta de Armazenamento Azure por trás de um VNet ou firewall. Para obter instruções específicas, [escreva a auditoria para uma conta de armazenamento por trás do VNet e da firewall](audit-write-storage-account-behind-vnet-firewall.md).
-- Depois de configurar as definições de auditoria, pode ligar a nova funcionalidade de deteção de ameaças e configurar e-mails para receber alertas de segurança. Quando utiliza a deteção de ameaças, recebe alertas proactivos sobre atividades anómalas de bases de dados que podem indicar potenciais ameaças à segurança. Para obter mais informações, consulte [Começar com a deteção de ameaças.](threat-detection-overview.md)
-- Para obter mais informações sobre o formato de registo, hierarquia da pasta de armazenamento e convenções de nomeação, consulte a [Referência do Formato do Registo de Auditoria blob](./audit-log-format.md).
-- Ao utilizar a autenticação AD AD Azure, os registos de logins falhados *não* aparecerão no registo de auditoria SQL. Para visualizar registos de auditoria de login falhados, é necessário visitar o [portal Azure Ative Directory](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), que regista detalhes destes eventos.
-- A auditoria em [Réplicas Só de Leitura](read-scale-out.md) é automaticamente ativada. Para mais detalhes sobre a hierarquia das pastas de armazenamento, convenções de nomeação e formato de registo, consulte o Formato de [Registo de Auditoria de Base de Dados SQL](audit-log-format.md).
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Auditoria ao destino Log Analytics
   
@@ -219,11 +220,11 @@ Se optar por escrever registos de auditoria numa conta de armazenamento Azure, e
 
 ### <a name="auditing-geo-replicated-databases"></a>Auditoria de bases de dados geo-replicadas
 
-Com bases de dados geo-replicadas, quando permitir a auditoria na base de dados primária, a base de dados secundária terá uma política de auditoria idêntica. Também é possível configurar a auditoria na base de dados secundária, permitindo a auditoria no **servidor secundário** , independentemente da base de dados primária.
+Com bases de dados geo-replicadas, quando permitir a auditoria na base de dados primária, a base de dados secundária terá uma política de auditoria idêntica. Também é possível configurar a auditoria na base de dados secundária, permitindo a auditoria no **servidor secundário**, independentemente da base de dados primária.
 
-- Nível do servidor **(recomendado** ): Ligue a auditoria tanto no **servidor primário** como no **servidor secundário** - as bases de dados primárias e secundárias serão auditadas independentemente com base na respetiva política de nível do servidor.
+- Nível do servidor **(recomendado**): Ligue a auditoria tanto no **servidor primário** como no **servidor secundário** - as bases de dados primárias e secundárias serão auditadas independentemente com base na respetiva política de nível do servidor.
 - Nível de base de dados: A auditoria ao nível da base de dados para bases de dados secundárias só pode ser configurada a partir das definições de auditoria da base de dados primária.
-  - A auditoria deve ser ativada na *própria base de dados primária* , e não no servidor.
+  - A auditoria deve ser ativada na *própria base de dados primária*, e não no servidor.
   - Após a auditoria ser ativada na base de dados primária, também será ativada na base de dados secundária.
 
     > [!IMPORTANT]
@@ -233,7 +234,7 @@ Com bases de dados geo-replicadas, quando permitir a auditoria na base de dados 
 
 Na produção, é provável que refresque as chaves de armazenamento periodicamente. Ao escrever registos de auditoria para o armazenamento do Azure, tem de ressatar a sua política de auditoria ao refrescar as suas chaves. O processo é o seguinte:
 
-1. Detalhes **de armazenamento abertos**. Na caixa chave de acesso ao **armazenamento,** selecione **Secondary** , e clique **em OK**. Em seguida, clique em **Guardar** no topo da página de configuração de auditoria.
+1. Detalhes **de armazenamento abertos**. Na caixa chave de acesso ao **armazenamento,** selecione **Secondary**, e clique **em OK**. Em seguida, clique em **Guardar** no topo da página de configuração de auditoria.
 
     ![Screenshot que mostra o processo de seleção de uma chave de acesso de armazenamento secundário.](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
 2. Vá à página de configuração de armazenamento e regenera a chave de acesso primário.
@@ -246,7 +247,7 @@ Na produção, é provável que refresque as chaves de armazenamento periodicame
 
 ### <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
 
-**Cmdlets PowerShell (incluindo suporte à cláusula WHERE para filtragem adicional)** :
+**Cmdlets PowerShell (incluindo suporte à cláusula WHERE para filtragem adicional)**:
 
 - [Criar ou atualizar a política de auditoria da base de dados (Set-AzSqlDatabaseAudit)](/powershell/module/az.sql/set-azsqldatabaseaudit)
 - [Criar ou atualizar a política de auditoria do servidor (Set-AzSqlServerAudit)](/powershell/module/az.sql/set-azsqlserveraudit)

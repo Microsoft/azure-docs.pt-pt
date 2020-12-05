@@ -1,20 +1,26 @@
 ---
 title: Descrição geral das Funções do Azure
-description: Saiba como as Funções Azure podem ajudar a construir aplicações sem servidor escaláveis.
+description: Saiba como as Funções Azure podem ajudar a construir aplicações robustas sem servidor.
 author: craigshoemaker
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperfq2
-ms.openlocfilehash: 8b836ac8bd2255abf9a94e532a0599994c3ede89
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 269d911c13cbc59a054c5548e106780d630c8e2b
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608257"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620874"
 ---
 # <a name="introduction-to-azure-functions"></a>Introdução às Funções do Azure
+
+A azure Functions é uma solução sem servidor que lhe permite escrever menos código, manter menos infraestruturas e economizar em custos. Em vez de se preocupar em implementar e manter servidores, a infraestrutura de nuvem fornece todos os servidores atualizados necessários para manter as suas aplicações em funcionamento.
+
+Concentras-te nos pedaços de código que mais te interessam, e o Azure Functions trata do resto.<br /><br />
+
+> [!VIDEO https://www.youtube.com/embed/8-jz5f_JyEQ]
 
 Muitas vezes construímos sistemas para reagir a uma série de eventos críticos. Quer esteja a construir uma API web, a responder a alterações na base de dados, a processar fluxos de dados IoT ou até mesmo a gerir filas de mensagens - cada aplicação precisa de uma forma de executar algum código à medida que estes eventos ocorrem.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f0695af6922182aa8be7acfb4b0a931bed35ef7d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1927ec00df67522563fb063f2cb127fee4c0bcbf
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959310"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621047"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Tutorial: Enviar dados via gateway transparente
 
@@ -111,7 +111,7 @@ A saída do módulo avroFileWriter pode ser facilmente observada olhando para o 
 
 1. Uma vez decorridos os 10 minutos, o módulo deve carregar os ficheiros. Se o upload for bem sucedido, elimina os ficheiros do disco.
 
-### <a name="azure-storage"></a>Armazenamento do Azure
+### <a name="azure-storage"></a>Storage do Azure
 
 Podemos observar os resultados do nosso dispositivo de folha enviando dados olhando para as contas de armazenamento onde esperamos que os dados sejam encaminhados.
 
@@ -221,7 +221,7 @@ Incluímos um simples utilitário de linha de comando para ler um ficheiro Avro 
    }
    ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se planeia explorar os recursos utilizados por este tutorial de ponta a ponta, espere até terminar para limpar os recursos que criou. Caso contrário, utilize os seguintes passos para os eliminar:
 
@@ -237,10 +237,7 @@ Se planeia explorar os recursos utilizados por este tutorial de ponta a ponta, e
 
 Neste artigo, usamos o nosso VM de desenvolvimento para simular um dispositivo de folha enviando sensores e dados operacionais para o nosso dispositivo IoT Edge. Validámos que os módulos do dispositivo foram encaminhados, classificados, persistidos e carregados os dados examinando o funcionamento em tempo real do dispositivo edge e olhando para os ficheiros enviados para a conta de armazenamento.
 
-Mais informações podem ser encontradas nas seguintes páginas:
+Para continuar a aprender sobre as capacidades do IoT Edge, experimente este tutorial a seguir:
 
 > [!div class="nextstepaction"]
-> [Ligar um dispositivo a jusante a um gateway do Azure IoT Edge](how-to-connect-downstream-device.md)
-
-> [!div class="nextstepaction"]
-> [Armazenar dados na borda com Azure Blob Storage em IoT Edge (pré-visualização)](how-to-store-data-blob.md)
+> [Criar uma hierarquia de dispositivos IoT Edge (Pré-visualização)](tutorial-nested-iot-edge.md?view=iotedge-2020-11&preserve-view=true)

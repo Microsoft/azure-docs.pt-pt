@@ -1,20 +1,20 @@
 ---
 title: Tutorial - Criar um Azure Ative Directory Domain Services gerido domínio / Microsoft Docs
 description: Neste tutorial, aprende-se a criar e configurar um domínio gerido pelos Serviços de Domínio do Diretório Ativo Azure utilizando o portal Azure.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 53720b19daa436893073b4f40528a49add653ff3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 945c131394a0a3c6273f79044c8500a2feba70fe
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967244"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618149"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Criar e configurar um domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 
@@ -22,7 +22,7 @@ Azure Ative Directory Domain Services (Azure AD DS) fornece serviços de domíni
 
 Pode criar um domínio gerido utilizando opções de configuração predefinidos para networking e sincronização, ou [definir manualmente estas definições][tutorial-create-instance-advanced]. Este tutorial mostra-lhe como usar opções padrão para criar e configurar um domínio gerido Azure AD DS usando o portal Azure.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Compreender os requisitos do DNS para um domínio gerido

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: b54e965188be51ec54110bb85d8cda8f01256836
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 461f9354bb3a6eae0af186de8fe9f39c6b5fff2c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370231"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620924"
 ---
 # <a name="how-to-test-and-publish-an-azure-application-offer"></a>Como testar e publicar uma oferta de aplicação Azure
 
@@ -28,7 +28,7 @@ Este artigo explica como usar o Partner Center para submeter a sua oferta de apl
     - **Não começou** – A página está incompleta.
     - **Incompleto** – Falta informação necessária ou tem erros que precisam de ser corrigidos. Terá de voltar à página e atualizá-la.
     - **Completo** - A página está completa. Todos os dados necessários foram fornecidos e não há erros.
-1. Se alguma das páginas tiver um estado diferente do **Complete** , selecione o nome da página, corrija o problema, guarde a página e, em seguida, selecione **'Rever e publicar** novamente para voltar a esta página.'
+1. Se alguma das páginas tiver um estado diferente do **Complete**, selecione o nome da página, corrija o problema, guarde a página e, em seguida, selecione **'Rever e publicar** novamente para voltar a esta página.'
 1. Depois de todas as páginas estarem completas, na **caixa de notas para certificação,** forneça instruções de teste à equipa de certificação para garantir que a sua aplicação seja testada corretamente. Forneça quaisquer notas suplementares úteis para entender a sua aplicação.
 1. Para iniciar o processo de publicação da sua oferta, **selecione Publicar**. A página **geral da Oferta** aparece e mostra o estado da **publicação** da oferta.
 
@@ -72,4 +72,4 @@ Se tiver erros numa ou mais das etapas de publicação, corrija-as antes de volt
 ## <a name="next-step"></a>Passo seguinte
 
 - [Aceder a relatórios analíticos para o mercado comercial no Partner Center](partner-center-portal/analytics.md)
-- Saiba [como comercializar a sua oferta de Aplicação Azure](create-new-azure-apps-offer-marketing.md) através da Co-venda com a Microsoft e Revenda através de programas CSPs.
+- Saiba [como vender a sua oferta de Aplicação Azure](create-new-azure-apps-offer-marketing.md) através da Co-venda com a Microsoft e Revenda através de programas CSPs.

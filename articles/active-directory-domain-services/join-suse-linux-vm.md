@@ -2,20 +2,20 @@
 title: Junte-se a um SLE VM para Azure AD Domain Services / Microsoft Docs
 description: Aprenda a configurar e junte-se a uma máquina virtual SUSE Linux Enterprise a um domínio gerido por Azure AD Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.author: joflore
-ms.openlocfilehash: 607d3bc8eca3bd969f0f47ca95923040fb22591e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.author: justinha
+ms.openlocfilehash: f2f421d95dfc376aed373c718198db33a870d9dc
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275855"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619611"
 ---
 # <a name="join-a-suse-linux-enterprise-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Junte-se a uma máquina virtual SUSE Linux Enterprise a um domínio gerido por Azure Ative Directory Domain Services
 
@@ -93,7 +93,7 @@ Para se juntar ao domínio gerido utilizando **o SSSD** e o módulo de Gestão d
 
     Adicione os seus próprios endereços IP de domínio gerido e, em seguida, selecione **OK**.
 
-1. A partir da janela principal do YaST, escolha *a*  >  *Gestão do Logon do Utilizador*dos Serviços de Rede.
+1. A partir da janela principal do YaST, escolha *a*  >  *Gestão do Logon do Utilizador* dos Serviços de Rede.
 
     O módulo abre com uma visão geral mostrando diferentes propriedades de rede do seu computador e o método de autenticação atualmente em uso, como mostra o seguinte exemplo screenshot:
 
@@ -105,7 +105,7 @@ Para juntar o VM ao domínio gerido, complete os seguintes passos:
 
 1. Na caixa de diálogo, selecione **Add Domain**.
 
-1. Especifique o *nome de domínio*correto, como *aaddscontoso.com,* e depois especifique os serviços a utilizar para os dados de identidade e autenticação. Selecione *o Microsoft Ative Directory* para ambos.
+1. Especifique o *nome de domínio* correto, como *aaddscontoso.com,* e depois especifique os serviços a utilizar para os dados de identidade e autenticação. Selecione *o Microsoft Ative Directory* para ambos.
 
     Certifique-se de que a opção para *Ativar o domínio* está selecionada.
 
@@ -115,7 +115,7 @@ Para juntar o VM ao domínio gerido, complete os seguintes passos:
 
 1. O VM instala software adicional conforme necessário e, em seguida, verifica se o domínio gerido está disponível.
 
-    Se tudo estiver correto, o seguinte diálogo de exemplo é mostrado para indicar que o VM descobriu o domínio gerido, mas que *ainda não*está matriculado .
+    Se tudo estiver correto, o seguinte diálogo de exemplo é mostrado para indicar que o VM descobriu o domínio gerido, mas que *ainda não* está matriculado .
 
     ![Imagem de exemplo da janela de inscrição do Ative Directory em YaST](./media/join-suse-linux-vm/enroll-window.png)
 
@@ -137,13 +137,13 @@ Depois de o VM ser matriculado no domínio gerido, configura o cliente utilizand
 
 1. Para permitir que os utilizadores do domínio gerido tenham diretórios domésticos no VM, verifique a caixa para *criar diretórios domésticos*.
 
-1. A partir da barra lateral, selecione **Opções de Serviço › Comutador de**nomes, em seguida, *Opções Estendidas*. A partir dessa janela, selecione *fallback_homedir* ou *override_homedir,* selecione **Add**.
+1. A partir da barra lateral, selecione **Opções de Serviço › Comutador de** nomes, em seguida, *Opções Estendidas*. A partir dessa janela, selecione *fallback_homedir* ou *override_homedir,* selecione **Add**.
 
 1. Especifique um valor para a localização do diretório doméstico. Para que os diretórios domésticos sigam o formato de */home/USER_NAME,* use */home/%u*. Para obter mais informações sobre possíveis variáveis, consulte a página sssd.conf man `man 5 sssd.conf` (), secção *override_homedir*.
 
 1. Selecione **OK**.
 
-1. Para guardar as alterações, selecione **OK**. Certifique-se de que os valores apresentados agora estão corretos. Para deixar o diálogo, **selecione Cancelar**.
+1. Selecione **OK** para guardar as alterações. Certifique-se de que os valores apresentados agora estão corretos. Para deixar o diálogo, **selecione Cancelar**.
 
 1. Se pretender executar SSSD e Winbind simultaneamente (como quando se junta através de SSSD, mas depois executa um servidor de ficheiros Samba), o *método kerberos* de opção Samba deve ser definido para *segredos e keytab* em smb.conf. A opção SSSD *ad_update_samba_machine_account_password* também deve ser definida como *verdadeira* em sssd.conf. Estas opções impedem que o porta-chaves do sistema fique dessincronizado.
 
@@ -187,7 +187,7 @@ Para aderir ao domínio gerido utilizando **winbind** e a interface de *linha de
 
 ## <a name="join-vm-to-the-managed-domain-using-winbind-from-the-terminal"></a>Junte-se vM ao domínio gerido usando Winbind do terminal
 
-Para aderir ao domínio gerido usando **winbind** e o * `samba net` comando*:
+Para aderir ao domínio gerido usando **winbind** e o *`samba net` comando*:
 
 1. Instale o cliente kerberos e o samba-winbind:
 

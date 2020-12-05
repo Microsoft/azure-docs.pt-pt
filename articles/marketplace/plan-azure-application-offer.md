@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 4e256d97d055b56df8c917c841416e5c7eb52465
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 45bc3aaf5217c626e2593b4eda861eaace2a8be2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573532"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620414"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>Planeie uma oferta de aplicação Azure para o mercado comercial
 
@@ -121,7 +121,7 @@ Quando criar uma nova oferta de aplicação Azure no Partner Center, introduzir�
 5. Endereço de política de privacidade (link)
 6. Nome da oferta
 7. Resumo
-8. Descrição
+8. Description
 9. Screenshots/vídeos
 
 A imagem que se segue mostra como as informações da oferta aparecem no portal Azure:
@@ -210,7 +210,7 @@ Esta configuração é necessária se pretender utilizar o [evento de utilizaç�
 Pode optar por optar por canais de marketing e vendas suportados pela Microsoft. Ao criar a sua oferta no Partner Center, verá dois separadores no final do processo:
 
 - **Revender através de CSPs**: Utilize esta opção para permitir que os parceiros da Microsoft Cloud Solution Providers (CSP) revendam a sua solução como parte de uma oferta agregada. Consulte [o programa Cloud Solution Provider](./cloud-solution-providers.md) para obter mais informações.
-- **Co-vender com** a Microsoft: Esta opção permite que as equipas de vendas da Microsoft considerem a sua solução elegível para co-venda ip ao avaliar as necessidades dos seus clientes. Consulte [a opção de Co-venda no Partner Center](commercial-marketplace-co-sell.md) para obter informações detalhadas sobre como preparar a sua oferta para avaliação. Para obter mais informações sobre o marketing da sua oferta através dos canais parceiros da Microsoft CSP, consulte [os Fornecedores de Soluções Cloud.](cloud-solution-providers.md)
+- **Co-vender com** a Microsoft: Esta opção permite que as equipas de vendas da Microsoft considerem a sua solução elegível para co-venda ip ao avaliar as necessidades dos seus clientes. Para obter informações detalhadas sobre como preparar a sua oferta para avaliação, consulte [a opção Co-venda no mercado comercial.](commercial-marketplace-co-sell.md) Para obter mais informações sobre os requisitos de co-venda de IP, consulte [os requisitos para o estado de co-venda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Para obter mais informações sobre o marketing da sua oferta através dos canais parceiros da Microsoft CSP, consulte [os Fornecedores de Soluções Cloud.](cloud-solution-providers.md)
 
 Para saber mais, veja [o Crescimento do seu negócio na nuvem com o Azure Marketplace.](https://azuremarketplace.microsoft.com/sell)
 

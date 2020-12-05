@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 2f59feb83149042781b624aeb0df73fe3ab32587
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 0226635fe34244bf09bc92f9fe065593d3a79a5a
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574229"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621064"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Tutorial: Criar uma hierarquia de dispositivos IoT Edge (Pré-visualização)
 
@@ -611,7 +611,7 @@ Para eliminar os recursos:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, configuraste dois dispositivos IoT Edge como portais e definiste um como o dispositivo principal do outro. Depois, demonstrou ter puxado uma imagem de contentor para o dispositivo da criança através de um portal. Você também pode experimentar este cenário seguindo a amostra de [IoT Azure IoT](https://aka.ms/iotedge-nested-sample)scripted, que implementa máquinas virtuais Azure como dispositivos pré-configurados para simular um ambiente de fábrica.
+Neste tutorial, configuraste dois dispositivos IoT Edge como portais e definiste um como o dispositivo principal do outro. Depois, demonstrou ter puxado uma imagem de contentor para o dispositivo da criança através de um portal.
 
 Para ver de que forma o Azure IoT Edge pode criar mais soluções para a sua empresa, avance para os outros tutoriais.
 

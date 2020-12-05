@@ -2,7 +2,7 @@
 title: Perguntas frequentes sobre serviços de domínio Azure AD Microsoft Docs
 description: Leia e compreenda algumas das perguntas frequentes em torno da configuração, administração e disponibilidade para serviços de domínio do Diretório Ativo Azure
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/30/2020
-ms.author: joflore
-ms.openlocfilehash: 07d2d71c13cd054dec46b6eaa9f07079c8cec63b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: e4e7a64b9f9d7283de728216934854f4ef8f8fd1
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962297"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619738"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Perguntas frequentes (FAQs) sobre Azure Ative Directory (AD) Domain Services
 

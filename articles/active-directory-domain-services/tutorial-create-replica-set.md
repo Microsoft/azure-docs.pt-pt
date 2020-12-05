@@ -2,20 +2,20 @@
 title: Tutorial - Criar uma réplica definida nos Serviços de Domínio Azure AD / Microsoft Docs
 description: Saiba como criar e utilizar conjuntos de réplicas no portal Azure para resiliência de serviço com serviços de domínio AD Azure
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.author: joflore
-ms.openlocfilehash: 8cd78a98e47468f103459fd7aa40b145d53db4fd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 059f711269fd5f1eea9675f238a6003eaf1a0534
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967040"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618115"
 ---
 # <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services-preview"></a>Tutorial: Criar e utilizar conjuntos de réplicas para resiliência ou geolocalização em Serviços de Domínio do Diretório Ativo Azure (pré-visualização)
 
@@ -25,7 +25,7 @@ Pode adicionar um conjunto de réplicas a qualquer rede virtual esprevada em qua
 
 Os conjuntos de réplicas são uma funcionalidade de pré-visualização pública nos Serviços de Domínio Ad Azure. Tenha em atenção as diferenças de suporte que existem para funcionalidades ainda em pré-visualização. Para mais informações sobre pré-visualizações, [Azure Ative Directory Preview SLA](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Compreender os requisitos de rede virtual

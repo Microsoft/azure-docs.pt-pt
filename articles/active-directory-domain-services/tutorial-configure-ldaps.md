@@ -1,20 +1,20 @@
 ---
 title: Tutorial - Configurar LDAPS para Azure Ative Directory Domain Services / Microsoft Docs
 description: Neste tutorial, você aprende a configurar o protocolo de acesso de diretório leve seguro (LDAPS) para um domínio gerido Azure Ative Directory Domain Services.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: f5ebe594f1f50c7b7490e5ead8cb3fe7636f0ce7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.author: justinha
+ms.openlocfilehash: d5dbb7b71e2d67ed5b3f624c93c3c143d6c98e5d
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994031"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618540"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar LDAP seguro para um domínio gerido por Azure Ative Directory Domain Services
 
@@ -24,7 +24,7 @@ Com o Azure AD DS, pode configurar o domínio gerido para utilizar o Protocolo d
 
 Este tutorial mostra-lhe como configurar LDAPS para um domínio gerido AZure AD DS.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar um certificado digital para uso com Azure AD DS
@@ -234,7 +234,7 @@ Vamos criar uma regra para permitir o acesso lDAP seguro de entrada sobre a port
     | Protocolo                          | TCP          |
     | Ação                            | Permitir        |
     | Prioridade                          | 401          |
-    | Nome                              | AllowLDAPS   |
+    | Name                              | AllowLDAPS   |
 
 1. Quando estiver pronto, **selecione Adicione** para guardar e aplicar a regra.
 
@@ -280,7 +280,7 @@ Para ver os objetos armazenados no seu domínio gerido:
 
 Para consultar diretamente um recipiente específico, a partir do menu **View > Tree,** pode especificar um **BaseDN** como *OU=AADDC Users,DC=AADDSCONTOSO,DC=COM* ou *OU=AADDC Computers,DC=AADDSCONTOSO,DC=COM*. Para obter mais informações sobre como formatar e criar consultas, consulte o [básico da consulta LDAP][ldap-query-basics].
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se adicionar uma entrada de DNS ao ficheiro de anfitriões locais do seu computador para testar a conectividade para este tutorial, remova esta entrada e adicione um registo formal na sua zona de DNS. Para remover a entrada do ficheiro dos anfitriões locais, complete os seguintes passos:
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d9c4dff1e4a3ba7c7a2b11311e97eb5e66a1585
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8530b74a63f4e5e2c04ff95a0106b896102dda2c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994252"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618098"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Ativar o sing-in da chave de segurança sem palavras-passe (pré-visualização)
 
@@ -29,7 +29,7 @@ Este documento centra-se em ativar a autenticação sem palavras-passe baseada e
 
 ## <a name="requirements"></a>Requisitos
 
-- [Autenticação de vários fatores Azure Ad](howto-mfa-getstarted.md)
+- [Multi-Factor Authentication do Azure AD](howto-mfa-getstarted.md)
 - Ativar a [pré-visualização do registo de informações de segurança combinadas](concept-registration-mfa-sspr-combined.md)
 - Chaves de [segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatíveis
 - WebAuthN requer versão 10 do Windows 10 ou superior**
@@ -38,9 +38,9 @@ Para utilizar chaves de segurança para iniciar sessão em aplicações e servi�
 
 ## <a name="prepare-devices-for-preview"></a>Preparar dispositivos para pré-visualização
 
-O Azure AD juntou-se a dispositivos com os que pilota, devendo executar a versão 1909 ou superior do Windows 10. A melhor experiência está na versão 1903 do Windows 10 ou superior.
+Para o Azure AD aderiu a dispositivos, a melhor experiência está na versão 1903 do Windows 10 ou superior.
 
-Os dispositivos híbridos Azure AD devem executar a versão 2004 ou mais recente do Windows 10.
+Os dispositivos híbridos Azure AD devem executar a versão 10 ou superior do Windows 10.
 
 ## <a name="enable-passwordless-authentication-method"></a>Ativar o método de autenticação sem palavras-passe
 

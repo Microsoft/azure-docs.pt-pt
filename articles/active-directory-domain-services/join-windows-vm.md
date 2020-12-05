@@ -1,26 +1,26 @@
 ---
 title: Junte-se a um Windows Server VM a um domínio gerido por Azure AD Domain Services Microsoft Docs
 description: Neste tutorial, aprenda a juntar uma máquina virtual do Windows Server a um domínio gerido por Serviços de Domínio do Diretório Ativo Azure.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 5481dbfe1f7b185e87ee13f26f23ea563350b0fa
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.author: justinha
+ms.openlocfilehash: 869c827485d9b7a6baf68d2619af98d4c2ee82b9
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96171794"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619577"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Junte uma máquina virtual do Windows Server a um domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 
 Azure Ative Directory Domain Services (Azure AD DS) fornece serviços de domínio geridos, tais como a junção de domínio, política de grupo, autenticação de LDAP, Kerberos/NTLM que é totalmente compatível com o Windows Server Ative Directory. Com um domínio gerido AD DS Azure, pode fornecer funcionalidades de junção de domínio e gestão a máquinas virtuais (VMs) em Azure. Este tutorial mostra-lhe como criar um VM do Servidor do Windows e, em seguida, junte-o a um domínio gerido.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar um VM do Servidor do Windows

@@ -5,15 +5,15 @@ description: Este artigo fornece uma visão geral da Firewall de Aplicação Web
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 09/16/2020
+ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: f15a739904c28361a60210a0cc4606c7048d0f53
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 36f04b02774a01814811ea131388629de27e9f07
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518979"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621030"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>O que é Azure Web Application Firewall no Gateway de aplicações Azure?
 
@@ -143,7 +143,7 @@ No modo de pontuação de anomalia, o tráfego que corresponde a qualquer regra 
 Há um limiar de 5 para a Pontuação de Anomalias bloquear o tráfego. Assim, uma única partida *de regras críticas* é suficiente para que o Gateway WAF de aplicação bloqueie um pedido, mesmo no modo prevenção. Mas uma regra de *aviso* só aumenta a Pontuação de Anomalia em 3, o que não é suficiente por si só para bloquear o tráfego.
 
 > [!NOTE]
-> A mensagem que é registada quando uma regra da WAF corresponde ao tráfego inclui o valor de ação "Bloqueado". Mas o trânsito só está bloqueado para uma pontuação de anomalia de 5 ou mais.  
+> A mensagem que é registada quando uma regra da WAF corresponde ao tráfego inclui o valor de ação "Bloqueado". Mas o trânsito só está bloqueado para uma pontuação de anomalia de 5 ou mais. Para obter mais informações, consulte [o Firewall de Aplicação Web de Resolução de Problemas (WAF) para O Gateway de Aplicações Azure](web-application-firewall-troubleshoot.md#understanding-waf-logs). 
 
 ### <a name="waf-monitoring"></a>Monitorização da WAF
 

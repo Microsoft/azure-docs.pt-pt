@@ -2,20 +2,20 @@
 title: Resolução de problemas de domínio-junta aos Serviços de Domínio AD da Azure Microsoft Docs
 description: Saiba como resolver problemas comuns quando tenta aderir a um VM ou ligar uma aplicação aos Serviços de Domínio do Diretório Ativo do Azure e não consegue ligar ou autenticar ao domínio gerido.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: ee60b684d64ef49fbb669de8c98203e2df5268bf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 86d6ca79a12e4706f558e92c3c83c5bddaa99b3c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967516"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618608"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Problemas de resolução de domínios com um domínio gerido por serviços de domínio do diretório ativo Azure
 

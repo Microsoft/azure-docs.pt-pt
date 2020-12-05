@@ -2,7 +2,7 @@
 title: Verifique a saúde dos Serviços de Domínio do Diretório Ativo Azure ! Microsoft Docs
 description: Saiba como verificar a saúde de um domínio gerido pelo Azure Ative Directory (Azure AD DS) e compreenda as mensagens de estado utilizando o portal Azure.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: bf65657ea60e94f167bfbb6585026702b64e9658
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 92cc6157c590d3e05b4002e0f071c08e4ec23a16
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962739"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620329"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Verifique a saúde de um domínio gerido pelos Serviços de Domínio do Diretório Ativo Azure
 
@@ -47,13 +47,13 @@ O estado no direito superior indica a saúde geral do domínio gerido. O estado 
 
 ## <a name="understand-monitors-and-alerts"></a>Compreender monitores e alertas
 
-O estado de saúde de um domínio gerido mostra dois tipos de informação - *monitores*e *alertas*. Os monitores mostram a hora em que as tarefas de fundo foram concluídas. Os alertas fornecem informações ou sugestões para melhorar a estabilidade do domínio gerido.
+O estado de saúde de um domínio gerido mostra dois tipos de informação - *monitores* e *alertas*. Os monitores mostram a hora em que as tarefas de fundo foram concluídas. Os alertas fornecem informações ou sugestões para melhorar a estabilidade do domínio gerido.
 
 ### <a name="monitors"></a>Monitores
 
 Os monitores são áreas de um domínio gerido que são verificadas regularmente. Se houver alertas ativos para o domínio gerido, pode fazer com que um dos monitores reporte um problema. A Azure AD DS tem atualmente monitores para as seguintes áreas:
 
-* Cópia de segurança
+* Backup
 * Sincronização com Azure AD
 
 #### <a name="backup-monitor"></a>Monitor de reserva

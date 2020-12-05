@@ -2,20 +2,20 @@
 title: Serviços de Domínio AZure AD para Fornecedores de Soluções cloud Microsoft Docs
 description: Saiba como ativar e gerir os domínios geridos pelo Azure Ative Directory Domain Services para fornecedores de soluções de nuvem Azure
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 ms.assetid: 56ccb219-11b2-4e43-9f07-5a76e3cd8da8
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: fae04d929be7ae6f266ff136b4fbd90f7d8a4e02
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: d8edafff9b6534e5f1ce1c4581595ee187dfd432
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960971"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619904"
 ---
 # <a name="azure-active-directory-domain-services-deployment-and-management-for-azure-cloud-solution-providers"></a>Implementação e gestão de serviços de domínio de diretório ativo Azure para fornecedores de soluções de nuvem Azure
 
@@ -89,7 +89,7 @@ Aplicam-se as seguintes considerações importantes ao administrar um domínio g
   >
   > Não é possível iniciar sinagem no domínio gerido utilizando as credenciais de um utilizador de administração CSP. Utilize as credenciais de uma conta de utilizador pertencente ao inquilino AZure AD do cliente para o fazer. Precisa destas credenciais para tarefas como juntar VMs ao domínio gerido, administrar DNS ou administrar a Política de Grupo.
 
-* **A conta de utilizador criada para a administração em curso deve ser adicionada ao grupo *de administradores da AAD DC:* ** O grupo *de administradores da AAD DC* tem privilégios para executar certas tarefas de administração delegadas no domínio gerido. Estas tarefas incluem configurar o DNS, criar unidades organizacionais e administrar a política de grupo.
+* **A conta de utilizador criada para a administração em curso deve ser adicionada ao grupo *de administradores da AAD DC:*** O grupo *de administradores da AAD DC* tem privilégios para executar certas tarefas de administração delegadas no domínio gerido. Estas tarefas incluem configurar o DNS, criar unidades organizacionais e administrar a política de grupo.
     
     Para que um parceiro da CSP execute estas tarefas num domínio gerido, deve ser criada uma conta de utilizador dentro do inquilino AZure AD do cliente. As credenciais desta conta devem ser partilhadas com os agentes administrativos do parceiro da CSP. Além disso, esta conta de utilizador deve ser adicionada ao grupo *de administradores AAD DC* para permitir que as tarefas de configuração no domínio gerido sejam executadas usando esta conta de utilizador.
 

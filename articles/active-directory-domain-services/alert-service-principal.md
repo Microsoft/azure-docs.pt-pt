@@ -2,7 +2,7 @@
 title: Resolver alertas principais de serviço nos Serviços de Domínio Azure AD / Microsoft Docs
 description: Saiba como resolver os alertas principais de configuração do serviço para os Serviços de Domínio do Diretório Ativo Azure
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: fc980d18a05b18706bb7eeecd907769b80e1b18f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 00ab5c85a477c9c4080acf252cbbde9d4ce816a9
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962722"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620244"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Questões conhecidas: Alertas principais de serviço nos Serviços de Domínio do Diretório Ativo Azure
 
@@ -40,7 +40,7 @@ Para verificar qual o principal de serviço que falta e deve ser recriado, compl
 1. Selecione **aplicações da Enterprise**. Escolha *todas as aplicações* do menu drop-down do Tipo de **Aplicação** e, em seguida, selecione **Aplicar**.
 1. Procure cada um dos seguintes IDs de aplicação. Se não for encontrada nenhuma aplicação existente, siga as etapas de *Resolução* para criar o principal de serviço ou re-registar o espaço de nome.
 
-    | ID da Aplicação | Resolução |
+    | ID da aplicação | Resolução |
     | :--- | :--- |
     | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Recriar um diretor de serviço desaparecido](#recreate-a-missing-service-principal) |
     | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Re-registrar o espaço de nomes Microsoft.AAD](#re-register-the-microsoft-aad-namespace) |
@@ -73,7 +73,7 @@ Se o ID *443155a6-77f3-45e3-882b-22b3a8d431fb*, *abba844e-bc0e-44b0-94 7a-dc74e5
 1. No portal Azure, procure e selecione **Subscrições.**
 1. Escolha a subscrição associada ao seu domínio gerido.
 1. A partir da navegação à esquerda, escolha **Fornecedores de Recursos.**
-1. Procure por *Microsoft.AAD*e, em seguida, **selecione Re-registrar**.
+1. Procure por *Microsoft.AAD* e, em seguida, **selecione Re-registrar**.
 
 A saúde do domínio gerido atualiza-se automaticamente dentro de duas horas e remove o alerta.
 
@@ -99,8 +99,8 @@ Para recriar a aplicação AD AD Azure utilizada para a sincronização de crede
 2. Agora elimine a aplicação e o objeto antigos utilizando os seguintes cmdlets PowerShell:
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
-    Remove-AzureADApplication -ObjectId $app.ObjectId
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
+    Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $spObject
     ```

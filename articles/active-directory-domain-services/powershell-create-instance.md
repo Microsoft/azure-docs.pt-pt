@@ -2,7 +2,7 @@
 title: Ativar os Serviços de Domínio Azure DS utilizando o PowerShell Microsoft Docs
 description: Aprenda a configurar e a capacitar os Serviços de Domínio do Diretório Ativo Azure utilizando a Azure AD PowerShell e a Azure PowerShell.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
 ms.date: 10/02/2020
-ms.author: joflore
+ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 46fdaed4a3e1dbbe5575cd573061a480bf330389
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 89061af04147d7cfaa0fdb3a6b1a8fb1cd8c8da7
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041960"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619152"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Ativar os serviços de domínio do diretório ativo Azure utilizando o PowerShell
 
@@ -44,7 +44,7 @@ Para completar este artigo, precisa dos seguintes recursos:
 
 A Azure AD DS requer um diretor de serviço e um grupo AZure AD. Estes recursos permitem que o Azure AD DS geriu dados sincronizados e definir quais os utilizadores que têm permissões administrativas no domínio gerido.
 
-Em primeiro lugar, crie um principal de serviço Azure AD para a Azure AD DS comunicar e autenticar-se. Um ID de aplicação específico é usado chamado *Serviços de Controlador* de Domínio com um ID de *6ba9a5d4-8456-4118-b521-9c5ca10cdf84* . Não mude esta identificação da aplicação.
+Em primeiro lugar, crie um principal de serviço Azure AD para a Azure AD DS comunicar e autenticar-se. Um ID de aplicação específico é usado chamado *Serviços de Controlador* de Domínio com um ID de *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Não mude esta identificação da aplicação.
 
 Criar um diretor de serviço AZure AD utilizando o [cmdlet New-AzureADServicePrincipal:][New-AzureADServicePrincipal]
 
@@ -52,7 +52,7 @@ Criar um diretor de serviço AZure AD utilizando o [cmdlet New-AzureADServicePri
 New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 ```
 
-Agora crie um grupo AZure AD chamado *AAD DC Administrators* . Os utilizadores adicionados a este grupo são então autorizados a executar tarefas de administração no domínio gerido.
+Agora crie um grupo AZure AD chamado *AAD DC Administrators*. Os utilizadores adicionados a este grupo são então autorizados a executar tarefas de administração no domínio gerido.
 
 Em primeiro lugar, obtenha o ID do grupo *de administradores AAD DC* utilizando o cmdlet [Get-AzureADGroup.][Get-AzureADGroup] Se o grupo não existir, crie-o com o grupo *de administradores AAD DC* utilizando o cmdlet [New-AzureADGroup:][New-AzureADGroup]
 
@@ -109,7 +109,7 @@ New-AzResourceGroup `
   -Location $AzureLocation
 ```
 
-Crie a rede virtual e sub-redes para serviços de domínio Azure AD. São criadas duas sub-redes - uma para *Os Serviços de Domínios* e outra para *Cargas de Trabalho* . O Azure AD DS está implantado na sub-rede dedicada *do DomainServices.* Não coloque outras aplicações ou cargas de trabalho nesta sub-rede. Utilize as *cargas de trabalho separadas* ou outras sub-redes para o resto dos seus VMs.
+Crie a rede virtual e sub-redes para serviços de domínio Azure AD. São criadas duas sub-redes - uma para *Os Serviços de Domínios* e outra para *Cargas de Trabalho*. O Azure AD DS está implantado na sub-rede dedicada *do DomainServices.* Não coloque outras aplicações ou cargas de trabalho nesta sub-rede. Utilize as *cargas de trabalho separadas* ou outras sub-redes para o resto dos seus VMs.
 
 Crie as sub-redes utilizando o cmdlet [New-AzVirtualNetworkSubnetConfig][New-AzVirtualNetworkSubnetConfig] e, em seguida, crie a rede virtual utilizando a cmdlet [New-AzVirtualNetwork.][New-AzVirtualNetwork]
 
@@ -200,7 +200,7 @@ $vnet | Set-AzVirtualNetwork
 
 ## <a name="create-a-managed-domain"></a>Criar um domínio gerido
 
-Agora vamos criar um domínio gerido. Desconfie o iD de subscrição do Azure e, em seguida, forneça um nome para o domínio gerido, como *aaddscontoso.com* . Pode obter o seu ID de subscrição utilizando o cmdlet [Get-AzSubscription.][Get-AzSubscription]
+Agora vamos criar um domínio gerido. Desconfie o iD de subscrição do Azure e, em seguida, forneça um nome para o domínio gerido, como *aaddscontoso.com*. Pode obter o seu ID de subscrição utilizando o cmdlet [Get-AzSubscription.][Get-AzSubscription]
 
 Se escolher uma região que suporte Zonas de Disponibilidade, os recursos Azure AD DS são distribuídos por zonas para redundância adicional.
 

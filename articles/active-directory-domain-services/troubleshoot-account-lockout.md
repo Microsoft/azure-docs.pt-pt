@@ -2,20 +2,20 @@
 title: Bloqueio de conta de resolução de problemas nos Serviços de Domínio Azure AD Microsoft Docs
 description: Saiba como resolver problemas comuns que fazem com que as contas dos utilizadores sejam bloqueadas nos Serviços de Domínio do Diretório Ativo do Azure.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 340811ee1c518cdccb5bbb0ae9b5f215f5564cfa
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 7967347fa63c657ba6211328bdd1d55512358521
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967618"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618778"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Problemas de bloqueio de conta de resolução de problemas com um domínio gerido por serviços de domínio do diretório ativo Azure
 
@@ -75,7 +75,7 @@ AADDomainServicesAccountLogon
 | where "driley" == tolower(extract("Logon Account:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
 ```
 
-Veja todos os eventos de bloqueio de conta entre 26 de junho de 2020 às 9:00. e 1 de julho de 2020 meia-noite, classificado subindo pela data e hora:
+Veja todos os eventos de bloqueio de conta entre 26 de junho de 2020 às 9.m. e 1 de julho de 2020 meia-noite, classificado subindo pela data e hora:
 
 ```Kusto
 AADDomainServicesAccountManagement
