@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59de3123dc991d0314cd9046d83712d17da53d9f
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 924ff6091e7eb6633d36f75fd6d53745139454d7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837826"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741070"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Permitir que os utilizadores desbloqueiem a sua conta ou repôs palavras-passe utilizando o reset da palavra-passe de autosserviço do Azure Ative Directory
 
@@ -128,7 +128,7 @@ Com sSPR ativado e configurado, teste o processo SSPR com um utilizador que faz 
 
 1. Siga os passos de verificação para redefinir a sua palavra-passe. Quando estiver concluído, deverá receber uma notificação por e-mail de que a sua palavra-passe foi reposta.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Num tutorial seguinte nesta série, configurar a gravação da palavra-passe. Esta funcionalidade escreve alterações de palavra-passe de Azure AD SSPR de volta para um ambiente AD no local. Se quiser continuar com esta série tutorial para configurar a gravação de passwords, não desative agora a SSPR.
 
@@ -149,4 +149,4 @@ Neste tutorial, ativou o autosserviço do Azure AD para um grupo selecionado de 
 > * Teste o processo SSPR como utilizador
 
 > [!div class="nextstepaction"]
-> [Ativar a autenticação de vários fatores Azure Ad](./tutorial-enable-azure-mfa.md)
+> [Ativar o Multi-Factor Authentication do Azure AD](./tutorial-enable-azure-mfa.md)

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fae9872593b48355d4ad3711e8e5092481b16213
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: eaa8b586b7d1ae073d0746569d61de837eec3b7d
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174535"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743875"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Reposição personalizada de palavra-passe do AAD
 
@@ -152,7 +152,7 @@ Os utilizadores não têm a opção de registar a sua aplicação móvel ao regi
 
 Se começar com uma política que tenha apenas um método de autenticação necessário para reiniciar ou desbloquear registado e alterar isso para dois métodos, o que acontece?
 
-| Número de métodos registados | Número de métodos necessários | Resultado |
+| Número de métodos registados | Número de métodos necessários | Result |
 | :---: | :---: | :---: |
 | 1 ou mais | 1 | **Capaz** de reiniciar ou desbloquear |
 | 1 | 2 | **Incapaz de** reiniciar ou desbloquear |

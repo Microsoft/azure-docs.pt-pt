@@ -6,24 +6,24 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
 ms.date: 07/13/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92ac495381f63e01d64c9a3d02777dca37ebb343
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f85b78480e7258780f8dd396431edeb968189e4c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837996"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741257"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>O que é a autenticação do Azure Ative Directory?
 
 Uma das principais características de uma plataforma de identidade é verificar, ou *autenticar,* credenciais quando um utilizador assina um dispositivo, aplicação ou serviço. No Azure Ative Directory (Azure AD), a autenticação envolve mais do que apenas a verificação de um nome de utilizador e palavra-passe. Para melhorar a segurança e reduzir a necessidade de assistência ao balcão de ajuda, a autenticação AZure AD inclui os seguintes componentes:
 
 * Reposição personalizada de palavra-passe
-* Autenticação de vários fatores Azure Ad
+* Multi-Factor Authentication do Azure AD
 * Integração híbrida para escrever alterações de palavra-passe de volta ao ambiente no local
 * Integração híbrida para impor políticas de proteção de senhas para um ambiente no local
 * Autenticação sem palavra-passe
@@ -50,7 +50,7 @@ A redefinição da palavra-passe de autosserviço funciona nos seguintes cenári
 
 Quando um utilizador atualiza ou reinicia a sua palavra-passe utilizando a palavra-passe de autosserviço, essa palavra-passe também pode ser escrita de volta para um ambiente de Ative Directory no local. O writeback da palavra-passe garante que um utilizador pode usar imediatamente as suas credenciais atualizadas com dispositivos e aplicações no local.
 
-## <a name="azure-ad-multi-factor-authentication"></a>Autenticação de vários fatores Azure Ad
+## <a name="azure-ad-multi-factor-authentication"></a>Multi-Factor Authentication do Azure AD
 
 A autenticação multifator é um processo no qual é pedido a um utilizador uma forma adicional de identificação durante o início de sessão, tal como a introdução de um código no respetivo telemóvel ou a análise de impressões digitais.
 

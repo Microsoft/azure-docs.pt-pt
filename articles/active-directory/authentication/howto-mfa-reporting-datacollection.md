@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed0d4b754911dda49776379fb318390eae411000
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c2124ca9fae76d87a695a2c453f7b222e7a08794
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839017"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96742798"
 ---
 # <a name="azure-ad-multi-factor-authentication-user-data-collection"></a>Recolha de dados de autenticação multi-factor Azure AD
 
@@ -58,14 +58,14 @@ Tentativas de autenticação (utilizadas para reportar e resolver problemas):
 - Resultado Global
 - Resultados
 - Autenticado
-- Resultado
+- Result
 - Endereço IP iniciador
 - Dispositivos
 - Token do dispositivo
 - Tipo de Dispositivo
 - Versão de aplicativo móvel
 - Versão do SO
-- Resultado
+- Result
 - Verificação usada para notificação
 
 Ativações (tentativas de ativar uma conta na aplicação móvel Microsoft Authenticator):

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25c6ccb4661fde1efb088cd8535bf2759f2057b3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 04a46a691b2f629b64cfe09c22813b05c593af1c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95902765"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743467"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Ativar o acesso da chave de segurança sem palavras-passe aos dispositivos windows 10 com o Azure Ative Directory (pré-visualização)
 
@@ -29,7 +29,7 @@ Este documento centra-se em permitir a autenticação sem palavras-passe baseada
 
 | Tipo de Dispositivo | Azure AD associado | associado ao Azure AD Híbrido |
 | --- | --- | --- |
-| [Autenticação de vários fatores Azure Ad](howto-mfa-getstarted.md) | X | X |
+| [Multi-Factor Authentication do Azure AD](howto-mfa-getstarted.md) | X | X |
 | [Pré-visualização do registo combinado de informações de segurança](concept-registration-mfa-sspr-combined.md) | X | X |
 | Chaves de [segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatíveis | X | X |
 | WebAuthN requer versão 10 do Windows 1903 ou superior | X | X |

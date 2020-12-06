@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 05/15/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6a103f1f518a838e0746d363ee613dd1625b0bd4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: e2a02ae7bd89e99dc2eee013394a1f85139c1c00
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94838983"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96742781"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-ad-multi-factor-authentication-events"></a>Utilize o relatório de inscrições para rever os eventos de autenticação multi-factor Azure AD
 
@@ -119,7 +119,7 @@ Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalNam
 
 A tabela a seguir pode ajudar a resolver eventos utilizando a versão descarregada do relatório de atividades a partir dos passos do portal anterior ou comandos PowerShell. Estes códigos de resultados não aparecem diretamente no portal Azure.
 
-| Resultado de chamada | Descrição | Descrição ampla |
+| Resultado de chamada | Description | Descrição ampla |
 | --- | --- | --- |
 | SUCCESS_WITH_PIN | PIN introduzido | O utilizador introduziu um PIN.  Se a autenticação tiver sido bem sucedida, entraram no PIN correto.  Se a autenticação for negada, inseriram um PIN incorreto ou o utilizador está definido para o modo Standard. |
 | SUCCESS_NO_PIN | Apenas # Inscrito | Se o utilizador estiver definido para o modo PIN e a autenticação for negada, isto significa que o utilizador não introduziu o pin e só entrou em #.  Se o utilizador estiver definido para o modo Standard e a autenticação tiver sucesso, isto significa que o utilizador só entrou # que é a coisa certa a fazer no modo Standard. |
@@ -171,7 +171,7 @@ A tabela a seguir pode ajudar a resolver eventos utilizando a versão descarrega
 
 Estão disponíveis as seguintes informações e relatórios adicionais para eventos MFA, incluindo os do MFA Server:
 
-| Relatório | Localização | Descrição |
+| Relatório | Localização | Description |
 |:--- |:--- |:--- |
 | Histórico de utilizadores bloqueados | Azure AD > Security > MFA > utilizadores de bloco/desbloqueio | Mostra o histórico de pedidos para bloquear ou desbloquear utilizadores. |
 | Utilização de componentes no local | Relatório de atividade > de segurança > Azure AD > > MFA | Fornece informações sobre o uso geral para o MFA Server através da extensão NPS, ADFS e MFA Server. |

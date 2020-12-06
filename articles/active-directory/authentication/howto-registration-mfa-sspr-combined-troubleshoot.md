@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 04/15/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7ac03ff017f8beefe7cc487cdc32741ac1c5a35
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5ba1e280e3c14a24e33246799ca0d7ef8221294f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94838183"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741699"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>Resolução de problemas combinado de registo de informações de segurança
 
@@ -30,7 +30,7 @@ Os eventos registados para registo combinado estão na categoria Métodos de Aut
 
 O quadro que se segue lista todos os eventos de auditoria gerados pelo registo combinado:
 
-| Atividade | Estado | Razão | Descrição |
+| Atividade | Estado | Razão | Description |
 | --- | --- | --- | --- |
 | Utilizador registou todas as informações de segurança necessárias | Success | O utilizador registou todas as informações de segurança necessárias. | Este evento ocorre quando um utilizador completou o registo com sucesso.|
 | Utilizador registou todas as informações de segurança necessárias | Falha | O utilizador cancelou o registo de informações de segurança. | Este evento ocorre quando um utilizador cancela o registo do modo de interrupção.|
@@ -139,7 +139,7 @@ Os passos que se seguem ajudarão a reverter um utilizador ou grupo de utilizado
    }
    ```
 
-#### <a name="rollback"></a>Recuo
+#### <a name="rollback"></a>Reversão
 
 Numa janela PowerShell, execute o seguinte comando, fornecendo as localizações do script e do ficheiro do utilizador. Insira credenciais de administrador global quando solicitado. O script irá obter o resultado de cada operação de atualização do utilizador.
 

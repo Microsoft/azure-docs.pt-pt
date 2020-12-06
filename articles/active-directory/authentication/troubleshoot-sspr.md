@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/26/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e661bd24acbb15ced9f5bb0a0fba7eec51eae06
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7099de23b825fa7af203dff9696bb53e23a099c8
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363543"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741121"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Resolução de problemas de autosserviço redefinição de senha no Azure Ative Directory
 
@@ -136,13 +136,13 @@ Para ajudá-lo corretamente, pedimos que forneça o máximo de detalhes possíve
 
   * Se estiver numa página sem um código de suporte na parte inferior, selecione F12 e procure o SID e o CID e envie esses dois resultados para o engenheiro de suporte.
 * **Data, hora e fuso horário**: Inclua a data e a hora *exatas com o fuso horário* em que ocorreu o erro.
-* **ID do utilizador**: Quem foi o utilizador que viu o erro? Um exemplo é * \@ o contoso.com do utilizador*.
+* **ID do utilizador**: Quem foi o utilizador que viu o erro? Um exemplo é *\@ o contoso.com do utilizador*.
    * É um utilizador federado?
    * É um utilizador de autenticação pass-through?
    * É um utilizador sincronizado com palavra-passe?
    * É um utilizador só de nuvens?
 * **Licenciamento**: O utilizador tem uma licença AD Azure atribuída?
-* **Registo do evento**de aplicação : Se estiver a utilizar a gravação de palavra-passe e o erro estiver na sua infraestrutura no local, inclua uma cópia zipped do registo do evento da sua aplicação a partir do servidor Azure AD Connect.
+* **Registo do evento** de aplicação : Se estiver a utilizar a gravação de palavra-passe e o erro estiver na sua infraestrutura no local, inclua uma cópia zipped do registo do evento da sua aplicação a partir do servidor Azure AD Connect.
 
 ## <a name="next-steps"></a>Passos seguintes
 

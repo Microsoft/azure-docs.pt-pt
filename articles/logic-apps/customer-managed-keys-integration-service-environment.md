@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: mijos, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.openlocfilehash: 59c60c876058f8664b38411b562e57c2d5cdc2a8
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 0057a4671dbc63bf53bafa8d2d742d4edcda1e5e
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510629"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741053"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Confiem chaves geridas pelo cliente para encriptar dados em repouso para ambientes de serviço de integração (ISEs) em Azure Logic Apps
 
@@ -51,7 +51,7 @@ Este tópico mostra como configurar e especificar a sua própria chave de encrip
   |----------|-------|
   | **Tipo chave** | RSA |
   | **Tamanho da chave RSA** | 2048 |
-  | **Ativado** | Sim |
+  | **Ativado** | Yes |
   |||
 
   ![Crie a sua chave de encriptação gerida pelo cliente](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
@@ -101,7 +101,7 @@ Aqui está a sintaxe corporal de pedido, que descreve as propriedades a utilizar
 
 ```json
 {
-   "id": "/subscriptions/{Azure-subscription-ID/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
+   "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
    "name": "{ISE-name}",
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "{Azure-region}",
@@ -232,7 +232,7 @@ Para esta tarefa, pode utilizar o comando Azure PowerShell [Set-AzKeyVaultAccess
 
    1. Selecione estas opções:
 
-      | Definição | Valores |
+      | Definições | Valores |
       |---------|--------|
       | **Configurar da lista de modelos (opcional)** | Gestão de Chaves |
       | **Permissões-chave** | - **Principais Operações de Gestão**: Obter, Lista <p><p>- **Operações criptográficas**: Desembrulhar chave, chave de embrulho |

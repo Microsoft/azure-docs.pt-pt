@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 03/05/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d72aa65f18896ebbecf651da32558059ba782cc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f2e11fa1bb9f1d3a3986a19da8ed44229829ec81
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968400"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741784"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>Ativar no local Azure Ative Directory Password Protection
 
@@ -26,13 +26,13 @@ Para proteger o ambiente de Serviços de Domínio de Diretório Ativo (AD DS) no
 
 Para obter mais informações sobre como a Proteção de Passwords AD AZure funciona num ambiente no local, consulte como impor a proteção de [senha azure AD para o Windows Server Ative Directory](concept-password-ban-bad-on-premises.md).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo mostra-lhe como ativar a Proteção de PasswordS AZure AD para o seu ambiente no local. Antes de concluir este artigo, [instale e registe o serviço de procuração de senhas Azure AD e agentes dc](howto-password-ban-bad-on-premises-deploy.md) no seu ambiente de DS AD no local.
 
 ## <a name="enable-on-premises-password-protection"></a>Permitir a proteção de senhas no local
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue para a **Azure Ative Directory**  >  **Security**  >  **Authentication Methods**Password  >  **protection**.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue para a **Azure Ative Directory**  >  **Security**  >  **Authentication Methods** Password  >  **protection**.
 1. Desafine a opção de ativar a **proteção de palavras-passe no Windows Server Ative Directory** para *Sim*.
 
     Quando esta definição é definida como *Nº*, todos os agentes de proteção de passwords Azure AD entram num modo quiescente onde todas as palavras-passe são aceites como está. Não são realizadas atividades de validação e os eventos de auditoria não são gerados.
@@ -71,4 +71,4 @@ Os utilizadores finais afetados podem ter de trabalhar com o seu pessoal de TI p
 
 Para personalizar a lista de palavras-passe proibidas para a sua organização, consulte [a lista de senhas proibidas a Azure AD Password Protection](tutorial-configure-custom-password-protection.md).
 
-To monitor on-prem events, see [Monitoring on-prem Azure AD Password Protection](howto-password-ban-bad-on-premises-monitor.md).
+Para monitorizar eventos pré-pré-pré-pré-dia, consulte [a Monitorização da Proteção de Passwords Ad Azure prem.](howto-password-ban-bad-on-premises-monitor.md)

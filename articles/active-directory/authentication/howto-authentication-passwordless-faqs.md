@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/19/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5cc6847332765419001eadc5944905f55a425ef
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 98cb990ede7c4d6e261bba05b0b8c97d758e6c32
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964796"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743535"
 ---
 # <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad-preview"></a>Implementação frequentemente feita perguntas (FAQs) para chaves de segurança híbridas FIDO2 em Azure AD (pré-visualização)
 
@@ -218,7 +218,7 @@ Recebemos feedback em torno da complexidade do modelo de implementação do Wind
 Como qualquer outro DC, as chaves *krbtgt de* encriptação do Azure AD Kerberos Server devem ser rodadas regularmente. Recomenda-se seguir o mesmo horário que utiliza para rodar todas as outras teclas *de krbtgt AD DS.*
 
 > [!NOTE]
-> Embora existam outras ferramentas para rodar as teclas *krbtgt,* deve [utilizar os cmdlets PowerShell para rodar as teclas *krbtgt* ](howto-authentication-passwordless-security-key-on-premises.md#rotating-the-azure-ad-kerberos-server-key) do seu Azure AD Kerberos Server. Este método assegura que as teclas sejam atualizadas tanto no ambiente AD DS no local como no Azure AD.
+> Embora existam outras ferramentas para rodar as teclas *krbtgt,* deve [utilizar os cmdlets PowerShell para rodar as teclas *krbtgt*](howto-authentication-passwordless-security-key-on-premises.md#rotating-the-azure-ad-kerberos-server-key) do seu Azure AD Kerberos Server. Este método assegura que as teclas sejam atualizadas tanto no ambiente AD DS no local como no Azure AD.
 
 ### <a name="why-do-we-need-azure-ad-connect-does-it-write-any-info-back-to-ad-ds-from-azure-ad"></a>Por que precisamos do Azure AD Connect? Ele escreve alguma informação para a AD DS da Azure AD?
 
@@ -234,11 +234,11 @@ O pedido HTTP é um pedido padrão de Token (PRT) de Atualização Primária. Es
 
 A Azure AD combina a chave de cliente encriptada e o tampão de mensagens na resposta prt como propriedades adicionais. A carga útil é encriptada utilizando a tecla de sessão do Dispositivo AD Azure.
 
-| Campo              | Tipo   | Descrição  |
+| Campo              | Tipo   | Description  |
 |--------------------|--------|--------------|
-| tgt_client_key     | cadeia | Base64 codificada chave do cliente (segredo). Esta chave é o segredo do cliente usado para proteger o TGT. Neste cenário sem palavra-passe, o segredo do cliente é gerado pelo servidor como parte de cada pedido de TGT e depois devolvido ao cliente na resposta. |
+| tgt_client_key     | string | Base64 codificada chave do cliente (segredo). Esta chave é o segredo do cliente usado para proteger o TGT. Neste cenário sem palavra-passe, o segredo do cliente é gerado pelo servidor como parte de cada pedido de TGT e depois devolvido ao cliente na resposta. |
 | tgt_key_type       | int    | O tipo de chave AD DS no local utilizado tanto para a chave do cliente como para a chave de sessão Kerberos incluída no KERB_MESSAGE_BUFFER. |
-| tgt_message_buffer | cadeia | Base64 codificada KERB_MESSAGE_BUFFER. |
+| tgt_message_buffer | string | Base64 codificada KERB_MESSAGE_BUFFER. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

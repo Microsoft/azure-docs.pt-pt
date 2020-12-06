@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6aa093411e40b2fc60c52c2a22434658bab78e59
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 978f404aa9b99819460e46ea89df19d27431b8b8
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839255"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743144"
 ---
 # <a name="plan-an-azure-ad-multi-factor-authentication-deployment"></a>Planeie uma implementação de autenticação multi-factor Azure AD
 
@@ -29,7 +29,7 @@ Este guia de implementação mostra-lhe como planear e, em seguida, testar um ro
 Para ver rapidamente a autenticação multi-factor AD Ad em ação e, em seguida, voltar a entender considerações adicionais de implementação:
 
 > [!div class="nextstepaction"]
-> [Ativar a autenticação de vários fatores Azure Ad](tutorial-enable-azure-mfa.md)
+> [Ativar o Multi-Factor Authentication do Azure AD](tutorial-enable-azure-mfa.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -357,7 +357,7 @@ Relatórios do Azure AD MFA
 
 A Azure AD Multi-Factor Authentication fornece relatórios através do portal Azure:
 
-| Relatório | Localização | Descrição |
+| Relatório | Localização | Description |
 | --- | --- | --- |
 | Alertas de utilização e fraude | Azure AD > inscrições | Fornece informações sobre a utilização geral, o resumo do utilizador e os detalhes do utilizador; bem como um histórico de alertas de fraude apresentados durante o intervalo de datas especificado. |
 
@@ -370,4 +370,4 @@ Encontre soluções para problemas comuns com O Azure AD MFA no [artigo de auten
 Para ver a autenticação multi-factor Azure AD em ação, complete o seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Ativar a autenticação de vários fatores Azure Ad](tutorial-enable-azure-mfa.md)
+> [Ativar o Multi-Factor Authentication do Azure AD](tutorial-enable-azure-mfa.md)

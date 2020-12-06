@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 10/01/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: c3fcff5673f4498e92f5d66fe96d806a08527197
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: ff6ae6ea6812397e737deb4b97bf1cd15e022c03
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576024"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743178"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Iniciar sessão no Azure Ative Directory usando o e-mail como iD de login alternativo (pré-visualização)
 
@@ -30,7 +30,7 @@ Algumas organizações não mudaram para a autenticação híbrida pelas seguint
 * A alteração da UPN AZure cria uma correspondência errada entre ambientes on-prem e Ad Azure que podem causar problemas com certas aplicações e serviços.
 * Devido a razões de negócio ou conformidade, a organização não quer usar a UPN no local para assinar no Azure AD.
 
-Para ajudar na mudança para a autenticação híbrida, pode agora configurar a AD Azure para permitir que os utilizadores iniciem sessão com um e-mail no seu domínio verificado como um ID de login alternativo. Por exemplo, se *Contoso* rebranded para *Fabrikam* , em vez de continuar a assinar com o legado `balas@contoso.com` UPN, o e-mail como um ID de login alternativo pode agora ser usado. Para aceder a uma aplicação ou serviços, os utilizadores iniciariam sessão no AZure AD utilizando o seu e-mail atribuído, como `balas@fabrikam.com` .
+Para ajudar na mudança para a autenticação híbrida, pode agora configurar a AD Azure para permitir que os utilizadores iniciem sessão com um e-mail no seu domínio verificado como um ID de login alternativo. Por exemplo, se *Contoso* rebranded para *Fabrikam*, em vez de continuar a assinar com o legado `balas@contoso.com` UPN, o e-mail como um ID de login alternativo pode agora ser usado. Para aceder a uma aplicação ou serviços, os utilizadores iniciariam sessão no AZure AD utilizando o seu e-mail atribuído, como `balas@fabrikam.com` .
 
 Este artigo mostra-lhe como ativar e usar o e-mail como um ID de login alternativo. Esta funcionalidade está disponível na edição Azure AD Free e superior.
 
@@ -244,7 +244,7 @@ Se os utilizadores tiverem problemas com eventos de inscrição utilizando o seu
 
 1. Certifique-se de que a conta de utilizador tem o seu endereço de e-mail definido para o atributo *ProxyAddresses* no ambiente DS AD on-prem.
 1. Verifique se o Azure AD Connect está configurado e sincroniza com sucesso as contas dos utilizadores do ambiente DS AD pré-pré-m em Azure AD.
-1. Confirme que a política Azure AD *HomeRealmDiscoveryPolicy* tem o atributo *AlternateIdLogin* definido como *"Enabled": verdadeiro* :
+1. Confirme que a política Azure AD *HomeRealmDiscoveryPolicy* tem o atributo *AlternateIdLogin* definido como *"Enabled": verdadeiro*:
 
     ```powershell
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *

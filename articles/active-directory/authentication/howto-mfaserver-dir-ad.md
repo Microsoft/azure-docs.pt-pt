@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ab61fb57f98f62f2e8e5ca697bb5ef8301cada2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8b3778ea68edf1fbbb41efb899749e6f35b39bae
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994201"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96742294"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integração de diretórios entre o Servidor MFA do Azure e o Active Directory
 
@@ -51,7 +51,7 @@ A tabela seguinte descreve as definições de configuração de LDAP.
 
 | Funcionalidade | Descrição |
 | --- | --- |
-| Server |Introduza o nome do anfitrião ou endereço IP do servidor que executa o diretório LDAP.  Também pode ser especificado um servidor de cópia de segurança, separado por ponto e vírgula. <br>Nota: Quando o Tipo de Ligação é SSL (TLS), é necessário um nome de hospedeiro totalmente qualificado. |
+| Servidor |Introduza o nome do anfitrião ou endereço IP do servidor que executa o diretório LDAP.  Também pode ser especificado um servidor de cópia de segurança, separado por ponto e vírgula. <br>Nota: Quando o Tipo de Ligação é SSL (TLS), é necessário um nome de hospedeiro totalmente qualificado. |
 | DN Base |Introduza o nome único do objeto de diretório base a partir do qual são iniciadas todas as consultas de diretório.  Por exemplo, dc=abc,dc=com. |
 | Tipo de enlace - Consultas |Selecione o tipo de enlace adequado para utilizar quando se vincula a procurar no diretório LDAP.  Este serve para importações, sincronização e resolução de nomes de utilizador. <br><br>  Anónimo - é feito um enlace anónimo.  DN do Enlace e Palavra-passe do Enlace não são utilizados.  Só funciona se o diretório LDAP permitir o enlace anónimo e as permissões permitirem a consulta dos registos e atributos adequados.  <br><br> Simples - o DN do Enlace e a Palavra-passe do Enlace são transmitidos como texto simples para vincular ao diretório LDAP.  Só deve ser utilizada para fins de teste, para verificar se é possível aceder ao servidor e se a conta de enlace tem o acesso adequado. Depois de ter sido instalado o certificado adequado, opte por utilizar SSL.  <br><br> SSL - o DN do Enlace e a Palavra-passe do Enlace são encriptados com SSL para se vincularem ao diretório LDAP.  Instale localmente um certificado em que o diretório LDAP confie.  <br><br> Windows - o DN do Enlace e a Palavra-passe do Enlace são utilizados para ligar em segurança a um controlador de domínio do Active Directory ou ao diretório de ADAM.  Se o campo Nome de utilizador do enlace for deixado em branco, a conta do utilizador com sessão iniciada é utilizada para o enlace. |
 | Tipo de enlace - Autenticações |Selecione o tipo de enlace adequado para utilizar quando efetuar a autenticação do enlace de LDAP.  Veja as descrições dos tipos de enlace em Tipo de enlace - Consultas.  Por exemplo, esta ação permite a utilização do enlace Anónimo para consultas enquanto o enlace de SSL serve para proteger as autenticações de enlace de LDAP. |
@@ -92,7 +92,7 @@ Os atributos podem ser introduzidos manualmente e não precisam de corresponder 
 | Apelido |Introduza o nome de atributo do atributo que contém o apelido num registo de utilizador.  A predefinição é sn. |
 | Endereço de e-mail |Introduza o nome de atributo do atributo que contém o endereço de e-mail num registo de utilizador.  O endereço de e-mail é utilizado para enviar mensagens de e-mail de boas-vindas e de atualização ao utilizador.  A predefinição é mail. |
 | Grupo de utilizadores |Introduza o nome de atributo do atributo que contém o grupo de utilizadores num registo de utilizador.  O grupo de utilizadores pode ser utilizado para filtrar os utilizadores no agente e em relatórios no Portal de Gestão do Servidor Multi-Factor Auth. |
-| Descrição |Introduza o nome de atributo do atributo que contém a descrição num registo de utilizador.  A descrição só é utilizada para procurar.  A predefinição é description. |
+| Description |Introduza o nome de atributo do atributo que contém a descrição num registo de utilizador.  A descrição só é utilizada para procurar.  A predefinição é description. |
 | Idioma da chamada telefónica |Introduza o nome de atributo do atributo que contém o nome abreviado do idioma a utilizar para chamadas de voz do utilizador. |
 | Idioma da mensagem de texto |Introduza o nome de atributo do atributo que contém o nome abreviado do idioma a utilizar para mensagens de texto SMS do utilizador. |
 | Idioma da aplicação móvel |Introduza o nome de atributo do atributo que contém o nome abreviado do idioma a utilizar para mensagens de texto da aplicação para telemóvel do utilizador. |

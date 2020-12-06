@@ -1,21 +1,21 @@
 ---
-title: Ativar a autenticação de vários fatores Azure Ad
+title: Ativar o Multi-Factor Authentication do Azure AD
 description: Neste tutorial, aprende-se a ativar a autenticação multi-factor Azure AD para um grupo de utilizadores e testar o pedido de fator secundário durante um evento de entrada.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62818ae5be079dc154e6d6faef4a8ebaae8fcd9d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 32228e90e3cfc064cd5be9cd0655f321ab3e2809
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837877"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741155"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-ad-multi-factor-authentication"></a>Tutorial: Garantir eventos de entrada de utilizadores com autenticação multi-factor Azure AD
 
@@ -114,7 +114,7 @@ Agora inscreva-se no portal Azure. Como o portal Azure foi configurado na polít
 
 1. Feche a janela do browser.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se já não pretender utilizar a política de Acesso Condicional para ativar a autenticação multi-factor Ad Azure configurada como parte deste tutorial, elimine a política utilizando os seguintes passos:
 

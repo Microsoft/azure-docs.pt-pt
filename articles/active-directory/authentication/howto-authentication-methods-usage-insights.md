@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe8a916f4c3ce8869b6b487e33dcdecc061f8cbf
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8633ae0d23650eb12ee2e1fdcd355864dfd8b6c3
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839595"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743637"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Métodos de autenticação utilização & insights (pré-visualização)
 
@@ -65,7 +65,7 @@ Clicando nos **Utilizadores registados,** **os Utilizadores ativados,** ou **os 
 
 O relatório de dados de registo mostra as seguintes informações para cada utilizador:
 
-- Nome
+- Name
 - Nome de utilizador
 - Estado de registo (Todos, Registados, Não Registados)
 - Estado ativado (Tudo, Ativado, Não Ativado)
@@ -80,7 +80,7 @@ Clicar nos gráficos de Registos ou Resets irá levá-lo aos detalhes do reset.
 
 O relatório de detalhes de reset mostra eventos de registo e reposição dos últimos 30 dias, incluindo:
 
-- Nome
+- Name
 - Nome de utilizador
 - Recurso (Todos, Registo, Reset)
 - Método de autenticação (notificação de aplicação, código de aplicação, chamada telefónica, chamada do Office, SMS, Email, Questões de Segurança)
