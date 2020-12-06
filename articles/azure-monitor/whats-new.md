@@ -5,17 +5,81 @@ ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 11/11/2020
-ms.openlocfilehash: bf15e380eb1a88acc39ca63165d18d04a260b35d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 12/04/2020
+ms.openlocfilehash: 91aa76fd3d9dbb54316f32fdb319e92ca2283b1d
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185900"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745779"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>O que há de novo na documentação do Monitor Azure?
 
 Este artigo fornece listas de artigos do Azure Monitor que são novos ou foram significativamente atualizados. Será atualizado na primeira semana de cada mês para incluir atualizações de artigos do mês anterior.
+
+## <a name="november-2020"></a>Novembro de 2020
+
+### <a name="general"></a>Geral
+- [Limites de serviço do Monitor Azure](service-limits.md) - Atualizado para suporte Azure Arc.
+
+### <a name="agents"></a>Agentes
+- [Visão geral dos agentes de monitorização Azure](platform/agents-overview.md) - Atualizado para suporte Azure Arc.
+- [Instale o agente Azure Monitor](platform/azure-monitor-agent-install.md) - Novo artigo.
+- [Visão geral do agente do Monitor Azure](platform/azure-monitor-agent-overview.md) - Atualizado para suporte Azure Arc.
+- [Amostras de modelo do Gestor de Recursos para agentes](samples/resource-manager-agent.md) - Atualizado para suporte Azure Arc.
+
+### <a name="alerts"></a>Alertas
+- [Criar e gerir grupos de ação no portal Azure](platform/action-groups.md) - Endereços IP de origem adicionada para webhooks.
+
+### <a name="application-insights"></a>Application Insights
+- [Aplicação sem código Java monitorizando Azure Monitor Application Insights](app/java-in-process-agent.md) - Exemplo de configuração adicionada.
+- [Reagir plugin para Informações JavaScript SDK](app/javascript-react-plugin.md) - Secção adicionada na utilização de ganchos React.
+- [Upgrade de Application Insights Java 2.x SDK](app/java-standalone-upgrade-from-2x.md) - Novo artigo.
+- [Notas de lançamento para Microsoft.ApplicationInsights.SnapshotCollector](app/snapshot-collector-release-notes.md) - Novo artigo.
+
+### <a name="autoscale"></a>Dimensionamento Automático
+- [Começar com autoescala em Azure](platform/autoscale-get-started.md) - Secção adicionada sobre a mudança da Autoscale para uma região diferente.
+
+### <a name="data-collection"></a>Recolha de dados
+- [Configure a recolha de dados para o agente Azure Monitor (pré-visualização)](platform/data-collection-rule-azure-monitor-agent.md) - Atualizado para suporte Azure Arc.
+- [Regras de recolha de dados em Azure Monitor (pré-visualização)](platform/data-collection-rule-overview.md) - Atualizado para suporte Azure Arc.
+- [Amostras de modelo do Gestor de Recursos para regras de recolha de dados](samples/resource-manager-data-collection-rules.md) - Novo artigo.
+
+### <a name="insights-and-solutions"></a>Insights e soluções
+- [Ligue o Azure às ferramentas ITSM utilizando a secção Secure Export](platform/it-service-management-connector-secure-webhook-connections.md) - Secção adicionada na ligação ao ServiceNow.
+
+### <a name="logs"></a>Registos
+- [Integrar Log Analytics e Excel](log-query/log-excel.md) - Novo artigo.
+- [Log Analytics segurança de dados](platform/data-security.md) - Secção adicionada em funcionalidades de segurança adicionais.
+- [Log Analytics integração com Power BI](log-query/log-powerbi.md) - Novo artigo.
+- [Colunas padrão nos registos de registos do Monitor Azure](platform/log-standard-columns.md) - Coluna _SubscriptionId adicionada.
+
+Artigos novos e atualizados da reestruturação do conteúdo da consulta de registo.
+
+- [Tutorial do Log Analytics](log-query/log-analytics-tutorial.md)
+- [Consultas de registo no Azure Monitor](log-query/log-query-overview.md)
+- [Visão geral do Log Analytics no Azure Monitor](log-query/log-analytics-overview.md)
+- [Amostras para consultas para Azure Data Explorer e Azure Monitor](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor)
+- [Tutorial: Use consultas kusto no Azure Data Explorer e Azure Monitor](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor)
+
+
+
+### <a name="virtual-machines"></a>Máquinas virtuais
+
+- [Ativar o Monitor Azure para visão geral dos VMs](insights/vminsights-enable-overview.md) - Regiões apoiadas adicionadas.
+
+Novos artigos para Azure Monitor para saúde de hóspedes VMs (pré-visualização)
+
+- [Monitor Azure para saúde dos hóspedes VMs (pré-visualização)](insights/vminsights-health-overview.md)
+- [Monitor Azure para alertas de saúde de hóspedes VMs (pré-visualização)](insights/vminsights-health-alerts.md)
+- [Configure monitorização no Azure Monitor para a saúde dos hóspedes VMs (pré-visualização)](insights/vminsights-health-configure.md)
+- [Configure a monitorização no Azure Monitor para a saúde dos hóspedes em VMs utilizando regras de recolha de dados (pré-visualização)](insights/vminsights-health-configure-dcr.md)
+- [Ativar o Azure Monitor para a saúde dos hóspedes VMs (pré-visualização)](insights/vminsights-health-enable.md)
+- [Troubleshoot Azure Monitor para saúde de hóspedes VMs (pré-visualização)](insights/vminsights-health-troubleshoot.md)
+
+
+
+
 
 ## <a name="october-2020"></a>Outubro de 2020
 

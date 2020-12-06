@@ -1,24 +1,15 @@
 ---
 title: Partilhe os dashboards do portal Azure utilizando o controlo de acesso baseado em funções Azure
 description: Este artigo explica como partilhar um dashboard no portal Azure utilizando o controlo de acesso baseado em funções Azure.
-services: azure-portal
-documentationcenter: ''
-author: mgblythe
-manager: mtillman
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 03/23/2020
-ms.author: mblythe
-ms.openlocfilehash: b74cae439ce351a4d720f215679cc0802eebe898
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: de2efd75d07c3dc7df771aad1bd9c73453dad212
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092210"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745983"
 ---
 # <a name="share-azure-dashboards-by-using-azure-role-based-access-control"></a>Partilhe tabliers Azure utilizando o controlo de acesso baseado em funções Azure
 
@@ -41,7 +32,7 @@ Com o controlo de acesso baseado em funções Azure (Azure RBAC), pode atribuir 
 
 As permissões que atribui herdam da subscrição até ao recurso. O painel de instrumentos publicado é um recurso. Pode já ter utilizadores atribuídos a funções para a subscrição que se candidatam ao dashboard publicado.
 
-Digamos que tem uma subscrição do Azure e vários membros da sua equipa foram designados para as funções de *proprietário,* *colaborador*ou *leitor* para a subscrição. Os utilizadores que são proprietários ou contribuintes podem listar, visualizar, criar, modificar ou eliminar dashboards dentro da subscrição. Os utilizadores que são leitores podem listar e ver dashboards, mas não podem modificá-los ou eliminá-los. Os utilizadores com acesso ao leitor podem fazer edições locais para um dashboard publicado, como quando se solucionam um problema, mas não podem publicar essas alterações de volta para o servidor. Podem fazer uma cópia privada do painel para si mesmos.
+Digamos que tem uma subscrição do Azure e vários membros da sua equipa foram designados para as funções de *proprietário,* *colaborador* ou *leitor* para a subscrição. Os utilizadores que são proprietários ou contribuintes podem listar, visualizar, criar, modificar ou eliminar dashboards dentro da subscrição. Os utilizadores que são leitores podem listar e ver dashboards, mas não podem modificá-los ou eliminá-los. Os utilizadores com acesso ao leitor podem fazer edições locais para um dashboard publicado, como quando se solucionam um problema, mas não podem publicar essas alterações de volta para o servidor. Podem fazer uma cópia privada do painel para si mesmos.
 
 Também pode atribuir permissões ao grupo de recursos que contém vários dashboards ou a um dashboard individual. Por exemplo, pode decidir que um grupo de utilizadores deve ter permissões limitadas em toda a subscrição, mas um maior acesso a um determinado dashboard. Atribua esses utilizadores a um papel para o painel de instrumentos.
 

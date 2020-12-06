@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 8a8b04501bf81f41fb87de8fc0ce42eb4e7fda93
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 8469cad02009d054bd8ba97fb4aabfdae84ef842
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370243"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744623"
 ---
 # <a name="configure-a-solution-template-plan"></a>Configure um plano de modelo de solução
 
@@ -72,7 +72,7 @@ Na caixa **versão** fornece-se a versão atual da configuração técnica. Incr
 
 ### <a name="upload-a-package-file"></a>Faça upload de um ficheiro de pacote
 
-No **ficheiro Package (.zip)** , arraste o seu ficheiro de embalagem para a caixa cinzenta ou selecione a **navegação para o(s)** link de ficheiros.
+No **ficheiro Pacote (.zip)**, arraste o seu ficheiro de pacote para a caixa cinzenta ou selecione a **navegação para o(s)** link de ficheiros.
 
 > [!NOTE]
 > Se tiver um problema de upload de ficheiros, certifique-se de que a rede local não bloqueia o `https://upload.xboxlive.com` serviço utilizado pelo Partner Center.
@@ -96,4 +96,4 @@ As ações disponíveis na coluna de **ação** do separador **Plano** variam co
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Como testar e publicar a sua oferta de Aplicação Azure.](create-new-azure-apps-offer-test-publish.md)
-- Saiba [como comercializar a sua oferta de Aplicação Azure](create-new-azure-apps-offer-marketing.md) através da Co-venda com a Microsoft e Revenda através de programas CSPs.
+- Saiba [como vender a sua oferta de Aplicação Azure](create-new-azure-apps-offer-marketing.md) através da Co-venda com a Microsoft e Revenda através de programas CSPs.

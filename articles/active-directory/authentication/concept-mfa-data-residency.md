@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3854bb410aba8da65b47a335bf13f1dcc51a0180
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 40751b7864cc62d17836ab6d57cd106f6904f64a
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839901"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744113"
 ---
 # <a name="data-residency-and-customer-data-for-azure-ad-multi-factor-authentication"></a>Residência de dados e dados do cliente para autenticação multi-factor Azure AD
 
@@ -45,7 +45,7 @@ Esta informação é retida por 90 dias.
 
 A autenticação multi-factor Azure AD não regista dados pessoais como nome de utilizador, número de telefone ou endereço IP, mas existe um *UserObjectId* que identifica tentativas de autenticação multi-factor para os utilizadores. Os dados de registo são armazenados durante 30 dias.
 
-### <a name="azure-ad-multi-factor-authentication"></a>Autenticação de vários fatores Azure Ad
+### <a name="azure-ad-multi-factor-authentication"></a>Multi-Factor Authentication do Azure AD
 
 Para as nuvens públicas Azure, excluindo a autenticação Azure B2C, extensão NPS e Adaptador AD FS 2016 ou 2019, os seguintes dados pessoais são armazenados:
 

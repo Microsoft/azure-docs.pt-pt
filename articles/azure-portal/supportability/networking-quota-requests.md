@@ -1,18 +1,17 @@
 ---
-title: Aumento do limite de rede Microsoft Docs
+title: Aumento do limite de rede
 description: Aumento do limite de rede
 author: anavinahar
 ms.author: anavin
 ms.date: 01/23/2020
 ms.topic: how-to
-ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: acb05da0255445de31e08f2724dcb484a3e05b17
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: e945dec2ce8514c3e4f1edecdecd13c5c43f7c75
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "84764270"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745456"
 ---
 # <a name="networking-limit-increase"></a>Aumento do limite de rede
 

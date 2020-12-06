@@ -1,20 +1,14 @@
 ---
-title: Capture um vestígio de navegador para resolução de problemas Microsoft Docs
+title: Capturar um rastreio de browser para resolução de problemas
 description: Capture informações de rede a partir de um rastreio de navegador para ajudar a resolver problemas com o portal Azure.
-services: azure-portal
-keywords: ''
-author: mgblythe
-ms.author: mblythe
 ms.date: 05/11/2020
 ms.topic: troubleshooting
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: aac7357939ab2d14949c967630840ed6d267d251
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 504a32fb63022f97e8049c7c1ccc7721bbac31ab
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145740"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746000"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Capturar um rastreio de browser para resolução de problemas
 
@@ -30,7 +24,7 @@ O Google Chrome e o Microsoft Edge (Chromium) são ambos baseados no [projeto Ch
 
 1. No portal, navegue até ao degrau pouco antes do local onde o problema ocorre.
 
-1. Prima F12 ou selecione ![ Screenshot que mostra o ícone de configurações do navegador.](media/capture-browser-trace/chromium-icon-settings.png) > **Mais ferramentas**  >  **Ferramentas de desenvolvimento** .
+1. Prima F12 ou selecione ![ Screenshot que mostra o ícone de configurações do navegador.](media/capture-browser-trace/chromium-icon-settings.png) > **Mais ferramentas**  >  **Ferramentas de desenvolvimento**.
 
 1. Por padrão, o navegador mantém a informação de rastreio apenas para a página que está atualmente carregada. Desaprova as seguintes opções para que o navegador mantenha todas as informações de rastreio, mesmo que a sua repro exija ir a mais de uma página:
 
@@ -38,11 +32,11 @@ O Google Chrome e o Microsoft Edge (Chromium) são ambos baseados no [projeto Ch
 
           ![Screenshot que realça a opção de registo de reserva no separador Rede.](media/capture-browser-trace/chromium-network-preserve-log.png)
 
-    1. Selecione o separador **Consola,** selecione **as definições de Consola** e, em seguida, selecione Preserve **Log** . Selecione **as definições de consola** novamente para fechar o painel de definições.
+    1. Selecione o separador **Consola,** selecione **as definições de Consola** e, em seguida, selecione Preserve **Log**. Selecione **as definições de consola** novamente para fechar o painel de definições.
 
           ![Screenshot que realça a opção de registo de reserva no separador Consola.](media/capture-browser-trace/chromium-console-preserve-log.png)
 
-1. Selecione o separador **'Rede'** e, em seguida, selecione **Parar de registar o registo de rede** e **limpar** .
+1. Selecione o separador **'Rede'** e, em seguida, selecione **Parar de registar o registo de rede** e **limpar**.
 
     ![Screenshot de "Stop recording network log" e "Clear"](media/capture-browser-trace/chromium-stop-clear-session.png)
 
@@ -76,11 +70,11 @@ Os passos a seguir mostram como utilizar as ferramentas de desenvolvimento no Mi
 
 1. No portal, navegue até ao degrau pouco antes do local onde o problema ocorre.
 
-1. Prima F12 ou selecione ![ Screenshot do ícone de configurações do navegador.](media/capture-browser-trace/edge-icon-settings.png) > **Mais ferramentas**  >  **Ferramentas de desenvolvimento** .
+1. Prima F12 ou selecione ![ Screenshot do ícone de configurações do navegador.](media/capture-browser-trace/edge-icon-settings.png) > **Mais ferramentas**  >  **Ferramentas de desenvolvimento**.
 
 1. Por padrão, o navegador mantém a informação de rastreio apenas para a página que está atualmente carregada. Desaprova as seguintes opções para que o navegador mantenha todas as informações de rastreio, mesmo que a sua repro exija ir a mais de uma página:
 
-    1. Selecione o separador **'Rede'** e, em seguida, limpe a opção **Limpar as entradas na navegação** .
+    1. Selecione o separador **'Rede'** e, em seguida, limpe a opção **Limpar as entradas na navegação**.
 
           ![Screenshot de "Entradas claras na navegação"](media/capture-browser-trace/edge-network-clear-entries.png)
 
@@ -88,7 +82,7 @@ Os passos a seguir mostram como utilizar as ferramentas de desenvolvimento no Mi
 
           ![Screenshot de "Preserve Log"](media/capture-browser-trace/edge-console-preserve-log.png)
 
-1. Selecione o separador **'Rede'** e, em seguida, selecione **'Stop profiling session'** e **Clear session** .
+1. Selecione o separador **'Rede'** e, em seguida, selecione **'Stop profiling session'** e **Clear session**.
 
     ![Screenshot de "Stop profiling session" e "Clear session"](media/capture-browser-trace/edge-stop-clear-session.png)
 
@@ -100,7 +94,7 @@ Os passos a seguir mostram como utilizar as ferramentas de desenvolvimento no Mi
 
     ![Screenshot que mostra a saída para a sessão de perfis.](media/capture-browser-trace/edge-browser-trace-results.png)
 
-1. Depois de reproduzir o comportamento inesperado do portal, selecione **Stop profiling session** , em seguida, selecione Export as **HAR** e guarde o ficheiro.
+1. Depois de reproduzir o comportamento inesperado do portal, selecione **Stop profiling session**, em seguida, selecione Export as **HAR** e guarde o ficheiro.
 
     ![Screenshot de "Exportação como HAR"](media/capture-browser-trace/edge-network-export-har.png)
 
@@ -118,11 +112,11 @@ Os passos a seguir mostram como usar as ferramentas de desenvolvimento no Apple 
 
 1. Ative as ferramentas de desenvolvimento no Apple Safari:
 
-    1. Selecione **Safari** e, em seguida, selecione **Preferências** .
+    1. Selecione **Safari** e, em seguida, selecione **Preferências**.
 
         ![Screenshot das preferências do Safari](media/capture-browser-trace/safari-preferences.png)
 
-    1. Selecione o separador **Advanced** e, em seguida, selecione **o menu Mostrar Desenvolvimento na barra de menus** .
+    1. Selecione o separador **Advanced** e, em seguida, selecione **o menu Mostrar Desenvolvimento na barra de menus**.
 
         ![Screenshot das preferências avançadas do Safari](media/capture-browser-trace/safari-show-develop-menu.png)
 
@@ -132,7 +126,7 @@ Os passos a seguir mostram como usar as ferramentas de desenvolvimento no Apple 
 
 1. No portal, navegue até ao degrau pouco antes do local onde o problema ocorre.
 
-1. Selecione **Desenvolver,** em seguida, **selecione Show Web Inspetor** .
+1. Selecione **Desenvolver,** em seguida, **selecione Show Web Inspetor**.
 
     ![Screenshot de "Show Web Inspetor"](media/capture-browser-trace/safari-show-web-inspector.png)
 
@@ -146,7 +140,7 @@ Os passos a seguir mostram como usar as ferramentas de desenvolvimento no Apple 
 
           ![Screenshot que mostra o Registo de Reserva no separador Consola.](media/capture-browser-trace/safari-console-preserve-log.png)
 
-1. Selecione o separador **'Rede'** e, em seguida, selecione **Itens de Rede Limpas** .
+1. Selecione o separador **'Rede'** e, em seguida, selecione **Itens de Rede Limpas**.
 
     ![Screenshot de "Itens de rede clara"](media/capture-browser-trace/safari-clear-session.png)
 
@@ -176,15 +170,15 @@ Os passos a seguir mostram como utilizar as ferramentas de desenvolvimento no Fi
 
 1. No portal, navegue até ao degrau pouco antes do local onde o problema ocorre.
 
-1. Prima F12 ou selecione ![ Screenshot das configurações do navegador ícone ](media/capture-browser-trace/firefox-icon-settings.png)  >  **Web Developer**  >  **Toggle Tools** .
+1. Prima F12 ou selecione ![ Screenshot das configurações do navegador ícone ](media/capture-browser-trace/firefox-icon-settings.png)  >  **Web Developer**  >  **Toggle Tools**.
 
 1. Por padrão, o navegador mantém a informação de rastreio apenas para a página que está atualmente carregada. Desaprova as seguintes opções para que o navegador mantenha todas as informações de rastreio, mesmo que a sua repro exija ir a mais de uma página:
 
-    1. Selecione o separador **'Rede'** e, em seguida, **selecione Registos de Persistência** .
+    1. Selecione o separador **'Rede'** e, em seguida, **selecione Registos de Persistência**.
 
           ![Screenshot que realça a opção Persist Logs.](media/capture-browser-trace/firefox-network-persist-logs.png)
 
-    1. Selecione o separador **Consola,** selecione **as definições de Consola** e, em seguida, selecione **Registos de Persistência** .
+    1. Selecione o separador **Consola,** selecione **as definições de Consola** e, em seguida, selecione **Registos de Persistência**.
 
           ![Screenshot de "Persist Logs"](media/capture-browser-trace/firefox-console-persist-logs.png)
 
@@ -196,7 +190,7 @@ Os passos a seguir mostram como utilizar as ferramentas de desenvolvimento no Fi
 
     ![Screenshot dos resultados do rastreio do navegador](media/capture-browser-trace/firefox-browser-trace-results.png)
 
-1. Depois de reproduzir o comportamento inesperado do portal, selecione **HAR Export/Import e,** em seguida, **Salve Tudo Como HAR** .
+1. Depois de reproduzir o comportamento inesperado do portal, selecione **HAR Export/Import e,** em seguida, **Salve Tudo Como HAR**.
 
     ![Screenshot de "Export HAR"](media/capture-browser-trace/firefox-network-export-har.png)
 

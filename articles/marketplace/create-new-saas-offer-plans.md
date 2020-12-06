@@ -8,19 +8,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 63629f32c97611fa8bc57ecdac968552375125f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 238ef9ec80b01470e28535d0eb42dbb3a377b005
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89381203"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746442"
 ---
 # <a name="how-to-create-plans-for-your-saas-offer"></a>Como criar planos para a sua oferta SaaS
 
 As ofertas vendidas através do mercado comercial da Microsoft devem ter pelo menos um plano. Você pode criar uma variedade de planos com diferentes opções dentro da mesma oferta. Estes planos (por vezes referidos como SKUs) podem diferir em termos de versão, rentabilização ou níveis de serviço. Para obter orientações detalhadas sobre planos, consulte [planos e preços para ofertas de mercado comercial.](plans-pricing.md)
 
 > [!NOTE]
-> Se optar por processar transações de forma independente, não verá esta opção. Em vez disso, salte para [como comercializar a sua oferta SaaS.](create-new-saas-offer-marketing.md)
+> Se optar por processar transações de forma independente, não verá esta opção. Em vez disso, salte para [como vender a sua oferta SaaS.](create-new-saas-offer-marketing.md)
 
 ## <a name="create-a-plan"></a>Criar um plano
 
@@ -81,7 +81,7 @@ Esta opção só está disponível se selecionar preços fixos. Para mais inform
 ### <a name="configure-per-user-pricing"></a>Configurar por preço do utilizador
 
 1. No **separador preços e disponibilidade,** em **Preços,** selecione **Por Utilizador**.
-2. Se aplicável, nos **limites do Utilizador, especifique**o número mínimo e máximo de utilizadores para este plano.
+2. Se aplicável, nos **limites do Utilizador, especifique** o número mínimo e máximo de utilizadores para este plano.
 3. De acordo com **o prazo de faturação,** especifique um preço mensal, um preço anual, ou ambos.
 
 ### <a name="validate-custom-prices"></a>Validar preços personalizados
@@ -115,7 +115,7 @@ Pode configurar cada plano para ser visível para todos ou apenas para um públi
 ### <a name="make-your-plan-public"></a>Tornar o seu plano público
 
 1. Sob **visibilidade do Plano,** selecione a caixa **Pública.**
-1. **Selecione Guardar**o projeto e, em seguida, na parte superior esquerda do separador, selecione **Plan overview** para voltar ao separador **visão geral** do Plano.
+1. **Selecione Guardar** o projeto e, em seguida, na parte superior esquerda do separador, selecione **Plan overview** para voltar ao separador **visão geral** do Plano.
 1. Para criar outro plano para esta oferta, perto do topo do separador **Plan,** selecione **+ Crie um novo plano.** Em seguida, repita os passos na secção [Criar um plano.](#create-a-plan) Caso contrário, vá [ver os seus planos.](#view-your-plans)
 
 ### <a name="manually-add-tenant-ids-for-a-private-plan"></a>Adicionar manualmente IDs de inquilino para um plano privado 
@@ -124,7 +124,7 @@ Pode configurar cada plano para ser visível para todos ou apenas para um públi
 1. Na caixa **de identificação** do inquilino que aparece, insira a identificação do inquilino Azure AD do público que pretende conceder acesso a este plano privado. É necessário um mínimo de identificação de um inquilino.
 1. (Opcional) Insira uma descrição deste público na caixa **Descrição.**
 1. Para adicionar outro ID do inquilino, repita os passos 2 e 3.
-1. Quando terminar de adicionar IDs de inquilino, **selecione Guardar**o rascunho e, em seguida, na parte superior esquerda do separador, selecione **Plan overview** para voltar ao separador **Desíduo plano.**
+1. Quando terminar de adicionar IDs de inquilino, **selecione Guardar** o rascunho e, em seguida, na parte superior esquerda do separador, selecione **Plan overview** para voltar ao separador **Desíduo plano.**
 1. Para criar outro plano para esta oferta, perto do topo do separador **Plan,** selecione **+ Crie um novo plano.** Em seguida, repita os passos na secção [Criar um plano.](#create-a-plan) Caso contrário, vá [ver os seus planos.](#view-your-plans)
 
 ### <a name="use-a-csv-file-for-a-private-plan"></a>Use um . Arquivo CSV para um plano privado
@@ -138,7 +138,7 @@ Pode configurar cada plano para ser visível para todos ou apenas para um públi
 7. No **separador preços e disponibilidade,** sob **visibilidade do Plano,** selecione o link **Import Audience (csv).**
 8. Na caixa de diálogo que aparece, selecione **Sim**.
 9. Selecione o . Ficheiro CSV e, em seguida, selecione **Abrir**.
-10. **Selecione Guardar**o projeto e, em seguida, na parte superior esquerda do separador, selecione **Plan overview** para voltar ao separador **visão geral** do Plano.
+10. **Selecione Guardar** o projeto e, em seguida, na parte superior esquerda do separador, selecione **Plan overview** para voltar ao separador **visão geral** do Plano.
 11. Para criar outro plano para esta oferta, no topo do separador **Plan,** selecione **+ Crie um novo plano.** Em seguida, repita os passos na secção [Criar um plano.](#create-a-plan) Caso contrário, se já acabou de criar planos, vá para a secção seguinte: **Veja os seus planos**.
 
 ## <a name="view-your-plans"></a>Veja os seus planos
@@ -152,5 +152,5 @@ As ações disponíveis na coluna de **ação** do separador **Plano** variam co
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Aprenda a comercializar a sua oferta SaaS](create-new-saas-offer-marketing.md) através da **Co-venda com a Microsoft** e Revenda através de programas **CSPs.**
+- [Aprenda a vender a sua oferta SaaS](create-new-saas-offer-marketing.md) através da **Co-venda com a Microsoft** e Revenda através de programas **CSPs.**
 - [Como testar e publicar uma oferta SaaS para o mercado comercial.](test-publish-saas-offer.md)

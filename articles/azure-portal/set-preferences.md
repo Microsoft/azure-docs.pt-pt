@@ -1,20 +1,15 @@
 ---
-title: Gerir configurações e preferências do portal Azure Microsoft Docs
+title: Gerir as definições e as preferências do portal do Azure
 description: Pode alterar as definições padrão do portal Azure para satisfazer as suas preferências. As definições incluem tempo limite de sessão inativo, vista padrão, modo menu, contraste, tema, notificações e formatos linguísticos e regionais
-services: azure-portal
 keywords: configurações, timeout, linguagem, regional
-author: mgblythe
-ms.author: mblythe
 ms.date: 08/05/2020
 ms.topic: how-to
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 0f94f694163ba836091e522a29f73cabd64e22b5
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 07dd3eb5cb132adf87852f29d867be772294d189
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145944"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745643"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Gerir as definições e as preferências do portal do Azure
 
@@ -33,7 +28,7 @@ Pode alterar a subscrição que abre por predefinição quando iniciar sediçõe
 
 1. Selecione as subscrições que pretende como as subscrições predefinidos quando lançar o portal. 
 
-    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Filtrar a lista de recursos por subscrição."::: 
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Selecione as subscrições que pretende como as subscrições predefinidos quando lançar o portal."::: 
 
 
 ## <a name="choose-your-default-view"></a>Escolha a sua vista padrão 
@@ -68,7 +63,7 @@ Em alternativa, pode escolher um dos temas de alto contraste. Os temas de alto c
 
 As notificações são mensagens do sistema relacionadas com a sessão atual. Eles fornecem informações como o seu saldo de crédito atual, quando os recursos que acabou de criar ficam disponíveis, ou confirmam a sua última ação, por exemplo. Quando as notificações pop-up são ligadas, as mensagens são exibidas brevemente no canto superior do ecrã. 
 
-Para ativar ou desativar notificações pop-up, selecione ou limpe **As notificações pop-up** .
+Para ativar ou desativar notificações pop-up, selecione ou limpe **As notificações pop-up**.
 
 ![Screenshot mostrando as definições do portal Azure com notificações pop-up em destaque](./media/set-preferences/popup-notifications.png)
 
@@ -84,7 +79,7 @@ A definição de tempo de inatividade ajuda a proteger os recursos de acesso nã
 
 ### <a name="change-your-individual-timeout-setting-user"></a>Altere a definição de tempo limite individual (utilizador)
 
-Selecione o drop-down em **Sign me out quando estiver inativo** . Escolha a duração após a qual a sua sessão do portal Azure está assinada se estiver inativa.
+Selecione o drop-down em **Sign me out quando estiver inativo**. Escolha a duração após a qual a sua sessão do portal Azure está assinada se estiver inativa.
 
 ![Screenshot mostrando definições do portal com definições de tempo limite inativas em destaque](./media/set-preferences/inactive-signout-user.png)
 
@@ -108,7 +103,7 @@ Se você é um Administrador Global, e deseja impor uma definição de tempo de 
 
 1. Em seguida, insira as **Horas** e **Minutos** pelo tempo máximo que um utilizador pode ficar inativo antes da sua sessão ser automaticamente assinada.
 
-1. Selecione **Aplicar** .
+1. Selecione **Aplicar**.
 
     ![Screenshot mostrando página para definir tempo de inatividade de nível de diretório](./media/set-preferences/configure.png)
 
@@ -118,7 +113,7 @@ Para confirmar que a política de tempo limite de inatividade está corretamente
 
 ## <a name="restore-default-settings"></a>Restaurar predefinições
 
-Se tiver escamado as definições do portal Azure e quiser descartá-las, selecione **Restaurar as definições predefinidas** . Quaisquer alterações que tenha feito nas definições do portal serão perdidas. Esta opção não afeta as personalizações do dashboard.
+Se tiver escamado as definições do portal Azure e quiser descartá-las, selecione **Restaurar as definições predefinidas**. Quaisquer alterações que tenha feito nas definições do portal serão perdidas. Esta opção não afeta as personalizações do dashboard.
 
 ![Screenshot mostrando a restauração das definições predefinidos](./media/set-preferences/useful-links-restore-defaults.png)
 
@@ -132,7 +127,7 @@ As informações sobre as suas definições personalizadas são armazenadas no A
 
 É uma boa ideia exportar e rever as suas definições se planeia eliminá-las. A reconstrução de painéis ou a remodelação das definições podem ser morosas.
 
-Para exportar as definições do seu portal, **selecione Exporte todas as definições** .
+Para exportar as definições do seu portal, **selecione Exporte todas as definições**.
 
 ![Screenshot mostrando exportação de configurações](./media/set-preferences/useful-links-export-settings.png)
 
@@ -150,7 +145,7 @@ As informações sobre as suas definições personalizadas são armazenadas no A
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-Para eliminar as definições do seu portal, **selecione Eliminar todas as definições e dashboards privados** .
+Para eliminar as definições do seu portal, **selecione Eliminar todas as definições e dashboards privados**.
 
 ![Screenshot mostrando excluir as definições](./media/set-preferences/useful-links-delete-settings.png)
 

@@ -1,18 +1,16 @@
 ---
-title: Série região ou SKU indisponível - Azure
+title: Séries regional ou SKU indisponíveis
 description: Algumas séries SKU não estão disponíveis para a subscrição selecionada para esta região, o que pode exigir um pedido de suporte de gestão de subscrição.
-services: Azure Supportability
 author: stevendotwang
-ms.service: azure-supportability
 ms.topic: troubleshooting
 ms.date: 01/27/2020
 ms.author: xingwan
-ms.openlocfilehash: fccde344a06d39bd4bb8e3178444ec20677e2f50
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 2bbe1dff6bbf8fed481300db95482c46b0e8a7b7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078515"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745286"
 ---
 # <a name="region-or-sku-unavailable"></a>Região ou SKU indisponível
 
@@ -68,7 +66,7 @@ Se não conseguir encontrar uma região adequada ou SKU, crie um pedido de [apoi
 
 1. Para **o tipo de problema,** escolha **Selecione o tipo de problema**.
 
-1. Para **Selecionar tipo de problema**, escolha uma opção, por exemplo, Não pode aceder à minha **subscrição ou recurso**O meu problema não está listado  >  **acima**. Selecione **Guardar**.
+1. Para **Selecionar tipo de problema**, escolha uma opção, por exemplo, Não pode aceder à minha **subscrição ou recurso** O meu problema não está listado  >  **acima**. Selecione **Guardar**.
 
    ![Especificar um problema para o pedido](./media/SKU-series-unavailable/support-request-select-problem-type.png)
 
@@ -82,6 +80,6 @@ Se não conseguir encontrar uma região adequada ou SKU, crie um pedido de [apoi
 
 Estamos sempre abertos a feedback e sugestões! Envie-nos as suas [sugestões.](https://feedback.azure.com/forums/266794-support-feedback) Além disso, pode envolver-se connosco no [Twitter](https://twitter.com/azuresupport) ou na [página de perguntas do Microsoft Q&A](/answers/products/azure).
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 [FAQ de suporte Azure](https://azure.microsoft.com/support/faq)

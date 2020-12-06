@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 34accbf218a782b79579d2f9857c101cc8147ab8
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 553c33b3d5ea2e3f1ee81503cb69fe15db387af6
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553746"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745031"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Insights de classificação sobre os seus dados a partir do Azure Purview
 
@@ -43,6 +43,9 @@ Em Azure Purview, as classificações são semelhantes às tags sujeitas, e são
 
 A Purview utiliza os mesmos tipos de informação sensíveis que o Microsoft 365, permitindo-lhe esticar as suas políticas de segurança existentes e proteger toda a sua propriedade de dados.
 
+> [!NOTE]
+> Depois de digitalizar os seus tipos de origem, dê **à Classificação Insights** algumas horas para refletir os novos ativos.
+
 **Para visualizar os insights de classificação:**
 
 1. Vá ao ecrã de instância **do Azure Purview** [no portal Azure](https://aka.ms/purviewportal) e selecione a sua conta 'Purview'.
@@ -57,7 +60,7 @@ A Purview utiliza os mesmos tipos de informação sensíveis que o Microsoft 365
 
    A página principal **de insights de classificação** apresenta as seguintes áreas:
 
-   |Área  |Descrição  |
+   |Área  |Description  |
    |---------|---------|
    |**Visão geral das fontes com classificações**     |Exibe azulejos que fornecem: <br>- O número de subscrições encontradas nos seus dados <br>- O número de classificações únicas encontradas nos seus dados <br>- O número de fontes classificadas encontradas <br>- O número de ficheiros classificados encontrados <br>- O número de tabelas classificadas encontradas         |
    |**Principais fontes com dados classificados (últimos 30 dias)**     |Mostra a tendência, nos últimos 30 dias, do número de fontes encontradas com dados confidenciais.            |

@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 8f7baca94d653d9851c506068ccf7ecf84063641
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3218df4601ef7a5e1b1e04c20c89eefc367b720b
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832182"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746459"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualize os dados do sensor em tempo real do seu hub Azure IoT numa aplicação web
 
@@ -184,7 +184,7 @@ Nesta secção, você fornece uma aplicação web no Serviço de Aplicações e 
 
 5. Para implementar o código para o Serviço de Aplicações, utilizará as [suas credenciais de implementação ao nível do utilizador.](../app-service/deploy-configure-credentials.md) As suas credenciais de implementação ao nível do utilizador são diferentes das suas credenciais Azure e são usadas para implementações locais e FTP de Git para uma aplicação web. Uma vez definidas, são válidas em todas as suas aplicações do Serviço de Aplicações em todas as subscrições da sua conta Azure. Se tiver definido previamente credenciais de implementação ao nível do utilizador, pode usá-las.
 
-   Se ainda não definiu as credenciais de implementação ao nível do utilizador ou se não se lembrar da sua palavra-passe, execute o seguinte comando. O seu nome de utilizador de implementação deve ser único dentro do Azure, e não deve conter o símbolo '@' para os pushes git locais. Quando for solicitado, insira e confirme a sua nova senha. A palavra-passe deve ter pelo menos oito caracteres, com dois dos seguintes três elementos: letras, números e símbolos.
+   Se ainda não definiu as credenciais de implementação ao nível do utilizador ou se não se lembrar da sua palavra-passe, execute o seguinte comando. O seu nome de utilizador de implementação deve ser único dentro de Azure, e não deve conter o \@ símbolo ' para os pushes git locais. Quando for solicitado, insira e confirme a sua nova senha. A palavra-passe deve ter pelo menos oito caracteres, com dois dos seguintes três elementos: letras, números e símbolos.
 
    ```azurecli-interactive
    az webapp deployment user set --user-name <your deployment user name>

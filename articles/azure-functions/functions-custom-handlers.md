@@ -1,18 +1,18 @@
 ---
-title: Azure Functions manipuladores personalizados (pré-visualização)
+title: Azure Functions manipuladores personalizados
 description: Aprenda a utilizar funções Azure com qualquer versão idioma ou runtime.
 author: anthonychu
 ms.author: antchu
-ms.date: 8/18/2020
+ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: 402ce1e9e92ab87689abe9c18a503a479d7421f9
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 099f90ba8c5d9dabb6c4c505e50d8c077e3eaf0f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164555"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746034"
 ---
-# <a name="azure-functions-custom-handlers-preview"></a>Azure Functions manipuladores personalizados (pré-visualização)
+# <a name="azure-functions-custom-handlers"></a>Azure Functions manipuladores personalizados
 
 Todas as aplicações Funções são executadas por um manipulador específico da linguagem. Embora as Funções Azure suportem por defeito [muitos manipuladores de linguagem,](./supported-languages.md) existem casos em que poderá querer utilizar outras línguas ou tempos de execução.
 
@@ -20,12 +20,14 @@ Os manipuladores personalizados são servidores web leves que recebem eventos do
 
 Os manipuladores personalizados são os mais adequados para situações em que deseja:
 
-- Implementar uma aplicação de função num idioma que não é suportado atualmente, como Go e Rust.
+- Implementar uma aplicação de função num idioma que não é suportado atualmente, como Go ou Rust.
 - Implemente uma aplicação de função num tempo de execução que não seja suportado atualmente, como o Deno.
 
 Com manipuladores personalizados, pode utilizar [gatilhos e entradas e encadernações](./functions-triggers-bindings.md) de saída através [de pacotes de extensão](./functions-bindings-register.md).
 
-## <a name="overview"></a>Descrição geral
+Começa com os manipuladores personalizados da Azure Functions com [quickstarts em Go e Rust.](create-first-function-vs-code-other.md)
+
+## <a name="overview"></a>Descrição Geral
 
 O diagrama seguinte mostra a relação entre o anfitrião Funções e um servidor web implementado como um manipulador personalizado.
 
@@ -36,7 +38,7 @@ O diagrama seguinte mostra a relação entre o anfitrião Funções e um servido
 1. O servidor web executa a função individual e devolve uma [carga útil de resposta](#response-payload) ao anfitrião Funções.
 1. O anfitrião funções transmite dados da resposta às ligações de saída da função para o processamento.
 
-Uma aplicação Azure Functions implementada como um manipulador personalizado deve configurar o *host.jsem*, *local.settings.jsem*, efunction.js* em* ficheiros de acordo com algumas convenções.
+Uma aplicação Azure Functions implementada como um manipulador personalizado deve configurar o *host.jsem*, *local.settings.jsem*, efunction.js *em* ficheiros de acordo com algumas convenções.
 
 ## <a name="application-structure"></a>Estrutura de aplicação
 
@@ -47,7 +49,7 @@ Para implementar um manipulador personalizado, precisa dos seguintes aspetos da 
 - Uma *function.jsno* ficheiro para cada função (dentro de uma pasta que corresponde ao nome da função)
 - Um comando, script ou executável, que executa um servidor web
 
-O diagrama seguinte mostra como estes ficheiros ficam no sistema de ficheiros para uma função chamada "MyQueueFunction" e um manipulador personalizado que é executado * com o *nomehandler.exe.
+O diagrama seguinte mostra como estes ficheiros ficam no sistema de ficheiros para uma função chamada "MyQueueFunction" e um manipulador personalizado que é executado *com o* nomehandler.exe.
 
 ```bash
 | /MyQueueFunction
@@ -158,7 +160,7 @@ Quando uma mensagem de fila é recebida, o anfitrião Funções envia um pedido 
 
 O seguinte código representa uma carga útil de pedido de amostra. A carga útil inclui uma estrutura JSON com dois membros: `Data` e `Metadata` .
 
-O `Data` membro inclui chaves que correspondem à entrada e desempoletam nomes definidos no conjunto de encadernações nofunction.js*ficheiro.*
+O `Data` membro inclui chaves que correspondem à entrada e desempoletam nomes definidos no conjunto de encadernações nofunction.js *ficheiro.*
 
 O `Metadata` membro inclui [metadados gerados a partir da fonte do evento.](./functions-bindings-expressions-patterns.md#trigger-metadata)
 
@@ -189,7 +191,7 @@ Por convenção, as respostas da função são formatadas como pares chave/valor
 
 | <nobr>Chave de carga útil</nobr>   | Tipo de dados | Observações                                                      |
 | ------------- | --------- | ------------------------------------------------------------ |
-| `Outputs`     | objeto    | Detém valores de resposta definidos pela `bindings` matriz emfunction.js* em*.<br /><br />Por exemplo, se uma função for configurada com uma ligação de saída de fila chamada "myQueueOutput", então `Outputs` contém uma chave chamada , que é definida pelo manipulador personalizado para as `myQueueOutput` mensagens que são enviadas para a fila. |
+| `Outputs`     | objeto    | Detém valores de resposta definidos pela `bindings` matriz emfunction.js *em*.<br /><br />Por exemplo, se uma função for configurada com uma ligação de saída de fila chamada "myQueueOutput", então `Outputs` contém uma chave chamada , que é definida pelo manipulador personalizado para as `myQueueOutput` mensagens que são enviadas para a fila. |
 | `Logs`        | matriz     | As mensagens aparecem nos registos de invocação de funções.<br /><br />Ao correr em Azure, as mensagens aparecem no Application Insights. |
 | `ReturnValue` | string    | Usado para fornecer uma resposta quando uma saída é configurada como `$return` no *function.jsem* arquivo. |
 
@@ -544,7 +546,7 @@ Consulte as [amostras de manipulador personalizado GitHub repo](https://github.c
 
 Se o seu processo de manipulador personalizado não arrancar ou se tiver problemas de comunicação com o anfitrião Funções, pode aumentar o nível de registo da aplicação de função `Trace` para ver mais mensagens de diagnóstico do anfitrião.
 
-Para alterar o nível de registo predefinido da aplicação de função, configufique a `logLevel` definição na `logging` secção dehost.js* em*.
+Para alterar o nível de registo predefinido da aplicação de função, configufique a `logLevel` definição na `logging` secção dehost.js *em*.
 
 ```json
 {
@@ -583,3 +585,7 @@ Os manipuladores personalizados funcionam no mesmo ambiente que uma aplicação 
 Se precisar de ajuda numa aplicação de função com manipuladores personalizados, pode submeter um pedido através de canais de suporte regulares. No entanto, devido à grande variedade de idiomas possíveis usados para construir aplicações personalizadas de manipuladores, o suporte não é ilimitado.
 
 O suporte está disponível se o anfitrião funções tiver problemas de arranque ou comunicação com o processo de manipulador personalizado. Para problemas específicos do funcionamento interno do seu processo de manipulador personalizado, tais como questões com a língua ou enquadramento escolhidos, a nossa Equipa de Apoio não pode prestar assistência neste contexto.
+
+## <a name="next-steps"></a>Passos seguintes
+
+Começa a construir uma app Azure Functions em Go ou Rust com os [manipuladores personalizados quickstart](create-first-function-vs-code-other.md).

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 74f4391fcd071ac510fc66b2f8bc36ec4549dc47
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e6a92282d2bcd316a771742048dacd9a7181de4f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575759"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746187"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Insights do rótulo de sensibilidade sobre os seus dados em Azure Purview
 
@@ -49,6 +49,9 @@ Enquanto as classificações são correspondidas diretamente (um número de segu
 
 A Purview utiliza as mesmas classificações, também conhecidas como tipos de informação sensível, como o Microsoft 365. Isto permite-lhe estender as suas etiquetas de sensibilidade existentes através dos seus ativos Azure Purview.
 
+> [!NOTE]
+> Depois de digitalizar os seus tipos de origem, dê à **Sensibilidade Insights** algumas horas para refletir os novos ativos.
+
 **Para visualizar insights de rotulagem de sensibilidade:**
 
 1. Vá à página inicial do **Azure Purview.**
@@ -66,7 +69,7 @@ A Purview utiliza as mesmas classificações, também conhecidas como tipos de i
 
    A página principal **de insights de rotulagem de sensibilidade** apresenta as seguintes áreas:
 
-   |Área  |Descrição  |
+   |Área  |Description  |
    |---------|---------|
    |**Visão geral de fontes com rótulos de sensibilidade**     |Exibe azulejos que fornecem: <br>- O número de subscrições encontradas nos seus dados. <br>- O número de rótulos de sensibilidade únicos aplicados nos seus dados <br>- O número de fontes com rótulos de sensibilidade aplicados <br>- O número de ficheiros e tabelas encontrados com etiquetas de sensibilidade aplicadas|
    |**Principais fontes com dados rotulados (últimos 30 dias)**     | Mostra a tendência, nos últimos 30 dias, do número de fontes com rótulos de sensibilidade aplicados.       |

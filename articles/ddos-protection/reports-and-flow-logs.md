@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 96e22beb9f9b088e698f0db12104f526af2b936b
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 5c3bfbdf133777f0bc219d1306f80bd4d38b56ea
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989458"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746272"
 ---
 # <a name="configure-ddos-attack-mitigation-reports-and-flow-logs"></a>Configurar registos de fluxos e relatórios de mitigação de ataques de DDoS 
 
@@ -74,7 +74,7 @@ Este [modelo](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%
 
 ### <a name="azure-sentinel-data-connector"></a>Conector de dados Azure Sentinel
 
-Pode ligá-lo ao Azure Sentinel, ver e analisar os seus dados em livros de trabalho, criar alertas personalizados e incorporá-los em processos de investigação. Para ligar ao Azure Sentinel, consulte [Connect to Azure Sentinel](../sentinel/connect-azure-ddos-protection.md). 
+Pode ligar os registos de fluxo de mitigação de ataques ao Azure Sentinel, ver e analisar os seus dados em livros de trabalho, criar alertas personalizados e incorporá-los em processos de investigação. Para ligar ao Azure Sentinel, consulte [Connect to Azure Sentinel](../sentinel/connect-azure-ddos-protection.md). 
 
 ![Conector Azure Sentinel DDoS](./media/ddos-attack-telemetry/azure-sentinel-ddos.png)
 

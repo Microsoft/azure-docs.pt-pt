@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/2/2020
-ms.openlocfilehash: 3e4c793e7822021fd1690d53a2d9df5399f3e6e2
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 3693ff8ea213d0823237956c532e65d5094bf1ce
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572988"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746323"
 ---
 # <a name="co-sell-partner-engagement"></a>Compromisso entre parceiros para venda conjunta
 
@@ -30,30 +30,30 @@ O programa co-venda está disponível para **software construído com a sua prop
 
 Ofertas que atingem **a Azure IP Co-venda** de estatuto incentivado obtenha estes benefícios adicionais do mercado:
 
-- A taxa de serviço no mercado é reduzida de 20% para 10%. Este desconto aplica-se à sua oferta IaaS ou SaaS vendida através do mercado comercial. Para mais informações, consulte [as taxas de serviço do mercado comercial](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees) para mais detalhes.
+- A taxa de serviço no mercado é reduzida de 20% para 10%. Este desconto aplica-se à sua oferta IaaS ou SaaS vendida através do mercado comercial. Para mais informações, consulte [as taxas de serviço de marketplace comercial.](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees)
 - Os parceiros Cloud Solution Provider (CSP) recebem um incentivo de 10% para vender a sua oferta IaaS ou SaaS. Saiba mais sobre o programa CSP no [programa Cloud Solution Provider](cloud-solution-providers.md).
 - As vendas da sua oferta através do mercado comercial contribuirão para os compromissos de consumo da Azure dos clientes. Os clientes elegíveis verão a oferta marcada como **"Azure benefit elegível"** no portal Azure. Para mais detalhes, consulte [o benefício do compromisso de consumo da Azure.](azure-consumption-commitment-benefit.md)
 - Ofertas que alcançam **Azure IP Co-venda incentivado** ou **Aplicações Empresariais Co-vender** o status incentivado receberá um crachá **de "soluções preferenciais"** nas montras. O crachá promove a qualidade, desempenho e capacidade de uma oferta para atender às necessidades dos clientes numa determinada área vertical ou de solução da indústria. Saiba mais [em soluções Preferidas no Microsoft AppSource e no Azure Marketplace.](preferred-solutions.md)
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>Co-venda de etapas e requisitos de publicação
 
-Esta tabela lista os passos e requisitos para obter a sua oferta de mercado Co-vender pronto ou Co-vender incentivado. Nem todos os tipos de oferta de mercado comercial são configuráveis para co-venda ainda no Partner Center. Para obter a mais recente lista de tipos de oferta que suportam co-venda, consulte [a opção Co-venda no Partner Center](commercial-marketplace-co-sell.md). 
+Esta tabela lista os passos e requisitos para obter a sua oferta de mercado Co-vender pronto ou Co-vender incentivado. Nem todos os tipos de oferta de mercado comercial são configuráveis para co-venda ainda no Partner Center. Para obter a mais recente lista de tipos de oferta que suportam co-venda, consulte [a opção Co-venda no mercado comercial.](commercial-marketplace-co-sell.md) 
 
 |Passo    |Tipo de oferta    |Requisitos    |Estatuto de co-venda    |
 |----    |-------------    |------------    |---------------   |
 |<ol start=1><li>Crie uma conta no Partner Center e publique a sua oferta no mercado comercial.</li>|Todos|<ul><li>A oferta satisfaz os requisitos de publicação do mercado comercial.</li><li>Tem um perfil de negócio completo no Partner Center.</li></ul>| No Mercado |
-|<ol start=2><li>Envie os materiais de co-venda necessários.</li>|OFERTAS IP *com* [opção co-venda no Partner Center](commercial-marketplace-co-sell.md)|[Upload de materiais necessários no Partner Center](#how-to-submit-co-sell-materials-in-partner-center)|Co-vender pronto|
-||OFERTAS IP *sem* [opção de Co-venda no Partner Center](commercial-marketplace-co-sell.md)|<ul><li>Solicitação para [trabalhar com um Especialista em Nuvem](https://partner.microsoft.com/campaigns/ced-nomination-form/) para fornecer documentação de co-venda necessária.</li></ul>|Co-vender pronto|
+|<ol start=2><li>Envie os materiais de co-venda necessários.</li>|OFERTAS IP *com* [opção co-venda no mercado comercial](commercial-marketplace-co-sell.md)|[Upload de materiais necessários no Partner Center](#how-to-submit-co-sell-materials-in-partner-center)|Co-vender pronto|
+||OFERTAS IP *sem* [Opção Co-venda no mercado comercial](commercial-marketplace-co-sell.md)|<ul><li>Solicitação para [trabalhar com um Especialista em Nuvem](https://partner.microsoft.com/campaigns/ced-nomination-form/) para fornecer documentação de co-venda necessária.</li></ul>|Co-vender pronto|
 ||Serviços de Consultoria|<ul><li>Solicitação para [trabalhar com um Especialista em Nuvem](https://partner.microsoft.com/campaigns/ced-nomination-form/) para fornecer documentação de co-venda necessária.</li><li>Competência ative Gold.</li></ul>|Co-vender pronto|
-|<ol start=3><li>Qualificar-se para incentivos de co-venda ip</li>|Aplicações Azure, Recipientes Azure, Módulos de Borda IoT, SaaS, VMs|Depois de conseguir a Co-venda pronta, existem dois requisitos adicionais: <ul> Requisito 1: alcançar qualquer um:<ul><li>*A nível organizacional:* conheça ou exceda $100.000 USD de Azure Consumed Revenue ao longo dos 12 meses.</li><li>*Ao nível da oferta:* mercado acumulado faturado receitas de $100.000 USD.</li></ul><br>Requisito 2: mais de 50% da infraestrutura da sua oferta deve funcionar em Azure:<ul><li>A IP oferece *com* [opção de Co-venda no Partner Center:](commercial-marketplace-co-sell.md)faça upload de um diagrama de arquitetura com os seus documentos de Co-venda no Partner Center para revisão.</li><li>IP oferece *sem* [opção de Co-venda no Partner Center:](commercial-marketplace-co-sell.md)faça upload de um diagrama de arquitetura para OCP GTM.|Azure IP Co-venda incentivado|
+|<ol start=3><li>Qualificar-se para incentivos de co-venda ip</li>|Aplicações Azure, Recipientes Azure, Módulos de Borda IoT, SaaS, VMs|Depois de conseguir a Co-venda pronta, existem dois requisitos adicionais: <ul> Requisito 1: alcançar qualquer um:<ul><li>*A nível organizacional:* conheça ou exceda $100.000 USD de Azure Consumed Revenue ao longo dos 12 meses.</li><li>*Ao nível da oferta:* mercado acumulado faturado receitas de $100.000 USD.</li></ul><br>Requisito 2: mais de 50% da infraestrutura da sua oferta deve funcionar em Azure:<ul><li>A IP oferece *com* [opção Co-venda no mercado comercial:](commercial-marketplace-co-sell.md)faça upload de um diagrama de arquitetura com os seus documentos de Co-venda no Partner Center para revisão.</li><li>A IP oferece *sem* [opção de Co-venda no mercado comercial:](commercial-marketplace-co-sell.md)faça o upload de um diagrama de arquitetura para o OCP GTM.|Azure IP Co-venda incentivado|
 ||Dynamics|<ul><li>Tem uma inscrição ativa no nível premium ISV Connect.</li></ul>|Aplicações empresariais Co-vender incentivado|
 |||
 
-Para obter mais informações sobre os requisitos para ofertas de soluções de co-venda, consulte [3000 Requisitos para o estatuto de co-venda.](/legal/marketplace/certification-policies.md#3000-requirements-for-co-sell-status)
+Para obter mais informações sobre os requisitos para ofertas de soluções de co-venda, consulte [requisitos para o estatuto de co-venda.](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)
 
 ## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>Como submeter Co-venda de materiais no Partner Center
 
-Inicie a sua viagem de Co-venda diretamente no Partner Center seguindo os passos abaixo. Para mais detalhes, consulte [a opção Co-venda no Partner Center.](commercial-marketplace-co-sell.md)
+Inicie a sua viagem de Co-venda diretamente no Partner Center seguindo os passos abaixo. Para mais detalhes, consulte [a opção Co-venda no mercado comercial.](commercial-marketplace-co-sell.md)
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. No painel esquerdo, selecione **Commercial Marketplace**  >  **Overview,** em seguida, selecione a oferta que deseja co-vender.
@@ -90,7 +90,7 @@ Inicie a sua viagem de Co-venda diretamente no Partner Center seguindo os passos
 
 ## <a name="see-your-offers-co-sell-status"></a>Consulte o estado de Co-venda da sua oferta
 
-Para ofertas com a [opção Co-venda no Partner Center,](commercial-marketplace-co-sell.md)pode ver o estado atual de Co-venda da sua oferta na página 'Oferta Geral':
+Para ofertas com a [opção Co-venda no mercado comercial,](commercial-marketplace-co-sell.md)pode ver o estado atual de Co-venda da sua oferta na página 'Oferta Geral':
 
  :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="Esta imagem mostra o estado atual de Co-venda das ofertas.":::
 
@@ -98,5 +98,5 @@ Para ofertas com a [opção Co-venda no Partner Center,](commercial-marketplace-
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a venda com a Microsoft.](https://partner.microsoft.com/membership/sell-with-microsoft)
-- Saiba mais sobre a [opção Co-venda no Partner Center.](commercial-marketplace-co-sell.md)
+- Saiba mais sobre a [opção Co-venda no mercado comercial.](commercial-marketplace-co-sell.md)
 - Leia o [Livro de Co-venda](https://aka.ms/Co-sellPartnerengagementguidepartnerlink) (PDF).

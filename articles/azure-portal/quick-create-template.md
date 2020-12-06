@@ -1,18 +1,15 @@
 ---
 title: Crie um painel de porta-porta Azure utilizando um modelo de Gestor de Recursos Azure
 description: Aprenda a criar um painel de instrumentos do portal Azure utilizando um modelo de Gestor de Recursos Azure.
-author: mgblythe
-ms.service: azure-portal
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
 ms.date: 06/15/2020
-ms.openlocfilehash: fd2d7006e0c13f7e652b4edd973a36f94f2e2265
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 55ac24e48c1c976eca1e6e8e51cf6e88361ec630
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85560491"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745730"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>Quickstart: Criar um dashboard no portal Azure utilizando um modelo ARM
 
@@ -106,7 +103,7 @@ Verifique se o dashboard foi criado com sucesso e se pode ver dados do VM.
 
 Se pretender remover o VM e o painel de instrumentos associado, elimine o grupo de recursos que os contém.
 
-1. No portal Azure, procure **o SimpleWinVmResourceGroup**e, em seguida, selecione-o nos resultados da pesquisa.
+1. No portal Azure, procure **o SimpleWinVmResourceGroup** e, em seguida, selecione-o nos resultados da pesquisa.
 
 1. Na página **SimpleWinVmResourceGroup,** selecione **Delete resource group**, insira o nome do grupo de recursos para confirmar e, em seguida, selecione **Delete**.
 

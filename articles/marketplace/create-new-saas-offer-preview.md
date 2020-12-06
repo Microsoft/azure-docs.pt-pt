@@ -8,19 +8,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: ed0c7ef98e70774350c9a3ff12b0cc3f4186e1bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 041df9b77e85f09d2cf680773edc995c6288acaa
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89381188"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746425"
 ---
 # <a name="how-to-add-a-preview-audience-for-your-saas-offer"></a>Como adicionar um público de pré-visualização para a sua oferta SaaS
 
 Ao criar o seu software como uma oferta de serviço (SaaS) no Partner Center, precisa de definir um público de pré-visualização que possa rever a sua lista de ofertas antes de entrar em direto. Este artigo explica como configurar uma audiência de pré-visualização.
 
 > [!NOTE]
-> Se optar por processar transações de forma independente, não verá esta opção. Em vez disso, salte para [como comercializar a sua oferta SaaS.](create-new-saas-offer-marketing.md)
+> Se optar por processar transações de forma independente, não verá esta opção. Em vez disso, salte para [como vender a sua oferta SaaS.](create-new-saas-offer-marketing.md)
 
 ## <a name="define-a-preview-audience"></a>Defina um público de pré-visualização
 

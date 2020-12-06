@@ -7,12 +7,12 @@ ms.date: 10/21/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 421f9dc26d184d16a2fe563aefa72062c5d8c7e6
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 360da015f012822593dbb6390cb7df0017ba85b1
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608406"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745082"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Executar um recipiente personalizado em Azure
 
@@ -20,6 +20,10 @@ ms.locfileid: "96608406"
 O [Serviço de Aplicações do Azure](overview.md) disponibiliza pilhas de aplicações predefinidas no Windows, como ASP.NET ou Node.js, em execução no IIS. O ambiente pré-configurado do contentor do Windows bloqueia o sistema operativo a partir de acesso administrativo, instalações de software, alterações na cache de montagem global, e assim por diante. Para mais informações, consulte [a funcionalidade do sistema operativo no Azure App Service](operating-system-functionality.md). Se a sua aplicação precisar de mais acesso do que aquele que o ambiente pré-configurado permite, pode implementar um contentor do Windows personalizado.
 
 Este quickstart mostra como implementar uma aplicação ASP.NET, numa imagem do Windows, para [Docker Hub](https://hub.docker.com/) do Visual Studio. Você executou a aplicação em um recipiente personalizado no Azure App Service.
+
+> [!NOTE]
+> Os recipientes do Windows estão limitados a Ficheiros Azure e atualmente não suportam a Azure Blob.
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

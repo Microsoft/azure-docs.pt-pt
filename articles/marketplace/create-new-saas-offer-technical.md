@@ -8,19 +8,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: d84e1508dec4d4a5802f7a2ac8c0e6ada5a8044c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 28c0be40387f411286230f94c19fa23a80e650af
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128696"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746408"
 ---
 # <a name="how-to-add-technical-details-for-your-saas-offer"></a>Como adicionar detalhes técnicos para a sua oferta SaaS
 
 Este artigo descreve como introduzir detalhes técnicos que ajudam o mercado comercial da Microsoft a ligar-se à sua solução. Esta ligação permite-nos oferecer a sua oferta ao cliente se optarem por adquiri-la e geri-la. Para obter mais detalhes sobre estas definições, consulte [informações técnicas](plan-saas-offer.md#technical-information).
 
 > [!NOTE]
-> Se optar por processar transações de forma independente, não verá esta opção. Em vez disso, salte para [como comercializar a sua oferta SaaS.](create-new-saas-offer-marketing.md)
+> Se optar por processar transações de forma independente, não verá esta opção. Em vez disso, salte para [como vender a sua oferta SaaS.](create-new-saas-offer-marketing.md)
 
 ## <a name="technical-configuration"></a>Configuração técnica
 

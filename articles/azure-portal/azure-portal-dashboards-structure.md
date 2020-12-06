@@ -1,23 +1,14 @@
 ---
-title: A estrutura dos Dashboards Azure ! Microsoft Docs
+title: A estrutura dos Dashboards do Azure
 description: Caminhe pela estrutura JSON de um Painel Azure usando um painel de exemplo. Inclui referência às propriedades dos recursos.
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: mtillman
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 12/20/2019
-ms.author: mblythe
-ms.openlocfilehash: 014463fb0a5af639ff0da5f8db2805f9796fd928
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d37e2fd9c9f6ef6e7ddea6dea002f26f20cd66a7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072480"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745966"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>A estrutura dos Dashboards do Azure
 Este documento percorre a estrutura de um dashboard Azure, utilizando o seguinte painel de instrumentos como exemplo:
@@ -290,7 +281,7 @@ Uma vez que [os dashboards Azure partilhados são recursos,](../azure-resource-m
 
 ## <a name="common-resource-properties"></a>Propriedades de recursos comuns
 
-Vamos dividir as secções relevantes do JSON.  As propriedades de nível superior, __id__, __nome,__ __tipo,__ __localização__e __propriedades de tags__ são partilhadas em todos os tipos de recursos Azure. Ou seja, não têm muito a ver com o conteúdo do painel.
+Vamos dividir as secções relevantes do JSON.  As propriedades de nível superior, __id__, __nome,__ __tipo,__ __localização__ e __propriedades de tags__ são partilhadas em todos os tipos de recursos Azure. Ou seja, não têm muito a ver com o conteúdo do painel.
 
 ### <a name="the-id-property"></a>A propriedade ID
 
@@ -340,7 +331,7 @@ Cada parte tem uma propriedade de metadados, um objeto tem apenas uma propriedad
 1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Costumava mostrar vídeos do YouTube, Channel9 e qualquer outro tipo de vídeo que funciona numa videovigilância HTML.
 1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – Costumava mostrar o nome e o estado de uma máquina virtual Azure.
 
-Cada tipo de peça tem a sua própria configuração. As propriedades de configuração possíveis são chamadas __entradas,__ __configurações__e __ativo__. 
+Cada tipo de peça tem a sua própria configuração. As propriedades de configuração possíveis são chamadas __entradas,__ __configurações__ e __ativo__. 
 
 ### <a name="the-inputs-object"></a>O objeto de entradas
 O objeto de entradas geralmente contém informações que ligam um azulejo a uma instância de recurso.  A parte da máquina virtual no nosso painel de amostras contém uma única entrada que utiliza o ID de recurso Azure para expressar a ligação.  Este formato de ID de recursos é consistente em todos os recursos Azure.

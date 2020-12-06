@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: b6b3cac51ffd4ccd138994ac65b4f96b07816970
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 3a47ba2025bcaba542d2dbec0c89643e0900f233
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368700"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746153"
 ---
 # <a name="how-to-configure-your-saas-offer-listing-details"></a>Como configurar os seus dados de listagem de oferta saaS
 
@@ -30,7 +30,7 @@ Na página **de listagem da Oferta,** em **detalhes do Marketplace,** complete o
 1. Na caixa **de resumo dos resultados** da Pesquisa, introduza até 50 caracteres de texto. Este resumo é utilizado no mercado que lista os resultados da pesquisa.
 1. Na caixa **Descrição,** insira uma descrição para a sua oferta. Esta caixa de texto tem controlos de editores de texto ricos que pode usar para tornar a sua descrição mais envolvente. Também pode utilizar tags HTML para formatar a sua descrição. Pode introduzir até 3.000 caracteres de texto nesta caixa, que inclui marcação HTML e espaços. Para obter informações sobre formatação HTML, consulte [as tags HTML suportadas no mercado comercial para apresentar descrições](supported-html-tags.md).
 1. Na caixa **de instruções 'Iniciar' iniciou-se,** forneça instruções para ajudar os clientes a ligarem-se à sua oferta SaaS. Pode adicionar até 3.000 caracteres de texto e links para documentação online mais detalhada.
-1. (Opcional) Nas caixas **de palavras-chave 'Procurar',** insira até três palavras-chave de pesquisa que os clientes podem usar para encontrar a sua oferta no mercado comercial. Não é necessário incluir a oferta **Nome** e **Descrição** : esse texto está automaticamente incluído na pesquisa.
+1. (Opcional) Nas caixas **de palavras-chave 'Procurar',** insira até três palavras-chave de pesquisa que os clientes podem usar para encontrar a sua oferta no mercado comercial. Não é necessário incluir a oferta **Nome** e **Descrição**: esse texto está automaticamente incluído na pesquisa.
 1. Na caixa de **link de política de privacidade,** insira um link (começando com https) para a política de privacidade da sua organização. Você é responsável por garantir que a sua aplicação está em conformidade com as leis e regulamentos de privacidade, e por fornecer uma política de privacidade válida.
 
 ## <a name="add-supplemental-links-optional"></a>Adicionar links suplementares (opcional)
@@ -105,4 +105,4 @@ Pode adicionar links ao YouTube ou vídeos Vimeo que demonstrem a sua oferta. Es
 ## <a name="next-steps"></a>Passos seguintes
 
 - Se estiver a vender a sua oferta através da Microsoft, vá ao [How to Add a preview audience for your SaaS offer](create-new-saas-offer-preview.md). 
-- Caso contrário, vá ao [Como comercializar a sua oferta SaaS.](create-new-saas-offer-marketing.md)
+- Caso contrário, vá a [Como vender a sua oferta SaaS.](create-new-saas-offer-marketing.md)

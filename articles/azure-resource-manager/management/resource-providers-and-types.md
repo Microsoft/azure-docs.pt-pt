@@ -2,14 +2,14 @@
 title: Fornecedores de recursos e tipos de recursos
 description: Descreve os fornecedores de recursos que suportam o Gestor de Recursos Azure. Descreve os seus esquemas, versões API disponíveis e as regiões que podem acolher os recursos.
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 12/04/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6413a1279c9c7a995bb144097e3db55d5f3a90d2
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6d114fdfae12dd9ee96a23e4dafc3847c6429d0c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452097"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745121"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos e fornecedores de recursos do Azure
 
@@ -45,20 +45,28 @@ Não é possível desregistar um fornecedor de recursos quando ainda tem tipos d
 
 ## <a name="azure-portal"></a>Portal do Azure
 
+### <a name="register-resource-provider"></a>Registar o fornecedor de recursos
+
 Para ver todos os fornecedores de recursos e o estado de registo da sua subscrição:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. No menu do portal do Azure, selecione **Todos os serviços**.
+1. No menu do portal Azure, procure **por Assinaturas.** Selecione-o nas opções disponíveis.
 
-    ![selecionar subscrições](./media/resource-providers-and-types/select-all-services.png)
+   :::image type="content" source="./media/resource-providers-and-types/search-subscriptions.png" alt-text="subscrições de pesquisa":::
 
-3. Na caixa **de todos os serviços,** **introduza a subscrição** e, em seguida, selecione **Subscrições**.
-4. Selecione a subscrição da lista de subscrição para visualizar.
-5. Selecione **fornecedores de recursos** e veja a lista de fornecedores de recursos disponíveis.
+1. Selecione a subscrição que pretende visualizar.
 
-    ![mostrar fornecedores de recursos](./media/resource-providers-and-types/show-resource-providers.png)
+   :::image type="content" source="./media/resource-providers-and-types/select-subscription.png" alt-text="selecionar subscrições":::
 
-6. Para registar um fornecedor de recursos, **selecione Registar-se.** Na imagem anterior, o link **Register** é destacado para **microsoft.Blueprint**. Para manter os privilégios mínimos na sua subscrição, registe apenas os fornecedores de recursos que está pronto a utilizar.
+1. No menu esquerdo, em **Definições,** selecione **Fornecedores de Recursos**.
+
+   :::image type="content" source="./media/resource-providers-and-types/select-resource-providers.png" alt-text="selecione fornecedores de recursos":::
+
+6. Encontre o fornecedor de recursos que pretende registar-se e **selecione Registar-se.** Para manter os privilégios mínimos na sua subscrição, registe apenas os fornecedores de recursos que está pronto a utilizar.
+
+   :::image type="content" source="./media/resource-providers-and-types/register-resource-provider.png" alt-text="registar fornecedores de recursos":::
+
+### <a name="view-resource-provider"></a>Ver fornecedor de recursos
 
 Para ver informações para um determinado fornecedor de recursos:
 

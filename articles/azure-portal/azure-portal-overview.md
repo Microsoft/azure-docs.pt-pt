@@ -1,20 +1,15 @@
 ---
-title: Descrição geral do portal do Azure | Microsoft Docs
+title: Descrição geral do portal do Azure
 description: O portal Azure é uma interface de utilizador gráfica que pode utilizar para gerir os seus serviços Azure. Aprenda a navegar e a encontrar recursos no portal Azure.
-services: azure-portal
 keywords: portal
-author: mgblythe
-ms.author: mblythe
 ms.date: 12/20/2019
 ms.topic: overview
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 4a00c1dcf973098895e80d5e3d656efd4a35d0d0
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 1e9cf1a9609b9d4f30e51094f1d0542335ead0e2
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147050"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745932"
 ---
 # <a name="azure-portal-overview"></a>Descrição geral do portal do Azure
 
@@ -44,7 +39,7 @@ Como novo subscritor dos serviços Azure, a primeira coisa que vê depois de [in
 
 ![Screenshot mostrando onde guardar a sua preferência.](./media/azure-portal-overview/azure-portal-default-view.png)
 
-Tanto o menu do portal Azure como o padrão Azure podem ser alterados nas **definições do Portal** . Se alterar a sua seleção, a alteração é imediatamente aplicada.
+Tanto o menu do portal Azure como o padrão Azure podem ser alterados nas **definições do Portal**. Se alterar a sua seleção, a alteração é imediatamente aplicada.
 
 ![Screenshot mostrando seletor de visualização padrão](./media/azure-portal-overview/azure-portal-overview-portal-settings-menu-home.png)
 
@@ -70,7 +65,7 @@ A figura abaixo rotula os elementos básicos do portal Azure, cada um dos quais 
 |2| Procura global. Utilize a barra de pesquisa para encontrar rapidamente um recurso específico, um serviço ou documentação.|
 |3|Controlos globais. Como todos os elementos globais, estas funcionalidades persistem em todo o portal e incluem: Cloud Shell, filtro de subscrição, notificações, configurações do portal, ajuda e suporte, e enviam-nos feedback.|
 |4|A sua conta. Ver informações sobre a sua conta, trocar diretórios, assinar ou iniciar sposição com uma conta diferente.|
-|5|Menu portal. O menu do portal é um elemento global que o ajuda a navegar entre serviços. Por vezes referido como barra lateral, o modo de menu do portal pode ser alterado nas **definições do Portal** .|
+|5|Menu portal. O menu do portal é um elemento global que o ajuda a navegar entre serviços. Por vezes referido como barra lateral, o modo de menu do portal pode ser alterado nas **definições do Portal**.|
 |6|Menu de recursos. Muitos serviços incluem um menu de recursos para ajudá-lo a gerir o serviço. Pode ver este elemento referido como o painel esquerdo.|
 |7|Barra de comando. Os controlos na barra de comando são contextuais ao seu foco atual.|
 |8|Painel de trabalho.  Apresenta os detalhes sobre o recurso que está atualmente em foco.|

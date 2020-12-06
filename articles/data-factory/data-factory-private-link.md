@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 8d28a1f2040cfec7b81081754a6abd3bc3e14439
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 5d13a6a77ede6277eebc7fdab7cd42165cb602fa
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511479"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746374"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Ligação privada Azure para Azure Data Factory
 
@@ -37,7 +37,7 @@ Também pode instalar um tempo de integração auto-hospedado numa máquina no l
 
 São necessários vários canais de comunicação entre a Azure Data Factory e a rede virtual do cliente, como mostra o seguinte quadro:
 
-| Domínio | Porta | Descrição |
+| Domínio | Porta | Description |
 | ---------- | -------- | --------------- |
 | `adf.azure.com` | 443 | Um avião de controlo, exigido pela data factory de autoria e monitorização. |
 | `*.{region}.datafactory.azure.net` | 443 | Requerido pelo tempo de integração auto-hospedado para ligar ao serviço Data Factory. |
@@ -96,20 +96,26 @@ Para obter mais informações sobre a configuração do seu próprio servidor DN
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Configurar link privado para a fábrica de dados Azure
 Pode criar pontos finais privados utilizando [o portal Azure](../private-link/create-private-endpoint-portal.md).
 
+Pode escolher se liga o seu tempo de integração auto-hospedado à Azure Data Factory através de um ponto final público ou privado. 
+
+![Screenshot de bloquear o acesso público do Tempo de Execução de Integração Auto-hospedado.](./media/data-factory-private-link/disable-public-access-shir.png)
+
+
 Você também pode ir à sua fábrica de dados Azure no portal Azure e criar um ponto final privado, como mostrado aqui:
 
 ![Screenshot do painel "Ligações de ponto final privado" para criar um ponto final privado.](./media/data-factory-private-link/create-private-endpoint.png)
 
+No passo de **Recurso,** selecione **Microsoft.Datafactory/factorys** como **tipo de recurso**. E se pretender criar um ponto final privado para comunicações de comando entre o tempo de funcionamento da integração auto-hospedada e o serviço Azure Data Factory, selecione a fábrica de **dados** como **sub-recurso target**.
 
-Se pretender bloquear o acesso público à fábrica de dados Azure e permitir o acesso apenas através do Private Link, desativar o acesso da rede à Azure Data Factory no portal Azure, como mostra aqui:
-
-![Screenshot do painel de acesso à rede para criar um ponto final privado.](./media/data-factory-private-link/disable-network-access.png)
+![Screenshot do painel "Ligações de ponto final privado" para selecionar recursos.](./media/data-factory-private-link/private-endpoint-resource.png)
 
 > [!NOTE]
 > O desativação do acesso à rede pública é aplicável apenas ao tempo de funcionamento da integração auto-hospedada, e não ao tempo de execução da integração da integração do Azure Integration e aos Serviços de Integração de Servidores SQL (SSIS).
 
+Se pretender criar um ponto final privado para a autoria e monitorização da fábrica de dados na sua rede virtual, selecione o **portal** como **sub-recurso Target**.
+
 > [!NOTE]
-> Ainda é possível aceder ao portal Azure Data Factory através de uma rede pública depois de desativar o acesso à rede pública.
+> Ainda é possível aceder ao portal Azure Data Factory através de uma rede pública depois de criar um ponto final privado para o portal.
 
 ## <a name="next-steps"></a>Passos seguintes
 

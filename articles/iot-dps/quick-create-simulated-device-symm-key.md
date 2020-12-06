@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Utilize a chave simétrica para o dispositivo simulado para o Azure IoT Hub utilizando C
-description: Neste arranque rápido utilizará o dispositivo C SDK para criar um dispositivo simulado que utiliza uma chave simétrica com o Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS)
+title: Quickstart - Utilize a chave simétrica para os dispositivos de provisão para o Azure IoT Hub utilizando C
+description: Neste arranque rápido, utilizará o dispositivo C SDK para forrar um dispositivo que utiliza a chave simétrica com o Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/14/2020
@@ -9,20 +9,20 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ab998756f219cd7bc155f98c2d29454be8018825
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7df7c9ab6bfbc8a39050b78a76114ae2a0a9d9b7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968218"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746510"
 ---
-# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Guia de Início Rápido: aprovisionar um dispositivo simulado com chaves simétricas
+# <a name="quickstart-provision-a-device-with-symmetric-keys"></a>Quickstart: Provision a dispositivo com chaves simétricas
 
-Neste guia de início rápido, vai aprender a criar e executar um simulador de dispositivos numa máquina de desenvolvimento do Windows. Irá configurar este dispositivo simulado para utilizar uma chave simétrica para autenticação com uma instância do Serviço de Aprovisionamento de Dispositivos e atribuição a um hub IoT. Será utilizado código de exemplo do [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c) para simular uma sequência de arranque do dispositivo que inicia o aprovisionamento. O dispositivo será reconhecido com base numa inscrição individual com uma instância do serviço de aprovisionamento e atribuído a um hub IoT.
+Neste arranque rápido, irá aprender a executar o código de provisão de dispositivos numa máquina de desenvolvimento Windows para o ligar a um Hub IoT como um dispositivo IoT. Configurará este dispositivo para utilizar uma autenticação de chave simétrica com uma instância de Serviço de Provisionamento de Dispositivos e será atribuído a um hub IoT. O código de amostra do [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) será utilizado para o fornecimento do dispositivo. O dispositivo será reconhecido com base numa inscrição individual com uma instância do serviço de aprovisionamento e atribuído a um hub IoT.
 
 Embora este artigo demonstre o provisionamento com uma inscrição individual, você pode usar grupos de inscrição. Há algumas diferenças na utilização de grupos de inscrição. Por exemplo, deve utilizar uma chave de dispositivo derivada com um ID de registo único para o dispositivo. Embora os grupos de inscrições de chave simétrica não estejam limitados a dispositivos legados, o artigo [Como aprovisionar dispositivos legados com o atestado de chave simétrica](how-to-legacy-device-symm-key.md) fornece um exemplo de grupo de inscrições. Para obter mais informações, veja [Inscrições em grupo para o Atestado de Chave Simétrica](concepts-symmetric-key-attestation.md#group-enrollments).
 
-Se não estiver familiarizado com o processo de provisão automática, reveja a visão geral do [provisionamento.](about-iot-dps.md#provisioning-process) 
+Se não estiver familiarizado com o processo de autoprovisionamento, reveja a visão geral [do provisionamento.](about-iot-dps.md#provisioning-process) 
 
 Certifique-se também de que executa os passos descritos em [Configurar o Serviço de Aprovisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md) antes de continuar este início rápido. Este guia de início rápido exige que já tenha criado a instância do Serviço de Aprovisionamento de Dispositivos.
 
@@ -46,7 +46,7 @@ Os seguintes pré-requisitos são para um ambiente de desenvolvimento do Windows
 
 Nesta secção, irá preparar um ambiente de programação utilizado para criar o [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c). 
 
-O SDK inclui o código de exemplo para um dispositivo simulado. Esse dispositivo simulado irá tentar fazer o aprovisionamento durante a respetiva sequência de arranque.
+O SDK inclui o código de amostra de provisionamento para dispositivos. Esta tentativa de código de provisões durante a sequência de arranque do dispositivo.
 
 1. Descarregue o [sistema de construção CMake](https://cmake.org/download/).
 
@@ -73,7 +73,7 @@ O SDK inclui o código de exemplo para um dispositivo simulado. Esse dispositivo
     cd cmake
     ```
 
-5. Execute o seguinte comando para compilar uma versão do SDK específica da plataforma de cliente de desenvolvimento. Será gerada uma solução do Visual Studio para o dispositivo simulado no diretório `cmake`. 
+5. Execute o seguinte comando para compilar uma versão do SDK específica da plataforma de cliente de desenvolvimento. Uma solução Visual Studio para o código de provisionamento do dispositivo será gerada no `cmake` diretório. 
 
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -123,7 +123,7 @@ O SDK inclui o código de exemplo para um dispositivo simulado. Esse dispositivo
 
 <a id="firstbootsequence"></a>
 
-## <a name="simulate-first-boot-sequence-for-the-device"></a>Simular a sequência de primeiro arranque para o dispositivo
+## <a name="run-the-provisioning-code-for-the-device"></a>Executar o código de provisionamento para o dispositivo
 
 Nesta secção, atualize o código de exemplo para enviar a sequência de arranque do dispositivo para a instância do Serviço de Aprovisionamento de Dispositivos. Esta sequência de arranque fará com que o dispositivo seja reconhecido e atribuído a um hub IoT ligado à instância do Serviço de Aprovisionamento de Dispositivos.
 
@@ -176,9 +176,9 @@ Nesta secção, atualize o código de exemplo para enviar a sequência de arranq
 
 7. Clique com o botão direito do rato no projeto **prov\_dev\_client\_sample** e selecione **Definir como Projeto de Arranque**. 
 
-8. No menu Visual Studio, selecione **Debug**  >  **Start sem depurar** para executar a solução. Na pronta para reconstruir o projeto, selecione **Sim,** para reconstruir o projeto antes de correr.
+8. No menu Visual Studio, selecione **Debug**  >  **Start sem depurar** para executar a solução. Na reconstroem o pedido do projeto, selecione **Sim** para reconstruir o projeto antes de executar.
 
-    O resultado seguinte é um exemplo do dispositivo simulado a arrancar com êxito e a ligar à instância do serviço de aprovisionamento para atribuição a um hub IoT:
+    A seguinte saída é um exemplo do dispositivo que se conecta com sucesso à instância de serviço de fornecimento a atribuir a um hub IoT:
 
     ```cmd
     Provisioning API Version: 1.2.8
@@ -194,12 +194,12 @@ Nesta secção, atualize o código de exemplo para enviar a sequência de arranq
     Press enter key to exit:
     ```
 
-9. No portal, navegue para o hub IoT a que o seu dispositivo simulado foi atribuído e selecione o **separador dispositivos IoT.** No fornecimento bem sucedido do simulado ao hub, o seu ID do dispositivo aparece na lâmina **de Dispositivos IoT,** com *status* conforme **ativado**. Pode ser necessário **premir** o botão Refresh na parte superior. 
+9. No portal, navegue para o hub IoT a que o seu dispositivo foi atribuído e selecione o **separador dispositivos IoT.** Ao providenciar com sucesso o fornecimento do dispositivo ao hub, o seu ID do dispositivo aparece na lâmina **IoT Devices,** com *status* conforme **ativado**. Pode ser necessário **premir** o botão Refresh na parte superior. 
 
     ![O dispositivo é registado no hub IoT](./media/quick-create-simulated-device-symm-key/hub-registration.png) 
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender continuar a trabalhar e explorar a amostra do cliente do dispositivo, não limpe os recursos criados neste quickstart. Se não pretender continuar, utilize os seguintes passos para eliminar todos os recursos criados por este arranque rápido.
 
@@ -209,7 +209,7 @@ Se pretender continuar a trabalhar e explorar a amostra do cliente do dispositiv
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criou um dispositivo simulado na sua máquina Windows e forcou-o no seu hub IoT utilizando a chave simétrica com o Serviço de Provisionamento de Dispositivos Azure IoT Hub no portal. Para aprender a inscrever o seu dispositivo programáticamente, continue a iniciar o quickstart para a inscrição programática de dispositivos X.509. 
+Neste arranque rápido, executou o código de provisionamento do dispositivo na sua máquina Windows.  O dispositivo foi autenticado e a provisionado ao seu hub IoT utilizando uma chave simétrica. Para aprender a providenciar um dispositivo de certificado X.509, continue a iniciar rapidamente os dispositivos X.509. 
 
 > [!div class="nextstepaction"]
-> [Azure quickstart - Inscreva dispositivos X.509 para O Serviço de Provisionamento de Dispositivos Azure IoT Hub](quick-enroll-device-x509-java.md)
+> [Azure quickstart - Provision um dispositivo X.509 utilizando o Azure IoT C SDK](quick-create-simulated-device-x509.md)

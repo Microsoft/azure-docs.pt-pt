@@ -5,14 +5,13 @@ author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
 ms.topic: how-to
-ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: afdb8b2b677321239f240e74d49711195ac186c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5b5e8c11bfe164aaa3539742dac8c4d267c69e1
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763912"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745609"
 ---
 # <a name="classic-deployment-model"></a>Modelo de implementação clássica
 
@@ -46,7 +45,7 @@ Siga as instruções abaixo para criar um pedido de apoio utilizando o **suporte
 
    ![Selecione subscrição para a qual aumentar uma quota](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
 
-1. Para **o tipo de quota**, selecione **Compute -VM (cores-vCPUs) aumentos de limites**de subscrição .
+1. Para **o tipo de quota**, selecione **Compute -VM (cores-vCPUs) aumentos de limites** de subscrição .
 
    ![Selecione o tipo de quota para aumentar](./media/resource-manager-core-quotas-request/select-quota-type.png)
 

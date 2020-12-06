@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 5c80e5e611c275c2a2262963aa0759075fca836b
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 834339a20e369b3835faf05d069f8d4f77385e18
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989399"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744864"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Ver e configurar telemetria de proteção contra DDoS
 
@@ -49,9 +49,9 @@ Pode selecionar qualquer uma das métricas de proteção DDoS disponíveis para 
     |Nome                     | Insira _myDdosAlert_.                                                                                |
     |Subscrição             | Selecione a subscrição que contém o endereço IP público para o quais pretende receber alertas.        |
     |Grupo de recursos           | Selecione o grupo de recursos que contém o endereço IP público para o quais pretende receber alertas.      |
-    |Recurso                 | Selecione o endereço IP público que contém o endereço IP público para o quais pretende receber alertas. O DDoS monitoriza endereços IP públicos atribuídos a recursos dentro de uma rede virtual. Se não tiver recursos com endereços IP públicos na rede virtual, tem primeiro de criar um recurso com um endereço IP público. Pode monitorizar o endereço IP público de todos os recursos implantados através do Gestor de Recursos (não clássico) listados na [rede Virtual para serviços Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), exceto para Azure App Service Environments e Azure VPN Gateway. Para continuar com este tutorial, pode rapidamente criar uma máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux.](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)                   |
+    |Recurso                 | Selecione o endereço IP público que contém o endereço IP público para o quais pretende receber alertas. O DDoS monitoriza endereços IP públicos atribuídos a recursos dentro de uma rede virtual. Se não tiver recursos com endereços IP públicos na rede virtual, tem primeiro de criar um recurso com um endereço IP público. Pode monitorizar o endereço IP público de todos os recursos implantados através do Gestor de Recursos (não clássico) listados na [rede Virtual para serviços Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (incluindo Equiliadores de Carga Azure onde as máquinas virtuais de backend estão na rede virtual), exceto para Ambientes de Serviço de Aplicações Azure e Gateway Azure VPN. Para continuar com este tutorial, pode rapidamente criar uma máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux.](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)                   |
     |Métrica                   | Selecione **sob o ataque DDoS ou não**.                                                                |
-    |Limiar                | 1 - **1** significa que estás a ser atacado. **0** significa que não estás a ser atacado.                         |
+    |Limite                | 1 - **1** significa que estás a ser atacado. **0** significa que não estás a ser atacado.                         |
     |Período                   | Selecione o valor que escolher.                                                                   |
     |Notificar via E-mail         | Verifique a caixa de verificação.                                                                                 |
     |Administrador adicional | Insira o seu endereço de e-mail se não for proprietário de e-mail, colaborador ou leitor para a subscrição. |

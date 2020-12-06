@@ -12,18 +12,18 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: b01ade25c6592e68e34eeb542a90cdd0124a0446
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4a6cd529511d4a2e71e1a31c1600f8a51f455a37
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738046"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746136"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>Integrar serviços Azure com redes virtuais para isolamento de rede
 
-A integração em Rede Virtual para um serviço Azure permite-lhe bloquear o acesso ao serviço apenas para a sua infraestrutura de rede virtual. A infraestrutura VNet também inclui redes virtuais e redes no local.
+A integração da Rede Virtual (VNet) para um serviço Azure permite-lhe bloquear o acesso ao serviço apenas para a sua infraestrutura de rede virtual. A infraestrutura VNet também inclui redes virtuais e redes no local.
 
-Os serviços Azure conseguem o isolamento da rede através de um ou mais dos seguintes métodos:
+A integração VNet proporciona aos serviços Azure os benefícios do isolamento da rede e pode ser realizada por um ou mais dos seguintes métodos:
 - [Implantar instâncias dedicadas do serviço numa rede virtual.](virtual-network-service-endpoints-overview.md) Os serviços podem então ser acedidos de forma privada dentro da rede virtual e a partir de redes no local.
 - Utilizar [o Private Endpoint](../private-link/private-endpoint-overview.md) que o liga de forma privada e segura a um serviço alimentado pela [Azure Private Link](../private-link/private-link-overview.md). O Private Endpoint utiliza um endereço IP privado a partir do seu VNet, efetivamente trazendo o serviço para a sua rede virtual.
 - Aceder ao serviço utilizando pontos finais públicos, alargando uma rede virtual ao serviço, através [de pontos finais de serviço.](virtual-network-service-endpoints-overview.md) Os pontos finais de serviço permitem que os recursos de serviço sejam seguros para a rede virtual.

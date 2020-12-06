@@ -3,12 +3,12 @@ title: host.jsem referência para Funções Azure 2.x
 description: A documentação de referência para as Funções Azure host.jsem arquivo com o tempo de execução v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: c12a9244cdc1a76f678578e281532c73bc9385ba
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 96d6b884e9e2c835316af01140c6fc7208ee5ab9
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917244"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746085"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referência host.json das Funções do Azure 2.x e posterior 
 
@@ -150,7 +150,7 @@ Para obter a estrutura JSON completa, consulte o exemplo anterior [host.jsem arq
 > [!NOTE]
 > A amostragem de registo pode fazer com que algumas execuções não apareçam na lâmina do monitor Application Insights. Para evitar a amostragem de registo, adicione `excludedTypes: "Request"` ao `samplingSettings` valor.
 
-| Propriedade | Predefinição | Descrição |
+| Propriedade | Predefinição | Description |
 | --------- | --------- | --------- | 
 | amostragemS | n/a | Ver [aplicaçõesInsights.samplingSettings](#applicationinsightssamplingsettings). |
 | enableLiveMetrics | true | Permite a recolha de métricas ao vivo. |
@@ -164,7 +164,7 @@ Para obter a estrutura JSON completa, consulte o exemplo anterior [host.jsem arq
 
 Para obter mais informações sobre estas definições, consulte [a Amostragem em Insights de Aplicação](../azure-monitor/app/sampling.md). 
 
-|Propriedade | Predefinição | Descrição |
+|Propriedade | Predefinição | Description |
 | --------- | --------- | --------- | 
 | isEnabled | true | Permite ou desativa a amostragem. | 
 | maxTelemetryItemsPerSecond | 20 | O número-alvo de itens de telemetria registados por segundo em cada anfitrião do servidor. Se a sua aplicação for executado em muitos anfitriões, reduza este valor para permanecer dentro da sua taxa de tráfego geral. | 
@@ -180,7 +180,7 @@ Para obter mais informações sobre estas definições, consulte [a Amostragem e
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights.httpAutoCollectionOptions
 
-|Propriedade | Predefinição | Descrição |
+|Propriedade | Predefinição | Description |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | Ativa ou desativa informações de pedidos de HTTP para gatilhos HTTP: cabeçalhos de correlação de pedidos de entrada, suporte de chaves de múltiplos instrumentações, método, caminho e resposta HTTP. |
 | enableW3CDistributedTracing | true | Permite ou desativa o suporte do protocolo de rastreio distribuído W3C (e liga o esquema de correlação do legado). Ativado por padrão se `enableHttpTriggerExtendedInfoCollection` for verdade. Se `enableHttpTriggerExtendedInfoCollection` for falsa, esta bandeira aplica-se apenas aos pedidos de saída, não aos pedidos de entrada. |
@@ -190,7 +190,7 @@ Para obter mais informações sobre estas definições, consulte [a Amostragem e
 
 Para obter mais informações sobre instantâneos, consulte [instantâneos de Debug sobre exceções em aplicações .NET](../azure-monitor/app/snapshot-debugger.md) e [problemas de resolução de problemas que permitem insights de aplicação Snapshot Debugger ou visualização de instantâneos](../azure-monitor/app/snapshot-debugger-troubleshoot.md).
 
-|Propriedade | Predefinição | Descrição |
+|Propriedade | Predefinição | Description |
 | --------- | --------- | --------- | 
 | agenteEndpoint | nulo | O ponto final utilizado para ligar ao serviço Debugger Debugger Do Application Insights Snapshot. Se for nulo, é utilizado um ponto final predefinido. |
 | capturaSnapshotMemoryWeight | 0,5 | O peso dado ao tamanho atual da memória do processo ao verificar se há memória suficiente para tirar uma foto. O valor esperado é superior a 0 frações adequadas (0 < CaptureSnapshotMemoryWeight < 1). |
@@ -218,6 +218,28 @@ Para obter mais informações sobre instantâneos, consulte [instantâneos de De
 ## <a name="cosmosdb"></a>cosmosDb
 
 A configuração pode ser encontrada nos [gatilhos e encadernações do Cosmos DB](functions-bindings-cosmosdb-v2-output.md#host-json).
+
+## <a name="customhandler"></a>personalizadoHandler
+
+Configurações de configuração para um manipulador personalizado. Para obter mais informações, consulte [os manipuladores personalizados Azure Functions](functions-custom-handlers.md#configuration).
+
+```json
+"customHandler": {
+  "description": {
+    "defaultExecutablePath": "server",
+    "workingDirectory": "handler",
+    "arguments": [ "--port", "%FUNCTIONS_CUSTOMHANDLER_PORT%" ]
+  },
+  "enableForwardingHttpRequest": false
+}
+```
+
+|Propriedade | Predefinição | Description |
+| --------- | --------- | --------- |
+| defaultExecutablePath | n/a | O executável para começar como o processo de manipulador personalizado. É uma definição necessária quando se utilizam manipuladores personalizados e o seu valor é relativo à raiz da aplicação de função. |
+| workingDirectory | *raiz de aplicativo de função* | O diretório de trabalho no qual iniciará o processo de manipulador personalizado. É uma definição opcional e o seu valor é relativo à raiz da aplicação de função. |
+| argumentos | n/a | Uma série de argumentos de linha de comando para passar para o processo de manipulador personalizado. |
+| enableForwardingHttpRequest | false | Se definido, todas as funções que consistem apenas num gatilho HTTP e saída HTTP são reencaminhadas o pedido HTTP original em vez do pedido de pedido de [encomenda](functions-custom-handlers.md#request-payload)personalizado . |
 
 ## <a name="durabletask"></a>DurableTask
 
@@ -282,7 +304,7 @@ Definições de configuração para [monitor de saúde host](https://github.com/
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |ativado|true|Especifica se a funcionalidade está ativada. | 
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de saúde de fundo periódicos. | 
@@ -314,7 +336,7 @@ Controla os comportamentos de registo da aplicação de função, incluindo o Ap
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------|
 |fileLoggingMode|depuraronamente|Define o nível de registo de ficheiros ativado.  As opções `never` `always` são, `debugOnly` . . |
 |logLevel|n/a|Objeto que define a filtragem da categoria de registo para funções na aplicação. Versões 2.x e mais tarde siga o layout ASP.NET Core para filtragem da categoria de registo. Esta definição permite filtrar o início de sessão para funções específicas. Para obter mais informações, consulte [a filtragem do Registo](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) na documentação do Núcleo ASP.NET. |
@@ -337,7 +359,7 @@ Esta definição é uma criança de [registo.](#logging) Controla o registo da c
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |isEnabled|false|Ativa ou desativa a sessão de registo de consolas.| 
 
@@ -371,7 +393,7 @@ Controla as opções [de política de re-tentar](./functions-bindings-error-page
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |estratégia|nulo|Obrigatório. A estratégia de repetição a utilizar. Valores válidos são `fixedDelay` ou `exponentialBackoff` .|
 |maxRetryCount|nulo|Obrigatório. O número máximo de retrós assim que é permitido por execução de função. `-1` significa voltar a tentar indefinidamente.|
@@ -403,7 +425,7 @@ Definições de configuração para o comportamento de bloqueio de Singleton. Pa
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|O período para o que os bloqueios de nível de função são tomados. As fechaduras renovam-se automaticamente.| 
 |ouvinteLockPeriod|00:01:00|O período para o que os ouvintes bloqueiam.| 

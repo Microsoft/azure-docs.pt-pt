@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 63bb235dcebc67b753e01dd8b193ef1a2b66787d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 222106f5838a1eb237987afaa93924f1efe4a1f4
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555170"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746289"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Insights de extensão de ficheiros sobre os seus dados a partir do Azure Purview 
 
@@ -39,6 +39,9 @@ Para obter mais informações, consulte [Gerir fontes de dados em Azure Purview 
 ## <a name="use-purview-file-extension-insights"></a>Use insights de extensão de ficheiros de competência
 
 Ao digitalizar os seus ativos, o Azure Purview é capaz de detetar os tipos de ficheiros encontrados na sua propriedade de dados e fornecer-lhe mais detalhes sobre cada tipo de ficheiro. Os detalhes incluem quantos ficheiros de cada tipo tem, onde esses ficheiros estão e se são digitalizáveis para dados sensíveis.
+
+> [!NOTE]
+> Depois de ter digitalizado os seus tipos de origem, dê ao **File Extension** Insights algumas horas para refletir os novos ativos.
 
 **Para visualizar insights de extensão de ficheiros:**
 
