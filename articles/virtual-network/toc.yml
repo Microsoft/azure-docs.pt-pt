@@ -71,12 +71,18 @@
           href: ../expressroute/cross-network-connectivity.md?toc=%2fazure%2fvirtual-network%2ftoc.json
         - name: Peering
           href: virtual-network-peering-overview.md
-    - name: Integração para os serviços do Azure
+    - name: Integrar serviços do Azure
       items:
-        - name: Pontos finais de serviço
-          href: virtual-network-service-endpoints-overview.md
+        - name: Descrição Geral
+          href: vnet-integration-for-azure-services.md
         - name: Implementar um serviço dedicado
           href: virtual-network-for-azure-services.md
+        - name: Private Link
+          href: ../private-link/private-link-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+        - name: Pontos finais de serviço
+          href: virtual-network-service-endpoints-overview.md
+        - name: Etiquetas de serviço
+          href: service-tags-overview.md
     - name: Serviços de IP
       items:
         - name: IPs públicos
@@ -99,6 +105,8 @@
           href: security-baseline.md
         - name: Linha de base de segurança da NAT da rede virtual
           href: nat-security-baseline.md
+        - name: Isolamento de rede dos serviços do Azure
+          href: vnet-integration-for-azure-services.md
         - name: Grupos de segurança de rede
           items:
             - name: Descrição geral

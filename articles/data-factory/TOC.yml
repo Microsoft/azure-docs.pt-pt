@@ -145,6 +145,10 @@
           href: tutorial-deploy-ssis-packages-azure-powershell.md
         - name: Associar à rede virtual
           href: tutorial-deploy-ssis-virtual-network.md
+    - name: Linhagem
+      items:
+        - name: Emitir dados de linhagem do Data Factory para o Azure Purview
+          href: turorial-push-lineage-to-purview.md
     - name: Laboratórios ponto a ponto
       items:
         - name: Integração de dados com o data factory e o data share
@@ -688,6 +692,10 @@
           href: how-to-create-tumbling-window-trigger.md
         - name: Criar uma dependência de acionamento de janela em cascata
           href: tumbling-window-trigger-dependency.md
+    - name: Linhagem
+      items:
+        - name: Ligar um Data Factory ao Azure Purview
+          href: connect-data-factory-to-azure-purview.md
     - name: Cenários
       items:
         - name: Migração de dados do data lake e EDW

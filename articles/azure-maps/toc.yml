@@ -134,6 +134,8 @@
           href: how-to-request-real-time-data.md
         - name: Pedir dados meteorológicos em tempo real e previstos
           href: how-to-request-weather-data.md
+        - name: Pedir dados de elevação
+          href: how-to-request-elevation-data.md
     - name: Desenvolver com o SDK Web
       items:
         - name: Controlo de mapa

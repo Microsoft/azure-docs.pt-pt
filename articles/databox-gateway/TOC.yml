@@ -1,0 +1,69 @@
+- name: Documentação do Azure Data Box Gateway
+  href: /azure/databox-gateway/
+  expanded: true
+- name: Data Box Gateway
+  items:
+    - name: Descrição geral
+      items:
+        - name: O que é o Data Box Gateway?
+          href: data-box-gateway-overview.md
+    - name: Tutoriais
+      items:
+        - name: 1 - Preparar
+          href: data-box-gateway-deploy-prep.md
+        - name: 2A - Aprovisionamento no Hyper-V
+          href: data-box-gateway-deploy-provision-hyperv.md
+        - name: 2B - Aprovisionamento no VMware
+          href: data-box-gateway-deploy-provision-vmware.md
+        - name: '3 - Ligar, configurar, ativar'
+          href: data-box-gateway-deploy-connect-setup-activate.md
+        - name: '4 - Adicionar, ligar para partilhar'
+          href: data-box-gateway-deploy-add-shares.md
+    - name: Conceitos
+      items:
+        - name: Rever requisitos
+          href: data-box-gateway-system-requirements.md
+        - name: Compreender os limites
+          href: data-box-gateway-limits.md
+        - name: Descrição geral da segurança
+          href: data-box-gateway-security.md
+        - name: Ver casos de utilização
+          href: data-box-gateway-use-cases.md
+    - name: Procedimento
+      items:
+        - name: Atualizar
+          href: data-box-gateway-apply-updates.md
+        - name: Gerir
+          items:
+            - name: Partilhas
+              href: data-box-gateway-manage-shares.md
+            - name: Utilizadores
+              href: data-box-gateway-manage-users.md
+            - name: Agendas de largura de banda
+              href: data-box-gateway-manage-bandwidth-schedules.md
+            - name: 'Acesso, energia, conectividade'
+              href: data-box-gateway-manage-access-power-connectivity-mode.md
+            - name: Através do PowerShell
+              href: data-box-gateway-connect-powershell-interface.md
+        - name: Monitorizar
+          href: data-box-gateway-monitor.md
+        - name: Resolução de problemas
+          href: data-box-gateway-troubleshoot.md
+        - name: Contacte o Suporte da Microsoft
+          href: ../databox-online/azure-stack-edge-contact-microsoft-support.md
+    - name: Notas de versão
+      items:
+        - name: 2007 - Atual
+          href: data-box-gateway-2007-release-notes.md
+        - name: 1911
+          href: data-box-gateway-1911-release-notes.md
+        - name: 1906
+          href: data-box-gateway-1906-release-notes.md
+        - name: 1905
+          href: data-box-gateway-1905-release-notes.md
+        - name: Disponibilidade geral (GA)
+          href: data-box-gateway-release-notes.md
+- name: Recursos
+  items:
+    - name: Preços
+      href: 'https://azure.microsoft.com/en-us/pricing/details/databox/gateway/'

@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 07/20/2020
-  ms.openlocfilehash: bdfb4f0a31f655cf71b6117e9c0ef73be18c8e45
-  ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+  ms.date: 12/03/2020
+  ms.openlocfilehash: 02b9ed9bb6146a73da26083718176447a7402f2a
+  ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92018734"
+  ms.lasthandoff: 12/04/2020
+  ms.locfileid: "96602330"
 landingContent:
 - title: Acerca do Azure Lighthouse
   linkLists:
@@ -89,6 +89,8 @@ landingContent:
       url: ./how-to/deploy-policy-remediation.md
     - text: Gerir máquinas virtuais híbridas com o Azure Arc
       url: ./how-to/manage-hybrid-infrastructure-arc.md
+    - text: Gerir projetos de migração
+      url: ./how-to/migration-at-scale.md
 - title: Referência – SDKs
   linkLists:
   - linkListType: reference

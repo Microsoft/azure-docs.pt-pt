@@ -152,6 +152,8 @@
           href: node-updates-kured.md
         - name: Configurar um cluster do AKS
           href: cluster-configuration.md
+        - name: Configuração de nó personalizado (pré-visualização)
+          href: custom-node-configuration.md
         - name: Integrar o ACR num cluster do AKS
           href: cluster-container-registry-integration.md
         - name: Criar nós virtuais

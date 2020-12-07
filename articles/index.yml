@@ -13,12 +13,12 @@ metadata:
   ms.date: 09/25/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: aeb75bcfb25fdfb23e559b3f07f33c23c5f927de
-  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+  ms.openlocfilehash: e9a7f7ebdaa2fa041fff6ecbfa99dd2c9c781c82
+  ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/01/2020
-  ms.locfileid: "96458180"
+  ms.lasthandoff: 12/03/2020
+  ms.locfileid: "96548992"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -331,6 +331,13 @@ productDirectory:
     azureCategories:
     - analytics
     url: data-catalog/index.yml
+  - title: Azure Purview
+    summary: Maximizar o valor comercial com gestão de dados unificada
+    imageSrc: https://static.docs.com/ui/media/product/azure/purview.svg
+    azureCategories:
+    - analytics
+    - management-and-governance
+    url: purview/index.yml
   - title: Data Factory
     summary: Integração de dados híbridos em escala empresarial, simplificada
     imageSrc: https://static.docs.com/ui/media/product/azure/data-factory.svg

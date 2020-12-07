@@ -1,0 +1,116 @@
+### YamlMime:Landing
+title: Documentação do Azure Purview
+summary: Saiba como utilizar o Azure Purview para que a sua organização possa localizar, compreender e consumir origens de dados.
+metadata:
+  title: Documentação do Azure Purview
+  description: Saiba como utilizar o Azure Purview, o serviço que permite à sua organização localizar, compreender e consumir origens de dados. Tutoriais, referência da API REST e outra documentação mostram-lhe como planear e configurar o repositório de dados onde os consumidores de dados podem detetar origens de dados disponíveis e obter conhecimento fruto da contribuição de especialistas.
+  ms.service: purview
+  ms.topic: landing-page
+  author: hrasheed-msft
+  ms.author: hrasheed
+  ms.date: 11/29/2020
+  ms.openlocfilehash: 378a335653acf31275c312bcf4fa53b36bfa614e
+  ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 12/03/2020
+  ms.locfileid: "96549467"
+landingContent:
+- title: Acerca do Azure Purview
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure Purview?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Melhores práticas de implementação
+      url: deployment-best-practices.md
+    - text: Permissões do Catálogo de Dados
+      url: catalog-permissions.md
+    - text: Origens de dados e tipos de ficheiro suportados
+      url: sources-and-scans.md
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Criar uma conta do Purview - Portal
+      url: create-catalog-portal.md
+    - text: Criar uma conta do Purview - PowerShell/CLI
+      url: create-catalog-powershell.md
+  - linkListType: tutorial
+    links:
+    - text: Transferir o kit para Iniciantes
+      url: https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip
+    - text: Executar o kit para iniciantes e analisar dados
+      url: tutorial-scan-data.md
+    - text: Navegar na home page do Purview e procurar
+      url: tutorial-asset-search.md
+    - text: Procurar ativos e ver linhagem
+      url: tutorial-browse-and-view-lineage.md
+    - text: Explorar conjuntos de recursos, ativos, esquemas, classificações
+      url: tutorial-schemas-and-classifications.md
+    - text: Criar termos do glossário
+      url: tutorial-import-create-glossary-terms.md
+- title: Analisar origens de dados do Azure
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Executar o kit para iniciantes e analisar dados
+      url: tutorial-scan-data.md
+  - linkListType: how-to-guide
+    links:
+    - text: Analisar a Base de Dados SQL do Azure
+      url: register-scan-azure-sql-database.md
+    - text: Analisar o Azure Data Lake Storage Gen2
+      url: register-scan-adls-gen2.md
+    - text: Analisar o Azure Cosmos DB
+      url: register-scan-azure-cosmos-database.md
+    - text: Inquilino do Power BI
+      url: register-scan-power-bi-tenant.md
+    - text: Registar e analisar o Armazenamento de Blobs do Azure
+      url: register-scan-azure-blob-storage-source.md
+- title: Analisar origens de dados não Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Analisar o SQL Server no local
+      url: register-scan-on-premises-sql-server.md
+- title: Compreender o seu património de dados
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Ver informações dos ativos
+      url: asset-insights.md
+    - text: Ver informações do glossário
+      url: glossary-insights.md
+    - text: Ver informações das análises
+      url: scan-insights.md
+    - text: Ver informações de classificação
+      url: classification-insights.md
+- title: Organizar dados
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Conjuntos de recursos, ativos, esquemas, classificações
+      url: tutorial-schemas-and-classifications.md
+    - text: Termos do glossário
+      url: tutorial-import-create-glossary-terms.md
+  - linkListType: how-to-guide
+    links:
+    - text: Criar, editar e eliminar classificações e regras personalizadas
+      url: create-a-custom-classification-and-classification-rule.md
+    - text: Criar, importar e exportar um glossário
+      url: how-to-create-import-export-glossary.md
+- title: Detetar dados
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Pesquisa e linhagem
+      url: tutorial-browse-and-view-lineage.md
+  - linkListType: how-to-guide
+    links:
+    - text: Procurar por tipo de ativo
+      url: how-to-browse-catalog.md
+    - text: Procurar ativos, termos, anotações e contactos
+      url: how-to-search-catalog.md

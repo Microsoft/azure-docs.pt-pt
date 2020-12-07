@@ -61,7 +61,7 @@
           href: load-balancer-insights.md
         - name: Métricas e diagnósticos do Balanceador de Carga Standard
           href: load-balancer-standard-diagnostics.md
-        - name: Registos do Azure Monitor para o Balanceador de Carga Básico
+        - name: Registos do Azure Monitor para o Balanceador de Carga
           href: load-balancer-monitor-log.md
         - name: Obter métricas do Balanceador de Carga com REST
           href: load-balancer-query-metrics-rest-api.md

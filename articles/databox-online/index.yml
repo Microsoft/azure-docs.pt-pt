@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Documentação do Azure Stack Edge e Azure Data Box Gateway - Transferência online
-summary: Utilize dispositivos Azure Stack Edge e Azure Data Box Gateway para transferências de dados de elevado desempenho através da rede. Utilize dispositivos Azure Stack Edge Pro equipados com hardware de aceleração da computação para filtrar, analisar e transformar os seus dados antes de movê-los para o Azure. Escolha o Data Box Gateway para enviar dados para arquivo na cloud, recuperação após desastre ou para processar dados à escala da cloud.
+title: Documentação do Azure Stack Edge - Transferência online
+summary: Utilize os dispositivos do Azure Stack Edge para fazer transferências de dados através da rede de elevado desempenho. Utilize dispositivos Azure Stack Edge Pro equipados com hardware de aceleração da computação para filtrar, analisar e transformar os seus dados antes de movê-los para o Azure.
 metadata:
-  title: Documentação do Azure Stack Edge e Azure Data Box Gateway - Transferência online
-  description: Data Box Gateway, Documentação sobre o Data Box Edge para transferência de dados de elevado desempenho através da rede para o Azure.
+  title: Documentação do Azure Stack Edge - Transferência online
+  description: Documentação do Azure Stack Edge para transferência de dados através da rede de elevado desempenho para o Azure.
   services: databox
   ms.service: databox
   ms.subservice: edge
@@ -11,15 +11,15 @@ metadata:
   ms.collection: collection
   author: alkohli
   ms.author: alkohli
-  ms.date: 09/08/2020
-  ms.openlocfilehash: 03072f5a30cdf73e1bdde695d3c034ac201aea3e
-  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+  ms.date: 10/27/2020
+  ms.openlocfilehash: 2ee9153bc500c7d5184e32712e0707d1c0f2507e
+  ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/01/2020
-  ms.locfileid: "96451091"
+  ms.lasthandoff: 12/03/2020
+  ms.locfileid: "96574195"
 landingContent:
-- title: Sobre o Azure Stack Edge e o Data Box Gateway
+- title: Acerca do Azure Stack Edge
   linkLists:
   - linkListType: overview
     links:
@@ -31,8 +31,6 @@ landingContent:
       url: azure-stack-edge-j-series-overview.md
     - text: O que é o Azure Stack Edge Mini?
       url: azure-stack-edge-k-series-overview.md
-    - text: O que é o Data Box Gateway?
-      url: data-box-gateway-overview.md
   - linkListType: architecture
     links:
     - text: Escolher as opções de transferência de dados do Azure
@@ -41,8 +39,8 @@ landingContent:
       url: ../storage/common/storage-solution-large-dataset-low-network.md#offline-transfer-or-network-transfer
   - linkListType: whats-new
     links:
-    - text: Notas de versão de 2009
-      url: azure-stack-edge-gpu-2008-release-notes.md
+    - text: Notas de versão de 2011
+      url: azure-stack-edge-gpu-2011-release-notes.md
 - title: Requisitos e limites
   linkLists:
   - linkListType: concept
@@ -51,12 +49,8 @@ landingContent:
       url: azure-stack-edge-gpu-system-requirements.md
     - text: Requisitos do Azure Stack Edge Pro FPGA
       url: azure-stack-edge-gpu-system-requirements.md
-    - text: Requisitos do Data Box Gateway
-      url: data-box-gateway-system-requirements.md
     - text: Limites do Azure Stack Edge Pro
       url: azure-stack-edge-limits.md
-    - text: Limites do Data Box Gateway
-      url: data-box-gateway-limits.md
 - title: Implementação
   linkLists:
   - linkListType: tutorial
@@ -65,8 +59,6 @@ landingContent:
       url: azure-stack-edge-gpu-deploy-checklist.md
     - text: Azure Stack Edge Pro GPU
       url: azure-stack-edge-gpu-deploy-prep.md
-    - text: Data Box Gateway
-      url: data-box-gateway-deploy-prep.md
     - text: Módulo de GPU através do Marketplace
       url: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
     - text: Carga de trabalho do Kubernetes via IoT Edge
@@ -87,8 +79,6 @@ landingContent:
     links:
     - text: Partilhas do Azure Stack Edge Pro
       url: azure-stack-edge-manage-shares.md
-    - text: Partilhas do Data Box Gateway
-      url: data-box-gateway-manage-shares.md
     - text: Computação Edge
       url: azure-stack-edge-manage-compute.md
     - text: Contas de armazenamento do Edge
@@ -99,8 +89,6 @@ landingContent:
     links:
     - text: Azure Stack Edge GPU
       url: azure-stack-edge-gpu-troubleshoot.md
-    - text: Data Box Gateway
-      url: data-box-gateway-troubleshoot.md
     - text: Módulos de computação edge
       url: azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge
     - text: Voltar ao Azure Stack Edge GPU

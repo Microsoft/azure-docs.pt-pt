@@ -1,0 +1,153 @@
+items:
+  - name: Documentação do Azure Purview
+    href: index.yml
+  - name: Descrição geral
+    items:
+      - name: O que é o Azure Purview?
+        href: overview.md
+  - name: Guias de Início Rápido
+    expanded: true
+    items:
+      - name: Criar uma conta do Purview - Portal do Azure
+        href: create-catalog-portal.md
+      - name: Criar uma conta do Purview - Azure PowerShell
+        href: create-catalog-powershell.md
+  - name: Tutoriais
+    items:
+      - name: Kit para iniciantes
+        items:
+          - name: Analisar dados
+            href: tutorial-scan-data.md
+          - name: Navegar na home page e procurar
+            href: tutorial-asset-search.md
+          - name: Procurar ativos e ver linhagem
+            href: tutorial-browse-and-view-lineage.md
+          - name: 'Explorar conjuntos de recursos, ativos, esquemas, classificações'
+            href: tutorial-schemas-and-classifications.md
+          - name: Criar termos do glossário
+            href: tutorial-import-create-glossary-terms.md
+      - name: Registar e analisar um SQL Server no local
+        href: register-scan-on-premises-sql-server.md
+  - name: Conceitos
+    items:
+      - name: Utilizar o Purview Studio
+        href: use-purview-studio.md
+      - name: Melhores práticas de implementação
+        href: deployment-best-practices.md
+      - name: Limites do Azure Purview
+        href: how-to-manage-quotas.md
+      - name: Como as análises detetam ativos eliminados
+        href: concept-detect-deleted-assets.md
+      - name: Compreender os conjuntos de recursos
+        href: concept-resource-sets.md
+      - name: Linhagem de dados
+        href: concept-data-lineage.md
+      - name: Origens de dados e tipos de ficheiro suportados
+        href: sources-and-scans.md
+      - name: Permissões do catálogo
+        href: catalog-permissions.md
+      - name: Pesquisa no catálogo
+        href: concept-search.md
+      - name: Glossário comercial
+        href: concept-business-glossary.md
+      - name: Informações de dados
+        href: concept-insights.md
+      - name: Perguntas mais frequentes
+        href: frequently-asked-questions.md
+  - name: Guias de procedimentos
+    items:
+      - name: Registar e analisar
+        items:
+          - name: Gerir Credenciais
+            href: manage-credentials.md
+            displayName: Create and manage Credentials
+          - name: Criar um conjunto de regras de análise
+            href: create-a-scan-rule-set.md
+          - name: Gerir runtimes de integração
+            href: manage-integration-runtimes.md
+          - name: Resolver problemas de ligação
+            href: troubleshoot-connections.md
+          - name: Origens
+            items:
+              - name: Gerir origens de dados
+                href: manage-data-sources.md
+              - name: Descrição geral dos conectores do Purview
+                href: purview-connector-overview.md
+              - name: Armazenamento de Blobs do Azure
+                href: register-scan-azure-blob-storage-source.md
+                displayName: Register and scan azure blob storage
+              - name: Azure Cosmos DB
+                href: register-scan-azure-cosmos-database.md
+                displayName: Register and scan Azure Cosmos DB
+              - name: Azure Data Explorer
+                href: register-scan-azure-data-explorer.md
+                displayName: Register and scan Azure Data Explorer Kusto
+              - name: Azure Data Lake Storage Gen 1
+                href: register-scan-adls-gen1.md
+                displayName: Register and scan Azure Data Lake Storage Gen 1 ADLS
+              - name: Azure Data Lake Storage Gen2
+                href: register-scan-adls-gen2.md
+                displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS
+              - name: Base de Dados SQL do Azure
+                href: register-scan-azure-sql-database.md
+                displayName: Register and scan Azure SQL DB
+              - name: BD SQL do Azure com uma firewall
+                href: scan-sqlresource-firewall.md
+                displayName: Register and scan Azure SQL DB with a firewall
+              - name: "Instância Gerida da Base de Dados\_SQL do Azure"
+                href: register-scan-azure-sql-database-managed-instance.md
+                displayName: Register and scan Azure SQL DB Managed Instance
+              - name: Azure Synapse Analytics
+                href: register-scan-azure-synapse-analytics.md
+              - name: Inquilino do Power BI - Portal
+                href: register-scan-power-bi-tenant.md
+              - name: Inquilino do Power BI - PowerShell
+                href: powershell-register-scan-power-bi.md
+              - name: SQL Server no local
+                href: register-scan-on-premises-sql-server.md
+      - name: Glossário comercial
+        items:
+          - name: 'Criar, importar e exportar termos do glossário'
+            href: how-to-create-import-export-glossary.md
+          - name: Gerir modelos de termos
+            href: how-to-manage-term-templates.md
+      - name: Classificar
+        items:
+          - name: Criar classificação personalizada e regra de classificação
+            href: create-a-custom-classification-and-classification-rule.md
+          - name: Aplicar classificações
+            href: apply-classifications.md
+          - name: Identificar automaticamente o seu conteúdo
+            href: create-sensitivity-label.md
+      - name: Procurar e navegar
+        items:
+          - name: Navegar no Catálogo de Dados
+            href: how-to-browse-catalog.md
+          - name: Procurar no Catálogo de Dados
+            href: how-to-search-catalog.md
+      - name: Linhagem
+        items:
+          - name: Guia do utilizador da linhagem
+            href: catalog-lineage-user-guide.md
+          - name: Linhagem do Azure Data Factory
+            href: how-to-link-azure-data-factory.md
+          - name: Linhagem do Azure Data Share
+            href: how-to-link-azure-data-share.md
+      - name: Informações
+        items:
+          - name: Ver informações dos ativos
+            href: asset-insights.md
+          - name: Ver informações do glossário
+            href: glossary-insights.md
+          - name: Ver informações das análises
+            href: scan-insights.md
+          - name: Ver informações de classificação
+            href: classification-insights.md
+          - name: Ver informações da etiqueta de confidencialidade
+            href: sensitivity-insights.md
+          - name: Ver informações da extensão de ficheiro
+            href: file-extension-insights.md
+  - name: Referência
+    items:
+      - name: Classificações suportadas
+        href: supported-classifications.md
