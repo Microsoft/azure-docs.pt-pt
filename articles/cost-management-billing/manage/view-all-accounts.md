@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/30/2020
 ms.author: banders
-ms.openlocfilehash: 0049efda603532099cc9bf24dc9d9411b5aaa389
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 3df6b694f3a40cef17c6e0114464ad4aa2fa30ce
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132130"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344339"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Âmbitos e contas de faturação no portal do Azure
 
@@ -33,6 +33,12 @@ Para determinar o tipo da conta de faturação, veja [Verificar o tipo da conta 
 
 ## <a name="scopes-for-billing-accounts"></a>Âmbitos de contas de faturação
 Um âmbito é um nó numa conta de faturação que utiliza para ver e gerir a faturação. É onde gere os dados de faturação, os pagamentos, as faturas e onde realiza a gestão global da conta.
+
+Se não tiver acesso para ver ou gerir contas de faturação, o mais provável é que não tenha permissão para aceder. Pode pedir ao seu administrador da conta de faturação para lhe conceder acesso. Para obter mais informações, veja os seguintes artigos:
+
+- [Acesso ao Programa Microsoft Online Services](manage-billing-access.md)
+- [Acesso ao Contrato de Cliente Microsoft](understand-mca-roles.md)
+- [Acesso ao Contrato Enterprise](understand-ea-roles.md)
 
 ### <a name="microsoft-online-services-program"></a>Programa Microsoft Online Services
 
@@ -72,7 +78,7 @@ Um âmbito é um nó numa conta de faturação que utiliza para ver e gerir a fa
 |Conta de faturação     |   Representa um contrato de parceiro para gerir os produtos e serviços Microsoft dos clientes na nova experiência comercial. Contém um ou mais perfis de faturação e clientes.   |
 |Perfil de faturação     |   Representa uma fatura numa moeda.     |
 |Cliente    |   Representa um cliente de um parceiro Fornecedor de Soluções Cloud (CSP).  As subscrições do Azure e outras compras, como produtos de origem da Aplicação e do Azure Marketplace, estão associadas a este âmbito.  |
-|Revendedor    |   O revendedor que fornece serviços a um cliente. Este é um campo opcional de uma subscrição e aplica-se apenas a Fornecedores indiretos no modelo de duas camadas do CSP.     |
+|Revendedor    |   O revendedor que fornece serviços a um cliente. É um campo opcional de uma subscrição e aplica-se apenas a Fornecedores indiretos no modelo de duas camadas do CSP.     |
 
 ## <a name="switch-billing-scope-in-the-azure-portal"></a>Alterar o âmbito de faturação no portal do Azure
 
