@@ -3,12 +3,12 @@ title: Matriz de proteção MABS (Azure Backup Server) V3 UR1
 description: Este artigo fornece uma matriz de suporte que lista todas as cargas de trabalho, tipos de dados e instalações que o Azure Backup Server protege.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 70d8b8cd26a40b0c7ec8b538bcb702d281f829e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d37d51ee781dfbc5bcd56fa3158a622202a979c6
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88826842"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754186"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>Matriz de proteção MABS (Azure Backup Server) V3 UR1
 
@@ -57,7 +57,7 @@ As seguintes secções detalham a matriz de suporte de proteção para mABS:
 
 | **Carga de trabalho** | **Versão**                               | **Instalação do Servidor de Backup Azure**                      | **Servidor de backup suportado Azure** | **Proteção e recuperação**                                 |
 | ------------ | ----------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
-| Linux        | Linux funcionando como hóspede Hyper-V ou VMware | Servidor físico, Hiper-V VM, Windows VM em VMWare | V3 UR1                             | O Hiper-V deve estar a ser em execução no Windows Server 2012 R2, Windows Server 2016 ou Windows Server 2019. Proteger: Máquina virtual inteira   <br><br>   Recuperar: toda a máquina virtual   <br><br>    Apenas são suportados instantâneos consistentes com o ficheiro.    <br><br>   Para obter uma lista completa de distribuições e versões de Linux suportadas, consulte o artigo, [Linux sobre as distribuições endossadas pela Azure](../virtual-machines/linux/endorsed-distros.md). |
+| Linux        | Linux funcionando como [hóspede Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) ou [VMware](backup-azure-backup-server-vmware.md) | Servidor físico, Hiper-V VM, Windows VM em VMWare | V3 UR1                             | O Hiper-V deve estar a ser em execução no Windows Server 2012 R2, Windows Server 2016 ou Windows Server 2019. Proteger: Máquina virtual inteira   <br><br>   Recuperar: toda a máquina virtual   <br><br>    Apenas são suportados instantâneos consistentes com o ficheiro.    <br><br>   Para obter uma lista completa de distribuições e versões de Linux suportadas, consulte o artigo, [Linux sobre as distribuições endossadas pela Azure](../virtual-machines/linux/endorsed-distros.md). |
 
 ## <a name="azure-expressroute-support"></a>Suporte Azure ExpressRoute
 

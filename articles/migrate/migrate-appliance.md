@@ -1,14 +1,17 @@
 ---
 title: Aplicação do Azure Migrate
 description: Fornece um resumo do suporte para o aparelho Azure Migrate.
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f3357fcc070ca4ca2212cf0424e4baf8208a3ca1
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008706"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754135"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
@@ -180,7 +183,7 @@ Endereços IPv6 | vm.Guest.Net
 Ler a produção (MB por segundo) | net.received.average
 Produção de escrita (MB por segundo) | net.transmitted.average
 **Detalhes do caminho do inventário** | 
-Nome | contentor. GetType(). Nome
+Name | contentor. GetType(). Nome
 Tipo de objeto de criança | contentor. ChildType
 Detalhes de referência | contentor. Rio MoRef
 Detalhes dos pais | Contentor.Pai
@@ -227,7 +230,7 @@ Aqui estão os dados das funcionalidades que o aparelho recolhe de cada VM habil
 
 **Dados**  | **Cmdlet PowerShell** | **Propriedade**
 --- | --- | ---
-Nome  | Get-WindowsFeature  | Nome
+Name  | Get-WindowsFeature  | Name
 Tipo de Recurso | Get-WindowsFeature  | CaracterísticaType
 Principal  | Get-WindowsFeature  | Principal
 
@@ -237,7 +240,7 @@ Aqui está os metadados do servidor SQL que o aparelho recolhe a partir de VMs q
 
 **Dados**  | **Localização do registo**  | **Chave**
 --- | --- | ---
-Nome  | HKLM:\SOFTWARE\Microsoft\Microsoft\Microsoft SQL Server\Instance Names\SQL  | instaladoInstance
+Name  | HKLM:\SOFTWARE\Microsoft\Microsoft\Microsoft SQL Server\Instance Names\SQL  | instaladoInstance
 Edição  | HKLM:\SOFTWARE\Microsoft\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | Edição 
 Service Pack  | HKLM:\SOFTWARE\Microsoft\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | SP
 Versão  | HKLM:\SOFTWARE\Microsoft\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | Versão 
@@ -248,7 +251,7 @@ Aqui estão os dados do sistema operativo que o aparelho recolhe cada VM habilit
 
 Dados  | Classe WMI  | Propriedade classe WMI
 --- | --- | ---
-Nome  | Win32_operatingsystem  | Legenda
+Name  | Win32_operatingsystem  | Legenda
 Versão  | Win32_operatingsystem  | Versão
 Arquitetura  | Win32_operatingsystem  | OsArchitecture
 
@@ -258,7 +261,7 @@ Aqui estão os dados da aplicação instalados que o aparelho recolhe de cada VM
 
 Dados  | Comando
 --- | --- 
-Nome | rpm, dpkg-consulta, estalar
+Name | rpm, dpkg-consulta, estalar
 Versão | rpm, dpkg-consulta, estalar
 Fornecedor | rpm, dpkg-consulta, estalar
 
@@ -268,7 +271,7 @@ Aqui estão os dados do sistema operativo que o aparelho recolhe cada VM habilit
 
 **Dados**  | **Comando** 
 --- | --- | ---
-Nome <br/> versão | Recolhidos a partir de um ou mais dos seguintes ficheiros:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oráculo-liberação  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Name <br/> versão | Recolhidos a partir de um ou mais dos seguintes ficheiros:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oráculo-liberação  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
 Arquitetura | uname
 
 

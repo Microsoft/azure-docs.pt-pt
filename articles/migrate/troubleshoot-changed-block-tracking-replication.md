@@ -2,16 +2,16 @@
 title: Problemas de replicação na migração de VMware VMware sem agente
 description: Obtenha ajuda com falhas do ciclo de replicação
 author: anvar-ms
-ms.manager: bsiva
 ms.author: anvar
+ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 04dcf8edbce7782e6d196271bfa85f2f8d1c5ba3
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: e19c5064dd69538dfc025b0d244baf4fa74706b2
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608338"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753540"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Problemas de resolução de problemas na migração VMware VM sem agente
 
@@ -49,7 +49,7 @@ Esta secção descreve alguns dos erros comuns e como pode resolvê-los.
 
 **Erro:** "A operação do Cofre de Chaves falhou. Operação : Gerar definição de assinatura de acesso partilhado, Cofre-chave: nome do cofre-chave, Conta de Armazenamento: nome da conta de armazenamento falhou com o erro:"
 
-![Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
+![Cofre de Chaves](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
 
 Este erro ocorre normalmente porque a Política de Acesso ao Utilizador para o Cofre de Chaves não dá ao utilizador atualmente registado as permissões necessárias para configurar contas de armazenamento para serem geridas pelo Key Vault. Para verificar a política de acesso do utilizador no cofre de chaves, aceda à página do cofre key no portal para o cofre chave e selecione as políticas de acesso 
 

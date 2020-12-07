@@ -1,14 +1,17 @@
 ---
 title: Configurar um aparelho Azure Migrate com um script
 description: Saiba como configurar um aparelho Azure Migrate com um script
-ms.topic: article
+ms.topic: how-to
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.date: 04/16/2020
-ms.openlocfilehash: c4f92d787ea2a72dd534e514e27fa1a5defef39c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 38db1e68adde21d0e566256e9393f6fa4fc58824
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317337"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753795"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurar um aparelho com um script
 
@@ -65,14 +68,14 @@ Eis o que o guião faz:
 - Atualiza uma chave de registo (HKLM), com definições persistentes para Azure Migrate.
 - Cria ficheiros de registo e configuração da seguinte forma:
     - **Config Ficheiros**: %ProgramData%\Microsoft Azure\Config
-    - **Ficheiros de**registo : %ProgramData%\Microsoft Azure\Logs
+    - **Ficheiros de** registo : %ProgramData%\Microsoft Azure\Logs
 
 Para executar o script:
 
 1. Extraia a lima com fecho para uma pasta na máquina que irá hospedar o aparelho. Certifique-se de que não coloca o guião numa máquina num aparelho Azure Migrate existente.
 2. Lançar PowerShell na máquina, com privilégios de administrador (elevados).
 3. Altere o diretório PowerShell para a pasta que contém o conteúdo extraído do ficheiro fechado descarregado.
-4. Executar o script **AzureMigrateInstaller.ps1, **da seguinte forma:
+4. Executar o script **AzureMigrateInstaller.ps1,** da seguinte forma:
 
     ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 -scenario VMware ```
    
@@ -112,14 +115,14 @@ Eis o que o guião faz:
 - Atualiza uma chave de registo (HKLM), com definições persistentes para Azure Migrate.
 - Cria ficheiros de registo e configuração da seguinte forma:
     - **Config Ficheiros**: %ProgramData%\Microsoft Azure\Config
-    - **Ficheiros de**registo : %ProgramData%\Microsoft Azure\Logs
+    - **Ficheiros de** registo : %ProgramData%\Microsoft Azure\Logs
 
 Para executar o script:
 
 1. Extraia a lima com fecho para uma pasta na máquina que irá hospedar o aparelho. Certifique-se de que não coloca o guião numa máquina num aparelho Azure Migrate existente.
 2. Lançar PowerShell na máquina, com privilégios de administrador (elevados).
 3. Altere o diretório PowerShell para a pasta que contém o conteúdo extraído do ficheiro fechado descarregado.
-4. Executar o script **AzureMigrateInstaller.ps1, **da seguinte forma: 
+4. Executar o script **AzureMigrateInstaller.ps1,** da seguinte forma: 
 
     ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 -scenario Hyperv ```
    

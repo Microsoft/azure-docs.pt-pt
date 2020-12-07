@@ -1,15 +1,18 @@
 ---
 title: Avaliar VMs hiper-V para migração para VMs Azure com avaliação do servidor em Azure Migrate
 description: Saiba como avaliar os VMs Hiper-V para migração para VMs Azure com avaliação do servidor.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: be5099aa515a2331cb05fa8bf6ea76c7544ec1df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04570785d80e494134bc50cefe3381277d6440a4
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089239"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753285"
 ---
 # <a name="tutorial-assess-hyper-v-vms-for-migration-to-azure"></a>Tutorial: Avaliar VMs hiper-V para migração para Azure
 
@@ -60,7 +63,7 @@ E executar uma avaliação da seguinte forma:
 
     ![Localização do botão Avaliar](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
-3. No tipo de avaliação **de servidores,**  >  **Assessment type**selecione **Azure VM**.
+3. No tipo de avaliação **de servidores,**  >  **Assessment type** selecione **Azure VM**.
 4. Na **fonte discovery:**
 
     - Se descobrir máquinas que utilizem o aparelho, selecione **Máquinas descobertas a partir do aparelho Azure Migrate**.
@@ -89,7 +92,7 @@ E executar uma avaliação da seguinte forma:
     - Na **Série VM**, especifique a série Azure VM que pretende considerar.
         - Se estiver a utilizar uma avaliação baseada no desempenho, a Azure Migrate sugere um valor para si.
         - Ajuste as definições conforme necessário. Por exemplo, se não tiver um ambiente de produção que precise de VMs da série A em Azure, pode excluir a série A da lista de séries.
-    - No **fator Comfort,** indique o tampão que pretende utilizar durante a avaliação. Isto explica questões como o uso sazonal, o histórico de desempenho curto e, provavelmente, o aumento do uso futuro. Por exemplo, se utilizar um fator de conforto de dois: **Utilização**eficaz do componente  |  **Effective utilization**  |  **Adicione o fator de conforto (2.0)** Cores [ 2 / 4 Memórias ] 8 GB / 16 GB     
+    - No **fator Comfort,** indique o tampão que pretende utilizar durante a avaliação. Isto explica questões como o uso sazonal, o histórico de desempenho curto e, provavelmente, o aumento do uso futuro. Por exemplo, se utilizar um fator de conforto de dois: **Utilização** eficaz do componente  |  **Effective utilization**  |  **Adicione o fator de conforto (2.0)** Cores [ 2 / 4 Memórias ] 8 GB / 16 GB     
    
 9. Na **fixação de preços:**
     - In **Offer**, especifique a [oferta Azure](https://azure.microsoft.com/support/legal/offer-details/) se estiver inscrito. A Avaliação do Servidor estima o custo dessa oferta.
@@ -108,7 +111,7 @@ E executar uma avaliação da seguinte forma:
     ![Propriedades da avaliação](./media/tutorial-assess-vmware-azure-vm/assessment-properties.png)
 
 11. In **Assess Servers**, clique **em Seguinte**.
-12. Nas **máquinas Select para avaliar,** selecione **Create New**e especifique um nome de grupo. 
+12. Nas **máquinas Select para avaliar,** selecione **Create New** e especifique um nome de grupo. 
 13. Selecione o aparelho e selecione os VMs que pretende adicionar ao grupo. Em seguida, clique em **Seguinte**.
 14. Em **Review + criar avaliação, rever os detalhes da avaliação e clicar em **Criar Avaliação** para criar o grupo e executar a avaliação.
 

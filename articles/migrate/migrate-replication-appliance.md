@@ -1,14 +1,17 @@
 ---
 title: Aplicação de replicação do Azure Migrate
 description: Saiba mais sobre o aparelho de replicação Azure Migrate para migração VMWare baseada em agentes.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: af9e45e47c2f0645d81a571161f15f7d69cfec61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec277bcc3e361561f54e72c54526d65487c113b4
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532125"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754101"
 ---
 # <a name="replication-appliance"></a>Aparelho de replicação
 
@@ -22,7 +25,7 @@ O aparelho de replicação é implantado quando configura a migração baseada e
 - **Aparelho de replicação**: O aparelho de replicação coordena as comunicações e gere a replicação de dados, para VMware VMware no local e servidores físicos replicando-se em Azure.
 - **Servidor de processo**: O servidor de processo, que é instalado por predefinição no aparelho de replicação, e faz o seguinte:
     - **Gateway de replicação**: Funciona como um portal de replicação. Recebe dados de replicação de máquinas ativadas para replicação. Otimiza dados de replicação com caching, compressão e encriptação, e envia-os para Azure.
-    - **Instalador de**agente : Executa uma instalação de push do Serviço de Mobilidade. Este serviço deve ser instalado e em funcionamento em cada máquina no local que pretende replicar para migração.
+    - **Instalador de** agente : Executa uma instalação de push do Serviço de Mobilidade. Este serviço deve ser instalado e em funcionamento em cada máquina no local que pretende replicar para migração.
 
 ## <a name="appliance-deployment"></a>Implantação do aparelho
 

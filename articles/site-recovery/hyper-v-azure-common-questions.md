@@ -3,12 +3,12 @@ title: Questões comuns para recuperação de desastres hiper-V com recuperaçã
 description: Este artigo resume questões comuns sobre a criação de recuperação de desastres para os Hiper-V VMs para Azure no local, utilizando o site de recuperação do local de Azure.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: c168ba9ff14e57f238069e8ca5b0c34a8fb58015
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4f5ee71fc56cad247b57f94bf08a68bed8775f9
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87799893"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754356"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Perguntas comuns: recuperação após desastre de Hyper-V para o Azure
 
@@ -46,12 +46,12 @@ Se pretender replicar-se num centro de dados secundário, então os VMs Hiper-V 
 
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Pode replicar máquinas virtuais de 2.ª geração do Hyper-V para o Azure?
-Sim. A Recuperação do Site converte-se da geração 2 para a geração 1 durante o failover. No failback, a máquina é convertida de volta para a geração 2. [Leia mais.](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)
+Yes. A Recuperação do Site converte-se da geração 2 para a geração 1 durante o failover. No failback, a máquina é convertida de volta para a geração 2. [Leia mais.](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)
 
 
 ### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>Posso implementar a Recuperação de Sites com o VMM se tiver apenas um servidor VMM?
 
-Sim. Pode replicar VMs em servidores Hiper-V na nuvem VMM para Azure, ou pode replicar-se entre nuvens VMM no mesmo servidor. Para a replicação no local, recomendamos que tenha um servidor VMM nos locais primários e secundários. 
+Yes. Pode replicar VMs em servidores Hiper-V na nuvem VMM para Azure, ou pode replicar-se entre nuvens VMM no mesmo servidor. Para a replicação no local, recomendamos que tenha um servidor VMM nos locais primários e secundários. 
 
 ### <a name="what-do-i-need-in-azure"></a>O que preciso em Azure?
 Precisa de uma assinatura Azure, um cofre dos Serviços de Recuperação, uma conta de armazenamento e uma rede virtual. O cofre, a conta de armazenamento e a rede devem estar na mesma região.
@@ -68,7 +68,7 @@ Não, a Recuperação do Site não interceta dados replicados, e não tem nenhum
 A Recuperação do Local é ISO 27001:2013, 27018, HIPAA, DPA certificada, e está em processo de avaliações SOC2 e FedRAMP JAB.
 
 ### <a name="can-we-keep-on-premises-metadata-within-a-geographic-region"></a>Podemos manter no local metadados dentro de uma região geográfica?
-Sim. Quando cria um cofre numa região, garantimos que todos os metadados utilizados pela Recuperação do Site permanecem dentro do limite geográfico daquela região.
+Yes. Quando cria um cofre numa região, garantimos que todos os metadados utilizados pela Recuperação do Site permanecem dentro do limite geográfico daquela região.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>A Recuperação de Sites faz encriptação de replicação?
 Sim, tanto a encriptação em trânsito como [a encriptação em Azure](../storage/common/storage-service-encryption.md) são suportadas.
@@ -108,10 +108,10 @@ Sim, a Recuperação do Site suporta anfitriões hiper-V agrupados. Tenha em ate
 Não, as VMs têm de estar localizadas num servidor de anfitrião Hyper-V que está a ser executado na máquina do servidor Windows suportada. Se precisar de proteger um computador cliente, pode [replicá-lo como uma máquina física](physical-azure-disaster-recovery.md) para o Azure.
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Pode replicar máquinas virtuais de 2.ª geração do Hyper-V para o Azure?
-Sim. A Recuperação do Site converte-se da geração 2 para a geração 1 durante o failover. No failback, a máquina é convertida de volta para a geração 2.
+Yes. A Recuperação do Site converte-se da geração 2 para a geração 1 durante o failover. No failback, a máquina é convertida de volta para a geração 2.
 
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>Posso automatizar cenários de recuperação de sítios com um SDK?
-Sim. Pode automatizar fluxos de trabalho da Recuperação de Sites utilizando a API REST, PowerShell ou o SDK do Azure. Atualmente, os cenários suportados para replicar o Hyper-V para O Azure utilizando o PowerShell:
+Yes. Pode automatizar fluxos de trabalho da Recuperação de Sites utilizando a API REST, PowerShell ou o SDK do Azure. Atualmente, os cenários suportados para replicar o Hyper-V para O Azure utilizando o PowerShell:
 
 - [Replicar Hiper-V sem VMM usando PowerShell](hyper-v-azure-powershell-resource-manager.md)
 - [Replicação do Hiper-V com VMM utilizando PowerShell](hyper-v-vmm-powershell-resource-manager.md)
@@ -164,6 +164,10 @@ Quando replica as suas máquinas virtuais/servidores físicos no local para arma
 ### <a name="how-often-can-i-replicate-to-azure"></a>Com que frequência posso replicar-me ao Azure?
 
 Os VMs hiper-V podem ser replicados a cada 30 segundos (exceto para armazenamento premium) ou 5 minutos.
+
+### <a name="can-azure-site-recovery-and-hyper-v-replica-be-configured-together-on-a-hyper-v-machine"></a>A recuperação do local de Azure e a réplica do Hiper-V podem ser configuradas juntas numa máquina De Hiper-V?
+
+Sim, tanto a Recuperação do Local Azure como a Réplica Hiper-V podem ser configuradas em conjunto para uma máquina. Mas a máquina terá de ser protegida como uma máquina física e será replicada para o Azure utilizando um servidor de Configuração/Processo. Saiba mais sobre a proteção das máquinas físicas [aqui.](https://docs.microsoft.com/azure/site-recovery/physical-azure-architecture)
 
 ### <a name="can-i-extend-replication"></a>Posso estender a replicação?
 Não é suportada a replicação expandida ou em cadeia. Solicite esta funcionalidade no [fórum de comentários.](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 12/07/2020
 ms.author: alexeyo
-ms.openlocfilehash: a304628e05054124fde6ffe5c2b63177991d8cfd
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 9b923ba208dd2a5111a59f67401b1e4f080b7187
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345402"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754169"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Limites e Quotas dos Serviços de Voz
 
@@ -39,7 +39,7 @@ Nas tabelas abaixo Os parâmetros sem linha "ajustável" **não** são ajustáve
 | Limite de API de repouso | Transcrição do lote não está disponível para F0 | 300 pedidos por minuto |
 | Tamanho do ficheiro de entrada de áudio max | N/D | 1 GB |
 | Tamanho máximo da bolha de entrada (pode conter mais de um ficheiro, por exemplo, num arquivo zip; certifique-se de que o limite de tamanho do ficheiro acima) | N/D | 2,5 GB |
-| Tamanho do recipiente de bolhas max | N/D | 5 GB |
+| Tamanho do recipiente de bolhas max | N/D | 5 GB |
 | Número máximo de bolhas por recipiente | N/D | 10000 |
 | Número máximo de ficheiros por pedido de transcrição (quando utilizar urls de conteúdo múltiplo como entrada) | N/D | 1000  |
 | Número máximo de empregos simultaneamente em execução | N/D | 2000  |
@@ -104,7 +104,7 @@ Os limites de pedido simultâneos para modelos **base** e **personalizados** dev
 O valor existente do parâmetro limite de pedido simultâneo **não** é visível através do portal Azure, Command-Line ferramentas ou pedidos de API. Para verificar o valor existente, crie um Pedido de Suporte Azure.
 
 >[!NOTE]
->[Os recipientes](speech-container-howto.md) de fala não requerem aumentos do limite de pedido simultâneo, uma vez que os contentores são limitados apenas pelas CPUs do hardware em que estão hospedados.
+>[Os recipientes](speech-container-howto.md) de fala não requerem aumentos do limite de pedido simultâneo, uma vez que os contentores são limitados apenas pelas CPUs do hardware em que estão hospedados. No entanto, os contentores da fala têm as suas próprias limitações de capacidade que devem ser tidas em conta. Veja a pergunta *"Poderia ajudar no planeamento de capacidades e na estimativa de custos dos recipientes de fala-a-texto pré-pré-texto?"* a partir dos recipientes de [fala FAQ](speech-container-faq.md).
 
 #### <a name="have-the-required-information-ready"></a>Tenha as informações necessárias prontas:
 - Para **o modelo Base:**
@@ -114,7 +114,7 @@ O valor existente do parâmetro limite de pedido simultâneo **não** é visíve
   - Região
   - ID de ponto final personalizado
 
-- **Como obter informações (modelo base)** :  
+- **Como obter informações (modelo base)**:  
   - Ir para o [portal Azure](https://portal.azure.com/)
   - Selecione o Recurso de Voz para o qual gostaria de aumentar o limite de pedido de concurrency
   - Selecione *Propriedades* (Grupo *de Gestão de Recursos)* 
@@ -122,7 +122,7 @@ O valor existente do parâmetro limite de pedido simultâneo **não** é visíve
     - **ID de recursos**
     - **Localização** (região do seu ponto final)
 
-- **Como obter informações (Modelo Personalizado)** :
+- **Como obter informações (Modelo Personalizado)**:
   - Ir ao portal [do Estúdio da Fala](https://speech.microsoft.com/)
   - Inscreva-se se necessário
   - Ir para o discurso personalizado

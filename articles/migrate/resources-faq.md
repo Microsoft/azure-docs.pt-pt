@@ -1,14 +1,17 @@
 ---
 title: Azure Migrar FAQ
 description: Obtenha respostas a perguntas comuns sobre o serviço Azure Migrate.
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: d0877ad0d36e131525a227050cf44321e39e8b30
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b36a4089a15118499b0ce57500f221b74af82242
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96494618"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753756"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: Questões comuns
 

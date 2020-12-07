@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/24/2020
+ms.date: 12/06/2020
 ms.author: memildin
-ms.openlocfilehash: 6c0e92c566dd69cdea14c9c7d346a5ec65f892bf
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d92047a5b24f04ee7e0d08454867ec9e1a52a8b1
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487954"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754385"
 ---
 # <a name="pricing-of-azure-security-center"></a>Preços do Centro de Segurança Azure
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, no local e noutras clouds. Proporciona visibilidade e controlo sobre cargas de trabalho em nuvem híbrida, defesas ativas que reduzem a sua exposição a ameaças e deteção inteligente para ajudá-lo a manter o ritmo com riscos cibernéticos em rápida evolução.
@@ -37,7 +37,9 @@ O Centro de Segurança é oferecido em dois modos:
     - **Segurança híbrida** – Obtenha uma visão unificada da segurança em todos os seus locais e cargas de trabalho em nuvem. Aplique políticas de segurança e avalie continuamente a segurança das suas cargas de trabalho em nuvem híbrida para garantir o cumprimento das normas de segurança. Recolher, pesquisar e analisar dados de segurança de várias fontes, incluindo firewalls e outras soluções parceiras.
     - **Alertas de proteção contra** ameaças - Análise comportamental avançada e o Gráfico de Segurança Inteligente da Microsoft fornecem uma vantagem sobre os ciberataques em evolução. A análise comportamental incorporada e a aprendizagem automática podem identificar ataques e explorações de dias zero. Monitorize redes, máquinas e serviços na nuvem para ataques de entrada e atividade pós-violação. Dinamize a investigação com ferramentas interativas e inteligência de ameaça contextual.
     - **Controlos de acesso e aplicação** (AAC) - Bloqueie malware e outras aplicações indesejadas aplicando recomendações de aprendizagem automática adaptadas às suas cargas de trabalho específicas para criar listas de permitir e negar. Reduza a superfície de ataque da rede com acesso controlado e justamente a portas de gestão em VMs Azure. O AAC reduz drasticamente a exposição à força bruta e a outros ataques de rede.
-    - **Características** de segurança do contentor - Beneficie da gestão da vulnerabilidade e da proteção contra ameaças em tempo real nos seus ambientes contentorizados. Ao ativar o **Azure Defender para registos de contentores,** pode demorar até 12 horas até que todas as funcionalidades estejam ativadas. As cargas baseiam-se no número de imagens únicas de contentores empurradas para o seu registo ligado. Depois de uma imagem ter sido digitalizada uma vez, não será cobrado novamente, a menos que seja modificado e empurrado mais uma vez. 
+    - **Características** de segurança do contentor - Beneficie da gestão da vulnerabilidade e da proteção contra ameaças em tempo real nos seus ambientes contentorizados. Ao ativar o **Azure Defender para registos de contentores,** pode demorar até 12 horas até que todas as funcionalidades estejam ativadas. As cargas baseiam-se no número de imagens únicas de contentores empurradas para o seu registo ligado. Depois de uma imagem ter sido digitalizada uma vez, não será cobrado novamente, a menos que seja modificado e empurrado mais uma vez.
+    - **Proteção contra ameaças de amplitude para recursos ligados ao ambiente Azure** - Azure Defender inclui proteção de ameaças de largura nativa azure para os serviços Azure comuns a todos os seus recursos: Azure Resource Manager, Azure DNS, camada de rede Azure e Cofre de Chaves Azure. O Azure Defender tem uma visibilidade única na camada de gestão Azure e na camada Azure DNS, podendo, portanto, proteger recursos em nuvem que estão ligados a essas camadas.
+
 
 ## <a name="try-azure-defender-free-for-30-days"></a>Experimentar o Azure Defender gratuitamente durante 30 dias
 O Azure Defender está livre nos primeiros 30 dias. Ao fim de 30 dias, caso opte por continuar a utilizar o serviço, começaremos automaticamente a cobrar para uso.
@@ -50,7 +52,7 @@ Para ativar o Azure Defender:
 1. A partir do menu principal do Security Center, **selecione definições de preços &**.
 1. Selecione a subscrição que pretende atualizar.
 1. Selecione **Azure Defender** para atualizar.
-1. Selecione **Guardar**.
+1. Selecione **Save** (Guardar).
 
 Abaixo está a página de preços para uma subscrição de exemplo. Você vai notar que cada plano em Azure Defender tem um preço separado e pode ser definido individualmente para dentro ou fora.
 
@@ -105,13 +107,13 @@ Não. Quando ativar [o Azure Defender para servidores](defender-for-servers-intr
 > Isto também se aplica aos outros tipos de recursos protegidos pelo Security Center. 
 
 ### <a name="will-i-be-charged-for-machines-without-the-log-analytics-agent-installed"></a>Serei cobrado por máquinas sem o agente Log Analytics instalado?
-Sim. Quando ativa [o Azure Defender para servidores](defender-for-servers-introduction.md) numa subscrição, as máquinas nessa subscrição obtêm uma série de proteções mesmo que não tenha instalado o agente Log Analytics.
+Yes. Quando ativa [o Azure Defender para servidores](defender-for-servers-introduction.md) numa subscrição, as máquinas nessa subscrição obtêm uma série de proteções mesmo que não tenha instalado o agente Log Analytics.
 
 ### <a name="if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice"></a>Se um agente do Log Analytics reportar a vários espaços de trabalho, serei cobrado duas vezes? 
-Sim. Se configurar o seu agente Log Analytics para enviar dados para dois ou mais espaços de trabalho do Log Analytics (multi-homing), será cobrado por cada espaço de trabalho que tenha uma solução 'Security' ou 'AntiMalware' instaladas. 
+Yes. Se configurar o seu agente Log Analytics para enviar dados para dois ou mais espaços de trabalho do Log Analytics (multi-homing), será cobrado por cada espaço de trabalho que tenha uma solução 'Security' ou 'AntiMalware' instaladas. 
 
 ### <a name="if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them"></a>Se um agente do Log Analytics reportar a vários espaços de trabalho, a ingestão gratuita de dados de 500-MB está disponível em todos eles?
-Sim. Se configurar o seu agente Log Analytics para enviar dados para dois ou mais espaços de trabalho do Log Analytics (multi-homing), obterá ingestão gratuita de dados de 500 MB. É calculado por nó, por espaço de trabalho reportado, por dia, e disponível para cada espaço de trabalho que tenha uma solução 'Security' ou 'AntiMalware' instaladas. Será cobrado por quaisquer dados ingeridos ao longo dos 500 MB.
+Yes. Se configurar o seu agente Log Analytics para enviar dados para dois ou mais espaços de trabalho do Log Analytics (multi-homing), obterá ingestão gratuita de dados de 500 MB. É calculado por nó, por espaço de trabalho reportado, por dia, e disponível para cada espaço de trabalho que tenha uma solução 'Security' ou 'AntiMalware' instaladas. Será cobrado por quaisquer dados ingeridos ao longo dos 500 MB.
 
 
 ## <a name="next-steps"></a>Passos seguintes

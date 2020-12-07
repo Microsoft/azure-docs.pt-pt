@@ -1,14 +1,17 @@
 ---
 title: Prepare servidores Windows Server 2003 para migração com a Azure Migrate
 description: Saiba como preparar servidores windows server 2003 para migração com a Azure Migrate.
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: 350eab98a2b40d5ca1382bbfc24245e7cb47b48e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f8d3dea970d07d951467a44661e12000ba413f72
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146846"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753757"
 ---
 # <a name="prepare-windows-server-2003-machines-for-migration"></a>Preparar máquinas windows server 2003 para migração
 
@@ -32,17 +35,17 @@ Antes da migração, verifique se os Serviços de Integração Hiper-V e, em seg
 
 1. Siga [estas instruções](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#turn-an-integration-service-on-or-off-using-hyper-v-manager) para verificar se está instalado.
 2. Se não estiver instalado, inscreva-se numa máquina que executa o Windows Server 2012 R2/Windows Server 2012 com a função Hyper-V.
-3. Navegue para o ficheiro de instalação em **C:\Windows\System32\vmguest.iso** e monte o ficheiro.
+3. Navegue para o ficheiro de instalação em **C:\Windows\System32\vmguest.iso**, e monte o ficheiro.
 2. Copie a pasta de instalação para a máquina do Windows Server 2003 e instale serviços de integração.
 4. Após a instalação, pode deixar as definições predefinidos nos Serviços de Integração. 
 
 ## <a name="install-on-vmware-vms"></a>Instalar em VMware VMs
 
 1. Inscreva-se numa máquina que executa o Windows Server 2012 R2/Windows Server 2012 com a função Hyper-V.
-2. Navegue para o ficheiro de instalação em **C:\Windows\System32\vmguest.iso** e monte o ficheiro.
+2. Navegue para o ficheiro de instalação em **C:\Windows\System32\vmguest.iso**, e monte o ficheiro.
 3. Copie a pasta de instalação para o VMware VM.
 4. A partir da linha de comando na VM, ```gpedit.msc``` corra.
-5. Abrir **configurações de configuração** do computador  >  **Windows Settings**  >  **Scripts Scripts (Iniciar/Desligar)** .
+5. Abrir **configurações de configuração** do computador  >  **Windows Settings**  >  **Scripts Scripts (Iniciar/Desligar)**.
 6. No Nome do Script **De Adicionar a**  >  **Add**  >  **Script Name** Startup, digite o endereço setup.exe.
 7. Após a migração para Azure, o script corre a primeira vez que o Azure VM começa.
 8. Reinicie manualmente o Azure VM. Há um pop-up nos diagnósticos de botas que indica que é necessário um recomeço.

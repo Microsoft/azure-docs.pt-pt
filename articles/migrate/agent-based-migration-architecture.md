@@ -1,17 +1,17 @@
 ---
 title: Migração baseada em agente na migração do servidor migratório de Azure
 description: Fornece uma visão geral da migração VMware VMware baseada em agentes em Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.author: raynew
-ms.openlocfilehash: 90e499b436a3ae44fa29cec1138d939a106a4db7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1389b03d87beb24cba50fec0a782de8b7f935557
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357170"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753897"
 ---
 # <a name="agent-based-migration-architecture"></a>Arquitetura de migração baseada em agentes
 
@@ -40,7 +40,7 @@ A tabela resume os componentes utilizados para a migração baseada em agentes.
 
 **Componente** | **Detalhes** | **Instalação**
 --- | --- | ---
-**Aparelho de replicação** | O aparelho de replicação (servidor de configuração/servidor de processo) é uma máquina no local que funciona como uma ponte entre o ambiente no local e a migração do servidor. O aparelho descobre o inventário da máquina no local, para que a Migração do Servidor possa orquestrar a replicação e a migração. O aparelho tem dois componentes:<br/><br/> **Servidor de configuração**: Liga-se à migração do servidor e coordena a replicação.<br/> **Servidor de**processo : Trata da replicação de dados. O servidor de processo recebe dados da máquina, comprime e encripta-os e envia para o Azure. Em Azure, a Migração do Servidor escreve os dados para discos geridos. | Por predefinição, o servidor de processo é instalado juntamente com o servidor de configuração no aparelho de replicação.
+**Aparelho de replicação** | O aparelho de replicação (servidor de configuração/servidor de processo) é uma máquina no local que funciona como uma ponte entre o ambiente no local e a migração do servidor. O aparelho descobre o inventário da máquina no local, para que a Migração do Servidor possa orquestrar a replicação e a migração. O aparelho tem dois componentes:<br/><br/> **Servidor de configuração**: Liga-se à migração do servidor e coordena a replicação.<br/> **Servidor de** processo : Trata da replicação de dados. O servidor de processo recebe dados da máquina, comprime e encripta-os e envia para o Azure. Em Azure, a Migração do Servidor escreve os dados para discos geridos. | Por predefinição, o servidor de processo é instalado juntamente com o servidor de configuração no aparelho de replicação.
 **Serviço de Mobilidade** | O serviço mobility é um agente instalado em cada máquina que pretende replicar e migrar. Envia dados de replicação da máquina para o servidor de processo. | Os ficheiros de instalação para diferentes versões do serviço mobility estão localizados no aparelho de replicação. Descarrega e instala o agente de que necessita, de acordo com o sistema operativo e a versão da máquina que pretende replicar.
 
 ## <a name="mobility-service-installation"></a>Instalação do serviço de Mobilidade

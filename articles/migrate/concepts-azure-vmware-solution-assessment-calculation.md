@@ -2,16 +2,16 @@
 title: Cálculos de avaliação do AVS em Azure Migrate Microsoft Docs
 description: Fornece uma visão geral dos cálculos de avaliação do AVS no serviço Azure Migrate.
 author: rashi-ms
-ms.service: azure-migrate
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.author: mahain
-ms.openlocfilehash: 400c2d91383b5f21fcd40fdbbe279bd83fcef51a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67d4137a21753b221e17a1effde35bc1b89600d3
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576545"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753812"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Visão geral da avaliação do servidor (migrar para a Solução VMware Azure)
 
@@ -106,7 +106,7 @@ A Avaliação do Servidor utiliza os metadados e dados de desempenho das máquin
 Os cálculos ocorrem nestas três fases:
 
 1. **Calcular a prontidão da Solução VMware Azure (AVS):** Se os VMs no local são adequados para migração para Azure VMware Solution (AVS).
-2. **Calcular o número de nós AVS e utilização através**de nós : Número estimado de nós AVS necessários para executar os VMs e cpu projetado, memória e utilização de armazenamento em todos os nós.
+2. **Calcular o número de nós AVS e utilização através** de nós : Número estimado de nós AVS necessários para executar os VMs e cpu projetado, memória e utilização de armazenamento em todos os nós.
 3. **Estimativa mensal dos custos**: Os custos mensais estimados para todos os nós da Azure VMware Solution (AVS) que executam os VMs no local.
 
 Os cálculos estão na ordem anterior. Um servidor de máquinas move-se para uma fase posterior apenas se passar o anterior. Por exemplo, se um servidor falhar na fase de prontidão do AVS, está marcado como inadequado para o Azure. O tamanho e os cálculos de custos não são feitos para o servidor
@@ -167,7 +167,7 @@ Juntamente com as propriedades de VM, a Avaliação do Servidor olha para o sist
 Depois de uma máquina estar marcada como pronta para o AVS, a Avaliação avs na avaliação do servidor faz recomendações de dimensionamento de nó, que envolvem identificar os requisitos VM adequados no local e encontrar o número total de nós AVS necessários. Estas recomendações variam, dependendo das propriedades de avaliação especificadas.
 
 - Se a avaliação utilizar *o dimensionamento baseado no desempenho,* a Azure Migrate considera o histórico de desempenho da máquina para fazer a recomendação de dimensionamento adequada para o AVS. Este método é especialmente útil se você tiver alocado o VM no local, mas a utilização é baixa e você quer tamanho direito o VM em AVS para economizar custos. Este método irá ajudá-lo a otimizar os tamanhos durante a migração.
-- Se não quiser considerar os dados de desempenho para o tamanho de VM e quiser levar as máquinas no local como é para o AVS, pode definir os *critérios*de dimensionamento como no local . Em seguida, a Avaliação do Servidor irá dimensionar os VMs com base na configuração no local sem considerar os dados de utilização. 
+- Se não quiser considerar os dados de desempenho para o tamanho de VM e quiser levar as máquinas no local como é para o AVS, pode definir os *critérios* de dimensionamento como no local . Em seguida, a Avaliação do Servidor irá dimensionar os VMs com base na configuração no local sem considerar os dados de utilização. 
 
 
 ### <a name="ftt-sizing-parameters"></a>Parâmetros de dimensionamento ftt

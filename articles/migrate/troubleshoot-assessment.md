@@ -1,18 +1,17 @@
 ---
 title: Avaliação da resolução de problemas e visualização da dependência em Azure Migrate
-description: Obtenha ajuda com a avaliação de resolução de problemas e visualização de dependência em Azure Migrate.
-ms.service: azure-migrate
-ms.topic: troubleshooting
-author: musa-57
+description: Obtenha ajuda com a avaliação e visualização da dependência em Azure Migrate.
+author: rashi-ms
+ms.author: rajosh
 ms.manager: abhemraj
-ms.author: hamusa
+ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 4da0f40c25d322953fea968396ef33924877c2e1
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: cefcd4ce287eecfe2c764d88d5d2233cc8ac0a5c
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505228"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753450"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Resolver problemas de avaliação/visualização de dependência
 
@@ -165,7 +164,7 @@ Para os VMs Linux, certifique-se de que os comandos de instalação para o MMA e
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
-- **Agente MMS** : Reveja os sistemas operativos [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)e [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) suportados.
+- **Agente MMS**: Reveja os sistemas operativos [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)e [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) suportados.
 - **Agente de dependência:** os sistemas operativos [Windows e Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) suportados.
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualizar dependências para > hora
@@ -209,7 +208,7 @@ Recolher registos de tráfego de rede da seguinte forma:
    - No Chrome, clique à direita e **selecione Guardar como HAR com conteúdo**. Esta ação comprime e exporta os registos como ficheiro .har.
    - No Microsoft Edge ou no Internet Explorer, selecione a opção **de tráfego capturado Export.** Esta ação comprime e exporta o tronco.
 6. Selecione o **separador Consola** para verificar se há avisos ou erros. Para guardar o registo da consola:
-   - No Chrome, clique com o botão direito em qualquer lugar do registo da consola. **Selecione Guardar como** , para exportar e fechar o registo.
+   - No Chrome, clique com o botão direito em qualquer lugar do registo da consola. **Selecione Guardar como**, para exportar e fechar o registo.
    - No Microsoft Edge ou no Internet Explorer, clique com o botão direito dos erros e selecione **Copy all**.
 7. Feche as ferramentas de desenvolvimento.
 

@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 7d59c0e751054522f4c54fe059f19aa0a941464e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5b9e9f5cc5184a083f45999eaeb031eb83b17c58
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490009"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754339"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Proteções adicionais de ameaças no Centro de Segurança Azure
 Além das [proteções incorporadas do Azure Defender,](azure-defender.md)o Azure Security Center também oferece as seguintes capacidades de proteção contra ameaças.
@@ -41,7 +41,7 @@ A camada de proteção do Centro de Segurança baseada no Azure Resource Manager
 
 O Security Center oferece uma camada adicional de proteção utilizando eventos Azure Resource Manager, que é considerado o avião de controlo para a Azure. Ao analisar os registos do Gestor de Recursos Azure, o Security Center deteta operações incomuns ou potencialmente nocivas no ambiente de subscrição do Azure.
 
-Para obter uma lista dos alertas do Gestor de Recursos Azure (Pré-visualização), consulte a [tabela de alertas de referência](alerts-reference.md#alerts-azureresourceman).
+Para obter uma lista dos alertas do Azure Defender para o Gestor de Recursos, consulte a [tabela de alertas de referência](alerts-reference.md#alerts-resourcemanager).
 
 
 >[!NOTE]
@@ -65,7 +65,7 @@ Para obter uma lista dos alertas do Gestor de Recursos Azure (Pré-visualizaçã
 
 Os alertas DB do Azure Cosmos são gerados por tentativas incomuns e potencialmente nocivas de aceder ou explorar contas DB do Azure Cosmos.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 * [Proteção avançada de ameaças para Azure Cosmos DB (Preview)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
 * [A lista de alertas de proteção contra ameaças para Azure Cosmos DB (Preview)](alerts-reference.md#alerts-azurecosmos)

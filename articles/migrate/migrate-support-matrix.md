@@ -1,15 +1,17 @@
 ---
 title: Matriz de suporte Azure Migrate
 description: Fornece um resumo das configurações e limitações de suporte para o serviço Azure Migrate.
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.author: raynew
-ms.openlocfilehash: 2aab8e9caeaf61c2c8dd1bf29894b13a887e44de
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d9a18173403cd95e0abf6b9e495f3d948ac6ac61
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424811"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753965"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte Azure Migrate
 

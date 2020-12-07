@@ -1,15 +1,18 @@
 ---
 title: Acerca do Azure Migrate
 description: Conheça o serviço Azure Migrate.
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 5a003fc740d08c24af301a6c7ad06cc342530c56
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: b42aa3bfaeaa454b5d870dbae3bce539b682028f
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95746885"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754084"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -80,7 +83,7 @@ A Avaliação do Servidor utiliza um [aparelho Azure Migrate](migrate-appliance.
 
 A ferramenta Azure Migrate: Servidor Migração ajuda-o a migrar para Azure:
 
-**Migrate** | **Detalhes**
+**Migrar** | **Detalhes**
 --- | ---
 VMs VMware no local | Migrar VMs para Azure utilizando migração sem agentes ou por agentes.<br/><br/> Para a migração sem agentes, a Migração do Servidor utiliza o mesmo aparelho Azure Migrate que também pode ser usado pela Avaliação do Servidor para a descoberta e avaliação de VMware VMs.<br/><br/> Para a migração baseada em agentes, a Migração do Servidor utiliza um aparelho de replicação.
 VMs de Hyper-V no local | Migrar VMs para Azure.<br/><br/> A Migração do Servidor utiliza agentes de fornecedor instalados no hospedeiro Hyper-V para a migração.

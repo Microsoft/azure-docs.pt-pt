@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 11/25/2020
-ms.openlocfilehash: af7ac49fd6c1a31a8363c4ba0bf925787613ecc2
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 846c5519dced06ed16f5a0d12b0bb25443961f93
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030412"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753914"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Exceções e códigos de erro para o designer
 
@@ -279,7 +279,7 @@ Se o modelo foi treinado utilizando qualquer um dos módulos de formação espec
 ## <a name="error-0014"></a>Erro 0014  
  A exceção ocorre se a contagem de valores únicos da coluna for maior do que o permitido.  
 
- Este erro ocorre quando uma coluna contém demasiados valores únicos.  Por exemplo, pode ver este erro se especificar que uma coluna é tratada como dados categóricos, mas existem demasiados valores únicos na coluna para permitir o processamento completo. Pode também ver este erro se houver uma incompatibilidade entre o número de valores únicos em duas entradas.   
+ Este erro ocorre quando uma coluna contém demasiados valores únicos, como uma coluna de ID ou coluna de texto. Pode ver este erro se especificar que uma coluna é tratada como dados categóricos, mas existem demasiados valores únicos na coluna para permitir o processamento completo. Pode também ver este erro se houver uma incompatibilidade entre o número de valores únicos em duas entradas.   
 
 O erro de valores únicos é maior do que o permitido ocorrerá se cumprir **ambas as** seguintes condições:
 
@@ -292,7 +292,9 @@ Abra o módulo que gerou o erro e identifique as colunas utilizadas como entrada
 
 Para colunas que pretende utilizar para agrupar ou categorizar, tome medidas para reduzir o número de valores únicos nas colunas. Pode reduzir de diferentes formas, dependendo do tipo de dados da coluna. 
 
-Normalmente neste cenário, a coluna que atinge o erro não faz sentido como característica para treinar modelos. Assim, pode utilizar [Os Metadados de Edição](../algorithm-module-reference/edit-metadata.md) para marcar essa coluna como **funcionalidade Clear** e não será utilizada durante o treino de um modelo. 
+Para colunas de ID que não sejam características significativas durante o treino de um modelo, pode utilizar [Os Metadados de Edição](../algorithm-module-reference/edit-metadata.md) para marcar essa coluna como **função Clear** e não serão utilizados durante o treino de um modelo. 
+
+Para colunas de texto, pode utilizar funcionalidades [de Hashing de Recurso](../algorithm-module-reference/feature-hashing.md) ou [Extração N-Gram do módulo de texto](../algorithm-module-reference/extract-n-gram-features-from-text.md) para pré-processar colunas de texto.
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  

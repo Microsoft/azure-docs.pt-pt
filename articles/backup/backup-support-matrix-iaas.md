@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte ao faz
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: cd73c07b139aec3b7079c2b042581e26560ed1bc
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 0dd0979b4dcc7c3828d88c594c02addaf00813c4
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309618"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754203"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
 
@@ -50,7 +50,6 @@ Backup mensal/anual| Não suportado quando se apoia com a extensão Azure VM. Ap
 Regulação automática do relógio | Não suportado.<br/><br/> O Azure Backup não se ajusta automaticamente para alterações de horário de verão ao fazer o backup de um VM.<br/><br/>  Modifique a apólice manualmente, se necessário.
 [Funcionalidades de segurança para backup híbrido](./backup-azure-security-feature.md) |Não é suportado por desativação de funcionalidades de segurança.
 Apoiar o VM cujo tempo de máquina foi alterado | Não suportado.<br/><br/> Se o tempo da máquina for alterado para uma data futura depois de permitir a cópia de segurança para esse VM, no entanto, mesmo que a mudança de tempo seja revertida, a cópia de segurança bem sucedida não é garantida.
-VMs Azure em [conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/overview.md) |Os conjuntos de disponibilidade não são suportados.
 
 ## <a name="operating-system-support-windows"></a>Suporte ao sistema operativo (Windows)
 
@@ -140,7 +139,6 @@ Restaurar VM em diferentes redes virtuais |Suportado.<br/><br/> A rede virtual d
 Tamanho da VM |Qualquer tamanho Azure VM com pelo menos 2 núcleos CPU e RAM de 1 GB.<br/><br/> [Saiba mais.](../virtual-machines/sizes.md)
 Apoiar VMs em [conjuntos de disponibilidade](../virtual-machines/availability.md#availability-sets) | Suportado.<br/><br/> Não é possível restaurar um VM num conjunto disponível utilizando a opção de criar rapidamente um VM. Em vez disso, quando restaurar o VM, restaure o disco e use-o para implantar um VM, ou restaurar um disco e usá-lo para substituir um disco existente.
 Back up VMs que são implantados com [Benefício de Utilização Híbrida (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) | Suportado.
-Apoiar VMs que são implantados em um [conjunto de escala](../virtual-machine-scale-sets/overview.md) |Suportado. O conjunto de disponibilidade não é suportado.
 Back up VMs que são implantados a partir do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicado pela Microsoft, terceiros) |Suportado.<br/><br/> O VM deve estar a executar um sistema operativo suportado.<br/><br/> Ao recuperar ficheiros sobre o VM, só pode restaurar um SISTEMA compatível (não um SO anterior ou posterior). Não restauramos VMs Azure Marketplace apoiados como VMs, pois estes precisam de informações de compra. Só são restaurados como discos.
 Back up VMs que são implantados a partir de uma imagem personalizada (terceiro) |Suportado.<br/><br/> O VM deve estar a executar um sistema operativo suportado.<br/><br/> Ao recuperar ficheiros sobre o VM, só pode restaurar um SISTEMA compatível (não um SO anterior ou posterior).
 Back up VMs que são migrados para Azure| Suportado.<br/><br/> Para fazer uma proteção do VM, o agente VM tem de ser instalado na máquina migratória.
@@ -180,7 +178,7 @@ VMs com endereços IP públicos| Suportado.<br/><br/> Associe um endereço IP p�
 Grupo de segurança de rede (NSG) em NIC/sub-rede. |Suportado.
 Endereço IP estático | Não suportado.<br/><br/> Um novo VM que é criado a partir de um ponto de restauro é atribuído um endereço IP dinâmico.<br/><br/> Para VMs clássicos, não é possível fazer uma reserva de VM com um endereço IP reservado e sem ponto final definido.
 Endereço IP dinâmico |Suportado.<br/><br/> Se o NIC na fonte VM utilizar um endereço IP dinâmico, por predefinição o NIC no VM restaurado também o utilizará.
-Traffic Manager do Azure| Suportado.<br/><br/>Se o VM de apoio estiver no Traffic Manager, adicione manualmente o VM restaurado à mesma instância do Gestor de Tráfego.
+Gestor de Tráfego do Azure| Suportado.<br/><br/>Se o VM de apoio estiver no Traffic Manager, adicione manualmente o VM restaurado à mesma instância do Gestor de Tráfego.
 DNS do Azure |Suportado.
 DNS Personalizado |Suportado.
 Conectividade de saída via http proxy | Suportado.<br/><br/> Um representante autenticado não é apoiado.
@@ -208,10 +206,10 @@ Segurança de dados:
 
 **Máquina** | **Em trânsito** | **Em repouso**
 --- | --- | ---
-Máquinas Windows no local sem DPM/MABS | ![Yes][green] | ![Yes][green]
-VMs do Azure | ![Yes][green] | ![Yes][green]
-Instalações/VMs Azure com DPM | ![Yes][green] | ![Yes][green]
-Em instalações/VMs Azure com MABS | ![Yes][green] | ![Yes][green]
+Máquinas Windows no local sem DPM/MABS | ![Sim][green] | ![Sim][green]
+VMs do Azure | ![Sim][green] | ![Sim][green]
+Instalações/VMs Azure com DPM | ![Sim][green] | ![Sim][green]
+Em instalações/VMs Azure com MABS | ![Sim][green] | ![Sim][green]
 
 ## <a name="vm-compression-support"></a>Suporte à compressão VM
 
@@ -224,8 +222,8 @@ A cópia de segurança suporta a compressão do tráfego de backup, tal como res
 --- | --- | ---
 Máquinas Windows no local sem DPM/MABS | ND | ![Sim][green]
 VMs do Azure | ND | ND
-Instalações/VMs Azure com DPM | ![Yes][green] | ![Yes][green]
-Em instalações/VMs Azure com MABS | ![Yes][green] | ![Sim][green]
+Instalações/VMs Azure com DPM | ![Sim][green] | ![Sim][green]
+Em instalações/VMs Azure com MABS | ![Sim][green] | ![Sim][green]
 
 ## <a name="next-steps"></a>Próximos passos
 
