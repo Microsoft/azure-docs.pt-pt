@@ -13,7 +13,7 @@
           href: quick-setup-auto-provision.md
         - name: CLI do Azure
           href: quick-setup-auto-provision-cli.md
-        - name: Modelo do Azure RM
+        - name: Modelo ARM
           href: quick-setup-auto-provision-rm.md
     - name: Aprovisionar um dispositivo com chave simétrica
       items:
