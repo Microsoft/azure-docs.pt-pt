@@ -3,12 +3,12 @@ title: O que o Azure Backup Server V3 RTM pode fazer backup
 description: Este artigo fornece uma matriz de proteção que lista todas as cargas de trabalho, tipos de dados e instalações que o Azure Backup Serve V3 RTM protege.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 21c5fbcdf8aa3454a9af968509cb4cbf76b31f9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1a1a876a9249a32c87c50d7f320a62b9c478caf
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88763614"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752384"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Matriz de proteção V3 RTM do servidor de backup Azure
 
@@ -78,7 +78,7 @@ A matriz que se segue lista o que pode ser protegido com O Azure Backup Server V
 |Anfitrião hiper-V - agente de proteção MABS no servidor de anfitrião Hiper-V, cluster ou VM|Windows Server 2008 SP2|Servidor físico<br /><br />Máquina virtual do Hyper-V no local|Não suportado|Proteger: computadores Hyper-V, volumes partilhados de cluster (CSVs)<br /><br />Recuperar: máquina virtual, recuperação ao nível do item de ficheiros e pastas, volumes, discos rígidos virtuais|
 |VMs VMware|VMware vCenter/vSphere ESX/ESXi Versão licenciada 5.5/6.0/6.5 |Servidor físico, <br/>No local Hiper-V VM, <br/> Windows VM em VMware|V3, V2|VMware VMs em volumes partilhados por cluster (CSVs), NFS e armazenamento SAN<br /> A recuperação ao nível de item de ficheiros e pastas só está disponível para VMs do Windows, vMware vApps não são suportados.|
 |VMs VMware|[VMware vSphere Versão Licenciada 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Servidor físico, <br/>No local Hiper-V VM, <br/> Windows VM em VMware|V3|VMware VMs em volumes partilhados por cluster (CSVs), NFS e armazenamento SAN<br /> A recuperação ao nível de item de ficheiros e pastas só está disponível para VMs do Windows, vMware vApps não são suportados.|
-|Linux|Linux funcionando como hóspede Hyper-V ou VMware|Servidor físico, <br/>No local Hiper-V VM, <br/> Windows VM em VMware|V3, V2|O Hyper-V tem de estar a ser executado no Windows Server 2012 R2 ou no Windows Server 2016. Proteger: toda a máquina virtual<br /><br />Recuperar: toda a máquina virtual <br/><br/> Apenas são suportados instantâneos consistentes com o ficheiro. <br/><br/> Para obter uma lista completa de distribuições e versões de Linux suportadas, consulte o artigo, [Linux sobre as distribuições endossadas pela Azure](../virtual-machines/linux/endorsed-distros.md).|
+|Linux|Linux funcionando como [hóspede Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) ou [VMware](backup-azure-backup-server-vmware.md)|Servidor físico, <br/>No local Hiper-V VM, <br/> Windows VM em VMware|V3, V2|O Hyper-V tem de estar a ser executado no Windows Server 2012 R2 ou no Windows Server 2016. Proteger: toda a máquina virtual<br /><br />Recuperar: toda a máquina virtual <br/><br/> Apenas são suportados instantâneos consistentes com o ficheiro. <br/><br/> Para obter uma lista completa de distribuições e versões de Linux suportadas, consulte o artigo, [Linux sobre as distribuições endossadas pela Azure](../virtual-machines/linux/endorsed-distros.md).|
 
 ## <a name="azure-expressroute-support"></a>Suporte Azure ExpressRoute
 

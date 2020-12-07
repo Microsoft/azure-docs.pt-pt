@@ -3,14 +3,13 @@ title: Utilize identidades geridas no Serviço Azure Kubernetes
 description: Saiba como utilizar identidades geridas no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/17/2020
-ms.author: thomasge
-ms.openlocfilehash: 96a1eebbdcbf269b06d2ece77987ce7813f1d5f5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/06/2020
+ms.openlocfilehash: e2a80ea869e17665e8a6d4fbd6960c3ccc8c1042
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571067"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751279"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Utilize identidades geridas no Serviço Azure Kubernetes
 
@@ -22,28 +21,27 @@ Atualmente, um cluster Azure Kubernetes Service (AKS) (especificamente, o proved
 
 Deve ter o seguinte recurso instalado:
 
-- O Azure CLI, versão 2.8.0 ou mais tarde
+- O Azure CLI, versão 2.15.1 ou mais tarde
 
 ## <a name="limitations"></a>Limitações
 
-* Os agrupamentos AKS com identidades geridas só podem ser ativados durante a criação do cluster.
 * Durante as operações **de atualização** do cluster, a identidade gerida está temporariamente indisponível.
 * Os inquilinos movem-se/migram de agrupamentos de identidade geridos não são suportados.
-* Se o cluster `aad-pod-identity` tiver ativado, as cápsulas de identidade gerida do nó (NMI) modificam os iptables dos nós para intercetar chamadas para o ponto final dos metadados de instância Azure. Esta configuração significa que qualquer pedido feito ao ponto final dos metadados é intercetado pelo NMI mesmo que a cápsula não utilize `aad-pod-identity` . AzurePodIdentityException CRD pode ser configurado para informar `aad-pod-identity` que quaisquer pedidos para o ponto final de metadados originários de um pod que corresponda às etiquetas definidas em CRD devem ser proxiited sem qualquer processamento em NMI. As cápsulas do sistema com `kubernetes.azure.com/managedby: aks` etiqueta no espaço de _nomes do sistema kube_ devem ser excluídas `aad-pod-identity` configurando o CRD AzurePodIdentityException. Para obter mais informações, consulte [Desativar a identidade do aad-pod para uma cápsula ou aplicação específica.](https://azure.github.io/aad-pod-identity/docs/configure/application_exception)
+* Se o cluster `aad-pod-identity` tiver ativado, as cápsulas Node-Managed Identity (NMI) modificam os iptables dos nós para intercetar chamadas para o ponto final dos metadados Azure Instance. Esta configuração significa que qualquer pedido feito ao ponto final dos metadados é intercetado pelo NMI mesmo que a cápsula não utilize `aad-pod-identity` . AzurePodIdentityException CRD pode ser configurado para informar `aad-pod-identity` que quaisquer pedidos para o ponto final de metadados originários de um pod que corresponda às etiquetas definidas em CRD devem ser proxiited sem qualquer processamento em NMI. As cápsulas do sistema com `kubernetes.azure.com/managedby: aks` etiqueta no espaço de _nomes do sistema kube_ devem ser excluídas `aad-pod-identity` configurando o CRD AzurePodIdentityException. Para obter mais informações, consulte [Desativar a identidade do aad-pod para uma cápsula ou aplicação específica.](https://azure.github.io/aad-pod-identity/docs/configure/application_exception)
   Para configurar uma exceção, instale a [yaML de exceção ao microfone.](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml)
 
 ## <a name="summary-of-managed-identities"></a>Resumo das identidades geridas
 
 A AKS usa várias identidades geridas para serviços incorporados e addons.
 
-| Identidade                       | Name    | Caso de utilização | Permissões por defeito | Traga a sua própria identidade
+| Identidade                       | Nome    | Caso de utilização | Permissões por defeito | Traga a sua própria identidade
 |----------------------------|-----------|----------|
-| Plano de controlo | não visível | Utilizado pela AKS para recursos de rede geridos, incluindo equilibradores de carga ingresss e IPs públicos geridos por AKS | Papel contribuinte para o grupo de recursos nó | Pré-visualizar
+| Plano de controlo | não visível | Utilizados por componentes de planos de controlo AKS para gerir recursos de cluster, incluindo equilibradores de carga ingressuais e IPs públicos geridos pela AKS, e operações de Cluster Autoscaler | Papel contribuinte para o grupo de recursos nó | Pré-visualizar
 | Kubelet | AKS Cluster Name-agentpool | Autenticação com Registo de Contentores Azure (ACR) | NA (para kubernetes v1.15+) | Atualmente, não é suportado
 | Add-on | AzurenPM | Nenhuma identidade necessária | ND | Não
 | Add-on | Monitorização da rede AzureCNI | Nenhuma identidade necessária | ND | Não
-| Add-on | azurepolicy (gatekeeper) | Nenhuma identidade necessária | ND | Não
-| Add-on | azurepolicy | Nenhuma identidade necessária | ND | Não
+| Add-on | política azul (gatekeeper) | Nenhuma identidade necessária | ND | Não
+| Add-on | política azul | Nenhuma identidade necessária | ND | Não
 | Add-on | Calico | Nenhuma identidade necessária | ND | Não
 | Add-on | Dashboard | Nenhuma identidade necessária | ND | Não
 | Add-on | HTTPApplicationRouting | Gere os recursos de rede necessários | Função do leitor para grupo de recursos de nó, papel de contribuinte para a zona DNS | Não
@@ -135,44 +133,14 @@ az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identi
 > [!NOTE]
 > Uma vez atualizadas as identidades atribuídas ao sistema ou atribuídas ao utilizador para a identidade gerida, execute um `az nodepool upgrade --node-image-only` nos seus nós para completar a atualização para a identidade gerida.
 
-## <a name="bring-your-own-control-plane-mi-preview"></a>Traga o seu próprio avião de controlo MI (Preview)
-Uma identidade de plano de controlo personalizado permite o acesso à identidade existente antes da criação do cluster. Isto permite cenários como a utilização de um VNET personalizado ou um Tipo de UDR com uma identidade gerida.
+## <a name="bring-your-own-control-plane-mi"></a>Traga o seu próprio avião de controlo MI
+Uma identidade de plano de controlo personalizado permite o acesso à identidade existente antes da criação do cluster. Esta funcionalidade permite cenários como a utilização de um VNET personalizado ou um Tipo de UDR de saída com uma identidade gerida pré-criada.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+Deve ter o Azure CLI, versão 2.15.1 ou posteriormente instalado.
 
-Deve ter os seguintes recursos instalados:
-- O Azure CLI, versão 2.9.0 ou mais tarde
-- A extensão aks-preview 0.4.57
-
-Limitações para trazer o seu próprio plano de controlo MI (Pré-visualização):
+### <a name="limitations"></a>Limitações
 * O Governo de Azure não é apoiado neste momento.
 * Azure China 21Vianet não é atualmente apoiada.
-
-```azurecli-interactive
-az extension add --name aks-preview
-az extension list
-```
-
-```azurecli-interactive
-az extension update --name aks-preview
-az extension list
-```
-
-```azurecli-interactive
-az feature register --name UserAssignedIdentityPreview --namespace Microsoft.ContainerService
-```
-
-Pode levar vários minutos para que o estado seja apresentado como **Registado**. Pode verificar o estado de registo utilizando o comando [da lista de funcionalidades AZ:](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true)
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UserAssignedIdentityPreview')].{Name:name,State:properties.state}"
-```
-
-Quando o estado aparecer como registado, reaprovida o registo do fornecedor de `Microsoft.ContainerService` recursos utilizando o comando de registo do fornecedor [az:](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true)
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 Se ainda não tem uma identidade gerida, deve ir em frente e criar uma, por exemplo, utilizando [o CLI de identidade az][az-identity-create].
 

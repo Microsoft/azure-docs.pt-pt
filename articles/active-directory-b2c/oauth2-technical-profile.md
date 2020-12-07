@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/03/2020
+ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 35b1f57a2361c5a4360e2ff1944b93e767168799
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 486622b37f02ab8b2a53a273a6eaea4cb5add3a5
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259395"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750457"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico OAuth2 numa política personalizada do Azure Ative Directory B2C
 
@@ -84,6 +84,7 @@ O perfil técnico também devolve alegações que não são devolvidas pelo forn
 | authorization_endpoint | Sim | O URL do ponto final de autorização de acordo com o RFC 6749. |
 | AccessTokenEndpoint | Sim | O URL do ponto final simbólico de acordo com o RFC 6749. |
 | ReclamaçõesEndpoint | Sim | O URL do ponto final de informação do utilizador de acordo com RFC 6749. |
+| end_session_endpoint | Sim | O URL do ponto final da sessão de acordo com o RFC 6749. |
 | AccessTokenResponseFormat | Não | O formato da chamada de ponto final de acesso. Por exemplo, o Facebook requer um método HTTP GET, mas a resposta do token de acesso está no formato JSON. |
 | Outros RequestQueryParameters | Não | Parâmetros de consulta de pedido adicionais. Por exemplo, pode querer enviar parâmetros adicionais ao seu fornecedor de identidade. Pode incluir vários parâmetros utilizando o delimiter de vírgula. |
 | ClaimsEndpointAccessTokenName | Não | O nome do parâmetro de cadeia de consulta de acesso. As alegações de alguns fornecedores de identidade suportam o pedido GET HTTP. Neste caso, o token do portador é enviado utilizando um parâmetro de cadeia de consulta em vez do cabeçalho de autorização. |
@@ -96,9 +97,10 @@ O perfil técnico também devolve alegações que não são devolvidas pelo forn
 | Nome de RespostaErrorCodeParamName | Não | O nome do parâmetro que contém a mensagem de erro devolvida em HTTP 200 (Ok). |
 | ExtraParamsInAccessTokenEndpointResponse | Não | Contém os parâmetros extra que podem ser devolvidos na resposta do **AccessTokenEndpoint** por alguns fornecedores de identidade. Por exemplo, a resposta do **AccessTokenEndpoint** contém um parâmetro extra, como `openid` , que é um parâmetro obrigatório para além do access_token numa cadeia de **pedidos claimsEndpoint.** Vários nomes de parâmetros devem ser escapados e separados pela vírgula '', delimiter. |
 | ExtraParamsInClaimsEndpointRequest | Não | Contém os parâmetros adicionais que podem ser devolvidos no pedido **claimsEndpoint** por alguns fornecedores de identidade. Vários nomes de parâmetros devem ser escapados e separados pela vírgula '', delimiter. |
-| IncluirClaimResolvingInClaimsHandling  | Não | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false`   (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
+| IncluirClaimResolvingInClaimsHandling  | Não | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false` (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
 | ResolveJsonPathsInJsonTokens  | Não | Indica se o perfil técnico resolve os caminhos do JSON. Valores possíveis: `true` , ou `false` (predefinição). Utilize estes metadados para ler dados a partir de um elemento JSON aninhado. Em um [OutputClaim](technicalprofiles.md#outputclaims), desapedaça `PartnerClaimType` o elemento de caminho JSON que pretende obter. Por exemplo: `firstName.localized` ou `data.0.to.0.email` . .|
 |token_endpoint_auth_method| Não| Especifica como a Azure AD B2C envia o cabeçalho de autenticação para o ponto final simbólico. Valores possíveis: `client_secret_post` (padrão) e `client_secret_basic` (visualização pública). Para mais informações, consulte [a secção de autenticação do cliente OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
+|SingleLogoutEnabled| Não| Indica se durante a entrada no perfil técnico tenta-se assinar dos fornecedores de identidade federados. Para mais informações, consulte [a sessão de Sessão Azure AD B2C](session-overview.md#sign-out).  Valores possíveis: `true` (padrão), ou `false` .|
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 

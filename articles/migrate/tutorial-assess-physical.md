@@ -1,15 +1,18 @@
 ---
 title: Avaliar servidores físicos para migração para Azure com avaliação do servidor Azure Migrate
 description: Descreve como avaliar servidores físicos no local para migração para Azure usando a Avaliação do Servidor Azure Migrate.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: 3669658100681d08e754c19377b82faff5bce1ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca50f41f1f0eadbc9cfb916a7f68a90712bef52e
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090483"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753200"
 ---
 # <a name="tutorial-assess-physical-servers-for-migration-to-azure"></a>Tutorial: Avaliar servidores físicos para migração para Azure
 
@@ -59,7 +62,7 @@ E executar uma avaliação da seguinte forma:
 
     ![Localização do botão Avaliar](./media/tutorial-assess-physical/assess-servers.png)
 
-3. No tipo de avaliação **de servidores,**  >  **Assessment type**selecione **Azure VM**.
+3. No tipo de avaliação **de servidores,**  >  **Assessment type** selecione **Azure VM**.
 4. Na **fonte discovery:**
 
     - Se descobrir máquinas que utilizem o aparelho, selecione **Máquinas descobertas a partir do aparelho Azure Migrate**.
@@ -88,7 +91,7 @@ E executar uma avaliação da seguinte forma:
     - Na **Série VM**, especifique a série Azure VM que pretende considerar.
         - Se estiver a utilizar uma avaliação baseada no desempenho, a Azure Migrate sugere um valor para si.
         - Ajuste as definições conforme necessário. Por exemplo, se não tiver um ambiente de produção que precise de VMs da série A em Azure, pode excluir a série A da lista de séries.
-    - No **fator Comfort,** indique o tampão que pretende utilizar durante a avaliação. Isto explica questões como o uso sazonal, o histórico de desempenho curto e, provavelmente, o aumento do uso futuro. Por exemplo, se utilizar um fator de conforto de dois: **Utilização**eficaz do componente  |  **Effective utilization**  |  **Adicione o fator de conforto (2.0)** Cores [ 2 / 4 Memórias ] 8 GB / 16 GB    
+    - No **fator Comfort,** indique o tampão que pretende utilizar durante a avaliação. Isto explica questões como o uso sazonal, o histórico de desempenho curto e, provavelmente, o aumento do uso futuro. Por exemplo, se utilizar um fator de conforto de dois: **Utilização** eficaz do componente  |  **Effective utilization**  |  **Adicione o fator de conforto (2.0)** Cores [ 2 / 4 Memórias ] 8 GB / 16 GB    
    
 9. Na **fixação de preços:**
     - In **Offer**, especifique a [oferta Azure](https://azure.microsoft.com/support/legal/offer-details/) se estiver inscrito. A Avaliação do Servidor estima o custo dessa oferta.
@@ -107,7 +110,7 @@ E executar uma avaliação da seguinte forma:
     ![Propriedades da avaliação](./media/tutorial-assess-physical/assessment-properties.png)
 
 11. In **Assess Servers**, clique **em Seguinte**.
-12. Nas **máquinas Select para avaliar,** selecione **Create New**e especifique um nome de grupo. 
+12. Nas **máquinas Select para avaliar,** selecione **Create New** e especifique um nome de grupo. 
 13. Selecione o aparelho e selecione os VMs que pretende adicionar ao grupo. Em seguida, clique em **Seguinte**.
 14. Em **Review + criar avaliação, rever os detalhes da avaliação e clicar em **Criar Avaliação** para criar o grupo e executar a avaliação.
 

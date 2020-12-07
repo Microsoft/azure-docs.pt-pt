@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: sharrai
-ms.openlocfilehash: 721e09c2bc0562ba833115361cf33c3daaef380b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c804e13029dcec42a43885cbf0d9b227b3d0338f
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364036"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750807"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Resolver problemas de replicação e ativação pós-falha do Hyper-V para o Azure
 
@@ -34,7 +34,21 @@ Se sentir problemas quando ativa a proteção de VMs hiper-V, verifique as segui
 6. No VM convidado, certifique-se de que a versão mais recente dos Serviços de Integração está em execução.
     - [Verifique](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) se tem a versão mais recente.
     - [Manter](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Serviços de Integração atualizados.
-    
+
+### <a name="cannot-enable-protection-as-the-virtual-machine-is-not-highly-available-error-code-70094"></a>Não é possível ativar a proteção, uma vez que a máquina virtual não está altamente disponível (código de erro 70094)
+
+Quando está a permitir a replicação de uma máquina e encontra um erro indicando que a replicação não pode ser ativada, uma vez que a máquina não está altamente disponível, então para corrigir este problema tente os passos abaixo:
+
+- Reinicie o serviço VMM no servidor VMM.
+- Retire a máquina virtual do cluster e adicione-a novamente.
+
+### <a name="the-vss-writer-ntds-failed-with-status-11-and-writer-specific-failure-code-0x800423f4"></a>O escritor vss NTDS falhou com o estatuto 11 e o código de falha específico do escritor 0x800423F4
+
+Ao tentar ativar a replicação, pode enfrentar um erro informando que ativar a replicação falhada a NTDS falhou. Uma das possíveis causas para este problema é que o sistema operativo da máquina virtual no Windows Server 2012 e não no Windows Server 2012 R2. Para corrigir este problema, experimente os passos abaixo:
+
+- Upgrade para Windows Server R2 com 4072650 aplicado.
+- Certifique-se de que o Hyper-V Host também é windows 2016 ou superior.
+
 ## <a name="replication-issues"></a>Problemas de replicação
 
 Resolva os problemas com replicações iniciais e contínuas da seguinte forma:
@@ -42,7 +56,7 @@ Resolva os problemas com replicações iniciais e contínuas da seguinte forma:
 1. Certifique-se de que está a executar a [versão mais recente](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) dos serviços de Recuperação do Site.
 2. Verifique se a replicação é interrompida:
    - Verifique o estado de saúde em VM na consola Hyper-V Manager.
-   - Se for crítico, clique com o botão direito para ver a Saúde de **Replicação**da  >  **Replicação**> de Replicação em VM .
+   - Se for crítico, clique com o botão direito para ver a Saúde de **Replicação** da  >  **Replicação**> de Replicação em VM .
    - Se a replicação for interrompida, clique em **Retomar a Replicação**.
 3. Verifique se os serviços necessários estão a funcionar. Se não estiverem, reinicie-os.
     - Se estiver a replicar o Hyper-V sem VMM, verifique se estes serviços estão a funcionar no anfitrião Hyper-V:
@@ -80,7 +94,7 @@ As limitações da largura de banda da rede podem ter impacto na replicação. P
 
 2. Clique **em Ver Saúde de Replicação** para ver os detalhes:
 
-    - Se a replicação for interrompida, clique com o botão direito na replicação do Currículo **de Replicação**de VM >  >  **Resume replication**.
+    - Se a replicação for interrompida, clique com o botão direito na replicação do Currículo **de Replicação** de VM >  >  **Resume replication**.
     - Se um VM num hospedeiro Hiper-V configurado na Recuperação do Local migra para um hospedeiro Hiper-V diferente no mesmo cluster, ou para uma máquina autónoma, a replicação para o VM não é impactada. Verifique se o novo anfitrião Hyper-V cumpre todos os pré-requisitos e está configurado na Recuperação do Local.
 
 ## <a name="app-consistent-snapshot-issues"></a>Problemas de instantâneo consistentes com aplicativos
@@ -124,7 +138,7 @@ Um instantâneo consistente com aplicações é uma imagem pontual dos dados da 
 ### <a name="vss-failing-inside-the-hyper-v-host"></a>VSS falhando dentro do Anfitrião Hiper-V
 
 1. Consulte os registos de eventos para obter erros e recomendações vss:
-    - No servidor anfitrião Hyper-V, abra o registo de eventos de Admin Hyper-V em Aplicações e Serviços **do Espectador**de  >  **Eventos**  >  **Microsoft**  >  **Windows**  >  **Hyper-V**  >  **Admin**.
+    - No servidor anfitrião Hyper-V, abra o registo de eventos de Admin Hyper-V em Aplicações e Serviços **do Espectador** de  >  **Eventos**  >  **Microsoft**  >  **Windows**  >  **Hyper-V**  >  **Admin**.
     - Verifique se existem eventos que indiquem falhas de instantâneo consistentes em aplicações.
     - Um erro típico é o seguinte: "O Hiper-V não conseguiu gerar o conjunto de instantâneos VSS para a máquina virtual 'XYZ': O escritor experimentou um erro não transitório. Reiniciar o serviço VSS pode resolver problemas se o serviço não responder."
 

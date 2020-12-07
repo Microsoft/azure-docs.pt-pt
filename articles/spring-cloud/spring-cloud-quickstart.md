@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 448707ab84ccca03dc0572d2ebed1b4bd1b6325f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: a1732f42ea95c16cdec7a1d7569c954667e52cb4
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505296"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750905"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud
 
@@ -218,10 +218,10 @@ O procedimento a seguir cria uma instância de Azure Spring Cloud usando o porta
 
 1. Preencha o formulário na página Azure Spring Cloud **Create.**  Considere as seguintes orientações:
 
-   * **Subscrição** : Selecione a subscrição que pretende ser faturada para este recurso.
-   * **Grupo de recursos** : Criar um novo grupo de recursos. O nome que introduzir aqui será usado em etapas posteriores como **\<resource group name\>** .
-   * **Dados de serviço/Nome** : Especifique o **\<service instance name\>** .  O nome deve ter entre 4 e 32 caracteres de comprimento e pode conter apenas letras minúsculas, números e hífenes.  O primeiro carácter do nome de serviço deve ser uma letra e o último caractere deve ser uma letra ou um número.
-   * **Região** : Selecione a região para a sua instância de serviço.
+   * **Subscrição**: Selecione a subscrição que pretende ser faturada para este recurso.
+   * **Grupo de recursos**: Criar um novo grupo de recursos. O nome que introduzir aqui será usado em etapas posteriores como **\<resource group name\>** .
+   * **Dados de serviço/Nome**: Especifique o **\<service instance name\>** .  O nome deve ter entre 4 e 32 caracteres de comprimento e pode conter apenas letras minúsculas, números e hífenes.  O primeiro carácter do nome de serviço deve ser uma letra e o último caractere deve ser uma letra ou um número.
+   * **Região**: Selecione a região para a sua instância de serviço.
 
    ![Início do portal ASC](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
@@ -352,6 +352,9 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4
 
   ![Página inicializr](media/spring-cloud-quickstart-java/initializr-page.png)
 
+> [!NOTE]
+> Identificamos um problema com o Spring Boot 2.4 na autenticação TLS entre as suas apps e eureka e estamos atualmente a trabalhar com a comunidade spring para resolvê-lo. Por favor, consulte as nossas [FAQ](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) para a solução alternativa.
+
 1. Clique **em Gerar** quando todas as dependências estiverem definidas. Faça o download e desembale o pacote e, em seguida, crie um controlador web para uma simples aplicação web adicionando `src/main/java/com/example/hellospring/HelloController.java` o seguinte:
 
     ```java
@@ -387,10 +390,10 @@ O procedimento a seguir cria uma instância de Azure Spring Cloud usando o porta
     ![Adicionar ícone ASC](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
 5. Preencha o formulário na página Azure Spring Cloud **Create.**  Considere as seguintes orientações:
-    - **Subscrição** : Selecione a subscrição que pretende ser faturada para este recurso.
-    - **Grupo de recursos** : Criar novos grupos de recursos para novos recursos é uma boa prática. Isto será usado em etapas posteriores como **\<resource group name\>** .
-    - **Dados de serviço/Nome** : Especifique o **\<service instance name\>** .  O nome deve ter entre 4 e 32 caracteres de comprimento e pode conter apenas letras minúsculas, números e hífenes.  O primeiro carácter do nome de serviço deve ser uma letra e o último caractere deve ser uma letra ou um número.
-    - **Localização** : Selecione a região para a sua instância de serviço.
+    - **Subscrição**: Selecione a subscrição que pretende ser faturada para este recurso.
+    - **Grupo de recursos**: Criar novos grupos de recursos para novos recursos é uma boa prática. Isto será usado em etapas posteriores como **\<resource group name\>** .
+    - **Dados de serviço/Nome**: Especifique o **\<service instance name\>** .  O nome deve ter entre 4 e 32 caracteres de comprimento e pode conter apenas letras minúsculas, números e hífenes.  O primeiro carácter do nome de serviço deve ser uma letra e o último caractere deve ser uma letra ou um número.
+    - **Localização**: Selecione a região para a sua instância de serviço.
 
     ![Início do portal ASC](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 

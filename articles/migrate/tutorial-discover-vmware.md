@@ -1,15 +1,18 @@
 ---
 title: Descubra VMware VMs com avaliação do servidor Azure Migrate
 description: Saiba como descobrir VMware VMs no local com a ferramenta de avaliação do servidor Azure Migrate
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 8a09f4583bd5cdae977b927be9649897a2d24ee6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ff82b90189e134db7d39b259c2c135489d14595d
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832658"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752792"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>Tutorial: Descubra VMware VMs com avaliação do servidor
 
@@ -17,7 +20,7 @@ Como parte da sua viagem de migração para Azure, você descobre o seu inventá
 
 Este tutorial mostra-lhe como descobrir no local máquinas virtuais VMware (VMs) com a ferramenta Azure Migrate: Server Assessment, utilizando um aparelho Azure Migrate leve. Implementa o aparelho como VMware VM, para descobrir continuamente metadados de VM e desempenho, aplicações em execução em VMs e dependências de VM.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie uma conta Azure.

@@ -3,12 +3,12 @@ title: Backup offline usando Azure Data Box
 description: Saiba como pode utilizar a Caixa de Dados do Azure para semear dados de backup iniciais do Agente MARS para um cofre dos Serviços de Recuperação.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 5a4aeebeddcca4adcac511c7c225c8809dd29c93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e789b6c9f4ff2e8cd168e6b5c138d423911d4743
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89180937"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752588"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Backup Azure backup offline usando Azure Data Box
 
@@ -277,11 +277,11 @@ Como uma solução alternativa para resolver este problema, faça os seguintes p
 
 #### <a name="step-1-of-workaround"></a>Passo 1 da solução alternativa
 
-Inscreva-se no PowerShell que aparece no UI MAB utilizando uma conta diferente com acesso administrativo à subscrição que terá o emprego de importação ou exportação criado.
+Faça o sômis no PowerShell que aparece no UI MAB utilizando uma conta diferente com acesso a administrador na subscrição que terá o trabalho de Caixa de Dados criado.
 
 #### <a name="step-2-of-workaround"></a>Passo 2 da solução alternativa
 
-Se nenhum outro servidor tiver sementeira offline configurada e nenhum outro servidor depender da `AzureOfflineBackup_<Azure User Id>` aplicação, elimine esta aplicação. Selecione **registos**de aplicações do portal  >  **Azure Ative Directory**  >  **App registrations**.
+Se nenhum outro servidor tiver sementeira offline configurada e nenhum outro servidor depender da `AzureOfflineBackup_<Azure User Id>` aplicação, elimine esta aplicação. Selecione **registos** de aplicações do portal  >  **Azure Ative Directory**  >  **App registrations**.
 
 >[!NOTE]
 > Verifique se a `AzureOfflineBackup_<Azure User Id>` aplicação não tem nenhuma outra semente offline configurada e também se nenhum outro servidor depende desta aplicação. Aceda às **teclas de definições**  >  **Keys** na secção **Chaves Públicas.** Não deve ter outras chaves públicas adicionadas. Consulte a seguinte imagem de referência.
@@ -294,7 +294,7 @@ A partir do servidor está a tentar configurar para cópia de segurança offline
 
 1. Aceda ao **pedido de certificado de computador Manage**  >  **Personal,** e procure o certificado com o nome `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
 
-2. Selecione o certificado, clique com o botão direito **Todas as Tarefas**e selecione **Export** sem uma chave privada no formato .cer.
+2. Selecione o certificado, clique com o botão direito **Todas as Tarefas** e selecione **Export** sem uma chave privada no formato .cer.
 
 3. Aceda à aplicação de backup offline Azure mencionada no passo 2. Selecione **As chaves de**  >  **definições**  >  **Carregar a tecla pública**. Faça o upload do certificado que exportou no passo anterior.
 
@@ -302,7 +302,7 @@ A partir do servidor está a tentar configurar para cópia de segurança offline
 
 4. No servidor, abra o registo introduzindo **o regedit** na janela de execução.
 
-5. Vá ao * registoComputer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.* Clique com o botão direito **CloudBackupProvider**e adicione um novo valor de corda com o nome `AzureADAppCertThumbprint_<Azure User Id>` .
+5. Vá ao *registoComputer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.* Clique com o botão direito **CloudBackupProvider** e adicione um novo valor de corda com o nome `AzureADAppCertThumbprint_<Azure User Id>` .
 
     >[!NOTE]
     > Para obter o ID do utilizador Azure, execute uma destas ações:
@@ -312,7 +312,7 @@ A partir do servidor está a tentar configurar para cópia de segurança offline
 
 6. Clique com o botão direito da cadeia adicionada no passo anterior e selecione **Modificar**. No valor, forneça a impressão digital do certificado que exportou no passo 2. Selecione **OK**.
 
-7. Para obter o valor da impressão digital, clique duas vezes no certificado. Selecione o separador **Detalhes** e desloque-se para baixo até ver o campo de impressão digital. Selecione **a impressão digital**e copie o valor.
+7. Para obter o valor da impressão digital, clique duas vezes no certificado. Selecione o separador **Detalhes** e desloque-se para baixo até ver o campo de impressão digital. Selecione **a impressão digital** e copie o valor.
 
     ![Campo de impressão digital de certificado](./media/offline-backup-azure-data-box/thumbprint-field.png)
 

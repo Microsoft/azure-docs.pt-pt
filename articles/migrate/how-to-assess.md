@@ -1,14 +1,17 @@
 ---
 title: Adicionar ferramentas de avaliação em Azure Migrate
 description: Saiba como adicionar ferramentas de avaliação no Azure Migrate.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 17113d167476c62a97031721b73183d0b0da18af
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 9a4ed5542945b8d281ec750d9bbd3a8f444e44d2
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95535035"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752265"
 ---
 # <a name="add-assessment-tools"></a>Adicionar ferramentas de avaliação
 

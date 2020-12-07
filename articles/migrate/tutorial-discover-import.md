@@ -1,14 +1,17 @@
 ---
 title: Avaliar servidores no local utilizando um ficheiro CSV importado com avaliação do servidor Azure Migrate
 description: Descreve como descobrir servidores no local para migração para Azure usando um ficheiro CSV importado na Avaliação do Servidor migratório de Azure
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
-ms.openlocfilehash: 30f17bb6b22d4d19cf225aa52d8284f5306a44ee
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: dfa7ee941e2c373b02fe5fb2f2a648a60a677670
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308391"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753115"
 ---
 # <a name="tutorial-assess-servers-using-an-imported-csv-file"></a>Tutorial: Avaliar servidores usando um ficheiro CSV importado
 

@@ -1,15 +1,18 @@
 ---
 title: Descubra instâncias AWS com avaliação do servidor Azure Migrate
 description: Saiba como descobrir instâncias AWS com avaliação do servidor Azure Migrate.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: b837ae89831024b169782fe9ae1a062677a4b45b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: dda6f6e37a42d4ee55a32fc8e1c05916c6be4367
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311283"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753132"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>Tutorial: Descubra instâncias AWS com avaliação do servidor
 
@@ -153,13 +156,13 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 3.  Verifique as versões mais recentes do aparelho e os valores do haxixe:
     - Para a nuvem pública:
 
-        **Cenário** | **Baixar*** | **Valor de hash**
+        **Cenário** | **Download** _ | _ *Valor do haxixe**
         --- | --- | ---
         Físico (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa0aaa7c92f480138e1797761163fb
 
     - Para o Governo de Azure:
 
-        **Cenário** | **Baixar*** | **Valor de hash**
+        **Cenário** | **Download** _ | _ *Valor do haxixe**
         --- | --- | ---
         Físico (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe2113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
  
@@ -191,7 +194,7 @@ Execute o guião da seguinte forma:
 
     O script lançará a aplicação web do aparelho quando terminar com sucesso.
 
-Se encontrar algum problema, pode aceder aos registos de scripts em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log para resolução de problemas.
+Se encontrar algum problema, pode aceder aos registos de scripts em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timetamp</em>.log para resolução de problemas.
 
 
 
@@ -203,10 +206,10 @@ Certifique-se de que o aparelho VM pode ligar-se aos URLs Azure para nuvens [pú
 
 Coloque o aparelho pela primeira vez.
 
-1. Abra um browser em qualquer máquina que possa ligar ao aparelho e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço*IP*: 44368**.
+1. Abra um browser em qualquer máquina que possa ligar ao aparelho e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço *IP*: 44368**.
 
    Em alternativa, pode abrir a aplicação a partir do ambiente de trabalho clicando no atalho da aplicação.
-2. Aceite os termos da **licença**e leia as informações de terceiros.
+2. Aceite os termos da **licença** e leia as informações de terceiros.
 1. Na aplicação web > **Configurar pré-requisitos,** faça o seguinte:
     - **Conectividade**: A aplicação verifica se o servidor tem acesso à Internet. Se o servidor utilizar um representante:
         - Clique em **Configurar o representante** para e especificar o endereço proxy (no formulário http://ProxyIPAddress ou na porta de http://ProxyFQDN) escuta.

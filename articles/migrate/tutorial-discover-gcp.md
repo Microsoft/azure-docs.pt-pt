@@ -1,15 +1,18 @@
 ---
 title: Descubra as instâncias GCP VM com avaliação do servidor Azure Migrate
 description: Saiba como descobrir as instâncias GCP VM com a Avaliação do Servidor Azure Migrate.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: c445bc06983aeb72d13f2bea5e2f39e73374d93a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9053246ef747236d9efbc9239ced46b0c421f5bb
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716655"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753098"
 ---
 # <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-server-assessment"></a>Tutorial: Descubra instâncias da Plataforma Google Cloud (GCP) com avaliação do servidor
 
@@ -194,7 +197,7 @@ Execute o guião da seguinte forma:
 
     O script lançará a aplicação web do aparelho quando terminar com sucesso.
 
-Se encontrar algum problema, pode aceder aos registos de scripts em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log para resolução de problemas.
+Se encontrar algum problema, pode aceder aos registos de scripts em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timetamp</em>.log para resolução de problemas.
 
 
 
@@ -206,10 +209,10 @@ Certifique-se de que o aparelho VM pode ligar-se aos URLs Azure para nuvens [pú
 
 Coloque o aparelho pela primeira vez.
 
-1. Abra um browser em qualquer máquina que possa ligar ao aparelho e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço*IP*: 44368**.
+1. Abra um browser em qualquer máquina que possa ligar ao aparelho e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço *IP*: 44368**.
 
    Em alternativa, pode abrir a aplicação a partir do ambiente de trabalho clicando no atalho da aplicação.
-2. Aceite os termos da **licença**e leia as informações de terceiros.
+2. Aceite os termos da **licença** e leia as informações de terceiros.
 1. Na aplicação web > **Configurar pré-requisitos,** faça o seguinte:
     - **Conectividade**: A aplicação verifica se o servidor tem acesso à Internet. Se o servidor utilizar um representante:
         - Clique em **Configurar o representante** para e especificar o endereço proxy (no formulário http://ProxyIPAddress ou na porta de http://ProxyFQDN) escuta.

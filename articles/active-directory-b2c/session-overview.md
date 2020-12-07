@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0004c874a2011a78bb5cfe67ff0a840224d47bbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e02323df3a12c4a74de1fb62b36762fc739e9e5
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258970"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750446"
 ---
 # <a name="azure-ad-b2c-session"></a>Sessão Azure AD B2C
 
@@ -96,8 +96,12 @@ Após um pedido de sinalização, Azure AD B2C:
 1. Invalida a sessão baseada em cookies Azure AD B2C.
 1. Tentativas de assinatura de fornecedores de identidade federados:
    - OpenId Connect - Se o ponto final de configuração bem conhecido do fornecedor de identidade especificar uma `end_session_endpoint` localização.
-   - SAML - Se os metadados do fornecedor de identidade contiver a `SingleLogoutService` localização.
+   - OAuth2 - Se os [metadados do fornecedor de identidade](oauth2-technical-profile.md#metadata) contiver a `end_session_endpoint` localização.
+   - SAML - Se os [metadados do fornecedor de identidade](saml-identity-provider-technical-profile.md#metadata) contiver a `SingleLogoutService` localização.
 1. Opcionalmente, o sinal de saída de outras aplicações. Para mais informações, consulte a secção [de sinalização única.](#single-sign-out)
+
+> [!NOTE]
+> Utilizando [políticas personalizadas,](custom-policy-overview.md)pode desativar a sinalização dos fornecedores de identidade federados, definindo os metadados de perfil técnico do fornecedor de identidade `SingleLogoutEnabled` para `false` .
 
 A sessão de sinalização apaga o estado de inscrição do utilizador com o Azure AD B2C, mas pode não assinar o utilizador fora da sua sessão de provedor de identidade social. Se o utilizador selecionar o mesmo fornecedor de identidade durante uma sintrodução subsequente, poderá reautentar sem introduzir as suas credenciais. Se um utilizador quiser assinar a aplicação, não significa necessariamente que queira assinar fora da sua conta do Facebook. No entanto, se forem utilizadas contas locais, a sessão do utilizador termina corretamente.
 

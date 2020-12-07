@@ -1,15 +1,17 @@
 ---
 title: Crie um aparelho Azure Migrate para servidores físicos
 description: Saiba como configurar um aparelho Azure Migrate para avaliação física do servidor.
-ms.service: azure-migrate
-ms.topic: article
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 04/15/2020
-ms.openlocfilehash: 1e9d79d16e805eeaf770327a56a4247067c78a35
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 21d40b1962a3e4000876686659b76d019991785d
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314157"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751687"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurar um aparelho para servidores físicos
 
@@ -89,7 +91,7 @@ Execute o guião da seguinte forma:
 
     O script lançará a aplicação web do aparelho quando terminar com sucesso.
 
-Se encontrar algum problema, pode aceder aos registos de scripts em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log para resolução de problemas.
+Se encontrar algum problema, pode aceder aos registos de scripts em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timetamp</em>.log para resolução de problemas.
 
 
 
@@ -101,10 +103,10 @@ Certifique-se de que o aparelho VM pode ligar-se aos URLs Azure para nuvens [pú
 
 Coloque o aparelho pela primeira vez.
 
-1. Abra um browser em qualquer máquina que possa ligar ao aparelho e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço*IP*: 44368**.
+1. Abra um browser em qualquer máquina que possa ligar ao aparelho e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço *IP*: 44368**.
 
    Em alternativa, pode abrir a aplicação a partir do ambiente de trabalho clicando no atalho da aplicação.
-2. Aceite os termos da **licença**e leia as informações de terceiros.
+2. Aceite os termos da **licença** e leia as informações de terceiros.
 1. Na aplicação web > **Configurar pré-requisitos,** faça o seguinte:
     - **Conectividade**: A aplicação verifica se o servidor tem acesso à Internet. Se o servidor utilizar um representante:
         - Clique em **Configurar o representante** para e especificar o endereço proxy (no formulário http://ProxyIPAddress ou na porta de http://ProxyFQDN) escuta.

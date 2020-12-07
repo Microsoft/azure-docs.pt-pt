@@ -2,15 +2,15 @@
 title: Problemas com a Azure Automation Update Management
 description: Este artigo diz como resolver problemas e resolver problemas com a Azure Automation Update Management.
 services: automation
-ms.date: 10/14/2020
+ms.date: 12/04/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 8818047dd4fef9c495c46b353e68841f83e9677c
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e8fc2a840ce019282625f286a6d54b132a1806c8
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217223"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751262"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Resolver problemas da Gestão de Atualizações
 
@@ -18,6 +18,40 @@ Este artigo discute questões que poderá encontrar ao implementar a funcionalid
 
 >[!NOTE]
 >Se tiver problemas ao implementar a Gestão de Atualização numa máquina Windows, abra o Visualizador de Eventos do Windows e verifique o registo de eventos **do Gestor de Operações** nos **Registos de Aplicações e Serviços** da máquina local. Procure eventos com iD 4502 de eventos e detalhes do evento que `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` contenham.
+
+## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a>Cenário: As atualizações do Linux apresentadas como pendentes e as instaladas variam
+
+### <a name="issue"></a>Problema
+
+Para a sua máquina Linux, a Update Management mostra atualizações específicas disponíveis em **segurança** de classificação e **outras**. Mas quando um calendário de atualização é executado na máquina, por exemplo para instalar apenas atualizações correspondentes à classificação **de Segurança,** as atualizações instaladas são diferentes ou um subconjunto das atualizações mostradas anteriormente correspondentes a essa classificação.
+
+### <a name="cause"></a>Causa
+
+Quando uma avaliação das atualizações do SO pendentes para a sua máquina Linux é feita, os ficheiros [Open Vulnerability and Assessment Language](https://oval.mitre.org/) (OVAL) fornecidos pelo fornecedor de distro Linux são utilizados pela Update Management para classificação. A categorização é feita para atualizações do Linux como **Segurança** ou **Outras**, com base nos ficheiros OVAis que declaram atualizações que abordam problemas de segurança ou vulnerabilidades. Mas quando o calendário de atualização é executado, executa na máquina Linux usando o gestor de pacotes apropriado como YUM, APT ou ZYPPER para instalá-los. O gestor de pacotes para o distro Linux pode ter um mecanismo diferente para classificar as atualizações, onde os resultados podem diferir dos obtidos a partir dos ficheiros OVAL pela Update Management.
+
+### <a name="resolution"></a>Resolução
+
+Pode verificar manualmente a máquina Linux, as atualizações aplicáveis e a sua classificação pelo gestor de pacotes do distro. Para entender quais as atualizações que são classificadas como **Segurança** pelo seu gestor de pacotes, execute os seguintes comandos.
+
+Para a YUM, o seguinte comando devolve uma lista não zero de atualizações categorizadas como **Security** by Red Hat. Note que no caso do CentOS, devolve sempre uma lista vazia e não ocorre nenhuma classificação de segurança.
+
+```bash
+sudo yum -q --security check-update
+```
+
+Para a ZYPPER, o seguinte comando devolve uma lista não-zero de atualizações categorizadas como **Security** by SUSE.
+
+```bash
+sudo LANG=en_US.UTF8 zypper --non-interactive patch --category security --dry-run
+```
+
+Para a APT, o seguinte comando retorna uma lista não zero de atualizações categorizadas como **Security** by Canonical for Ubuntu Linux distros.
+
+```bash
+sudo grep security /etc/apt/sources.list > /tmp/oms-update-security.list LANG=en_US.UTF8 sudo apt-get -s dist-upgrade -oDir::Etc::Sourcelist=/tmp/oms-update-security.list
+```
+
+A partir desta lista, você então executar o comando `grep ^Inst` para obter todas as atualizações de segurança pendentes.
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a><a name="failed-to-enable-error"></a>Cenário: Recebe o erro "Falhou em ativar a solução 'Atualização'
 
@@ -146,7 +180,7 @@ O fornecedor de recursos Automation não está registado na subscrição.
 
 Para registar o fornecedor de recursos Automation, siga estes passos no portal Azure.
 
-1. Na lista de serviços Azure na parte inferior do portal, selecione **Todos os serviços**e, em seguida, selecione **Subscrições** no grupo de serviços Geral.
+1. Na lista de serviços Azure na parte inferior do portal, selecione **Todos os serviços** e, em seguida, selecione **Subscrições** no grupo de serviços Geral.
 
 2. Selecione a sua subscrição.
 
@@ -178,7 +212,7 @@ Se a sua subscrição não estiver configurada para o fornecedor de recursos Aut
 
 1. No [portal Azure,](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)aceda à lista de serviços Azure.
 
-2. Selecione **Todos os serviços**e, em seguida, selecione **Subscrições** no grupo de serviço Geral.
+2. Selecione **Todos os serviços** e, em seguida, selecione **Subscrições** no grupo de serviço Geral.
 
 3. Encontre a subscrição definida no âmbito da sua implementação.
 
@@ -531,7 +565,7 @@ Se vir um HRESULT, clique duas vezes na exceção exibida a vermelho para ver to
 |`0x80070005`| Um erro negado de acesso pode ser causado por qualquer um dos seguintes:<br> Computador infetado<br> As definições de Atualização do Windows não configuradas corretamente<br> Erro de permissão de ficheiro com %WinDir%\Pasta de distribuição de software<br> Espaço insuficiente do disco na unidade do sistema (C:).
 |Qualquer outra exceção genérica     | Faça uma pesquisa na internet para possíveis resoluções e trabalhe com o seu suporte de TI local.         |
 
-Rever o ficheiro **%Windir%\Windowsupdate.log** também pode ajudá-lo a determinar possíveis causas. Para obter mais informações sobre como ler o registo, consulte [Como ler o ficheiro Windowsupdate.log](https://support.microsoft.com/help/902093/how-to-read-the-windowsupdate-log-file).
+Rever o ficheiro **%Windir%\Windowsupdate.log** também pode ajudá-lo a determinar possíveis causas. Para obter mais informações sobre como ler o registo, consulte [Como ler o ficheiro .log Windowsupdate](https://support.microsoft.com/help/902093/how-to-read-the-windowsupdate-log-file).
 
 Também pode descarregar e executar o [resolução de problemas](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) do Windows Update para verificar se há problemas com o Windows Update na máquina.
 
@@ -560,7 +594,7 @@ Se ocorrerem falhas durante uma atualização após o início com sucesso, [veri
 
 Se patches específicos, pacotes ou atualizações forem vistos imediatamente antes do trabalho falhar, pode tentar [excluir](../update-management/deploy-updates.md#schedule-an-update-deployment) estes itens da próxima implementação da atualização. Para recolher informações de registo a partir da Atualização do Windows, consulte [os ficheiros de registo do Windows Update](/windows/deployment/update/windows-update-logs).
 
-Se não conseguir resolver um problema de correção, faça uma cópia do ficheiro **/var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log** e preserve-o para efeitos de resolução de problemas antes do início da próxima atualização.
+Se não conseguir resolver um problema de correção, faça uma cópia do ficheiro **/var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log** e preservá-lo para efeitos de resolução de problemas antes do início da próxima atualização.
 
 ## <a name="patches-arent-installed"></a>Patches não estão instalados
 

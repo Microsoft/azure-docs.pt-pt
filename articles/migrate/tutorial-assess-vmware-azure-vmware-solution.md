@@ -1,15 +1,18 @@
 ---
 title: Avaliar VMware VMs para migração para Azure VMware Solution (AVS) com Azure Migrate
 description: Saiba como avaliar VMware VMs para migração para AVS com avaliação do servidor Azure Migrate.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: 29f7f824d96aedd80e490ba84c390be4d9493683
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6d3c6f77b062939a88e7277cb7f0ab6ecff9fcb
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604245"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753081"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-avs"></a>Tutorial: Avaliar VMware VMs para migração para AVS
 
@@ -57,7 +60,7 @@ E executar uma avaliação da seguinte forma:
 
 2. Em **Azure Migrate: Avaliação do servidor,** clique em **Avaliar**.
 
-3. No tipo de avaliação **de servidores,**  >  **Assessment type**selecione **Azure VMware Solution (AVS) (Preview)**.
+3. No tipo de avaliação **de servidores,**  >  **Assessment type** selecione **Azure VMware Solution (AVS) (Preview)**.
 4. Na **fonte discovery:**
 
     - Se descobrir máquinas que utilizem o aparelho, selecione **Máquinas descobertas a partir do aparelho Azure Migrate**.
@@ -81,7 +84,7 @@ E executar uma avaliação da seguinte forma:
         - Azure Migrate recomenda o nó de nós necessários para migrar os VMs para AVS.
         - O tipo de nó predefinido é AV36.
     - **Definição FTT, nível RAID,** selecione a combinação Falha em Tolerar e RAID.  A opção FTT selecionada, combinada com o requisito do disco VM no local, determina o armazenamento total de vSAN exigido em AVS.
-    - Na **subscrição excessiva do CPU, especifique**a relação de núcleos virtuais associados a um núcleo físico no nó AVS. A subscrição excessiva de mais de 4:1 pode causar degradação do desempenho, mas pode ser usada para cargas de trabalho do tipo web do servidor.
+    - Na **subscrição excessiva do CPU, especifique** a relação de núcleos virtuais associados a um núcleo físico no nó AVS. A subscrição excessiva de mais de 4:1 pode causar degradação do desempenho, mas pode ser usada para cargas de trabalho do tipo web do servidor.
 
 9. No **tamanho do nó:** 
     - No **critério Sizing**, selecione se pretende basear a avaliação em metadados estáticos ou em dados baseados no desempenho. Se utilizar dados de desempenho:
@@ -104,7 +107,7 @@ E executar uma avaliação da seguinte forma:
     ![Propriedades da avaliação](./media/tutorial-assess-vmware-azure-vmware-solution/view-all.png)
 
 12. In **Assess Servers**, clique **em Seguinte**.
-13. Em **Avaliar servidores**  >  **Selecione máquinas para avaliar,** para criar um novo grupo de servidores para avaliação, selecione **Create New**e especifique um nome de grupo. 
+13. Em **Avaliar servidores**  >  **Selecione máquinas para avaliar,** para criar um novo grupo de servidores para avaliação, selecione **Create New** e especifique um nome de grupo. 
 14. Selecione o aparelho e selecione os VMs que pretende adicionar ao grupo. Em seguida, clique em **Seguinte**.
 15. Em **Review + criar avaliação,** rever os detalhes da avaliação e clicar em Criar **Avaliação** para criar o grupo e executar a avaliação.
 

@@ -1,15 +1,18 @@
 ---
 title: Descubra VMs hiper-V com avaliação do servidor Azure Migrate
 description: Saiba como descobrir em locais Hiper-VMs com a ferramenta Azure Migrate Server Assessment.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 0643a13a07572dc24ef895062593e00188a0752f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 1b860c739ab9ed9737f9f946cb13c731fa4722db
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317157"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753064"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Tutorial: Descubra VMs hiper-V com avaliação do servidor
 
@@ -149,7 +152,7 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 
     - Para o Governo de Azure:
 
-        **Cenário*** | **Transferência** | **SHA256**
+        **Cenário** _ | _ *Baixar** | **SHA256**
         --- | --- | ---
         Hiper-V (85,8 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc350716bae30b257f
 
@@ -183,10 +186,10 @@ Coloque o aparelho pela primeira vez.
 
 1. No Hyper-V Manager > **Máquinas Virtuais,** clique com o botão direito no VM > **Connect**.
 2. Forneça o idioma, o fuso horário e a palavra-passe para o aparelho.
-3. Abra um browser em qualquer máquina que possa ligar ao VM e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço*IP*: 44368**.
+3. Abra um browser em qualquer máquina que possa ligar ao VM e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço *IP*: 44368**.
 
    Em alternativa, pode abrir a aplicação a partir do ambiente de trabalho do aparelho clicando no atalho da aplicação.
-1. Aceite os termos da **licença**e leia as informações de terceiros.
+1. Aceite os termos da **licença** e leia as informações de terceiros.
 1. Na aplicação web > **Configurar pré-requisitos,** faça o seguinte:
     - **Conectividade**: A aplicação verifica se o VM tem acesso à Internet. Se o VM utilizar um representante:
       - Clique em **Configurar o representante** para e especificar o endereço proxy (no formulário http://ProxyIPAddress ou na porta de http://ProxyFQDN) escuta.
@@ -220,8 +223,8 @@ Se estiver a executar VHDs em SMBs, deve ativar a delegação de credenciais do 
     ```
 
 2. Em alternativa, faça-o no Editor de Política do Grupo Local sobre o aparelho:
-    - Na **Local Computer Policy**  >  **configuração**do computador local, clique na delegação de credenciais **de sistema de modelos**  >  **System**  >  **administrativos**.
-    - Clique duas **vezes Em permitir a delegação de credenciais frescas**e selecione **Ativado**.
+    - Na **Local Computer Policy**  >  **configuração** do computador local, clique na delegação de credenciais **de sistema de modelos**  >  **System**  >  **administrativos**.
+    - Clique duas **vezes Em permitir a delegação de credenciais frescas** e selecione **Ativado**.
     - Em **Opções**, clique em **Mostrar**, e adicione cada anfitrião Hyper-V que pretende descobrir na lista, com **wsman/** como prefixo.
     - Na  **Delegação de Credenciais,** clique duplo **Deixe delegar credenciais frescas com autenticação do servidor apenas NTLM**. Mais uma vez, adicione cada anfitrião Hyper-V que pretende descobrir na lista, com **wsman/** como prefixo.
 

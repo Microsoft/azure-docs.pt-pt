@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/25/2020
-ms.openlocfilehash: f9a7623fd27178e8b9c213a1759bb09863d16c72
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7063452d23d2975cf0c26a89e7a08a422de54942
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030701"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751942"
 ---
 # <a name="train-model-module"></a>Módulo modelo de trem
 
@@ -63,7 +63,9 @@ No Azure Machine Learning, criar e utilizar um modelo de aprendizagem automátic
 1.  Envie o oleoduto. Se tiver muitos dados, isto pode demorar um pouco.
 
     > [!IMPORTANT] 
-    > Se tiver uma coluna de ID que é o ID de cada linha, o **Modelo de Comboio** pode atingir um erro como "Número de valores únicos na coluna: "{column_name}" é maior do que o permitido." Isto porque a coluna ID atingiu o limiar de valores únicos, e pode causar fora da memória. Normalmente, a coluna de identificação não tem sentido durante o treino. Pode utilizar [Os Metadados de Edição](edit-metadata.md) para marcar essa coluna como **funcionalidade Clear** e não será utilizada no treino. Consulte [o código de erro do Designer](././designer-error-codes.md) para obter mais detalhes de erro.
+    > Se tiver uma coluna de ID que é o ID de cada linha, ou uma coluna de texto, que contém demasiados valores únicos, **o Modelo de Comboio** pode atingir um erro como "Número de valores únicos na coluna: "{column_name}" é maior do que o permitido.
+    >
+    > Isto porque a coluna atingiu o limiar de valores únicos, e pode causar fora da memória. Pode utilizar [Os Metadados de Edição](edit-metadata.md) para marcar essa coluna como **funcionalidade Clear** e não será utilizada no treino, ou extrair [funcionalidades N-Gram do módulo de texto para pré-processar](extract-n-gram-features-from-text.md) coluna de texto. Consulte [o código de erro do Designer](././designer-error-codes.md) para obter mais detalhes de erro.
 
 ## <a name="results"></a>Resultados
 

@@ -7,12 +7,12 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 992fb4422974dad7a48e5fea953ac4530bb52d5c
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: a517f7a796b6543c8d60f0d1ebdba16afa0bc4b7
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122594"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751432"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Utilize propriedades numa solução Azure IoT Central
 
@@ -35,7 +35,7 @@ A tabela seguinte mostra as definições de configuração para uma capacidade d
 | Campo           | Descrição                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nome a apresentar    | O nome de exibição para o valor da propriedade usado em dashboards e formulários.                                                                                                                                                              |
-| Name            | O nome da propriedade. O Azure IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo deve ser alfanumérico.                                                 |
+| Nome            | O nome da propriedade. O Azure IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo deve ser alfanumérico.                                                 |
 | Tipo de capacidade | Propriedade.                                                                                                                                                                                                                          |
 | Semantic type (Tipo de semântica)   | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos seguintes campos estão disponíveis.                                                                       |
 | Esquema          | O tipo de dados da propriedade, como duplo, string ou vetor. As escolhas disponíveis são determinadas pelo tipo semântico. Schema não está disponível para o evento e tipos semânticos do estado.                                               |
@@ -45,7 +45,7 @@ A tabela seguinte mostra as definições de configuração para uma capacidade d
 | Unidade            | Uma unidade para o valor da propriedade, como **mph,** **%** ou **&deg; C**.                                                                                                                                                              |
 | Unidade de exibição    | Uma unidade de visualização para utilização em painéis e formulários.                                                                                                                                                                                    |
 | Comentário         | Quaisquer comentários sobre a capacidade da propriedade.                                                                                                                                                                                        |
-| Description     | Uma descrição da capacidade da propriedade.                                                                                                                                                                                          |
+| Descrição     | Uma descrição da capacidade da propriedade.                                                                                                                                                                                          |
 
 As propriedades também podem ser definidas numa interface num modelo de dispositivo, como mostrado aqui:
 
@@ -79,7 +79,7 @@ Este exemplo mostra duas propriedades. Estas propriedades dizem respeito à defi
 
 * `@type` especifica o tipo de capacidade: `Property` . O exemplo anterior também mostra o tipo semântico `Temperature` para ambas as propriedades.
 * `name` para a propriedade.
-* `schema` especifica o tipo de dados para a propriedade. Este valor pode ser um tipo primitivo, como duplo, inteiro, booleano ou corda. Os tipos complexos de objetos, matrizes e mapas também são suportados.
+* `schema` especifica o tipo de dados para a propriedade. Este valor pode ser um tipo primitivo, como duplo, inteiro, booleano ou corda. Os tipos e mapas complexos de objetos também são suportados.
 * `writable` Por padrão, as propriedades são apenas de leitura. Você pode marcar uma propriedade como escrita usando este campo.
 
 Os campos opcionais, como o nome do ecrã e a descrição, permitem adicionar mais detalhes à interface e às capacidades.
@@ -210,7 +210,7 @@ A mensagem de resposta deve incluir os `ac` campos e `av` campos. O campo `ad` �
 * `av` é o número de versão enviado para o dispositivo.
 * `ad` é uma descrição do string de opção.
 
-| Valor | Etiqueta | Description |
+| Valor | Etiqueta | Descrição |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Concluído | A operação de mudança de propriedade foi concluída com sucesso. |
 | `'ac': 202` ou `'ac': 201` | Pendente | A operação de mudança de propriedade está pendente ou em curso. |

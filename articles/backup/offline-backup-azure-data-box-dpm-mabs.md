@@ -3,12 +3,12 @@ title: Backup offline com caixa de dados Azure para DPM e MABS
 description: Pode utilizar a Caixa de Dados Azure para semear dados de backup iniciais offline a partir de DPM e MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 80b3977a9fb886b90c3d48d54f4cda1abfd77df9
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 1cfd9131099ad6a8ccd3d43e93f3d97641514f03
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172217"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752554"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Sementeira offline usando Azure Data Box para DPM e MABS (Pré-visualização)
 
@@ -48,7 +48,7 @@ São suportados os seguintes SKUs da Caixa de Dados:
 > [!IMPORTANT]
 > Os dados de cópia de segurança iniciais de uma única fonte de dados devem ser contidos num único disco Azure Data Box ou Azure Data Box, e não podem ser partilhados entre vários dispositivos dos mesmos SKUs ou diferentes. No entanto, uma Caixa de Dados Azure pode conter cópias de segurança iniciais de várias fontes de dados.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 O agente MARS em execução no DPM/MABS deve ser atualizado para a [versão mais recente](https://aka.ms/azurebackup_agent) (2.0.9171.0 ou mais tarde).
 
@@ -147,7 +147,7 @@ Especificar fonte alternativa: *WIM:D:\Fontes\Instalar.wim:4*
           - AzurerM.Resources   *6.7.3*<br>
           - AzurerM.Storage     *5.2.0*<br>
           - Azure.Storage       *4.6.1*<br>
-     >  - O pedido AD Azure está registado como *AzureOfflineBackup_ \<object GUID of the user> *.
+     >  - O pedido AD Azure está registado como *AzureOfflineBackup_ \<object GUID of the user>*.
 
 13. Selecione a encomenda correta da caixa de dados para a qual desempacotou, ligou e desbloqueou o disco da Caixa de Dados. Selecione **Seguinte**.
 
@@ -177,7 +177,7 @@ Especificar fonte alternativa: *WIM:D:\Fontes\Instalar.wim:4*
 
     Com isto, a replicação inicial dos dados ocorre ao disco DPM/MABS. Quando terminar a proteção, o estado de grupo mostrará o estado de proteção como **OK** na página **Proteção.**
 
-17. Para iniciar a cópia de cópia de backup offline no seu dispositivo Azure Data Box, clique com o botão direito para o **Grupo de Proteção**e, em seguida, escolha a opção **Ponto de recuperação Criar.** Em seguida, escolha a opção **Proteção Online.**
+17. Para iniciar a cópia de cópia de backup offline no seu dispositivo Azure Data Box, clique com o botão direito para o **Grupo de Proteção** e, em seguida, escolha a opção **Ponto de recuperação Criar.** Em seguida, escolha a opção **Proteção Online.**
 
     ![Criar ponto de recuperação](./media/offline-backup-azure-data-box-dpm-mabs/create-recovery-point.png)
 
@@ -194,7 +194,7 @@ Especificar fonte alternativa: *WIM:D:\Fontes\Instalar.wim:4*
 Siga estes passos assim que a cópia de segurança dos dados para o Disco caixa de dados Azure for bem sucedida.
 
 - Siga os passos [deste artigo](../databox/data-box-disk-deploy-picked-up.md) para enviar o disco Azure Data Box para Azure. Se utilizar um dispositivo Azure Data Box 100-TB, siga [estes passos](../databox/data-box-deploy-picked-up.md) para enviar a Caixa de Dados Azure para Azure.
-- [Monitorize o trabalho da Caixa de Dados](../databox/data-box-disk-deploy-upload-verify.md) no portal Azure. Uma vez *concluída*a função Azure Data Box, o servidor DPM/MABS move automaticamente os dados da Conta de Armazenamento para o cofre dos Serviços de Recuperação no momento da próxima cópia de segurança programada. Em seguida, marcará o trabalho de backup como *Job Complete* se um ponto de recuperação for criado com sucesso.
+- [Monitorize o trabalho da Caixa de Dados](../databox/data-box-disk-deploy-upload-verify.md) no portal Azure. Uma vez *concluída* a função Azure Data Box, o servidor DPM/MABS move automaticamente os dados da Conta de Armazenamento para o cofre dos Serviços de Recuperação no momento da próxima cópia de segurança programada. Em seguida, marcará o trabalho de backup como *Job Complete* se um ponto de recuperação for criado com sucesso.
 
   > [!NOTE]
   > O servidor DPM/MABS ativa as cópias de segurança nos horários programados durante a criação do grupo de proteção. No entanto, estes trabalhos serão assinalados À espera que o *trabalho da Caixa de Dados Azure esteja concluído* até ao momento em que o trabalho estiver concluído.
@@ -230,7 +230,7 @@ Verifique se vê a seguinte mensagem de erro na consola DPM/MABS no momento da c
 
 Para resolver este problema, faça os seguintes passos e redoça a configuração da política.
 
-1. Inscreva-se na página de entrada de Azure que aparece no UI do servidor DPM/MABS utilizando uma conta diferente com acesso a administração na subscrição que terá o trabalho de exportação de importação criado.
+1. Inscreva-se na página de entrada de Azure que aparece no UI do servidor DPM/MABS utilizando uma conta diferente com acesso a administração na subscrição que terá o trabalho de Caixa de Dados criado.
 2. Se nenhum outro servidor tiver sementeira offline configurada e nenhum outro servidor depender da `AzureOfflineBackup_<Azure User Id>` aplicação, então elimine esta aplicação do **portal Azure > registos de Azure Ative Directory > App**.
 
    > [!NOTE]
@@ -242,7 +242,7 @@ Para resolver este problema, faça os seguintes passos e redoça a configuraçã
 
 A partir do servidor DPM/MABS está a tentar configurar a cópia de segurança offline, faça as seguintes ações:
 
-1. Abra o **pedido de certificado de computador Gerir**o  >  separador**pessoal** e procure o certificado com o nome `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
+1. Abra o **pedido de certificado de computador Gerir** o  >  separador **pessoal** e procure o certificado com o nome `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
 2. Selecione o certificado acima, clique com o botão direito **Todas as Tarefas** e **Exporte** sem chave privada, no formato .cer.
 3. Aceda à aplicação de backup offline Azure mencionada no **ponto 2**. Nas **Chaves de Definições**  >  **Keys**  >  **Carrevare a chave pública,** carre faça o upload do certificado exportado no degrau acima.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: e82a377d62184c8ae1d2e8f076b228e36005887a
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1a352849cb5bb8563a7e09500f081139a24e97ea
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992680"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750701"
 ---
 # <a name="what-are-device-templates"></a>O que são modelos de dispositivo?
 
@@ -225,7 +225,7 @@ Este exemplo mostra duas propriedades (uma só leitura e uma writable), um tipo 
 
 - `@type` para especificar o tipo de capacidade: `Telemetry` `Property` , , ou `Command` .  Em alguns casos, o tipo inclui um tipo semântico para permitir que a IoT Central faça algumas suposições sobre como lidar com o valor.
 - `name` para o valor da telemetria.
-- `schema` para especificar o tipo de dados para a telemetria ou a propriedade. Este valor pode ser um tipo primitivo, como duplo, inteiro, booleano ou corda. Os tipos complexos de objetos, matrizes e mapas também são suportados.
+- `schema` para especificar o tipo de dados para a telemetria ou a propriedade. Este valor pode ser um tipo primitivo, como duplo, inteiro, booleano ou corda. Os tipos e mapas complexos de objetos também são suportados.
 
 Os campos opcionais, como o nome do ecrã e a descrição, permitem adicionar mais detalhes à interface e às capacidades.
 
@@ -287,7 +287,7 @@ Um desenvolvedor de soluções cria pontos de vista que permitem aos operadores 
 
 A telemetria, propriedades e comandos que pode adicionar a uma vista são determinados pelo modelo do dispositivo, propriedades na nuvem e personalizações no modelo do dispositivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Como desenvolvedor de dispositivos, agora que aprendeu sobre os modelos do dispositivo, um próximo passo sugerido é ler [telemetria, propriedade e cargas de comando](./concepts-telemetry-properties-commands.md) para saber mais sobre os dados que um dispositivo troca com a IoT Central.
 

@@ -1,15 +1,18 @@
 ---
 title: Descubra, avalie e emigre as instâncias VM da Plataforma Google Cloud (GCP) para Azure
 description: Este artigo descreve como migrar VMs GCP para Azure com Azure Migrate.
+author: deseelam
+ms.author: deseelam
+ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 0093bb453131eb87172021a976b8019a23e445f1
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: ddde352df5fc6063dbe04aa05fe01fca9747f8fa
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302598"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752843"
 ---
 # <a name="discover-assess-and-migrate-google-cloud-platform-gcp-vms-to-azure"></a>Descubra, avalie e emigre os VMs da Google Cloud Platform (GCP) para Azure
 
@@ -378,6 +381,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 - Reveja a secção [de pré-requisitos](#prerequisites) para determinar se existem alterações necessárias para o sistema operativo antes de as migrar para Azure.
 - Recomendamos sempre que faça um teste de migração antes da migração final.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

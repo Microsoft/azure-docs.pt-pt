@@ -1,15 +1,18 @@
 ---
 title: Novidades em Azure Migrate
 description: Saiba mais sobre as novidades e novidades recentes no serviço Azure Migrate.
+author: bsiva
+ms.author: bsiva
+ms.manager: abhemraj
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: ed2347d2d322e272b4fb7f4dfd697f3499419124
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e39b8f7ee7b76a1955e02a7140524f812be086b5
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545179"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752452"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novidades em Azure Migrate
 
@@ -65,17 +68,17 @@ Uma instalação baseada em scripts está agora disponível para configurar o [a
 
 Foram adicionadas várias novidades à Azure Migrate:
 
-- **Avaliação física do servidor** . A avaliação dos servidores físicos no local é agora suportada, além da migração física do servidor que já está suportada.
+- **Avaliação física do servidor**. A avaliação dos servidores físicos no local é agora suportada, além da migração física do servidor que já está suportada.
 - **Avaliação baseada nas importações.** A avaliação das máquinas utilizando metadados e dados de desempenho fornecidos num ficheiro CSV é agora suportada.
-- **Descoberta de aplicações** : A Azure Migrate suporta agora a descoberta ao nível da aplicação de aplicações, funções e funcionalidades que utilizam o aparelho Azure Migrate. Isto é atualmente suportado apenas para VMware VMs, e está limitado apenas à descoberta (a avaliação não é suportada atualmente). [Saiba mais](how-to-discover-applications.md)
-- **Visualização de dependência de agente** : Já não é necessário instalar explicitamente agentes para visualização de dependência. Tanto os agentes como os agentes são agora apoiados.
-- **Ambiente de Trabalho Virtual** : Utilize ferramentas ISV para avaliar e migrar no local infraestruturas de ambiente de trabalho virtuais (VDI) para o Windows Virtual Desktop em Azure.
-- **Aplicação Web** : O Assistente de Migração do Serviço de Aplicações Azure, utilizado para avaliar e migrar aplicações web, está agora integrado no Azure Migrate.
+- **Descoberta de aplicações**: A Azure Migrate suporta agora a descoberta ao nível da aplicação de aplicações, funções e funcionalidades que utilizam o aparelho Azure Migrate. Isto é atualmente suportado apenas para VMware VMs, e está limitado apenas à descoberta (a avaliação não é suportada atualmente). [Saiba mais](how-to-discover-applications.md)
+- **Visualização de dependência de agente**: Já não é necessário instalar explicitamente agentes para visualização de dependência. Tanto os agentes como os agentes são agora apoiados.
+- **Ambiente de Trabalho Virtual**: Utilize ferramentas ISV para avaliar e migrar no local infraestruturas de ambiente de trabalho virtuais (VDI) para o Windows Virtual Desktop em Azure.
+- **Aplicação Web**: O Assistente de Migração do Serviço de Aplicações Azure, utilizado para avaliar e migrar aplicações web, está agora integrado no Azure Migrate.
 
 Foram adicionados novos instrumentos de avaliação e migração à Azure Migrate:
 
-- **Rackware** : Oferecendo migração em nuvem.
-- **Movere** : Avaliação de oferta.
+- **Rackware**: Oferecendo migração em nuvem.
+- **Movere**: Avaliação de oferta.
 
 [Saiba mais](migrate-services-overview.md) sobre a utilização de ferramentas e ofertas isv para avaliação e migração em Azure Migrate.
 
@@ -83,21 +86,21 @@ Foram adicionados novos instrumentos de avaliação e migração à Azure Migrat
 
 A versão atual do Azure Migrate (lançado em julho de 2019) fornece uma série de novas funcionalidades:
 
-- **Plataforma de migração unificada** : A Azure Migrate oferece agora um único portal para centralizar, gerir e acompanhar a sua viagem de migração para Azure, com um melhor fluxo de implementação e experiência no portal.
-- **Ferramentas de avaliação e migração** : A Azure Migrate fornece ferramentas nativas e integra-se com outros serviços Azure, bem como com ferramentas independentes de fornecedor de software (ISV). [Saiba mais](migrate-services-overview.md#isv-integration) sobre a integração do ISV.
-- **Avaliação de Azure Migrate** : Utilizando a ferramenta de avaliação do servidor Azure Migrate, pode avaliar VMware VMs e VMs hiper-V para migração para Azure. Você também pode avaliar para migração usando outros serviços Azure, e ferramentas ISV.
-- **Migração Azure Migrate** : Utilizando a ferramenta de migração do servidor Azure Migrate, pode migrar no local VMware VMs e VMs hiper-V para Azure, bem como servidores físicos, outros servidores virtualizados e VMs de nuvem privada/pública. Além disso, pode migrar para Azure usando ferramentas ISV.
-- **Aparelho Azure Migrate** : A Azure Migrate implanta um aparelho leve para a descoberta e avaliação de VMware VMware e VMs hiper-V no local.
+- **Plataforma de migração unificada**: A Azure Migrate oferece agora um único portal para centralizar, gerir e acompanhar a sua viagem de migração para Azure, com um melhor fluxo de implementação e experiência no portal.
+- **Ferramentas de avaliação e migração**: A Azure Migrate fornece ferramentas nativas e integra-se com outros serviços Azure, bem como com ferramentas independentes de fornecedor de software (ISV). [Saiba mais](migrate-services-overview.md#isv-integration) sobre a integração do ISV.
+- **Avaliação de Azure Migrate**: Utilizando a ferramenta de avaliação do servidor Azure Migrate, pode avaliar VMware VMs e VMs hiper-V para migração para Azure. Você também pode avaliar para migração usando outros serviços Azure, e ferramentas ISV.
+- **Migração Azure Migrate**: Utilizando a ferramenta de migração do servidor Azure Migrate, pode migrar no local VMware VMs e VMs hiper-V para Azure, bem como servidores físicos, outros servidores virtualizados e VMs de nuvem privada/pública. Além disso, pode migrar para Azure usando ferramentas ISV.
+- **Aparelho Azure Migrate**: A Azure Migrate implanta um aparelho leve para a descoberta e avaliação de VMware VMware e VMs hiper-V no local.
     - Este aparelho é utilizado pela Azure Migrate Server Assessment e pela Migração do Servidor Azure Migrate para migração sem agentes.
     - O aparelho descobre continuamente metadados de servidor e dados de desempenho, para efeitos de avaliação e migração.  
-- **VMware VM migração** : A migração do servidor Azure Migrate server fornece um par de métodos para migrar VMware VMs para Azure no local.  Uma migração sem agentes utilizando o aparelho Azure Migrate e uma migração baseada em agentes que utiliza um aparelho de replicação e implanta um agente em cada VM que pretende migrar. [Saiba mais](server-migrate-overview.md)
- - **Avaliação da base de dados e migração** : A partir de Azure Migrate, pode avaliar bases de dados no local para migração para Azure utilizando o Assistente de Migração da Base de Dados de Azure. Pode migrar bases de dados utilizando o Serviço de Migração da Base de Dados Azure.
-- **Migração de aplicativos web** : Você pode avaliar aplicações web usando um URL de ponto final público com o Azure App Service. Para a migração de aplicações internas .NET, pode descarregar e executar o Assistente de Migração do Serviço de Aplicações.
-- **Caixa de Dados** : Importe grandes quantidades de dados offline para Azure usando Azure Data Box em Azure Migrate.
+- **VMware VM migração**: A migração do servidor Azure Migrate server fornece um par de métodos para migrar VMware VMs para Azure no local.  Uma migração sem agentes utilizando o aparelho Azure Migrate e uma migração baseada em agentes que utiliza um aparelho de replicação e implanta um agente em cada VM que pretende migrar. [Saiba mais](server-migrate-overview.md)
+ - **Avaliação da base de dados e migração**: A partir de Azure Migrate, pode avaliar bases de dados no local para migração para Azure utilizando o Assistente de Migração da Base de Dados de Azure. Pode migrar bases de dados utilizando o Serviço de Migração da Base de Dados Azure.
+- **Migração de aplicativos web**: Você pode avaliar aplicações web usando um URL de ponto final público com o Azure App Service. Para a migração de aplicações internas .NET, pode descarregar e executar o Assistente de Migração do Serviço de Aplicações.
+- **Caixa de Dados**: Importe grandes quantidades de dados offline para Azure usando Azure Data Box em Azure Migrate.
 
 ## <a name="azure-migrate-previous-version"></a>Versão anterior do Azure Migrate
 
-Se estiver a utilizar a versão anterior do Azure Migrate (apenas foi suportada a avaliação dos VMS VMware no local), deverá agora utilizar a versão atual. Na versão anterior, já não é possível criar novos projetos Azure Migrate, nem realizar novas descobertas. Ainda pode aceder a projetos existentes. Para isso no portal Azure > **Todos os serviços** , procure **a Azure Migrate.** Nas notificações do Azure Migrate, há um link para aceder a antigos projetos da Azure Migrate.
+Se estiver a utilizar a versão anterior do Azure Migrate (apenas foi suportada a avaliação dos VMS VMware no local), deverá agora utilizar a versão atual. Na versão anterior, já não é possível criar novos projetos Azure Migrate, nem realizar novas descobertas. Ainda pode aceder a projetos existentes. Para isso no portal Azure > **Todos os serviços**, procure **a Azure Migrate.** Nas notificações do Azure Migrate, há um link para aceder a antigos projetos da Azure Migrate.
 
 
 
