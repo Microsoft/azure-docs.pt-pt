@@ -4,12 +4,12 @@ description: Não ver dados em Azure Application Insights? Tente aqui.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 9c053796dd887722d1d767229621c0a1ae004b5c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c3f0350152ece32829291012d583be87a90227cf
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083172"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748944"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Resolução de problemas sem dados - Insights de aplicação para .NET/.NET Core
 
@@ -39,8 +39,36 @@ ms.locfileid: "93083172"
 
 * Consulte [o Monitor de Estado de resolução de problemas](./monitor-performance-live-website-now.md#troubleshoot).
 
+## <a name="filenotfoundexception-could-not-load-file-or-assembly-microsoftaspnet-telemetrycorrelation"></a>FileNotFoundException: Não foi possível carregar ficheiro ou montagem 'Microsoft.AspNet TelemetryCorrelation
+
+Para obter mais informações sobre este erro consulte [edição gitHub 1610 ] https://github.com/microsoft/ApplicationInsights-dotnet/issues/1610) .
+
+Ao atualizar a partir de SDKs mais antigos do que (2.4) é necessário certificar-se de que as seguintes alterações aplicadas `web.config` e `ApplicationInsights.config` :
+
+1. Dois módulos http em vez de um. Em `web.config` você deve ter dois módulos http. A ordem é importante para alguns cenários:
+
+    ``` xml
+    <system.webServer>
+      <modules>
+          <add name="TelemetryCorrelationHttpModule" type="Microsoft.AspNet.TelemetryCorrelation.TelemetryCorrelationHttpModule, Microsoft.AspNet.TelemetryCorrelation" preCondition="integratedMode,managedHandler" />
+          <add name="ApplicationInsightsHttpModule" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" preCondition="managedHandler" />
+      </modules>
+    </system.webServer>
+    ```
+
+2. `ApplicationInsights.config`Além `RequestTrackingTelemetryModule` disso, deverá ter o seguinte módulo de telemetria:
+
+    ``` xml
+    <TelemetryModules>
+      <Add Type="Microsoft.ApplicationInsights.Web.AspNetDiagnosticTelemetryModule, Microsoft.AI.Web"/>
+    </TelemetryModules>
+    ```
+
+***A não atualização correta pode levar a exceções inesperadas ou a não recolha de telemetria.** _
+
+
 ## <a name="no-add-application-insights-option-in-visual-studio"></a><a name="q01"></a>Sem opção 'Adicionar Insights de Aplicação' no Estúdio Visual
-*Quando clico com o botão direito de um projeto existente no Solution Explorer, não vejo nenhuma opção de Insights de Aplicação.*
+_When clicar com o botão direito de um projeto existente no Solution Explorer, não vejo nenhuma opção de Insights de Aplicação.*
 
 * Nem todos os tipos de projeto .NET são suportados pelas ferramentas. Os projetos Web e WCF são apoiados. Para outros tipos de projetos, como aplicações de desktop ou serviço, ainda pode [adicionar um SDK Application Insights ao seu projeto manualmente](./windows-desktop.md).
 * Certifique-se de que tem [Visual Studio 2013 Update 3 ou mais tarde](/visualstudio/releasenotes/vs2013-update3-rtm-vs). Vem pré-instalado com ferramentas Developer Analytics, que fornecem o Application Insights SDK.
@@ -65,7 +93,7 @@ Correção:
 ## <a name="i-get-an-error-instrumentation-key-cannot-be-empty"></a><a name="emptykey"></a>Tenho um erro: "A chave de instrumentação não pode estar vazia"
 Parece que algo correu mal enquanto instalava Insights de Aplicação ou talvez um adaptador de registo.
 
-No Solution Explorer, clique com o botão direito do seu projeto e escolha **Insights de Aplicação > Configure Application Insights** . Receberá um diálogo que o convida a iniciar sessão no Azure e a criar um recurso Application Insights ou a reutilizar um existente.
+No Solution Explorer, clique com o botão direito do seu projeto e escolha **Insights de Aplicação > Configure Application Insights**. Receberá um diálogo que o convida a iniciar sessão no Azure e a criar um recurso Application Insights ou a reutilizar um existente.
 
 ## <a name="nuget-packages-are-missing-on-my-build-server"></a><a name="NuGetBuild"></a> "Pacotes NuGet(s) estão em falta" no meu servidor de construção
 *Tudo se constrói bem quando estou a depurar a minha máquina de desenvolvimento, mas tenho um erro do NuGet no servidor de construção.*
@@ -128,7 +156,7 @@ Correção:
   ![Screenshot que mostra executar a sua aplicação em modo de depuramento no Estúdio Visual.](./media/asp-net-troubleshoot-no-data/output-window.png)
 * No portal Application Insights, abrir [a Pesquisa de Diagnóstico](./diagnostic-search.md). Os dados geralmente aparecem aqui primeiro.
 * Clique no botão Refresh. A lâmina refresca-se periodicamente, mas também pode fazê-lo manualmente. O intervalo de atualização é maior para intervalos de tempo maiores.
-* Verifique se as teclas de instrumentação coincidem. Na lâmina principal da sua aplicação no portal Application Insights, no **drop-down Essentials,** veja a **tecla instrumentação** . Em seguida, no seu projeto no Visual Studio, abra ApplicationInsights.config e encontre o `<instrumentationkey>` . Verifique se as duas chaves são iguais. Se não:  
+* Verifique se as teclas de instrumentação coincidem. Na lâmina principal da sua aplicação no portal Application Insights, no **drop-down Essentials,** veja a **tecla instrumentação**. Em seguida, no seu projeto no Visual Studio, abra ApplicationInsights.config e encontre o `<instrumentationkey>` . Verifique se as duas chaves são iguais. Se não:  
   * No portal, clique em Application Insights e procure o recurso da aplicação com a chave certa; ou
   * No Visual Studio Solution Explorer, clique com o botão direito no projeto e escolha Application Insights, Configure. Reinicie a aplicação para enviar telemetria para o recurso certo.
   * Se não encontrar as teclas correspondentes, verifique se está a usar as mesmas credenciais de inscrição no Visual Studio do que no portal.
@@ -239,7 +267,7 @@ PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-Applica
 ```
 
 Pode modificar estes parâmetros conforme necessário:
-- **MaxCollectSec** . Desacorra este parâmetro para evitar que o PerfView entre a funcionar indefinidamente e afete o desempenho do seu servidor.
+- **MaxCollectSec**. Desacorra este parâmetro para evitar que o PerfView entre a funcionar indefinidamente e afete o desempenho do seu servidor.
 - **Apenas Os Protetores.** Desabroque este parâmetro apenas para recolher registos do SDK. Pode personalizar esta lista com base nas suas investigações específicas. 
 - **NoGui.** Desabrote este parâmetro para recolher registos sem o GUI.
 

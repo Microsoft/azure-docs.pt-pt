@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 66401e048413163af0d96da80a0415ee8f9cbb19
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 95f59b73682e461a350410b38e3a021226cd7db6
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601531"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748693"
 ---
 # <a name="basic-concepts"></a>Basic Concepts (Conceitos Básicos)
 
@@ -100,7 +100,16 @@ Exemplo de JWT gerado para um enclave SGX:
 ```
 Afirmações como "exp", "iat", "iss", "nbf" são definidas pelo [JWT RFC](https://tools.ietf.org/html/rfc7517) e as restantes são geradas pela Azure Attestation. Consulte [as reclamações emitidas pela Azure Attestation](claim-sets.md) para obter mais informações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="encryption-of-data-at-rest"></a>Encriptação de dados em repouso
+
+Para salvaguardar os dados dos clientes, a Azure Attestation persiste nos seus dados no Azure Storage. O armazenamento Azure fornece encriptação de dados em repouso, uma vez que está escrito em centros de dados, e desencripta-os para que os clientes acedam aos mesmos. Esta encriptação ocorre utilizando uma chave de encriptação gerida pela Microsoft. 
+
+Além de proteger dados no armazenamento Azure, a Azure Attestation também aproveita a Encriptação do Disco Azure (ADE) para encriptar vMs de serviço. Para o Azure Attestation que funciona num enclave em ambientes de computação confidencial Azure, a extensão ADE não é suportada atualmente. Nesses cenários, para evitar que os dados sejam armazenados na memória, o ficheiro de página é desativado. 
+
+Não estão a ser persistidos dados dos clientes nas unidades de disco rígido locais da Azure Attestation.
+
+
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como autor e assinar uma política de atestado](author-sign-policy.md)
 - [Configurar a Azure Attestation usando o PowerShell](quickstart-powershell.md)

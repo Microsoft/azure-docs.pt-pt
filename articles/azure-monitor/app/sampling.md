@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 87e33940d927fc9116c03345011e21398384d484
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3ec9718d313e7e8d757eb41c230225bdcf9ebd49
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024420"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96749050"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -33,7 +33,7 @@ O quadro que se segue resume os tipos de amostragem disponíveis para cada SDK e
 | Insights de Aplicação SDK | Amostragem adaptativa suportada | Amostragem de taxa fixa suportada | Amostragem de ingestão suportada |
 |-|-|-|-|
 | ASP.NET | [Sim (on on by default)](#configuring-adaptive-sampling-for-aspnet-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-applications) | Só se nenhuma outra amostragem estiver em vigor |
-| Núcleo de ASP.NET | [Sim (on on by default)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Só se nenhuma outra amostragem estiver em vigor |
+| ASP.NET Core | [Sim (on on by default)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Só se nenhuma outra amostragem estiver em vigor |
 | Funções do Azure | [Sim (on on by default)](#configuring-adaptive-sampling-for-azure-functions) | No | Só se nenhuma outra amostragem estiver em vigor |
 | Java | No | [Sim](#configuring-fixed-rate-sampling-for-java-applications) | Só se nenhuma outra amostragem estiver em vigor |
 | Node.JS | No | [Sim](./nodejs.md#sampling) | Só se nenhuma outra amostragem estiver em vigor
@@ -54,7 +54,7 @@ Existem três métodos de amostragem diferentes:
 * **A amostragem de ingestão** acontece no ponto final do serviço Application Insights. Descarta alguma da telemetria que chega da sua aplicação, a uma taxa de amostragem que definiu. Não reduz o tráfego de telemetria enviado da sua app, mas ajuda-o a manter-se dentro da sua quota mensal. A principal vantagem da amostragem de ingestão é que pode definir a taxa de amostragem sem recolocar a sua app. A amostragem de ingestão funciona uniformemente para todos os servidores e clientes, mas não se aplica quando qualquer outro tipo de amostragem está em funcionamento.
 
 > [!IMPORTANT]
-> Se estiverem em funcionamento métodos de amostragem adaptativos ou fixos, a amostragem de ingestão é desativada.
+> Se forem ativados métodos de amostragem adaptativas ou de taxa fixa para um tipo de telemetria, a amostragem de ingestão é desativada para essa telemetria. No entanto, os tipos de telemetria que estejam excluídos da amostragem ao nível de SDK continuarão a ser sujeitos a uma amostragem de ingestão à taxa definida no portal.
 
 ## <a name="adaptive-sampling"></a>Amostragem adaptativa
 
@@ -586,7 +586,7 @@ A amostragem de taxa fixa é uma característica do SDK em ASP.NET versões a pa
 
 Antes de v2.5.0-beta2 do ASP.NET SDK, e v2.2.0-beta3 de ASP.NET Core SDK, a decisão de amostragem baseou-se no haxixe do ID do utilizador para aplicações que definem "utilizador" (isto é, aplicações web mais típicas). Para os tipos de aplicações que não definiram os utilizadores (como os serviços web) a decisão de amostragem baseou-se na operação ID do pedido. Versões recentes do ASP.NET e ASP.NET Os SDKs core utilizam o ID de operação para a decisão de amostragem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [A filtragem](./api-filtering-sampling.md) pode fornecer um controlo mais rigoroso do que o seu SDK envia.
 * Leia o artigo da Rede de [Desenvolvedores Otimize a Telemetria com Insights de Aplicação](/archive/msdn-magazine/2017/may/devops-optimize-telemetry-with-application-insights).

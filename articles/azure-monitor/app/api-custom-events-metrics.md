@@ -4,12 +4,12 @@ description: Insira algumas linhas de código no seu dispositivo ou aplicação 
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e9f175e2585a5254922c9e859cf5ece2afbbc3e3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d1ed05cd7337a7e82a02b25a2f29d54567b9f9a3
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011354"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748897"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -530,6 +530,9 @@ Se [a amostragem](./sampling.md) estiver em funcionamento, a propriedade itemCou
 ## <a name="trackdependency"></a>Acompanhamento
 
 Utilize a chamada TrackDependency para acompanhar os tempos de resposta e as taxas de sucesso das chamadas para uma peça de código externa. Os resultados aparecem nos gráficos de dependência do portal. O código abaixo precisa de ser adicionado onde quer que seja feita uma chamada de dependência.
+
+> [!NOTE]
+> Para .NET e .NET Core pode utilizar alternativamente o `TelemetryClient.StartOperation` método (extensão) que preenche as `DependencyTelemetry` propriedades necessárias para a correlação e algumas outras propriedades, como a hora de início e a duração, para que não seja necessário criar um temporizador personalizado como nos exemplos abaixo. Para mais informações consulte a secção deste artigo [sobre o rastreio da dependência de saída](https://docs.microsoft.com/azure/azure-monitor/app/custom-operations-tracking#outgoing-dependencies-tracking).
 
 *C#*
 
