@@ -4,12 +4,12 @@ description: A Application Insights realiza uma análise inteligente da telemetr
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 28a32c714618a3b6b0c3126d8060295f134ddc7c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ead71a5ac6e2cfa0df6654c7ba9aa7b5b9238d04
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186240"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763779"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Deteção Inteligente - Anomalias de desempenho
 
@@ -60,7 +60,7 @@ Os e-mails sobre anomalias de desempenho de Smart Detections estão limitados a 
 ## <a name="faq"></a>FAQ
 
 * *Então, o pessoal da Microsoft olha para os meus dados?*
-  * Não. O serviço é totalmente automático. Só recebe as notificações. Os seus dados são [privados.](./data-retention-privacy.md)
+  * N.º O serviço é totalmente automático. Só recebe as notificações. Os seus dados são [privados.](./data-retention-privacy.md)
 * *Analisa todos os dados recolhidos pela Application Insights?*
   * De momento, não. Atualmente, analisamos o tempo de resposta do pedido, o tempo de resposta da dependência e o tempo de carga da página. A análise de métricas adicionais está no nosso atraso olhando para a frente.
 
@@ -76,7 +76,7 @@ Os e-mails sobre anomalias de desempenho de Smart Detections estão limitados a 
 
   * Fazemos a análise diariamente sobre a telemetria do dia anterior (dia inteiro no fuso horário utc).
 * *Isto substitui [os alertas métricos?](../platform/alerts-log.md)*
-  * Não.  Não nos comprometemos a detetar todos os comportamentos que possa supor anormais.
+  * N.º  Não nos comprometemos a detetar todos os comportamentos que possa supor anormais.
 
 
 * *Se eu não fizer nada em resposta a uma notificação, vou receber um lembrete?*
@@ -99,7 +99,7 @@ Onde está o problema? O servidor é lento para responder, a página é muito lo
 
 Abra a lâmina métrica dos Browsers. A exibição segmentada do tempo de carregamento da página do navegador mostra para onde vai o tempo. 
 
-* Se **o tempo de pedido de envio** for elevado, ou o servidor está a responder lentamente, ou o pedido é um post com muitos dados. Veja as [métricas](./web-monitor-performance.md#metrics) de desempenho para investigar os tempos de resposta.
+* Se **o tempo de pedido de envio** for elevado, ou o servidor está a responder lentamente, ou o pedido é um post com muitos dados. Veja as [métricas](./performance-counters.md) de desempenho para investigar os tempos de resposta.
 * Configurar [o rastreio de dependência](./asp-net-dependencies.md) para ver se a lentidão se deve a serviços externos ou à sua base de dados.
 * Se **a Resposta de Receção** for predominante, a sua página e as suas partes dependentes - JavaScript, CSS, imagens e assim por diante (mas não dados carregados assíncronamente) são longos. Configurar um [teste de disponibilidade](./monitor-web-app-availability.md), e certifique-se de definir a opção de carregar peças dependentes. Quando obter alguns resultados, abra o detalhe de um resultado e expanda-o para ver os tempos de carga de diferentes ficheiros.
 * O **tempo elevado de processamento do cliente** sugere que os scripts estão a funcionar lentamente. Se a razão não for óbvia, considere adicionar algum código de tempo e envie os tempos em rastreios Chamadasmétricas.

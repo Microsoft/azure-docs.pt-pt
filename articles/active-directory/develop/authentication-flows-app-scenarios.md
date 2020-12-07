@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 906adb5b9535ee66fd7bc4a22c5c30a86b561547
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 383bdaebaa8a1795a9bfddb7da23e172aea111a0
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910258"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762939"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Fluxos de autenticação e cenários de aplicação
 
@@ -43,7 +43,7 @@ As seguintes secções descrevem as categorias de aplicações.
 Os cenários de autenticação envolvem duas atividades:
 
 - **Aquisição de fichas de segurança para uma API web protegida:** Recomendamos que utilize [bibliotecas de clientes suportadas pela Microsoft](reference-v2-libraries.md#microsoft-supported-client-libraries) para adquirir fichas. Em particular, recomendamos a família microsoft Authentication Library (MSAL).
-- **Proteger uma API web ou uma aplicação web** : Um dos desafios de proteger estes recursos é validar o token de segurança. Em algumas plataformas, a Microsoft oferece [bibliotecas de middleware.](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries)
+- **Proteger uma API web ou uma aplicação web**: Um dos desafios de proteger estes recursos é validar o token de segurança. Em algumas plataformas, a Microsoft oferece [bibliotecas de middleware.](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries)
 
 ### <a name="with-users-or-without-users"></a>Com utilizadores ou sem utilizadores
 
@@ -59,14 +59,14 @@ No entanto, existem também aplicações daemon. Nestes cenários, as aplicaçõ
 
 As fichas de segurança podem ser adquiridas por vários tipos de aplicações. Estas aplicações tendem a ser separadas nas três categorias seguintes. Cada um é usado com diferentes bibliotecas e objetos.
 
-- **Aplicações de página única** : Também conhecidas como SPAs, estas são aplicações web nas quais os tokens são adquiridos por uma aplicação JavaScript ou TypeScript em execução no navegador. Muitas aplicações modernas têm uma aplicação de uma página na parte frontal que está escrita principalmente no JavaScript. A aplicação usa frequentemente uma estrutura como Angular, React ou Vue. MSAL.js é a única biblioteca de autenticação da Microsoft que suporta aplicações de uma só página.
+- **Aplicações de página única**: Também conhecidas como SPAs, estas são aplicações web nas quais os tokens são adquiridos por uma aplicação JavaScript ou TypeScript em execução no navegador. Muitas aplicações modernas têm uma aplicação de uma página na parte frontal que está escrita principalmente no JavaScript. A aplicação usa frequentemente uma estrutura como Angular, React ou Vue. MSAL.js é a única biblioteca de autenticação da Microsoft que suporta aplicações de uma só página.
 
-- **Aplicações de clientes públicos** : Aplicações nesta categoria, como os seguintes tipos, assinam sempre nos utilizadores:
+- **Aplicações de clientes públicos**: Aplicações nesta categoria, como os seguintes tipos, assinam sempre nos utilizadores:
   - Aplicativos de desktop que chamam APIs web em nome de utilizadores inscritos
   - Aplicações móveis
   - Aplicativos em execução em dispositivos que não têm um navegador, como aqueles que estão correndo em IoT
   
-- **Aplicações confidenciais para clientes** : As aplicações nesta categoria incluem:
+- **Aplicações confidenciais para clientes**: As aplicações nesta categoria incluem:
   - Aplicativos web que chamam uma API web
   - APIs web que chamam uma API web
   - Aplicações Daemon, mesmo quando implementadas como um serviço de consola como um daemon Linux ou um serviço Windows
@@ -243,7 +243,7 @@ Os cenários que envolvem a aquisição de fichas também mapeiam para os fluxos
   <tr>
    <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
    <td><a href="v2-oauth2-device-code.md">Código do dispositivo</a></td>
-   <td>Contas escolares ou profissionais</td>
+   <td>Contas de trabalho ou escola, contas pessoais e Azure AD B2C</td>
  </tr>
 
  <tr>

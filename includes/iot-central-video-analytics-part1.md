@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 7246375468b3419c3d52ee3d5a51a95aa20050a9
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 2f3e4bf640b8da31a7fa4d818b94b0372d3026b8
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877204"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763440"
 ---
 A aplicação da amostra inclui dois dispositivos simulados e um gateway IoT Edge. Os seguintes tutoriais mostram duas abordagens para experimentar e compreender as capacidades do portal:
 
@@ -36,6 +36,6 @@ Para completar esta série tutorial, precisa:
 
 ## <a name="initial-setup"></a>Configuração inicial
 
-Nestes tutoriais, atualiza-se e utiliza vários ficheiros de configuração. As versões iniciais destes ficheiros estão disponíveis no repositório [GitHub de gateway LVA.](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway) O repositório também inclui um ficheiro de texto de scratchpad para que possa descarregar e utilizar para registar valores de configuração a partir dos serviços que implementa.
+Nestes tutoriais, atualiza-se e utiliza vários ficheiros de configuração. As versões iniciais destes ficheiros estão disponíveis no repositório [GitHub de gateway LVA.](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway) O repositório inclui um ficheiro de texto [de risco](https://github.com/Azure/live-video-analytics/blob/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt) para que possa descarregar e utilizar para registar valores de configuração a partir dos serviços que implementa. Este ficheiro ajuda-o a completar os passos posteriores nos tutoriais.
 
 Crie uma pasta chamada *configuração de Lva* na sua máquina local para guardar cópias destes ficheiros. Em seguida, clique com o botão direito em cada um dos seguintes links e escolha **Guardar como** guardar o ficheiro na pasta *de configuração de Iva:*

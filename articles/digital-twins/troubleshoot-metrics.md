@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 46e053856b05f5a009eb1ae8bc6a7246dfb6167e
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 5b689ef15c247cea1887948ae271802294bbd0fc
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616693"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763253"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Problemas na resolução de gémeos digitais Azure: Métricas
 
@@ -53,7 +53,7 @@ As tabelas a seguir descrevem as métricas rastreadas por cada instância Azure 
 
 Métricas que têm a ver com pedidos de API:
 
-| Métrica | Nome de exibição métrica | Unidade | Tipo de agregação| Description | Dimensões |
+| Métrica | Nome de exibição métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
 | ApiRequests | Pedidos da API | de palavras | Total | O número de Pedidos de API feitos para Gémeos Digitais lêem, escrevem, apagam e consultam as operações. |  Autenticação, <br>Operação, <br>Protocolo, <br>Código de Estado, <br>Classe código de estado, <br>Texto de estado |
 | ApiRequestsFailureRate | Taxa de falha de pedidos da API | Percentagem | Média | A percentagem de pedidos da API que o serviço recebe, por exemplo, que dão um código de resposta de erro interno (500) para as Gémeas Digitais ler, escrever, excluir e consultar operações. | Autenticação, <br>Operação, <br>Protocolo, <br>Código de Estado, <br>Classe código de estado, <br>Texto de estado
@@ -63,34 +63,33 @@ Métricas que têm a ver com pedidos de API:
 
 Métricas que têm a ver com faturação:
 
->[!NOTE]
->Embora estas métricas ainda apareçam na lista selecionável, permanecerão em zero até que o novo preço do serviço fique disponível. Para saber mais, consulte [*os preços da Azure Digital Twins.*](https://azure.microsoft.com/pricing/details/digital-twins/)
-
-| Métrica | Nome de exibição métrica | Unidade | Tipo de agregação| Description | Dimensões |
+| Métrica | Nome de exibição métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperações | Operações de Faturação da API | de palavras | Total | Métrica de faturação para a contagem de todos os pedidos da API feitos contra o serviço Azure Digital Twins. | ID do medidor |
 | BillingMessagesProcessado | Mensagens de faturação processadas | de palavras | Total | Métrica de faturação para o número de mensagens enviadas da Azure Digital Twins para pontos finais externos.<br><br>Para ser considerada uma única mensagem para efeitos de faturação, uma carga útil não deve ser superior a 1 KB. As cargas superiores a esta serão contadas como mensagens adicionais em incrementos de 1 KB (assim, uma mensagem entre 1 e 2 KB será contada como 2 mensagens, entre 2 e 3 KB serão 3 mensagens, e assim por diante).<br>Esta restrição também se aplica às respostas, pelo que uma chamada que devolve 1.5KB no organismo de resposta, por exemplo, será faturada como 2 operações. | ID do medidor |
 | BillingQueryUnits | Unidades de consulta de faturação | de palavras | Total | O número de Unidades de Consulta, uma medida internamente calculada de utilização de recursos de serviço, consumido para executar consultas. Há também uma API auxiliar disponível para medir Unidades de Consulta: [Classe QueryChargeHelper](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) | ID do medidor |
 
+Para mais detalhes sobre a forma como a Azure Digital Twins é cobrada, consulte [*os preços da Azure Digital Twins.*](https://azure.microsoft.com/pricing/details/digital-twins/)
+
 #### <a name="ingress-metrics"></a>Métricas de entrada
 
 Métricas que têm a ver com a entrada de dados:
 
-| Métrica | Nome de exibição métrica | Unidade | Tipo de agregação| Description | Dimensões |
+| Métrica | Nome de exibição métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| IngresssEvents | Eventos ingressos | de palavras | Total | O número de eventos de telemetria a entrar em Azure Digital Twins. | Resultado |
-| IngressEventsFailureRate | Taxa de falha de eventos ingress | Percentagem | Média | A percentagem de eventos de telemetria de entrada para os quais o serviço devolve um código de resposta de erro interno (500). | Resultado |
-| IngresssEventsLatency | Ingresss Eventos Latência | Milissegundos | Média | O momento em que um evento chega até quando está pronto para ser evacuado pela Azure Digital Twins, altura em que o serviço envia um resultado de sucesso/falha. | Resultado |
+| IngresssEvents | Eventos ingressos | de palavras | Total | O número de eventos de telemetria a entrar em Azure Digital Twins. | Result |
+| IngressEventsFailureRate | Taxa de falha de eventos ingress | Percentagem | Média | A percentagem de eventos de telemetria de entrada para os quais o serviço devolve um código de resposta de erro interno (500). | Result |
+| IngresssEventsLatency | Ingresss Eventos Latência | Milissegundos | Média | O momento em que um evento chega até quando está pronto para ser evacuado pela Azure Digital Twins, altura em que o serviço envia um resultado de sucesso/falha. | Result |
 
 #### <a name="routing-metrics"></a>Métricas de encaminhamento
 
 Métricas que têm a ver com o encaminhamento:
 
-| Métrica | Nome de exibição métrica | Unidade | Tipo de agregação| Description | Dimensões |
+| Métrica | Nome de exibição métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| Mensagens Remadas | Mensagens encaminhada | de palavras | Total | O número de mensagens encaminhada para um serviço Azure de ponto final, como Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Resultado |
-| EncaminhamentoFailureRate | Taxa de falha de encaminhamento | Percentagem | Média | A percentagem de eventos que resultam num erro, uma vez que são encaminhados da Azure Digital Twins para um serviço Azure de ponta, como o Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Resultado |
-| Encaminhamento | Latência de encaminhamento | Milissegundos | Média | O tempo decorreu entre um evento que foi encaminhado de Azure Digital Twins para quando é colocado no serviço endpoint Azure, como Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Resultado |
+| Mensagens Remadas | Mensagens encaminhada | de palavras | Total | O número de mensagens encaminhada para um serviço Azure de ponto final, como Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Result |
+| EncaminhamentoFailureRate | Taxa de falha de encaminhamento | Percentagem | Média | A percentagem de eventos que resultam num erro, uma vez que são encaminhados da Azure Digital Twins para um serviço Azure de ponta, como o Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Result |
+| Encaminhamento | Latência de encaminhamento | Milissegundos | Média | O tempo decorreu entre um evento que foi encaminhado de Azure Digital Twins para quando é colocado no serviço endpoint Azure, como Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Result |
 
 ## <a name="dimensions"></a>Dimensões
 
@@ -102,7 +101,7 @@ As dimensões ajudam a identificar mais detalhes sobre as métricas. Algumas das
 | Operação (para pedidos de API) | Microsoft.DigitalTwins/digitaltwins/delete, <br>Microsoft.DigitalTwins/digitaltwins/write, <br>Microsoft.DigitalTwins/digitaltwins/read, <br>Microsoft.DigitalTwins/eventroutes/read, <br>Microsoft.DigitalTwins/eventroutes/write, <br>Microsoft.DigitalTwins/eventroutes/delete, <br>Microsoft.DigitalTwins/modelos/read, <br>Microsoft.DigitalTwins/models/write, <br>Microsoft.DigitalTwins/models/delete, <br>Microsoft.DigitalTwins/consulta/ação |
 | Tipo de ponto final | Grelha de Eventos, <br>Centro de Eventos, <br>Service Bus |
 | Protocolo | HTTPS |
-| Resultado | Sucesso, <br>Falha |
+| Result | Sucesso, <br>Falha |
 | Código de Estado | 200, 404, 500, e assim por diante. |
 | Classe código de estado | 2xx, 4xx, 5xx, e assim por diante. |
 | Texto de estado | Erro interno do servidor, não encontrado, e assim por diante. |

@@ -7,12 +7,12 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
-ms.openlocfilehash: 82373dcd9e1d55e0c4a5867ddaff6875ee57da5a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cf8b0e1fda03a74d30ec77c911d705bf12cf0126
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147513"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763813"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Resolução de problemas problemas de desempenho de aplicações lentas no Azure App Service
 Este artigo ajuda-o a resolver problemas de desempenho de aplicações lentas no [Azure App Service](./overview.md).
@@ -58,7 +58,7 @@ Algumas das métricas que pode querer monitorizar para a sua aplicação são
 
 ![monitorizar o desempenho da aplicação](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 * [Monitorize aplicativos no Azure App Service](web-sites-monitor.md)
 * [Receber notificações de alerta](../azure-monitor/platform/alerts-overview.md)
@@ -82,7 +82,7 @@ Cada aplicação do Serviço de Aplicações fornece um ponto final de gestão e
 - Editores de código fonte como [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Ferramentas de gestão para recursos conectados, como uma base de dados MySQL ligada a uma aplicação.
 
-[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) é uma extensão do site de monitorização de desempenho que também está disponível. Para utilizar o Application Insights, reconstrói o seu código com um SDK. Também pode instalar uma extensão que dá acesso a dados adicionais. O SDK permite-lhe escrever código para monitorizar o uso e desempenho da sua aplicação com mais detalhes. Para obter mais informações, consulte [o desempenho do Monitor em aplicações web](../azure-monitor/app/web-monitor-performance.md).
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) é uma extensão do site de monitorização de desempenho que também está disponível. Para utilizar o Application Insights, reconstrói o seu código com um SDK. Também pode instalar uma extensão que dá acesso a dados adicionais. O SDK permite-lhe escrever código para monitorizar o uso e desempenho da sua aplicação com mais detalhes. Para obter mais informações, consulte [o desempenho do Monitor em aplicações web](../azure-monitor/app/app-insights-overview.md).
 
 <a name="collect"></a>
 
@@ -133,7 +133,7 @@ Algumas das coisas que Kudu fornece são:
 * configurações de ambiente para a sua aplicação
 * fluxo de log
 * despejo de diagnóstico
-* depurar consola na qual pode executar cmdlets Powershell e comandos básicos DOS.
+* depurar consola na qual pode executar cmdlets PowerShell e comandos básicos DOS.
 
 Outra característica útil da Kudu é que, caso a sua aplicação esteja a lançar exceções de primeira oportunidade, pode usar a Kudu e a ferramenta SysInternals Procdump para criar despejos de memória. Estes despejos de memória são instantâneos do processo e podem muitas vezes ajudá-lo a resolver problemas mais complicados com a sua app.
 
@@ -161,4 +161,4 @@ Reiniciar é muitas vezes a forma mais simples de recuperar de problemas únicos
 
  ![reiniciar app para resolver problemas de desempenho](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-Também pode gerir a sua aplicação usando a Azure Powershell. Para obter mais informações, veja [Using Azure PowerShell with Azure Resource Manager (Utilizar o Azure PowerShell com o Azure Resource Manager)](../azure-resource-manager/management/manage-resources-powershell.md).
+Também pode gerir a sua aplicação utilizando o Azure PowerShell. Para obter mais informações, veja [Using Azure PowerShell with Azure Resource Manager (Utilizar o Azure PowerShell com o Azure Resource Manager)](../azure-resource-manager/management/manage-resources-powershell.md).

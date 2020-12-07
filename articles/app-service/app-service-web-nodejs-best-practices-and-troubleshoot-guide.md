@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: d826b80c11b700d753acc18f8d4c626a65510f93
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 370b84f451e22c20c798018951a7a801e0bba826
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833814"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763949"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Boas práticas e guia de resolução de problemas para aplicações de nó no Azure App Service Windows
 
@@ -140,7 +140,7 @@ let keepaliveAgent = new Agent({
 
 #### <a name="my-node-application-is-consuming-too-much-cpu"></a>O meu pedido de nó está a consumir demasiado CPU
 
-Poderá receber uma recomendação do Azure App Service no seu portal sobre o elevado consumo de CPU. Também pode configurar monitores para observar [determinadas métricas](web-sites-monitor.md). Ao verificar a utilização do CPU no [Painel do Portal Azure,](../azure-monitor/app/web-monitor-performance.md)verifique os valores MAX para CPU para que não perca os valores de pico.
+Poderá receber uma recomendação do Azure App Service no seu portal sobre o elevado consumo de CPU. Também pode configurar monitores para observar [determinadas métricas](web-sites-monitor.md). Ao verificar a utilização do CPU no painel de instrumentos do [portal Azure,](../azure-monitor/platform/metrics-charts.md)verifique os valores MAX para CPU para que não perca os valores de pico.
 Se acredita que a sua aplicação está a consumir demasiado CPU e não consegue explicar porquê, pode perfilar a sua aplicação de nó para descobrir.
 
 #### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Perfilar a sua aplicação de nó no Azure App Service com V8-Profiler
@@ -213,7 +213,7 @@ Pode ver que 95% do tempo foi consumido pela função WriteConsoleLog. A saída 
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>A minha aplicação de nó está a consumir demasiada memória.
 
-Se a sua aplicação estiver a consumir demasiada memória, vê um aviso do Azure App Service no seu portal sobre o consumo elevado de memória. Pode configurar monitores para observar [determinadas métricas.](web-sites-monitor.md) Ao verificar a utilização da memória no Painel de Instrumentos do [Portal Azure,](../azure-monitor/app/web-monitor-performance.md)certifique-se de verificar os valores MAX para não perder os valores de pico.
+Se a sua aplicação estiver a consumir demasiada memória, vê um aviso do Azure App Service no seu portal sobre o consumo elevado de memória. Pode configurar monitores para observar [determinadas métricas.](web-sites-monitor.md) Ao verificar a utilização da memória no painel de instrumentos do [portal Azure,](../azure-monitor/platform/metrics-charts.md)certifique-se de verificar os valores MAX para não perder os valores de pico.
 
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Deteção de fugas e heap diff para node.js
 

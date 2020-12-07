@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 12/07/2020
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaa8b586b7d1ae073d0746569d61de837eec3b7d
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 620b696be0b9a06cf0d68145b06e3cacf2bedff2
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743875"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762555"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Reposição personalizada de palavra-passe do AAD
 
@@ -69,11 +69,8 @@ Para começar com a SSPR, complete o seguinte tutorial:
 > [!div class="nextstepaction"]
 > [Tutorial: Permitir o reset da palavra-passe de autosserviço (SSPR)](tutorial-enable-sspr.md)
 
-## <a name="registration-options"></a>Opções de inscrição
 
-Antes de os utilizadores poderem redefinir ou alterar a sua palavra-passe utilizando o SSPR, devem registar-se e os métodos de autenticação a utilizar. Como mencionado na secção anterior, um utilizador deve estar registado para SSPR, e ter uma licença adequada aplicada.
-
-### <a name="require-users-to-register-when-they-sign-in"></a>Exigir que os utilizadores se registem quando se inscrevem
+## <a name="require-users-to-register-when-they-sign-in"></a>Exigir que os utilizadores se registem quando se inscrevem
 
 Pode ativar a opção de exigir que um utilizador preencha o registo SSPR se iniciar súm em quaisquer aplicações usando Azure AD. Este fluxo de trabalho inclui as seguintes aplicações:
 
@@ -92,7 +89,7 @@ Quando não necessita de registo, os utilizadores não são solicitados durante 
 >
 > Esta interrupção para se registar para SSPR não quebra a ligação do utilizador se já estiverem assinadas.
 
-### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Definir o número de dias antes de os utilizadores serem convidados a reconfirmar as suas informações de autenticação
+## <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Definir o número de dias antes de os utilizadores serem convidados a reconfirmar as suas informações de autenticação
 
 Para garantir que os métodos de autenticação estão corretos quando são necessários para redefinir ou alterar a sua palavra-passe, pode exigir que os utilizadores confirmem as suas informações registadas após um determinado período de tempo. Esta opção só está disponível se permitir que os **utilizadores do Requererem** o registo ao assinarem na opção.
 

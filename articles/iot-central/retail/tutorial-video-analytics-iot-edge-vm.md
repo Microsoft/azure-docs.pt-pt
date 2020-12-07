@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 23173432db9364f25901e6e9b285d390c6a63a34
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: f798e65b1517430bc67af793ebb517c586d5d58f
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426550"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763881"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Tutorial: Criar uma instância IoT Edge para análise de vídeo (Linux VM)
 
@@ -51,15 +51,15 @@ Utilize as informações na tabela seguinte para completar o **formulário de im
 | Subscrição | Selecione a sua subscrição do Azure. |
 | Grupo de recursos | *Lva-rg* - o grupo de recursos que criou no tutorial anterior. |
 | Região       | *E.U.A. Leste* |
-| Prefixo da etiqueta do rótulo de DNS | Escolha um prefixo DNS único para o VM. |
+| Prefixo da etiqueta do rótulo de DNS | Escolha um prefixo DNS único para o VM. Devem ser todos os caracteres alfabéticos, sem dígitos ou caracteres especiais. |
 | Nome de utilizador Admin | *AzureUser* |
 | Palavra-passe de Administrador | Introduza uma senha. Tome nota da palavra-passe no ficheiro *scratchpad.txt,* use-a mais tarde. |
 | ID de Âmbito | O **ID de âmbito** que fez uma nota no ficheiro *scratchpad.txt* no tutorial anterior quando adicionou o dispositivo gateway. |
 | ID do Dispositivo | *gateway-001* - o dispositivo de gateway que criou no tutorial anterior. |
-| Chave do dispositivo | A chave primária do dispositivo que fez uma nota no ficheiro *scratchpad.txt* no tutorial anterior quando adicionou o dispositivo gateway. |
+| Chave do dispositivo | A **chave primária** do dispositivo que fez uma nota no ficheiro *scratchpad.txt* no tutorial anterior quando adicionou o dispositivo gateway. |
 | Anfitrião de aplicativos Iot Central | O **URL de aplicação** que fez uma nota no ficheiro *scratchpad.txt* no tutorial anterior. Por exemplo, *traders.azureiotcentral.com.* |
-| Iot Central App Api Token | O token da API da operadora fez uma nota no tutorial anterior. |
-| Chave de provisionamento de dispositivos centrais Iot | O símbolo de assinatura de acesso partilhado do grupo principal que fez uma nota no ficheiro *scratchpad.txt* no tutorial anterior. |
+| Iot Central App Api Token | O **token da API** da operadora que fez uma nota no ficheiro *scratchpad.txt* no tutorial anterior. |
+| Chave de provisionamento de dispositivos centrais Iot | A **chave primária do grupo SAS-IoT-Devices** fez uma nota no ficheiro *scratchpad.txt* no tutorial anterior. |
 | Tamanho da VM | *Standard_DS1_v2* |
 | Versão Ubuntu OS | *18.04-LTS* |
 | Localização | *[grupo de recursos().localização]* |

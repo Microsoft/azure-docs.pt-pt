@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: 1ab6f5e9c7b602ce124116c02584c5a48a3f597f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7c1b9ad033ade3b577dc4a06e84801dab3b7eb70
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999982"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763966"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar uma app de Serviço de Aplicações no portal Azure
 
@@ -29,7 +29,7 @@ No menu esquerdo da aplicação, selecione **Configuration**  >  **configuraçõ
 
 ![Definições de Aplicação](./media/configure-common/open-ui.png)
 
-Para ASP.NET e ASP.NET os desenvolvedores do Core, configurar as definições de aplicações no Serviço de Aplicações é como defini-las `<appSettings>` em *Web.config* ou *appsettings.jsem*, mas os valores no Serviço de Aplicações substituem os *deWeb.config* ou *appsettings.jsem*. Pode manter as definições de desenvolvimento (por exemplo, a palavra-passe local do MySQL) em *Web.config* ou *appsettings.js,* mas os segredos de produção (por exemplo, palavra-passe da base de dados Azure MySQL) são seguros no Serviço de Aplicações. O mesmo código utiliza as definições de desenvolvimento quando depura localmente, e utiliza os seus segredos de produção quando implantado no Azure.
+Para ASP.NET e ASP.NET os desenvolvedores do Core, configurar as definições de aplicações no Serviço de Aplicações é como defini-las `<appSettings>` em *Web.config* ou *appsettings.jsem*, mas os valores no Serviço de Aplicações substituem os *deWeb.config* ou *appsettings.jsem*. Pode manter as definições de desenvolvimento (por exemplo, a palavra-passe local do MySQL) em *Web.config* ouappsettings.jse segredos *de* produção (por exemplo, palavra-passe de base de dados Azure MySQL) seguros no Serviço de Aplicações. O mesmo código utiliza as definições de desenvolvimento quando depura localmente, e utiliza os seus segredos de produção quando implantado no Azure.
 
 Outras pilhas linguísticas, igualmente, obtêm as configurações da aplicação como variáveis ambientais no tempo de execução. Para etapas específicas de pilha de linguagem, consulte:
 

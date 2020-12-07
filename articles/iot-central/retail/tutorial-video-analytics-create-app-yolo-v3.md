@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 10/06/2020
-ms.openlocfilehash: 3994b05f613cbebcf6daa05cf8db3ef429b52407
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: ecc32908aea2fb474d2ebe5bd94f556527eda814
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428067"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763451"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central-yolo-v3"></a>Tutorial: Criar uma aplicação de análise de vídeo - aplicação de deteção de objetos e movimentos no Azure IoT Central (YOLO v3)
 
@@ -24,10 +24,10 @@ Como construtor de soluções, aprenda a criar uma aplicação de análise de v�
 
 [!INCLUDE [iot-central-video-analytics-part1](../../../includes/iot-central-video-analytics-part1.md)]
 
-- [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt)
+- [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt) - este ficheiro ajuda-o a gravar as várias opções de configuração de que necessita enquanto trabalha através destes tutoriais.
 - [deployment.amd64.js](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/deployment.amd64.json)
 - [LvaEdgeGatewayDcm.js](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/LvaEdgeGatewayDcm.json)
-- [state.js](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/state.json)
+- [state.jsligado](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/state.json) - só precisa de descarregar este ficheiro se pretender utilizar o dispositivo Intel NUC no segundo tutorial.
 
 > [!NOTE]
 > O repositório GitHub também inclui o código fonte para os módulos **LvaEdgeGatewayModule** e **LvaYolov3** IoT Edge. Para obter mais informações sobre o trabalho com o código fonte, consulte os [Módulos de Gateway Build the LVA](tutorial-video-analytics-build-module.md).
@@ -42,7 +42,7 @@ Para preparar o manifesto de implantação:
 
 1. Abra a *deployment.amd64.jsno* ficheiro, que guardou na pasta *de configuração de Iva,* utilizando um editor de texto.
 
-1. Encontre as `LvaEdgeGatewayModule` definições e altere o nome da imagem como mostrado no seguinte corte:
+1. Encontre as `LvaEdgeGatewayModule` definições e certifique-se de que o nome da imagem está como mostrado no seguinte corte:
 
     ```json
     "LvaEdgeGatewayModule": {
@@ -50,7 +50,7 @@ Para preparar o manifesto de implantação:
             "image": "mcr.microsoft.com/lva-utilities/lva-edge-iotc-gateway:1.0-amd64",
     ```
 
-1. Adicione o nome da sua conta de Media Services no `env` nó na `LvaEdgeGatewayModule` secção. Fez uma nota deste nome da conta no ficheiro *scratchpad.txt:*
+1. Adicione o nome da sua conta de Media Services no `env` nó na `LvaEdgeGatewayModule` secção. Fez uma nota do nome da conta dos Serviços de Comunicação social no ficheiro *scratchpad.txt:*
 
     ```json
     "env": {
@@ -58,7 +58,7 @@ Para preparar o manifesto de implantação:
             "value": "lvaEdge"
         },
         "amsAccountName": {
-            "value": "<YOUR_AZURE_MEDIA_ACCOUNT_NAME>"
+            "value": "<YOUR_AZURE_MEDIA_SERVICES_ACCOUNT_NAME>"
         }
     }
     ```
@@ -67,7 +67,16 @@ Para preparar o manifesto de implantação:
 
     O `azureMediaServicesArmId` **ID de recursos** que fez uma nota no ficheiro *scratchpad.txt* quando criou a conta dos Serviços de Comunicação Social.
 
-    Fez uma nota do `aadTenantId` ficheiro , e no ficheiro `aadServicePrincipalAppId`scratchpad.txtquando criou o principal serviço para a sua conta de Media `aadServicePrincipalSecret` Services: *scratchpad.txt*
+    A tabela a seguir mostra os valores da **API de Serviços de Ligação a Meios de Comunicação Social (JSON)** no ficheiro *scratchpad.txt* que deve utilizar no manifesto de implantação:
+
+    | Manifesto de implementação       | Raspadinha  |
+    | ------------------------- | ----------- |
+    | aadTenantId               | AadTenantId |
+    | aadServicePrincipalAppId  | AadClientId |
+    | aadServicePrincipalSecret | AadSecret   |
+
+    > [!CAUTION]
+    > Utilize a tabela anterior para se certificar de que adiciona os valores corretos no manifesto de implantação, caso contrário o dispositivo não funcionará.
 
     ```json
     {

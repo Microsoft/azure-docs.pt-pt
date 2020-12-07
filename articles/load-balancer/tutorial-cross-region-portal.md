@@ -7,18 +7,18 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 11/24/2020
-ms.openlocfilehash: fe335b00df23ff132ad61b27efd733d195ee3bfb
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7ee203595a796529ae0aefe8b0c52a689ac29968
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96031485"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762334"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Tutorial: Criar um balanceador de carga azure cross-region usando o portal Azure
 
 Um equilibrador de carga transversal garante que um serviço está disponível globalmente em várias regiões de Azure. Se uma região falhar, o tráfego é encaminhado para o próximo e mais próximo e saudável equilibrador regional de carga.  
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar balanceador de carga entre regiões.
@@ -27,6 +27,10 @@ Neste tutorial, vai aprender a:
 > * Teste o equilibrador de carga.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+> [!IMPORTANT]
+> Cross-region Azure Load Balancer está atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,8 +41,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-in-to-azure-portal"></a>Iniciar sessão no portal do Azure
 
-> [!IMPORTANT]
-> O equilibrador de carga cross-region está atualmente em pré-visualização e escondido no portal de pré-visualização.  Iniciar sposição **https://preview.portal.azure.com/?feature.globallb=true** para visualizar e implementar a funcionalidade.
+[Inscreva-se no](https://preview.portal.azure.com) portal de pré-visualização do Azure.
 
 ## <a name="create-cross-region-load-balancer"></a>Criar balanceador de carga entre regiões
 
@@ -53,7 +56,7 @@ Nesta secção, você vai criar um balanceador de carga transversal e endereço 
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | **Selecione Criar novo** e **introduza CreateCRLBTutorial-rg** na caixa de texto.|
     | Nome                   | Insira **myLoadBalancer-CR**                                   |
-    | Region         | Selecione **West US**.                                        |
+    | Região         | Selecione **West US**.                                        |
     | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **Standard** |
     | Escalão de serviço           | Selecione **Global** |

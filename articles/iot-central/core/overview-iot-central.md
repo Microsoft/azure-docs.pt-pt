@@ -7,13 +7,13 @@ ms.date: 11/23/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
-ms.openlocfilehash: 55f187781a0f11417b0c918034dcfe3362be4468
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: mvc, contperfq2
+ms.openlocfilehash: 847fc5345708dc313f706fcb0d370b0d1761aa41
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457670"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763711"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é o Azure IoT Central?
 
@@ -34,7 +34,7 @@ Este artigo descreve, para a IoT Central:
 
 A documentação da IoT Central refere-se a quatro personalidades que interagem com uma aplicação IoT Central:
 
-- Um _construtor de soluções_ é responsável por [definir os tipos de dispositivos](howto-set-up-template.md) que se ligam à aplicação e personalizar a aplicação para o operador.
+- Um _construtor de soluções_ é responsável pela [criação de uma aplicação,](quick-deploy-iot-central.md) [configurando regras e ações,](quick-configure-rules.md) [definindo integrações com outros serviços](howto-export-data.md), e personalizar ainda mais a aplicação para operadores e desenvolvedores de dispositivos.
 - Um _operador_ [gere os dispositivos ligados](howto-manage-devices.md) à aplicação.
 - Um _administrador_ é responsável por tarefas administrativas como gerir [funções de utilizador e permissões](howto-administer.md) dentro da aplicação.
 - Um _desenvolvedor de dispositivos_ [cria o código que funciona num dispositivo](concepts-telemetry-properties-commands.md) ou [módulo IoT Edge](concepts-iot-edge.md) ligado à sua aplicação.

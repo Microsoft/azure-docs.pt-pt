@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 85fd5a4246e891ef6640438b07e12a9c32ad12fa
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ac75a5b0b59a06855b7ee88d971c269ca915e429
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094555"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763170"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Azure Digital Twins alta disponibilidade e recuperação de desastres
 
@@ -28,7 +28,7 @@ Você também pode ver a secção [*de Boas Práticas*](#best-practices) para or
 
 ## <a name="intra-region-ha"></a>HA intrarregião
  
-A Azure Digital Twins fornece HA intrarregião implementando despedimentos dentro do serviço. **Não são necessários trabalhos adicionais pelos desenvolvedores de uma solução Azure Digital Twins para tirar partido destas funcionalidades HA.** Apesar de a Azure Digital Twins oferecer uma garantia de tempo elevado razoavelmente elevada, ainda se podem esperar falhas transitórias, como em qualquer plataforma de computação distribuída. Devem ser incorporadas políticas de reedição adequadas aos componentes que interagem com uma aplicação em nuvem para lidar com falhas transitórias.
+A Azure Digital Twins fornece HA intrarregião implementando despedimentos dentro do serviço. Isto reflete-se no [serviço SLA](https://azure.microsoft.com/support/legal/sla/digital-twins) para o tempo de paragem. **Não são necessários trabalhos adicionais pelos desenvolvedores de uma solução Azure Digital Twins para tirar partido destas funcionalidades HA.** Apesar de a Azure Digital Twins oferecer uma garantia de tempo elevado razoavelmente elevada, ainda se podem esperar falhas transitórias, como em qualquer plataforma de computação distribuída. Devem ser incorporadas políticas de reedição adequadas aos componentes que interagem com uma aplicação em nuvem para lidar com falhas transitórias.
 
 ## <a name="cross-region-dr"></a>Região transversal DR
 

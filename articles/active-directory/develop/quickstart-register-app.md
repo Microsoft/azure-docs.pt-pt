@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperfq1, contentperfq2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: ed4e3c54bd4aa6be314fe7ec12d6ba6e7cf949d9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 860cd24c623cb6db407c82aa81e2c3662da289ed
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083325"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762980"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Quickstart: Registar uma aplicação com a plataforma de identidade microsoft
 
@@ -37,20 +37,20 @@ O registo da sua aplicação estabelece uma relação de confiança entre a sua 
 Siga estes passos para criar o registo da aplicação:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/quickstart-register-app/portal-01-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
-1. Procure e selecione **Azure Active Directory** .
-1. Em **Gestão** , selecione **registos de Aplicações,** em seguida, **Novo registo** .
+1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
+1. Procure e selecione **Azure Active Directory**.
+1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
 1. Insira um **Nome** para a sua inscrição. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
-1. Especificar quem pode utilizar a aplicação, por vezes referida como *o público de inscrição* .
+1. Especificar quem pode utilizar a aplicação, por vezes referida como *o público de inscrição*.
 
-    | Tipos de conta suportados | Description |
+    | Tipos de conta suportados | Descrição |
     |-------------------------|-------------|
     | **Contas apenas neste diretório organizacional** | Selecione esta opção se estiver a construir uma aplicação para uso apenas pelos utilizadores (ou hóspedes) no *seu* inquilino.<br><br>Muitas vezes chamado de aplicação *line-of-business* (LOB), esta é uma aplicação **de inquilino único** na plataforma de identidade da Microsoft. |
     | **Contas em qualquer diretório organizacional** | Selecione esta opção se quiser que os utilizadores de *qualquer* inquilino AZure AD possam usar a sua aplicação. Esta opção é apropriada se, por exemplo, estiver a construir uma aplicação de software-as-a-service (SaaS) que pretende fornecer a várias organizações.<br><br>Isto é conhecido como uma aplicação **multi-inquilino** na plataforma de identidade da Microsoft. |
     | **Contas em qualquer diretório organizacional e contas Microsoft pessoais** | Selecione esta opção para visar o maior conjunto de clientes.<br><br>Ao selecionar esta opção, está a registar uma aplicação **multi-inquilino** que também pode suportar utilizadores com **contas pessoais da Microsoft** (MSA). |
     | **Contas pessoais da Microsoft** | Selecione esta opção se estiver a construir uma aplicação para utilização apenas por utilizadores com contas pessoais da Microsoft. As contas pessoais da Microsoft incluem contas Skype, Xbox, Live e Hotmail. |
 
-1. Não introduza nada para **Redirecionar URI (opcional)** , configurará um na secção seguinte.
+1. Não introduza nada para **Redirecionar URI (opcional)**, configurará um na secção seguinte.
 1. Selecione **Registar-se** para completar o registo inicial da aplicação.
 
     :::image type="content" source="media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Screenshot do portal Azure num navegador web mostrando ao Registo um painel de aplicações.":::
@@ -59,7 +59,7 @@ Quando o registo termina, o portal Azure exibe o painel **de visão geral** do r
 
 O código da sua aplicação, ou mais tipicamente uma biblioteca de autenticação utilizada na sua aplicação, também utiliza o ID do cliente como um aspeto na validação dos fichas de segurança que recebe da plataforma de identidade.
 
-:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Screenshot do portal Azure num navegador web mostrando ao Registo um painel de aplicações.":::
+:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Screenshot do portal Azure num navegador web mostrando o painel de visão geral de um registo de aplicações.":::
 
 ## <a name="add-a-redirect-uri"></a>Adicione um URI de redirecionamento
 
@@ -76,19 +76,19 @@ As definições para cada tipo de aplicação, incluindo URIs de redirecionament
 Para configurar as definições de aplicações com base na plataforma ou dispositivo que está a direcionar:
 
 1. Selecione a sua candidatura em **registos de Aplicações** no portal Azure.
-1. Em **Gestão** , **selecione Autenticação** .
-1. Nas **configurações da Plataforma** , selecione Adicionar uma **plataforma** .
+1. Em **Gestão**, **selecione Autenticação**.
+1. Nas **configurações da Plataforma**, selecione Adicionar uma **plataforma**.
 1. Nas **plataformas Configure,** selecione o azulejo para o seu tipo de aplicação (plataforma) para configurar as suas definições.
 
-    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Screenshot do portal Azure num navegador web mostrando ao Registo um painel de aplicações." border="false":::
+    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Screenshot do painel de configuração da Plataforma no portal Azure" border="false":::
 
     | Plataforma | Definições de configuração |
     | -------- | ---------------------- |
     | **Web** | Introduza um **URI de redirecionamento** para a sua aplicação, o local onde a plataforma de identidade da Microsoft redireciona o cliente de um utilizador e envia fichas de segurança após a autenticação.<br/><br/>Selecione esta plataforma para aplicações web padrão que são executadas num servidor. |
     | **Aplicação de página única** | Introduza um **URI de redirecionamento** para a sua aplicação, o local onde a plataforma de identidade da Microsoft redireciona o cliente de um utilizador e envia fichas de segurança após a autenticação.<br/><br/>Selecione esta plataforma se estiver a construir uma aplicação web do lado do cliente no JavaScript ou com uma estrutura como Angular, Vue.js, React.js ou Blazor WebAssembly. |
     | **iOS / macOS** | Introduza o **ID do pacote de** aplicações, encontrado no XCode em *Info.plist* ou Build Settings.<br/><br/>Um URI de redirecionamento é gerado para si quando especifica um Bundle ID. |
-    | **Android** | Introduza o **nome do pacote** de aplicações , que pode encontrar no ficheiro *AndroidManifest.xml,* e gerar e introduzir o **hash Signature** .<br/><br/>Um URI de redirecionamento é gerado para si quando especifica estas definições. |
-    | **Aplicações móveis e desktop** | Selecione um dos **URIs de redirecionamento sugerido** ou especifique um **URI de redirecionamento personalizado** .<br/>Para aplicações de desktop, recomendamos:<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Selecione esta plataforma para aplicações móveis que não estejam a usar a mais recente Biblioteca de Autenticação da Microsoft (MSAL) ou que não estejam a utilizar um corretor. Selecione também esta plataforma para aplicações de desktop. |
+    | **Android** | Introduza o **nome do pacote** de aplicações , que pode encontrar no ficheiro *AndroidManifest.xml,* e gerar e introduzir o **hash Signature**.<br/><br/>Um URI de redirecionamento é gerado para si quando especifica estas definições. |
+    | **Aplicações móveis e desktop** | Selecione um dos **URIs de redirecionamento sugerido** ou especifique um **URI de redirecionamento personalizado**.<br/>Para aplicações de desktop, recomendamos:<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Selecione esta plataforma para aplicações móveis que não estejam a usar a mais recente Biblioteca de Autenticação da Microsoft (MSAL) ou que não estejam a utilizar um corretor. Selecione também esta plataforma para aplicações de desktop. |
 1. Selecione **Configurar** para completar a configuração da plataforma.
 
 ### <a name="redirect-uri-restrictions"></a>Redirecionar as restrições URI
@@ -101,16 +101,16 @@ As credenciais são utilizadas por aplicações confidenciais de clientes que ac
 
 Pode adicionar certificados e segredos de cliente (uma cadeia) como credenciais ao registo confidencial da aplicação do seu cliente.
 
-:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Screenshot do portal Azure num navegador web mostrando ao Registo um painel de aplicações.":::
+:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Screenshot do portal Azure mostrando o painel de certificados e segredos em um registo de App":::
 
 ### <a name="add-a-certificate"></a>Adicione um certificado
 
 Por vezes chamados de *chave pública,* os certificados são o tipo de credencial recomendado, uma vez que fornecem um nível de garantia mais elevado do que o segredo de um cliente.
 
 1. Selecione a sua candidatura em **registos de Aplicações** no portal Azure.
-1. Selecione **certificados & segredos**  >  **Enviar certificado de upload** .
+1. Selecione **certificados & segredos**  >  **Enviar certificado de upload**.
 1. Selecione o ficheiro que pretende carregar. Tem de ser do tipo .cer, .pem ou .crt.
-1. Selecione **Adicionar** .
+1. Selecione **Adicionar**.
 
 ### <a name="add-a-client-secret"></a>Adicione um segredo de cliente
 
@@ -120,7 +120,7 @@ O segredo do cliente, também conhecido como senha de *aplicação,* é um valor
 1. Selecione **Certificados & segredos**  >   **Novo segredo do cliente.**
 1. Adicione uma descrição do segredo do cliente.
 1. Selecione uma duração.
-1. Selecione **Adicionar** .
+1. Selecione **Adicionar**.
 1. **Grave o valor de** utilização do segredo no código de aplicação do seu cliente - *nunca mais* é exibido depois de deixar esta página.
 
 ## <a name="next-steps"></a>Passos seguintes

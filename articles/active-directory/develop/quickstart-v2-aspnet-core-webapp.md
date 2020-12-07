@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 98d2b4ed4b0d3cef2cde156dc05ebb314edff365
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 085ebcc147082ac78de9f8b97c810dee5bb1e96a
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592265"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762810"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Quickstart: Adicione o início de sôs-in com a Microsoft a uma aplicação web core ASP.NET
 
@@ -45,19 +45,19 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: registar e configurar manualmente a aplicação e o exemplo de código
 >
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
-> Para registar a sua aplicação e adicionar manualmente as informações de registo da aplicação à sua solução, siga estes passos:
+> Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução manualmente, siga os passos a seguir:
 >
 > 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 > 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 > 1. Procure e selecione **Azure Active Directory**.
-> 1. Em **Gestão** , selecione **registos de Aplicações,** em seguida, **Novo registo**.
+> 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
 > 1. Introduza um **Nome** para a sua aplicação, por `AspNetCore-Quickstart` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
 > 1. Insira um **URI redirecionado** de `https://localhost:44321/`
 > 1. Selecione **Registar**.
-> 1. Em **Gestão** , **selecione Autenticação**.
-> 1. Em **Redirecionar URIs** , selecione **Add URI** , e, em seguida, insira `https://localhost:44321/signin-oidc`
+> 1. Em **Gestão**, **selecione Autenticação**.
+> 1. Em **Redirecionar URIs**, selecione **Add URI**, e, em seguida, insira `https://localhost:44321/signin-oidc`
 > 1. Insira um **URL logout** de `https://localhost:44321/signout-oidc`
-> 1. Em **Concessão implícita** , selecione **Tokens de ID**.
+> 1. Em **Concessão implícita**, selecione **Tokens de ID**.
 > 1. Selecione **Guardar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -100,14 +100,14 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 >    - Substitua `Enter_the_Application_Id_here` pelo ID de **Aplicação (cliente)** da aplicação que registou no portal Azure. Pode encontrar **iD de aplicação (cliente)** na **página** geral da aplicação.
 >    - Substitua `common` por uma das seguintes:
 >       - Se a sua candidatura apoiar **apenas neste diretório organizacional,** substitua este valor pelo **ID do Diretório (inquilino)** (um **GUIADO)** ou nome de inquilino (por exemplo, `contoso.onmicrosoft.com` ). Pode encontrar o ID do **Diretório (inquilino)** na **página** geral da aplicação.
->       - Se a sua aplicação suportar **Contas em qualquer diretório organizacional** , substitua este valor por `organizations`
+>       - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
 >       - Se a sua aplicação suportar **todos os utilizadores da conta microsoft,** deixe este valor como `common`
 >
 > Para este arranque rápido, não altere quaisquer outros valores no *appsettings.jsno* ficheiro.
 >
 > #### <a name="step-4-build-and-run-the-application"></a>Passo 4: compilar e executar a aplicação
 >
-> Construa e execute a aplicação no Visual Studio selecionando o menu **Debug** > **Start Debugging** , ou premindo a `F5` chave.
+> Construa e execute a aplicação no Visual Studio selecionando o menu **Debug** > **Start Debugging**, ou premindo a `F5` chave.
 >
 > É solicitado para as suas credenciais, e depois solicitado para consentir com as permissões que a sua aplicação requer. **Selecione Aceite** na solicitação de consentimento.
 >

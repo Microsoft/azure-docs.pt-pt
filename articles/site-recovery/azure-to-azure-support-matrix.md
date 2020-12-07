@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs do Azure para 
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: f0aebd09c06677aeba7cddda246e3e37992e0d9e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8123dbc18ad2fc162b9b92ae40920417e6b874ce
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485285"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763286"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação após desastre de VMs do Azure entre regiões do Azure
 
@@ -102,7 +102,7 @@ Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.
 CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10 </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, [7.8](https://support.microsoft.com/help/4564347/), [versão 7.9 pré-GA](https://support.microsoft.com/help/4578241/), versão 7.9 GA é suportada a partir de 9.37 hot fix patch** </br> 8.0, 8.1, [8.2](https://support.microsoft.com/en-us/help/4570609), [8.3](https://support.microsoft.com/help/4597409/)
 Ubuntu 14.04 LTS Server | Inclui suporte para todos os 14.04. *versões x;* [Versões de kernel suportadas;](#supported-ubuntu-kernel-versions-for-azure-virtual-machines) 
 Ubuntu 16.04 LTS Server | Inclui suporte para todos os 16.04. *versões x;* [Versão suportada do núcleo](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Os servidores Ubuntu que utilizam a autenticação e o sinstrução baseados em palavras-passe, e o pacote de init de nuvem para configurar VMs em nuvem, podem ter sinal baseado em palavra-passe desativado na falha (dependendo da configuração do cloudinit). O sessão baseado em palavra-passe pode ser re-activado na máquina virtual, repondo a palavra-passe a partir do menu 'Resolução de problemas >' > de resolução de problemas (do que falhou em VM no portal Azure).
-Ubuntu 18.04 LTS Server | Inclui suporte para todos os 18.04. *versões x;* [Versão suportada do núcleo](#supported-ubuntu-kernel-versions-for-azure-virtual-machines) |
+Ubuntu 18.04 LTS Server | Inclui suporte para todos os 18.04. *versões x;* [Versão suportada do núcleo](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Os servidores Ubuntu que utilizam a autenticação e o sinstrução baseados em palavras-passe, e o pacote de init de nuvem para configurar VMs em nuvem, podem ter sinal baseado em palavra-passe desativado na falha (dependendo da configuração do cloudinit). O sessão baseado em palavra-passe pode ser re-activado na máquina virtual, repondo a palavra-passe a partir do menu 'Resolução de problemas >' > de resolução de problemas (do que falhou em VM no portal Azure).
 Servidor Ubuntu 20.04 LTS | Inclui suporte para todos os 20.04. *versões x;* [Versão suportada do núcleo](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Debian 7 | Inclui apoio para todos os 7. *versões x* [Versões suportadas do kernel](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | Inclui suporte para todos os 8. *versões x* [Versões suportadas do kernel](#supported-debian-kernel-versions-for-azure-virtual-machines)

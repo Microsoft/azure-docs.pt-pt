@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 87e7f959dd932c874604df43fa61112d181ac581
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 53324709e2d3dd11160ee0b7837d86d9e9594571
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531705"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763932"
 ---
 # <a name="azure-security-baseline-for-azure-front-door"></a>Linha de segurança Azure para Azure Front Door
 
@@ -206,7 +206,7 @@ Recomenda-se que o cliente crie um processo para capturar as alterações de atr
 
 ### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Ativar o registo para atividades de rede do Azure
 
-**Orientação**: A Porta Azure Frond não se destina a implantar em redes virtuais; por causa destes clientes são incapazes de permitir a registo de fluxo de fluxo do grupo de segurança de rede, o tráfego de rotas através de uma firewall ou realizar capturas de pacotes.
+**Orientação**: A Porta Frontal Azul não se destina a implantar em redes virtuais; por causa destes clientes são incapazes de permitir a registo de fluxo de fluxo do grupo de segurança de rede, o tráfego de rotas através de uma firewall ou realizar capturas de pacotes.
 
 A Azure Front Door regista todo o tráfego de rede que processa para acesso ao cliente. Permitir a funcionalidade de registos de fluxo de rede e configurar estes registos para serem enviados para uma conta de armazenamento para retenção e auditoria a longo prazo.
 

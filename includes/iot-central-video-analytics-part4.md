@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: iot-central
 author: dominicbetts
 ms.service: iot-central
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: de916fcbe0623185821e2f5da15a8f9cf71dfd4e
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 0b3ccc31c9159b5d7b1615add89e8fdc308bf8df
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426782"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763462"
 ---
 ### <a name="publish-the-device-template"></a>Publicar o modelo de dispositivo
 
@@ -41,13 +41,19 @@ Para migrar o dispositivo **gateway-001:**
 
 Após alguns segundos, a migração termina. O seu dispositivo está agora a utilizar o modelo do dispositivo **LVA Edge Gateway v2** com o seu manifesto de implementação personalizado.
 
+Não existem agora dispositivos que utilizem o modelo original do dispositivo **LVA Edge Gateway.** Elimine este modelo de dispositivo:
+
+1. Navegue na página **de modelos do dispositivo** e selecione o modelo do dispositivo **LVA Edge Gateway.**
+
+1. **Selecione Eliminar** para eliminar o modelo do dispositivo.
+
 ### <a name="get-the-device-credentials"></a>Obtenha as credenciais do dispositivo
 
 Precisa das credenciais que permitem que o dispositivo se conecte à sua aplicação IoT Central. Obter as credenciais do dispositivo:
 
 1. Na página **Dispositivos,** selecione o dispositivo **gateway-001.**
 
-1. Selecione **Connect** (Ligar).
+1. Selecione **Ligar**.
 
 1. Na página **de ligação** do dispositivo, tome nota no ficheiro *scratchpad.txt* do **ID Scope,** do **ID do dispositivo** e da chave **primária** do dispositivo . Usa estes valores mais tarde.
 

@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: e2432ca4cecb3c36d2fae19907c1ad17d9ef2505
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 16a21acabfd199ba16068e507919b564f01a76d5
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833508"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763915"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implementar para o Serviço de Aplicações usando ações do GitHub
 
@@ -55,7 +55,7 @@ Pode começar rapidamente com as ações do GitHub utilizando o Centro de Implem
 
 Isto irá comprometer o ficheiro de fluxo de trabalho para o repositório. O fluxo de trabalho para construir e implementar a sua aplicação começará imediatamente.
 
-## <a name="set-up-a-work-manually"></a>Configurar um trabalho manualmente
+## <a name="set-up-a-workflow-manually"></a>Configurar um fluxo de trabalho manualmente
 
 Também pode implementar um fluxo de trabalho sem utilizar o Centro de Implantação. Para tal, terá de gerar primeiro credenciais de implantação. 
 

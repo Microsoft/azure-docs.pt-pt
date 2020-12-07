@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperfq1
-ms.openlocfilehash: d356674819304897aef353d161ddf236e19db1f5
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 3fed5fa53af9bd69f828eaf40db5d2ac441ffa08
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592248"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762776"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Quickstart: Adicione o início da plataforma de identidade da Microsoft a uma aplicação web ASP.NET
 
@@ -39,7 +39,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código
 >
 > 1. Aceda ao novo  [portal Azure - Painel de inscrições](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) da App.
-> 1. Introduza um nome para a sua aplicação e clique em **Registar**.
+> 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 > 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação num só clique.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: registar e configurar manualmente a aplicação e o exemplo de código
@@ -47,16 +47,15 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução manualmente, siga os passos a seguir:
 >
-> 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
-> 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-> 1. Navegue para a plataforma de identidade da Microsoft para programadores [Página de registos de aplicações.](https://go.microsoft.com/fwlink/?linkid=2083908)
-> 1. Selecione **Novo registo**.
-> 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
->      - Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por `ASPNET-Quickstart` exemplo.
->      - Adicione `https://localhost:44368/` em **Redirecionamento URI** , e clique em **Registar**.
->      - A partir do painel de navegação à esquerda sob a secção Gerir, selecione **Autenticação**
->          - Sob a sub-secção **de Subvenção Implícita,** selecione **fichas de identificação**.
->          - E, em seguida, **selecione Save**.
+> 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+> 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
+> 1. Procure e selecione **Azure Active Directory**.
+> 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
+> 1. Introduza um **Nome** para a sua aplicação, por `ASPNET-Quickstart` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
+> 1. Adicione `https://localhost:44368/` em **Redirecionamento URI** e selecione **Registar.**
+> 1. A partir do painel de navegação à esquerda sob a secção Gerir, selecione **Autenticação**
+> 1. Sob a sub-secção **de Subvenção Implícita,** selecione **fichas de identificação**.
+> 1. Selecione **Guardar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar a aplicação no portal do Azure
@@ -99,11 +98,11 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
 > - `Enter_the_Tenant_Info_Here` - é uma das opções abaixo:
 >   - Se a sua candidatura apoiar **apenas a Minha organização,** substitua este valor pelo nome **de Inquilino** ou **Inquilino** (por exemplo, contoso.onmicrosoft.com)
->   - Se a sua aplicação suportar **Contas em qualquer diretório organizacional** , substitua este valor por `organizations`
->   - Se a sua aplicação suportar **Todos os utilizadores com contas Microsoft** , substitua este valor por `common`
+>   - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
+>   - Se a sua aplicação suportar **Todos os utilizadores com contas Microsoft**, substitua este valor por `common`
 >
 > > [!TIP]
-> > - Para encontrar os valores do *ID da Aplicação* , o *ID de Diretório (inquilino)* , e os *Tipos de conta suportados* , vá para a página **Descrição geral**
+> > - Para encontrar os valores do *ID da Aplicação*, o *ID de Diretório (inquilino)*, e os *Tipos de conta suportados*, vá para a página **Descrição geral**
 > > - Certifique-se de que o valor `redirectUri` no **Web.config** corresponde ao **URI de redirecionamento** definido para o Registo da App em AD AZure (se não, navegar para o menu **autenticação** para o Registo da App e atualizar o **URI redirecionado** para combinar)
 
 > [!div class="sxs-lookup" renderon="portal"]

@@ -1,17 +1,17 @@
 ---
 title: Criar, construir, & implementar contratos inteligentes tutorial - Azure Blockchain Service
 description: Tutorial sobre como usar o Azure Blockchain Development Kit para extensão Ethereum no Código do Estúdio Visual para criar, construir e implementar um contrato inteligente no Azure Blockchain Service.
-ms.date: 04/22/2020
+ms.date: 11/30/2020
 ms.topic: tutorial
 ms.reviewer: caleteet
-ms.openlocfilehash: dc23c680dfb2ed33cae2a251af16e1b1f25c6ac7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7605a0c118a40e52210582d2411569795fb25ee
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82086662"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763694"
 ---
-# <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>Tutorial: Criar, construir e implementar contratos inteligentes no Azure Blockchain Service
+# <a name="tutorial-create-build-and-deploy-smart-contracts-on-azure-blockchain-service"></a>Tutorial: Criar, construir e implementar contratos inteligentes no Azure Blockchain Service
 
 Neste tutorial, use o Kit de Desenvolvimento Azure Blockchain para extensão Ethereum no Código do Estúdio Visual para criar, construir e implementar um contrato inteligente no Azure Blockchain Service. Também usa o kit de desenvolvimento para executar uma função de contrato inteligente através de uma transação.
 
@@ -31,7 +31,6 @@ Você usa o Kit de Desenvolvimento Azure Blockchain para: Ethereum para:
 * [Kit de desenvolvimento Azure Blockchain para extensão Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
 * [Node.js 10.15.x ou superior](https://nodejs.org/download)
 * [Git 2.10.x ou superior](https://git-scm.com)
-* [Python 2.7.15](https://www.python.org/downloads/release/python-2715/) Adicione python.exe ao seu caminho. A versão python 2.7.15 no seu caminho é necessária para o Azure Blockchain Development Kit.
 * [Trufa 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
 * [Ganache CLI 6.0.0](https://github.com/trufflesuite/ganache-cli)
 
@@ -47,7 +46,7 @@ Para obter mais informações sobre nó-gyp, consulte o [repositório nó-gyp no
 
 O Azure Blockchain Development Kit para Ethereum usa modelos de projeto e ferramentas truffle para ajudar andaimes, construir e implementar contratos. Antes de começar, preencha o [quickstart pré-requisito: Use o Código do Estúdio Visual para ligar a uma rede de consórcios do Azure Blockchain Service](connect-vscode.md). O quickstart guia-o através da instalação e configuração do Kit de Desenvolvimento blockchain Azure para o Ethereum.
 
-1. A partir da paleta de comandos VS Code, escolha **Azure Blockchain: Novo Projeto solidity**.
+1. A partir da paleta de comandos VS Code, escolha **Blockchain: Novo Projeto solidity**.
 1. Escolha **Criar projeto básico.**
 1. Crie uma nova pasta nomeada `HelloBlockchain` e **selecione um novo caminho de projeto.**
 

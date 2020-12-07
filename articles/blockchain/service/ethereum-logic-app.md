@@ -4,12 +4,12 @@ description: Utilize o conector Ethereum Blockchain com Azure Logic Apps para de
 ms.date: 08/31/2020
 ms.topic: how-to
 ms.reviewer: caleteet
-ms.openlocfilehash: 4364d2f616c8eaadedf12baf4bf77810eec69fdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 411337908553e58c252a0ed1a42d17f76195c720
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230539"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763796"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Utilize o conector Ethereum Blockchain com apps Azure Logic
 
@@ -182,7 +182,7 @@ O endereço de ponto final do Serviço Azure Blockchain RPC é necessário para 
 
     ![Página de nós de transação com a seleção (nó padrão)](./media/ethereum-logic-app/transaction-nodes.png)
 
-1. **Selecione as teclas**de acesso de ligação  >  **Access keys**.
+1. **Selecione as teclas** de acesso de ligação  >  **Access keys**.
 1. Copie o endereço de ponto final a partir de **HTTPS (Tecla de acesso 1)** ou **HTTPS (tecla de acesso 2)**.
 
     ![Portal Azure com as teclas de acesso a cadeia de ligação](./media/ethereum-logic-app/connection-string.png)
@@ -194,7 +194,7 @@ O endereço de ponto final do Serviço Azure Blockchain RPC é necessário para 
 Pode utilizar a chave privada da conta Ethereum para autenticar ao enviar uma transação para a blockchain. As chaves públicas e privadas da sua conta Ethereum são geradas a partir de um mnemónico de 12 palavras. O Kit de Desenvolvimento Azure Blockchain para ethereum gera um mnemónico quando se liga a um membro do consórcio do Azure Blockchain Service. Pode obter o endereço do ponto final utilizando a extensão do kit de desenvolvimento.
 
 1. No Código do Estúdio Visual, abra a paleta de comando (F1).
-1. Selecione **Azure Blockchain: Recupere a chave privada**.
+1. Selecione **Blockchain: Recupere a chave privada**.
 1. Selecione o mnemónico que guardou ao ligar-se ao membro do consórcio.
 
     ![Paleta de comando com opção de selecionar o mnemónico](./media/ethereum-logic-app/private-key.png)

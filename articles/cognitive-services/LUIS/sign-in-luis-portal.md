@@ -9,92 +9,48 @@ ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: nitinme
 author: nitinme
-ms.openlocfilehash: ae51dca466a9aaf489ba4628e13a5e13de25b9bc
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 3235f6285edb99776b42014678cd2b6c60d17f62
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546867"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763854"
 ---
 # <a name="sign-in-to-luis-portal"></a>Iniciar sessão no portal LUIS
 
-Se for um novo utilizador a iniciar sessão no portal LUIS, a experiência de inscrição será ligeiramente diferente com base na sua conta de utilizador atual:
-  * Associado a uma assinatura Azure
-  * Não associado a uma assinatura Azure
+Use este artigo para começar com o portal LUIS e crie um recurso de autoria. Depois de completar os passos neste artigo, poderá criar e publicar aplicações LUIS.
 
-## <a name="determine-account-type"></a>Determinar o tipo de conta
-
-Quando iniciar sutilizá-lo pela primeira vez no portal LUIS, utilize os seguintes indicadores visuais para determinar o tipo de conta.
-
-### <a name="account-without-azure-subscription"></a>Conta sem subscrição do Azure
-
-Uma conta, que não está associada a uma subscrição do Azure, tem o ícone Azure na barra de navegação de cima para a direita. Uma vez migrado para o tipo de conta associado, o ícone já não aparece.
-
-:::image type="content" source="media/sign-in/sign-in-with-account-without-azure-subscription.png" alt-text="Imagem parcial da barra de navegação LUIS com ícone Azure.":::
-
-### <a name="account-with-azure-subscription"></a>Conta com subscrição do Azure
-
-Uma conta associada a uma subscrição do Azure permite-lhe selecionar a sua subscrição e recurso para utilizar.
-
-:::image type="content" source="media/sign-in/resource-selection.png" alt-text="Imagem parcial do portal LUIS com caixas de entrega de recursos de subscrição e autoria.":::
-
-## <a name="sign-in-with-account-associated-with-an-azure-subscription"></a>Inscreva-se com conta associada a uma subscrição do Azure
-
-1. Inscreva-se no [portal LUIS](https://www.luis.ai) e concorde com os termos de utilização.
-
-1. Terá duas opções de inscrição:
-
-    * Continue a utilizar um recurso Azure, que é o caminho recomendado e em breve será o único caminho disponível. Este caminho permite-lhe ligar a sua conta LUIS a um recurso de Autoria Azure enquanto se inscreve, escolhendo um recurso existente na sua subscrição ou criando um novo recurso. Isto equivale a inscrever-se migrado sem a necessidade de passar pelo processo de [migração](luis-migration-authoring.md#what-is-migration) mais tarde. Todos os utilizadores serão obrigados a migrar até 2 de novembro de 2020.
-
-    * Continue a utilizar a chave de arranque ou de teste. Este caminho permite-lhe iniciar sessão no LUIS com o arranque ou o recurso experimental que está a ser fornecido sem ter de criar quaisquer recursos. Se escolher este caminho, acabará por ser obrigado a [migrar](luis-migration-authoring.md#migration-steps) a sua conta e a ligar as suas aplicações a um recurso de autoria. É por isso que é recomendável escolher o caminho onde continua com o seu recurso Azure.
-
-    [Saiba mais sobre as teclas de autoria e arranque.](luis-how-to-azure-subscription.md#luis-resources) Ambos os recursos dão-lhe 1 milhão de transações de autoria gratuitas e 1000 transações de ponto final de previsão gratuita.
-
-    :::image type="content" source="media/sign-in/signup-landing-page.png" alt-text="Tiro parcial no ecrã para escolher um tipo de recurso de autoria de compreensão linguística.":::
-
-1. Utilize um recurso de autoria existente
-
-    :::image type="content" source="media/sign-in/signup-choose-resource.png" alt-text="Escolha o recurso de autoria":::
-
-    Se já tem recursos de autoria LUIS na sua subscrição e associa um à sua conta LUIS durante a sing-in, escolha a opção **Utilização do Recurso de Autoria existente** e forneça as seguintes informações:
-
-    * **Inquilino** - o inquilino a que a sua assinatura Azure está associada. Não poderá trocar os inquilinos da janela existente. Você pode trocar de inquilino selecionando o avatar mais à direita, que contém as suas iniciais na barra superior.
-    * **Nome da assinatura** - a subscrição que será associada ao recurso. Se tiver mais do que uma subscrição que pertença ao seu inquilino, selecione a que deseja da lista de espera.
-    * **Nome do recurso** - O recurso de autoria a que pretende estar associado.
-
-    > [!Note]
-    > Se o recurso de autoria que procura está acinzentado na lista de abandono, isso significa que se inscreveu num portal regional diferente. [Compreender o conceito de portais regionais.](luis-reference-regions.md#luis-authoring-regions)
-
-1. Criar um novo recurso de autoria
-
-    :::image type="content" source="media/sign-in/signup-create-resource.png" alt-text="Criar recurso de autoria":::
-
-    Ao **criar um novo recurso de autoria,** forneça as seguintes informações:
-
-    * **Inquilino** - o inquilino a que a sua assinatura Azure está associada. Não poderá trocar os inquilinos da janela existente. Você pode trocar de inquilino selecionando o avatar mais à direita, que contém as suas iniciais na barra superior.
-    * **Nome do recurso** - um nome personalizado que escolher, usado como parte do URL para as suas transações de autoria. O seu nome de recurso só pode incluir caracteres alfanuméricos, '-', e não pode começar ou terminar com '-'. Se outros símbolos estiverem incluídos no nome, a criação de um recurso falhará.
-    * **Nome da assinatura** - a subscrição que será associada ao recurso. Se tiver mais do que uma subscrição que pertença ao seu inquilino, selecione a que deseja da lista de espera.
-    * **Grupo de recursos** - um nome de grupo de recursos personalizado que escolher na sua subscrição. Os grupos de recursos permitem-lhe agrupar recursos Azure para acesso e gestão. Se atualmente não tiver um grupo de recursos na sua subscrição, não poderá criar um no portal LUIS. Vá ao [portal Azure](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup) para criar um e depois vá ao LUIS para continuar o processo de inscrição.
-
-1. Depois de escolher o seu caminho, pode demorar alguns segundos até que apareça um sinal que diga "A sua conta foi migrada com sucesso. Termine selecionando **Continue**.
-
-    :::image type="content" source="media/sign-in/signup-confirm-2.png" alt-text="Confirmar recurso de autoria":::
-
-    > [!Note]
-    > Se tiver uma subscrição e pelo menos um recurso de autoria na região igual ao que está a inscrever-se no portal, poderá iniciar sessão automática na LUIS migrada e associada a um recurso sem a necessidade de escolher qual o caminho a seguir.
+## <a name="access-the-portal"></a>Aceda ao portal
 
 
-## <a name="sign-in-with-user-account-not-associated-with-an-azure-subscription"></a>Inscreva-se com conta de utilizador não associada a uma subscrição do Azure
+1. Para começar com o LUIS, vá ao [Portal LUIS.](https://www.luis.ai) Caso ainda não tenha uma subscrição, será solicitado que vá criar uma [conta gratuita](https://azure.microsoft.com//free/cognitive-services/) e regressar ao portal.
+2. Atualize a página para atualizá-la com a sua subscrição recém-criada
+3. Selecione a sua subscrição a partir da lista de dropdown
 
-1. Inscreva-se no [portal LUIS](https://www.luis.ai) e verifique se concorda com os termos de utilização.
+    > [!div class="mx-imgBorder"]
+    > ![selecionar subscrições](./media/migrate-authoring-key/select-subscription-sign-in-2.png)
 
-1. Termine selecionando **Continue**. Iniciará automaticamente o sôm- se-á com uma chave de teste/arranque. Isto significa que eventualmente será obrigado a [migrar](luis-migration-authoring.md#migration-steps) a sua conta e a ligar as suas aplicações a um recurso de autoria. Para passar pelo processo de migração, terá de se inscrever para um [Azure Free Trial](https://azure.microsoft.com/free/).
+4. Se a sua subscrição viver sob outro inquilino, não poderá trocar os inquilinos da janela existente. Você pode trocar de inquilino fechando esta janela e selecionando o avatar mais à direita contendo as suas iniciais na barra superior. Clique em **Escolher um recurso de autoria diferente** a partir da parte superior para reabrir a janela.
 
-    :::image type="content" source="media/sign-in/signup-no-subscription.png" alt-text="Sem cenário de subscrição":::
+    > [!div class="mx-imgBorder"]
+    > ![diretórios de comutação](./media/migrate-authoring-key/switch-directories.png)
+
+5. Se tiver um recurso de autoria LUIS existente associado à sua subscrição, escolha-o na lista de abandono. Pode ver todas as aplicações criadas sob este recurso de autoria.
+6. Caso contrário, clique em **Criar um novo recurso de autoria** na parte inferior deste modal.
+7.  Ao criar um novo recurso de autoria, forneça as seguintes informações:
+
+    > [!div class="mx-imgBorder"]
+    > ![Criar novos recursos](./media/migrate-authoring-key/create-new-authoring-resource-2.png)
+
+    * **Nome do Inquilino** - o inquilino a que a sua assinatura Azure está associada. Não poderá trocar os inquilinos da janela existente. Pode trocar os inquilinos fechando esta janela e selecionando o avatar no canto superior direito do ecrã, contendo as suas iniciais. Selecione Escolha um recurso de **autoria diferente** a partir da parte superior para reabrir a janela.
+    * **Nome do grupo Azure Resource** - um nome de grupo de recursos personalizado que escolher na sua subscrição. Os grupos de recursos permitem-lhe agrupar recursos Azure para acesso e gestão. Se atualmente não tiver um grupo de recursos na sua subscrição, não poderá criar um no portal LUIS. Vá ao [portal Azure](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup) para criar um e depois vá ao LUIS para continuar o processo de inscrição.
+    * **Nome do Recurso Azure** - um nome personalizado que escolhe, usado como parte do URL para as suas transações de autoria. O seu nome de recurso só pode incluir caracteres alfanuméricos, `-` e não pode começar ou terminar com `-` . Se outros símbolos estiverem incluídos no nome, a criação de um recurso falhará.
+    * **Localização** - Escolha autor de suas aplicações em um dos [três locais de autoria](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions) que são atualmente apoiados pela LUIS, incluindo: West Us, West Europe e East Australia
+    * **Nível de preços** - Por padrão, o nível de preços de autoria de F0 é selecionado como recomendado. Crie uma [chave gerida pelo cliente](https://docs.microsoft.com/azure/cognitive-services/luis/luis-encryption-of-data-at-rest#customer-managed-keys-for-language-understanding) a partir do portal Azure se estiver à procura de uma camada extra de segurança.
+8. Agora assinou com sucesso com o LUIS. Pode agora começar a criar aplicações.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-* Se criar um recurso de autoria a partir do portal Azure numa região diferente do portal a que está a iniciar sessão, o recurso de autoria será acinzentado.
 * Ao criar um novo recurso, certifique-se de que o nome do recurso apenas inclui caracteres alfanuméricos, '-', e não pode começar ou terminar com '-'. Caso contrário, falhará.
 * Certifique-se de que tem as [permissões adequadas na sua subscrição para criar um recurso Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles). Se não tiver as permissões adequadas, contacte a administração da sua subscrição para lhe dar permissões suficientes.
 

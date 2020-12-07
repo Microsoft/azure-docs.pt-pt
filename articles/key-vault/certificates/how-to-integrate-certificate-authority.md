@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 4d29d7401cf944e8d999db847ce2e1266169ea34
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4635bcc51d2ab626b16ddcf02e772bf3df3cad4d
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448419"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763745"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrar o Key Vault com a Autoridade de Certificação DigiCert
 
@@ -128,13 +128,16 @@ Se o certificado emitido estiver em estado de 'desactivado' no portal Azure, pro
 
  ![Operação de certificado](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
+Error message 'Please efetuar uma fusão para completar este pedido de certificado.'
+Precisaria de fundir a RSE assinada pela AC para completar este pedido. Saiba mais [aqui](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-signing-request)
+
 Para obter mais informações, consulte as operações do [Certificado na referência API do Cofre-Chave](/rest/api/keyvault). Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Abóbadas - Atualizar a Política de Acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 - Posso gerar um certificado de wildcard digicert através do KeyVault? 
    Sim. Depende de como configuraste a tua conta de digicert.
-- Como posso criar **certificado OV-SSL ou EV-SSL** com DigiCert?? 
+- Como posso criar **certificado OV-SSL ou EV-SSL** com DigiCert? 
    O cofre-chave suporta a criação de certificados OV e EV SSL. Ao criar um certificado, clique na Configuração de Política Avançada e, em seguida, especifique o tipo de Certificado. Os valores suportados são: OV-SSL, EV-SSL
    
    Poderá criar este tipo de certificado no cofre-chave se a sua conta Digicert o permitir. Para este tipo de certificado, a validação é realizada pela DigiCert e a sua equipa de suporte poderá ajudá-lo melhor com a solução, caso a validação falhe. Pode adicionar informações adicionais ao criar um certificado definindo-as no nome do sujeito.
@@ -144,7 +147,7 @@ Exemplo
     ```
    
 - Existe um atraso de tempo na criação de certificado digicert através da integração vs aquisição de certificado através do digicert diretamente?
-   Não. Ao criar um certificado, é o processo de verificação que pode demorar e que a verificação depende do processo que a DigiCert segue.
+   N.º Ao criar um certificado, é o processo de verificação que pode demorar e que a verificação depende do processo que a DigiCert segue.
 
 
 ## <a name="next-steps"></a>Passos seguintes
