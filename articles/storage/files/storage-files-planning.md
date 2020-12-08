@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 650ee1fc9e0e1941a7a3655bca1c75950ab878dd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 98cc72f85499481ba3841ce82fe307740d5e9fab
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492119"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96842716"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 [Os Ficheiros Azure](storage-files-introduction.md) podem ser implementados de duas maneiras principais: montando diretamente as ações de ficheiros Azure sem servidor ou caching Azure file shares on-in usando Azure File Sync. Qual a opção de implementação que escolhe altera as coisas que precisa de considerar como planeia para a sua implantação. 
@@ -52,7 +52,7 @@ Para os clientes que migram de servidores de ficheiros no local ou criam novas a
 
 Se pretender utilizar a chave da conta de armazenamento para aceder às suas ações de ficheiros Azure, recomendamos a utilização de pontos finais de serviço, conforme descrito na secção [Networking.](#networking)
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 As ações de ficheiros Azure estão acessíveis a partir de qualquer lugar através do ponto final público da conta de armazenamento. Isto significa que os pedidos autenticados, tais como pedidos autorizados pela identidade de início de súmã de um utilizador, podem ter origem seguramente dentro ou fora de Azure. Em muitos ambientes de clientes, uma montagem inicial da partilha de ficheiros Azure na sua estação de trabalho no local falhará, mesmo que os suportes dos VMs Azure tenham sucesso. A razão para isso é que muitas organizações e fornecedores de serviços de internet (ISPs) bloqueiam a porta que o SMB usa para comunicar, porta 445. Para ver o resumo de ISPs que permitem ou não o acesso a partir da porta 445, aceda a [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 Para desbloquear o acesso à sua partilha de ficheiros Azure, tem duas opções principais:
@@ -98,7 +98,7 @@ Recomendamos que se apale a exclusão suave para a maioria das ações de fichei
 
 Para obter mais informações sobre a eliminação suave, consulte [Prevenir a eliminação acidental de dados](./storage-files-prevent-file-share-deletion.md).
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Cópia de segurança
 Pode fazer cópias do seu ficheiro Azure através [de imagens de partilha,](./storage-snapshots-files.md)que são cópias pontuais e pontuais da sua parte. Os instantâneos são incrementais, o que significa que só contêm tantos dados como mudou desde o instantâneo anterior. Pode ter até 200 instantâneos por ação de ficheiro e retê-los até 10 anos. Pode tirar manualmente estas fotos no portal Azure, via PowerShell, ou interface de linha de comando (CLI), ou pode utilizar [a Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). As imagens instantâneas são armazenadas dentro da sua parte do ficheiro, o que significa que se eliminar a sua parte do ficheiro, as suas imagens também serão eliminadas. Para proteger as cópias de segurança instantâneas da eliminação acidental, certifique-se de que a eliminação suave está ativada para a sua parte.
 
 [A Azure Backup para ações de ficheiros Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) lida com o agendamento e retenção de instantâneos. As suas capacidades de avô-pai-filho (GFS) significam que você pode tomar fotos diárias, semanais, mensais e anualmente, cada uma com o seu próprio período de retenção distinto. O Azure Backup também orquestra a ativação de eliminação suave e recebe um bloqueio de eliminação numa conta de armazenamento assim que qualquer partilha de ficheiros dentro dela estiver configurada para cópia de segurança. Por último, o Azure Backup fornece determinadas capacidades de monitorização e alerta chave que permitem aos clientes ter uma visão consolidada do seu espólio de backup.
@@ -114,23 +114,6 @@ Para obter mais informações, consulte [a proteção contra ameaças avançadas
 
 ## <a name="storage-tiers"></a>Camadas de armazenamento
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
-
-Em geral, as funcionalidades da Azure Files e a interoperabilidade com outros serviços são as mesmas entre ações de ficheiros premium e ações de ficheiros padrão (incluindo ações de ficheiros otimizadas, quentes e cool), no entanto existem algumas diferenças importantes:
-- **Modelo de faturação**
-    - As ações de ficheiros premium são faturadas usando um modelo de faturação provisão, o que significa que você paga o preço fixo pelo armazenamento que você presta em vez de quanto armazenamento você usa. Não existem custos adicionais para transações e metadados em repouso.
-    - As ações de ficheiros standard são faturadas usando um modelo pay-as-you-go, que inclui um custo base de armazenamento para o armazenamento que você está realmente consumindo e, em seguida, um custo adicional de transação com base na forma como você usa a ação. Com as ações de ficheiro padrão, a sua conta aumentará se utilizar (ler/escrever/montar) o ficheiro Azure partilhar mais.
-- **Opções de redundância**
-    - As ações de ficheiros premium só estão disponíveis para armazenamento localmente redundante (LRS) e zona redundante (ZRS).
-    - As ações de ficheiros standard estão disponíveis para o armazenamento localmente redundante, redundante, geo-redundante (GRS) e geo-zona redundante (GZRS).
-- **Tamanho máximo da partilha de ficheiros**
-    - As ações de ficheiros premium podem ser a provisionadas até 100 TiB sem qualquer trabalho adicional.
-    - Por predefinição, as ações de ficheiros padrão podem abranger apenas até 5 TiB, embora o limite de ações possa ser aumentado para 100 TiB optando pela bandeira da conta de armazenamento *de grandes ficheiros.* As ações de ficheiros standard só podem abranger até 100 TiB para contas de armazenamento redundantes locais ou de zonas redundantes. Para obter mais informações sobre o aumento do tamanho das ações de ficheiros, consulte [Ativar e criar grandes ações de ficheiros](./storage-files-how-to-create-large-file-share.md).
-- **Disponibilidade regional**
-    - As ações de ficheiros premium estão disponíveis na maioria das regiões de Azure, com exceção de algumas regiões. O apoio redundante da zona está disponível num subconjunto de regiões. Para saber se as ações de ficheiros premium estão atualmente disponíveis na sua região, consulte os [produtos disponíveis por página da região](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para a Azure. Para saber quais as regiões que suportam o ZRS, consulte [o armazenamento redundante da zona.](../common/storage-redundancy.md#zone-redundant-storage) Para nos ajudar a priorizar novas regiões e funcionalidades de nível premium, preencha este [inquérito.](https://aka.ms/pfsfeedback)
-    - As ações de ficheiros standard estão disponíveis em todas as regiões do Azure.
-- O Azure Kubernetes Service (AKS) suporta ações de ficheiros premium na versão 1.13 e posterior.
-
-Uma vez que uma partilha de ficheiros é criada como um prémio ou uma partilha de ficheiro padrão, não é possível convertê-la automaticamente para o outro nível. Se quiser mudar para o outro nível, tem de criar uma nova partilha de ficheiros nesse nível e copiar manualmente os dados da sua parte original para a nova partilha que criou. Recomendamos a utilização `robocopy` para Windows ou para `rsync` macOS e Linux para executar esta cópia.
 
 ### <a name="understanding-provisioning-for-premium-file-shares"></a>Compreensão do provisionamento das ações de ficheiros premium
 As ações de ficheiros premium são abastecadas com base num rácio GiB/IOPS/produção fixo. Todos os tamanhos de ações são oferecidos de base/produção mínima e autorizados a rebentar. Para cada GiB a provisionado, a ação será emitida como IOPS/produção mínima e um IOPS e 0,1 MiB/s até aos limites máximos por ação. O fornecimento mínimo permitido é de 100 GiB com o mínimo IOPS/produção. 
