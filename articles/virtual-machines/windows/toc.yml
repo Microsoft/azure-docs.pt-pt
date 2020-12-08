@@ -54,7 +54,7 @@
 - name: Conceitos
   items:
     - name: Imagens
-      href: shared-image-galleries.md
+      href: ../shared-image-galleries.md
     - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       items:
@@ -419,7 +419,7 @@
         - name: Construtor de imagens (pré-visualização)
           items:
             - name: Descrição geral
-              href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+              href: ../image-builder-overview.md
             - name: Utilizar o Image Builder
               items:
                 - name: CLI

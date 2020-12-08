@@ -111,6 +111,8 @@
               href: data-lake-analytics-data-lake-tools-for-vscode.md
             - name: Código Personalizado
               href: data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md
+            - name: Aceder aos recursos
+              href: data-lake-analytics-data-lake-tools-for-vscode-access-resource.md
             - name: Executar local e depurar
               href: data-lake-tools-for-vscode-local-run-and-debug.md
         - name: Guia de Programação

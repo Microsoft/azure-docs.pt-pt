@@ -71,9 +71,9 @@
         - name: Aprovisionamento
           href: provisioning.md
         - name: Galerias de imagens partilhadas
-          href: shared-image-galleries.md
+          href: ../shared-image-galleries.md
         - name: Image Builder
-          href: image-builder-overview.md
+          href: ../image-builder-overview.md
     - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Regiões
