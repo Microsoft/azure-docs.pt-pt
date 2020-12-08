@@ -3,12 +3,12 @@ title: Perguntas frequentes para o Serviço Azure Kubernetes (AKS)
 description: Encontre respostas para algumas das perguntas comuns sobre o Serviço Azure Kubernetes (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 1ca342c1ea4134f4d9d8f1dbcae4e61bf2a75eaf
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 94cbaf417413b3e11071fb8c7237cbb3ac7b9a37
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751399"
+ms.locfileid: "96780353"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes acerca do Azure Kubernetes Service (AKS)
 
@@ -20,15 +20,15 @@ Para obter uma lista completa das regiões disponíveis, consulte [as regiões A
 
 ## <a name="can-i-spread-an-aks-cluster-across-regions"></a>Posso espalhar um aglomerado AKS por regiões?
 
-Não. Os aglomerados AKS são recursos regionais e não podem abranger regiões. Consulte [as melhores práticas para a continuidade do negócio e recuperação de desastres][bcdr-bestpractices] para obter orientações sobre como criar uma arquitetura que inclua várias regiões.
+N.º Os aglomerados AKS são recursos regionais e não podem abranger regiões. Consulte [as melhores práticas para a continuidade do negócio e recuperação de desastres][bcdr-bestpractices] para obter orientações sobre como criar uma arquitetura que inclua várias regiões.
 
 ## <a name="can-i-spread-an-aks-cluster-across-availability-zones"></a>Posso espalhar um cluster AKS através de zonas de disponibilidade?
 
-Yes. Você pode implementar um cluster AKS em uma ou mais [zonas de disponibilidade][availability-zones] em [regiões que as suportam.][az-regions]
+Sim. Você pode implementar um cluster AKS em uma ou mais [zonas de disponibilidade][availability-zones] em [regiões que as suportam.][az-regions]
 
 ## <a name="can-i-limit-who-has-access-to-the-kubernetes-api-server"></a>Posso limitar quem tem acesso ao servidor API da Kubernetes?
 
-Yes. Existem duas opções para limitar o acesso ao servidor API:
+Sim. Existem duas opções para limitar o acesso ao servidor API:
 
 - Utilize [gamas IP autorizadas do servidor API][api-server-authorized-ip-ranges] se pretender manter um ponto final público para o servidor API, mas restringir o acesso a um conjunto de gamas IP fidedignas.
 - Utilize [um cluster privado][private-clusters] se pretender limitar o servidor API para estar acessível *apenas* a partir da sua rede virtual.
@@ -60,7 +60,7 @@ Para permitir esta arquitetura, cada implantação AKS abrange dois grupos de re
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>Posso dar o meu próprio nome para o grupo de recursos de nó AKS?
 
-Yes. Por padrão, a AKS nomeará o grupo de recursos de nó *MC_resourcegroupname_clustername_location*, mas também pode fornecer o seu próprio nome.
+Sim. Por padrão, a AKS nomeará o grupo de recursos de nó *MC_resourcegroupname_clustername_location*, mas também pode fornecer o seu próprio nome.
 
 Para especificar o nome do seu próprio grupo de recursos, instale a versão de extensão Azure CLI [de pré-visualização aks-preview][aks-preview-cli] *0.3.2* ou posterior. Quando criar um cluster AKS utilizando os [az aks criar][az-aks-create] comando, use o `--node-resource-group` parâmetro e especifique um nome para o grupo de recursos. Se [utilizar um modelo de Gestor de Recursos Azure][aks-rm-template] para implantar um cluster AKS, pode definir o nome do grupo de recursos utilizando a propriedade *nodeResourceGroup.*
 
@@ -215,7 +215,7 @@ A partir de v1.2.0 Azure CNI terá o modo Transparente como padrão para as impl
 
 ### <a name="bridge-mode"></a>Modo ponte
 
-Como o nome sugere, o modo ponte Azure CNI, de uma forma "just in time", vai criar uma ponte L2 chamada "azure0". Todas as interfaces de par de `veth` pods laterais do anfitrião serão ligadas a esta ponte. Então Pod-Pod comunicação intra VM é através desta ponte. A ponte em questão é um dispositivo virtual de camada 2 que por si só não pode receber ou transmitir nada a menos que você ligue um ou mais dispositivos reais a ele. Por esta razão, a eth0 do LM Linux tem de ser convertida numa ponte subordinada a "azure0". Isto cria uma topologia complexa da rede dentro do Linux VM e como um sintoma CNI teve que cuidar de outras funções de networking como a atualização do servidor DNS e assim por diante.
+Como o nome sugere, o modo ponte Azure CNI, de uma forma "just in time", vai criar uma ponte L2 chamada "azure0". Todas as interfaces de par de `veth` pods laterais do anfitrião serão ligadas a esta ponte. Assim, Pod-Pod comunicação intra VM e o tráfego restante passa por esta ponte. A ponte em questão é um dispositivo virtual de camada 2 que por si só não pode receber ou transmitir nada a menos que você ligue um ou mais dispositivos reais a ele. Por esta razão, a eth0 do LM Linux tem de ser convertida numa ponte subordinada a "azure0". Isto cria uma topologia complexa da rede dentro do Linux VM e como um sintoma CNI teve que cuidar de outras funções de networking como a atualização do servidor DNS e assim por diante.
 
 :::image type="content" source="media/faq/bridge-mode.png" alt-text="Topologia do modo de ponte":::
 
@@ -229,19 +229,11 @@ root@k8s-agentpool1-20465682-1:/#
 ```
 
 ### <a name="transparent-mode"></a>Modo transparente
-O modo transparente tem uma abordagem direta para a criação da rede Linux. Neste modo, o Azure CNI não altera quaisquer propriedades da interface eth0 no Linux VM. Esta abordagem mínima de alteração das propriedades de rede Linux ajuda a reduzir problemas complexos de casos de canto que os clusters podem enfrentar com o modo Bridge. No Modo Transparente, o Azure CNI criará e adicionará interfaces de par de pods do lado do anfitrião `veth` que serão adicionadas à rede de anfitriões. A comunicação Intra VM Pod-to-Pod é através de rotas ip que o CNI irá adicionar. Essencialmente Pod-to-Pod intra VM é tráfego de rede de camada 3 inferior.
+O modo transparente tem uma abordagem direta para a criação da rede Linux. Neste modo, o Azure CNI não altera quaisquer propriedades da interface eth0 no Linux VM. Esta abordagem mínima de alteração das propriedades de rede Linux ajuda a reduzir problemas complexos de casos de canto que os clusters podem enfrentar com o modo Bridge. No Modo Transparente, o Azure CNI criará e adicionará interfaces de par de pods do lado do anfitrião `veth` que serão adicionadas à rede de anfitriões. A comunicação Intra VM Pod-to-Pod é através de rotas ip que o CNI irá adicionar. Essencialmente, a comunicação Pod-to-Pod é sobre a camada 3 e o tráfego de pod é encaminhado pelas regras de encaminhamento L3.
 
 :::image type="content" source="media/faq/transparent-mode.png" alt-text="Topologia de modo transparente":::
 
 Abaixo está um exemplo de configuração da rota ip de modo transparente, cada interface do Pod receberá uma rota estática anexada para que o tráfego com dest IP como o Pod será enviado diretamente para a interface de par lateral do vôm. `veth`
-
-### <a name="benefits-of-transparent-mode"></a>Benefícios do modo transparente
-
-- Fornece mitigação para `conntrack` o estado de corrida paralelo DNS e evita problemas de latência DNS de 5 segundos sem a necessidade de configurar DNS locais (você ainda pode usar o nó DNS local por razões de desempenho).
-- Elimina o modo de ponte CNI de latência de 5 seg iniciais, introduz hoje devido à configuração da ponte "just in time".
-- Um dos casos de canto no modo ponte é que o Azure CNI não pode continuar a atualizar as listas personalizadas de servidores DNS que os utilizadores adicionam ao VNET ou NIC. Isto resulta na recolha do CNI apenas a primeira instância da lista de servidores DNS. Resolvido em modo Transparente como CNI não altera nenhuma propriedade eth0. Parece mais [aqui.](https://github.com/Azure/azure-container-networking/issues/713)
-- Proporciona uma melhor manipulação do tráfego da UDP e mitigação para a tempestade de inundação da UDP quando o ARP estiver esgotado. No modo ponte, quando a ponte não conhece um endereço MAC do casulo de destino na comunicação intra-VM Pod-to-Pod, por design, isto resulta em tempestade do pacote para todas as portas. Resolvido em modo Transparente uma vez que não existem dispositivos L2 no caminho. Veja mais [aqui.](https://github.com/Azure/azure-container-networking/issues/704)
-- O modo transparente funciona melhor na comunicação Intra VM Pod-to-Pod em termos de produção e latência em comparação com o modo de ponte.
 
 ```bash
 10.240.0.216 dev azv79d05038592 proto static
@@ -254,6 +246,15 @@ Abaixo está um exemplo de configuração da rota ip de modo transparente, cada 
 169.254.169.254 via 10.240.0.1 dev eth0 proto dhcp src 10.240.0.4 metric 100
 172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown
 ```
+
+### <a name="benefits-of-transparent-mode"></a>Benefícios do modo transparente
+
+- Fornece mitigação para `conntrack` o estado de corrida paralelo DNS e evita problemas de latência DNS de 5 segundos sem a necessidade de configurar DNS locais (você ainda pode usar o nó DNS local por razões de desempenho).
+- Elimina o modo de ponte CNI de latência de 5 seg iniciais, introduz hoje devido à configuração da ponte "just in time".
+- Um dos casos de canto no modo ponte é que o Azure CNI não pode continuar a atualizar as listas personalizadas de servidores DNS que os utilizadores adicionam ao VNET ou NIC. Isto resulta na recolha do CNI apenas a primeira instância da lista de servidores DNS. Resolvido em modo Transparente como CNI não altera nenhuma propriedade eth0. Veja mais [aqui.](https://github.com/Azure/azure-container-networking/issues/713)
+- Proporciona uma melhor manipulação do tráfego da UDP e mitigação para a tempestade de inundação da UDP quando o ARP estiver esgotado. No modo ponte, quando a ponte não conhece um endereço MAC do casulo de destino na comunicação intra-VM Pod-to-Pod, por design, isto resulta em tempestade do pacote para todas as portas. Resolvido em modo Transparente uma vez que não existem dispositivos L2 no caminho. Veja mais [aqui.](https://github.com/Azure/azure-container-networking/issues/704)
+- O modo transparente funciona melhor na comunicação Intra VM Pod-to-Pod em termos de produção e latência em comparação com o modo de ponte.
+
 
 <!-- LINKS - internal -->
 

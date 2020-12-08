@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 8e9013db93f5cd67448b5af8c415db0862e5d332
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ccc545b15f16879582c671b082cab40f6b11aa08
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842724"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778976"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizar o acesso a dados de blob e fila com identidades geridas para recursos Azure
 
@@ -50,6 +50,11 @@ Para obter mais informações sobre a biblioteca de clientes Azure Identity para
 
 Quando um diretor de segurança da AZure AD tenta aceder a dados de blob ou fila, esse diretor de segurança deve ter permissões para o recurso. Se o principal de segurança é uma identidade gerida em Azure ou uma conta de utilizador Azure AD que executa código no ambiente de desenvolvimento, o principal de segurança deve ser atribuído a uma função Azure que concede acesso a dados de blob ou fila no Azure Storage. Para obter informações sobre a atribuição de permissões através do Azure RBAC, consulte a secção intitulada **Atribuir funções Azure para direitos de acesso** em Acesso autorizado a [bolhas e filas Azure utilizando o Azure Ative Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
+> [!NOTE]
+> Quando cria uma conta de Armazenamento Azure, não lhe são atribuídas automaticamente permissões de acesso aos dados através do Azure AD. Deve atribuir-se explicitamente um papel Azure para o Azure Storage. Pode atribuí-lo ao nível da sua subscrição, grupo de recursos, conta de armazenamento ou contentor ou fila.
+>
+> Antes de atribuir uma função para o acesso aos dados, poderá aceder aos dados na sua conta de armazenamento através do portal Azure, uma vez que o portal Azure também pode utilizar a chave de conta para o acesso aos dados. Para mais informações, consulte [Escolha como autorizar o acesso aos dados blob no portal Azure.](../blobs/authorize-data-operations-portal.md)
+
 ### <a name="authenticate-the-user-in-the-development-environment"></a>Autenticar o utilizador no ambiente de desenvolvimento
 
 Quando o seu código está a ser em execução no ambiente de desenvolvimento, a autenticação pode ser tratada automaticamente, ou pode exigir um login do navegador, dependendo das ferramentas que está a utilizar. Por exemplo, o Microsoft Visual Studio suporta uma única sactivação (SSO), de modo a que a conta de utilizador AZure AD ativa seja automaticamente utilizada para a autenticação. Para obter mais informações sobre sSO, consulte [o ''s'on's single para as aplicações](../../active-directory/manage-apps/what-is-single-sign-on.md).
@@ -71,7 +76,7 @@ O exemplo a seguir utiliza o CLI Azure para criar um novo diretor de serviço e 
 ```azurecli-interactive
 az ad sp create-for-rbac \
     --name <service-principal> \
-    --role "Storage Blob Data Reader" \
+    --role "Storage Blob Data Contributor" \
     --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 

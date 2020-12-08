@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/21/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6dacb1cd910c6569d94f365b34a15494dde70a4c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6d6a152096ce4e16849542c26d1c7a675a972b89
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787691"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779078"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Adquirir um token da Azure AD para autorizar pedidos de um pedido de cliente
 
@@ -46,7 +46,7 @@ A imagem a seguir mostra configurações comuns para registar uma aplicação we
 
 Depois de ter registado a sua candidatura, verá o ID da aplicação (ou ID do cliente) em **Definições:**
 
-:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Screenshot mostrando como registar a sua aplicação de armazenamento com Azure AD":::
+:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Screenshot mostrando o ID do cliente":::
 
 Para obter mais informações sobre o registo de uma candidatura com a Azure AD, consulte [integrar aplicações com o Azure Ative Directory](../../active-directory/develop/quickstart-register-app.md).
 
@@ -54,18 +54,18 @@ Para obter mais informações sobre o registo de uma candidatura com a Azure AD,
 
 Em seguida, conceda permissões à sua candidatura para ligar para as APIs de Armazenamento Azure. Este passo permite que o seu pedido autorize pedidos para a Azure Storage com Azure AD.
 
-1. Na página de **permissões** da API para a sua aplicação registada, selecione **Adicionar uma permissão** .
-1. No separador **APIs** da Microsoft, selecione **Azure Storage** .
+1. Na página de **permissões** da API para a sua aplicação registada, selecione **Adicionar uma permissão**.
+1. No separador **APIs** da Microsoft, selecione **Azure Storage**.
 1. A **pedido a API permissões** de painéis, em **que tipo de permissões a sua aplicação requer?** **Delegated permissions** Esta opção é selecionada por padrão.
-1. Em **Permissões** , selecione a caixa de verificação ao lado **user_impersonation** , em seguida, selecione o botão **'Adicionar permissões'.**
+1. Em **Permissões**, selecione a caixa de verificação ao lado **user_impersonation**, em seguida, selecione o botão **'Adicionar permissões'.**
 
-    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Screenshot mostrando como registar a sua aplicação de armazenamento com Azure AD":::
+    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Screenshot mostrando permissões para armazenamento API":::
 
-1. Em seguida, conceda o consentimento administrativo para estas permissões clicando **no consentimento de administração grant para o Diretório Predefinido** .
+1. Em seguida, conceda o consentimento administrativo para estas permissões clicando **no consentimento de administração grant para o Diretório Predefinido**.
 
 O painel **de permissões da API** mostra agora que a sua aplicação AD AZure registada tem acesso tanto às APIs de Armazenamento microsoft como a Azure Storage, e esse consentimento é concedido para o diretório predefinido. As permissões são concedidas automaticamente ao Microsoft Graph quando regista a sua aplicação pela primeira vez com a Azure AD.
 
-:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Screenshot mostrando como registar a sua aplicação de armazenamento com Azure AD":::
+:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Screenshot mostrando permissões de API para aplicação registada":::
 
 ### <a name="create-a-client-secret"></a>Criar um segredo de cliente
 
@@ -87,7 +87,7 @@ Em seguida, configurar o fluxo de subvenção implícita para a sua aplicação.
 1. Na secção **Gerir,** selecione a **definição de Autenticação.**
 1. Na secção **de concessão implícita,** selecione a caixa de verificação para permitir fichas de ID, como mostra a seguinte imagem:
 
-    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Screenshot mostrando como registar a sua aplicação de armazenamento com Azure AD":::
+    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Screenshot mostrando como ativar configurações para fluxo de subvenção implícito":::
 
 ## <a name="client-libraries-for-token-acquisition"></a>Bibliotecas de clientes para aquisição simbólica
 
@@ -131,6 +131,8 @@ Em seguida, atribua explicitamente a **função de Contribuinte de Dados blob de
 
 > [!NOTE]
 > Quando cria uma conta de Armazenamento Azure, não lhe são atribuídas automaticamente permissões de acesso aos dados através do Azure AD. Deve atribuir-se explicitamente um papel Azure para o Azure Storage. Pode atribuí-lo ao nível da sua subscrição, grupo de recursos, conta de armazenamento ou contentor ou fila.
+>
+> Antes de atribuir uma função para o acesso aos dados, poderá aceder aos dados na sua conta de armazenamento através do portal Azure, uma vez que o portal Azure também pode utilizar a chave de conta para o acesso aos dados. Para mais informações, consulte [Escolha como autorizar o acesso aos dados blob no portal Azure.](../blobs/authorize-data-operations-portal.md)
 
 ### <a name="create-a-web-application-that-authorizes-access-to-blob-storage-with-azure-ad"></a>Crie uma aplicação web que autorize o acesso ao armazenamento blob com Azure AD
 
@@ -140,7 +142,7 @@ Uma aplicação web de amostra concluída que adquire um token e a usa para cria
 
 #### <a name="add-references-and-using-statements"></a>Adicionar referências e usar declarações  
 
-A partir do Visual Studio, instale a biblioteca de clientes Azure Storage. No menu **Ferramentas** , selecione **Gestor de Pacotes NuGet** e, em seguida, **Consola do Gestor de Pacotes** . Digite os seguintes comandos na janela da consola para instalar os pacotes necessários na biblioteca do cliente do Azure Storage para .NET:
+A partir do Visual Studio, instale a biblioteca de clientes Azure Storage. No menu **Ferramentas**, selecione **Gestor de Pacotes NuGet** e, em seguida, **Consola do Gestor de Pacotes**. Digite os seguintes comandos na janela da consola para instalar os pacotes necessários na biblioteca do cliente do Azure Storage para .NET:
 
 # <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 

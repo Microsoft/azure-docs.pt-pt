@@ -8,23 +8,23 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: dafb4485ae9b10d89fa36bd790dcf3a799054de3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2cd50b1b35b87b1a11301ddc36ac355bef20dc4
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90064179"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780621"
 ---
 # <a name="manage-spark-application-dependencies"></a>Gerir dependências de aplicação do Spark
 
 Neste artigo, aprende-se a gerir dependências para as suas aplicações Spark em execução no HDInsight. Cobrimos tanto o Scala como o PySpark na aplicação Spark e no âmbito do cluster.
 
 Utilize links rápidos para saltar para a secção com base no seu caso de utilizador:
-* [Configurar dependências de frascos de trabalho spark usando o caderno Jupyter](#use-jupyter-notebook)
+* [Configurar dependências de frascos de trabalho spark usando o Caderno Jupyter](#use-jupyter-notebook)
 * [Configurar dependências de frascos de trabalho spark usando use Azure Toolkit para IntelliJ](#use-azure-toolkit-for-intellij)
 * [Configure dependências de frascos para cluster spark](#jar-libs-for-cluster)
 * [Gerir dependências jar com segurança](#safely-manage-jar-dependencies)
-* [Configurar pacotes de spark job Python usando o caderno Jupyter](#use-jupyter-notebook-1)
+* [Configurar pacotes de python de trabalho spark usando o Caderno Jupyter](#use-jupyter-notebook-1)
 * [Gerir com segurança pacotes Python para cluster Spark](#python-packages-for-cluster)
 
 ## <a name="jar-libs-for-one-spark-job"></a>Jar libs por um trabalho de Faísca
@@ -42,7 +42,7 @@ Vais usar a `%%configure` magia para configurar o caderno para usar um pacote ex
 
 **Amostra para pacotes de Pacotes de Repositório de Maven ou De faísca**
 
-Depois de localizar o pacote do Repositório Maven, colete os valores para **GroupId,** **ArtifactId**e **Versão**. Concatenar os três valores, separados por um cólon **.**
+Depois de localizar o pacote do Repositório Maven, colete os valores para **GroupId,** **ArtifactId** e **Versão**. Concatenar os três valores, separados por um cólon **.**
 
    ![Esquema de pacote concatenate](./media/apache-spark-manage-dependencies/spark-package-schema.png "Esquema de pacote concatenate")
 
@@ -103,7 +103,7 @@ O cluster HDInsight tem dependências de frascos incorporados, e as atualizaçõ
 
 ## <a name="python-packages-for-one-spark-job"></a>Pacotes python para um trabalho de faísca
 ### <a name="use-jupyter-notebook"></a>Use o caderno Jupyter
-O bloco de notas PySpark, portátil HDInsight Jupyter, não suporta a instalação de pacotes Python do repositório de pacotes PyPi ou Anaconda diretamente. Se `.zip` `.egg` tiver, ou `.py` dependências, e quiser fazê-los referenciar para uma sessão de Faísca, siga abaixo os passos:
+HDInsight Jupyter Notebook PySpark kernel não suporta a instalação de pacotes Python do repositório de pacotes PyPi ou Anaconda diretamente. Se `.zip` `.egg` tiver, ou `.py` dependências, e quiser fazê-los referenciar para uma sessão de Faísca, siga abaixo os passos:
 
 1. Executar abaixo as ações de script de amostra para copiar `.zip` , `.egg` ou `.py` ficheiros do armazenamento primário para o `wasb://mycontainer@mystorageaccount.blob.core.windows.net/libs/*` sistema de ficheiros local cluster `/usr/libs/pylibs` . O passo é necessário à medida que o linux usa `:` para separar a lista de caminhos de pesquisa, mas o HDInsight apenas suporta caminhos de armazenamento com esquemas como `wasb://` . O caminho de armazenamento remoto não funcionará corretamente quando utilizar `sys.path.insert` .
 

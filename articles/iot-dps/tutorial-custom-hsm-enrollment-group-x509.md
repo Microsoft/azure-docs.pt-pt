@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f6026680dd566bf7a13c83b37883341bff8b4570
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 6845923d65b5fbe5a9f010474330ce2bbed948e1
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355183"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780098"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>Tutorial: Fornecimento de vários dispositivos X.509 utilizando grupos de inscrição
 
@@ -26,7 +26,7 @@ O Serviço Aprovisionamento de Dispositivos no IoT do Azure suporta dois tipos d
 
 Este tutorial é semelhante aos tutoriais anteriores que demonstram como usar grupos de inscrição para conjuntos de dispositivos. No entanto, os certificados X.509 serão usados neste tutorial em vez de chaves simétricas. Reveja os tutoriais anteriores nesta secção para obter uma abordagem simples utilizando [teclas simétricas](./concepts-symmetric-key-attestation.md).
 
-Este tutorial demonstrará a amostra personalizada do [HSM](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example) que fornece uma implementação de canhoto para interagir com armazenamento seguro baseado em hardware. Um [Módulo de Segurança de Hardware (HSM)](./concepts-service.md#hardware-security-module) é utilizado para armazenamento seguro e baseado em hardware de segredos de dispositivos. Um HSM pode ser usado com chave simétrica, certificado X.509 ou atestado de TPM para fornecer armazenamento seguro para segredos. Recomenda-se vivamente o armazenamento baseado em hardware dos segredos do dispositivo.
+Este tutorial demonstrará a amostra personalizada do [HSM](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example) que fornece uma implementação de canhoto para interagir com armazenamento seguro baseado em hardware. Um [Módulo de Segurança de Hardware (HSM)](./concepts-service.md#hardware-security-module) é utilizado para armazenamento seguro e baseado em hardware de segredos de dispositivos. Um HSM pode ser usado com chave simétrica, certificado X.509 ou atestado de TPM para fornecer armazenamento seguro para segredos. O armazenamento baseado em hardware dos segredos do dispositivo não é necessário, mas é fortemente recomendado para ajudar a proteger informações sensíveis como a chave privada do certificado do seu dispositivo.
 
 Se não estiver familiarizado com o processo de autoprovisionamento, reveja a visão geral [do provisionamento.](about-iot-dps.md#provisioning-process) Além disso, certifique-se de ter completado os passos no [Serviço de Provisionamento de Dispositivos IoT Hub com o portal Azure](quick-setup-auto-provision.md) antes de continuar com este tutorial. 
 
@@ -225,7 +225,9 @@ Para criar a cadeia de certificados:
 
 ## <a name="configure-the-custom-hsm-stub-code"></a>Configure o código de canhoto personalizado HSM
 
-As especificidades de interagir com o armazenamento baseado em hardware seguro variam dependendo do hardware. Como resultado, a cadeia de certificados utilizada pelo dispositivo neste tutorial será codificada no código de canhoto HSM personalizado. Num cenário real, a cadeia de certificados seria armazenada no hardware HSM real para fornecer uma melhor segurança para informações sensíveis. Métodos semelhantes aos métodos de encaixe mostrados nesta amostra seriam então implementados para ler os segredos desse armazenamento baseado em hardware.
+As especificidades de interagir com o armazenamento baseado em hardware seguro variam dependendo do hardware. Como resultado, a cadeia de certificados utilizada pelo dispositivo neste tutorial será codificada no código de canhoto HSM personalizado. Num cenário real, a cadeia de certificados seria armazenada no hardware HSM real para fornecer uma melhor segurança para informações sensíveis. Métodos semelhantes aos métodos de encaixe mostrados nesta amostra seriam então implementados para ler os segredos desse armazenamento baseado em hardware. 
+
+Embora o hardware HSM não seja necessário, não é aconselhável ter informações sensíveis, como a chave privada do certificado, verificadas no código fonte. Isto expõe a chave a qualquer um que possa ver o código. Isto só é feito neste artigo para ajudar na aprendizagem.
 
 Para atualizar o código de canhoto HSM personalizado para este tutorial:
 
@@ -287,7 +289,7 @@ Para atualizar o código de canhoto HSM personalizado para este tutorial:
 
 ## <a name="verify-ownership-of-the-root-certificate"></a>Verificar a propriedade do certificado raiz
 
-1. Utilizando as instruções do [Registo da parte pública de um certificado X.509 e obter um código de verificação](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code), carrece o certificado raiz e obtenha um código de verificação da DPS.
+1. Utilizando as instruções do [Registo da parte pública de um certificado X.509 e obtenha um código de verificação,](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code)carrece o certificado raiz ( ) e obtenha um código de `./certs/azure-iot-test-only.root.ca.cert.pem` verificação de DPS.
 
 2. Assim que tiver um código de verificação do DPS para o certificado raiz, execute o seguinte comando a partir do seu diretório de trabalho de script de certificado para gerar um certificado de verificação.
  
@@ -297,7 +299,7 @@ Para atualizar o código de canhoto HSM personalizado para este tutorial:
     ./certGen.sh create_verification_certificate 1B1F84DE79B9BD5F16D71E92709917C2A1CA19D5A156CB9F    
     ```    
 
-    Este script cria um certificado assinado pelo certificado raiz com o nome do sujeito definido para o código de verificação. Este certificado permite que a DPS verifique que tem acesso à chave privada do certificado raiz. Note a localização do certificado de verificação na saída do script.
+    Este script cria um certificado assinado pelo certificado raiz com o nome do sujeito definido para o código de verificação. Este certificado permite que a DPS verifique que tem acesso à chave privada do certificado raiz. Note a localização do certificado de verificação na saída do script. Este certificado é gerado em `.pfx` formato.
 
     ```output
     Leaf Device PFX Certificate Generated At:

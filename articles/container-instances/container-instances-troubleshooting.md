@@ -4,12 +4,12 @@ description: Saiba como resolver problemas comuns quando implementar, executar o
 ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ac75fff3b088a7d595de2b27c92126ce592aff47
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d8e7fb85e369f5f278436370944eafeb1fb6a50e
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746913"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779520"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Resolver problemas comuns no Azure Container Instances
 
@@ -99,7 +99,7 @@ Este erro indica que devido à carga pesada na região em que está a tentar imp
 ## <a name="issues-during-container-group-runtime"></a>Problemas durante o tempo de funcionação do grupo de contentores
 ### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>O contentor é desligado e reiniciado continuamente (sem processo de longa duração)
 
-Os grupos de contentores não têm uma política de [reinício](container-instances-restart-policy.md) da **Always** , pelo que os contentores do grupo de contentores reiniciam sempre após a sua conclusão. Pode ter de alterar isto para **OnFailure** ou **nunca** se pretender executar recipientes baseados em tarefas. Se especificar **o OnFailure** e continuar a ver o recomeço contínuo, pode haver um problema com a aplicação ou script executado no seu contentor.
+Os grupos de contentores não têm uma política de [reinício](container-instances-restart-policy.md) da **Always**, pelo que os contentores do grupo de contentores reiniciam sempre após a sua conclusão. Pode ter de alterar isto para **OnFailure** ou **nunca** se pretender executar recipientes baseados em tarefas. Se especificar **o OnFailure** e continuar a ver o recomeço contínuo, pode haver um problema com a aplicação ou script executado no seu contentor.
 
 Ao executar grupos de contentores sem processos de longa duração, poderá ver saídas repetidas e reiniciar com imagens como Ubuntu ou Alpine. A ligação via [EXEC](container-instances-exec.md) não funcionará, uma vez que o contentor não tem qualquer processo para mantê-lo vivo. Para resolver este problema, inclua um comando inicial como o seguinte com a colocação do seu grupo de contentores para manter o recipiente em funcionamento.
 
@@ -187,7 +187,7 @@ Outra forma de reduzir o impacto da imagem puxada para o tempo de arranque do se
 
 #### <a name="cached-images"></a>Imagens em cache
 
-Azure Container Instances usa um mecanismo de caching para ajudar a acelerar o tempo de arranque do contentor para imagens construídas em [imagens comuns do Windows base](container-instances-faq.md#what-windows-base-os-images-are-supported), incluindo `nanoserver:1809` , e `servercore:ltsc2019` `servercore:1809` . Imagens linux comumente usadas, como `ubuntu:1604` e também são em `alpine:3.6` cache. Para obter uma lista atualizada de imagens e tags em cache, utilize a [Lista cached Images][list-cached-images] API.
+Azure Container Instances usa um mecanismo de caching para ajudar a acelerar o tempo de arranque do contentor para imagens construídas em [imagens comuns do Windows base](container-instances-faq.md#what-windows-base-os-images-are-supported), incluindo `nanoserver:1809` , e `servercore:ltsc2019` `servercore:1809` . Imagens linux comumente usadas, como `ubuntu:1604` e também são em `alpine:3.6` cache. Para imagens Windows e Linux, evite utilizar a `latest` etiqueta. Rever as [melhores práticas](../container-registry/container-registry-image-tag-version.md) de orientação do Registo de Contentores. Para obter uma lista atualizada de imagens e tags em cache, utilize a [Lista cached Images][list-cached-images] API.
 
 > [!NOTE]
 > A utilização de imagens baseadas no Windows Server 2019 em Instâncias de Contentores Azure está em pré-visualização.

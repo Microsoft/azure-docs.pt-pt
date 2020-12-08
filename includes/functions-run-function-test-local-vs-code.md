@@ -4,18 +4,18 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: glenga
-ms.openlocfilehash: 43da0ea4ddfc5410425465d436522523739218fe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a3cb0986637d5ce238930fb87aef71fed684097a
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91408582"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96842312"
 ---
 ## <a name="run-the-function-locally"></a>Executar a função localmente
 
 O Código do Estúdio Visual integra-se com [as ferramentas core do Azure Functions](../articles/azure-functions/functions-run-local.md) para permitir que execute este projeto no seu computador de desenvolvimento local antes de publicar para o Azure.
 
-1. Para ligar para a sua função, prima <kbd>F5</kbd> para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal**.
+1. Para ligar para a sua função, prima <kbd>F5</kbd> para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal**. Se tiver problemas em funcionamento no Windows, certifique-se de que o terminal padrão do Código do Estúdio Visual não está definido para **WSL Bash**.
 
 1. Se ainda não instalou ferramentas principais do Azure Functions, selecione **Instale** na mensagem. Quando as Ferramentas Core são instaladas, a sua aplicação começa no painel **Terminal.** Pode ver o ponto final url da sua função desencadeada por HTTP a funcionar localmente.
 

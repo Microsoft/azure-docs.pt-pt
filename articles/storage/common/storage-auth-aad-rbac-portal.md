@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e2d577261a1cea0bad9aab549b3669f8fdef5751
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96f316b1ca6a7684630c1ab14d722651c1f3ffbc
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715847"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778909"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Utilize o portal Azure para atribuir uma função Azure para acesso a dados de bolhas e filas
 
@@ -39,12 +39,14 @@ Depois de ter determinado o âmbito adequado para uma atribuição de funções,
 
 1. Atribua a função azure de armazenamento adequada para conceder acesso a um diretor de segurança Azure AD.
 
-1. Atribua a função de [Leitor](../../role-based-access-control/built-in-roles.md#reader) de Gestor de Recursos Azure aos utilizadores que necessitem de aceder a contentores ou filas através do portal Azure utilizando as suas credenciais Azure AD. 
+1. Atribua a função de [Leitor](../../role-based-access-control/built-in-roles.md#reader) de Gestor de Recursos Azure aos utilizadores que necessitem de aceder a contentores ou filas através do portal Azure utilizando as suas credenciais Azure AD.
 
 As seguintes secções descrevem cada um destes passos com mais detalhes.
 
 > [!NOTE]
-> Como proprietário da sua conta Azure Storage, não lhe são atribuídas automaticamente permissões de acesso aos dados. Deve atribuir-se explicitamente um papel Azure para o Azure Storage. Pode atribuí-lo ao nível da sua subscrição, grupo de recursos, conta de armazenamento ou um contentor ou fila.
+> Quando cria uma conta de Armazenamento Azure, não lhe são atribuídas automaticamente permissões de acesso aos dados através do Azure AD. Deve atribuir-se explicitamente um papel Azure para o Azure Storage. Pode atribuí-lo ao nível da sua subscrição, grupo de recursos, conta de armazenamento ou contentor ou fila.
+>
+> Antes de atribuir uma função para o acesso aos dados, poderá aceder aos dados na sua conta de armazenamento através do portal Azure, uma vez que o portal Azure também pode utilizar a chave de conta para o acesso aos dados. Para mais informações, consulte [Escolha como autorizar o acesso aos dados blob no portal Azure.](../blobs/authorize-data-operations-portal.md)
 >
 > Não é possível atribuir uma função a um contentor ou fila se a sua conta de armazenamento tiver um espaço hierárquico ativado.
 
@@ -64,11 +66,11 @@ O procedimento aqui indicado atribui uma função a um contentor, mas pode segui
 1. Clique no botão **de atribuição de funções Adicionar** para adicionar um novo papel.
 1. Na janela **de atribuição de funções Adicionar,** selecione a função de Armazenamento Azure que pretende atribuir. Em seguida, procure para localizar o principal de segurança ao qual quer atribuir esse papel.
 
-    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Screenshot mostrando definições de controlo de acesso ao contentor":::
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Screenshot mostrando como atribuir um papel de Azure":::
 
 1. Clique em **Guardar**. A identidade a quem atribuiu o papel aparece listada nessa função. Por exemplo, a seguinte imagem mostra que o utilizador adicionado agora leu permissões aos dados no contentor denominado *amostra-contentor*.
 
-    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Screenshot mostrando definições de controlo de acesso ao contentor":::
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Screenshot mostrando lista de utilizadores atribuídos a uma função":::
 
 Pode seguir passos semelhantes para atribuir uma função a uma conta de armazenamento, grupo de recursos ou subscrição.
 

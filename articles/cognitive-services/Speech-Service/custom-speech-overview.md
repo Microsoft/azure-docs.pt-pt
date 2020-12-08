@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 96b8e4031520e1a0540fca7d84b3f9ae1cca9c22
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.custom: contperfq2
+ms.openlocfilehash: 932b2624883c4fe22eb73094fc622b1604786954
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490351"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780489"
 ---
 # <a name="what-is-custom-speech"></a>O que é a Voz Personalizada?
 

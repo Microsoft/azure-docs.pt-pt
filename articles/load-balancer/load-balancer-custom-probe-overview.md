@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 605692d15a08246dd574b0724a550b4543a237a3
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: a008d7b26738b9552a7a43ab026391bd9afe0aa8
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695525"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780948"
 ---
 # <a name="load-balancer-health-probes"></a>Sondas de estado de funcionamento do Balanceador de Carga
 
@@ -66,7 +66,7 @@ Os valores de intervalo e intervalo especificados determinam se uma instância s
 
 Podemos ilustrar ainda mais o comportamento com um exemplo. Se tiver definido o número de respostas da sonda para 2 e o intervalo para 5 segundos, isto significa que 2 falhas de tempo de sonda devem ser observadas num intervalo de 10 segundos.  Como o momento em que uma sonda é enviada não é sincronizado quando a sua aplicação pode mudar de estado, podemos vincular o tempo para detetar por dois cenários:
 
-1. Se a sua aplicação começar a produzir uma resposta de sonda de tempo de saída pouco antes da chegada da primeira sonda, a deteção destes eventos demorará 10 segundos (intervalos de 2 x 5 segundos) mais a duração da aplicação começando a sinalizar um intervalo para quando a primeira sonda chegar.  Pode assumir que esta deteção demora um pouco mais de 10 segundos.
+1. Se a sua aplicação começar a produzir uma resposta de sonda de tempo de saída pouco antes da chegada da primeira sonda, a deteção destes eventos demorará 10 segundos (intervalos de 2 x 5 segundos) mais a duração da aplicação começando a sinalizar um tempo de tempo para quando a primeira sonda chegar.  Pode assumir que esta deteção demora um pouco mais de 10 segundos.
 2. Se a sua aplicação começar a produzir uma resposta de sonda de tempo de saída logo após a chegada da primeira sonda, a deteção destes eventos não começará até que a próxima sonda chegue (e os tempos fora) mais 10 segundos (intervalos de 2 x 5 segundos).  Pode assumir que esta deteção demora menos de 15 segundos.
 
 Para este exemplo, uma vez que a deteção tenha ocorrido, a plataforma demorará um pouco de tempo a reagir a esta mudança.  Isto significa que dependendo de 

@@ -9,14 +9,14 @@ manager: dviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 12/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 86b465d0b3c28c50a8aa85247a14e189d4586a47
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 84b973dfa016b069b18fda47a4336fe952f73b3c
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016280"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780863"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Conceder acesso de dados a um ambiente
 
@@ -120,7 +120,7 @@ Siga estes passos para conceder ao hóspede acesso a um ambiente Azure Time Seri
 
     [![O utilizador convidado seleciona o seu inquilino Azure a partir do drop-down](media/data-access/data-access-all-capabilities.png)](media/data-access/data-access-all-capabilities.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia as etapas de registo de aplicações de [autenticação e autorização](time-series-insights-authentication-and-authorization.md) para o Azure Ative Directory.
 

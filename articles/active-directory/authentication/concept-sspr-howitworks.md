@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 620b696be0b9a06cf0d68145b06e3cacf2bedff2
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: e5bcc6503af5f5f685ee589ed7671b4715834fef
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96762555"
+ms.locfileid: "96779367"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Reposição personalizada de palavra-passe do AAD
 
@@ -89,7 +89,7 @@ Quando não necessita de registo, os utilizadores não são solicitados durante 
 >
 > Esta interrupção para se registar para SSPR não quebra a ligação do utilizador se já estiverem assinadas.
 
-## <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Definir o número de dias antes de os utilizadores serem convidados a reconfirmar as suas informações de autenticação
+## <a name="reconfirm-authentication-information"></a>Reconfirmar informações de autenticação
 
 Para garantir que os métodos de autenticação estão corretos quando são necessários para redefinir ou alterar a sua palavra-passe, pode exigir que os utilizadores confirmem as suas informações registadas após um determinado período de tempo. Esta opção só está disponível se permitir que os **utilizadores do Requererem** o registo ao assinarem na opção.
 

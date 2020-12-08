@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa4b625afb641209d3920c8663ed810ee27e1ad
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 427cf2614f81a086dcb174db06cd636df4876c7e
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89228652"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778500"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>O que é a monitorização do Azure Active Directory?
 
@@ -39,6 +39,22 @@ Atualmente, pode encaminhar os registos para:
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+## <a name="licensing-and-prerequisites-for-azure-ad-reporting-and-monitoring"></a>Licenciamento e pré-requisitos para a informação e monitorização da Azure AD
+
+Você precisará de uma licença AD AD AD para aceder ao sinal AZURE AD em registos.
+
+Para informações detalhadas sobre funcionalidades e licenciamentos no [guia de preços do Azure Ative Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Para implementar a monitorização e reportagem da Azure, precisará de um utilizador que seja administrador global ou administrador de segurança para o inquilino da AD Azure.
+
+Dependendo do destino final dos seus dados de registo, necessitará de um dos seguintes dados:
+
+* Uma conta de armazenamento do Azure, para a qual tenha permissões ListKeys. Recomendamos que utilize uma conta de armazenamento para fins gerais e não uma conta de armazenamento de Blobs. Para obter informações sobre os preços de armazenamento, veja a [Calculadora de preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/calculator/?service=storage).
+
+* Um espaço de nome azure Event Hubs para integrar com soluções SIEM de terceiros.
+
+* Um espaço de trabalho Azure Log Analytics para enviar registos para registos do Monitor Azure.
 
 ## <a name="diagnostic-settings-configuration"></a>Configuração de definições de diagnóstico
 

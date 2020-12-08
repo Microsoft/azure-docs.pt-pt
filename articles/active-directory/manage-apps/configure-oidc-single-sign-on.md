@@ -12,17 +12,17 @@ ms.date: 10/19/2020
 ms.author: kenwith
 ms.reviewer: arajpathak7
 ms.custom: contperfq2
-ms.openlocfilehash: 5fc0156b9b832f44fd38292ef2b9a25e39401610
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 487bf3c83be16ee80838b3bbe8bf8532eb6ffe12
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348666"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780064"
 ---
 # <a name="understand-oidc-based-single-sign-on"></a>Compreenda o sign-on único baseado no OIDC
 Na [série quickstart](view-applications-portal.md) sobre gestão de aplicações, aprendeu a usar a Azure AD como Fornecedor de Identidade (IdP) para uma aplicação. Este artigo entra em mais detalhes sobre apps que usam a norma OpenID Connect para implementar um único sinal de entrada. 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 O processo de adição de uma app ao seu inquilino Azure Ative Directory depende do tipo de sinal único da aplicação implementada. Para saber mais sobre as opções de inscrição única disponíveis para aplicações que podem utilizar a Azure AD para gestão de identidade, consulte [as opções de inscrição únicas](sso-options.md). Este artigo abrange aplicações baseadas em OIDC.
 
 
@@ -35,7 +35,9 @@ Adicionar uma aplicação baseada em OIDC no Azure Ative Directory
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
-## <a name="next-steps"></a>Próximos passos
+Para saber mais sobre o consentimento do utilizador e da administração, consulte [o consentimento do utilizador e da administração.](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
+
+## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart Series em Gestão de Aplicações](add-application-portal-setup-oidc-sso.md)
 - [Opções de início de sessão único](sso-options.md)

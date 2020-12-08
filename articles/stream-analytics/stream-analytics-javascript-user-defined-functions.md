@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
 ms.date: 06/16/2020
-ms.openlocfilehash: aac85fdab157d581285af91c4c818258a5f1790b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 092e07ed01fb870cdcd9a3fd63d46d30cef96007
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124786"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780846"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funções definidas pelo utilizador JavaScript no Azure Stream Analytics
  
@@ -41,7 +41,7 @@ Embora funções como **Date.GetDate()** ou **Math.random()** não estejam bloqu
 > [!NOTE]
 > Estes passos funcionam nos trabalhos do Stream Analytics configurados para correr na nuvem. Se o seu trabalho stream Analytics estiver configurado para funcionar no Azure IoT Edge, em vez disso use o Visual Studio e [escreva a função definida pelo utilizador utilizando C#](stream-analytics-edge-csharp-udf.md).
 
-Para criar uma função definida pelo utilizador JavaScript no seu trabalho stream Analytics, selecione **Funções** em **Job Topology** . Em seguida, selecione **JavaScript UDF** a partir do menu de entrega **+Add.** 
+Para criar uma função definida pelo utilizador JavaScript no seu trabalho stream Analytics, selecione **Funções** em **Job Topology**. Em seguida, selecione **JavaScript UDF** a partir do menu de entrega **+Add.** 
 
 ![Adicionar JavaScript UDF](./media/javascript/stream-analytics-jsudf-add.png)
 
@@ -57,11 +57,11 @@ Em seguida, deve fornecer as seguintes propriedades e selecionar **Guardar.**
 
 Pode testar e depurar a sua lógica DeSconseção UDF JavaScript em qualquer browser. Depurar e testar a lógica destas funções definidas pelo utilizador não é atualmente suportado no portal Stream Analytics. Uma vez que a função funcione como esperado, pode adicioná-la ao trabalho stream Analytics como mencionado acima e, em seguida, invocá-la diretamente da sua consulta. Pode testar a sua lógica de consulta com o JavaScript UDF utilizando [ferramentas stream analytics para o Estúdio Visual](./stream-analytics-tools-for-visual-studio-install.md).
 
-Os erros de runtime do JavaScript são considerados fatais e são apresentados no Registo de atividades. Para obter o registo, no portal do Azure, aceda à sua tarefa e selecione **Registo de atividades** .
+Os erros de runtime do JavaScript são considerados fatais e são apresentados no Registo de atividades. Para obter o registo, no portal do Azure, aceda à sua tarefa e selecione **Registo de atividades**.
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Chamar uma função definida pelo utilizador do JavaScript numa consulta
 
-Pode facilmente invocar a sua função JavaScript na sua consulta utilizando o pseudónimo de função prefixado com **udf** . Aqui está um exemplo de um UDF JavaScript que converte valores hexamalis para inteiros sendo invocados numa consulta stream Analytics.
+Pode facilmente invocar a sua função JavaScript na sua consulta utilizando o pseudónimo de função prefixado com **udf**. Aqui está um exemplo de um UDF JavaScript que converte valores hexamalis para inteiros sendo invocados numa consulta stream Analytics.
 
 ```SQL
     SELECT
@@ -86,7 +86,7 @@ Stream Analytics | JavaScript
 bigint | Number (o JavaScript só pode representar números inteiros até precisamente 2^53)
 DateTime | Date (o JavaScript só suporta milissegundos)
 double | Número
-nvarchar(MAX) | String
+nvarchar(MAX) | Cadeia
 Registo | Objeto
 Matriz | Matriz
 NULL | Nulo
@@ -96,8 +96,8 @@ Seguem-se conversões do JavaScript para o Stream Analytics:
 JavaScript | Stream Analytics
 --- | ---
 Número | Bigint (se o número for redondo e entre long.MinValue e long.MaxValue; caso contrário, é duplo)
-Date | DateTime
-String | nvarchar(MAX)
+Data | DateTime
+Cadeia | nvarchar(MAX)
 Objeto | Registo
 Matriz | Matriz
 Null, Undefined | NULL
@@ -184,6 +184,35 @@ INTO
     output
 FROM
     input A
+```
+
+### <a name="tolocalestring"></a>toLocaleString()
+O método **toLocaleString** em JavaScript pode ser usado para devolver uma cadeia sensível à linguagem que representa os dados da hora da data de onde este método é chamado.
+Mesmo que a Azure Stream Analtyics apenas aceite a hora de data UTC como o relógio do sistema, este método pode ser usado para cobrir o relógio do sistema para outro local e o timezone.
+Este método segue o mesmo comportamento de implementação que o disponível no Internet Explorer.
+
+**Definição da função definida pelo utilizador do JavaScript:**
+
+```javascript
+function main(datetime){
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return event.toLocaleDateString('de-DE', options);
+}
+```
+
+**Consulta de amostra: Passe uma data como valor de entrada**
+```SQL
+SELECT
+    udf.toLocaleString(input.datetime) as localeString
+INTO
+    output
+FROM
+    input
+```
+
+A saída desta consulta será a data de entrada em **de-DE** com as opções fornecidas.
+```
+Samstag, 28. Dezember 2019
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

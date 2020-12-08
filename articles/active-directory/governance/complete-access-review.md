@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/07/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23266043d5efd65a4e6e79dd515a54a2c321b077
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6491de18e65c5071ac0972e7ff49d1253cbd402
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87798839"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779555"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Complete uma revisão de acesso de grupos e aplicações em avaliações de acesso Azure AD
 
@@ -46,11 +46,19 @@ Pode acompanhar o progresso à medida que os revisores completarem as suas avali
 
 1. Na lista, clique numa análise de acesso.
 
-    Para ver uma série de avaliações de acesso, navegue para a revisão de acesso e encontrará as próximas ocorrências em avaliações agendadas.
+    Para ver futuras instâncias de uma análise de acesso, navegue para a revisão de acesso e selecione avaliações agendadas.
 
     Na página **geral,** pode ver o progresso. Nenhum direito de acesso é alterado no diretório até que a revisão esteja concluída.
 
     ![Acesso avalia progresso](./media/complete-access-review/overview-progress.png)
+    
+    Se estiver a ver uma análise de acesso que revê o acesso dos hóspedes em todos os grupos microsoft 365 (Preview), a lâmina de visão geral lista cada grupo na revisão.  
+
+   ![rever acesso de hóspedes em todos os grupos Microsoft 365](./media/complete-access-review/review-guest-access-across-365-groups.png)
+
+    Clique em um grupo para ver o progresso da revisão nesse grupo.
+
+   ![rever o acesso dos hóspedes em todos os grupos microsoft 365 em detalhe](./media/complete-access-review/progress-group-review.png)
 
 1. Se pretender interromper uma revisão de acesso antes de atingir a data de fim prevista, clique no botão **Stop.**
 
@@ -74,7 +82,7 @@ Uma revisão de aplicação automática configurada, ou seleção **De aplicar**
 
 Para ver os resultados de uma revisão de acesso único, clique na página **Resultados.** Para visualizar apenas o acesso de um utilizador, na caixa De Busca, digite o nome de exibição ou o nome principal do utilizador de um utilizador cujo acesso foi revisto.
 
-![Recuperar resultados para uma revisão de acesso](./media/complete-access-review/retrieve-results.png)
+![Recuperar resultados para uma revisão de acesso](./media/complete-access-review/retrieve-results.png) 
 
 Para ver o progresso de uma revisão de acesso ativa que é recorrente, clique na página **Resultados.**
 

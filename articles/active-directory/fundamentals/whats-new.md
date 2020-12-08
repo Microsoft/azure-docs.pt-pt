@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 12/03/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b836c28443790466084b1840edcf08dc09dcf4cc
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 2999fb8b3c3687c68e7eb38a60f128e24028871f
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518282"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779707"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Quais as novidades no Diretório Ativo do Azure?
 
@@ -311,7 +311,7 @@ Para obter mais informações sobre esta funcionalidade, consulte [Desativar e e
 **Categoria de serviço:** Comentários de Acesso  
 **Capacidade do produto:** Governação da Identidade
  
-Nas avaliações de acesso a AD do Azure, os administradores que criam comentários podem agora escrever uma mensagem personalizada aos revisores. Os revisores verão a mensagem no e-mail que recebem e que os leva a completar a revisão. Para saber mais sobre a utilização desta função, consulte o passo 6 da secção [Definições Avançadas.](../governance/create-access-review.md#advanced-settings)
+Nas avaliações de acesso a AD do Azure, os administradores que criam comentários podem agora escrever uma mensagem personalizada aos revisores. Os revisores verão a mensagem no e-mail que recebem e que os leva a completar a revisão. Para saber mais sobre a utilização desta funcionalidade, consulte o passo 14 da secção [de comentários de acesso Create.](../governance/create-access-review.md#create-one-or-more-access-reviews)
 
 ---
 

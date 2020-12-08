@@ -4,18 +4,17 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/19/2020
 ms.author: glenga
-ms.openlocfilehash: ca8da227c97a44abe14354a5c530d508ce357884
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a5c113849296275432acf1f5603377a1909a2c04
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88704081"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96842401"
 ---
 ## <a name="run-the-function-locally"></a>Executar a função localmente
 
 A Azure Functions Core Tools integra-se com o Código do Estúdio Visual para permitir que você corra e depure um projeto Azure Functions localmente. Para obter detalhes sobre como depurar no Código do Estúdio Visual, consulte [as Funções Debug PowerShell Azure localmente](../articles/azure-functions/functions-debug-powershell-local.md). 
-
-1. Prima F5 para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal**.
+1. Para ligar para a sua função, prima <kbd>F5</kbd> para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal**. Se tiver problemas em funcionamento no Windows, certifique-se de que o terminal padrão do Código do Estúdio Visual não está definido para **WSL Bash**.
 
 1. No painel **Terminal**, copie o ponto final do URL da sua função acionada por HTTP.
 

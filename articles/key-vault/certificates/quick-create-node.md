@@ -1,31 +1,31 @@
 ---
-title: Quickstart - Biblioteca secreta do cliente Azure Key Vault para JavaScript (versão 4)
-description: Saiba como criar, recuperar e apagar segredos de um cofre de chaves Azure utilizando a biblioteca de clientes JavaScript
+title: Quickstart - Biblioteca de clientes certificados Azure Key Vault para JavaScript (versão 4)
+description: Saiba como criar, recuperar e apagar certificados de um cofre de chaves Azure utilizando a biblioteca de clientes JavaScript
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 12/6/2020
 ms.service: key-vault
-ms.subservice: secrets
+ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 8e04fcea53869fe15ebbeb3c7709cff842893931
+ms.openlocfilehash: 3854b7491bf068bf7130180f483905531f053f7c
 ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780795"
+ms.locfileid: "96841923"
 ---
-# <a name="quickstart-azure-key-vault-secret-client-library-for-javascript-version-4"></a>Quickstart: Azure Key Vault biblioteca secreta de clientes para JavaScript (versão 4)
+# <a name="quickstart-azure-key-vault-certificate-client-library-for-javascript-version-4"></a>Quickstart: Biblioteca de clientes certificados Azure Key Vault para JavaScript (versão 4)
 
-Começa com a biblioteca secreta do Azure Key Vault para o JavaScript. [Azure Key Vault](../general/overview.md) é um serviço de nuvem que fornece uma loja segura para segredos. Pode armazenar chaves, palavras-passe, certificados e outros segredos em segurança. Os cofres de chaves do Azure podem ser criados e geridos através do portal do Azure. Neste arranque rápido, aprende-se a criar, recuperar e apagar segredos de um cofre de chaves Azure utilizando a biblioteca de clientes JavaScript
+Começa com a biblioteca de clientes do Certificado Azure Key Vault para o JavaScript. [Azure Key Vault](../general/overview.md) é um serviço de nuvem que fornece uma loja segura para certificados. Pode armazenar chaves, palavras-passe, certificados e outros segredos em segurança. Os cofres de chaves do Azure podem ser criados e geridos através do portal do Azure. Neste arranque rápido, aprende-se a criar, recuperar e apagar certificados de um cofre de chaves Azure utilizando a biblioteca de clientes JavaScript
 
 Recursos da biblioteca do cliente Key Vault:
 
-[Documentação de](/javascript/api/overview/azure/key-vault-index)  |  referência da API [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault)  |  [Pacote (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
+[Documentação de](/javascript/api/overview/azure/key-vault-index)  |  referência da API [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault)  |  [Pacote (npm)](https://www.npmjs.com/package/@azure/keyvault-certificates)
 
-Para mais informações sobre o Cofre-Chave e segredos, consulte:
+Para obter mais informações sobre o Cofre-Chave e certificados, consulte:
 - [Visão geral do cofre de chaves](../general/overview.md)
-- [Visão geral dos segredos.](about-secrets.md)
+- [Visão geral dos certificados.](about-certificates.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -69,10 +69,10 @@ npm init -y
 
 ## <a name="install-key-vault-packages"></a>Instalar pacotes de cofre de chaves
 
-A partir da janela da consola, instale a [biblioteca de segredos](https://www.npmjs.com/package/@azure/keyvault-secrets) Azure Key Vault para Node.js.
+A partir da janela da consola, instale a biblioteca de [certificados](https://www.npmjs.com/package/@azure/keyvault-certificates) Azure Key Vault para Node.js.
 
 ```azurecli
-npm install @azure/keyvault-secrets
+npm install @azure/keyvault-certificates
 ```
 
 Instale o pacote [azure.identity](https://www.npmjs.com/package/@azure/identity) para autenticar num Cofre de Chaves
@@ -101,15 +101,15 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 ## <a name="grant-access-to-your-key-vault"></a>Conceder acesso ao seu cofre chave
 
-Crie uma política de acesso para o seu cofre-chave que concede permissões secretas à sua conta de utilizador
+Crie uma política de acesso para o cofre-chave que concede permissões de certificados à sua conta de utilizador
 
 ```azurecli
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set purge
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --certificate-permissions delete get list create purge
 ```
 
 ## <a name="code-examples"></a>Exemplos de código
 
-As amostras de código abaixo mostrar-lhe-ão como criar um cliente, definir um segredo, recuperar um segredo e apagar um segredo. 
+As amostras de código abaixo mostrar-lhe-ão como criar um cliente, definir um certificado, recuperar um certificado e apagar um certificado. 
 
 ### <a name="set-up-the-app-framework"></a>Configurar o quadro de aplicações
 
@@ -147,7 +147,7 @@ Adicione as seguintes diretivas ao topo do seu código:
 
 ```javascript
 const { DefaultAzureCredential } = require("@azure/identity");
-const { SecretClient } = require("@azure/keyvault-secrets");
+const { CertificateClient } = require("@azure/keyvault-certificates");
 ```
 
 ### <a name="authenticate-and-create-a-client"></a>Autenticar e criar um cliente
@@ -163,42 +163,47 @@ const keyVaultName = process.env["KEY_VAULT_NAME"];
 const KVUri = "https://" + keyVaultName + ".vault.azure.net";
 
 const credential = new DefaultAzureCredential();
-const client = new SecretClient(KVUri, credential);
+const client = new Certificate(KVUri, credential);
 ```
 
-### <a name="save-a-secret"></a>Salvar um segredo
+### <a name="save-a-certificate"></a>Guardar um certificado
 
-Agora que a sua aplicação é autenticada, pode colocar um segredo no seu keyvault usando o [método setSecret](/javascript/api/@azure/keyvault-secrets/secretclient?#setsecret-string--string--setsecretoptions-) Isto requer um nome para o segredo - estamos usando "mySecret" nesta amostra.  
+Agora que a sua candidatura é autenticada, pode colocar um certificado no seu keyvault utilizando o [método startCreateCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient?#beginCreateCertificate_string__CertificatePolicy__BeginCreateCertificateOptions_) Isto requer um nome para o certificado e a política de[certificados](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificatepolicy) com [propriedades da política de certificados](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificatepolicyproperties)
 
 ```javascript
-await client.setSecret(secretName, secretValue);
+const certificatePolicy = {
+  issuerName: "Self",
+  subject: "cn=MyCert"
+};
+const createPoller = await client.beginCreateCertificate(certificateName, certificatePolicy);
+const certificate = await poller.pollUntilDone();
 ```
 
-### <a name="retrieve-a-secret"></a>Recuperar um segredo
+> [!NOTE]
+> Se existir o nome do certificado, o código acima criará uma nova versão desse certificado.
+### <a name="retrieve-a-certificate"></a>Recuperar um certificado
 
-Agora pode recuperar o valor previamente definido com o [método getSecret](/javascript/api/@azure/keyvault-secrets/secretclient?#getsecret-string--getsecretoptions-).
+Agora pode recuperar o valor previamente definido com o [método getCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient?#getCertificate_string__GetCertificateOption).
 
 ```javascript
-const retrievedSecret = await client.getSecret(secretName);
+const retrievedCertificate = await client.getCertificate(certificateName);
  ```
 
-O teu segredo está agora guardado `retrievedSecret.value` como.
+### <a name="delete-a-certificate"></a>Apagar um certificado
 
-### <a name="delete-a-secret"></a>Eliminar um segredo
-
-Finalmente, vamos apagar e limpar o segredo do seu cofre-chave com os métodos [startDeleteSecret](https://docs.microsoft.com/javascript/api/@azure/keyvault-secrets/secretclient?#beginDeleteSecret_string__BeginDeleteSecretOptions_) e [purpuredSecret.](https://docs.microsoft.com/javascript/api/@azure/keyvault-secrets/secretclient?#purgeDeletedSecret_string__PurgeDeletedSecretOptions_)
+Finalmente, vamos apagar e limpar o certificado do seu cofre-chave com os métodos [startDeleteCertificate] https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#beginDeleteCertificate_string__BeginDeleteCertificateOptions_) e [purgeDeletedCertificate.](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#purgeDeletedCertificate_string__PurgeDeletedCertificateOptions_)
 
 ```javascript
-const deletePoller = await client.beginDeleteSecret(secretName);
+const deletePoller = await client.beginDeleteCertificate(certificateName);
 await deletePoller.pollUntilDone();
-await client.purgeDeletedSecret(secretName);
+await client.purgeDeletedCertificate(certificateName);
 ```
 
 ## <a name="sample-code"></a>Código de exemplo
 
 ```javascript
 const { DefaultAzureCredential } = require("@azure/identity");
-const { SecretClient } = require("@azure/keyvault-secrets");
+const { CertificateClient } = require("@azure/keyvault-certificates");
 
 const readline = require('readline');
 
@@ -216,37 +221,36 @@ function askQuestion(query) {
 
 async function main() {
 
+  const string certificateName = "myCertificate";
   const keyVaultName = process.env["KEY_VAULT_NAME"];
   const KVUri = "https://" + keyVaultName + ".vault.azure.net";
 
   const credential = new DefaultAzureCredential();
-  const client = new SecretClient(KVUri, credential);
+  const client = new CertificateClient(KVUri, credential);
 
-  const secretName = "mySecret";
-  var secretValue = await askQuestion("Input the value of your secret > ");
-
-  console.log("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...");
-  await client.setSecret(secretName, secretValue);
+  console.log("Creating a certificate in " + keyVaultName + " called '" + certificateName +  "` ...");
+  const certificatePolicy = {
+  issuerName: "Self",
+  subject: "cn=MyCert"
+  };
+  const createPoller = await client.beginCreateCertificate(certificateName, certificatePolicy);
+  const certificate = await poller.pollUntilDone();
 
   console.log("Done.");
 
-  console.log("Forgetting your secret.");
-  secretValue = "";
-  console.log("Your secret is '" + secretValue + "'.");
+  console.log("Retrieving your certificate from " + keyVaultName + ".");
 
-  console.log("Retrieving your secret from " + keyVaultName + ".");
+  const retrievedCertificate = await client.getCertificate(certificateName);
 
-  const retrievedSecret = await client.getSecret(secretName);
+  console.log("Your certificate version is '" + retrievedCertificate.properties.version + "'.");
 
-  console.log("Your secret is '" + retrievedSecret.value + "'.");
-
-  console.log("Deleting your secret from " + keyVaultName + " ...");
-  const deletePoller = await client.beginDeleteSecret(secretName);
+  console.log("Deleting your certificate from " + keyVaultName + " ...");
+  const deletePoller = await client.beginDeleteCertificate(certificateName);
   await deletePoller.pollUntilDone();
   console.log("Done.");
   
-  console.log("Purging your secret from {keyVaultName} ...");
-  await client.purgeDeletedSecret(secretName);
+  console.log("Purging your certificate from {keyVaultName} ...");
+  await client.purgeDeletedCertificate(certificateName);
   
 }
 
@@ -256,35 +260,30 @@ main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
 
 ## <a name="test-and-verify"></a>Testar e verificar
 
-1. Execute os seguintes comandos para executar a aplicação.
+Execute os seguintes comandos para executar a aplicação.
 
-    ```azurecli
-    npm install
-    npm index.js
-    ```
+```azurecli
+npm install
+npm index.js
+```
 
-1. Quando solicitado, insira um valor secreto. Por exemplo, o meu Código de Passagem.
+É apresentada uma variação da seguinte saída:
 
-    É apresentada uma variação da seguinte saída:
-
-    ```azurecli
-    Input the value of your secret > mySecretPassword
-    Creating a secret in <your-unique-keyvault-name> called 'mySecret' with the value 'mySecretPassword' ... done.
-    Forgetting your secret.
-    Your secret is ''.
-    Retrieving your secret from <your-unique-keyvault-name>.
-    Your secret is 'mySecretPassword'.
-    Deleting your secret from <your-unique-keyvault-name> ... done.  
-    Purging your secret from <your-unique-keyvault-name> ... done.   
-    ```
-
+```azurecli
+Creating a certificate in mykeyvault called 'myCertificate' ... done.
+Retrieving your certificate from mykeyvault.
+Your certificate version is '8532359bced24e4bb2525f2d2050738a'.
+Deleting your certificate from mykeyvault ... done
+Purging your certificate from mykeyvault ... done 
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criaste um cofre, armazenaste um segredo e recuperaste esse segredo. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
+Neste quickstart, criou um cofre chave, guardou um certificado e recuperou o certificado. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
 
 - Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
-- Leia uma [visão geral dos segredos do cofre da chave Azure](about-secrets.md)
-- Como [garantir o acesso a um cofre chave](../general/secure-your-key-vault.md)
+- Leia uma [visão geral dos certificados](about-certificates.md)
+- Veja um [cofre de chave de acesso a partir do tutorial de aplicações do serviço de aplicações de aplicações de aplicações](../general/tutorial-net-create-vault-azure-web-app.md)
+- Veja um [cofre de chave de acesso a partir de tutorial de máquina virtual](../general/tutorial-net-virtual-machine.md)
 - Consulte o [guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
 - Rever [as melhores práticas do Azure Key Vault](../general/best-practices.md)

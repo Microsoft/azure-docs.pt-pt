@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
 ms.date: 11/09/2020
-ms.openlocfilehash: 46763bddd0f173ccf73edc54e5f2688d3bf6efc0
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 55ac11b7888a8e351b52554f76fb44af35633c16
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445409"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780982"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conhecidos e resolução de problemas no Azure Machine Learning
 
@@ -149,7 +149,7 @@ Para obter mais informações sobre a resolução de problemas, consulte os [pr�
     %sh /databricks/python/bin/pip install pandas==0.23.4
     ```
 
-* **Erro de importação de dados: Nenhum módulo denominado 'pandas.core.indexes'** : Se vir este erro quando utilizar machine learning automatizado:
+* **Erro de importação de dados: Nenhum módulo denominado 'pandas.core.indexes'**: Se vir este erro quando utilizar machine learning automatizado:
 
     1. Executar este comando para instalar dois pacotes no seu cluster Azure Databricks:
     
@@ -162,7 +162,7 @@ Para obter mais informações sobre a resolução de problemas, consulte os [pr�
     
     Se estes passos não resolverem o problema, tente reiniciar o cluster.
 
-* **Databricks FailToSendFeather** : Se vir um `FailToSendFeather` erro ao ler dados no cluster Azure Databricks, consulte as seguintes soluções:
+* **Databricks FailToSendFeather**: Se vir um `FailToSendFeather` erro ao ler dados no cluster Azure Databricks, consulte as seguintes soluções:
     
     * Atualizar `azureml-sdk[automl]` o pacote para a versão mais recente.
     * Adicione `azureml-dataprep` a versão 1.1.8 ou superior.
@@ -177,17 +177,17 @@ Para obter mais informações sobre a resolução de problemas, consulte os [pr�
   * Se for diretamente para o seu espaço de trabalho a partir de um link de partilha do SDK ou do portal Azure, não pode ver a página **geral** padrão que tem informações de subscrição na extensão. Neste cenário, também não pode mudar para outro espaço de trabalho. Para ver outro espaço de trabalho, vá diretamente ao [estúdio Azure Machine Learning](https://ml.azure.com) e procure o nome do espaço de trabalho.
   * Todos os ativos (Datasets, Experiments, Computes, e assim por diante) estão disponíveis apenas no [estúdio Azure Machine Learning](https://ml.azure.com). Não *estão* disponíveis no portal Azure.
 
-* **Browsers suportados no portal web do estúdio Azure Machine Learning** : Recomendamos que utilize o navegador mais atualizado que seja compatível com o seu sistema operativo. Os seguintes navegadores são suportados:
+* **Browsers suportados no portal web do estúdio Azure Machine Learning**: Recomendamos que utilize o navegador mais atualizado que seja compatível com o seu sistema operativo. Os seguintes navegadores são suportados:
   * Microsoft Edge (O novo Microsoft Edge, versão mais recente. Não o legado da Microsoft Edge)
   * Safari (versão mais recente, apenas Mac)
   * Chrome (versão mais recente)
   * Firefox (versão mais recente)
 
-## <a name="set-up-your-environment"></a>Configurar o ambiente
+## <a name="set-up-your-environment"></a>Configurar o seu ambiente
 
-* **Problemas na criação do AmlCompute** : Existe uma rara possibilidade de alguns utilizadores que criaram o seu espaço de trabalho Azure Machine Learning a partir do portal Azure antes do lançamento do GA não serem capazes de criar AmlCompute nesse espaço de trabalho. Pode levantar um pedido de apoio contra o serviço ou criar um novo espaço de trabalho através do portal ou o SDK para se desbloquear imediatamente.
+* **Problemas na criação do AmlCompute**: Existe uma rara possibilidade de alguns utilizadores que criaram o seu espaço de trabalho Azure Machine Learning a partir do portal Azure antes do lançamento do GA não serem capazes de criar AmlCompute nesse espaço de trabalho. Pode levantar um pedido de apoio contra o serviço ou criar um novo espaço de trabalho através do portal ou o SDK para se desbloquear imediatamente.
 
-* **Atualmente, o Registo de Contentores Azure não suporta caracteres unicode em nomes do Grupo de Recursos** : É possível que os pedidos de ACR falhem porque o seu nome de grupo de recursos contém caracteres unicódigo. Para mitigar este problema, recomendamos a criação de um ACR num grupo de recursos com nome diferente.
+* **Atualmente, o Registo de Contentores Azure não suporta caracteres unicode em nomes do Grupo de Recursos**: É possível que os pedidos de ACR falhem porque o seu nome de grupo de recursos contém caracteres unicódigo. Para mitigar este problema, recomendamos a criação de um ACR num grupo de recursos com nome diferente.
 
 ## <a name="work-with-data"></a>Trabalhar com dados
 
@@ -199,7 +199,7 @@ Se estiver a utilizar a partilha de ficheiros para outras cargas de trabalho, co
 
 ### <a name="passing-data-as-input"></a>Passar dados como entrada
 
-*  **TypeError: FileNotFound: Não existe tal ficheiro ou diretório** : Este erro ocorre se o caminho do ficheiro que fornece não estiver onde o ficheiro está localizado. Tem de se certificar de que a forma como se refere ao ficheiro é consistente com o local onde montou o conjunto de dados no seu alvo de computação. Para garantir um estado determinístico, recomendamos a utilização do caminho abstrato ao montar um conjunto de dados para um alvo computacional. Por exemplo, no seguinte código montamos o conjunto de dados sob a raiz do sistema de ficheiros do alvo do computação, `/tmp` . 
+*  **TypeError: FileNotFound: Não existe tal ficheiro ou diretório**: Este erro ocorre se o caminho do ficheiro que fornece não estiver onde o ficheiro está localizado. Tem de se certificar de que a forma como se refere ao ficheiro é consistente com o local onde montou o conjunto de dados no seu alvo de computação. Para garantir um estado determinístico, recomendamos a utilização do caminho abstrato ao montar um conjunto de dados para um alvo computacional. Por exemplo, no seguinte código montamos o conjunto de dados sob a raiz do sistema de ficheiros do alvo do computação, `/tmp` . 
     
     ```python
     # Note the leading / in '/tmp/dataset'
@@ -211,7 +211,10 @@ Se estiver a utilizar a partilha de ficheiros para outras cargas de trabalho, co
     Se não incluir o corte dianteiro principal, '/', terá de pré-fixar o diretório de trabalho, por exemplo, `/mnt/batch/.../tmp/dataset` no alvo do cálculo para indicar onde pretende que o conjunto de dados seja montado.
 
 ### <a name="mount-dataset"></a>Conjunto de dados de montagem
-* **A inicialização do conjunto de dados falhou: A espera que o ponto de montagem esteja pronto está esgotado** : A lógica de re-try foi adicionada para mitigar o `azureml-sdk >=1.12.0` problema. Se estiver em versões anteriores do azureml-sdk, por favor atualize para a versão mais recente. Se já estiver `azureml-sdk>=1.12.0` ligado, por favor recrie o seu ambiente para que tenha o mais recente patch com a correção.
+* **A inicialização do conjunto de dados falhou: Esperar que o ponto de montagem esteja pronto tem tempo esgotado**: 
+  * Se não tiver nenhuma regra do [grupo de segurança](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) de rede de saída e estiver a usar , por favor `azureml-sdk>=1.12.0` atualize e as suas `azureml-dataset-runtime` dependências sejam as mais recentes para a versão menor específica, ou se estiver a usá-la numa corrida, por favor recrie o seu ambiente para que possa ter o patch mais recente com a correção. 
+  * Se estiver a `azureml-sdk<1.12.0` utilizar, faça upgrade para a versão mais recente.
+  * Se tiver regras NSG de saída, certifique-se de que existe uma regra de saída que permite todo o tráfego para a etiqueta de serviço `AzureResourceMonitor` .
 
 ### <a name="data-labeling-projects"></a>Projetos de rotulagem de dados
 
@@ -305,7 +308,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 ## <a name="train-models"></a>Preparar modelos
 
-* **MóduloErrors (Nenhum módulo nomeado)** : Se estiver a correr para o ModuleErrors enquanto submete experiências em Azure ML, significa que o script de treino está à espera de um pacote para ser instalado, mas não é adicionado. Assim que fornecer o nome do pacote, a Azure ML instala a embalagem no ambiente utilizado para o seu treino. 
+* **MóduloErrors (Nenhum módulo nomeado)**: Se estiver a correr para o ModuleErrors enquanto submete experiências em Azure ML, significa que o script de treino está à espera de um pacote para ser instalado, mas não é adicionado. Assim que fornecer o nome do pacote, a Azure ML instala a embalagem no ambiente utilizado para o seu treino. 
 
     Se estiver a utilizar os Estimadores para submeter experiências, pode especificar um nome de pacote através `pip_packages` ou `conda_packages` parâmetro no estimador com base na fonte que pretende instalar a embalagem. Também pode especificar um ficheiro yml com todas as suas dependências usando `conda_dependencies_file` ou listar todos os seus requisitos de pip num ficheiro TXT usando `pip_requirements_file` parâmetro. Se tiver o seu próprio objeto Azure ML Environment que pretende sobrepor a imagem padrão utilizada pelo estimador, pode especificar esse ambiente através `environment` do parâmetro do construtor estimador.
 
@@ -317,15 +320,15 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     > [!Note]
     > Se você acha que um determinado pacote é comum o suficiente para ser adicionado em imagens e ambientes mantidos Azure ML por favor levante um problema gitHub em [recipientes AzureML](https://github.com/Azure/AzureML-Containers). 
  
-* **NomeError (Nome não definido), AttributeError (Objeto não tem atributo)** : Esta exceção deve vir dos seus scripts de treino. Pode ver os ficheiros de registo do portal Azure para obter mais informações sobre o nome específico não definido ou o erro de atributo. A partir do SDK, pode usar `run.get_details()` para ver a mensagem de erro. Isto também listará todos os ficheiros de registo gerados para a sua execução. Por favor, certifique-se de dar uma olhada no seu script de treino e corrigir o erro antes de voltar a enviar a sua execução. 
+* **NomeError (Nome não definido), AttributeError (Objeto não tem atributo)**: Esta exceção deve vir dos seus scripts de treino. Pode ver os ficheiros de registo do portal Azure para obter mais informações sobre o nome específico não definido ou o erro de atributo. A partir do SDK, pode usar `run.get_details()` para ver a mensagem de erro. Isto também listará todos os ficheiros de registo gerados para a sua execução. Por favor, certifique-se de dar uma olhada no seu script de treino e corrigir o erro antes de voltar a enviar a sua execução. 
 
-* **Horovod foi encerrado** : Na maioria dos casos, se encontrar "AbortedError: Horovod foi encerrado" esta exceção significa que houve uma exceção subjacente num dos processos que fez Com que Horovod fosse encerrado. Cada classificação no trabalho MPI tem o seu próprio ficheiro de registo dedicado no Azure ML. Estes registos são designados `70_driver_logs`. No caso da preparação distribuída, os nomes dos registos têm o sufixo `_rank` para facilitar a diferenciação dos mesmos. Para encontrar o erro exato que fez a Horovod desligar, procure todos os ficheiros de registo e procure `Traceback` no final dos ficheiros driver_log. Um destes ficheiros vai dar-lhe a verdadeira exceção subjacente. 
+* **Horovod foi encerrado**: Na maioria dos casos, se encontrar "AbortedError: Horovod foi encerrado" esta exceção significa que houve uma exceção subjacente num dos processos que fez Com que Horovod fosse encerrado. Cada classificação no trabalho MPI tem o seu próprio ficheiro de registo dedicado no Azure ML. Estes registos são designados `70_driver_logs`. No caso da preparação distribuída, os nomes dos registos têm o sufixo `_rank` para facilitar a diferenciação dos mesmos. Para encontrar o erro exato que fez a Horovod desligar, procure todos os ficheiros de registo e procure `Traceback` no final dos ficheiros driver_log. Um destes ficheiros vai dar-lhe a verdadeira exceção subjacente. 
 
-* **Execução ou eliminação de experiências** : As experiências podem ser arquivadas utilizando o método [Experiment.archive](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truearchive--) ou a partir da vista do separador Experiment em Azure Machine Learning cliente através do botão "Archive experiment". Esta ação esconde a experiência de consultas e pontos de vista de listas, mas não a apaga.
+* **Execução ou eliminação de experiências**: As experiências podem ser arquivadas utilizando o método [Experiment.archive](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truearchive--) ou a partir da vista do separador Experiment em Azure Machine Learning cliente através do botão "Archive experiment". Esta ação esconde a experiência de consultas e pontos de vista de listas, mas não a apaga.
 
     Atualmente, a eliminação permanente de experimentações ou execuções individuais não é suportada. Para obter mais informações sobre a eliminação dos ativos do Espaço de Trabalho, consulte [exportação ou elimine os dados do seu espaço de trabalho do serviço Machine Learning](how-to-export-delete-data.md).
 
-* **Documento métrico é muito grande** : A Azure Machine Learning tem limites internos no tamanho de objetos métricos que podem ser registados de uma só vez a partir de uma corrida de treino. Caso se depare com um erro “O Documento de Métricas é demasiado grande” ao registar uma métrica com valores de lista, experimente dividir a lista em segmentos menores, por exemplo:
+* **Documento métrico é muito grande**: A Azure Machine Learning tem limites internos no tamanho de objetos métricos que podem ser registados de uma só vez a partir de uma corrida de treino. Caso se depare com um erro “O Documento de Métricas é demasiado grande” ao registar uma métrica com valores de lista, experimente dividir a lista em segmentos menores, por exemplo:
 
     ```python
     run.log_list("my metric name", my_metric[:N])
@@ -336,7 +339,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 ## <a name="automated-machine-learning"></a>Aprendizagem automática automatizada
 
-* **A recente atualização das dependências automl para versões mais recentes será quebrar a compatibilidade** : A partir da versão 1.13.0 do SDK, os modelos não serão carregados em SDKs mais antigos devido à incompatibilidade entre as versões mais antigas que fixamos nos nossos pacotes anteriores, e as versões mais recentes que agora fixamos. Verá erros como:
+* **A recente atualização das dependências automl para versões mais recentes será quebrar a compatibilidade**: A partir da versão 1.13.0 do SDK, os modelos não serão carregados em SDKs mais antigos devido à incompatibilidade entre as versões mais antigas que fixamos nos nossos pacotes anteriores, e as versões mais recentes que agora fixamos. Verá erros como:
   * Módulo não encontrado: Ex. `No module named 'sklearn.decomposition._truncated_svd` ,
   * Erros de importação: Ex. `ImportError: cannot import name 'RollingOriginValidator'` ,
   * Erros de atributo: Ex. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
@@ -356,9 +359,9 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     pip install --upgrade scikit-learn==0.20.3
   ```
  
-* **Previsão da pontuação R2 é sempre zero** : Esta questão surge se os dados de formação fornecidos mentem séries temporárias que contêm o mesmo valor para os `n_cv_splits`  +  `forecasting_horizon` últimos pontos de dados. Se este padrão for esperado na sua série de tempo, pode mudar a sua métrica primária para erro quadrado de raiz normalizado.
+* **Previsão da pontuação R2 é sempre zero**: Esta questão surge se os dados de formação fornecidos mentem séries temporárias que contêm o mesmo valor para os `n_cv_splits`  +  `forecasting_horizon` últimos pontos de dados. Se este padrão for esperado na sua série de tempo, pode mudar a sua métrica primária para erro quadrado de raiz normalizado.
  
-* **TensorFlow** : A partir da versão 1.5.0 do SDK, a aprendizagem automática de máquinas não instala modelos TensorFlow por predefinição. Para instalar o TensorFlow e utilizá-lo com as suas experiências automatizadas de ML, instale tensorflow==1.12.0 via CondaDependecies. 
+* **TensorFlow**: A partir da versão 1.5.0 do SDK, a aprendizagem automática de máquinas não instala modelos TensorFlow por predefinição. Para instalar o TensorFlow e utilizá-lo com as suas experiências automatizadas de ML, instale tensorflow==1.12.0 via CondaDependecies. 
  
    ```python
    from azureml.core.runconfig import RunConfiguration
@@ -366,13 +369,13 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
    run_config = RunConfiguration()
    run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['tensorflow==1.12.0'])
   ```
-* **Gráficos de experiências** : Os gráficos de classificação binária (recolha de precisão, ROC, curva de ganho, etc.) mostrados em iterações automatizadas de experiências ML não estão a renderizar corretamente na interface do utilizador desde 4/12. Os enredos de gráficos estão atualmente a mostrar resultados inversos, onde os modelos de melhor desempenho são apresentados com resultados mais baixos. Uma resolução está sob investigação.
+* **Gráficos de experiências**: Os gráficos de classificação binária (recolha de precisão, ROC, curva de ganho, etc.) mostrados em iterações automatizadas de experiências ML não estão a renderizar corretamente na interface do utilizador desde 4/12. Os enredos de gráficos estão atualmente a mostrar resultados inversos, onde os modelos de melhor desempenho são apresentados com resultados mais baixos. Uma resolução está sob investigação.
 
 * **Databricks cancelam uma corrida automatizada de aprendizagem automática** de máquinas : Quando utilizar capacidades automatizadas de aprendizagem automática de máquinas em Azure Databricks, para cancelar uma corrida e iniciar uma nova experiência, reinicie o seu cluster Azure Databricks.
 
-* **Databricks >10 iterações para aprendizagem automática de máquinas** : Em configurações automatizadas de aprendizagem automática, se tiver mais de 10 iterações, definidas `show_output` para quando submeter a `False` execução.
+* **Databricks >10 iterações para aprendizagem automática de máquinas**: Em configurações automatizadas de aprendizagem automática, se tiver mais de 10 iterações, definidas `show_output` para quando submeter a `False` execução.
 
-* **Databricks widget para o Azure Machine Learning SDK e machine learning automatizado** : O widget SDK de aprendizagem de máquinas Azure não é suportado num caderno databricks porque os cadernos não podem analisar widgets HTML. Pode ver o widget no portal utilizando este código Python na sua célula de portátil Azure Databricks:
+* **Databricks widget para o Azure Machine Learning SDK e machine learning automatizado**: O widget SDK de aprendizagem de máquinas Azure não é suportado num caderno databricks porque os cadernos não podem analisar widgets HTML. Pode ver o widget no portal utilizando este código Python na sua célula de portátil Azure Databricks:
 
     ```
     displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
@@ -412,9 +415,9 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
       * Para ambientes conda locais, deve ser o nome ambiente conda que especificou em automl_setup.
   * Certifique-se de que o caderno é para a versão SDK que está a utilizar. Pode verificar a versão SDK executando `azureml.core.VERSION` numa cela de caderno jupyter. Pode descarregar a versão anterior dos cadernos de amostras do GitHub clicando no `Branch` botão, selecionando o `Tags` separador e selecionando a versão.
 
-* **A importação de numpy falha no Windows** : Alguns ambientes windows vêem um erro de carregamento numpy com a versão python mais recente 3.6.8. Se vir esta edição, experimente com a versão Python 3.6.7.
+* **A importação de numpy falha no Windows**: Alguns ambientes windows vêem um erro de carregamento numpy com a versão python mais recente 3.6.8. Se vir esta edição, experimente com a versão Python 3.6.7.
 
-* **Falha na importação de numpy** : Verifique a versão TensorFlow no ambiente automatizado ml conda. As versões suportadas são < 1.13. Desinstalar o TensorFlow do ambiente se a versão for >= 1.13 Pode verificar a versão do TensorFlow e desinstalar da seguinte forma -
+* **Falha na importação de numpy**: Verifique a versão TensorFlow no ambiente automatizado ml conda. As versões suportadas são < 1.13. Desinstalar o TensorFlow do ambiente se a versão for >= 1.13 Pode verificar a versão do TensorFlow e desinstalar da seguinte forma -
   1. Inicie uma concha de comando, ative o ambiente conda onde são instalados pacotes ml automatizados.
   2. `pip freeze`Insira e `tensorflow` procure, se encontrado, a versão listada deve ser < 1.13
   3. Se a versão listada não for uma versão suportada, `pip uninstall tensorflow` na concha de comando e insira y para confirmação.

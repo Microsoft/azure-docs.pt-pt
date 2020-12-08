@@ -2,18 +2,18 @@
 title: ficheiro de inclusão
 description: ficheiro de inclusão
 services: active-directory
-author: rolyon
+author: barclayn
 ms.service: active-directory
 ms.topic: include
-ms.date: 05/26/2020
+ms.date: 12/07/2020
 ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: ee02200f1fb32d430a858d218e27534561ebc24a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbcd4b459faa3bf67f591cc7afab0bf0027062e1
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83868090"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96842324"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Criar uma ou mais avaliações de acesso
 
@@ -27,7 +27,7 @@ ms.locfileid: "83868090"
 
     ![Data de início, frequência, duração, fim, número de vezes e data de fim](./media/active-directory-privileged-identity-management-access-reviews/start-end-dates.png)
 
-1. Para tornar a revisão de acesso recorrente, altere a definição de **Frequência** de **uma vez** para **semanalmente,** **mensal,** **trimestral,** **anualmente**ou **semi-anual.** Utilize o slider de **duração** ou caixa de texto para definir quantos dias cada revisão da série recorrente estará aberta para a entrada dos revisores. Por exemplo, a duração máxima que pode definir para uma revisão mensal é de 27 dias, para evitar comentários sobrepostos.
+1. Para tornar a revisão de acesso recorrente, altere a definição de **Frequência** de **uma vez** para **semanalmente,** **mensal,** **trimestral,** **anualmente** ou **semi-anual.** Utilize o slider de **duração** ou caixa de texto para definir quantos dias cada revisão da série recorrente estará aberta para a entrada dos revisores. Por exemplo, a duração máxima que pode definir para uma revisão mensal é de 27 dias, para evitar comentários sobrepostos.
 
 1. Utilize a definição **'Fim'** para especificar como terminar as séries de revisão de acesso recorrentes. A série pode terminar de três maneiras: funciona continuamente para iniciar revisões indefinidamente, até uma data específica, ou depois de um número definido de ocorrências ter sido concluída. Você, outro administrador do Utilizador ou outro administrador Global pode parar a série após a criação alterando a data em **Definições**, de modo que termine nessa data.
 
@@ -53,6 +53,7 @@ ms.locfileid: "83868090"
 
     - **Utilizadores selecionados** - Utilize esta opção quando não souber quem precisa de acesso. Com esta opção, pode atribuir o comentário a um proprietário de recursos ou gestor de grupo para completar.
     - **Membros (self)** - Utilize esta opção para que os utilizadores revejam as suas próprias atribuições de funções.
+    - **(Preview) Manager** – Utilize esta opção para que o gestor do utilizador reveja a sua atribuição de funções. Ao selecionar (Preview) Manager, também terá a opção de especificar um revisor de recuo. Os revisores de recuo são convidados a rever um utilizador quando o utilizador não tem nenhum gestor especificado no diretório.
 
 ### <a name="upon-completion-settings"></a>Após definições de conclusão
 
@@ -82,3 +83,6 @@ ms.locfileid: "83868090"
 1. Desconfiem **notificações de Correio** eletrónico para **permitir** que o Azure AD envie notificações de e-mail aos revisores quando uma revisão de acesso começar e aos administradores quando uma revisão estiver concluída.
 
 1. Definir **Lembretes** para **Permitir** que a Azure AD envie lembretes de avaliações de acesso em curso a revisores que não tenham concluído a sua revisão.
+1. O conteúdo do e-mail enviado aos revisores é autogerido com base nos detalhes da revisão, tais como nome de revisão, nome de recurso, data de vencimento, etc. Se precisar de uma forma de comunicar informações adicionais, tais como instruções adicionais ou informações de contacto, pode especificar esses dados no **conteúdo adicional para o e-mail do revisor** que será incluído nos e-mails de convite e lembrete enviados aos revisores designados. A secção realçada abaixo é onde esta informação será exibida.
+
+    ![Conteúdo do e-mail enviado aos revisores com destaques](./media/active-directory-privileged-identity-management-access-reviews/email-info.png)

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 49f244ea8e602f3b5e6499b8e14db2be15bfc8f7
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: b40a13b84a0191b5c454d7edac2226f8f06fadcd
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317082"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780166"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-net-sdk-v4"></a>Quickstart: Azure Key Vault certificate client library for.NET (SDK v4)
 
@@ -54,6 +54,13 @@ Este quickstart está a utilizar a biblioteca Azure Identity com o Azure CLI par
 
 2. Inicie sessão com as credenciais da sua conta no browser.
 
+#### <a name="grant-access-to-your-key-vault"></a>Conceder acesso ao seu cofre chave
+
+Crie uma política de acesso para o cofre-chave que concede permissões de certificados à sua conta de utilizador
+
+```console
+az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --certificate-permissions delete get list create purge
+```
 
 ### <a name="create-new-net-console-app"></a>Criar nova aplicação de consola .NET
 
@@ -89,14 +96,6 @@ Para este arranque rápido, também terá de instalar a biblioteca de clientes A
 
 ```dotnetcli
 dotnet add package Azure.Identity
-```
-
-#### <a name="grant-access-to-your-key-vault"></a>Conceder acesso ao seu cofre chave
-
-Crie uma política de acesso para o cofre-chave que concede permissão de certificado à sua conta de utilizador
-
-```console
-az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --certificate-permissions delete get list create purge
 ```
 
 #### <a name="set-environment-variables"></a>Definir variáveis de ambiente
@@ -137,7 +136,7 @@ using Azure.Security.KeyVault.Certificates;
 
 Neste arranque rápido, o utilizador com sessão é utilizado para autenticar o cofre de chaves, que é o método preferido para o desenvolvimento local. Para aplicações implantadas no Azure, a identidade gerida deve ser atribuída ao Serviço de Aplicações ou Máquina Virtual, para obter mais informações, consulte [a Visão Geral da Identidade Gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-Por exemplo, o nome do seu cofre-chave é expandido para o cofre uri chave, no formato "https:// \<your-key-vault-name\> .vault.azure.net". Este exemplo está a usar a classe  ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) que permite usar o mesmo código em diferentes ambientes com diferentes opções para fornecer identidade. Para obter mais informações sobre a autenticação no cofre da chave, consulte [o Guia do Programador.](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code)
+Por exemplo, o nome do seu cofre-chave é expandido para o cofre uri chave, no formato "https:// \<your-key-vault-name\> .vault.azure.net". Este exemplo está a utilizar a classe ['DefaultAzureCredential)'](/dotnet/api/azure.identity.defaultazurecredential) da [Azure Identity Library,](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)que permite utilizar o mesmo código em diferentes ambientes com diferentes opções para fornecer identidade. Para obter mais informações sobre a autenticação no cofre da chave, consulte [o Guia do Programador.](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code)
 
 ```csharp
 string keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
@@ -228,61 +227,20 @@ Modifique a aplicação de consola .NET Core para interagir com o Cofre de Chave
     ```
 ### <a name="test-and-verify"></a>Testar e verificar
 
-1.  Execute o seguinte comando para construir o projeto
+Execute o seguinte comando para construir o projeto
 
-    ```dotnetcli
-    dotnet build
-    ```
-
-1. Execute o seguinte comando para executar a aplicação.
-
-    ```dotnetcli
-    dotnet run
-    ```
-
-1. Quando solicitado, insira um valor secreto. Por exemplo, o meu Código de Passagem.
-
-    É apresentada uma variação da seguinte saída:
-
-    ```console
-    Creating a certificate in mykeyvault called 'myCertificate' ... done.
-    Retrieving your certificate from mykeyvault.
-    Your certificate version is '8532359bced24e4bb2525f2d2050738a'.
-    Deleting your certificate from jl-kv ... done
-    ```
-
-## <a name="clean-up-resources"></a>Limpar os recursos
-
-Quando já não for necessário, pode utilizar o Azure CLI ou o Azure PowerShell para remover o cofre da chave e o grupo de recursos correspondente.
-
-### <a name="delete-a-key-vault"></a>Apagar um cofre de chaves
-
-```azurecli
-az keyvault delete --name <your-unique-keyvault-name>
+```dotnetcli
+dotnet build
 ```
 
-```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name>
-```
+É apresentada uma variação da seguinte saída:
 
-### <a name="purge-a-key-vault"></a>Purgue um cofre de chaves
-
-```azurecli
-az keyvault purge --location eastus --name <your-unique-keyvault-name>
-```
-
-```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name> -InRemovedState -Location eastus
-```
-
-### <a name="delete-a-resource-group"></a>Eliminar um grupo de recursos
-
-```azurecli
-az group delete -g "myResourceGroup"
-```
-
-```azurepowershell
-Remove-AzResourceGroup -Name "myResourceGroup"
+```console
+Creating a certificate in mykeyvault called 'myCertificate' ... done.
+Retrieving your certificate from mykeyvault.
+Your certificate version is '8532359bced24e4bb2525f2d2050738a'.
+Deleting your certificate from mykeyvault ... done
+Purging your certificate from mykeyvault ... done
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

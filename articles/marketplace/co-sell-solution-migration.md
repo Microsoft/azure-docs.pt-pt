@@ -4,15 +4,15 @@ description: Saiba como migrar soluções de co-venda do OCP GTM para partner Ce
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
-ms.date: 12/04/2020
-ms.openlocfilehash: 6af7095dbb57c5ceb17989b2d6106a42e1d23fb9
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+author: vamahtan
+ms.author: vamahtan
+ms.date: 12/07/2020
+ms.openlocfilehash: 6ad58283ad9078088f241a67426657eb7a538e10
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96772090"
+ms.locfileid: "96781135"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migração de soluções de co-venda da OCP GTM para o mercado comercial
 
@@ -79,7 +79,8 @@ Selecione esta opção se a solução já estiver publicada no mercado comercial
 1. Identifique a oferta existente.
     1. **Selecione Eu quero fundir esta solução com uma oferta semelhante no mercado comercial** (ver **Ação necessária** imagem [acima).](#beginmigration)
     1. O separador **Action 1** mostra que o mercado comercial ao vivo oferece que a sua solução OCP GTM pode ser associada. Selecione a oferta ao vivo da lista se tiver uma. Se não houver uma lista de ofertas à escolha, insira o endereço virado para o cliente (URL) do Microsoft AppSource ou do Azure Marketplace.
-        [![O separador Action 1 do processo de fusão.](media/co-sell-migrate/action-1-merge.png)](media/co-sell-migrate/action-1-merge.png#lightbox)    1. Selecione **Continuar**.
+        [![O separador Action 1 do processo de fusão.](media/co-sell-migrate/action-1-merge.png)](media/co-sell-migrate/action-1-merge.png#lightbox)
+    1. Selecione **Continuar**.
 1. Solicito a fusão.
     1. O separador **Action 2** mostra direções para solicitar a fusão da sua solução OCP GTM com a que identificou. Para solicitar a fusão, **selecione Suporte de Contato Save &**, que abre uma página de suporte do parceiro num browser.
     1. **Selecione Fornecer Detalhes de Problema** e introduza o seguinte: O [ ![ separador Ação 2 do processo de fusão.](media/co-sell-migrate/action-2-merge.png)](media/co-sell-migrate/action-2-merge.png#lightbox)
@@ -93,7 +94,7 @@ Selecione esta opção quando tiver uma solução OCP GTM que ainda não tenha u
 1. **Selecione Eu quero migrar esta solução do OCP GTM para o mercado comercial** (ver **Ação necessária** imagem [acima](#beginmigration)), em **seguida, continuar**.
 1. No **separador Action 1,** selecione o [tipo de oferta](publisher-guide-by-offer-type.md)e, em seguida, **Continue**.
 
-    [![O separador Action 1 do processo de migração.](media/co-sell-migrate/action-1-migrate.png)](media/co-sell-migrate/action-1-migrate.png#lightbox)    1. Selecione **Continuar**.
+    [![O separador Action 1 do processo de migração.](media/co-sell-migrate/action-1-migrate.png)](media/co-sell-migrate/action-1-migrate.png#lightbox)
 
 1. No **separador Action 2,** selecione o perfil do [editor](partner-center-portal/create-account.md) da lista fornecida. Se não tiver uma conta de editor, crie uma no [Partner Center,](https://partner.microsoft.com/solutions/migration)selecione-a aqui.
 

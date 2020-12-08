@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/19/2020
-ms.openlocfilehash: 043020abd44bc1f8e671cf386149d6a818136de9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6ee72a25fc8435159ae75ac3296742eda58617b6
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014368"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779945"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Criar um ponto final privado para uma ligação segura à Pesquisa Cognitiva Azure
 
@@ -22,7 +22,7 @@ Neste artigo, você usará o portal Azure para criar uma nova instância do serv
 Os pontos finais privados são fornecidos pela [Azure Private Link,](../private-link/private-link-overview.md)como um serviço separado. Para obter mais informações sobre os custos, consulte [a página de preços.](https://azure.microsoft.com/pricing/details/private-link/)
 
 > [!Important]
-> O suporte private Endpoint para a Pesquisa Cognitiva Azure pode ser configurado utilizando o portal Azure ou a [versão API Management REST 2020-03-13](/rest/api/searchmanagement/). Quando o ponto final de serviço é privado, algumas funcionalidades do portal são desativadas. Poderá ver e gerir informações de nível de serviço, mas o acesso do portal aos dados de índice e aos vários componentes do serviço, como as definições de índice, indexador e skillset, é restringido por razões de segurança.
+> O suporte private Endpoint para a Pesquisa Cognitiva Azure pode ser configurado utilizando o portal Azure ou a [versão API Management REST 2020-03-13](/rest/api/searchmanagement/). Quando o ponto final de serviço é privado, algumas funcionalidades do portal são desativadas. Poderá ver e gerir informações de nível de serviço, mas o acesso do portal aos dados de índice e aos vários componentes do serviço, como as definições de índice, indexador e skillset, é restringido por razões de segurança. Como alternativa ao portal, pode utilizar a [Extensão](https://aka.ms/vscode-search) do Código VS para interagir com os vários componentes do serviço.
 
 ## <a name="why-use-a-private-endpoint-for-secure-access"></a>Porquê usar um Ponto Final Privado para acesso seguro?
 
@@ -47,7 +47,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede para hospedar o VM qu
     | Subscrição | Selecione a sua subscrição|
     | Grupo de recursos | Selecione **Criar novo,** insira *myResourceGroup,* em seguida, selecione **OK** |
     | Nome | Insira *myVirtualNetwork* |
-    | Region | Selecione a região desejada |
+    | Região | Selecione a região desejada |
     |||
 
 1. Deixe as predefinições para o resto das definições. Clique **em Rever + criar** e, em seguida, **criar**
@@ -121,7 +121,7 @@ Nesta secção, irá criar um novo serviço de Pesquisa Cognitiva Azure com um P
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.  |
     | **DETALHES DE INSTÂNCIA** |  |
     | Nome da máquina virtual | *Insira o myVm*. |
-    | Region | Selecione **West US** ou qualquer região que estiver usando. |
+    | Região | Selecione **West US** ou qualquer região que estiver usando. |
     | Opções de disponibilidade | Deixar o incumprimento **Não é necessário um despedimento de infraestrutura**. |
     | Imagem | Selecione **o Centro de Dados 2019 do Windows** Server . |
     | Tamanho | Deixe o **padrão DS1 v2**. |

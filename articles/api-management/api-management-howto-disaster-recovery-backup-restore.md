@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 12/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 1a1e9c394f3665845b1f2bbbd605322b43f5f25d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 25356e7101293fc27d4107b3a618cfc481aee969
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787232"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779588"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação após desastre através do serviço de cópia de segurança e restauro na Gestão de API do Azure
 
@@ -55,34 +55,34 @@ Todas as tarefas que faz sobre recursos utilizando o Gestor de Recursos Azure de
 
 ### <a name="create-an-azure-active-directory-application"></a>Criar uma aplicação de Diretório Ativo Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Utilizando a subscrição que contém a sua instância de serviço de Gestão API, navegue para o separador **de registos da App** em **Azure Ative Directy** (Azure Ative Directory > Registos De Gestão/Aplicação).
 
     > [!NOTE]
     > Se o diretório de incumprimento do Azure Ative Não estiver visível na sua conta, contacte o administrador da subscrição Azure para conceder as permissões necessárias à sua conta.
 
-3. Clique em **Novo registo de aplicação** .
+3. Clique em **Novo registo de aplicação**.
 
     A janela **Create** aparece à direita. É aí que insira a aplicação AAD relevante.
 
 4. Introduza um nome para a aplicação.
-5. Para o tipo de aplicação, selecione **Native** .
+5. Para o tipo de aplicação, selecione **Native**.
 6. Introduza um URL de espaço reservado, como `http://resources` para o **Redirect URI,** uma vez que é um campo obrigatório, mas o valor não é usado mais tarde. Clique na caixa de verificação para guardar a aplicação.
-7. Clique em **Criar** .
+7. Clique em **Criar**.
 
 ### <a name="add-an-application"></a>Adicionar uma aplicação
 
-1. Assim que a aplicação for criada, clique nas **permissões de API** .
+1. Assim que a aplicação for criada, clique nas **permissões de API**.
 2. Clique **+ Adicione uma permissão.**
-4. Prima **Select Microsoft APIs** .
+4. Prima **Select Microsoft APIs**.
 5. Escolha **a gestão de serviços Azure.**
-6. **Seleção de imprensa** .
+6. **Seleção de imprensa**.
 
     ![Adicionar permissões](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
-7. Clique em **Permissões Delegadas** ao lado da aplicação recém-adicionada, consulte a caixa para **Access Azure Service Management (pré-visualização)** .
-8. **Seleção de imprensa** .
-9. Clique **em Permissões de Concessão** .
+7. Clique em **Permissões Delegadas** ao lado da aplicação recém-adicionada, consulte a caixa para **Access Azure Service Management (pré-visualização)**.
+8. **Seleção de imprensa**.
+9. Clique **em Permissões de Concessão**.
 
 ### <a name="configuring-your-app"></a>Configurar a aplicação
 
@@ -169,26 +169,6 @@ Desa estada o valor do cabeçalho do `Content-Type` pedido para `application/jso
 
 A cópia de segurança é uma operação de longa duração que pode demorar mais de um minuto a ser concluída. Se o pedido tiver sido bem sucedido e o processo de backup tiver começado, receberá um `202 Accepted` código de estado de resposta com um `Location` cabeçalho. Faça pedidos 'GET' à URL no `Location` cabeçalho para saber o estado da operação. Enquanto a cópia de segurança está em andamento, continua a receber um código de estado '202 Aceitos'. Um código de resposta `200 OK` indica a conclusão bem sucedida da operação de backup.
 
-#### <a name="constraints-when-making-backup-or-restore-request"></a>Constrangimentos ao fazer backup ou restaurar o pedido
-
--   **Deve** **existir** o recipiente especificado no organismo de pedido .
--   Enquanto a cópia de segurança está em andamento, **evite alterações de gestão no serviço,** tais como upgrade ou downgrade SKU, mudança no nome de domínio, e muito mais.
--   A recuperação de um **backup só é garantida por 30 dias** desde o momento da sua criação.
--   **As alterações efetuadas** na configuração do serviço (por exemplo, APIs, políticas e aparência do portal do desenvolvedor) enquanto a operação de backup está em processo **pode ser excluída da cópia de segurança e será perdida** .
--   **Permitir** o acesso do avião de controlo à Conta de Armazenamento Azure, se tiver [firewall][azure-storage-ip-firewall] ativada. O cliente deve abrir o conjunto de endereços IP do Avião de Controlo de [Gestão da API da Azure][control-plane-ip-address] na sua Conta de Armazenamento para Cópia de Segurança ou Restauro a partir de. Isto porque os pedidos para o Azure Storage não são SNATed para um IP público da Compute > (Azure Api Management control Plane). O pedido de armazenamento da Região Cruzada será SNATED.
-
-#### <a name="what-is-not-backed-up"></a>O que não é apoiado
--   **Os dados de utilização utilizados** para criar relatórios de análise **não estão incluídos** na cópia de segurança. Utilize [a Azure API Management REST API][azure api management rest api] para recuperar periodicamente relatórios de análise para segurança.
--   [Certificados TLS/SSL de domínio personalizado](configure-custom-domain.md)
--   [Certificado AC personalizado](api-management-howto-ca-certificates.md) que inclui certificados intermédios ou de raiz carregados pelo cliente
--   [Definições de](api-management-using-with-vnet.md) integração de rede virtual.
--   [Configuração de identidade gerida.](api-management-howto-use-managed-service-identity.md)
--   [Diagnóstico do Monitor Azure](api-management-howto-use-azure-monitor.md) A configuração.
--   Protocolos e definições [de Cipher.](api-management-howto-manage-protocols-ciphers.md)
--   [Conteúdo do portal do desenvolvedor.](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management)
-
-A frequência com que executa cópias de segurança de serviço afeta o seu objetivo de ponto de recuperação. Para minimizá-lo, recomendamos a implementação de backups regulares e a realização de backups a pedido depois de efetuar alterações no seu serviço de Gestão API.
-
 ### <a name="restore-an-api-management-service"></a><a name="step2"> </a>Restaurar um serviço de Gestão API
 
 Para restaurar um serviço de Gestão API a partir de uma cópia de segurança previamente criada, faça o seguinte pedido HTTP:
@@ -222,12 +202,34 @@ Restaurar é uma operação de longa duração que pode demorar até 30 minutos 
 > [!IMPORTANT]
 > **O SKU** do serviço que está a ser restaurado **deve coincidir com** o SKU do serviço de apoio que está a ser restaurado.
 >
-> **As alterações efetuadas** na configuração do serviço (por exemplo, APIs, políticas, aparência do portal do programador) enquanto a operação de restauro está em curso **podem ser substituídas** .
+> **As alterações efetuadas** na configuração do serviço (por exemplo, APIs, políticas, aparência do portal do programador) enquanto a operação de restauro está em curso **podem ser substituídas**.
 
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
 > As operações de backup e restauro também podem ser realizadas com comandos powerShell [_Backup-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) e [_Restore-AzApiManagement,_](/powershell/module/az.apimanagement/restore-azapimanagement) respectivamente.
+
+## <a name="constraints-when-making-backup-or-restore-request"></a>Constrangimentos ao fazer backup ou restaurar o pedido
+
+-   **Deve** **existir** o recipiente especificado no organismo de pedido .
+-   Enquanto a cópia de segurança está em andamento, **evite alterações de gestão no serviço,** tais como upgrade ou downgrade SKU, mudança no nome de domínio, e muito mais.
+-   A recuperação de um **backup só é garantida por 30 dias** desde o momento da sua criação.
+-   **As alterações efetuadas** na configuração do serviço (por exemplo, APIs, políticas e aparecimento do portal do programador) enquanto a operação de backup está em processo **podem ser excluídas da cópia de segurança e serão perdidas**.
+-   Se a Conta de Armazenamento Azure [estiver][azure-storage-ip-firewall] ativada, o cliente deve **permitir** o conjunto de endereços IP do Avião ip [do Azure API Management Control][control-plane-ip-address] Na sua Conta de Armazenamento para Cópia de Segurança ou Restauro do trabalho. A Conta de Armazenamento Azure pode estar em qualquer Região de Azure, exceto aquela onde está localizado o serviço de Gestão da API. Por exemplo, se o serviço de Gestão API estiver no Oeste dos EUA, então a Conta de Armazenamento Azure pode estar no West US 2 e o cliente precisa de abrir o plano de controlo IP 13.64.39.16 (API Management Control Plane IP of West US) na firewall. Isto porque os pedidos para o Azure Storage não são SNATed para um IP público da Compute (Azure Api Management Control Plane) na mesma Região de Azure. O pedido de armazenamento da Região Cruzada será SNATED para o Endereço IP Público.
+-   [A partilha de recursos de origem cruzada (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) **não** deve ser ativada no Serviço Blob na Conta de Armazenamento Azure.
+-   **O SKU** do serviço que está a ser restaurado **deve coincidir com** o SKU do serviço de apoio que está a ser restaurado.
+
+## <a name="what-is-not-backed-up"></a>O que não é apoiado
+-   **Os dados de utilização utilizados** para criar relatórios de análise **não estão incluídos** na cópia de segurança. Utilize [a Azure API Management REST API][azure api management rest api] para recuperar periodicamente relatórios de análise para segurança.
+-   [Certificados TLS/SSL de domínio personalizado](configure-custom-domain.md)
+-   [Certificado AC personalizado](api-management-howto-ca-certificates.md), que inclui certificados intermédios ou de raiz carregados pelo cliente
+-   [Definições de](api-management-using-with-vnet.md) integração de rede virtual.
+-   [Configuração de identidade gerida.](api-management-howto-use-managed-service-identity.md)
+-   [Diagnóstico do Monitor Azure](api-management-howto-use-azure-monitor.md) A configuração.
+-   Protocolos e definições [de Cipher.](api-management-howto-manage-protocols-ciphers.md)
+-   [Conteúdo do portal do desenvolvedor.](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management)
+
+A frequência com que executa cópias de segurança de serviço afeta o seu objetivo de ponto de recuperação. Para minimizá-lo, recomendamos a implementação de backups regulares e a realização de backups a pedido depois de efetuar alterações no seu serviço de Gestão API.
 
 ## <a name="next-steps"></a>Passos seguintes
 

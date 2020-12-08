@@ -6,12 +6,12 @@ ms.date: 11/10/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-ms.openlocfilehash: b32977ac1c8cfe0c461bcd1628c08a0ca215ba93
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 7eebbe5605c0b4d70ea15c1605cff5416965e535
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506197"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780778"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Quickstart: Criar uma aplicação Python no Azure App Service em Linux
 
@@ -74,23 +74,11 @@ Clone o repositório de amostras utilizando o seguinte comando e navegue na past
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
-
-Em seguida, navegue nessa pasta:
-
-```terminal
-cd python-docs-hello-world
-```
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-django
-```
-
-Em seguida, navegue nessa pasta:
-
-```terminal
-cd python-docs-hello-django
 ```
 ::: zone-end
 
@@ -101,7 +89,11 @@ Tendo problemas? [Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
 ## <a name="run-the-sample"></a>Executar o exemplo
 
 ::: zone pivot="python-framework-flask"
-1. Certifique-se de que está na pasta *python-docs-olá-mundo.* 
+1. Navegue na pasta *python-docs-hello-world:*
+
+    ```terminal
+    cd python-docs-hello-world
+    ```
 
 1. Criar um ambiente virtual e instalar dependências:
 
@@ -115,7 +107,11 @@ Tendo problemas? [Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
     flask run
     ```
     
-    Por predefinição, o servidor assume que o módulo de entrada da aplicação se encontra em *app.py* , como é utilizado na amostra. (Se utilizar um nome de módulo diferente, desaprote a `FLASK_APP` variável ambiente para esse nome.)
+    Por predefinição, o servidor assume que o módulo de entrada da aplicação se encontra em *app.py*, como é utilizado na amostra.
+
+    Se utilizar um nome de módulo diferente, desaprote o `FLASK_APP` ambiente variável para esse nome.
+
+    Se encontrar o erro, "Não foi possível localizar uma aplicação Flask. Não forneceu a variável ambiente 'FLASK_APP', e não foi encontrado um módulo 'wsgi.py' ou 'app.py' no diretório atual.» Certifique-se de que está na `python-docs-hello-world` pasta que contém a amostra.
 
 1. Abra um navegador web e vá para a aplicação de amostras em `http://localhost:5000/` . A aplicação exibe a mensagem **Hello, World!**
 
@@ -125,7 +121,11 @@ Tendo problemas? [Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
-1. Certifique-se de que está na pasta *python-docs-hello-django.* 
+1. Navegue na pasta *python-docs-hello-django:*
+
+    ```terminal
+    cd python-docs-hello-django
+    ```
 
 1. Criar um ambiente virtual e instalar dependências:
 
@@ -197,7 +197,7 @@ def hello():
 ```
 ::: zone-end
 ::: zone pivot="python-framework-django"
-Abra *olá/views.py* num editor e atualize a `hello` função para corresponder ao seguinte código.
+Abra *o olá/vistas.py* num editor e atualize a `hello` função para corresponder ao seguinte código.
 
 ```python
 def hello(request):

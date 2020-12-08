@@ -7,12 +7,12 @@ ms.date: 12/04/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 7c09105312bc648c95d24de7582b95baf61bdc10
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: ec3fc490466f5fce36b67b2f3744e4ee5cc0ae79
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744810"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96781101"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-ruby"></a>Quickstart: Biblioteca de clientes Azure Blob Storage para Ruby
 
@@ -56,7 +56,7 @@ O código seguinte no ficheiro *exemplo.rb* instantaneamente um novo objeto [Blo
 account_name = "accountname"
 account_key = "accountkey"
 
-    blob_client = Azure::Storage::Blob::BlobService.create(
+blob_client = Azure::Storage::Blob::BlobService.create(
     storage_account_name: account_name,
     storage_access_key: account_key
 )
@@ -176,7 +176,7 @@ blob, content = blob_client.get_blob(container_name, blob_name)
 File.open(full_path_to_file,"wb") {|f| f.write(content)}
 ```
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Se deixar de ser necessária uma bolha, utilize [delete_blob](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob#delete_blob-instance_method) para a remover. Elimine um recipiente inteiro utilizando o método [delete_container.](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Container#delete_container-instance_method) A eliminação de um recipiente também elimina quaisquer bolhas armazenadas no recipiente.
 
@@ -192,6 +192,7 @@ Consulte estes recursos adicionais para o desenvolvimento da Ruby:
 
 - Veja e transfira o [código fonte da biblioteca de cliente Ruby](https://github.com/Azure/azure-storage-ruby) para o Armazenamento do Azure no GitHub.
 - Explore [as amostras do Azure escritas](/samples/browse/?products=azure&languages=ruby) utilizando a biblioteca de clientes Ruby.
+- [Amostra: Começar com armazenamento Azure em Ruby](https://github.com/Azure-Samples/storage-blob-ruby-getting-started)
 
 ## <a name="next-steps"></a>Passos seguintes
 

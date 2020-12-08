@@ -10,16 +10,18 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 9ea4ec748ca37f93e9711970b10746a009543d00
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c0253dc3c9dc029cd964fb32b148be1405e7fbad
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656603"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780183"
 ---
 # <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Configurar um único sign-on (SSO) baseado no OIDC para uma aplicação no seu inquilino Azure Ative (Azure AD)
 
 Inicie com logins de utilizador simplificados, configurando um único login (SSO) para uma aplicação que adicionou ao seu inquilino Azure Ative Directory (Azure AD). Depois de configurar o SSO, os seus utilizadores podem iniciar sação numa aplicação utilizando as suas credenciais AZure AD. SSO está incluído na edição gratuita do Azure AD.
+
+Para saber mais sobre o SSO baseado no OIDC, consulte [o sign-on único baseado no OIDC.](configure-oidc-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,7 +54,7 @@ Para configurar um único sinal de inscrição para uma aplicação:
    > [!IMPORTANT]
     > Se já tem uma subscrição da aplicação, então a validação dos dados do utilizador e informações de inquilino/diretório ocorrerão. Se a aplicação não conseguir verificar o utilizador, irá redirecioná-lo para se inscrever para o serviço de aplicação ou para a página de erro.
 
-3. Após a autenticação bem sucedida, aparece um diálogo pedindo o consentimento administrativo. Selecione **Consentimento em nome da sua organização** e, em seguida, selecione **Aceitar**. 
+3. Após a autenticação bem sucedida, aparece um diálogo pedindo o consentimento administrativo. Selecione **Consentimento em nome da sua organização** e, em seguida, selecione **Aceitar**. Para saber mais sobre o consentimento do utilizador e da administração, consulte [o consentimento do utilizador e da administração.](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
 
     :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="A screenshot mostra o ecrã de consentimento para uma aplicação." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
 
@@ -62,12 +64,17 @@ Para configurar um único sinal de inscrição para uma aplicação:
 > [!TIP]
 > Pode automatizar a gestão de aplicações utilizando a API do Gráfico, ver [Gestão de aplicações do Automamate com a Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
+Aqui está um vídeo que percorre detalhes adicionais de adicionar uma aplicação baseada em OIDC ao Azure AD.
+
+Adicionar uma aplicação baseada em OIDC no Azure Ative Directory
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar esta série de arranque rápido, considere apagar a app para limpar o seu inquilino de teste. A eliminação da aplicação é abrangida pelo último quickstart desta série, ver [Delete uma aplicação](delete-application-portal.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Avance para o próximo artigo para aprender a apagar uma aplicação.
 > [!div class="nextstepaction"]

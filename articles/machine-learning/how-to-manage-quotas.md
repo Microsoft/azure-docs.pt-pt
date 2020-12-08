@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 18eb952d06d83b4604625a795be3c8512c3f90d7
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 30859593e240c4143dc298cff446ce8bc116a993
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576592"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780591"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gerir e aumentar quotas para recursos com Azure Machine Learning
 
@@ -67,10 +67,10 @@ Os seguintes limites para os ativos aplicam-se numa base por espaço de trabalho
 
 Além disso, o tempo máximo **de execução** é de 30 dias e o número máximo de **métricas registadas por corrida** é de 1 milhão.
 
-#### <a name="azure-machine-learning-compute"></a>Azure Machine Learning compute
-[O cálculo Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed) tem um limite de quota padrão tanto no número de núcleos como no número de recursos de computação únicos permitidos por região numa subscrição. Esta quota é separada da quota-base VM da secção anterior.
+### <a name="azure-machine-learning-compute"></a>Computação do Machine Learning
+[O Azure Machine Learning Compute](concept-compute-target.md#azure-machine-learning-compute-managed) tem um limite de quota padrão tanto no número de núcleos (dividido por cada VM Family e núcleos totais cumulativos) como no número de recursos de computação únicos permitidos por região numa subscrição. Esta quota é separada da quota-base VM enumerada na secção anterior, uma vez que se aplica apenas aos recursos de cálculo geridos da Azure Machine Learning.
 
-[Solicitar um aumento do contingente](#request-quota-increases) para elevar os limites desta secção até ao limite máximo indicado no quadro.
+[Solicitar um aumento de quota](#request-quota-increases) para aumentar os limites para várias quotas de base familiar vM, quotas e recursos essenciais de subscrição totais nesta secção.
 
 Recursos disponíveis:
 + **Os núcleos dedicados por região** têm um limite padrão de 24 a 300, dependendo do tipo de oferta de subscrição. Pode aumentar o número de núcleos dedicados por subscrição para cada família VM. Famílias de VM especializadas como NCv2, NCv3 ou série ND começam com um padrão de núcleos zero.
@@ -79,12 +79,19 @@ Recursos disponíveis:
 
 + **Os aglomerados por região** têm um limite de incumprimento de 200. Estes são partilhados entre um cluster de treino e um caso computacional. (Uma instância computacional é considerada um agrupamento de nó único para efeitos de quota.)
 
-A tabela a seguir mostra limites adicionais que não pode exceder.
+> [!TIP]
+> Para saber mais sobre qual a família VM a solicitar um aumento de quota, confira os [tamanhos das máquinas virtuais em Azure.](https://docs.microsoft.com/azure/virtual-machines/sizes) Por exemplo, as famílias de VM gpu começam com um "N" em seu nome de família (por exemplo. Série NCv3)
 
-| **Recurso** | **Limite máximo** |
+A tabela seguinte mostra limites adicionais na plataforma. Contacte a equipa de produtos da AzureML através de um bilhete de apoio **técnico** para solicitar uma exceção.
+
+| **Recurso ou Ação** | **Limite máximo** |
 | --- | --- |
 | Espaços de trabalho por grupo de recursos | 800 |
-| Nós num único recurso Azure Machine Learning compute (AmlCompute) | 100 nosdes |
+| Nós num único cluster Azure Machine Learning Compute (AmlCompute) como um **pool** não ativado por comunicação (ou seja, não pode executar trabalhos de MPI) | 100 nódoas mas configurável até 65000 nosdes |
+| Nós em um único passo de corrida paralelo **executado** em um cluster Azure Machine Learning Compute (AmlCompute) | 100 nóns mas configuráveis até 65000 nosdes se o seu cluster estiver configurado para escalar por cima |
+| Nós em uma única configuração de **cluster** Azure Machine Learning Compute (AmlCompute) como uma piscina ativada por comunicação | 300 nódoas mas configurável até 4000 nosdes |
+| Nós em uma única configuração de **cluster** Azure Machine Learning Compute (AmlCompute) como uma piscina ativada por comunicação em uma família VM habilitada a VM | 100 nosdes |
+| Nós em um único MPI **executado** em um cluster Azure Machine Learning Compute (AmlCompute) | 100 nódoas mas pode ser aumentado para 300 nosdes |
 | GpU MPI processos por nó | 1-4 |
 | Trabalhadores da GPU por nó | 1-4 |
 | Vida de trabalho | 21 dias<sup>1</sup> |
