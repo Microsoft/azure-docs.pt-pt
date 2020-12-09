@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -17,7 +17,7 @@ ms.locfileid: "93061646"
 ---
 Se estiver a executar o PowerShell localmente, abra a consola PowerShell com privilégios elevados e ligue-se à sua conta Azure. O *cmdlet Connect-AzAccount solicita-lhe* credenciais. Depois de autenticar, descarrega as definições da sua conta para que estejam disponíveis para a Azure PowerShell.
 
-Se estiver a utilizar o Azure Cloud Shell em vez de executar o PowerShell localmente, irá notar que não precisa de executar *o Connect-AzAccount* . A Azure Cloud Shell conecta-se automaticamente à sua conta Azure depois de selecionar **Try It** .
+Se estiver a utilizar o Azure Cloud Shell em vez de executar o PowerShell localmente, irá notar que não precisa de executar *o Connect-AzAccount*. A Azure Cloud Shell conecta-se automaticamente à sua conta Azure depois de selecionar **Try It**.
 
 1. Se estiver a executar o PowerShell localmente, inscreva-se.
 

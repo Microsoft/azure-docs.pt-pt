@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -33,6 +33,6 @@ az webapp log tail --name <app-name> --resource-group <resource-group-name>
 
 Se não vir os registos da consola imediatamente, volte a consultar dentro de 30 segundos.
 
-Para parar o streaming de registo a qualquer momento, digite **Ctrl** + **C** .
+Para parar o streaming de registo a qualquer momento, digite **Ctrl** + **C**.
 
 Também pode inspecionar os ficheiros de registo num browser em `https://<app-name>.scm.azurewebsites.net/api/logs/docker` .
