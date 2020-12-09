@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 45524b12ae00c50601d294aaf3cbc7c3ac82c5ff
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 996ffdeb56d41e2c05fd402714876cb16e126021
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533341"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96912367"
 ---
 <a name="HOLTop"></a>
 
@@ -69,7 +69,7 @@ ou se utilizar o dep, dentro da sua corrida de repo:
 dep ensure -add https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision
 ```
 
-### <a name="create-a-go-application"></a>Criar uma aplicação Go
+### <a name="create-a-go-application"></a>Criar uma aplicação Go 
 
 Em seguida, crie um ficheiro no **diretório src** chamado `sample-app.go` :
 
@@ -87,6 +87,9 @@ Além disso, declare um contexto na raiz do seu script. Necessitará deste objet
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_context)]
 
 Em seguida, começará a adicionar código para realizar diferentes operações de Visão Computacional.
+
+> [!div class="nextstepaction"]
+> [Criei o cliente](?success=set-up-client#object-model) [que encontrei um problema.](https://www.research.net/r/7QYZKHL?issue=set-up-client)
 
 ## <a name="object-model"></a>Modelo de objeto
 
@@ -115,6 +118,9 @@ Estes snippets de código mostram-lhe como fazer as seguintes tarefas com a bibl
 Crie uma `main` função e adicione-lhe o seguinte código para instantaneaizar um cliente com o seu ponto final e chave.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_client)]
+
+> [!div class="nextstepaction"]
+> [Autensei o cliente](?success=authenticate-client#analyze-an-image) [que encontrei num problema.](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
 
 ## <a name="analyze-an-image"></a>Analisar uma imagem
 
@@ -207,6 +213,9 @@ A função seguinte imprime informações sobre o tipo de &mdash; imagem, seja c
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_type)]
 
+> [!div class="nextstepaction"]
+> [Analisei uma imagem](?success=analyze-image#read-printed-and-handwritten-text) [que encontrei num problema](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+
 ## <a name="read-printed-and-handwritten-text"></a>Ler texto impresso e manuscrito
 
 A Visão computacional pode ler texto visível numa imagem e convertê-lo num fluxo de caracteres. O código nesta secção define uma função, `RecognizeTextReadAPIRemoteImage` que utiliza o objeto cliente para detetar e extrair texto impresso ou manuscrito na imagem.
@@ -236,6 +245,9 @@ Adicione o seguinte código para analisar e exibir os dados de texto recuperados
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_display)]
 
+> [!div class="nextstepaction"]
+> [Li um sms](?success=read-printed-handwritten-text#run-the-application) [que encontrei um problema.](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+
 ## <a name="run-the-application"></a>Executar a aplicação
 
 Executar o pedido do seu diretório de candidaturas com o `go run` comando.
@@ -244,6 +256,9 @@ Executar o pedido do seu diretório de candidaturas com o `go run` comando.
 go run sample-app.go
 ```
 
+> [!div class="nextstepaction"]
+> [Corri o requerimento](?success=run-the-application#clean-up-resources) [que encontrei.](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
@@ -251,10 +266,14 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+> [!div class="nextstepaction"]
+> [Limpei os recursos](?success=clean-up-resources#next-steps) [que encontrei num problema.](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência API de Visão Computacional (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
+
 
 * [O que é a Imagem Digitalizada?](../../overview.md)
 * O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go).

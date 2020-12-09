@@ -8,14 +8,16 @@ ms.topic: include
 ms.date: 02/11/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 182296793b46f1900744bf629625906b2d6e9b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08e4fd82bea6bb1b510b127db8dee7803ee112f5
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91376674"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96912356"
 ---
 **Modelos de aplicação**
+
+**Modelos de aplicação IoT Central**
 
 | Modelo                 | Nome        | Descrição |
 | ------------------------ | ----------- | ----------- |
@@ -33,3 +35,7 @@ ms.locfileid: "91376674"
 | qualidade iotc             | Monitorização da qualidade da água | Cria uma aplicação para monitorizar digitalmente a qualidade da água. |
 | loja iotc               | Analytics na loja - Checkout | Cria uma aplicação para monitorizar e gerir o fluxo de check-out dentro da sua loja. |
 | iotc-resíduos               | Gestão de Resíduos Conectados | Cria uma aplicação para monitorizar os caixotes do lixo e os operadores de campo de despacho. |
+
+**Modelo de aplicação personalizada**
+
+Se criou o seu próprio modelo de aplicação, pode usá-lo para criar uma nova aplicação. Quando solicitado um modelo de aplicação, insira o ID da aplicação mostrado no link partilhável url da aplicação exportada na secção de exportação do modelo de [aplicação](../articles/iot-central/core/howto-use-app-templates.md#create-an-application-template) da sua aplicação. 

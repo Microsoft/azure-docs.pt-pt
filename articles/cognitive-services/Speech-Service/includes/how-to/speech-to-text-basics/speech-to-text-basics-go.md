@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/15/2020
 ms.author: trbye
-ms.openlocfilehash: f3a3d897d5cc5a22340dccf3aeeac8d52158a3a0
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: f87db54b43f0ece49b940521bea34737da676a31
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425351"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96912357"
 ---
 Uma das características centrais do serviço de fala é a capacidade de reconhecer e transcrever a fala humana (muitas vezes referida como discurso-a-texto). Neste arranque rápido, aprende-se a usar o Speech SDK nas suas apps e produtos para realizar conversão de fala a texto de alta qualidade.
 
@@ -30,6 +30,8 @@ Antes de poder fazer qualquer coisa, terá de instalar o [SDK de discurso para i
 Utilize a seguinte amostra de código para executar o reconhecimento da fala a partir do microfone do dispositivo predefinido. Substitua as variáveis `subscription` e `region` pelas teclas de subscrição e região. A execução do script iniciará uma sessão de reconhecimento no microfone predefinido e no texto de saída.
 
 ```go
+package main
+
 import (
     "bufio"
     "fmt"
@@ -104,6 +106,8 @@ Consulte os documentos de referência para obter informações detalhadas sobre 
 Utilize a seguinte amostra para executar o reconhecimento da fala a partir de um ficheiro áudio. Substitua as variáveis `subscription` e `region` pelas teclas de subscrição e região. Adicionalmente, substitua a variável `file` por um caminho para um ficheiro .wav. Executar o script reconhecerá a fala do ficheiro e o resultado do texto.
 
 ```go
+package main
+
 import (
     "fmt"
     "time"
