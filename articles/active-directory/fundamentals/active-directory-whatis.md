@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1709bd42fb77bd4f18b8a5e9d1af6e07be67b6c4
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 101a2071d4f7c78d1a8df392172dc83c4028af1e
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043081"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859220"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Azure Active Directory?
 
@@ -26,7 +26,7 @@ O Azure Ative Directory (Azure AD) é o serviço de gestão de identidade e aces
 
 - Recursos internos, como aplicações na sua rede corporativa e intranet, juntamente com quaisquer aplicações em nuvem desenvolvidas pela sua própria organização. Para obter mais informações sobre a criação de um inquilino para a sua organização, consulte [Quickstart: Crie um novo inquilino no Azure Ative Directory](active-directory-access-create-new-tenant.md).
 
-Para saber a diferença entre Azure AD e Ative Directory Domain Services, consulte [Compare Ative Directory com Azure Ative Directory](active-directory-compare-azure-ad-to-ad.md). Também pode utilizar os vários cartazes da [Microsoft Cloud for Enterprise Architects Series](/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) para entender melhor os serviços de identidade nuclear em Azure, Azure AD e Microsoft 365.
+Para saber a diferença entre Azure AD e Ative Directory Domain Services, consulte [Compare Ative Directory com Azure Ative Directory](active-directory-compare-azure-ad-to-ad.md). Também pode utilizar os vários cartazes da [Microsoft Cloud for Enterprise Architects Series](/microsoft-365/solutions/cloud-architecture-models) para entender melhor os serviços de identidade nuclear em Azure, Azure AD e Microsoft 365.
 
 ## <a name="who-uses-azure-ad"></a>Quem utiliza o Azure AD?
 
@@ -77,7 +77,7 @@ Depois de escolher a sua licença Azure AD, terá acesso a algumas ou todas as s
 |Identidade híbrida|Utilize o Azure Ative Directory Connect and Connect Health para fornecer uma única identidade de utilizador para autenticação e autorização a todos os recursos, independentemente da localização (nuvem ou no local). Para mais informações, consulte [a documentação de identidade híbrida.](../hybrid/index.yml)|
 |Governação de identidade|Gerencie a identidade da sua organização através de controlos de acesso a colaboradores, parceiros de negócios, fornecedores, serviços e acesso a aplicações. Também pode efetuar comentários de acesso. Para obter mais informações, consulte a [documentação de governação de identidade da Azure AD](../governance/identity-governance-overview.md) e [as avaliações de acesso a Ad da Azure.](../governance/access-reviews-overview.md)|
 |Proteção de identidade|Detetar potenciais vulnerabilidades que afetam as identidades da sua organização, configurar políticas para responder a ações suspeitas e, em seguida, tomar as medidas adequadas para resolvê-las. Para mais informações, consulte [a Azure AD Identity Protection](../identity-protection/index.yml).|
-|Identidades geridas para os recursos do Azure|Fornece aos seus serviços Azure uma identidade gerida automaticamente em Azure AD que pode autenticar qualquer serviço de autenticação suportado pela Azure, incluindo o Key Vault. Para mais informações, veja [o que são identidades geridas para os recursos da Azure?](../managed-identities-azure-resources/overview.md)|
+|Identidades geridas dos recursos do Azure|Fornece aos seus serviços Azure uma identidade gerida automaticamente em Azure AD que pode autenticar qualquer serviço de autenticação suportado pela Azure, incluindo o Key Vault. Para mais informações, veja [o que são identidades geridas para os recursos da Azure?](../managed-identities-azure-resources/overview.md)|
 |Privileged Identity Management (PIM)|Gerir, controlar e monitorizar o acesso dentro da sua organização. Esta funcionalidade inclui acesso a recursos em AD e Azure, e outros Serviços Microsoft Online, como o Microsoft 365 ou o Intune. Para mais informações, consulte [Azure AD Gestão de Identidade Privilegiada.](../privileged-identity-management/index.yml)|
 |Relatórios e monitorização|Obtenha informações sobre os padrões de segurança e utilização no seu ambiente. Para obter mais informações, consulte [os relatórios e monitorização do Azure Ative Directory](../reports-monitoring/index.yml).|
 

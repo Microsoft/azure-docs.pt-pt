@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a37353615e35cd75c126c268de71d10077a9071
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc2f7d3ce5f8329038fea4ecbb5242015fb3fd0d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268439"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860138"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar a associação do Azure Active Directory híbrido para domínios federados
 
@@ -50,7 +50,7 @@ Saiba como:
 > * Configurar a associação ao Azure AD híbrido
 > * Ativar dispositivos de nível de downlevel do Windows
 > * Verificar o registo
-> * Resolução de problemas
+> * Resolução de Problemas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -111,7 +111,7 @@ Para configurar uma AD híbrida Azure juntando-se usando Azure AD Connect, você
 
    ![Bem-vindo](./media/hybrid-azuread-join-federated-domains/11.png)
 
-1. Na página **de tarefas adicionais,** selecione **opções do dispositivo configurar**e, em seguida, selecione **Seguinte**.
+1. Na página **de tarefas adicionais,** selecione **opções do dispositivo configurar** e, em seguida, selecione **Seguinte**.
 
    ![Tarefas adicionais](./media/hybrid-azuread-join-federated-domains/12.png)
 
@@ -199,7 +199,7 @@ Aqui estão 3 formas de localizar e verificar o estado do dispositivo:
 
 ### <a name="using-powershell"></a>Com o PowerShell
 
-Verifique o estado de registo do dispositivo no seu inquilino Azure utilizando **[a Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. Este cmdlet está no [módulo PowerShell do Diretório Ativo Azure](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
+Verifique o estado de registo do dispositivo no seu inquilino Azure utilizando **[a Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. Este cmdlet está no [módulo PowerShell do Diretório Ativo Azure](/powershell/azure/active-directory/install-msonlinev1).
 
 Quando utilizar o **cmdlet Get-MSolDevice** para verificar os detalhes do serviço:
 

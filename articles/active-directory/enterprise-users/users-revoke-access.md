@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 12/02/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d808b920ddc6ff6f1d44252c27d67edd9c0dc353
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 826ca9fc20d8bbcf9a5f90ccc895b9f9867a6be1
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575521"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860580"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Revogar o acesso do utilizador no Azure Ative Directory
 
@@ -60,13 +60,13 @@ Para um ambiente híbrido com diretório ativo no local sincronizado com o Azure
 
 Como administrador no Ative Directory, ligue-se à sua rede no local, abra a PowerShell e tome as seguintes ações:
 
-1. Desative o utilizador no Ative Directory. Consulte o [Desativado-ADAccount](/powershell/module/addsadministration/disable-adaccount?view=win10-ps).
+1. Desative o utilizador no Ative Directory. Consulte o [Desativado-ADAccount](/powershell/module/addsadministration/disable-adaccount).
 
     ```PowerShell
     Disable-ADAccount -Identity johndoe  
     ```
 
-1. Repôs a palavra-passe do utilizador duas vezes no Ative Directory. Consulte o [Set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps).
+1. Repôs a palavra-passe do utilizador duas vezes no Ative Directory. Consulte o [Set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword).
 
     > [!NOTE]
     > A razão para alterar duas vezes a palavra-passe de um utilizador é mitigar o risco de passar o hash, especialmente se houver atrasos na replicação da palavra-passe no local. Se conseguir assumir com segurança que esta conta não está comprometida, pode redefinir a palavra-passe apenas uma vez.
@@ -83,18 +83,18 @@ Como administrador no Ative Directory, ligue-se à sua rede no local, abra a Pow
 
 Como administrador no Azure Ative Directory, abra a PowerShell, corra ``Connect-AzureAD`` e tome as seguintes ações:
 
-1. Desative o utilizador em Azure AD. Consulte o [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
+1. Desative o utilizador em Azure AD. Consulte o [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser).
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
-1. Revogue os tokens de atualização Azure AD do utilizador. Consulte a [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
+1. Revogue os tokens de atualização Azure AD do utilizador. Consulte a [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken).
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-1. Desative os dispositivos do utilizador. Consulte a [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
+1. Desative os dispositivos do utilizador. Consulte a [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice).
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false

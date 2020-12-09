@@ -7,19 +7,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/24/2020
+ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c15b3a64b4a0017c5c352e08cebc796537255479
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5229175af618f897caeae7310338cbe51966a48d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447041"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859617"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Criar um inquilino do Azure Active Directory B2C
 
-Antes de as suas candidaturas poderem interagir com o Azure Ative Directory B2C (Azure AD B2C), devem estar registadas num inquilino que gere.
+Antes de as suas candidaturas poderem interagir com o Azure Ative Directory B2C (Azure AD B2C), devem estar registadas num inquilino que gere. 
+
+> [!NOTE]
+> Você pode criar até 20 inquilinos por subscrição. Este limite ajuda a proteger contra ameaças aos seus recursos, tais como ataques de negação de serviço, e é aplicado tanto no portal Azure como na criação de inquilinos subjacentes À API. Se precisar de criar mais de 20 inquilinos, contacte o [Microsoft Support](support-options.md).
 
 Neste artigo, vai aprender a:
 
@@ -46,8 +49,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
     ![Inquilino de assinatura, Diretório + Filtro de subscrição com inquilino de assinatura selecionado](media/tutorial-create-tenant/portal-01-pick-directory.png)
 
 1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
+
+   ![Selecione o botão Criar um botão de recurso](media/tutorial-create-tenant/create-a-resource.png)
+
 1. Procure por **Azure Ative Directory B2C** e, em seguida, selecione **Create**.
-1. Selecione **Criar um novo inquilino do Azure AD B2C**.
+2. Selecione **Criar um novo inquilino do Azure AD B2C**.
 
     ![Criar um novo inquilino Azure AD B2C selecionado no portal Azure](media/tutorial-create-tenant/portal-02-create-tenant.png)
 
@@ -57,7 +63,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
    - **Nome de domínio inicial** - Introduza um nome de domínio para o seu inquilino Azure AD B2C.
    - **País ou região** - Selecione o seu país ou região da lista. Esta seleção não pode ser mudada mais tarde.
    - **Subscrição** - Selecione a sua subscrição da lista.
-   - **Grupo de recursos** - Selecione um grupo de recursos que contenha o inquilino. Ou **selecione Criar novo,** insira um **Nome** para o grupo de recursos, selecione a **localização** do grupo de Recursos e, em seguida, selecione **OK**.
+   - **Grupo de recursos** - Selecione ou procure o grupo de recursos que conterá o inquilino.
 
     ![Crie forma de inquilino com valores de exemplo no portal Azure](media/tutorial-create-tenant/review-and-create-tenant.png)
 

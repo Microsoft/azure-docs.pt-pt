@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: ef38c5364a0df1df63be825e2c46009174840b72
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e9a03c82fd4bd79e7a47fa34ff7a69870c52f018
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658133"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858387"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Diretório Ativo (Azure AD) Aplicação Proxy frequentemente perguntas
 
@@ -177,7 +177,7 @@ A [aplicação móvel SharePoint](/sharepoint/administration/supporting-the-shar
 
 ### <a name="can-i-use-azure-ad-application-proxy-as-ad-fs-proxy-like-web-application-proxy"></a>Posso usar o Azure AD Application Proxy como proxy AD FS (como o Proxy de Aplicações Web)?
 
-Não. O Azure AD Application Proxy foi concebido para trabalhar com a Azure AD e não preenche os requisitos para agir como um representante da AD FS.
+N.º O Azure AD Application Proxy foi concebido para trabalhar com a Azure AD e não preenche os requisitos para agir como um representante da AD FS.
 
 ## <a name="websocket"></a>WebSocket
 
@@ -204,5 +204,5 @@ Este cenário não é apoiado diretamente. As suas opções para este cenário s
 1. Publique os URLs HTTP e HTTPS como aplicações separadas com um wildcard, mas dê a cada um deles um domínio personalizado diferente. Esta configuração funcionará uma vez que têm DIFERENTES URLS externos.
 
 2. Publique o URL HTTPS através de uma aplicação wildcard. Publique as aplicações HTTP utilizando separadamente estes cmdlets Proxy PowerShell de aplicação:
-   - [Gestão de aplicações proxy](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
-   - [Gestão de Conector de Proxy de Aplicação](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)
+   - [Gestão de aplicações proxy](/powershell/module/azuread/#application_proxy_application_management&preserve-view=true)
+   - [Gestão de Conector de Proxy de Aplicação](/powershell/module/azuread/#application_proxy_connector_management&preserve-view=true)

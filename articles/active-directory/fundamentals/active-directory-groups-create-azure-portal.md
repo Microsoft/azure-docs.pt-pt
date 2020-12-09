@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e4533334204a3a1cfd46ff27b04ff0c05350dfc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8198feca2956f81e397ddee447057c1a5af99a4a
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973920"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859509"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Crie um grupo básico e adicione membros usando o Azure Ative Directory
 Pode criar um grupo básico através do portal do Microsoft Azure Active Directory (Microsoft Azure AD). Para os fins deste artigo, um grupo básico é adicionado a um único recurso pelo proprietário do recurso (administrador) e inclui membros específicos (funcionários) que precisam de aceder a esse recurso. Para cenários mais complexos, incluindo associações dinâmicas e criação de regras, veja [Documentação da gestão de utilizadores do Azure Active Directory](../enterprise-users/index.yml).
@@ -77,7 +77,7 @@ Pode criar um grupo básico e adicionar os membros ao mesmo tempo. Para criar um
 
 ## <a name="turn-on-or-off-group-welcome-email"></a>Ligue ou desligue o e-mail de boas-vindas do grupo
 
-Quando qualquer novo grupo Microsoft 365 é criado, seja com adesão dinâmica ou estática, é enviada uma notificação bem-vinda a todos os utilizadores que são adicionados ao grupo. Quando quaisquer atributos de um utilizador ou dispositivo mudam, todas as regras dinâmicas do grupo na organização são processadas para potenciais alterações de membros. Os utilizadores que são adicionados também recebem a notificação de boas-vindas. Pode desligar este comportamento em [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+Quando qualquer novo grupo Microsoft 365 é criado, seja com adesão dinâmica ou estática, é enviada uma notificação bem-vinda a todos os utilizadores que são adicionados ao grupo. Quando quaisquer atributos de um utilizador ou dispositivo mudam, todas as regras dinâmicas do grupo na organização são processadas para potenciais alterações de membros. Os utilizadores que são adicionados também recebem a notificação de boas-vindas. Pode desligar este comportamento em [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup). 
 
 ## <a name="next-steps"></a>Passos seguintes
 

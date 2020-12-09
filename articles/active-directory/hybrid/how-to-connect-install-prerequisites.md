@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 032b1ca945cf729f8a6682cf71d26a716b1e8863
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: edace0298514d1fc3cfd3afcff73fa0d29e18f0c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96172352"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858778"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este artigo descreve os pré-requisitos e os requisitos de hardware para a Azure Ative Directory (Azure AD) Connect.
@@ -52,7 +52,7 @@ O Azure Ative Directory Connect executa scripts PowerShell assinados como parte 
 
 A política de execução recomendada durante a instalação é "RemoteSigned".
 
-Para obter mais informações sobre a definição da política de execução powerShell, consulte [A Política de Execução de Conjuntos](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
+Para obter mais informações sobre a definição da política de execução powerShell, consulte [A Política de Execução de Conjuntos](/powershell/module/microsoft.powershell.security/set-executionpolicy).
 
 
 ### <a name="azure-ad-connect-server"></a>Servidor Azure Ad Connect
@@ -140,7 +140,7 @@ Recomendamos que endureça o servidor Azure AD Connect para diminuir a superfíc
 Para obter mais informações, consulte a MSDN sobre o [elemento proxy predefinido](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
 Para obter mais informações quando tiver problemas de conectividade, consulte [problemas de conectividade de resolução de problemas](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outros
 Opcional: Utilize uma conta de utilizador de teste para verificar a sincronização.
 
 ## <a name="component-prerequisites"></a>Pré-requisitos de componentes

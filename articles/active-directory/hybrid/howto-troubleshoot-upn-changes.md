@@ -1,5 +1,5 @@
 ---
-title: Plano e resolução de problemas Alterações do nome do princípio do utilizador do Azure (UPN)
+title: Plano e resolução de problemas Alterações do nome principal do utilizador (UPN)
 description: Compreender questões conhecidas e mitigações para alterações na UPN
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59b304505c29f424d85d5b1e16dc83c060ac2ac1
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 19e40d135316c1c7cd270d2804fff1f487937685
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744603"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858540"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Plano e resolução de problemas Alterações do Nome Principal do Utilizador no Diretório Ativo do Azure
 
@@ -135,7 +135,7 @@ Os utilizadores podem experimentar problemas de súmuta único com aplicações 
 Os problemas mencionados nesta secção foram corrigidos na atualização do Windows 10 May 2020 (2004).
 
 **Solução** <br>
-Dê tempo suficiente para que a UPN mude para sincronizar com Azure AD. Assim que verificar se a nova UPN se reflete no Portal AD Azure, peça ao utilizador que selecione o azulejo "Outro utilizador" para iniciar súb9 com a sua nova UPN. Também pode verificar através [do PowerShell](/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). Depois de iniciar sessão com a sua nova UPN, as referências à antiga UPN podem ainda aparecer na definição do Windows "Access work ou school".
+Dê tempo suficiente para que a UPN mude para sincronizar com Azure AD. Assim que verificar se a nova UPN se reflete no Portal AD Azure, peça ao utilizador que selecione o azulejo "Outro utilizador" para iniciar súb9 com a sua nova UPN. Também pode verificar através [do PowerShell](/powershell/module/azuread/get-azureaduser). Depois de iniciar sessão com a sua nova UPN, as referências à antiga UPN podem ainda aparecer na definição do Windows "Access work ou school".
 
 ![Screenshot de domínios verificados](./media/howto-troubleshoot-upn-changes/other-user.png)
 

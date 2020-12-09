@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e21bac5dd78cb9c9f40e6b91ff80fedabb9bc75
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: b7519b6c7e1f3381be77b9a0734ddda250228e7d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602262"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860308"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -105,7 +105,7 @@ Se não estiver a utilizar clientes com capacidade CAE, o seu prazo de vida de a
 
 1. Um cliente com capacidade cae apresenta credenciais ou um token de atualização para Azure AD pedindo um sinal de acesso para algum recurso.
 1. Um sinal de acesso é devolvido juntamente com outros artefactos ao cliente.
-1. Um administrador revoga explicitamente [todos os tokens de atualização para o utilizador](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Será enviado um evento de revogação ao fornecedor de recursos da Azure AD.
+1. Um administrador revoga explicitamente [todos os tokens de atualização para o utilizador](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). Será enviado um evento de revogação ao fornecedor de recursos da Azure AD.
 1. Um sinal de acesso é apresentado ao fornecedor de recursos. O fornecedor de recursos avalia a validade do token e verifica se existe algum evento de revogação para o utilizador. O fornecedor de recursos utiliza esta informação para decidir conceder ou não acesso ao recurso.
 1. Neste caso, o fornecedor de recursos nega o acesso e envia um desafio de reclamação de 401+ para o cliente.
 1. O cliente capaz de CAE compreende o desafio de reclamação de 401+. Contorna os caches e volta ao passo 1, enviando o seu token de atualização juntamente com o desafio de reivindicação de volta para Azure AD. O Azure AD reavaliará todas as condições e solicitará ao utilizador que reautore neste caso.
@@ -185,6 +185,6 @@ Se ativar um utilizador logo após o desativar. Haverá alguma latência antes d
 
 A frequência de inscrição será honrada com ou sem CAE.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Anunciando a avaliação contínua do acesso](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933)

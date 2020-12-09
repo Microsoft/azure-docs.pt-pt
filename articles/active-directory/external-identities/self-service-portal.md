@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f9cd421224ad134b4df853b06b3bc34333a0613
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 8a5b800e78448afcc970010535ba12b543d3cc74
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896111"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860512"
 ---
 # <a name="self-service-for-azure-ad-b2b-collaboration-sign-up"></a>Self-service para inscrição de colaboração Azure AD B2B
 
@@ -28,7 +28,7 @@ Como uma organização convidativa, pode não saber com antecedência quem são 
 
 ## <a name="azure-active-directory-b2b-invitation-api"></a>Azure Ative Directy B2B convite API
 
-As organizações podem usar o [gestor de convites microsoft Graph API](/graph/api/resources/invitation?view=graph-rest-1.0) para construir as suas próprias experiências de embarque para utilizadores convidados B2B. Quando pretender oferecer inscrição de utilizador de hóspedes B2B self-service, recomendamos que utilize [a gestão de direitos AD da Azure](../governance/entitlement-management-overview.md). Mas se quiser construir a sua própria experiência, pode utilizar o [convite de criação API](/graph/api/invitation-post?tabs=http&view=graph-rest-1.0) para enviar automaticamente o seu e-mail de convite personalizado diretamente para o utilizador B2B, por exemplo. Ou a sua aplicação pode usar o conviteRedeemUrl devolvido na resposta de criação para criar o seu próprio convite (através do seu mecanismo de comunicação de escolha) para o utilizador convidado.
+As organizações podem usar o [gestor de convites microsoft Graph API](/graph/api/resources/invitation) para construir as suas próprias experiências de embarque para utilizadores convidados B2B. Quando pretender oferecer inscrição de utilizador de hóspedes B2B self-service, recomendamos que utilize [a gestão de direitos AD da Azure](../governance/entitlement-management-overview.md). Mas se quiser construir a sua própria experiência, pode utilizar o [convite de criação API](/graph/api/invitation-post?tabs=http) para enviar automaticamente o seu e-mail de convite personalizado diretamente para o utilizador B2B, por exemplo. Ou a sua aplicação pode usar o conviteRedeemUrl devolvido na resposta de criação para criar o seu próprio convite (através do seu mecanismo de comunicação de escolha) para o utilizador convidado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

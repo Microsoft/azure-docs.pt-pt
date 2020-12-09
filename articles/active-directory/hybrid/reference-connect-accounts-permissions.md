@@ -17,12 +17,12 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1efafd353bea20ea1ada0b5e92a9e6df00deb78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c075e19422341ad7ccfd3ad951517876ab26a495
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273605"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858421"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: contas e permissões
 
@@ -50,7 +50,7 @@ Além destas três contas utilizadas para executar o Azure AD Connect, também n
 
 
 >[!IMPORTANT]
-> A partir da construção 1.4.####.# já não é suportado para usar uma administração de empresa ou uma conta de administração de domínio como a conta AD DS Connector.  Se tentar introduzir uma conta que seja um administrador de empresa ou administrador de domínio ao especificar a **utilização da conta existente,** receberá um erro.
+> A partir da construção 1.4.###.# já não é suportado para usar uma administração de empresa ou uma conta de administração de domínio como conta AD DS Connector.  Se tentar introduzir uma conta que seja um administrador de empresa ou administrador de domínio ao especificar a **utilização da conta existente,** receberá um erro.
 
 > [!NOTE]
 > É apoiado para gerir as contas administrativas utilizadas no Azure AD Connect a partir de uma Floresta Administrativa ESAE (também conhecido como "Floresta Vermelha").
@@ -158,7 +158,7 @@ Quando atualiza de uma versão do Azure AD Connect para uma nova versão, precis
 >Começando pela construção 1.1.484, o Azure AD Connect introduziu um bug de regressão que requer permissões sysadmin para atualizar a base de dados SQL.  Este bug é corrigido na construção 1.1.647.  Se estiver a atualizar para esta construção, precisará de permissões sysadmin.  Permissões dbo não são suficientes.  Se tentar atualizar o Azure AD Connect sem ter permissões sysadmin, a atualização falhará e o Azure AD Connect deixará de funcionar corretamente depois.  A Microsoft está ciente disso e está a trabalhar para corrigir isto.
 
 
-| Diretor | Permissões necessárias | Utilizado para |
+| Principal | Permissões necessárias | Utilizado para |
 | --- | --- | --- |
 | Utilizador executando o assistente de instalação |Administrador do servidor local |Atualizar binários. |
 | Utilizador executando o assistente de instalação |Membro da ADSyncAdmins |Faça alterações nas Regras de Sincronização e noutras configurações. |
@@ -217,7 +217,7 @@ Esta funcionalidade requer o Windows Server 2008 R2 ou mais tarde. Se instalar o
 #### <a name="group-managed-service-account"></a>Conta de serviço gerida pelo grupo
 Se utilizar um servidor SQL remoto, recomendamos a utilização de uma **conta de serviço gerida pelo grupo.** Para obter mais informações sobre como preparar o seu Diretório Ativo para a conta de Serviço Gerido pelo Grupo, consulte a Visão Geral das [Contas de Serviço Geridas pelo Grupo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)).
 
-Para utilizar esta opção, na página [de componentes necessários,](how-to-connect-install-custom.md#install-required-components) selecione **Utilize uma conta de serviço existente**e selecione Conta de Serviço **Gerido**.  
+Para utilizar esta opção, na página [de componentes necessários,](how-to-connect-install-custom.md#install-required-components) selecione **Utilize uma conta de serviço existente** e selecione Conta de Serviço **Gerido**.  
 ![VSA](./media/reference-connect-accounts-permissions/serviceaccount.png)  
 Também é suportado para utilizar uma conta de [serviço gerida autónoma](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10)). No entanto, estes apenas podem ser utilizados na máquina local e não há qualquer benefício em usá-los sobre a conta de serviço virtual padrão.
 
@@ -252,7 +252,7 @@ Existe um limite de 20 contas de serviço sincronizado no Azure AD. Para obter a
 Para remover as contas de serviço Azure AD não reutilizadas, execute o seguinte cmdlet Azure AD PowerShell: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
->Antes de poder utilizar os comandos PowerShell acima, terá de instalar o [PowerShell do Diretório Ativo Azure para módulo Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) e ligar-se à sua instância de Azure AD utilizando [o Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+>Antes de poder utilizar os comandos PowerShell acima, terá de instalar o [PowerShell do Diretório Ativo Azure para módulo Graph](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module) e ligar-se à sua instância de Azure AD utilizando [o Connect-AzureAD](/powershell/module/azuread/connect-azuread)
 
 Para obter informações adicionais sobre como gerir ou redefinir a palavra-passe da conta Azure AD Connector ver [Gerir a conta Azure AD Connect](how-to-connect-azureadaccount.md)
 

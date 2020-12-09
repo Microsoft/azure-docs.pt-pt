@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e46dabc665d383279a12fc6bd8eb67475d88a2ea
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 82f0408b7e46493f6c3ec62d48a992e87f196f78
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896077"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860614"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Adicione um fluxo de trabalho de aprovação personalizado à inscrição de self-service
 
@@ -32,25 +32,25 @@ Este artigo dá um exemplo de como integrar-se com um sistema de aprovação. Ne
 Tem de registar o seu sistema de aprovação como uma aplicação no seu inquilino Azure AD para que possa autenticar com a Azure AD e ter permissão para criar utilizadores. Saiba mais sobre [o básico de autenticação e autorização para o Microsoft Graph](/graph/auth/auth-concepts).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador do Azure Active Directory.
-2. Ao abrigo **dos serviços Azure,** selecione **Azure Ative Directory** .
-3. No menu esquerdo, selecione **as inscrições da App** e, em seguida, selecione Novo **registo** .
-4. Introduza um **Nome** para a aplicação, por exemplo, _Aprovações de inscrição_ .
+2. Ao abrigo **dos serviços Azure,** selecione **Azure Ative Directory**.
+3. No menu esquerdo, selecione **as inscrições da App** e, em seguida, selecione Novo **registo**.
+4. Introduza um **Nome** para a aplicação, por exemplo, _Aprovações de inscrição_.
 
    <!-- ![Register an application for the approval system](./self-service-sign-up-add-approvals/approvals/register-an-approvals-application.png) -->
 
-5. Selecione **Registar** . Pode deixar outros campos à sua revelia.
+5. Selecione **Registar**. Pode deixar outros campos à sua revelia.
 
    ![Screenshot que realça o botão Registar.](media/self-service-sign-up-add-approvals/register-approvals-app.png)
 
-6. Em **Gerir** no menu esquerdo, selecione **permissões API** e, em seguida, selecione **Adicionar uma permissão** .
-7. Na página de **permissões da API do Pedido,** selecione **o Gráfico do Microsoft** e, em seguida, selecione **permissões de aplicação** .
-8. Sob **permissões Selecione,** expanda o **Utilizador** e, em seguida, selecione a caixa de verificação **User.ReadWrite.All.** Esta permissão permite que o sistema de aprovação crie o utilizador mediante aprovação. Em seguida, **selecione Adicionar permissões** .
+6. Em **Gerir** no menu esquerdo, selecione **permissões API** e, em seguida, selecione **Adicionar uma permissão**.
+7. Na página de **permissões da API do Pedido,** selecione **o Gráfico do Microsoft** e, em seguida, selecione **permissões de aplicação**.
+8. Sob **permissões Selecione,** expanda o **Utilizador** e, em seguida, selecione a caixa de verificação **User.ReadWrite.All.** Esta permissão permite que o sistema de aprovação crie o utilizador mediante aprovação. Em seguida, **selecione Adicionar permissões**.
 
    ![Registar uma página de inscrição](media/self-service-sign-up-add-approvals/request-api-permissions.png)
 
-9. Na página de permissões da **API,** selecione **o consentimento de administração grant para (o nome do seu inquilino)** e, em seguida, selecione **Sim** .
-10. Em **Gerir** no menu esquerdo, selecione **Certificados & segredos,** e, em seguida, selecione **Novo segredo do cliente** .
-11. Insira uma **Descrição** para o segredo, por _exemplo, aprova_ o segredo do cliente, e selecione a duração para quando o segredo do cliente **expirar.** Em seguida, selecione **Adicionar** .
+9. Na página de permissões da **API,** selecione **o consentimento de administração grant para (o nome do seu inquilino)** e, em seguida, selecione **Sim**.
+10. Em **Gerir** no menu esquerdo, selecione **Certificados & segredos,** e, em seguida, selecione **Novo segredo do cliente**.
+11. Insira uma **Descrição** para o segredo, por _exemplo, aprova_ o segredo do cliente, e selecione a duração para quando o segredo do cliente **expirar.** Em seguida, selecione **Adicionar**.
 12. Copie o valor do segredo do cliente.
 
     ![Copie o segredo do cliente para uso no sistema de aprovação](media/self-service-sign-up-add-approvals/client-secret-value-copy.png)
@@ -61,7 +61,7 @@ Tem de registar o seu sistema de aprovação como uma aplicação no seu inquili
 
 Em seguida, [irá criar os conectores API](self-service-sign-up-add-api-connector.md#create-an-api-connector) para o fluxo de utilizador de inscrição de autosserviço. O seu sistema de aprovação API precisa de dois conectores e pontos finais correspondentes, como os exemplos apresentados abaixo. Estes conectores API fazem o seguinte:
 
-- **Verifique o estado de aprovação** . Envie uma chamada para o sistema de aprovação imediatamente após um utilizador entrar em sing-in com um fornecedor de identidade para verificar se o utilizador tem um pedido de aprovação existente ou já foi negado. Se o seu sistema de aprovação apenas fizer decisões de aprovação automáticas, este conector API pode não ser necessário. Exemplo de um conector API "Verificar o estado de aprovação".
+- **Verifique o estado de aprovação**. Envie uma chamada para o sistema de aprovação imediatamente após um utilizador entrar em sing-in com um fornecedor de identidade para verificar se o utilizador tem um pedido de aprovação existente ou já foi negado. Se o seu sistema de aprovação apenas fizer decisões de aprovação automáticas, este conector API pode não ser necessário. Exemplo de um conector API "Verificar o estado de aprovação".
 
   ![Verifique a configuração do conector API do estado de aprovação](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
@@ -76,17 +76,17 @@ Para criar estes conectores, siga os passos para [criar um conector API](self-se
 Agora irá adicionar os conectores API a um fluxo de utilizador de inscrição de autosserviço com estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador do Azure Active Directory.
-2. Ao abrigo **dos serviços Azure,** selecione **Azure Ative Directory** .
+2. Ao abrigo **dos serviços Azure,** selecione **Azure Ative Directory**.
 3. No menu esquerdo, selecione **Identidades Externas.**
 4. Selecione **os fluxos do Utilizador (Pré-visualização)** e, em seguida, selecione o fluxo do utilizador que pretende ativar o conector API.
 5. Selecione **conectores API** e, em seguida, selecione os pontos finais da API que pretende invocar nos seguintes passos no fluxo do utilizador:
 
-   - **Depois de iniciar sessão com um fornecedor de identidade** : Selecione o seu conector API de estado de aprovação, por _exemplo, Verifique o estado de aprovação_ .
-   - **Antes de criar o utilizador** : Selecione o seu conector API de pedido de aprovação, por exemplo, _Solicite a aprovação._
+   - **Depois de iniciar sessão com um fornecedor de identidade**: Selecione o seu conector API de estado de aprovação, por _exemplo, Verifique o estado de aprovação_.
+   - **Antes de criar o utilizador**: Selecione o seu conector API de pedido de aprovação, por exemplo, _Solicite a aprovação._
 
    ![Adicionar APIs ao fluxo de utilizador](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)
 
-6. Selecione **Guardar** .
+6. Selecione **Guardar**.
 
 ## <a name="control-the-sign-up-flow-with-api-responses"></a>Controlar o fluxo de inscrição com respostas API
 
@@ -207,7 +207,7 @@ As reclamações exatas enviadas à API dependem de que informações são recol
 
 O ponto final da **API de aprovação** do Pedido deve devolver uma resposta de continuação se:
 
-- O utilizador pode ser **_automaticamente aprovado_** .
+- O utilizador pode ser **_automaticamente aprovado_**.
 
 Exemplo da resposta de continuação:
 
@@ -270,7 +270,7 @@ Após obter aprovação manual, o sistema de aprovação personalizado cria uma 
 > [!IMPORTANT]
 > O sistema de aprovação deve verificar explicitamente que `identities` , e que se encontram `identities[0]` `identities[0].issuer` presentes e que `identities[0].issuer` equivalem a 'facebook' ou 'google' para utilizar este método.
 
-Se o seu utilizador se inscreve com uma conta google ou Facebook, pode utilizar a [API de criação de Utilizador.](/graph/api/user-post-users?tabs=http&view=graph-rest-1.0)
+Se o seu utilizador se inscreve com uma conta google ou Facebook, pode utilizar a [API de criação de Utilizador.](/graph/api/user-post-users?tabs=http)
 
 1. O sistema de aprovação recebe o pedido HTTP do fluxo do utilizador.
 
@@ -330,7 +330,7 @@ Content-type: application/json
 
 ### <a name="for-a-federated-azure-active-directory-user"></a>Para um utilizador federado do Azure Ative Directory
 
-Se um utilizador entrar com uma conta federada do Azure Ative Directory, deve utilizar o [convite API](/graph/api/invitation-post?view=graph-rest-1.0) para criar o utilizador e, em seguida, opcionalmente, a [API de atualização](/graph/api/user-update?view=graph-rest-1.0) do utilizador para atribuir mais atributos ao utilizador.
+Se um utilizador entrar com uma conta federada do Azure Ative Directory, deve utilizar o [convite API](/graph/api/invitation-post) para criar o utilizador e, em seguida, opcionalmente, a [API de atualização](/graph/api/user-update) do utilizador para atribuir mais atributos ao utilizador.
 
 1. O sistema de aprovação recebe o pedido HTTP do fluxo do utilizador.
 

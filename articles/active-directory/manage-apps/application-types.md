@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: d83b69ea7c2a4459d30c4ceb90f62ab6a1a10cc2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 49dd8b65db771a182138f13218adda2f0e7f7396
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648179"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858234"
 ---
 # <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Visualização de aplicativos usando o seu inquilino Azure AD para gestão de identidade
 A [Série Quickstart em Gestão de Aplicações](view-applications-portal.md) leva-lhe o básico. Nele, você aprende a ver todas as aplicações usando o seu inquilino AZure AD para gestão de identidade. Este artigo mergulha um pouco mais nos tipos de apps que vai encontrar.
@@ -31,12 +31,12 @@ Quando filtrado para **todas as aplicações,** a **Lista** de Todas as Aplicaç
 - Quando adiciona um novo registo de candidaturas criando uma aplicação desenvolvida por medida utilizando o [Registo de Pedidos](../develop/quickstart-register-app.md)
 - Quando adiciona um novo registo de candidaturas criando uma aplicação personalizada utilizando o [portal V2.0 Application Registration](../develop/quickstart-register-app.md)
 - Ao adicionar uma aplicação, está a desenvolver-se utilizando [os métodos de autenticação ASP.NET](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) do Visual Studio ou [serviços conectados](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/)
-- Quando cria um objeto principal de serviço utilizando o [Módulo Azure AD PowerShell](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+- Quando cria um objeto principal de serviço utilizando o [Módulo Azure AD PowerShell](/powershell/azure/active-directory/install-adv2)
 - Quando [consente num pedido](../develop/howto-convert-app-to-be-multi-tenant.md) como administrador para utilizar dados no seu inquilino
 - Quando um [utilizador consente com uma aplicação](../develop/howto-convert-app-to-be-multi-tenant.md) para utilizar dados no seu inquilino
 - Quando ativa determinados serviços que armazenam dados no seu inquilino. Um exemplo é o Reset da Palavra-Passe, que é modelado como um principal de serviço para armazenar a sua política de reset de palavra-passe de forma segura.
 
 Saiba mais sobre como e porquê, as aplicações são adicionadas ao seu diretório, veja [como as aplicações são adicionadas ao AZure AD.](../develop/active-directory-how-applications-are-added.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Gestão de Aplicações com Diretório Ativo Azure](what-is-application-management.md)

@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7a77c110c12fd6b42e8defbe43a40579b9c6588
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 681f5a6cecd43eb69adf24544c774cbd22da8a49
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168768"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860546"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas Azure Ative Directy B2B colaboração
 
@@ -52,7 +52,7 @@ Os erros comuns incluem:
 
 ### <a name="invitees-admin-has-disallowed-emailverified-users-from-being-created-in-their-tenant"></a>A Administração do Invitee não permitiu que os Utilizadores EmailVerified fossem criados no seu inquilino
 
-Ao convidar utilizadores cuja organização está a utilizar o Azure Ative Directory, mas onde a conta específica do utilizador não existe (por exemplo, o utilizador não existe em Azure AD contoso.com). O administrador da contoso.com pode ter uma política em vigor que impeça a criação dos utilizadores. O utilizador deve verificar com o seu administrador para determinar se os utilizadores externos são autorizados. O administrador externo pode ter de permitir Enviar por email o artigo Utilizadores verificados no seu domínio (ver este [artigo](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) sobre permitir emailss).
+Ao convidar utilizadores cuja organização está a utilizar o Azure Ative Directory, mas onde a conta específica do utilizador não existe (por exemplo, o utilizador não existe em Azure AD contoso.com). O administrador da contoso.com pode ter uma política em vigor que impeça a criação dos utilizadores. O utilizador deve verificar com o seu administrador para determinar se os utilizadores externos são autorizados. O administrador externo pode ter de permitir Enviar por email o artigo Utilizadores verificados no seu domínio (ver este [artigo](/powershell/module/msonline/set-msolcompanysettings) sobre permitir emailss).
 
 ![Erro declarando que o inquilino não permite e-mail verificado utilizadores](media/troubleshoot/allow-email-verified-users.png)
 

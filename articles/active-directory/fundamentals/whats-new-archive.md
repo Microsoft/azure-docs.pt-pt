@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4750de0b9b0d44dbe30571e308227d2123b5e447
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 4cd6aa8c1936d9f07421f6508755a5b6d4852813
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602092"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859186"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivo para o que há de novo no Azure Ative Directory?
 
@@ -424,7 +424,7 @@ A consulta delta para oAuth2PermissionGrant está disponível para pré-visualiz
 
 **Capacidade do produto:** Experiência de Desenvolvedor
 
-A consulta delta para contactos organizacionais está geralmente disponível! Agora é possível rastrear alterações nas aplicações de produção sem ter de fazer uma pesquisa contínua no Microsoft Graph. Substitua qualquer código existente que poll continuamente orgContact dados por consulta delta para melhorar significativamente o desempenho. [Saiba mais.](/graph/api/orgcontact-delta?tabs=http&view=graph-rest-1.0)
+A consulta delta para contactos organizacionais está geralmente disponível! Agora é possível rastrear alterações nas aplicações de produção sem ter de fazer uma pesquisa contínua no Microsoft Graph. Substitua qualquer código existente que poll continuamente orgContact dados por consulta delta para melhorar significativamente o desempenho. [Saiba mais.](/graph/api/orgcontact-delta?tabs=http)
 
 ---
 
@@ -436,7 +436,7 @@ A consulta delta para contactos organizacionais está geralmente disponível! Ag
 
 **Capacidade do produto:** Experiência de Desenvolvedor
 
-A consulta delta para aplicações está geralmente disponível! Agora é possível rastrear alterações nas aplicações de produção sem ter de fazer uma pesquisa contínua no Microsoft Graph. Substitua qualquer código existente que polle continuamente os dados da aplicação por consulta delta para melhorar significativamente o desempenho. [Saiba mais.](/graph/api/application-delta?view=graph-rest-1.0)
+A consulta delta para aplicações está geralmente disponível! Agora é possível rastrear alterações nas aplicações de produção sem ter de fazer uma pesquisa contínua no Microsoft Graph. Substitua qualquer código existente que polle continuamente os dados da aplicação por consulta delta para melhorar significativamente o desempenho. [Saiba mais.](/graph/api/application-delta)
 
 ---
 
@@ -654,7 +654,7 @@ Ações de melhoria adicionadas:
 - Certifique-se de que todos os utilizadores podem completar a autenticação de vários fatores para um acesso seguro
 - Exigir MFA para funções administrativas
 
-Estas novas ações de melhoria requerem o registo dos seus utilizadores ou administradores para a autenticação de vários fatores (MFA) em todo o seu diretório e estabelecer o conjunto certo de políticas que se adequam às suas necessidades organizacionais. O objetivo principal é ter flexibilidade, garantindo ao mesmo tempo que todos os seus utilizadores e administradores podem autenticar com múltiplos fatores ou pedidos de verificação de identidade baseados no risco. Isto pode assumir a forma de ter múltiplas políticas que aplicam decisões âmbito, ou definir padrão de segurança (a partir de 16 de março) que permitem à Microsoft decidir quando desafiar os utilizadores para mFA. [Leia mais sobre as novidades no Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score?view=o365-worldwide#whats-new).
+Estas novas ações de melhoria requerem o registo dos seus utilizadores ou administradores para a autenticação de vários fatores (MFA) em todo o seu diretório e estabelecer o conjunto certo de políticas que se adequam às suas necessidades organizacionais. O objetivo principal é ter flexibilidade, garantindo ao mesmo tempo que todos os seus utilizadores e administradores podem autenticar com múltiplos fatores ou pedidos de verificação de identidade baseados no risco. Isto pode assumir a forma de ter múltiplas políticas que aplicam decisões âmbito, ou definir padrão de segurança (a partir de 16 de março) que permitem à Microsoft decidir quando desafiar os utilizadores para mFA. [Leia mais sobre as novidades no Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score#whats-new).
 
 ---
 
@@ -844,7 +844,7 @@ Serão adicionadas as seguintes ações de melhoria:
 - Certifique-se de que todos os utilizadores podem completar MFA para acesso seguro
 - Exigir MFA para funções administrativas
 
-Estas novas ações de melhoria exigirão registar os seus utilizadores ou administradores para MFA em todo o seu diretório e estabelecer o conjunto certo de políticas que se adequam às suas necessidades organizacionais. O objetivo principal é ter flexibilidade, garantindo ao mesmo tempo que todos os seus utilizadores e administradores podem autenticar com múltiplos fatores ou pedidos de verificação de identidade baseados no risco. Isto pode assumir a forma de definir padrão de segurança que permite à Microsoft decidir quando desafiar os utilizadores para MFA, ou ter várias políticas que aplicam decisões de âmbito. Como parte destas atualizações de ação de melhoria, as políticas de proteção de base deixarão de ser incluídas nos cálculos de pontuação. [Leia mais sobre o que está a chegar no Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score-whats-coming?view=o365-worldwide).
+Estas novas ações de melhoria exigirão registar os seus utilizadores ou administradores para MFA em todo o seu diretório e estabelecer o conjunto certo de políticas que se adequam às suas necessidades organizacionais. O objetivo principal é ter flexibilidade, garantindo ao mesmo tempo que todos os seus utilizadores e administradores podem autenticar com múltiplos fatores ou pedidos de verificação de identidade baseados no risco. Isto pode assumir a forma de definir padrão de segurança que permite à Microsoft decidir quando desafiar os utilizadores para MFA, ou ter várias políticas que aplicam decisões de âmbito. Como parte destas atualizações de ação de melhoria, as políticas de proteção de base deixarão de ser incluídas nos cálculos de pontuação. [Leia mais sobre o que está a chegar no Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score-whats-coming).
 
 ---
 
@@ -2164,7 +2164,7 @@ Para obter mais informações, consulte [Impor uma Política de Nomeação para 
 
 Temos o prazer de anunciar a disponibilidade geral do suporte de pontos finais da Microsoft Graph API para registos de atividades AZure AD. Com esta versão, pode agora utilizar a Versão 1.0 dos registos de auditoria AZure AD, bem como os apIs de login.
 
-Para obter mais informações, consulte [a visão geral do registo de auditoria da AZure AD](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0).
+Para obter mais informações, consulte [a visão geral do registo de auditoria da AZure AD](/graph/api/resources/azure-ad-auditlog-overview).
 
 ---
 
@@ -3291,7 +3291,7 @@ A notificação de aplicações móveis só pode ser ligada como parte de uma po
 
 ---
 
-## <a name="june-2018"></a>Junho de 2018
+## <a name="june-2018"></a>junho de 2018
 
 ### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Aviso de alteração: Correção de segurança para o fluxo de autorização delegado para apps que utilizam Azure AD Activity Logs API
 
@@ -3435,7 +3435,7 @@ Para mais informações sobre a pré-visualização pública, consulte as [funç
 
 ---
 
-## <a name="may-2018"></a>May 2018
+## <a name="may-2018"></a>Maio de 2018
 
 ### <a name="expressroute-support-changes"></a>Alterações de suporte ExpressRoute
 
@@ -3783,7 +3783,7 @@ Para obter mais informações, veja:
 
 Suporte para cmdlets de procuração de aplicação está agora no Módulo PowerShell GA! Isto requer que permaneça atualizado nos módulos PowerShell - se ficar mais de um ano atrasado, alguns cmdlets podem deixar de funcionar.
 
-Para mais informações, consulte [a AzureAD.](/powershell/module/Azuread/?view=azureadps-2.0)
+Para mais informações, consulte [a AzureAD.](/powershell/module/Azuread/)
 
 ---
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe19a1fadd54b7146ccb074d82a68ec259100f2
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 5316a1647c96076696b14de157e74e2155a6b368
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093264"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860019"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar dispositivos híbridos associados ao Azure Active Directory manualmente.
 
@@ -25,7 +25,7 @@ Com a gestão de dispositivos no Azure Ative Directory (Azure AD), pode garantir
 > [!TIP]
 > Se utilizar o Azure AD Connect é uma opção para si, consulte os tutoriais relacionados para domínios [geridos](hybrid-azuread-join-managed-domains.md) ou [federados.](hybrid-azuread-join-federated-domains.md) Ao utilizar o Azure AD Connect, pode simplificar significativamente a configuração da junção híbrida Azure AD.
 
-Se tiver um ambiente do Active Directory no local e quiser associar os seus dispositivos associados ao domínio ao Azure AD, pode fazê-lo ao configurar os dispositivos híbridos associados ao Azure AD. Neste tutorial, vai aprender a:
+Se tiver um ambiente do Active Directory no local e quiser associar os seus dispositivos associados ao domínio ao Azure AD, pode fazê-lo ao configurar os dispositivos híbridos associados ao Azure AD. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configurar manualmente a ad híbrida Azure
@@ -169,7 +169,7 @@ No guião anterior, `$verifiedDomain = "contoso.com"` é um espaço reservado. S
 
 Para obter mais informações sobre os nomes de domínio verificados, consulte [adicionar um nome de domínio personalizado ao Azure Ative Directory](../fundamentals/add-custom-domain.md).
 
-Para obter uma lista dos domínios verificados da sua empresa, pode utilizar o cmdlet [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0).
+Para obter uma lista dos domínios verificados da sua empresa, pode utilizar o cmdlet [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain).
 
 ![Lista de domínios da empresa](./media/hybrid-azuread-join-manual/01.png)
 
@@ -328,7 +328,7 @@ Na reivindicação anterior, `<verified-domain-name>` é um espaço reservado. S
 
 Para obter mais informações sobre os nomes de domínio verificados, consulte [adicionar um nome de domínio personalizado ao Azure Ative Directory](../fundamentals/add-custom-domain.md).  
 
-Para obter uma lista dos domínios verificados da sua empresa, pode utilizar o cmdlet [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0).
+Para obter uma lista dos domínios verificados da sua empresa, pode utilizar o cmdlet [Get-MsolDomain](/powershell/module/msonline/get-msoldomain).
 
 ![Lista de domínios da empresa](./media/hybrid-azuread-join-manual/01.png)
 
@@ -568,9 +568,9 @@ Aqui estão 3 formas de localizar e verificar o estado do dispositivo:
 3. Se a coluna **Registada** **disser Pendente,** então a Hybrid Azure AD Join não está concluída. Em ambientes federados, isto só pode acontecer se não se registar e a ligação AAD estiver configurada para sincronizar os dispositivos.
 4. Se a coluna **Registada** contiver uma **data/hora,** então a Hybrid Azure AD Join foi concluída.
 
-### <a name="using-powershell"></a>Utilizar o PowerShell
+### <a name="using-powershell"></a>Com o PowerShell
 
-Verifique o estado de registo do dispositivo no seu inquilino Azure utilizando **[a Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. Este cmdlet está no [módulo PowerShell do Diretório Ativo Azure](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
+Verifique o estado de registo do dispositivo no seu inquilino Azure utilizando **[a Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. Este cmdlet está no [módulo PowerShell do Diretório Ativo Azure](/powershell/azure/active-directory/install-msonlinev1).
 
 Quando utilizar o **cmdlet Get-MSolDevice** para verificar os detalhes do serviço:
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6b51fe1349b2ece89b97cf9436ad3374374ad309
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: ed93944c2a94370250fb75a679c1ac37a2a8418c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741580"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861158"
 ---
 # <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>Pré-povoar informações de contacto de autenticação do utilizador para reposição da palavra-passe de autosserviço do Azure Ative Directory (SSPR)
 
@@ -41,7 +41,7 @@ Se utilizar as definições predefinidas no Azure AD Connect, são feitos os seg
 
 | Active Directory no local | Azure AD     |
 |------------------------------|--------------|
-| número de telefone              | Telefone do escritório |
+| telephoneNumber              | Telefone do escritório |
 | dispositivo móvel                       | Número de telemóvel |
 
 Depois de um utilizador verificar o seu número de telemóvel, o campo *Telefone* em **Autenticação contact info** em Azure AD também é preenchido com esse número.
@@ -125,7 +125,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="use-powershell-version-2"></a>Utilizar a versão 2 do PowerShell
 
-Para começar, [descarregue e instale o módulo PowerShell da versão AD AZure](/powershell/module/azuread/?view=azureadps-2.0).
+Para começar, [descarregue e instale o módulo PowerShell da versão AD AZure](/powershell/module/azuread/).
 
 Para instalar rapidamente a partir de versões recentes do PowerShell que suportam `Install-Module` , executar os seguintes comandos. A primeira linha verifica se o módulo já está instalado:
 

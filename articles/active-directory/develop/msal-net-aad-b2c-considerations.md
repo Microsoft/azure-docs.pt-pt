@@ -13,12 +13,12 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: b683eaaf4c93ef0dcf74680e1e174e0f867a7041
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8be41f3fcf4d32ee81d1290c6a50a27f2cd45ee7
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173401"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860971"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Utilize MSAL.NET para assinar em utilizadores com identidades sociais
 
@@ -165,7 +165,7 @@ Forneceremos uma atualização para este [problema](https://github.com/AzureAD/m
 
 ### <a name="known-issue-with-azure-ad-b2c"></a>Problema conhecido com Azure AD B2C
 
-MSAL.NET suporta uma [cache simbólica.](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet) A chave de caching token baseia-se nos pedidos devolvidos pelo fornecedor de identidade (IdP).
+MSAL.NET suporta uma [cache simbólica.](/dotnet/api/microsoft.identity.client.tokencache) A chave de caching token baseia-se nos pedidos devolvidos pelo fornecedor de identidade (IdP).
 
 Atualmente, MSAL.NET precisa de duas reivindicações para construir uma chave de cache simbólica:
 
@@ -194,6 +194,6 @@ Para obter mais informações sobre a especificação das reclamações devolvid
 
 São fornecidos mais detalhes sobre a aquisição de fichas interativamente com MSAL.NET para aplicações Azure AD B2C na amostra seguinte.
 
-| Sample | Plataforma | Description|
+| Sample | Plataforma | Descrição|
 |------ | -------- | -----------|
 |[active-directy-b2c-xamarin-nativo](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | Uma aplicação Xamarin Forms que utiliza MSAL.NET para autenticar os utilizadores através do Azure AD B2C e, em seguida, acede a uma API web com os tokens devolvidos.|

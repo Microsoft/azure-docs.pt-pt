@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1e1bbdfe1cb83f9b479861840081cd0bb138957
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: bb134a2fb784e02f5e00c9e88ab0df1794489e0c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441883"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860597"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos do e-mail de convite de colaboração B2B - Azure Ative Directory
 
@@ -85,8 +85,8 @@ Um utilizador convidado pode seguir estes passos para ver ou exportar as organiz
 
 O idioma apresentado ao utilizador convidado no e-mail do convite é determinado pelas seguintes definições. Estas definições estão listadas por ordem de precedência. Se uma definição não estiver configurada, a próxima definição da lista determina o idioma.
 
-- A **mensagem Propriedade deLanguage** do objeto [convidadoUserMessageInfo](/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) se o convite Create API for usado
--   A propriedade **preferida da Língua de Língua** especificada no objeto de [utilizador](/graph/api/resources/user?view=graph-rest-1.0) do hóspede
+- A **mensagem Propriedade deLanguage** do objeto [convidadoUserMessageInfo](/graph/api/resources/invitedusermessageinfo) se o convite Create API for usado
+-   A propriedade **preferida da Língua de Língua** especificada no objeto de [utilizador](/graph/api/resources/user) do hóspede
 -   A **linguagem de notificação** definida nas propriedades do inquilino do hóspede (apenas para inquilinos da AZure AD)
 -   A **linguagem de notificação** definida nas propriedades do inquilino de recursos
 

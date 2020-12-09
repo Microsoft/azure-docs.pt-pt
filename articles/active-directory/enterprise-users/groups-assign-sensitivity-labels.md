@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4931006ba690ff7e059da5de8b0bc816271af30c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 3b40171d87ccffa7c5c4fb72d2e79af015b1d16f
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547904"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859968"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Atribuir etiquetas de sensibilidade a grupos Microsoft 365 no Azure Ative Directory
 
@@ -68,7 +68,7 @@ Para aplicar rótulos publicados em grupos, tem primeiro de ativar a funcionalid
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-Também terá de sincronizar as suas etiquetas de sensibilidade com o Azure AD. Para obter instruções, consulte [como permitir etiquetas de sensibilidade para recipientes e sincronizar etiquetas](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
+Também terá de sincronizar as suas etiquetas de sensibilidade com o Azure AD. Para obter instruções, consulte [como permitir etiquetas de sensibilidade para recipientes e sincronizar etiquetas](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Atribua um rótulo a um novo grupo no portal Azure
 

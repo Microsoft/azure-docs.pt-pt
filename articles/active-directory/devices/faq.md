@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77ecc23e2969ce4ce26eef7b9a3a485389d08ce0
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: dd438a09b929274808984322981f6d21da0bf68f
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837112"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860954"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Ative Directory gestão de dispositivos FAQ
 
@@ -25,7 +25,7 @@ ms.locfileid: "94837112"
 ### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>P: Registei o dispositivo recentemente. Por que não consigo ver o dispositivo sob a informação do meu utilizador no portal Azure? Ou porque é que o proprietário do dispositivo está marcado como N/A para dispositivos híbridos Azure Ative Directory (Azure AD) ?
 
 **A:** Os dispositivos do Windows 10 que são híbridos Azure AD não aparecem nos **dispositivos user**.
-Utilize a vista **todos os dispositivos** no portal Azure. Também pode utilizar um cmdlet PowerShell [Get-MsolDevice.](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0)
+Utilize a vista **todos os dispositivos** no portal Azure. Também pode utilizar um cmdlet PowerShell [Get-MsolDevice.](/powershell/module/msonline/get-msoldevice)
 
 Apenas os seguintes dispositivos estão listados em **dispositivos USER:**
 

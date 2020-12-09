@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 5f529e6148463ae384791985659378cb9d0a5046
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 90e215ea445c8c700e351149e9c7a91d9a595252
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168870"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859526"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guia de referência de operações de gestão de autenticação ativa do Azure Ative Directory
 
@@ -258,7 +258,7 @@ O Acesso Condicional é uma ferramenta essencial para melhorar a postura de segu
 - [Melhores práticas para acesso condicional no Diretório Ativo Azure](../conditional-access/overview.md)
 - [Configurações de acesso aos dispositivos e identidade](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Referência de definições de acesso condicional do Diretório Ativo Azure](../conditional-access/concept-conditional-access-conditions.md)
-- [Políticas de Acesso Condicional comuns](../conditional-access/concept-conditional-access-policy-common.md)
+- [Políticas comuns de acesso condicional](../conditional-access/concept-conditional-access-policy-common.md)
 
 ## <a name="access-surface-area"></a>Área de superfície de acesso
 
@@ -288,7 +288,7 @@ Se a autenticação de legados for amplamente utilizada no seu ambiente, deverá
 
 #### <a name="legacy-authentication-recommended-reading"></a>Leitura recomendada de autenticação do legado
 
-- [Ativar ou desativar o acesso POP3 ou IMAP4 a caixas de correio no Servidor de Câmbio](/exchange/clients/pop3-and-imap4/configure-mailbox-access?view=exchserver-2019)
+- [Ativar ou desativar o acesso POP3 ou IMAP4 a caixas de correio no Servidor de Câmbio](/exchange/clients/pop3-and-imap4/configure-mailbox-access)
 
 ### <a name="consent-grants"></a>Subsídios de consentimento
 

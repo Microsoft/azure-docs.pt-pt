@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e85f36f1b970a4848ee132fe37bd1b0f4f4fdc82
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: d8bc1a96109eda9cc2ee1f86cec892cc5ce9308d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489527"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860325"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Bloquear a autenticação do legado para Azure AD com acesso condicional   
 
@@ -119,7 +119,7 @@ Pode selecionar todos os controlos de subvenção disponíveis para a condição
 
 ### <a name="sharepoint-online-and-b2b-guest-users"></a>Utilizadores convidados Do SharePoint Online e B2B
 
-Para bloquear o acesso do utilizador B2B através da autenticação do legado ao SharePoint Online, as organizações devem desativar a autenticação do legado no SharePoint utilizando o `Set-SPOTenant` comando PowerShell e definir o `-LegacyAuthProtocolsEnabled` parâmetro para `$false` . Mais informações sobre a definição deste parâmetro podem ser encontradas no documento de referência do SharePoint PowerShell relativo ao [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps)
+Para bloquear o acesso do utilizador B2B através da autenticação do legado ao SharePoint Online, as organizações devem desativar a autenticação do legado no SharePoint utilizando o `Set-SPOTenant` comando PowerShell e definir o `-LegacyAuthProtocolsEnabled` parâmetro para `$false` . Mais informações sobre a definição deste parâmetro podem ser encontradas no documento de referência do SharePoint PowerShell relativo ao [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant)
 
 ## <a name="next-steps"></a>Passos seguintes
 

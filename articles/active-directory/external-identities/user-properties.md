@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd0a2b44fd54eb716b5e1b8f9eabc923ccd7977f
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4c97958add682a4c49d7832843c0b95ffd2663bf
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285862"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859636"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um utilizador de colaboração Azure Ative Directory B2B
 
@@ -59,7 +59,7 @@ Para os utilizadores convidados no Estado 2, a **Fonte** é **a Conta Microsoft.
 
 ![Utilizador convidado do Estado 2 após a oferta de resgate](media/user-properties/after-redemption-state2.png)
 
-Para os utilizadores convidados no Estado 3 e Estado 4, a propriedade **Source** está definida para **Azure Ative Directory** ou **Windows Server Ative Directory** , conforme descrito na secção seguinte.
+Para os utilizadores convidados no Estado 3 e Estado 4, a propriedade **Source** está definida para **Azure Ative Directory** ou **Windows Server Ative Directory**, conforme descrito na secção seguinte.
 
 ## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Principais propriedades do utilizador de colaboração Azure AD B2B
 ### <a name="usertype"></a>UserType
@@ -110,7 +110,7 @@ Sim. Por predefinição, os objetos convidados não estão visíveis na lista gl
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>Posso atualizar o endereço de e-mail de um utilizador convidado?
 
-Se um utilizador convidado aceitar o seu convite e posteriormente alterar o seu endereço de e-mail, o novo e-mail não sincroniza automaticamente o objeto do utilizador convidado no seu diretório. A propriedade de correio é criada através da [Microsoft Graph API](/graph/api/resources/user?view=graph-rest-1.0). Pode atualizar a propriedade de correio através da Microsoft Graph API, do centro de administração Exchange ou [do Exchange Online PowerShell](/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). A alteração será refletida no objeto de utilizador convidado Azure AD.
+Se um utilizador convidado aceitar o seu convite e posteriormente alterar o seu endereço de e-mail, o novo e-mail não sincroniza automaticamente o objeto do utilizador convidado no seu diretório. A propriedade de correio é criada através da [Microsoft Graph API](/graph/api/resources/user). Pode atualizar a propriedade de correio através da Microsoft Graph API, do centro de administração Exchange ou [do Exchange Online PowerShell](/powershell/module/exchange/users-and-groups/set-mailuser). A alteração será refletida no objeto de utilizador convidado Azure AD.
 
 ## <a name="next-steps"></a>Passos seguintes
 

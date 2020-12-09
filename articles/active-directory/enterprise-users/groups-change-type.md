@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9298c5762e54faa7721973136408e14bd8d17d81
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1a46cc3f4a0f2fb25fc693103a64a319dcec0324
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547666"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860886"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Alterar a adesão do grupo estático à dinâmica no Azure Ative Directory
 
@@ -57,7 +57,7 @@ Os passos seguintes são um exemplo de mudança de grupo de estática para membr
 ## <a name="change-membership-type-for-a-group-powershell"></a>Alterar o tipo de membro para um grupo (PowerShell)
 
 > [!NOTE]
-> Para alterar propriedades dinâmicas do grupo, terá de utilizar cmdlets a partir da **versão de pré-visualização da** Versão 2 do [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Pode instalar a pré-visualização na [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
+> Para alterar propriedades dinâmicas do grupo, terá de utilizar cmdlets a partir da **versão de pré-visualização da** Versão 2 do [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2). Pode instalar a pré-visualização na [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Aqui está um exemplo de funções que mudam a gestão de membros num grupo existente. Neste exemplo, é tomado cuidado para manipular corretamente a propriedade GroupTypes e preservar quaisquer valores que não estejam relacionados com a adesão dinâmica.
 

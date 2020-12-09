@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cd9d1dd62d5f1a5910bfc7db58dfa8e60cb254c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: c60d54a905f460eb5c26c2f183cd22b175a5b3c4
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547547"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860818"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras dinâmicas de adesão para grupos no Azure Ative Directory
 
@@ -110,15 +110,15 @@ Seguem-se as propriedades do utilizador que pode utilizar para criar uma única 
 | objectId |GUIA do objeto do utilizador |(user.objectId -eq "11111111-1111-1111-1111-1111-11111111111111") |
 | onPremisesSecurityIdentifier | Identificador de segurança no local (SID) para utilizadores que foram sincronizados desde as instalações até à nuvem. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-11111111111-11111111-1111111-1111111-1111111") |
 | passwordPolícias |Nenhum desativar a palavra-passe desactivarpassapassaxxexpirationPasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| físicoDeliveryOfficeName |Qualquer valor de corda ou *nulo* |(user.physicalDeliveryOfficeName -eq "value") |
-| código postal |Qualquer valor de corda ou *nulo* |(user.postalCode -eq "valor") |
+| physicalDeliveryOfficeName |Qualquer valor de corda ou *nulo* |(user.physicalDeliveryOfficeName -eq "value") |
+| postalCode |Qualquer valor de corda ou *nulo* |(user.postalCode -eq "valor") |
 | preferiuLanguage |Código ISO 639-1 |(user.preferredLanguage -eq "en-US") |
 | sipProxyAddress |Qualquer valor de corda ou *nulo* |(user.sipProxyAddress -eq "value") |
 | state |Qualquer valor de corda ou *nulo* |(user.state-eq "valor") |
 | streetAddress |Qualquer valor de corda ou *nulo* |(user.streetAddress -eq "valor") |
 | surname |Qualquer valor de corda ou *nulo* |(user.sobrenome -eq "valor") |
-| número de telefone |Qualquer valor de corda ou *nulo* |(user.telephoneNumber -eq "valor") |
-| utilizaçãoLocalização |Dois códigos de país/região com letras |(user.usageLocation -eq "US") |
+| telephoneNumber |Qualquer valor de corda ou *nulo* |(user.telephoneNumber -eq "valor") |
+| usageLocation |Dois códigos de país/região com letras |(user.usageLocation -eq "US") |
 | userPrincipalName |Qualquer valor de corda |(user.userPrincipalName -eq " alias@domain ") |
 | userType |membro convidado *nulo* |(user.userType -eq "Member") |
 
@@ -341,7 +341,7 @@ device.objectId -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Propriedades de extensão e propriedades de extensão personalizadas
 
-Os atributos de extensão e as propriedades de extensão personalizadas são suportados como propriedades de cordas em regras dinâmicas de adesão. [Os atributos](/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) de extensão são sincronizados a partir do AD do Servidor de Janela no local e tomam o formato de "ExtensionAttributeX", onde X é igual a 1 - 15. Aqui está um exemplo de uma regra que usa um atributo de extensão como propriedade:
+Os atributos de extensão e as propriedades de extensão personalizadas são suportados como propriedades de cordas em regras dinâmicas de adesão. [Os atributos](/graph/api/resources/onpremisesextensionattributes) de extensão são sincronizados a partir do AD do Servidor de Janela no local e tomam o formato de "ExtensionAttributeX", onde X é igual a 1 - 15. Aqui está um exemplo de uma regra que usa um atributo de extensão como propriedade:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
