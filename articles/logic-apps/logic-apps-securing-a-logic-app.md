@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 11/05/2020
-ms.openlocfilehash: 331c55a9f7a489aa58f9d3add7303dc18917215d
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 12/08/2020
+ms.openlocfilehash: cdaa054559be9db52eeef6f3aaa0f86ccf84206f
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331945"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922939"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Acesso seguro e dados em Azure Logic Apps
 
@@ -199,7 +199,7 @@ Para ativar o Azure AD OAuth para a sua aplicação lógica no portal Azure, sig
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
    | **Nome da política** | Sim | O nome que quer usar para a política de autorização |
-   | **Pedidos** | Sim | Os tipos e valores de reclamação que a sua aplicação lógica aceita a partir de chamadas de entrada. O valor de reclamação é limitado a 80 caracteres. Aqui estão os tipos de reclamação disponíveis: <p><p>- **Emitente** <br>- **Público** <br>- **Assunto** <br>- **JWT ID** (JSON Web ToKen ID) <p><p>No mínimo, a lista **de Reclamações** deve incluir a **reclamação do Emitente,** que tem um valor que começa com `https://sts.windows.net/` ou como `https://login.microsoftonline.com/` iD do emitente Azure AD. Para obter mais informações sobre estes tipos de reclamações, consulte [as fichas de segurança Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Também pode especificar o seu próprio tipo de reclamação e valor. |
+   | **Pedidos** | Sim | Os tipos e valores de reclamação que a sua aplicação lógica aceita a partir de chamadas de entrada. O valor de reclamação é limitado a um [número máximo de caracteres](logic-apps-limits-and-config.md#authentication-limits). Aqui estão os tipos de reclamação disponíveis: <p><p>- **Emitente** <br>- **Público** <br>- **Assunto** <br>- **JWT ID** (JSON Web ToKen ID) <p><p>No mínimo, a lista **de Reclamações** deve incluir a **reclamação do Emitente,** que tem um valor que começa com `https://sts.windows.net/` ou como `https://login.microsoftonline.com/` iD do emitente Azure AD. Para obter mais informações sobre estes tipos de reclamações, consulte [as fichas de segurança Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Também pode especificar o seu próprio tipo de reclamação e valor. |
    |||
 
 1. Para adicionar outra reclamação, selecione a partir destas opções:
@@ -325,7 +325,7 @@ Juntamente com a Assinatura de Acesso Partilhado (SAS), é possível que queira 
    
      Esta opção escreve um conjunto vazio para o seu recurso de aplicação lógica e requer que apenas chamadas de aplicações lógicas dos pais que usam a ação **de Azure Logic Apps** incorporadas possam desencadear a app lógica aninhada.
 
-   * Para tornar a sua aplicação lógica callable apenas como uma app aninhada utilizando a ação HTTP, selecione **gamas IP específicas** , e *não* **apenas outras aplicações lógicas**. Quando o IP varia para a caixa **de gatilhos** aparecer, insira os [endereços IP de saída](../logic-apps/logic-apps-limits-and-config.md#outbound)da aplicação lógica principal . Uma gama IP válida utiliza estes formatos: *x.x.x.x/x* ou *x.x.x-x.x.x.x.x.x.x.x*.
+   * Para tornar a sua aplicação lógica callable apenas como uma app aninhada utilizando a ação HTTP, selecione **gamas IP específicas**, e *não* **apenas outras aplicações lógicas**. Quando o IP varia para a caixa **de gatilhos** aparecer, insira os [endereços IP de saída](../logic-apps/logic-apps-limits-and-config.md#outbound)da aplicação lógica principal . Uma gama IP válida utiliza estes formatos: *x.x.x.x/x* ou *x.x.x-x.x.x.x.x.x.x.x*.
    
      > [!NOTE]
      > Se utilizar a única opção **de Aplicações Lógicas** e a ação HTTP para ligar para a sua aplicação lógica aninhada, a chamada está bloqueada e obtém um erro "401 Não Autorizado".
@@ -338,9 +338,9 @@ Juntamente com a Assinatura de Acesso Partilhado (SAS), é possível que queira 
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Restringir as gamas IP de entrada no modelo do Gestor de Recursos Azure
 
-Se [automatizar a implementação de aplicações lógicas utilizando modelos de Gestor de Recursos,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)pode especificar os intervalos de endereço IP de entrada permitidos na definição de recursos da sua aplicação lógica utilizando a `accessControl` secção. In this section, use the `triggers` , `actions` , and the optional `contents` sections as appropriate by including the `allowedCallerIpAddresses` section with the `addressRange` property and set the property value to the permitted IP range in *x.x.x.x/x* or *x.x.x.x-x.x.x.x* format.
+Se [automatizar a implementação de aplicações lógicas utilizando modelos de Gestor de Recursos,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)pode especificar os intervalos de endereço IP de entrada permitidos na definição de recursos da sua aplicação lógica utilizando a `accessControl` secção. Nesta secção, utilize as `triggers` `actions` secções , e as `contents` secções opcionais, conforme apropriado, incluindo a `allowedCallerIpAddresses` secção com a propriedade e `addressRange` desavere o valor da propriedade para a gama IP permitida em formato x.x.x.x/x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x *x.x.x.x/x* *x.x.x.x-x.x.x.x*
 
-* Se a sua aplicação lógica aninhada utilizar a opção **Only other Logic Apps,** que permite chamadas de entrada apenas de outras aplicações lógicas que usam a ação Azure Logic Apps, definir a `addressRange` propriedade para um conjunto vazio **([]** ).
+* Se a sua aplicação lógica aninhada utilizar a opção **Only other Logic Apps,** que permite chamadas de entrada apenas de outras aplicações lógicas que usam a ação Azure Logic Apps, definir a `addressRange` propriedade para um conjunto vazio **([]**).
 
 * Se a sua aplicação lógica aninhada utilizar a opção **de gamas IP específica** para outras chamadas de entrada, como outras aplicações lógicas que utilizam a ação HTTP, desaprote a propriedade para a gama IP `addressRange` permitida.
 
@@ -480,7 +480,7 @@ Pode limitar o acesso às entradas e saídas no histórico de execução da sua 
 
 1. No menu da sua aplicação lógica, em **Definições,** selecione **as definições do Fluxo de Trabalho**.
 
-1. Na **configuração do controlo de acesso** Permitido  >  **endereços IP de entrada** , selecione **gamas IP específicas**.
+1. Na **configuração do controlo de acesso** Permitido  >  **endereços IP de entrada**, selecione **gamas IP específicas**.
 
 1. Nos **intervalos IP para conteúdos, especifique** as gamas de endereços IP que podem aceder ao conteúdo a partir de entradas e saídas.
 
@@ -539,7 +539,7 @@ Muitos gatilhos e ações têm configurações para garantir entradas, saídas o
 
    ![Aplicativo de lógica aberta no Logic App Designer](./media/logic-apps-securing-a-logic-app/open-sample-logic-app-in-designer.png)
 
-1. No gatilho ou ação onde pretende proteger dados sensíveis, selecione o botão elipses **(...** ) e, em seguida, selecione **Definições**.
+1. No gatilho ou ação onde pretende proteger dados sensíveis, selecione o botão elipses **(...**) e, em seguida, selecione **Definições**.
 
    ![Abra as definições de gatilho ou ação](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
 
@@ -1089,8 +1089,8 @@ Se a opção [Identidade Gerida](../active-directory/managed-identities-azure-re
    | Propriedade (designer) | Propriedade (JSON) | Necessário | Valor | Descrição |
    |---------------------|-----------------|----------|-------|-------------|
    | **Autenticação** | `type` | Sim | **Identidade Gerida** <br>ou <br>`ManagedServiceIdentity` | O tipo de autenticação a utilizar |
-   | **Identidade Gerida** | `identity` | Sim | * **Identidade gerida atribuída ao sistema** <br>ou <br>`SystemAssigned` <p><p>* < *nome de identidade atribuído pelo utilizador*> | A identidade gerida para usar |
-   | **Audiência** | `audience` | Sim | <*destino-recursos-ID*> | O ID de recursos para o recurso-alvo a que pretende aceder. <p>Por exemplo, `https://storage.azure.com/` torna os [tokens de acesso para](../active-directory/develop/access-tokens.md) autenticação válidos para todas as contas de armazenamento. No entanto, também pode especificar um URL de serviço de raiz, como por exemplo `https://fabrikamstorageaccount.blob.core.windows.net` para uma conta de armazenamento específica. <p>**Nota:** A propriedade **do Público** pode estar escondida em alguns gatilhos ou ações. Para tornar esta propriedade visível, no gatilho ou ação, abra a nova lista **de parâmetros** e selecione **Audience**. <p><p>**Importante** : Certifique-se de que este ID de recurso-alvo *corresponde exatamente* ao valor que a Azure AD espera, incluindo quaisquer cortes de rasto necessários. Assim, a identificação de `https://storage.azure.com/` recursos para todas as contas de Armazenamento Azure Blob requer um corte de fuga. No entanto, a identificação de recursos para uma conta de armazenamento específica não requer um corte de fuga. Para encontrar estes IDs de recursos, consulte [os serviços Azure que suportam a Azure AD.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) |
+   | **Identidade Gerida** | `identity` | Sim | * **Identidade gerida atribuída ao sistema** <br>ou <br>`SystemAssigned` <p><p>* <*nome de identidade atribuído pelo utilizador*> | A identidade gerida para usar |
+   | **Audiência** | `audience` | Sim | <*destino-recursos-ID*> | O ID de recursos para o recurso-alvo a que pretende aceder. <p>Por exemplo, `https://storage.azure.com/` torna os [tokens de acesso para](../active-directory/develop/access-tokens.md) autenticação válidos para todas as contas de armazenamento. No entanto, também pode especificar um URL de serviço de raiz, como por exemplo `https://fabrikamstorageaccount.blob.core.windows.net` para uma conta de armazenamento específica. <p>**Nota:** A propriedade **do Público** pode estar escondida em alguns gatilhos ou ações. Para tornar esta propriedade visível, no gatilho ou ação, abra a nova lista **de parâmetros** e selecione **Audience**. <p><p>**Importante**: Certifique-se de que este ID de recurso-alvo *corresponde exatamente* ao valor que a Azure AD espera, incluindo quaisquer cortes de rasto necessários. Assim, a identificação de `https://storage.azure.com/` recursos para todas as contas de Armazenamento Azure Blob requer um corte de fuga. No entanto, a identificação de recursos para uma conta de armazenamento específica não requer um corte de fuga. Para encontrar estes IDs de recursos, consulte [os serviços Azure que suportam a Azure AD.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) |
    |||||
 
    Quando utilizar [parâmetros seguros](#secure-action-parameters) para manusear e proteger informações sensíveis, por exemplo, num [modelo do Azure Resource Manager para automatizar a implementação,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)pode utilizar expressões para aceder a estes valores de parâmetros em tempo de execução. Este exemplo de definição de ação HTTP especifica a autenticação `type` como e utiliza a `ManagedServiceIdentity` [função parâmetros()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores dos parâmetros:

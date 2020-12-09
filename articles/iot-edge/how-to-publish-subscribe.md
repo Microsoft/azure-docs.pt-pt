@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: acde6f401404596212b713f248bb6d11c25b4671
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 005830575ba7f45d30fed71a73e7a419e4d98220
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461427"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922587"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publicar e subscrever com a Azure IoT Edge
 
@@ -31,7 +31,7 @@ Pode utilizar o corretor MQTT Azure IoT Edge para publicar e subscrever mensagen
 - Um **hub IoT** de SKU ou F1, S1, S2 ou S3.
 - Tenha um **dispositivo IoT Edge com a versão 1.2 ou superior**. Uma vez que o corretor MQTT IoT Edge está atualmente em pré-visualização pública, deite as seguintes variáveis ambientais para verdade no recipiente edgeHub para permitir o corretor MQTT:
 
-   | Name | Valor |
+   | Nome | Valor |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__mqttBrokerEnabled` | `true` |
@@ -177,7 +177,6 @@ As autorizações para tópicos de hub IoT são tratadas de forma ligeiramente d
 
 - Os dispositivos ou módulos Azure IoT precisam de uma regra de autorização explícita para se ligarem ao corretor MQTT do hub IoT Edge. Uma política de autorização de ligação por defeito é fornecida abaixo.
 - Os dispositivos ou módulos Azure IoT podem aceder aos seus próprios tópicos de hub IoT por padrão sem qualquer regra de autorização explícita. No entanto, as autorizações decorrem das relações entre pais e filhos neste caso e essas relações devem ser definidas. Os módulos IoT Edge são automaticamente definidos como crianças do seu dispositivo IoT Edge, mas os dispositivos precisam de ser explicitamente definidos como crianças do seu gateway IoT Edge.
-- Os dispositivos ou módulos Azure IoT podem aceder aos tópicos, incluindo tópicos do hub IoT, de outros dispositivos ou módulos que preveem que sejam definidas regras de autorização explícitas adequadas.
 
 Aqui está uma política de autorização padrão que pode ser usada para permitir que todos os dispositivos ou módulos Azure IoT **se conectem** ao corretor:
 
@@ -275,7 +274,7 @@ Para autorizar o editor e o assinante, edite o hub twin IoT Edge através do có
                },
                {
                   "identities": [
-                     "sub_client"
+                     "<iot_hub_name>.azure-devices.net/sub_client"
                   ],
                   "allow":[
                      {
@@ -284,13 +283,13 @@ Para autorizar o editor e o assinante, edite o hub twin IoT Edge através do có
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
                   ],
                },
                {
                   "identities": [
-                     "pub_client"
+                     "<iot_hub_name>.azure-devices.net/pub_client"
                   ],
                   "allow":[
                      {
@@ -299,9 +298,9 @@ Para autorizar o editor e o assinante, edite o hub twin IoT Edge através do có
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
-                  ],
+                  ]
                }
             ]
          }

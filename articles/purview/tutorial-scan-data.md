@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 083d820c989870b2a73217eeebf192f0d540ba36
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 802b7d2ca5d96bf385c4b8f0ee0cdaa3db181a1c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602551"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922578"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Tutorial: Digitalizar dados com Azure Purview (Pré-visualização)
 
@@ -149,7 +149,7 @@ Depois de concluída a configuração do catálogo, execute os seguintes scripts
 1. Utilize o seguinte comando para executar o kit de arranque. Substitua os `CatalogName` espaços `TenantID` `SubscriptionID` `newresourcegroupname` reservados e `CatalogResourceGroupName` reservados. Para `newresourcegroupname` , usar um nome único para o grupo de recursos que irá conter a propriedade de dados.
 
 > [!IMPORTANT]
-> O **nome newresourcegroup pode** ser alfanumérico ou apenas números. **Não são permitidos alfabetos e caracteres especiais.**
+> O **nome newresourcegroup** usa apenas números e letras minúsculas e deve ter menos de 17 caracteres. **Não são permitidos alfabetos e caracteres especiais.** Esta restrição provém das regras de nomeação de conta de armazenamento.
 
    ```powershell
    .\RunStarterKit.ps1 -CatalogName <CatalogName> -TenantId <TenantID>`

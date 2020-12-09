@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: 77b5b52153c552008406b4b85083bcba5542cebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba85bda1e322d3efd467527b48bd4cd90eb7ce8c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012727"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922623"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Prevenir a sobremontagem e os dados desequilibrados com a aprendizagem automática de máquinas
 
@@ -84,8 +84,8 @@ Além disso, as correções automáticas de ML geram automaticamente os seguinte
 Gráfico| Descrição
 ---|---
 [Matriz de confusão](how-to-understand-automated-ml.md#confusion-matrix)| Avalia as etiquetas corretamente classificadas com as etiquetas reais dos dados. 
-[Recuperação de precisão](how-to-understand-automated-ml.md#precision-recall-chart)| Avalia a relação entre as etiquetas corretas com a relação entre as instâncias de etiqueta encontradas dos dados 
-[Curvas ROC](how-to-understand-automated-ml.md#roc)| Avalia a relação entre as etiquetas corretas e a relação entre rótulos falsos positivos.
+[Recuperação de precisão](how-to-understand-automated-ml.md#precision-recall-curve)| Avalia a relação entre as etiquetas corretas com a relação entre as instâncias de etiqueta encontradas dos dados 
+[Curvas ROC](how-to-understand-automated-ml.md#roc-curve)| Avalia a relação entre as etiquetas corretas e a relação entre rótulos falsos positivos.
 
 ## <a name="handle-imbalanced-data"></a>Lidar com dados desequilibrados 
 
