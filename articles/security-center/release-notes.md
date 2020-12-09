@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2020
 ms.author: memildin
-ms.openlocfilehash: d8b690201ea4349f9577377ff24c91bd75ecd58b
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 3272212a857f24916acce7da5a4ee31561ec0c5a
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751874"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922933"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -37,6 +37,7 @@ As atualizações em dezembro incluem:
 
 - [O Azure Defender para servidores SQL em máquinas está geralmente disponível](#azure-defender-for-sql-servers-on-machines-is-generally-available)
 - [Azure Defender para suporte SQL para Azure Synapse Analytics piscina 2 SQL dedicada está geralmente disponível](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
+- [Os Administradores Globais podem agora conceder-se permissões ao nível do inquilino](#global-administrators-can-now-grant-themselves-tenant-level-permissions)
 - [Dois novos planos do Azure Defender: Azure Defender para DNS e Azure Defender para Gestor de Recursos (na pré-visualização)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
 
 ### <a name="azure-defender-for-sql-servers-on-machines-is-generally-available"></a>O Azure Defender para servidores SQL em máquinas está geralmente disponível
@@ -71,6 +72,13 @@ O Azure Defender para o suporte da SQL para as piscinas SQL Azure Synapse Analyt
 Saiba mais sobre [o Azure Defender para a SQL](defender-for-sql-introduction.md).
 
 
+### <a name="global-administrators-can-now-grant-themselves-tenant-level-permissions"></a>Os Administradores Globais podem agora conceder-se permissões ao nível do inquilino
+
+Um utilizador com o papel **de** Administrador Ativo Azure pode ter responsabilidades em todo o inquilino, mas não tem as permissões do Azure para visualizar essa informação em toda a organização no Azure Security Center. 
+
+Para atribuir permissão ao nível do inquilino, siga as instruções em [permissões de concessão de inquilinos para si mesmo.](security-center-management-groups.md#grant-tenant-wide-permissions-to-yourself)
+
+
 ### <a name="two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview"></a>Dois novos planos do Azure Defender: Azure Defender para DNS e Azure Defender para Gestor de Recursos (na pré-visualização)
 
 Adicionámos duas novas capacidades de proteção contra ameaças nativas da nuvem para o seu ambiente Azure.
@@ -79,12 +87,12 @@ Estas novas proteções aumentam consideravelmente a sua resiliência contra ata
 
 - **Azure Defender for Resource Manager** - monitoriza automaticamente todas as operações de gestão de recursos realizadas na sua organização. Para obter mais informações, veja:
     - [Introdução ao Azure Defender para Gestor de Recursos](defender-for-resource-manager-introduction.md)
-    - [Responda aos alertas do Azure Defender para o Gestor de Recursos](defender-for-resource-manager-usage.md)
+    - [Responder a alertas do Azure Defender para Resource Manager](defender-for-resource-manager-usage.md)
     - [Lista de alertas fornecidos pelo Azure Defender para Gestor de Recursos](alerts-reference.md#alerts-resourcemanager)
 
 - **Azure Defender for DNS** - monitoriza continuamente todas as consultas dns a partir dos seus recursos Azure. Para obter mais informações, veja:
     - [Introdução ao Azure Defender para DNS](defender-for-dns-introduction.md)
-    - [Responda ao Azure Defender para alertas dns](defender-for-dns-usage.md)
+    - [Responder a alertas do Azure Defender para DNS](defender-for-dns-usage.md)
     - [Lista de alertas fornecidos pelo Azure Defender para DNS](alerts-reference.md#alerts-dns)
 
 

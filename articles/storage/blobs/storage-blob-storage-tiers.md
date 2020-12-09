@@ -3,17 +3,17 @@ title: Níveis de acesso para Azure Blob Storage - quente, fresco e arquivo
 description: Leia sobre os níveis de acesso quentes, frescos e de arquivo para o armazenamento Azure Blob. Reveja as contas de armazenamento que suportam o tiering. Compare as opções de armazenamento de blob de bloco.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/29/2020
+ms.date: 12/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 87106cce018a2b2663de2a9abbb43b31ab58c125
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 51998c159018b614ab519766c54fdddf7437e95b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96007329"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96923986"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Níveis de acesso para Azure Blob Storage - quente, fresco e arquivo
 
@@ -111,6 +111,11 @@ Quando uma bolha é movida para um nível mais quente (>fresco, >de arquivo quen
 ### <a name="cool-and-archive-early-deletion"></a>Eliminação precoce de blobs de acesso esporádico e de arquivo
 
 Qualquer bolha que seja movida para o nível cool (apenas contas GPv2) está sujeita a um período de eliminação precoce de 30 dias. Qualquer bolha que seja movida para o nível de arquivo está sujeita a um período de eliminação precoce de 180 dias. Estes custos são rateados. Por exemplo, se uma bolha for movida para arquivar e depois apagada ou movida para o nível quente após 45 dias, será cobrada uma taxa de eliminação antecipada equivalente a 135 (180 menos 45) dias de armazenamento dessa bolha no arquivo.
+
+Existem alguns detalhes ao mover-se entre os níveis frescos e de arquivo:
+
+1. Se uma bolha for deduzida como fixe com base no nível de acesso predefinido da conta de armazenamento e a bolha for movida para arquivar, não há nenhuma taxa de eliminação antecipada.
+1. Se uma bolha for explicitamente movida para o nível fresco e depois for transferida para o arquivo, aplica-se a taxa de eliminação precoce.
 
 Pode calcular a eliminação precoce utilizando a propriedade blob, **Última Modificada,** se não houver alterações no nível de acesso. Caso contrário, pode utilizar quando o nível de acesso foi modificado pela última vez para arrefecer ou arquivar, visualizando a propriedade blob: **tempo de mudança de nível de acesso**. Para obter mais informações sobre propriedades blob, consulte [Get Blob Properties](/rest/api/storageservices/get-blob-properties).
 
@@ -243,7 +248,7 @@ Sim, pode alterar o nível de conta predefinido definindo o atributo **de nível
 
 **Posso definir a camada de acesso de conta predefinida como arquivo?**
 
-Não. Apenas os níveis de acesso quente e fresco podem ser definidos como o nível de acesso da conta predefinido. A camada de arquivo só pode ser definida ao nível do objeto. No upload do blob, especifica o nível de acesso à sua escolha para ser quente, fresco ou arquivado, independentemente do nível de conta predefinido. Esta funcionalidade permite-lhe escrever dados diretamente no nível de arquivo para perceber economias de custos a partir do momento em que cria dados no armazenamento de bolhas.
+N.º Apenas os níveis de acesso quente e fresco podem ser definidos como o nível de acesso da conta predefinido. A camada de arquivo só pode ser definida ao nível do objeto. No upload do blob, especifica o nível de acesso à sua escolha para ser quente, fresco ou arquivado, independentemente do nível de conta predefinido. Esta funcionalidade permite-lhe escrever dados diretamente no nível de arquivo para perceber economias de custos a partir do momento em que cria dados no armazenamento de bolhas.
 
 **Em que regiões estão disponíveis os níveis de acesso quente, fresco e arquivado?**
 

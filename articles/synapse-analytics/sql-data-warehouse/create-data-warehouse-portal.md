@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Criar e consultar uma piscina SQL dedicada (portal Azure)'
-description: Criar e consultar uma piscina SQL dedicada utilizando o portal Azure
+title: 'Quickstart: Criar e consultar uma piscina SQL dedicada (anteriormente SQL DW) (portal Azure)'
+description: Criar e consultar uma piscina SQL dedicada (anteriormente SQL DW) utilizando o portal Azure
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,23 +11,23 @@ ms.date: 05/28/2019
 ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3d4884fd64c773647f78a98dc7aeb1063d539edf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 78a0982081b8e34461fb2910cc7ce21be622cb6a
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456738"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922772"
 ---
-# <a name="quickstart-create-and-query-a-dedicated-sql-pool-in-azure-synapse-analytics-using-the-azure-portal"></a>Quickstart: Criar e consultar uma piscina SQL dedicada em Azure synapse Analytics usando o portal Azure
+# <a name="quickstart-create-and-query-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-the-azure-portal"></a>Quickstart: Criar e consultar uma piscina SQL dedicada (anteriormente SQL DW) em Azure synapse Analytics usando o portal Azure
 
-Crie e questione rapidamente um pool Sinapse SQL (data warehouse) em Azure Synapse Analytics utilizando o portal Azure.
+Crie e questione rapidamente uma piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics usando o portal Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 1. Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
    > [!NOTE]
-   > A criação de uma piscina SQL em Azure Synapse pode resultar num novo serviço de faturação. Para mais informações, consulte [os preços do Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+   > A criação de uma piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse pode resultar num novo serviço de faturação. Para mais informações, consulte [os preços do Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
 2. Transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
@@ -37,25 +37,25 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-sql-pool"></a>Criar uma piscina SQL
 
-Os armazéns de dados são criados usando piscina SQL em Azure Synapse Analytics. Uma piscina SQL é criada com um conjunto definido de [recursos computativos.](memory-concurrency-limits.md) A base de dados é criada dentro de um [grupo de recursos Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e num [servidor lógico SQL](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Os armazéns de dados são criados utilizando piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics. Uma piscina SQL dedicada (anteriormente SQL DW) é criada com um conjunto definido de [recursos computativos.](memory-concurrency-limits.md) A base de dados é criada dentro de um [grupo de recursos Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e num [servidor lógico SQL](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-Siga estes passos para criar uma piscina SQL que contenha os dados da amostra **AdventureWorksDW.**
+Siga estes passos para criar uma piscina SQL dedicada (anteriormente SQL DW) que contém os dados da amostra **AdventureWorksDW.**
 
-1. **selecione Criar um recurso** no canto superior esquerdo do portal Azure.
+1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
 
    ![criar um recurso no portal Azure](./media/create-data-warehouse-portal/create-a-resource.png)
 
-2. Selecione **bases de dados** **na** nova página e selecione **Azure Synapse Analytics (anteriormente SQL DW)** na lista **em destaque.**
+2. No tipo de barra de pesquisa "piscina SQL dedicada" selecione piscina SQL dedicada (anteriormente SQL DW). Selecione **Criar** na página que abre.
 
    ![criar um armazém de dados vazio](./media/create-data-warehouse-portal/create-a-data-warehouse.png)
 
-3. Em **Basics,** forneça a sua subscrição, grupo de recursos, nome da piscina SQL e nome do servidor:
+3. Em **Basics,** forneça a sua subscrição, grupo de recursos, pool SQL dedicado (anteriormente SQL DW) e nome do servidor:
 
    | Definição | Valor sugerido | Descrição |
    | :------ | :-------------- | :---------- |
    | **Subscrição** | A sua subscrição | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
    | **Grupo de recursos** | myResourceGroup | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Atribuição de nomes de regras e restrições). |
-   | **Nome da piscina SQL** | Qualquer nome globalmente único (Um exemplo é *mySampleDataWarehouse)* | Para nomes de bases de dados válidos, veja [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Identificadores de Bases de Dados). Nota, uma piscina SQL é um tipo de base de dados. |
+   | **Nome da piscina SQL** | Qualquer nome globalmente único (Um exemplo é *mySampleDataWarehouse)* | Para nomes de bases de dados válidos, veja [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Identificadores de Bases de Dados).  |
    | **Servidor** | Qualquer nome globalmente exclusivo | Selecione o servidor existente ou crie um novo nome de servidor, **selecione Criar novo**. Para nomes de servidores válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Atribuição de nomes de regras e restrições). |
 
    ![criar um armazém de dados detalhes básicos](./media/create-data-warehouse-portal/create-sql-pool-basics.png)
@@ -68,7 +68,7 @@ Siga estes passos para criar uma piscina SQL que contenha os dados da amostra **
 
 5. Selecione **Definições Adicionais**, em **Utilizar os dados existentes**, escolha **sample** para que o AdventureWorksDW seja criado como base de dados da amostra.
 
-    ![selecionar Utilizar os dados existentes](./media/create-data-warehouse-portal/create-sql-pool-additional-1.png) 
+    ![selecionar Utilizar os dados existentes](./media/create-data-warehouse-portal/create-sql-pool-additional-1.png)
 
 6. Agora que completou o separador Básicos do formulário Azure Synapse Analytics, selecione **Review + Create** e, em seguida, **Crie** para criar a piscina SQL. O aprovisionamento demora alguns minutos.
 
@@ -124,7 +124,7 @@ Obtenha o nome do servidor totalmente qualificado para o seu servidor no portal 
 
 3. No painel **Essentials** na página do portal do Azure da sua base de dados, localize e, em seguida, copie o **Nome do servidor**. Neste exemplo, o nome totalmente qualificado é sqlpoolservername.database.windows.net.
 
-    ![informações da ligação](./media/create-data-warehouse-portal/find-server-name-copy.png)
+    ![informações da ligação](./media/create-data-warehouse-portal/find-server-name.png)
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Ligar ao servidor como administrador do servidor
 
@@ -180,21 +180,21 @@ A Azure Synapse Analytics usa t-SQL como linguagem de consulta. Para abrir uma j
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Está a ser cobrado por unidades de armazém de dados e os dados armazenaram a sua piscina SQL. Estes recursos de computação e armazenamento são faturados em separado.
+Está a ser cobrado por unidades de armazém de dados e os dados armazenaram a sua piscina DE SQL dedicada (anteriormente SQL DW). Estes recursos de computação e armazenamento são faturados em separado.
 
-- Se quiser manter os dados armazenados, pode parar o cálculo quando não estiver a utilizar a piscina SQL. Ao fazer uma pausa no cálculo, só é cobrado para armazenamento de dados. Pode retomar o cálculo sempre que estiver pronto para trabalhar com os dados.
+- Se quiser manter os dados armazenados, pode parar o cálculo quando não estiver a utilizar a piscina SQL dedicada (anteriormente SQL DW). Ao fazer uma pausa no cálculo, só é cobrado para armazenamento de dados. Pode retomar o cálculo sempre que estiver pronto para trabalhar com os dados.
 
-- Se quiser remover as cargas futuras, pode apagar a piscina SQL.
+- Se pretender remover encargos futuros, pode eliminar a piscina SQL dedicada (anteriormente SQL DW).
 
 Siga estes passos para limpar os recursos que já não precisa.
 
-1. Inscreva-se no [portal Azure,](https://portal.azure.com)selecione a sua piscina SQL.
+1. Inscreva-se no [portal Azure,](https://portal.azure.com)selecione a sua piscina SQL dedicada (anteriormente SQL DW).
 
    ![Limpar os recursos](./media/create-data-warehouse-portal/clean-up-resources.png)
 
-2. Para parar o cálculo, selecione o **botão Pausa.** Quando a piscina SQL é pausada, vê-se um botão **Resume.** Para retomar o cálculo, **selecione Resume**.
+2. Para parar o cálculo, selecione o **botão Pausa.** Quando a piscina SQL dedicada (anteriormente SQL DW) é pausada, você vê um botão **Resume.** Para retomar o cálculo, **selecione Resume**.
 
-3. Para remover a piscina SQL para que não seja cobrado para computação ou armazenamento, selecione **Delete**.
+3. Para remover a piscina SQL dedicada (anteriormente SQL DW) para que não seja cobrado para computação ou armazenamento, selecione **Delete**.
 
 4. Para remover o servidor criado, selecione **sqlpoolservername.database.windows.net** na imagem anterior e, em seguida, selecione **Delete**. Tenha cuidado com esta eliminação, uma vez que eliminar o servidor também elimina todas as bases de dados atribuídas ao mesmo.
 
@@ -206,4 +206,4 @@ Quer otimizar e economizar nos gastos na nuvem?
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o carregamento de dados no seu pool SQL, continue a carregar os dados da Load no artigo [da piscina SQL.](load-data-from-azure-blob-storage-using-polybase.md)
+Para saber mais sobre o carregamento de dados no seu pool de SQL dedicado (anteriormente SQL DW), continue a carregar os dados de carga num artigo dedicado de [piscina SQL.](load-data-from-azure-blob-storage-using-copy.md)

@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f09e30d6bf68cfb11d9bf808838f6cc029ed942a
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 0a2490a104d18f77a0ec326933f463eb4ebb4339
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907643"
+ms.locfileid: "96923963"
 ---
 # <a name="download-blobs-from-azure-blob-storage-by-using-azcopy-v10"></a>Descarregue bolhas do armazenamento Azure Blob usando AzCopy v10
 
@@ -39,7 +39,7 @@ Descarregue uma bolha utilizando o comando [de cópia azcopia.](storage-ref-azco
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-file-path>'` |
+| **Sintaxe** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-file-path>'` |
 | **Exemplo** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt'` |
 | **Exemplo** (espaço hierárquico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt'` |
 
@@ -55,7 +55,7 @@ Faça o download de um diretório utilizando o comando [de cópia azcopia.](stor
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>' '<local-directory-path>' --recursive` |
+| **Sintaxe** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>' '<local-directory-path>' --recursive` |
 | **Exemplo** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive` |
 | **Exemplo** (espaço hierárquico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive` |
 
@@ -73,7 +73,7 @@ Pode transferir o conteúdo de um diretório sem copiar o próprio diretório co
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://<storage-account-name>.blob.core.windows.net/<container-name>/*' '<local-directory-path>/'` |
+| **Sintaxe** | `azcopy copy 'https://<storage-account-name>.blob.core.windows.net/<container-name>/*' '<local-directory-path>/'` |
 | **Exemplo** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory/*' 'C:\myDirectory'` |
 
 Anexar a `--recursive` bandeira para descarregar ficheiros em todas as subdiretivas.
@@ -91,7 +91,7 @@ Utilize o comando [de cópia azcopia](storage-ref-azcopy-copy.md) com a `--inclu
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>' '<local-directory-path>'  --include-path <semicolon-separated-file-list>` |
+| **Sintaxe** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>' '<local-directory-path>'  --include-path <semicolon-separated-file-list>` |
 | **Exemplo** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive` |
 | **Exemplo** (espaço hierárquico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt'--recursive` |
 
@@ -105,7 +105,7 @@ Utilize o comando [de cópia azcopia](storage-ref-azcopy-copy.md) com a `--inclu
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>' '<local-directory-path>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
+| **Sintaxe** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>' '<local-directory-path>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
 | **Exemplo** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'` |
 | **Exemplo** (espaço hierárquico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'` |
 
@@ -119,7 +119,7 @@ Utilize o comando [de cópia azcopia](storage-ref-azcopy-copy.md) com a `--inclu
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>/*' '<local-directory-path>' --include-after <Date-Time-in-ISO-8601-format>` |
+| **Sintaxe** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>/*' '<local-directory-path>' --include-after <Date-Time-in-ISO-8601-format>` |
 | **Exemplo** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
 | **Exemplo** (espaço hierárquico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
 
@@ -139,13 +139,18 @@ Em primeiro lugar, crie um ficheiro de texto que contenha uma lista de [IDs](../
 
 Em seguida, use o comando [de cópia azcopia](storage-ref-azcopy-copy.md) com a `--list-of-versions` opção. Especificar a localização do ficheiro de texto que contém a lista de versões (por exemplo: `D:\\list-of-versions.txt` ).  
 
+#### <a name="download-a-blob-snapshot"></a>Faça o download de um instantâneo blob
+
+Pode descarregar uma [imagem de bolha](/azure/storage/blobs/snapshots-overview.md) referindo o valor **DateTime** de uma imagem de bolha. 
+
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-directory-path>' --list-of-versions '<list-of-versions-file>'`|
-| **Exemplo** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt' --list-of-versions 'D:\\list-of-versions.txt'` |
-| **Exemplo** (espaço hierárquico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt' --list-of-versions 'D:\\list-of-versions.txt'` |
+| **Sintaxe** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>?sharesnapshot=<DateTime-of-snapshot>' '<local-file-path>'` |
+| **Exemplo** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory\myTextFile.txt'` |
+| **Exemplo** (espaço hierárquico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt?sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory\myTextFile.txt'` |
 
-O nome de cada ficheiro descarregado começa com o ID da versão seguido pelo nome da bolha. 
+> [!NOTE]
+> Se estiver a utilizar um token SAS para autorizar o acesso aos dados do blob, em seguida, apedte o **instantâneo DateTime** após o token SAS. Por exemplo: `'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z'`.
 
 ## <a name="download-with-optional-flags"></a>Descarregue com bandeiras opcionais
 
