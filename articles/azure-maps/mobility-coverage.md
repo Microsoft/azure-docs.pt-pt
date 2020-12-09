@@ -1,27 +1,32 @@
 ---
-title: Cobertura de mobilidade (trânsito)
-description: Saiba qual o nível de cobertura que o serviço de mobilidade Azure Maps fornece em que regiões para as características de trânsito público, tais como alertas de encaminhamento e serviço.
+title: Cobertura de mobilidade (trânsito) nos serviços de mobilidade microsoft Azure Maps (Preview)
+description: Saiba qual o nível de cobertura que os serviços de mobilidade Azure Maps (Preview) fornecem em que regiões para recursos de trânsito público, tais como alertas de encaminhamento e serviço.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/23/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 10a0f9b1b21b060d7c33aeb52fb72f950cedf0e6
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: e902f313edf22d75f6b183575c3dc8d0dd94bc1f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779155"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904759"
 ---
-# <a name="azure-maps-mobility-coverage"></a>Cobertura de mobilidade Azure Maps
+# <a name="azure-maps-mobility-services-preview-coverage"></a>Cobertura dos serviços de mobilidade Azure Maps (Pré-visualização)
 
-O serviço de [mobilidade](/rest/api/maps/mobility) Azure Maps melhora o tempo de desenvolvimento de aplicações com características de trânsito público, como o encaminhamento de trânsito e a procura de paragens de trânsito público nas proximidades. Os utilizadores podem obter informações detalhadas sobre paragens, linhas e horários de trânsito. O serviço de Mobilidade permite ainda aos utilizadores recuperar geometrias de paragem e linha, alertas para paragens, linhas e áreas de serviço, bem como chegadas e alertas de serviço em tempo real de trânsito público. Além disso, o serviço mobility oferece capacidades de encaminhamento com opções de planeamento de viagens multimodais. O planeamento de viagens multimodais incorpora opções de caminhada, ciclismo e trânsito público, tudo numa viagem. Os utilizadores também podem aceder a itinerários multimodais detalhados passo a passo. 
+> [!IMPORTANT]
+> Os serviços de mobilidade Azure Maps estão atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+Os [serviços de Mobilidade](/rest/api/maps/mobility) Azure Maps melhoram o tempo de desenvolvimento de aplicações com características de trânsito público, como o encaminhamento de trânsito e a procura de paragens de trânsito público nas proximidades. Os utilizadores podem obter informações detalhadas sobre paragens, linhas e horários de trânsito. Os serviços de Mobilidade também permitem que os utilizadores recuperem geometrias de paragem e linha, alertas para paragens, linhas e áreas de serviço, e chegadas e alertas de serviço em tempo real de trânsito público. Além disso, os serviços de Mobilidade fornecem capacidades de encaminhamento com opções de planeamento de viagens multimodais. O planeamento de viagens multimodais incorpora opções de caminhada, ciclismo e trânsito público, tudo numa viagem. Os utilizadores também podem aceder a itinerários multimodais detalhados passo a passo.
 
 O Azure Maps não fornece o mesmo nível de informação e precisão para todas as cidades e países/regiões. A capacidade de chamar dados de trânsito público depende da área metropolitana. Além disso, os dados do mapa podem não incluir todas as opções de trânsito público e agências que servem a área metropolitana.
 
-A tabela seguinte fornece informações de cobertura para o serviço de mobilidade Azure Maps.
+A tabela seguinte fornece informações de cobertura para os serviços de mobilidade Azure Maps.
 
 | Símbolo | Significado |
 |--------|---------|
@@ -94,7 +99,7 @@ A tabela seguinte fornece informações de cobertura para o serviço de mobilida
 | Dinamarca   | Dinamarca* |
 | Estónia   | Estónia* |
 | Finlândia   | Hämeenlinna, Helsínquia, Joensuu, Jyväskylä, Kajaani, Kouvola - Kotka, Kuopio, Lappeenranta, Mikkeli, Oulu, Pori, Rovaniemi, Seinäjoki, Tampere, Turku, Vaasa|
-| França    | <p>Amberieu-en-Bugey, Amiens, Angers, Annecy, Annonay, Arras, Aubenas, Bayonne, Besançon, Blois, Bordeaux, Boulogne sur Mer, Brest, Briançon, cannes, Châlons-en-Champagne, Chartres, Clermont-Ferrand, Colmar, Côte d'Azur, Dax, Dijon, Grenoble, Haguenau, La Rochelle, Le Mans, Lyon,MACS, Marselha & Provence, Metz, Millau, Mont-de-Marsan, Montpellier, Mulhouse, Nancy, Nantes, Nice, Nice Côte d'Azur, Nimes, Normandia, Nyons, Paris, Poitiers, Privas, Quimper, Rennes, Saint Malo, Saint-Étienne, Saint-Nazaire, Saintes, Sarrebourg, Sete, Estrasburgo, Tarbes, Toulouse, Tours</P> |
+| França    | <p>Amberieu-en-Bugey, Amiens, Angers, Annecy, Annonay, Arras, Aubenas, Bayonne, Besançon, Blois, Bordeaux, Boulogne sur Mer, Brest, Briançon, cannes, Châlons-en-Champagne, Chartres, Clermont-Ferrand, Colmar, Côte d'Azur, Dax, Dijon, Grenoble, Haguenau, La Rochelle, Le Mans, MACS, Marselha & Provence, Metz, Millau, Mont-de-Marsan, Montpellier, Mulhouse, Nancy, Nantes, Nice, Nice Côte d'Azur, Nimes, Normandia, Nyon Paris, Poitiers, Privas, Quimper, Rennes, Saint Malo, Saint-Étienne, Saint-Nazaire, Saintes, Sarrebourg, Sete, Estrasburgo, Tarbes, Toulouse, Tours</P> |
 | +Guiana Francesa | Caiena |
 | +Nova Caledónia | Nouméa  |
 | Geórgia | Tbilisi |
@@ -149,17 +154,17 @@ A tabela seguinte fornece informações de cobertura para o serviço de mobilida
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como solicitar dados de trânsito utilizando o Serviço de Mobilidade:
+Saiba como solicitar dados de trânsito utilizando serviços de mobilidade (Pré-visualização):
 
 > [!div class="nextstepaction"]
 > [Como solicitar dados de trânsito](how-to-request-transit-data.md)
 
-Saiba como solicitar dados em tempo real utilizando o Serviço de Mobilidade:
+Saiba como solicitar dados em tempo real utilizando serviços de mobilidade (Pré-visualização):
 
 > [!div class="nextstepaction"]
 > [Como solicitar dados em tempo real](how-to-request-real-time-data.md)
 
-Explore a documentação da APC do Serviço de Mobilidade Azure Maps
+Explore a documentação da API dos serviços de mobilidade Azure Maps (Preview)
 
 > [!div class="nextstepaction"]
-> [Documentação da API do Serviço de Mobilidade](/rest/api/maps/mobility)
+> [Documentação da API dos serviços de mobilidade](/rest/api/maps/mobility)

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: e2d87d4322ac6b91a19a4775c23ceec75d528030
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 43c39c40af6e02861211a8666fefa57c34072f32
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325337"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905201"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Avaliações de moderação de conteúdos, fluxos de trabalho e empregos
 
@@ -42,7 +42,7 @@ Utilize a barra de ferramentas **Search** para classificar as avaliações por u
 > [!div class="mx-imgBorder"]
 > ![É mostrada a barra de ferramentas Search. Dispõe de várias caixas de combinação para introduzir critérios de pesquisa, tais como Estado de Revisão e Etiquetas.](./Review-Tool-user-Guide/images/review-search.png)
 
-Consulte o guia de [ferramentas Review](./review-tool-user-guide/review-moderated-images.md) para começar a criar avaliações ou consulte o [guia REST API](./try-review-api-review.md) para aprender a fazê-lo programáticamente.
+Consulte o guia da [ferramenta Review](./review-tool-user-guide/review-moderated-images.md) para começar a criar avaliações ou consulte o guia da [consola API](./try-review-api-review.md) para aprender a fazê-lo programáticamente.
 
 ## <a name="workflows"></a>Fluxos de trabalho
 
@@ -80,13 +80,13 @@ Os fluxos de trabalho são definidos como cordas JSON, o que os torna acessívei
 }
 ```
 
-Consulte o guia da [ferramenta Review](./review-tool-user-guide/workflows.md) para começar a criar e utilizar fluxos de trabalho, ou consulte o guia [da API REST](./try-review-api-workflow.md) para aprender a fazê-lo programáticamente.
+Consulte o guia da [ferramenta Review](./review-tool-user-guide/workflows.md) para começar a criar e utilizar fluxos de trabalho, ou consulte o guia da [consola API](./try-review-api-workflow.md) para aprender a fazê-lo programáticamente.
 
 ## <a name="jobs"></a>Tarefas
 
 Um trabalho de moderação serve como uma espécie de invólucro para a funcionalidade de moderação de conteúdos, fluxos de trabalho e avaliações. O trabalho digitaliza o seu conteúdo utilizando a API de moderação de imagem do Moderador de Conteúdo ou a API de moderação de texto e, em seguida, verifica-o contra o fluxo de trabalho designado. Com base nos resultados do fluxo de trabalho, pode ou não criar uma revisão para o conteúdo na [ferramenta Review](./review-tool-user-guide/human-in-the-loop.md). Embora tanto as revisões como os fluxos de trabalho possam ser criados e configurados com as respetivas APIs, a API de trabalho permite-lhe obter um relatório detalhado de todo o processo (que pode ser enviado para um ponto final de retorno específico).
 
-Consulte o [guia da API REST](./try-review-api-job.md) para começar a usar empregos.
+Consulte o guia de [consolas API](./try-review-api-job.md) para começar a usar empregos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

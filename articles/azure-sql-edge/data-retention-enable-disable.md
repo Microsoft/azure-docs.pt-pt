@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 9408aaa8fd5b677f012392ef4bd51c8826650eee
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 5b8dd911952a63ba8775f27a6128ff61e849e823
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395160"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861430"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>Permitir e desativar políticas de retenção de dados
 
@@ -56,7 +56,7 @@ A `WITH (DATA_DELETION = ON ( FILTER_COLUMN = [dbdatetime2], RETENTION_PERIOD = 
 
 - DATA_DELETION - Indica se a retenção de dados é ON ou OFF.
 - FILTER_COLUMN - Nome na coluna da tabela, que será usada para verificar se as linhas estão obsoletas ou não. A coluna do filtro só pode ser uma coluna com os seguintes tipos de dados 
-    - Date
+    - Data
     - Hora do Pequeno Natal
     - DateTime
     - DataTime2
@@ -88,7 +88,7 @@ where is_data_deletion_filter_column =1
 and object_id = object_id(N'dbo.data_retention_table', N'U')
 ```
 
-## <a name="corelating-db-and-table-data-retention-settings"></a>Corelating DB e definições de retenção de dados de tabela
+## <a name="correlating-db-and-table-data-retention-settings"></a>Correlacionar definições de DB e de retenção de dados de tabela
 
 A definição de retenção de dados na base de dados e na tabela, são utilizadas em conjunto para determinar se a recolha automática de filas envelhecidas será ou não executada nas tabelas. 
 

@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 4280932787cfb2220dab1da84dca41ca0c40e302
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: cf7c5fa8563544add55a7fad5075848eb5116fe1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485261"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901937"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Visão geral de networking - Base de dados Azure para PostgreSQL - Servidor Flexível
 
@@ -107,6 +107,7 @@ Considere os seguintes pontos quando o acesso à Base de Dados do Microsoft Azur
    * Peça ao seu Fornecedor de Serviços de Internet (ISP) para o intervalo de endereços IP atribuído aos seus computadores clientes que acedam à Base de Dados Azure para o Servidor PostgreSQL e, em seguida, adicione o intervalo de endereços IP como regra de firewall.
    * Obtenha endereço IP estático em vez dos computadores clientes e, em seguida, adicione o endereço IP estático como regra de firewall.
 
+* **A regra de firewall não está disponível para o formato IPv6:** As regras de firewall devem estar no formato IPv4. Se especificar as regras de firewall no formato IPv6, apresentará o erro de validação.
 
 ## <a name="hostname"></a>Hostname (Nome do anfitrião)
 Independentemente da opção de networking que escolha, recomendamos que utilize sempre um nome de domínio totalmente qualificado (FQDN) como nome de hospedeiro ao ligar-se ao seu servidor flexível. O endereço IP do servidor não é garantido permanecer estático. A utilização do FQDN irá ajudá-lo a evitar alterações na sua cadeia de ligação. 

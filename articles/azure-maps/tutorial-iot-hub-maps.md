@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: cdbc972d230988420a066c4b927388b885f99a17
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 6109164d8827a343a550a114acc42db2461f3a2c
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896750"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905354"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Tutorial: Implementar análises espaciais IoT utilizando mapas Azure
 
@@ -24,7 +24,7 @@ Neste tutorial você:
 
 > [!div class="checklist"]
 > * Crie uma conta de armazenamento Azure para registar dados de rastreamento de carros.
-> * Faça o upload de uma geofence para o serviço Azure Maps Data utilizando a API de upload de dados.
+> * Faça o upload de uma geofence para o serviço de dados Azure Maps (Preview) utilizando a API de upload de dados.
 > * Crie um hub no Azure IoT Hub e registe um dispositivo.
 > * Criar uma função em Funções Azure, implementando lógica de negócio baseada na análise espacial Azure Maps.
 > * Subscreva os eventos de telemetria do dispositivo IoT da função Azure via Azure Event Grid.
@@ -91,7 +91,7 @@ O diagrama seguinte mostra uma visão geral de alto nível do sistema.
 
 A figura a seguir destaca a área de geofência em azul. O percurso do carro alugado é indicado por uma linha verde.
 
-   :::image type="content" source="./media/tutorial-iot-hub-maps/geofence-route.png" border="false" alt-text="Diagrama de visão geral do sistema.":::
+   :::image type="content" source="./media/tutorial-iot-hub-maps/geofence-route.png" border="false" alt-text="Figura mostrando rota de geofência.":::
 
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 
@@ -103,13 +103,15 @@ Quando criar com sucesso a sua conta de armazenamento, terá de criar um recipie
 
 1. Vá para a sua conta de armazenamento recém-criada. Na secção **Essentials,** selecione a ligação **Contentores.**
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/containers.png" alt-text="Diagrama de visão geral do sistema.":::
+    :::image type="content" source="./media/tutorial-iot-hub-maps/containers.png" alt-text="Screenshot de recipientes para armazenamento de bolhas.":::
 
-2. No canto superior esquerdo, selecione **+ Recipiente** . Um painel aparece no lado direito do navegador. Nomeie o seu contentor *contoso-rental-logs* e **selecione Criar** .
+2. No canto superior esquerdo, selecione **+ Recipiente**. Um painel aparece no lado direito do navegador. Nomeie o seu contentor *contoso-rental-logs* e **selecione Criar**.
 
-     :::image type="content" source="./media/tutorial-iot-hub-maps/container-new.png" alt-text="Diagrama de visão geral do sistema." e adicionar uma subscrição de Grade de Eventos.
+     :::image type="content" source="./media/tutorial-iot-hub-maps/container-new.png" alt-text="Screenshot de criar um recipiente de bolhas.":::
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/access-keys.png" alt-text="Diagrama de visão geral do sistema.":::
+3. Vá ao painel **de chaves Access** na sua conta de armazenamento e copie o nome da conta de **Armazenamento** e o valor **chave** na secção **key1.** Precisa de ambos estes valores na secção "Criar uma Função Azure" e adicionar uma subscrição de Grade de Eventos.
+
+    :::image type="content" source="./media/tutorial-iot-hub-maps/access-keys.png" alt-text="Screenshot do nome e chave da conta de armazenamento de cópia.":::
 
 ## <a name="upload-a-geofence"></a>Faça upload de uma geofence
 
@@ -117,9 +119,9 @@ Em seguida, use a [aplicação Do Carteiro](https://www.getpostman.com) para [ca
 
 Siga estes passos para carregar a geofence utilizando a API de upload de dados do Azure Maps: 
 
-1. Abra a aplicação Do Carteiro e selecione **New** . Na janela **Criar Nova,** selecione **Coleção** . Nomeie a coleção e selecione **Criar** .
+1. Abra a aplicação Do Carteiro e selecione **New**. Na janela **Criar Nova,** selecione **Coleção**. Nomeie a coleção e selecione **Criar**.
 
-2. Para criar o pedido, selecione **New** novamente. Na janela **Criar Novo,** selecione **'Pedido'** e introduza um nome de pedido para o pedido. Selecione a coleção criada no passo anterior e, em seguida, **selecione Guardar** .
+2. Para criar o pedido, selecione **New** novamente. Na janela **Criar Novo,** selecione **'Pedido'** e introduza um nome de pedido para o pedido. Selecione a coleção criada no passo anterior e, em seguida, **selecione Guardar**.
 
 3. Selecione o método **POST** HTTP no separador construtor e introduza o seguinte URL para carregar o geofence para a API de upload de dados. Certifique-se de que substitui `{subscription-key}` a sua chave de subscrição primária.
 
@@ -129,7 +131,7 @@ Siga estes passos para carregar a geofence utilizando a API de upload de dados d
 
     Na trajetória URL, o `geojson` valor contra o parâmetro representa o formato dos `dataFormat` dados que estão a ser carregados.
 
-4. Selecione **Body**  >  **raw** para o formato de entrada e escolha **JSON** na lista de drop-down. [Abra o ficheiro de dados JSON](https://raw.githubusercontent.com/Azure-Samples/iothub-to-azure-maps-geofencing/master/src/Data/geofence.json?token=AKD25BYJYKDJBJ55PT62N4C5LRNN4)e copie o JSON na secção do corpo. Selecione **Send** (Enviar).
+4. Selecione **Body**  >  **raw** para o formato de entrada e escolha **JSON** na lista de drop-down. [Abra o ficheiro de dados JSON](https://raw.githubusercontent.com/Azure-Samples/iothub-to-azure-maps-geofencing/master/src/Data/geofence.json?token=AKD25BYJYKDJBJ55PT62N4C5LRNN4)e copie o JSON na secção do corpo. Selecione **Enviar**.
 
 5. Selecione **Enviar** e aguardar o pedido para processar. Após o pedido concluído, vá ao **separador Headers** da resposta. Copie o valor da chave **localização,** que é a `status URL` .
 
@@ -162,7 +164,7 @@ Para criar um hub IoT no grupo de recursos *ContosoRental,* siga os passos na [c
 
 ## <a name="register-a-device-in-your-iot-hub"></a>Registe um dispositivo no seu hub IoT
 
-Os dispositivos não podem ligar-se ao hub IoT a menos que estejam registados no registo de identidade do hub IoT. Aqui, irá criar um único dispositivo com o nome *InVehicleDevice* . Para criar e registar o dispositivo dentro do seu hub IoT, siga os passos para [registar um novo dispositivo no hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal#register-a-new-device-in-the-iot-hub). Certifique-se de que copia a cadeia de ligação primária do seu dispositivo. Precisará dela mais tarde.
+Os dispositivos não podem ligar-se ao hub IoT a menos que estejam registados no registo de identidade do hub IoT. Aqui, irá criar um único dispositivo com o nome *InVehicleDevice*. Para criar e registar o dispositivo dentro do seu hub IoT, siga os passos para [registar um novo dispositivo no hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal#register-a-new-device-in-the-iot-hub). Certifique-se de que copia a cadeia de ligação primária do seu dispositivo. Precisará dela mais tarde.
 
 ## <a name="create-a-function-and-add-an-event-grid-subscription"></a>Crie uma função e adicione uma subscrição de Grade de Eventos
 
@@ -174,59 +176,59 @@ Aqui está o código de [script C# que a sua função irá conter](https://githu
 
 Agora, estabeleça a sua função Azure.
 
-1. No painel de instrumentos do portal Azure, **selecione Criar um recurso** . Tipo **De função** na caixa de texto de pesquisa. Selecione **a aplicação de funções**  >  **Criar** .
+1. No painel de instrumentos do portal Azure, **selecione Criar um recurso**. Tipo **De função** na caixa de texto de pesquisa. Selecione **a aplicação de funções**  >  **Criar**.
 
-1. Na página de criação **da Aplicação de Função,** nomeie a sua aplicação de função. No **Grupo de Recursos,** selecione **ContosoRental** da lista de drop-down. Selecione **.NET Core** como a **Pilha de Tempo de Execução** . Na parte inferior da página, selecione **Seguinte: Hospedagem >** .
+1. Na página de criação **da Aplicação de Função,** nomeie a sua aplicação de função. No **Grupo de Recursos,** selecione **ContosoRental** da lista de drop-down. Selecione **.NET Core** como a **Pilha de Tempo de Execução**. Na parte inferior da página, selecione **Seguinte: Hospedagem >**.
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/rental-app.png" alt-text="Diagrama de visão geral do sistema.":::
+    :::image type="content" source="./media/tutorial-iot-hub-maps/rental-app.png" alt-text="Screenshot de criar uma aplicação de função.":::
 
-1. Para **a conta de Armazenamento** , selecione a conta de armazenamento que criou na Criar uma conta de armazenamento [Azure](#create-an-azure-storage-account). Selecione **Rever + criar** .
+1. Para **a conta de Armazenamento**, selecione a conta de armazenamento que criou na Criar uma conta de armazenamento [Azure](#create-an-azure-storage-account). Selecione **Rever + criar**.
 
-1. Reveja os detalhes da aplicação de funções e **selecione Criar** .
+1. Reveja os detalhes da aplicação de funções e **selecione Criar**.
 
-1. Após a criação da aplicação, adiciona-lhe uma função. Vá ao aplicativo de função. Selecione o painel **de funções.** No topo da página, selecione **+ Adicionar** . Aparece o painel do modelo de função. Percorra o painel e selecione **o gatilho da grelha de eventos Azure** .
+1. Após a criação da aplicação, adiciona-lhe uma função. Vá ao aplicativo de função. Selecione o painel **de funções.** No topo da página, selecione **+ Adicionar**. Aparece o painel do modelo de função. Percorra o painel e selecione **o gatilho da grelha de eventos Azure**.
 
      >[!IMPORTANT]
     > O **Azure Event Hub Trigger** e os modelos **Azure Event Grid Trigger** têm nomes semelhantes. Certifique-se de que seleciona o modelo **Azure Event Grid Trigger.**
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create.png" alt-text="Diagrama de visão geral do sistema.":::
+    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create.png" alt-text="Screenshot de criar uma função.":::
 
-1. Dê um nome à função. Neste tutorial, você usará o nome *GetGeoFunction,* mas em geral você pode usar qualquer nome que você quiser. Selecione **Criar função** .
+1. Dê um nome à função. Neste tutorial, você usará o nome *GetGeoFunction,* mas em geral você pode usar qualquer nome que você quiser. Selecione **Criar função**.
 
 1. No menu esquerdo, selecione o **painel Code + Test.** Copie e cole o [script C#](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) na janela de código.
 
-     :::image type="content" source="./media/tutorial-iot-hub-maps/function-code.png" alt-text="Diagrama de visão geral do sistema.":::
+     :::image type="content" source="./media/tutorial-iot-hub-maps/function-code.png" alt-text="Copiar/screenshot do código de pasta na janela da função.":::
 
 1. No código C#, substitua os seguintes parâmetros:
     * Substitua **SUBSCRIPTION_KEY** pela chave de subscrição primária da conta Azure Maps.
     * Substitua o **UDID** pela `udid` geofence que carregou no [Upload a geofence](#upload-a-geofence).
-    * A `CreateBlobAsync` função no script cria uma bolha por evento na conta de armazenamento de dados. Substitua o **ACCESS_KEY** , **ACCOUNT_NAME** , e **STORAGE_CONTAINER_NAME** pela chave de acesso da sua conta de armazenamento, nome da conta e recipiente de armazenamento de dados. Estes valores foram gerados quando criou a sua conta de armazenamento na [Create a azure storage account](#create-an-azure-storage-account).
+    * A `CreateBlobAsync` função no script cria uma bolha por evento na conta de armazenamento de dados. Substitua o **ACCESS_KEY**, **ACCOUNT_NAME**, e **STORAGE_CONTAINER_NAME** pela chave de acesso da sua conta de armazenamento, nome da conta e recipiente de armazenamento de dados. Estes valores foram gerados quando criou a sua conta de armazenamento na [Create a azure storage account](#create-an-azure-storage-account).
 
-1. No menu esquerdo, selecione o painel **de integração.** Selecione **O Gatilho da grelha de eventos** no diagrama. Digite um nome para o gatilho, *eventGridEvent,* e selecione **a subscrição Create Event Grid** .
+1. No menu esquerdo, selecione o painel **de integração.** Selecione **O Gatilho da grelha de eventos** no diagrama. Digite um nome para o gatilho, *eventGridEvent,* e selecione **a subscrição Create Event Grid**.
 
-     :::image type="content" source="./media/tutorial-iot-hub-maps/function-integration.png" alt-text="Diagrama de visão geral do sistema.":::
+     :::image type="content" source="./media/tutorial-iot-hub-maps/function-integration.png" alt-text="Screenshot da subscrição de evento de adicionar.":::
 
-1. Preencha os detalhes da subscrição. Nomeie a subscrição do evento. Para **o Esquema de Eventos** , selecione Event Grid **Schema** . Para **tipos de tópicos** , selecione **Contas Azure IoT Hub** . Para **o Grupo de Recursos,** selecione o grupo de recursos que criou no início deste tutorial. Para **recurso** , selecione o hub IoT que criou em "Create a Azure IoT hub". Para **filtrar para tipos de eventos** , selecione **Telemetria do Dispositivo** .
+1. Preencha os detalhes da subscrição. Nomeie a subscrição do evento. Para **o Esquema de Eventos**, selecione Event Grid **Schema**. Para **tipos de tópicos**, selecione **Contas Azure IoT Hub**. Para **o Grupo de Recursos,** selecione o grupo de recursos que criou no início deste tutorial. Para **recurso**, selecione o hub IoT que criou em "Create a Azure IoT hub". Para **filtrar para tipos de eventos**, selecione **Telemetria do Dispositivo**.
 
-   Depois de escolher estas opções, verá a alteração do **Tipo Tópico** para **IoT Hub.** Para **o Nome tópico do sistema,** pode utilizar o mesmo nome que o seu recurso. Finalmente, na secção de detalhes do **Ponto Final,** **selecione Selecione um ponto final** . Aceite todas as definições e **selecione Confirmar Seleção** .
+   Depois de escolher estas opções, verá a alteração do **Tipo Tópico** para **IoT Hub.** Para **o Nome tópico do sistema,** pode utilizar o mesmo nome que o seu recurso. Finalmente, na secção de detalhes do **Ponto Final,** **selecione Selecione um ponto final**. Aceite todas as definições e **selecione Confirmar Seleção**.
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription.png" alt-text="Diagrama de visão geral do sistema.":::
+    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription.png" alt-text="Screenshot da assinatura do evento de criação.":::
 
-1. Reveja as suas definições. Certifique-se de que o ponto final especifica a função criada no início desta secção. Selecione **Criar** .
+1. Reveja as suas definições. Certifique-se de que o ponto final especifica a função criada no início desta secção. Selecione **Criar**.
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription-confirm.png" alt-text="Diagrama de visão geral do sistema.":::
+    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription-confirm.png" alt-text="Screenshot da criação de confirmação de subscrição de eventos.":::
 
-1. Agora estás de volta ao painel **editar.** Selecione **Guardar** .
+1. Agora estás de volta ao painel **editar.** Selecione **Guardar**.
 
 ## <a name="filter-events-by-using-iot-hub-message-routing"></a>Filtrar eventos utilizando o encaminhamento de mensagens IoT Hub
 
 Quando adiciona uma subscrição de Grade de Eventos à função Azure, uma rota de mensagens é automaticamente criada no hub IoT especificado. O encaminhamento de mensagens permite-lhe encaminhar diferentes tipos de dados para vários pontos finais. Por exemplo, pode encaminhar mensagens de telemetria do dispositivo, eventos de ciclo de vida do dispositivo e eventos de mudança de dois dispositivos. Para obter mais informações, consulte [o encaminhamento de mensagens IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c).
 
-:::image type="content" source="./media/tutorial-iot-hub-maps/hub-route.png" alt-text="Diagrama de visão geral do sistema.":::
+:::image type="content" source="./media/tutorial-iot-hub-maps/hub-route.png" alt-text="Screenshot do encaminhamento de mensagens no hub IoT.":::
 
-No seu cenário de exemplo, só pretende receber mensagens quando o carro alugado está em movimento. Crie uma consulta de encaminhamento para filtrar os eventos em que a `Engine` propriedade é igual a **"ON".** Para criar uma consulta de encaminhamento, selecione a rota **RouteToEventGrid** e substitua a **consulta de encaminhamento** por **"Engine='ON'"** . Em seguida, selecione **Guardar** . Agora, o hub IoT só publica telemetria do dispositivo onde o motor está ligado.
+No seu cenário de exemplo, só pretende receber mensagens quando o carro alugado está em movimento. Crie uma consulta de encaminhamento para filtrar os eventos em que a `Engine` propriedade é igual a **"ON".** Para criar uma consulta de encaminhamento, selecione a rota **RouteToEventGrid** e substitua a **consulta de encaminhamento** por **"Engine='ON'"**. Em seguida, selecione **Guardar**. Agora, o hub IoT só publica telemetria do dispositivo onde o motor está ligado.
 
-:::image type="content" source="./media/tutorial-iot-hub-maps/hub-filter.png" alt-text="Diagrama de visão geral do sistema.":::
+:::image type="content" source="./media/tutorial-iot-hub-maps/hub-filter.png" alt-text="Screenshot de mensagens de encaminhamento de filtros.":::
 
 >[!TIP]
 >Existem várias formas de consultar mensagens IoT dispositivo-nuvem. Para saber mais sobre a sintaxe de encaminhamento de mensagens, consulte o [encaminhamento de mensagens IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax).
@@ -254,15 +256,15 @@ Quando a sua função Azure estiver em funcionamento, pode agora enviar dados de
 
   O seu terminal local deve parecer o de baixo.
 
-:::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="Diagrama de visão geral do sistema.":::
+:::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="Screenshot da saída do terminal.":::
 
 Se abrir o recipiente de armazenamento de bolhas agora, pode ver quatro bolhas para locais onde o veículo estava fora da geofence.
 
-:::image type="content" source="./media/tutorial-iot-hub-maps/blob.png" alt-text="Diagrama de visão geral do sistema.":::
+:::image type="content" source="./media/tutorial-iot-hub-maps/blob.png" alt-text="Screenshot de bolhas de visão dentro do recipiente.":::
 
 O mapa que se segue mostra quatro pontos de localização do veículo fora da geofence. Cada local foi registado em intervalos de tempo regulares.
 
-:::image type="content" source="./media/tutorial-iot-hub-maps/violation-map.png" alt-text="Diagrama de visão geral do sistema.":::
+:::image type="content" source="./media/tutorial-iot-hub-maps/violation-map.png" alt-text="Screenshot do mapa de violação.":::
 
 ## <a name="explore-azure-maps-and-iot"></a>Explore Azure Maps e IoT
 

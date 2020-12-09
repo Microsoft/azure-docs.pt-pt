@@ -4,15 +4,15 @@ description: Transfira dados com a AzCopy e armazenamento de ficheiros. AzCopy �
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a19cca515bafa1d06f93d71b4868011a7c922354
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 087af322240322e44e70a9b5279eb7d251e735be
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792842"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901869"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferir dados com o AzCopy e armazenamento de ficheiros 
 
@@ -72,7 +72,7 @@ Também pode fazer o upload de um ficheiro utilizando um símbolo wildcard (*) e
 
 ### <a name="upload-a-directory"></a>Faça upload de um diretório
 
-Este exemplo copia um diretório (e todos os ficheiros desse diretório) para uma partilha de ficheiros. O resultado é um diretório na partilha de ficheiros com o mesmo nome.
+Este exemplo copia um diretório (e todos os ficheiros nesse diretório) para uma partilha de ficheiros. O resultado é um diretório na partilha de ficheiros com o mesmo nome.
 
 |    |     |
 |--------|-----------|
@@ -184,7 +184,7 @@ Este exemplo resulta num diretório nomeado `C:\myDirectory\myFileShareDirectory
 
 ### <a name="download-the-contents-of-a-directory"></a>Descarregue o conteúdo de um diretório
 
-Pode descarregar o conteúdo de um diretório sem copiar o próprio diretório contendo o próprio símbolo wildcard (*).
+Pode transferir o conteúdo de um diretório sem copiar o próprio diretório com o símbolo de caráter universal (*).
 
 |    |     |
 |--------|-----------|
@@ -207,7 +207,7 @@ Utilize o comando [de cópia azcopia](storage-ref-azcopy-copy.md) com a `--inclu
 | **Syntax** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name><SAS-token>' '<local-directory-path>'  --include-path <semicolon-separated-file-list>` |
 | **Exemplo** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive` |
 
-Neste exemplo, a AzCopy transfere o `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` diretório e o `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/documents/myFile.txt` ficheiro. Tem de incluir a `--recursive` opção de transferir todos os ficheiros do `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` diretório.
+Neste exemplo, a AzCopy transfere o `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` diretório e o `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/documents/myFile.txt` ficheiro. Inclua `--recursive` a opção de transferir todos os ficheiros do `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` diretório.
 
 Também pode excluir ficheiros utilizando a `--exclude-path` opção. Para saber mais, consulte os docs de referência [de cópias de azcopia.](storage-ref-azcopy-copy.md)
 
@@ -248,7 +248,7 @@ Esta secção contém os seguintes exemplos:
 > * Copie um ficheiro para outra conta de armazenamento
 > * Copie um diretório para outra conta de armazenamento
 > * Copie uma parte de ficheiro para outra conta de armazenamento
-> * Copie todas as ações de ficheiros, diretórios e ficheiros para outra conta de armazenamento
+> * Copiar todas as partilhas de ficheiros, diretórios e ficheiros  para outra conta de armazenamento
 
 > [!TIP]
 > Pode ajustar a sua operação de cópia utilizando bandeiras opcionais. Aqui estão alguns exemplos.
@@ -283,7 +283,7 @@ Esta secção contém os seguintes exemplos:
 | **Syntax** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
 | **Exemplo** | `azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
 
-### <a name="copy-all-file-shares-directories-and-files-to-another-storage-account"></a>Copie todas as ações de ficheiros, diretórios e ficheiros para outra conta de armazenamento
+### <a name="copy-all-file-shares-directories-and-files-to-another-storage-account"></a>Copiar todas as partilhas de ficheiros, diretórios e ficheiros  para outra conta de armazenamento
 
 |    |     |
 |--------|-----------|
@@ -292,14 +292,14 @@ Esta secção contém os seguintes exemplos:
 
 ## <a name="synchronize-files"></a>Sincronizar ficheiros
 
-Pode sincronizar o conteúdo de uma partilha de ficheiros com outra partilha de ficheiros. Também pode sincronizar o conteúdo de um diretório numa partilha de ficheiros com o conteúdo de um diretório que está localizado noutra partilha de ficheiros. A sincronização é só de ida. Por outras palavras, você escolhe qual destes dois pontos finais é a fonte e qual é o destino. A sincronização também utiliza o servidor para as APIs do servidor.
+Pode sincronizar o conteúdo de uma partilha de ficheiros com outra partilha de ficheiros. Também pode sincronizar o conteúdo de um diretório numa partilha de ficheiros com o conteúdo de um diretório que está localizado noutra partilha de ficheiros. A sincronização é uma maneira. Por outras palavras, você escolhe qual destes dois pontos finais é a fonte e qual é o destino. A sincronização também utiliza o servidor para as APIs do servidor.
 
 > [!NOTE]
 > Atualmente, este cenário é suportado apenas para contas que não têm um espaço hierárquico de nomes. A versão atual do AzCopy não sincroniza entre os Ficheiros Azure e o Blob Storage.
 
 O comando [de sincronização](storage-ref-azcopy-sync.md) compara nomes de ficheiros e últimos cartões de tempo modificados. Desa estama a `--delete-destination` bandeira opcional a um valor de ou para apagar `true` `prompt` ficheiros no diretório de destino se esses ficheiros já não existirem no diretório de origem.
 
-Se colocar a `--delete-destination` bandeira no `true` AzCopy elimina ficheiros sem fornecer uma solicitação. Se desejar que apareça uma solicitação antes de o AzCopy apagar um ficheiro, coloque a `--delete-destination` bandeira em `prompt` .
+Se colocar a `--delete-destination` bandeira para , a `true` AzCopy elimina ficheiros sem fornecer uma solicitação. Se desejar que apareça uma solicitação antes de o AzCopy apagar um ficheiro, coloque a `--delete-destination` bandeira em `prompt` .
 
 > [!TIP]
 > Pode ajustar a sua operação de sincronização utilizando bandeiras opcionais. Aqui estão alguns exemplos.
@@ -348,8 +348,6 @@ Encontre mais exemplos em qualquer um destes artigos:
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
 
-- [Transferir dados com AzCopy e armazenamento de bolhas](storage-use-azcopy-blobs.md)
-
-- [Transfira dados com baldes AzCopy e Amazon S3](storage-use-azcopy-s3.md)
+- [Transferir dados](storage-use-azcopy-v10.md#transfer-data)
 
 - [Configurar, otimizar e resolver problemas AzCopy](storage-use-azcopy-configure.md)

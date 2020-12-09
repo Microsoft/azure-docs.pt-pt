@@ -10,18 +10,19 @@ ms.workload: identity
 ms.date: 10/27/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: 64421dba5578b478a5fdf0c657614770baf9d735
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: azureday1
+ms.openlocfilehash: bf03fe9d920298d49e79a9a0febf7e09e94eb6ff
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025366"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905524"
 ---
 # <a name="tutorial-clean-up-resources"></a>Tutorial: Limpar recursos
 
 Se completou todos os passos neste tutorial multipart, criou um serviço de aplicações, um plano de hospedagem de serviços de aplicações e uma conta de armazenamento num grupo de recursos. Também criou um registo de aplicações no Azure Ative Directory. Quando já não for necessário, elimine estes recursos e o registo de aplicações para que não continue a acumular encargos.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >

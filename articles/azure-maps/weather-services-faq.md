@@ -1,23 +1,27 @@
 ---
-title: Os serviços de clima da Microsoft Azure Maps frequentemente fazem perguntas (FAQ)
-description: Encontre resposta a perguntas comuns sobre os dados e funcionalidades dos serviços climáticos Azure Maps.
+title: Os serviços de clima do Microsoft Azure Maps (Pré-visualização) frequentemente questionados (FAQ)
+description: Encontre resposta a perguntas comuns sobre os dados e funcionalidades dos serviços de meteorologia do Azure Maps (Preview).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/04/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 2a5a58c1515c647bb76bf35f3a5eaade3d00588a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8b7726e4e8fee0044a7865c8c494ef6451425676
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747332"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903875"
 ---
-# <a name="azure-maps-weather-services-frequently-asked-questions-faq"></a>Serviços meteorológicos Azure Maps frequentemente fazem perguntas (FAQ)
+# <a name="azure-maps-weather-services-preview-frequently-asked-questions-faq"></a>Serviços meteorológicos Azure Maps (Pré-visualização) frequentemente questionados (FAQ)
 
-Este artigo responde a perguntas comuns sobre os dados e [funcionalidades dos serviços climáticos Azure Maps.](https://docs.microsoft.com/rest/api/maps/weather) Os seguintes tópicos são abordados:
+> [!IMPORTANT]
+> Os serviços Azure Maps Weather estão atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Este artigo responde a perguntas comuns sobre os dados e [funcionalidades dos serviços climáticos](https://docs.microsoft.com/rest/api/maps/weather) Azure Maps. Os seguintes tópicos são abordados:
 
 * Fontes de dados e modelos de dados
 * Cobertura e disponibilidade dos serviços meteorológicos
@@ -51,7 +55,7 @@ Estes conjuntos de dados são revistos em tempo real para precisão para o Siste
 
 Numerosos sistemas de orientação de previsão meteorológica são utilizados para formular previsões globais. São utilizados mais de 150 modelos de previsão numérica todos os dias, tanto os conjuntos de dados externos como os internos. Isto inclui modelos governamentais como o European Centre ECMWF e o U.S. Global Forecast System (GFS). Além disso, a AccuWeather incorpora modelos proprietários de alta resolução que baixam as previsões para locais específicos e domínios regionais estratégicos para prever o tempo com maior precisão. Os algoritmos únicos de mistura e ponderação da AccuWeather foram desenvolvidos ao longo das últimas décadas. Estes algoritmos aproveitam idealmente as numerosas entradas de previsão para fornecer previsões altamente precisas.
 
-## <a name="weather-services-coverage-and-availability"></a>Cobertura e disponibilidade dos serviços meteorológicos
+## <a name="weather-services-preview-coverage-and-availability"></a>Cobertura e disponibilidade de serviços meteorológicos (Pré-visualização)
 
 **Que tipo de cobertura posso esperar para diferentes países/regiões?**
 
@@ -73,11 +77,11 @@ As APIs de previsão de mapas Azure estão em cache até 30 minutos. Para ver qu
 
 ## <a name="developing-with-azure-maps-sdks"></a>Desenvolvimento com Azure Maps SDKs
 
-**O Azure Maps Web SDK suporta de forma nativa a integração dos serviços meteorológicos?**
+**O Azure Maps Web SDK suporta de forma nativa a integração dos serviços meteorológicos (Pré-visualização)?**
 
 O Azure Maps Web SDK fornece um módulo de serviços. O módulo de serviços é uma biblioteca auxiliar que facilita a utilização dos serviços Azure Maps REST em aplicações web ou Node.js. utilizando JavaScript ou TypeScript. Para começar, consulte a nossa [documentação.](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)
 
-**O Azure Maps Android SDK suporta de forma nativa a integração dos serviços meteorológicos?**
+**O Azure Maps Android SDK suporta de forma nativa a integração dos serviços meteorológicos (Preview) ?**
 
 O Azure Maps Android SDKs suporta camadas de azulejos Mercator, que podem ter notação x/y/zoom, notação de chave quad ou notação de caixa de limites EPSG 3857.
 
@@ -87,7 +91,7 @@ Planeamos criar um módulo de serviços para Java/Android semelhante ao módulo 
 
 **O Azure Maps Power BI Visual suporta azulejos meteorológicos Azure Maps?**
 
-Yes. Para aprender a migrar radares e azulejos de satélite infravermelhos para o visual do Microsoft Power BI, consulte [Adicione uma camada de azulejo ao power bi visual](https://docs.microsoft.com/azure/azure-maps/power-bi-visual-add-tile-layer). 
+Sim. Para aprender a migrar radares e azulejos de satélite infravermelhos para o visual do Microsoft Power BI, consulte [Adicione uma camada de azulejo ao power bi visual](https://docs.microsoft.com/azure/azure-maps/power-bi-visual-add-tile-layer). 
 
 **Como interpreto as cores usadas para radares e azulejos de satélite?**
 
@@ -95,11 +99,11 @@ O [artigo do conceito](https://docs.microsoft.com/azure/azure-maps/weather-servi
  
 **Posso criar animações de radar e azulejos por satélite?**
 
-Yes. Além de radares em tempo real e azulejos de satélite, os clientes do Azure Maps podem solicitar azulejos passados e futuros para melhorar visualizações de dados com sobreposições de mapas. Isto pode ser feito chamando diretamente [Get Map Tile v2 API](https://aka.ms/AzureMapsWeatherTiles ) ou solicitando azulejos através da web SDK Azure Maps. As telhas de radar estão fornecidas até 1,5 horas no passado, e por até 2 horas no futuro. Os azulejos estão disponíveis em intervalos de 5 minutos. Os azulejos infravermelhos são fornecidos até 3 horas no passado, e estão disponíveis em intervalos de 10 minutos. Para obter mais informações, consulte a amostra de código de animação de azulejos [meteorológicos](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer)de código de código de código de código de origem aberta.  
+Sim. Além de radares em tempo real e azulejos de satélite, os clientes do Azure Maps podem solicitar azulejos passados e futuros para melhorar visualizações de dados com sobreposições de mapas. Isto pode ser feito chamando diretamente [Get Map Tile v2 API](https://aka.ms/AzureMapsWeatherTiles ) ou solicitando azulejos através da web SDK Azure Maps. As telhas de radar estão fornecidas até 1,5 horas no passado, e por até 2 horas no futuro. Os azulejos estão disponíveis em intervalos de 5 minutos. Os azulejos infravermelhos são fornecidos até 3 horas no passado, e estão disponíveis em intervalos de 10 minutos. Para obter mais informações, consulte a amostra de código de animação de azulejos [meteorológicos](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer)de código de código de código de código de origem aberta.  
 
 **Oferece ícones para diferentes condições meteorológicas?**
 
-Yes. Pode encontrar ícones e respetivos códigos [aqui.](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#weather-icons) Note que apenas algumas das APIs do serviço meteorológico, como  [a API de Condições Correntes,](https://aka.ms/azuremapsweathercurrentconditions)devolvem o *iconCode* na resposta. Para obter mais informações, consulte a amostra de código de [código](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location)de código de código de código de código de código de código aberto das Condições Meteorológicas Atuais .
+Sim. Pode encontrar ícones e respetivos códigos [aqui.](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#weather-icons) Note que apenas algumas das APIs do serviço meteorológico (pré-visualização), tais como  [Get Current Conditions API,](https://aka.ms/azuremapsweathercurrentconditions)devolva o *iconCode* na resposta. Para obter mais informações, consulte a amostra de código de [código](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location)de código de código de código de código de código de código aberto das Condições Meteorológicas Atuais .
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -110,15 +114,15 @@ Se esta FAQ não responder à sua pergunta, pode contactar-nos através dos segu
 * Suporte microsoft. Para criar um novo pedido de suporte, no [portal Azure,](https://portal.azure.com/)no separador Ajuda, selecione o botão de suporte **Ajuda +** e, em seguida, selecione Novo pedido **de suporte**.
 * [Azure Maps UserVoice](https://feedback.azure.com/forums/909172-azure-maps) para submeter pedidos de funcionalidades.
 
-Saiba como solicitar dados meteorológicos em tempo real e previstos utilizando os serviços Azure Maps Weather:
+Saiba como solicitar dados meteorológicos em tempo real e previstos utilizando os serviços Azure Maps Weather (Preview):
 > [!div class="nextstepaction"]
 > [Solicitar dados meteorológicos em tempo real ](how-to-request-weather-data.md)
 
-Artigo de conceitos de serviços climáticos Azure Maps:
+Artigo de conceitos Azure Maps Weather services (Preview):
 > [!div class="nextstepaction"]
 > [Conceitos de serviços meteorológicos](weather-coverage.md)
 
-Explore a documentação da Azure Maps Weather Services API:
+Explore a documentação da API dos serviços Azure Maps Weather (Preview):
 
 > [!div class="nextstepaction"]
 > [Serviços meteorológicos Azure Maps](/rest/api/maps/weather)

@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial de classificação de imagem: Modelos de comboio'
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning para treinar um modelo de classificação de imagem com scikit-learn em um caderno Python Jupyter. Este tutorial é a primeira parte de dois.
+description: Use Azure Machine Learning para treinar um modelo de classificação de imagem com scikit-learn em um Notebook Python Jupyter. Este tutorial é a primeira parte de dois.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 003056ae9d3f236d37ddc10764812c15a3c6c695
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d1dbe51dd095290c296699bbb4bc6bd3a8caf7bf
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321285"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862433"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Modelos de classificação de imagem de comboio com dados do MNIST e scikit-learn 
 
 
-Neste tutorial, treina-se um modelo de aprendizagem automática em recursos de computação remota. Você usará o fluxo de trabalho de treino e implantação para Azure Machine Learning em um caderno Python Jupyter.  Depois, pode utilizar o bloco de notas como um modelo para preparar o seu próprio modelo de machine learning com os seus dados. Este tutorial é a **primeira parte de uma série composta por duas partes**.  
+Neste tutorial, treina-se um modelo de aprendizagem automática em recursos de computação remota. Você usará o fluxo de trabalho de treino e implantação para Azure Machine Learning em um Notebook Python Jupyter.  Depois, pode utilizar o bloco de notas como um modelo para preparar o seu próprio modelo de machine learning com os seus dados. Este tutorial é a **primeira parte de uma série composta por duas partes**.  
 
 Este tutorial treina uma simples regressão logística utilizando o conjunto de dados [do MNIST](http://yann.lecun.com/exdb/mnist/) e [aprendendo com](https://scikit-learn.org) a Azure Machine Learning. O MNIST é um conjunto de dados popular que consiste em 70 000 imagens em tons de cinzento. Cada imagem é um dígito manuscrito de 28 x 28 pixels, representando um número de zero a nove. O objetivo é criar um classificador multiclasses para identificar o dígito que uma determinada imagem representa.
 
@@ -54,7 +54,7 @@ O tutorial e **acompanhante utils.py** ficheiro também está disponível no [Gi
 > [!Important]
 > O resto deste artigo contém o mesmo conteúdo que se vê no caderno.  
 >
-> Mude agora para o caderno Jupyter se quiser ler enquanto executar o código. 
+> Mude agora para o Bloco de Notas do Jupyter se quiser ler enquanto executar o código. 
 > Para executar uma única célula de código num bloco de notas, clique na célula de código e clique no **Shift+Enter**. Ou, executar todo o caderno escolhendo **Executar tudo** a partir da barra de ferramentas superior.
 
 ## <a name="set-up-your-development-environment"></a><a name="start"></a>Configurar o ambiente de desenvolvimento
@@ -368,15 +368,15 @@ No total, a primeira corrida demora **cerca de 10 minutos.** Mas para as execuç
 
 O que acontece enquanto espera:
 
-- **Criação de imagem** : É criada uma imagem Docker que corresponde ao ambiente Python especificado pelo ambiente Azure ML. A imagem é carregada para a área de trabalho. A criação e upload de imagens demora cerca de **cinco minutos.**
+- **Criação de imagem**: É criada uma imagem Docker que corresponde ao ambiente Python especificado pelo ambiente Azure ML. A imagem é carregada para a área de trabalho. A criação e upload de imagens demora cerca de **cinco minutos.**
 
   Esta fase acontece uma vez para cada ambiente Python porque o recipiente está em cache para as corridas subsequentes. Durante a criação da imagem, os registos são transmitidos para o histórico de execuções. Pode monitorizar o progresso da criação de imagens utilizando estes registos.
 
-- **Dimensionamento** : Se o cluster remoto necessitar de mais nós para fazer a execução do que atualmente disponível, os nós adicionais são adicionados automaticamente. A escala normalmente demora **cerca de cinco minutos.**
+- **Dimensionamento**: Se o cluster remoto necessitar de mais nós para fazer a execução do que atualmente disponível, os nós adicionais são adicionados automaticamente. A escala normalmente demora **cerca de cinco minutos.**
 
-- **Execução** : Nesta fase, os scripts e ficheiros necessários são enviados para o alvo do cálculo. Em seguida, as datastores são montadas ou copiadas. E então o **entry_script** é executado. Enquanto o trabalho está em execução, **o stdout** e o diretório **./logs** são transmitidos para o histórico de execução. Pode monitorizar o progresso da execução utilizando estes registos.
+- **Execução**: Nesta fase, os scripts e ficheiros necessários são enviados para o alvo do cálculo. Em seguida, as datastores são montadas ou copiadas. E então o **entry_script** é executado. Enquanto o trabalho está em execução, **o stdout** e o diretório **./logs** são transmitidos para o histórico de execução. Pode monitorizar o progresso da execução utilizando estes registos.
 
-- **Pós-processamento** : O diretório **de ./outputs** da execução é copiado para o histórico de execução no seu espaço de trabalho, para que possa aceder a estes resultados.
+- **Pós-processamento**: O diretório **de ./outputs** da execução é copiado para o histórico de execução no seu espaço de trabalho, para que possa aceder a estes resultados.
 
 Pode verificar o progresso de um trabalho em execução de várias maneiras. Este tutorial usa um widget Jupyter e um `wait_for_completion` método.
 

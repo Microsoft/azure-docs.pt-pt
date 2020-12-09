@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 0bb252e227e4f23388929f2fca18769e0bd02e19
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 813cb567ab3edddd6fb37cee050dc5e38ee4289f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187039"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904895"
 ---
 # <a name="tutorial---migrate-web-service-from-google-maps"></a>Tutorial - Migrar o serviço web do Google Maps
 
@@ -40,19 +40,19 @@ A tabela mostra as APIs do serviço Azure Maps, que têm uma funcionalidade seme
 
 | Serviço Google Maps API | A azure Maps serviço API                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| Instruções              | [Rota](/rest/api/maps/route)                                     |
-| Matriz de distância         | [Matriz de Rota](/rest/api/maps/route/postroutematrixpreview)       |
-| Geocodificação               | [Pesquisa](/rest/api/maps/search)                                   |
-| Pesquisa de lugares           | [Pesquisa](/rest/api/maps/search)                                   |
-| Colocar Autocompleto      | [Pesquisa](/rest/api/maps/search)                                   |
-| Estalar para a estrada            | Consulte a secção [rotas e direções.](#calculate-routes-and-directions)            |
-| Limites de velocidade            | Consulte [o geocódigo inverso de uma secção de coordenadas.](#reverse-geocode-a-coordinate)                  |
-| Mapa estático              | [Composição](/rest/api/maps/render/getmapimage)                       |
-| Fuso Horário               | [Fuso Horário](/rest/api/maps/timezone)                              |
+| Instruções              | [Rota](/rest/api/maps/route)                                     |                         
+| Matriz de distância         | [Matriz de Rota](/rest/api/maps/route/postroutematrixpreview)       |                         
+| Geocodificação               | [Pesquisa](/rest/api/maps/search)                                   |                         
+| Pesquisa de lugares           | [Pesquisa](/rest/api/maps/search)                                   |                         
+| Colocar Autocompleto      | [Pesquisa](/rest/api/maps/search)                                   |                         
+| Estalar para a estrada            | Consulte a secção [rotas e direções.](#calculate-routes-and-directions)            
+| Limites de velocidade            | Consulte [o geocódigo inverso de uma secção de coordenadas.](#reverse-geocode-a-coordinate)                  
+| Mapa estático              | [Composição](/rest/api/maps/render/getmapimage)                       |                         
+| Fuso Horário               | [Fuso Horário](/rest/api/maps/timezone)                              |                         
+| Elevação               | [Elevação (Pré-visualização)](/rest/api/maps/elevation)                   |                         |
 
 As apis de serviço a seguir não estão atualmente disponíveis no Azure Maps:
 
-- Elevação
 - Geolocalização
 - Locais detalhes e fotos - Os números de telefone e URL do site estão disponíveis na API de pesquisa de Mapas Azure.
 - URLs de mapa
@@ -116,7 +116,7 @@ Esta tabela cruza referências aos parâmetros API do Google Maps com os parâme
 | `key`                       | `subscription-key`– Consulte também a [documentação autenticação com Azure Maps.](azure-maps-authentication.md) |
 | `language`                  | `language`– Consulte a documentação [de línguas suportadas.](supported-languages.md)  |
 | `latlng`                    | `query`  |
-| `location_type`             | *N/D*     |
+| `location_type`             | *N/A*     |
 | `result_type`               | `entityType`    |
 
 Reveja as [melhores práticas de pesquisa.](how-to-use-best-practices-for-search.md)
@@ -160,9 +160,9 @@ A tabela cruza referências aos parâmetros API do Google Maps com os parâmetro
 
 | Parâmetro API do Google Maps | Parâmetro API de Mapas Azuis comparáveis |
 |---------------------------|-------------------------------------|
-| `fields`                  | *N/D*                               |
+| `fields`                  | *N/A*                               |
 | `input`                   | `query`                             |
-| `inputtype`               | *N/D*                               |
+| `inputtype`               | *N/A*                               |
 | `key`                     | `subscription-key`– Consulte também a [documentação autenticação com Azure Maps.](azure-maps-authentication.md) |
 | `language`                | `language`– Consulte a documentação [de línguas suportadas.](supported-languages.md)  |
 | `locationbias`            | `lat`, `lon` e `radius`<br/>`topLeft` e `btmRight`<br/>`countrySet`  |
@@ -179,13 +179,13 @@ A tabela mostra os parâmetros API do Google Maps com os parâmetros API compar�
 | `keyword`                   | `categorySet` e `brandSet`        |
 | `language`                  | `language`– Consulte a documentação [de línguas suportadas.](supported-languages.md)  |
 | `location`                  | `lat` e `lon`                     |
-| `maxprice`                  | *N/D*                               |
-| `minprice`                  | *N/D*                               |
+| `maxprice`                  | *N/A*                               |
+| `minprice`                  | *N/A*                               |
 | `name`                      | `categorySet` e `brandSet`        |
-| `opennow`                   | *N/D*                               |
+| `opennow`                   | *N/A*                               |
 | `pagetoken`                 | `ofs` e `limit`                   |
 | `radius`                    | `radius`                            |
-| `rankby`                    | *N/D*                               |
+| `rankby`                    | *N/A*                               |
 | `type`                      | `categorySet –`Consulte a documentação [das categorias de pesquisa suportadas.](supported-search-categories.md)   |
 
 ## <a name="calculate-routes-and-directions"></a>Calcular rotas e direções
@@ -203,7 +203,7 @@ O serviço de encaminhamento Azure Maps fornece as seguintes APIs para o cálcul
 
 - [**Calcular rota:**](/rest/api/maps/route/getroutedirections)Calcular uma rota e ter o pedido processado imediatamente. Esta API suporta pedidos GET e POST. Os pedidos de POST são recomendados ao especificar um grande número de pontos de passagem ou quando se utilizam muitas das opções de rota para garantir que o pedido de URL não se torna muito longo e causa problemas. O Post Route Direction in Azure Maps tem uma opção que pode acolher milhares de [pontos](/rest/api/maps/route/postroutedirections#supportingpoints) de apoio e irá usá-los para recriar um caminho lógico entre eles (snap to road). 
 - [**Rota do lote**](/rest/api/maps/route/postroutedirectionsbatchpreview): Crie um pedido que contenha até 1.000 pedidos de rota e processe-os durante um período de tempo. Todos os dados serão processados em paralelo no servidor e quando concluídos o conjunto de resultados completos podem ser descarregados.
-- [**Serviços de mobilidade**](/rest/api/maps/mobility): Calcular rotas e direções utilizando o trânsito público.
+- [**Serviços de mobilidade (Pré-visualização) **](/rest/api/maps/mobility): Calcular rotas e direções utilizando o trânsito público.
 
 A tabela cruza referências aos parâmetros API do Google Maps com os parâmetros API comparáveis no Azure Maps.
 
@@ -221,8 +221,8 @@ A tabela cruza referências aos parâmetros API do Google Maps com os parâmetro
 | `origin`                       | `query`                            |
 | `region`                       | *N/A* – Esta característica está relacionada com a geocodagem. Utilize o parâmetro *countrySet* quando utilizar a API de geocodagem Azure Maps.  |
 | `traffic_model`               | *N/A* – Só pode especificar se os dados de tráfego devem ser utilizados com o parâmetro *de tráfego.* |
-| `transit_mode`                | Ver [documentação dos serviços de mobilidade](/rest/api/maps/mobility) |
-| `transit_routing_preference` | Ver [documentação dos serviços de mobilidade](/rest/api/maps/mobility) |
+| `transit_mode`                | Ver [documentação dos serviços de mobilidade (Pré-visualização)](/rest/api/maps/mobility) |
+| `transit_routing_preference` | Ver [documentação dos serviços de mobilidade (Pré-visualização)](/rest/api/maps/mobility) |
 | `units`                        | *N/A* – Azure Maps utiliza apenas o sistema métrico.  |
 | `waypoints`                    | `query`                            |
 
@@ -265,10 +265,10 @@ A tabela cruza referências aos parâmetros API do Google Maps com os parâmetro
 | `markers`                   | `pins`                             |
 | `path`                      | `path`                             |
 | `region`                    | *N/A* – Esta é uma característica relacionada com a geocodagem. Utilize o `countrySet` parâmetro quando utilizar a API de geocodagem Azure Maps.  |
-| `scale`                     | *N/D*                              |
+| `scale`                     | *N/A*                              |
 | `size`                      | `width` e `height` – pode ser até 8192x8192 em tamanho. |
-| `style`                     | *N/D*                              |
-| `visible`                   | *N/D*                              |
+| `style`                     | *N/A*                              |
+| `visible`                   | *N/A*                              |
 | `zoom`                      | `zoom`                             |
 
 > [!NOTE]

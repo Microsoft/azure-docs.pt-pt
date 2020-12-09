@@ -1,19 +1,19 @@
 ---
 title: Integração contínua com os Pipelines do Azure
-description: Aprenda a construir, testar e implementar continuamente modelos de Gestor de Recursos Azure.
+description: Aprenda a construir, testar e implementar continuamente modelos de Gestor de Recursos Azure (modelos ARM).
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 433811cb632aae0d7370fc8e401c01fe36621a5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7688a4e4838cb591bcd3ac0045a5ed22180c063
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333242"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906357"
 ---
-# <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integração contínua de modelos do Gestor de Recursos Azure com Pipelines Azure
+# <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Tutorial: Integração contínua de modelos ARM com Pipelines Azure
 
-No [tutorial anterior,](./deployment-tutorial-linked-template.md)implementa-se um modelo ligado.  Neste tutorial, você aprende a usar pipelines Azure para construir e implementar continuamente projetos de modelo de Gestor de Recursos Azure.
+No [tutorial anterior,](./deployment-tutorial-linked-template.md)implementa-se um modelo ligado.  Neste tutorial, você aprende a usar pipelines Azure para construir e implementar continuamente projetos de modelo de Gestor de Recursos Azure (modelo ARM).
 
 A Azure DevOps fornece serviços de desenvolvimento para apoiar equipas para planear o trabalho, colaborar no desenvolvimento de códigos e construir e implementar aplicações. Os desenvolvedores podem trabalhar na nuvem usando os Serviços Azure DevOps. O Azure DevOps fornece um conjunto integrado de funcionalidades que pode aceder através do seu navegador web ou cliente IDE. Azure Pipeline é uma destas funcionalidades. Azure Pipelines é um serviço de integração contínua (CI) e entrega contínua (CD) totalmente apresentado. Funciona com o seu fornecedor de Git preferido e pode implementar para a maioria dos principais serviços em nuvem. Em seguida, pode automatizar a construção, teste e implementação do seu código para o Microsoft Azure, Google Cloud Platform ou Amazon Web Services.
 
@@ -40,7 +40,7 @@ Para concluir este artigo, precisa de:
 * **Uma conta GitHub,** onde a utiliza para criar um repositório para os seus modelos. Caso não tenha uma, pode [criá-la gratuitamente](https://github.com). Para obter mais informações sobre a utilização de repositórios GitHub, consulte [os repositórios Build GitHub](/azure/devops/pipelines/repos/github).
 * **Instale git**. Esta instrução tutorial usa *Git Bash* ou *Git Shell.* Para obter instruções, consulte [instalar o Git]( https://www.atlassian.com/git/tutorials/install-git).
 * **Uma organização da Azure DevOps.** Caso não tenha uma, pode criá-la gratuitamente. Ver [Criar uma organização ou coleção de projetos.](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
-* (opcional) **Código de estúdio visual com extensão de Ferramentas do Gestor de Recursos**. Consulte [Quickstart: Crie modelos de Gestor de Recursos Azure com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
+* (opcional) **Código de estúdio visual com extensão de Ferramentas do Gestor de Recursos**. Consulte [Quickstart: Crie modelos ARM com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="prepare-a-github-repository"></a>Preparar um repositório do GitHub
 
@@ -123,7 +123,7 @@ Uma organização de DevOps é necessária antes de poder avançar para o proced
 1. Selecione **Novo projeto**. Se não tiver projetos, a página do projeto create é aberta automaticamente.
 1. Introduza os seguintes valores:
 
-    * **Nome do**projeto : insira um nome de projeto. Pode usar o nome do projeto que escolheu no início do tutorial.
+    * **Nome do** projeto : insira um nome de projeto. Pode usar o nome do projeto que escolheu no início do tutorial.
     * **Controlo da versão**: Selecione **Git**. Poderá ser necessário expandir o **Advanced** para ver o **controlo da versão.**
 
     Utilize o valor predefinido para as outras propriedades.
@@ -133,8 +133,8 @@ Crie uma ligação de serviço que seja usada para implantar projetos para a Azu
 
 1. Selecione **as definições** do Projeto a partir da parte inferior do menu esquerdo.
 1. Selecione **ligações de serviço** em **Pipelines**.
-1. Selecione **nova ligação de serviço**, selecione **Azure Resource Manager**e, em seguida, selecione **Seguinte**.
-1. Selecione **o principal do serviço**e, em seguida, selecione **Seguinte**.
+1. Selecione **nova ligação de serviço**, selecione **Azure Resource Manager** e, em seguida, selecione **Seguinte**.
+1. Selecione **o principal do serviço** e, em seguida, selecione **Seguinte**.
 1. Introduza os seguintes valores:
 
     * **Nível de âmbito**: selecione **Subscrição**.
@@ -155,7 +155,7 @@ Para criar um oleoduto com um passo para implementar um modelo:
 
 1. Selecione **Pipelines** do menu esquerdo.
 1. Selecione **Novo oleoduto**.
-1. No separador **Connect** (Ligar), selecione **GitHub**. Se solicitado, insira as suas credenciais GitHub e siga as instruções. Se vir o ecrã a seguir, selecione **Apenas selecione repositórios**e verifique se o seu repositório está na lista antes de selecionar **Aprovar & instalar**.
+1. No separador **Connect** (Ligar), selecione **GitHub**. Se solicitado, insira as suas credenciais GitHub e siga as instruções. Se vir o ecrã a seguir, selecione **Apenas selecione repositórios** e verifique se o seu repositório está na lista antes de selecionar **Aprovar & instalar**.
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines apenas seleciona repositórios](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-only-select-repositories.png)
 

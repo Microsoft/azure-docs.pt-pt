@@ -1,20 +1,20 @@
 ---
 title: Modelo de implementação - IntelliJ IDEA
-description: Aprenda a criar o seu primeiro modelo de Gestor de Recursos Azure utilizando o IntelliJ IDEA e como implementá-lo.
+description: Saiba como criar o seu primeiro modelo de Gestor de Recursos Azure (modelo ARM) utilizando o IntelliJ IDEA e como implementá-lo.
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.openlocfilehash: 6a596eff70bfc20b5a6752ef47398bd14d527c97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0e007fe8930b30cee1c95159d7e964e3792449f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973331"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905966"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Criar e implementar modelos ARM utilizando o IntelliJ IDEA
 
-Aprenda a implementar um modelo Azure Resource Manager (ARM) para Azure utilizando o IntelliJ IDEA e o processo de edição e atualização do modelo diretamente do IDE. Os modelos ARM são ficheiros JSON que definem os recursos necessários para a sua solução. Para compreender os conceitos associados à implementação e gestão das suas soluções Azure, consulte a [visão geral da implementação do modelo.](overview.md)
+Aprenda a implementar um modelo de Gestor de Recursos Azure (modelo ARM) para Azure utilizando o IntelliJ IDEA, e o processo de edição e atualização do modelo diretamente do IDE. Os modelos ARM são ficheiros JSON que definem os recursos necessários para a sua solução. Para compreender os conceitos associados à implementação e gestão das suas soluções Azure, consulte a [visão geral](overview.md)da implementação do modelo .
 
 ![Diagrama do portal do modelo do gestor de recursos](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
@@ -40,7 +40,7 @@ Em vez de criar um modelo de raiz, pode abrir um modelo dos [Modelos de Início 
 
     ![Clique direito do modelo do gestor de recursos para criar implementação](./media/create-templates-use-intellij/resource-manager-create-deployment-right-click.png)
 
-1. Config o seu **Nome de Implantação,** **Assinatura,** **Grupo de Recursos**e **Região**. Aqui implantamos o modelo num novo grupo de `testRG` recursos. Em seguida, selecione o caminho para **o modelo de recurso** como e `azuredeploy.json` **parâmetros de recursos** à medida que `azuredeploy.parameters.json` descarregou.
+1. Config o seu **Nome de Implantação,** **Assinatura,** **Grupo de Recursos** e **Região**. Aqui implantamos o modelo num novo grupo de `testRG` recursos. Em seguida, selecione o caminho para **o modelo de recurso** como e `azuredeploy.json` **parâmetros de recursos** à medida que `azuredeploy.parameters.json` descarregou.
 
     ![O modelo de gestor de recursos seleciona ficheiros para criar a implementação](./media/create-templates-use-intellij/resource-manager-create-deployment-select-files.png)
 

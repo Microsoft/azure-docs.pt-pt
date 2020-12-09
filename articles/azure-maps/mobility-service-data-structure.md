@@ -1,27 +1,33 @@
 ---
-title: Estruturas de dados do Serviço de Mobilidade no Azure Maps Microsoft Azure Maps
-description: Entenda como os dados são organizados em áreas de metro nos serviços de Mobilidade Azure Maps. Veja quais os campos que armazenam informações sobre paragens e linhas de trânsito público.
+title: Estruturas de dados de serviços de mobilidade (Preview) no Microsoft Azure Maps
+description: Entenda como os dados são organizados em áreas metropolitanas nos serviços de Mobilidade Azure Maps (Preview). Veja quais os campos que armazenam informações sobre paragens e linhas de trânsito público.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/05/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 60d45febced2f2d678d41682f7f27bf668943de2
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 8ffedc18ba331733723a6293756b60b733cc32cf
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896315"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904725"
 ---
-# <a name="data-structures-in-azure-maps-mobility-service"></a>Estruturas de dados no Azure Maps Mobility Service
+# <a name="data-structures-in-azure-maps-mobility-services-preview"></a>Estruturas de dados nos serviços de mobilidade Azure Maps (Pré-visualização) 
 
-Este artigo introduz o conceito de Área metropolitana no Serviço de [Mobilidade Azure Maps.](/rest/api/maps/mobility) Discutimos alguns dos campos comuns que são devolvidos quando este serviço é questionado para paragens e linhas de trânsito público. Recomendamos a leitura deste artigo antes de desenvolver com as APIs do Serviço de Mobilidade.
+> [!IMPORTANT]
+> Os serviços de mobilidade Azure Maps estão atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+
+Este artigo introduz o conceito de Área metropolitana nos serviços de [Mobilidade Azure Maps.](/rest/api/maps/mobility) Discutimos alguns dos campos comuns que são devolvidos quando este serviço é questionado para paragens e linhas de trânsito público. Recomendamos a leitura deste artigo antes de desenvolver com as APIs dos serviços de Mobilidade.
 
 ## <a name="metro-area"></a>Área metropolitana
 
-Os dados do Serviço de Mobilidade são agrupados por áreas de metro apoiadas. As áreas de metro não seguem os limites da cidade. Uma área metropolitana pode conter várias cidades, cidade densamente povoada e cidades circundantes. Na verdade, um país/região pode ser uma área de metro. 
+Os dados dos serviços de mobilidade (Preview) são agrupados por áreas de metro apoiadas. As áreas de metro não seguem os limites da cidade. Uma área metropolitana pode conter várias cidades, cidade densamente povoada e cidades circundantes. Na verdade, um país/região pode ser uma área de metro. 
 
 O `metroID` iD de uma área de metrô que pode ser usado para chamar a [API de Informação da Área do Metro.](/rest/api/maps/mobility/getmetroareainfopreview) Utilize a API "Get Metro" da Azure Maps para solicitar tipos de trânsito, agências de trânsito, alertas ativos e detalhes adicionais para o metrô escolhido. Você também pode solicitar as áreas de metrô e metroIDs apoiados. As identificações da área do metro estão sujeitas a alterações.
 
@@ -37,7 +43,7 @@ Para começar, pode solicitar paragens de trânsito nas proximidades usando [a A
 
 ## <a name="line-groups-and-lines"></a>Grupos de linha e linhas
 
-O Serviço de Mobilidade utiliza um modelo de dados paralelo para linhas e grupos de linha. Este modelo é utilizado para lidar melhor com as mudanças herdadas das rotas [GTFS](http://gtfs.org/) e os dados das viagens.
+Os serviços de mobilidade (Preview) utilizam um modelo de dados paralelo para linhas e grupos de linha. Este modelo é utilizado para lidar melhor com as mudanças herdadas das rotas [GTFS](http://gtfs.org/) e os dados das viagens.
 
 
 ### <a name="line-groups"></a>Grupos de Linha
@@ -54,17 +60,17 @@ Para começar, pode solicitar grupos de linha utilizando a [API da Linha de Trâ
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como solicitar dados de trânsito utilizando o Serviço de Mobilidade:
+Saiba como solicitar dados de trânsito utilizando serviços de mobilidade (Pré-visualização):
 
 > [!div class="nextstepaction"]
 > [Como solicitar dados de trânsito](how-to-request-transit-data.md)
 
-Saiba como solicitar dados em tempo real utilizando o Serviço de Mobilidade:
+Saiba como solicitar dados em tempo real utilizando serviços de mobilidade (Pré-visualização):
 
 > [!div class="nextstepaction"]
 > [Como solicitar dados em tempo real](how-to-request-real-time-data.md)
 
-Explore a documentação da APC do Serviço de Mobilidade Azure Maps
+Explore a documentação da API dos serviços de mobilidade Azure Maps (Preview)
 
 > [!div class="nextstepaction"]
-> [Documentação da API do Serviço de Mobilidade](/rest/api/maps/mobility)
+> [Documentação da API dos serviços de mobilidade](/rest/api/maps/mobility)

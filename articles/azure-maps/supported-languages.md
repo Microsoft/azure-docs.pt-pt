@@ -1,19 +1,19 @@
 ---
-title: Apoio à localização / Microsoft Azure Maps
+title: Suporte à localização com o Microsoft Azure Maps
 description: Veja quais regiões O Azure Maps suporta com serviços como mapas, pesquisa, encaminhamento, meteorologia e incidentes de trânsito. Saiba como configurar o parâmetro Ver.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a6664b5a2c0c6b4de2435ee5c8bb29f63560c342
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50e5d0721eb14d1fcdfad26aaf081bfa370e954e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037699"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904521"
 ---
 # <a name="localization-support-in-azure-maps"></a>Apoio à localização no Azure Maps
 
@@ -22,7 +22,7 @@ O Azure Maps suporta várias línguas e pontos de vista baseados em país/regiã
 
 ## <a name="azure-maps-supported-languages"></a>Azure Maps apoiou línguas
 
-O Azure Maps tem sido localizado em línguas de variedades em todos os seus serviços. A tabela seguinte fornece os códigos linguísticos suportados para cada serviço.  
+O Azure Maps tem sido localizado em línguas de variedades em todos os seus serviços. A tabela seguinte fornece os códigos linguísticos suportados para cada serviço.  
   
 
 | ID         | Nome                   |  Mapas | Pesquisa | Encaminhamento | Meteorologia | Incidentes de trânsito | Controlo de mapas JS |
@@ -46,7 +46,7 @@ O Azure Maps tem sido localizado em línguas de variedades em todos os seus serv
 | en-AU      | Inglês (Austrália)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | en-NZ      | Inglês (Nova Zelândia)  |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | en-GB      | Inglês (Grã-Bretanha) |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
-| pt-PT      | Inglês (EUA)          |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
+| en-PT      | Inglês (EUA)          |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | et-EE      | Estónio               |       |    ✓   |         |      ✓    |         ✓         |                |
 | fil-PH     | Filipino               |       |       |         |     ✓    |                   |                |
 | fi-FI      | Finlandês                |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
@@ -129,10 +129,10 @@ Serviços de DESCANSO Azure Maps Afetados:
  * Obter Endereço de Pesquisa Ao Contrário
  * Obter Endereço de pesquisa Reverse Cross Street
  * Pesquisa de pós-geometria interna
- * Pré-visualização do lote de endereço de pesquisa de post
- * Pré-visualização do lote invertido do endereço de pesquisa de pós-pesquisa
+ * Lote de endereço de pesquisa de post
+ * Post Search Address Reverse Batch
  * Pesquisa de post ao longo da rota
- * Pré-visualização do lote fuzzy de pesquisa de pesquisa
+ * Post Search Fuzzy Batch
 
  
 ### <a name="sdks"></a>SDKs

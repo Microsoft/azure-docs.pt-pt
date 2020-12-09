@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 063ebc40fd845fe6300b008e7ca048357a2fce49
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: d2e5996da5a1fe3f5b154d57ee509f25e54e30ac
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95806672"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862365"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Problemas de conectividade SMTP de saída de problemas no Azure
 
@@ -39,7 +39,7 @@ Para os utilizadores do Enterprise Agreement Azure, não há qualquer alteraçã
 
 Se se inscreveu antes de 15 de novembro de 2017 para a subscrição Pay-As-You-Go, não haverá alterações na capacidade técnica de experimentar a entrega de emails de saída. Continuará a ser capaz de experimentar a entrega de emails de saída da Azure VMs dentro destas subscrições diretamente a fornecedores de e-mail externos sem quaisquer restrições da plataforma Azure. Mais uma vez, não é garantido que os fornecedores de e-mail aceitarão e-mails recebidos de qualquer utilizador, e os utilizadores terão de trabalhar diretamente com os fornecedores de e-mail para corrigir qualquer entrega de mensagens ou problemas de filtragem de SPAM que envolvam fornecedores específicos.
 
-Para as subscrições Pay-As-You-Go que foram criadas após 15 de novembro de 2017, haverá restrições técnicas que bloqueiam o e-mail que é enviado diretamente de VMs dentro destas subscrições. Se pretender enviar e-mails de VMs Azure diretamente para fornecedores de e-mail externos (não utilizando um relé SMTP autenticado), pode fazer um pedido para remover a restrição na secção de **Conectividade** da lâmina **De diagnóstico e Resolução** para um recurso de Rede Virtual Azure no portal Azure. Se for qualificado, a sua subscrição será ativada ou receberá instruções sobre os próximos passos.
+Para as subscrições Pay-As-You-Go que foram criadas após 15 de novembro de 2017, haverá restrições técnicas que bloqueiam o e-mail que é enviado diretamente de VMs dentro destas subscrições. Se pretender enviar e-mails de VMs da Azure diretamente para fornecedores de e-mail externos (não utilizando um relé SMTP autenticado) e tiver uma conta em boas condições com um histórico de pagamento, pode fazer um pedido para remover a restrição na secção **de Conectividade** da lâmina de Diagnóstico **e Resolução** para um recurso de Rede Virtual Azure no portal Azure. Se for qualificado, a sua subscrição será ativada ou receberá instruções sobre os próximos passos. 
 
 Depois de uma subscrição Pay-As-You-Go ser isenta e os VMs terem sido interrompidos e iniciados no portal Azure, todos os VMs nessa subscrição estão isentos em curso. A isenção aplica-se apenas à subscrição solicitada e apenas ao tráfego VM que é encaminhado diretamente para a internet.
 
@@ -54,13 +54,13 @@ Se estiver a utilizar estes tipos de subscrição, é encorajado a utilizar os s
 
 ## <a name="cloud-service-provider-csp"></a>Fornecedor de serviços na nuvem (CSP)
 
-Se estiver a utilizar recursos Azure através de CSP, pode fazer um pedido para remover a restrição na secção 'Conectividade' da lâmina 'Diagnosticar e Resolver' para um recurso de Rede Virtual no Portal Azure. Se for qualificado, a sua subscrição será ativada ou receberá instruções sobre os próximos passos..
+Se estiver a utilizar recursos Azure através de CSP, pode fazer um pedido para remover a restrição na secção de **Conectividade** da lâmina **De Diagnóstico e Resolução** para um recurso de Rede Virtual no Portal Azure. Se for qualificado, a sua subscrição será ativada ou receberá instruções sobre os próximos passos.
 
 ## <a name="microsoft-partner-network-mpn-bizspark-plus-or-azure-sponsorship"></a>Microsoft Partner Network (MPN), BizSpark Plus ou Patrocínio da Azure
 
 Para as subscrições da Microsoft Partner Network (MPN), BizSpark Plus ou Azure Sponsorship que foram criadas após 15 de novembro de 2017, haverá restrições técnicas que bloqueiam o e-mail que é enviado diretamente de VMs dentro destas subscrições. Se pretender enviar e-mails de VMs da Azure diretamente para fornecedores de e-mail externos (não utilizando um relé SMTP autenticado), pode fazer um pedido abrindo um caso de suporte utilizando o seguinte tipo de problema: Conectividade de rede virtual **técnica**  >  **Virtual Network**  >  **Connectivity**  >  **Não pode enviar e-mail (SMTP/Porta 25)**. Certifique-se de que adiciona detalhes sobre o motivo pelo qual a sua implementação tem de enviar correio diretamente para os fornecedores de correio em vez de usar um retransmissor autenticado. Os pedidos serão revistos e aprovados à discrição da Microsoft. Os pedidos só podem ser concedidos após a conclusão de controlos adicionais antifraude. 
 
-Depois de uma subscrição Pay-As-You-Go ser isenta e os VMs terem sido interrompidos e iniciados no portal Azure, todos os VMs nessa subscrição estão isentos em curso. A isenção aplica-se apenas à subscrição solicitada e apenas ao tráfego VM que é encaminhado diretamente para a internet.
+Depois de uma subscrição ser isenta e os VMs terem sido interrompidos e iniciados no portal Azure, todos os VMs nessa subscrição estão isentos daqui para a frente. A isenção aplica-se apenas à subscrição solicitada e apenas ao tráfego VM que é encaminhado diretamente para a internet.
 
 ## <a name="restrictions-and-limitations"></a>Restrições e limitações
 
@@ -68,4 +68,4 @@ Depois de uma subscrição Pay-As-You-Go ser isenta e os VMs terem sido interrom
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 
-Se ainda precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver rapidamente o seu problema utilizando o seguinte tipo de problema: Tipo de problema de **gestão de subscrição:** **Solicite para ativar o fluxo de e-mail do Porto 25**.
+Se ainda precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver rapidamente o seu problema utilizando o seguinte tipo de problema: Conectividade de rede virtual **técnica** Não  >  **Virtual Network**  >  **Connectivity**  >  **pode enviar e-mail (SMTP/Porta 25)**.

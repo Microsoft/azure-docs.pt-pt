@@ -1,21 +1,25 @@
 ---
-title: Implementar estilo dinâmico para mapas interiores do Azure Maps Creator
-description: Saiba como implementar o estilo dinâmico para mapas interiores do Criador
+title: Implementar estilo dinâmico para mapas interiores do Azure Maps Creator (Preview)
+description: Saiba como implementar o estilo dinâmico para mapas interiores do Criador (Preview)
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b9ce0d0770c7e6c4579469cc16d8c76c309a33d1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 266dc5d62f6224495075546528ad71d806d415ac
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895380"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903450"
 ---
-# <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implementar estilo dinâmico para mapas interiores do Criador
+# <a name="implement-dynamic-styling-for-creator-preview-indoor-maps"></a>Implementar estilo dinâmico para mapas interiores do Criador (Preview)
+
+> [!IMPORTANT]
+> Os serviços do Azure Maps Creator estão atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O [serviço Azure](/rest/api/maps/featurestate) Maps Creator Feature State permite aplicar estilos baseados nas propriedades dinâmicas das funcionalidades de dados do mapa interno.  Por exemplo, você pode renderizar salas de reuniões de instalações com uma cor específica para refletir o estado de ocupação. Neste artigo, vamos mostrar-lhe como tornar dinamicamente as funcionalidades do mapa interior com o [serviço Feature State](/rest/api/maps/featurestate) e o Módulo Web [Interior.](how-to-use-indoor-module.md)
 
@@ -23,7 +27,7 @@ O [serviço Azure](/rest/api/maps/featurestate) Maps Creator Feature State permi
 
 1. [Criar uma conta do Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtenha uma chave de subscrição primária,](quick-demo-map-app.md#get-the-primary-key-for-your-account)também conhecida como a chave primária ou a chave de subscrição.
-3. [Criar um recurso Criador](how-to-manage-creator.md)
+3. [Criar um recurso Criador (Pré-visualização)](how-to-manage-creator.md)
 4. Descarregue o [pacote de desenho de amostras.](https://github.com/Azure-Samples/am-creator-indoor-data-examples)
 5. [Crie um mapa interior](tutorial-creator-indoor-maps.md) para obter um `tilesetId` e `statesetId` .
 6. Construa uma aplicação web seguindo os passos de [Como utilizar o módulo mapa interior.](how-to-use-indoor-module.md)
@@ -66,7 +70,7 @@ Na próxima secção, vamos definir o *estado* de ocupação para `UNIT26` `true
 
  Vamos agora atualizar o estado dos dois escritórios, `UNIT26` `UNIT27` e:
 
-1. Na aplicação Do Carteiro, selecione **New** . Na janela **Criar Novo,** selecione **Request** . Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
+1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
 
 2. Utilize a [API dos Estados de Atualização de Funcionalidades](/rest/api/maps/featurestate/updatestatespreview) para atualizar o estado. Passe a identificação do estado, e `UNIT26` para uma das duas unidades. Apecir a sua chave de subscrição Azure Maps. Aqui está a URL de um pedido **de POST** para atualizar o estado:
 
@@ -113,7 +117,7 @@ A aplicação web que abriu anteriormente num browser deve agora refletir o esta
 Saiba mais lendo:
 
 > [!div class="nextstepaction"]
-> [Criador para mapeamento interior](creator-indoor-maps.md)
+> [Criador (Pré-visualização) para mapeamento interior](creator-indoor-maps.md)
 
 Consulte as referências para as APIs mencionadas neste artigo:
 

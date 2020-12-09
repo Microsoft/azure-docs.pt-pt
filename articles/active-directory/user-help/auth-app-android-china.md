@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 05/20/2020
+ms.date: 12/08/2020
 ms.author: curtand
-ms.openlocfilehash: 795c68fc063d98bdee6ccf59dba6ee718dc92d03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b3af7c5bd55e748b1d1f4cf8f192797187da30a
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84323030"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901801"
 ---
 # <a name="microsoft-authenticator-for-android-in-the-public-cloud-in-china"></a>Microsoft Authenticator para Android na nuvem pública na China
 
@@ -57,6 +57,7 @@ Registo/autenticação de MFA apenas através de códigos TOTP/verificação | S
 Registo de inscrição no telefone | Não
 Inscrição de telefone existente usando notificações push | Não
 Verificação de entrada de telefone existente através da verificação manual dos pedidos de autenticação | Sim
+Suporte para a aplicação Authenticator para contas pessoais da Microsoft | Não
 
 ## <a name="next-steps"></a>Próximos passos
 

@@ -1,22 +1,27 @@
 ---
-title: Cobertura meteorológica no Microsoft Azure Maps
-description: Saiba mais sobre a cobertura meteorológica no Microsoft Azure Maps.
+title: Cobertura dos serviços de meteorologia do Microsoft Azure Maps (Pré-visualização)
+description: Saiba mais sobre a cobertura dos serviços de clima do Microsoft Azure Maps (Pré-visualização)
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/17/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
 manager: philmea
-ms.openlocfilehash: 61e529e44f48343027457f18ba503e4bbb5930f1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 6c4e9eb765a72b7a0b495f81a954b484ef6aa2b7
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896621"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905490"
 ---
-# <a name="azure-maps-weather-coverage"></a>Cobertura meteorológica do Azure Maps
+# <a name="azure-maps-weather-services-preview-coverage"></a>Cobertura dos serviços Azure Maps Weather (Pré-visualização)
+
+> [!IMPORTANT]
+> Os serviços Azure Maps Weather estão atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Este artigo fornece informações de cobertura para [os serviços Azure](/rest/api/maps/weather)Maps Weather . Azure Maps Os serviços de dados meteorológicos retornam detalhes como azulejos de radar, condições meteorológicas atuais, previsões meteorológicas e o tempo ao longo de uma rota.
 
@@ -239,7 +244,7 @@ A tabela seguinte fornece informações sobre que tipo de informações meteorol
 | Wallis e Futuna                 | ✓ |   | | ✓| 
 
 
-## <a name="europe"></a>Europe
+## <a name="europe"></a>Europa
 
 | Pais/região              |  Azulejos de satélite | Previsão de Minutos, Azulejos de Radar | Alertas meteorológicos severos | Outros* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|:--------:|

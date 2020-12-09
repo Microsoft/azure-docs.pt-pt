@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Configurar plataforma dev'
+title: 'Quickstart: Criar ambiente de desenvolvimento'
 titleSuffix: Azure Cognitive Services
 description: Neste arranque rápido, aprenderás a instalar o SDK do Discurso para a tua plataforma preferida e a combinação de linguagem de programação.
 services: cognitive-services
@@ -12,12 +12,12 @@ ms.date: 10/15/2020
 ms.author: trbye
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-speech-services-one-nomore
-ms.openlocfilehash: 53e29d3374f9b5d44c9f46a46bbacc3ed2e12f35
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 27bca1145e378d2b4a0d124849441ba9ad9be832
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188438"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906450"
 ---
 # <a name="quickstart-setup-development-environment"></a>Quickstart: Ambiente de desenvolvimento de configuração
 

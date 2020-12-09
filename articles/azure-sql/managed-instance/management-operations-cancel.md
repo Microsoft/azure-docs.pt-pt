@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 092981f9d74a3f9f18c491ca6cee539a29e73c83
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 342491178d55dacbdc68e6c9042623d381dff898
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782506"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861549"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Cancelamento de operações de gestão de instância gerida da Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -61,7 +61,7 @@ Para cancelar as operações de gestão utilizando o portal Azure, siga estes pa
 
 1. Selecione **Cancelar a operação** na parte inferior da página. 
 
-   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Selecione a caixa de funcionamento em curso para abrir a página de funcionamento em curso.":::
+   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Selecione cancelar para cancelar a operação.":::
 
 1. Confirme que deseja cancelar a operação. 
 
@@ -122,7 +122,6 @@ Os casos que não conseguiram criar ainda estão presentes como recurso e:
 
 - Não são cobrados
 - Não conte para limites de recursos (sub-rede ou quota vCore)
-- Mantenha o nome da instância reservado - Para implementar uma instância com o mesmo nome, elimine a instância falhada para divulgar o nome
 
 
 > [!NOTE]

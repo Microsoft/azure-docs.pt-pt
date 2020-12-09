@@ -3,18 +3,18 @@ title: 'Tutorial: Migrar serviços web a partir de Bing Maps Microsoft Azure Map
 description: Tutorial sobre como migrar serviços web de Bing Maps para Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 9/10/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: c6e63f67aca279b64829e67e1aa06a69d312fd58
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d257c66de8fb62fb57c573d91966f3e7d8d1b123
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897029"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904963"
 ---
 # <a name="tutorial---migrate-web-service-from-bing-maps"></a>Tutorial - Migrar o serviço web a partir de Bing Maps
 
@@ -37,21 +37,21 @@ A tabela seguinte fornece as APIs de serviço Azure Maps que fornecem uma funcio
 | Serviços de Dados Espaciais (SDS)           | [Pesquisar](/rest/api/maps/search)  +  [Rota](/rest/api/maps/route) + outros Serviços Azure |
 | Fuso Horário                             | [Fuso Horário](/rest/api/maps/timezone)  |
 | Incidentes de Trânsito                     | [Detalhes do incidente de tráfego](/rest/api/maps/traffic/gettrafficincidentdetail)                     |
+| Elevação                             | [Elevação (Pré-visualização)](/rest/api/maps/elevation)
 
 As apis de serviço a seguir não estão atualmente disponíveis no Azure Maps:
 
--   Elevação - Planejado
 -   Itinerário otimizado - Planejado. A Azure Maps Route API suporta a otimização de vendedores de viagens para um único veículo.
 -   Metadados de imagens – Usado principalmente para obter URLs de azulejos em Bing Maps. O Azure Maps tem um serviço autónomo para aceder diretamente aos azulejos do mapa.
 
 O Azure Maps dispõe de vários serviços web REST adicionais que podem ser de interesse;
 
--   [Azure Maps Creator](./creator-indoor-maps.md) – Crie um gémeo digital privado personalizado de edifícios e espaços.
+-   [Azure Maps Creator (Preview) ](./creator-indoor-maps.md) – Crie um gémeo digital privado personalizado de edifícios e espaços.
 -   [Operações espaciais](/rest/api/maps/spatial) – Descarregar cálculos e operações espaciais complexos, como geofencing, para um serviço.
 -   [Map Tiles](/rest/api/maps/render/getmaptile) – Acesso a azulejos rodoviários e de imagens do Azure Maps como raster e telhas vetoriais.
 -   [Encaminhamento de lote](/rest/api/maps/route/postroutedirectionsbatchpreview) – Permite que até 1.000 pedidos de rota sejam feitos num único lote durante um período de tempo. As rotas são calculadas paralelamente no servidor para um processamento mais rápido.
 -   [Tráfego](/rest/api/maps/traffic) Fluxo – Aceda aos dados de fluxo de tráfego em tempo real como azulejos raster e vetor.
--   [Geolocalização API](/rest/api/maps/geolocation/getiptolocationpreview) – Obtenha a localização de um endereço IP.
+-   [Geolocalização API (Pré-visualização)](/rest/api/maps/geolocation/getiptolocationpreview) – Obtenha a localização de um endereço IP.
 -   [Serviços meteorológicos](/rest/api/maps/weather) – Obtenha acesso a dados meteorológicos em tempo real e previsão.
 
 Certifique-se de rever também os seguintes guias de boas práticas:
@@ -154,7 +154,7 @@ A tabela seguinte cruza referências aos valores de tipo de entidade Bing Maps a
 |-----------------------|-------------------------------------------------|--------------------------------------------|
 | `Address`             |                                                 | *Endereço*                                  |
 | `Neighborhood`        | `Neighbourhood`                                 | *Bairro*                             |
-| `PopulatedPlace`      | `Municipality` ou `MunicipalitySubdivision`     | *Cidade* , *Cidade ou Sub,* ou *Super Cidade*     |
+| `PopulatedPlace`      | `Municipality` ou `MunicipalitySubdivision`     | *Cidade*, *Cidade ou Sub,* ou *Super Cidade*     |
 | `Postcode1`           | `PostalCodeArea`                                | *Código Postal* ou *Código Postal*                |
 | `AdminDivision1`      | `CountrySubdivision`                            | *Estado* ou *Província*                      |
 | `AdminDivision2`      | `CountrySecondarySubdivison`                    | *Condado* ou *distritos*                    |
@@ -186,7 +186,7 @@ O serviço de encaminhamento Azure Maps fornece as seguintes APIs para o cálcul
 
 -   [Calcular rota:](/rest/api/maps/route/getroutedirections)Calcular uma rota e ter o pedido processado imediatamente. Esta API suporta pedidos GET e POST. Os pedidos de POST são recomendados ao especificar um grande número de pontos de passagem ou quando se utilizam muitas das opções de rota para garantir que o pedido de URL não se torna muito longo e causa problemas.
 -   [Rota do lote](/rest/api/maps/route/postroutedirectionsbatchpreview): Crie um pedido que contenha até 1.000 pedidos de rota e processe-os durante um período de tempo. Todos os dados serão processados em paralelo no servidor e quando concluídos o conjunto de resultados completos podem ser descarregados.
--   [Serviços de mobilidade](/rest/api/maps/mobility): Calcular rotas e direções utilizando o trânsito público.
+-   [Serviços de mobilidade (Pré-visualização) ](/rest/api/maps/mobility): Calcular rotas e direções utilizando o trânsito público.
 
 A tabela seguinte cruza referências aos parâmetros API Bing Maps com os parâmetros API comparáveis em Azure Maps.
 
@@ -221,12 +221,12 @@ A Azure Maps encaminhamento API também suporta o encaminhamento de camiões den
 | `vehicleLength` (`vl`)                   | `vehicleLength`                            |
 | `vehicleWeight` (`weight`)               | `vehicleWeight`                            |
 | `vehicleAxles` (`axles`)                 | `vehicleAxelWeight`                        |
-| `vehicleTrailers` (`vt`)                 | **N/D**                                    |
+| `vehicleTrailers` (`vt`)                 | **N/A**                                    |
 | `vehicleSemi` (`semi`)                   | `vehicleCommercial`                        |
-| `vehicleMaxGradient` (`vmg`)             | **N/D**                                    |
-| `vehicleMinTurnRadius` (`vmtr`)          | **N/D**                                    |
-| `vehicleAvoidCrossWind` (`vacw`)         | **N/D**                                    |
-| `vehicleAvoidGroundingRisk` (`vagr`)     | **N/D**                                    |
+| `vehicleMaxGradient` (`vmg`)             | **N/A**                                    |
+| `vehicleMinTurnRadius` (`vmtr`)          | **N/A**                                    |
+| `vehicleAvoidCrossWind` (`vacw`)         | **N/A**                                    |
+| `vehicleAvoidGroundingRisk` (`vagr`)     | **N/A**                                    |
 | `vehicleHazardousMaterials` (`vhm`)      | `vehicleLoadType`                          |
 | `vehicleHazardousPermits` (`vhp`)        | `vehicleLoadType`                          |
 
@@ -287,12 +287,12 @@ A Azure Maps encaminhamento API também suporta o parâmetro de encaminhamento d
 | `vehicleLength` (`vl`)                  | `vehicleLength`                            |
 | `vehicleWeight` (`weight`)              | `vehicleWeight`                            |
 | `vehicleAxles` (`axles`)                | `vehicleAxelWeight`                        |
-| `vehicleTrailers` (`vt`)                | **N/D**                                    |
+| `vehicleTrailers` (`vt`)                | **N/A**                                    |
 | `vehicleSemi` (`semi`)                  | `vehicleCommercial`                        |
-| `vehicleMaxGradient` (`vmg`)            | **N/D**                                    |
-| `vehicleMinTurnRadius` (`vmtr`)         | **N/D**                                    |
-| `vehicleAvoidCrossWind` (`vacw`)        | **N/D**                                    |
-| `vehicleAvoidGroundingRisk` (`vagr`)    | **N/D**                                    |
+| `vehicleMaxGradient` (`vmg`)            | **N/A**                                    |
+| `vehicleMinTurnRadius` (`vmtr`)         | **N/A**                                    |
+| `vehicleAvoidCrossWind` (`vacw`)        | **N/A**                                    |
+| `vehicleAvoidGroundingRisk` (`vagr`)    | **N/A**                                    |
 | `vehicleHazardousMaterials` (`vhm`)     | `vehicleLoadType`                          |
 | `vehicleHazardousPermits` (`vhp`)       | `vehicleLoadType`                          |
 
@@ -528,7 +528,7 @@ A tabela seguinte cruza referências aos parâmetros API Bing Maps com os parâm
 Os dados de pontos de interesse podem ser pesquisados no Bing Maps utilizando as seguintes APIs:
 
 -   **Pesquisa local:** Procura pontos de interesse que estejam nas proximidades (pesquisa radial), por nome ou por tipo de entidade (categoria). A [pesquisa de POI Azure](/rest/api/maps/search/getsearchpoi) Maps e as APIs de pesquisa de [categorias POI](/rest/api/maps/search/getsearchpoicategory) são mais como esta API.
--   **Reconhecimento de localização** : Procura pontos de interesse que estejam a uma certa distância de um local. A Azure Maps [pesquisa perto](/rest/api/maps/search/getsearchnearby) API é mais como esta API.
+-   **Reconhecimento de localização**: Procura pontos de interesse que estejam a uma certa distância de um local. A Azure Maps [pesquisa perto](/rest/api/maps/search/getsearchnearby) API é mais como esta API.
 -   **Insights locais:** Procura pontos de interesse que estejam dentro de um tempo de condução máximo especificado ou distância de uma coordenada específica. Isto é alcançável com Azure Maps calculando primeiro um isochrone e, em seguida, passando-o para a pesquisa dentro da [API de geometria.](/rest/api/maps/search/postsearchinsidegeometry)
 
 A Azure Maps fornece várias APIs de pesquisa para pontos de interesse:
@@ -614,7 +614,7 @@ O Bing Maps permite que até 200.000 endereços sejam passados num único pedido
 
 O Azure Maps tem um serviço de geocoding de lote, no entanto permite que até 10.000 endereços sejam passados num único pedido e é processado em poucos minutos, dependendo do tamanho do conjunto de dados e da carga no serviço. Cada endereço no pedido gerou uma transação. No Azure Maps, o serviço de geocodagem de lote só está disponível no nível S1.
 
-Outra opção para geocoding um grande número de endereços com Azure Maps é fazer pedidos paralelos às APIs de pesquisa padrão. Estes serviços apenas aceitam um único endereço por pedido, mas podem ser utilizados com o nível S0 que também fornece limites de utilização gratuitos. O nível S0 permite até 50 pedidos por segundo para a plataforma Azure Maps a partir de uma única conta. Portanto, se processar a limitação das tes para permanecer dentro desse limite, é possível geocodificar mais de 180.000 endereços por hora. O nível S1 não tem um limite documentado no número de consultas por segundo que podem ser feitas a partir de uma conta, pelo que muito mais dados podem ser processados mais rapidamente ao utilizar esse nível de preços, no entanto a utilização do serviço de geocodagem de lote ajudará a reduzir a quantidade total de dados transferidos e reduzirá drasticamente o tráfego da rede.
+Outra opção para geocoding um grande número de endereços com Azure Maps é fazer pedidos paralelos às APIs de pesquisa padrão. Estes serviços apenas aceitam um único endereço por pedido, mas podem ser utilizados com o nível S0 que também fornece limites de utilização gratuitos. O nível S0 permite até 50 pedidos por segundo para a plataforma Azure Maps a partir de uma única conta. Portanto, se os limitarmos a permanecer dentro desse limite, é possível geocodificar mais de 180.000 endereços por hora. O nível S1 não tem um limite documentado no número de consultas por segundo que podem ser feitas a partir de uma conta, pelo que muito mais dados podem ser processados mais rapidamente ao utilizar esse nível de preços, no entanto a utilização do serviço de geocodagem de lote ajudará a reduzir a quantidade total de dados transferidos e reduzirá drasticamente o tráfego da rede.
 
 -   [Geocoding de endereço de formulário gratuito](/rest/api/maps/search/getsearchaddress): Especifique uma única cadeia de endereços (como) e `"1 Microsoft way, Redmond, WA"` processe o pedido imediatamente. Este serviço é recomendado se precisar de geocodificar os endereços individuais rapidamente.
 -   [Endereço estruturado geocoding](/rest/api/maps/search/getsearchaddressstructured): Especificar as partes de um único endereço, como o nome de rua, cidade, país e código postal e processar o pedido imediatamente. Este serviço é recomendado se necessitar de geocodificar rapidamente os endereços individuais e os dados já estiverem analisados nas suas partes de endereços individuais.

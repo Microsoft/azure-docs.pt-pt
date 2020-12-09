@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 62a71f484baab2a8a717535cec77f2629cc2fb08
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 5594e8225b615bf6e1af5077bd68422edbbeec19
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754922"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905456"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Introdução ao Azure Defender para Gestor de Recursos
 
@@ -46,7 +46,7 @@ Uma lista completa dos alertas fornecidos pelo Azure Defender para o Gestor de R
 
  ## <a name="how-to-investigate-alerts-from-azure-defender-for-resource-manager"></a>Como investigar alertas do Azure Defender para gestor de recursos
 
-Os alertas de segurança do Azure Defender para o Gestor de Recursos baseiam-se em ameaças detetadas através da monitorização das operações do Azure Resource Manager. O Azure Defender utiliza e fontes internas de log do Azure Resource Manager, bem como do registo de Atividades Azure, um registo de plataforma no Azure que fornece informações sobre eventos de nível de subscrição.
+Os alertas de segurança do Azure Defender para o Gestor de Recursos baseiam-se em ameaças detetadas através da monitorização das operações do Azure Resource Manager. O Azure Defender utiliza fontes internas de log do Azure Resource Manager, bem como do registo de Atividades Azure, um registo de plataforma no Azure que fornece informações sobre eventos de nível de subscrição.
 
 Saiba mais sobre [o registo de Atividades Azure](../azure-monitor/platform/activity-log.md).
 

@@ -3,12 +3,12 @@ title: Extensão da política Azure para Código do Estúdio Visual
 description: Saiba como usar a extensão da Política Azure para o Código do Estúdio Visual para procurar pseudónimos do Gestor de Recursos Azure.
 ms.date: 10/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 233c9158c30d6c373dd6147090894dc83b83da3d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8c7357d70323fa74ec77cf43bd11f149a2f99154
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022433"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906306"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Use a extensão da política Azure para código de estúdio visual
 
@@ -16,10 +16,7 @@ ms.locfileid: "96022433"
 
 Saiba como usar a extensão da Política Azure para o Código do Estúdio Visual para procurar [pseudónimos,](../concepts/definition-structure.md#aliases)rever recursos e políticas, exportar objetos e avaliar definições de políticas. Primeiro, descreveremos como instalar a extensão da Política Azure no Código do Estúdio Visual. Depois vamos ver como procurar pseudónimos.
 
-A extensão da Política Azure para Código do Estúdio Visual pode ser instalada em todas as plataformas que são suportadas pelo Código do Estúdio Visual. Este suporte inclui Windows, Linux e macOS.
-
-> [!NOTE]
-> As alterações feitas localmente às políticas visualizadas na extensão da Política Azure para o Código do Estúdio Visual não estão sincronizadas com o Azure.
+A extensão da Política Azure para o Código do Estúdio Visual pode ser instalada em todas as plataformas que são suportadas pelo Código do Estúdio Visual. Este suporte inclui Windows, Linux e macOS.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,33 +25,30 @@ São necessários os seguintes itens para completar as etapas deste artigo:
 - Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 - [Visual Studio Code](https://code.visualstudio.com).
 
-## <a name="install-azure-policy-extension"></a>Instalar extensão da Política Azure
+## <a name="install-and-configure-the-azure-policy-extension"></a>Instale e configuure a extensão da Política Azure
 
 Depois de cumprir os pré-requisitos, pode instalar a extensão da Política Azure para o Código do Estúdio Visual seguindo estes passos:
 
 1. Abra o Visual Studio Code.
-
 1. A partir da barra de menu, vá a **Ver**  >  **Extensões.**
-
 1. Na caixa de pesquisa, insira **a Política Azure**.
-
 1. Selecione **Azure Policy** a partir dos resultados da pesquisa e, em seguida, selecione **Instalar**.
-
 1. Selecione **Recarregar** quando necessário.
-
-## <a name="set-the-azure-environment"></a>Definir o ambiente Azure
 
 Para um utilizador nacional de nuvem, siga estes passos para definir primeiro o ambiente Azure:
 
 1. Selecione **Ficheiro\Preferências\Definições**.
-
 1. Pesquisar na seguinte cadeia: _Azure: Cloud_
-
 1. Selecione a nuvem nacional da lista:
 
    :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Screenshot de selecionar a nação Azure cloud iniciar súmite para Código de Estúdio Visual." border="false":::
 
-## <a name="connect-to-an-azure-account"></a>Ligar a uma conta do Azure
+## <a name="using-the-policy-extension"></a>Usando a extensão da Política
+
+> [!NOTE]
+> As alterações feitas localmente às políticas visualizadas na extensão da Política Azure para o Código do Estúdio Visual não estão sincronizadas com o Azure.
+
+### <a name="connect-to-an-azure-account"></a>Ligar a uma conta do Azure
 
 Para avaliar recursos e procurar pseudónimos, tem de se ligar à sua conta Azure. Siga estes passos para ligar ao Azure a partir do Código do Estúdio Visual:
 
@@ -74,13 +68,13 @@ Para avaliar recursos e procurar pseudónimos, tem de se ligar à sua conta Azur
 
 1. Siga o sinal em instruções para iniciar seduca. Depois de conectado, o nome da sua conta Azure é mostrado na barra de estado na parte inferior da janela Visual Studio Code.
 
-## <a name="select-subscriptions"></a>Selecione subscrições
+### <a name="select-subscriptions"></a>Selecione subscrições
 
 Quando iniciar a sua primeira sação, apenas os recursos e políticas de subscrição predefinidos são carregados pela extensão da Política Azure. Para adicionar ou remover subscrições de recursos e políticas de exibição, siga estes passos:
 
 1. Inicie o comando de subscrição a partir da Paleta de Comando ou do rodapé da janela.
 
-   - Paleta de comando: 
+   - Paleta de comando:
 
      A partir da barra de menu, vá à **Paleta** > **de Comando,** e **introduza Azure: Selecione Subscrições**.
 
@@ -90,7 +84,7 @@ Quando iniciar a sua primeira sação, apenas os recursos e políticas de subscr
 
 1. Utilize a caixa de filtro para encontrar rapidamente as subscrições pelo nome. Em seguida, verifique ou remova o cheque de cada subscrição para definir as subscrições mostradas pela extensão da Política Azure. Quando terminar de adicionar ou remover subscrições para exibir, selecione **OK**.
 
-## <a name="search-for-and-view-resources"></a>Pesquisar e visualizar recursos
+### <a name="search-for-and-view-resources"></a>Pesquisar e visualizar recursos
 
 A extensão da Política Azure lista os recursos nas subscrições selecionadas pelo Fornecedor de Recursos e pelo grupo de recursos no painel **de recursos.** A visão de árvore inclui os seguintes agrupamentos de recursos dentro da subscrição selecionada ou ao nível de subscrição:
 
@@ -119,7 +113,7 @@ Os clientes com centenas ou milhares de recursos numa única subscrição podem 
 
 1. Utilize o filtro para selecionar qual o recurso a exibir. O filtro funciona tanto para o nome do recurso como para o tipo de recurso.
 
-## <a name="discover-aliases-for-resource-properties"></a>Descubra pseudónimos para propriedades de recursos
+### <a name="discover-aliases-for-resource-properties"></a>Descubra pseudónimos para propriedades de recursos
 
 Quando um recurso é selecionado, seja através da interface de pesquisa ou selecionando-o na visão de árvore, a extensão Azure Policy abre o ficheiro JSON representando esse recurso e todos os seus valores de propriedade Azure Resource Manager.
 
@@ -128,9 +122,9 @@ Uma vez que um recurso esteja aberto, pairando sobre o nome ou valor da propried
 :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot da extensão da Política Azure para Visual Studio Code pairando sobre uma propriedade para exibir os nomes de pseudónimos." border="false":::
 
 > [!NOTE]
-> A extensão do Código VS expõe apenas as propriedades do modo Gestor de Recursos e não apresenta nenhumas propriedades [do modo Fornecedor de Recursos.](../concepts/definition-structure.md#mode)
+> A extensão do Código VS suporta apenas a avaliação das propriedades do modo Gestor de Recursos. Para obter mais informações sobre os modos, consulte as [definições](../concepts/definition-structure.md#mode)do modo .
 
-## <a name="search-for-and-view-policies-and-assignments"></a>Procurar e visualizar políticas e atribuições
+### <a name="search-for-and-view-policies-and-assignments"></a>Procurar e visualizar políticas e atribuições
 
 A extensão da Política Azure lista tipos de política e atribuições de políticas como uma visão de árvore para as subscrições selecionadas a serem exibidas no painel **de políticas.** Os clientes com centenas ou milhares de políticas ou atribuições numa única subscrição podem preferir uma forma pes pes pes pesquisada de localizar as suas políticas ou atribuições. A extensão da Política Azure permite procurar uma política ou atribuição específica com as seguintes etapas:
 
@@ -152,7 +146,7 @@ A extensão da Política Azure lista tipos de política e atribuições de polí
 
 Ao selecionar uma política ou atribuição, seja através da interface de pesquisa ou selecionando-a na visão de árvore, a extensão da Política Azure abre o JSON que representa a política ou atribuição e todos os valores de propriedade do Gestor de Recursos. A extensão pode validar o esquema JSON da Política Azure aberta.
 
-## <a name="export-objects"></a>Objetos de exportação
+### <a name="export-objects"></a>Objetos de exportação
 
 Os objetos das suas subscrições podem ser exportados para um ficheiro JSON local. No painel **de Recursos** ou **Políticas,** paire sobre ou selecione um objeto exportável. No final da linha realçada, selecione o ícone de poupança e selecione uma pasta para guardar esses recursos JSON.
 
@@ -167,7 +161,7 @@ Os seguintes objetos podem ser exportados localmente:
   - Definições de política personalizada
   - Iniciativas
 
-## <a name="on-demand-evaluation-scan"></a>On-demand evaluation scan (Análise de avaliação a pedido)
+### <a name="on-demand-evaluation-scan"></a>On-demand evaluation scan (Análise de avaliação a pedido)
 
 Pode iniciar-se uma verificação de avaliação com a extensão da Política Azure para o Código do Estúdio Visual. Para iniciar uma avaliação, selecione e pine cada um dos seguintes objetos: um recurso, uma definição de política e uma atribuição de políticas.
 
@@ -176,7 +170,7 @@ Pode iniciar-se uma verificação de avaliação com a extensão da Política Az
 1. No topo do painel de **avaliação,** selecione o ícone de avaliação de execução. Um novo painel no Código do Estúdio Visual abre com os detalhes de avaliação resultantes no formulário JSON.
 
 > [!NOTE]
-> Se a definição de política selecionada for uma [AuditIfNotExists](../concepts/effects.md#auditifnotexists) ou [implementarIfNotExists,](../concepts/effects.md#deployifnotexists)no painel **de avaliação** utilize o ícone mais para selecionar um recurso _relacionado_ para a verificação da existência.
+> Para [auditIfNotExists](../concepts/effects.md#auditifnotexists) ou implementar definições de [política,](../concepts/effects.md#deployifnotexists) utilize o ícone mais no painel **de avaliação** para selecionar um recurso _relacionado_ para a verificação da existência.
 
 Os resultados da avaliação fornecem informações sobre a definição de política e atribuição de políticas, juntamente com a **políticaEvaluations.evaluationResult** property. A saída é semelhante ao seguinte exemplo:
 
@@ -197,7 +191,12 @@ Os resultados da avaliação fornecem informações sobre a definição de polí
 }
 ```
 
-## <a name="sign-out"></a>Terminar sessão
+> [!NOTE]
+> A extensão do Código VS suporta apenas a avaliação das propriedades do modo Gestor de Recursos. Para obter mais informações sobre os modos, consulte as [definições](../concepts/definition-structure.md#mode)do modo .
+>
+> A funcionalidade de avaliação não funciona nas instalações do macOS e linux da extensão.
+
+### <a name="sign-out"></a>Terminar sessão
 
 A partir da barra de menu, vá à **Paleta de** Comando  >  **Ver,** e depois insira **Azure: Assine**.
 

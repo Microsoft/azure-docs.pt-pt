@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: aa9e7612a5b3b9655b0c1981fbba87645526b3a2
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 20792d58ab259f93d7725fbafda1507f9eddc740
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327207"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862161"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Tutorial: Crie uma função em Java com um gatilho do Event Hub e uma ligação de saída DB Azure Cosmos
 
@@ -30,17 +30,14 @@ Neste tutorial, você:
 
 Para completar este tutorial, tem de ter o seguinte instalado:
 
-* [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), versão 8
-* [Apache Maven](https://maven.apache.org), versão 3.0 ou superior
-* [Azure CLI](/cli/azure/install-azure-cli) se preferir não usar Cloud Shell
-* [Azure Funções Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) versão 2.6.666 ou superior
+- [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), versão 8
+- [Apache Maven](https://maven.apache.org), versão 3.0 ou superior
+- [Azure Funções Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) versão 2.6.666 ou superior [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 > [!IMPORTANT]
 > A `JAVA_HOME` variável ambiente deve ser definida para a localização de instalação do JDK para completar este tutorial.
 
 Se preferir usar o código para este tutorial diretamente, consulte o repo de amostra [java-functions-eventhub-cosmosdb.](https://github.com/Azure-Samples/java-functions-eventhub-cosmosdb)
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-azure-resources"></a>Criar recursos do Azure
 
@@ -53,17 +50,13 @@ Neste tutorial, você precisará destes recursos:
 
 As seguintes secções mostram-lhe como criar estes recursos utilizando o CLI Azure.
 
-### <a name="log-in-to-azure"></a>Iniciar sessão no Azure
-
-Se não estiver a usar a Cloud Shell, terá de usar o CLI Azure localmente para aceder à sua conta. Utilize o `az login` comando a partir do pedido bash para lançar a experiência de login baseada no navegador. Se tiver acesso a mais de uma subscrição do Azure, desafine o padrão seguido `az account set --subscription` pelo ID de subscrição.
-
 ### <a name="set-environment-variables"></a>Definir variáveis de ambiente
 
 Em seguida, crie algumas variáveis ambientais para os nomes e localização dos recursos que irá criar. Utilize os seguintes comandos, substituindo os `<value>` espaços reservados por valores à sua escolha. Os valores devem estar em conformidade com [as regras de nomeação e as restrições para os recursos Azure](/azure/architecture/best-practices/resource-naming). Para a `LOCATION` variável, utilize um dos valores produzidos pelo `az functionapp list-consumption-locations` comando.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 RESOURCE_GROUP=<value>
 EVENT_HUB_NAMESPACE=<value>
 EVENT_HUB_NAME=<value>
@@ -350,7 +343,7 @@ Se usou a Cloud Shell para criar os seus recursos, então não estará ligado ao
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 RESOURCE_GROUP=<value>
 FUNCTION_APP=<value>
 ```
@@ -370,7 +363,7 @@ Utilize o seguinte comando Maven para criar um projeto de funções e adicionar 
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 mvn archetype:generate --batch-mode \
     -DarchetypeGroupId=com.microsoft.azure \
     -DarchetypeArtifactId=azure-functions-archetype \
@@ -406,7 +399,7 @@ Para evitar erros de compilação, terá de eliminar os ficheiros de teste. Exec
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 cd telemetry-functions
 rm -r src/test
 ```
@@ -426,7 +419,7 @@ Para testes locais, o seu projeto de função necessitará das cordas de ligaç�
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 func azure functionapp fetch-app-settings $FUNCTION_APP
 ```
 
@@ -584,7 +577,7 @@ Utilize os seguintes comandos Maven para construir e executar as funções:
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 mvn clean package
 mvn azure-functions:run
 ```
@@ -623,7 +616,7 @@ Implemente o seu projeto para Azure utilizando o seguinte comando:
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 mvn azure-functions:deploy
 ```
 

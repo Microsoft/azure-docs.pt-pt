@@ -4,12 +4,12 @@ description: Configure as ferramentas de análise de desempenho, disponibilidade
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 861a9f53c2f149268e06005053206a7411e842f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 970971082e684ebcb6efce07bb707ffbb20ed228
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91838947"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904181"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>Configure insights de aplicações para o seu site ASP.NET
 
@@ -25,6 +25,10 @@ Para adicionar o Application Insights ao site ASP.NET, é necessário:
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 - Crie um [recurso baseado no espaço de trabalho Application Insights.](create-workspace-resource.md)
+
+> [!IMPORTANT]
+> As novas regiões de Azure **requerem** a utilização de cordas de ligação em vez de teclas de instrumentação. [A cadeia de ligação](./sdk-connection-string.md?tabs=net) identifica o recurso com o que pretende associar os seus dados de telemetria. Também permite modificar os pontos finais que o seu recurso utilizará como destino para a sua telemetria. Terá de copiar o fio de ligação e adicioná-lo ao código da sua aplicação ou a uma variável ambiental.
+
 
 ## <a name="create-a-basic-aspnet-web-app"></a>Criar uma aplicação web ASP.NET básica
 

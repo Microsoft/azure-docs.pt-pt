@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
-ms.openlocfilehash: 1765c6a7d19a11730567acd5e41deebc0a20cec2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 88d004836d5311fc3a971df81a3dc6e6ab605ca9
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993997"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861396"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicações baseados em atributos com filtros de escotagem
 O objetivo deste artigo é explicar como usar filtros de digitalização para definir regras baseadas em atributos que determinam quais os utilizadores que estão a forcam a uma aplicação.
@@ -94,7 +94,7 @@ Os filtros de deteção são configurados como parte dos mapeamentos de atributo
    
    j. **Greater_Than_OR_EQUALS.** A cláusula devolve "verdadeiro" se o atributo avaliado for maior ou igual ao valor. O valor especificado no filtro de escoamento deve ser um número inteiro e o atributo no utilizador deve ser um número inteiro [0,1,2,...]. 
    
-   k. **Inclui.** A cláusula devolve "verdadeiro" se o atributo avaliado contiver o valor de cadeia (sensível a caso) como descrito [aqui](/dotnet/api/system.string.contains?view=netframework-4.8). 
+   k. **Inclui.** A cláusula devolve "verdadeiro" se o atributo avaliado contiver o valor de cadeia (sensível a caso) como descrito [aqui](/dotnet/api/system.string.contains). 
 
 
 >[!IMPORTANT] 

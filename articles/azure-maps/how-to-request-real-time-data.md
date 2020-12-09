@@ -1,24 +1,29 @@
 ---
-title: Solicitar dados de trânsito público em tempo real Microsoft Azure Maps
-description: Saiba como solicitar dados de trânsito público em tempo real, como chegadas a uma paragem de trânsito. Veja como utilizar o serviço de Mobilidade Azure Maps para este fim.
+title: Solicite dados de trânsito público em tempo real com os serviços de mobilidade do Microsoft Azure Maps (Pré-visualização)
+description: Saiba como solicitar dados de trânsito público em tempo real, como chegadas a uma paragem de trânsito. Veja como utilizar os serviços de Mobilidade Azure Maps (Pré-visualização) para este fim.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/06/2019
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: e6f6d0738cb1673b752e35761a112f2ca22a409e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d3e3dc4b0e3bc64a38856da8344583b744ea62b6
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895720"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906051"
 ---
-# <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Solicite dados de trânsito público em tempo real utilizando o Serviço de Mobilidade Azure Maps
+# <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-services-preview"></a>Solicite dados de trânsito público em tempo real utilizando os serviços de Mobilidade Azure Maps (Pré-visualização) 
 
-Este artigo mostra-lhe como usar o Serviço de [Mobilidade](/rest/api/maps/mobility) Azure Maps para solicitar dados de trânsito público em tempo real.
+> [!IMPORTANT]
+> Os serviços de mobilidade Azure Maps estão atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+Este artigo mostra-lhe como utilizar [os serviços de Mobilidade](/rest/api/maps/mobility) Azure Maps para solicitar dados de trânsito público em tempo real.
 
 Neste artigo, você vai aprender a solicitar as próximas chegadas em tempo real para todas as linhas que chegam a uma determinada paragem
 
@@ -30,13 +35,13 @@ Este artigo utiliza a [aplicação Do Carteiro](https://www.getpostman.com/apps)
 
 ## <a name="request-real-time-arrivals-for-a-stop"></a>Solicite chegadas em tempo real para uma paragem
 
-Para solicitar dados de chegadas em tempo real de uma determinada paragem de trânsito público, terá de fazer um pedido à API de [Chegadas em Tempo Real](/rest/api/maps/mobility/getrealtimearrivalspreview) do Serviço de [Mobilidade](/rest/api/maps/mobility)Azure Maps. Você precisará do **metroID** e **stopID** para completar o pedido. Para saber mais sobre como solicitar estes parâmetros, consulte o nosso guia sobre como solicitar rotas de [trânsito público.](./how-to-request-transit-data.md)
+Para solicitar dados de chegadas em tempo real de uma determinada paragem de trânsito público, terá de fazer um pedido à API de [Chegadas em Tempo Real](/rest/api/maps/mobility/getrealtimearrivalspreview) do Serviço de Mobilidade Azure Maps [(Pré-visualização)](/rest/api/maps/mobility). Você precisará do **metroID** e **stopID** para completar o pedido. Para saber mais sobre como solicitar estes parâmetros, consulte o nosso guia sobre como solicitar rotas de [trânsito público.](./how-to-request-transit-data.md)
 
 Vamos usar o "522" como o nosso ID do metro, que é a identificação do metrô para a área "Seattle-Tacoma-Bellevue, WA". Use "522---2060603" como o ID de paragem, esta paragem de autocarro fica na "Ne 24th St & 162nd Ave Ne, Bellevue WA". Para solicitar os próximos cinco dados de chegadas em tempo real, para todas as próximas chegadas ao vivo nesta paragem, complete os seguintes passos:
 
-1. Abra a aplicação Do Carteiro e vamos criar uma coleção para armazenar os pedidos. Perto do topo da aplicação Postman, selecione **New** . Na janela **Criar Nova,** selecione **Coleção** .  Nomeie a coleção e selecione o botão **Criar.**
+1. Abra a aplicação Do Carteiro e vamos criar uma coleção para armazenar os pedidos. Perto do topo da aplicação Postman, selecione **New**. Na janela **Criar Nova,** selecione **Coleção**.  Nomeie a coleção e selecione o botão **Criar.**
 
-2. Para criar o pedido, selecione **New** novamente. Na janela **Criar Novo,** selecione **Request** . Insira um **nome de Pedido** para o pedido. Selecione a coleção que criou no passo anterior, como o local para guardar o pedido. Em seguida, **selecione Save** .
+2. Para criar o pedido, selecione **New** novamente. Na janela **Criar Novo,** selecione **Request**. Insira um **nome de Pedido** para o pedido. Selecione a coleção que criou no passo anterior, como o local para guardar o pedido. Em seguida, **selecione Save**.
 
     ![Criar um pedido no Carteiro](./media/how-to-request-transit-data/postman-new.png)
 
@@ -113,12 +118,12 @@ Vamos usar o "522" como o nosso ID do metro, que é a identificação do metrô 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como solicitar dados de trânsito utilizando o Serviço de Mobilidade:
+Saiba como solicitar dados de trânsito utilizando serviços de mobilidade (Pré-visualização):
 
 > [!div class="nextstepaction"]
 > [Como solicitar dados de trânsito](how-to-request-transit-data.md)
 
-Explore a documentação da AZure Maps Mobility Service API:
+Explore a documentação da API dos serviços de mobilidade Azure Maps (Pré-visualização):
 
 > [!div class="nextstepaction"]
-> [Documentação da API do Serviço de Mobilidade](/rest/api/maps/mobility)
+> [Documentação da API dos serviços de mobilidade](/rest/api/maps/mobility)

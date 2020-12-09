@@ -3,12 +3,12 @@ title: Guia de protocolo de conexões híbridas Azure Relay / Microsoft Docs
 description: Este artigo descreve as interações do lado do cliente com o relé Conexões Híbridas para ligar clientes em funções de ouvinte e remetente.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 893092124961ffa9df2535ca6de75def2930b797
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a812aa401077b81934d89ada99cf1dc312d8dbc
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531450"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862331"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de conexões híbridas Azure Relay
 
@@ -137,7 +137,7 @@ As opções de parâmetros de cadeia de consulta são as seguintes.
 | ---------------- | -------- | -------------------------------------------
 | `sb-hc-action`   | Sim      | Para o papel de ouvinte, o parâmetro deve ser **sb-hc-action=ouvir**
 | `{path}`         | Sim      | O caminho do espaço de nome codificado por URL da Ligação Híbrida pré-configurada para registar este ouvinte. Esta expressão é anexada à parte do `$hc/` caminho fixo.
-| `sb-hc-token`    | Sim, é o seu\*    | O ouvinte deve fornecer um token de acesso compartilhado de serviço de serviço codificado por URL para o espaço de nome ou conexão híbrida que confere o direito **de escuta.**
+| `sb-hc-token`    | Sim\*    | O ouvinte deve fornecer um token de acesso compartilhado de serviço de serviço codificado por URL para o espaço de nome ou conexão híbrida que confere o direito **de escuta.**
 | `sb-hc-id`       | Não       | Este ID opcional fornecido pelo cliente permite o rastreio de diagnóstico de ponta a ponta.
 
 Se a ligação WebSocket falhar devido à não inscrição do caminho de Ligação Híbrida, ou a um token inválido ou em falta, ou a qualquer outro erro, o feedback de erro é fornecido utilizando o modelo regular de feedback do estado HTTP 1.1. A descrição do estado contém um id de rastreio de erro que pode ser comunicado ao pessoal de apoio da Azure:
@@ -414,7 +414,7 @@ O protocolo do remetente é efetivamente idêntico à forma como um ouvinte é e
 O objetivo é a máxima transparência para o WebSocket de ponta a ponta. O endereço a que se conecta é o mesmo que para o ouvinte, mas a "ação" difere e o símbolo precisa de uma permissão diferente:
 
 ```
-wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=...
+wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sb-hc-token=...
 ```
 
 O _endereço de espaço-nome_ é o nome de domínio totalmente qualificado do espaço de nome Azure Relay que acolhe a Conexão Híbrida, tipicamente do formulário `{myname}.servicebus.windows.net` .
@@ -427,13 +427,13 @@ As opções de parâmetro de cadeia de consulta são as seguintes:
 | -------------- | --------- | -------------------------- |
 | `sb-hc-action` | Sim       | Para o papel de remetente, o parâmetro deve ser `sb-hc-action=connect` .
 | `{path}`       | Sim       | (ver o parágrafo seguinte)
-| `sb-hc-token`  | Sim, é o seu\*     | O ouvinte deve fornecer um token de acesso compartilhado de serviço de serviço codificado por URL para o espaço de nome ou conexão híbrida que confere o direito **enviar.**
+| `sb-hc-token`  | Sim\*     | O ouvinte deve fornecer um token de acesso compartilhado de serviço de serviço codificado por URL para o espaço de nome ou conexão híbrida que confere o direito **enviar.**
 | `sb-hc-id`     | Não        | Um ID opcional que permite o rastreio de diagnóstico de ponta a ponta e é disponibilizado ao ouvinte durante o aperto de mão aceite.
 
  O `{path}` é o caminho do espaço de nome codificado por URL da ligação híbrida pré-configurada para registar este ouvinte. A `path` expressão pode ser estendida com um sufixo e uma expressão de corda de consulta para comunicar mais. Se a Ligação Híbrida for registada no `hyco` caminho, a `path` expressão pode ser seguida pelos `hyco/suffix?param=value&...` parâmetros de cadeia de consulta definidos aqui. Uma expressão completa pode então ser a seguinte:
 
 ```
-wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sbc-hc-token=...
+wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sb-hc-token=...
 ```
 
 A `path` expressão é transmitida ao ouvinte no endereço URI contido na mensagem de controlo "aceitar".
@@ -462,7 +462,7 @@ O protocolo http request permite pedidos HTTP arbitrários, exceto atualizaçõe
 Os pedidos HTTP são apontados para o endereço de tempo de execução regular da entidade, sem a $hc infixo que é usado para ligações híbridas clientes WebSocket.
 
 ```
-https://{namespace-address}/{path}?sbc-hc-token=...
+https://{namespace-address}/{path}?sb-hc-token=...
 ```
 
 O _endereço de espaço-nome_ é o nome de domínio totalmente qualificado do espaço de nome Azure Relay que acolhe a Conexão Híbrida, tipicamente do formulário `{myname}.servicebus.windows.net` .

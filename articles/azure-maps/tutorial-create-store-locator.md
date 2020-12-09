@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 981697211cf8ee0aff1ac0e3d0db6000c1089c00
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 398e964ad773e4c015129c6dd3d4784f1300e16b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896854"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905779"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Criar um localizador de loja usando Azure Maps
 
@@ -76,18 +76,18 @@ Pode [descarregar o livro excel.](https://github.com/Azure-Samples/AzureMapsCode
 
 Olhando para a imagem dos dados, podemos fazer as seguintes observações:
 
-* As informações de localização são armazenadas utilizando as **colunas AddressLine** , **City** , **Município** (concelho), **AdminDivision** (estado/província), **Código Postal** (código postal) e colunas **country.**  
+* As informações de localização são armazenadas utilizando as **colunas AddressLine**, **City**, **Município** (concelho), **AdminDivision** (estado/província), **Código Postal** (código postal) e colunas **country.**  
 * As colunas **Latitude** e **Longitude** contêm as coordenadas para cada café Contoso. Se não tiver informações de coordenadas, pode utilizar os serviços de Pesquisa no Azure Maps para determinar as coordenadas de localização.
 * Algumas colunas adicionais contêm metadados relacionados com os cafés: um número de telefone, colunas Boolean e horários de abertura e fecho de loja em formato 24 horas. As colunas Boolean são para Wi-Fi e acessibilidade em cadeira de rodas. Pode criar as suas próprias colunas que contenham metadados mais relevantes para os seus dados de localização.
 
 > [!NOTE]
-> O Azure Maps produz dados na projeção esférica do Mercator "EPSG:3857" mas lê dados em "EPSG:4325" que usam o datum WGS84.
+> O Azure Maps produz dados na projeção esférica do Mercator "EPSG:3857" mas lê dados em "EPSG:4326" que usam o datum WGS84.
 
 Existem muitas formas de expor o conjunto de dados à aplicação. Uma abordagem é carregar os dados numa base de dados e expor um serviço web que questione os dados. Em seguida, pode enviar os resultados para o navegador do utilizador. Esta opção é ideal para grandes conjuntos de dados ou para conjuntos de dados que são atualizados frequentemente. No entanto, esta opção requer mais trabalho de desenvolvimento e tem um custo mais elevado.
 
 Outra abordagem é converter este conjunto de dados num ficheiro de texto plano que o navegador pode facilmente analisar. O ficheiro em si pode ser hospedado com o resto da aplicação. Esta opção mantém as coisas simples, mas é uma boa opção apenas para conjuntos de dados mais pequenos porque o utilizador descarrega todos os dados. Utilizamos o ficheiro de texto plano para este conjunto de dados porque o tamanho do ficheiro de dados é inferior a 1 MB.  
 
-Para converter o livro num ficheiro de texto plano, guarde o livro como um ficheiro delimitado por separadores. Cada coluna é delimitada por um caráter de separador, o que torna as colunas fáceis de analisar no nosso código. Você poderia usar o formato de valor separado de vírgula (CSV), mas essa opção requer mais lógica de análise. Qualquer campo que tenha uma vírgula à volta seria embrulhado com aspas. Para exportar estes dados como um ficheiro delimitado por separadores no Excel, selecione **Save As** . Na lista Desacompanhada **do tipo** Deslimited **Text (Tab delimitado)(*.txt)** . Diga o nome do *ficheiroContosoCoffee.txt* .
+Para converter o livro num ficheiro de texto plano, guarde o livro como um ficheiro delimitado por separadores. Cada coluna é delimitada por um caráter de separador, o que torna as colunas fáceis de analisar no nosso código. Você poderia usar o formato de valor separado de vírgula (CSV), mas essa opção requer mais lógica de análise. Qualquer campo que tenha uma vírgula à volta seria embrulhado com aspas. Para exportar estes dados como um ficheiro delimitado por separadores no Excel, selecione **Save As**. Na lista Desacompindo **como tipo** de drop-down, selecione **Texto (Separador delimitado)(*.txt)**. Diga o nome do *ficheiroContosoCoffee.txt*.
 
 ![Screenshot do Save como caixa de diálogo tipo](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)
 
@@ -97,7 +97,7 @@ Se abrir o ficheiro de texto no Bloco de Notas, este é semelhante ao seguinte v
 
 ## <a name="set-up-the-project"></a>Configurar o projeto
 
-Para criar o projeto, pode utilizar o [Visual Studio](https://visualstudio.microsoft.com) ou o editor de código à sua escolha. Na sua pasta de projeto, crie três ficheiros: *index.html,* *index.css* e *index.js* . Estes ficheiros definem o layout, o estilo e a lógica para a aplicação. Crie uma pasta com o nome *de dados* e adicione *ContosoCoffee.txt* à pasta. Criar outra pasta nomeada *imagens* . Usamos 10 imagens nesta aplicação para ícones, botões e marcadores no mapa. Pode [baixar estas imagens.](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data) A sua pasta de projeto deve agora parecer-se com a seguinte figura:
+Para criar o projeto, pode utilizar o [Visual Studio](https://visualstudio.microsoft.com) ou o editor de código à sua escolha. Na sua pasta de projeto, crie três ficheiros: *index.html,* *índice.css* e *index.js*. Estes ficheiros definem o layout, o estilo e a lógica para a aplicação. Crie uma pasta com o nome *de dados* e adicione *ContosoCoffee.txt* à pasta. Criar outra pasta nomeada *imagens*. Usamos 10 imagens nesta aplicação para ícones, botões e marcadores no mapa. Pode [baixar estas imagens.](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data) A sua pasta de projeto deve agora parecer-se com a seguinte figura:
 
 ![Screenshot da pasta do projeto do localizador de loja simples](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)
 
@@ -105,7 +105,7 @@ Para criar o projeto, pode utilizar o [Visual Studio](https://visualstudio.micro
 
 Para criar a interface do utilizador, adicione código a *index.html:*
 
-1. Adicione as `meta` seguintes etiquetas à `head`index.htm *l* . A `charset` etiqueta define o conjunto de caracteres (UTF-8). O valor dos `http-equiv` indicações ao Internet Explorer e Microsoft Edge para utilizarem as versões mais recentes do navegador. E, a última `meta` etiqueta especifica um viewport que funciona bem para layouts responsivos.
+1. Adicione as `meta` seguintes etiquetas à `head`index.htm *l*. A `charset` etiqueta define o conjunto de caracteres (UTF-8). O valor dos `http-equiv` indicações ao Internet Explorer e Microsoft Edge para utilizarem as versões mais recentes do navegador. E, a última `meta` etiqueta especifica um viewport que funciona bem para layouts responsivos.
 
     ```HTML
     <meta charset="utf-8">
@@ -126,7 +126,7 @@ Para criar a interface do utilizador, adicione código a *index.html:*
     <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
-1. Adicione referências a *index.js* e *index.css:*
+1. Adicione referências a *index.js* e *índice.css:*
 
     ```HTML
     <link rel="stylesheet" href="index.css" type="text/css">
@@ -160,7 +160,7 @@ Para criar a interface do utilizador, adicione código a *index.html:*
 
 Quando terminar, *index.htmdevo* parecer este exemplo index.htm [ficheiro l.](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html)
 
-O próximo passo é definir os estilos CSS. Os estilos CSS definem como os componentes da aplicação são definidos e a aparência da aplicação. Abra *index.css* e adicione-lhe o seguinte código. O `@media` estilo define opções de estilo alternativo para usar quando a largura do ecrã é menor que 700 pixels.  
+O próximo passo é definir os estilos CSS. Os estilos CSS definem como os componentes da aplicação são definidos e a aparência da aplicação. Abrir *índice.css* e adicionar-lhe o seguinte código. O `@media` estilo define opções de estilo alternativo para usar quando a largura do ecrã é menor que 700 pixels.  
 
    ```CSS
     html, body {
@@ -385,7 +385,7 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Adicione código a *index.js* . O seguinte código rubrica o mapa. Adicionámos um [ouvinte do evento](/javascript/api/azure-maps-control/atlas.map#events) para esperar até que a página termine de carregar. Em seguida, ligamos eventos para monitorizar o carregamento do mapa, e dar funcionalidade ao botão de pesquisa e ao botão de localização.
+1. Adicione código a *index.js*. O seguinte código rubrica o mapa. Adicionámos um [ouvinte do evento](/javascript/api/azure-maps-control/atlas.map#events) para esperar até que a página termine de carregar. Em seguida, ligamos eventos para monitorizar o carregamento do mapa, e dar funcionalidade ao botão de pesquisa e ao botão de localização.
 
    Quando o utilizador seleciona o botão de pesquisa ou escreve uma localização na caixa de pesquisa e, em seguida, pressiona a entrada, é iniciada uma pesquisa difusa contra a consulta do utilizador. Passe num conjunto de valores ISO 2 de país/região à `countrySet` opção de limitar os resultados de pesquisa a esses países/regiões. Limitar os países/regiões à procura ajuda a aumentar a precisão dos resultados que são devolvidos. 
   
@@ -432,7 +432,7 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
             }
         };
 
-        //If the user selects the My Location button, use the Geolocation API to get the user's location. Center and zoom the map on that location.
+        //If the user selects the My Location button, use the Geolocation API (Preview) to get the user's location. Center and zoom the map on that location.
         document.getElementById('myLocationBtn').onclick = setMapToUserLocation;
 
         //Wait until the map resources are ready.
@@ -472,7 +472,7 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
     function setMapToUserLocation() {
         //Request the user's location.
         navigator.geolocation.getCurrentPosition(function(position) {
-            //Convert the Geolocation API position to a longitude and latitude position value that the map can interpret and center the map over it.
+            //Convert the Geolocation API (Preview) position to a longitude and latitude position value that the map can interpret and center the map over it.
             map.setCamera({
                 center: [position.coords.longitude, position.coords.latitude],
                 zoom: maxClusterZoomLevel + 1

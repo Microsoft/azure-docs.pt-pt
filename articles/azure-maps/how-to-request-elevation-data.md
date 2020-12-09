@@ -1,24 +1,28 @@
 ---
-title: Solicite dados de elevação utilizando o serviço Azure Maps Elevação
-description: Saiba como solicitar dados de elevação utilizando o serviço Azure Maps Elevation.
+title: Solicite dados de elevação utilizando o serviço Azure Maps Elevation (Pré-visualização)
+description: Saiba como solicitar dados de elevação utilizando o serviço Azure Maps Elevation (Preview).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/02/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9937d72b44eb33df8027eddb9a9f500a372c9037
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: af3653d9e4509b1aa31a377dfc22cb6b6b2ff34e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554265"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906068"
 ---
-# <a name="request-elevation-data-using-the-azure-maps-elevation-service"></a>Solicite dados de elevação utilizando o serviço Azure Maps Elevação
+# <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Solicite dados de elevação utilizando o serviço Azure Maps Elevation (Pré-visualização)
 
-O serviço Azure Maps [Elevation](https://docs.microsoft.com/rest/api/maps/elevation) fornece APIs para consultar dados de elevação para locais na Terra. Pode solicitar dados de elevação amostrados ao longo de caminhos, dentro de uma caixa de delimitação definida, ou em coordenadas específicas. Além disso, pode utilizar o [Render V2 - Obter API de Azulejos do Mapa](https://docs.microsoft.com/rest/api/maps/renderv2) para recuperar dados de elevação em formato de azulejo. Os azulejos são entregues em formato GeoTIFF raster. Este artigo mostra-lhe como usar o serviço Azure Maps Elevação e a API get tile do mapa para solicitar dados de elevação. Os dados de elevação podem ser solicitados tanto nos formatos GeoJSON como no GeoTiff.
+> [!IMPORTANT]
+> O serviço Azure Maps Elevation está atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+O serviço Azure Maps [Elevation](https://docs.microsoft.com/rest/api/maps/elevation) fornece APIs para consultar dados de elevação em qualquer lugar da superfície da Terra. Pode solicitar dados de elevação amostrados ao longo de caminhos, dentro de uma caixa de delimitação definida, ou em coordenadas específicas. Além disso, pode utilizar o [Render V2 - Obter API de Azulejos do Mapa](https://docs.microsoft.com/rest/api/maps/renderv2) para recuperar dados de elevação em formato de azulejo. Os azulejos são entregues em formato GeoTIFF raster. Este artigo mostra-lhe como usar o serviço Azure Maps Elevação e a API get tile do mapa para solicitar dados de elevação. Os dados de elevação podem ser solicitados tanto nos formatos GeoJSON como no GeoTiff.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,7 +54,7 @@ Para solicitar dados de elevação em formato de azulejo raster, utilize o [Rend
 
 ## <a name="request-elevation-data-in-geojson-format"></a>Solicite dados de elevação no formato GeoJSON
 
-Utilize as APIs do serviço elevação para solicitar dados de elevação no formato GeoJSON. Esta secção irá mostrar-lhe cada uma das três APIs:
+Utilize o serviço elevação (Pré-visualização) APIs para solicitar dados de elevação no formato GeoJSON. Esta secção irá mostrar-lhe cada uma das três APIs:
 
 * [Obter dados para pontos](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
 * [Post Dados para Pontos](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates)
@@ -443,7 +447,7 @@ Neste exemplo, especificaremos linhas=3 e colunas=6. 18 valores de elevação s�
     }
     ```
 
-## <a name="samples-use-elevation-service-apis-in-azure-maps-control"></a>Amostras: Use APIs de serviço de elevação no controlo de mapas Azure
+## <a name="samples-use-elevation-service-preview-apis-in-azure-maps-control"></a>Amostras: Use o serviço de elevação (pré-visualização) APIs no controlo de mapas Azure
 
 ### <a name="get-elevation-data-by-coordinate-position"></a>Obtenha dados de elevação por posição de coordenada
 
@@ -478,16 +482,16 @@ Consulte o <a href='https://codepen.io/azuremaps/pen/7bee08e5cb13d05cb0a11636b60
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para explorar ainda mais as APIs de Elevação de Mapas Azure, consulte:
+Para explorar ainda mais as APIs de Elevação de Mapas Azure (Pré-visualização), consulte:
 
 > [!div class="nextstepaction"]
-> [Elevação - Obtenha dados para coordenadas lat long](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
+> [Elevação (Pré-visualização) - Obtenha dados para coordenadas lat long](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
 
 > [!div class="nextstepaction"]
-> [Elevação - Obtenha dados para a caixa de limites](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
+> [Elevação (Pré-visualização) - Obtenha dados para a caixa de limites](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
 
 > [!div class="nextstepaction"]
-> [Elevação - Obter dados para Poliline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
+> [Elevação (Pré-visualização) - Obter dados para Poliline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
 
 > [!div class="nextstepaction"]
 > [Render V2 – Get Map Tile](https://docs.microsoft.com/rest/api/maps/renderv2)

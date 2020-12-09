@@ -3,12 +3,12 @@ title: Monitorização de Kubernetes com monitor Azure para contentores Microsof
 description: Este artigo descreve como pode ver e analisar o desempenho de um cluster Kubernetes com o Azure Monitor para contentores.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a1f661089b3a6357abb3eed584401e6a8ae2e2fb
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011086"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905711"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorize o desempenho do cluster Kubernetes com o Azure Monitor para contentores
 
@@ -117,7 +117,7 @@ O Azure Monitor para contentores também suporta [o explorador de métricas](../
 
 No explorador de métricas, pode ver métricas de utilização de nó agregados e pod do Monitor Azure para recipientes. A tabela seguinte resume os detalhes para ajudá-lo a entender como usar as tabelas métricas para visualizar as métricas do recipiente.
 
-|Espaço de Nomes | Metric | Descrição |
+|Espaço de Nomes | Métrica | Descrição |
 |----------|--------|-------------|
 | insights.container/nós | |
 | | cpuUsageMillicores | Medição agregada da utilização do CPU em todo o cluster. É um núcleo de CPU dividido em 1000 unidades (milli = 1000). Usado para determinar o uso de núcleos em um recipiente onde muitas aplicações podem estar usando um núcleo.|
@@ -228,7 +228,7 @@ A hierarquia da linha começa com um controlador. Quando se expande um controlad
 
 Selecione o valor sob a coluna **nó para** o controlador específico.
 
-![Exemplo de perfuração do nó para o controlador na vista de desempenho](./media/container-insights-analyze/drill-down-controller-node.png)
+![Exemplo de perfuração do controlador para o nó na vista de desempenho](./media/container-insights-analyze/drill-down-controller-node.png)
 
 As informações apresentadas quando visualizam os controladores são descritas na tabela seguinte.
 
@@ -297,31 +297,8 @@ O Azure Network Policy Manager inclui métricas prometeu informativas que permit
 
 ## <a name="workbooks"></a>Livros
 
-Os livros combinam texto, [consultas de registo,](/azure/data-explorer/kusto/query/) [métricas](../platform/data-platform-metrics.md)e parâmetros em ricos relatórios interativos. Os livros de trabalho são editáveis por quaisquer outros membros da equipa que tenham acesso aos mesmos recursos Azure.
+Os livros combinam texto, consultas de registo, métricas e parâmetros em relatórios interativos ricos que permitem analisar o desempenho do cluster. Consulte [os livros de trabalho no Monitor Azure para obter](container-insights-reports.md) uma descrição dos livros disponíveis para o Azure Monitor para recipientes.
 
-O Azure Monitor para contentores inclui quatro livros para começar:
-
-- **Capacidade do disco**: Apresenta gráficos de utilização de discos interativos para cada disco apresentado no nó dentro de um recipiente pelas seguintes perspetivas:
-
-    - Uso por percentagem de disco para todos os discos.
-    - Espaço livre em disco para todos os discos.
-    - Uma grelha que mostra o disco de cada nó, a sua percentagem de espaço usado, tendência de percentagem de espaço usado, espaço em disco livre (GiB) e tendência de espaço livre em disco (GiB). Quando uma linha é selecionada na tabela, a percentagem de espaço utilizado e espaço de disco livre (GiB) é mostrada por baixo da linha.
-
-- **Disco IO**: Apresenta gráficos de utilização de discos interativos para cada disco apresentado no nó dentro de um recipiente pelas seguintes perspetivas:
-
-    - Disco I/O resumido em todos os discos por leitura bytes/seg, escreve bytes/seg, e lê e escreve as tendências bytes/seg.
-    - Oito gráficos de desempenho mostram indicadores-chave de desempenho para ajudar a medir e identificar estrangulamentos de E/O do disco.
-
-- **Kubelet**: Inclui duas grelhas que mostram estatísticas operacionais de nó-chave:
-
-    - A visão geral por rede de nó resume o funcionamento total, erros totais e operações bem sucedidas por cento e tendência para cada nó.
-    - A visão geral por tipo de operação resume para cada operação o total de operações, erros totais e operações bem sucedidas por cento e tendência.
-
-- **Rede**: Apresenta gráficos interativos de utilização da rede para o adaptador de rede de cada nó, e uma grelha apresenta os principais indicadores de desempenho para ajudar a medir o desempenho dos seus adaptadores de rede.
-
-Aceda a estes livros selecionando cada um deles na lista de drop-down do **View Workbooks.**
-
-![Ver lista de drop-down de livros de trabalho](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -15,12 +15,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9470e9af38fdd814f5059538656e6a3dbb8e3a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e015f7937db6788aa4473a8a04434121299901e9
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279317"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861787"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect sync: Understanding Users, Groups e Contacts
 Existem várias razões diferentes para que você tenha várias florestas de Diretório Ativo e existem várias topologias de implantação diferentes. Os modelos comuns incluem uma implantação de recursos de conta e florestas de sincronização gal após uma fusão & aquisição. Mas mesmo que existam modelos puros, os modelos híbridos também são comuns. A configuração padrão no Azure AD Connect não assume nenhum modelo em particular, mas dependendo da forma como a correspondência do utilizador foi selecionada no guia de instalação, podem ser observados diferentes comportamentos.
@@ -41,7 +41,7 @@ Pontos importantes a ter em conta quando sincronizar grupos do Ative Directory p
 
 * O Azure AD Connect não suporta a sincronização [de membros do Grupo Primário](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771489(v=ws.11)) para a Azure AD.
 
-* O Azure AD Connect não suporta [associações](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups?view=exchserver-2019) sincronizadas do Dynamic Distribution Group ao Azure AD.
+* O Azure AD Connect não suporta [associações](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups) sincronizadas do Dynamic Distribution Group ao Azure AD.
 
 * Para sincronizar um grupo de Diretório Ativo para Azure AD como um grupo habilitado por correio:
 
@@ -53,10 +53,10 @@ Pontos importantes a ter em conta quando sincronizar grupos do Ative Directory p
       
       * Um grupo de Diretório Ativo cujo atributo ProxyAddress tem valores *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe \@ contoso.com"}* será ativado por correio em Azure AD.
       
-      * Um grupo de Diretório Ativo cujo atributo ProxyAddress tem valores *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe \@ contoso.com"}* também será ativado por correio no Azure AD.
+      * Um grupo de Diretório Ativo cujo atributo ProxyAddress tem valores *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe \@ contoso.com"}* também será ativado por correio em Azure AD.
 
 ## <a name="contacts"></a>Contactos
-Ter contactos que representem um utilizador numa floresta diferente é comum após uma fusão & aquisição em que uma solução GALSync está a fazer a ponte entre duas ou mais florestas de intercâmbio. O objeto de contacto está sempre a unir-se do espaço do conector ao metaverso utilizando o atributo de correio. Se já existir um objeto de contacto ou objeto de utilizador com o mesmo endereço de correio, os objetos são unidos. Isto está configurado na regra **In a partir da AD – Contact Join**. Existe também uma regra chamada **In from AD – Contact Common** com um fluxo de atributos para o atributo metaverso **fonteObjectType** com o **contacto**constante . Esta regra tem uma precedência muito baixa, pelo que se algum objeto de utilizador for associado ao mesmo objeto metaverso, então a regra **In from AD – User Common** contribuirá com o valor Do Utilizador para este atributo. Com esta regra, este atributo terá o valor Contacto se nenhum utilizador tiver sido associado e o valor Utilizador se pelo menos um utilizador tiver sido encontrado.
+Ter contactos que representem um utilizador numa floresta diferente é comum após uma fusão & aquisição em que uma solução GALSync está a fazer a ponte entre duas ou mais florestas de intercâmbio. O objeto de contacto está sempre a unir-se do espaço do conector ao metaverso utilizando o atributo de correio. Se já existir um objeto de contacto ou objeto de utilizador com o mesmo endereço de correio, os objetos são unidos. Isto está configurado na regra **In a partir da AD – Contact Join**. Existe também uma regra chamada **In from AD – Contact Common** com um fluxo de atributos para o atributo metaverso **fonteObjectType** com o **contacto** constante . Esta regra tem uma precedência muito baixa, pelo que se algum objeto de utilizador for associado ao mesmo objeto metaverso, então a regra **In from AD – User Common** contribuirá com o valor Do Utilizador para este atributo. Com esta regra, este atributo terá o valor Contacto se nenhum utilizador tiver sido associado e o valor Utilizador se pelo menos um utilizador tiver sido encontrado.
 
 Para a provisionação de um objeto a Azure AD, a regra de saída **out to AAD – Contact Join** criará um objeto de contacto se a fonte de atributo metaversoObjectType estiver definida como **Contacto**. **sourceObjectType** Se este atributo for definido para **Utilizador,** então a regra **out to AAD – User Join** criará um objeto de utilizador.
 É possível que um objeto seja promovido de Contacto para Utilizador quando mais diretórios ativos de origem são importados e sincronizados.

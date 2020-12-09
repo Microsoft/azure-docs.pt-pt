@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 3e58be4b94457d95d28cf6528b9151e4be1802cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79749533d636f4b73ff3bef6b12d9e842ac485ea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72754188"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905179"
 ---
-# <a name="define-and-use-moderation-workflows-rest"></a>Definir e utilizar fluxos de trabalho de moderação (REST)
+# <a name="define-and-use-moderation-workflows-api-console"></a>Definir e utilizar fluxos de trabalho de moderação (consola API)
 
 Os fluxos de trabalho são filtros personalizados baseados na nuvem que pode usar para lidar com o conteúdo de forma mais eficiente. Os fluxos de trabalho podem ligar-se a uma variedade de serviços para filtrar o conteúdo de diferentes maneiras e, em seguida, tomar as medidas adequadas. Este guia mostra-lhe como utilizar o fluxo de trabalho REST APIs, através da consola API, para criar e utilizar fluxos de trabalho. Uma vez que você entenda a estrutura das APIs, você pode facilmente levar estas chamadas para qualquer plataforma compatível com REST.
 
@@ -27,17 +27,17 @@ Os fluxos de trabalho são filtros personalizados baseados na nuvem que pode usa
 
 ## <a name="create-a-workflow"></a>Criar um fluxo de trabalho
 
-Para criar ou atualizar um fluxo de trabalho, vá ao **[fluxo de trabalho - Crie ou atualize](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** a página de referência da API e selecione o botão para a sua região-chave (pode encontrá-lo na página de Endpoint NA página de **Credenciais** da [ferramenta 'Revisão').](https://contentmoderator.cognitive.microsoft.com/) Isto inicia a consola API, onde pode facilmente construir e executar chamadas REST API.
+Para criar ou atualizar um fluxo de trabalho, vá ao **[fluxo de trabalho - Crie ou atualize](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** a página de referência da API e selecione o botão para a sua região-chave. Pode encontrar a sua região no URL endpoint na página **de Credenciais** da [ferramenta Review](https://contentmoderator.cognitive.microsoft.com/). Isto inicia a consola API, onde pode facilmente construir e executar chamadas REST API.
 
 ![Fluxo de trabalho - Criar ou atualizar a seleção da região da página](images/test-drive-region.png)
 
 ### <a name="enter-rest-call-parameters"></a>Insira os parâmetros de chamada REST
 
-Introduza valores para **equipa,** **workflowname**e **Ocp-Apim-Subscription-Key**:
+Introduza valores para **equipa,** **workflowname** e **Ocp-Apim-Subscription-Key**:
 
 - **equipa**: O ID da equipa que criou quando criou a sua conta [de ferramenta Review](https://contentmoderator.cognitive.microsoft.com/) (encontrada no campo **Id** no ecrã de Credenciais da sua ferramenta Review).
 - **workflowname**: O nome de um novo fluxo de trabalho a adicionar (ou um nome existente, se pretender atualizar um fluxo de trabalho existente).
-- **Chave Ocp-Apim-Subscrição :** A tecla do Moderador de Conteúdo. Pode encontrar isto no **separador Definições** da [ferramenta 'Rever'.](https://contentmoderator.cognitive.microsoft.com)
+- **Chave Ocp-Apim-Subscrição :** A tecla do Moderador de Conteúdo. Pode encontrar esta chave no **separador Definições** da [ferramenta 'Rever'.](https://contentmoderator.cognitive.microsoft.com)
 
 ![Fluxo de trabalho - Criar ou atualizar parâmetros de consulta de consola e cabeçalhos](images/workflow-console-parameters.PNG)
 
@@ -80,7 +80,7 @@ Introduza valores para **equipa,** **workflowname**e **Ocp-Apim-Subscription-Key
 
 ### <a name="submit-your-request"></a>Submeter o pedido
   
-Selecione **Send** (Enviar). Se a operação for bem sucedida, o **estado de Resposta** é , e a caixa de conteúdo `200 OK` **response** aparece `true` .
+Selecione **Enviar**. Se a operação for bem sucedida, o **estado de Resposta** é , e a caixa de conteúdo `200 OK` **response** aparece `true` .
 
 ### <a name="examine-the-new-workflow"></a>Examinar o novo fluxo de trabalho
 
@@ -102,7 +102,7 @@ Introduza os parâmetros de chamada REST como na secção acima. Certifique-se d
 
 ![Obtenha parâmetros de consulta e cabeçalhos](images/workflow-get-default.PNG)
 
-Selecione **Send** (Enviar). Se a operação for bem sucedida, o **estado de Resposta** é , e a caixa de conteúdo `200 OK` **response** apresenta o fluxo de trabalho no formato JSON, como o seguinte:
+Selecione **Enviar**. Se a operação for bem sucedida, o **estado de Resposta** é , e a caixa de conteúdo `200 OK` **response** apresenta o fluxo de trabalho no formato JSON, como o exemplo seguinte:
 
 ```json
 {

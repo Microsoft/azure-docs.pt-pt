@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 96e6b7a672e2967403626cb9ba7db87fc4dd795c
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 0da970724a5d6f0ad42ba64939f316ec1ada855b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980206"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905558"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Use pontos finais privados para armazenamento Azure
 
@@ -125,10 +125,6 @@ Para obter detalhes sobre os preços, consulte [os preços do Azure Private Link
 ## <a name="known-issues"></a>Problemas Conhecidos
 
 Tenha em mente as seguintes questões conhecidas sobre pontos finais privados para o Azure Storage.
-
-### <a name="copy-blob-support"></a>Suporte blob de cópia
-
-Se a conta de armazenamento estiver protegida por uma firewall e a conta for acedida através de pontos finais privados, essa conta não pode servir de fonte de uma operação [Copy Blob.](/rest/api/storageservices/copy-blob)
 
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Restrições de acesso ao armazenamento para clientes em VNets com pontos finais privados
 

@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 12/08/2020
 ms.author: memildin
-ms.openlocfilehash: 43b66a59062a230aa2fba6909172deb5f1740b28
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: bdca5a753a49c26587db27892b54c2cb88910c83
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122299"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862467"
 ---
 # <a name="continuously-export-security-center-data"></a>Exportar continuamente dados do Centro de Segurança
 
@@ -41,7 +41,7 @@ Este artigo descreve como configurar a exportação contínua para espaços de t
 |Estado de libertação:|Geralmente disponível (GA)|
 |Preços:|Gratuito|
 |Funções e permissões necessárias:|<ul><li>**Administrador de segurança** ou **Proprietário** no grupo de recursos</li><li>Escreva permissões para o recurso alvo</li><li>Se estiver a utilizar as políticas de Azure 'DeployIfNotExist' descritas abaixo, também necessitará de permissões para atribuir políticas</li></ul>|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov, Outro Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (para o Centro de Eventos)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov, Outro Gov<br>![Sim](./media/icons/yes-icon.png) China Gov (para o Centro de Eventos)|
 |||
 
 
@@ -72,6 +72,7 @@ Os passos abaixo são necessários quer esteja a configurar uma exportação con
     - As conclusões da Avaliação de Vulnerabilidade nos seus servidores SQL em máquinas devem ser remediadas (Pré-visualização)
     - As vulnerabilidades nas imagens do Registo de Contentores de Azure devem ser remediadas (alimentadas por Qualys)
     - As vulnerabilidades nas suas máquinas virtuais devem ser remediadas
+    - As atualizações de sistema devem ser instaladas nos seus computadores
 
     Para incluir as conclusões com estas recomendações, permitir a opção **incluindo as conclusões de segurança.**
 
@@ -211,7 +212,7 @@ Saiba mais sobre [os preços do Azure Event Hub](https://azure.microsoft.com/pri
 
 ### <a name="does-the-export-include-data-about-the-current-state-of-all-resources"></a>A exportação inclui dados sobre o estado atual de todos os recursos?
 
-Não. A exportação contínua é construída para o streaming de **eventos:**
+N.º A exportação contínua é construída para o streaming de **eventos:**
 
 - **Os alertas recebidos** antes de permitir a exportação não serão exportados.
 - **As recomendações** são enviadas sempre que o estado de conformidade de um recurso muda. Por exemplo, quando um recurso passa de saudável para insalubre. Portanto, tal como nos alertas, as recomendações para recursos que não mudaram de estado, uma vez que permitiu exportar, não serão exportadas.

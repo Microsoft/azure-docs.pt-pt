@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 9/17/2020
-ms.openlocfilehash: 1a51d2140528e3f6ed6da0ca699d7b71b91638ec
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 12/8/2020
+ms.openlocfilehash: bd8f5a28b709a45e99e846fb4e242f774aca80c5
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743160"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902515"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -135,9 +135,10 @@ A autoresuming é desencadeada se alguma das seguintes condições for verdadeir
 |Deteção e classificação de dados|Adicionar, modificar, eliminar ou visualizar rótulos de sensibilidade|
 |Auditoria|A ver registos de auditoria.<br>Atualizar ou visualizar a política de auditoria.|
 |Máscara de dados|Adicionar, modificar, eliminar ou ver regras de mascaramento de dados|
-|Encriptação de dados transparente|Ver estado ou estado de encriptação de dados transparentes|
+|Encriptação de dados transparente|Visualização do estado ou estado da encriptação transparente de dados|
 |Avaliação de vulnerabilidades|Exames ad hoc e exames periódicos se ativados|
 |Loja de dados de consulta (desempenho)|Modificar ou visualizar definições de lojas de consultas|
+|Recomendações de desempenho|Visualização ou aplicação de recomendações de desempenho|
 |Autofinar|Aplicação e verificação de recomendações de autotuning, tais como auto-indexação|
 |Cópia da base de dados|Criar base de dados como cópia.<br>Exportar para um ficheiro BACPAC.|
 |Sincronização de dados SQL|Sincronização entre bases de dados do hub e dos membros que funcionam num horário configurável ou são realizadas manualmente|
@@ -314,17 +315,17 @@ Para obter limites de recursos, consulte [o nível de cálculo sem servidor](res
 
 A quantidade de cálculo faturada é o máximo de CPU utilizado e a memória utilizada a cada segundo. Se a quantidade de CPU utilizada e a memória utilizada for inferior ao montante mínimo previsto para cada um, então o montante previsto é faturado. Para comparar o CPU com a memória para efeitos de faturação, a memória é normalizada em unidades de vCores redimensionando a quantidade de memória em GB por 3 GB por vCore.
 
-- **Recurso faturado** : CPU e memória
-- **Valor faturado** : vCore preço unitário * max (min vCores, vCores usados, min memory GB * 1/3, memória GB usada * 1/3) 
-- **Frequência de faturação** : Por segundo
+- **Recurso faturado**: CPU e memória
+- **Valor faturado**: vCore preço unitário * max (min vCores, vCores usados, min memory GB * 1/3, memória GB usada * 1/3) 
+- **Frequência de faturação**: Por segundo
 
 O preço unitário vCore é o custo por vCore por segundo. Consulte a página de preços da [Base de Dados Azure SQL](https://azure.microsoft.com/pricing/details/sql-database/single/) para obter preços unitários específicos numa determinada região.
 
 A quantidade de cálculo faturada é exposta pela seguinte métrica:
 
-- **Métrica** : app_cpu_billed (vCore segundos)
+- **Métrica**: app_cpu_billed (vCore segundos)
 - **Definição:** máx (min vCores, vCores usados, memória min GB * 1/3, memória GB usada * 1/3)
-- **Frequência de reporte** : Por minuto
+- **Frequência de reporte**: Por minuto
 
 Esta quantidade é calculada a cada segundo e agregada ao longo de 1 minuto.
 

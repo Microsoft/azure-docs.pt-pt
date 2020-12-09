@@ -1,24 +1,29 @@
 ---
-title: Solicite dados de trânsito com o serviço de mobilidade microsoft Azure Maps
-description: Saiba como utilizar o serviço de Mobilidade Azure Maps para solicitar dados de trânsito público, tais como IDs da área metropolitana, paragens de trânsito, rotas e itinerários de rota.
+title: Solicite dados de trânsito com os serviços de mobilidade do Microsoft Azure Maps (Pré-visualização)
+description: Saiba como utilizar os serviços de Mobilidade Azure Maps (Preview) para solicitar dados de trânsito público, tais como IDs da área metropolitana, paragens de trânsito, rotas e itinerários de rota.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/22/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 3f6f50d0ffeb48b5f359221992cc9a51d2ebb056
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 740080d742f535f868b2ae194b24bebe5ac6ac24
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895669"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906034"
 ---
-# <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Solicite dados de trânsito público utilizando o serviço de mobilidade Azure Maps
+# <a name="request-public-transit-data-using-the-azure-maps-mobility-services-preview"></a>Solicitar dados de trânsito público utilizando os serviços de Mobilidade Azure Maps (Pré-visualização) 
 
-Este artigo mostra-lhe como utilizar o serviço de [mobilidade](/rest/api/maps/mobility) Azure Maps para solicitar dados de trânsito público. Os dados de trânsito incluem paragens de trânsito, informações de rotas e estimativas do tempo de viagem.
+> [!IMPORTANT]
+> Os serviços de mobilidade Azure Maps estão atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+Este artigo mostra-lhe como utilizar [os serviços de Mobilidade](/rest/api/maps/mobility) Azure Maps para solicitar dados de trânsito público. Os dados de trânsito incluem paragens de trânsito, informações de rotas e estimativas do tempo de viagem.
 
 Neste artigo você vai aprender, como:
 
@@ -36,13 +41,13 @@ Este tutorial usa a aplicação [Do Carteiro,](https://www.postman.com/) mas voc
 
 ## <a name="get-a-metro-area-id"></a>Obtenha uma iD da área do metrô
 
-Para solicitar informações detalhadas sobre agências de trânsito e tipos de trânsito apoiados para uma determinada área metropolitana, você precisará `metroId` dessa área. A [API get metro area](/rest/api/maps/mobility/getmetroareapreview) permite-lhe solicitar áreas de metrô, nas quais o serviço de Mobilidade Azure Maps está disponível. A resposta inclui detalhes como o `metroId` `metroName` , e a representação da geometria da área metropolitana no formato GeoJSON.
+Para solicitar informações detalhadas sobre agências de trânsito e tipos de trânsito apoiados para uma determinada área metropolitana, você precisará `metroId` dessa área. A [API get metro area](/rest/api/maps/mobility/getmetroareapreview) permite-lhe solicitar áreas de metrô, nas quais estão disponíveis os serviços de Mobilidade Azure Maps. A resposta inclui detalhes como o `metroId` `metroName` , e a representação da geometria da área metropolitana no formato GeoJSON.
 
 Vamos fazer um pedido para obter a área do metro para a Seattle-Tacoma identificação da área metropolitana. Para solicitar a iD para uma área de metrô, complete os seguintes passos:
 
-1. Abra a aplicação Do Carteiro e vamos criar uma coleção para armazenar os pedidos. Perto do topo da aplicação Postman, selecione **New** . Na janela **Criar Nova,** selecione **Coleção** .  Nomeie a coleção e selecione o botão **Criar.**
+1. Abra a aplicação Do Carteiro e vamos criar uma coleção para armazenar os pedidos. Perto do topo da aplicação Postman, selecione **New**. Na janela **Criar Nova,** selecione **Coleção**.  Nomeie a coleção e selecione o botão **Criar.**
 
-2. Para criar o pedido, selecione **New** novamente. Na janela **Criar Novo,** selecione **Request** . Insira um **nome de Pedido** para o pedido. Selecione a coleção que criou no passo anterior como o local para guardar o pedido. Em seguida, **selecione Save** .
+2. Para criar o pedido, selecione **New** novamente. Na janela **Criar Novo,** selecione **Request**. Insira um **nome de Pedido** para o pedido. Selecione a coleção que criou no passo anterior como o local para guardar o pedido. Em seguida, **selecione Save**.
   
     ![Criar um pedido no Carteiro](./media/how-to-request-transit-data/postman-new.png)
 
@@ -115,9 +120,9 @@ O serviço Azure Maps [Get Nearby Transit](/rest/api/maps/mobility/getnearbytran
 
 Para fazer um pedido ao [Trânsito De proximidade,](/rest/api/maps/mobility/getnearbytransitpreview)siga os passos abaixo:
 
-1. No Carteiro, clique em **Novo Pedido**  |  **GET e** nomeie-o Obter **paragens próximas** .
+1. No Carteiro, clique em **Novo Pedido**  |  **GET e** nomeie-o Obter **paragens próximas**.
 
-2. No separador Construtor, selecione o método **GET** HTTP, introduza o seguinte URL de pedido para o seu ponto final da API e clique em **Enviar** .
+2. No separador Construtor, selecione o método **GET** HTTP, introduza o seguinte URL de pedido para o seu ponto final da API e clique em **Enviar**.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&query=47.63096,-122.126&radius=300&objectType=stop
@@ -224,15 +229,15 @@ Para obter as coordenadas de localização da torre space needle, usaremos o ser
 
 Para fazer um pedido ao serviço de pesquisa Fuzzy, siga os passos abaixo:
 
-1. No Carteiro, clique em **Novo**  |  **Pedido GET** e nomeie-o Obtenha as **coordenadas de localização** .
+1. No Carteiro, clique em **Novo**  |  **Pedido GET** e nomeie-o Obtenha as **coordenadas de localização**.
 
-2. No separador Construtor, selecione o método **GET** HTTP, introduza o seguinte URL de pedido e clique em **Enviar** .
+2. No separador Construtor, selecione o método **GET** HTTP, introduza o seguinte URL de pedido e clique em **Enviar**.
 
     ```HTTP
     https://atlas.microsoft.com/search/fuzzy/json?subscription-key={subscription-key}&api-version=1.0&query=space needle
     ```
 
-3. Se olhar cuidadosamente para a resposta, contém vários locais nos resultados da pesquisa da Agulha Espacial. Cada resultado contém as coordenadas de localização sob a **posição** . Copie o `lat` e `lon` sob a **posição** do primeiro resultado.
+3. Se olhar cuidadosamente para a resposta, contém vários locais nos resultados da pesquisa da Agulha Espacial. Cada resultado contém as coordenadas de localização sob a **posição**. Copie o `lat` e `lon` sob a **posição** do primeiro resultado.
 
    ```JSON
    {
@@ -331,11 +336,11 @@ Para fazer um pedido ao serviço de pesquisa Fuzzy, siga os passos abaixo:
 
 Para fazer um pedido de rota, complete os passos abaixo:
 
-1. No Carteiro, clique em **Novo Pedido**  |  **GET e** nomeie-o Obter **informações sobre Rota** .
+1. No Carteiro, clique em **Novo Pedido**  |  **GET e** nomeie-o Obter **informações sobre Rota**.
 
-2. No separador Construtor, selecione o método **GET** HTTP, introduza o seguinte URL de pedido para o seu ponto final da API e clique em **Enviar** .
+2. No separador Construtor, selecione o método **GET** HTTP, introduza o seguinte URL de pedido para o seu ponto final da API e clique em **Enviar**.
 
-    Vamos solicitar rotas de trânsito público para um autocarro especificando os `modeType` parâmetros e `transitType` parâmetros. O URL de pedido contém as localizações recuperadas nas secções anteriores. Para o `originType` , temos agora um **stopId** . E para `destionationType` o, temos a **posição.**
+    Vamos solicitar rotas de trânsito público para um autocarro especificando os `modeType` parâmetros e `transitType` parâmetros. O URL de pedido contém as localizações recuperadas nas secções anteriores. Para o `originType` , temos agora um **stopId**. E para `destionationType` o, temos a **posição.**
 
     Consulte a [lista de parâmetros URI](/rest/api/maps/mobility/gettransitroutepreview#uri-parameters) que pode utilizar no seu pedido para a [API das Rotas de Trânsito.](/rest/api/maps/mobility/gettransitroutepreview)
   
@@ -528,7 +533,7 @@ O serviço Azure Maps [Get Transit Itinerário](/rest/api/maps/mobility/gettrans
 
 1. No Carteiro, clique em **Novo Pedido**  |  **GET e** nomeie-o Obtenha **informações de Trânsito.**
 
-2. No separador 'Construtor', selecione o método **GET** HTTP. Introduza o seguinte URL de pedido para o seu ponto final da API e clique em **Enviar** .
+2. No separador 'Construtor', selecione o método **GET** HTTP. Introduza o seguinte URL de pedido para o seu ponto final da API e clique em **Enviar**.
 
     Vamos definir o `detailType` parâmetro para a **geometria** para que a resposta contenha informações de paragem para o trânsito público e navegação por turnos para caminhadas e pernas de bicicleta da rota.
 
@@ -796,12 +801,12 @@ O serviço Azure Maps [Get Transit Itinerário](/rest/api/maps/mobility/gettrans
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como solicitar dados em tempo real utilizando o serviço mobility:
+Saiba como solicitar dados em tempo real utilizando serviços de mobilidade (Pré-visualização):
 
 > [!div class="nextstepaction"]
 > [Como solicitar dados em tempo real](how-to-request-real-time-data.md)
 
-Explore a documentação do serviço de mobilidade AZure Maps
+Explore a documentação da API dos serviços de mobilidade Azure Maps (Preview)
 
 > [!div class="nextstepaction"]
-> [Documentação do serviço de mobilidade](/rest/api/maps/mobility)
+> [Documentação de serviços de mobilidade](/rest/api/maps/mobility)

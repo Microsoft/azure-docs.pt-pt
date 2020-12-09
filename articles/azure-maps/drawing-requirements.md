@@ -1,21 +1,26 @@
 ---
-title: Requisitos de pacote de desenho no Azure Maps Creator
+title: Requisitos de pacote de desenho no Microsoft Azure Maps Creator (Preview)
 description: Saiba mais sobre os requisitos do pacote de desenho para converter os seus ficheiros de design de instalações para mapear dados
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 6/12/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 2c3e46bf386e70cbe35d96728ede896d6bf0dc7d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 26b6273b4dd2371790025515e35b71d1fc863ebe
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013127"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903467"
 ---
 # <a name="drawing-package-requirements"></a>Requisitos de pacote do desenho
+
+
+> [!IMPORTANT]
+> Os serviços do Azure Maps Creator estão atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Pode converter pacotes de desenho carregados em dados de mapas utilizando o [serviço de conversão Azure Maps.](/rest/api/maps/conversion) Este artigo descreve os requisitos do pacote de desenho para a API de conversão. Para visualizar um pacote de amostras, você pode baixar o [pacote de desenho](https://github.com/Azure-Samples/am-creator-indoor-data-examples)de amostras .
 
@@ -34,7 +39,7 @@ Para uma referência fácil, aqui estão alguns termos e definições que são i
 | Termo  | Definição |
 |:-------|:------------|
 | Camada | Uma camada AutoCAD DWG.|
-| Nível | Uma área de um edifício a uma elevação definida. Por exemplo, o chão de um prédio. |
+| Level | Uma área de um edifício a uma elevação definida. Por exemplo, o chão de um prédio. |
 | Xref  |Um ficheiro em formato de ficheiro AutoCAD DWG (.dwg), anexado ao desenho primário como referência externa.  |
 | Funcionalidade | Um objeto que combina uma geometria com informações adicionais de metadados. |
 | Aulas de recurso | Uma planta comum para características. Por exemplo, uma *unidade* é uma classe de recurso, e um *escritório* é uma característica. |
@@ -407,10 +412,10 @@ Segue-se um ficheiro manifesto de amostra para o pacote de desenho da amostra. P
 Quando o seu pacote Desenhá-lo satisfaz os requisitos, pode utilizar o [serviço de Conversão Azure Maps](/rest/api/maps/conversion) para converter o pacote num conjunto de dados do mapa. Em seguida, pode utilizar o conjunto de dados para gerar um mapa interior utilizando o módulo de mapas interiores.
 
 > [!div class="nextstepaction"]
->[Criador para mapas interiores](creator-indoor-maps.md)
+>[Criador (Pré-visualização) para mapas interiores](creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Criar um mapa interior do Criador](tutorial-creator-indoor-maps.md)
+> [Tutorial: Criação de um mapa interior do Criador (Preview)](tutorial-creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Estilo dinâmico de mapas interiores](indoor-map-dynamic-styling.md)

@@ -10,12 +10,12 @@ ms.date: 08/11/2020
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 4eb9b0077d1d0591953a40d98a220d7aa0683de7
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: fa71dc1e6b3a09827f2ad3d9f714622da5a36222
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497950"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862450"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorizar um runtime de integração no Azure Data Factory
 
@@ -104,7 +104,7 @@ A tabela a seguir fornece os estatutos possíveis de um nó de tempo de execuç�
 | Online | O nó está ligado ao serviço Data Factory. |
 | Offline | O nó está desligado. |
 | Modernização | O nó está a ser atualizado automaticamente. |
-| Limitado | Devido a um problema de conectividade. Pode ser devido à emissão da porta HTTP 8050, problema de conectividade do autocarro de serviço ou um problema de sincronização de credenciais. |
+| Limitado | Devido a um problema de conectividade. Pode ser devido à emissão da porta HTTP 8060, problema de conectividade do autocarro de serviço ou um problema de sincronização de credenciais. |
 | Inativa | O nó está numa configuração diferente da configuração de outros nós maioritários. |
 
 Um nó pode ser inativo quando não pode ligar-se a outros nós.
@@ -196,7 +196,7 @@ O quadro seguinte fornece descrições das propriedades devolvidas pelo cmdlet a
 | Tipo                         | O tipo de IR (Gerido/Auto-hospedado) do seu Azure-SSIS IR. |
 | ResourceGroupName            | O nome do seu Grupo de Recursos Azure, no qual foram criados os seus ADF e Azure-SSIS IR. |
 | DataFactoryName              | O nome da sua ADF. |
-| Name                         | O nome do seu Azure-SSIS IR. |
+| Nome                         | O nome do seu Azure-SSIS IR. |
 | Descrição                  | A descrição do seu Azure-SSIS IR. |
   
 #### <a name="status-per-azure-ssis-ir-node"></a>Estado (por nó IR Azure-SSIS)

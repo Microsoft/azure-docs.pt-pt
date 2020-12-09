@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Azure Policy utiliza o agente de Configuração de Convidados para auditar as definições dentro de máquinas virtuais.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: e941938fce09e8729856322a5b6572b46a3714be
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a956d5e8dcfa82f85020928e1427a08ac8fe7a69
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075489"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906255"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a Configuração de Convidado do Azure Policy
 
@@ -60,9 +60,9 @@ O cliente de Configuração de Hóspedes verifica novos conteúdos a cada 5 minu
 
 As definições de política de configuração de hóspedes incluem novas versões. As versões mais antigas dos sistemas operativos disponíveis no Azure Marketplace estão excluídas se o agente de Configuração de Hóspedes não for compatível. A tabela a seguir mostra uma lista de sistemas operativos suportados em imagens Azure:
 
-|Publisher|Name|Versões|
+|Publisher|Nome|Versões|
 |-|-|-|
-|Canónico|Ubuntu Server|14.04 e mais tarde|
+|Canónico|Ubuntu Server|14.04 - 18.04|
 |Credativ|Debian|8 e mais tarde|
 |Microsoft|Windows Server|2012 e mais tarde|
 |Microsoft|Cliente Windows|Windows 10|
@@ -120,7 +120,7 @@ A Azure Policy utiliza a conformidade do fornecedor de recursos de configuraçã
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Auditoria das definições do sistema operativo seguindo as linhas de base da indústria
 
-Uma iniciativa da Azure Policy proporciona a capacidade de auditar as definições do sistema operativo seguindo uma "linha de base". A definição, _ \[ Preview : Audit Windows \] VMs que não correspondem às definições de base de segurança Azure_ inclui um conjunto de regras baseadas na Política de Grupo de Diretório Ativo.
+Uma iniciativa da Azure Policy proporciona a capacidade de auditar as definições do sistema operativo seguindo uma "linha de base". A definição, _\[ Preview : Audit Windows \] VMs que não correspondem às definições de base de segurança Azure_ inclui um conjunto de regras baseadas na Política de Grupo de Diretório Ativo.
 
 A maioria das definições estão disponíveis como parâmetros. Os parâmetros permitem personalizar o que é auditado.
 Alinhe a política com os seus requisitos ou mapeeia a política para informações de terceiros, tais como normas regulamentares da indústria.

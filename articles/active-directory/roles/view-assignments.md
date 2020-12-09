@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9f7c6ec0917adbca5b44feee1ec285f4337ac4c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8546c2b50c78c7a24d07c75d2d730fd2566e8ba0
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579033"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862093"
 ---
 # <a name="view-custom-role-assignments-using-azure-active-directory"></a>Ver atribuições de funções personalizadas usando O Diretório Ativo Azure
 
@@ -32,14 +32,14 @@ Este artigo descreve como visualizar funções personalizadas que atribuiu no Az
 Este procedimento descreve atribuições de visualização de um papel com âmbito de organização.
 
 1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com) com o administrador privilegiado ou permissões de administrador global na organização Azure AD.
-1. Selecione **Azure Ative Directory** , selecione **Roles e administradores** , e, em seguida, selecione uma função para abri-lo e ver as suas propriedades.
+1. Selecione **Azure Ative Directory**, selecione **Roles e administradores**, e, em seguida, selecione uma função para abri-lo e ver as suas propriedades.
 1. Selecione **Atribuições** para visualizar as atribuições para o papel.
 
     ![Ver atribuições de funções e permissões quando abrir um papel da lista](./media/view-assignments/role-assignments.png)
 
 ## <a name="view-role-assignments-using-azure-ad-powershell"></a>Ver atribuições de funções usando Azure AD PowerShell
 
-Esta secção descreve atribuições de visualização de um papel com âmbito de organização. Este artigo utiliza o módulo [Azure Ative Directory PowerShell Version 2.](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) Para visualizar as atribuições de âmbito de aplicação única utilizando o PowerShell, pode utilizar os cmdlets em [Atribuir funções personalizadas com PowerShell](custom-assign-powershell.md).
+Esta secção descreve atribuições de visualização de um papel com âmbito de organização. Este artigo utiliza o módulo [Azure Ative Directory PowerShell Version 2.](/powershell/module/azuread/#directory_roles) Para visualizar as atribuições de âmbito de aplicação única utilizando o PowerShell, pode utilizar os cmdlets em [Atribuir funções personalizadas com PowerShell](custom-assign-powershell.md).
 
 ### <a name="prepare-powershell"></a>Preparar PowerShell
 
@@ -109,7 +109,7 @@ Esta secção descreve atribuições de visualização de uma função com âmbi
 
     ![Criar ou editar registos de aplicações a partir da página de registos da App](./media/view-assignments/app-reg-all-apps.png)
 
-1. No registo da aplicação, selecione **Roles e administradores** , e, em seguida, selecione uma função para ver as suas propriedades.
+1. No registo da aplicação, selecione **Roles e administradores**, e, em seguida, selecione uma função para ver as suas propriedades.
 
     ![Ver atribuições de funções de registo de aplicativos a partir da página de registos da App](./media/view-assignments/app-reg-assignments.png)
 

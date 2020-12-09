@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ce068f1b43fcd6611d4abf65029cbcc5de3b7d30
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c9ee57baf63867e4dca4236d484321586cfb3b17
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311602"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862348"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Utilize o pacote de interpretação para explicar os modelos ML & previsões em Python (pré-visualização)
 
@@ -275,7 +275,7 @@ O exemplo a seguir mostra como pode utilizar a `ExplanationClient` classe para p
 
 1. Crie um Azure Machine Learning Compute como seu alvo de computação e submeta o seu treino. Consulte [Criar e gerir os clusters de cálculo Azure Machine Learning](how-to-create-attach-compute-cluster.md) para obter instruções. Também pode achar útil o [exemplo de cadernos.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation)
 
-1. Baixe a explicação no seu caderno Jupyter local.
+1. Baixe a explicação no seu Caderno Jupyter local.
 
     ```python
     from azureml.interpret import ExplanationClient
@@ -296,13 +296,13 @@ O exemplo a seguir mostra como pode utilizar a `ExplanationClient` classe para p
 
 ## <a name="visualizations"></a>Visualizações
 
-Depois de descarregar as explicações no seu caderno Jupyter local, pode utilizar o painel de visualização para compreender e interpretar o seu modelo.
+Depois de descarregar as explicações no seu Caderno Jupyter local, pode utilizar o painel de visualização para compreender e interpretar o seu modelo.
 
 ### <a name="understand-entire-model-behavior-global-explanation"></a>Compreender todo o comportamento do modelo (explicação global) 
 
 Os seguintes enredos proporcionam uma visão geral do modelo treinado juntamente com as suas previsões e explicações.
 
-|Lote|Description|
+|Lote|Descrição|
 |----|-----------|
 |Exploração de Dados| Apresenta uma visão geral do conjunto de dados juntamente com os valores de previsão.|
 |Importância Global|Os agregados apresentam valores importantes de pontos de dados individuais para mostrar as características importantes do modelo no topo do K (configurável K). Ajuda a compreender o comportamento geral do modelo subjacente.|
@@ -316,7 +316,7 @@ Os seguintes enredos proporcionam uma visão geral do modelo treinado juntamente
 
 Pode carregar o enredo de importância de recurso individual para qualquer ponto de dados clicando em qualquer um dos pontos de dados individuais em qualquer um dos enredos globais.
 
-|Lote|Description|
+|Lote|Descrição|
 |----|-----------|
 |Importância Local|Mostra as características importantes k (configurável K) para uma previsão individual. Ajuda a ilustrar o comportamento local do modelo subjacente num ponto de dados específico.|
 |Exploração de Perturbação (e se análise)|Permite alterações aos valores de característica do ponto de dados selecionados e observa alterações resultantes ao valor de previsão.|

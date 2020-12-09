@@ -3,12 +3,12 @@ title: Configure a monitorização da GPU com o Azure Monitor para contentores M
 description: Este artigo descreve como pode configurar os aglomerados kubernetes de monitorização com gPIA e GPU da AMD ativados com Azure Monitor para contentores.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 4c6044d407dc4abd0e69bac0190cc19c901022c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e391117ab57211aa5d178d11c27b934b4ccd37f8
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569701"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905592"
 ---
 # <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Configure a monitorização da GPU com o Monitor Azure para contentores
 
@@ -39,7 +39,7 @@ O Azure Monitor para contentores inicia automaticamente a monitorização da uti
 
 ## <a name="gpu-performance-charts"></a>Gráficos de desempenho da GPU 
 
-O Azure Monitor para contentores inclui gráficos pré-configurados para as métricas listadas anteriormente na tabela como um livro de GPU para cada cluster. Pode encontrar o **GDE GU** do livro da GPU diretamente de um cluster AKS, selecionando Livros de **Trabalho** a partir do painel de esquerda e da lista de drop-down do **View Workbooks** no Insight.
+O Azure Monitor para contentores inclui gráficos pré-configurados para as métricas listadas anteriormente na tabela como um livro de GPU para cada cluster. Consulte [os livros de trabalho no Monitor Azure para obter](container-insights-reports.md) uma descrição dos livros disponíveis para o Azure Monitor para recipientes.
 
 ## <a name="next-steps"></a>Passos seguintes
 

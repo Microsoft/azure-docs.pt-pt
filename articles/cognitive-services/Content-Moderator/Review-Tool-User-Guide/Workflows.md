@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: pafarley
-ms.openlocfilehash: 0be77dc1ac249c37f9b59078451d8fbe35f17458
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6eb2a2d2762b60a12bb9a24b92e2edae4b846cd1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72754243"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904147"
 ---
 # <a name="define-and-use-moderation-workflows"></a>Definir e utilizar fluxos de trabalho de moderação
 
@@ -83,4 +83,4 @@ Vá ao separador **imagem** em **análise** e verifique se existe uma revisão d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia, aprendeu a configurar e utilizar fluxos de trabalho de moderação a partir da ferramenta de [Análise](https://contentmoderator.cognitive.microsoft.com)de Moderadores de Conteúdo. Em seguida, consulte o [guia REST API](../try-review-api-workflow.md) para aprender a criar fluxos de trabalho programáticamente.
+Neste guia, aprendeu a configurar e utilizar fluxos de trabalho de moderação a partir da ferramenta de [Análise](https://contentmoderator.cognitive.microsoft.com)de Moderadores de Conteúdo. Em seguida, consulte o guia da [consola API](../try-review-api-workflow.md) para aprender a criar fluxos de trabalho programáticamente.

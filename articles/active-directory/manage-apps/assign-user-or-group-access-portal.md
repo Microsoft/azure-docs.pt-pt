@@ -1,5 +1,5 @@
 ---
-title: Gerir a atribuição do utilizador para uma aplicação no Azure Ative Directory
+title: Gerir a atribuição de utilizadores para uma aplicação no Azure Active Directory
 description: Saiba como atribuir e desatribuir utilizadores e grupos para uma aplicação que utilize o Azure Ative Directory para gestão de identidade.
 services: active-directory
 author: kenwith
@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 55934e8c33b74740b7398be1ae18a3ef899aee74
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 22acfc5095b1ffcad382fa2b665a86d382645e7a
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651282"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861682"
 ---
-# <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Gerir a atribuição do utilizador para uma aplicação no Azure Ative Directory
+# <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Gerir a atribuição de utilizadores para uma aplicação no Azure Active Directory
 
 Este artigo mostra-lhe como atribuir utilizadores, e grupos, a aplicações empresariais no Azure Ative Directory (Azure AD), quer dentro do portal Azure, quer através da utilização do PowerShell. Quando atribui um utilizador a uma aplicação, a aplicação aparece nas [Minhas Apps](https://myapps.microsoft.com/) do utilizador para facilitar o acesso. Se a aplicação expor funções, também pode atribuir uma função específica ao utilizador.
 
@@ -81,11 +81,11 @@ Pode utilizar a API do Gráfico para atribuir ou não designar utilizadores, e g
     # Assign the user to the app role
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
-Para obter mais informações sobre como atribuir um utilizador a uma função de aplicação, consulte a documentação para [new-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
+Para obter mais informações sobre como atribuir um utilizador a uma função de aplicação, consulte a documentação para [new-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment).
 
 Para atribuir um grupo a uma aplicação de empresa, deve substituir `Get-AzureADUser` `Get-AzureADGroup` e substituir por `New-AzureADUserAppRoleAssignment` `New-AzureADGroupAppRoleAssignment` .
 
-Para obter mais informações sobre como atribuir um grupo a uma função de candidatura, consulte a documentação para [new-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
+Para obter mais informações sobre como atribuir um grupo a uma função de candidatura, consulte a documentação para [new-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment).
 
 ### <a name="example"></a>Exemplo
 
@@ -149,9 +149,9 @@ Este exemplo atribui o utilizador Britta Simon à aplicação [Microsoft Workpla
 
 - [Saiba mais sobre o acesso do utilizador final às aplicações](end-user-experiences.md)
 - [Planeie uma implementação de Azure AD My Apps](access-panel-deployment-plan.md)
-- [Gerir o acesso a apps](what-is-access-management.md)
+- [Gerir o acesso a aplicações](what-is-access-management.md)
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ver todos os meus grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Remova uma atribuição de utilizador ou grupo de uma aplicação da empresa]()

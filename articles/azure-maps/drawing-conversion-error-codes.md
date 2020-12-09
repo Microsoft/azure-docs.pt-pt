@@ -3,17 +3,17 @@ title: Azure Maps Erros e avisos de conversão de desenho
 description: Saiba mais sobre os erros e avisos de Conversão que poderá encontrar enquanto estiver a utilizar o serviço de Conversão Azure Maps. Leia as recomendações sobre como resolver os erros e os avisos, com alguns exemplos.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 04a43e3e2fa9ad77e11f82ff38a144a1de3add78
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cecc19f0984ce1801d50e5cbda73e98a01e2825b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895941"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906221"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Erros de conversão de desenho e avisos
 
@@ -311,7 +311,7 @@ Um erro **inválido DoArchiveFormat** também ocorrerá se o arquivo ZIP estiver
 
 Para corrigir um erro **inválido DoArquiteFormat,** verifique se:
 
-* O nome do seu ficheiro de arquivo termina em _.zip_ .
+* O nome do seu ficheiro de arquivo termina em _.zip_.
 * O seu arquivo ZIP contém dados.
 * Pode abrir o seu arquivo ZIP.
 
@@ -330,7 +330,7 @@ Tentou carregar um pacote de desenho com um `udid` parâmetro incorreto.
 Para corrigir um erro **invalidoUserData,** verifique se:
 
 * Forneceu um correto `udid` para o pacote carregado.
-* O Azure Maps Creator foi ativado para a conta Azure Maps que usou para o upload do pacote Drawing.
+* O Azure Maps Creator (Preview) foi ativado para a conta Azure Maps que usou para o upload do pacote Drawing.
 * O pedido da API ao serviço de Conversão contém a chave de subscrição da conta Azure Maps que utilizou para o upload do pacote Drawing.
 
 ### <a name="dwgerror"></a>**dwgError**
@@ -506,4 +506,4 @@ Para corrigir um erro **vertical do Artigo de Alteração,** leia como utilizar 
 > [Como usar o visualizador de erros do Azure Maps](drawing-error-visualizer.md)
 
 > [!div class="nextstepaction"]
-> [Criador para mapeamento interior](creator-indoor-maps.md)
+> [Criador (Pré-visualização) para mapeamento interior](creator-indoor-maps.md)

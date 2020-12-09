@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b5b83d75df734c667c365f20fad2e1f62f997d7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 95f70005f2c7f53833163dcd5f0d2ee89b3db37c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994286"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861294"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crie uma estratégia resiliente de gestão de controlo de acessos com o Azure Ative Directory
 
@@ -266,7 +266,7 @@ Desfaça as alterações que fez como parte do plano de contingência ativado as
 3. Reverta quaisquer outras alterações que tenha feito e documentada durante a interrupção.
 4. Se usou uma conta de acesso de emergência, lembre-se de regenerar credenciais e proteger fisicamente os novos detalhes das credenciais como parte dos procedimentos da sua conta de acesso de emergência.
 5. Continue para [triagem todas as deteções de risco reportadas](../reports-monitoring/concept-sign-ins.md) após a interrupção para atividades suspeitas.
-6. Revogue todos os tokens de atualização que foram emitidos [usando o PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) para direcionar um conjunto de utilizadores. A revogação de todos os tokens de atualização é importante para as contas privilegiadas utilizadas durante a interrupção e fazê-lo irá forçá-los a reauthenticar e a cumprir o controlo das políticas restauradas.
+6. Revogue todos os tokens de atualização que foram emitidos [usando o PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) para direcionar um conjunto de utilizadores. A revogação de todos os tokens de atualização é importante para as contas privilegiadas utilizadas durante a interrupção e fazê-lo irá forçá-los a reauthenticar e a cumprir o controlo das políticas restauradas.
 
 ## <a name="emergency-options"></a>Opções de emergência
 
@@ -287,7 +287,7 @@ Se a sua organização estiver a utilizar políticas antigas de MFA por utilizad
 * [Documentação da Autenticação do Azure AD](./howto-mfaserver-iis.md)
 * [Gerir contas administrativas de acesso de emergência em Azure AD](../roles/security-emergency-access.md)
 * [Configurar localizações nomeadas no Azure Ative Directory](../reports-monitoring/quickstart-configure-named-locations.md)
-  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings)
 * [Como configurar o Azure Ative Directory híbrido juntou dispositivos](../devices/hybrid-azuread-join-plan.md)
 * [Guia de Implementação do Windows Hello para Empresas](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Orientação de passwords - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)

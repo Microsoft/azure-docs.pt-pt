@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: pafarley
-ms.openlocfilehash: a9726e41a84926d00d48b51e31f534a3d8c2fe0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 479c7c455f07d098edd327196803e85df24dfb6d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72757146"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905149"
 ---
-# <a name="create-human-reviews-rest"></a>Criar comentários humanos (REST)
+# <a name="create-human-reviews-api-console"></a>Criar comentários humanos (consola API)
 
 [As avaliações](./review-api.md#reviews) armazenam e exibem conteúdo para moderadores humanos avaliarem. Quando um utilizador completa uma revisão, os resultados são enviados para um ponto final de retorno especificado. Neste guia, você vai aprender a configurar comentários usando o review REST APIs através da consola API. Uma vez que você entenda a estrutura das APIs, você pode facilmente levar estas chamadas para qualquer plataforma compatível com REST.
 
@@ -33,7 +33,7 @@ Para criar uma revisão, vá à página de referência da **[API e](https://west
 
 ### <a name="enter-rest-call-parameters"></a>Insira os parâmetros de chamada REST
 
-Introduza valores para **o nome de equipa**e o **Ocp-Apim-Subscription-Key**:
+Introduza valores para **o nome de equipa** e o **Ocp-Apim-Subscription-Key**:
 
 - **nome de equipa**: O ID da equipa que criou quando criou a sua conta [de ferramenta Review](https://contentmoderator.cognitive.microsoft.com/) (encontrada no campo **Id** no ecrã de Credenciais da sua ferramenta Review).
 - **Chave Ocp-Apim-Subscrição :** A tecla do Moderador de Conteúdo. Pode encontrar isto no **separador Definições** da [ferramenta 'Rever'.](https://contentmoderator.cognitive.microsoft.com)
@@ -129,7 +129,7 @@ O organismo de pedidos predefinidos apresenta exemplos dos diferentes tipos de a
 
 ### <a name="submit-your-request"></a>Submeter o pedido
   
-Selecione **Send** (Enviar). Se a operação for bem sucedida, o **estado de Resposta** é , e a caixa de conteúdo `200 OK` **response** apresenta um ID para a revisão. Copie este ID para utilizar nos seguintes passos.
+Selecione **Enviar**. Se a operação for bem sucedida, o **estado de Resposta** é , e a caixa de conteúdo `200 OK` **response** apresenta um ID para a revisão. Copie este ID para utilizar nos seguintes passos.
 
 ![Comentário - Criar caixa de conteúdo de resposta a consolas exibe o ID de revisão](images/test-drive-review-2.PNG)
 
@@ -149,7 +149,7 @@ Introduza os parâmetros de chamada REST como na secção acima. Para este passo
 
 ![Comentário - Criar consola Obtenha resultados](images/test-drive-review-3.PNG)
   
-Selecione **Send** (Enviar). Se a operação for bem sucedida, o **estado de Resposta** é , e a caixa de conteúdo `200 OK` **response** apresenta os detalhes da revisão no formato JSON, como o seguinte:
+Selecione **Enviar**. Se a operação for bem sucedida, o **estado de Resposta** é , e a caixa de conteúdo `200 OK` **response** apresenta os detalhes da revisão no formato JSON, como o seguinte:
 
 ```json
 {  

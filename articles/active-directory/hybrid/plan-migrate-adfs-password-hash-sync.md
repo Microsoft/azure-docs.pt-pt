@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c058f74bb4e390fe7a5003d6ab5d963c56ef2d5
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: dca888bf9e3dc75e80764949a11d95efe3514635
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836381"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861821"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrar da federação para a sincronização de haxixe de palavra-passe para o Azure Ative Directory
 
@@ -115,7 +115,7 @@ Verifique quaisquer configurações que possam ter sido personalizadas para a su
 Para obter mais informações, veja estes artigos:
 
 * [Suporte de parâmetro de ad FS=suporte a parâmetros de login](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)
-* [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
+* [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication)
 
 > [!NOTE]
 > Se **o SupportsMfa** estiver definido para **True,** está a utilizar uma solução de autenticação multi-factor no local para injetar um desafio de segundo fator no fluxo de autenticação do utilizador. Esta configuração deixou de funcionar para cenários de autenticação AD Azure depois de converter este domínio de federado para autenticação gerida. Depois de desativar a federação, corta a relação com a sua federação no local e isso inclui adaptadores de MFA no local. 
@@ -442,7 +442,7 @@ Depois de validar que todos os utilizadores e clientes estão a autenticar com s
 
 Se não utilizar FS AD para outros fins (isto é, para outros fidedignos), é seguro desativar a AD FS neste momento.
 
-### <a name="rollback"></a>Recuo
+### <a name="rollback"></a>Reversão
 
 Se descobrir um problema importante e não conseguir resolvê-lo rapidamente, pode optar por reverter a solução para a federação.
 

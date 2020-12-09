@@ -3,30 +3,31 @@ title: Visão geral para Microsoft Azure Maps
 description: Saiba mais sobre serviços e capacidades no Microsoft Azure Maps e como usá-los nas suas aplicações.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/31/2020
+ms.date: 12/07/2020
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 082695069a66efb3919be0667407ba73d963c572
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 1a38da6cd80b692925e353eb0d16f3d6f84c3e7b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92889957"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905417"
 ---
 # <a name="what-is-azure-maps"></a>O que é o Azure Maps?
 
 O Azure Maps é uma coleção de serviços geoespaciais e SDKs que utilizam dados de mapeamento frescos para fornecer contexto geográfico a aplicações web e móveis. O Azure Maps fornece:
 
 * REST APIs para renderizar mapas de vetores e raster em vários estilos e imagens de satélite.
-* Serviços de criador para criar e renderizar mapas com base em dados de mapas internos privados.
+* Serviços de criador (Preview) para criar e renderizar mapas com base em dados de mapas interiores privados.
 * Serviços de pesquisa para localizar endereços, locais e pontos de interesse em todo o mundo.
 * Várias opções de encaminhamento; tais como ponto a ponto, multiponto, otimização de múltiplos pontos, isochrone, veículo elétrico, veículo comercial, tráfego influenciado e encaminhamento de matriz.
 * Vista de fluxo de tráfego e vista para incidentes, para aplicações que requerem informações de tráfego em tempo real.
-* Serviço de mobilidade para solicitar informações de trânsito público, planear rotas, misturando diferentes modos de viagem e chegadas em tempo real.
-* Serviços de fuso horário e geolocalização.
+* Serviços de mobilidade (Pré-visualização) para solicitar informações de trânsito público, planear rotas, misturando diferentes modos de viagem e chegadas em tempo real.
+* Serviços de fuso horário e geolocalização (pré-visualização).
+* Serviços de elevação (Pré-visualização) com Modelo de Elevação Digital
 * Serviço de geofencing e armazenamento de dados de mapeamento, com informações de localização hospedadas em Azure.
 * Inteligência de localização através de análise geoespacial.
 
@@ -52,33 +53,33 @@ O Azure Maps Web SDK permite personalizar mapas interativos com o seu próprio c
 
 Utilize o Azure Maps Android SDK para criar aplicações de mapeamento móvel.
 
-:::image type="content" source="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Mapa de exemplo da mudança de população criado usando Azure Maps Web SDK":::
+:::image type="content" source="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Exemplos de mapas em um dispositivo móvel":::
 
 ## <a name="services-in-azure-maps"></a>Serviços no Azure Maps
 
 O Azure Maps é composto pelos seguintes serviços que podem fornecer contexto geográfico às suas aplicações Azure.
 
-### <a name="data-service"></a>Serviço de dados
+### <a name="data-service-preview"></a>Serviço de dados (Pré-visualização)
 
 Os dados são imperativos para mapas. Utilize o serviço Data para carregar e armazenar dados geoespaciais para utilização com operações espaciais ou composição de imagem.  Aproximar os dados dos clientes do serviço Azure Maps reduzirá a latência, aumentará a produtividade e criará novos cenários nas suas aplicações. Para mais informações sobre este serviço, consulte a documentação do [serviço de Dados.](/rest/api/maps/data)
 
-### <a name="geolocation-service"></a>Serviço de localização geográfica
+### <a name="geolocation-service-preview"></a>Serviço de geolocalização (Pré-visualização)
 
 Utilize o serviço de Geolocalização para visualizar o código país/região de duas letras recuperado para um endereço IP. Este serviço pode ajudá-lo a melhorar a experiência do utilizador, fornecendo conteúdo de aplicação personalizado baseado na localização geográfica.
 
 Para mais detalhes, leia a documentação do [serviço de Geolocalização.](/rest/api/maps/geolocation)
 
-### <a name="mobility-service"></a>Serviço de Mobilidade
+### <a name="mobility-services-preview"></a>Serviços de mobilidade (Pré-visualização) 
 
-O serviço de mobilidade Azure Maps melhora o tempo de desenvolvimento de aplicações com características de trânsito público, como o encaminhamento de trânsito e a procura de paragens de trânsito público nas proximidades. Os utilizadores podem obter informações detalhadas sobre paragens, linhas e horários de trânsito. O serviço de Mobilidade permite ainda aos utilizadores recuperar geometrias de paragem e linha, alertas para paragens, linhas e áreas de serviço, bem como chegadas e alertas de serviço em tempo real de trânsito público. Além disso, o serviço mobility oferece capacidades de encaminhamento com opções de planeamento de viagens multimodais. O planeamento de viagens multimodais incorpora opções de caminhada, ciclismo e trânsito público, tudo numa viagem. Os utilizadores também podem aceder a itinerários multimodais detalhados passo a passo.
+Os serviços de Mobilidade Azure Maps melhoram o tempo de desenvolvimento de aplicações com características de trânsito público, como o encaminhamento de trânsito e a procura de paragens de trânsito público nas proximidades. Os utilizadores podem obter informações detalhadas sobre paragens, linhas e horários de trânsito. O serviço de Mobilidade permite ainda aos utilizadores recuperar geometrias de paragem e linha, alertas para paragens, linhas e áreas de serviço, bem como chegadas e alertas de serviço em tempo real de trânsito público. Além disso, os serviços de Mobilidade fornecem capacidades de encaminhamento com opções de planeamento de viagens multimodais. O planeamento de viagens multimodais incorpora opções de caminhada, ciclismo e trânsito público, tudo numa viagem. Os utilizadores também podem aceder a itinerários multimodais detalhados passo a passo.
 
-Para saber mais sobre o serviço, consulte a documentação do [serviço de Mobilidade.](/rest/api/maps/mobility)
+Para saber mais sobre o serviço, consulte a documentação dos [serviços de Mobilidade.](/rest/api/maps/mobility)
 
 ### <a name="render-service"></a>Serviço de composição
 
-O [serviço de renderização V2](/rest/api/maps/renderv2) que está agora em Preview introduz uma nova versão do [Get Map Tile V2 API](/rest/api/maps/renderv2/getmaptilepreview). A API Get Map Tile V2 permite agora que os clientes solicitem azulejos de estrada Azure Maps, azulejos meteorológicos ou os azulejos de mapas criados com o Azure Maps Creator. Recomenda-se que utilize o novo Get Map Tile V2 API.  
+O [serviço de renderização V2 (Preview)](/rest/api/maps/renderv2) introduz uma nova versão do [Get Map Tile V2 API](/rest/api/maps/renderv2/getmaptilepreview). A API Get Map Tile V2 permite agora que os clientes solicitem azulejos de estrada Azure Maps, azulejos meteorológicos ou os azulejos de mapas criados com o Azure Maps Creator. Recomenda-se que utilize o novo Get Map Tile V2 API.  
 
-:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Mapa de exemplo da mudança de população criado usando Azure Maps Web SDK":::
+:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Exemplo de um mapa do serviço render V2":::
 
 Para mais detalhes, leia a [documentação do serviço render V2.](/rest/api/maps/renderv2)
 
@@ -88,7 +89,7 @@ Para saber mais sobre o serviço de renderização V1 que está em GA (Disponibi
 
 Os serviços de rota podem ser utilizados para calcular os horários estimados de chegada (AE) para cada rota solicitada. As APIs da Rota consideram fatores, como informações de tráfego em tempo real e dados históricos de tráfego, como as velocidades típicas da estrada no dia da semana e hora do dia solicitados. As APIs devolvem as rotas mais curtas ou rápidas disponíveis para vários destinos de cada vez em sequência ou em ordem otimizada, com base no tempo ou na distância. O serviço permite que os desenvolvedores calculem direções em vários modos de viagem, tais como carro, caminhão, bicicleta, ou passeio, e veículo elétrico. O serviço também considera inputs, como a hora de partida, restrições de peso ou transporte de materiais perigosos.
 
-:::image type="content" source="./media/about-azure-maps/intro_route.png" border="false" alt-text="Mapa de exemplo da mudança de população criado usando Azure Maps Web SDK":::
+:::image type="content" source="./media/about-azure-maps/intro_route.png" border="false" alt-text="Exemplo de um mapa do serviço Rota":::
 
 O serviço Route oferece funcionalidades avançadas de conjunto, tais como:
 
@@ -102,7 +103,7 @@ Para mais informações sobre as capacidades de encaminhamento, leia a [document
 
 O serviço de Pesquisa ajuda os desenvolvedores a procurar endereços, lugares, listas de negócios por nome ou categoria, e outras informações geográficas. Além disso, os serviços podem reverter endereços [de geocódigo](https://en.wikipedia.org/wiki/Reverse_geocoding) e atravessar ruas com base em latitudes e longitudes.
 
-:::image type="content" source="./media/about-azure-maps/intro_search.png" border="false" alt-text="Mapa de exemplo da mudança de população criado usando Azure Maps Web SDK":::
+:::image type="content" source="./media/about-azure-maps/intro_search.png" border="false" alt-text="Exemplo de uma pesquisa em um mapa":::
 
 O serviço De pesquisa também fornece funcionalidades avançadas, tais como:
 
@@ -168,9 +169,9 @@ O serviço de tráfego é um conjunto de serviços web que os desenvolvedores po
 
 Para mais informações, consulte a [documentação do serviço de tráfego.](/rest/api/maps/traffic)
 
-### <a name="weather-service"></a>Serviço de meteorologia
+### <a name="weather-services-preview"></a>Serviços meteorológicos (Pré-visualização) 
 
-O serviço Weather oferece APIs que os desenvolvedores podem usar para recuperar informações meteorológicas para um determinado local. As informações contêm detalhes como data e hora de observação, breve descrição das condições meteorológicas, ícone meteorológico, bandeiras indicadoras de precipitação, temperatura e informações sobre velocidade do vento. Detalhes adicionais como RealFeel™ Temperatura e índice UV também são devolvidos.
+Os serviços meteorológicos oferecem APIs que os desenvolvedores podem usar para recuperar informações meteorológicas para um determinado local. As informações contêm detalhes como data e hora de observação, breve descrição das condições meteorológicas, ícone meteorológico, bandeiras indicadoras de precipitação, temperatura e informações sobre velocidade do vento. Detalhes adicionais como RealFeel™ Temperatura e índice UV também são devolvidos.
 
 Os desenvolvedores podem usar o [Get Weather ao longo da rota API](/rest/api/maps/weather/getweatheralongroutepreview) para recuperar informações meteorológicas ao longo de uma determinada rota. Além disso, o serviço suporta a geração de notificações meteorológicas para os pontos de passagem que são afetados por perigos meteorológicos, como inundações ou chuvas fortes.
 
@@ -178,7 +179,7 @@ A [API Get Map Tile V2](/rest/api/maps/renderv2/getmaptilepreview) permite-lhe s
 
 ![Exemplo de mapa com azulejos de radar meteorológico em tempo real](media/about-azure-maps/intro_weather.png)
 
-### <a name="maps-creator-service"></a>Serviço Maps Creator
+### <a name="maps-creator-service-preview"></a>Serviço Maps Creator (Pré-visualização) 
 
 O serviço Maps Creator é um conjunto de serviços web que os desenvolvedores podem usar para criar aplicações com funcionalidades de mapas baseadas em dados de mapas internos.
 
@@ -194,17 +195,34 @@ O Maps Creator fornece três serviços principais:
 
 * [Serviço WFS](/rest/api/maps/featurestate). Utilize o serviço WFS para consultar os dados do mapa interno. O serviço WFS segue os padrões API do [Consórcio Geoespacial Aberto](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) para consulta de um único conjunto de dados.
 
+### <a name="elevation-service-preview"></a>Serviço de elevação (Pré-visualização)
+
+O serviço Azure Maps Elevation é um serviço web que os desenvolvedores podem usar para recuperar dados de elevação de qualquer lugar na superfície da Terra.
+
+O serviço elevação permite-lhe recuperar dados de elevação em dois formatos:
+
+* **Formato de raster GeoTIFF.** Utilize o [Render V2 - Obtenha a API de Azulejos do Mapa](/rest/api/maps/renderv2) para recuperar dados de elevação em formato de azulejo.
+
+* **Formato GeoJSON**. Utilize as APIs de [elevação](/rest/api/maps/elevation) para solicitar dados de elevação amostrados ao longo de caminhos, dentro de uma caixa de delimitação definida, ou em coordenadas específicas. 
+
+:::image type="content" source="./media/about-azure-maps/elevation.png" alt-text="Exemplo de mapa com dados de elevação":::
+
+
 ## <a name="programming-model"></a>Modelo de programação
 
 O Azure Maps é construído para mobilidade e pode ajudá-lo a desenvolver aplicações multi-plataformas. Usa um modelo de programação que é agnóstico linguístico e suporta a saída JSON através [de REST APIs](/rest/api/maps/).
 
 Além disso, o Azure Maps oferece um [conveniente controlo de mapas JavaScript](/javascript/api/azure-maps-control) com um modelo de programação simples. O desenvolvimento é rápido e fácil tanto para aplicações web como móveis.
 
+
+
+
+
 ## <a name="power-bi-visual"></a>Elemento visual do Power BI
 
 O Azure Maps visual para Power BI fornece um rico conjunto de visualizações de dados para dados espaciais em cima de um mapa. Estima-se que mais de 80% dos dados do negócio têm um contexto de localização. O visual Azure Maps oferece uma solução sem código para obter informações sobre como este contexto de localização se relaciona e influencia os dados do seu negócio.
 
-:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Mapa de exemplo da mudança de população criado usando Azure Maps Web SDK":::
+:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Power BI desktop com o Azure Maps visualizando dados de negócio":::
 
 Para mais informações, consulte a Obtenção começou com a documentação [visual do Azure Maps Power BI.](power-bi-visual-getting-started.md)
 

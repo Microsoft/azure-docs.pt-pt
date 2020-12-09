@@ -4,12 +4,12 @@ description: Não ver dados em Azure Application Insights? Tente aqui.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: c3f0350152ece32829291012d583be87a90227cf
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 26ba586715c7b76ff8972c6574c3c29b837713a1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748944"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904470"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Resolução de problemas sem dados - Insights de aplicação para .NET/.NET Core
 
@@ -39,6 +39,10 @@ ms.locfileid: "96748944"
 
 * Consulte [o Monitor de Estado de resolução de problemas](./monitor-performance-live-website-now.md#troubleshoot).
 
+> [!IMPORTANT]
+> As novas regiões de Azure **requerem** a utilização de cordas de ligação em vez de teclas de instrumentação. [A cadeia de ligação](./sdk-connection-string.md?tabs=net) identifica o recurso com o que pretende associar os seus dados de telemetria. Também permite modificar os pontos finais que o seu recurso utilizará como destino para a sua telemetria. Terá de copiar o fio de ligação e adicioná-lo ao código da sua aplicação ou a uma variável ambiental.
+
+
 ## <a name="filenotfoundexception-could-not-load-file-or-assembly-microsoftaspnet-telemetrycorrelation"></a>FileNotFoundException: Não foi possível carregar ficheiro ou montagem 'Microsoft.AspNet TelemetryCorrelation
 
 Para obter mais informações sobre este erro consulte [edição gitHub 1610 ] https://github.com/microsoft/ApplicationInsights-dotnet/issues/1610) .
@@ -64,7 +68,7 @@ Ao atualizar a partir de SDKs mais antigos do que (2.4) é necessário certifica
     </TelemetryModules>
     ```
 
-***A não atualização correta pode levar a exceções inesperadas ou a não recolha de telemetria.** _
+**_A não atualização correta pode levar a exceções inesperadas ou a não recolha de telemetria._* _
 
 
 ## <a name="no-add-application-insights-option-in-visual-studio"></a><a name="q01"></a>Sem opção 'Adicionar Insights de Aplicação' no Estúdio Visual

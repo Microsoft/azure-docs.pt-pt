@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f80f67ac695c17cc760e0e87fb9b11384fb7585
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 8735a0d34b9fcf5b86b6592980ffc5c7c3e3073c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377739"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861940"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Resolver problemas de funções atribuídas a grupos de cloud
 
@@ -34,14 +34,14 @@ Aqui estão algumas perguntas comuns e dicas de resolução de problemas para at
 
 **P:** Sou administrador de helpdesk na minha organização mas não posso atualizar a palavra-passe de um utilizador que é um Leitor de Diretório. Porque é que isto acontece?
 
-**R** : O utilizador pode ter obtido o Directory Reader através de um grupo atribuível a funções. Todos os membros e proprietários de um grupo atribuível a papéis estão protegidos. Apenas os utilizadores nas funções de Administrador de Autenticação Privilegiada ou Administrador Global podem redefinir credenciais para um utilizador protegido.
+**R**: O utilizador pode ter obtido o Directory Reader através de um grupo atribuível a funções. Todos os membros e proprietários de um grupo atribuível a papéis estão protegidos. Apenas os utilizadores nas funções de Administrador de Autenticação Privilegiada ou Administrador Global podem redefinir credenciais para um utilizador protegido.
 
 **Q:** Não posso atualizar a palavra-passe de um utilizador. Não têm nenhum papel privilegiado mais elevado atribuído. Porque é que está a acontecer?
 
 **A:** O utilizador pode ser proprietário de um grupo atribuível a funções. Protegemos os proprietários de grupos atribuíveis para evitar a elevação do privilégio. Um exemplo pode ser se um grupo Contoso_Security_Admins for atribuído ao papel de administrador de Segurança, onde Bob é o proprietário do grupo e Alice é administradora de passwords na organização. Se esta proteção não estivesse presente, a Alice podia repor as credenciais do Bob e assumir a sua identidade. Depois disso, Alice poderia adicionar-se ou qualquer um ao grupo Contoso_Security_Admins grupo para se tornar um administrador de segurança na organização. Para saber se um utilizador é proprietário de um grupo, obtenha a lista de objetos próprios desse utilizador e veja se algum dos grupos tem o ToRole assignable definido para ser verdadeiro. Se sim, então esse utilizador está protegido e o comportamento é por design. Consulte estas documentações para obter objetos próprios:
 
-- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
-- [Lista de proprietáriasObjects](/graph/api/user-list-ownedobjects?tabs=http&view=graph-rest-1.0)
+- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject)  
+- [Lista de proprietáriasObjects](/graph/api/user-list-ownedobjects?tabs=http)
 
 **Q:** Posso criar uma revisão de acesso a grupos que podem ser atribuídos a funções AZure AD (especificamente, grupos com propriedade ToRole é assignable definido para verdade)?  
 

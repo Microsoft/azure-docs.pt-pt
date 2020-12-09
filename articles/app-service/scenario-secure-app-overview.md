@@ -10,12 +10,13 @@ ms.workload: identity
 ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: ef7782c68746d4c20df5a9ae5e27ffca3e60efbe
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: azureday1
+ms.openlocfilehash: 17931ee92072059d94cd950e9ce8ef6588f7e891
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024131"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905507"
 ---
 # <a name="tutorial-enable-authentication-in-app-service-and-access-storage-and-microsoft-graph"></a>Tutorial: Ativar a autenticação no Serviço de Aplicações e aceder ao armazenamento e gráfico do Microsoft
 
