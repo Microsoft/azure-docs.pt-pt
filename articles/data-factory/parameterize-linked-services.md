@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 12/09/2020
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 5ce2677911ee9243ad1973a492ee9efe66265e28
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: da38dd99d0f27d83d5810a664d0c05f979f47080
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497542"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920076"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar serviços ligados na Azure Data Factory
 
@@ -43,8 +43,8 @@ Ao autorizar o serviço ligado na UI, a Data Factory fornece experiência de par
 - Base de Dados do Azure para MySQL
 - Azure Databricks
 - Base de Dados SQL do Azure
-- Instância Gerida do Azure SQL
-- Azure Synapse Analytics (anteriormente SQL DW)
+- Instância Gerida do SQL do Azure
+- Azure Synapse Analytics 
 - MySQL
 - Oracle
 - SQL Server

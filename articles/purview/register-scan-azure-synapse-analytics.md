@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: a0b0dc8c29bcdb51f7b348dd62e3d27796819a7d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: e0a1d8dba9ea284322584de3b4be2ae390d15fdf
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554573"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920266"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Registar e digitalizar Azure Synapse Analytics
 
@@ -21,6 +21,10 @@ Este artigo discute como registar e digitalizar um exemplo de Azure Synapse Anal
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
 A Azure Synapse Analytics (anteriormente SQL DW) suporta digitalizações completas e incrementais para capturar os metadados e esquemas. As análises também classificam os dados automaticamente com base nas regras de classificação do sistema e personalizados.
+
+### <a name="known-limitations"></a>Limitações conhecidas
+
+Azure Purview não suporta digitalização de [pontos](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) de vista no Azure Synapse Analytics
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

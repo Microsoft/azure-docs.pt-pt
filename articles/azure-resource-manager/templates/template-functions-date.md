@@ -1,18 +1,18 @@
 ---
 title: Funções do modelo - data
-description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para trabalhar com datas.
+description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure (modelo ARM) para trabalhar com datas.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 83e601adb649098f7a4e19cb71170b96a3287d9b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 58d865f109ecca2629b89eeb55e554743824c195
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004590"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920502"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funções de data para modelos ARM
 
-O Gestor de Recursos fornece as seguintes funções para trabalhar com datas nos seus modelos Azure Resource Manager (ARM):
+O Gestor de Recursos fornece as seguintes funções para trabalhar com datas no seu modelo de Gestor de Recursos Azure (modelo ARM):
 
 * [dataTimeAdd](#datetimeadd)
 * [utcNow](#utcnow)
@@ -182,7 +182,7 @@ resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31
 
 `utcNow(format)`
 
-Devolve o valor atual (UTC) da data no formato especificado. Se não for fornecido nenhum formato, o formato ISO 8601 (yyyMddTHHmmssZ) é utilizado. **Esta função só pode ser utilizada no valor predefinido para um parâmetro.**
+Devolve o valor atual (UTC) da data no formato especificado. Se não for fornecido qualquer formato, o formato ISO 8601 ( `yyyyMMddTHHmmssZ` ) é utilizado. **Esta função só pode ser utilizada no valor predefinido para um parâmetro.**
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -326,4 +326,4 @@ output utcShortOutput string = utcShort
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
+* Para obter uma descrição das secções num modelo ARM, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).

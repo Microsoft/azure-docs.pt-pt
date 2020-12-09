@@ -4,12 +4,12 @@ description: Neste tutorial, crie a recuperação de desastres para os VMs Azure
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 90527ad39055e438e4970ad4686f204f72d20cd2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 6d07082b4a9c18461d5cc74de8844be803da7168
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394105"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922491"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-azure-vms"></a>Tutorial: Criar recuperação de desastres para VMs Azure
 
@@ -47,16 +47,16 @@ A sua conta Azure precisa de permissões para criar um cofre dos Serviços de Re
 
 - Se acabou de criar uma subscrição gratuita do Azure, é o administrador da conta e não são necessárias mais medidas.
 - Se não és o administrador, trabalha com o administrador para obter as permissões de que precisas.
-    - **Criar um cofre** : Permissões de administrador ou proprietário na subscrição. 
-    - **Gerir as operações de recuperação do local no cofre** : O contributo de *recuperação* do local incorporado Azure.
-    - **Criar VMs Azure na região alvo** : Ou o papel *de contribuinte de máquina virtual* incorporado, ou permissões específicas para:
+    - **Criar um cofre**: Permissões de administrador ou proprietário na subscrição. 
+    - **Gerir as operações de recuperação do local no cofre**: O contributo de *recuperação* do local incorporado Azure.
+    - **Criar VMs Azure na região alvo**: Ou o papel *de contribuinte de máquina virtual* incorporado, ou permissões específicas para:
         - Criar uma VM na rede virtual selecionada.
         - Escreva para uma conta de armazenamento Azure.
         - Escreva para um disco gerido pelo Azure.
 
 ### <a name="verify-target-settings"></a>Verificar definições de alvo
 
-Durante a recuperação da descoberta, quando você falha da região de origem, vMs são criados na região alvo. 
+Durante a recuperação de desastres, quando se falha na região de origem, os VM são criados na região alvo. 
 
 Verifique se a sua subscrição tem recursos suficientes na região alvo. É necessário ser capaz de criar VMs com tamanhos que correspondam aos VMs na região de origem. Quando configurar a recuperação de desastres, a Recuperação do Local escolhe o mesmo tamanho (ou o tamanho mais próximo possível) para o VM alvo.
 
@@ -77,7 +77,7 @@ VMs que pretende replicar precisam de conectividade de rede de saída.
 
 Se estiver a usar um proxy de firewall baseado em URL para controlar a conectividade de saída, permita o acesso a estes URLs:
 
-| **Name**                  | **Comercial**                               | **Administração Pública**                                 | **Descrição** |
+| **Nome**                  | **Comercial**                               | **Administração Pública**                                 | **Descrição** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Permite que os dados sejam escritos da VM para a conta de armazenamento em cache na região de origem. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para os URLs do serviço Site Recovery. |
@@ -102,20 +102,20 @@ Etiqueta de Gestão de Hóspedes EHybrid | Utilize se pretender atualizar automa
 
 Verifique se os VMs têm os certificados de raiz mais recentes. Caso contrário, o VM não pode ser registado na Recuperação do Local devido a restrições de segurança.
 
-- **VMs do Windows** : Instale todas as atualizações mais recentes do Windows no VM, de modo a que todos os certificados de raiz fidedignos estejam na máquina. Num ambiente desligado, siga os seus processos padrão para o Windows Update e as atualizações de certificados.
-- **Linux VMs** : Siga as orientações fornecidas pelo seu distribuidor Linux, para obter os mais recentes certificados de raiz fidedignos e lista de revogação de certificados (CRL).
+- **VMs do Windows**: Instale todas as atualizações mais recentes do Windows no VM, de modo a que todos os certificados de raiz fidedignos estejam na máquina. Num ambiente desligado, siga os seus processos padrão para o Windows Update e as atualizações de certificados.
+- **Linux VMs**: Siga as orientações fornecidas pelo seu distribuidor Linux, para obter os mais recentes certificados de raiz fidedignos e lista de revogação de certificados (CRL).
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
 Crie um cofre dos Serviços de Recuperação em qualquer região, exceto na região de origem a partir da qual pretende replicar VMs.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Na caixa de pesquisa, escreva *a recuperação.* Em **Serviços** , selecione **Cofres dos Serviços de Recuperação.**
+2. Na caixa de pesquisa, escreva *a recuperação.* Em **Serviços**, selecione **Cofres dos Serviços de Recuperação.**
 
     ![Pesquisa de cofres dos Serviços de Recuperação](./media/azure-to-azure-tutorial-enable-replication/search.png)
 
-3. Nos **cofres dos Serviços de Recuperação** , selecione **Add**.
-4. In **Create Recovery Services vault**  >  **Basics** , selecione a subscrição na qual criar o cofre.
+3. Nos **cofres dos Serviços de Recuperação**, selecione **Add**.
+4. In **Create Recovery Services vault**  >  **Basics**, selecione a subscrição na qual criar o cofre.
 5. No **grupo De recursos,** selecione um grupo de recursos existente para o cofre ou crie um novo.
 6. Em **nome do Cofre,** especifique um nome amigável para identificar o cofre.
 7. Na **Região,** selecione a região de Azure para colocar o cofre. [Verifique as regiões apoiadas.](https://azure.microsoft.com/pricing/details/site-recovery/)
@@ -142,14 +142,14 @@ Selecione as definições de origem e ative a replicação de VM.
 
 ### <a name="select-source-settings"></a>Selecione definições de origem
 
-1. No cofre > página **de Recuperação do Local,** sob **máquinas virtuais Azure** , selecione **Ativar a replicação**.
+1. No cofre > página **de Recuperação do Local,** sob **máquinas virtuais Azure**, selecione **Ativar a replicação**.
 
     ![Seleção para permitir a replicação de VMs Azure](./media/azure-to-azure-tutorial-enable-replication/enable-replication.png)
 
-2. Na **localização Source** >  **Source** , selecione a região de Azure de origem em que os VMs estão atualmente em execução.
+2. Na **localização Source** >  **Source**, selecione a região de Azure de origem em que os VMs estão atualmente em execução.
 3. No **modelo de implantação da máquina virtual Azure,** deixe a definição de **Gestor de Recursos** predefinido.
-4. Na **subscrição Source** , selecione a subscrição em que os VMs estão a ser em execução. Você pode selecionar qualquer subscrição que esteja no mesmo inquilino do Azure Ative Directory (AD) que o cofre.
-5. No **grupo de recursos Source** , selecione o grupo de recursos que contém os VMs.
+4. Na **subscrição Source**, selecione a subscrição em que os VMs estão a ser em execução. Você pode selecionar qualquer subscrição que esteja no mesmo inquilino do Azure Ative Directory (AD) que o cofre.
+5. No **grupo de recursos Source**, selecione o grupo de recursos que contém os VMs.
 6. Na **recuperação de desastres entre zonas de disponibilidade,** deixe a definição padrão **No.**
 
      ![Configurar a origem](./media/azure-to-azure-tutorial-enable-replication/source.png)

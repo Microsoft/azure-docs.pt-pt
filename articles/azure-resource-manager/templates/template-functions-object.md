@@ -1,18 +1,18 @@
 ---
 title: Funções do modelo - objetos
-description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para trabalhar com objetos.
+description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure (modelo ARM) para trabalhar com objetos.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 7ed317b3506f00e71bbf97d5564cacec05032744
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5e13177db1a7cf2f19a822363cb3884474566add
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004522"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920454"
 ---
 # <a name="object-functions-for-arm-templates"></a>Funções de objeto para modelos ARM
 
-O Gestor de Recursos fornece várias funções para trabalhar com objetos no seu modelo Azure Resource Manager (ARM).
+O Gestor de Recursos fornece várias funções para trabalhar com objetos no seu modelo de Gestor de Recursos Azure (modelo ARM):
 
 * [contém](#contains)
 * [criarObject](#createobject)
@@ -792,4 +792,4 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
+* Para obter uma descrição das secções num modelo ARM, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).

@@ -1,18 +1,18 @@
 ---
 title: Funções do modelo - cadeia
-description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para trabalhar com cordas.
+description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure (modelo ARM) para trabalhar com cordas.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: e94037b40f4937a40e00215aa7a3f99fd3280b49
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a70aaff91f701c0ba8d26db2488b82e052dd905d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96006001"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920005"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funções de corda para modelos ARM
 
-O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas nos seus modelos Azure Resource Manager (ARM):
+O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas no seu modelo de Gestor de Recursos Azure (modelo ARM):
 
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
@@ -37,7 +37,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas no
 * [saltar](#skip)
 * [divisão](#split)
 * [começacom](#startswith)
-* [string](#string)
+* [cadeia](#string)
 * [substring](#substring)
 * [take](#take)
 * [toLower](#tolower)
@@ -2761,7 +2761,7 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma descrição das secções num modelo do Gestor de Recursos Azure, consulte [os modelos do Gestor de Recursos Azure.](template-syntax.md)
-* Para fundir vários modelos, consulte [utilizando modelos ligados com O Gestor de Recursos Azure](linked-templates.md).
-* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [Criar múltiplas instâncias de recursos no Azure Resource Manager](copy-resources.md).
-* Para ver como implementar o modelo que criou, consulte [implementar uma aplicação com o modelo Azure Resource Manager](deploy-powershell.md).
+* Para obter uma descrição das secções num modelo ARM, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
+* Para fundir vários modelos, consulte [utilizando modelos ligados e aninhados ao implementar recursos Azure](linked-templates.md).
+* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte a iteração de [recursos nos modelos ARM](copy-resources.md).
+* Para ver como implementar o modelo que criou, consulte [recursos de implantação com modelos ARM e Azure PowerShell](deploy-powershell.md).

@@ -4,12 +4,12 @@ description: Monitorize o desempenho e diagnostique problemas em serviços Node.
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 4c350cbfdf92d19a084940941351cf1f028c93d2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7aea6c03b0ce35fa0e74c39ff5f94f714447ad6f
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186284"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920583"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorizar os seus serviços e aplicações Node.js com o Application Insights
 
@@ -40,6 +40,9 @@ Antes de começar, confirme que tem uma subscrição do Azure ou [obtenha uma no
 ### <a name="set-up-the-nodejs-sdk"></a><a name="sdk"></a> Configurar o SDK para Node.js
 
 Inclua o SDK na sua aplicação, para que esta possa recolher dados.
+
+> [!IMPORTANT]
+> As novas regiões de Azure **requerem** a utilização de cordas de ligação em vez de teclas de instrumentação. [A cadeia de ligação](./sdk-connection-string.md?tabs=nodejs) identifica o recurso com o que pretende associar os seus dados de telemetria. Também permite modificar os pontos finais que o seu recurso utilizará como destino para a sua telemetria. Terá de copiar o fio de ligação e adicioná-lo ao código da sua aplicação ou a uma variável ambiental.
 
 1. Copie a chave de instrumentação do seu recurso (também chamada *de ikey)* a partir do seu recurso recém-criado. O Application Insights utiliza a ikey para mapear dados para o seu recurso do Azure. Antes de o SDK pode utilizar a ikey, tem de especificar a ikey numa variável de ambiente ou no seu código.  
 

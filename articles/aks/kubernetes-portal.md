@@ -1,23 +1,21 @@
 ---
-title: Aceder aos recursos de Kubernetes a partir do portal Azure (Preview)
+title: Aceder aos recursos da Kubernetes a partir do portal Azure
 description: Saiba como interagir com os recursos da Kubernetes para gerir um cluster Azure Kubernetes Service (AKS) a partir do portal Azure.
 services: container-service
 ms.topic: article
-ms.date: 09/21/2020
-ms.openlocfilehash: cfd09e469de68a1eee7440773347e9fe58bf8619
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/09/2020
+ms.openlocfilehash: 8e31c41573ced403a034999de71a5595a54281df
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571628"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921593"
 ---
-# <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Aceder aos recursos de Kubernetes a partir do portal Azure (Preview)
+# <a name="access-kubernetes-resources-from-the-azure-portal"></a>Aceder aos recursos da Kubernetes a partir do portal Azure
 
-O portal Azure inclui um visualizador de recursos Kubernetes (pré-visualização) para facilitar o acesso aos recursos de Kubernetes no seu cluster Azure Kubernetes Service (AKS). Visualizar recursos de Kubernetes a partir do portal Azure reduz a troca de contexto entre o portal Azure e a `kubectl` ferramenta de linha de comando, racionalizando a experiência para visualizar e editar os recursos de Kubernetes. O visualizador de recursos inclui atualmente vários tipos de recursos, tais como implementações, cápsulas e conjuntos de réplicas.
+O portal Azure inclui uma vista de recursos de Kubernetes para facilitar o acesso aos recursos de Kubernetes no seu cluster Azure Kubernetes Service (AKS). Visualizar recursos de Kubernetes a partir do portal Azure reduz a troca de contexto entre o portal Azure e a `kubectl` ferramenta de linha de comando, racionalizando a experiência para visualizar e editar os recursos de Kubernetes. O visualizador de recursos inclui atualmente vários tipos de recursos, tais como implementações, cápsulas e conjuntos de réplicas.
 
 A visão de recurso kubernetes do portal Azure substitui o addon do [dashboard AKS][kubernetes-dashboard], que foi depreciado.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

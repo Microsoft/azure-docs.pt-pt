@@ -1,18 +1,18 @@
 ---
 title: Funções do modelo - arrays
-description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para trabalhar com matrizes.
+description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure (modelo ARM) para trabalhar com matrizes.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 85f910f6143fd16f996a200172d0efd852897d8c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 40a6815bb10ce9725405d68498b9a554706f3af8
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004624"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920549"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funções de matriz para modelos ARM
 
-O Gestor de Recursos fornece várias funções para trabalhar com matrizes no seu modelo Azure Resource Manager (ARM).
+O Gestor de Recursos fornece várias funções para trabalhar com matrizes no seu modelo de Gestor de Recursos Azure (modelo ARM):
 
 * [matriz](#array)
 * [concat](#concat)
@@ -889,7 +889,7 @@ Pode utilizar esta função com uma matriz para especificar o número de iteraç
 
 ---
 
-Para obter mais informações sobre a utilização desta função com uma matriz, consulte [Criar várias instâncias de recursos no Azure Resource Manager](copy-resources.md).
+Para obter mais informações sobre a utilização desta função com uma matriz, consulte [a iteração de recursos nos modelos ARM](copy-resources.md).
 
 ## <a name="max"></a>max
 
@@ -1381,4 +1381,4 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
+* Para obter uma descrição das secções num modelo ARM, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).

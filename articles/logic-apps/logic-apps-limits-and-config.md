@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 11/19/2020
-ms.openlocfilehash: dc09edee08e97e354ef006416e2d5c0a333a3980
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.date: 12/07/2020
+ms.openlocfilehash: 154be7e4340c798ba1d014b210361f666864797e
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917822"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921519"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -19,7 +19,7 @@ Este artigo descreve os limites e detalhes de configuração para criar e execut
 
 <a name="definition-limits"></a>
 
-## <a name="definition-limits"></a>Limites de definição
+## <a name="logic-app-definition-limits"></a>Limites de definição de aplicativos lógicos
 
 Aqui estão os limites para uma definição de aplicação lógica única:
 
@@ -37,7 +37,9 @@ Aqui estão os limites para uma definição de aplicação lógica única:
 | Número máximo de `parameters` | 50 | |
 | Número máximo de `outputs` | 10 | |
 | Tamanho máximo para `trackedProperties` | 16.000 caracteres |
-| Ação inline Code - Número máximo de caracteres de código | 1.024 caracteres <p>Para um limite de 100.000 caracteres, crie as suas aplicações lógicas com o Código do Estúdio Visual e a [extensão de Pré-visualização **Azure Logic Apps**](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md). |
+| Ação inline Code - Número máximo de caracteres de código | 1.024 caracteres | Para estender este limite a 100.000 caracteres, crie as suas aplicações lógicas com o tipo de recurso **Logic App (Preview),** quer [utilizando o portal Azure,](create-stateful-stateless-workflows-azure-portal.md) quer [utilizando o Código do Estúdio Visual e a extensão **Azure Logic Apps (Preview).**](create-stateful-stateless-workflows-visual-studio-code.md) |
+| Ação inline Code - Duração máxima para o código de execução | 5 segundos | Para estender este limite a 15 segundos, crie as suas aplicações lógicas com o tipo de recurso **Logic App (Preview),** [quer utilizando o portal Azure,](create-stateful-stateless-workflows-azure-portal.md) quer [utilizando o Código do Estúdio Visual e a extensão **Azure Logic Apps (Preview).**](create-stateful-stateless-workflows-visual-studio-code.md) |
+||||
 
 <a name="run-duration-retention-limits"></a>
 
@@ -211,21 +213,23 @@ Para ultrapassar estes limites no processamento normal, ou executar testes de ca
 
 A Azure Logic Apps suporta operações de escrita, incluindo inserções e atualizações, através do gateway. No entanto, estas operações têm [limites no seu tamanho de carga](/data-integration/gateway/service-gateway-onprem#considerations)útil.
 
-<a name="request-limits"></a>
+<a name="http-limits"></a>
 
 ## <a name="http-limits"></a>Limites HTTP
 
-Aqui estão os limites para uma única chamada HTTP de saída ou entrada:
+Aqui estão os limites para uma única chamada de entrada ou saída:
 
-#### <a name="timeout"></a>Tempo Limite
+<a name="http-timeout-limits"></a>
+
+#### <a name="timeout-duration"></a>Duração do tempo limite
 
 Algumas operações de conector fazem chamadas assíncronos ou ouvem pedidos de webhook, pelo que o tempo limite para estas operações pode ser maior do que estes limites. Para mais informações, consulte os detalhes técnicos do conector específico e também [os gatilhos e ações do Fluxo de Trabalho.](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
-| Nome | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
-|------|--------------------|---------------------------------------|-------|
-| Pedido de saída | 120 Segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Exemplos de pedidos de saída incluem chamadas feitas por triggers HTTP. <p><p>**Dica**: Para operações mais longas, utilize um [padrão de sondagem assíncronos](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou um [loop até ao loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Para trabalhar em torno de limites de tempo quando você chama outra aplicação lógica que tem um [ponto final chamado,](logic-apps-http-endpoint.md)você pode usar a ação incorporada Azure Logic Apps, que você pode encontrar no conector picker em **incorporado**. |
-| Pedido de entrada | 120 Segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Exemplos de pedidos de entrada incluem chamadas recebidas por pedido de triggers e detonadores webhook. <p><p>**Nota:** Para que o chamador original obtenha a resposta, todos os passos na resposta devem terminar dentro do limite, a menos que chame outra aplicação lógica como um fluxo de trabalho aninhado. Para obter mais informações, consulte [aplicações lógicas Call, Trigger ou Nest.](../logic-apps/logic-apps-http-endpoint.md) |
-|||||
+| Nome | Aplicativos lógicos (multi-inquilino) | Aplicativos lógicos (pré-visualização) | Ambiente de serviço de integração | Notas |
+|------|---------------------------|----------------------|---------------------------------|-------|
+| Pedido de saída | 120 Segundos <br>(2 minutos) | 230 segundos <br>(3,9 minutos) | 240 segundos <br>(4 minutos) | Exemplos de pedidos de saída incluem chamadas feitas pelo gatilho HTTP ou ação. Para obter mais informações sobre a versão de pré-visualização, consulte [a pré-visualização de Apps Azure Logic](logic-apps-overview-preview.md). <p><p>**Dica**: Para operações mais longas, utilize um [padrão de sondagem assíncronos](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou um [loop até ao loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Para trabalhar em torno de limites de tempo quando você chama outra aplicação lógica que tem um [ponto final chamado,](logic-apps-http-endpoint.md)você pode usar a ação incorporada Azure Logic Apps, que você pode encontrar no conector picker em **incorporado**. |
+| Pedido de entrada | 120 Segundos <br>(2 minutos) | 230 segundos <br>(3,9 minutos) | 240 segundos <br>(4 minutos) | Exemplos de pedidos de entrada incluem chamadas recebidas pelo gatilho do pedido, detonador HTTP Webhook e ação HTTP Webhook. Para obter mais informações sobre a versão de pré-visualização, consulte [a pré-visualização de Apps Azure Logic](logic-apps-overview-preview.md). <p><p>**Nota:** Para que o chamador original obtenha a resposta, todos os passos na resposta devem terminar dentro do limite, a menos que chame outra aplicação lógica como um fluxo de trabalho aninhado. Para obter mais informações, consulte [aplicações lógicas Call, Trigger ou Nest.](../logic-apps/logic-apps-http-endpoint.md) |
+||||||
 
 <a name="message-size-limits"></a>
 
@@ -234,7 +238,7 @@ Algumas operações de conector fazem chamadas assíncronos ou ouvem pedidos de 
 | Nome | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
 |------|--------------------|---------------------------------------|-------|
 | Tamanho da mensagem | 100 MB | 200 MB | Para contornar este limite, consulte [Handle big messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). No entanto, alguns conectores e APIs podem não suportar a chunking ou mesmo o limite padrão. <p><p>- Conectores como AS2, X12 e EDIFACT têm os seus [próprios limites de mensagem B2B](#b2b-protocol-limits). <br>- Os conectores ISE utilizam o limite ISE, não os seus limites de conector não ISE. |
-| Tamanho da mensagem com chunking | 1 GB | 5 GB | Este limite aplica-se a ações que suportam de forma nativa o chunking ou permitem que possassar a sua configuração de tempo de execução. <p><p>Se estiver a utilizar um ISE, o motor Logic Apps suporta este limite, mas os conectores têm os seus próprios limites de rutura até ao limite do motor, por exemplo, consulte a [referência API do conector Azure Blob Storage](/connectors/azureblob/). Para obter mais informações sobre o chunking, consulte [Handle big messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). |
+| Tamanho da mensagem com chunking | 1 GB | 5 GB | Este limite aplica-se a ações que suportam de forma nativa o chunking ou permitem que possassar a sua configuração de tempo de execução. <p><p>Se estiver a utilizar um ISE, o motor Logic Apps suporta este limite, mas os conectores têm os seus próprios limites de rutura até ao limite do motor, por exemplo, consulte a [referência API do conector Azure Blob Storage](/connectors/azureblob/). Para obter mais informações sobre o chunking, consulte [Handle big messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). |
 |||||
 
 #### <a name="character-limits"></a>Limites de caracteres
@@ -266,6 +270,7 @@ Aqui estão os limites para uma aplicação lógica que começa com um gatilho r
 | ---- | ----- | ----- |
 | Políticas de autorização Azure AD | 5 | |
 | Reclamações por política de autorização | 10 | |
+| Valor da reclamação - Número máximo de caracteres | 150 |
 ||||
 
 <a name="custom-connector-limits"></a>
@@ -305,7 +310,7 @@ Cada subscrição do Azure tem estes limites de conta de integração:
   | ISE SKU | Limites das contas de integração |
   |---------|----------------------------|
   | **Premium** | 20 total - [Contas standard](../logic-apps/logic-apps-pricing.md#integration-accounts) apenas, incluindo uma conta Standard gratuitamente. Não são permitidas contas Gratuitas ou Básicas. |
-  | **Desenvolvedor** | 20 total - [Grátis](../logic-apps/logic-apps-pricing.md#integration-accounts) (limitado a 1 conta) e [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) combinados, ou todas as contas Standard. Não são permitidas contas básicas. Utilize o [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) para experimentar, desenvolvimento e testes, mas não para testes de produção ou desempenho. |
+  | **Programador** | 20 total - [Grátis](../logic-apps/logic-apps-pricing.md#integration-accounts) (limitado a 1 conta) e [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) combinados, ou todas as contas Standard. Não são permitidas contas básicas. Utilize o [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) para experimentar, desenvolvimento e testes, mas não para testes de produção ou desempenho. |
   |||
 
 Os custos adicionais aplicam-se às contas de integração que adiciona para além das contas de integração que estão incluídas num ISE. Para aprender como os preços e a faturação funcionam para as ISEs, consulte o [modelo de preços de Aplicações Lógicas.](../logic-apps/logic-apps-pricing.md#fixed-pricing) Para taxas de preços, consulte [os preços das Aplicações Lógicas.](https://azure.microsoft.com/pricing/details/logic-apps/)
@@ -338,7 +343,7 @@ Para taxas de preços, consulte [os preços das Aplicações Lógicas.](https://
 | Artefacto | Limite | Notas |
 | -------- | ----- | ----- |
 | Assemblagem | 8 MB | Para carregar ficheiros maiores do que 2 MB, utilize uma [conta de armazenamento Azure e um recipiente blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
-| Mapa (ficheiro XSLT) | 8 MB | Para carregar ficheiros maiores do que 2 MB, utilize as [Aplicações AZure Logic REST API - Mapas](/rest/api/logic/maps/createorupdate). <p><p>**Nota:** A quantidade de dados ou registos que um mapa pode processar com sucesso baseia-se no tamanho da mensagem e nos limites de tempo de ação nas Apps Azure Logic. Por exemplo, se utilizar uma ação HTTP, com base no [tamanho da mensagem HTTP e nos limites de tempo,](#request-limits)um mapa pode processar dados até ao limite do tamanho da mensagem HTTP se a operação estiver concluída dentro do prazo limite HTTP. |
+| Mapa (ficheiro XSLT) | 8 MB | Para carregar ficheiros maiores do que 2 MB, utilize as [Aplicações AZure Logic REST API - Mapas](/rest/api/logic/maps/createorupdate). <p><p>**Nota:** A quantidade de dados ou registos que um mapa pode processar com sucesso baseia-se no tamanho da mensagem e nos limites de tempo de ação nas Apps Azure Logic. Por exemplo, se utilizar uma ação HTTP, com base no [tamanho da mensagem HTTP e nos limites de tempo,](#http-limits)um mapa pode processar dados até ao limite do tamanho da mensagem HTTP se a operação estiver concluída dentro do prazo limite HTTP. |
 | Esquema | 8 MB | Para carregar ficheiros maiores do que 2 MB, utilize uma [conta de armazenamento Azure e um recipiente blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 
@@ -379,7 +384,7 @@ Quando elimina uma aplicação lógica, não são instanciadas novas execuções
 
 ## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>Configuração de firewall: endereços IP e tags de serviço
 
-O IP endereça que a Azure Logic Apps utiliza para chamadas recebidas e saídas depende da região onde existe a sua aplicação lógica. *Todas as* aplicações lógicas da mesma região utilizam os mesmos intervalos de endereços IP. Algumas chamadas [de Power Automamate,](/power-automate/getting-started) tais como pedidos **HTTP** e HTTP **+ OpenAPI,** passam diretamente pelo serviço Azure Logic Apps e provêm dos endereços IP que estão listados aqui. Para obter mais informações sobre endereços IP utilizados pela Power Automamate, consulte [Limites e configuração em Power Automamate](/flow/limits-and-config#ip-address-configuration).
+O IP endereça que a Azure Logic Apps utiliza para chamadas de entrada e saída dependem da região onde existe a sua aplicação lógica. *Todas as* aplicações lógicas da mesma região utilizam os mesmos intervalos de endereços IP. Algumas chamadas [de Power Automamate,](/power-automate/getting-started) tais como pedidos **HTTP** e HTTP **+ OpenAPI,** passam diretamente pelo serviço Azure Logic Apps e provêm dos endereços IP que estão listados aqui. Para obter mais informações sobre endereços IP utilizados pela Power Automamate, consulte [Limites e configuração em Power Automamate](/flow/limits-and-config#ip-address-configuration).
 
 > [!TIP]
 > Para ajudar a reduzir a complexidade quando cria regras de segurança, pode utilizar opcionalmente tags de serviço , em vez de especificar os [endereços](../virtual-network/service-tags-overview.md)IP de Aplicações Lógicas para cada região, descritos mais tarde nesta secção.

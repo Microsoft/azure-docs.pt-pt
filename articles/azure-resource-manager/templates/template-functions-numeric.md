@@ -1,18 +1,18 @@
 ---
 title: Funções do modelo - numérico
-description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para trabalhar com números.
+description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure (modelo ARM) para trabalhar com números.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 26f4b846c67ee7b926ea984ceefd84bf9ea56952
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1484826b2377fe2adb2ac6ae2ab3ee6243b26c2c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004539"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920458"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funções numéricas para modelos ARM
 
-O Gestor de Recursos fornece as seguintes funções para trabalhar com inteiros no seu modelo Azure Resource Manager (ARM):
+O Gestor de Recursos fornece as seguintes funções para trabalhar com inteiros no seu modelo de Gestor de Recursos Azure (modelo ARM):
 
 * [adicionar](#add)
 * [copyIndex](#copyindex)
@@ -700,5 +700,5 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
-* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [Criar múltiplas instâncias de recursos no Azure Resource Manager](copy-resources.md).
+* Para obter uma descrição das secções num modelo ARM, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
+* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte a iteração de [recursos nos modelos ARM](copy-resources.md).

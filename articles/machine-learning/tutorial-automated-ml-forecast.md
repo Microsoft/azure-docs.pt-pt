@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
 ms.custom: automl
-ms.openlocfilehash: 5577a0d9270f3e4566bf57876b8abc3d1a3ae4be
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b354abb98c56a572badf2421b0d7dbbd25f7a63
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356506"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921858"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Previsão da procura com aprendizagem automática de máquinas
 
@@ -145,12 +145,12 @@ Complete a configuração para a sua experiência automatizada de ML especifican
     Métrica primária| Métrica de avaliação pela que o algoritmo de aprendizagem automática será medido.|Raiz normalizada significa erro quadrado
     Explicar o melhor modelo| Mostra automaticamente a explicabilidade do melhor modelo criado pela ML automatizada.| Ativar
     Algoritmos bloqueados | Algoritmos que pretende excluir do trabalho de formação| Árvores aleatórias extremas
-    Definições de previsão adicionais| Estas definições ajudam a melhorar a precisão do seu modelo <br><br> _**Previsão de meta fica para trás:**_ até onde quer construir os lags da variável-alvo <br> _**Janela de rolamento do alvo**_ : especifica o tamanho da janela rolante sobre as características, tais como o *máximo, min* e *soma,* que serão geradas. | <br><br>Previsões &nbsp; de metas &nbsp; desfasamento: Nenhuma <br> Tamanho &nbsp; da janela de rolamento do &nbsp; &nbsp; alvo: Nenhum
+    Definições de previsão adicionais| Estas definições ajudam a melhorar a precisão do seu modelo <br><br> _**Previsão de meta fica para trás:**_ até onde quer construir os lags da variável-alvo <br> _**Janela de rolamento do alvo**_: especifica o tamanho da janela rolante sobre as características, tais como o *máximo, min* e *soma,* que serão geradas. | <br><br>Previsões &nbsp; de metas &nbsp; desfasamento: Nenhuma <br> Tamanho &nbsp; da janela de rolamento do &nbsp; &nbsp; alvo: Nenhum
     Critério de saída| Se um critério for cumprido, o trabalho de formação é interrompido. |Tempo &nbsp; de trabalho de &nbsp; formação (horas): 3 <br> Limiar de &nbsp; pontuação &nbsp; métrica: Nenhum
     Validação | Escolha um tipo de validação cruzada e número de testes.|Tipo de validação:<br>&nbsp;k-dobrar &nbsp; validação cruzada <br> <br> Número de validações: 5
     Simultaneidade| O número máximo de iterações paralelas executadas por iteração| &nbsp;Iterações &nbsp; concorrâneas máximas: 6
     
-    Selecione **Save** (Guardar).
+    Selecione **Guardar**.
 
 ## <a name="run-experiment"></a>Experiência de execução
 
@@ -225,7 +225,7 @@ Elimine apenas a instância de implantação do estúdio Azure Machine Learning,
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você usou ML automatizado no estúdio Azure Machine Learning para criar e implementar um modelo de previsão de séries temporizadas que prevê a procura de aluguer de partilha de bicicletas. 
 
@@ -235,7 +235,7 @@ Consulte este artigo para ver como criar um esquema suportado por Power BI para 
 > [Consumir serviços Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Saiba mais sobre [aprendizagem automática de máquinas.](concept-automated-ml.md)
-+ Para obter mais informações sobre métricas e gráficos de classificação, consulte o artigo [de resultados automatizados de machine learning da Máquina.](how-to-understand-automated-ml.md#classification)
++ Para obter mais informações sobre métricas e gráficos de classificação, consulte o artigo [de resultados automatizados de machine learning da Máquina.](how-to-understand-automated-ml.md)
 + Saiba mais sobre [a exibição.](how-to-configure-auto-features.md#featurization)
 + Saiba mais sobre [perfis de dados.](how-to-connect-data-ui.md#profile)
 

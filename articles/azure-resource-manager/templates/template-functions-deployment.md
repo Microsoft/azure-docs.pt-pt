@@ -1,18 +1,18 @@
 ---
 title: Funções do modelo - implantação
-description: Descreve as funções a utilizar num modelo do Gestor de Recursos Azure para recuperar informações de implantação.
+description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure (modelo ARM) para recuperar informações de implantação.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 9d6a1783bcd6d84c181edae84063ed7c0964c3d8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e63caef669a2c28d29cd0bbd649b0997cea14ee1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004573"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920513"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funções de implantação para modelos ARM
 
-O Gestor de Recursos fornece as seguintes funções para obter valores relacionados com a implementação atual do seu modelo Azure Resource Manager (ARM):
+O Gestor de Recursos fornece as seguintes funções para obter valores relacionados com a implementação atual do seu modelo de Gestor de Recursos Azure (modelo ARM):
 
 * [implantação](#deployment)
 * [ambiente](#environment)
@@ -428,13 +428,13 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| stringOutput | String | opção 1 |
+| stringOutput | Cadeia | opção 1 |
 | intOutput | int | 1 |
 | objetoOutput | Objeto | {"one": "a", "two": "b"} |
 | intervalo de matriz | Matriz | [1, 2, 3] |
-| crossOutput | String | opção 1 |
+| crossOutput | Cadeia | opção 1 |
 
-Para obter mais informações sobre a utilização de parâmetros, consulte [parâmetros no modelo do Gestor de Recursos Azure](template-parameters.md).
+Para obter mais informações sobre a utilização de parâmetros, consulte [parâmetros nos modelos ARM](template-parameters.md).
 
 ## <a name="variables"></a>variáveis
 
@@ -566,13 +566,13 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| exemploOutput1 | String | myVariable |
+| exemploOutput1 | Cadeia | myVariable |
 | exemploOutput2 | Matriz | [1, 2, 3, 4] |
-| exemploOutput3 | String | myVariable |
+| exemploOutput3 | Cadeia | myVariable |
 | exemploOutput4 |  Objeto | {"property1": "value1", "property2": "value2"} |
 
-Para obter mais informações sobre a utilização de variáveis, consulte [Variáveis no modelo do Gestor de Recursos Azure](template-variables.md).
+Para obter mais informações sobre a utilização de variáveis, consulte [Variáveis no modelo ARM](template-variables.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
+* Para obter uma descrição das secções num modelo ARM, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).

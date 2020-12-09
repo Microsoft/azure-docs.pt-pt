@@ -1,21 +1,21 @@
 ---
 title: Funções do modelo - comparação
-description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para comparar valores.
+description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure (modelo ARM) para comparar valores.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: c5ffcfe7688935da6ea5602cdb2c66a8b86a8d88
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1b7192db361f510e0246a737de47930534a1cb9d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004607"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920524"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Funções de comparação para modelos ARM
 
-O Gestor de Recursos fornece várias funções para fazer comparações nos seus modelos Azure Resource Manager (ARM).
+O Gestor de Recursos fornece várias funções para fazer comparações no seu modelo de Gestor de Recursos Azure (modelo ARM):
 
 * [coalesce](#coalesce)
-* [equals](#equals)
+* [é igual a](#equals)
 * [greater](#greater)
 * [greaterOrEquals](#greaterorequals)
 * [menos](#less)
@@ -635,4 +635,4 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
+* Para obter uma descrição das secções num modelo ARM, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).

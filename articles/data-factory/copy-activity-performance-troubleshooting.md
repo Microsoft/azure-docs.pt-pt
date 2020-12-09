@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/12/2020
-ms.openlocfilehash: 89f7a4a23f4d1b62fe5a76fbd4625bae8bb3018f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 12/09/2020
+ms.openlocfilehash: d22d040b0001ee30e29c551e686a7cb6bc47c2af
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634765"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921929"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Desempenho da atividade da cópia de resolução de problemas
 
@@ -37,11 +37,11 @@ Como referência, atualmente as dicas de afinação de desempenho fornecem suges
 
 | Categoria              | Sugestões de otimização do desempenho                                      |
 | --------------------- | ------------------------------------------------------------ |
-| Data Store específico   | Carregar dados em **Azure Synpase Analytics (anteriormente SQL DW)** : sugerir a utilização da declaração PolyBase ou COPY se não for utilizado. |
+| Data Store específico   | Carregar dados no **Azure Synapse Analytics**: sugerir a utilização da declaração PolyBase ou COPY se não for utilizado. |
 | &nbsp;                | Copiar dados de/para **Azure SQL Database:** quando o DTU estiver em alta utilização, sugira a atualização para um nível mais elevado. |
 | &nbsp;                | Copiando dados de/para **Azure Cosmos DB:** quando ru estiver em alta utilização, sugira upgrade para RU maior. |
 |                       | Copiar dados da **Tabela SAP:** ao copiar uma grande quantidade de dados, sugerir aproveitar a opção de partição do conector SAP para ativar a carga paralela e aumentar o número máximo de divisórias. |
-| &nbsp;                | Ingerir dados da **Amazon Redshift** : sugerir usar UNLOAD se não for usado. |
+| &nbsp;                | Ingerir dados da **Amazon Redshift**: sugerir usar UNLOAD se não for usado. |
 | Estrangulamento da loja de dados | Se algumas operações de leitura/escrita forem estranguladas pela loja de dados durante a cópia, sugira verificar e aumentar a taxa de pedido permitida para a loja de dados, ou reduzir a carga de trabalho simultânea. |
 | Tempo de execução da integração  | Se utilizar um **Tempo de Execução de Integração Auto-hospedado (IR)** e a atividade de cópias aguardar muito tempo na fila até que o IR tenha recursos disponíveis para executar, sugira que escalone o seu IR. |
 | &nbsp;                | Se utilizar um Tempo de **Execução de Integração Azure** que se encontra numa região não ideal, resultando em leitura/escrita lenta, sugira configurar a utilização de um IR noutra região. |
@@ -67,14 +67,14 @@ Quando o desempenho da atividade da cópia não corresponder às suas expectativ
 
 - **O "script pré-cópia" experimentou uma longa duração:** significa que o script pré-cópia que está a ser classificado na base de dados da pia demora muito tempo a terminar. Sintonize a lógica de script pré-cópia especificada para melhorar o desempenho. Se precisar de mais ajuda para melhorar o script, contacte a sua equipa de base de dados.
 
-- **"Transfer - Tempo para primeiro byte" experimentou longa duração de trabalho** : significa que a sua consulta de origem demora muito tempo a devolver quaisquer dados. Verifique e otimize a consulta ou o servidor. Se precisar de mais ajuda, contacte a sua equipa de loja de dados.
+- **"Transfer - Tempo para primeiro byte" experimentou longa duração de trabalho**: significa que a sua consulta de origem demora muito tempo a devolver quaisquer dados. Verifique e otimize a consulta ou o servidor. Se precisar de mais ajuda, contacte a sua equipa de loja de dados.
 
 - **"Transfer - Listing source" experimentou uma longa duração de trabalho:** significa que enumerar ficheiros de origem ou partições de dados de base de dados de origem é lento.
   - Ao copiar dados de origem baseada em ficheiros, se utilizar **o filtro wildcard** na trajetória da pasta ou no nome do ficheiro `wildcardFolderPath` (ou ) ou utilizar o `wildcardFileName` último filtro de tempo modificado do **ficheiro** ( ou ), note que tal filtro resultaria na cópia da atividade que lista todos `modifiedDatetimeStart` os `modifiedDatetimeEnd` ficheiros sob a pasta especificada para o lado do cliente e, em seguida, aplique o filtro. Tal enumeração de ficheiros pode tornar-se o estrangulamento, especialmente quando apenas um pequeno conjunto de ficheiros cumpriu a regra do filtro.
 
     - Verifique se pode [copiar ficheiros com base no caminho ou nome](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)do ficheiro dividido em data . Tal forma não traz encargos para a listagem do lado da fonte.
 
-    - Verifique se pode utilizar o filtro nativo da data store, especificamente " **prefixo** " para o Armazenamento de Ficheiros Amazon S3/Azure Blob/Azure e " **listAfter/listBefore** " para ADLS Gen1. Estes filtros são filtros do lado do servidor da loja de dados e teriam um desempenho muito melhor.
+    - Verifique se pode utilizar o filtro nativo da data store, especificamente "**prefixo**" para o Armazenamento de Ficheiros Amazon S3/Azure Blob/Azure e "**listAfter/listBefore**" para ADLS Gen1. Estes filtros são filtros do lado do servidor da loja de dados e teriam um desempenho muito melhor.
 
     - Considere dividir um único conjunto de dados de grande dimensão em vários conjuntos de dados menores, e deixar que esses trabalhos de cópia corram simultaneamente cada uma das partes de dados. Pode fazê-lo com Lookup/GetMetadata + ForEach + Copy. Consulte [os ficheiros Copy de vários contentores](solution-template-copy-files-multiple-containers.md) ou migrar dados do Amazon S3 para os modelos de solução [ADLS Gen2](solution-template-migration-s3-azure.md) como exemplo geral.
 
@@ -98,7 +98,7 @@ Quando o desempenho da atividade da cópia não corresponder às suas expectativ
 
 - **"Transfer - writing to sink" experimentou longa duração de trabalho:**
 
-  - Adote as melhores práticas de carregamento de dados específicos do conector, se for aplicável. Por exemplo, ao copiar dados para [a Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) (anteriormente SQL DW), utilize a declaração PolyBase ou COPY. 
+  - Adote as melhores práticas de carregamento de dados específicos do conector, se for aplicável. Por exemplo, ao copiar dados para [a Azure Synapse Analytics,](connector-azure-sql-data-warehouse.md)utilize a declaração PolyBase ou COPY. 
 
   - Verifique se a ADF reporta algum erro de estrangulamento na pia ou se a sua loja de dados está em alta utilização. Em caso afirmativo, reduza as suas cargas de trabalho na loja de dados ou tente contactar o administrador da sua loja de dados para aumentar o limite de estrangulamento ou o recurso disponível.
 
@@ -118,7 +118,7 @@ Quando o desempenho da cópia não corresponder às suas expectativas, para reso
 
 - **"Fila" experimentou longa duração:** significa que a atividade da cópia aguarda muito tempo na fila até que o seu IR auto-hospedado tenha recursos para executar. Verifique a capacidade e utilização do IR e [escale de](create-self-hosted-integration-runtime.md#high-availability-and-scalability) acordo com a sua carga de trabalho.
 
-- **"Transfer - Tempo para primeiro byte" experimentou longa duração de trabalho** : significa que a sua consulta de origem demora muito tempo a devolver quaisquer dados. Verifique e otimize a consulta ou o servidor. Se precisar de mais ajuda, contacte a sua equipa de loja de dados.
+- **"Transfer - Tempo para primeiro byte" experimentou longa duração de trabalho**: significa que a sua consulta de origem demora muito tempo a devolver quaisquer dados. Verifique e otimize a consulta ou o servidor. Se precisar de mais ajuda, contacte a sua equipa de loja de dados.
 
 - **"Transfer - Listing source" experimentou uma longa duração de trabalho:** significa que enumerar ficheiros de origem ou partições de dados de base de dados de origem é lento.
 
@@ -128,7 +128,7 @@ Quando o desempenho da cópia não corresponder às suas expectativas, para reso
 
     - Verifique se pode [copiar ficheiros com base no caminho ou nome](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)do ficheiro dividido em data . Tal forma não traz encargos para a listagem do lado da fonte.
 
-    - Verifique se pode utilizar o filtro nativo da data store, especificamente " **prefixo** " para o Armazenamento de Ficheiros Amazon S3/Azure Blob/Azure e " **listAfter/listBefore** " para ADLS Gen1. Estes filtros são filtros do lado do servidor da loja de dados e teriam um desempenho muito melhor.
+    - Verifique se pode utilizar o filtro nativo da data store, especificamente "**prefixo**" para o Armazenamento de Ficheiros Amazon S3/Azure Blob/Azure e "**listAfter/listBefore**" para ADLS Gen1. Estes filtros são filtros do lado do servidor da loja de dados e teriam um desempenho muito melhor.
 
     - Considere dividir um único conjunto de dados de grande dimensão em vários conjuntos de dados menores, e deixar que esses trabalhos de cópia corram simultaneamente cada uma das partes de dados. Pode fazê-lo com Lookup/GetMetadata + ForEach + Copy. Consulte [os ficheiros Copy de vários contentores](solution-template-copy-files-multiple-containers.md) ou migrar dados do Amazon S3 para os modelos de solução [ADLS Gen2](solution-template-migration-s3-azure.md) como exemplo geral.
 
@@ -160,7 +160,7 @@ Quando o desempenho da cópia não corresponder às suas expectativas, para reso
 
 - **"Transfer - writing to sink" experimentou longa duração de trabalho:**
 
-  - Adote as melhores práticas de carregamento de dados específicos do conector, se for aplicável. Por exemplo, ao copiar dados para [a Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) (anteriormente SQL DW), utilize a declaração PolyBase ou COPY. 
+  - Adote as melhores práticas de carregamento de dados específicos do conector, se for aplicável. Por exemplo, ao copiar dados para [a Azure Synapse Analytics,](connector-azure-sql-data-warehouse.md)utilize a declaração PolyBase ou COPY. 
 
   - Verifique se a máquina de infravermelhos auto-hospedada tem baixa ligação de latência à loja de dados de sumidouro. Se a pia estiver em Azure, pode utilizar [esta ferramenta](http://www.azurespeed.com/Azure/Latency) para verificar a latência da máquina de infravermelhos auto-hospedada para a região de Azure, quanto menos melhor.
 
@@ -179,7 +179,7 @@ Aqui está a monitorização de desempenho e afinação de referências para alg
 * Armazenamento Azure Blob: [Objetivos de escalabilidade e desempenho para armazenamento blob](../storage/blobs/scalability-targets.md) e [performance e escalabilidade lista de verificação para armazenamento blob](../storage/blobs/storage-performance-checklist.md).
 * Armazenamento da tabela azul: [Metas de escalabilidade e desempenho para armazenamento de mesa](../storage/tables/scalability-targets.md) e performance e lista de [verificação de escala para armazenamento de mesa](../storage/tables/storage-performance-checklist.md).
 * Base de Dados Azure SQL: Pode [monitorizar o desempenho](../azure-sql/database/monitor-tune-overview.md) e verificar a percentagem de Transações de Base de Dados (DTU).
-* Azure Synapse Analytics (anteriormente SQL Data Warehouse): A sua capacidade é medida em Unidades de Armazém de Dados (DWUs). Consulte [a potência de computação em Azure Synapse Analytics (Visão geral)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+* Azure Synapse Analytics: A sua capacidade é medida em Unidades de Armazém de Dados (DWUs). Consulte [a potência de computação em Azure Synapse Analytics (Visão geral)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [Níveis de desempenho em Azure Cosmos DB](../cosmos-db/performance-levels.md).
 * SQL Server: [Monitor e sintonizar para o desempenho](/sql/relational-databases/performance/monitor-and-tune-for-performance).
 * Servidor de ficheiros no local: [Ajuste de desempenho para servidores de ficheiros](/previous-versions//dn567661(v=vs.85)).
@@ -188,7 +188,7 @@ Aqui está a monitorização de desempenho e afinação de referências para alg
 Consulte os outros artigos de atividade de cópia:
 
 - [Visão geral da atividade da cópia](copy-activity-overview.md)
-- [Copiar o desempenho da atividade e o guia de escalabilidade](copy-activity-performance.md)
+- [Guia de desempenho e de escalabilidade da Atividade de cópia](copy-activity-performance.md)
 - [Copiar funcionalidades de otimização do desempenho da atividade](copy-activity-performance-features.md)
 - [Utilize a Azure Data Factory para migrar dados do seu lago de dados ou armazém de dados para Azure](data-migration-guidance-overview.md)
 - [Migrar dados do Amazon S3 para o Armazenamento do Azure](data-migration-guidance-s3-azure-storage.md)

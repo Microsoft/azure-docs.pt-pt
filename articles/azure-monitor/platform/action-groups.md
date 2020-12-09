@@ -1,19 +1,19 @@
 ---
-title: Criar e gerir grupos de ação no portal Azure
+title: Criar e gerir grupos de ações no portal do Azure
 description: Saiba como criar e gerir grupos de ação no portal Azure.
 author: dkamstra
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a2144827cd27c0af6610dabdf5ad205359f550cc
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: fd773ade0173fc1c238a5ce44e864e1255ed9044
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435489"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920644"
 ---
-# <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal Azure
+# <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ações no portal do Azure
 Um grupo de ação é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure. Os alertas Azure Monitor e Service Health utilizam grupos de ação para notificar os utilizadores de que foi desencadeado um alerta. Vários alertas podem utilizar o mesmo grupo de ação ou diferentes grupos de ação, dependendo dos requisitos do utilizador. 
 
 Este artigo mostra-lhe como criar e gerir grupos de ação no portal Azure.
@@ -128,7 +128,7 @@ Os e-mails serão enviados a partir dos seguintes endereços de e-mail. Certifiq
 
 Você pode ter um número limitado de ações de e-mail em um Grupo de Ação. Consulte o artigo [de informação limitativo da taxa.](./alerts-rate-limiting.md)
 
-### <a name="email-azure-resource-manager-role"></a>E-mail da Função do Azure Resource Manager
+### <a name="email-azure-resource-manager-role"></a>Enviar e-mail a Função do Azure Resource Manager
 Envie e-mail aos membros da função da subscrição. O e-mail só será enviado para os membros **do utilizador AZure AD** da função. O e-mail não será enviado aos grupos ou principais de serviço do Azure Active Directory.
 
 Um e-mail de notificação é enviado apenas para o endereço *de e-mail primário.*
@@ -250,7 +250,9 @@ Pode ter um número limitado de ações de SMS num Grupo de Ação.
 > Se a interface de utilizador do grupo de ação do portal Azure não o permitir selecionar o seu código país/região, então o SMS não é suportado para o seu país/região.  Se o código país/região não estiver disponível, pode votar para que o seu país/região seja adicionado à [voz do utilizador.](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice) Entretanto, um trabalho em torno é fazer com que o seu grupo de ação ligue para um webhook a um fornecedor de SMS de terceiros com apoio no seu país/região.  
 
 Os preços dos países/regiões apoiados constam da página de preços do [Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
-  
+
+**Lista de países onde a notificação por SMS é suportada** 
+| Código do **País**  |  **Nome do** País [ 61 ] Austrália [ 43 ] Áustria [ 32 ] Bélgica [ 55 ] Brasil [ 1 ] Canadá [ 56 ] Chile [ 86 ] China [ 420 ] República Checa [ 45 ] Dinamarca [ 372 ] Estónia [ 358 ] Finlândia [ 33 ] França [ 49 ] Alemanha [ 852 ] Hong Kong [ 91 ] Índia [ 353 ] Irlanda [ 972 ] Israel [ 39 ] Itália [ 81 ] Japão [ 352 ] Luxemburgo / 60 ! Malásia [ 52 ] México [ 31 ] Holanda [ 64 ] Nova Zelândia [ 47 ] Noruega [ 351 ] Portugal [ 1 ] Porto Rico [ 40 ] Roménia / 65 Singapura [ 27 ] África do Sul [ 82 ] Coreia do Sul Espanha [ 41 ] Suíça [ 886 ] Taiwan [ 44 ]  Reino Unido [ 1 ] Estados Unidos da Estado
 
 ### <a name="voice"></a>Voz
 Consulte o artigo [de informação limitativo](./alerts-rate-limiting.md) da taxa para um comportamento adicional importante.
@@ -259,6 +261,7 @@ Pode ter um número limitado de ações de voz num Grupo de Ação.
 
 > [!NOTE]
 > Se a interface de utilizador do grupo de ação do portal Azure não permitir que selecione o seu código país/região, então as chamadas de voz não são suportadas para o seu país/região. Se o código país/região não estiver disponível, pode votar para que o seu país/região seja adicionado à [voz do utilizador.](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice)  Entretanto, um trabalho em torno é fazer com que o seu grupo de ação ligue para um webhook para um fornecedor de chamadas de voz de terceiros com apoio no seu país/região.  
+> O único código country suportado hoje no grupo de ação do portal Azure para notificação de voz é +1 (Estados Unidos). 
 
 Os preços dos países/regiões apoiados constam da página de preços do [Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 

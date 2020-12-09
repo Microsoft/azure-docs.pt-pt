@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: b23b5a81fdff8a05742092f517128e08723103fc
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 55fa106f0515405dcad969f05d28e0bc7b975b40
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531144"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922275"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é SQL Data Sync para Azure?
 
@@ -81,6 +81,14 @@ Data Sync não é a solução preferida para os seguintes cenários:
 | **Vantagens** | - Suporte ativo<br/>- Biducional entre as instalações e a Base de Dados Azure SQL | - Menor latência<br/>- Consistência transacional<br/>- Reutilização da topologia existente após a migração <br/>-Suporte a exemplos geridos Azure SQL |
 | **Desvantagens** | - Sem consistência transacional<br/>- Maior impacto no desempenho | - Não pode publicar na Base de Dados Azure SQL <br/>- Alto custo de manutenção |
 
+## <a name="private-link-for-data-sync-preview"></a>Link privado para Data Sync (pré-visualização)
+A nova funcionalidade de ligação privada (pré-visualização) permite-lhe escolher um ponto final privado gerido por um serviço para estabelecer uma ligação segura entre o serviço de sincronização e as bases de dados do seu membro/hub durante o processo de sincronização de dados. Um ponto final privado gerido por um serviço é um endereço IP privado dentro de uma rede virtual específica e sub-rede. Dentro do Data Sync, o ponto final privado gerido pelo serviço é criado pela Microsoft e é exclusivamente utilizado pelo serviço Data Sync para uma determinada operação de sincronização. Antes de configurar o link privado, leia os [requisitos gerais](sql-data-sync-data-sql-server-sql-database.md#general-requirements) para a funcionalidade. 
+
+![Link privado para Data Sync](./media/sql-data-sync-data-sql-server-sql-database/sync-private-link-overview.png)
+
+> [!NOTE]
+> Tem de aprovar manualmente o ponto final privado gerido pelo serviço na página de **ligações de ponto final privado** do portal Azure durante a implementação do grupo de sincronização ou utilizando o PowerShell.
+
 ## <a name="get-started"></a>Introdução 
 
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>Configurar o Data Sync no portal Azure
@@ -126,6 +134,8 @@ O fornecimento e desprovisionamento durante a criação, atualização e elimina
 
 - O isolamento instantâneo deve ser ativado tanto para os membros do Sync como para o hub. Para obter mais informações, veja [Snapshot Isolation in SQL Server (Isolamento de Instantâneo no SQL Server)](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
+- Para utilizar a ligação privada com o Data Sync, tanto as bases de dados dos membros como dos hubs devem ser alojadas em Azure (regiões iguais ou diferentes), no mesmo tipo de nuvem (por exemplo, tanto na nuvem pública como em ambos na nuvem governamental). Além disso, para utilizar o link privado, os fornecedores de recursos da Microsoft.Network devem estar registados para as subscrições que acolhem o hub e os servidores dos membros. Por último, tem de aprovar manualmente o link privado para O Sincronização de Dados durante a configuração de sincronização, dentro da secção "Ligações de ponto final privado" no portal Azure ou através do PowerShell. Para obter mais detalhes sobre como aprovar o link privado, consulte [Configurar o SQL Data Sync](./sql-data-sync-sql-server-configure.md). Assim que aprovar o ponto final privado gerido pelo serviço, todas as comunicações entre o serviço de sincronização e as bases de dados membro/hub irão ocorrer sobre o link privado. Os grupos de sincronização existentes podem ser atualizados para ter esta funcionalidade ativada.
+
 ### <a name="general-limitations"></a>Limitações gerais
 
 - Uma mesa não pode ter uma coluna de identidade que não seja a chave principal.
@@ -169,6 +179,9 @@ O Data Sync não consegue sincronizar apenas colunas de leitura ou geradas pelo 
 > Pode haver até 30 pontos finais num único grupo de sincronização se houver apenas um grupo de sincronização. Se houver mais de um grupo de sincronização, o número total de pontos finais em todos os grupos de sincronização não pode exceder 30. Se uma base de dados pertence a vários grupos de sincronização, é contada como vários pontos finais, não um.
 
 ### <a name="network-requirements"></a>Requisitos de rede
+
+> [!NOTE]
+> Se utilizar um link privado, estes requisitos de rede não se aplicam. 
 
 Quando o grupo de sincronização é estabelecido, o serviço Data Sync precisa de se ligar à base de dados do hub. No momento em que estabelecer o grupo de sincronização, o servidor Azure SQL deve ter a seguinte configuração nas suas `Firewalls and virtual networks` definições:
 

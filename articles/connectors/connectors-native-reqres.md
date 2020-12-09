@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: b8f95e7e173dd6d1ad43301aab8ff3ec7cf78018
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 4997853fea97d14491bd9e9101f79f324807a6a1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981005"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920821"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a pedidos HTTPS de entrada em Azure Logic Apps
 
@@ -42,7 +42,7 @@ Para mais informações sobre segurança, autorização e encriptação para cha
 
 Este gatilho incorporado cria um ponto final manualmente chamado que *só* pode lidar com pedidos de entrada em HTTPS. Quando um chamador envia um pedido para este ponto final, o [Pedido dispara](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e executa a aplicação lógica. Para obter mais informações sobre como chamar este gatilho, consulte [fluxos de trabalho de Chamada, Gatilho ou ninho com pontos finais HTTPS em Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
-A sua aplicação lógica mantém um pedido de entrada aberto apenas por um [tempo limitado](../logic-apps/logic-apps-limits-and-config.md#request-limits). Assumindo que a sua aplicação lógica inclui uma [ação De Resposta](#add-response), se a sua aplicação lógica não enviar uma resposta de volta ao chamador após o passar deste tempo, a sua aplicação lógica devolve um `504 GATEWAY TIMEOUT` estado ao chamador. Se a sua aplicação lógica não incluir uma ação de Resposta, a sua aplicação lógica devolve imediatamente um `202 ACCEPTED` estado ao chamador.
+A sua aplicação lógica mantém um pedido de entrada aberto apenas por um [tempo limitado](../logic-apps/logic-apps-limits-and-config.md#http-limits). Assumindo que a sua aplicação lógica inclui uma [ação De Resposta](#add-response), se a sua aplicação lógica não enviar uma resposta de volta ao chamador após o passar deste tempo, a sua aplicação lógica devolve um `504 GATEWAY TIMEOUT` estado ao chamador. Se a sua aplicação lógica não incluir uma ação de Resposta, a sua aplicação lógica devolve imediatamente um `202 ACCEPTED` estado ao chamador.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Criar uma aplicação lógica em branco.
 
@@ -56,8 +56,8 @@ A sua aplicação lógica mantém um pedido de entrada aberto apenas por um [tem
 
    | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
-   | **HTTP POST URL** | {nenhum} | Yes | O URL de ponto final que é gerado depois de salvar a aplicação lógica e é usado para chamar a sua app lógica |
-   | **Pedido corpo JSON Schema** | `schema` | No | O esquema JSON que descreve as propriedades e valores no corpo de pedido de entrada |
+   | **HTTP POST URL** | {nenhum} | Sim | O URL de ponto final que é gerado depois de salvar a aplicação lógica e é usado para chamar a sua app lógica |
+   | **Pedido corpo JSON Schema** | `schema` | Não | O esquema JSON que descreve as propriedades e valores no corpo de pedido de entrada |
    |||||
 
 1. Na caixa **de esquema JSON do Corpo de Pedido,** insira opcionalmente um esquema JSON que descreve o corpo no pedido de entrada, por exemplo:
@@ -163,8 +163,8 @@ A sua aplicação lógica mantém um pedido de entrada aberto apenas por um [tem
 
    | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
-   | **Método** | `method` | No | O método que o pedido de entrada deve usar para ligar para a aplicação lógica |
-   | **Caminho relativo** | `relativePath` | No | O caminho relativo para o parâmetro que o URL de ponta da aplicação lógica pode aceitar |
+   | **Método** | `method` | Não | O método que o pedido de entrada deve usar para ligar para a aplicação lógica |
+   | **Caminho relativo** | `relativePath` | Não | O caminho relativo para o parâmetro que o URL de ponta da aplicação lógica pode aceitar |
    |||||
 
    Este exemplo adiciona a propriedade **Method:**
@@ -179,7 +179,7 @@ A sua aplicação lógica mantém um pedido de entrada aberto apenas por um [tem
 
    Por exemplo, pode responder ao pedido [adicionando uma ação Resposta](#add-response), que pode utilizar para devolver uma resposta personalizada e é descrita mais tarde neste tópico.
 
-   A sua aplicação lógica mantém o pedido de entrada aberto apenas por um [tempo limitado](../logic-apps/logic-apps-limits-and-config.md#request-limits). Assumindo que o fluxo de trabalho da sua aplicação lógica inclui uma ação de Resposta, se a aplicação lógica não devolver uma resposta após o passar deste tempo, a sua aplicação lógica devolve a `504 GATEWAY TIMEOUT` ao chamador. Caso contrário, se a sua aplicação lógica não incluir uma ação de Resposta, a sua aplicação lógica devolve imediatamente uma `202 ACCEPTED` resposta ao chamador.
+   A sua aplicação lógica mantém o pedido de entrada aberto apenas por um [tempo limitado](../logic-apps/logic-apps-limits-and-config.md#http-limits). Assumindo que o fluxo de trabalho da sua aplicação lógica inclui uma ação de Resposta, se a aplicação lógica não devolver uma resposta após o passar deste tempo, a sua aplicação lógica devolve a `504 GATEWAY TIMEOUT` ao chamador. Caso contrário, se a sua aplicação lógica não incluir uma ação de Resposta, a sua aplicação lógica devolve imediatamente uma `202 ACCEPTED` resposta ao chamador.
 
 1. Quando terminar, guarde a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
 
@@ -255,9 +255,9 @@ Quando utilizar o gatilho 'Pedido' para lidar com pedidos de entrada, pode model
 
    | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
-   | **Código de Estado** | `statusCode` | Yes | O código de estado para devolver na resposta |
-   | **Cabeçalhos** | `headers` | No | Um objeto JSON que descreve um ou mais cabeçalhos para incluir na resposta |
-   | **Corpo** | `body` | No | O corpo de resposta |
+   | **Código de Estado** | `statusCode` | Sim | O código de estado para devolver na resposta |
+   | **Cabeçalhos** | `headers` | Não | Um objeto JSON que descreve um ou mais cabeçalhos para incluir na resposta |
+   | **Corpo** | `body` | Não | O corpo de resposta |
    |||||
 
 1. Para especificar propriedades adicionais, como um esquema JSON para o corpo de resposta, abra a nova lista **de parâmetros add** e selecione os parâmetros que pretende adicionar.

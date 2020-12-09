@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: a807c76a08bf075973cd0f358c67b61b10b40ba0
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 9003366ec0d64057ca7426d5b6b99986bc21fc9d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554522"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920299"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Registar e digitalizar um servidor SQL no local
 
@@ -31,6 +31,10 @@ Suportes de fonte de dados do servidor SQL no local:
 - cada versão do SQL do sql servidor 2019 de volta ao servidor SQL 2000
 
 - Método de autenticação: Autenticação SQL
+
+### <a name="known-limitations"></a>Limitações conhecidas
+
+O Azure Purview não suporta a digitalização de [visualizações](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) no SQL Server. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

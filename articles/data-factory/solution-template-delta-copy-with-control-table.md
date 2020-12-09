@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/24/2018
-ms.openlocfilehash: e7b7acb7e67d809229825b3d393fe49af12b3642
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/09/2020
+ms.openlocfilehash: 3f15ffd6f7ed784cce398d419e013a69c60289d8
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461223"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921807"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Cópia delta de uma base de dados com uma tabela de controlo
 
@@ -45,7 +45,7 @@ O modelo define os seguintes parâmetros:
 - *Data_Source_WaterMarkColumn* é o nome da coluna na tabela de origem que é usada para identificar linhas novas ou atualizadas. O tipo desta coluna é tipicamente *tempo de data*, *INT,* ou similar.
 - *Data_Destination_Container* é o caminho principal do local onde os dados são copiados na sua loja de destino.
 - *Data_Destination_Directory* é o caminho do diretório sob a raiz do local onde os dados são copiados na sua loja de destino.
-- *Data_Destination_Table_Name* é o local onde os dados são copiados na sua loja de destino (aplicável quando "Azure Synapse Analytics (anteriormente SQL DW)" é selecionado como Data Destination).
+- *Data_Destination_Table_Name* é o local onde os dados são copiados na sua loja de destino (aplicável quando "Azure Synapse Analytics" é selecionado como Data Destination).
 - *Data_Destination_Folder_Path* é o local onde os dados são copiados na sua loja de destino (aplicável quando "File System" ou "Azure Data Lake Storage Gen1" são selecionados como Data Destination).
 - *Control_Table_Table_Name* é a tabela de controlo externo que armazena o valor de marca de água.
 - *Control_Table_Column_Name* é a coluna no quadro de controlo externo que armazena o valor de marca de água.

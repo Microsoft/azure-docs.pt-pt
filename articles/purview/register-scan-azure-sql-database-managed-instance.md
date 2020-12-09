@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: ded15b45dd859b18180bd396067360ae6585ef97
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 09fcaf0fb0c358c1e94d5cd7064c225d7f185ee0
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575878"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920313"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Registe e digitalize uma caixa de dados de base de dados Azure SQL
 
@@ -25,6 +25,10 @@ A fonte de dados gerida por exemplo da Azure SQL suporta a seguinte funcionalida
 - **Varreduras completas e incrementais** para capturar metadados e classificação em Azure SQL Database Managed Instance.
 
 - **Linhagem** entre ativos de dados para a cópia ADF e atividades de fluxo de dados.
+
+### <a name="known-limitations"></a>Limitações conhecidas
+
+O Azure Purview não suporta a digitalização de [visualizações](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) em Azure SQL Managed Instance.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Cálculo de escala para piscina Sinaapse SQL (Azure PowerShell)'
-description: Pode escalar o cálculo para a piscina SYNAPSE SQL (data warehouse) utilizando a Azure PowerShell.
+title: 'Quickstart: Cálculo de escala para piscina SQL dedicada (anteriormente SQL DW) (Azure PowerShell)'
+description: Você pode escalar o cálculo para piscina SQL dedicada (anteriormente SQL DW) usando Azure PowerShell.
 services: synapse-analytics
 author: Antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: 8077b1a52e44ce3a5160309c92288f756bed1014
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 87e10740e6081431bad96daa930f61238ca495bd
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91566147"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921909"
 ---
-# <a name="quickstart-scale-compute-for-synapse-sql-pool-with-azure-powershell"></a>Quickstart: Computação em escala para piscina Sinaapse SQL com Azure PowerShell
+# <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Quickstart: Cálculo de escala para piscina SQL dedicada (anteriormente SQL DW) com Azure PowerShell
 
-Pode escalar o cálculo para a piscina SYNAPSE SQL (data warehouse) utilizando a Azure PowerShell. [Dimensionar a computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
+Você pode escalar o cálculo para piscina SQL dedicada (anteriormente SQL DW) usando Azure PowerShell. [Dimensionar a computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -28,7 +28,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Este quickstart assume que já tem uma piscina SQL que pode escalar. Se precisar de criar um, utilize o [portal Create and Connect -](create-data-warehouse-portal.md) para criar uma piscina SQL chamada **mySampleDataWarehouse**.
+Este quickstart pressupõe que você já tem uma piscina SQL dedicada (anteriormente SQL DW) que você pode escalar. Se precisar de criar um, utilize o [portal Create and Connect -](create-data-warehouse-portal.md) para criar uma piscina SQL dedicada (anteriormente SQL DW) chamada **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -67,7 +67,7 @@ Siga estes passos para encontrar as informações de localização para o seu ar
 
 ## <a name="scale-compute"></a>Dimensionar computação
 
-Na piscina SQL, pode aumentar ou diminuir os recursos computativos ajustando as unidades de armazém de dados. O [Criar e Ligar - portal](create-data-warehouse-portal.md) criou **mySampleDataWarehouse** e inicializou-o com 400 DWUs. Os seguintes passos ajustam as DWUs para **mySampleDataWarehouse**.
+No pool de SQL dedicado (anteriormente SQL DW), pode aumentar ou diminuir os recursos computativos ajustando unidades de armazém de dados. O [Criar e Ligar - portal](create-data-warehouse-portal.md) criou **mySampleDataWarehouse** e inicializou-o com 400 DWUs. Os seguintes passos ajustam as DWUs para **mySampleDataWarehouse**.
 
 Para alterar as unidades de armazém de dados, utilize o [cmdlet PowerShell Set-AzSqlDatabase.](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) O exemplo a seguir define as unidades de armazém de dados para DW300c para a base de **dados mySampleDataWarehouse,** que está hospedada no **grupo de recursos** de recursos do grupo de recursos no nome de servidor **sqlpoolservername**.
 
@@ -77,7 +77,7 @@ Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySample
 
 ## <a name="check-data-warehouse-state"></a>Verifique o estado do armazém de dados
 
-Para ver o estado atual do armazém de dados, utilize o [cmdlet Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell. Este cmdlet mostra o estado da base de dados **mySampleDataWarehouse** no grupo de **recursos** do Grupo de Recursos e **sqlpoolservername.database.windows.net de**servidor .
+Para ver o estado atual do armazém de dados, utilize o [cmdlet Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell. Este cmdlet mostra o estado da base de dados **mySampleDataWarehouse** no grupo de **recursos** do Grupo de Recursos e **sqlpoolservername.database.windows.net de** servidor .
 
 ```powershell
 $database = Get-AzSqlDatabase -ResourceGroupName resourcegroupname -ServerName sqlpoolservername -DatabaseName mySampleDataWarehouse
@@ -121,7 +121,7 @@ $database | Select-Object DatabaseName,Status
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora aprendeu a escalar a computação para a piscina SQL. Para saber mais sobre a piscina SQL, continue ao tutorial para carregar dados.
+Aprendeu agora a escalar o cálculo para piscina SQL dedicada (anteriormente SQL DW). Para saber mais sobre piscina SQL dedicada (anteriormente SQL DW), continue ao tutorial para os dados de carregamento.
 
 > [!div class="nextstepaction"]
->[Carregue os dados numa piscina SQL](load-data-from-azure-blob-storage-using-polybase.md)
+>[Carregue os dados numa piscina de SQL dedicada](load-data-from-azure-blob-storage-using-copy.md)

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 96bdfc513023cafb2d94a68c06f1065cf20c3ba8
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f20405add698c64ecedfd7375063ba934a98e158
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130175"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922430"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Criar uma oferta do Dynamics 365 for Customer Engagement & PowerApps
 
@@ -23,8 +23,8 @@ Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview** .
-3. Na página 'Visão Geral', selecione **+ Nova oferta**  >  **Dynamics 365 para Envolvimento do Cliente & PowerApps** .
+2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
+3. Na página 'Visão Geral', selecione **+ Nova oferta**  >  **Dynamics 365 para Envolvimento do Cliente & PowerApps**.
 
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-dynamics-365-customer-engagement-powerapps.png)
 
@@ -33,17 +33,17 @@ Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create
 
 ## <a name="new-offer"></a>Nova oferta
 
-Introduza um **ID de oferta** . Este é um identificador único para cada oferta na sua conta.
+Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
 
 - Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos de Gestor de Recursos Azure, se aplicável.
 - O ID da oferta combinado com o ID da Editora deve ter menos de 40 caracteres de comprimento.
 - Utilize apenas letras minúsculas e números. Pode incluir hífens e sublinhados, mas sem espaços. Por exemplo, se o seu ID editor for testpublisherid e introduzir **test-offer-1,** o endereço web da oferta será `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
-- O ID da Oferta não pode ser alterado depois de selecionar **Criar** .
+- O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
 
 Insira **um pseudónimo de Oferta.** Este é o nome usado para a oferta no Partner Center.
 
 - Este nome não é usado no mercado e é diferente do nome da oferta e outros valores mostrados aos clientes.
-- Isto não pode ser alterado depois de selecionar **Criar** .
+- Isto não pode ser alterado depois de selecionar **Criar**.
 
 Selecione **Criar** para gerar a oferta e continuar.
 
@@ -95,7 +95,7 @@ Esta página permite definir as categorias e indústrias usadas para agrupar a s
 Selecione categorias e subcategorias para colocar a sua oferta nas áreas de pesquisa de mercado apropriadas. Não se esqueça de descrever como a sua oferta suporta estas categorias na descrição da oferta. Selecione:
 
 - Pelo menos uma e até duas categorias, incluindo uma categoria primária e secundária (opcional).
-- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável** .
+- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável**.
 
 Consulte a lista completa de categorias e subcategorias na [Listagem de Ofertas Boas Práticas.](../gtm-offer-listing-best-practices.md)
 
@@ -138,10 +138,10 @@ Aqui está um exemplo de como as informações de oferta aparecem no Microsoft A
 4. Endereço de suporte (link)
 5. Endereço de termos de utilização (link)
 6. Nome da oferta
-7. Description
+7. Descrição
 8. Screenshots/vídeos
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo é pré-povoado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -149,7 +149,7 @@ O nome que introduzir aqui será mostrado aos clientes como o título da sua lis
 
 Forneça uma breve descrição da sua oferta, até 100 caracteres. Esta descrição pode ser usada em resultados de pesquisa no mercado.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -260,16 +260,16 @@ Verifique esta caixa para ativar a configuração do acesso de saída CRM Secure
 
 ### <a name="application-configuration-url"></a>URL de configuração de aplicação
 
-Forneça o URL para a página web de configuração que permite ao cliente configurar a sua aplicação.
+Certifique-se de que este campo permanece em branco. Será utilizado para uso futuro. 
 
 ### <a name="crm-package"></a>Pacote CRM
 
-No URL do seu campo **de localização do pacote,** insira o URL de uma conta de Armazenamento Azure Blob que contém o pacote CRM carregado .zip file. Inclua uma chave SAS apenas de leitura no URL para que a Microsoft possa recolher o seu pacote para verificação.
+No URL do seu campo **de localização do pacote,** insira o URL de uma conta de Armazenamento Azure Blob que contém o pacote de CRM carregado .zip ficheiro. Inclua uma chave SAS apenas de leitura no URL para que a Microsoft possa recolher o seu pacote para verificação.
 
 > [!IMPORTANT]
 > Para evitar um bloco de publicação, certifique-se de que a data de validade no URL do seu armazenamento Blob não expirou. Pode rever a data acedendo à sua política. Recomendamos que o **prazo de expiração** seja pelo menos um mês no futuro.
 
-Selecione a caixa com a etiqueta **Há mais de um pacote crm no meu ficheiro de pacote,** se aplicável. Em caso afirmativo, certifique-se de que inclui todos os pacotes no seu ficheiro .zip.
+Selecione a caixa com a etiqueta **Há mais de um pacote crm no meu ficheiro de pacote,** se aplicável. Em caso afirmativo, certifique-se de incluir todos os pacotes no seu ficheiro .zip.
 
 Para obter informações detalhadas sobre como construir o seu pacote e atualizar a sua estrutura, consulte [o Passo 3: Criar um pacote AppSource para a sua aplicação.](/powerapps/developer/common-data-service/create-package-app-appsource)
 

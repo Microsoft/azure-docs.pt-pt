@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 95f59b73682e461a350410b38e3a021226cd7db6
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 8ae5bcf103bbb2d2b952fa647ba591e49002f2ff
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748693"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921617"
 ---
 # <a name="basic-concepts"></a>Basic Concepts (Conceitos Básicos)
 
@@ -30,7 +30,7 @@ Abaixo estão alguns conceitos básicos relacionados com a Microsoft Azure Attes
 
 O fornecedor de attestation pertence ao fornecedor de recursos Azure chamado Microsoft.Attestation. O fornecedor de recursos é um ponto final de serviço que fornece o contrato Azure Attestation REST e é implantado usando [o Azure Resource Manager](../azure-resource-manager/management/overview.md). Cada provedor de atestado honra uma política específica e detetável. 
 
-Os fornecedores de atestados são criados com uma política de predefinição para cada tipo DETE (note que o enclave VBS não tem uma política de incumprimento). Veja [exemplos de uma política de atestado](policy-examples.md) para obter mais detalhes sobre a política padrão para a SGX.
+Os fornecedores de atestados são criados com uma política padrão para cada tipo de atestado (note que o enclave VBS não tem uma política de incumprimento). Veja [exemplos de uma política de atestado](policy-examples.md) para obter mais detalhes sobre a política padrão para a SGX.
 
 ### <a name="regional-default-provider"></a>Fornecedor de incumprimento regional
 
@@ -50,13 +50,13 @@ O pedido de atestado é um objeto JSON serializado enviado pela aplicação do c
 - "Citação" – O valor da propriedade "Quote" é uma cadeia que contém uma representação codificada base64URL da cotação do atestado
 - "EnclaveHeldData" – O valor da propriedade "EnclaveHeldData" é uma cadeia que contém uma representação codificada base64URL dos Dados Detidos do Enclave.
 
-O Azure Attestation validará a "Quote" fornecida pela TEE, e garantirá que o hash SHA256 dos dados detidos do Enclave fornecido seja expresso nos primeiros 32 bytes do campo reportData na citação. 
+O Azure Attestation validará a "Cotação" fornecida e assegurará que o haxixe SHA256 dos dados detidos do Enclave é expresso nos primeiros 32 bytes do campo reportData na citação. 
 
 ## <a name="attestation-policy"></a>Política de atestado
 
 A política de atestado é usada para processar as provas de atestado e é configurável pelos clientes. No cerne da Azure Attestation está um motor de política, que processa alegações que constituem as provas. As políticas são utilizadas para determinar se o Azure Attestation emitirá um token de atestado com base em provas (ou não) e, assim, apoiar o Attester (ou não). Por conseguinte, a não aprovação de todas as políticas resultará na não emissão de qualquer sinal de JWT.
 
-Se a política tee padrão no fornecedor de atestado não satisfazer as necessidades, os clientes serão capazes de criar políticas personalizadas em qualquer uma das regiões apoiadas pela Azure Attestation. A gestão de políticas é uma característica fundamental fornecida aos clientes pela Azure Attestation. As políticas serão específicas do TEE e podem ser usadas para identificar enclaves ou adicionar reclamações ao token de saída ou modificar as reclamações num token de saída. 
+Se a política de incumprimento no prestador de atestado não satisfar as necessidades, os clientes poderão criar políticas personalizadas em qualquer uma das regiões apoiadas pela Azure Attestation. A gestão de políticas é uma característica fundamental fornecida aos clientes pela Azure Attestation. As políticas serão específicas do tipo de atestado e podem ser usadas para identificar enclaves ou adicionar reclamações ao token de saída ou modificar as reclamações num token de saída. 
 
 Veja [exemplos de uma política de atestado](policy-examples.md) para o conteúdo de políticas predefinidos e amostras.
 

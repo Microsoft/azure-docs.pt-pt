@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/19/2020
-ms.openlocfilehash: ee9bcedea15b039982e73304a25073c85b496635
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 56c3475ae6a03600723e7a12b3f3809f003ce7c4
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780058"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922268"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
 
@@ -231,7 +231,6 @@ Estas são as limitações atuais para o nível de serviço de Hiperescala a par
 | Migração de bases de dados com objetos OLTP In-Memory | A hiperescala suporta um subconjunto de objetos OLTP In-Memory, incluindo tipos de mesa otimizados na memória, variáveis de tabela e módulos compilados de forma nativa. No entanto, quando qualquer tipo de In-Memory objetos OLTP estão presentes na base de dados em migração, a migração dos níveis de serviço Premium e Business Critical para Hyperscale não é suportada. Para migrar tal base de dados para Hyperscale, todos os In-Memory objetos OLTP e suas dependências devem ser largados. Após a migração da base de dados, estes objetos podem ser recriados. As tabelas otimizadas para memória duráveis e não duradouras não são atualmente suportadas em Hiperescala e devem ser recriadas como tabelas de discos.|
 | Georreplicação  | Ainda não é possível configurar a geo-replicação para a hiperescala da base de dados Azure SQL. |
 | Cópia da base de dados | A cópia da base de dados em Hyperscale está agora em pré-visualização pública. |
-| Integração TDE/AKV | A encriptação transparente da base de dados utilizando o Cofre de Chaves Azure (vulgarmente designado por Bring-Your-Your-Own-Key ou BYOK) está atualmente em pré-visualização pública. |
 | Funcionalidades inteligentes da base de dados | Com exceção da opção "Plano de Força", todas as outras opções de Sintonização Automática ainda não são suportadas na Hyperscale: as opções podem parecer ativadas, mas não haverá recomendações ou ações feitas. |
 | Query Performance Insight | A Consulta Performance Insights não é suportada atualmente para bases de dados de hiperescala. |
 | Base de Dados de Encolher | DBCC SHRINKDATABASE ou DBCC SHRINKFILE não é suportado atualmente para bases de dados de hiperescala. |

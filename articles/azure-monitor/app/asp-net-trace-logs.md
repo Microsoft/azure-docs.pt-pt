@@ -4,12 +4,12 @@ description: Registos de pesquisa gerados por Trace, NLog ou Log4Net.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: ab3b12bf0401c4060823c6ed1d20dd6385cc397f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90777da4d0b67587afebaa7111e3503af2afcb9a
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973850"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920339"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Explore registos de traços .NET/.NET e Python em Insights de Aplicação
 
@@ -97,7 +97,7 @@ Pode configurar [os eventos System.Diagnostics.Tracing.EventSource](/dotnet/api/
 
 Para cada fonte, pode definir os seguintes parâmetros:
  * **O nome** especifica o nome do EventSource para recolher.
- * **O nível** de registo especifica o nível de registo para recolher: *Crítico,* *Erro,* *Informação,* *LogAlways,* *Verbose*ou *Aviso*.
+ * **O nível** de registo especifica o nível de registo para recolher: *Crítico,* *Erro,* *Informação,* *LogAlways,* *Verbose* ou *Aviso*.
  * **Palavras-chave** (opcional) especificam o valor inteiro das combinações de palavras-chave a utilizar.
 
 ## <a name="use-diagnosticsource-events"></a>Use eventos DiagnosticSource
@@ -139,7 +139,8 @@ Pode ligar para os Insights de Aplicação rastreia a API diretamente. Os adapta
 Por exemplo:
 
 ```csharp
-var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+var telemetryClient = new TelemetryClient(configuration);
 telemetry.TrackTrace("Slow response - database01");
 ```
 
@@ -148,10 +149,11 @@ Uma vantagem do TrackTrace é que pode colocar dados relativamente longos na men
 Também pode adicionar um nível de gravidade à sua mensagem. E, tal como outras telemetrias, pode adicionar valores de propriedade para ajudar a filtrar ou procurar diferentes conjuntos de vestígios. Por exemplo:
 
   ```csharp
-  var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-  telemetry.TrackTrace("Slow database response",
-                 SeverityLevel.Warning,
-                 new Dictionary<string,string> { {"database", db.ID} });
+  TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+  var telemetryClient = new TelemetryClient(configuration);
+  telemetryClient.TrackTrace("Slow database response",
+                              SeverityLevel.Warning,
+                              new Dictionary<string, string> { { "database", "db.ID" } });
   ```
 
 Isto permitir-lhe-ia filtrar facilmente em [Pesquisa de][diagnostic] todas as mensagens de um determinado nível de gravidade que se relacionam com uma determinada base de dados.
@@ -196,16 +198,16 @@ Na instrumentação sem código de Java (recomendada) os troncos são recolhidos
 Se estiver a utilizar o Java SDK, utilize os [adaptadores de registo Java](./java-trace-logs.md).
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>Não há opção Application Insights no menu de contexto do projeto
-* Certifique-se de que as Ferramentas de Análise do Desenvolvedor estão instaladas na máquina de desenvolvimento. Nas extensões e atualizações de **ferramentas**de estúdio  >  visual, procure**ferramentas** **de análise de desenvolvedores.** Se não estiver no separador **Instalado,** abra o separador **Online** e instale-o.
+* Certifique-se de que as Ferramentas de Análise do Desenvolvedor estão instaladas na máquina de desenvolvimento. Nas extensões e atualizações de **ferramentas** de estúdio  >  visual, procure **ferramentas** **de análise de desenvolvedores.** Se não estiver no separador **Instalado,** abra o separador **Online** e instale-o.
 * Este pode ser um tipo de projeto que o Developer Analytics Tools não suporta. Utilize [a instalação manual](#manual-installation).
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>Não há opção de adaptador de registo na ferramenta de configuração
 * Instale primeiro a estrutura de registo.
-* Se estiver a utilizar o System.Diagnostics.Trace, certifique-se de que o tem [configurado em *web.config* ](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1).
-* Certifique-se de que tem a versão mais recente do Application Insights. No Estúdio Visual, **Tools**vá a  >  **Extensões e Atualizações de Ferramentas**e abra o **separador Atualizações.** Se **o Desenvolvedor Analytics Tools** estiver lá, selecione-o para atualizá-lo.
+* Se estiver a utilizar o System.Diagnostics.Trace, certifique-se de que o tem [configurado em *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1).
+* Certifique-se de que tem a versão mais recente do Application Insights. No Estúdio Visual, **Tools** vá a  >  **Extensões e Atualizações de Ferramentas** e abra o **separador Atualizações.** Se **o Desenvolvedor Analytics Tools** estiver lá, selecione-o para atualizá-lo.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>Recebo a mensagem de erro "Instrumentação não pode ser vazia"
-Provavelmente instalou o pacote NuGet do adaptador de registo sem instalar o Application Insights. No Solution Explorer, * clique *ApplicationInsights.configà direita e selecione **Update Application Insights**. Será solicitado que entre no Azure e crie um recurso Application Insights ou reutilizar um existente. Isto deve resolver o problema.
+Provavelmente instalou o pacote NuGet do adaptador de registo sem instalar o Application Insights. No Solution Explorer, *clique* ApplicationInsights.configà direita e selecione **Update Application Insights**. Será solicitado que entre no Azure e crie um recurso Application Insights ou reutilizar um existente. Isto deve resolver o problema.
 
 ### <a name="i-can-see-traces-but-not-other-events-in-diagnostic-search"></a>Posso ver vestígios, mas não outros eventos em pesquisa de diagnóstico
 Pode levar algum tempo para todos os eventos e pedidos para passar pelo oleoduto.

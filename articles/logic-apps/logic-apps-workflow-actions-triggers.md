@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 3dbfcacb6ea5922a01d52dfe39189f09f48d4b4a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7423f8d8f2a566801048457ad5f5c44f3c1097ec
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006086"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920062"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guia de referência de Schema para tipos de gatilho e ação em Azure Logic Apps
 
@@ -823,7 +823,7 @@ Aqui estão alguns tipos de ação comumente usados:
 | [**Executar código JavaScript**](#run-javascript-code) | Executar os snippets de código JavaScript que se enquadram dentro de critérios específicos. Para obter requisitos de código e mais informações, consulte [Adicionar e executar os snippets de código com código inline](../logic-apps/logic-apps-add-run-inline-code.md). |
 | [**Função**](#function-action) | Chama uma Função Azure. | 
 | [**HTTP**](#http-action) | Chama um ponto final HTTP. | 
-| [**Associar**](#join-action) | Cria uma cadeia a partir de todos os itens de uma matriz e separa esses itens com um carácter delimiter especificado. | 
+| [**Junte-se**](#join-action) | Cria uma cadeia a partir de todos os itens de uma matriz e separa esses itens com um carácter delimiter especificado. | 
 | [**Parse JSON**](#parse-json-action) | Cria fichas fáceis de usar a partir de propriedades em conteúdo JSON. Em seguida, pode referenciar essas propriedades incluindo os tokens na sua aplicação lógica. | 
 | [**Consulta**](#query-action) | Cria uma matriz a partir de itens em outra matriz com base numa condição ou filtro. | 
 | [**Resposta**](#response-action) | Cria uma resposta a uma chamada ou pedido de entrada. | 
@@ -852,7 +852,7 @@ Estas ações ajudam-no a controlar a execução do fluxo de trabalho e incluem 
 
 | Tipo de ação | Descrição | 
 |-------------|-------------| 
-| [**Foreach**](#foreach-action) | Executar as mesmas ações em loop para cada item de uma matriz. | 
+| [**ForEach**](#foreach-action) | Executar as mesmas ações em loop para cada item de uma matriz. | 
 | [**Se**](#if-action) | Executar ações com base no facto de a condição especificada ser verdadeira ou falsa. | 
 | [**Âmbito**](#scope-action) | Executar ações com base no estado de grupo de um conjunto de ações. | 
 | [**Comutador**](#switch-action) | Executar ações organizadas em casos em que valores de expressões, objetos ou fichas correspondam aos valores especificados por cada caso. | 
@@ -1506,7 +1506,7 @@ Ao contrário de outras ações, a ação **Resposta** tem restrições especiai
 
 * O seu fluxo de trabalho pode utilizar a ação **Response** em qualquer *lugar, exceto* dentro de laços **Foreach,** **até** loops, incluindo laços sequenciais e ramos paralelos. 
 
-* O pedido HTTP original só obtém a resposta do seu fluxo de trabalho quando todas as ações exigidas pela ação **Resposta** estiverem concluídas dentro do [prazo limite de tempo do pedido HTTP](../logic-apps/logic-apps-limits-and-config.md#request-limits).
+* O pedido original só obtém a resposta do seu fluxo de trabalho quando todas as ações necessárias pela ação **Resposta** estiverem concluídas dentro do [prazo de tempo HTTP](../logic-apps/logic-apps-limits-and-config.md#http-limits).
 
   No entanto, se o seu fluxo de trabalho chamar outra aplicação lógica como um fluxo de trabalho aninhado, o fluxo de trabalho dos pais aguarda até que o fluxo de trabalho aninhado termine, não importa quanto tempo passe antes que o fluxo de trabalho aninhado termine.
 
@@ -2098,7 +2098,7 @@ Esta condição especifica que quando a variável número inteiro tem um valor s
 
 Aqui estão alguns exemplos que mostram como pode usar expressões em condições:
   
-| JSON | Resultado | 
+| JSON | Result | 
 |------|--------| 
 | "expressão": " @parameters ('<*temSpecialAction*>')" | Apenas para expressões booleanas, a condição passa por qualquer valor que avalie para verdade. <p>Para converter outros tipos em Boolean, utilize estas funções: `empty()` ou `equals()` . | 
 | "expressão": " @greater (ação <>').output.value, parâmetros ('<*limiar*>)" *action* | Para funções de comparação, a ação só funciona quando a produção de <*ação*> é mais do que o *limiar* <> valor. | 

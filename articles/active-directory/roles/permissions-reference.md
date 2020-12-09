@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf91c9e081bff9860153b342648fedc0990b68b9
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 1d634978333e2b833324228fb0908cfba61a786d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862062"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96919743"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -1016,6 +1016,7 @@ Pode ler & escrever informações básicas de diretório. Para a concessão de a
 | microsoft.diretório/utilizadores/appRoleAssignments/update | Atualizar a propriedade users.appRoleAssignments em Azure Ative Directory. |
 | microsoft.diretório/utilizadores/assignLicense | Gerir licenças em utilizadores no Azure Ative Directory. |
 | microsoft.diretório/utilizadores/básico/atualização | Atualizar propriedades básicas nos utilizadores no Azure Ative Directory. |
+| microsoft.diretório/utilizadores/criar | Crie utilizadores no Azure Active Directory. |
 | microsoft.diretório/utilizadores/desativar | Desative uma conta de utilizador no Azure Ative Directory. |
 | microsoft.diretório/utilizadores/enable | Ativar uma conta de utilizador no Azure Ative Directory |
 | microsoft.diretório/utilizadores/invalidadoAllRefreshTokens | Invalidar todos os tokens de atualização do utilizador no Azure Ative Directory, exigindo que os utilizadores reautençam no seu próximo senting |

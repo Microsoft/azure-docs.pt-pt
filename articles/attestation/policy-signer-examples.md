@@ -7,17 +7,17 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 33998d9f2d117b02e7f792a7a6e47e6a66a5ff0d
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 0b32158ad58a663f7d85b9814bb4f2c1c55e4178
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748659"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922459"
 ---
 # <a name="examples-of-an-attestation-policy-signer-certificate"></a>Exemplos de um certificado de sinalizador de política de atestado
 
 Os certificados de sinalização de política associados a um fornecedor de atestado serão utilizados pela Microsoft Azure Attestation para validar as políticas assinadas.
-Saiba mais sobre [os benefícios da assinatura de políticas](/azure/attestation/basic-concepts/#Benefits-of-policy-signing)
+Saiba mais sobre [os benefícios da assinatura de políticas](/azure/attestation/basic-concepts/#benefits-of-policy-signing)
 
 **Formato de ficheiro de certificado de signatário de política a ser utilizado na criação de fluxo de provedor**
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: jingwang
-ms.openlocfilehash: 333a1de5977857697af87cf9d8df6750936ff932
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: afb940d63f76acce6575b74bf5a21a7fb912fc4e
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023203"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920106"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copiar dados de ou para um sistema de ficheiros utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -59,8 +59,8 @@ As seguintes propriedades são suportadas para o serviço ligado ao sistema de f
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **FileServer**. | Sim |
 | anfitrião | Especifica o caminho da raiz da pasta que pretende copiar. Use o personagem de fuga " \" para caracteres especiais na corda. Consulte por exemplo [o serviço ligado à amostra e definições de conjunto de dados.](#sample-linked-service-and-dataset-definitions) | Sim |
-| userid | Especifique o ID do utilizador que tem acesso ao servidor. | Sim |
-| palavra-passe | Especifique a palavra-passe para o utilizador (userid). Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
+| userId | Especifique o ID do utilizador que tem acesso ao servidor. | Sim |
+| palavra-passe | Especifique a palavra-passe para o utilizador (userId). Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Definições de serviço e conjunto de dados ligados à amostra
@@ -82,7 +82,7 @@ As seguintes propriedades são suportadas para o serviço ligado ao sistema de f
         "type": "FileServer",
         "typeProperties": {
             "host": "<host>",
-            "userid": "<domain>\\<user>",
+            "userId": "<domain>\\<user>",
             "password": {
                 "type": "SecureString",
                 "value": "<password>"

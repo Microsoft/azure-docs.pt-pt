@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.custom: devx-track-csharp
 ms.reviewer: lmolkova
-ms.openlocfilehash: 98f1ea8a4994515b437841174ae95563ea53ed88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa39a1eca04621fc4db75f755402d3679403e814
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88933346"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920601"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Insights de aplicação para aplicações de consola .NET
 
@@ -22,6 +22,9 @@ Precisa de uma subscrição com [o Microsoft Azure](https://azure.com). Faça s�
 > É *altamente recomendado* utilizar o pacote [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) e instruções associadas a partir [daqui](./worker-service.md) para quaisquer aplicações de consola. Este pacote destina-se [`NetStandard2.0`](/dotnet/standard/net-standard) a ser utilizado em .NET Core 2.1 ou superior, e .NET Framework 4.7.2 ou superior.
 
 ## <a name="getting-started"></a>Introdução
+
+> [!IMPORTANT]
+> As novas regiões de Azure **requerem** a utilização de cordas de ligação em vez de teclas de instrumentação. [A cadeia de ligação](./sdk-connection-string.md?tabs=net) identifica o recurso com o que pretende associar os seus dados de telemetria. Também permite modificar os pontos finais que o seu recurso utilizará como destino para a sua telemetria. Terá de copiar o fio de ligação e adicioná-lo ao código da sua aplicação ou a uma variável ambiental.
 
 * No [portal do Azure](https://portal.azure.com), [crie um recurso do Application Insights](./create-new-resource.md). Para o tipo de aplicação, escolha **General.**
 * Faça uma cópia da Chave de Instrumentação. Encontre a chave no **essencial** para deixar cair o novo recurso que criou.

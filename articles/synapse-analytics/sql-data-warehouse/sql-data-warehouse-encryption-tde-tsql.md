@@ -11,12 +11,12 @@ ms.date: 04/30/2019
 ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 81a28773f8f13cfb8dac75f1c4e11fd773c2c8f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9a80a9001d1d989495a246bbbc8fa703f58e08a
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212202"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96919931"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Começar com encriptação de dados transparentes (TDE)
 
@@ -54,7 +54,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
 > [!NOTE]
-> Uma piscina SQL pausada deve ser retomada antes de escriminar as definições de TDE.
+> Uma piscina SQL dedicada a pausa deve ser retomada antes de errar nas definições do TDE.
 
 ## <a name="verifying-encryption"></a>Verificação da encriptação
 

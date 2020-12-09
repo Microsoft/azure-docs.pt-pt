@@ -1,18 +1,18 @@
 ---
 title: Funções do modelo - lógica
-description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para determinar valores lógicos.
+description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure (modelo ARM) para determinar valores lógicos.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: b54c104c8af5bb742b2c82d8a075515b8696501b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 27d94f10374daf0b9a351469579a5eb659cf5445
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004556"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920475"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funções lógicas para modelos ARM
 
-O Gestor de Recursos fornece várias funções para fazer comparações nos seus modelos Azure Resource Manager (ARM).
+O Gestor de Recursos fornece várias funções para fazer comparações no seu modelo de Gestor de Recursos Azure (modelo ARM):
 
 * [and](#and)
 * [bool](#bool)
@@ -227,7 +227,7 @@ Devolve o segundo parâmetro quando o primeiro parâmetro é **verdadeiro;** cas
 
 ### <a name="remarks"></a>Observações
 
-Quando a condição é **verdadeira,** apenas o verdadeiro valor é avaliado. Quando a condição é **falsa,** apenas o valor falso é avaliado. Com a função **se,** pode incluir expressões que são apenas válidas condicionalmente. Por exemplo, pode referenciar um recurso que existe sob uma condição, mas não sob outra condição. Na secção seguinte é apresentado um exemplo de avaliação condicional das expressões.
+Quando a condição é **verdadeira,** apenas o verdadeiro valor é avaliado. Quando a condição é **falsa,** apenas o valor falso é avaliado. Com a `if` função, pode incluir expressões que são apenas válidas condicionalmente. Por exemplo, pode referenciar um recurso que existe sob uma condição, mas não sob outra condição. Na secção seguinte é apresentado um exemplo de avaliação condicional das expressões.
 
 ### <a name="examples"></a>Exemplos
 
@@ -272,7 +272,7 @@ A saída do exemplo anterior é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| simOutput | String | yes |
+| simOutput | String | sim |
 | noOutput | String | não |
 | objetoOutput | Objeto | { "teste": "valor1" } |
 
@@ -542,4 +542,4 @@ A saída do exemplo anterior é:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
+* Para obter uma descrição das secções num modelo ARM, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).

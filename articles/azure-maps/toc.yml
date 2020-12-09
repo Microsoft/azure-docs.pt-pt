@@ -290,7 +290,7 @@
           href: /rest/api/maps/data
         - name: Serviço de localização geográfica
           href: /rest/api/maps/geolocation
-        - name: Serviço de Mobilidade
+        - name: Serviços de mobilidade
           href: /rest/api/maps/mobility
         - name: Serviço de composição
           href: /rest/api/maps/render
@@ -306,7 +306,7 @@
           href: /rest/api/maps/timezone
         - name: Serviço de tráfego
           href: /rest/api/maps/traffic
-        - name: Serviço de meteorologia
+        - name: Serviços de meteorologia
           href: /rest/api/maps/weather
         - name: Serviço Maps Creator
           items:

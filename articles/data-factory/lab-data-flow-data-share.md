@@ -6,13 +6,13 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/08/2020
-ms.openlocfilehash: 0a578f1edb51efd5f0905e663d42bf5a6fbfc783
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/09/2020
+ms.openlocfilehash: bdf9cbfef7dfdcf80976641b527ddeb61368d50b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489059"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921028"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integração de dados utilizando a Azure Data Factory e a Azure Data Share
 
@@ -34,7 +34,7 @@ Os dados usados neste laboratório são dados de táxi de Nova Iorque. Para impo
 
 * **Conta de armazenamento Azure Data Lake Storage Gen2**: Se não tiver uma conta de armazenamento ADLS Gen2, aprenda a [criar uma conta de armazenamento ADLS Gen2](../storage/common/storage-account-create.md).
 
-* **Azure Synapse Analytics (anteriormente SQL DW)**: Se não tiver um Azure Synapse Analytics (anteriormente SQL DW), aprenda a [criar um exemplo de Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
+* **Azure Synapse Analytics**: Se não tiver um Azure Synapse Analytics, aprenda a [criar um exemplo de Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 * **Azure Data Factory**: Se ainda não criou uma fábrica de dados, veja como [criar uma fábrica de dados.](./quickstart-create-data-factory-portal.md)
 
@@ -79,7 +79,7 @@ Na Azure Data Factory os serviços ligados definem a informação de ligação a
 
 ### <a name="create-an-azure-synapse-analytics-linked-service"></a>Criar um serviço Azure Synapse Analytics ligado
 
-1. Repita o mesmo processo para adicionar um serviço Azure Synapse Analytics ligado. No separador de ligações, clique em **Novo**. Selecione o **azulejo Azure Synapse Analytics (anteriormente SQL DW)** e clique em continuar.
+1. Repita o mesmo processo para adicionar um serviço Azure Synapse Analytics ligado. No separador de ligações, clique em **Novo**. Selecione o azulejo **Azure Synapse Analytics** e clique em continuar.
 
     ![Configuração do portal 6](media/lab-data-flow-data-share/configure6.png)
 1. No painel de configuração de serviço ligado, introduza 'SQLDW' como o nome de serviço ligado. Introduza as suas credenciais para permitir que a fábrica de dados se conecte à sua base de dados. Se estiver a utilizar a autenticação SQL, insira o nome do servidor, a base de dados, o nome de utilizador e a palavra-passe. Pode verificar se as informações de ligação estão corretas clicando na **ligação test**. Clique em **Criar** quando terminar.
@@ -155,7 +155,7 @@ Criou com sucesso o seu conjunto de dados de origem. Certifique-se de que, nas d
 1. Para verificar se a sua atividade de cópia está a funcionar corretamente, clique em **Debug** na parte superior da tela do gasoduto para executar uma execução de depuração. Uma corrida de depuração permite-lhe testar o seu oleoduto de ponta a ponta ou até um ponto de rutura antes de publicá-lo no serviço de fábrica de dados.
 
     ![Cópia do portal 11](media/lab-data-flow-data-share/copy11.png)
-1. Para monitorizar a sua execução de depuragem, vá ao **separador de saída** da tela do gasoduto. O ecrã de monitorização será automaticamente a cada 20 segundos ou quando clicar manualmente no botão de atualização. A atividade da cópia tem uma visão de monitorização especial que pode ser acedido clicando no ícone de óculos na coluna **Ações.**
+1. Para monitorizar a sua execução de depuragem, vá ao **separador de saída** da tela do gasoduto. O ecrã de monitorização será automaticamente a cada 20 segundos ou quando clicar manualmente no botão de atualização. A atividade da cópia tem uma visão de monitorização especial, que pode ser acedido clicando no ícone de óculos na coluna **Ações.**
 
     ![Cópia do portal 12](media/lab-data-flow-data-share/copy12.png)
 1. A visão de monitorização da cópia fornece os detalhes de execução da atividade e as características de desempenho. Pode ver informações como a leitura/escrita de dados, linhas lidas/escritas, ficheiros lidos/escritos e produção. Se configurar tudo corretamente, deverá ver 49.999 linhas escritas num único ficheiro na pia do ADLS.
@@ -261,7 +261,7 @@ O fluxo de dados criado neste passo interior junta-se ao conjunto de dados 'Trip
     Para obter a distância total da viagem, utilize a `sum()` função de agregação para agregar a `trip_distance` coluna fundida a um inteiro com `toInteger()` . Na linguagem de expressão de fluxo de dados, isto é definido como `sum(toInteger(trip_distance))` . Clique **em Guardar e termine** quando terminar.
 
     ![Portal agg 6](media/lab-data-flow-data-share/agg6.png)
-1. Teste a sua lógica de transformação no **separador Data Preview.** Como pode ver, há significativamente menos linhas e colunas do que anteriormente. Apenas os três grupos por e colunas de agregação definidas nesta transformação continuam a jusante. Como existem apenas cinco grupos de pagamento na amostra, apenas cinco linhas são outputadas.
+1. Teste a sua lógica de transformação no **separador Data Preview.** Como pode ver, há significativamente menos linhas e colunas do que anteriormente. Apenas os três grupos por e as colunas de agregação definidas nesta transformação continuam a jusante. Como existem apenas cinco grupos de pagamento na amostra, apenas cinco linhas são outputadas.
 
     ![Portal agg 7](media/lab-data-flow-data-share/agg7.png)
 
@@ -274,7 +274,7 @@ O fluxo de dados criado neste passo interior junta-se ao conjunto de dados 'Trip
 
     ![Porta 2](media/lab-data-flow-data-share/sink2.png)
 
-1. Selecione o **azulejo Azure Synapse Analytics (anteriormente SQL DW)** e clique em continuar.
+1. Selecione o azulejo **Azure Synapse Analytics** e clique em continuar.
 
     ![Porta 3](media/lab-data-flow-data-share/sink3.png)
 1. Ligue para o seu conjunto de dados 'AggregatedTaxiData'. Selecione 'SQLDW' como o seu serviço ligado. **Selecione Criar uma nova tabela** e nomear o novo dbo de tabela. AgregaçãoTaxiData. Clique em OK quando terminar
@@ -306,7 +306,7 @@ Criou com sucesso o fluxo de dados. Agora é hora de executá-lo em uma atividad
 
 Já completou a parte da fábrica de dados deste laboratório. Publique os seus recursos se quiser operacionalizá-los com gatilhos. Executou com sucesso um oleoduto que ingeriu dados da Azure SQL Database para Azure Data Lake Storage usando a atividade da cópia e, em seguida, agregado esses dados em um Azure Synapse Analytics. Pode verificar se os dados foram escritos com sucesso olhando para o próprio SQL Server.
 
-## <a name="share-data-using-azure-data-share"></a>Partilhar dados através da Azure Data Share
+## <a name="share-data-using-azure-data-share"></a>Partilhar dados com o Azure Data Share
 
 Nesta secção, você vai aprender a configurar uma nova partilha de dados usando o portal Azure. Isto implicará a criação de uma nova partilha de dados que conterá conjuntos de dados da Azure Data Lake Store Gen2 e Azure Synapse Analytics. Em seguida, configurará um calendário instantâneo, que dará aos consumidores de dados a opção de atualizar automaticamente os dados que estão a ser partilhados com eles. Em seguida, convidará os destinatários para a sua partilha de dados. 
 
@@ -330,7 +330,7 @@ Uma vez criada uma partilha de dados, trocará de chapéus e tornar-se-á o *con
 
 1. Em **nome de partilha,** especifique um nome à sua escolha. Este é o nome da partilha que será visto pelo seu consumidor de dados, por isso certifique-se de lhe dar um nome descritivo como TaxiData.
 
-1. Em **Descrição**, coloque uma frase que descreve o conteúdo da partilha de dados. A partilha de dados conterá dados mundiais de viagem de táxi que são armazenados em várias lojas, incluindo a Azure Synapse Analytics e a Azure Data Lake Store. 
+1. Em **Descrição**, coloque uma frase, que descreve o conteúdo da partilha de dados. A partilha de dados conterá dados mundiais de viagem de táxi que são armazenados em várias lojas, incluindo a Azure Synapse Analytics e a Azure Data Lake Store. 
 
 1. Nos **Termos de Utilização**, especifique um conjunto de termos aos quais pretende que o seu consumidor de dados adira. Alguns exemplos incluem "Não distribua estes dados fora da sua organização" ou "Consulte o acordo legal". 
 

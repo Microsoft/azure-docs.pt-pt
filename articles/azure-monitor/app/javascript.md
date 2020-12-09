@@ -4,12 +4,12 @@ description: Obtenha a visualização da página e as contagens de sessão, dado
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: b109aaea1ae5e751f40b55a3c703f0739661e10d
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: f5f81fe5d3f7f7d24e5e6618ba3956b80451570c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876214"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921876"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 
@@ -19,8 +19,11 @@ O Application Insights pode ser utilizado com quaisquer páginas Web - basta adi
 
 ## <a name="adding-the-javascript-sdk"></a>Adicionar o JavaScript SDK
 
+> [!IMPORTANT]
+> As novas regiões de Azure **requerem** a utilização de cordas de ligação em vez de teclas de instrumentação. [A cadeia de ligação](./sdk-connection-string.md?tabs=js) identifica o recurso com o que pretende associar os seus dados de telemetria. Também permite modificar os pontos finais que o seu recurso utilizará como destino para a sua telemetria. Terá de copiar o fio de ligação e adicioná-lo ao código da sua aplicação ou a uma variável ambiental.
+
 1. Primeiro precisa de um recurso Application Insights. Se ainda não tiver uma chave de recursos e instrumentação, siga a [criação de novas instruções de recurso](create-new-resource.md).
-2. Copie a _chave de instrumentação_ (também conhecida como "iKey") para o recurso onde pretende que a sua telemetria JavaScript seja enviada (a partir do passo 1.) Irá adicioná-lo à `instrumentationKey` definição do JavaScript SDK de Insights de Aplicação.
+2. Copie a _tecla de instrumentação_ (também conhecida como "iKey") ou [a cadeia de ligação](#connection-string-setup) para o recurso onde pretende que a sua telemetria JavaScript seja enviada (a partir do passo 1.) Irá adicioná-lo à `instrumentationKey` ou `connectionString` configuração do SDK JavaScript De Aplicações.
 3. Adicione a Aplicação Insights JavaScript SDK à sua página web ou app através de uma das duas opções seguintes:
     * [npm Configuração](#npm-based-setup)
     * [JavaScript Snippet](#snippet-based-setup)
@@ -102,7 +105,7 @@ Todas as opções de configuração foram agora movendo-se para o final do scrip
 
 Cada opção de configuração é mostrada acima numa nova linha, se não pretender anular o valor predefinido de um item listado como [opcional] pode remover essa linha para minimizar o tamanho resultante da sua página devolvida.
 
-As opções de configuração disponíveis são 
+As opções de configuração disponíveis são
 
 | Nome | Tipo | Descrição
 |------|------|----------------
@@ -113,9 +116,23 @@ As opções de configuração disponíveis são
 | crossOrigin | corda *[opcional]* | Ao incluir esta definição, a etiqueta de script adicionada para descarregar o SDK incluirá o atributo crossOrigin com este valor de cadeia. Quando não definido (o padrão) não é adicionado nenhum atributo crossOrigin. Os valores recomendados não são definidos (o padrão); ""; ou "anónimo" (Para todos os valores válidos ver [atributo HTML: `crossorigin` ](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) documentação)
 | cfg | objeto **[necessário]** | A configuração passou para o Application Insights SDK durante a inicialização.
 
+### <a name="connection-string-setup"></a>Configuração de cadeia de ligação
+
+Para a configuração NPM ou Snippet, também pode configurar a sua instância de Application Insights utilizando uma cadeia de ligação. Basta substituir o `instrumentationKey` campo pelo `connectionString` campo.
+```js
+import { ApplicationInsights } from '@microsoft/applicationinsights-web'
+
+const appInsights = new ApplicationInsights({ config: {
+  connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE'
+  /* ...Other Configuration Options... */
+} });
+appInsights.loadAppInsights();
+appInsights.trackPageView();
+```
+
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Envio de telemetria para o portal Azure
 
-Por predefinição, a Aplicação Insights JavaScript SDK recolhe automaticamente uma série de itens de telemetria que são úteis para determinar a saúde da sua aplicação e a experiência subjacente ao utilizador. Estes incluem:
+Por predefinição, a Aplicação Insights JavaScript SDK recolhe automaticamente uma série de itens de telemetria que são úteis para determinar a saúde da sua aplicação e a experiência subjacente ao utilizador. Estas incluem:
 
 - **Exceções não conseguiu** na sua aplicação, incluindo informações sobre
     - Traço de pilha
@@ -155,7 +172,7 @@ A maioria dos campos de configuração são nomeados de modo a que possam ser in
 
 | Nome | Predefinição | Descrição |
 |------|---------|-------------|
-| instrumentaçãoKey | nulo | **Necessário**<br>Chave de instrumentação que obteve do portal Azure. |
+| instrumentaçãoKey | nulo | **Obrigatório**<br>Chave de instrumentação que obteve do portal Azure. |
 | accountId | nulo | Um ID de conta opcional, se a sua aplicação agru tiver em conta os utilizadores. Sem espaços, vírgulas, semi-acolchoados, iguais ou barras verticais |
 | sessionRenewalMs | 1800000 | Uma sessão é registada se o utilizador estiver inativo durante este período de tempo em milissegundos. O padrão é de 30 minutos |
 | sessionExpirationMs | 86400000 | Uma sessão é registada se tiver continuado por este tempo em milissegundos. O padrão é de 24 horas |
@@ -163,8 +180,8 @@ A maioria dos campos de configuração são nomeados de modo a que possam ser in
 | maxBatchInterval | 15 000 | Quanto tempo para a telemetria de lote antes de enviar (milissegundos) |
 | desativarExcepçãoTracking | false | Se for verdade, as exceções não são autocolhidas. A predefinição é falso. |
 | desativar atelemetria | false | Se for verdade, a telemetria não é recolhida ou enviada. A predefinição é falso. |
-| enableDebug | false | Se forem verdadeiros, os dados de depuragem **internos** são lançados como uma exceção **em vez** de serem registados, independentemente das definições de registo SDK. A predefinição é falso. <br>***Nota:*** Ativar esta definição resultará numa telemetria abandonada sempre que ocorrer um erro interno. Isto pode ser útil para identificar rapidamente problemas com a sua configuração ou utilização do SDK. Se não quiser perder a telemetria durante a depuragem, considere utilizar `consoleLoggingLevel` ou em vez de `telemetryLoggingLevel` `enableDebug` . |
-| loggingLevelConsole | 0 | Regista erros **internos** de Insights de Aplicação para consolar. <br>0: desligado, <br>1: Apenas erros críticos, <br>2: Tudo (erros & avisos) |
+| enableDebug | false | Se forem verdadeiros, os dados de depuragem **internos** são lançados como uma exceção **em vez** de serem registados, independentemente das definições de registo SDK. A predefinição é falso. <br>**_Nota:_* _ Ativar esta regulação resultará numa telemetria abandonada sempre que ocorrer um erro interno. Isto pode ser útil para identificar rapidamente problemas com a sua configuração ou utilização do SDK. Se não quiser perder a telemetria durante a depuragem, considere utilizar `consoleLoggingLevel` ou em vez de `telemetryLoggingLevel` `enableDebug` . |
+| loggingLevelConsole | 0 | Registos _ *internos** Erros de Insights de Aplicação para consolar. <br>0: desligado, <br>1: Apenas erros críticos, <br>2: Tudo (erros & avisos) |
 | loggingLeemetria | 1 | Envia erros **internos** de Insights de Aplicação como telemetria. <br>0: desligado, <br>1: Apenas erros críticos, <br>2: Tudo (erros & avisos) |
 | diagnósticoLogInterval | 10000 | (interno) Intervalo de votação (em ms) para a fila interna de registo |
 | amostragemPercentage | 100 | Percentagem de eventos que serão enviados. O padrão é 100, o que significa que todos os eventos são enviados. Desagrei isto se pretender preservar a sua tampa de dados para aplicações em larga escala. |

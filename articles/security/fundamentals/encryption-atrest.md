@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 092320db9b7fe2b1f3fe142f84ad201d40dc6e2e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1318aaf50d4f05b8a999e5661318dc83997a2f02
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492289"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920785"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Encriptação de dados Azure em repouso
 
@@ -33,7 +33,7 @@ A encriptação em Repouso é um requisito de segurança comum. No Azure, as org
 
 ## <a name="what-is-encryption-at-rest"></a>O que é encriptação em repouso?
 
-A encriptação em Rest é a codificação (encriptação) dos dados quando são persistentes. Os designs de Encriptação em Repouso em Azure usam encriptação simétrica para encriptar e desencriptar grandes quantidades de dados rapidamente de acordo com um modelo conceptual simples:
+A encriptação é a codificação segura dos dados utilizados para proteger a confidencialidade dos dados. Os designs de Encriptação em Repouso em Azure usam encriptação simétrica para encriptar e desencriptar grandes quantidades de dados rapidamente de acordo com um modelo conceptual simples:
 
 - Uma chave de encriptação simétrica é usada para encriptar dados à medida que são escritos para armazenamento.
 - A mesma chave de encriptação é usada para desencriptar esses dados à medida que são reutilizados para serem utilizados na memória.

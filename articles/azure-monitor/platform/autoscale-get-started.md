@@ -4,12 +4,12 @@ description: Saiba como escalar o seu recurso Web App, Cloud Service, Virtual Ma
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 364309301b403234936da1bac6e1b74af24c2fdb
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 95f94bd1e80c05658d9033047950d4b49fca4643
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573311"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920659"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Começa com a Autoscale em Azure
 Este artigo descreve como configurar as suas definições de Autoscale para o seu recurso no portal Microsoft Azure.
@@ -121,7 +121,7 @@ Para ativar a funcionalidade com os modelos ARM, desacorda a `healthcheckpath` p
 
 ### <a name="health-check-path"></a>Caminho de verificação de saúde
 
-O caminho deve responder dentro de um minuto com um código de estado entre 200 e 299 (inclusive). Se o caminho não responder dentro de um minuto, ou devolver um código de estado fora do alcance, então a instância é considerada "insalubre". O Serviço de Aplicações não segue 302 redirecionamentos na via de verificação de saúde. O Health Check integra-se com as funcionalidades de autenticação e autorização do Serviço de Aplicações, o sistema chegará ao ponto final mesmo que estas funcionalidades de secuidade estejam ativadas. Se estiver a utilizar o seu próprio sistema de autenticação, o caminho de verificação de saúde deve permitir o acesso anónimo. Se o site tiver HTTP **S**-Apenas ativado, o pedido de verificação de saúde será enviado através de HTTP **S**.
+O caminho deve responder dentro de um minuto com um código de estado entre 200 e 299 (inclusive). Se o caminho não responder dentro de um minuto, ou devolver um código de estado fora do alcance, então a instância é considerada "insalubre". O Serviço de Aplicações não segue 302 redirecionamentos na via de verificação de saúde. O Health Check integra-se com as funcionalidades de autenticação e autorização do Serviço de Aplicações, o sistema chegará ao ponto final mesmo que estas funcionalidades de segurança estejam ativadas. Se estiver a utilizar o seu próprio sistema de autenticação, o caminho de verificação de saúde deve permitir o acesso anónimo. Se o site tiver HTTP **S**-Apenas ativado, o pedido de verificação de saúde será enviado através de HTTP **S**.
 
 A via de verificação de saúde deve verificar os componentes críticos da sua aplicação. Por exemplo, se a sua aplicação depender de uma base de dados e de um sistema de mensagens, o ponto final do controlo de saúde deve ligar-se a esses componentes. Se a aplicação não conseguir ligar-se a um componente crítico, então o caminho deve devolver um código de resposta de 500 níveis para indicar que a aplicação não é saudável.
 
