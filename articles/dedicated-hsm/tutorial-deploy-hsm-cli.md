@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d175ac75ce76836d012cdd04d4dbd7d81ffda584
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b6f4610887092b1dac5cdc85622739318d5921d7
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460704"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852239"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>Tutorial: Implantação de HSMs numa rede virtual existente utilizando o Azure CLI
 
@@ -233,14 +233,14 @@ A saída deve ser vista como mostrado na imagem abaixo:
 
 ![A screenshot mostra a saída na janela PowerShell.](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
 
-Neste momento, alocou todos os recursos para uma implantação altamente disponível, duas implantações de HSM e acesso validado e estado operacional. Qualquer outra configuração ou teste envolve mais trabalho com o próprio dispositivo HSM. Para isso, deve seguir as instruções no Guia de Administração da Rede Gemalto Luna HSM 7 capítulo 7 para rubricar o HSM e criar divisórias. Toda a documentação e software estão disponíveis diretamente de Gemalto para download uma vez registado no Portal de Apoio ao Cliente gemalto e tem um ID do Cliente. Baixe a versão 7.2 do Software cliente para obter todos os componentes necessários.
+Neste momento, alocou todos os recursos para uma implantação altamente disponível, duas implantações de HSM e acesso validado e estado operacional. Qualquer outra configuração ou teste envolve mais trabalho com o próprio dispositivo HSM. Para isso, deve seguir as instruções no Guia de Administração da Rede Thales Luna HSM 7 capítulo 7 para rubricar o HSM e criar divisórias. Toda a documentação e software estão disponíveis diretamente do Thales para download uma vez registado no Portal de Apoio ao Cliente do Thales e tem um ID do Cliente. Baixe a versão 7.2 do Software cliente para obter todos os componentes necessários.
 
 ## <a name="delete-or-clean-up-resources"></a>Eliminar ou limpar recursos
 
 Se terminou apenas com o dispositivo HSM, então pode ser eliminado como recurso e devolvido à piscina gratuita. A preocupação óbvia ao fazê-lo são quaisquer dados sensíveis do cliente que estão no dispositivo. A melhor maneira de "zeroizar" um dispositivo é obter a palavra-passe de administração HSM errada 3 vezes (nota: isto não é administração de aparelho, é o administrador HSM real). Como medida de segurança para proteger o material chave, o dispositivo não pode ser eliminado como recurso Azure até estar no estado zeroizado.
 
 > [!NOTE]
-> se tiver problemas com qualquer configuração do dispositivo Gemalto, deve contactar [o suporte ao cliente da Gemalto](https://safenet.gemalto.com/technical-support/).
+> se tiver problemas com qualquer configuração do dispositivo Thales, deve contactar o [suporte ao cliente thales](https://safenet.gemalto.com/technical-support/).
 
 Se terminou com todos os recursos deste grupo de recursos, então pode removê-los todos com o seguinte comando:
 
@@ -256,8 +256,8 @@ az group delete \
 Após completar os passos no tutorial, são fornecidos recursos dedicados ao HSM e tem uma rede virtual com HSMs necessários e componentes de rede adicionais para permitir a comunicação com o HSM.  Está agora em posição de felicitar esta implantação com mais recursos, conforme exigido pela sua arquitetura de implantação preferida. Para obter mais informações sobre como ajudar a planear a sua implantação, consulte os documentos do Concepts.
 Recomenda-se um desenho com dois HSMs numa região primária que aborde a disponibilidade ao nível da cremalheira, e dois HSMs numa região secundária que aborde a disponibilidade regional. 
 
-* [Alta Disponibilidade](high-availability.md)
+* [Elevada Disponibilidade](high-availability.md)
 * [Segurança Física](physical-security.md)
-* [Redes](networking.md)
+* [Rede](networking.md)
 * [Suportabilidade](supportability.md)
 * [Monitorização](monitoring.md)

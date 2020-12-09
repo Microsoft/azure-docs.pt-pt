@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 929aed28df2725ccde62c348a18ef7b41334e233
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 03f2109a32cd8a8c2643f3c2aa74900f4edd1cee
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96172134"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852851"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novidades no Reconhecedor de Formato?
 
@@ -37,7 +37,7 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
  
   > [Saiba mais sobre a extração de Layout](concept-layout.md)
 
-- **Atualização da biblioteca de** clientes - As [bibliotecas de clientes](quickstarts/client-library.md) para .NET, Python, Java e JavaScript entraram na Disponibilidade Geral.
+- **Atualização da biblioteca** do cliente - A versão mais recente das [bibliotecas clientes](quickstarts/client-library.md) para .NET, Python, Java e JavaScript suportam o Formulário Reconhecedor 2.1 API.
 - **Nova linguagem suportada: Japonês** - As seguintes novas línguas são agora apoiadas: para `AnalyzeLayout` e : `AnalyzeCustomForm` japonês ( `ja` ). [Suporte de idiomas](language-support.md)
 - **Indicação de estilo de linha de texto (manuscrito/outro) (apenas línguas latinas)** - O Reconhecedor de Formulários agora produz um `appearance` objeto classificando se cada linha de texto é ou não estilo manuscrito, juntamente com uma pontuação de confiança. Esta funcionalidade é suportada apenas para línguas latinas.
 - **Melhorias de qualidade** - Melhorias de extração, incluindo melhorias na extração de um dígito.

@@ -125,10 +125,12 @@
       items:
         - name: Criar um fluxo
           items:
-            - name: Inscrever-se ou iniciar sessão
-              href: tutorial-create-user-flows.md
+            - name: Criar os fluxos de utilizador
+              href: create-user-flow.md
             - name: Credenciais de palavra-passe do proprietário do recurso
               href: configure-ropc.md
+            - name: Configurar a autenticação por telefone
+              href: phone-authentication-user-flows.md
             - name: Configurar a reposição personalizada de palavra-passe
               href: user-flow-self-service-password-reset.md
         - name: Adicionar Acesso Condicional

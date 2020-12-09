@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
-ms.openlocfilehash: 7ddd1aa9865cb4061212ce77b31efc82ad339283
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 1fe86aef832223a7485036343b4b12d8bb526e06
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165575"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852392"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>Tutorial: Criar um dispositivo simulado personalizado
 
@@ -34,15 +34,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para seguir este tutorial, precisa de uma instância implementada da Simulação de Dispositivos na sua subscrição do Azure.
 
-Se ainda não tiver implementado a Simulação de Dispositivos, deve concluir o início rápido [Implementar e executar uma simulação de dispositivo no Azure](quickstart-device-simulation-deploy.md).
-
-## <a name="open-device-simulation"></a>Abrir a Simulação de Dispositivo
-
-Para executar a Simulação de Dispositivos no browser, comece por navegar para [Microsoft Azure IoT Solution Accelerators](https://www.azureiotsolutions.com) (Aceleradores de Soluções do Microsoft Azure IoT).
-
-Poderá ser-lhe pedido para iniciar sessão com as credenciais da subscrição do Azure.
-
-Em seguida, clique em **Launch** (Iniciar), no mosaico relativo à Simulação de Dispositivos que implementou no início rápido [Implementar e executar uma simulação de dispositivos IoT no Azure](quickstart-device-simulation-deploy.md).
+Se ainda não implementou a Simulação do Dispositivo, consulte a [implementação da simulação do dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) no GitHub.
 
 ## <a name="view-your-device-models"></a>Ver os modelos de dispositivos
 
@@ -64,7 +56,7 @@ Preencha o formulário com as informações seguintes:
 | ------------------- | ---------------------------------------------------- |
 | Nome do modelo de dispositivo   | Frigorífico                                         |
 | Descrição do modelo   | Frigorífico com sensores de temperatura e humidade |
-| Versão             | 1.0                                                  |
+| Versão             | 1,0                                                  |
 
 > [!NOTE]
 > O nome do modelo de dispositivo tem de ser exclusivo.

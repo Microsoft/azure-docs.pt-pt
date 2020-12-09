@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 543e6115be30963600d867bb9c2a03dfbb54e9f1
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: abc8cffa3d5b9dffb55beabc90cdaecb3adc647f
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576558"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852528"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implementar a ferramenta de etiquetagem de exemplo
 
@@ -35,7 +35,7 @@ A forma mais rápida de começar a rotular dados é executar a ferramenta de rot
 Antes de começarmos, é importante notar que há duas maneiras de implantar a ferramenta de rotulagem da amostra para uma Instância de Contentores Azure (ACI). Ambas as opções são utilizadas para executar a ferramenta de rotulagem da amostra com ACI: 
 
 * [Usando o portal Azure](#azure-portal)
-* [Utilização do CLI Azure](#azure-cli)
+* [Com a CLI do Azure](#azure-cli)
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -99,6 +99,9 @@ Siga estes passos para criar um novo recurso utilizando o portal Azure:
 
 > [!NOTE]
 > Ao criar a sua aplicação web, também pode configurar a autorização/autenticação. Isto não é necessário para começar. 
+
+> [!IMPORTANT]
+> Poderá ser necessário ativar o TLS para a sua aplicação web para a visualizar no seu `https` endereço. Siga as instruções em [Ativar um ponto final TLS](https://docs.microsoft.com/azure/container-instances/container-instances-container-group-ssl) para configurar um recipiente de sidecar do que ativar o TLS/SSL para a sua aplicação web.
 
 ### <a name="azure-cli"></a>CLI do Azure
 

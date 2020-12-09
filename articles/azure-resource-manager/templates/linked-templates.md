@@ -2,19 +2,19 @@
 title: Modelos de ligação para implantação
 description: Descreve como usar modelos ligados num modelo de Gestor de Recursos Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um ficheiro de parâmetros e URLs criados dinamicamente.
 ms.topic: conceptual
-ms.date: 11/06/2020
-ms.openlocfilehash: 603445fdd96cc72a2d64bae21a47cfeabd6dd167
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.date: 12/07/2020
+ms.openlocfilehash: 1e2ccc57b42f8072c9aa28612d534507b9a674ed
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366342"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852103"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar modelos ligados e aninhados ao implementar recursos do Azure
 
 Para implementar soluções complexas, pode quebrar o seu modelo em muitos modelos relacionados e, em seguida, implantá-los juntos através de um modelo principal. Os modelos relacionados podem ser ficheiros separados ou sintaxe de modelo que está incorporado no modelo principal. Este artigo usa o **modelo de ligação** do termo para se referir a um ficheiro de modelo separado que é referenciado através de um link do modelo principal. Ele usa o modelo **aninhado** para se referir à sintaxe do modelo incorporado dentro do modelo principal.
 
-Para obter soluções pequenas a médias, um único modelo é mais fácil de compreender e manter. Pode ver todos os recursos e valores num único ficheiro. Para cenários avançados, os modelos associados permitem-lhe dividir a solução em componentes direcionados. Pode reutilizar facilmente estes modelos para outros cenários.
+Para obter soluções pequenas a médias, um único modelo é mais fácil de compreender e manter. Pode ver todos os recursos e valores num único ficheiro. Para cenários avançados, os modelos associados permitem-lhe dividir a solução em componentes direcionados. Pode facilmente utilizar estes modelos para outros cenários.
 
 Para um tutorial, consulte [Tutorial: crie modelos ligados do Gestor de Recursos Azure](./deployment-tutorial-linked-template.md).
 
@@ -375,10 +375,16 @@ Não é possível utilizar os parâmetros inline e um link para um ficheiro de p
 
 Em vez de manter os seus modelos ligados num ponto final acessível, pode criar uma [especificação de modelo](template-specs.md) que embala o modelo principal e os seus modelos ligados numa única entidade que pode implementar. A especificação do modelo é um recurso na sua subscrição Azure. Torna-se fácil partilhar o modelo de forma segura com os utilizadores da sua organização. Você usa o controlo de acesso baseado em funções Azure (Azure RBAC) para conceder acesso à especificação do modelo. Esta funcionalidade encontra-se atualmente em pré-visualização.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Tutorial: Criar uma especificação de modelo com modelos ligados.](./template-specs-create-linked.md)
 - [Tutorial: Implementar uma especificação de modelo como um modelo ligado](./template-specs-deploy-linked-template.md).
+
+## <a name="dependencies"></a>Dependências
+
+Tal como acontece com outros tipos de recursos, pode definir dependências entre os modelos ligados. Se os recursos de um modelo ligado tão devem ser implementados antes dos recursos num segundo modelo ligado, decida o segundo modelo dependente do primeiro.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/linked-dependency.json" highlight="10,22,24":::
 
 ## <a name="contentversion"></a>parte de conteúdoVersão
 
@@ -472,156 +478,19 @@ Ao obter uma propriedade de saída a partir de um modelo ligado, o nome da propr
 
 Os exemplos a seguir demonstram como fazer referência a um modelo ligado e recuperar um valor de saída. O modelo ligado devolve uma mensagem simples.  Primeiro, o modelo ligado:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "greetingMessage": {
-      "value": "Hello World",
-      "type" : "string"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/helloworld.json":::
 
 O modelo principal implementa o modelo ligado e obtém o valor devolvido. Note que faz referência ao recurso de implantação pelo nome, e utiliza o nome da propriedade devolvida pelo modelo ligado.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
-      "name": "linkedTemplate",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[uri(deployment().properties.templateLink.uri, 'helloworld.json')]",
-          "contentVersion": "1.0.0.0"
-        }
-      }
-    }
-  ],
-  "outputs": {
-    "messageFromLinkedTemplate": {
-      "type": "string",
-      "value": "[reference('linkedTemplate').outputs.greetingMessage.value]"
-    }
-  }
-}
-```
-
-Tal como acontece com outros tipos de recursos, pode definir dependências entre o modelo ligado e outros recursos. Quando outros recursos requerem um valor de saída do modelo ligado, certifique-se de que o modelo ligado é implantado antes deles. Ou, quando o modelo ligado depender de outros recursos, certifique-se de que outros recursos são implantados antes do modelo ligado.
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/helloworldparent.json" highlight="10,23":::
 
 O exemplo a seguir mostra um modelo que implanta um endereço IP público e devolve o ID de recurso do recurso Azure para esse IP público:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "publicIPAddresses_name": {
-      "type": "string"
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Network/publicIPAddresses",
-      "apiVersion": "2018-11-01",
-      "name": "[parameters('publicIPAddresses_name')]",
-      "location": "eastus",
-      "properties": {
-        "publicIPAddressVersion": "IPv4",
-        "publicIPAllocationMethod": "Dynamic",
-        "idleTimeoutInMinutes": 4
-      },
-      "dependsOn": []
-    }
-  ],
-  "outputs": {
-    "resourceID": {
-      "type": "string",
-      "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/public-ip.json" highlight="27":::
 
 Para utilizar o endereço IP público a partir do modelo anterior ao implementar um equilibrador de carga, ligue-o ao modelo e declare uma dependência do `Microsoft.Resources/deployments` recurso. O endereço IP público no balançador de carga é definido para o valor de saída a partir do modelo ligado.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "loadBalancers_name": {
-      "defaultValue": "mylb",
-      "type": "string"
-    },
-    "publicIPAddresses_name": {
-      "defaultValue": "myip",
-      "type": "string"
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Network/loadBalancers",
-      "apiVersion": "2018-11-01",
-      "name": "[parameters('loadBalancers_name')]",
-      "location": "eastus",
-      "properties": {
-        "frontendIPConfigurations": [
-          {
-            "name": "LoadBalancerFrontEnd",
-            "properties": {
-              "privateIPAllocationMethod": "Dynamic",
-              "publicIPAddress": {
-                // this is where the output value from linkedTemplate is used
-                "id": "[reference('linkedTemplate').outputs.resourceID.value]"
-              }
-            }
-          }
-        ],
-        "backendAddressPools": [],
-        "loadBalancingRules": [],
-        "probes": [],
-        "inboundNatRules": [],
-        "outboundNatRules": [],
-        "inboundNatPools": []
-      },
-      // This is where the dependency is declared
-      "dependsOn": [
-        "linkedTemplate"
-      ]
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
-      "name": "linkedTemplate",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[uri(deployment().properties.templateLink.uri, 'publicip.json')]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters":{
-          "publicIPAddresses_name":{"value": "[parameters('publicIPAddresses_name')]"}
-        }
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json" highlight="28,41":::
 
 ## <a name="deployment-history"></a>Histórico de implantação
 
@@ -803,7 +672,7 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 Os exemplos a seguir mostram utilizações comuns de modelos ligados.
 
-|Modelo principal  |Modelo associado |Description  |
+|Modelo principal  |Modelo associado |Descrição  |
 |---------|---------| ---------|
 |[Olá, mundo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Retorna a corda do modelo ligado. |
 |[Balanceador de carga com endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Devolve o endereço IP público do modelo ligado e define esse valor no equilibrador de carga. |

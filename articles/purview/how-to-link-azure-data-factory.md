@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: cb74a799efb6099b55c9da9650d9cca7358ecbed
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 55651b3201676ee5cddb5412e950791afaa4e87a
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554330"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852137"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Como ligar a Azure Data Factory e a Azure Purview
 
@@ -34,8 +34,8 @@ Várias fábricas de dados Azure podem ligar-se a um único Catálogo de Dados A
     - **Desligado**: A fábrica de dados tem acesso ao catálogo, mas está ligada a outro catálogo. Como resultado, a linhagem de dados não será reportada automaticamente ao catálogo.
     - **Não-Adcêncio**: O utilizador atual não tem acesso à fábrica de dados, pelo que o estado de ligação é desconhecido.
  >[!Note]
- >Para visualizar as ligações da Data Factory, é necessário atribuir-lhe qualquer uma das funções de build-in Azure:
- >- Contribuinte
+ >Para visualizar as ligações da Data Factory, é necessário atribuir-lhe qualquer uma das funções de Purview:
+ >- Contribuidor
  >- Proprietário
  >- Leitor
  >- Administrador de Acesso dos Utilizadores
@@ -72,9 +72,9 @@ Para remover uma ligação à fábrica de dados, faça o seguinte:
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot mostrando como selecionar fábricas de dados para remover a ligação." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
 >[!Note]
->Para adicionar ou remover as ligações data factory, você precisa ser atribuído qualquer uma das funções de build-in Azure:
+>Para adicionar ou remover as ligações data factory, você precisa ser atribuído qualquer uma das funções de Purview:
 >- Proprietário
->- Administrador de Acesso dos Utilizadores
+>- Administrador de Acesso ao Utilizador Além disso, exige que os utilizadores sejam "Proprietário" ou "Contribuinte" da fábrica de dados. 
 
 ## <a name="configure-a-self-hosted-ir-to-collect-lineage-from-on-prem-sql"></a>Configure um IR auto-hospedado para recolher a linhagem a partir de SQL on-prem
 

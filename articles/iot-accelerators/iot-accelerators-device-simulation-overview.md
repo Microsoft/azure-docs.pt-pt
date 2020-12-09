@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
-ms.openlocfilehash: f58eb05ed582cf18157a76f4d637d72a228f4e96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7be0278fd8870395b8495168eb9723780eba4b26
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "65464879"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852375"
 ---
 # <a name="device-simulation-solution-accelerator-overview"></a>Descrição geral do acelerador de soluções da Simulação de Dispositivos
 
@@ -36,7 +36,7 @@ A simulação do dispositivo é gratuita. No entanto, a Simulação de Dispositi
 
 ## <a name="sample-simulations"></a>Simulações de amostras
 
-Quando implementa a Simulação do Dispositivo, obtém-se algumas simulações de amostra e dispositivos de amostra. Pode utilizar estas amostras para aprender a utilizar a Simulação do Dispositivo. Para começar, faça uma [simulação de amostra que simula 10 camiões.](quickstart-device-simulation-deploy.md) Também pode [criar a sua própria simulação utilizando um dos muitos dispositivos de amostra fornecidos.](iot-accelerators-device-simulation-create-simulation.md)
+Quando implementa a Simulação do Dispositivo, obtém-se algumas simulações de amostra e dispositivos de amostra. Pode utilizar estas amostras para aprender a utilizar a Simulação do Dispositivo. Para começar, faça uma [simulação de amostra.](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) Também pode [criar a sua própria simulação utilizando um dos muitos dispositivos de amostra fornecidos.](iot-accelerators-device-simulation-create-simulation.md)
 
 ![Configuração de simulação](media/iot-accelerators-device-simulation-overview/samplesimulation1.png)
 
@@ -60,7 +60,7 @@ Modelos avançados de dispositivos permitem:00
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu sobre o acelerador de solução de Simulação de Dispositivos e as suas capacidades. Para começar a utilizar o acelerador de solução, continue até ao arranque rápido:
+Neste artigo, aprendeu sobre o acelerador de solução de Simulação de Dispositivos e as suas capacidades. Para implementar o acelerador de solução, visite o repositório GitHub:
 
 > [!div class="nextstepaction"]
-> [Implementar e executar uma simulação de dispositivo IoT em Azure](quickstart-device-simulation-deploy.md)
+> [Implementar e executar uma simulação de dispositivo IoT em Azure](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)

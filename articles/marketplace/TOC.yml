@@ -51,6 +51,8 @@
           href: marketplace-co-sell.md
         - name: Opção de venda conjunta no Centro de Parceiros
           href: commercial-marketplace-co-sell.md
+        - name: Migrar soluções de venda conjunta a partir do OCP GTM
+          href: co-sell-solution-migration.md
         - name: Revenda através de Parceiros CSP
           href: cloud-solution-providers.md
         - name: Ligar guia de inclusão do Programa

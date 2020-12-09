@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 3295815be035544d27da52926e5271c2c5551f28
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 58891bdb4601744129c97454f43202d3ba07b709
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076050"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852562"
 ---
 # <a name="create-an-advanced-device-model"></a>Create an advanced device model (Criar um modelo de dispositivo avançado)
 
@@ -30,15 +30,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para seguir os passos neste guia de como fazer, precisa de uma instância implementada de Simulação de Dispositivo na sua subscrição Azure.
 
-Se ainda não tiver implementado a Simulação de Dispositivos, deve concluir o início rápido [Implementar e executar uma simulação de dispositivo no Azure](quickstart-device-simulation-deploy.md).
+Se ainda não implementou a Simulação do Dispositivo, consulte a [implementação da simulação do dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) no GitHub.
 
 ### <a name="open-device-simulation"></a>Abrir a Simulação de Dispositivo
 
-Para executar a Simulação de Dispositivos no browser, comece por navegar para [Microsoft Azure IoT Solution Accelerators](https://www.azureiotsolutions.com) (Aceleradores de Soluções do Microsoft Azure IoT).
-
-Poderá ser-lhe pedido para iniciar sessão com as credenciais da subscrição do Azure.
-
-Em seguida, clique em **Lançar** no azulejo para simulação de dispositivo que implementou na [Implementação e executar uma simulação de dispositivo IoT no](quickstart-device-simulation-deploy.md) arranque rápido do Azure.
+Se ainda não implementou a Simulação do Dispositivo, consulte a [implementação da simulação do dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) no GitHub.
 
 ## <a name="device-models"></a>Modelos de dispositivos
 

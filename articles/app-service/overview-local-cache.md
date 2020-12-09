@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: b9e43cb9188df8274d5bafa7fd9bc90c24339237
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 81782f63199a9fe8f43f56aeefcd1c68951d57a4
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286840"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852257"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Visão geral da Cache local do Serviço de Aplicações Azure
 
@@ -98,7 +98,7 @@ Recomendamos que utilize cache local em conjunto com a [função Ambientes de Pr
 * Quando estiver pronto, emita uma [operação de troca](../app-service/deploy-staging-slots.md#Swap) entre as ranhuras de Encenação e Produção.  
 * As configurações pegajosas incluem nome e adesivo a uma ranhura. Assim, quando a ranhura de encenação é trocada em Produção, herda as definições da aplicação Cache Local. A slot de produção recentemente trocada irá funcionar contra a cache local após alguns minutos e será aquecida como parte do aquecimento da ranhura após a troca. Assim, quando a troca de slots estiver completa, a sua ranhura de produção está a correr contra a cache local.
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas Frequentes (FAQ)
 
 ### <a name="how-can-i-tell-if-local-cache-applies-to-my-app"></a>Como posso saber se a Cache Local se aplica à minha aplicação?
 Se a sua aplicação precisa de uma loja de conteúdo de alto desempenho e fiável, não utiliza a loja de conteúdos para escrever dados críticos em tempo de execução, e tem menos de 2 GB de tamanho total, então a resposta é "sim"! Para obter o tamanho total das pastas de extensões de sites e /site, pode utilizar a extensão do site "Azure Web Apps Disk Usage".
@@ -120,3 +120,6 @@ A Cache local ajuda a evitar o reinício da aplicação relacionada com o armaze
 
 ### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>A Cache Local exclui que os diretórios sejam copiados para a unidade local mais rápida?
 Como parte do passo que copia o conteúdo de armazenamento, qualquer pasta que seja nomeada repositório é excluída. Isto ajuda em cenários em que o conteúdo do seu site pode conter um repositório de controlo de origem que pode não ser necessário no funcionamento diário da app. 
+
+### <a name="how-to-flush-the-local-cache-logs-after-a-site-management-operation"></a>Como lavar os registos de cache locais após uma operação de gestão do local?
+Para lavar os registos de cache locais, pare e reinicie a aplicação. Esta ação limpa a velha cache. 

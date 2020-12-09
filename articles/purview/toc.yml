@@ -1,7 +1,7 @@
 items:
   - name: Documentação do Azure Purview
     href: index.yml
-  - name: Descrição Geral
+  - name: Descrição geral
     items:
       - name: O que é o Azure Purview?
         href: overview.md
@@ -101,12 +101,14 @@ items:
                 displayName: Register and scan Azure SQL DB Managed Instance
               - name: Azure Synapse Analytics
                 href: register-scan-azure-synapse-analytics.md
+              - name: SQL Server no local
+                href: register-scan-on-premises-sql-server.md
               - name: Inquilino do Power BI - Portal
                 href: register-scan-power-bi-tenant.md
               - name: Inquilino do Power BI - PowerShell
                 href: powershell-register-scan-power-bi.md
-              - name: SQL Server no local
-                href: register-scan-on-premises-sql-server.md
+              - name: Teradata
+                href: register-scan-teradata-source.md
       - name: Glossário comercial
         items:
           - name: 'Criar, importar e exportar termos do glossário'
@@ -135,7 +137,7 @@ items:
             href: how-to-link-azure-data-factory.md
           - name: Linhagem do Azure Data Share
             href: how-to-link-azure-data-share.md
-      - name: Monitor
+      - name: Monitorizar
         items:
           - name: Monitorizar com o Azure Monitor
             href: how-to-monitor-with-azure-monitor.md

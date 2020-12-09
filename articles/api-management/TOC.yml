@@ -58,6 +58,8 @@
           href: api-management-howto-policies.md
         - name: Índice de referência de política
           href: api-management-policies.md
+        - name: Processamento de erros
+          href: api-management-error-handling-policies.md
     - name: Segurança
       items:
         - name: Linha de base de segurança
@@ -70,8 +72,6 @@
       href: api-management-revisions.md
     - name: Gerir a utilização da automatização
       href: automation-manage-api-management.md
-    - name: Processamento de erros
-      href: api-management-error-handling-policies.md
     - name: Restrições de importação de API
       href: api-management-api-import-restrictions.md
     - name: Descrição geral do gateway autoalojado
@@ -240,6 +240,8 @@
           href: api-management-howto-create-groups.md
         - name: Obter endereços IP
           href: api-management-howto-ip-addresses.md
+        - name: Obter análises de API
+          href: howto-use-analytics.md
         - name: Registar eventos nos Hubs de Eventos do Azure
           href: api-management-howto-log-event-hubs.md
         - name: Registar pedidos com o Azure Application Insights
@@ -305,5 +307,9 @@
       href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
     - name: Documentação de orientação de implementação da API
       href: /azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
-    - name: A resolução de problemas falhou ao atualizar o erro nos nomes dos anfitriões
-      href: api-management-troubleshoot-cannot-add-custom-domain.md
+    - name: Resolução de problemas
+      items:
+        - name: A resolução de problemas falhou ao atualizar o erro nos nomes dos anfitriões
+          href: api-management-troubleshoot-cannot-add-custom-domain.md
+        - name: Resolver problemas de tempos limite e erros de resposta
+          href: troubleshoot-response-timeout-and-errors.md

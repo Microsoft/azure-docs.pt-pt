@@ -426,7 +426,7 @@
   items:
     - name: Documentação sobre o Servidor Flexível
       href: flexible-server/index.yml
-    - name: Descrição geral
+    - name: Descrição Geral
       items:
         - name: O que é o Servidor Flexível?
           href: flexible-server/overview.md
@@ -453,6 +453,8 @@
               href: flexible-server/connect-python.md
     - name: Tutoriais
       items:
+        - name: WordPress no Azure Kubernetes
+          href: flexible-server/tutorial-deploy-wordpress-on-aks.md
         - name: Criar aplicação PHP (Laravel) com base de dados
           href: flexible-server/tutorial-php-database-app.md
         - name: Ligar a aplicação Web privada
