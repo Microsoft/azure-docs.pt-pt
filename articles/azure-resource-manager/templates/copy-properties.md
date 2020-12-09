@@ -1,20 +1,20 @@
 ---
 title: Definir vários casos de uma propriedade
-description: Utilize a operação de cópia num modelo do Gestor de Recursos Azure para iterar várias vezes ao criar uma propriedade num recurso.
+description: Utilize a operação de cópia num modelo de Gestor de Recursos Azure (modelo ARM) para iterar várias vezes ao criar uma propriedade num recurso.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: f199872d5bb8a0333bf7bedb9501a6ca1b884691
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 446a303104e6b538129cd22d1f1fbbba6282b2ee
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605248"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905932"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteração de propriedade em modelos ARM
 
-Este artigo mostra-lhe como criar mais de um exemplo de uma propriedade no seu modelo de Gestor de Recursos Azure (modelo ARM). Ao adicionar o elemento **de cópia** à secção de propriedades de um recurso no seu modelo, pode definir dinamicamente o número de itens para uma propriedade durante a implantação. Evite também ter de repetir a sintaxe do modelo.
+Este artigo mostra-lhe como criar mais de um exemplo de uma propriedade no seu modelo de Gestor de Recursos Azure (modelo ARM). Ao adicionar o `copy` elemento à secção de propriedades de um recurso no seu modelo, pode definir dinamicamente o número de itens para uma propriedade durante a implantação. Evite também ter de repetir a sintaxe do modelo.
 
-Só pode utilizar cópia com recursos de alto nível, mesmo quando se aplica uma cópia a uma propriedade. Para aprender a mudar um recurso para uma criança para um recurso de alto nível, consulte [a Iteração para um recurso infantil](copy-resources.md#iteration-for-a-child-resource).
+Você só pode usar `copy` com recursos de alto nível, mesmo quando se aplica a uma `copy` propriedade. Para aprender a mudar um recurso para uma criança para um recurso de alto nível, consulte [a Iteração para um recurso infantil](copy-resources.md#iteration-for-a-child-resource).
 
 Também pode utilizar cópia com [recursos,](copy-resources.md) [variáveis](copy-variables.md)e [saídas.](copy-outputs.md)
 
@@ -32,11 +32,11 @@ O elemento de cópia tem o seguinte formato geral:
 ]
 ```
 
-Para **citar,** forneça o nome da propriedade de recursos que pretende criar.
+Para `name` , fornecer o nome da propriedade de recursos que pretende criar.
 
-A **propriedade conta** especifique o número de iterações que deseja para a propriedade.
+A `count` propriedade especifica o número de iterações que deseja para a propriedade.
 
-A **propriedade de entrada** especifica as propriedades que pretende repetir. Cria-se uma série de elementos construídos a partir do valor na propriedade **de entrada.**
+A `input` propriedade especifica as propriedades que pretende repetir. Cria-se uma série de elementos construídos a partir do valor da `input` propriedade.
 
 ## <a name="copy-limits"></a>Limites de cópia
 
@@ -53,7 +53,7 @@ Versões anteriores de PowerShell, CLI e REST API não suportam zero para contar
 
 ## <a name="property-iteration"></a>Iteração imobiliária
 
-O exemplo a seguir mostra como aplicar-se `copy` à propriedade dataDisks numa máquina virtual:
+O exemplo a seguir mostra como `copy` aplicar-se à `dataDisks` propriedade numa máquina virtual:
 
 ```json
 {
@@ -97,7 +97,7 @@ O exemplo a seguir mostra como aplicar-se `copy` à propriedade dataDisks numa m
 }
 ```
 
-Note que ao utilizar `copyIndex` dentro de uma iteração de propriedade, deve fornecer o nome da iteração. A iteração imobiliária também suporta um argumento de compensação. A compensação deve vir atrás do nome da iteração, tal como copyIndex ('dataDisks', 1).
+Note que ao utilizar `copyIndex` dentro de uma iteração de propriedade, deve fornecer o nome da iteração. A iteração imobiliária também suporta um argumento de compensação. A compensação deve vir atrás do nome da iteração, tais como `copyIndex('dataDisks', 1)` .
 
 O Gestor de Recursos expande a matriz durante a `copy` implantação. O nome da matriz torna-se o nome da propriedade. Os valores de entrada tornam-se propriedades do objeto. O modelo implantado torna-se:
 
@@ -188,7 +188,7 @@ O modelo de exemplo a seguir cria um grupo de failover para bases de dados que s
 }
 ```
 
-O elemento de cópia é um conjunto para que possa especificar mais do que uma propriedade para o recurso.
+O `copy` elemento é uma matriz para que possa especificar mais do que uma propriedade para o recurso.
 
 ```json
 {
@@ -260,11 +260,10 @@ O exemplo a seguir mostra um cenário comum para criar mais do que um valor para
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para passar por um tutorial, consulte [Tutorial: crie múltiplas instâncias de recursos utilizando modelos ARM](template-tutorial-create-multiple-instances.md).
+* Para passar por um tutorial, consulte [Tutorial: Crie múltiplas instâncias de recursos com modelos ARM](template-tutorial-create-multiple-instances.md).
 * Para outras utilizações do elemento de cópia, consulte:
   * [Iteração de recursos em modelos ARM](copy-resources.md)
   * [Iteração variável em modelos ARM](copy-variables.md)
   * [Iteração de saída em modelos ARM](copy-outputs.md)
-* Se quiser aprender sobre as secções de um modelo, consulte os [modelos de autoria DO ARM](template-syntax.md).
-* Para aprender a implementar o seu modelo, consulte [implementar uma aplicação com o modelo ARM](deploy-powershell.md).
-
+* Se quiser aprender sobre as secções de um modelo, consulte [compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
+* Para aprender a implementar o seu modelo, consulte [implementar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).

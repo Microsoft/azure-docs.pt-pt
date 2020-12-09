@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/21/2020
-ms.openlocfilehash: 949992418cb19c5c69ed8da92e9c2f0fc5f2f791
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c9b7d796612981f0e8194be84b0ed141721f644d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445428"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862382"
 ---
 # <a name="creating-a-synapse-workspace"></a>Criação de um espaço de trabalho sinapse
 
@@ -45,7 +45,7 @@ Para completar os passos deste tutorial, precisa de ter acesso a um grupo de rec
 
 Depois de criar o seu espaço de trabalho Azure Synapse, tem duas formas de abrir o Synapse Studio:
 
-* Abra o seu espaço de trabalho sinapse no [portal Azure](https://portal.azure.com). No topo da secção **Overview,** selecione **Launch Synapse Studio**.
+* Abra o seu espaço de trabalho sinapse no [portal Azure](https://portal.azure.com). No topo da secção **Overview,** selecione **Open Synapse Studio**.
 * Vá ao `https://web.azuresynapse.net` e inscreva-se no seu espaço de trabalho.
 
 ## <a name="create-a-dedicated-sql-pool"></a>Crie uma piscina SQL dedicada
