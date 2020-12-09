@@ -1,7 +1,7 @@
 items:
   - name: Documentação do Azure Purview
     href: index.yml
-  - name: Descrição geral
+  - name: Descrição Geral
     items:
       - name: O que é o Azure Purview?
         href: overview.md
@@ -28,6 +28,8 @@ items:
             href: tutorial-import-create-glossary-terms.md
       - name: Registar e analisar um SQL Server no local
         href: register-scan-on-premises-sql-server.md
+      - name: Chamar as API REST para o catálogo
+        href: tutorial-using-rest-apis.md
   - name: Conceitos
     items:
       - name: Utilizar o Purview Studio
@@ -133,6 +135,10 @@ items:
             href: how-to-link-azure-data-factory.md
           - name: Linhagem do Azure Data Share
             href: how-to-link-azure-data-share.md
+      - name: Monitor
+        items:
+          - name: Monitorizar com o Azure Monitor
+            href: how-to-monitor-with-azure-monitor.md
       - name: Informações
         items:
           - name: Ver informações dos ativos
