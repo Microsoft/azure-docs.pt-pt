@@ -3,21 +3,25 @@ title: StylesObject Schema guia de referência para Mapas Dinâmicos de Azure
 description: Guia de referência para o dinâmico Azure Maps StylesObject schema e sintaxe.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2020
+ms.date: 12/07/2020
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f6bc4c62febf24dee790ac6136b1661426d4d619
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 08379e66c97d34eea53410190475e90e156a58e2
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536953"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903348"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>StylesObject Schema guia de referência para mapas dinâmicos
 
- É `StylesObject` uma matriz que representa `StyleObject` estilos estadistas. Utilize o [serviço Estado de Recurso Azure](/rest/api/maps/featurestate) Maps Creator para aplicar os seus estilos de stateet às funcionalidades de dados do mapa interior. Uma vez criado os seus estilos de stateet e os associando com funcionalidades de mapas interiores, pode usá-los para criar mapas interiores dinâmicos. Para obter mais informações sobre a criação de mapas dinâmicos no interior, consulte [implementar o estilo dinâmico para os mapas interiores do Criador.](indoor-map-dynamic-styling.md)
+> [!IMPORTANT]
+> Os serviços do Azure Maps Creator estão atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+ É `StylesObject` uma matriz que representa `StyleObject` estilos estadistas. Utilize o serviço Estado de [FuncionalidadeS Azure](/rest/api/maps/featurestate) Maps (Preview) para aplicar os seus estilos de stateet às funcionalidades de dados do mapa interno. Uma vez criado os seus estilos de stateet e os associando com funcionalidades de mapas interiores, pode usá-los para criar mapas interiores dinâmicos. Para obter mais informações sobre a criação de mapas dinâmicos no interior, consulte [implementar o estilo dinâmico para os mapas interiores do Criador.](indoor-map-dynamic-styling.md)
 
 ## <a name="styleobject"></a>StyleObject
 

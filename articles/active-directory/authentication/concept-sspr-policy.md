@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 344fee9482cd935375d25fab80b1f365d72586f8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a53b193d16a2cefbde7877fd930e5fa73b0c6a36
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743671"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861277"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições de conta no Azure Ative Directory
 
@@ -95,7 +95,7 @@ A política de dois portões requer duas peças de dados de autenticação, como
 * Um domínio personalizado foi configurado para o seu inquilino AD Azure, como *contoso.com;* ou
 * Azure AD Connect está sincronizando identidades do seu diretório no local
 
-Pode desativar a utilização de SSPR para contas de administrador utilizando o [cmdlet PowerShell set-MsolCompanySettings.](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) O `-SelfServePasswordResetEnabled $False` parâmetro desativa a SSPR para administradores.
+Pode desativar a utilização de SSPR para contas de administrador utilizando o [cmdlet PowerShell set-MsolCompanySettings.](/powershell/module/msonline/set-msolcompanysettings) O `-SelfServePasswordResetEnabled $False` parâmetro desativa a SSPR para administradores.
 
 ### <a name="exceptions"></a>Exceções
 
@@ -107,7 +107,7 @@ Uma política de um portão requer uma peça de dados de autenticação, como um
 
 ## <a name="password-expiration-policies"></a><a name="set-password-expiration-policies-in-azure-ad"></a>Políticas de expiração de palavra-passe
 
-Um *administrador ou* administrador de *utilizador* global pode utilizar o [Módulo AD AZure do Microsoft para o Windows PowerShell](/powershell/module/Azuread/?view=azureadps-2.0) para definir as palavras-passe do utilizador para não expirar.
+Um *administrador ou* administrador de *utilizador* global pode utilizar o [Módulo AD AZure do Microsoft para o Windows PowerShell](/powershell/module/Azuread/) para definir as palavras-passe do utilizador para não expirar.
 
 Também pode utilizar cmdlets PowerShell para remover a configuração de nunca expirar ou para ver quais as palavras-passe do utilizador definidas para nunca expirar.
 
@@ -118,13 +118,13 @@ Esta orientação aplica-se a outros fornecedores, como o Intune e o Microsoft 3
 
 ### <a name="set-or-check-the-password-policies-by-using-powershell"></a>Set or check the password policies by using PowerShell (Utilizar o PowerShell para definir ou verificar as políticas de palavras-passe)
 
-Para começar, [faça o download e instale o módulo Azure AD PowerShell](/powershell/module/Azuread/?view=azureadps-2.0) e [conecte-o ao seu inquilino AD Azure.](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples)
+Para começar, [faça o download e instale o módulo Azure AD PowerShell](/powershell/module/Azuread/) e [conecte-o ao seu inquilino AD Azure.](/powershell/module/azuread/connect-azuread#examples)
 
 Depois de instalar o módulo, utilize os seguintes passos para completar cada tarefa conforme necessário.
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Verifique a política de expiração para obter uma senha
 
-1. Abra uma pressão PowerShell e [ligue-se ao seu inquilino Azure AD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) utilizando um *administrador global* ou conta *de administrador de utilizador.*
+1. Abra uma pressão PowerShell e [ligue-se ao seu inquilino Azure AD](/powershell/module/azuread/connect-azuread#examples) utilizando um *administrador global* ou conta *de administrador de utilizador.*
 1. Executar um dos seguintes comandos para um utilizador individual ou para todos os utilizadores:
 
    * Para ver se a palavra-passe de um único utilizador está definida para nunca expirar, execute o cmdlet seguinte. `<user ID>`Substitua-o pelo ID do utilizador do utilizador que pretende verificar, como *o driley \@ contoso.onmicrosoft.com:*
@@ -141,7 +141,7 @@ Depois de instalar o módulo, utilize os seguintes passos para completar cada ta
 
 ### <a name="set-a-password-to-expire"></a>Definir uma senha para expirar
 
-1. Abra uma pressão PowerShell e [ligue-se ao seu inquilino Azure AD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) utilizando um *administrador global* ou conta *de administrador de utilizador.*
+1. Abra uma pressão PowerShell e [ligue-se ao seu inquilino Azure AD](/powershell/module/azuread/connect-azuread#examples) utilizando um *administrador global* ou conta *de administrador de utilizador.*
 1. Executar um dos seguintes comandos para um utilizador individual ou para todos os utilizadores:
 
    * Para definir a palavra-passe de um utilizador de modo a que a palavra-passe expire, execute o cmdlet seguinte. `<user ID>`Substitua-o pelo ID do utilizador do utilizador que pretende verificar, como *o driley \@ contoso.onmicrosoft.com*
@@ -158,7 +158,7 @@ Depois de instalar o módulo, utilize os seguintes passos para completar cada ta
 
 ### <a name="set-a-password-to-never-expire"></a>Desafine uma senha para nunca expirar
 
-1. Abra uma pressão PowerShell e [ligue-se ao seu inquilino Azure AD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) utilizando um *administrador global* ou conta *de administrador de utilizador.*
+1. Abra uma pressão PowerShell e [ligue-se ao seu inquilino Azure AD](/powershell/module/azuread/connect-azuread#examples) utilizando um *administrador global* ou conta *de administrador de utilizador.*
 1. Executar um dos seguintes comandos para um utilizador individual ou para todos os utilizadores:
 
    * Para definir a palavra-passe de um utilizador para nunca expirar, executar o cmdlet seguinte. `<user ID>`Substitua-o pelo ID do utilizador do utilizador que pretende verificar, como *o driley \@ contoso.onmicrosoft.com*

@@ -5,12 +5,12 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
-ms.openlocfilehash: 7d6c0d13e440beb9a934adba3908cc9a08f396f1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b3c172584c42e1ed1d7ca94b6cd51bedd4e49dae
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997951"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862297"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Construa uma app Ruby e Postgres no Azure App Service em Linux
 
@@ -18,7 +18,7 @@ O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojam
 
 :::image type="content" source="./media/tutorial-ruby-postgres-app/complete-checkbox-published.png" alt-text="Screenshot de um exemplo de aplicação Ruby on Rails intitulado Tasks.":::
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma base de dados PostgreSQL no Azure
@@ -34,10 +34,11 @@ Neste tutorial, vai aprender a:
 
 Para concluir este tutorial:
 
-* [Instalar o Git](https://git-scm.com/)
-* [Instalar Ruby 2.6](https://www.ruby-lang.org/en/documentation/installation/)
-* [Instalar o Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
-* [Instalar e executar o PostgreSQL](https://www.postgresql.org/download/)
+- [Instalar o Git](https://git-scm.com/)
+- [Instalar Ruby 2.6](https://www.ruby-lang.org/en/documentation/installation/)
+- [Instalar o Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
+- [Instale e execute PostgreSQL](https://www.postgresql.org/download/)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="prepare-local-postgres"></a>Preparar o Postgres local
 
@@ -103,8 +104,6 @@ Navegue para `http://localhost:3000` num browser. Adicione algumas tarefas à p�
 ![O Ruby on Rails liga-se com êxito ao Postgres](./media/tutorial-ruby-postgres-app/postgres-connect-success.png)
 
 Para parar o servidor do Rails, escreva `Ctrl + C` no terminal.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-postgres-in-azure"></a>Criar Postgres no Azure
 
@@ -292,7 +291,7 @@ git remote add azure <paste-copied-url-here>
 Envie para o Azure remoto para implementar a aplicação Ruby on Rails. É-lhe pedida a palavra-passe que indicou anteriormente como parte da criação do utilizador de implementação.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 Durante a implementação, o Serviço de Aplicações do Azure comunica o respetivo progresso com o Git.
@@ -303,7 +302,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -422,7 +421,7 @@ Consolide todas as alterações no Git e envie as alterações ao código para o
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure master
+git push azure main
 ```
 
 Uma vez `git push` concluída, navegue para a app Azure e teste a nova funcionalidade.

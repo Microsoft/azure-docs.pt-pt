@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 022b6eb6595f25af4189d783a6a91031f95c7216
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 07a8d2b394e8ca690925c677af676643064a9ba8
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479362"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901835"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copiar dados do Amazon S3 para o Azure Storage utilizando o AzCopy
 
@@ -38,13 +38,13 @@ Consulte o [artigo da AzCopy](storage-use-azcopy-v10.md) para descarregar o AzCo
 
 ### <a name="authorize-with-aws-s3"></a>Autorizar com a AWS S3
 
-Reúna a chave de acesso AWS e a chave de acesso secreta e, em seguida, descreva estas variáveis ambientais:
+Recolha a sua chave de acesso AWS e chave de acesso secreto e, em seguida, descreva estas variáveis ambientais:
 
 | Sistema operativo | Comando  |
 |--------|-----------|
 | **Windows** | `set AWS_ACCESS_KEY_ID=<access-key>`<br>`set AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
 | **Linux** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
-| **MacOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
+| **macOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
 
 ## <a name="copy-objects-directories-and-buckets"></a>Copiar objetos, diretórios e baldes
 
@@ -155,7 +155,7 @@ A AzCopy realiza estes passos:
 
 2. Adiciona a cadeia `rename_` ao início de uma nova chave válida.
 
-   Esta chave será utilizada para guardar o **valor**original dos metadados.
+   Esta chave será utilizada para guardar o **valor** original dos metadados.
 
 3. Adiciona a cadeia `rename_key_` ao início de uma nova chave válida.
    Esta chave será utilizada para guardar a chave inválida dos metadados **originais**.
@@ -167,7 +167,7 @@ Encontre mais exemplos em qualquer um destes artigos:
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
 
-- [Transferir dados com AzCopy e armazenamento de bolhas](storage-use-azcopy-blobs.md)
+- [Transferir dados](storage-use-azcopy-v10.md#transfer-data)
 
 - [Transferir dados com o AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
 

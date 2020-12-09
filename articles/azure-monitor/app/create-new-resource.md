@@ -3,16 +3,16 @@ title: Criar um novo recurso Azure Application Insights / Microsoft Docs
 description: Configurar manualmente a monitorização do Application Insights para uma nova aplicação ao vivo.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d2e367e84aed7abac70d803f28d26070f7b0a85e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fd05e6bd68be89b964fe1ad32029bf44f3352ea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323133"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906374"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
-O Azure Application Insights exibe dados sobre a sua aplicação num *recurso*Microsoft Azure . A criação de um novo recurso faz, portanto, parte da criação de [Application Insights para monitorizar uma nova aplicação.][start] Depois de ter criado o seu novo recurso, pode obter a sua chave de instrumentação e usá-la para configurar o SDK Application Insights. A chave de instrumentação liga a sua telemetria ao recurso.
+O Azure Application Insights exibe dados sobre a sua aplicação num *recurso* Microsoft Azure . A criação de um novo recurso faz, portanto, parte da criação de [Application Insights para monitorizar uma nova aplicação.][start] Depois de ter criado o seu novo recurso, pode obter a sua chave de instrumentação e usá-la para configurar o SDK Application Insights. A chave de instrumentação liga a sua telemetria ao recurso.
 
 ## <a name="sign-in-to-microsoft-azure"></a>Inscreva-se no Microsoft Azure
 
@@ -44,7 +44,8 @@ Quando a sua aplicação foi criada, abre-se um novo painel. Este painel é onde
 
 A chave de instrumentação identifica o recurso com o que pretende associar os seus dados de telemetria. Terá de copiar a tecla de instrumentação e adicioná-la ao código da sua aplicação.
 
-![Clique e copie a chave de instrumentação](./media/create-new-resource/instrumentation-key.png)
+> [!IMPORTANT]
+> As novas regiões de Azure **requerem** a utilização de cordas de ligação em vez de teclas de instrumentação. [A cadeia de ligação](./sdk-connection-string.md?tabs=net) identifica o recurso com o que pretende associar os seus dados de telemetria. Também permite modificar os pontos finais que o seu recurso utilizará como destino para a sua telemetria. Terá de copiar o fio de ligação e adicioná-lo ao código da sua aplicação ou a uma variável ambiental.
 
 ## <a name="install-the-sdk-in-your-app"></a>Instale o SDK na sua aplicação
 
@@ -70,7 +71,7 @@ New-AzApplicationInsights [-ResourceGroupName] <String> [-Name] <String> [-Locat
 ```powershell
 New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location eastus
 ```
-#### <a name="results"></a>Results
+#### <a name="results"></a>Resultados
 
 ```powershell
 Id                 : /subscriptions/{subid}/resourceGroups/testgroup/providers/microsoft.insights/components/test1027
@@ -122,7 +123,7 @@ az monitor app-insights component create --app
 az monitor app-insights component create --app demoApp --location westus2 --kind web -g demoRg --application-type web
 ```
 
-#### <a name="results"></a>Results
+#### <a name="results"></a>Resultados
 
 ```azurecli
 az monitor app-insights component create --app demoApp --location eastus --kind web -g demoApp  --application-type web

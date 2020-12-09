@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 7e7b524f125eda406adc9be2300c94e5944e1819
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c749dbb1cc78bf06dfe665875bc05f75152778b
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715950"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862144"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autorizar o acesso à Configuração de Aplicações Azure utilizando o Azure Ative Directory
 Além de utilizar o Código de Autenticação de Mensagens (HMAC) baseado em Hash, a Azure App Configuration suporta a utilização do Azure Ative Directory (Azure AD) para autorizar pedidos para instâncias de Configuração de Aplicações.  A Azure AD permite-lhe usar o controlo de acesso baseado em funções Azure (Azure RBAC) para conceder permissões a um diretor de segurança.  Um responsável de segurança pode ser um utilizador, uma [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) ou um diretor de serviço [de aplicação.](../active-directory/develop/app-objects-and-service-principals.md)  Para saber mais sobre papéis e atribuições de papéis, consulte [compreender diferentes funções.](../role-based-access-control/overview.md)
@@ -39,7 +39,7 @@ O Azure fornece as seguintes funções incorporadas do Azure para autorizar o ac
 - **Leitor**: Utilize esta função para dar acesso à leitura do recurso De configuração da aplicação. Isto não permite o acesso às teclas de acesso do recurso, nem aos dados armazenados na Configuração da Aplicação.
 
 > [!NOTE]
-> Atualmente, o portal Azure e o CLI apenas suportam a autenticação HMAC para aceder aos dados de Configuração de Aplicações. A autenticação AD AZure não é suportada. Por isso, os utilizadores do portal Azure e do CLI exigem que o *contributo* recupere as chaves de acesso do recurso de Configuração da Aplicação. A concessão de funções *de Leitor de Dados de Configuração de Aplicações* ou *de Data Owner de Configuração de Aplicações* não tem impacto no acesso através do portal e do CLI.
+> Atualmente, o portal Azure suporta apenas a autenticação HMAC para aceder aos dados de Configuração de Aplicações. A autenticação AD AZure não é suportada. Por isso, os utilizadores do portal Azure exigem que a função *do Contribuinte* recupere as teclas de acesso do recurso de Configuração da Aplicação. A concessão de funções *de Leitor de Dados de Configuração de Aplicações* ou *de Data Owner de Configuração de Aplicações* não tem qualquer impacto no acesso através do portal.
 
 ## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre a utilização [de identidades geridas](howto-integrate-azure-managed-service-identity.md) para administrar o seu serviço de Configuração de Aplicações.

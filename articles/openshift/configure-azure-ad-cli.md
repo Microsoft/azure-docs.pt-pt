@@ -8,12 +8,12 @@ author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, chapéu vermelho, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 03ecd0e11df5fa20f134b6fd87baf788078a2203
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0d69fa10408618fb188b42e1dd8f7b9d02820cc3
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748041"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862416"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Configurar a autenticação do Diretório Ativo Azure para um cluster Azure Red Hat OpenShift 4 (CLI)
 
@@ -21,47 +21,67 @@ Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja
 
 Recupere os seus URLs específicos do cluster que serão utilizados para configurar a aplicação do Diretório Ativo Azure.
 
-Construa o URL de retorno de OAuth do cluster e guarde-o numa **variável oauthCallbackURL** . Certifique-se de que substitui **o aro-rg** pelo nome do seu grupo de recursos e **pelo aro-cluster** pelo nome do seu cluster.
+Desaprote as variáveis para o grupo de recursos e o nome do cluster.
+
+**\<resource_group>** Substitua-o pelo nome do seu grupo de recursos e **\<aro_cluster>** pelo nome do seu cluster.
+
+```azurecli-interactive
+resource_group=<resource_group>
+aro_cluster=<aro_cluster>
+```
+
+Construa o URL de retorno de OAuth do cluster e guarde-o numa **variável oauthCallbackURL**. 
 
 > [!NOTE]
 > A `AAD` secção no URL de retorno de chamadas OAuth deve corresponder ao nome do fornecedor de identidade OAuth que irá configurar mais tarde.
 
+
 ```azurecli-interactive
-domain=$(az aro show -g aro-rg -n aro-cluster --query clusterProfile.domain -o tsv)
-location=$(az aro show -g aro-rg -n aro-cluster --query location -o tsv)
-apiServer=$(az aro show -g aro-rg -n aro-cluster --query apiserverProfile.url -o tsv)
-webConsole=$(az aro show -g aro-rg -n aro-cluster --query consoleProfile.url -o tsv)
-oauthCallbackURL=https://oauth-openshift.apps.$domain.$location.aroapp.io/oauth2callback/AAD
+domain=$(az aro show -g $resource_group -n $aro_cluster --query clusterProfile.domain -o tsv)
+location=$(az aro show -g $resource_group -n $aro_cluster --query location -o tsv)
+apiServer=$(az aro show -g $resource_group -n $aro_cluster --query apiserverProfile.url -o tsv)
+webConsole=$(az aro show -g $resource_group -n $aro_cluster --query consoleProfile.url -o tsv)
 ```
+
+O formato do oauthCallbackURL é ligeiramente diferente com domínios personalizados:
+
+* Executar o seguinte comando se estiver a utilizar um domínio personalizado, por `contoso.com` exemplo. 
+
+    ```azurecli-interactive
+    oauthCallbackURL=https://oauth-openshift.apps.$domain/oauth2callback/AAD
+    ```
+
+* Se não estiver a utilizar um domínio personalizado, o `$domain` serão uma cadeia alnum de oito caracteres e é estendido por `$location.aroapp.io` .
+
+    ```azurecli-interactive
+    oauthCallbackURL=https://oauth-openshift.apps.$domain.$location.aroapp.io/oauth2callback/AAD
+    ```
+
+> [!NOTE]
+> A `AAD` secção no URL de retorno de chamadas OAuth deve corresponder ao nome do fornecedor de identidade OAuth que irá configurar mais tarde.
 
 ## <a name="create-an-azure-active-directory-application-for-authentication"></a>Criar um pedido de Diretório Ativo Azure para autenticação
 
-Crie uma aplicação Azure Ative Directory e recupere o identificador de aplicações criado. Substitua **\<ClientSecret>** por uma senha segura.
+Substitua **\<client_secret>** por uma senha segura para a aplicação.
 
 ```azurecli-interactive
-az ad app create \
+client_secret=<client_secret>
+```
+
+Crie uma aplicação Azure Ative Directory e recupere o identificador de aplicações criado.
+
+```azurecli-interactive
+app_id=$(az ad app create \
   --query appId -o tsv \
   --display-name aro-auth \
   --reply-urls $oauthCallbackURL \
-  --password '<ClientSecret>'
-```
-
-Devia ter de volta algo assim. Tome nota disso como este é o **AppId** que você precisará em passos posteriores.
-
-```output
-6a4cb4b2-f102-4125-b5f5-9ad6689f7224
+  --password $client_secret)
 ```
 
 Recupere a identificação do inquilino da assinatura que detém a aplicação.
 
 ```azure
-az account show --query tenantId -o tsv
-```
-
-Devia ter de volta algo assim. Tome nota disso como este é o **TenantId** que você precisará em passos posteriores.
-
-```output
-72f999sx-8sk1-8snc-js82-2d7cj902db47
+tenant_id=$(az account show --query tenantId -o tsv)
 ```
 
 ## <a name="create-a-manifest-file-to-define-the-optional-claims-to-include-in-the-id-token"></a>Crie um ficheiro manifesto para definir as alegações opcionais a incluir no ID Token
@@ -97,19 +117,15 @@ EOF
 
 ## <a name="update-the-azure-active-directory-applications-optionalclaims-with-a-manifest"></a>Atualizar as opções da aplicação Azure Ative Directory com um manifesto
 
-**\<AppID>** Substitua-o pela identificação que obteve mais cedo.
-
 ```azurecli-interactive
 az ad app update \
   --set optionalClaims.idToken=@manifest.json \
-  --id <AppId>
+  --id $app_id
 ```
 
 ## <a name="update-the-azure-active-directory-application-scope-permissions"></a>Atualizar as permissões de âmbito de aplicação do Azure Ative Directory
 
 Para podermos ler as informações do utilizador a partir do Azure Ative Directory, precisamos definir os âmbitos adequados.
-
-**\<AppID>** Substitua-o pela identificação que obteve mais cedo.
 
 Adicione permissão para o **Azure Ative Directory Graph.User.Read** scope para permitir o sessão e ler o perfil do utilizador.
 
@@ -117,11 +133,11 @@ Adicione permissão para o **Azure Ative Directory Graph.User.Read** scope para 
 az ad app permission add \
  --api 00000002-0000-0000-c000-000000000000 \
  --api-permissions 311a71cc-e848-46a1-bdf8-97ff7156d8e6=Scope \
- --id <AppId>
+ --id $app_id
 ```
 
 > [!NOTE]
-> A menos que seja autenticado como Administrador Global para este Diretório Ativo Azure, pode ignorar a mensagem para conceder o consentimento, uma vez que lhe será solicitado que o faça assim que iniciar sessão na sua própria conta.
+> Pode ignorar com segurança a mensagem para conceder o consentimento, a menos que seja autenticado como Administrador Global para este Diretório Ativo Azure. Os utilizadores de domínio padrão serão convidados a conceder o consentimento quando iniciarem o login no cluster usando as suas credenciais AAD.
 
 ## <a name="assign-users-and-groups-to-the-cluster-optional"></a>Atribuir utilizadores e grupos ao cluster (opcional)
 
@@ -134,35 +150,27 @@ Siga as instruções da documentação do Azure Ative Directory para [atribuir u
 Recupere as `kubeadmin` credenciais. Executar o seguinte comando para encontrar a senha para o `kubeadmin` utilizador.
 
 ```azurecli-interactive
-az aro list-credentials \
-  --name aro-cluster \
-  --resource-group aro-rg
+kubeadmin_password=$(az aro list-credentials \
+  --name $aro_cluster \
+  --resource-group $resource_group \
+  --query kubeadminPassword --output tsv)
 ```
 
-A saída de exemplo a seguir mostra que a palavra-passe estará em `kubeadminPassword` .
-
-```json
-{
-  "kubeadminPassword": "<generated password>",
-  "kubeadminUsername": "kubeadmin"
-}
-```
-
-Inicie sessão no servidor API do cluster OpenShift utilizando o seguinte comando. A `$apiServer` variável foi definida [anteriormente.]() **\<kubeadmin password>** Substitua-a pela palavra-passe que recuperou.
+Inicie sessão no servidor API do cluster OpenShift utilizando o seguinte comando. 
 
 ```azurecli-interactive
-oc login $apiServer -u kubeadmin -p <kubeadmin password>
+oc login $apiServer -u kubeadmin -p $kubeadmin_password
 ```
 
-Crie um segredo OpenShift para armazenar o segredo da aplicação Azure Ative Directory, substituindo **\<ClientSecret>** o segredo que recuperou anteriormente.
+Crie um segredo OpenShift para armazenar o segredo da aplicação Azure Ative Directory.
 
 ```azurecli-interactive
 oc create secret generic openid-client-secret-azuread \
   --namespace openshift-config \
-  --from-literal=clientSecret=<ClientSecret>
+  --from-literal=clientSecret=$client_secret
 ```
 
-Crie um ficheiro **oidc.yaml** para configurar a autenticação OpenShift OpenID contra o Azure Ative Directory. Substitua **\<AppID>** e **\<TenantId>** pelos valores recuperados anteriormente.
+Crie um ficheiro **oidc.yaml** para configurar a autenticação OpenShift OpenID contra o Azure Ative Directory. 
 
 ```bash
 cat > oidc.yaml<< EOF
@@ -176,7 +184,7 @@ spec:
     mappingMethod: claim
     type: OpenID
     openID:
-      clientID: <AppId>
+      clientID: $app_id
       clientSecret:
         name: openid-client-secret-azuread
       extraScopes:
@@ -192,7 +200,7 @@ spec:
         - name
         email:
         - email
-      issuer: https://login.microsoftonline.com/<TenantId>
+      issuer: https://login.microsoftonline.com/$tenant_id
 EOF
 ```
 
@@ -210,6 +218,6 @@ oauth.config.openshift.io/cluster configured
 
 ## <a name="verify-login-through-azure-active-directory"></a>Verifique o login através do Azure Ative Directory
 
-Se agora tiver o início da consola Web OpenShift e tentar fazer login novamente, será-lhe apresentada uma nova opção para iniciar sessão com **a AAD** . Talvez precise esperar por alguns minutos.
+Se agora tiver o início da consola Web OpenShift e tentar fazer login novamente, será-lhe apresentada uma nova opção para iniciar sessão com **a AAD**. Talvez precise esperar por alguns minutos.
 
 ![Faça login no ecrã com opção Azure Ative Directory](media/aro4-login-2.png)

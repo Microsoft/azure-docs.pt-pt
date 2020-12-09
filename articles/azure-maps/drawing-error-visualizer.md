@@ -1,21 +1,26 @@
 ---
 title: Use o visualizador de erro de desenho de Azure Maps
-description: Neste artigo, você vai aprender sobre como visualizar avisos e erros devolvidos pela API de Conversão do Criador.
+description: Neste artigo, você vai aprender sobre como visualizar avisos e erros devolvidos pela API de Conversão do Criador (Preview).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/12/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 99821e51364eb9ffd75cda291c526c3c0b8c8f0e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: db88e347e12783205ea8c31fed0bb374fccb4736
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895856"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903586"
 ---
-# <a name="using-the-azure-maps-drawing-error-visualizer"></a>Utilizando o visualizador de erro de desenho de mapas Azure
+# <a name="using-the-azure-maps-drawing-error-visualizer-with-creator-preview"></a>Utilizando o visualizador de erro de desenho de mapas Azure com o Criador (Pré-visualização)
+
+> [!IMPORTANT]
+> Os serviços do Azure Maps Creator estão atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 O Visualizador de Erro de Desenho é uma aplicação web autónoma que exibe [avisos e erros de pacote de desenho detetados](drawing-conversion-error-codes.md) durante o processo de conversão. A aplicação web Error Visualizer consiste numa página estática que pode utilizar sem se ligar à internet.  Pode utilizar o Error Visualizer para corrigir erros e avisos de acordo com os [requisitos do pacote de desenho](drawing-requirements.md). A [AZure Maps Conversion API](/rest/api/maps/conversion) apenas devolve uma resposta com uma ligação ao Error Visualizer apenas quando um erro é detetado.
 
@@ -25,13 +30,13 @@ Antes de conseguir descarregar o Visualizador de Erro de Desenho, terá de o faz
 
 1. [Criar uma conta do Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtenha uma chave de subscrição primária,](quick-demo-map-app.md#get-the-primary-key-for-your-account)também conhecida como a chave primária ou a chave de subscrição.
-3. [Criar um recurso Criador](how-to-manage-creator.md)
+3. [Criar um recurso Criador (Pré-visualização)](how-to-manage-creator.md)
 
 Este tutorial usa a aplicação [Do Carteiro,](https://www.postman.com/) mas você pode escolher um ambiente de desenvolvimento de API diferente.
 
 ## <a name="download"></a>Download
 
-1. Faça o upload do seu pacote Drawing para o serviço Azure Maps Creator para obter um `udid` para o pacote carregado. Para obter etapas sobre como carregar um pacote, consulte [o Upload de um pacote de desenho](tutorial-creator-indoor-maps.md#upload-a-drawing-package).
+1. Faça o upload do seu pacote Drawing para o serviço Azure Maps Creator (Preview) para obter um `udid` para o pacote carregado. Para obter etapas sobre como carregar um pacote, consulte [o Upload de um pacote de desenho](tutorial-creator-indoor-maps.md#upload-a-drawing-package).
 
 2. Agora que o pacote de desenho está carregado, usaremos `udid` para o pacote carregado para converter o pacote em dados de mapa. Para obter etapas sobre como converter um pacote, consulte [converter um pacote de desenho](tutorial-creator-indoor-maps.md#convert-a-drawing-package).
 
@@ -58,8 +63,8 @@ Este tutorial usa a aplicação [Do Carteiro,](https://www.postman.com/) mas voc
 
 Dentro do pacote fechado descarregado a partir do `diagnosticPackageLocation` link, você encontrará dois ficheiros.
 
-* _VisualizationTool.zip_ : Contém o código de origem, os meios de comunicação e a página web do Visualizador de Erros de Desenho.
-* _ConversionWarningsAndErrors.jsem_ : Contém uma lista formatada de advertências, erros e detalhes adicionais que são utilizados pelo Visualizador de Erros de Desenho.
+* _VisualizationTool.zip_: Contém o código de origem, os meios de comunicação e a página web do Visualizador de Erros de Desenho.
+* _ConversionWarningsAndErrors.jsem_: Contém uma lista formatada de advertências, erros e detalhes adicionais que são utilizados pelo Visualizador de Erros de Desenho.
 
 Desaperte a pasta _VisualizationTool.zip._ Contém os seguintes itens:
 
@@ -82,11 +87,11 @@ Depois de lançar a ferramenta Desenho Error Visualizer, será apresentada com a
 
 O  _ConversionWarningsAndErrors.jsno_ ficheiro foi colocado na raiz do diretório descarregado. Para carregar o _ConversionWarningsAndErrors.jspode_ arrastar & deixar cair o ficheiro na caixa ou clicar na caixa, encontrar o ficheiro no diálogo Do Explorador de Ficheiros e, em seguida, carregar o ficheiro.
 
-:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="App de visualizador de erro de desenho - página de início":::
+:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="App de visualização de erro de desenho - arrastar e largar para carregar dados":::
 
 Assim que o _ConversionWarningsAndErrors.jsem_ cargas de ficheiros, verá uma lista dos erros e avisos do seu pacote de desenho. Cada erro ou aviso é especificado pela camada, nível e uma mensagem detalhada. Para ver informações detalhadas sobre um erro ou aviso, clique no link **Detalhes.** Uma secção intratável aparecerá então abaixo da lista. Pode agora navegar para cada erro para saber mais detalhes sobre como resolver o erro.
 
-:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="App de visualizador de erro de desenho - página de início":::
+:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="App de visualizador de erro de desenho - erros e avisos":::
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -96,7 +101,7 @@ Uma vez que o seu [pacote De desenho satisfaça os requisitos,](drawing-requirem
 > [Códigos de erro de conversão de desenho](drawing-conversion-error-codes.md)
 
 > [!div class="nextstepaction"]
-> [Criador para mapas interiores](creator-indoor-maps.md)
+> [Criador (Pré-visualização) para mapas interiores](creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Utilize o módulo Mapas Interiores](how-to-use-indoor-module.md)

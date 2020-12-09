@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a62aafd8073b5f1a35ba340c48c80f498be2c2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3a7304ffbb7718205ead48e27989d4a169375997
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834460"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861991"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
@@ -93,7 +93,7 @@ Depois de ligar a Azure AD Gestão de Identidade Privilegiada, consulte os utili
 * Administrador do Exchange
 * Administrador do SharePoint
 
-Se não tiver Azure AD Gestão de Identidade Privilegiada na sua organização, pode utilizar a [API powerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Comece com o papel de administrador global porque um administrador global tem as mesmas permissões em todos os serviços na nuvem para os quais a sua organização subscreveu. Estas permissões são concedidas independentemente do local onde foram atribuídas: no centro de administração microsoft 365, no portal Azure ou no módulo AD AD Azure para o Microsoft PowerShell.
+Se não tiver Azure AD Gestão de Identidade Privilegiada na sua organização, pode utilizar a [API powerShell](/powershell/module/azuread/get-azureaddirectoryrolemember). Comece com o papel de administrador global porque um administrador global tem as mesmas permissões em todos os serviços na nuvem para os quais a sua organização subscreveu. Estas permissões são concedidas independentemente do local onde foram atribuídas: no centro de administração microsoft 365, no portal Azure ou no módulo AD AD Azure para o Microsoft PowerShell.
 
 Remova quaisquer contas que já não sejam necessárias nessas funções. Em seguida, categorize as restantes contas que são atribuídas a funções de administração:
 

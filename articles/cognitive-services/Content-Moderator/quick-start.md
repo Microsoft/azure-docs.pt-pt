@@ -12,12 +12,12 @@ ms.date: 09/29/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: moderador de conteúdo, moderação de conteúdo
-ms.openlocfilehash: d1d9315986f7a6c57c1da012b9034e4f1a3730bc
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: c026c42fe3c7a7f3f0d6b80e3123904077c104cf
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143743"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905218"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Quickstart: Experimente o Moderador de Conteúdo na web
 
@@ -49,7 +49,7 @@ Se optar por encriptar dados utilizando uma chave gerida pelo cliente (CMK), ser
 
 ## <a name="upload-sample-content"></a>Carregar o conteúdo da amostra
 
-Agora está pronto para carregar o conteúdo da amostra. Selecione **Tente > imagem,** **tente > texto** ou tente > **vídeo** .
+Agora está pronto para carregar o conteúdo da amostra. Selecione **Tente > imagem,** **tente > texto** ou tente > **vídeo**.
 
 > [!div class="mx-imgBorder"]
 > ![Experimente moderação de imagem ou texto](images/tryimagesortext.png)
@@ -88,6 +88,6 @@ Ou, continue com os próximos passos para começar a usar as APIs de Moderação
 ## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a usar as apis de moderação na sua aplicação.
-- Implementar moderação de imagem. Utilize a [consola API](try-image-api.md) ou siga o [quickstart](client-libraries.md) da biblioteca do cliente para digitalizar imagens e detetar potenciais conteúdos adultos e picantes utilizando tags, pontuações de confiança e outras informações extraídas.
-- Implementar moderação de texto. Utilize a [consola API](try-text-api.md) ou utilize o [quickstart](client-libraries.md) da biblioteca do cliente para digitalizar o conteúdo de texto para potencial profanação, classificação de texto indesejada assistida por máquina (pré-visualização) e dados pessoais.
+- Implementar moderação de imagem. Utilize a [consola API](try-image-api.md) ou siga uma [biblioteca de clientes ou rest API para](client-libraries.md) digitalizar imagens e detetar potenciais conteúdos adultos e picantes utilizando tags, pontuações de confiança e outras informações extraídas.
+- Implementar moderação de texto. Utilize a [consola API](try-text-api.md) ou siga uma [biblioteca de clientes ou um quickstart REST API](client-libraries.md) para digitalizar o conteúdo de texto para potencial profanação, classificação de texto indesejado assistido por máquinas (pré-visualização) e dados pessoais.
 - Implementar moderação de vídeo. Siga o guia de como pesquisar vídeos para adultos e picantes para a moderação do [vídeo.](video-moderation-api.md) 

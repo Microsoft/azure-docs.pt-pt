@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Criar um índice de pesquisa em Python'
 titleSuffix: Azure Cognitive Search
-description: Explica como criar um índice, carregar dados e executar consultas usando Python, Jupyter Notebooks, e os Azure.Documents. Biblioteca de pesquisa.
+description: Explica como criar um índice, carregar dados e executar consultas usando Python, cadernos e os Azure.Documents. Biblioteca de pesquisa.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/19/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 528d29f3b285c2583fd1bb52e1de7c24fdc9e28a
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 126fc69678148d4d478c96ff8d05f194c7e3d1b3
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917091"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861872"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure em Python usando cadernos Jupyter
 
@@ -26,7 +26,7 @@ ms.locfileid: "94917091"
 > * [Portal](search-get-started-portal.md)
 >
 
-Construa um caderno Jupyter que cria, carrega e consulta um índice de Pesquisa Cognitiva Azure usando Python e a [biblioteca de documentos de pesquisa de](/python/api/overview/azure/search-documents-readme) azul no Azure SDK para Python. Este artigo explica como construir um caderno passo a passo. Em alternativa, você pode [baixar e executar um caderno Jupyter Python acabado.](https://github.com/Azure-Samples/azure-search-python-samples)
+Construa um Caderno Jupyter que cria, carrega e consulta um índice de Pesquisa Cognitiva Azure usando Python e a [biblioteca de documentos de pesquisa de](/python/api/overview/azure/search-documents-readme) azul no Azure SDK para Python. Este artigo explica como construir um caderno passo a passo. Em alternativa, você pode [baixar e executar um caderno Jupyter Python acabado.](https://github.com/Azure-Samples/azure-search-python-samples)
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -54,7 +54,7 @@ Todos os pedidos requerem uma chave API em cada pedido enviado ao seu serviço. 
 
 ## <a name="connect-to-azure-cognitive-search"></a>Ligue-se à Pesquisa Cognitiva Azure
 
-Nesta tarefa, inicie um caderno Jupyter e verifique se pode ligar-se à Pesquisa Cognitiva do Azure. Fá-lo-á solicitando uma lista de índices do seu serviço. No Windows com Anaconda3, pode utilizar o Anaconda Navigator para lançar um portátil.
+Nesta tarefa, inicie um Caderno Jupyter e verifique se pode ligar-se à Pesquisa Cognitiva do Azure. Fá-lo-á solicitando uma lista de índices do seu serviço. No Windows com Anaconda3, pode utilizar o Anaconda Navigator para lançar um portátil.
 
 1. Crie um novo caderno Python3.
 

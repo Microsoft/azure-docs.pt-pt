@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffddac13009b84aa8253955d265f11aefe2ce5dd
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a5f9b96fe9ee0781803bbbd86316e8783b60a6f1
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744419"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861328"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticação baseada em certificados Azure Ative No iOS
 
@@ -75,7 +75,7 @@ Para obter mais informações, consulte [personalizar o sinal de AD FS na págin
 
 Algumas aplicações do Office com autenticação moderna habilitados a enviar `prompt=login` para a Azure AD no seu pedido. Por padrão, a Azure AD traduz-se `prompt=login` no pedido à ADFS como `wauth=usernamepassworduri` (pede à ADFS para fazer U/P Auth) e `wfresh=0` (pede à ADFS que ignore o estado SSO e faça uma autenticação fresca). Se pretender ativar a autenticação baseada em certificados para estas aplicações, modifique o comportamento AD AZure predefinido.
 
-Para atualizar o comportamento predefinido, defina o '*PromptLoginBehavior*' nas definições de domínio federados para *Desativar*. Pode utilizar o [CMDlet MSOLDomainFederations](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) para executar esta tarefa, como mostra o seguinte exemplo:
+Para atualizar o comportamento predefinido, defina o '*PromptLoginBehavior*' nas definições de domínio federados para *Desativar*. Pode utilizar o [CMDlet MSOLDomainFederations](/powershell/module/msonline/set-msoldomainfederationsettings) para executar esta tarefa, como mostra o seguinte exemplo:
 
 ```powershell
 Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled

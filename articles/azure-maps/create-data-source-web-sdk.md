@@ -1,27 +1,27 @@
 ---
-title: Criar uma fonte de dados para um mapa Microsoft Azure Maps
+title: Criar uma fonte de dados para um mapa no Microsoft Azure Maps
 description: 'Descubra como criar uma fonte de dados para um mapa. Conheça as fontes de dados que o Azure Maps Web SDK utiliza: Fontes geoJSON e azulejos vetoriais.'
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/08/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 9c82b74ffdc8672dc3d84a98a036c6083bc6c309
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d09dddbceed773cd723897cc9730198b68be0ff7
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895924"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903620"
 ---
 # <a name="create-a-data-source"></a>Criar uma origem de dados
 
 O Azure Maps Web SDK armazena dados em fontes de dados. A utilização de fontes de dados otimiza as operações de dados para consulta e renderização. Atualmente existem dois tipos de fontes de dados:
 
-- **GeoJSON fonte** : Gere dados de localização bruta em formato GeoJSON localmente. Bom para pequenos a médios conjuntos de dados (mais de centenas de milhares de formas).
-- **Fonte de azulejos vetoriais** : Carrega dados formatados como azulejos vetoriais para a visão do mapa atual, com base no sistema de inclinação de mapas. Ideal para grandes e maciços conjuntos de dados (milhões ou biliões de formas).
+- **GeoJSON fonte**: Gere dados de localização bruta em formato GeoJSON localmente. Bom para pequenos a médios conjuntos de dados (mais de centenas de milhares de formas).
+- **Fonte de azulejos vetoriais**: Carrega dados formatados como azulejos vetoriais para a visão do mapa atual, com base no sistema de inclinação de mapas. Ideal para grandes e maciços conjuntos de dados (milhões ou biliões de formas).
 
 ## <a name="geojson-data-source"></a>Fonte de dados da GeoJSON
 
@@ -86,7 +86,7 @@ Azure Maps adere à [especificação do azulejo do vetor mapbox,](https://github
 - Detalhes do formato de dados [de documentação](/rest/api/maps/renderv2/getmaptilepreview)de azulejos  |  [de estrada](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
 - Incidentes de [tráfego documentação](/rest/api/maps/traffic/gettrafficincidenttile)  |  [dados detalhes do formato de dados](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
 - Detalhes do formato de [dados de documentação](/rest/api/maps/traffic/gettrafficflowtile)de fluxo de tráfego  |  [data format details](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
-- O Azure Maps Creator também permite que os azulejos vetores personalizados sejam criados e acedidos através do [Get Tile Render V2](/rest/api/maps/renderv2/getmaptilepreview)
+- O Criador de Mapas Azure (Preview) também permite que os azulejos vetoriais personalizados sejam criados e acedidos através do [Get Tile Render V2](/rest/api/maps/renderv2/getmaptilepreview)
 
 > [!TIP]
 > Ao utilizar azulejos de imagem vetor ou raster do Azure Maps, o serviço de prestação de dados com a web SDK, pode `atlas.microsoft.com` substituir-se pelo espaço reservado `{azMapsDomain}` . Este espaço reservado será substituído pelo mesmo domínio utilizado pelo mapa e anexará automaticamente os mesmos detalhes de autenticação também. Isto simplifica consideravelmente a autenticação com o serviço de prestação quando se utiliza a autenticação do Azure Ative Directory.

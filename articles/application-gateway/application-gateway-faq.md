@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: dc262e133f6e91271d7e9848bdca9d3a6062fc66
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: d46c1d8efb5234d47c80ca4256c2f56d56ccf805
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751721"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862178"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre Gateway de Aplicação
 
@@ -101,7 +101,7 @@ Consulte [considerações de tamanho da sub-rede do Gateway de aplicação](./co
 
 ### <a name="can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>Posso implantar mais de um recurso Application Gateway numa única sub-rede?
 
-Yes. Além de múltiplas instâncias de uma determinada implementação do Gateway de Aplicação, pode providenciar outro recurso exclusivo do Application Gateway para uma sub-rede existente que contenha um recurso de Gateway de aplicação diferente.
+Sim. Além de múltiplas instâncias de uma determinada implementação do Gateway de Aplicação, pode providenciar outro recurso exclusivo do Application Gateway para uma sub-rede existente que contenha um recurso de Gateway de aplicação diferente.
 
 Uma única sub-rede não suporta tanto os SKUs de gateway de aplicação v2 como v1.
 
@@ -111,7 +111,7 @@ Sim, mas apenas cenários específicos. Para obter mais informações, consulte 
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>O Application Gateway suporta cabeçalhos x-forward-for?
 
-Yes. Ver [Alterações a um pedido](./how-application-gateway-works.md#modifications-to-the-request).
+Sim. Ver [Alterações a um pedido](./how-application-gateway-works.md#modifications-to-the-request).
 
 ### <a name="how-long-does-it-take-to-deploy-an-application-gateway-will-my-application-gateway-work-while-its-being-updated"></a>Quanto tempo demora a implantar um portal de aplicação? O meu portal de aplicações funcionará enquanto está a ser atualizado?
 
@@ -121,19 +121,19 @@ A maioria das implementações que utilizam o V2 SKU demoram cerca de 6 minutos 
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>Posso usar o Exchange Server como backend com o Gateway de Aplicações?
 
-Não. Application Gateway não suporta protocolos de e-mail como SMTP, IMAP e POP3.
+N.º Application Gateway não suporta protocolos de e-mail como SMTP, IMAP e POP3.
 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Existe orientação disponível para migrar do V1 SKU para o V2 SKU?
 
-Yes. Para mais detalhes, [migrate Azure Application Gateway e Web Application Firewall de v1 a v2](migrate-v1-v2.md).
+Sim. Para mais detalhes, [migrate Azure Application Gateway e Web Application Firewall de v1 a v2](migrate-v1-v2.md).
 
 ### <a name="will-the-application-gateway-v1-sku-continue-to-be-supported"></a>O Gateway de Aplicação v1 SKU continuará a ser suportado?
 
-Yes. O Gateway de Aplicação v1 SKU continuará a ser suportado. No entanto, é fortemente recomendado que mude para v2 para aproveitar as atualizações de funcionalidades nesse SKU. Para obter mais informações, consulte [Autoscaling e Zone-redundante Application Gateway v2](application-gateway-autoscaling-zone-redundant.md).
+Sim. O Gateway de Aplicação v1 SKU continuará a ser suportado. No entanto, é fortemente recomendado que mude para v2 para aproveitar as atualizações de funcionalidades nesse SKU. Para obter mais informações, consulte [Autoscaling e Zone-redundante Application Gateway v2](application-gateway-autoscaling-zone-redundant.md).
 
 ### <a name="does-application-gateway-v2-support-proxying-requests-with-ntlm-authentication"></a>O Application Gateway V2 suporta pedidos de procuração com autenticação NTLM?
 
-Não. O Gateway V2 de aplicação ainda não suporta pedidos de procuração com autenticação NTLM.
+N.º O Gateway V2 da Aplicação não suporta pedidos de procuração com autenticação NTLM.
 
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>O cookie de afinidade do Portal de Aplicação suporta o atributo SameSite?
 Sim, a [atualização v80](https://chromiumdash.appspot.com/schedule) do [navegador de Crómio](https://www.chromium.org/Home) introduziu um mandato em cookies HTTP sem atributo SameSite para ser tratado como SameSite=Lax. Isto significa que o cookie de afinidade Do Gateway de Aplicação não será enviado pelo navegador num contexto de terceiros. 
@@ -158,21 +158,21 @@ Sim, o Gateway de Aplicação v2 SKU suporta autoscaling. Para obter mais inform
 
 ### <a name="does-manual-or-automatic-scale-up-or-scale-down-cause-downtime"></a>A escala manual ou automática para cima ou para baixo causa tempo de inatividade?
 
-Não. As instâncias são distribuídas por domínios de atualização e domínios de falhas.
+N.º As instâncias são distribuídas por domínios de atualização e domínios de falhas.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>O Application Gateway suporta a drenagem da ligação?
 
-Yes. Pode configurar a drenagem de ligação para alterar os membros dentro de uma piscina de backend sem interrupções. Para obter mais informações, consulte [a secção de drenagem de ligação do Gateway de Aplicação](features.md#connection-draining).
+Sim. Pode configurar a drenagem de ligação para alterar os membros dentro de uma piscina de backend sem interrupções. Para obter mais informações, consulte [a secção de drenagem de ligação do Gateway de Aplicação](features.md#connection-draining).
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>Posso mudar o tamanho da instância de médio para grande sem perturbações?
 
-Yes.
+Sim.
 
 ## <a name="configuration"></a>Configuração
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>O Application Gateway está sempre implantado numa rede virtual?
 
-Yes. O Gateway de Aplicação é sempre implantado numa sub-rede de rede virtual. Esta sub-rede pode conter apenas portais de aplicação. Para obter mais informações, consulte [os requisitos de rede virtual e sub-rede.](./configuration-infrastructure.md#virtual-network-and-dedicated-subnet)
+Sim. O Gateway de Aplicação é sempre implantado numa sub-rede de rede virtual. Esta sub-rede pode conter apenas portais de aplicação. Para obter mais informações, consulte [os requisitos de rede virtual e sub-rede.](./configuration-infrastructure.md#virtual-network-and-dedicated-subnet)
 
 ### <a name="can-application-gateway-communicate-with-instances-outside-of-its-virtual-network-or-outside-of-its-subscription"></a>A Application Gateway pode comunicar com casos fora da sua rede virtual ou fora da sua subscrição?
 
@@ -180,7 +180,7 @@ Enquanto tiver conectividade IP, o Application Gateway pode comunicar com casos 
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>Posso colocar mais alguma coisa na sub-rede de gateway de aplicação?
 
-Não. Mas pode implementar outros gateways de aplicações na sub-rede.
+N.º Mas pode implementar outros gateways de aplicações na sub-rede.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Os grupos de segurança da rede são suportados na sub-rede de gateway de aplicação?
 
@@ -192,7 +192,7 @@ Consulte [as rotas definidas pelo utilizador suportadas na sub-rede Do Gateway d
 
 ### <a name="are-service-endpoint-policies-supported-in-the-application-gateway-subnet"></a>As políticas de ponto final de serviço são suportadas na sub-rede Application Gateway?
 
-Não. [As políticas de ponto final de serviço](../virtual-network/virtual-network-service-endpoint-policies-overview.md) para contas de armazenamento não são suportadas na sub-rede Do Gateway de Aplicação e a configuração irá bloquear o tráfego de infraestruturas Azure.
+N.º [As políticas de ponto final de serviço](../virtual-network/virtual-network-service-endpoint-policies-overview.md) para contas de armazenamento não são suportadas na sub-rede Do Gateway de Aplicação e a configuração irá bloquear o tráfego de infraestruturas Azure.
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Quais são os limites do Gateway de Aplicação? Posso aumentar estes limites?
 
@@ -200,11 +200,11 @@ Ver [limites de Gateway de Aplicação](../azure-resource-manager/management/azu
 
 ### <a name="can-i-simultaneously-use-application-gateway-for-both-external-and-internal-traffic"></a>Posso utilizar simultaneamente o Gateway de Aplicação para tráfego externo e interno?
 
-Yes. O Gateway de Aplicação suporta um IP interno e um IP externo por gateway de aplicação.
+Sim. O Gateway de Aplicação suporta um IP interno e um IP externo por gateway de aplicação.
 
 ### <a name="does-application-gateway-support-virtual-network-peering"></a>O Application Gateway suporta o espreitamento da rede virtual?
 
-Yes. O espreitamento de rede virtual ajuda o tráfego de equilíbrio de carga em outras redes virtuais.
+Sim. O espreitamento de rede virtual ajuda o tráfego de equilíbrio de carga em outras redes virtuais.
 
 ### <a name="can-i-talk-to-on-premises-servers-when-theyre-connected-by-expressroute-or-vpn-tunnels"></a>Posso falar com servidores no local quando estiverem ligados por túneis ExpressRoute ou VPN?
 
@@ -216,7 +216,7 @@ A arquitetura de microserviços é suportada. Para sondar diferentes portas, é 
 
 ### <a name="do-custom-probes-support-wildcards-or-regex-on-response-data"></a>As sondas personalizadas suportam wildcards ou regex em dados de resposta?
 
-Não. 
+N.º 
 
 ### <a name="how-are-routing-rules-processed-in-application-gateway"></a>Como são processadas as regras de encaminhamento no Application Gateway?
 
@@ -228,11 +228,11 @@ O campo Host especifica o nome para enviar a sonda para quando tiver configurado
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Posso permitir o acesso do Application Gateway a apenas alguns endereços IP de origem?
 
-Yes. Consulte [o acesso restrito a IPs de origem específica](./configuration-infrastructure.md#allow-access-to-a-few-source-ips).
+Sim. Consulte [o acesso restrito a IPs de origem específica](./configuration-infrastructure.md#allow-access-to-a-few-source-ips).
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>Posso usar o mesmo porto para ouvintes virados para o público e para os privados?
 
-Não.
+N.º
 
 ### <a name="does-application-gateway-support-ipv6"></a>O Application Gateway suporta o IPv6?
 
@@ -304,15 +304,15 @@ Para obter informações sobre como personalizar as opções TLS, consulte [vers
 
 ### <a name="does-application-gateway-support-reencryption-of-traffic-to-the-backend"></a>O Application Gateway suporta a reencriptação do tráfego para o backend?
 
-Yes. O Application Gateway suporta o descarregamento TLS e o TLS de ponta a ponta, que reencriptam o tráfego para o backend.
+Sim. O Application Gateway suporta o descarregamento TLS e o TLS de ponta a ponta, que reencriptam o tráfego para o backend.
 
 ### <a name="can-i-configure-tls-policy-to-control-tls-protocol-versions"></a>Posso configurar a política TLS para controlar as versões do protocolo TLS?
 
-Yes. Pode configurar o Gateway de aplicações para negar TLS1.0, TLS1.1 e TLS1.2. Por padrão, os SSL 2.0 e 3.0 já estão desativadas e não são configuráveis.
+Sim. Pode configurar o Gateway de aplicações para negar TLS1.0, TLS1.1 e TLS1.2. Por padrão, os SSL 2.0 e 3.0 já estão desativadas e não são configuráveis.
 
 ### <a name="can-i-configure-cipher-suites-and-policy-order"></a>Posso configurar suítes de cifra e ordem política?
 
-Yes. No Application Gateway, pode [configurar suítes cifras](application-gateway-ssl-policy-overview.md). Para definir uma política personalizada, ative pelo menos uma das seguintes suítes cifra. 
+Sim. No Application Gateway, pode [configurar suítes cifras](application-gateway-ssl-policy-overview.md). Para definir uma política personalizada, ative pelo menos uma das seguintes suítes cifra. 
 
 * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
@@ -454,7 +454,7 @@ No portal, na lâmina do menu de um gateway de aplicações, selecione **Registo
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>Posso definir alertas com o Application Gateway?
 
-Yes. No Gateway de Aplicação, os alertas são configurados em métricas. Para mais informações, consulte [as métricas do Gateway de Aplicação](./application-gateway-metrics.md) e [receba notificações de alerta.](../azure-monitor/platform/alerts-overview.md)
+Sim. No Gateway de Aplicação, os alertas são configurados em métricas. Para mais informações, consulte [as métricas do Gateway de Aplicação](./application-gateway-metrics.md) e [receba notificações de alerta.](../azure-monitor/platform/alerts-overview.md)
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Como analiso as estatísticas de tráfego do Application Gateway?
 

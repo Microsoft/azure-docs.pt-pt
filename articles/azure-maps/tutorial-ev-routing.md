@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Encaminhar veículos elétricos utilizando Cadernos Azure (Python) Microsoft Azure Maps'
+title: 'Tutorial: Encaminhe veículos elétricos utilizando cadernos Azure (Python) com Microsoft Azure Maps'
 description: Tutorial sobre como encaminhar veículos elétricos utilizando APIs e Azure Maps do Microsoft Azure Maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/12/2019
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 6dde7abef1769b9441c037f3727e7fd9d83ab172
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: f30b99a1d9c8303d5b2ed4b02819d0ca837946d2
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896823"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905745"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Encaminhe veículos elétricos utilizando cadernos Azure (Python)
 
@@ -50,7 +50,7 @@ Para obter mais informações sobre a autenticação no Azure Maps, consulte [a 
 Para acompanhar este tutorial, você precisa criar um projeto Azure Notebooks e baixar e executar o arquivo Jupyter Notebook. O ficheiro Jupyter Notebook contém código Python, que implementa o cenário neste tutorial. Para criar um projeto Azure Notebooks e enviar o documento do Jupyter Notebook para ele, faça os seguintes passos:
 
 1. Vá aos [Cadernos Azure](https://notebooks.azure.com) e inscreva-se. Para obter mais informações, consulte [Quickstart: Inicie e descreva um ID do utilizador](../notebooks/quickstart-sign-in-azure-notebooks.md).
-1. No topo da sua página de perfil público, selecione **My Projects** .
+1. No topo da sua página de perfil público, selecione **My Projects**.
 
     ![O botão My Projects](./media/tutorial-ev-routing/myproject.png)
 
@@ -62,7 +62,7 @@ Para acompanhar este tutorial, você precisa criar um projeto Azure Notebooks e 
  
     ![O painel de criar novos projetos](./media/tutorial-ev-routing/create-project-window.png)
 
-1. Selecione **Criar** .
+1. Selecione **Criar**.
 
 1. Após a criação do seu projeto, descarregue este [ficheiro de documento jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) do [repositório Azure Maps Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
 
@@ -70,26 +70,26 @@ Para acompanhar este tutorial, você precisa criar um projeto Azure Notebooks e 
 
     ![carregar Jupyter Notebook](./media/tutorial-ev-routing/upload-notebook.png)
 
-1. Faça o upload do ficheiro a partir do seu computador e, em seguida, selecione **Feito** .
+1. Faça o upload do ficheiro a partir do seu computador e, em seguida, selecione **Feito**.
 
 1. Depois de o upload ter terminado com sucesso, o seu ficheiro é apresentado na sua página do projeto. Clique duas vezes no ficheiro para abri-lo como um Caderno Jupyter.
 
 Tente entender a funcionalidade que é implementada no ficheiro Jupyter Notebook. Executar o código, no ficheiro do Caderno Jupyter, uma célula de cada vez. Pode executar o código em cada célula selecionando o botão **Executar** na parte superior da aplicação Jupyter Notebook.
 
-  ![Botão Executar](./media/tutorial-ev-routing/run.png)
+  ![O botão Executar](./media/tutorial-ev-routing/run.png)
 
 ## <a name="install-project-level-packages"></a>Instalar pacotes de nível de projeto
 
 Para executar o código no Jupyter Notebook, instale pacotes ao nível do projeto fazendo os seguintes passos:
 
 1. Descarregue o ficheiro [*requirements.txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) do [repositório do Azure Maps Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)e, em seguida, faça o upload para o seu projeto.
-1. No painel de instrumentos do projeto, selecione **Definições de Projeto** . 
-1. No painel **de Definições** do Projeto, selecione o **separador Ambiente** e, em seguida, selecione **Adicionar** .
+1. No painel de instrumentos do projeto, selecione **Definições de Projeto**. 
+1. No painel **de Definições** do Projeto, selecione o **separador Ambiente** e, em seguida, selecione **Adicionar**.
 1. Em **Etapas de Configuração do Ambiente,** faça o seguinte:   
-    a. Na primeira lista de drop-down, selecione **Requirements.txt** .  
+    a. Na primeira lista de drop-down, selecione **Requirements.txt**.  
     b. Na segunda lista de drop-down, selecione o seu ficheiro *requirements.txt.*  
     c. Na terceira lista de drop-down, selecione **Python Version 3.6** como a sua versão.
-1. Selecione **Guardar** .
+1. Selecione **Guardar**.
 
     ![Instalar pacotes](./media/tutorial-ev-routing/install-packages.png)
 
@@ -171,11 +171,11 @@ for loc in range(len(searchPolyResponse["results"])):
                 reachableLocations.append(location)
 ```
 
-## <a name="upload-the-reachable-range-and-charging-points-to-azure-maps-data-service"></a>Faça o upload da gama e pontos de carregamento alcançáveis para o Azure Maps Data Service
+## <a name="upload-the-reachable-range-and-charging-points-to-azure-maps-data-service-preview"></a>Faça o upload da gama e pontos de carregamento alcançáveis para o serviço de dados Azure Maps (Pré-visualização)
 
-Num mapa, você vai querer visualizar os postos de carregamento e o limite para a gama máxima alcançável do veículo elétrico. Para tal, faça o upload dos dados de fronteira e dos dados das estações de carregamento como objetos geojson para o Azure Maps Data Service. Utilize a [API de Upload de Dados.](/rest/api/maps/data/uploadpreview) 
+Num mapa, você vai querer visualizar os postos de carregamento e o limite para a gama máxima alcançável do veículo elétrico. Para tal, faça o upload dos dados de limites e dos dados das estações de carregamento como objetos geojson para o serviço de dados Azure Maps (Preview). Utilize a [API de Upload de Dados.](/rest/api/maps/data/uploadpreview) 
 
-Para carregar os dados de pontos de fronteira e de carregamento para o Azure Maps Data Service, execute as duas células seguintes:
+Para carregar os dados de pontos de fronteira e de carregamento para o serviço de dados Azure Maps, execute as duas células seguintes:
 
 ```python
 rangeData = {
@@ -194,7 +194,7 @@ rangeData = {
   ]
 }
 
-# Upload the range data to Azure Maps Data Service.
+# Upload the range data to Azure Maps Data service (Preview).
 uploadRangeResponse = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = rangeData)
 
 rangeUdidRequest = uploadRangeResponse.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
@@ -223,7 +223,7 @@ poiData = {
   ]
 }
 
-# Upload the electric vehicle charging station data to Azure Maps Data Service.
+# Upload the electric vehicle charging station data to Azure Maps Data service (Preview).
 uploadPOIsResponse = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = poiData)
 
 poiUdidRequest = uploadPOIsResponse.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
@@ -336,12 +336,12 @@ routeData = {
 
 ## <a name="visualize-the-route"></a>Visualizar a rota
 
-Para ajudar a visualizar a rota, primeiro carrece os dados da rota como um objeto geojson para o Azure Maps Data Service. Para tal, utilize a [API de Upload de Dados Azure](/rest/api/maps/data/uploadpreview)Maps . Em seguida, ligue para o serviço de renderização, [Obtenha a API de Imagem de Mapa,](/rest/api/maps/render/getmapimage)para tornar a rota no mapa e visualizá-la.
+Para ajudar a visualizar a rota, primeiro carrece os dados da rota como um objeto geojson para o serviço de dados Azure Maps (Preview). Para tal, utilize a [API de Upload de Dados Azure](/rest/api/maps/data/uploadpreview)Maps . Em seguida, ligue para o serviço de renderização, [Obtenha a API de Imagem de Mapa,](/rest/api/maps/render/getmapimage)para tornar a rota no mapa e visualizá-la.
 
 Para obter uma imagem para a rota renderizada no mapa, execute o seguinte script:
 
 ```python
-# Upload the route data to Azure Maps Data Service.
+# Upload the route data to Azure Maps Data service (Preview).
 routeUploadRequest = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = routeData)
 
 udidRequestURI = routeUploadRequest.headers["Location"]+"&subscription-key={}".format(subscriptionKey)

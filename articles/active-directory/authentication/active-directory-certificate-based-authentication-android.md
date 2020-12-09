@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd9f59dd75620f3a7b5c9142a4b8f73f75c5ee7b
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 1001d5524fe99783cda4d5b77bdaceacc6791848
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744487"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861378"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticação baseada em certificados Azure Ative Para Android
 
@@ -67,7 +67,7 @@ Como melhor prática, deve atualizar as páginas de erro ADFS da sua organizaç�
 Para obter mais informações, consulte [personalizar as páginas de inscrição do AD FS](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)).
 
 Algumas aplicações do Office (com autenticação moderna ativada) enviam '*prompt=login*' para Azure AD no seu pedido. Por padrão, a Azure AD traduz o *' prompt=login*' no pedido à ADFS como '*wauth=usernamepassworduri*' (pede à ADFS para fazer U/P Auth) e '*wfresh=0*' (pede à ADFS que ignore o estado SSO e faça uma nova autenticação). Se pretender ativar a autenticação baseada em certificados para estas aplicações, tem de modificar o comportamento AD Azure predefinido. Defina o '*PromptLoginBehavior*' nas definições de domínio federado para '*Desativado*'.
-Pode utilizar o [CMDlet MSOLDomainFederations](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) para executar esta tarefa:
+Pode utilizar o [CMDlet MSOLDomainFederations](/powershell/module/msonline/set-msoldomainfederationsettings) para executar esta tarefa:
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
 

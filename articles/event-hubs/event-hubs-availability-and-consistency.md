@@ -4,12 +4,12 @@ description: Como fornecer a quantidade máxima de disponibilidade e consistênc
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 774332b8f2d5c336f1a22d717516ae35a62b341f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81bacd5507396352bb814310979498234ee35347
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000639"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902906"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidade e consistência em Hubs de Eventos
 
@@ -40,7 +40,9 @@ Se criar um novo objeto **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs
 Para a utilização de casos que exijam o máximo de tempo de mente, este modelo é preferido.
 
 ## <a name="consistency"></a>Consistência
-Em alguns cenários, a ordenação dos acontecimentos pode ser importante. Por exemplo, pode querer que o seu sistema back-end processe um comando de atualização antes de um comando de eliminação. Neste caso, pode definir a chave de partição num evento ou usar um `PartitionSender` objeto (se estiver a utilizar a antiga biblioteca Microsoft.Azure.Messaging) para enviar apenas eventos para uma determinada partição. Ao fazê-lo, garante que, quando estes eventos são lidos a partir da partição, são lidos em ordem. Se estiver a utilizar a biblioteca **Azure.Messaging.EventHubs** e para obter mais informações, consulte o [código migratório de PartitionSender a EventHubProducerClient para a publicação de eventos para uma partição](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
+Em alguns cenários, a ordenação dos acontecimentos pode ser importante. Por exemplo, pode querer que o seu sistema back-end processe um comando de atualização antes de um comando de eliminação. Neste caso, pode definir a chave de partição num evento ou usar um `PartitionSender` objeto (se estiver a utilizar a antiga biblioteca Microsoft.Azure.Messaging) para enviar apenas eventos para uma determinada partição. Ao fazê-lo, garante que, quando estes eventos são lidos a partir da partição, são lidos em ordem. 
+
+Se estiver a utilizar a mais recente biblioteca **Azure.Messaging.EventHubs,** consulte o [código migratório de PartitionSender a EventHubProducerClient para a publicação de eventos para uma partição](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
 
 #### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure.Messaging.EventHubs (5.0.0 ou mais tarde)](#tab/latest)
 
@@ -143,4 +145,4 @@ Este exemplo envia o seu evento para uma das divisórias disponíveis no seu cen
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 * [Visão geral do serviço do Event Hubs](./event-hubs-about.md)
-* [Criar um hub de eventos](event-hubs-create.md)
+* [Criar um centro de eventos](event-hubs-create.md)

@@ -4,18 +4,18 @@ titleSuffix: Azure Maps
 description: 'Saiba mais sobre duas formas de autenticar pedidos no Azure Maps: autenticação de chaves partilhadas e autenticação do Azure Ative Directory (Azure AD).'
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/27/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: dc3792b5eff1b0ba51f5d7938e52e6914660109a
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d47e98273e696a4b6e827d8ebbc71a297f2861cb
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92889889"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905320"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticação com o Azure Maps
 
@@ -41,7 +41,7 @@ O Azure Maps aceita fichas de acesso **OAuth 2.0** para inquilinos AD Azure asso
 
 * Utilizadores da AD AZure
 * Aplicações de parceiros que utilizam permissões delegadas pelos utilizadores
-* Identidades geridas para os recursos do Azure
+* Identidades geridas dos recursos do Azure
 
 O Azure Maps gera um *identificador único (ID do cliente)* para cada conta Azure Maps. Pode solicitar fichas da Azure AD quando combinar este ID do cliente com parâmetros adicionais.
 

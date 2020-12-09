@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6c30dffbc8f97273ee59ce33ae3fe75ed730763
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: b2ce3b362d02e7acb0a11e6d93b8e94ca8e4d04e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356642"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903535"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Criar um novo pacote de acesso na gestão de direitos AD da Azure
 
@@ -67,7 +67,7 @@ Aqui estão os passos de alto nível para criar um novo pacote de acesso.
    
     ![Gestão de direitos no portal Azure](./media/entitlement-management-shared/access-packages-list.png)
 
-## <a name="basics"></a>Informações básicas
+## <a name="basics"></a>Noções básicas
 
 No **separador Básicos,** você dá ao pacote de acesso um nome e especifica qual catálogo para criar o pacote de acesso dentro
 
@@ -107,6 +107,9 @@ No separador **Funções de Recursos,** seleciona os recursos a incluir no pacot
 
 1. Clique em **Seguinte**.
 
+>[!NOTE]
+>Pode adicionar grupos dinâmicos a um catálogo e a um pacote de acesso. No entanto, poderá selecionar apenas a função Proprietário ao gerir um recurso de grupo dinâmico num pacote de acesso.
+
 ## <a name="requests"></a>Pedidos
 
 No separador **Pedidos,** cria a primeira política para especificar quem pode solicitar o pacote de acesso e também as definições de aprovação. Mais tarde, pode criar mais políticas de pedido para permitir que grupos adicionais de utilizadores solicitem o pacote de acesso com as suas próprias definições de aprovação.
@@ -141,7 +144,7 @@ Também pode criar um pacote de acesso utilizando o Microsoft Graph.  Um utiliza
 1. [Criar um accessPackageAssignmentPolicy](/graph/api/accesspackageassignmentpolicy-post?tabs=http&view=graph-rest-beta).
 1. [Crie um AccessPackageResourceRoleScope](/graph/api/accesspackage-post-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta) para cada função de recurso necessária no pacote de acesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Partilhar link para solicitar um pacote de acesso](entitlement-management-access-package-settings.md)
 - [Alterar funções de recursos para um pacote de acesso](entitlement-management-access-package-resources.md)

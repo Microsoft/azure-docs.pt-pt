@@ -18,12 +18,12 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 25f3402864e2ba873ce63acb6cedcd3f2ea018f7
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9ff923d0231a1b00493a54996c2fcd489012bbe7
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123137"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862042"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlets do Azure AD PowerShell para relatórios
 
@@ -36,7 +36,7 @@ Para instalar o lançamento de pré-visualização pública, utilize o seguinte.
 Install-module AzureADPreview
 ```
 
-Para obter mais informações sobre como ligar-se ao Azure AD usando o PowerShell, consulte o artigo [Azure AD PowerShell para gráfico](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
+Para obter mais informações sobre como ligar-se ao Azure AD usando o PowerShell, consulte o artigo [Azure AD PowerShell para gráfico](/powershell/azure/active-directory/install-adv2).  
 
 Com relatórios do Azure Ative Directory (Azure AD), pode obter detalhes sobre todas as atividades em torno de todas as operações de escrita na sua direção (registos de auditoria) e dados de autenticação (registos de login). Embora a informação esteja disponível utilizando a API do Ms Graph, agora pode recuperar os mesmos dados utilizando os cmdlets Azure AD PowerShell para reporte.
 

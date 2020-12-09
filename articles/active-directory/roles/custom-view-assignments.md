@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c1e46fd55cd7beda931db2e24cc2210753ee26f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: dd887862a2571f4ffaeab9cf1ae42801df779ed0
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180409"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862110"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Ver atribuições de funções personalizadas no Azure Ative Directory
 
@@ -39,7 +39,7 @@ Este procedimento descreve atribuições de visualização de um papel com âmbi
 
 ## <a name="view-role-assignments-using-azure-ad-powershell"></a>Ver atribuições de funções usando Azure AD PowerShell
 
-Esta secção descreve atribuições de visualização de um papel com âmbito de organização. Este artigo utiliza o módulo [Azure Ative Directory PowerShell Version 2.](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) Para visualizar as atribuições de âmbito de aplicação única utilizando o PowerShell, pode utilizar os cmdlets em [Atribuir funções personalizadas com PowerShell](./custom-assign-powershell.md).
+Esta secção descreve atribuições de visualização de um papel com âmbito de organização. Este artigo utiliza o módulo [Azure Ative Directory PowerShell Version 2.](/powershell/module/azuread/#directory_roles) Para visualizar as atribuições de âmbito de aplicação única utilizando o PowerShell, pode utilizar os cmdlets em [Atribuir funções personalizadas com PowerShell](./custom-assign-powershell.md).
 
 ### <a name="prepare-powershell"></a>Preparar PowerShell
 

@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 012e155737b9251827c668b3a9cacbbe8d59ae77
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 42f01b140a44d7aa6d75dece9a4398fd7b41bf5a
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411359"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905116"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Resolver problemas de consultas ao utilizar o Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -196,9 +196,7 @@ Pode adicionar propriedades à política de indexação a qualquer momento, sem 
 
 ### <a name="understand-which-system-functions-use-the-index"></a>Entenda quais as funções do sistema que usam o índice
 
-Se uma expressão pode ser traduzida para uma gama de valores de corda, pode usar o índice. Caso contrário, não pode.
-
-Aqui está a lista de algumas funções de cordas comuns que podem usar o índice:
+A maioria das funções do sistema usam índices. Aqui está uma lista de algumas funções de cordas comuns que usam índices:
 
 - STARTWITH (str_expr1, str_expr2, bool_expr)  
 - CONTÉM (str_expr, str_expr, bool_expr)
@@ -214,7 +212,26 @@ Seguem-se algumas funções comuns do sistema que não utilizam o índice e deve
 
 ------
 
-Outras partes da consulta podem ainda usar o índice, mesmo que as funções do sistema não o utilizem.
+Se uma função do sistema utilizar índices e ainda tiver uma carga RU elevada, pode tentar adicionar `ORDER BY` à consulta. Em alguns casos, a adição `ORDER BY` pode melhorar a utilização do índice de função do sistema, especialmente se a consulta for de longa duração ou se estende por várias páginas.
+
+Por exemplo, considere a consulta abaixo com `CONTAINS` . `CONTAINS` deve usar um índice, mas imaginemos que, depois de adicionar o índice relevante, ainda observa uma carga RU muito alta ao executar a consulta abaixo:
+
+Consulta original:
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+```
+
+Consulta atualizada `ORDER BY` com:
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+ORDER BY c.town
+```
 
 ### <a name="understand-which-aggregate-queries-use-the-index"></a>Entenda quais consultas agregadas usam o índice
 

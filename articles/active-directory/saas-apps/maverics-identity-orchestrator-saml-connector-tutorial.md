@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: jeedes
-ms.openlocfilehash: f4fe368e9a56e5ac4c9dfa2648ce4af15a1b5ac0
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: a4bfe2b87f3f2242189a78d9a31a89d82720fd37
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684445"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862076"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Tutorial: Integre o single sign-on do Azure AD com o Conector SAML, orquestrador de identidade Maverics
 
@@ -165,7 +165,7 @@ Pode configurar um cofre de chaves Azure utilizando o portal Azure ou o Azure CL
 
 **Utilizar a CLI do Azure**
 
-1. Abra o [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)e, em seguida, insira o seguinte comando:
+1. Abra o [Azure CLI](/cli/azure/install-azure-cli)e, em seguida, insira o seguinte comando:
 
     ```shell
     az login
@@ -217,7 +217,7 @@ Pode configurar um cofre de chaves Azure utilizando o portal Azure ou o Azure CL
 
 1. Introduza o **Sinal no URL** no seguinte formato: `https://<AZURE-COMPANY.COM>/<MY_APP>/<LOGIN PAGE>` . 
 
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
 1. Na secção **Certificado de Assinatura SAML,** selecione o botão **Copiar** para copiar o URL **de metadados da Federação de Aplicações** e guarde-o para o seu computador.
 

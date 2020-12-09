@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c208da657d30d4a0f5b6f171693c5c6abc2b358b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0671d3dec963c0b475133881b00224cfe11e8370
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649188"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861649"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Desativar as insuposições do utilizador para uma aplicação da empresa no Azure Ative Directory
 
@@ -39,7 +39,7 @@ ms.locfileid: "94649188"
 
 ## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Use a Azure AD PowerShell para desativar uma aplicação não cotada
 
-Se conhece o AppId de uma aplicação que não aparece na lista de aplicações da Enterprise (por exemplo, porque apagou a aplicação ou o principal de serviço ainda não foi criado devido à pré-autorização da app pela Microsoft), pode criar manualmente o principal do serviço para a aplicação e depois desativá-la utilizando o [cmdlet AzureAD PowerShell](/powershell/module/azuread/New-AzureADServicePrincipal?view=azureadps-2.0).
+Se conhece o AppId de uma aplicação que não aparece na lista de aplicações da Enterprise (por exemplo, porque apagou a aplicação ou o principal de serviço ainda não foi criado devido à pré-autorização da app pela Microsoft), pode criar manualmente o principal do serviço para a aplicação e depois desativá-la utilizando o [cmdlet AzureAD PowerShell](/powershell/module/azuread/New-AzureADServicePrincipal).
 
 ```PowerShell
 # The AppId of the app to be disabled
@@ -56,7 +56,7 @@ if ($servicePrincipal) {
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ver todos os meus grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Atribuir um utilizador ou grupo a uma aplicação empresarial](assign-user-or-group-access-portal.md)

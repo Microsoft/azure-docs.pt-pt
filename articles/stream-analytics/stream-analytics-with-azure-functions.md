@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: 291586bc2e34784a7bbf29016ea1da35d51e844b
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: bb2eb36e4116c17efb20946b0da4586678838f3b
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489952"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862008"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutorial: Executar funções Azure a partir de trabalhos Azure Stream Analytics 
 
@@ -47,7 +47,7 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
 
 1. Criar uma cache em Cache Azure para Redis utilizando os passos descritos na [Criar uma cache](../azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
 
-2. Depois de criar a cache em **Definições** , selecione **Chaves de Acesso**. Anote a **Cadeia de ligação primária**.
+2. Depois de criar a cache em **Definições**, selecione **Chaves de Acesso**. Anote a **Cadeia de ligação primária**.
 
    ![Screenshot de Azure Cache para fio de ligação Redis](./media/stream-analytics-with-azure-functions/image2.png)
 
@@ -131,7 +131,7 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
 
    ```
  
-4. Regresse ao portal do Azure. A partir do separador **Funcionalidades da plataforma** , navegue até à sua função. Em **Ferramentas de Desenvolvimento** , selecione **Editor do Serviço de Aplicações**. 
+4. Regresse ao portal do Azure. A partir do separador **Funcionalidades da plataforma**, navegue até à sua função. Em **Ferramentas de Desenvolvimento**, selecione **Editor do Serviço de Aplicações**. 
  
    ![O Screenshot mostra o separador de funcionalidades da Plataforma com o Editor de Serviço de Aplicações selecionado.](./media/stream-analytics-with-azure-functions/image3.png)
 
@@ -195,7 +195,9 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
 Se ocorrer uma falha durante o envio de eventos para as Funções Azure, o Stream Analytics retrição na maioria das operações. Todas as exceções http são novamente julgadas até ao sucesso, com exceção do erro http 413 (entidade demasiado grande). Uma entidade demasiado grande é tratada como um erro de dados que está sujeito à [política de re-tentativa ou de abandono.](stream-analytics-output-error-policy.md)
 
 > [!NOTE]
-> O tempo limite para pedidos HTTP de Stream Analytics para Funções Azure está definido para 100 segundos. Se a sua aplicação Azure Functions demorar mais de 100 segundos a processar um lote, o Stream Analytics falha.
+> O tempo limite para pedidos HTTP de Stream Analytics para Funções Azure está definido para 100 segundos. Se a sua aplicação Azure Functions demorar mais de 100 segundos a processar um lote, o Stream Analytics falha e vai voltar a recorrer ao lote.
+
+A reagem aos intervalos pode resultar em eventos duplicados escritos na pia de saída. Quando stream Analytics recauchutado para um lote falhado, ele retrimba para todos os eventos no lote. Por exemplo, considere um lote de 20 eventos que são enviados para as Funções Azure da Stream Analytics. Assuma que as Funções Azure demoram 100 segundos a processar os primeiros 10 eventos nesse lote. Após o passe de 100 segundos, o Stream Analytics suspende o pedido uma vez que não recebeu uma resposta positiva da Azure Functions, e outro pedido é enviado para o mesmo lote. Os primeiros 10 eventos no lote são processados novamente pela Azure Functions, o que provoca uma duplicação. 
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -205,12 +207,12 @@ A utilização do [encaminhamento HTTP](/sandbox/functions-recipes/routes?tabs=c
 
 O suporte para ligar às Funções Azure hospedadas numa rede virtual não está ativado.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, a tarefa de transmissão em fluxo e todos os recursos relacionados. A eliminação da tarefa evita a faturação das unidades de transmissão em fluxo consumidas pela tarefa. Se estiver a planear utilizar a tarefa no futuro, pode pará-la e reiniciá-la mais tarde, quando for necessário. Se não quiser continuar a utilizar esta tarefa, elimine todos os recursos criados por este início rápido ao utilizar os seguintes passos:
 
 1. No menu do lado esquerdo do portal do Azure, clique em **Grupos de recursos** e, em seguida, clique no nome de recurso que criou.  
-2. Na página do grupo de recursos, clique em **Eliminar** , escreva o nome do recurso a eliminar na caixa de texto e, em seguida, clique em **Eliminar**.
+2. Na página do grupo de recursos, clique em **Eliminar**, escreva o nome do recurso a eliminar na caixa de texto e, em seguida, clique em **Eliminar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

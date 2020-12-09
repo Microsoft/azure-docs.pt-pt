@@ -3,12 +3,12 @@ title: Prontidão de produção e boas práticas - Azure
 description: Este artigo fornece orientações sobre como configurar e implementar o módulo Live Video Analytics em ambientes de produção.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 215427e3524861a842349b197668d92167960e5c
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87071944"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906340"
 ---
 # <a name="production-readiness-and-best-practices"></a>Prontidão de produção e boas práticas
 
@@ -62,9 +62,9 @@ Em seguida, no manifesto de implantação, pode definir as variáveis de ambient
 
 O módulo Live Video Analytics no IoT Edge requer a capacidade de escrever ficheiros para o sistema de ficheiros local quando:
 
-* Utilizando uma propriedade twin módulo [[applicationDataDirectory],](module-twin-configuration-schema.md#module-twin-properties)onde deve especificar um diretório no sistema de ficheiros local para armazenar dados de configuração.
+* Utilizando uma propriedade twin [`applicationDataDirectory`](module-twin-configuration-schema.md#module-twin-properties) módulo, onde deve especificar um diretório no sistema de ficheiros local para armazenar dados de configuração.
 * Utilizando um gráfico de mídia para gravar vídeo na nuvem, o módulo requer a utilização de um diretório no dispositivo de borda como cache (ver artigo [de gravação contínua](continuous-video-recording-concept.md) de vídeo para obter mais informações).
-* [Gravação num ficheiro local](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources), onde deve especificar um caminho de arquivo para o vídeo gravado.
+* [Gravação num ficheiro local,](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources)onde deve especificar um caminho de ficheiro para o vídeo gravado.
 
 Se pretender utilizar qualquer um dos acima, deve garantir que a conta de utilizador acima tem acesso ao diretório relevante. Considere a aplicaçãoDataDirectory, por exemplo. Pode criar um diretório no dispositivo de borda e ligar o armazenamento do dispositivo ao armazenamento do módulo. 
 
@@ -124,7 +124,7 @@ Para os ativos gerados por gravação de vídeo baseados em eventos, o padrão d
 Se estiver a executar várias instâncias do mesmo gráfico, pode usar o nome de topologia do gráfico e o nome da instância para diferenciar. Como exemplo, pode definir o activoNamePattern na pia do ativo da seguinte forma:
 
 ```
-"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName} -${System.DateTime}"
+"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName}-${System.DateTime}"
 ```
 
 Para os videoclips de mp4 gerados por vídeo baseados em eventos na borda, o padrão de nomeação recomendado deve incluir DateTime e, para várias instâncias do mesmo gráfico, recomendar a utilização das variáveis do sistema GraphTopologyName e GraphInstanceName. Como exemplo, pode definir filePathPattern na pia de ficheiro da seguinte forma: 

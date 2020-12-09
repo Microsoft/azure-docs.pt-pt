@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-js, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 9c204a07e3c5edff028342af1c88b15ebac0754b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 25d5aa3961ad5dabd29ab4501d8f5076362d9df8
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012225"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862277"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutorial: Construa uma aplicação Node.js e MongoDB em Azure
 
@@ -47,11 +47,12 @@ O que irá aprender:
 
 Para concluir este tutorial:
 
-1. [Instalar o Git](https://git-scm.com/)
-2. [Instale o Node.js e o NPM](https://nodejs.org/)
-3. [Instalar Bower](https://bower.io/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
-4. [Instalar Gulp.js](https://gulpjs.com/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
-5. [Instalar e executar a Edição de Comunidade do MongoDB](https://docs.mongodb.com/manual/administration/install-community/) 
+- [Instalar o Git](https://git-scm.com/)
+- [Instale o Node.js e o NPM](https://nodejs.org/)
+- [Instalar Bower](https://bower.io/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+- [Instalar Gulp.js](https://gulpjs.com/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+- [Instalar e executar a Edição Comunitária mongoDB](https://docs.mongodb.com/manual/administration/install-community/)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)] 
 
 ## <a name="test-local-mongodb"></a>Testar MongoDB local
 
@@ -112,8 +113,6 @@ Selecione **Administrador > Gerir Artigos** para adicionar alguns artigos.
 
 Para parar o Node.js em qualquer altura, prima `Ctrl+C` no terminal. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="create-production-mongodb"></a>Criar produção do MongoDB
 
 Neste passo, vai criar uma Base de Dados MongoDB no Azure. Quando a aplicação for implementada no Azure, utiliza esta base de dados na cloud.
@@ -124,7 +123,7 @@ Para o MongoDB, este tutorial utiliza o [Azure Cosmos DB](/azure/documentdb/). O
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)] 
 
-### <a name="create-a-cosmos-db-account"></a>Criar uma conta do Cosmos DB
+### <a name="create-a-cosmos-db-account"></a>Criar uma conta do Cosmos DB
 
 > [!NOTE]
 > A criação das bases de dados do Azure Cosmos DB na sua própria subscrição do Azure neste tutorial não acarreta custos. Para utilizar uma conta gratuita do Azure Cosmos DB durante sete dias, pode utilizar a experiência [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/). Basta clicar no botão **Criar** no mosaico MongoDB para criar uma base de dados do MongoDB gratuita no Azure. Após a criação da base de dados, navegue para a **cadeia de ligação** no portal e obtenha a cadeia de ligação do Azure Cosmos DB para utilizar mais à frente no tutorial.
@@ -306,7 +305,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (5/5), done.
 Writing objects: 100% (5/5), 489 bytes | 0 bytes/s, done.
 Total 5 (delta 3), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id '6c7c716eee'.
 remote: Running custom deployment command...
@@ -317,7 +316,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
- * [new branch]      master -> master
+ * [new branch]      main -> main
 </pre>
 
 Poderá reparar que o processo de implementação executa o [Gulp](https://gulpjs.com/) depois de `npm install`. O Serviço de Aplicações não executa tarefas do Gulp ou do Grunt durante a implementação, pelo que este repositório de exemplo tem dois ficheiros adicionais no diretório raiz para a permitir: 
@@ -468,7 +467,7 @@ Na janela terminal local, consolide as suas alterações no Git e envie as alter
 
 ```bash
 git commit -am "added article comment"
-git push azure master
+git push azure main
 ```
 
 Assim que a `git push` conclusão estiver concluída, navegue para a sua app Azure e experimente a nova funcionalidade.

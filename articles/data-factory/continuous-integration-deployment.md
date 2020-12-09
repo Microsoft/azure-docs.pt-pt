@@ -1,5 +1,5 @@
 ---
-title: Integração contínua e entrega na Azure Data Factory
+title: Integração e entrega contínuas no Azure Data Factory
 description: Aprenda a usar a integração contínua e a entrega para mover os oleodutos data factory de um ambiente (desenvolvimento, teste, produção) para outro.
 services: data-factory
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: a7d392412aa481d9541cd4987cfb4c18d04dafa0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 84e156074d6db837556ba4ed9febdb43bcdf3318
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500160"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902328"
 ---
-# <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração contínua e entrega na Azure Data Factory
+# <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -235,7 +235,7 @@ Seguem-se algumas diretrizes a seguir quando criar o ficheiro de parâmetros per
       * `-` significa não manter o valor padrão para o parâmetro.
       * `|` é um caso especial para segredos do Azure Key Vault para cordas de ligação ou chaves.
    * `<name>` é o nome do parâmetro. Se estiver em branco, tem o nome da propriedade. Se o valor começar com um `-` personagem, o nome é encurtado. Por exemplo, `AzureStorage1_properties_typeProperties_connectionString` seria encurtado para `AzureStorage1_connectionString` .
-   * `<stype>` é o tipo de parâmetro. Se `<stype>` estiver em branco, o tipo predefinido é `string` . Valores apoiados: `string` , , , e `bool` `number` `object` `securestring` .
+   * `<stype>` é o tipo de parâmetro. Se `<stype>` estiver em branco, o tipo predefinido é `string` . Valores apoiados: `string` , , , , e `securestring` `int` `bool` `object` `secureobject` `array` .
 * Especificar uma matriz no ficheiro de definição indica que a propriedade correspondente no modelo é uma matriz. A Data Factory itera através de todos os objetos da matriz utilizando a definição especificada no objeto de execução de integração da matriz. O segundo objeto, uma corda, torna-se o nome da propriedade, que é usada como o nome para o parâmetro para cada iteração.
 * Uma definição não pode ser específica para uma instância de recursos. Qualquer definição aplica-se a todos os recursos desse tipo.
 * Por padrão, todas as cordas seguras, como os segredos do Cofre de Chaves, e cordas seguras, como cordas de ligação, chaves e fichas, são parametrizadas.
@@ -250,7 +250,7 @@ Aqui está um exemplo de como um modelo de parametrização pode parecer:
         "properties": {
             "activities": [{
                 "typeProperties": {
-                    "waitTimeInSeconds": "-::number",
+                    "waitTimeInSeconds": "-::int",
                     "headers": "=::object"
                 }
             }]
@@ -268,7 +268,7 @@ Aqui está um exemplo de como um modelo de parametrização pode parecer:
             "typeProperties": {
                 "recurrence": {
                     "*": "=",
-                    "interval": "=:triggerSuffix:number",
+                    "interval": "=:triggerSuffix:int",
                     "frequency": "=:-freq"
                 },
                 "maxConcurrency": "="
@@ -317,7 +317,7 @@ Aqui está uma explicação de como o modelo anterior é construído, dividido p
 #### <a name="triggers"></a>Acionadores
 
 * Em `typeProperties` baixo, duas propriedades são parametrizadas. O primeiro é `maxConcurrency` , que é especificado para ter um valor padrão e é de tipo `string` . Tem o nome de parâmetro `<entityName>_properties_typeProperties_maxConcurrency` padrão.
-* A `recurrence` propriedade também é parametrizada. Sob ele, todas as propriedades a esse nível são especificadas para serem parametrizadas como cordas, com valores padrão e nomes de parâmetros. Uma exceção é a `interval` propriedade, que é parametrizada como `number` tipo. O nome do parâmetro é sufixado com `<entityName>_properties_typeProperties_recurrence_triggerSuffix` . Da mesma forma, a `freq` propriedade é uma corda e é parametrizada como uma corda. No entanto, a `freq` propriedade é parametrizada sem um valor padrão. O nome é encurtado e sufixado. Por exemplo, `<entityName>_freq`.
+* A `recurrence` propriedade também é parametrizada. Sob ele, todas as propriedades a esse nível são especificadas para serem parametrizadas como cordas, com valores padrão e nomes de parâmetros. Uma exceção é a `interval` propriedade, que é parametrizada como `int` tipo. O nome do parâmetro é sufixado com `<entityName>_properties_typeProperties_recurrence_triggerSuffix` . Da mesma forma, a `freq` propriedade é uma corda e é parametrizada como uma corda. No entanto, a `freq` propriedade é parametrizada sem um valor padrão. O nome é encurtado e sufixado. Por exemplo, `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
@@ -325,7 +325,7 @@ Aqui está uma explicação de como o modelo anterior é construído, dividido p
 * A `connectionString` propriedade será parametrizada como um `securestring` valor. Não terá um valor padrão. Terá um nome de parâmetro encurtado que é sufixado com `connectionString` .
 * A propriedade `secretAccessKey` passa a ser um `AzureKeyVaultSecret` (por exemplo, num serviço ligado ao Amazon S3). É automaticamente parametrizado como um cofre de chave Azure e recolhido do cofre de chaves configurado. Também pode parametrizar o cofre da chave em si.
 
-#### <a name="datasets"></a>Conjuntos de Dados
+#### <a name="datasets"></a>Conjuntos de dados
 
 * Embora a personalização específica do tipo esteja disponível para conjuntos de dados, pode fornecer configuração sem ter explicitamente uma \* configuração de nível. No exemplo anterior, todas as propriedades do conjunto de `typeProperties` dados são parametrizadas.
 
@@ -668,7 +668,7 @@ Se estiver a utilizar a integração do Git com a sua fábrica de dados e tiver 
     - As entidades da fábrica de dados dependem umas das outras. Por exemplo, os gatilhos dependem de oleodutos e os gasodutos dependem de conjuntos de dados e outros oleodutos. A publicação seletiva de um subconjunto de recursos pode levar a comportamentos e erros inesperados.
     - Em raras ocasiões, quando precisar de publicação seletiva, considere usar um hotfix. Para mais informações, consulte [o ambiente de produção da Hotfix.](#hotfix-production-environment)
 
-- A equipa da Azure Data Factory não recomenda a atribuição de controlos Azure RBAC a entidades individuais (oleodutos, conjuntos de dados, etc. ) numa fábrica de dados. Por exemplo, se um desenvolvedor tiver acesso a um pipeline ou a um conjunto de dados, deve ser capaz de aceder a todos os oleodutos ou conjuntos de dados na fábrica de dados. Se sente que precisa implementar muitas funções do Azure dentro de uma fábrica de dados, veja a implementação de uma segunda fábrica de dados.
+- A equipa da Azure Data Factory não recomenda a atribuição de controlos Azure RBAC a entidades individuais (oleodutos, conjuntos de dados, etc. ) numa fábrica de dados. Por exemplo, se um programador tiver acesso a um pipeline ou um conjunto de dados, deverá conseguir aceder a todos os pipelines ou conjuntos de dados na fábrica de dados. Se sente que precisa implementar muitas funções do Azure dentro de uma fábrica de dados, veja a implementação de uma segunda fábrica de dados.
 
 -   Não pode publicar de agências privadas.
 

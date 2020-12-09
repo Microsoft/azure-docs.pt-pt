@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/10/2019
 ms.custom: mvc
-ms.openlocfilehash: 706f3913e25eca6240c186e45709faf6c77620bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1aa3ae5be3e9f3fb50909cb5311d167bbeee647
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324578"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904232"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Monitore e alerte para a saúde da aplicação com insights de aplicação Azure
 
@@ -28,7 +28,7 @@ Saiba como:
 
 Para concluir este tutorial:
 
-Criar um [recurso Application Insights](./dotnetcore-quick-start.md#enable-application-insights).
+Criar um [recurso Application Insights](../app/create-new-resource.md).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 

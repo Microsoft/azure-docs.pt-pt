@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: d7b198790b1ecc884321ad42c97eb5cf0c239b7e
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: ee4dc945f63180fd06f13287b22949d0ac1e3873
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95241986"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862025"
 ---
 # <a name="analyze-with-apache-spark"></a>Analise com Faísca Apache
 
@@ -23,7 +23,7 @@ ms.locfileid: "95241986"
 
 Neste tutorial, você vai aprender os passos básicos para carregar e analisar dados com Apache Spark para Azure Synapse.
 
-1. No centro **de dados,** clique em **Adicionar um novo recurso**(mais botão acima do **Linked**)  >> **Browse Samples**. 
+1. No centro **de dados,** clique em **Adicionar um novo recurso**(mais botão acima do **Linked**)  >> **galeria Browse**. 
 1. Encontre **a Comissão de Táxis & Limousine da NYC - registos amarelos de viagem** de táxi e clique nele. 
 1. Na parte inferior da página prima **Continue** e depois adicione **conjunto de dados**. 
 1. Agora no centro **de dados** sob o clique direito **ligado** no **Azure Blob Storage >> Sample Datasets >> nyc_tlc_yellow** e selecione Novo **caderno**
@@ -109,7 +109,7 @@ val df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
 df.write.sqlanalytics("SQLPOOL1.dbo.PassengerCountStats", Constants.INTERNAL )
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Analisar dados com piscina SQL sem servidor](get-started-analyze-sql-on-demand.md)

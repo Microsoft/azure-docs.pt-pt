@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/23/2020
-ms.openlocfilehash: eaccd0559439ce228325205f5845151f0e76bcae
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a8e2d77ff3c7cb2e4352b21cd87d630331e28660
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484530"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906153"
 ---
 # <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Conceitos de conectividade e networking para Azure Database for MySQL - Servidor Flexível (Pré-visualização)
 
@@ -107,6 +107,8 @@ Considere os seguintes pontos quando o acesso à Base de Dados do Microsoft Azur
 
    * Peça ao seu Fornecedor de Serviços de Internet (ISP) para o intervalo de endereços IP atribuído aos seus computadores clientes que acedam à Base de Dados Azure para o MySQL Server e, em seguida, adicione o intervalo de endereço IP como regra de firewall.
    * Obtenha endereço IP estático em vez dos computadores clientes e, em seguida, adicione o endereço IP estático como regra de firewall.
+  
+* **A regra de firewall não está disponível para o formato IPv6:** As regras de firewall devem estar no formato IPv4. Se especificar as regras de firewall no formato IPv6, apresentará o erro de validação.
 
 
 ## <a name="hostname"></a>Hostname (Nome do anfitrião)

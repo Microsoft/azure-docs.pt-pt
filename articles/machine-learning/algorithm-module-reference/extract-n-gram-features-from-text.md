@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/01/2019
-ms.openlocfilehash: c4d9c7c2cb7a0a86824a373f1b64044b6dcd6c20
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 12/08/2019
+ms.openlocfilehash: 37a10d90fa0e277fbe45d9f1377e365cb3d42996
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420806"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861465"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Extrair características N-Gram da referência do módulo de texto
 
@@ -28,7 +28,7 @@ O módulo suporta os seguintes cenários para a utilização de um dicionário n
 
 * [Utilize um conjunto de funcionalidades de texto existente](#use-an-existing-n-gram-dictionary) para apresentar uma coluna de texto gratuita.
 
-* [Marque ou publique um modelo](#score-or-publish-a-model-that-uses-n-grams) que use n-gramas.
+* [Marque ou desloque um modelo](#build-inference-pipeline-that-uses-n-grams-to-deploy-a-real-time-endpoint) que utilize n-gramas.
 
 ### <a name="create-a-new-n-gram-dictionary"></a>Criar um novo dicionário n-grama
 
@@ -44,15 +44,15 @@ O módulo suporta os seguintes cenários para a utilização de um dicionário n
 
 1. **Função de ponderação** especifica como construir o vetor de recursos documentais e como extrair vocabulário de documentos.
 
-    * **Peso binário** : Atribui um valor de presença binária aos n-gramas extraídos. O valor para cada n-grama é 1 quando existe no documento, e 0 de outra forma.
+    * **Peso binário**: Atribui um valor de presença binária aos n-gramas extraídos. O valor para cada n-grama é 1 quando existe no documento, e 0 de outra forma.
 
-    * **Peso TF** : Atribui uma pontuação de frequência de termo (TF) às n-gramas extraídas. O valor para cada n-grama é a sua frequência de ocorrência no documento.
+    * **Peso TF**: Atribui uma pontuação de frequência de termo (TF) às n-gramas extraídas. O valor para cada n-grama é a sua frequência de ocorrência no documento.
 
-    * **Peso IDF** : Atribui uma pontuação inversa de frequência documental (IDF) às n-gramas extraídas. O valor para cada n-grama é o log do tamanho do corpus dividido pela sua frequência de ocorrência em todo o corpus.
+    * **Peso IDF**: Atribui uma pontuação inversa de frequência documental (IDF) às n-gramas extraídas. O valor para cada n-grama é o log do tamanho do corpus dividido pela sua frequência de ocorrência em todo o corpus.
     
       `IDF = log of corpus_size / document_frequency`
  
-    *  **Peso TF-IDF** : Atribui uma pontuação de frequência/documento inverso (TF/IDF) à nota n-gramas extraída. O valor para cada n-gram é a sua pontuação TF multiplicada pela sua pontuação IDF.
+    *  **Peso TF-IDF**: Atribui uma pontuação de frequência/documento inverso (TF/IDF) à nota n-gramas extraída. O valor para cada n-gram é a sua pontuação TF multiplicada pela sua pontuação IDF.
 
 1. Desa esta medida o **comprimento mínimo** da palavra para o número mínimo de letras que podem ser utilizadas numa *única palavra* num n-grama.
 
@@ -94,36 +94,42 @@ O módulo suporta os seguintes cenários para a utilização de um dicionário n
 
 1.  Envie o oleoduto.
 
-### <a name="score-or-publish-a-model-that-uses-n-grams"></a>Marque ou publique um modelo que use n-gramas
+### <a name="build-inference-pipeline-that-uses-n-grams-to-deploy-a-real-time-endpoint"></a>Construa um gasoduto de inferência que utilize n-grams para implantar um ponto final em tempo real
 
-1.  Copie as **funcionalidades Extract N-Gram do** módulo de texto do fluxo de dados de treino para o fluxo de dados de pontuação.
+Um gasoduto de treino que contém **extrato n-gramas recurso do** modelo de texto e **pontuação** para fazer a previsão no conjunto de dados de teste, é construído na seguinte estrutura:
 
-1.  Ligue a saída do **Vocabulário de Resultado** do fluxo de dados de formação ao Input **Vocabulary** no fluxo de dados de pontuação.
+:::image type="content" source="./media/module/extract-n-gram-training-pipeline-score-model.png" alt-text="Extrair exemplo do gasoduto de treinamento N-Grams" border="true":::
 
-1.  No fluxo de trabalho de pontuação, modifique as características extratos N-Gram do módulo de texto e desajuste o parâmetro **do modo Vocabulário** para **ReadOnly**. Deixe tudo o resto na mesma.
+**O modo vocabulário** do extrato circulado **N-Grams Recurso do** módulo de texto é **Criar,** e o **modo vocabulário** do módulo que se conecta ao módulo **'Modelo de Pontuação'** é **ReadOnly**.
 
-1.  Para publicar o pipeline, guarde **o Result Vocabulary** como um conjunto de dados.
+Depois de submeter o gasoduto de treino acima com sucesso, pode registar a saída do módulo circulado como conjunto de dados.
 
-1.  Ligue o conjunto de dados guardado às funcionalidades Extract N-Gram do módulo de texto no seu gráfico de pontuação.
+:::image type="content" source="./media/module/extract-n-gram-output-voc-register-dataset.png" alt-text="conjunto de dados de registo" border="true":::
+
+Então pode criar um pipeline de inferência em tempo real. Depois de criar o gasoduto de inferência, tem de ajustar manualmente o seu gasoduto de inferência como se seguisse:
+
+:::image type="content" source="./media/module/extract-n-gram-inference-pipeline.png" alt-text="gasoduto de inferência" border="true":::
+
+Em seguida, submeta o gasoduto de inferência e implante um ponto final em tempo real.
 
 ## <a name="results"></a>Resultados
 
 As funcionalidades extrato N-Gram do módulo de texto criam dois tipos de saída: 
 
-* **Conjunto de dados de resultados** : Esta saída é um resumo do texto analisado combinado com os n-gramas extraídos. As colunas que não selecionou na opção **coluna Texto** são transmitidas para a saída. Para cada coluna de texto que analisa, o módulo gera estas colunas:
+* **Conjunto de dados de resultados**: Esta saída é um resumo do texto analisado combinado com os n-gramas extraídos. As colunas que não selecionou na opção **coluna Texto** são transmitidas para a saída. Para cada coluna de texto que analisa, o módulo gera estas colunas:
 
-  * **Matriz de ocorrências de n-gram** : O módulo gera uma coluna para cada n-grama encontrada no corpus total e adiciona uma pontuação em cada coluna para indicar o peso do n-grama para essa linha. 
+  * **Matriz de ocorrências de n-gram**: O módulo gera uma coluna para cada n-grama encontrada no corpus total e adiciona uma pontuação em cada coluna para indicar o peso do n-grama para essa linha. 
 
-* **Vocabulário de resultados** : O vocabulário contém o dicionário de n-grama real, juntamente com as pontuações de frequência do termo que são geradas como parte da análise. Pode guardar o conjunto de dados para reutilização com um conjunto diferente de entradas ou para uma atualização posterior. Também pode reutilizar o vocabulário para modelar e pontuar.
+* **Vocabulário de resultados**: O vocabulário contém o dicionário de n-grama real, juntamente com as pontuações de frequência do termo que são geradas como parte da análise. Pode guardar o conjunto de dados para reutilização com um conjunto diferente de entradas ou para uma atualização posterior. Também pode reutilizar o vocabulário para modelar e pontuar.
 
 ### <a name="result-vocabulary"></a>Vocabulário de resultados
 
 O vocabulário contém o dicionário n-gram com as pontuações de frequência do termo que são geradas como parte da análise. As pontuações df e IDF são geradas independentemente de outras opções.
 
-+ **ID** : Um identificador gerado para cada n-grama único.
-+ **NGram** : O n-gram. Espaços ou outros separadores de palavras são substituídos pelo caráter de sublinhado.
-+ **DF** : A pontuação de frequência de termo para o n-grama no corpus original.
-+ **IDF** : A pontuação inversa da frequência do documento para o n-grama no corpus original.
++ **ID**: Um identificador gerado para cada n-grama único.
++ **NGram**: O n-gram. Espaços ou outros separadores de palavras são substituídos pelo caráter de sublinhado.
++ **DF**: A pontuação de frequência de termo para o n-grama no corpus original.
++ **IDF**: A pontuação inversa da frequência do documento para o n-grama no corpus original.
 
 Pode atualizar manualmente este conjunto de dados, mas pode introduzir erros. Por exemplo:
 

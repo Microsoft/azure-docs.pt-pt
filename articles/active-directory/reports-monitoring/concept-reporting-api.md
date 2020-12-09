@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf2e3f98bd96c09fe741a24a1332443c876e2e61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af448d5d28c5add39176500b988824b17f85b9fb
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89225915"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861974"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Começar com o Diretório Ativo Azure reportando API
 
@@ -47,7 +47,7 @@ Para obter instruções detalhadas, consulte os [pré-requisitos para aceder ao 
 
 ## <a name="api-endpoints"></a>Pontos finais da API 
 
-O ponto final da Microsoft Graph API para registos de auditoria é `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` e o ponto final da Microsoft Graph API para iniciar sessão é `https://graph.microsoft.com/v1.0/auditLogs/signIns` . Para obter mais informações, consulte a [referência da API](/graph/api/resources/directoryaudit?view=graph-rest-1.0) de auditoria e [a referência API de acesso](/graph/api/resources/signIn?view=graph-rest-1.0)a sinal .
+O ponto final da Microsoft Graph API para registos de auditoria é `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` e o ponto final da Microsoft Graph API para iniciar sessão é `https://graph.microsoft.com/v1.0/auditLogs/signIns` . Para obter mais informações, consulte a [referência da API](/graph/api/resources/directoryaudit) de auditoria e [a referência API de acesso](/graph/api/resources/signIn)a sinal .
 
 Além disso, pode utilizar a [API de deteção de risco de Proteção de Identidade](/graph/api/resources/identityriskevent?view=graph-rest-beta) para obter acesso programático a deteções de segurança utilizando o Microsoft Graph. Para obter mais informações, consulte [Começar com a Azure Ative Directory Identity Protection e microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md). 
   

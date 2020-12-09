@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/24/2020
-ms.openlocfilehash: c0d0e3154360d787bfc2072c5ae1fe878fa1d138
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.date: 12/08/2020
+ms.openlocfilehash: 49e4a6f7f8c268669a94796257d5740ec6f4e6ff
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96003667"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902090"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copiar e transformar dados em Snowflake utilizando a Azure Data Factory
 
@@ -159,7 +159,7 @@ Para copiar dados de Snowflake, as seguintes propriedades são suportadas na sec
 
 Se a sua loja de dados e formato de lavatório satisfaçam os critérios descritos nesta secção, pode utilizar a atividade Copy para copiar diretamente de Snowflake para afundar. A Data Factory verifica as definições e falha a atividade copy executada se os seguintes critérios não forem cumpridos:
 
-- O **serviço ligado à pia** é o armazenamento [**Azure Blob**](connector-azure-blob-storage.md) com autenticação de assinatura de acesso **partilhado.**
+- O **serviço ligado à pia** é o armazenamento [**Azure Blob**](connector-azure-blob-storage.md) com autenticação de assinatura de acesso **partilhado.** Se pretender copiar diretamente os dados para a Azure Data Lake Storage Gen2 no seguinte formato suportado, pode criar um serviço ligado a Azure Blob com autenticação SAS contra a sua conta ADLS Gen2, para evitar a utilização [de cópias encenadas do Snowflake.](#staged-copy-from-snowflake)
 
 - O formato de **dados** da pia é de **Parquet,** **texto delimitado,** ou **JSON** com as seguintes configurações:
 
@@ -173,7 +173,6 @@ Se a sua loja de dados e formato de lavatório satisfaçam os critérios descrit
         - `compression` não pode ser **compressões,** **gzip,** **bzip2,** ou **esvaziar**.
         - `encodingName` é deixado como padrão ou definido para **utf-8**.
         - `filePattern` na pia de atividade de cópia é deixada como padrão ou definida para **definirOfObjects**.
-
 - Na fonte de atividade de cópia, `additionalColumns` não é especificado.
 - O mapeamento da coluna não é especificado.
 
@@ -290,7 +289,7 @@ Para copiar dados para Snowflake, as seguintes propriedades são suportadas na s
 
 Se a sua loja de dados de origem e formato satisfaçam os critérios descritos nesta secção, pode utilizar a atividade Copy para copiar diretamente da fonte para Snowflake. A Azure Data Factory verifica as definições e falha a atividade copy executada se os seguintes critérios não forem cumpridos:
 
-- O **serviço ligado à fonte** é o armazenamento [**Azure Blob**](connector-azure-blob-storage.md) com autenticação de assinatura de acesso **partilhado.**
+- O **serviço ligado à fonte** é o armazenamento [**Azure Blob**](connector-azure-blob-storage.md) com autenticação de assinatura de acesso **partilhado.** Se pretender copiar diretamente os dados da Azure Data Lake Storage Gen2 no seguinte formato suportado, pode criar um serviço ligado a Azure Blob com autenticação SAS contra a sua conta ADLS Gen2, para evitar a utilização  [de cópia encenada para Snowflake](#staged-copy-to-snowflake)..
 
 - O **formato de dados de origem** é **Parquet,** **Texto Delimitado,** ou **JSON** com as seguintes configurações:
 

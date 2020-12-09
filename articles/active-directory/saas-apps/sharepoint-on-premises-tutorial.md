@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 1a52fc28d99e0f072323e5042257baec9bf98ecb
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a693b22c609829f3bf6e76637eac5793d73703e6
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518387"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862314"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-sharepoint-on-premises"></a>Tutorial: Azure Ative Directory integração única com SharePoint no local
 
@@ -48,7 +48,7 @@ Para adicionar SharePoint no local da galeria:
    > [!NOTE]
    > Se o elemento não estiver disponível, também pode abri-lo através da ligação **todos os serviços** na parte superior do painel mais à esquerda. Na seguinte visão geral, o link **Azure Ative Directory** está localizado na secção **Identidade.** Também pode pesquisar utilizando a caixa de filtros.
 
-1. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+1. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
 1. Para adicionar uma nova aplicação, selecione **Nova aplicação** na parte superior da caixa de diálogo.
 
@@ -133,7 +133,7 @@ Para configurar a Azure AD SSO com o SharePoint no local:
     Executar os seguintes comandos para configurar um novo fornecedor de identidade de confiança.
 
     > [!TIP]
-    > Se é novo a usar o PowerShell ou quer saber mais sobre o funcionamento do PowerShell, consulte [o SharePoint PowerShell](/powershell/sharepoint/overview?view=sharepoint-ps).
+    > Se é novo a usar o PowerShell ou quer saber mais sobre o funcionamento do PowerShell, consulte [o SharePoint PowerShell](/powershell/sharepoint/overview).
 
 
     ```
@@ -152,7 +152,7 @@ Para configurar a Azure AD SSO com o SharePoint no local:
 
     1. Na fita, selecione **Fornecedores de Autenticação** e escolha a zona que pretende utilizar.
 
-    1. Selecione **o fornecedor de Identidade Fidedigna**e selecione o fornecedor de identificação que acabou de registar-se chamado *AzureAD*.
+    1. Selecione **o fornecedor de Identidade Fidedigna** e selecione o fornecedor de identificação que acabou de registar-se chamado *AzureAD*.
 
     1. Selecione **OK**.
 
@@ -186,7 +186,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure.
 
 1. Selecione **Novo grupo**.
 
-1. Preencha as caixas **tipo grupo**, nome **de grupo,** **descrição do grupo**e tipo de **membro.** Selecione as setas para selecionar membros e, em seguida, procure ou selecione os membros que pretende adicionar ao grupo. Escolha **Selecione** para adicionar os membros selecionados e, em seguida, **selecione Criar**.
+1. Preencha as caixas **tipo grupo**, nome **de grupo,** **descrição do grupo** e tipo de **membro.** Selecione as setas para selecionar membros e, em seguida, procure ou selecione os membros que pretende adicionar ao grupo. Escolha **Selecione** para adicionar os membros selecionados e, em seguida, **selecione Criar**.
 
 ![Criar um grupo de segurança do Azure AD](./media/sharepoint-on-premises-tutorial/new-group.png)
 

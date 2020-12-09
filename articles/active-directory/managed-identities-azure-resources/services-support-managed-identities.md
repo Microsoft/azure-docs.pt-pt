@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: c77f0e93e9f0084f335df39d2878871d66af0aac
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2da0407f848b0795414b071b9e082c7ed60a633d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498035"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861889"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos da Azure
 
@@ -45,8 +45,8 @@ Consulte a seguinte lista para configurar a identidade gerida para a Gestão API
 
 | Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Sistema atribuído | ![Disponível][check] | ![Disponível][check] | Não Disponível | Não Disponível |
-| Utilizador atribuído | ![Disponível][check] | ![Disponível][check]  | Não Disponível  | Não Disponível |
+| Sistema atribuído | ![Disponível][check] | ![Disponível][check] | Não Disponível | ![Disponível][check] |
+| Utilizador atribuído | ![Disponível][check] | ![Disponível][check]  | Não Disponível  | ![Disponível][check] |
 
 Consulte a seguinte lista para configurar a identidade gerida para a configuração da aplicação Azure (nas regiões onde disponível):
 
@@ -190,7 +190,7 @@ Consulte a seguinte lista para configurar a identidade gerida para as funções 
 - [Azure PowerShell](../../app-service/overview-managed-identity.md#using-azure-powershell)
 - [Modelo Azure Resource Manager](../../app-service/overview-managed-identity.md#using-an-azure-resource-manager-template)
 
-### <a name="azure-iot-hub"></a>Azure IoT Hub
+### <a name="azure-iot-hub"></a>Hub IoT do Azure
 
 Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -252,7 +252,7 @@ Consulte a seguinte lista para configurar a identidade gerida para a Política A
 
 - [Portal do Azure](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
-- [CLI do Azure](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
+- [CLI do Azure](/cli/azure/policy/assignment#az-policy-assignment-create)
 - [Modelos de gestor de recursos Azure](/azure/templates/microsoft.authorization/policyassignments)
 - [REST](/rest/api/resources/policyassignments/create)
 
@@ -274,7 +274,7 @@ Consulte a seguinte lista para configurar a identidade gerida para aplicações 
 
 | Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Sistema atribuído | ![Disponível][check] | Não Disponível | Não Disponível | Não Disponível |
+| Sistema atribuído | ![Disponível][check] | Não Disponível | Não Disponível | ![Disponível][check] |
 | Utilizador atribuído | Não Disponível | Não Disponível | Não Disponível | Não Disponível |
 
 
@@ -396,7 +396,7 @@ Consulte a seguinte lista para configurar o acesso ao Azure Resource Manager:
 | Azure Alemanha |   | Não Disponível |
 | Azure China 21Vianet |  | Não Disponível |
 
-### <a name="azure-service-bus"></a>Azure Service Bus
+### <a name="azure-service-bus"></a>Service Bus do Azure
 
 | Cloud | ID do Recurso | Estado |
 |--------|------------|:-:|

@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 34f43d51bf0df488e04605f7f7c77e9c6dcfe9a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56d2aa9f7aa36808774876ac0f5cfc596887ff26
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374087"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906391"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Localizar imagens de VM do Linux no Azure Marketplace com o CLI do Azure
 
@@ -22,6 +22,45 @@ Navegue também nas imagens disponíveis e nas ofertas utilizando a montra do [A
 Certifique-se de que instalou o mais recente [Azure CLI](/cli/azure/install-azure-cli) e está registado numa conta Azure ( `az login` ).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
+
+
+## <a name="deploy-from-a-vhd-using-purchase-plan-parameters"></a>Implementar a partir de um VHD usando parâmetros do plano de compra
+
+Se tiver um VHD existente que foi criado usando uma imagem paga do Azure Marketplace, poderá ter de fornecer informações sobre o plano de compra quando criar um novo VM a partir desse VHD. 
+
+Se ainda tiver o VM original, ou outro VM criado usando a mesma imagem de mercado, pode obter o nome do plano, editor e informações do produto usando [a visão de exemplo de exemplo az vm.](/cli/azure/vm#az_vm_get_instance_view) Este exemplo obtém um VM nomeado *myVM* no grupo de recursos *myResourceGroup* e, em seguida, exibe as informações do plano de compra.
+
+```azurepowershell-interactive
+az vm get-instance-view -g myResourceGroup -n myVM --query plan
+```
+
+Se não tiver a informação do plano antes da vm original ser eliminada, pode apresentar um pedido de [apoio](https://ms.portal.azure.com/#create/Microsoft.Support). Precisarão do nome VM, id de assinatura e do carimbo de tempo da operação de eliminação.
+
+Uma vez que tenha a informação do plano, pode criar o novo VM usando o `--attach-os-disk` parâmetro para especificar o VHD.
+
+```azurecli-interactive
+az vm create \
+   --resource-group myResourceGroup \
+  --name myNewVM \
+  --nics myNic \
+  --size Standard_DS1_v2 --os-type Linux \
+  --attach-os-disk myVHD \
+  --plan-name planName \
+  --plan-publisher planPublisher \
+  --plan-product planProduct 
+```
+
+## <a name="deploy-a-new-vm-using-purchase-plan-parameters"></a>Implementar um novo VM utilizando parâmetros do plano de compra
+
+Se já tiver informações sobre a imagem, pode implantá-la usando o `az vm create` comando. Neste exemplo, implementamos um VM com o RabbitMQ Certificado pela imagem Bitnami:
+
+```azurecli
+az group create --name myResourceGroupVM --location westus
+
+az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
+```
+
+Se receber uma mensagem sobre a aceitação dos termos da imagem, consulte a secção [Aceite os termos](#accept-the-terms) mais tarde neste artigo.
 
 ## <a name="list-popular-images"></a>Listar imagens populares
 
@@ -325,7 +364,7 @@ Resultado:
 }
 ```
 
-### <a name="accept-the-terms"></a>Aceitar os termos
+## <a name="accept-the-terms"></a>Aceitar os termos
 
 Para visualizar e aceitar os termos da licença, utilize o comando [de aceitação de termos de aceitação de imagem az vm.](/cli/azure/vm/image?) Quando aceita os termos, ativa a implementação programática na sua subscrição. Só precisa de aceitar termos uma vez por subscrição para a imagem. Por exemplo:
 
@@ -350,16 +389,6 @@ A saída inclui um `licenseTextLink` nos termos da licença, e indica que o valo
   "signature": "XXXXXXLAZIK7ZL2YRV5JYQXONPV76NQJW3FKMKDZYCRGXZYVDGX6BVY45JO3BXVMNA2COBOEYG2NO76ONORU7ITTRHGZDYNJNXXXXXX",
   "type": "Microsoft.MarketplaceOrdering/offertypes"
 }
-```
-
-### <a name="deploy-using-purchase-plan-parameters"></a>Implementar usando parâmetros do plano de compra
-
-Depois de aceitar os termos para a imagem, pode implementar um VM na subscrição. Para implementar a imagem utilizando o `az vm create` comando, forneça parâmetros para o plano de compra, além de uma URN para a imagem. Por exemplo, para implementar um VM com o RabbitMQ Certificado pela imagem Bitnami:
-
-```azurecli
-az group create --name myResourceGroupVM --location westus
-
-az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

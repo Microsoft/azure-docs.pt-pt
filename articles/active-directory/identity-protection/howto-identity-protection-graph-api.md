@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e16f33cb8aa7c6ceeb1398dd23ccba31b5f936b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5367e5027bfae2fa3ed7e87a779e50e4048ba608
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776141"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861736"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Começa com a Azure Ative Directory Identity Protection e o Microsoft Graph
 
@@ -58,7 +58,7 @@ Existem quatro passos para aceder aos dados de Proteção de Identidade através
 1. A partir da **Aplicação** que criou, selecione **permissões API.**
 1. Na página de **permissões configuradas,** na barra de ferramentas na parte superior, clique em **Adicionar uma permissão**.
 1. Na página **de acesso API,** clique em **Selecionar uma API.**
-1. Na página **Select a API,** selecione **o Microsoft Graph**e, em seguida, clique em **Select**.
+1. Na página **Select a API,** selecione **o Microsoft Graph** e, em seguida, clique em **Select**.
 1. Na página de permissões da **API do Pedido:** 
    1. Selecione **permissões de aplicação**.
    1. Selecione as caixas de verificação ao lado `IdentityRiskEvent.Read.All` e `IdentityRiskyUser.Read.All` .
@@ -173,4 +173,4 @@ Para obter informações relacionadas, consulte:
 - [Tipos de deteções de risco detetadas pela Azure Ative Directory Identity Protection](./overview-identity-protection.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
 - [Descrição Geral do Microsoft Graph](https://developer.microsoft.com/graph/docs)
-- [Raiz do serviço de proteção de identidade Azure Ad](/graph/api/resources/identityprotectionroot?view=graph-rest-1.0)
+- [Raiz do serviço de proteção de identidade Azure Ad](/graph/api/resources/identityprotectionroot)

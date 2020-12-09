@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cdf89fa3281e070d6b1ac762d30d7c391f4126f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: bf91c9e081bff9860153b342648fedc0990b68b9
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963645"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862062"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -142,7 +142,7 @@ Em | Pode fazer
 
 ### <a name="compliance-data-administrator"></a>[Administrador de Dados de Conformidade](#compliance-data-administrator-permissions)
 
-Os utilizadores com esta função têm permissões para rastrear dados no centro de conformidade Microsoft 365, Microsoft 365 admin center e Azure. Os utilizadores também podem rastrear dados de conformidade dentro do centro de administração Exchange, Compliance Manager e Teams & Skype for Business e criar bilhetes de suporte para Azure e Microsoft 365. [Esta documentação](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center?view=o365-worldwide#permissions-needed-to-use-features-in-the-security--compliance-center) tem detalhes sobre diferenças entre o Administrador de Conformidade e o Administrador de Dados de Conformidade.
+Os utilizadores com esta função têm permissões para rastrear dados no centro de conformidade Microsoft 365, Microsoft 365 admin center e Azure. Os utilizadores também podem rastrear dados de conformidade dentro do centro de administração Exchange, Compliance Manager e Teams & Skype for Business e criar bilhetes de suporte para Azure e Microsoft 365. [Esta documentação](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) tem detalhes sobre diferenças entre o Administrador de Conformidade e o Administrador de Dados de Conformidade.
 
 Em | Pode fazer
 ----- | ----------
@@ -317,7 +317,7 @@ Os utilizadores com a função de Utilizador de Comércio Moderno normalmente t�
 
 **Quando é atribuída a função de Utilizador do Comércio Moderno?**
 
-* **A compra de self-service no Microsoft 365 admin center** – A compra de self-service dá aos utilizadores a oportunidade de experimentar novos produtos comprando ou inscrevendo-se por conta própria. Estes produtos são geridos no centro de administração. Os utilizadores que fazem uma compra de self-service são atribuídos a um papel no sistema de comércio, e o papel de Utilizador do Comércio Moderno para que possam gerir as suas compras no centro de administração. Os administradores podem bloquear as compras de self-service (para Power BI, Power Apps, Power automat) através [do PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Para obter mais informações, veja [Self-service purchase FAQ](/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide) (FAQ da compra personalizada).  
+* **A compra de self-service no Microsoft 365 admin center** – A compra de self-service dá aos utilizadores a oportunidade de experimentar novos produtos comprando ou inscrevendo-se por conta própria. Estes produtos são geridos no centro de administração. Os utilizadores que fazem uma compra de self-service são atribuídos a um papel no sistema de comércio, e o papel de Utilizador do Comércio Moderno para que possam gerir as suas compras no centro de administração. Os administradores podem bloquear as compras de self-service (para Power BI, Power Apps, Power automat) através [do PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell). Para obter mais informações, veja [Self-service purchase FAQ](/microsoft-365/commerce/subscriptions/self-service-purchase-faq) (FAQ da compra personalizada).  
 * **Compras no mercado comercial da Microsoft**  – Semelhante à compra de self-service, quando um utilizador compra um produto ou serviço ao Microsoft AppSource ou ao Azure Marketplace, a função de Utilizador de Comércio Moderno é atribuída se não tiver o papel de administrador global ou de administração billing. Em alguns casos, os utilizadores podem estar impedidos de fazer estas compras. Para mais informações, consulte [o mercado comercial da Microsoft.](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase)
 * **Propostas da Microsoft**  – Uma proposta é uma oferta formal da Microsoft para a sua organização comprar produtos e serviços da Microsoft. Quando a pessoa que está a aceitar a proposta não tem um papel de administrador global ou de administração billing em Azure AD, é-lhes atribuído um papel específico do comércio para completar a proposta e o papel de Utilizador do Comércio Moderno para aceder ao centro de administração. Quando acedem ao centro de administração, só podem usar funcionalidades que são autorizadas pelo seu papel específico do comércio.
 * **Funções específicas do comércio** – Alguns utilizadores têm funções específicas do comércio. Se um utilizador não for um administrador global ou de faturação, obtém o papel de Utilizador do Comércio Moderno para que possa aceder ao centro de administração.  

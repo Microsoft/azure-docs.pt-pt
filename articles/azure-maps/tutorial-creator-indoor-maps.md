@@ -1,21 +1,27 @@
 ---
-title: 'Tutorial: Use Creator para criar mapas interiores'
-description: Tutorial sobre como usar o Criador de Mapas Azure para criar mapas interiores
+title: 'Tutorial: Use o Microsoft Azure Maps Creator (Preview) para criar mapas interiores'
+description: Tutorial sobre como usar o Microsoft Azure Maps Creator (Preview) para criar mapas interiores
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/22/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 80d61e69b5e8d666406c378c2d3fece28c822491
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: eab8a2729209bb0023662b652f862b4fa678470e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896784"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905728"
 ---
-# <a name="tutorial-use-creator-to-create-indoor-maps"></a>Tutorial: Use Creator para criar mapas interiores
+# <a name="tutorial-use-creator-preview-to-create-indoor-maps"></a>Tutorial: Use Creator (Preview) para criar mapas interiores
+
+> [!IMPORTANT]
+> Os serviços do Azure Maps Creator estão atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
 
 Este tutorial mostra-lhe como criar mapas interiores. Neste tutorial, você aprenderá a usar a API para:
 
@@ -34,7 +40,7 @@ Para criar mapas interiores:
 
 1. [Faça uma conta Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtenha uma chave de subscrição primária,](quick-demo-map-app.md#get-the-primary-key-for-your-account)também conhecida como a chave primária ou a chave de subscrição.
-3. [Criar um recurso Criador](how-to-manage-creator.md)
+3. [Criar um recurso Criador (Pré-visualização)](how-to-manage-creator.md)
 4. Descarregue o [pacote sample drawing](https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip).
 
 Este tutorial usa a aplicação [Do Carteiro,](https://www.postman.com/) mas você pode escolher um ambiente de desenvolvimento de API diferente.
@@ -48,9 +54,9 @@ Utilize a [API de upload de dados](/rest/api/maps/data/uploadpreview) para carre
 
 A API de Data Upload é uma transação de longa duração que implementa o padrão definido aqui. Assim que a operação estiver concluída, usaremos o `udid` para aceder ao pacote carregado para convertê-lo. Siga os passos abaixo para obter o `udid` .
 
-1. Abra a aplicação do Carteiro. Perto do topo da aplicação Postman, selecione **New** . Na janela **Criar Nova,** selecione **Coleção** .  Nomeie a coleção e selecione o botão **Criar.**
+1. Abra a aplicação do Carteiro. Perto do topo da aplicação Postman, selecione **New**. Na janela **Criar Nova,** selecione **Coleção**.  Nomeie a coleção e selecione o botão **Criar.**
 
-2. Para criar o pedido, selecione **New** novamente. Na janela **Criar Novo,** selecione **Request** . Insira um **nome de Pedido** para o pedido. Selecione a coleção criada no passo anterior e, em seguida, **selecione Guardar** .
+2. Para criar o pedido, selecione **New** novamente. Na janela **Criar Novo,** selecione **Request**. Insira um **nome de Pedido** para o pedido. Selecione a coleção criada no passo anterior e, em seguida, **selecione Guardar**.
 
 3. Selecione o método **POST** HTTP no separador construtor e introduza o seguinte URL para carregar o pacote Drawing para o serviço Azure Maps. Para este pedido, e outros pedidos mencionados neste artigo, `{Azure-Maps-Primary-Subscription-key}` substitua-o pela sua chave de subscrição primária.
 
@@ -58,7 +64,7 @@ A API de Data Upload é uma transação de longa duração que implementa o padr
     https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-4. No **separador Cabeçalhos,** especifique um valor para a `Content-Type` chave. A embalagem de desenho é uma pasta com fecho, por isso use o `application/octet-stream` valor. No **separador Corpo,** selecione **binário** . Clique em **Select File** e escolha um pacote de desenho.
+4. No **separador Cabeçalhos,** especifique um valor para a `Content-Type` chave. A embalagem de desenho é uma pasta com fecho, por isso use o `application/octet-stream` valor. No **separador Corpo,** selecione **binário**. Clique em **Select File** e escolha um pacote de desenho.
 
      ![gestão de dados](./media/tutorial-creator-indoor-maps/enter-content-type-dialog.png)
 
@@ -102,7 +108,7 @@ A API de Data Upload é uma transação de longa duração que implementa o padr
 
  Agora que o pacote de desenho está carregado, usaremos `udid` para o pacote carregado para converter o pacote em dados de mapa. A API de Conversão utiliza uma transação de longa duração que implementa o padrão definido [aqui.](creator-long-running-operation.md) Assim que a operação estiver concluída, usaremos o `conversionId` para aceder aos dados convertidos. Siga os passos abaixo para obter o `conversionId` .
 
-1. Selecione **Nova** . Na janela **Criar Novo,** selecione **Request** . Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar** .
+1. Selecione **Nova**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**.
 
 2. Selecione o método **POST** HTTP no separador construtor e introduza o seguinte URL para converter o seu pacote de desenho carregado em dados de mapa. Use o `udid` para o pacote carregado.
 
@@ -111,7 +117,7 @@ A API de Data Upload é uma transação de longa duração que implementa o padr
     ```
 
     >[!IMPORTANT]
-    > Os urls API neste documento podem ter de ser ajustados de acordo com a localização do seu recurso Criador. Para mais detalhes, consulte [Acesso aos Serviços de Criador.](how-to-manage-creator.md#access-to-creator-services)
+    > Os urls API neste documento podem ter de ser ajustados de acordo com a localização do seu recurso Criador. Para mais detalhes, consulte [os serviços de Acesso ao Criador (Pré-visualização) ](how-to-manage-creator.md#access-to-creator-services).
 
 3. Clique no botão **Enviar** e aguarde que o pedido processe. Assim que o pedido estiver concluído, vá ao **separador Cabeçalhos** da resposta e procure a chave **localização.** Copie o valor da chave **Localização,** que é o `status URL` pedido de conversão. Vais usar isto no próximo passo.
 
@@ -166,7 +172,7 @@ A amostra Desenhada deve ser convertida sem erros ou avisos. No entanto, se rece
 
 O conjunto de dados é uma coleção de características do mapa, tais como edifícios, níveis e quartos. Para criar um conjunto de dados, utilize o [Conjunto de Dados Criar API](/rest/api/maps/dataset/createpreview). O conjunto de dados Create API leva o `conversionId` pacote de desenho convertido e devolve um dos `datasetId` conjuntos de dados criados. Os passos abaixo mostram-lhe como criar um conjunto de dados.
 
-1. Na aplicação Do Carteiro, selecione **New** . Na janela **Criar Novo,** selecione **Request** . Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
+1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
 
 2. Faça um pedido **DE** POST ao [Conjunto de Dados Criar API](/rest/api/maps/dataset/createpreview) para criar um novo conjunto de dados. Antes de submeter o pedido, apedte a sua chave de subscrição e `conversionId` a com a obtida durante o processo de Conversão no passo `conversionId` 5.  O pedido deve parecer-se com o seguinte URL:
 
@@ -197,7 +203,7 @@ O conjunto de dados é uma coleção de características do mapa, tais como edif
 
 Um azulejo é um conjunto de azulejos vetoriais que prestam no mapa. Os tilesets são criados a partir de conjuntos de dados existentes. No entanto, um teesto é independente do conjunto de dados a partir do qual foi obtido. Se o conjunto de dados for eliminado, o teset continuará a existir. Para criar um teesto, siga os passos abaixo:
 
-1. Na aplicação Do Carteiro, selecione **New** . Na janela **Criar Novo,** selecione **Request** . Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
+1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
 
 2. Faça um pedido **DEM** na conta do construtor. O URL do pedido deve parecer-se com o seguinte URL:
 
@@ -226,7 +232,7 @@ Um azulejo é um conjunto de azulejos vetoriais que prestam no mapa. Os tilesets
 
  Conjuntos de dados podem ser consultados usando  [a API WFS](/rest/api/maps/wfs). Com a API WFS pode consultar-se para coleções de funcionalidades, uma coleção específica ou uma funcionalidade específica com um **ID de** recurso. O **ID de** funcionalidade identifica exclusivamente a funcionalidade dentro do conjunto de dados. É usado, por exemplo, para identificar que estado de recurso deve ser atualizado em um determinado estado.
 
-1. Na aplicação Do Carteiro, selecione **New** . Na janela **Criar Novo,** selecione **Request** . Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
+1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
 
 2. Faça um pedido **GET** para visualizar uma lista das coleções no seu conjunto de dados. `<dataset-id>`Substitua-a pela sua `datasetId` . Utilize a sua chave primária Azure Maps em vez do espaço reservado. O pedido deve parecer-se com o seguinte URL:
 
@@ -302,7 +308,7 @@ Um azulejo é um conjunto de azulejos vetoriais que prestam no mapa. Os tilesets
 
 ## <a name="create-a-feature-stateset"></a>Criar um estadoet de recurso
 
-1. Na aplicação Do Carteiro, selecione **New** . Na janela **Criar Novo,** selecione **Request** . Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
+1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
 
 2. Faça um pedido **de CORREIO** à [API Create Stateset](/rest/api/maps/featurestate/createstatesetpreview). Utilize o `datasetId` conjunto de dados que contém o estado que pretende modificar. O pedido deve parecer-se com o seguinte URL:
 
@@ -310,7 +316,7 @@ Um azulejo é um conjunto de azulejos vetoriais que prestam no mapa. Os tilesets
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Nos **Cabeçalhos** do pedido **DOM,** definido `Content-Type` para `application/json` . No **Corpo** , forneça os estilos abaixo para refletir alterações ao `occupied` e `temperature` *estados.* Quando terminar, clique em **Enviar.**
+3. Nos **Cabeçalhos** do pedido **DOM,** definido `Content-Type` para `application/json` . No **Corpo**, forneça os estilos abaixo para refletir alterações ao `occupied` e `temperature` *estados.* Quando terminar, clique em **Enviar.**
 
     ```json
     {
@@ -404,7 +410,7 @@ Um azulejo é um conjunto de azulejos vetoriais que prestam no mapa. Os tilesets
 
 A [API de Estados-Recursos](/rest/api/maps/featurestate/getstatespreview) permite-lhe recuperar o estado de uma funcionalidade utilizando a sua `ID` funcionalidade. Também pode eliminar o estado e os seus recursos utilizando a [API de eliminação do Estado de funcionalidade.](/rest/api/maps/featurestate/deletestatesetpreview)
 
-Para saber mais sobre os diferentes serviços do Azure Maps Creator discutidos neste artigo ver, [Creator Indoor Maps.](creator-indoor-maps.md)
+Para saber mais sobre os diferentes serviços do Azure Maps Creator (Preview) discutidos neste artigo ver, [Creator Indoor Maps](creator-indoor-maps.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

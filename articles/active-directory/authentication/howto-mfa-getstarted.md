@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 978f404aa9b99819460e46ea89df19d27431b8b8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: c9ee81abd7cd0268a7cbd6b16aa6065ec7b54bef
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743144"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861311"
 ---
 # <a name="plan-an-azure-ad-multi-factor-authentication-deployment"></a>Planeie uma implementação de autenticação multi-factor Azure AD
 
@@ -165,7 +165,7 @@ Utilizando os seguintes passos, uma política de acesso condicional pode forçar
 2. Utilizando o Acesso Condicional, imponha a autenticação multi-fator para este grupo para acesso a todos os recursos.
 3. Periodicamente, reavalie a adesão ao grupo e remova os utilizadores que se tenham registado no grupo.
 
-Pode identificar utilizadores de MFA AZure AD registados e não registados com comandos PowerShell que dependem do [módulo MSOnline PowerShell](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+Pode identificar utilizadores de MFA AZure AD registados e não registados com comandos PowerShell que dependem do [módulo MSOnline PowerShell](/powershell/azure/active-directory/install-msonlinev1).
 
 #### <a name="identify-registered-users"></a>Identificar utilizadores registados
 
@@ -357,7 +357,7 @@ Relatórios do Azure AD MFA
 
 A Azure AD Multi-Factor Authentication fornece relatórios através do portal Azure:
 
-| Relatório | Localização | Description |
+| Relatório | Localização | Descrição |
 | --- | --- | --- |
 | Alertas de utilização e fraude | Azure AD > inscrições | Fornece informações sobre a utilização geral, o resumo do utilizador e os detalhes do utilizador; bem como um histórico de alertas de fraude apresentados durante o intervalo de datas especificado. |
 

@@ -3,14 +3,14 @@ title: Custo de monitorização do Monitor Azure para contentores Microsoft Docs
 description: Este artigo descreve o custo de monitorização das métricas & dados de inventário recolhidos pelo Azure Monitor para contentores para ajudar os clientes a gerir a sua utilização e custos associados.
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: a03e94fa7650c56a4d3b3beda3c27283329aebbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81a20f564af68c3da6d63394e4cffe7caed91b46
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84204655"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903228"
 ---
-# <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Compreender os custos de monitorização do Monitor Azure para contentores
+# <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Compreender os custos de monitorização do Azure Monitor dos contentores
 
 Este artigo fornece orientações de preços para o Azure Monitor para contentores para ajudá-lo a entender o seguinte:
 
@@ -127,19 +127,21 @@ Utilizando o [preço](https://azure.microsoft.com/pricing/details/monitor/) padr
 
 ## <a name="controlling-ingestion-to-reduce-cost"></a>Controlo da ingestão para reduzir custos
 
-Considere um cenário em que a diferente unidade de negócio da sua organização partilhe a infraestrutura kubernetes e um espaço de trabalho log analytics. Com cada unidade de negócio separada por um espaço de nomes Kubernetes. Pode visualizar a quantidade de dados que são ingeridos em cada espaço de trabalho utilizando um livro recentemente lançado. O **livro de utilização de informações** do Container Insights, encontrado na galeria de livros, ajuda-o a visualizar a origem dos seus dados sem ter de construir a sua própria biblioteca de consultas a partir do que [partilhamos](../platform/workbooks-overview.md#getting-started)na nossa documentação. Neste livro, existem gráficos com os quais pode ver dados faturantes de perspetivas como:
+Considere um cenário em que a diferente unidade de negócio da sua organização partilhe a infraestrutura kubernetes e um espaço de trabalho log analytics. Com cada unidade de negócio separada por um espaço de nomes Kubernetes. Pode visualizar a quantidade de dados que são ingeridos em cada espaço de trabalho utilizando o livro de **dados** que está disponível a partir do dropdown dos **Livros de Visualização.**
+
+[![Ver livros dropdown](media/container-insights-cost/workbooks-dropdown.png)](media/container-insights-cost/workbooks-dropdown.png#lightbox)
+
+
+Este livro ajuda-o a visualizar a origem dos seus dados sem ter de construir a sua própria biblioteca de consultas a partir do que partilhamos na nossa documentação. Neste livro, existem gráficos com os quais pode ver dados faturantes de perspetivas como:
 
 - Total de dados faturados em GB por solução
-
 - Dados faturados ingeridos por registos de contentores (registos de aplicações)
-
 - Registos de contentores faturados dados ingeridos por Kubernetes namespace
-
 - Registos de contentores faturados ingeridos segregados pelo nome cluster
-
 - Dados de registo de contentores ressarjáveis ingeridos por entrada de logsource
-
 - Dados de diagnóstico faturados por registos de nó de mestre de diagnóstico
+
+[![Livro de trabalho de utilização de dados](media/container-insights-cost/data-usage-workbook.png)](media/container-insights-cost/data-usage-workbook.png#lightbox)
 
 Para saber sobre a gestão de direitos e permissões no livro, reveja o [controlo de acesso.](../platform/workbooks-access-control.md)
 

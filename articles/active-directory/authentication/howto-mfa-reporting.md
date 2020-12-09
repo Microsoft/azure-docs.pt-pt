@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e2a02ae7bd89e99dc2eee013394a1f85139c1c00
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 5f78b70599d6d0ae8825accf4cc55cdc1c01d9ce
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742781"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861243"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-ad-multi-factor-authentication-events"></a>Utilize o relatório de inscrições para rever os eventos de autenticação multi-factor Azure AD
 
@@ -91,7 +91,7 @@ Os seguintes detalhes são mostrados na janela Detalhes de *Autenticação* para
 
 ## <a name="powershell-reporting-on-users-registered-for-mfa"></a>Relatórios PowerShell sobre utilizadores registados para MFA
 
-Em primeiro lugar, certifique-se de que tem o [módulo MSOnline V1 PowerShell](/powershell/azure/active-directory/overview?view=azureadps-1.0) instalado.
+Em primeiro lugar, certifique-se de que tem o [módulo MSOnline V1 PowerShell](/powershell/azure/active-directory/overview) instalado.
 
 Identifique os utilizadores que se registaram para MFA usando o PowerShell que se segue. Este conjunto de comandos exclui os utilizadores com deficiência, uma vez que estas contas não podem autenticar-se contra a Azure AD:
 
@@ -119,7 +119,7 @@ Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalNam
 
 A tabela a seguir pode ajudar a resolver eventos utilizando a versão descarregada do relatório de atividades a partir dos passos do portal anterior ou comandos PowerShell. Estes códigos de resultados não aparecem diretamente no portal Azure.
 
-| Resultado de chamada | Description | Descrição ampla |
+| Resultado de chamada | Descrição | Descrição ampla |
 | --- | --- | --- |
 | SUCCESS_WITH_PIN | PIN introduzido | O utilizador introduziu um PIN.  Se a autenticação tiver sido bem sucedida, entraram no PIN correto.  Se a autenticação for negada, inseriram um PIN incorreto ou o utilizador está definido para o modo Standard. |
 | SUCCESS_NO_PIN | Apenas # Inscrito | Se o utilizador estiver definido para o modo PIN e a autenticação for negada, isto significa que o utilizador não introduziu o pin e só entrou em #.  Se o utilizador estiver definido para o modo Standard e a autenticação tiver sucesso, isto significa que o utilizador só entrou # que é a coisa certa a fazer no modo Standard. |
@@ -171,7 +171,7 @@ A tabela a seguir pode ajudar a resolver eventos utilizando a versão descarrega
 
 Estão disponíveis as seguintes informações e relatórios adicionais para eventos MFA, incluindo os do MFA Server:
 
-| Relatório | Localização | Description |
+| Relatório | Localização | Descrição |
 |:--- |:--- |:--- |
 | Histórico de utilizadores bloqueados | Azure AD > Security > MFA > utilizadores de bloco/desbloqueio | Mostra o histórico de pedidos para bloquear ou desbloquear utilizadores. |
 | Utilização de componentes no local | Relatório de atividade > de segurança > Azure AD > > MFA | Fornece informações sobre o uso geral para o MFA Server através da extensão NPS, ADFS e MFA Server. |

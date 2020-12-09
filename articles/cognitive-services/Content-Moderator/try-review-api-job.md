@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 83ee8e0c0583cba72da8702e196f0f38128f8d8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 924c21037a464770fac13c9b45ddcf261ff5a058
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72935961"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905181"
 ---
-# <a name="define-and-use-moderation-jobs-rest"></a>Definir e utilizar trabalhos de moderação (REST)
+# <a name="define-and-use-moderation-jobs-api-console"></a>Definir e utilizar trabalhos de moderação (consola API)
 
 Um trabalho de moderação serve como uma espécie de invólucro para a funcionalidade de moderação de conteúdos, fluxos de trabalho e avaliações. Este guia mostra-lhe como utilizar o trabalho REST APIs para iniciar e verificar trabalhos de moderação de conteúdos. Uma vez que você entenda a estrutura das APIs, você pode facilmente levar estas chamadas para qualquer plataforma compatível com REST.
 
@@ -28,7 +28,7 @@ Um trabalho de moderação serve como uma espécie de invólucro para a funciona
 
 ## <a name="create-a-job"></a>Criar uma tarefa
 
-Para criar um trabalho de moderação, vá à página de referência [Job - Create](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) API e selecione o botão para a sua região de subscrição (pode encontrá-lo no URL endpoint na página de **Credenciais** da [ferramenta 'Revisão').](https://contentmoderator.cognitive.microsoft.com/) Isto inicia a consola API, onde pode facilmente construir e executar chamadas REST API.
+Para criar um trabalho de moderação, vá à página de referência [Job - Create](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) API e selecione o botão para a sua região de subscrição. Pode encontrar a sua região no URL endpoint na página **de Credenciais** da [ferramenta Review](https://contentmoderator.cognitive.microsoft.com/). Isto inicia a consola API, onde pode facilmente construir e executar chamadas REST API.
 
 ![Job - Criar seleção da região da página](images/test-drive-job-1.png)
 
@@ -41,17 +41,17 @@ Introduza os seguintes valores para construir a chamada REST:
 - **ContentId**: Uma cadeia de identificação personalizada. Esta corda é passada para a API e devolvida através da chamada. É útil para associar identificadores internos ou metadados com os resultados de um trabalho de moderação.
 - **Workflowne**: O nome do fluxo de trabalho que criou anteriormente (ou "predefinido" para o fluxo de trabalho predefinido).
 - **CallbackEndpoint**: (Opcional) O URL para receber informações de retorno quando a revisão estiver concluída.
-- **Chave Ocp-Apim-Subscrição :** A tecla do Moderador de Conteúdo. Pode encontrar isto no **separador Definições** da [ferramenta 'Rever'.](https://contentmoderator.cognitive.microsoft.com)
+- **Chave Ocp-Apim-Subscrição :** A tecla do Moderador de Conteúdo. Pode encontrar esta chave no **separador Definições** da [ferramenta 'Rever'.](https://contentmoderator.cognitive.microsoft.com)
 
 ### <a name="fill-in-the-request-body"></a>Preencha o corpo de pedido
 
-O corpo da sua chamada REST contém um campo, **ContentValue**. Cole no conteúdo de texto em bruto se estiver a moderar texto, ou introduzir um URL de imagem ou vídeo se estiver a moderar a imagem/vídeo. Pode utilizar o seguinte URL de imagem de amostra: [https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
+O corpo da sua chamada REST contém um campo, **ContentValue**. Cole no conteúdo de texto em bruto se estiver a moderar texto, ou introduzir um URL de imagem ou vídeo se estiver a moderar uma imagem ou vídeo. Pode utilizar o seguinte URL de imagem de amostra: [https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
 
 ![Job - Criar parâmetros de consulta de consola, cabeçalhos e caixa corporal Request](images/job-api-console-inputs.PNG)
 
 ### <a name="submit-your-request"></a>Submeter o pedido
 
-Selecione **Send** (Enviar). Se a operação for bem sucedida, o **estado de Resposta** é , e a caixa de conteúdo `200 OK` **response** apresenta um ID para o trabalho. Copie este ID para utilizar nos seguintes passos.
+Selecione **Enviar**. Se a operação for bem sucedida, o **estado de Resposta** é , e a caixa de conteúdo `200 OK` **response** apresenta um ID para o trabalho. Copie este ID para utilizar nos seguintes passos.
 
 ![Comentário - Criar caixa de conteúdo de resposta a consolas exibe o ID de revisão](images/test-drive-job-3.PNG)
 
@@ -61,7 +61,7 @@ Para obter o estado e detalhes de um trabalho em execução ou concluído, vá �
 
 ![Job - Obter seleção da região](images/test-drive-region.png)
 
-Introduza os parâmetros de chamada REST como na secção acima. Para este passo, **jobId** é a cadeia de identificação única que recebeu quando criou o trabalho. Selecione **Send** (Enviar). Se a operação for bem sucedida, o **estado de Resposta** é , e a caixa de conteúdo `200 OK` **response** apresenta o trabalho no formato JSON, como o seguinte:
+Introduza os parâmetros de chamada REST como na secção acima. Para este passo, **jobId** é a cadeia de identificação única que recebeu quando criou o trabalho. Selecione **Enviar**. Se a operação for bem sucedida, o **estado de Resposta** é , e a caixa de conteúdo `200 OK` **response** apresenta o trabalho no formato JSON, como o seguinte:
 
 ```json
 {  
@@ -115,7 +115,7 @@ Introduza os parâmetros de chamada REST como na secção acima. Para este passo
 
 ### <a name="examine-the-new-reviews"></a>Examinar a nova revisão(s)
 
-Se o seu trabalho de conteúdo resultou na criação de uma revisão, pode vê-lo na [ferramenta 'Revisão'.](https://contentmoderator.cognitive.microsoft.com) Selecione **Rever**  >  **o**Vídeo de Texto de Imagem / **Text** / **Video** (dependendo do conteúdo utilizado). O conteúdo deve aparecer, pronto para revisão humana. Após um moderador humano rever as etiquetas autoatribuídas e os dados de previsão e submeter uma decisão final de moderação, a API de empregos submete toda esta informação ao ponto final designado de retorno de chamada.
+Se o seu trabalho de conteúdo resultou na criação de uma revisão, pode vê-lo na [ferramenta 'Revisão'.](https://contentmoderator.cognitive.microsoft.com) Selecione **Rever**  >  **o** Vídeo de Texto de Imagem / **Text** / **Video** (dependendo do conteúdo utilizado). O conteúdo deve aparecer, pronto para revisão humana. Após um moderador humano rever as etiquetas autoatribuídas e os dados de previsão e submeter uma decisão final de moderação, a API de empregos submete toda esta informação ao ponto final designado de retorno de chamada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6db7037cbcad335db77784ecfa624f08e88b1e83
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 3ba84bb3ee38981217e72f8372a836b03647083d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744436"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861345"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introdução à autenticação baseada em certificado no Azure Active Directory
 
@@ -93,7 +93,7 @@ O esquema de uma autoridade de certificados é o seguinte:
     }
 ```
 
-Para a configuração, pode utilizar o [Azure Ative Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0):
+Para a configuração, pode utilizar o [Azure Ative Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2):
 
 1. Inicie o Windows PowerShell com privilégios de administrador.
 2. Instale a versão [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) ou superior do módulo AD Azure.
@@ -106,7 +106,7 @@ Como primeiro passo de configuração, você precisa estabelecer uma ligação c
 
 ### <a name="connect"></a>Ligar-se
 
-Para estabelecer uma ligação com o seu inquilino, utilize o cmdlet [Connect-AzureAD:](/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+Para estabelecer uma ligação com o seu inquilino, utilize o cmdlet [Connect-AzureAD:](/powershell/module/azuread/connect-azuread)
 
 ```azurepowershell
     Connect-AzureAD
@@ -114,7 +114,7 @@ Para estabelecer uma ligação com o seu inquilino, utilize o cmdlet [Connect-Az
 
 ### <a name="retrieve"></a>Recuperar
 
-Para recuperar as autoridades de certificados fidedignos que estão definidas no seu diretório, utilize o [cmdlet Get-AzureADTrustedCertificateAuthority.](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0)
+Para recuperar as autoridades de certificados fidedignos que estão definidas no seu diretório, utilize o [cmdlet Get-AzureADTrustedCertificateAuthority.](/powershell/module/azuread/get-azureadtrustedcertificateauthority)
 
 ```azurepowershell
     Get-AzureADTrustedCertificateAuthority
@@ -122,7 +122,7 @@ Para recuperar as autoridades de certificados fidedignos que estão definidas no
 
 ### <a name="add"></a>Adicionar
 
-Para criar uma autoridade de certificados de confiança, utilize o cmdlet de certificado [new-AzureADTrustedCertificatee](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) e desconte o atributo **crlDistributionPoint** para um valor correto:
+Para criar uma autoridade de certificados de confiança, utilize o cmdlet de certificado [new-AzureADTrustedCertificatee](/powershell/module/azuread/new-azureadtrustedcertificateauthority) e desconte o atributo **crlDistributionPoint** para um valor correto:
 
 ```azurepowershell
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"
@@ -135,7 +135,7 @@ Para criar uma autoridade de certificados de confiança, utilize o cmdlet de cer
 
 ### <a name="remove"></a>Remover
 
-Para remover uma autoridade de certificados fidedigna, utilize o [cmdlet Remove-AzureADTrustedCertificateAuthority:](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0)
+Para remover uma autoridade de certificados fidedigna, utilize o [cmdlet Remove-AzureADTrustedCertificateAuthority:](/powershell/module/azuread/remove-azureadtrustedcertificateauthority)
 
 ```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority
@@ -144,7 +144,7 @@ Para remover uma autoridade de certificados fidedigna, utilize o [cmdlet Remove-
 
 ### <a name="modify"></a>Modificar
 
-Para modificar uma autoridade de certificados fidedigna, utilize o cmdlet de certificado [Set-AzureADTrustedCertificate:](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0)
+Para modificar uma autoridade de certificados fidedigna, utilize o cmdlet de certificado [Set-AzureADTrustedCertificate:](/powershell/module/azuread/set-azureadtrustedcertificateauthority)
 
 ```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority

@@ -5,15 +5,15 @@ description: Saiba como configurar as políticas de Firewall de aplicação por 
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 09/16/2020
+ms.date: 12/08/2020
 ms.author: victorh
-ms.topic: conceptual
-ms.openlocfilehash: fc15c8deb7aea3256cc0077fbdc3ce1a2492b1b2
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.topic: how-to
+ms.openlocfilehash: f282cfa6347dd6e6d591ac5cd8b1785e405c6c02
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96519030"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905983"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Configure as políticas waf por site usando a Azure PowerShell
 

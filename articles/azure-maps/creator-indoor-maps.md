@@ -1,21 +1,27 @@
 ---
-title: Trabalhe com mapas interiores no Azure Maps Creator
-description: Este artigo introduz conceitos que se aplicam aos serviços do Criador Azure Maps
+title: Trabalhar com mapas interiores no Azure Maps Creator (Preview)
+description: Este artigo introduz conceitos que se aplicam aos serviços do Criador Azure Maps (Preview)
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 558903ead572363c5545a4a3121f7cf61f549df6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4ab00317e71f832bb677c4c7587e2356a37cb7a1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895907"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903569"
 ---
-# <a name="creator-for-indoor-maps"></a>Criador para mapas interiores
+# <a name="creator-preview-for-indoor-maps"></a>Criador (Pré-visualização) para mapas interiores
+
+
+> [!IMPORTANT]
+> Os serviços do Azure Maps Creator estão atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Este artigo introduz conceitos e ferramentas que se aplicam ao Criador de Mapas Azure. Recomendamos que leia este artigo antes de começar a usar a API e a SDK do Criador de Mapas Azure.
 
@@ -23,15 +29,15 @@ Pode utilizar o Criador para desenvolver aplicações com funcionalidades de map
 
 ![Fluxo de trabalho de dados do mapa do criador](./media/creator-indoor-maps/workflow.png)
 
-## <a name="create-azure-maps-creator"></a>Criar Criador de Mapas Azure
+## <a name="create-azure-maps-creator-preview"></a>Criar Criador de Mapas Azure (Pré-visualização) 
 
-Para utilizar os serviços do Criador, o Azure Maps Creator tem de ser criado numa conta Azure Maps. Para obter informações sobre como criar o Criador de Mapas Azure em Azure Maps, consulte [Manage Azure Maps Creator](how-to-manage-creator.md).
+Para utilizar os serviços do Criador (Preview), o Azure Maps Creator tem de ser criado numa conta Azure Maps. Para obter informações sobre como criar o Criador de Mapas Azure em Azure Maps, consulte [Manage Azure Maps Creator](how-to-manage-creator.md).
 
 ## <a name="upload-a-drawing-package"></a>Faça upload de um pacote de desenho
 
-O Criador recolhe dados de mapas interiores convertendo um pacote de desenho carregado. O pacote de desenho representa uma instalação construída ou remodelada. Para obter informações sobre os requisitos do pacote de desenho, consulte [os requisitos do pacote de desenho](drawing-requirements.md).
+O Criador (Preview) recolhe dados do mapa interior convertendo um pacote de desenho carregado. O pacote de desenho representa uma instalação construída ou remodelada. Para obter informações sobre os requisitos do pacote de desenho, consulte [os requisitos do pacote de desenho](drawing-requirements.md).
 
-Utilize a [Azure Maps Data Upload API](/rest/api/maps/data/uploadpreview) para carregar um pacote de desenho.  Após um upload bem sucedido, a API de upload de dados devolverá um identificador de dados do utilizador ( `udid` ). O `udid` será usado no próximo passo para converter o pacote carregado em dados de mapas internos.
+Utilize os dados do [Mapa azul (pré-visualização) para](/rest/api/maps/data/uploadpreview) carregar um pacote de desenho.  Após um upload bem sucedido, a API de upload de dados devolverá um identificador de dados do utilizador ( `udid` ). O `udid` será usado no próximo passo para converter o pacote carregado em dados de mapas internos.
 
 ## <a name="convert-a-drawing-package"></a>Converter um pacote de desenho
 
@@ -41,7 +47,7 @@ Quando ocorre um erro, o serviço De Conversão fornece um link para a aplicaç�
 
 ## <a name="create-indoor-map-data"></a>Criar dados de mapas interiores
 
-A Azure Maps Creator fornece três serviços:
+O Azure Maps Creator (Preview) fornece três serviços:
 
 * [Serviço dataset](/rest/api/maps/dataset/createpreview).
 Utilize o serviço Dataset para criar um conjunto de dados a partir de dados de pacotes de desenho convertidos.
@@ -87,9 +93,9 @@ Uma aplicação pode usar um stateet de recurso para renderizar dinamicamente as
 
 ### <a name="render-v2-service"></a>Serviço renderizador V2
 
-O Azure Maps [Render V2 service-Get Map Tile API](/rest/api/maps/renderv2/getmaptilepreview) foi estendido para suportar azulejos criadores.
+O Azure Maps [Render V2 service-Get Map Tile API (Preview)](/rest/api/maps/renderv2/getmaptilepreview) foi estendido para suportar azulejos do Criador (Preview).
 
-[Render V2 service-Get Map State Tile API](/rest/api/maps/renderv2/getmaptilepreview) permite que as aplicações solicitem azulejos. Os azulejos podem então ser integrados num controlo de mapas ou SDK. Para um exemplo de um controlo de mapas que utiliza o serviço Render V2, consulte [o Módulo mapa interior](#indoor-maps-module).
+Render V2 service-Get Map State Tile API permite que as aplicações solicitem azulejos. Os azulejos podem então ser integrados num controlo de mapas ou SDK. Para um exemplo de um controlo de mapas que utiliza o serviço Render V2, consulte [o Módulo mapa interior](#indoor-maps-module).
 
 ### <a name="web-feature-service-api"></a>Serviço de Recursos Web API
 
@@ -97,7 +103,7 @@ Os conjuntos de dados podem ser consultados através da API do [Serviço de Recu
 
 ### <a name="indoor-maps-module"></a>Módulo de Mapas do interior
 
-O [Azure Maps Web SDK](./index.yml) inclui o módulo De Mapas Interiores. Este módulo oferece funcionalidades alargadas à biblioteca Azure Maps *Map Control.* O módulo Indoor Maps torna os mapas interiores criados no Criador. Integra widgets como *o apanhador de pisos,* que ajuda os utilizadores a visualizar os diferentes pisos.
+O [Azure Maps Web SDK](./index.yml) inclui o módulo De Mapas Interiores. Este módulo oferece funcionalidades alargadas à biblioteca Azure Maps *Map Control.* O módulo De Mapas Interiores torna os mapas interiores criados no Criador (Preview). Integra widgets como *o apanhador de pisos,* que ajuda os utilizadores a visualizar os diferentes pisos.
 
 O módulo Mapas Interiores permite criar aplicações web que integram dados de mapas interiores com outros [serviços Azure Maps.](./index.yml) As configurações de aplicações mais comuns podem incluir a adição de conhecimento a mapas interiores de outros mapas, tais como estradas, imagens, clima e trânsito.
 
@@ -109,7 +115,7 @@ O módulo Indoor Maps também suporta o estilo dinâmico do mapa. Para um walk-t
 
 ### <a name="data-maintenance"></a>Manutenção de Dados
 
- A Azure Maps Creator List, Update e Delete API permite-lhe listar, atualizar e eliminar os seus conjuntos de dados, tesets e estados de funcionalidade.
+ A lista de criadores de mapas de Azure (pré-visualização), atualização e eliminação da API permite-lhe listar, atualizar e eliminar os seus conjuntos de dados, tesets e estados de funcionalidade.
 
 >[!NOTE]
 >Sempre que analisar uma lista de itens e decidir eliminá-los, deve considerar o impacto dessa eliminação em todas as API ou aplicações dependentes. Por exemplo, se eliminar um teesto que está atualmente a ser utilizado por uma aplicação através do [Render V2 - Get Map Tile API](/rest/api/maps/renderv2/getmaptilepreview), eliminando esse azulejo resultaria numa falha de aplicação para tornar esse teesto.
@@ -129,4 +135,4 @@ O exemplo a seguir mostra como atualizar um conjunto de dados, criar um novo tee
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Criar um mapa interior do Criador](tutorial-creator-indoor-maps.md)
+> [Tutorial: Criação de um mapa interior do Criador (Preview)](tutorial-creator-indoor-maps.md)

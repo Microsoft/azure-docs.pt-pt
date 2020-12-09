@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 2ff8f6134f74e0eda355342a7282e8be81a3d8df
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c5839589c35ea5a9c52303801a8767fc598434fc
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450237"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905881"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Utilize pontos finais de serviço de rede virtual e regras para servidores na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -95,7 +95,7 @@ Ao utilizar os pontos finais de serviço para a Base de Dados Azure SQL, reveja 
 ### <a name="expressroute"></a>ExpressRoute
 
 Se estiver a utilizar o [ExpressRoute](../../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a partir das suas instalações, para espreitar publicamente ou para o microsoft espreitar, terá de identificar os endereços IP NAT utilizados. Para peering público, cada circuito ExpressRoute, por predefinição, utiliza dois endereços IP NAT que são aplicados ao tráfego de serviço do Azure quando o tráfego entra no backbone de rede do Microsoft Azure. Para peering da Microsoft, o(s) endereço(s) IP NAT que são utilizados são fornecidos pelo cliente ou são fornecidos pelo fornecedor de serviços. Para permitir o acesso aos recursos de serviço, tem de permitir estes endereços IP públicos na definição da firewall do IP dos recursos. Para localizar os endereços IP do circuito ExpressRoute de peering público, [abra um pedido de suporte no ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) através do portal do Azure. Saiba mais sobre [NAT para peering público e da Microsoft do ExpressRoute.](../../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
-  
+
 Para permitir a comunicação do seu circuito até à Base de Dados Azure SQL, tem de criar regras de rede IP para os endereços IP públicos do seu NAT.
 
 <!--
@@ -122,7 +122,7 @@ A PolyBase e a declaração COPY são comumente usadas para carregar dados em Az
 
 #### <a name="steps"></a>Passos
 
-1. No PowerShell, **registe o seu servidor** que hospeda Azure Synapse com o Azure Ative Directory (AAD):
+1. Se tiver uma piscina SQL dedicada autónoma, registe o seu servidor SQL com o Azure Ative Directory (AAD) utilizando o PowerShell: 
 
    ```powershell
    Connect-AzAccount
@@ -130,6 +130,14 @@ A PolyBase e a declaração COPY são comumente usadas para carregar dados em Az
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
+   Este passo não é necessário para piscinas SQL dedicadas dentro de um espaço de trabalho Synapse.
+
+1. Se tiver um espaço de trabalho synapse, registe a identidade gerida pelo sistema do seu espaço de trabalho:
+
+   1. Vá ao seu espaço de trabalho da Sinapse no portal Azure
+   2. Vá para a lâmina de identidades geridas 
+   3. Certifique-se de que a opção "Permitir gasodutos" está ativada
+   
 1. Crie uma **conta de armazenamento v2 para fins gerais** utilizando este [guia.](../../storage/common/storage-account-create.md)
 
    > [!NOTE]
@@ -137,7 +145,7 @@ A PolyBase e a declaração COPY são comumente usadas para carregar dados em Az
    > - Se tiver uma conta de armazenamento v1 ou blob para fins gerais, tem primeiro de **atualizar para v2** utilizando este [guia](../../storage/common/storage-account-upgrade.md).
    > - Para questões conhecidas com a Azure Data Lake Storage Gen2, consulte este [guia.](../../storage/blobs/data-lake-storage-known-issues.md)
 
-1. Na sua conta de armazenamento, navegue para **Access Control (IAM)** e selecione **Adicionar a atribuição de funções**. Atribua o papel de Azure **do Contribuinte de Dados de Armazenamento** ao servidor que hospeda o seu Azure Synapse Analytics que registou no Azure Ative Directory (AAD) como #1 passo.
+1. Na sua conta de armazenamento, navegue para **Access Control (IAM)** e selecione **Adicionar a atribuição de funções**. Atribua o papel de Azure **do Colaborador de Dados de Armazenamento blob** ao servidor ou espaço de trabalho que hospeda a sua piscina DE SQL dedicada que registou no Azure Ative Directory (AAD).
 
    > [!NOTE]
    > Apenas os membros com privilégio proprietário na conta de armazenamento podem realizar este passo. Para várias funções incorporadas do Azure, consulte este [guia.](../../role-based-access-control/built-in-roles.md)

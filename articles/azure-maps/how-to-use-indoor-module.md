@@ -1,5 +1,5 @@
 ---
-title: Utilize o módulo Azure Maps Indoor Maps
+title: Utilize o módulo Azure Maps Indoor Maps com os serviços Microsoft Creator (Preview)
 description: Aprenda a utilizar o módulo Microsoft Azure Maps Indoor Maps para renderizar mapas incorporando as bibliotecas JavaScript do módulo.
 author: anastasia-ms
 ms.author: v-stharr
@@ -9,21 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: d852d17bdf11ea45f833e3d59cacb435166827fe
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: bc80b7dfd433911ef13906db38f59a76827db258
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895465"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905286"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Utilize o módulo Azure Maps Indoor Maps
 
-O Azure Maps Web SDK inclui o módulo *Interior Azure Maps.* O módulo  *Azure Maps Indoor* permite-lhe renderizar mapas interiores criados no Azure Maps Creator.
+> [!IMPORTANT]
+> Os serviços do Azure Maps Creator estão atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+O Azure Maps Web SDK inclui o módulo *Interior Azure Maps.* O módulo  *Azure Maps Indoor* permite-lhe renderizar mapas interiores criados nos serviços Azure Maps Creator (Preview) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 1. [Faça uma conta Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Criar um recurso Criador](how-to-manage-creator.md)
+2. [Criar um recurso Criador (Pré-visualização)](how-to-manage-creator.md)
 3. [Obtenha uma chave de subscrição primária,](quick-demo-map-app.md#get-the-primary-key-for-your-account)também conhecida como a chave primária ou a chave de subscrição.
 4. Obtenha um `tilesetId` e um `statesetId` completando o tutorial para a [criação de mapas interiores.](tutorial-creator-indoor-maps.md)
  Você precisará usar estes identificadores para renderizar mapas interiores com o módulo Azure Maps Indoor Maps.
@@ -77,7 +81,7 @@ const map = new atlas.Map("map-id", {
 
 ## <a name="instantiate-the-indoor-manager"></a>Instantaneamente o Gerente Interior
 
-Para carregar os azulejos interiores e o estilo de mapa dos azulejos, deve instantaneamente o *Gerente Interior* . Instantânear o *Gestor Interior* fornecendo o objeto *mapa* e o correspondente `tilesetId` . Se deseja apoiar o [estilo dinâmico do mapa,](indoor-map-dynamic-styling.md)tem de passar o `statesetId` . O `statesetId` nome variável é sensível a casos. O seu código deve gostar do JavaScript abaixo.
+Para carregar os azulejos interiores e o estilo de mapa dos azulejos, deve instantaneamente o *Gerente Interior*. Instantânear o *Gestor Interior* fornecendo o objeto *mapa* e o correspondente `tilesetId` . Se deseja apoiar o [estilo dinâmico do mapa,](indoor-map-dynamic-styling.md)tem de passar o `statesetId` . O `statesetId` nome variável é sensível a casos. O seu código deve gostar do JavaScript abaixo.
 
 ```javascript
 const tilesetId = "";
@@ -107,7 +111,7 @@ if (statesetId.length > 0) {
 
 ## <a name="indoor-level-picker-control"></a>Controlo de picker de nível interno
 
- O controlo *indoor Level Picker* permite-lhe alterar o nível do mapa renderizado. Pode inicializar opcionalmente o controlo *do selecionador de nível interior* através do Gestor *Interior* . Aqui está o código para inicializar o selecionador de controlo de nível:
+ O controlo *indoor Level Picker* permite-lhe alterar o nível do mapa renderizado. Pode inicializar opcionalmente o controlo *do selecionador de nível interior* através do Gestor *Interior*. Aqui está o código para inicializar o selecionador de controlo de nível:
 
 ```javascript
 const levelControl = new atlas.control.LevelControl({ position: "top-right" });
@@ -116,7 +120,7 @@ indoorManager.setOptions({ levelControl });
 
 ## <a name="indoor-events"></a>Eventos Indoor
 
- O módulo *Azure Maps Indoor* suporta eventos *de objetos de mapa.* Os ouvintes do evento *do objeto mapa* são invocados quando um nível ou instalação mudou. Se pretender executar o código quando um nível ou instalação tiver mudado, coloque o seu código dentro do ouvinte do evento. O código abaixo mostra como os ouvintes do evento podem ser adicionados ao *objeto Mapa* .
+ O módulo *Azure Maps Indoor* suporta eventos *de objetos de mapa.* Os ouvintes do evento *do objeto mapa* são invocados quando um nível ou instalação mudou. Se pretender executar o código quando um nível ou instalação tiver mudado, coloque o seu código dentro do ouvinte do evento. O código abaixo mostra como os ouvintes do evento podem ser adicionados ao *objeto Mapa*.
 
 ```javascript
 map.events.add("levelchanged", indoorManager, (eventData) => {
@@ -249,7 +253,7 @@ Leia sobre as APIs que estão relacionadas com o módulo *Interior Azure Maps:*
 > [Requisitos de pacote do desenho](drawing-requirements.md)
 
 >[!div class="nextstepaction"]
-> [Criador para mapas interiores](creator-indoor-maps.md)
+> [Criador (Pré-visualização) para mapas interiores](creator-indoor-maps.md)
 
 Saiba mais sobre como adicionar mais dados ao seu mapa:
 

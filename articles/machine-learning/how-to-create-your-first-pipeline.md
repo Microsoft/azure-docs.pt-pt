@@ -11,16 +11,14 @@ author: NilsPohlmann
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 57806ecaf4b0e295457c78faaff6033126ddb2c8
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2b534f82aeda438b1d2bd5d60eeb4871acffc54a
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463021"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902022"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK
-
-
 
 Neste artigo, aprende-se a criar e executar um [oleoduto de aprendizagem automática](concept-ml-pipelines.md) utilizando o [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Utilize **gasodutos ML** para criar um fluxo de trabalho que cosa várias fases ML. Em seguida, publique o oleoduto para mais tarde aceder ou partilhar com outros. Rastreia os oleodutos ML para ver como o seu modelo está a funcionar no mundo real e para detetar a deriva de dados. Os oleodutos ML são ideais para cenários de pontuação de lotes, utilizando vários cálculos, reutilizando passos em vez de os reexame, bem como partilhando fluxos de trabalho ML com outros.
 
@@ -106,6 +104,9 @@ output_data1 = PipelineData(
 
 > [!TIP]
 > Os dados intermédios persistentes entre as etapas do gasoduto também são possíveis com a classe de pré-visualização pública, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) . Para um exemplo de código utilizando a `OutputFileDatasetConfig` classe, consulte como [construir um gasoduto ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb)de dois passos .
+
+> [!TIP]
+> Faça o upload de ficheiros relevantes para o trabalho em questão. Qualquer alteração nos ficheiros dentro do diretório de dados será vista como razão para refazer o passo da próxima vez que o pipeline for executado, mesmo que seja especificada a reutilização. 
 
 ## <a name="set-up-a-compute-target"></a>Configurar um alvo de computação
 

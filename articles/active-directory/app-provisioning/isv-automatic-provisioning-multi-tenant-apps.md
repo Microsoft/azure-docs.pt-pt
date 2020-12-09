@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 9cb3d8f39d83e27755b1e8982dfe3b807c431413
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d4c6c5b51e00f7f2ed7e29c27aa8e8bb88a2ea94
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069726"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861363"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Ativar o fornecimento automático de utilizadores para a sua aplicação multi-inquilino
 
@@ -89,7 +89,7 @@ Para obter mais informações sobre como os utilizadores do Serviço de Provisio
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph for Provisioning
 
-Quando utiliza o Microsoft Graph para provisões, tem acesso a todos os dados ricos do utilizador disponíveis no Gráfico. Além dos detalhes dos utilizadores e grupos, também pode obter informações adicionais como as funções do utilizador, gestor e relatórios diretos, dispositivos de propriedade e registados, e centenas de outras peças de dados disponíveis no [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
+Quando utiliza o Microsoft Graph para provisões, tem acesso a todos os dados ricos do utilizador disponíveis no Gráfico. Além dos detalhes dos utilizadores e grupos, também pode obter informações adicionais como as funções do utilizador, gestor e relatórios diretos, dispositivos de propriedade e registados, e centenas de outras peças de dados disponíveis no [Microsoft Graph](/graph/api/overview). 
 
 Mais de 15 milhões de organizações, e 90% da fortuna 500 empresas usam Azure AD enquanto subscrevem serviços na nuvem da Microsoft como Microsoft 365, Microsoft Azure ou Enterprise Mobility Suite. Pode utilizar o Microsoft Graph para integrar a sua aplicação com fluxos de trabalho administrativos, tais como embarque de funcionários (e rescisão), manutenção de perfis e muito mais. 
 

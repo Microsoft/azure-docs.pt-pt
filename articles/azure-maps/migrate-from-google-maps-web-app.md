@@ -1,20 +1,20 @@
 ---
-title: Tutorial - Migrar uma aplicação web do Google Maps Microsoft Azure Maps
+title: Tutorial - Migrar uma aplicação web do Google Maps para o Microsoft Azure Maps
 description: Tutorial sobre como migrar uma aplicação web do Google Maps para o Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/18/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: b95800bea4bceffabad56aa29b68a57b310c5518
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4dee8de8f42b78ecdab9d9e15bb277d58fa8ba70
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896451"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905065"
 ---
 # <a name="tutorial---migrate-a-web-app-from-google-maps"></a>Tutorial - Migrar uma aplicação web do Google Maps
 
@@ -75,7 +75,7 @@ A tabela lista as principais funcionalidades da API no Google Maps V3 JavaScript
 | Serviço geocoder        | ✓                          |
 | Serviço de direções      | ✓                          |
 | Serviço Matrix distância | ✓                          |
-| Serviço de elevação       | Planeado                     |
+| Serviço de elevação       | ✓                          |
 
 ## <a name="notable-differences-in-the-web-sdks"></a>Diferenças notáveis nos SDKs web
 
@@ -1035,9 +1035,9 @@ Quando o agrupamento estiver ativado, a fonte de dados enviará pontos de dados 
 | Nome da propriedade             | Tipo    | Descrição   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | Indica se a característica representa um cluster. |
-| `cluster_id`              | cadeia  | Um ID único para o cluster que pode ser usado com o `getClusterExpansionZoom` DataSource, `getClusterChildren` e `getClusterLeaves` métodos. |
+| `cluster_id`              | string  | Um ID único para o cluster que pode ser usado com o `getClusterExpansionZoom` DataSource, `getClusterChildren` e `getClusterLeaves` métodos. |
 | `point_count`             | número  | O número de pontos que o cluster contém.  |
-| `point_count_abbreviated` | cadeia  | Uma corda que abrevia o `point_count` valor se for longa. (por exemplo, 4.000 torna-se 4K)  |
+| `point_count_abbreviated` | string  | Uma corda que abrevia o `point_count` valor se for longa. (por exemplo, 4.000 torna-se 4K)  |
 
 A `DataSource` classe tem a seguinte função de ajudante para aceder a informações adicionais sobre um cluster utilizando o `cluster_id` .
 

@@ -8,39 +8,48 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 40c1fb314a2dea653740e7f87b5caa14c759fffb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1fd2b8461bd66c826dc4890c331b740c4703f896
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078226"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903994"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Perguntas mais frequentes sobre aceleradores de soluções do IoT
 
-Consulte também as [FAQ específicas da fábrica conectadas](iot-accelerators-faq-cf.md) e as [FAQ específicas de monitorização remota.](iot-accelerators-faq-rm-v2.md)
+Consulte também as [FAQ específicas da fábrica conectada.](iot-accelerators-faq-cf.md)
 
 ### <a name="where-can-i-find-the-source-code-for-the-solution-accelerators"></a>Onde posso encontrar o código-fonte para os aceleradores de solução?
 
 O código fonte é armazenado nos seguintes repositórios GitHub:
 
-* [Acelerador de solução de monitorização remota (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
-* [Acelerador de solução de monitorização remota (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
-* [Acelerador de solução de manutenção preditiva](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Acelerador de solução de fábrica conectado](https://github.com/Azure/azure-iot-connected-factory)
+* [Acelerador de solução de simulação de dispositivo](https://github.com/Azure/device-simulation-dotnet)
+
+### <a name="where-can-i-find-the-remote-monitoring-and-predictive-maintenance-solution-accelerators"></a>Onde posso encontrar os aceleradores de monitorização remota e de manutenção preditiva?
+
+A partir de 10 de dezembro de 2020, os aceleradores de monitorização remota e de manutenção preditiva foram removidos do local de aceleração da [solução Azure IoT](https://www.azureiotsolutions.com/Accelerators) e já não estão disponíveis para novas implementações. Os repositórios do GitHub para ambos os aceleradores foram arquivados. O código ainda está disponível para qualquer um ter acesso, mas os repositórios não estão a receber novas contribuições.
+
+### <a name="what-happens-to-my-existing-remote-monitoring-and-predictive-maintenance-deployments"></a>O que acontece com as minhas monitorizações remotas e operações de manutenção preditivas?
+
+As implementações existentes não são afetadas pela remoção dos aceleradores de monitorização remota e de manutenção preditiva e continuarão a funcionar. Os repositórios forcados também não são impactados. Os repositórios mestres no GitHub foram arquivados.
+
+### <a name="how-do-i-deploy-device-simulation-solution-accelerator"></a>Como posso implementar o acelerador de solução de simulação do dispositivo?
+
+Para implementar o acelerador de solução de simulação do dispositivo, consulte o repositório de [simulação](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) do dispositivo GitHub.
+
+### <a name="where-can-i-find-information-about-the-removed-solution-accelerators"></a>Onde posso encontrar informações sobre os aceleradores de solução removidos?
+
+Consulte as seguintes páginas no site das versões anteriores:
+
+* [Monitorização remota](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
+* [Manutenção preditiva](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
 
 ### <a name="what-sdks-can-i-use-to-develop-device-clients-for-the-solution-accelerators"></a>Que SDKs posso usar para desenvolver clientes de dispositivos para os aceleradores de solução?
 
 Pode encontrar links para os diferentes idiomas (C, .NET, Java, Node.js, Python) dispositivoS SOT nos repositórios [GitHub do Microsoft Azure IoT SDKs.](https://github.com/Azure/azure-iot-sdks)
 
 Se estiver a utilizar o dispositivo DevKit, pode encontrar recursos e amostras no repositório [IoT DevKit SDK](https://github.com/Microsoft/devkit-sdk) GitHub.
-
-### <a name="is-the-new-microservices-architecture-available-for-all-the-three-solution-accelerators"></a>A nova arquitetura de microserviços está disponível para os três aceleradores de soluções?
-
-Atualmente, apenas a solução de Monitorização Remota utiliza a arquitetura dos microserviços, uma vez que cobre o cenário mais amplo.
-
-### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>Quais as vantagens que a nova arquitetura baseada em microserviços de origem aberta proporciona na nova atualização?
-
-Nos últimos dois anos, a arquitetura em nuvem evoluiu muito. Os microserviços surgiram como um grande padrão para alcançar a escala e a flexibilidade, sem sacrificar a velocidade de desenvolvimento. Este padrão arquitetónico é usado em vários serviços da Microsoft internamente com grandes resultados de fiabilidade e escalabilidade. A Microsoft está a pôr estas aprendizagens em prática nos aceleradores de solução para que os clientes beneficiem delas.
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-azure-ad-tenant-how-do-i-complete-this-task"></a>Sou administrador de serviços e gostaria de mudar o mapeamento do diretório entre a minha assinatura e um inquilino específico da AD Azure. Como posso completar esta tarefa?
 
@@ -63,14 +72,6 @@ Veja o seguinte diagrama para obter orientação:
 
 Se tiver a certeza de que tem uma assinatura Azure, valide o mapeamento do inquilino para a sua subscrição e verifique se o inquilino correto está selecionado no dropdown. Se validou o inquilino está correto, siga o diagrama anterior e valide o mapeamento da sua subscrição e deste inquilino AD AZure.
 
-### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Onde posso encontrar informações sobre a versão anterior da solução de Monitorização Remota?
-
-A versão anterior do acelerador de solução de monitorização remota era conhecida como a solução pré-configurada de monitorização remota IoT Suite. Pode encontrar a documentação arquivada em [https://docs.microsoft.com/previous-versions/azure/iot-suite/](/previous-versions/azure/iot-suite/) .
-
-### <a name="is-the-new-solution-accelerator-available-in-the-same-geographic-region-as-the-existing-solution"></a>O novo acelerador de soluções está disponível na mesma região geográfica que a solução existente?
-
-Sim, a nova Monitorização Remota está disponível nas mesmas regiões geográficas.
-
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Qual é a diferença entre eliminar um grupo de recursos no portal Azure e clicar em excluir um acelerador de soluções em azureiotsolutions.com?
 
 * Se eliminar o acelerador de solução em [azureiotsolutions.com,](https://www.azureiotsolutions.com/)elimina todos os recursos que foram utilizados quando criou o acelerador de solução. Se adicionar recursos adicionais ao grupo de recursos, estes recursos também são eliminados.
@@ -88,10 +89,6 @@ Por predefinição, pode providenciar [10 hubs IoT por subscrição](../azure-re
 
 Cinquenta. Você pode criar um [bilhete de suporte Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para elevar este limite, mas por padrão, você só pode providenciar 50 instâncias Cosmos DB por subscrição.
 
-### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Quantas APIs para o Free Bing Maps é possível aprovisionar numa subscrição?
-
-Duas. Pode criar apenas dois Bing Maps de Transações Internas de Nível 1 para planos Enterprise numa subscrição do Azure. A solução de Monitorização Remota é a provisionada por defeito com o plano de Transações Internas Nível 1. Como resultado, só pode prever até duas soluções de Monitorização Remota numa subscrição sem modificações.
-
 ### <a name="can-i-create-a-solution-accelerator-if-i-have-microsoft-azure-for-dreamspark"></a>Posso criar um acelerador de soluções se tiver o Microsoft Azure para o DreamSpark?
 
 > [!NOTE]
@@ -107,7 +104,5 @@ Veja o post de Eric Golpe no blog [Walkthrough of Deleting a Azure AD Tenant](/a
 
 Também pode explorar algumas das outras funcionalidades e capacidades dos aceleradores de soluções do IoT:
 
-* [Explore as capacidades do acelerador de solução de monitorização remota](quickstart-remote-monitoring-deploy.md)
-* [Descrição geral do acelerador de soluções de Manutenção Preditiva](./iot-accelerators-predictive-walkthrough.md)
 * [Implementar acelerador de solução de fábrica conectado](quickstart-connected-factory-deploy.md)
 * [Segurança de IoT desde o início](../iot-fundamentals/iot-security-ground-up.md)

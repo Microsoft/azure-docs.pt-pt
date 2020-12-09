@@ -4,12 +4,12 @@ description: Monitorize ASP.NET aplicações web Core para disponibilidade, dese
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 8505e67e3db7460308d208ce4f83d29a1fb4d862
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 2921c6379b34e002013b5f0087cefd502ab0ab84
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763201"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904538"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Insights de Aplicação para aplicações core ASP.NET
 
@@ -35,6 +35,10 @@ O [SDK de Insights de Aplicação para ASP.NET Core](https://nuget.org/packages/
 
 - Uma aplicação core ASP.NET funcional. Se precisar de criar uma aplicação Core ASP.NET, siga este [tutorial de ASP.NET Core](/aspnet/core/getting-started/).
 - Uma chave de instrumentação válida de Insights de Aplicação. Esta chave é necessária para enviar qualquer telemetria para Insights de Aplicação. Se precisar de criar um novo recurso Application Insights para obter uma chave de instrumentação, consulte [Criar um recurso Application Insights](./create-new-resource.md).
+
+> [!IMPORTANT]
+> As novas regiões de Azure **requerem** a utilização de cordas de ligação em vez de teclas de instrumentação. [A cadeia de ligação](./sdk-connection-string.md?tabs=net) identifica o recurso com o que pretende associar os seus dados de telemetria. Também permite modificar os pontos finais que o seu recurso utilizará como destino para a sua telemetria. Terá de copiar o fio de ligação e adicioná-lo ao código da sua aplicação ou a uma variável ambiental.
+
 
 ## <a name="enable-application-insights-server-side-telemetry-visual-studio"></a>Ativar a telemetria do lado do servidor do Application Insights (Estúdio Visual)
 

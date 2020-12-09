@@ -6,27 +6,31 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 12/04/2020
-ms.openlocfilehash: 7b335c3db5fb52c4323b797556d48e3ed9ae410a
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.date: 12/08/2020
+ms.openlocfilehash: b5001898fa18834ce7c04403de70879084df85f1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621625"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904913"
 ---
 # <a name="co-sell-option-in-the-commercial-marketplace"></a>Opção de co-venda no mercado comercial
 
 Fornecer informações sobre o separador **Co-sell com o** separador Microsoft é inteiramente opcional. É necessário obter [o estatuto de Co-venda De Co-venda De Co-venda de Co-venda.](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status) As informações que fornecer serão utilizadas pelas equipas de vendas da Microsoft para saber mais sobre a sua oferta ao avaliar o seu ajuste às necessidades dos clientes. Não está disponível diretamente para os clientes. Para obter mais informações, consulte [Co-vender com a Microsoft.](https://partner.microsoft.com/membership/co-sell-with-microsoft)
 
-A opção Co-venda no Partner Center está atualmente disponível nos seguintes tipos de oferta.
+A opção Co-venda no Partner Center está disponível para os seguintes tipos de oferta.
 
 - Aplicação do Azure
+- Recipiente Azure
+- Máquina Virtual do Azure
+- Serviço de consultoria
 - Dinâmica 365 para Envolvimento de Clientes & PowerApps
-- Dynamics 365 for Operations
-- Dynamics 365 Business Central
+- Dinâmica 365 para operações
+- Dinâmica 365 centro de negócios
+- Módulo IoT Edge
+- Serviço Gerido
+- Aplicação Power BI
 - Software como um Serviço (SaaS)
-
-O suporte para tipos de oferta adicionais será disponibilizado ao longo do tempo.
 
 ## <a name="listing"></a>Listagem
 
