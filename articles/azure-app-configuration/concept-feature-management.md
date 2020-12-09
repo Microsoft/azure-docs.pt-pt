@@ -1,18 +1,18 @@
 ---
 title: Compreender a gestão de funcionalidades usando a Configuração da Aplicação Azure
 description: Ligue e desligue as funcionalidades utilizando a configuração da aplicação Azure
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: devx-track-dotnet
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: b77f0063b37adbfaecaff68387e858d0077561b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfd676092bcaede58909a3ec1eefeabb4c80f86b
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212659"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930233"
 ---
 # <a name="feature-management-overview"></a>Visão geral da gestão de recursos
 
@@ -22,7 +22,7 @@ A gestão de recursos é uma prática moderna de desenvolvimento de software que
 
 A gestão de recursos ajuda os desenvolvedores a resolver os seguintes problemas:
 
-* **Gestão de agências de**código : Utilize bandeiras de características para envolver a nova funcionalidade da aplicação atualmente em desenvolvimento. Esta funcionalidade é "oculta" por defeito. Pode enviar a funcionalidade com segurança, mesmo que esteja inacabada, e permanecerá inativa na produção. Utilizando esta abordagem, chamada *dark deployment,* pode libertar todo o seu código no final de cada ciclo de desenvolvimento. Já não é necessário manter os ramos de código em vários ciclos de desenvolvimento porque uma determinada funcionalidade requer mais de um ciclo para ser concluída.
+* **Gestão de agências de** código : Utilize bandeiras de características para envolver a nova funcionalidade da aplicação atualmente em desenvolvimento. Esta funcionalidade é "oculta" por defeito. Pode enviar a funcionalidade com segurança, mesmo que esteja inacabada, e permanecerá inativa na produção. Utilizando esta abordagem, chamada *dark deployment,* pode libertar todo o seu código no final de cada ciclo de desenvolvimento. Já não é necessário manter os ramos de código em vários ciclos de desenvolvimento porque uma determinada funcionalidade requer mais de um ciclo para ser concluída.
 * **Teste na produção**: Utilize bandeiras de características para garantir o acesso antecipado a novas funcionalidades na produção. Por exemplo, pode limitar o acesso aos membros da equipa ou aos testadores beta internos. Estes utilizadores irão experimentar a experiência de produção de fidelidade total em vez de uma experiência simulada ou parcial num ambiente de teste.
 * **Voo :** Utilize bandeiras de características para lançar gradualmente uma nova funcionalidade para os utilizadores finais. Primeiro, pode direcionar uma pequena percentagem da sua população utilizadora e aumentar essa percentagem gradualmente ao longo do tempo.
 * **Interruptor de desativação instantâneo**: As bandeiras de recurso fornecem uma rede de segurança inerente para libertar novas funcionalidades. Pode ligar e desligar as funcionalidades da aplicação sem recolocar qualquer código. Se necessário, pode desativar rapidamente uma funcionalidade sem reconstruir e recolocar a sua aplicação.

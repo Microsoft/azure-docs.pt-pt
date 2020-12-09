@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f7a4d0852edded516b7fbe42f15abfe160e44cd3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0a8e08d0045d0520241341cc08fb800468ed6897
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952799"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928618"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Visão geral das contas dos utilizadores no Azure Ative Directory B2C
 
@@ -50,21 +50,21 @@ Quando adicionar uma nova conta de trabalho, tem de considerar as seguintes defi
 Pode utilizar as seguintes informações para criar uma nova conta de trabalho:
 
 - [Portal do Azure](../active-directory/fundamentals/add-users-azure-active-directory.md)
-- [Microsoft Graph](/graph/api/user-post-users?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-post-users)
 
 ### <a name="update-a-user-profile"></a>Atualizar um perfil de utilizador
 
 Pode utilizar as seguintes informações para atualizar o perfil de um utilizador:
 
 - [Portal do Azure](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
-- [Microsoft Graph](/graph/api/user-update?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-update)
 
 ### <a name="reset-a-password-for-a-user"></a>Redefinir uma palavra-passe para um utilizador
 
 Pode utilizar as seguintes informações para redefinir a palavra-passe de um utilizador:
 
 - [Portal do Azure](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
-- [Microsoft Graph](/graph/api/user-update?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-update)
 
 ## <a name="guest-user"></a>Utilizador convidado
 

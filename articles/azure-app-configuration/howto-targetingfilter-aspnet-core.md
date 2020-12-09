@@ -3,16 +3,16 @@ title: Ativar o lançamento encenado de funcionalidades para públicos direciona
 titleSuffix: Azure App Configuration
 description: Saiba como permitir o lançamento encenado de funcionalidades para públicos direcionados
 ms.service: azure-app-configuration
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.topic: conceptual
-ms.date: 8/7/2020
-ms.openlocfilehash: d1574b8a3f8cda3341c0aaf355911e2e93a7bcab
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.date: 11/20/2020
+ms.openlocfilehash: c415eaeab2edd0a1b324bba4266266201cb50cbf
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557929"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929689"
 ---
 # <a name="enable-staged-rollout-of-features-for-targeted-audiences"></a>Ativar o lançamento encenado de funcionalidades para públicos direcionados
 
@@ -91,7 +91,7 @@ Neste momento, pode utilizar a bandeira de funcionalidades para ativar ou desati
     }
     ```
 
-1. Em *Startup.cs* , adicione uma referência ao espaço de *nomes Microsoft.FeatureManagement.FeatureFilters:*
+1. Em *Startup.cs*, adicione uma referência ao espaço de *nomes Microsoft.FeatureManagement.FeatureFilters:*
 
     ```csharp
     using Microsoft.FeatureManagement.FeatureFilters;
@@ -144,8 +144,8 @@ Todo o método *ConfigureServices* será assim:
 
 1. Selecione as seguintes opções:
 
-    - **Percentagem de predefinição** : 0
-    - **Grupos** : Insira um **nome** de _contoso.com_ e uma **percentagem** de _50_
+    - **Percentagem de predefinição**: 0
+    - **Grupos**: Insira um **nome** de _contoso.com_ e uma **percentagem** de _50_
     - **Utilizadores:**`test@contoso.com`
 
     O ecrã do filtro de funcionalidade será assim:

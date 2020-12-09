@@ -1,19 +1,19 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: include
 ms.date: 1/31/2020
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: include file
-ms.openlocfilehash: 751613e7b3b2252b62dff2c3e1adad83bdc8c393
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7d7f765a6a6dd9ef487b0bade7fa064af00f3149
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182716"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929234"
 ---
 Se não quiser continuar a utilizar os recursos criados neste artigo, elimine o grupo de recursos que criou aqui para evitar encargos.
 

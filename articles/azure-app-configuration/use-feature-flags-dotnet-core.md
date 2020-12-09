@@ -3,8 +3,7 @@ title: Tutorial para usar bandeiras de recurso numa aplicação .NET Core ! Micr
 description: Neste tutorial, aprende-se a implementar bandeiras de funcionalidades em aplicações .NET Core.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -12,14 +11,14 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 09/17/2020
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 6da2aa645549920cce2f5c0cfe8a32c98dc04708
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8c0dd9713c673ad676058acc7dbbb3cb5a65362e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746139"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929196"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Use bandeiras de recurso numa aplicação core ASP.NET
 
@@ -132,7 +131,7 @@ config.AddAzureAppConfiguration(options => {
 
 Cada bandeira de características tem duas partes: um nome e uma lista de um ou mais filtros que são usados para avaliar se o estado de uma característica está *ligado* (isto é, quando o seu valor `True` é). Um filtro define uma caixa de utilização para quando uma função deve ser ligada.
 
-Quando uma bandeira de recurso tem vários filtros, a lista de filtros é percorrida até que um dos filtros determine que a função deve ser ativada. Nessa altura, a bandeira da funcionalidade está *acesa* , e os restantes resultados do filtro são ignorados. Se nenhum filtro indicar que a função deve ser ativada, a bandeira de características está *desligada* .
+Quando uma bandeira de recurso tem vários filtros, a lista de filtros é percorrida até que um dos filtros determine que a função deve ser ativada. Nessa altura, a bandeira da funcionalidade está *acesa*, e os restantes resultados do filtro são ignorados. Se nenhum filtro indicar que a função deve ser ativada, a bandeira de características está *desligada*.
 
 O gestor de funcionalidades suporta *appsettings.js* como fonte de configuração para bandeiras de funcionalidades. O exemplo a seguir mostra como configurar bandeiras de recurso num ficheiro JSON:
 
@@ -157,7 +156,7 @@ Por convenção, a `FeatureManagement` secção deste documento JSON é utilizad
 
 * `FeatureA`está *ligado.*
 * `FeatureB`está *desligado.*
-* `FeatureC` especifica um filtro nomeado `Percentage` com uma `Parameters` propriedade. `Percentage` é um filtro configurável. Neste exemplo, `Percentage` especifica uma probabilidade de 50% para a bandeira estar `FeatureC` *em* .
+* `FeatureC` especifica um filtro nomeado `Percentage` com uma `Parameters` propriedade. `Percentage` é um filtro configurável. Neste exemplo, `Percentage` especifica uma probabilidade de 50% para a bandeira estar `FeatureC` *em*.
 
 ## <a name="feature-flag-references"></a>Referências de bandeira de característica
 

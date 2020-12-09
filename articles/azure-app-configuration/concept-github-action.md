@@ -1,17 +1,17 @@
 ---
 title: Sync o seu repositório GitHub para a Configuração de Aplicações
 description: Utilize as ações do GitHub para atualizar automaticamente a sua instância de Configuração de Aplicações quando atualizar o seu repositório GitHub.
-author: lisaguthrie
-ms.author: lcozzens
-ms.date: 02/20/2020
+author: AlexandraKemperMS
+ms.author: alkemper
+ms.date: 05/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 66d0e32e7dfdd5ab2abee5108ac8ce54c5222747
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b2b5f4bcbcc5af07a763ee4dff2d42413750fb7
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371826"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930284"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Sync o seu repositório GitHub para a Configuração de Aplicações
 
@@ -25,7 +25,7 @@ Um fluxo [de trabalho](https://help.github.com/articles/about-github-actions#wor
 A [documentação](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) do GitHub fornece uma visão aprofundada dos fluxos de trabalho e ações do GitHub. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Ativar as ações do GitHub no seu repositório
-Para começar a utilizar esta ação do GitHub, vá ao seu repositório e selecione o **separador Ações.** Selecione **novo fluxo de trabalho**e, em seguida, crie um fluxo de trabalho por si **mesmo**. Finalmente, procure no mercado "Azure App Configuration Sync".
+Para começar a utilizar esta ação do GitHub, vá ao seu repositório e selecione o **separador Ações.** Selecione **novo fluxo de trabalho** e, em seguida, crie um fluxo de trabalho por si **mesmo**. Finalmente, procure no mercado "Azure App Configuration Sync".
 > [!div class="mx-imgBorder"]
 > ![Selecione o separador Ação](media/find-github-action.png)
 

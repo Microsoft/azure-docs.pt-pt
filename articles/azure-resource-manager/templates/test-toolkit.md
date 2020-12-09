@@ -1,20 +1,20 @@
 ---
 title: Kit de ferramentas de teste de modelo ARM
-description: Descreve como executar o kit de ferramentas de teste do modelo ARM no seu modelo. O conjunto de ferramentas permite-lhe ver se implementou práticas recomendadas.
+description: Descreve como executar o modelo de ferramentas de teste do Gestor de Recursos Azure (modelo ARM) no seu modelo. O conjunto de ferramentas permite-lhe ver se implementou práticas recomendadas.
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 73f6db8cbd5e4d7a0670c394f6af338aae8e9e79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29ebe2f0ec4d4c39154272bbbdf4d0c9ede9fd95
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439565"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928193"
 ---
 # <a name="use-arm-template-test-toolkit"></a>Use o kit de ferramentas de teste do modelo ARM
 
-O [kit de ferramentas de teste do modelo Azure Resource Manager (ARM)](https://aka.ms/arm-ttk) verifica se o seu modelo utiliza práticas recomendadas. Quando o seu modelo não está em conformidade com as práticas recomendadas, devolve uma lista de avisos com as alterações sugeridas. Ao utilizar o kit de ferramentas de teste, pode aprender a evitar problemas comuns no desenvolvimento do modelo.
+O [modelo de ferramentas de teste do gestor de recursos Azure (modelo ARM)](https://aka.ms/arm-ttk) verifica se o seu modelo utiliza práticas recomendadas. Quando o seu modelo não está em conformidade com as práticas recomendadas, devolve uma lista de avisos com as alterações sugeridas. Ao utilizar o kit de ferramentas de teste, pode aprender a evitar problemas comuns no desenvolvimento do modelo.
 
 O conjunto de ferramentas de teste fornece um [conjunto de testes predefinidos](test-cases.md). Estes testes são recomendações, mas não requisitos. Pode decidir quais os testes que são relevantes para os seus objetivos e personalizar quais os testes que são realizados.
 
@@ -26,7 +26,7 @@ O conjunto de ferramentas é um conjunto de scripts PowerShell que podem ser exe
 
 1. Se ainda não tiver PowerShell, [instale o PowerShell no Windows](/powershell/scripting/install/installing-powershell-core-on-windows).
 
-1. [Descarregue o ficheiro .zip mais recente](https://aka.ms/arm-ttk-latest) para o kit de ferramentas de teste e extrai-o.
+1. [Descarregue o ficheiro de .zip mais recente](https://aka.ms/arm-ttk-latest) para o kit de ferramentas de teste e extrai-o.
 
 1. Inicie a PowerShell.
 
@@ -54,7 +54,7 @@ O conjunto de ferramentas é um conjunto de scripts PowerShell que podem ser exe
 
 1. Se ainda não tiver PowerShell, [instale o PowerShell no Linux](/powershell/scripting/install/installing-powershell-core-on-linux).
 
-1. [Descarregue o ficheiro .zip mais recente](https://aka.ms/arm-ttk-latest) para o kit de ferramentas de teste e extrai-o.
+1. [Descarregue o ficheiro de .zip mais recente](https://aka.ms/arm-ttk-latest) para o kit de ferramentas de teste e extrai-o.
 
 1. Inicie a PowerShell.
 
@@ -92,7 +92,7 @@ O conjunto de ferramentas é um conjunto de scripts PowerShell que podem ser exe
    brew install coreutils
    ```
 
-1. [Descarregue o ficheiro .zip mais recente](https://aka.ms/arm-ttk-latest) para o kit de ferramentas de teste e extrai-o.
+1. [Descarregue o ficheiro de .zip mais recente](https://aka.ms/arm-ttk-latest) para o kit de ferramentas de teste e extrai-o.
 
 1. Inicie a PowerShell.
 
@@ -120,7 +120,7 @@ O conjunto de ferramentas é um conjunto de scripts PowerShell que podem ser exe
    Test-AzTemplate -TemplatePath /path/to/template
    ```
 
-## <a name="result-format"></a>Formato de resultados
+## <a name="result-format"></a>Formato dos resultados
 
 Os testes que passam são apresentados em **verde** e prefaciados com **[+]**.
 
@@ -282,4 +282,4 @@ O próximo exemplo mostra como fazer os testes.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre os testes predefinidos, consulte [os casos de teste para o conjunto de ferramentas](test-cases.md).
+Para saber mais sobre os testes predefinidos, consulte [os casos de teste predefinidos para o kit de ferramentas de teste do modelo ARM](test-cases.md).

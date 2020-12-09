@@ -3,12 +3,12 @@ title: Comparar filas do Armazenamento do Azure e filas do Service Bus
 description: Analisa diferenças e semelhanças entre dois tipos de filas oferecidas pelo Azure.
 ms.topic: article
 ms.date: 11/04/2020
-ms.openlocfilehash: 5c65cf5ef2d572417ea70d0e0259cf2c03ab590e
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 31992aa2012009c51cbeae78010ae8ced65fc872
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379575"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928312"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas de armazenamento e filas de autocarros de serviço - comparadas e contrastadas
 Este artigo analisa as diferenças e semelhanças entre os dois tipos de filas oferecidas pela Microsoft Azure: filas de armazenamento e filas de Service Bus. Ao utilizar esta informação, pode tomar uma decisão mais informada sobre qual a solução que melhor satisfaz as suas necessidades.
@@ -131,7 +131,7 @@ Esta secção compara as filas de armazenamento e as filas de Service Bus na per
 | Tamanho máximo da mensagem |**64 KB**<br/><br/>(48 KB ao utilizar a codificação **Base64)**<br/><br/>O Azure suporta grandes mensagens combinando filas e bolhas – altura em que pode encadear até 200 GB para um único item. |**256 KB** ou **1 MB**<br/><br/>(incluindo o cabeçalho e o corpo, tamanho máximo do cabeçalho: 64 KB).<br/><br/>Depende do [nível de serviço.](service-bus-premium-messaging.md) |
 | Mensagem máxima TTL |**Infinite** (versão api 2017-07-27 ou posterior) |**TimeSpan.Max** |
 | Número máximo de filas |**Ilimitado** |**10,000**<br/><br/>(por espaço de nome de serviço) |
-| Número máximo de clientes simultâneos |**Ilimitado** |**Ilimitado**<br/><br/>(100 limites de ligação simultâneos apenas se aplicam à comunicação baseada no protocolo TCP) |
+| Número máximo de clientes simultâneos |**Ilimitado** |**5000** |
 
 ### <a name="additional-information"></a>Informações adicionais
 * O Service Bus impõe limites de tamanho de fila. O tamanho máximo da fila é especificado ao criar uma fila. Pode ser entre 1 GB e 80 GB. Se o tamanho da fila atingir este limite, as mensagens adicionais de entrada serão rejeitadas e o chamador receberá uma exceção. Para obter mais informações sobre quotas em Service Bus, consulte [Service Bus Quotas](service-bus-quotas.md).

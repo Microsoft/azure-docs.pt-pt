@@ -2,18 +2,18 @@
 title: Diferenças em relação ao Azure Data Factory
 description: Saiba como as capacidades de integração de dados da Azure Synapse Analytics diferem das da Azure Data Factory
 services: synapse-analytics
-author: djpmsft
+author: shirleywangmsft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.author: daperlov
+ms.author: shwang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 10f5336dd4c8a02acf623b1b14226ca676006953
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: db5d05e1a211ce14926ee4031054669fff5110d9
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357654"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930216"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Integração de dados no Azure Synapse Analytics contra Azure Data Factory
 
@@ -42,7 +42,6 @@ As seguintes funcionalidades comportam-se de forma diferente ou não existem atu
 
 * **Fluxos de dados de estrangulamento:** A atividade de fluxo de dados de estrangulamento só está disponível na Azure Data Factory neste momento.
 * **A galeria do modelo de solução:** Na Azure Data Factory, os utilizadores podem encontrar modelos de pipeline na galeria do modelo de solução. Nos espaços de trabalho da Synapse, o knowledge center contém um conjunto diferente de modelos, juntamente com conjuntos de dados adicionais e Scripts SQL. 
-* **Integração de git e uma solução nativa de CI/CD:** Atualmente, um espaço de trabalho da Sinapse não pode ligar-se a um repositório git nem segue o mesmo processo de integração e entrega contínua que a Azure Data Factory.
 * **Integração com monitor Azure:** Os espaços de trabalho da Sinapse não se integram com o Azure Data Factory como faz a Azure Data Factory.
 * **Configuração de tempo de execução de integração híbrida:** Dentro de um espaço de trabalho synapse, um utilizador não pode ter tanto um VNet IR gerido como um Azure IR. Esta capacidade é suportada na Azure Data Factory.
 * **Partilha de tempo de integração:** Os tempos de integração auto-organizados não podem ser partilhados entre espaços de trabalho da Sinapse. Esta capacidade é suportada na Azure Data Factory.

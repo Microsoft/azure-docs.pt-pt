@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: 55651b3201676ee5cddb5412e950791afaa4e87a
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 01af7b251c9ce3bfebb87016c85ea3efd9c0e8ac
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852137"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928771"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Como ligar a Azure Data Factory e a Azure Purview
 
@@ -42,6 +42,13 @@ Várias fábricas de dados Azure podem ligar-se a um único Catálogo de Dados A
 
 ## <a name="create-new-data-factory-connection"></a>Criar nova ligação à Fábrica de Dados
 
+>[!Note]
+>Para adicionar ou remover as ligações data factory, você precisa ser atribuído qualquer uma das funções de Purview:
+>- Proprietário
+>- Administrador de Acesso dos Utilizadores
+>
+> Além disso, exige que os utilizadores sejam o "Proprietário" ou "Contribuinte" da fábrica de dados. 
+
 Siga os passos abaixo para ligar as contas existentes da Data Factory ao seu Catálogo de Dados de Purview.
 
 1. Selecione **Centro de Gestão** no painel de navegação à esquerda.
@@ -70,11 +77,6 @@ Para remover uma ligação à fábrica de dados, faça o seguinte:
 1. **Selecione Confirme** no popup para eliminar as ligações de fábrica de dados selecionadas.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot mostrando como selecionar fábricas de dados para remover a ligação." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
-
->[!Note]
->Para adicionar ou remover as ligações data factory, você precisa ser atribuído qualquer uma das funções de Purview:
->- Proprietário
->- Administrador de Acesso ao Utilizador Além disso, exige que os utilizadores sejam "Proprietário" ou "Contribuinte" da fábrica de dados. 
 
 ## <a name="configure-a-self-hosted-ir-to-collect-lineage-from-on-prem-sql"></a>Configure um IR auto-hospedado para recolher a linhagem a partir de SQL on-prem
 

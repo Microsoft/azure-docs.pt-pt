@@ -1,21 +1,21 @@
 ---
 title: Tutorial - adicione variável ao modelo
-description: Adicione variáveis ao seu modelo de Gestor de Recursos Azure para simplificar a sintaxe.
+description: Adicione variáveis ao seu modelo de Gestor de Recursos Azure (modelo ARM) para simplificar a sintaxe.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 482608172ac9e6e2b9765f236a4b6d655e2455fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d259510d880cbfc60e9ae80b533af6792cc95536
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613157"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930733"
 ---
 # <a name="tutorial-add-variables-to-your-arm-template"></a>Tutorial: Adicione variáveis ao seu modelo ARM
 
-Neste tutorial, aprende-se a adicionar uma variável ao seu modelo Azure Resource Manager (ARM). As variáveis simplificam os seus modelos, permitindo-lhe escrever uma expressão uma vez e reutilizá-la ao longo do modelo. Este tutorial leva **7 minutos** para ser concluído.
+Neste tutorial, você aprende a adicionar uma variável ao seu modelo de Gestor de Recursos Azure (modelo ARM). As variáveis simplificam os seus modelos, permitindo-lhe escrever uma expressão uma vez e reutilizá-la ao longo do modelo. Este tutorial leva **7 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

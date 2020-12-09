@@ -2,18 +2,18 @@
 title: Integre a Configuração de Aplicativos Azure utilizando um pipeline de integração e entrega contínua
 description: Aprenda a implementar integração e entrega contínua usando a Configuração de Aplicações Azure
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.date: 01/30/2020
-ms.author: lcozzens
-ms.openlocfilehash: b8756db881448edcaac1fda44b60229975350676
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 04/19/2020
+ms.author: alkemper
+ms.openlocfilehash: d076bdf09626ec9ed08fcf43b95fc63d2f4a7dd7
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074741"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928454"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrar num pipeline CI/CD
 
@@ -67,7 +67,7 @@ Para fazer uma construção em nuvem, com Azure DevOps, por exemplo, certifique-
 
 ### <a name="build-and-run-the-app-locally"></a>Construa e execute a app localmente
 
-1. Desaprote uma variável ambiental chamada **ConnectionString**e desaprote-a na chave de acesso à sua loja de Configuração de Aplicações. 
+1. Desaprote uma variável ambiental chamada **ConnectionString** e desaprote-a na chave de acesso à sua loja de Configuração de Aplicações. 
     Se utilizar o pedido de comando do Windows, executar o seguinte comando e reiniciar a solicitação de comando para permitir que a alteração entre em vigor:
 
     ```console

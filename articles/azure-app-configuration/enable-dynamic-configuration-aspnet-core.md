@@ -4,23 +4,22 @@ titleSuffix: Azure App Configuration
 description: Neste tutorial, aprende-se a atualizar dinamicamente os dados de configuração para ASP.NET aplicações Core
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/24/2019
-ms.author: lcozzens
+ms.date: 09/1/2020
+ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f98ec384876da1d30952d1c4edc1d00049e44682
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1fd495083f5f9be367dd0f125883b181e3bed27b
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077002"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930556"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Use configuração dinâmica numa aplicação core ASP.NET
 
@@ -34,7 +33,7 @@ Este tutorial mostra como pode implementar atualizações dinâmicas de configur
 
 Você pode usar qualquer editor de código para fazer os passos neste tutorial. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível nas plataformas Windows, macOS e Linux.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configurar a sua aplicação para atualizar a sua configuração em resposta a alterações numa loja de Configuração de Aplicações.
@@ -57,7 +56,7 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
 1. Selecione **Aplicar**.
 
 > [!NOTE]
-> Se não estiver a usar uma chave sentinela, tem de registar manualmente todas as chaves que pretende ver.
+> Se não estiver a usar uma chave sentinela, tem de registar manualmente todas as chaves que pretende ver.
 
 ## <a name="reload-data-from-app-configuration"></a>Recarregar dados da Configuração de Aplicações
 
@@ -67,7 +66,7 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     ```
 
-1. Abra *Program.cs*e atualize o `CreateWebHostBuilder` método para adicionar o `config.AddAzureAppConfiguration()` método.
+1. Abra *Program.cs* e atualize o `CreateWebHostBuilder` método para adicionar o `config.AddAzureAppConfiguration()` método.
 
     #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -161,7 +160,7 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
     ```
     ---
     > [!Tip]
-    > Para saber mais sobre o padrão de opções ao ler valores de configuração, consulte [Padrões de Opções no ASP.NET Core](/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+    > Para saber mais sobre o padrão de opções ao ler valores de configuração, consulte [Padrões de Opções no ASP.NET Core](/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Atualize o `Configure` método, adicionando o `UseAzureAppConfiguration` middleware para permitir que as definições de configuração registadas para atualização sejam atualizadas enquanto a aplicação web core ASP.NET continua a receber pedidos.
 
@@ -221,6 +220,9 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
     ---
     
     O middleware utiliza a configuração de atualização especificada `AddAzureAppConfiguration` no método para desencadear uma `Program.cs` atualização para cada pedido recebido pela aplicação web Core ASP.NET. Para cada pedido, é ativada uma operação de atualização e a biblioteca do cliente verifica se o valor em cache para a definição de configuração registada expirou. Se tiver expirado, é refrescado.
+
+    > [!NOTE]
+    > Para garantir que a configuração é atualizada, adicione o middleware tão cedo quanto apropriado ao seu pipeline de pedido para que não seja curto-circuito por outro middleware na sua aplicação.
 
 ## <a name="use-the-latest-configuration-data"></a>Utilize os dados de configuração mais recentes
 
@@ -327,9 +329,9 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
 
     ![Lançamento de app quickstart localmente](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Todos os recursos**e selecione a instância da loja de Configuração de Aplicações que criou no arranque rápido.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Todos os recursos** e selecione a instância da loja de Configuração de Aplicações que criou no arranque rápido.
 
-1. Selecione **Configuration Explorer**e atualize os valores das seguintes teclas:
+1. Selecione **Configuration Explorer** e atualize os valores das seguintes teclas:
 
     | Chave | Valor |
     |---|---|
@@ -342,13 +344,13 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
 
     ![Lançamento de app quickstart atualizada localmente](./media/quickstarts/aspnet-core-app-launch-local-after.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, permitiu que a sua ASP.NET web web web atualizasse dinamicamente as definições de configuração a partir da Configuração da Aplicação. Para aprender a usar uma identidade gerida pelo Azure para agilizar o acesso à Configuração de Aplicações, continue para o próximo tutorial.
+Neste tutorial, permitiu que a sua ASP.NET web atualizasse dinamicamente as definições de configuração a partir da Configuração da Aplicação. Para aprender a usar uma identidade gerida pelo Azure para agilizar o acesso à Configuração de Aplicações, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Integração de identidade gerida](./howto-integrate-azure-managed-service-identity.md)

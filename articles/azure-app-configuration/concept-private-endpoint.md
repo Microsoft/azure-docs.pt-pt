@@ -2,17 +2,17 @@
 title: Utilização de pontos finais privados para configuração de aplicações Azure
 description: Proteja a sua loja de configuração de aplicativos utilizando pontos finais privados
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 3/12/2020
-ms.author: lcozzens
-ms.openlocfilehash: a29c8c02093f47807ec71ffcc01e26514976ce79
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 07/15/2020
+ms.openlocfilehash: 6cadadfb3623d05dd3ae3851acd5eaca13860023
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071715"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929848"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Utilização de pontos finais privados para configuração de aplicações Azure
 
@@ -41,7 +41,7 @@ Ao criar um ponto final privado, deve especificar a loja de Configuração de Ap
 
 ### <a name="connecting-to-private-endpoints"></a>Ligação a pontos finais privados
 
-O Azure baseia-se na resolução do DNS para encaminhar as ligações do VNet para a loja de configuração por um link privado. Pode rapidamente encontrar as cadeias de ligações no portal Azure selecionando a sua loja de Configuração de Aplicações e, em seguida, selecionando **As**  >  **Teclas de Acesso**de Definições .  
+O Azure baseia-se na resolução do DNS para encaminhar as ligações do VNet para a loja de configuração por um link privado. Pode rapidamente encontrar as cadeias de ligações no portal Azure selecionando a sua loja de Configuração de Aplicações e, em seguida, selecionando **As**  >  **Teclas de Acesso** de Definições .  
 
 > [!IMPORTANT]
 > Utilize o mesmo fio de ligação para ligar à sua loja de Configuração de Aplicações utilizando pontos finais privados como utilizaria para um ponto final público. Não se ligue à loja utilizando o seu `privatelink` URL de subdomínio.

@@ -1,21 +1,21 @@
 ---
 title: Tutorial - adicione tags aos recursos no modelo
-description: Adicione tags aos recursos que implementa no seu modelo de Gestor de Recursos Azure. As etiquetas permitem organizar logicamente recursos.
+description: Adicione tags aos recursos que implementa no seu modelo de Gestor de Recursos Azure (modelo ARM). As etiquetas permitem organizar logicamente recursos.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 16fc294784d9d6ff3c2fdd920d053eae5cd4b56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4084508202fc7db5280d34c157552fe723b1dfba
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613208"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930947"
 ---
 # <a name="tutorial-add-tags-in-your-arm-template"></a>Tutorial: Adicione etiquetas no seu modelo ARM
 
-Neste tutorial, aprende a adicionar tags aos recursos no seu modelo Azure Resource Manager (ARM). [As etiquetas](../management/tag-resources.md) ajudam-no a organizar logicamente os seus recursos. Os valores da etiqueta aparecem nos relatórios de custos. Este tutorial leva **8 minutos** para ser concluído.
+Neste tutorial, você aprende a adicionar tags aos recursos no seu modelo de Gestor de Recursos Azure (modelo ARM). [As etiquetas](../management/tag-resources.md) ajudam-no a organizar logicamente os seus recursos. Os valores da etiqueta aparecem nos relatórios de custos. Este tutorial leva **8 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

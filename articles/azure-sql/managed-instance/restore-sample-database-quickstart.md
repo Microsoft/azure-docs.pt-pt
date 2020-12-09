@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 413786cf8946c1ffbb76bd0e18eae7c7ba16a9c1
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9b2333e38415a2c0ad50ce36c213ead711c70ab4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790751"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928805"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>Quickstart: Restaurar uma base de dados para Azure SQL Caso Gerido com SSMS
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -51,6 +51,9 @@ No SQL Server Management Studio, siga estes passos para restaurar a base de dado
 1. Abra o SSMS e ligue-se à sua instância gerida.
 2. No **Object Explorer,** clique com o botão direito na sua instância gerida e selecione **New Consulta** para abrir uma nova janela de consulta.
 3. Execute o seguinte script SQL, que utiliza uma conta de armazenamento pré-configurada e uma chave SAS para [criar uma credencial](/sql/t-sql/statements/create-credential-transact-sql) no seu caso gerido.
+ 
+   > [!IMPORTANT]
+   > `CREDENTIAL` deve combinar com o caminho do recipiente, comece `https` com, e não pode conter um corte para a frente. `IDENTITY` deve ser `SHARED ACCESS SIGNATURE` . `SECRET` deve ser o token assinatura de acesso partilhado e não pode conter um líder `?` .
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]

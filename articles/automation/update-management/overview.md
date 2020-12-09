@@ -3,14 +3,14 @@ title: Visão geral da Azure Automation Update Management
 description: Este artigo fornece uma visão geral da funcionalidade de Gestão de Atualização que implementa atualizações para as suas máquinas Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 11/30/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 37ab05ce7e963ab7fdc4d2b02e254adaa205446c
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 4b557c9772e76b6b61cdf01799ee30ba6bc11807
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327496"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928431"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
@@ -224,7 +224,7 @@ A tabela seguinte define as classificações suportadas para atualizações do L
 >
 > não existem classificações de atualizações do Linux e são reportadas na categoria **Outras atualizações.** A Atualização Management utiliza dados publicados pelas distribuições suportadas, especificamente os seus ficheiros [OVAL](https://oval.mitre.org/) (Open Vulnerability and Assessment Language). Como o acesso à Internet é restrito a partir destas nuvens nacionais, a Update Management não pode aceder e consumir estes ficheiros.
 
-Para o Linux, a Update Management pode distinguir entre atualizações críticas e atualizações de segurança na nuvem enquanto exibe dados de avaliação devido ao enriquecimento de dados na nuvem. Para remendar, a Update Management baseia-se nos dados de classificação disponíveis na máquina. Ao contrário de outras distribuições, o CentOS não dispõe desta informação disponível na versão RTM. Se tiver máquinas CentOS configuradas para devolver dados de segurança para o seguinte comando, a Gestão de Atualização pode corrigir com base nas classificações.
+Para o Linux, a Update Management pode distinguir entre atualizações críticas e atualizações de segurança na nuvem sob classificação **Segurança** e **Outros**, enquanto exibe dados de avaliação devido ao enriquecimento de dados na nuvem. Para remendar, a Update Management baseia-se nos dados de classificação disponíveis na máquina. Ao contrário de outras distribuições, o CentOS não dispõe desta informação disponível na versão RTM. Se tiver máquinas CentOS configuradas para devolver dados de segurança para o seguinte comando, a Gestão de Atualização pode corrigir com base nas classificações.
 
 ```bash
 sudo yum -q --security check-update
@@ -233,6 +233,10 @@ sudo yum -q --security check-update
 Não existe atualmente um método suportado para permitir a disponibilidade de dados de classificação nativa no CentOS. Neste momento, é prestado suporte limitado aos clientes que possam ter ativado esta funcionalidade por conta própria.
 
 Para classificar as atualizações na versão 6 da Red Hat Enterprise, é necessário instalar o plugin de segurança yum. No Red Hat Enterprise Linux 7, o plugin já faz parte do próprio yum e não há necessidade de instalar nada. Para mais informações, consulte o seguinte artigo de [conhecimento](https://access.redhat.com/solutions/10021)da Red Hat .
+
+Quando agenda uma atualização para ser executada numa máquina Linux, que por exemplo está configurada para instalar apenas atualizações correspondentes à classificação **de Segurança,** as atualizações instaladas podem ser diferentes das, ou são um subconjunto das atualizações correspondentes a esta classificação. Quando é realizada uma avaliação das atualizações do SO pendentes para a sua máquina Linux, os ficheiros [Open Vulnerability and Assessment Language](https://oval.mitre.org/) (OVAL) fornecidos pelo fornecedor de distro Linux são utilizados pela Update Management para classificação.
+
+A categorização é feita para atualizações do Linux como **Segurança** ou **Outras** com base nos ficheiros OVA, que inclui atualizações que abordam problemas de segurança ou vulnerabilidades. Mas quando o calendário de atualização é executado, executa na máquina Linux usando o gestor de pacotes apropriado como YUM, APT ou ZYPPER para instalá-los. O gestor de pacotes para o distro Linux pode ter um mecanismo diferente para classificar as atualizações, onde os resultados podem diferir dos obtidos a partir dos ficheiros OVAL pela Update Management. Para verificar manualmente a máquina e perceber quais as atualizações que são relevantes para a segurança do seu gestor de pacotes, consulte a [implementação da atualização do Troubleshoot Linux](../troubleshoot/update-management.md#updates-linux-installed-different).
 
 ## <a name="integrate-update-management-with-configuration-manager"></a>Integrar gestão de atualização com gestor de configuração
 

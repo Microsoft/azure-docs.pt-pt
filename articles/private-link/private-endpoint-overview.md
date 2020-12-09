@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 8021d659c144bfb68c2714f1680b6ad27a51b56a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ac4763a2d79059eb2608595b616c945af274627e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522350"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928516"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o Ponto Final Privado do Azure?
 
@@ -28,7 +28,7 @@ O Ponto Final Privado do Azure é uma interface de rede que o liga a um serviço
 |Sub-rede    |  A sub-rede para implantar e alocar endereços IP privados a partir de uma rede virtual. Para obter os requisitos da sub-rede, consulte a secção Limitações neste artigo.         |
 |Recurso de ligação privada    |   O recurso de ligação privada para ligar usando iD ou pseudónimo de recurso, a partir da lista de tipos disponíveis. Será gerado um identificador de rede único para todo o tráfego enviado a este recurso.       |
 |Subresource-alvo   |      O subresource para ligar. Cada tipo de recurso de ligação privada tem diferentes opções para selecionar com base na preferência.    |
-|Método de aprovação de conexão    |  Automático ou manual. Com base nas permissões de controlo de acesso baseado em funções (Azure RBAC), o seu ponto final privado pode ser aprovado automaticamente. Se tentar ligar-se a um recurso de ligação privada sem aure RBAC, utilize o método manual para permitir ao proprietário do recurso aprovar a ligação.        |
+|Método de aprovação de conexão    |  Automático ou manual. Com base nas permissões de controlo de acesso baseado em funções (Azure RBAC), o seu ponto final privado pode ser aprovado automaticamente. Se tentar ligar-se a um recurso de ligação privada sem o RBAC Azure, utilize o método manual para permitir ao proprietário do recurso aprovar a ligação.        |
 |Mensagem de Pedido     |  Pode especificar uma mensagem para que as ligações solicitadas sejam aprovadas manualmente. Esta mensagem pode ser usada para identificar um pedido específico.        |
 |Estado da ligação   |   Uma propriedade só de leitura que especifica se o ponto final privado está ativo. Apenas os pontos finais privados num estado aprovado podem ser utilizados para o envio de tráfego. Estados adicionais disponíveis: <br>-**Aprovado**: A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada.</br><br>-**Pendente**: A ligação foi criada manualmente e está pendente de aprovação pelo proprietário do recurso de ligação privada.</br><br>-**Rejeitado:** A ligação foi rejeitada pelo proprietário de recursos de ligação privada.</br><br>-**Desligado**: A ligação foi removida pelo proprietário do recurso de ligação privada. O ponto final privado torna-se informativo e deve ser eliminado para limpeza. </br>|
 
@@ -61,7 +61,7 @@ Um recurso de ligação privada é o alvo de destino de um determinado ponto fin
 |**Azure Synapse Analytics** | Microsoft.Sql/servidores    |  Sql Server (SqlServer)        | 
 |**Armazenamento do Azure**  | Microsoft.Storage/storageAcontas    |  Blob (bolha, blob_secondary)<BR> Tabela (tabela, table_secondary)<BR> Fila (fila, queue_secondary)<BR> Arquivo (arquivo, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2** (Armazenamento do Azure Data Lake Gen2)  | Microsoft.Storage/storageAcontas    |  Blob (bolha, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
-|**BD do Cosmos para o Azure** | Microsoft.AzureCosmosDB/databaseSacons    | Sql, MongoDB, Cassandra, Gremlin, Mesa|
+|**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseSacons    | Sql, MongoDB, Cassandra, Gremlin, Mesa|
 |**Base de Dados Azure para PostgreSQL -Servidor único** | Microsoft.DBforPostgreSQL/servidores    | postgresqlServer |
 |**Base de Dados do Azure para MySQL** | Microsoft.DBforMySQL/servidores    | mysqlServer |
 |**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servidores    | mariadbServer |

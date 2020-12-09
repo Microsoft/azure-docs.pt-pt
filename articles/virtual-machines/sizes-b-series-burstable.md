@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 819654ef88584cb91d6032e46256258aaed524fd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ea812df825288eae3822cce01b24ebc82534c541
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500313"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928822"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos de máquina virtual rebentado da série B
 
@@ -132,7 +132,7 @@ por exemplo, acima de exemplo, a sua linha de base é de 20% e se utilizar 10% d
 
 ### <a name="q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart"></a>P: Por que o meu crédito restante está definido para 0 após uma recolocação ou uma paragem/arranque?
 
-**R** : Quando um VM é "REDPLOYED" e o VM passa para outro nó, perde-se o crédito acumulado. Se o VM for parado/iniciado, mas permanecer no mesmo nó, o VM mantém o crédito acumulado. Sempre que o VM começa fresco num nó, recebe um crédito inicial, para Standard_B8ms é de 240.
+**R** : Quando um VM é redistribuído e o VM passa para outro nó, perde-se o crédito acumulado. Se o VM for parado/iniciado, mas permanecer no mesmo nó, o VM mantém o crédito acumulado. Sempre que o VM começa fresco num nó, recebe um crédito inicial, para Standard_B8ms é de 240.
 
 ### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>P: O que acontece se eu colocar uma imagem de SO não suportada em B1ls?
 

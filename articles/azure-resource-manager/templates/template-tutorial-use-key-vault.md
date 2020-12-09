@@ -1,21 +1,21 @@
 ---
 title: Use a adoçada de chave Azure em modelos
-description: Saiba como utilizar o Azure Key Vault para transmitir valores de parâmetros seguros durante a implementação de modelos do Resource Manager
+description: Aprenda a usar o Cofre da Chave Azure para passar valores de parâmetros seguros durante a implementação do modelo do Gestor de Recursos Azure (modelo ARM).
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 73a50c282eee023bff525bc737bd2170938de1dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75eb977559573b72883de3ddbc27391c7e299a6f
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119281"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929321"
 ---
-# <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integre o cofre da chave Azure na sua implementação do modelo ARM
+# <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integrar o Azure Key Vault na implementação de modelos do Resource Manager
 
-Aprenda a recuperar segredos a partir de um cofre de chave Azure e passe os segredos como parâmetros quando implementar um modelo de Gestor de Recursos Azure (ARM). O valor do parâmetro nunca é exposto, porque refere apenas o seu ID do cofre chave. Pode fazer referência ao segredo do cofre de chaves utilizando um ID estático ou um ID dinâmico. Este tutorial usa uma identificação estática. Com a abordagem estática de ID, você referencia o cofre chave no arquivo do parâmetro do modelo, não o ficheiro do modelo. Para obter mais informações sobre ambas as abordagens, consulte [use Azure Key Vault para passar o valor do parâmetro seguro durante a implementação](./key-vault-parameter.md).
+Aprenda a recuperar segredos a partir de um cofre de chave Azure e passe os segredos como parâmetros quando implementar um modelo de Gestor de Recursos Azure (modelo ARM). O valor do parâmetro nunca é exposto, porque refere apenas o seu ID do cofre chave. Pode fazer referência ao segredo do cofre de chaves utilizando um ID estático ou um ID dinâmico. Este tutorial usa uma identificação estática. Com a abordagem estática de ID, você referencia o cofre chave no arquivo do parâmetro do modelo, não o ficheiro do modelo. Para obter mais informações sobre ambas as abordagens, consulte [use Azure Key Vault para passar o valor do parâmetro seguro durante a implementação](./key-vault-parameter.md).
 
 No tutorial de [ordem de implementação de recursos Definido,](./template-tutorial-create-templates-with-dependent-resources.md) cria-se uma máquina virtual (VM). Tem de fornecer o nome de utilizador e a palavra-passe do administrador VM. Em vez de fornecer a palavra-passe, pode pré-armazenar a palavra-passe num cofre de chave Azure e, em seguida, personalizar o modelo para recuperar a palavra-passe do cofre chave durante a implementação.
 
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para concluir este artigo, precisa de:
 
-* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [Quickstart: Crie modelos de Gestor de Recursos Azure com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [Quickstart: Crie modelos ARM com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
 * Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador VM. Aqui está uma amostra para gerar uma senha:
 
     ```console
@@ -167,7 +167,7 @@ Ao utilizar o método de ID estático, não precisa de fazer alterações no fic
 
     ![Arquivo de upload do portal Azure Cloud Shell](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Faça * o upload de ambos osazuredeploy.js* e *azuredeploy.parameters.js* para a Cloud Shell. Depois de carregar o ficheiro, pode utilizar o comando **ls** e o comando do **gato** para verificar se o ficheiro é carregado com sucesso.
+1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Faça *o upload de ambos osazuredeploy.js* e *azuredeploy.parameters.js* para a Cloud Shell. Depois de carregar o ficheiro, pode utilizar o comando **ls** e o comando do **gato** para verificar se o ficheiro é carregado com sucesso.
 
 1. Executar o seguinte script PowerShell para implementar o modelo.
 
@@ -194,7 +194,7 @@ Depois de ter implantado com sucesso a máquina virtual, teste as credenciais de
 
 1. Selecione **grupos de recursos**  >  **\<*YourResourceGroupName*>**  >  **simplesWinVM**.
 1. Selecione **ligar** na parte superior.
-1. Selecione **Baixar Ficheiro RDP**e, em seguida, siga as instruções para iniciar sing na máquina virtual utilizando a palavra-passe que está armazenada no cofre da chave.
+1. Selecione **Baixar Ficheiro RDP** e, em seguida, siga as instruções para iniciar sing na máquina virtual utilizando a palavra-passe que está armazenada no cofre da chave.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

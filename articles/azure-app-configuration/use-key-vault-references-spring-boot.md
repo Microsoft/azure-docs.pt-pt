@@ -3,23 +3,22 @@ title: Tutorial para usar referências do Cofre da Chave de Configuração de Ap
 description: Neste tutorial, você aprende a usar as referências key vault da Azure App Configuration a partir de uma aplicação Java Spring Boot
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/16/2019
-ms.author: lcozzens
+ms.date: 08/11/2020
+ms.author: alkemper
 ms.custom: mvc, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 921c3b8afdb6b196e001cdb7c190529e6238c1f7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ede8203078a3d496975e208622ef61018997cf8d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014266"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929225"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Tutorial: Use referências do Cofre de Chaves numa aplicação java Spring
 
@@ -35,7 +34,7 @@ Este tutorial mostra-lhe como implementar referências do Key Vault no seu códi
 
 Você pode usar qualquer editor de código para fazer os passos neste tutorial. Por exemplo, [o Visual Studio Code](https://code.visualstudio.com/) é um editor de códigos de plataforma cruzada que está disponível para os sistemas operativos Windows, macOS e Linux.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie uma chave de configuração de aplicativos que faz referência a um valor armazenado no Key Vault.

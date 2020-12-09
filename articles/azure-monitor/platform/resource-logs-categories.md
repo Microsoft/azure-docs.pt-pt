@@ -3,13 +3,13 @@ title: Azure Monitor Registos de Recursos suportados serviços e categorias
 description: Referência do Azure Monitor Compreenda os serviços suportados e esquema de eventos para registos de recursos Azure.
 ms.subservice: logs
 ms.topic: reference
-ms.date: 06/03/2020
-ms.openlocfilehash: 463b1d9d9c3ed1d94728874ba814554deb4f97c6
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 12/09/2020
+ms.openlocfilehash: c7b2d48b40843930bba78f54d2294769d952daf6
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920830"
+ms.locfileid: "96931236"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorias suportadas para Registos de Recursos Azure
 
@@ -23,7 +23,7 @@ Uma combinação do tipo de recurso (disponível na `resourceId` propriedade) e 
 
 ## <a name="costs"></a>Custos
 
- Existem custos associados ao envio e armazenamento de quaisquer dados no Log Analytics e/ou no centro de Eventos. Os registos de recursos são um tipo de dados que pode enviar para estes locais. Existe um custo adicional [para exportar algumas categorias de registos de recursos.](https://azure.microsoft.com/pricing/details/monitor/) Outros estão isentos de custos de exportação. As especificidades estão listadas na tabela abaixo.
+Existem custos associados ao envio e armazenamento de quaisquer dados no Log Analytics, Azure Storage e/ou Centro de Eventos. Você pode pagar o custo para obter os dados nestes locais e para mantê-los lá.  Os registos de recursos são um tipo de dados que pode enviar para estes locais. Existe um custo adicional [para a exportação de algumas categorias de registos de recursos](https://azure.microsoft.com/pricing/details/monitor/) para estes locais, enquanto outros estão isentos de custos de exportação. As especificidades dos custos de exportação constam do quadro a seguir.
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorias de registo suportado por tipo de recurso
 

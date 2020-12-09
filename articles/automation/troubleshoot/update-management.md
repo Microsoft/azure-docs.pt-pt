@@ -5,12 +5,12 @@ services: automation
 ms.date: 12/04/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: e8fc2a840ce019282625f286a6d54b132a1806c8
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: c6d0f38eaa25f2fe033a5e2cf48ee6daa51fcbe6
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751262"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929281"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Resolver problemas da Gestão de Atualizações
 
@@ -19,7 +19,7 @@ Este artigo discute questões que poderá encontrar ao implementar a funcionalid
 >[!NOTE]
 >Se tiver problemas ao implementar a Gestão de Atualização numa máquina Windows, abra o Visualizador de Eventos do Windows e verifique o registo de eventos **do Gestor de Operações** nos **Registos de Aplicações e Serviços** da máquina local. Procure eventos com iD 4502 de eventos e detalhes do evento que `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` contenham.
 
-## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a>Cenário: As atualizações do Linux apresentadas como pendentes e as instaladas variam
+## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a><a name="updates-linux-installed-different"></a>Cenário: As atualizações do Linux apresentadas como pendentes e as instaladas variam
 
 ### <a name="issue"></a>Problema
 
@@ -121,7 +121,7 @@ As suas máquinas têm os seguintes sintomas:
 
 * Faltam as suas máquinas na visão de Gestão de Atualização da sua conta Azure Automation.
 
-* Tem máquinas que mostram como `Not assessed` conformidade. **Compliance** No entanto, você vê dados de batimentos cardíacos em registos do Azure Monitor para o Trabalhador de Runbook Híbrido, mas não para a Gestão de Atualização.
+* Tem máquinas que mostram como `Not assessed` conformidade.  No entanto, você vê dados de batimentos cardíacos em registos do Azure Monitor para o Trabalhador de Runbook Híbrido, mas não para a Gestão de Atualização.
 
 ### <a name="cause"></a>Causa
 

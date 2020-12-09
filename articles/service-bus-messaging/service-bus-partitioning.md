@@ -4,12 +4,12 @@ description: Descreve como dividir filas e tópicos do Service Bus usando vário
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 380f18e16d09dc9f641a7a6b6cf9c1cb3f05e075
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8fd845ba24fd96ad6de566a7f55b25bd7129074d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356285"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930437"
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 
@@ -68,11 +68,11 @@ Alguns cenários, como sessões ou transações, exigem que as mensagens sejam a
 
 Dependendo do cenário, diferentes propriedades de mensagens são usadas como chave de partição:
 
-**SessionId** : Se uma mensagem tiver o conjunto de propriedades [SessionId,](/dotnet/api/microsoft.azure.servicebus.message.sessionid) então o Service Bus utiliza **o SessionID** como chave de partição. Desta forma, todas as mensagens que pertencem à mesma sessão são tratadas pelo mesmo corretor de mensagens. As sessões permitem ao Service Bus garantir o pedido de mensagem, bem como a consistência dos estados da sessão.
+**SessionId**: Se uma mensagem tiver o conjunto de propriedades [SessionId,](/dotnet/api/microsoft.azure.servicebus.message.sessionid) então o Service Bus utiliza **o SessionID** como chave de partição. Desta forma, todas as mensagens que pertencem à mesma sessão são tratadas pelo mesmo corretor de mensagens. As sessões permitem ao Service Bus garantir o pedido de mensagem, bem como a consistência dos estados da sessão.
 
-**PartitionKey** : Se uma mensagem tiver a propriedade [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) mas não o conjunto de propriedades [SessionId,](/dotnet/api/microsoft.azure.servicebus.message.sessionid) então o Service Bus utiliza o valor da propriedade [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) como chave de partição. Se a mensagem tiver as propriedades [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) e [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) definidas, ambas as propriedades devem ser idênticas. Se a propriedade [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) estiver definida para um valor diferente da propriedade [SessionId,](/dotnet/api/microsoft.azure.servicebus.message.sessionid) o Service Bus devolve uma exceção de operação inválida. A [propriedade PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) deve ser utilizada se um remetente enviar mensagens transacionais sem sessão. A chave de partição garante que todas as mensagens enviadas dentro de uma transação são tratadas pelo mesmo corretor de mensagens.
+**PartitionKey**: Se uma mensagem tiver a propriedade [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) mas não o conjunto de propriedades [SessionId,](/dotnet/api/microsoft.azure.servicebus.message.sessionid) então o Service Bus utiliza o valor da propriedade [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) como chave de partição. Se a mensagem tiver as propriedades [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) e [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) definidas, ambas as propriedades devem ser idênticas. Se a propriedade [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) estiver definida para um valor diferente da propriedade [SessionId,](/dotnet/api/microsoft.azure.servicebus.message.sessionid) o Service Bus devolve uma exceção de operação inválida. A [propriedade PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) deve ser utilizada se um remetente enviar mensagens transacionais sem sessão. A chave de partição garante que todas as mensagens enviadas dentro de uma transação são tratadas pelo mesmo corretor de mensagens.
 
-**MessageId** : Se a fila ou tópico tiver a propriedade [RequerduplicateDetection](/dotnet/api/microsoft.azure.management.servicebus.models.sbqueue.requiresduplicatedetection) definida como **verdadeira** e as propriedades [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) ou [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) não estiverem definidas, então o valor da propriedade [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) serve como chave de partição. (As bibliotecas Microsoft .NET e AMQP atribuem automaticamente um ID de mensagem se a aplicação de envio não o fizer.) Neste caso, todas as cópias da mesma mensagem são tratadas pelo mesmo corretor de mensagens. Este ID permite que o Service Bus detete e elimine mensagens duplicadas. Se a propriedade [RequerduplicateDetection](/dotnet/api/microsoft.azure.management.servicebus.models.sbqueue.requiresduplicatedetection) não estiver definida como **verdadeira,** a Service Bus não considera a propriedade [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) como uma chave de partição.
+**MessageId**: Se a fila ou tópico tiver a propriedade [RequerduplicateDetection](/dotnet/api/microsoft.azure.management.servicebus.models.sbqueue.requiresduplicatedetection) definida como **verdadeira** e as propriedades [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) ou [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) não estiverem definidas, então o valor da propriedade [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) serve como chave de partição. (As bibliotecas Microsoft .NET e AMQP atribuem automaticamente um ID de mensagem se a aplicação de envio não o fizer.) Neste caso, todas as cópias da mesma mensagem são tratadas pelo mesmo corretor de mensagens. Este ID permite que o Service Bus detete e elimine mensagens duplicadas. Se a propriedade [RequerduplicateDetection](/dotnet/api/microsoft.azure.management.servicebus.models.sbqueue.requiresduplicatedetection) não estiver definida como **verdadeira,** a Service Bus não considera a propriedade [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) como uma chave de partição.
 
 ### <a name="not-using-a-partition-key"></a>Não usar uma chave de partição
 
@@ -94,8 +94,8 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
     Message msg = new Message("This is a message");
     msg.PartitionKey = "myPartitionKey";
-    messageSender.SendAsync(msg); 
-    ts.CompleteAsync();
+    await messageSender.SendAsync(msg); 
+    await ts.CompleteAsync();
 }
 committableTransaction.Commit();
 ```
@@ -114,8 +114,8 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
     Message msg = new Message("This is a message");
     msg.SessionId = "mySession";
-    messageSender.SendAsync(msg); 
-    ts.CompleteAsync();
+    await messageSender.SendAsync(msg); 
+    await ts.CompleteAsync();
 }
 committableTransaction.Commit();
 ```
@@ -125,9 +125,9 @@ committableTransaction.Commit();
 A Service Bus suporta o encaminhamento automático de mensagens de, para ou entre entidades divididas. Para ativar o encaminhamento automático de mensagens, desacrição de [fila.ForwardTo][QueueDescription.ForwardTo] na fila de origem ou subscrição. Se a mensagem especificar uma tecla de partição[(SessionId,](/dotnet/api/microsoft.azure.servicebus.message.sessionid) [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey)ou [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid)), essa tecla de partição é utilizada para a entidade de destino.
 
 ## <a name="considerations-and-guidelines"></a>Considerações e orientações
-* **Características de alta consistência** : Se uma entidade utilizar funcionalidades como sessões, deteção duplicada ou controlo explícito da chave de partição, então as operações de mensagens são sempre encaminhadas para uma partição específica. Se alguma das divisórias experimentar tráfego elevado ou a loja subjacente não for saudável, essas operações falham e a disponibilidade é reduzida. Globalmente, a consistência é ainda muito maior do que as entidades não divididas; apenas um subconjunto de tráfego está a ter problemas, ao contrário de todo o tráfego. Para mais informações, consulte esta [discussão de disponibilidade e consistência.](../event-hubs/event-hubs-availability-and-consistency.md)
-* **Gestão** : Operações como Criar, Atualizar e Eliminar devem ser realizadas em todas as divisórias da entidade. Se alguma partição não for saudável, pode resultar em falhas nestas operações. Para a operação Get, as informações, como as contagens de mensagens, devem ser agregadas de todas as divisórias. Se alguma partição não for saudável, o estado de disponibilidade da entidade é reportado como limitado.
-* **Cenários de mensagens de baixo volume** : Para tais cenários, especialmente quando utilizar o protocolo HTTP, poderá ter de efetuar múltiplas operações de receção para obter todas as mensagens. Para receber pedidos, a parte frontal realiza uma receção em todas as divisórias e caches todas as respostas recebidas. Um pedido de receção subsequente sobre a mesma ligação beneficiaria desta caching e receberia latências mais baixas. No entanto, se tiver várias ligações ou utilizar HTTP, que estabeleça uma nova ligação para cada pedido. Como tal, não há garantias de que aterre no mesmo nó. Se todas as mensagens existentes estiverem bloqueadas e em cache noutra extremidade frontal, a operação de receção **retorna nulo**. As mensagens eventualmente expiram e pode recebê-las novamente. HTTP Keep-alive é recomendado. Ao utilizar a partição em cenários de baixo volume, as operações de receção podem demorar mais tempo do que o esperado. Por isso, recomendamos que não use divisórias nestes cenários. Elimine quaisquer entidades partidas existentes e recrie-as com desativação de divisórias para melhorar o desempenho.
+* **Características de alta consistência**: Se uma entidade utilizar funcionalidades como sessões, deteção duplicada ou controlo explícito da chave de partição, então as operações de mensagens são sempre encaminhadas para uma partição específica. Se alguma das divisórias experimentar tráfego elevado ou a loja subjacente não for saudável, essas operações falham e a disponibilidade é reduzida. Globalmente, a consistência é ainda muito maior do que as entidades não divididas; apenas um subconjunto de tráfego está a ter problemas, ao contrário de todo o tráfego. Para mais informações, consulte esta [discussão de disponibilidade e consistência.](../event-hubs/event-hubs-availability-and-consistency.md)
+* **Gestão**: Operações como Criar, Atualizar e Eliminar devem ser realizadas em todas as divisórias da entidade. Se alguma partição não for saudável, pode resultar em falhas nestas operações. Para a operação Get, as informações, como as contagens de mensagens, devem ser agregadas de todas as divisórias. Se alguma partição não for saudável, o estado de disponibilidade da entidade é reportado como limitado.
+* **Cenários de mensagens de baixo volume**: Para tais cenários, especialmente quando utilizar o protocolo HTTP, poderá ter de efetuar múltiplas operações de receção para obter todas as mensagens. Para receber pedidos, a parte frontal realiza uma receção em todas as divisórias e caches todas as respostas recebidas. Um pedido de receção subsequente sobre a mesma ligação beneficiaria desta caching e receberia latências mais baixas. No entanto, se tiver várias ligações ou utilizar HTTP, que estabeleça uma nova ligação para cada pedido. Como tal, não há garantias de que aterre no mesmo nó. Se todas as mensagens existentes estiverem bloqueadas e em cache noutra extremidade frontal, a operação de receção **retorna nulo**. As mensagens eventualmente expiram e pode recebê-las novamente. HTTP Keep-alive é recomendado. Ao utilizar a partição em cenários de baixo volume, as operações de receção podem demorar mais tempo do que o esperado. Por isso, recomendamos que não use divisórias nestes cenários. Elimine quaisquer entidades partidas existentes e recrie-as com desativação de divisórias para melhorar o desempenho.
 * **Procurar mensagens:** Disponível apenas na biblioteca [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) mais antiga. [O PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) nem sempre devolve o número de mensagens especificadas na propriedade [MessageCount.](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount) Há duas razões comuns para este comportamento. Uma das razões é que o tamanho agregado da recolha de mensagens excede o tamanho máximo de 256 KB. Outra razão é que se a fila ou tópico tiver a [propriedade EnablePartition](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning) definida como **verdadeira,** uma divisória pode não ter mensagens suficientes para completar o número de mensagens solicitadas. Em geral, se uma aplicação quiser receber um número específico de mensagens, deve ligar repetidamente para [o PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) até receber esse número de mensagens, ou não há mais mensagens para espreitar. Para obter mais informações, incluindo amostras de código, consulte a documentação [da API queueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) ou [subscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch) API.
 
 ## <a name="latest-added-features"></a>As mais recentes funcionalidades adicionadas
@@ -144,7 +144,7 @@ Atualmente, a Service Bus impõe as seguintes limitações em filas e tópicos d
 * Filas e tópicos divididos não suportam o envio de mensagens que pertencem a diferentes sessões numa única transação.
 * Atualmente, o Service Bus permite até 100 filas ou tópicos particionados por espaço de nomes. Cada fila ou tópico dividido conta para a quota de 10.000 entidades por espaço de nome (não se aplica ao nível Premium).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia sobre os conceitos fundamentais da especificação de mensagens AMQP 1.0 no guia do [protocolo AMQP 1.0](service-bus-amqp-protocol-guide.md).
 

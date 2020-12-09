@@ -4,26 +4,26 @@ description: Lista de métricas disponíveis para cada tipo de recurso com monit
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 10/01/2020
+ms.date: 12/09/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 3e5dd5c83468e867c746393642a1e40ff07763c4
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 04f6cdae8a7601f94251516cf5c3c1fab07994a6
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921494"
+ms.locfileid: "96929111"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com monitor Azure
 
 > [!NOTE]
-> Esta lista é gerada em grande parte automaticamente a partir da Azure Monitor Metrics REST API. Qualquer modificação feita a esta lista via GitHub pode ser escrita sem aviso prévio. Contacte o autor deste artigo para obter mais detalhes sobre como fazer atualizações permanentes.
+> Esta lista é gerada em grande parte por si. Qualquer modificação feita a esta lista via GitHub pode ser escrita sem aviso prévio. Contacte o autor deste artigo para obter mais detalhes sobre como fazer atualizações permanentes.
 
 O Azure Monitor fornece várias formas de interagir com as métricas, incluindo cartografá-las no portal, acessá-las através da API REST, ou questioná-las usando PowerShell ou CLI. 
 
-Este artigo é uma lista completa de todas as métricas da plataforma (isto é, automaticamente recolhidas) atualmente disponíveis com o pipeline métrico consolidado do Azure Monitor. A lista foi atualizada pela última vez a 27 de março de 2020. As métricas alteradas ou adicionadas após esta data podem não aparecer abaixo. Para consultar e aceder à lista de métricas programáticamente, utilize a [versão api 2018-01-01](/rest/api/monitor/metricdefinitions). Outras métricas que não constam desta lista podem estar disponíveis no portal ou usando APIs legados.
+Este artigo é uma lista completa de todas as métricas da plataforma (isto é, automaticamente recolhidas) atualmente disponíveis com o pipeline métrico consolidado do Azure Monitor. As métricas alteradas ou adicionadas após a data no topo deste artigo podem ainda não aparecer abaixo. Para consultar e aceder à lista de métricas programáticamente, utilize a [versão api 2018-01-01](/rest/api/monitor/metricdefinitions). Outras métricas que não constam desta lista podem estar disponíveis no portal ou usando APIs legados.
 
-As métricas são organizadas por fornecedores de recursos e tipo de recursos. Para obter uma lista de serviços e os fornecedores de recursos que lhes pertencem, consulte [os fornecedores de recursos para os serviços Azure.](../../azure-resource-manager/management/azure-services-resource-providers.md) 
+As métricas são organizadas por fornecedores de recursos e tipo de recursos. Para obter uma lista de serviços e os fornecedores e tipos de recursos que lhes pertencem, consulte [os fornecedores de recursos para os serviços Azure.](../../azure-resource-manager/management/azure-services-resource-providers.md)  
 
 ## <a name="exporting-platform-metrics-to-other-locations"></a>Métricas da plataforma de exportação para outros locais
 
@@ -1371,7 +1371,7 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |SteamingIngestRequestRate|Sim|Velocidade dos Pedidos na Ingestão de Transmissão em Fluxo|de palavras|RateRequestsPerSecond|Taxa de pedido de ingestão de streaming (pedidos por segundo)|Sem Dimensões|
 |StreamingIngestDataRate|Sim|Velocidade dos Dados na Ingestão de Transmissão em Fluxo|de palavras|Média|Taxa de dados de ingestão de streaming (MB por segundo)|Sem Dimensões|
 |StreamingIngestDuration|Sim|Duração da Ingestão de Transmissão em Fluxo|Milissegundos|Média|Duração da ingestão de streaming em milissegundos|Sem Dimensões|
-|StreamingIngestResults|Sim|Resultado da Ingestão de Transmissão em Fluxo|de palavras|Média|Resultado do streaming de ingerir|Result|
+|StreamingIngestResults|Sim|Resultado da Ingestão de Transmissão em Fluxo|de palavras|Média|Resultado do streaming de ingerir|Resultado|
 |TotalNumberOfConcurrentQueries|Sim|Número total de consultas simultâneas|de palavras|Total|Número total de consultas simultâneas|Sem Dimensões|
 |TotalNumberOfExtents|Sim|Número total de extensões|de palavras|Total|Número total de extensões de dados|Sem Dimensões|
 |TotalNumberOfThrottledCommands|Sim|Número total de comandos acelerados|de palavras|Total|Número total de comandos acelerados|Tipo de Comando|
@@ -1984,7 +1984,7 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |IncomingRequests|Sim|Pedidos Recebidos|de palavras|Total|Pedidos de entrada para Microsoft.ServiceBus.|Nome de Entidade|
 |Mensagens|Não|Contagem de mensagens numa Fila/Tópico.|de palavras|Média|Contagem de mensagens numa Fila/Tópico.|Nome de Entidade|
 |NamespaceCpuUsage|Não|CPU|Percentagem|Máximo|Métrica de utilização do espaço de identificação do espaço de serviço do serviço de serviço.|Sem Dimensões|
-|NomespaceMemoryUsage|Não|Utilização de Memória|Percentagem|Máximo|Métrica de utilização de memória de espaço de nome premium de serviço de serviço de serviço.|Sem Dimensões|
+|NomespaceMemoryUsage|Não|Utilização de Memória|Percentagem|Máximo|Métrica de utilização de memória de espaço de nome premium de serviço.|Sem Dimensões|
 |Despesas de Saída|Sim|Mensagens Enviadas|de palavras|Total|Mensagens de saída para Microsoft.ServiceBus.|Nome de Entidade|
 |Horários|Não|Contagem de mensagens programadas numa fila/tópico.|de palavras|Média|Contagem de mensagens programadas numa fila/tópico.|Nome de Entidade|
 |ServerErrors|Não|Erros do Servidor.|de palavras|Total|Erros de servidor para Microsoft.ServiceBus.|Nome da Entidade, |
@@ -1992,7 +1992,7 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |Requess de sucesso|Não|Pedidos Com Êxito|de palavras|Total|Total de pedidos bem sucedidos para um espaço de nome|Nome da Entidade, |
 |ThrottledRequests|Não|Pedidos Limitados.|de palavras|Total|Pedidos de aceleração para Microsoft.ServiceBus.|Nome da Entidade, |
 |UserErrors|Não|Erros do Utilizador.|de palavras|Total|Erros do utilizador para Microsoft.ServiceBus.|Nome da Entidade, |
-|WSXNS|Não|Utilização da memória (Preprecada)|Percentagem|Máximo|Métrica de utilização de memória de espaço de nome premium de serviço de serviço de serviço. Esta métrica está prevadida. Utilize a métrica de Utilização da Memória (NamespaceMemoryUsage).|Sem Dimensões|
+|WSXNS|Não|Utilização da memória (Preprecada)|Percentagem|Máximo|Métrica de utilização de memória de espaço de nome premium de serviço. Esta métrica está prevadida. Utilize a métrica de Utilização da Memória (NamespaceMemoryUsage).|Sem Dimensões|
 
 
 ## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/aplicações
@@ -2275,8 +2275,8 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |Métrica|Exportável através de Definições de Diagnóstico?|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |BuiltinSqlPoolDataProcessedBytes|Não|Dados processados (bytes)|Bytes|Total|Quantidade de dados processados por consultas|Sem Dimensões|
-|BuiltinSqlPoolLoginAttempts|Não|Tentativas de login|de palavras|Total|Contagem de tentativas de login que succedou ou falhou|Result|
-|BuiltinSqlPoolRequestsEnded|Não|Pedidos terminados|de palavras|Total|Contagem de Pedidos que sucederam, falharam ou foram cancelados|Result|
+|BuiltinSqlPoolLoginAttempts|Não|Tentativas de login|de palavras|Total|Contagem de tentativas de login que succedou ou falhou|Resultado|
+|BuiltinSqlPoolRequestsEnded|Não|Pedidos terminados|de palavras|Total|Contagem de Pedidos que sucederam, falharam ou foram cancelados|Resultado|
 |IntegraçãoActivityRunsEndidas|Não|A atividade corre terminada|de palavras|Total|Contagem de atividades de integração que sucederam, falharam ou foram canceladas|Resultado, Falha DeType, Atividade, ActivityType, Pipeline|
 |IntegraçãoPipelineRunsEnded|Não|As corridas de gasodutos terminaram|de palavras|Total|Contagem de gasodutos de integração que conseguiram, falharam ou foram cancelados|Resultado, FalhaType, Pipeline|
 |IntegraçãoTriggerRunsEnded|Não|Trigger Runs terminou|de palavras|Total|Contagem de gatilhos de integração que conseguiram, falharam ou foram cancelados|Resultado, FalhaType, Gatilho|
@@ -2299,7 +2299,7 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |ActiveQueries|Não|Consultas ativas|de palavras|Total|As consultas ativas. Utilizando esta métrica não filtrada e não filtrada exibe todas as consultas ativas em execução no sistema|IsUserDefined|
 |AdaptiveCacheHitPercent|Não|Percentagem de impacto de cache adaptativo|Percentagem|Máximo|Mede a forma como as cargas de trabalho estão a utilizar a cache adaptativa. Utilize esta métrica com a métrica percentual de impacto da cache para determinar se deve escalar para capacidade adicional ou refazer cargas de trabalho para hidratar a cache|Sem Dimensões|
 |AdaptiveCacheUsedPercent|Não|Percentagem de cache adaptativa utilizada|Percentagem|Máximo|Mede a forma como as cargas de trabalho estão a utilizar a cache adaptativa. Utilize esta métrica com a cache utilizada métrica percentual para determinar se deve escalar para capacidade adicional ou refazer cargas de trabalho para hidratar a cache|Sem Dimensões|
-|Ligações|Sim|Ligações|de palavras|Total|Contagem de entradas totais para a piscina SQL|Result|
+|Ligações|Sim|Ligações|de palavras|Total|Contagem de entradas totais para a piscina SQL|Resultado|
 |ConexõesBlockedByFirewall|Não|Ligações bloqueadas por firewall|de palavras|Total|Contagem de ligações bloqueadas pelas regras de firewall. Reveja as políticas de controlo de acesso para a sua piscina SQL e monitorize estas ligações se a contagem for elevada|Sem Dimensões|
 |CPUPercent|Não|Percentagem utilizada pelo CPU|Percentagem|Máximo|Utilização do CPU em todos os nós na piscina SQL|Sem Dimensões|
 |DWULimit|Não|Limite dwu|de palavras|Máximo|Objetivo de nível de serviço da piscina SQL|Sem Dimensões|

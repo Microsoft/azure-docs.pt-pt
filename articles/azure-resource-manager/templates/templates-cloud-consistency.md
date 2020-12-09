@@ -1,23 +1,23 @@
 ---
 title: Moldes de reutilização através de nuvens
-description: Desenvolver modelos de Gestor de Recursos Azure que funcionam consistentemente para diferentes ambientes em nuvem. Crie modelos novos ou atualizados para Azure Stack.
+description: Desenvolver modelos de Gestor de Recursos Azure (modelos ARM) que funcionam de forma consistente para diferentes ambientes em nuvem. Crie modelos novos ou atualizados para Azure Stack.
 author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: ea010a625c3e3cd6228513299d878733bf3775ce
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 806556a8da97ec84fe8141b95198b4a7da95c062
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744765"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928363"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Desenvolver modelos ARM para consistência na nuvem
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
-Um dos principais benefícios do Azure é a consistência. Os investimentos de desenvolvimento para uma localização são reutilizáveis noutro. Um modelo Azure Resource Manager (ARM) torna as suas implementações consistentes e repetíveis em todos os ambientes, incluindo as nuvens soberanas globais de Azure, Azure e Azure Stack. No entanto, para reutilizar modelos através das nuvens, é necessário considerar dependências específicas da nuvem, como explica este guia.
+Um dos principais benefícios do Azure é a consistência. Os investimentos de desenvolvimento para uma localização são reutilizáveis noutro. Um modelo de Gestor de Recursos Azure (modelo ARM) torna as suas implementações consistentes e repetíveis em todos os ambientes, incluindo as nuvens soberanas globais de Azure, Azure e Azure Stack. No entanto, para reutilizar modelos através das nuvens, é necessário considerar dependências específicas da nuvem, como explica este guia.
 
 A Microsoft oferece serviços inteligentes e prontos para a empresa em muitos locais, incluindo:
 
@@ -205,7 +205,7 @@ Para construir o URI absoluto de um artefacto, o método preferido é usar a fun
 }
 ```
 
-Com esta abordagem, todos os artefactos de implantação, incluindo scripts de configuração, podem ser armazenados no mesmo local com o próprio modelo. Para alterar a localização de todos os links, basta especificar um URL base diferente para os _parâmetros de designLocalização_ .
+Com esta abordagem, todos os artefactos de implantação, incluindo scripts de configuração, podem ser armazenados no mesmo local com o próprio modelo. Para alterar a localização de todos os links, basta especificar um URL base diferente para os _parâmetros de designLocalização_.
 
 ## <a name="factor-in-differing-regional-capabilities"></a>Fator nas diferentes capacidades regionais
 
@@ -443,8 +443,8 @@ Os espaços de nome de ponto final também podem ser utilizados na saída de um 
 
 Em geral, evite pontos finais codificados num modelo. A melhor prática é utilizar a função do modelo de referência para recuperar os pontos finais dinamicamente. Por exemplo, o ponto final mais comumente codificado é o espaço de nome de ponto final para contas de armazenamento. Cada conta de armazenamento tem uma FQDN única que é construída através da concatenação do nome da conta de armazenamento com o espaço de nome do ponto final. Uma conta de armazenamento blob chamada mystorageaccount1 resulta em diferentes FQDNs dependendo da nuvem:
 
-* **mystorageaccount1.blob.core.windows.net** quando criado na nuvem global de Azure.
-* **mystorageaccount1.blob.core.chinacloudapi.cn** quando criado na nuvem Azure China 21Vianet.
+* `mystorageaccount1.blob.core.windows.net` quando criado na nuvem global de Azure.
+* `mystorageaccount1.blob.core.chinacloudapi.cn` quando criado na nuvem Azure China 21Vianet.
 
 A função de modelo de referência a seguir recupera o espaço de nome do ponto final do fornecedor de recursos de armazenamento:
 
@@ -641,7 +641,7 @@ Cada extensão específica também é ver versão. Esta versão é mostrada na `
         ...
 ```
 
-Para obter uma lista das versões disponíveis para uma extensão VM específica, utilize o [cmdlet Get-AzureRmVMExtensionImage.](/powershell/module/az.compute/get-azvmextensionimage) O exemplo a seguir recupera as versões disponíveis para a extensão VM do PowerShell DSC (Configuração do Estado Desejado) a partir do **myLocation** :
+Para obter uma lista das versões disponíveis para uma extensão VM específica, utilize o [cmdlet Get-AzureRmVMExtensionImage.](/powershell/module/az.compute/get-azvmextensionimage) O exemplo a seguir recupera as versões disponíveis para a extensão VM do PowerShell DSC (Configuração do Estado Desejado) a partir do **myLocation**:
 
 ```azurepowershell-interactive
 Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT

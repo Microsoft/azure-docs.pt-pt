@@ -2,18 +2,18 @@
 title: Quickstart para Configuração de Aplicativos Azure com Funções Azure Microsoft Docs
 description: Neste quickstart, faça uma aplicação Azure Functions com Configuração de Aplicação Azure e C#. Criar e ligar a uma loja de Configuração de Aplicações. Teste a função localmente.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
-ms.author: lcozzens
-ms.openlocfilehash: 24620351cdd831ec5079e1f37726b2aa65339205
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.author: alkemper
+ms.openlocfilehash: 4197891949062123042736e578cfbcc5def4e1f9
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075863"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930811"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Quickstart: Criar uma app Azure Functions com Configuração de Aplicações Azure
 
@@ -29,7 +29,7 @@ Neste arranque rápido, incorpora o serviço de Configuração de Aplicações A
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-7. Selecione **Configuration Explorer**  >  **+ Crie**valor  >  **chave** para adicionar os seguintes pares de valor-chave:
+7. Selecione **Configuration Explorer**  >  **+ Crie** valor  >  **chave** para adicionar os seguintes pares de valor-chave:
 
     | Chave | Valor |
     |---|---|
@@ -86,7 +86,7 @@ Neste arranque rápido, incorpora o serviço de Configuração de Aplicações A
 
 ## <a name="test-the-function-locally"></a>Testar localmente a função
 
-1. Desaprote uma variável ambiental chamada **ConnectionString**e desaprote-a na chave de acesso à sua loja de Configuração de Aplicações. Se utilizar o pedido de comando do Windows, executar o seguinte comando e reiniciar a solicitação de comando para permitir que a alteração entre em vigor:
+1. Desaprote uma variável ambiental chamada **ConnectionString** e desaprote-a na chave de acesso à sua loja de Configuração de Aplicações. Se utilizar o pedido de comando do Windows, executar o seguinte comando e reiniciar a solicitação de comando para permitir que a alteração entre em vigor:
 
     ```cmd
         setx ConnectionString "connection-string-of-your-app-configuration-store"
@@ -114,7 +114,7 @@ Neste arranque rápido, incorpora o serviço de Configuração de Aplicações A
 
     ![Quickstart Function lançar local](./media/quickstarts/dotnet-core-function-launch-local.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

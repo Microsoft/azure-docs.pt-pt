@@ -1,21 +1,21 @@
 ---
 title: Tutorial - adicione funções de modelo
-description: Adicione funções de modelo ao seu modelo de Gestor de Recursos Azure para construir valores.
+description: Adicione as funções do modelo ao seu modelo de Gestor de Recursos Azure (modelo ARM) para construir valores.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: c6ced832cad6809e7cd016eee132713c6b266480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67c88e98d966a21163aafefcad8363086d5b3bf4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613854"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931049"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>Tutorial: Adicione funções de modelo ao seu modelo ARM
 
-Neste tutorial, você aprende a adicionar [funções de modelo](template-functions.md) ao seu modelo Azure Resource Manager (ARM). Utiliza-se funções para construir valores dinâmicos. Além destas funções de modelo fornecidas pelo sistema, também pode criar [funções definidas pelo utilizador](./template-user-defined-functions.md). Este tutorial leva **7 minutos** para ser concluído.
+Neste tutorial, você aprende a adicionar [funções de modelo](template-functions.md) ao seu modelo de Gestor de Recursos Azure (modelo ARM). Utiliza-se funções para construir valores dinâmicos. Além destas funções de modelo fornecidas pelo sistema, também pode criar [funções definidas pelo utilizador](./template-user-defined-functions.md). Este tutorial leva **7 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +33,7 @@ A localização da conta de armazenamento é codificada para os **EUA.** No enta
 
 ## <a name="use-function"></a>Função de utilização
 
-Se completou o tutorial anterior nesta série, já utilizou uma função. Quando adicionou **"[parâmetros('storageName')",** utilizou a função [de parâmetros.](template-functions-deployment.md#parameters) Os suportes indicam que a sintaxe dentro dos suportes é uma [expressão do modelo](template-expressions.md). O Gestor de Recursos resolve a sintaxe em vez de a tratar como um valor literal.
+Se completou o tutorial anterior nesta série, já utilizou uma função. Quando `"[parameters('storageName')]"` adicionado, utilizou a função [de parâmetros.](template-functions-deployment.md#parameters) Os suportes indicam que a sintaxe dentro dos suportes é uma [expressão do modelo](template-expressions.md). O Gestor de Recursos resolve a sintaxe em vez de a tratar como um valor literal.
 
 As funções adicionam flexibilidade ao seu modelo obtendo valores dinamicamente durante a implementação. Neste tutorial, você usa uma função para obter a localização do grupo de recursos que você está usando para implantação.
 

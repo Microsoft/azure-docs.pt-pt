@@ -1,21 +1,21 @@
 ---
 title: Tutorial - adicione parâmetros ao modelo
-description: Adicione parâmetros ao seu modelo de Gestor de Recursos Azure para torná-lo reutilizável.
+description: Adicione parâmetros ao seu modelo de Gestor de Recursos Azure (modelo ARM) para torná-lo reutilizável.
 author: mumian
 ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9e860941c3d782498c12afa12f285f44e7e68f37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d0743d316b9d879017f3b0fbe08ee4dc2b3e1c2
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069446"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931066"
 ---
 # <a name="tutorial-add-parameters-to-your-arm-template"></a>Tutorial: Adicione parâmetros ao seu modelo ARM
 
-No [tutorial anterior,](template-tutorial-add-resource.md)aprendeu a adicionar uma conta de armazenamento ao modelo e implantá-la. Neste tutorial, aprende-se a melhorar o modelo Azure Resource Manager (ARM) adicionando parâmetros. Este tutorial leva cerca de **14 minutos** para ser concluído.
+No [tutorial anterior,](template-tutorial-add-resource.md)aprendeu a adicionar uma conta de armazenamento ao modelo e implantá-la. Neste tutorial, aprende-se a melhorar o modelo do Gestor de Recursos Azure (modelo ARM) adicionando parâmetros. Este tutorial leva cerca de **14 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

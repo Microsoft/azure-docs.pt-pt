@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 9371feb527bbb2d94d43072bb8a44a6705b45055
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e73ca9e485e6926c30a73ba56b24bcd4dc9a836
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87280227"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929740"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrar para o Serviço Azure Kubernetes (AKS)
 
@@ -132,7 +132,7 @@ Se a sua aplicação pode hospedar várias réplicas que apontam para a mesma pa
 * Aponte o seu tráfego ao vivo para o seu novo cluster AKS.
 * Desligue o velho aglomerado.
 
-Se quiser começar com uma partilha vazia e fazer uma cópia dos dados de origem, pode utilizar os [`az storage file copy`](/cli/azure/storage/file/copy?view=azure-cli-latest) comandos para migrar os seus dados.
+Se quiser começar com uma partilha vazia e fazer uma cópia dos dados de origem, pode utilizar os [`az storage file copy`](/cli/azure/storage/file/copy) comandos para migrar os seus dados.
 
 
 #### <a name="migrating-persistent-volumes"></a>Volumes persistentes migratórios
@@ -159,7 +159,7 @@ Algumas ferramentas de código aberto podem ajudá-lo a criar discos geridos e a
 
 ### <a name="deployment-of-your-cluster-configuration"></a>Implementação da sua configuração de cluster
 
-Recomendamos que utilize o seu pipeline de Integração Contínua (CI) e Entrega Contínua (CD) para implantar uma configuração de bem-estar conhecida para AKS. Pode utilizar a Azure Pipelines para [construir e implementar as suas aplicações na AKS](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops). Clone as suas tarefas de implantação existentes e certifique-se de que `kubeconfig` aponta para o novo cluster AKS.
+Recomendamos que utilize o seu pipeline de Integração Contínua (CI) e Entrega Contínua (CD) para implantar uma configuração de bem-estar conhecida para AKS. Pode utilizar a Azure Pipelines para [construir e implementar as suas aplicações na AKS](/azure/devops/pipelines/ecosystems/kubernetes/aks-template). Clone as suas tarefas de implantação existentes e certifique-se de que `kubeconfig` aponta para o novo cluster AKS.
 
 Se isso não for possível, exporte definições de recursos do seu cluster Kubernetes existente e, em seguida, aplique-as em AKS. Pode usar `kubectl` para exportar objetos.
 

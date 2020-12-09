@@ -3,18 +3,18 @@ title: Use configuração dinâmica numa aplicação De Arranque de primavera
 titleSuffix: Azure App Configuration
 description: Saiba como atualizar dinamicamente os dados de configuração para aplicações spring boot
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: tutorial
-ms.date: 3/5/2020
+ms.date: 08/06/2020
 ms.custom: devx-track-java
-ms.author: lcozzens
-ms.openlocfilehash: 653fcb6f6590fd503a97800ec8196025cf14a3b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: alkemper
+ms.openlocfilehash: c32e928bd4a83b4884c99e3ec3a9c647f5433e87
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121566"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929162"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>Tutorial: Use configuração dinâmica numa aplicação java primavera
 
@@ -67,7 +67,7 @@ Em seguida, abra o ficheiro *pom.xml* num editor de texto e adicione um `<depend
     curl -X GET http://localhost:8080/
     ```
 
-1. Para testar a configuração dinâmica, abra o portal de Configuração de Aplicações Azure associado à sua aplicação. Selecione **Configuration Explorer**e atualize o valor da sua chave apresentada, por exemplo:
+1. Para testar a configuração dinâmica, abra o portal de Configuração de Aplicações Azure associado à sua aplicação. Selecione **Configuration Explorer** e atualize o valor da sua chave apresentada, por exemplo:
     | Chave | Valor |
     |---|---|
     | aplicação/config.message | Olá - Atualizado |

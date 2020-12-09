@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Use as APIs REST'
 description: Este tutorial descreve como utilizar as APIs de repouso Azure Purview para aceder ao conteúdo do seu catálogo.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/03/2020
-ms.openlocfilehash: 26a610125434df3bc2df15401b0f5b281d004812
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 7a2e029fbcc1a26da9c8c8cbff5ee3b9bbb849e0
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603655"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928278"
 ---
 # <a name="tutorial-use-the-rest-apis"></a>Tutorial: Use as APIs REST
 
@@ -193,6 +193,7 @@ namespace PurviewCatalogSdkTest
         private static string accountName = "{account-name}";
         private static string servicePrincipalId = "{service-principal-id}";
         private static string servicePrincipalKey = "{service-principal-key}";
+        private static string tenantId = "{tenant-id}";
 
         static void Main(string[] args)
         {
@@ -225,10 +226,11 @@ namespace PurviewCatalogSdkTest
                 { "resource", "73c2949e-da2d-457a-9607-fcc665198967" }
             };
 
+            string authUrl = string.Format("https://login.windows.net/{0}/oauth2/token", tenantId);
             var content = new FormUrlEncodedContent(values);
 
             HttpClient authClient = new HttpClient();
-            var bearerResult = authClient.PostAsync("https://login.windows.net/microsoft.com/oauth2/token", content);
+            var bearerResult = authClient.PostAsync(authUrl, content);
             bearerResult.Wait();
             var resultContent = bearerResult.Result.Content.ReadAsStringAsync();
             resultContent.Wait();
@@ -241,7 +243,7 @@ namespace PurviewCatalogSdkTest
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Gerir origens de dados](manage-data-sources.md)

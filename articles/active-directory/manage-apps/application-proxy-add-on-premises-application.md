@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/04/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 55d40719fe2d51f03f3b969438678edde2972b05
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 5d0b2df551c73e8c9b24d80280bbc993d9b361b7
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607930"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928472"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure
 
@@ -191,7 +191,7 @@ Agora que preparou o seu ambiente e instalou um conector, está pronto para adic
 1. Inscreva-se como administrador no [portal Azure](https://portal.azure.com/).
 2. No painel de navegação esquerdo, selecione **Azure Ative Directory**.
 3. Selecione **as aplicações da Enterprise** e, em seguida, selecione Nova **aplicação**.
-4. Na secção **de aplicações no local,** selecione **Adicionar uma aplicação no local**.
+4. Na secção Criar a sua própria secção **de aplicação,** selecione **Proxy Proxy Configure Application para acesso remoto seguro a uma aplicação no local.**
 5. Na secção **de aplicação adicionar** a sua própria no local, forneça as seguintes informações sobre a sua aplicação:
 
     | Campo | Descrição |
@@ -242,7 +242,7 @@ Para testar o sinal de inscrição na aplicação:
 
 Para a resolução de problemas, consulte [problemas de procuração de aplicação de resolução de problemas e mensagens de erro](application-proxy-troubleshoot.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine os recursos que criou neste tutorial.
 

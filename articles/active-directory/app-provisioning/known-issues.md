@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: e0a77e1e4757c8951756c3e41479628c293dfd8f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b8bdb216cbe8d359f35c758ae89f4267ab223483
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174837"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928754"
 ---
 # <a name="known-issues-application-provisioning"></a>Questões conhecidas: Provisionamento de pedidos
 Questões conhecidas a ter em conta ao trabalhar com o provisionamento de aplicações. Pode fornecer feedback sobre o serviço de fornecimento de aplicações no UserVoice, ver [Azure AD Application Provision UserVoice](https://aka.ms/appprovisioningfeaturerequest). Assistimos atentamente ao UserVoice para que possamos melhorar o serviço. 
@@ -56,6 +56,10 @@ A AZure AD não pode atualmente providenciar atributos nulos. Se um atributo for
 **Caracteres max para expressões de mapeamento de atributos**
 
 As expressões de mapeamento de atributos podem ter um máximo de 10.000 caracteres. 
+
+**Filtros de deteção não suportados**
+
+Extensões de diretório, appRoleAssignments, userType e accountExpires não são suportados como filtros de escoamento.
 
 
 ## <a name="service-issues"></a>Problemas de serviço 

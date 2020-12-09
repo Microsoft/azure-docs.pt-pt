@@ -2,17 +2,17 @@
 title: Azure App Configuration FAQ
 description: Leia respostas a perguntas frequentes (FAQ) sobre a Configuração da Aplicação Azure, como a sua diferença do Cofre de Chaves Azure.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.author: lcozzens
-ms.openlocfilehash: 5d74b17bdd9c264a983bfdd2e374001dd4a0e2c0
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.author: alkemper
+ms.openlocfilehash: 4e19574e5848d1ee86d13aa02a9cf583b92eff02
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242114"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929570"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure App Configuration FAQ
 
@@ -86,16 +86,16 @@ Ambos os níveis de configuração de aplicativos oferecem funcionalidades funda
 
 Seguem-se considerações para a escolha de um nível.
 
-- **Recursos por subscrição** : Um recurso consiste numa única loja de configuração. Cada subscrição é limitada a uma loja de configuração no nível livre. As subscrições podem ter um número ilimitado de lojas de configuração no nível padrão.
-- **Armazenamento por recurso** : No nível livre, cada loja de configuração está limitada a 10 MB de armazenamento. No nível padrão, cada loja de configuração pode usar até 1 GB de armazenamento.
-- **Histórico de revisão** : A Configuração de aplicações armazena um histórico de todas as alterações feitas nas teclas. No nível livre, esta história está armazenada por sete dias. No nível padrão, esta história é armazenada por 30 dias.
-- **Quota de pedidos** : As lojas de nível gratuito estão limitadas a 1.000 pedidos por dia. Quando uma loja atinge 1.000 pedidos, devolve o código de estado HTTP 429 para todos os pedidos até à meia-noite utc.
+- **Recursos por subscrição**: Um recurso consiste numa única loja de configuração. Cada subscrição é limitada a uma loja de configuração no nível livre. As subscrições podem ter um número ilimitado de lojas de configuração no nível padrão.
+- **Armazenamento por recurso**: No nível livre, cada loja de configuração está limitada a 10 MB de armazenamento. No nível padrão, cada loja de configuração pode usar até 1 GB de armazenamento.
+- **Histórico de revisão**: A Configuração de aplicações armazena um histórico de todas as alterações feitas nas teclas. No nível livre, esta história está armazenada por sete dias. No nível padrão, esta história é armazenada por 30 dias.
+- **Quota de pedidos**: As lojas de nível gratuito estão limitadas a 1.000 pedidos por dia. Quando uma loja atinge 1.000 pedidos, devolve o código de estado HTTP 429 para todos os pedidos até à meia-noite utc.
 
     As lojas standard estão limitadas a 20.000 pedidos por hora. Quando a quota estiver esgotada, o código de estado HTTP 429 é devolvido para todos os pedidos até ao final da hora.
 
 - **Contrato de nível** de serviço : O nível padrão tem uma disponibilidade de SLA de 99,9%. O nível livre não tem SLA.
-- **Funcionalidades de segurança** : Ambos os níveis incluem funcionalidade de segurança básica, incluindo encriptação com teclas geridas pela Microsoft, autenticação via HMAC ou Azure Ative Directory, suporte Azure RBAC, identidade gerida e tags de serviço. O standard tier oferece uma funcionalidade de segurança mais avançada, incluindo suporte private link e encriptação com chaves geridas pelo cliente.
-- **Custo** : As lojas standard têm uma taxa de utilização diária. Os primeiros 200.000 pedidos diários estão incluídos na taxa diária. Há também uma taxa de excesso de pedidos para além da atribuição diária. Não há custo para usar uma loja de nível livre.
+- **Funcionalidades de segurança**: Ambos os níveis incluem funcionalidade de segurança básica, incluindo encriptação com teclas geridas pela Microsoft, autenticação via HMAC ou Azure Ative Directory, suporte Azure RBAC, identidade gerida e tags de serviço. O standard tier oferece uma funcionalidade de segurança mais avançada, incluindo suporte private link e encriptação com chaves geridas pelo cliente.
+- **Custo**: As lojas standard têm uma taxa de utilização diária. Os primeiros 200.000 pedidos diários estão incluídos na taxa diária. Há também uma taxa de excesso de pedidos para além da atribuição diária. Não há custo para usar uma loja de nível livre.
 
 ## <a name="can-i-upgrade-a-store-from-the-free-tier-to-the-standard-tier-can-i-downgrade-a-store-from-the-standard-tier-to-the-free-tier"></a>Posso atualizar uma loja do nível Livre para o nível Standard? Posso desvalorizar uma loja do nível Standard para o nível Livre?
 

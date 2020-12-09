@@ -1,17 +1,17 @@
 ---
 title: Compreenda a loja de valor-chave da configuração da aplicação Azure
 description: Compreenda o armazenamento de valor-chave na Configuração da Aplicação Azure, que armazena os dados de configuração como valores-chave. Os valores-chave são uma representação das definições de aplicação.
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 02/19/2020
-ms.openlocfilehash: b1998532c3d9e4272d91280d57d9ea2f6e7a262c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 08/04/2020
+ms.openlocfilehash: ad9e96433a7ee72476ae2251c684d17ec7a6d1ce
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88586397"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930250"
 ---
 # <a name="keys-and-values"></a>Chaves e valores
 

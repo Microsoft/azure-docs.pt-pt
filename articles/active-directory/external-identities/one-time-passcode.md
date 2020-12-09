@@ -12,14 +12,14 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15debb69172dba00163950fdd301826c903e5307
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: b9bc7d94cff46b54b81615cf064ed63927b3ec60
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548322"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929298"
 ---
-# <a name="email-one-time-passcode-authentication"></a>E-mail autenticação de senha única
+# <a name="email-one-time-passcode-authentication-preview"></a>E-mail autenticação de código de acesso único (Pré-visualização)
 
 Este artigo descreve como ativar a autenticação de código de acesso único por e-mail para utilizadores convidados B2B. A funcionalidade de código de acesso de e-mail autentica os utilizadores convidados B2B quando não podem ser autenticados através de outros meios, como o Azure AD, uma conta Microsoft (MSA) ou a federação do Google. Com a autenticação de código de acesso único, não há necessidade de criar uma conta Microsoft. Quando o utilizador convidado resgatar um convite ou aceder a um recurso partilhado, pode solicitar um código temporário, que é enviado para o seu endereço de e-mail. Depois introduzem este código para continuarem a iniciar sessão.
 
@@ -58,7 +58,7 @@ Quando um utilizador convidado resgatar um convite ou utilizar um link para um r
 
 No momento do convite, não há indicação de que o utilizador que está a convidar utilize a autenticação de código de acesso único. Mas quando o utilizador convidado assinar, a autenticação de código de acesso único será o método de recuo se não forem utilizados outros métodos de autenticação.
 
-Pode ver se um utilizador convidado autentica usando códigos de acesso únicos, visualizando a propriedade **Source** nos dados do utilizador. No portal Azure, aceda aos Utilizadores **do Diretório Ativo Azure**  >  **Users** e, em seguida, selecione o utilizador para abrir a página de detalhes.
+Pode ver se um utilizador convidado autentica usando códigos de acesso únicos, visualizando a propriedade **Source** nos dados do utilizador. No portal Azure, aceda aos Utilizadores **do Diretório Ativo Azure**  >  e, em seguida, selecione o utilizador para abrir a página de detalhes.
 
 ![Screenshot mostrando um utilizador de código de acesso único com valor de Origem de OTP](media/one-time-passcode/guest-user-properties.png)
 

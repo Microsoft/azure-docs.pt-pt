@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: c734c0ceb9c4d5418edc51a2c3ad3c052637ad31
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: fa99920c8e9d8cd532bb6230d6a337a038ee3e31
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696987"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929332"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como utilizar identidades geridas para o Serviço de Aplicações e Funções Azure
 
@@ -308,7 +308,7 @@ Uma aplicação pode usar a sua identidade gerida para obter fichas para aceder 
 Pode ser necessário configurar o recurso-alvo para permitir o acesso a partir da sua aplicação. Por exemplo, se você solicitar um token para aceder ao Key Vault, você precisa ter certeza de que adicionou uma política de acesso que inclui a identidade da sua aplicação. Caso contrário, as suas chamadas para Key Vault serão rejeitadas, mesmo que incluam o símbolo. Para saber mais sobre quais os recursos que suportam tokens do Azure Ative Directory, consulte [os serviços Azure que suportam a autenticação AD da Azure.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
 > [!IMPORTANT]
-> Os serviços back-end para identidades geridas mantêm uma cache por recurso URI durante cerca de 8 horas. Se atualizar a política de acesso de um determinado recurso alvo e recuperar imediatamente um símbolo para esse recurso, poderá continuar a obter um token em cache com permissões desatualizadas até que esse token expire. Não há como forçar uma atualização simbólica.
+> Os serviços back-end para identidades geridas mantêm uma cache por recurso URI durante cerca de 24 horas. Se atualizar a política de acesso de um determinado recurso alvo e recuperar imediatamente um símbolo para esse recurso, poderá continuar a obter um token em cache com permissões desatualizadas até que esse token expire. Não há como forçar uma atualização simbólica.
 
 Existe um protocolo REST simples para obter um token no Serviço de Aplicações e Funções Azure. Isto pode ser usado para todas as aplicações e idiomas. Para .NET e Java, o Azure SDK fornece uma abstração sobre este protocolo e facilita uma experiência de desenvolvimento local.
 
@@ -324,21 +324,21 @@ Uma aplicação com uma identidade gerida tem duas variáveis ambientais definid
 
 O **IDENTITY_ENDPOINT** é um URL local a partir do qual a sua aplicação pode solicitar tokens. Para obter um token para um recurso, faça um pedido HTTP GET para este ponto final, incluindo os seguintes parâmetros:
 
-> | Nome do parâmetro    | Em     | Description                                                                                                                                                                                                                                                                                                                                |
+> | Nome do parâmetro    | Em     | Descrição                                                                                                                                                                                                                                                                                                                                |
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | recurso          | Consulta  | O recurso AZURE AD URI do recurso para o qual deve ser obtido um símbolo. Este pode ser um dos [serviços Azure que suportam a autenticação AD AZure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) ou qualquer outro recurso URI.    |
 > | api-version       | Consulta  | A versão da API simbólica a ser utilizada. Utilize "2019-08-01" ou mais tarde (a menos que utilize o Linux Consumption, que atualmente apenas oferece "2017-09-01" - ver nota acima).                                                                                                                                                                                                                                                                 |
 > | CABEÇALHO DE IDENTIDADE X | Cabeçalho | O valor da variável ambiente IDENTITY_HEADER. Este cabeçalho é usado para ajudar a atenuar os ataques de falsificação de pedidos do servidor (SSRF).                                                                                                                                                                                                    |
-> | client_id         | Consulta  | (Opcional) A identificação do cliente da identidade atribuída ao utilizador a ser usada. Não pode ser utilizado num pedido que `principal_id` `mi_res_id` inclua, ou `object_id` . Se todos os parâmetros de identificação `client_id` `principal_id` (, `object_id` , , e ) `mi_res_id` forem omitidos, a identidade atribuída ao sistema é utilizada.                                             |
-> | principal_id      | Consulta  | (Opcional) A identificação principal da identidade atribuída ao utilizador a ser utilizada. `object_id` é um pseudónimo que pode ser usado em vez disso. Não pode ser usado num pedido que inclua client_id, mi_res_id ou object_id. Se todos os parâmetros de identificação `client_id` `principal_id` (, `object_id` , , e ) `mi_res_id` forem omitidos, a identidade atribuída ao sistema é utilizada. |
-> | mi_res_id         | Consulta  | (Opcional) O ID de recurso Azure da identidade atribuída ao utilizador a ser utilizado. Não pode ser utilizado num pedido que `principal_id` `client_id` inclua, ou `object_id` . Se todos os parâmetros de identificação `client_id` `principal_id` (, `object_id` , , e ) `mi_res_id` forem omitidos, a identidade atribuída ao sistema é utilizada.                                      |
+> | client_id         | Consulta  | (Opcional) A identificação do cliente da identidade atribuída ao utilizador a ser usada. Não pode ser utilizado num pedido que `principal_id` `mi_res_id` inclua, ou `object_id` . Se todos os parâmetros de identificação `client_id` `principal_id` (, `object_id` e ) forem `mi_res_id` omitidos, a identidade atribuída ao sistema é utilizada.                                             |
+> | principal_id      | Consulta  | (Opcional) A identificação principal da identidade atribuída ao utilizador a ser utilizada. `object_id` é um pseudónimo que pode ser usado em vez disso. Não pode ser usado num pedido que inclua client_id, mi_res_id ou object_id. Se todos os parâmetros de identificação `client_id` `principal_id` (, `object_id` e ) forem `mi_res_id` omitidos, a identidade atribuída ao sistema é utilizada. |
+> | mi_res_id         | Consulta  | (Opcional) O ID de recurso Azure da identidade atribuída ao utilizador a ser utilizado. Não pode ser utilizado num pedido que `principal_id` `client_id` inclua, ou `object_id` . Se todos os parâmetros de identificação `client_id` `principal_id` (, `object_id` e ) forem `mi_res_id` omitidos, a identidade atribuída ao sistema é utilizada.                                      |
 
 > [!IMPORTANT]
 > Se estiver a tentar obter fichas para identidades atribuídas ao utilizador, deve incluir uma das propriedades opcionais. Caso contrário, o serviço de token tentará obter um símbolo para uma identidade atribuída ao sistema, que pode ou não existir.
 
 Uma resposta bem sucedida de 200 OK inclui um corpo JSON com as seguintes propriedades:
 
-> | Nome da propriedade | Description                                                                                                                                                                                                                                        |
+> | Nome da propriedade | Descrição                                                                                                                                                                                                                                        |
 > |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | access_token  | O sinal de acesso solicitado. O serviço web de chamada pode usar este token para autenticar o serviço web recetor.                                                                                                                               |
 > | client_id     | A identificação do cliente da identidade que foi usada.                                                                                                                                                                                                       |

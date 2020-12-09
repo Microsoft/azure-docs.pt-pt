@@ -6,29 +6,29 @@ ms.topic: article
 ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: f631f8ee022f501cb30af4aae5cf48294b9ca3c2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d7e312f049acc0b74aa0a253864bfce6100044bd
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125840"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929145"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Utilize GPUs para cargas de trabalho computacionalmente intensivas no Serviço Azure Kubernetes (AKS)
 
-As unidades de processamento gráfico (GPUs) são frequentemente utilizadas para cargas de trabalho intensivas de computação, tais como gráficos e cargas de trabalho de visualização. A AKS apoia a criação de piscinas de nóinerdo ativadas pela GPU para executar estas cargas de trabalho intensivas em Kubernetes. Para obter mais informações sobre VMs disponíveis, consulte [os tamanhos de VM otimizados da GPU em Azure][gpu-skus]. Para os nós AKS, recomendamos um tamanho mínimo de *Standard_NC6* .
+As unidades de processamento gráfico (GPUs) são frequentemente utilizadas para cargas de trabalho intensivas de computação, tais como gráficos e cargas de trabalho de visualização. A AKS apoia a criação de piscinas de nóinerdo ativadas pela GPU para executar estas cargas de trabalho intensivas em Kubernetes. Para obter mais informações sobre VMs disponíveis, consulte [os tamanhos de VM otimizados da GPU em Azure][gpu-skus]. Para os nós AKS, recomendamos um tamanho mínimo de *Standard_NC6*.
 
 > [!NOTE]
 > Os VMs habilitados pela GPU contêm hardware especializado que está sujeito a preços mais elevados e disponibilidade de região. Para mais informações, consulte a ferramenta [de preços][azure-pricing] e [a disponibilidade da região.][azure-availability]
 
 Atualmente, a utilização de piscinas de nó ativadas pela GPU só está disponível para piscinas de nól de linux.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo pressupõe que você tem um cluster AKS existente com nós que suportam GPUs. O seu cluster AKS deve executar Kubernetes 1.10 ou mais tarde. Se precisar de um cluster AKS que satisfaça estes requisitos, consulte a primeira secção deste artigo para [criar um cluster AKS](#create-an-aks-cluster).
 
 Também precisa da versão Azure CLI 2.0.64 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
-## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS
+## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
 Se precisar de um cluster AKS que satisfaça os requisitos mínimos (nó ativado por GPU e versão 1.10 ou mais tarde), complete os seguintes passos. Se já tem um cluster AKS que satisfaça estes requisitos, [salte para a secção seguinte](#confirm-that-gpus-are-schedulable).
 
@@ -134,13 +134,13 @@ Registar a `GPUDedicatedVHDPreview` função:
 az feature register --name GPUDedicatedVHDPreview --namespace Microsoft.ContainerService
 ```
 
-Pode levar vários minutos para que o estado seja apresentado como **Registado** . Pode verificar o estado de registo utilizando o comando [da lista de funcionalidades AZ:](/cli/azure/feature?view=azure-cli-latest#az-feature-list)
+Pode levar vários minutos para que o estado seja apresentado como **Registado**. Pode verificar o estado de registo utilizando o comando [da lista de funcionalidades AZ:](/cli/azure/feature#az-feature-list)
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/GPUDedicatedVHDPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando o estado aparecer como registado, reaprovida o registo do fornecedor de `Microsoft.ContainerService` recursos utilizando o comando de registo do fornecedor [az:](/cli/azure/provider?view=azure-cli-latest#az-provider-register)
+Quando o estado aparecer como registado, reaprovida o registo do fornecedor de `Microsoft.ContainerService` recursos utilizando o comando de registo do fornecedor [az:](/cli/azure/provider#az-provider-register)
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
@@ -198,7 +198,7 @@ aks-nodepool1-28993262-0   Ready    agent   13m   v1.12.7
 
 Agora use o [comando do nó de descreveção kubectl][kubectl-describe] para confirmar que as GPUs são agendaveis. Sob a secção *capacidade,* a GPU deve listar como `nvidia.com/gpu:  1` .
 
-O exemplo condensado que se segue mostra que uma GPU está disponível no nó denominado *aks-nodepool1-18821093-0* :
+O exemplo condensado que se segue mostra que uma GPU está disponível no nó denominado *aks-nodepool1-18821093-0*:
 
 ```console
 $ kubectl describe node aks-nodepool1-28993262-0
@@ -386,7 +386,7 @@ Accuracy at step 490: 0.9494
 Adding run metadata for 499
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover os objetos Kubernetes associados criados neste artigo, utilize o comando [de trabalho de eliminação de kubectl][kubectl delete] da seguinte forma:
 

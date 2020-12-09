@@ -1,21 +1,21 @@
 ---
 title: Criar várias instâncias de recurso
-description: Saiba como criar um modelo do Azure Resource Manager para criar várias instâncias de recursos do Azure.
+description: Aprenda a criar um modelo de Gestor de Recursos Azure (modelo ARM) para criar múltiplos casos de recursos Azure.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: dac1e9429965607aea1490f0ec3b540d7b441d09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94509ba209e95eb9199ddd760529d47eb48bda10
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614398"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930803"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Tutorial: Criar múltiplas instâncias de recursos com modelos ARM
 
-Aprenda a iterar no seu modelo Azure Resource Manager (ARM) para criar várias instâncias de um recurso Azure. Neste tutorial, modifica um modelo para criar três instâncias de contas de armazenamento.
+Aprenda a iterar no seu modelo de Gestor de Recursos Azure (modelo ARM) para criar várias instâncias de um recurso Azure. Neste tutorial, modifica um modelo para criar três instâncias de contas de armazenamento.
 
 ![Azure Resource Manager cria diagrama de múltiplas instâncias](./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
 
@@ -32,7 +32,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para concluir este artigo, precisa de:
 
-* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [Quickstart: Crie modelos de Gestor de Recursos Azure com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [Quickstart: Crie modelos ARM com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
@@ -46,7 +46,7 @@ Para concluir este artigo, precisa de:
     ```
 3. Selecione **Abrir** para abrir o ficheiro.
 4. Existe um recurso “Microsoft.Storage/storageAccounts” definido no modelo. Compare o modelo à [referência do modelo](/azure/templates/Microsoft.Storage/storageAccounts). É útil ter alguma compreensão básica do modelo antes de personalizá-lo.
-5. Selecione **File** > **'Guardar ficheiros' para** guardar o ficheiro à medida **queazuredeploy.jsno** computador local.
+5. Selecione  > **'Guardar ficheiros' para** guardar o ficheiro à medida **queazuredeploy.jsno** computador local.
 
 ## <a name="edit-the-template"></a>Editar o modelo
 

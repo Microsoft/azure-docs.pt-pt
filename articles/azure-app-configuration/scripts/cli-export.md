@@ -3,19 +3,19 @@ title: Amostra de script Azure CLI - Exportação de uma Loja de Configuração 
 titleSuffix: Azure App Configuration
 description: Use o script Azure CLI para exportar a configuração da Configuração da Aplicação Azure
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/19/2020
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c386652ed0b026c29cb202274daba9ee6deb4cf0
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: be3fac17ba99194a76b27c78040a76cce43405a0
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566876"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931117"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Exportação de uma loja de configuração de aplicativos Azure
 
