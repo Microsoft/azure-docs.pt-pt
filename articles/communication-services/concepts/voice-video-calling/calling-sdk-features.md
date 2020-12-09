@@ -9,18 +9,18 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f621d11553101c2c0bcfce804b26c218ae58670c
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 5ace6866ef863b2f901c98f9a32a12540a990d0d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576473"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931916"
 ---
 # <a name="calling-client-library-overview"></a>Descrição geral da biblioteca de cliente de chamadas
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Existem duas famílias separadas de bibliotecas de clientes call, para clientes e *serviços.* *services.* Atualmente, as bibliotecas de clientes disponíveis destinam-se a experiências de utilizador final: websites e aplicações nativas.
+Existem duas famílias separadas de bibliotecas de clientes call, para clientes e *serviços.*  Atualmente, as bibliotecas de clientes disponíveis destinam-se a experiências de utilizador final: websites e aplicações nativas.
 
 As bibliotecas de clientes do Serviço ainda não estão disponíveis e fornecem acesso aos aviões de dados de voz e vídeo brutos, adequados para a integração com bots e outros serviços.
 
@@ -69,7 +69,7 @@ A tabela a seguir representa o conjunto de navegadores e versões suportadas que
 
 *Note que a versão mais recente do Chrome é suportada para além das duas versões anteriores.<br/>
 
-**Note que as versões Safari 13.1+ são suportadas. O vídeo de saída para o safari macOS ainda não está suportado, mas é suportado no iOS. A partilha de ecrãs de saída só é suportada no iOS do ambiente de trabalho.
+**Note que as versões Safari 13.1+ são suportadas. O vídeo de saída para o safari macOS ainda não está suportado, mas é suportado no iOS. A partilha de ecrãs de saída só é suportada no iOS do ambiente de trabalho. 1:1 e as chamadas de grupo não estão disponíveis no Safari.
 
 ## <a name="calling-client---browser-security-model"></a>Cliente chamado - modelo de segurança do navegador
 

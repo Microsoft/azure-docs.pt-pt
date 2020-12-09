@@ -3,8 +3,7 @@ title: Tutorial para usar referências do Cofre da Chave de Configuração de Ap
 description: Neste tutorial, você aprende a usar as referências key Vault da Azure App Configuration a partir de uma aplicação core ASP.NET
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -12,14 +11,14 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/08/2020
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: ff11546225a3b07cbe9f8773dab2139636af787e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 94bab9506d2bf7c29f997bcbfd400a412d5ac041
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124803"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932256"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutorial: Use referências do Cofre de Chaves numa aplicação core ASP.NET
 
@@ -54,14 +53,14 @@ Antes de iniciar este tutorial, instale o [.NET Core SDK](https://dotnet.microso
     ![A screenshot mostra a opção de recurso Criar no portal Azure.](./media/quickstarts/search-services.png)
 1. Na caixa de pesquisa, introduza **o Cofre de Chaves.**
 1. Na lista de resultados, selecione **cofres chave** à esquerda.
-1. Em **cofres chave** , selecione **Add** .
+1. Em **cofres chave**, selecione **Add**.
 1. À direita no **cofre de chaves Create,** forneça as seguintes informações:
     - **Selecione Subscrição** para escolher uma subscrição.
     - No **Grupo de Recursos,** selecione **Criar novo** e introduza um nome de grupo de recursos.
-    - Em **key vault name** , um nome único é necessário. Para este tutorial, **insira Contoso-vault2.**
+    - Em **key vault name**, um nome único é necessário. Para este tutorial, **insira Contoso-vault2.**
     - Na lista de drop-down da **Região,** escolha um local.
 1. Deixe as outras **Opções de cofre de chave** com os seus valores padrão.
-1. Selecione **Criar** .
+1. Selecione **Criar**.
 
 Neste momento, a sua conta Azure é a única autorizada a aceder a este novo cofre.
 
@@ -71,26 +70,26 @@ Neste momento, a sua conta Azure é a única autorizada a aceder a este novo cof
 
 Para adicionar um segredo ao cofre, precisa dar apenas alguns passos adicionais. Neste caso, adicione uma mensagem que pode usar para testar a recuperação do Cofre de Chaves. A mensagem chama-se **Mensagem** e armazena o valor "Olá do Cofre de Chaves" nela.
 
-1. A partir das páginas de propriedades do Cofre chave, selecione **Secrets** .
+1. A partir das páginas de propriedades do Cofre chave, selecione **Secrets**.
 1. **Selecione Gerar/Importar.**
 1. No painel Criar um painel **secreto,** insira os seguintes valores:
-    - **Opções de upload** : Introduza **manual** .
-    - **Nome** : **Introdução Mensagem** .
-    - **Valor** : **Insira Olá a partir do Cofre da Chave** .
+    - **Opções de upload**: Introduza **manual**.
+    - **Nome**: **Introdução Mensagem**.
+    - **Valor**: **Insira Olá a partir do Cofre da Chave**.
 1. Deixar o outro **Criar propriedades secretas** com os seus valores padrão.
-1. Selecione **Criar** .
+1. Selecione **Criar**.
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Adicione uma referência do Cofre de Chaves à Configuração de Aplicações
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **todos os recursos** e, em seguida, selecione a instância da loja de Configuração de Aplicações que criou no arranque rápido.
 
-1. Selecione **O Explorador de Configuração** .
+1. Selecione **O Explorador de Configuração**.
 
 1. Selecione **+ Criar**  >  **referência de cofre de chave** e, em seguida, especificar os seguintes valores:
-    - **Tecla** : Selecione **TestApp:Definições:KeyVaultMessage** .
-    - **Etiqueta** : Deixe este valor em branco.
-    - **Subscrição** , **Grupo de Recursos** e Cofre **chave** : Introduza os valores correspondentes aos do cofre-chave que criou na secção anterior.
-    - **Segredo** : Selecione o segredo chamado **Mensagem** que criou na secção anterior.
+    - **Tecla**: Selecione **TestApp:Definições:KeyVaultMessage**.
+    - **Etiqueta**: Deixe este valor em branco.
+    - **Subscrição**, **Grupo de Recursos** e Cofre **chave**: Introduza os valores correspondentes aos do cofre-chave que criou na secção anterior.
+    - **Segredo**: Selecione o segredo chamado **Mensagem** que criou na secção anterior.
 
 ## <a name="connect-to-key-vault"></a>Ligue-se ao cofre de chaves
 
@@ -163,7 +162,7 @@ Para adicionar um segredo ao cofre, precisa dar apenas alguns passos adicionais.
     dotnet add package Azure.Identity
     ```
 
-1. Abra *Program.cs* , e adicione referências aos seguintes pacotes necessários:
+1. Abra *Program.cs*, e adicione referências aos seguintes pacotes necessários:
 
     ```csharp
     using Azure.Identity;
@@ -236,7 +235,7 @@ Para adicionar um segredo ao cofre, precisa dar apenas alguns passos adicionais.
         and @Configuration["TestApp:Settings:KeyVaultMessage"]</h1>
     ```
 
-    Aceda ao valor do TestApp de referência do Cofre **chave:Definições:KeyVaultMessage** da mesma forma que para o valor de configuração do **TestApp:Definições:Mensagem** .
+    Aceda ao valor do TestApp de referência do Cofre **chave:Definições:KeyVaultMessage** da mesma forma que para o valor de configuração do **TestApp:Definições:Mensagem**.
 
 ## <a name="build-and-run-the-app-locally"></a>Construa e execute a app localmente
 
@@ -256,7 +255,7 @@ Para adicionar um segredo ao cofre, precisa dar apenas alguns passos adicionais.
 
     ![Lançamento de app local Quickstart](./media/key-vault-reference-launch-local.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

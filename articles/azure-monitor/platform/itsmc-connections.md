@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 410281ce67faf345539701389d4b03351d403b99
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 502d5a5c4b3d13d32fece648ce1de6763d012096
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186070"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932290"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar os produtos/serviços do ITSM ao Conector de Gestão de Serviços de TI
 Este artigo fornece informações sobre como configurar a ligação entre o seu produto/serviço ITSM e o It Service Management Connector (ITSMC) no Log Analytics para gerir centralmente os seus itens de trabalho. Para obter mais informações sobre o ITSMC, consulte [a Visão Geral.](./itsmc-overview.md)
@@ -25,8 +25,7 @@ São suportados os seguintes produtos/serviços ITSM. Selecione o produto para v
 
 > [!NOTE]
 > 
-> A partir de 1 de outubro de 2020 as integrações da Cherwell e da Provance ITSM com o Azure Alert deixarão de ser ativadas para novos clientes. As novas Ligações ITSM não serão suportadas. 
-> As ligações ITSM existentes serão suportadas.
+> Propomos aos nossos clientes Cherwell e Provance que utilizem a [ação Webhook](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) para cherwell e provance como outra solução para a integração.
 
 ## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>Connect System Center Service Manager ao It Service Management Connector em Azure
 
@@ -116,7 +115,7 @@ Guarde os valores, utilize-os quando criar uma ligação com o ITSMC.
 **Verifique a instalação da aplicação Web**
 
 1. Ir para o **portal Azure**  >  **Recursos**.
-2. Selecione a **Settings** aplicação Web, clique em  >  **Definições de Aplicação** de Definições .
+2. Selecione a aplicação Web, clique em  >  **Definições de Aplicação** de Definições .
 3. Confirme as informações sobre a instância do Service Manager que forneceu no momento da implementação da aplicação através do script.
 
 ### <a name="configure-the-hybrid-connection"></a>Configure a ligação híbrida
@@ -424,7 +423,7 @@ Saiba mais: [Crie itens de trabalho ITSM a partir de alertas Azure](./itsmc-over
 Para gerar o ID/chave do cliente para Cherwell, utilize o seguinte procedimento:
 
 1. Faça login no seu caso Cherwell como administrador.
-2. Clique **Security**  >  **nas definições do cliente API de Edição de** Segurança .
+2. Clique   >  **nas definições do cliente API de Edição de** Segurança .
 3. **Selecione Criar novo** segredo do  >  **cliente** cliente.
 
     ![Id de utilizador cherwell](media/itsmc-connections/itsmc-cherwell-client-id.png)

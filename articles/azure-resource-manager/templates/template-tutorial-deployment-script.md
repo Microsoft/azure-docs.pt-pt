@@ -1,6 +1,6 @@
 ---
 title: Use scripts de implementação de modelos Microsoft Docs
-description: Saiba como usar scripts de implementação em modelos do Gestor de Recursos Azure.
+description: Saiba como utilizar scripts de implementação em modelos de Gestor de Recursos Azure (modelos ARM).
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.date: 08/25/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e1094befcc6b3a6e9d56ba3b603dc45fcb91ba13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc19222cf1e610c6c65d7c721a54f9949bed70ae
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88825499"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931440"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: Utilize scripts de implantação para criar um certificado auto-assinado (Pré-visualização)
 
-Saiba como utilizar scripts de implementação em modelos Azure Resource Manage (ARM). Os scripts de implementação podem ser usados para executar passos personalizados que não podem ser feitos por modelos ARM. Por exemplo, criar um certificado auto-assinado.  Neste tutorial, você cria um modelo para implantar um cofre de chave Azure, e em seguida, usar um `Microsoft.Resources/deploymentScripts` recurso no mesmo modelo para criar um certificado e, em seguida, adicionar o certificado ao cofre de chaves. Para saber mais sobre o script de implementação, consulte [use scripts de implementação em modelos ARM](./deployment-script-template.md).
+Saiba como utilizar scripts de implementação em modelos de Gestor de Recursos Azure (modelos ARM). Os scripts de implementação podem ser usados para executar passos personalizados que não podem ser feitos por modelos ARM. Por exemplo, criar um certificado auto-assinado.  Neste tutorial, você cria um modelo para implantar um cofre de chave Azure, e em seguida, usar um `Microsoft.Resources/deploymentScripts` recurso no mesmo modelo para criar um certificado e, em seguida, adicionar o certificado ao cofre de chaves. Para saber mais sobre o script de implementação, consulte [use scripts de implementação em modelos ARM](./deployment-script-template.md).
 
 > [!IMPORTANT]
 > Dois recursos de script de implantação, uma conta de armazenamento e uma instância de contentor, são criados no mesmo grupo de recursos para a execução do script e resolução de problemas. Estes recursos são geralmente eliminados pelo serviço de scripts quando a execução do script entra num estado terminal. É cobrado pelos recursos até que os recursos sejam apagados. Para saber mais, consulte [Limpar os recursos do script de implementação](./deployment-script-template.md#clean-up-deployment-script-resources).
@@ -40,7 +40,7 @@ Este tutorial abrange as seguintes tarefas:
 
 Para concluir este artigo, precisa de:
 
-* ** [Código de Estúdio Visual](https://code.visualstudio.com/) com a extensão de Ferramentas do Gestor de Recursos**. Consulte [Quickstart: Crie modelos de Gestor de Recursos Azure com Código de Estúdio Visual](./quickstart-create-templates-use-visual-studio-code.md).
+* **[Código de Estúdio Visual](https://code.visualstudio.com/) com a extensão de Ferramentas do Gestor de Recursos**. Consulte [Quickstart: Crie modelos ARM com Código de Estúdio Visual](./quickstart-create-templates-use-visual-studio-code.md).
 
 * **Uma identidade gerida atribuída pelo utilizador com o papel do contribuinte ao nível da subscrição**. Esta identidade é usada para executar scripts de implantação. Para criar uma, consulte a [identidade gerida atribuída pelo Utilizador](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Precisa da identificação de identidade quando implementar o modelo. O formato da identidade é:
 
@@ -70,7 +70,7 @@ O modelo utilizado neste quickstart chama-se [Criar um Cofre de Chaves Azure e u
     ```
 
 3. Selecione **Abrir** para abrir o ficheiro.
-4. Selecione **File** > **'Guardar ficheiros' para** guardar o ficheiro à medida **queazuredeploy.jsno** computador local.
+4. Selecione  > **'Guardar ficheiros' para** guardar o ficheiro à medida **queazuredeploy.jsno** computador local.
 
 ## <a name="edit-the-template"></a>Editar o modelo
 
@@ -260,7 +260,7 @@ O roteiro de implantação adiciona um certificado ao cofre da chave. Configure 
     * **forceUpdateTag**: Determine se o script de implementação deve ser executado mesmo que a fonte do script não tenha mudado. Pode ser a hora atual ou um GUID. Para saber mais, consulte [o roteiro run mais de uma vez](./deployment-script-template.md#run-script-more-than-once).
     * **azPowerShellVersion**: Especifica a versão do módulo Azure PowerShell a ser utilizada. Atualmente, o script de implementação suporta a versão 2.7.0, 2.8.0 e 3.0.0.
     * **tempo limite**: Especifique o tempo máximo de execução do script permitido especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor predefinido é **P1D.**
-    * argumentos : Especificar os **valores**dos parâmetros. Os valores são separados por espaços.
+    * argumentos : Especificar os **valores** dos parâmetros. Os valores são separados por espaços.
     * **scriptContent**: Especifique o conteúdo do script. Para executar um script externo, use **o PrimaryScriptURI** em vez disso. Para obter mais informações, consulte [utilizar o script externo](./deployment-script-template.md#use-external-scripts).
         Declarar **$DeploymentScriptOutputs** só é necessário quando se testa o script numa máquina local. Declarar a variável permite que o script seja executado numa máquina local e num recurso de implementaçãoScript sem ter de fazer alterações. O valor atribuído a $DeploymentScriptOutputs está disponível como saídas nas implementações. Para obter mais informações, consulte [Trabalhar com saídas de scripts de implementação PowerShell](./deployment-script-template.md#work-with-outputs-from-powershell-script) ou [trabalhar com saídas a partir de scripts de implementação CLI](./deployment-script-template.md#work-with-outputs-from-cli-script).
     * **limpezaPreferência**: Especifique a preferência sobre quando eliminar os recursos do script de implantação.  O valor predefinido é **Sempre**, o que significa que os recursos de script de implantação são eliminados apesar do estado terminal (Bem sucedido, Falhado, cancelado). Neste tutorial, **o OnSuccess** é utilizado para que tenha a oportunidade de ver os resultados da execução do script.
@@ -280,7 +280,7 @@ O roteiro de implantação adiciona um certificado ao cofre da chave. Configure 
 
     O comando correto é **Write-Output** em vez de **Write-Output1**.
 
-1. Selecione **Guardar ficheiros** > **Save** para guardar o ficheiro.
+1. Selecione **Guardar ficheiros** >  para guardar o ficheiro.
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 

@@ -3,20 +3,19 @@ title: Arranque rápido para aprender a usar a configuração da app Azure
 description: Neste arranque rápido, crie uma aplicação Java Spring com Configuração de Aplicação Azure para centralizar o armazenamento e gestão das definições de aplicações separadas do seu código.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 04/18/2020
 ms.custom: devx-track-java
-ms.author: lcozzens
-ms.openlocfilehash: dd2305e13322540e9e30223f200baed9919d1840
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.author: alkemper
+ms.openlocfilehash: 40c8fae292f465b3ecc8778a21e4903bdf423a3a
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075404"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932035"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Quickstart: Criar uma aplicação Java Spring com Configuração de Aplicação Azure
 
@@ -32,7 +31,7 @@ Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa ap
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-7. Selecione **Configuration Explorer**  >  **+ Crie**valor  >  **chave** para adicionar os seguintes pares de valor-chave:
+7. Selecione **Configuration Explorer**  >  **+ Crie** valor  >  **chave** para adicionar os seguintes pares de valor-chave:
 
     | Chave | Valor |
     |---|---|
@@ -182,7 +181,7 @@ Utilize o [Initializr primavera](https://start.spring.io/) para criar um novo pr
 
     Vê a mensagem que inseriu na loja de Configuração de Aplicações.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

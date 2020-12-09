@@ -8,18 +8,29 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d603e5d03480b99eb3d6adb72a3440198fda2e47
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: b23324a7226d4b3de4908bd78a8f19c799e59f06
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575470"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932188"
 ---
 # <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Tutorial: Uma solução de ponta a ponta usando Azure Machine Learning e IoT Edge
 
 Frequentemente, as aplicações IoT querem aproveitar a nuvem inteligente e a borda inteligente. Neste tutorial, acompanhamos-te através da formação de um modelo de machine learning com dados recolhidos a partir de dispositivos IoT na nuvem, implantando esse modelo para IoT Edge, e mantendo e refinando o modelo periodicamente.
 
 O objetivo principal deste tutorial é introduzir o processamento de dados de IoT com machine learning, especificamente no limite. Embora toquemos em muitos aspetos de um fluxo de trabalho geral de aprendizagem automática, este tutorial não se destina a uma introdução aprofundada à aprendizagem automática. Como caso em questão, não tentamos criar um modelo altamente otimizado para o caso de utilização – apenas fazemos o suficiente para ilustrar o processo de criação e utilização de um modelo viável para o processamento de dados IoT.
+
+Esta secção do tutorial discute:
+
+> [!div class="checklist"]
+>
+> * Os pré-requisitos para completar as partes subsequentes do tutorial.
+> * O público-alvo do tutorial.
+> * O caso de uso que o tutorial simula.
+> * O processo geral que o tutorial segue para cumprir o caso de utilização.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -92,7 +103,7 @@ A imagem abaixo ilustra os passos ásperos que seguimos neste tutorial:
 
 1. **Mantenha e refine o modelo.** O nosso trabalho não é feito uma vez que o modelo é implementado. Em muitos casos, queremos continuar a recolher dados e enviar periodicamente esses dados para a nuvem. Podemos então usar estes dados para retreinar e aperfeiçoar o nosso modelo, que depois podemos recolocar para ioT Edge.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este tutorial faz parte de um conjunto onde cada artigo baseia-se no trabalho feito nos anteriores. Por favor, espere para limpar todos os recursos até completar o tutorial final.
 

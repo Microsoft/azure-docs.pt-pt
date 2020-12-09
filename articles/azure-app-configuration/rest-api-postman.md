@@ -1,17 +1,17 @@
 ---
 title: Azure Ative Directory REST API - Teste utilizando carteiro
 description: Use o Carteiro para testar a API de Configuração de Aplicação Azure
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 9690678fc7b794c694e588a7993cb131d8264a72
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 0b4444b049d181c2f66f8b02a5202dd17a3f4b6b
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424484"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932494"
 ---
 # <a name="test-the-azure-app-configuration-rest-api-using-postman"></a>Teste a Azure App Configuration REST API usando o Carteiro
 

@@ -8,12 +8,12 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8efc0301296f64abfe9b827e943882e930929086
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 757e34fd45b7d3d9703aa09daa7f040c5f605637
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575334"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932392"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: Treine e implemente um modelo de aprendizagem automática Azure
 
@@ -26,6 +26,14 @@ Neste artigo, fazemos as seguintes tarefas:
 Os Cadernos Azure aproveitam um espaço de trabalho Azure Machine Learning, um bloco fundamental usado para experimentar, treinar e implementar modelos de aprendizagem automática.
 
 Os passos neste artigo podem ser normalmente realizados por cientistas de dados.
+
+Nesta secção do tutorial, aprende-se a:
+
+> [!div class="checklist"]
+>
+> * Crie um projeto Azure Notebooks para formar um modelo de machine learning.
+> * Contentorize o modelo de aprendizagem de máquinas treinado.
+> * Crie um módulo Azure IoT Edge a partir do modelo de aprendizagem automática contentorizado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -169,10 +177,10 @@ Para verificar se os cadernos foram concluídos com sucesso, verifique se foram 
     | Recurso do Azure | Name |
     | --- | --- |
     | Espaço de trabalho de aprendizagem automática | turborfanDemo |
-    | Registo de Contentor | turbofandemoxxxxxxxxxxxxx |
-    | Insights de Aplicações | turbofaninsightxxxxxxxxxxxxx |
-    | Key Vault | turbofankeyvaultbxxxxxxxxxxxxxxx |
-    | Armazenamento | turbofanstoragexxxxxxxxxxxxxxx |
+    | Registo de Contentor | turbofandemoxx |
+    | Insights de Aplicações | turbofaninsightx |
+    | Cofre de Chaves | turbofankeyvaultbx |
+    | Armazenamento | turbofanstoragexx |
 
 ### <a name="debugging"></a>Depurar
 
@@ -180,7 +188,7 @@ Pode inserir declarações python no caderno para depurar, como o `print()` coma
 
 Poderá ter de eliminar ficheiros previamente criados e recursos Azure se precisar de refazer os cadernos.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este tutorial faz parte de um conjunto onde cada artigo baseia-se no trabalho feito nos anteriores. Por favor, espere para limpar todos os recursos até completar o tutorial final.
 

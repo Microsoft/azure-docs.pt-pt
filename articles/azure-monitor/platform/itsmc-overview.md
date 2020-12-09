@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: b4e35296a999070a6f536f4a52cfb7c3a1d4f42a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 917eb52a7255527b55aacd488f33125ad853e894
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186495"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932273"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Ligue o Azure às ferramentas ITSM utilizando o Conector de Gestão de Serviços de TI
 
@@ -30,7 +30,7 @@ A ITSMC suporta ligações com as seguintes ferramentas ITSM:
 -   Cherwell
 
    >[!NOTE]
-> A partir de 1 de outubro de 2020 as integrações da Cherwell e da Provance ITSM com o Azure Alert deixarão de ser ativadas para novos clientes. As novas Ligações ITSM não serão suportadas. As ligações ITSM existentes serão suportadas.
+> Propomos aos nossos clientes Cherwell e Provance que utilizem a [ação Webhook](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) para cherwell e provance como outra solução para a integração.
 
 Com o ITSMC, pode:
 
@@ -253,7 +253,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Data de fim planeada
 - Data de início do trabalho
 - Data de fim do trabalho
-- Description
+- Descrição
 - Computador
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dados de saída para um incidente do ServiceNow
@@ -300,7 +300,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Data de fim prevista |
 | WorkStartDate_t  | Data de início real |
 | WorkEndDate_t | Data de fim real|
-| Description_s | Description |
+| Description_s | Descrição |
 | Computador  | Item de configuração |
 
 

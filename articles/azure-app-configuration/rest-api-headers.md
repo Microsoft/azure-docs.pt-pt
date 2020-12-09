@@ -1,17 +1,17 @@
 ---
 title: Azure App Configuration REST API - Cabeçalhos
 description: Páginas de referência para cabeçalhos utilizados com a API de Configuração de Aplicação Azure
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 5e1f92c68004d0197391ab72df775913c0940fec
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 80b20b0b55219766872166685c0b1257f3c39c55
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424523"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932579"
 ---
 # <a name="headers"></a>Cabeçalhos
 

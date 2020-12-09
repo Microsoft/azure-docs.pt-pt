@@ -2,19 +2,19 @@
 title: Quickstart para Configuração de AplicativoS Azure com ASP.NET Core [ Microsoft Docs
 description: Crie uma aplicação Core ASP.NET com configuração de aplicação Azure para centralizar o armazenamento e gestão das definições de aplicações para uma aplicação core ASP.NET.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, contperfq1
 ms.topic: quickstart
 ms.date: 09/25/2020
-ms.author: lcozzens
-ms.openlocfilehash: 13283a9531804502b8a8d72e615be955b413658c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.author: alkemper
+ms.openlocfilehash: fc2b218621fcf91a7d82b0554da79a8b4582c3a2
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075846"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932171"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Quickstart: Criar uma aplicação Core ASP.NET com configuração de aplicações Azure
 
@@ -123,7 +123,7 @@ dotnet new mvc --no-https --output TestAppConfig
 
 Preencha os seguintes passos para ler e exibir valores armazenados na loja de Configuração de Aplicações. A API de Configuração de Núcleo .NET será utilizada para aceder à loja. A sintaxe da navalha será utilizada para mostrar os valores das teclas.
 
-Abra * \<app root> /Vistas/Home/Index.cshtml,* e substitua o seu conteúdo pelo seguinte código:
+Abra *\<app root> /Vistas/Home/Index.cshtml,* e substitua o seu conteúdo pelo seguinte código:
 
 ```cshtml
 @using Microsoft.Extensions.Configuration
@@ -169,7 +169,7 @@ No código anterior, as chaves da loja de configuração de aplicações são ut
 
     Quando solicitado para configurar a porta para pré-visualização, introduza *5000* e **selecione Abrir e navegar**. A página web irá ler "Data from Azure App Configuration".
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE[Azure App Configuration cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

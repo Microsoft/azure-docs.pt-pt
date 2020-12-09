@@ -1,21 +1,21 @@
 ---
 title: Implementar extensões VM com modelo
-description: Saiba como implementar extensões de máquina virtual com modelos do Azure Resource Manager
+description: Saiba como implementar extensões de máquinas virtuais com modelos de Gestor de Recursos Azure (modelos ARM).
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f82e0eb45f4bc7c3260554b1b1120025029336bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49bc1a77e2e25cb069a89812603ff562b8a4c1cd
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89073647"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931457"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Tutorial: Implementar extensões de máquinas virtuais com modelos ARM
 
-Aprenda a utilizar [extensões de máquina virtual do Azure](../../virtual-machines/extensions/features-windows.md) para fazer tarefas de automatização e configuração de pós-implementação em VMs do Azure. Estão disponíveis muitas VMs diferentes para utilização com as VMs do Azure. Neste tutorial, você implementa uma extensão de Script Personalizado a partir de um modelo Azure Resource Manager (ARM) para executar um script PowerShell em um VM do Windows.  O script instala o Servidor Web na VM.
+Aprenda a utilizar [extensões de máquina virtual do Azure](../../virtual-machines/extensions/features-windows.md) para fazer tarefas de automatização e configuração de pós-implementação em VMs do Azure. Estão disponíveis muitas VMs diferentes para utilização com as VMs do Azure. Neste tutorial, você implementa uma extensão de Script personalizado a partir de um modelo de Gestor de Recursos Azure (modelo ARM) para executar um script PowerShell em um VM do Windows. O script instala o Servidor Web na VM.
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -31,14 +31,14 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para concluir este artigo, precisa de:
 
-* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [Quickstart: Crie modelos de Gestor de Recursos Azure com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [Quickstart: Crie modelos ARM com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
 * Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Eis um exemplo para gerar uma palavra-passe:
 
     ```console
     openssl rand -base64 32
     ```
 
-    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para obter mais informações, consulte [Tutorial: Integre o cofre da chave azul na implementação do modelo ARM](./template-tutorial-use-key-vault.md). Recomendamos também que atualize a sua palavra-passe de três em três meses.
+    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para obter mais informações, consulte [Tutorial: Integre o cofre da chave azul na sua implantação do modelo ARM](./template-tutorial-use-key-vault.md). Recomendamos também que atualize a sua palavra-passe de três em três meses.
 
 ## <a name="prepare-a-powershell-script"></a>Preparar o script do Powershell
 
@@ -110,7 +110,7 @@ Para obter mais informações sobre esta definição de recursos, consulte a [re
 * **fileUris**: As localizações onde os ficheiros de script são armazenados. Se optar por não utilizar a localização fornecida, tem de atualizar os valores.
 * **commandToExecute**: Este comando invoca o script.
 
-Para utilizar o script inline, remova **os fileUris**e atualize **o comandoToExecute** para:
+Para utilizar o script inline, remova **os fileUris** e atualize **o comandoToExecute** para:
 
 ```powershell
 powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools && powershell.exe remove-item 'C:\\inetpub\\wwwroot\\iisstart.htm' && powershell.exe Add-Content -Path 'C:\\inetpub\\wwwroot\\iisstart.htm' -Value $('Hello World from ' + $env:computername)

@@ -1,21 +1,21 @@
 ---
 title: Tutorial - adicione saídas ao modelo
-description: Adicione saídas ao seu modelo de Gestor de Recursos Azure para simplificar a sintaxe.
+description: Adicione saídas ao seu modelo de Gestor de Recursos Azure (modelo ARM) para simplificar a sintaxe.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: abd5fbed4ab19135fb30ec5adda387d839df3ab6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e55638e20bceb6df4b8e74375d67836123167162
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613871"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931746"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Tutorial: Adicione saídas ao seu modelo ARM
 
-Neste tutorial, aprende a devolver um valor do seu modelo Azure Resource Manager (ARM). Utiliza-se saídas quando se precisa de um valor a partir de um recurso implantado. Este tutorial leva **7 minutos** para ser concluído.
+Neste tutorial, você aprende a devolver um valor do seu modelo de Gestor de Recursos Azure (modelo ARM). Utiliza-se saídas quando se precisa de um valor a partir de um recurso implantado. Este tutorial leva **7 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

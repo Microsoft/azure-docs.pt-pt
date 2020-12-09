@@ -1,18 +1,18 @@
 ---
 title: Funções de modelos
-description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para recuperar valores, trabalhar com cordas e numéricos e recuperar informações de implantação.
+description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure (modelo ARM) para recuperar valores, trabalhar com cordas e numéricos e recuperar informações de implantação.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: a479b81d0f0bc378f77885cbd644e70d7be1d857
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2d124893cbe1694671231fd206f8e44cc20f6204
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961175"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931712"
 ---
 # <a name="arm-template-functions"></a>Funções do modelo ARM
 
-Este artigo descreve todas as funções que pode utilizar num modelo Azure Resource Manager (ARM). Para obter informações sobre a utilização de funções no seu modelo, consulte [a sintaxe do modelo](template-expressions.md).
+Este artigo descreve todas as funções que pode utilizar num modelo de Gestor de Recursos Azure (modelo ARM). Para obter informações sobre a utilização de funções no seu modelo, consulte [a sintaxe do modelo](template-expressions.md).
 
 Para criar as suas próprias funções, consulte [as funções definidas pelo Utilizador](template-syntax.md#functions).
 
@@ -67,7 +67,7 @@ O Gestor de Recursos fornece várias funções para fazer comparações nos seus
 
 * [coalesce](template-functions-comparison.md#coalesce)
 * [é igual a](template-functions-comparison.md#equals)
-* [less](template-functions-comparison.md#less)
+* [menos](template-functions-comparison.md#less)
 * [lessOrEquals](template-functions-comparison.md#lessorequals)
 * [greater](template-functions-comparison.md#greater)
 * [greaterOrEquals](template-functions-comparison.md#greaterorequals)
@@ -250,7 +250,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para uma descrição das secções num modelo ARM, consulte [os modelos ARM de autoria](template-syntax.md)
-* Para fundir vários modelos, consulte [Usando modelos ligados com Azure Resource Manager](linked-templates.md)
-* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [Criar múltiplas instâncias de recursos no Azure Resource Manager](copy-resources.md).
-* Para ver como implementar o modelo que criou, consulte [implementar uma aplicação com modelos ARM](deploy-powershell.md)
+* Para obter uma descrição das secções num modelo ARM, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
+* Para fundir vários modelos, consulte [utilizando modelos ligados e aninhados ao implementar recursos Azure](linked-templates.md).
+* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte a iteração de [recursos nos modelos ARM](copy-resources.md).
+* Para ver como implementar o modelo que criou, consulte [recursos de implantação com modelos ARM e Azure PowerShell](deploy-powershell.md).

@@ -1,19 +1,19 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: include
 ms.date: 11/11/2020
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: include file
-ms.openlocfilehash: 50b96e0fa01074ede45dfd9174e9741682f16eec
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 58450b451f50b9d03503bf4704e46ce94f27161e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554837"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932149"
 ---
 ```html
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">

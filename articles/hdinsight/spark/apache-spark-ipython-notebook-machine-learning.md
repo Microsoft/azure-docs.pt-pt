@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Build Spark machine learning app - Azure HDInsight'
-description: Tutorial - Instruções passo a passo sobre como construir a aplicação de aprendizagem de máquinas Apache Spark em clusters HDInsight Spark usando o caderno Jupyter.
+description: Tutorial - Instruções passo a passo sobre como construir a aplicação de aprendizagem de máquinas Apache Spark em clusters HDInsight Spark usando o Jupyter Notebook.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc, devx-track-python
 ms.date: 04/07/2020
-ms.openlocfilehash: 753f45257f820f87f2e4bfb1893f581bee167a4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6af50bae075e88ac3bbba39cba9c9042eee2000e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230930"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932250"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Tutorial: Construir uma aplicação de aprendizagem automática Apache Spark em Azure HDInsight
 
@@ -41,7 +41,7 @@ A aplicação utiliza a amostra **HVAC.csv** dados que estão disponíveis em to
 
 Esta aplicação utiliza um [oleoduto Spark ML](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) para fazer uma classificação de documento. Os gasodutos ML fornecem um conjunto uniforme de APIs de alto nível construído em cima de DataFrames. Os DataFrames ajudam os utilizadores a criar e afinar oleodutos práticos de aprendizagem de máquinas. No pipeline, o documento é dividido em palavras, estas são convertidas num vetor de numérico de características e, por fim, é criado um modelo de previsão que utiliza os vetores de características e as etiquetas. Faça os seguintes passos para criar a aplicação.
 
-1. Crie um bloco de notas do Jupyter com o kernel de PySpark. Para obter as instruções, consulte [Criar um ficheiro de caderno Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
+1. Crie um Caderno Jupyter utilizando o núcleo PySpark. Para obter as instruções, consulte [Criar um ficheiro de caderno Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
 
 1. Importe os tipos necessários para este cenário. Cole o seguinte fragmento numa célula vazia e prima **SHIFT + ENTER**.
 
@@ -186,7 +186,7 @@ Esta aplicação utiliza um [oleoduto Spark ML](https://spark.apache.org/docs/2.
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Utilizar a biblioteca scikit-learn de Anaconda para machine learning do Spark
 
-Os clusters do Apache Spark no HDInsight incluem bibliotecas de Anaconda. Também inclui a biblioteca **scikit-learn** para machine learning. Esta biblioteca inclui igualmente vários conjuntos de dados que pode utilizar para criar aplicações de exemplo diretamente a partir de blocos de notas do Jupyter. Por exemplo, sobre a utilização da biblioteca de aprendizagem de scikit, consulte [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html) .
+Os clusters do Apache Spark no HDInsight incluem bibliotecas de Anaconda. Também inclui a biblioteca **scikit-learn** para machine learning. A biblioteca também inclui vários conjuntos de dados que pode usar para construir aplicações de amostra diretamente de um Caderno Jupyter. Por exemplo, sobre a utilização da biblioteca de aprendizagem de scikit, consulte [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html) .
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -200,7 +200,7 @@ Se não continuar a utilizar esta aplicação, elimine o cluster que criou com o
 
 1. Na lista de clusters HDInsight que aparecem, selecione o **...** ao lado do cluster que criou para este tutorial.
 
-1. Selecione **Eliminar**. Selecione **Sim**.
+1. Selecione **Eliminar**. Selecione **Yes** (Sim).
 
 ![Portal Azure elimina um cluster HDInsight](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Excluir o cluster HDInsight")
 

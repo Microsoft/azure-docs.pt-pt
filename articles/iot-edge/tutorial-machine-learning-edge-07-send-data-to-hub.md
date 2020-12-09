@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1927ec00df67522563fb063f2cb127fee4c0bcbf
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 50df3424892594a6817d481aa4a3d540a342854f
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621047"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932324"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Tutorial: Enviar dados via gateway transparente
 
@@ -23,6 +23,14 @@ Neste artigo, mais uma vez usamos o VM de desenvolvimento como um dispositivo si
 Monitorizamos o funcionamento do dispositivo IoT Edge enquanto o dispositivo simulado está a enviar dados. Uma vez que o dispositivo esteja terminado de funcionar, olhamos para os dados na nossa conta de armazenamento para validar tudo o que funciona como esperado.
 
 Este passo é normalmente realizado por um desenvolvedor de nuvem ou dispositivo.
+
+Nesta secção do tutorial, aprende-se a:
+
+> [!div class="checklist"]
+>
+> * Construa e execute um dispositivo de folha.
+> * Verifique se os dados gerados estão a ser armazenados no seu armazenamento Azure Blob.
+> * Validar que o modelo de aprendizagem automática classificou os dados do dispositivo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -221,7 +229,7 @@ Incluímos um simples utilitário de linha de comando para ler um ficheiro Avro 
    }
    ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se planeia explorar os recursos utilizados por este tutorial de ponta a ponta, espere até terminar para limpar os recursos que criou. Caso contrário, utilize os seguintes passos para os eliminar:
 

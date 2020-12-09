@@ -2,17 +2,17 @@
 title: Dados de importação ou exportação com Configuração de Aplicações Azure
 description: Saiba como importar ou exportar dados de configuração de ou para a Configuração de Aplicações Azure. Troque os dados entre a sua loja de Configuração de Aplicações e o projeto de código.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: lcozzens
-ms.openlocfilehash: 0e127a11f3821325602a78d46c69b2330bfb8293
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.author: alkemper
+ms.openlocfilehash: 5e4eeb37bb5efa11a656600072e4aa364fc71500
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074622"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931797"
 ---
 # <a name="import-or-export-configuration-data"></a>Importar ou exportar dados de configuração
 
@@ -28,7 +28,7 @@ Importar dados utilizando o [portal Azure](https://portal.azure.com) ou o [Azure
 
 1. Navegue na sua loja de Configuração de Aplicações e selecione **Import/Export** a partir do menu **Operações.**
 
-1. No **separador 'Importar',** selecione **Source service**  >  **'Ficheiro de Configuração**do serviço'.
+1. No **separador 'Importar',** selecione   >  **'Ficheiro de Configuração** do serviço'.
 
 1. Selecione **Para o idioma** e selecione o tipo de entrada pretendido.
 
@@ -36,7 +36,7 @@ Importar dados utilizando o [portal Azure](https://portal.azure.com) ou o [Azure
 
     ![Arquivo de importação](./media/import-file.png)
 
-1. Selecione um **Separador**e introduza opcionalmente um **Prefixo** para usar para nomes-chave importados.
+1. Selecione um **Separador** e introduza opcionalmente um **Prefixo** para usar para nomes-chave importados.
 
 1. Opcionalmente, selecione uma **etiqueta**.
 
@@ -52,11 +52,11 @@ Dados de exportação utilizando o [portal Azure](https://portal.azure.com) ou o
 
 1. Navegue na sua loja de Configuração de Aplicações e selecione **Import/Export**.
 
-1. No **separador Exportação,** selecione **'Ficheiro**de Configuração do serviço  >  **alvo'.**
+1. No **separador Exportação,** selecione **'Ficheiro** de Configuração do serviço  >  **alvo'.**
 
 1. Introduza opcionalmente um **Prefixo** e selecione um **Rótulo** e um ponto no tempo para as chaves serem exportadas.
 
-1. Selecione um separador do tipo de **ficheiro**  >  **Separator**.
+1. Selecione um separador do tipo de **ficheiro**  >  .
 
 1. **Selecione Aplicar** para terminar a exportação.
 

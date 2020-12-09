@@ -1,21 +1,21 @@
 ---
 title: Utilizar a referência do modelo
-description: Utilize a referência do modelo Azure Resource Manager para criar um modelo.
+description: Utilize a referência do Gestor de Recursos Azure (modelo ARM) para criar um modelo.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 3709511fa8da0a40f4faf4ab2dac9505d69003ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfd6311fab8d9c65fa7c82d2f707ac96549a32a9
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118516"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931423"
 ---
-# <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Tutorial: Utilize a referência do modelo do Gestor de Recursos
+# <a name="tutorial-utilize-the-arm-template-reference"></a>Tutorial: Utilize a referência do modelo ARM
 
-Saiba como encontrar as informações do esquema do modelo e use as informações para criar modelos de Gestor de Recursos Azure (ARM).
+Saiba como encontrar as informações do esquema do modelo e use as informações para criar modelos de Gestor de Recursos Azure (modelos ARM).
 
 Neste tutorial, vai utilizar um modelo de base dos modelos de Início Rápido do Azure. Utilizando a documentação de referência do modelo, personaliza o modelo.
 
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para concluir este artigo, precisa de:
 
-* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [Quickstart: Crie modelos de Gestor de Recursos Azure com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [Quickstart: Crie modelos ARM com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
@@ -76,7 +76,7 @@ Para concluir este artigo, precisa de:
 ## <a name="find-the-template-reference"></a>Encontre a referência do modelo
 
 1. Navegue pela [referência do modelo Azure](/azure/templates/).
-1. Na caixa **de filtro por título,** **introduza as contas de armazenamento**e selecione as **primeiras Contas de Armazenamento** em Referência > **Armazenamento**.
+1. Na caixa **de filtro por título,** **introduza as contas de armazenamento** e selecione as **primeiras Contas de Armazenamento** em Referência > **Armazenamento**.
 
     ![Conta de armazenamento de referência do modelo do Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts.png)
 

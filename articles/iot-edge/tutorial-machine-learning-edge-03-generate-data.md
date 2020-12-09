@@ -8,12 +8,12 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4ac7f300fa88d57efe65c6d79645d4e75ca7edd9
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: eef5e60b06eedb1fb07c57aa2e369dd3830fcad5
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575487"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932409"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Tutorial: Gerar dados simulados do dispositivo
 
@@ -42,6 +42,14 @@ O projeto DeviceHarness é um projeto núcleo .NET escrito em C# composto por qu
 As tarefas descritas neste artigo devem demorar cerca de 20 minutos a ser concluídas.
 
 O equivalente real ao trabalho neste passo seria provavelmente realizado por desenvolvedores de dispositivos e desenvolvedores de nuvem.
+
+Nesta secção do tutorial, aprende-se a:
+
+> [!div class="checklist"]
+>
+> * Incorpore um projeto externo no seu ambiente de desenvolvimento.
+> * Utilize o projeto DeviceHarness da amostra para gerar dados simulados do dispositivo IoT.
+> * Ver dados gerados no seu Hub IoT.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -158,7 +166,7 @@ Os dados que acabámos de enviar para o seu hub IoT foram encaminhados para o co
 
 1. Não há necessidade de tentar ler ou interpretar os dados neste momento; vamos fazê-lo no próximo artigo.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este tutorial faz parte de um conjunto onde cada artigo baseia-se no trabalho feito nos anteriores. Por favor, espere para limpar todos os recursos até completar o tutorial final.
 

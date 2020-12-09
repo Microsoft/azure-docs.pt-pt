@@ -2,19 +2,19 @@
 title: '.NET Framework Tutorial: configuração dinâmica na Configuração da Aplicação Azure'
 description: Neste tutorial, aprende-se a atualizar dinamicamente os dados de configuração para aplicações .NET Framework utilizando a Configuração da Aplicação Azure.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: tutorial
-ms.date: 10/21/2019
-ms.author: lcozzens
-ms.openlocfilehash: b90334d4978c485033323b398e1409fa5731e813
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 07/24/2020
+ms.author: alkemper
+ms.openlocfilehash: 03940a86176d0bc93c5066977fdc87de5c456060
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767581"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932766"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Tutorial: Use configuração dinâmica numa aplicação .NET Framework
 
@@ -39,7 +39,7 @@ Neste tutorial, ficará a saber como:
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-7. Selecione **Configuration Explorer**  >  **+ Crie**valor  >  **chave** para adicionar os seguintes pares de valor-chave:
+7. Selecione **Configuration Explorer**  >  **+ Crie** valor  >  **chave** para adicionar os seguintes pares de valor-chave:
 
     | Chave | Valor |
     |---|---|
@@ -118,7 +118,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="build-and-run-the-app-locally"></a>Construa e execute a app localmente
 
-1. Desaprote uma variável ambiental chamada **ConnectionString**e desaprote-a na chave de acesso à sua loja de Configuração de Aplicações. Se utilizar o pedido de comando do Windows, executar o seguinte comando e reiniciar a solicitação de comando para permitir que a alteração entre em vigor:
+1. Desaprote uma variável ambiental chamada **ConnectionString** e desaprote-a na chave de acesso à sua loja de Configuração de Aplicações. Se utilizar o pedido de comando do Windows, executar o seguinte comando e reiniciar a solicitação de comando para permitir que a alteração entre em vigor:
 
     ```console
         setx ConnectionString "connection-string-of-your-app-configuration-store"
@@ -136,9 +136,9 @@ Neste tutorial, ficará a saber como:
 
     ![App lançar local](./media/dotnet-app-run.png)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Todos os recursos**e selecione a instância da loja de Configuração de Aplicações que criou no arranque rápido.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Todos os recursos** e selecione a instância da loja de Configuração de Aplicações que criou no arranque rápido.
 
-1. Selecione **Configuration Explorer**e atualize os valores das seguintes teclas:
+1. Selecione **Configuration Explorer** e atualize os valores das seguintes teclas:
 
     | Chave | Valor |
     |---|---|

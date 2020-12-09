@@ -9,18 +9,26 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, devx-track-azurecli
-ms.openlocfilehash: 754b1544f112fb63fae91a52c7e48f25b9790ed2
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: bc62590b9517b2c6d16fdf2637990b845248d2ec
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575096"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932358"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutorial: Configurar um dispositivo IoT Edge
 
 Neste artigo, configuramos uma máquina virtual Azure que executa o Linux para ser um dispositivo IoT Edge que funciona como uma porta de entrada transparente. Uma configuração transparente do gateway permite que os dispositivos se conectem ao Azure IoT Hub através do gateway sem saber que o gateway existe. Ao mesmo tempo, um utilizador que interage com os dispositivos no Azure IoT Hub desconhece o dispositivo de gateway intermédio. Em última análise, adicionaremos análises de bordas ao nosso sistema adicionando módulos IoT Edge ao gateway transparente.
 
 Os passos deste artigo são normalmente realizados por um desenvolvedor de nuvem.
+
+Nesta secção do tutorial, aprende-se a:
+
+> [!div class="checklist"]
+>
+> * Crie certificados para permitir que o seu dispositivo gateway se conecte de forma segura aos seus dispositivos a jusante.
+> * Crie um dispositivo IoT Edge.
+> * Crie uma máquina virtual Azure para simular o seu dispositivo IoT Edge.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -295,7 +303,7 @@ Em seguida, atualizaremos os certificados e o nome anfitrião editando diretamen
     ```bash
     journalctl -u iotedge --no-pager --no-full
     ```
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este tutorial faz parte de um conjunto onde cada artigo baseia-se no trabalho feito nos anteriores. Por favor, espere para limpar todos os recursos até completar o tutorial final.
 

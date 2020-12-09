@@ -8,16 +8,23 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b62790fd8f01b7ffb2df4d242b97e8464c11399b
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: d86a273a69203a92a9b437f021486feb3bcb31da
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621132"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932375"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Criar um ambiente para aprendizagem automática em IoT Edge
 
 Este artigo ajuda-o a preparar o seu ambiente para o desenvolvimento e implantação. Primeiro, crie uma máquina de desenvolvimento com todas as ferramentas necessárias. Em seguida, crie os recursos de nuvem necessários em Azure.
+
+Nesta secção do tutorial, aprende-se a:
+
+> [!div class="checklist"]
+>
+> * Crie uma máquina virtual para o desenvolvimento.
+> * Crie um hub IoT e armazenamento em nuvem para o seu ambiente de desenvolvimento para usar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -210,7 +217,7 @@ Como parte da criação do hub IoT, o script que fizemos na secção anterior ta
 
 1. Como não foram feitas edições, fecha esta página.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este tutorial faz parte de um conjunto onde cada artigo baseia-se no trabalho feito nos anteriores. Por favor, espere para limpar todos os recursos até completar o tutorial final.
 

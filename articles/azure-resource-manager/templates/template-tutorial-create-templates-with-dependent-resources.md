@@ -1,24 +1,24 @@
 ---
 title: Modelo com recursos dependentes
-description: Saiba como criar um modelo do Azure Resource Manager com vários recursos e como implementá-lo com o portal do Azure
+description: Saiba como criar um modelo de Gestor de Recursos Azure (modelo ARM) com múltiplos recursos e como implementá-lo usando o portal Azure
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3ed653c511dbd775d124e1abd6f4bb02923edb25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a43fa12e72484e97b828648cd7d610f5cf15ea4e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86102077"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931593"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Tutorial: Criar modelos ARM com recursos dependentes
 
-Saiba como criar um modelo Azure Resource Manager (ARM) para implementar múltiplos recursos e configurar a ordem de implantação. Depois de criar o modelo, implementa o modelo utilizando a Cloud Shell a partir do portal Azure.
+Saiba como criar um modelo de Gestor de Recursos Azure (modelo ARM) para implementar múltiplos recursos e configurar a ordem de implementação. Depois de criar o modelo, implementa o modelo utilizando a Cloud Shell a partir do portal Azure.
 
 Neste tutorial, vai criar uma conta de armazenamento, uma máquina virtual, uma rede virtual e mais alguns recursos dependentes. Alguns dos recursos não podem ser implementados enquanto existir outro recurso. Por exemplo, não é possível criar a máquina virtual enquanto as respetivas conta de armazenamento e interface de rede existirem. Defina esta relação fazendo com que um recurso seja dependente dos outros recursos. O Resource Manager avalia as dependências entre os recursos e implementa-os por ordem dependente. Quando os recursos não são dependentes entre si, o Resource Manager implementa-os em paralelo. Para obter mais informações, consulte [Definir a ordem para a implantação de recursos em modelos ARM](./define-resource-dependency.md).
 
-![Diagrama de ordem de implementação de recursos dependentes do gestor de recursos de recursos de recursos de recursos de recursos de recursos de recursos de](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
+![Diagrama de ordem de implementação de recursos dependentes do gestor de recursos](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para concluir este artigo, precisa de:
 
-* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [Quickstart: Crie modelos de Gestor de Recursos Azure com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code com extensão Ferramentas do Resource Manager. Consulte [Quickstart: Crie modelos ARM com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
 * Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Eis um exemplo para gerar uma palavra-passe:
 
     ```console
@@ -54,7 +54,7 @@ Azure Quickstart Templates é um repositório para modelos ARM. Em vez de criar 
     ```
 
 3. Selecione **Abrir** para abrir o ficheiro.
-4. Selecione **File** > **'Guardar ficheiros' para** guardar uma cópia do ficheiro no computador local com o nome **azuredeploy.jsligado**.
+4. Selecione  > **'Guardar ficheiros' para** guardar uma cópia do ficheiro no computador local com o nome **azuredeploy.jsligado**.
 
 ## <a name="explore-the-template"></a>Explorar o modelo
 
@@ -67,7 +67,7 @@ Ao explorar o modelo nesta secção, tente responder a estas perguntas:
 
 1. No Visual Studio Code, feche os elementos até ver apenas os elementos de primeiro nível e os elementos de segundo nível dentro de **recursos**:
 
-    ![Modelos do Azure Resource Manager no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
+    ![Modelos de ARM de código de estúdio visual](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
     Existem seis recursos definidos pelo modelo:
 
@@ -82,19 +82,19 @@ Ao explorar o modelo nesta secção, tente responder a estas perguntas:
 
 1. Expanda o primeiro recurso. É uma conta de armazenamento. Compare a definição de recurso com a [referência do modelo.](/azure/templates/Microsoft.Storage/storageAccounts)
 
-    ![Definição da conta de armazenamento de modelos do Azure Resource Manager no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
+    ![Definição de conta de armazenamento de modelos de código de estúdio visual](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
 1. Expanda o segundo recurso. O tipo de recurso é `Microsoft.Network/publicIPAddresses`. Compare a definição de recurso com a [referência do modelo.](/azure/templates/microsoft.network/publicipaddresses)
 
-    ![Definição do endereço IP público de modelos do Azure Resource Manager no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
+    ![Modelos de código de estúdio visual ARM definição de endereço IP público](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
 
 1. Expandir o terceiro recurso. O tipo de recurso é `Microsoft.Network/networkSecurityGroups`. Compare a definição de recurso com a [referência do modelo.](/azure/templates/microsoft.network/networksecuritygroups)
 
-    ![Código de estúdio visual Azure Resource Manager modelos de definição de grupo de segurança de rede](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-network-security-group-definition.png)
+    ![Visual Studio Code ARM modelos definição de grupo de segurança de rede](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-network-security-group-definition.png)
 
 1. Expanda o quarto recurso. O tipo de recurso é `Microsoft.Network/virtualNetworks`:
 
-    ![Visual Studio Code Azure Resource Manager modelos de rede virtual dependeon](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
+    ![Modelos de braço de código de estúdio visual dependem deon](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
     O elemento dependsOn permite-lhe definir um recurso como sendo dependente de um ou mais recursos. Este recurso depende de um outro recurso:
 
@@ -112,7 +112,7 @@ Ao explorar o modelo nesta secção, tente responder a estas perguntas:
 
 O diagrama seguinte ilustra os recursos e as informações de dependência para este modelo:
 
-![Diagrama de dependência de modelos do Azure Resource Manager no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependency-diagram.png)
+![Diagrama de dependência de modelos de código de estúdio visual](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependency-diagram.png)
 
 Ao especificar as dependências, o Resource Manager implementa a solução de forma eficiente. Implementa a conta de armazenamento, o endereço IP público e a rede virtual em paralelo porque não têm dependências. Depois de o endereço IP público e a rede virtual serem implementados, a interface de rede é criada. Quando todos os outros recursos estiverem implementados, o Resource Manager implementa a máquina virtual.
 

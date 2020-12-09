@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6612e6982ae4826869134dfa46b35a3f202d4bbb
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 29bcf2fdd3e20b28b1f2cb014137cfba37ccaf2e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183248"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931814"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Linha de segurança Azure para o Serviço Azure Kubernetes
 
@@ -163,7 +163,7 @@ Além disso, utilize definições de política incorporadas relacionadas com aKS
 
 • Garantir que os serviços ouvem apenas em portas permitidas no cluster Kubernetes
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Amostras da Política Azure para networking](../governance/policy/samples/built-in-policies.md#network)
 
@@ -178,7 +178,7 @@ Utilize qualquer uma das definições relacionadas com a marcação da Política
 
 Opte por permitir ou negar caminhos de rede específicos dentro do cluster com base em espaços de nome e seletores de etiquetas com políticas de rede. Utilize estes espaços de nome e etiquetas como descritores para regras de configuração de tráfego. Utilize a interface de linha de comando Azure PowerShell ou Azure (CLI) para procurar ou executar ações em recursos baseados nas suas etiquetas.
 
-- [Política de Azure com CLI](/cli/azure/policy?view=azure-cli-latest)
+- [Política de Azure com CLI](/cli/azure/policy)
 
 - [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -382,7 +382,7 @@ Utilize o Azure CLI para operações como "Obtenha credenciais de acesso para um
 
 - [Como integrar a AKS com Azure AD](./azure-ad-integration-cli.md)
 
-- [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Como monitorizar a identidade e o acesso com o Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -735,7 +735,7 @@ Note que o processo para manter os nós do Windows Server atualizados difere dos
 
 Utilize o cmdlet PowerShell "Get-AzSecurityTask" para automatizar a recuperação de tarefas de segurança que o Security Center recomenda que execute de forma a reforçar a sua postura de segurança e a sua vulnerabilidade de remediação.
 
-- [Como usar o PowerShell para ver vulnerabilidades descobertas pelo Azure Security Center](/powershell/module/az.security/get-azsecuritytask?view=azps-3.3.0)
+- [Como usar o PowerShell para ver vulnerabilidades descobertas pelo Azure Security Center](/powershell/module/az.security/get-azsecuritytask)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -763,7 +763,7 @@ Embora os recursos clássicos do Azure possam ser descobertos através do Resour
 
 - [Como criar consultas com Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Como ver as suas Subscrições Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Como ver as suas Subscrições Azure](/powershell/module/az.accounts/get-azsubscription)
 
 - [Compreender Azure RBAC](../role-based-access-control/overview.md)
 
@@ -820,7 +820,7 @@ As manchas, etiquetas ou etiquetas podem ser utilizadas para conciliar o invent�
 
 Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro das suas subscrições. Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados com base nos requisitos organizacionais do negócio.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Como criar consultas com Azure Graph](../governance/resource-graph/first-query-portal.md)
 
@@ -890,9 +890,9 @@ Como utilizar a aplicação adaptável do Centro de Segurança Azure
 
 Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro das suas subscrições. Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/index.md)
 
@@ -904,7 +904,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Use a Política Azure para impor restrições ao tipo de recursos que podem ser criados nas suas subscrições utilizando definições políticas incorporadas.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -927,15 +927,15 @@ Conceder aos utilizadores ou grupos acesso aos recursos de Kubernetes dentro de 
 
 Utilize o módulo Azure AD PowerShell para realizar consultas ad hoc para descobrir contas que são membros dos seus grupos administrativos AKS e usá-lo para conciliar o acesso regularmente. Utilize o Azure CLI para operações como 'Obtenha credenciais de acesso para um cluster de Kubernetes gerido. Implementar recomendações de Gestão de Identidade e Acesso do Centro de Segurança.
 
-- [Gerir aKS com Azure CLI](/cli/azure/aks?view=azure-cli-latest)
+- [Gerir aKS com Azure CLI](/cli/azure/aks)
 
 - [Compreender a integração da AKS e da AD Azure](concepts-identity.md)
 
 - [Como integrar a AKS com Azure AD](./azure-ad-integration-cli.md)
 
-- [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Como monitorizar a identidade e o acesso com o Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -985,7 +985,7 @@ Exporte um modelo da sua configuração AKS na Notação de Objetos JavaScript (
 
 - [Como configurar e gerir as políticas de segurança do pod AKS](use-pod-security-policies.md)
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -1019,7 +1019,7 @@ Crie definições personalizadas da Política Azure utilizando pseudónimos a pa
 
 • Microsoft.Network
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Compreender efeitos da política do Azure](../governance/policy/concepts/effects.md)
 
@@ -1055,7 +1055,7 @@ Endurecimento de segurança para o número de agente da AKS anfitrião OS
 
 security-hardened-vm-host-image.md
 
-- [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -1075,7 +1075,7 @@ security-hardened-vm-host-image.md
 
 Crie políticas personalizadas para auditar e impor configurações do sistema. Desenvolver um processo e um oleoduto para gerir exceções políticas.
 
-- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Como usar pseudónimos](../governance/policy/concepts/definition-structure.md#aliases)
 
@@ -1297,7 +1297,7 @@ Ativar Soft-Delete no Cofre de Chaves para proteger as chaves contra a eliminaç
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Criar um guia de resposta a incidentes
 
-**Orientação**: Crie um guia de resposta a incidentes para a sua organização. Certifique-se de que existem planos escritos de resposta a incidentes que definem todas as funções de pessoal, bem como fases de tratamento/gestão de incidentes, desde a deteção até à revisão pós-incidente.
+**Orientação**: desenvolva um guia de respostas a incidentes para a sua organização. Confirme que existem planos escritos de resposta a incidentes, que definem todas as funções do pessoal, assim como as fases de manipulação/gestão de incidentes desde a deteção até à análise pós-incidente.
 
 - [Como configurar automatizações de fluxo de trabalho dentro do Centro de Segurança Azure](../security-center/security-center-planning-and-operations-guide.md)
 

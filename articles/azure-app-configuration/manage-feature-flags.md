@@ -4,8 +4,7 @@ titleSuffix: Azure App Configuration
 description: Neste tutorial, aprende a gerir as bandeiras de funcionalidades separadamente da sua aplicação utilizando a Configuração da App Azure.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -13,14 +12,14 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/19/2019
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 2e35c408d2e0ec2954ffdcbbce47f98ac49b16b8
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 0410a1cde12b9ef762d348a286d78b35f7b14bfd
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554704"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932307"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>Tutorial: Gerir bandeiras de recurso na Configuração da App Azure
 
@@ -50,7 +49,7 @@ Para adicionar uma nova bandeira de recurso:
 
     ![Criação de bandeira de recurso](./media/azure-app-configuration-feature-flag-create.png)
 
-1. Quando o estado estiver *ligado* , selecione **+Adicione o filtro** para especificar quaisquer condições adicionais para qualificar o estado. Introduza uma tecla de filtro incorporada ou personalizada e, em seguida, selecione **+Adicione o parâmetro** para associar um ou mais parâmetros com o filtro. Os filtros incorporados incluem:
+1. Quando o estado estiver *ligado*, selecione **+Adicione o filtro** para especificar quaisquer condições adicionais para qualificar o estado. Introduza uma tecla de filtro incorporada ou personalizada e, em seguida, selecione **+Adicione o parâmetro** para associar um ou mais parâmetros com o filtro. Os filtros incorporados incluem:
 
     | Chave | Parâmetros JSON |
     |---|---|

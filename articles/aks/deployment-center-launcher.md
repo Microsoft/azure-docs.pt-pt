@@ -5,18 +5,18 @@ ms.author: puagarw
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-ms.openlocfilehash: 36b2e829e56cf4d3b5ace64af989fa7f71725c44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15b0413eabcfae7e3a4b28243caf2a708260ccae
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360842"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932222"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centro de Implantação de Azure Kubernetes
 
 O Centro de Implementação em Azure DevOps simplifica a criação de um robusto oleoduto Azure DevOps para a sua aplicação. Por predefinição, o Centro de Implementação configura um oleoduto Azure DevOps para implementar as atualizações da sua aplicação no cluster Kubernetes. Pode estender o pipeline Azure DevOps configurado por defeito e também adicionar capacidades mais ricas: a capacidade de obter aprovação antes de implementar, a disponibilização de recursos adicionais de Azure, executar scripts, atualizar a sua aplicação e até executar mais testes de validação.
 
-Neste tutorial, irá:
+Neste tutorial, vai:
 
 > [!div class="checklist"]
 > * Configure um oleoduto Azure DevOps para implementar as atualizações da sua aplicação no cluster Kubernetes.
@@ -56,7 +56,7 @@ Neste tutorial, irá:
 
    ![A screenshot mostra o portal Azure com uma seta apontando para o centro de implantação.](media/deployment-center-launcher/settings.png)
 
-1. Escolha a localização do código e selecione **Seguinte**. Em seguida, selecione um dos repositórios atualmente **[suportados: Azure Repos](/azure/devops/repos/index?view=azure-devops)** ou **GitHub**.
+1. Escolha a localização do código e selecione **Seguinte**. Em seguida, selecione um dos repositórios atualmente **[suportados: Azure Repos](/azure/devops/repos/index)** ou **GitHub**.
 
     Azure Repos é um conjunto de ferramentas de controlo de versão que o ajudam a gerir o seu código. Se o seu projeto de software é grande ou pequeno, usar o controlo de versão o mais cedo possível é uma boa ideia.
 
@@ -77,7 +77,7 @@ Neste tutorial, irá:
 
     ![A screenshot mostra o centro de implantação com uma mensagem Não foi possível encontrar Dockerfile no repositório.](media/deployment-center-launcher/dockerfile.png)
 
-1. Selecione um registo de contentores existente ou crie um e, em seguida, **selecione Terminar**. O gasoduto é criado automaticamente e faz fila para construir em [Azure Pipelines](/azure/devops/pipelines/index?view=azure-devops).
+1. Selecione um registo de contentores existente ou crie um e, em seguida, **selecione Terminar**. O gasoduto é criado automaticamente e faz fila para construir em [Azure Pipelines](/azure/devops/pipelines/index).
 
     A Azure Pipelines é um serviço de nuvem que pode utilizar para construir e testar automaticamente o seu projeto de código e disponibilizá-lo a outros utilizadores. A Azure Pipelines combina integração contínua e entrega contínua para testar e construir constantemente e de forma consistente o seu código e enviá-lo para qualquer alvo.
 
@@ -103,7 +103,7 @@ O Centro de Implementação configura automaticamente o pipeline CI/CD da organi
 
 1. Selecione o nome do gasoduto de construção na parte superior do oleoduto.
 
-1. Mude o nome do pipeline de construção para algo mais descritivo, **selecione Save & fila**e, em seguida, selecione **Save**.
+1. Mude o nome do pipeline de construção para algo mais descritivo, **selecione Save & fila** e, em seguida, selecione **Save**.
 
 1. Sob o seu oleoduto de construção, selecione **Histórico**. Este painel mostra um rasto de auditoria das suas recentes mudanças de construção. O Azure DevOps monitoriza quaisquer alterações feitas ao pipeline de construção e permite comparar versões.
 
@@ -115,7 +115,7 @@ O Centro de Implementação configura automaticamente o pipeline CI/CD da organi
 
 O Centro de Implementação cria e configura automaticamente a relação entre a sua organização Azure DevOps e a sua subscrição Azure. As etapas envolvidas incluem a criação de uma ligação de serviço Azure para autenticar a sua subscrição Azure com a Azure DevOps. O processo automatizado também cria um gasoduto de libertação, que fornece entregas contínuas ao Azure.
 
-1. Selecione **Pipelines**e, em seguida, **selecione Versões**.
+1. Selecione **Pipelines** e, em seguida, **selecione Versões**.
 
 1. Para editar o pipeline de lançamento, **selecione Editar**.
 

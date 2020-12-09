@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 11/25/2020
-ms.openlocfilehash: 4a58f25e6183c674990d1d7722ce3196cce0f47c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 04efb7bcae11ef6cf377d821b49f9b07d41d347f
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350471"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932596"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Create and configure a self-hosted integration runtime (Criar e configurar um runtime de integração autoalojado)
 
@@ -102,29 +102,28 @@ Dmgcmd.exe está incluído no instalador auto-hospedado. Está tipicamente local
 Utilize a aplicação da seguinte forma:
 
 ```powershell
-dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["<password>"] -Loglevel <logLevel> ]
+dmgcmd ACTION args...
 ```
 
-Aqui estão os detalhes dos parâmetros e propriedades da aplicação: 
+Aqui estão os detalhes das ações e argumentos da aplicação: 
 
-| Propriedade                                                    | Descrição                                                  | Obrigatório |
-| ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
-| **RegistroNewNode** "`<AuthenticationKey>`"                     | Registe um nó de tempo de execução de integração auto-hospedado com a chave de autenticação especificada. | Não       |
-| **RegistroNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Registe um nó de tempo de execução de integração auto-hospedado com a chave de autenticação especificada e o nome do nó. | Não       |
-| **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Permitir o acesso remoto no nó atual para configurar um cluster de alta disponibilidade. Ou ativar a definição de credenciais diretamente contra o IR auto-hospedado sem passar pela Azure Data Factory. Faz este último utilizando o cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** a partir de uma máquina remota na mesma rede. | Não       |
-| **EnableRemoteAccessInContainer** "`<port>`" ["`<thumbprint>`"] | Ativar o acesso remoto ao nó de corrente quando o nó estiver num recipiente. | Não       |
-| **DisableRemoteAccess**                                         | Desative o acesso remoto ao nó de corrente. É necessário um acesso remoto para a configuração multinode. O **cmdlet New-AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell ainda funciona mesmo quando o acesso remoto é desativado. Este comportamento é verdadeiro desde que o cmdlet seja executado na mesma máquina que o nó IV auto-hospedado. | Não       |
-| **Chave** "`<AuthenticationKey>`"                                 | Substitua ou atualize a chave de autenticação anterior. Cuidado com esta ação. O seu nó IV auto-hospedado anteriormente pode ficar offline se a chave for de um novo tempo de integração. | Não       |
-| **GerarUpFile** "`<filePath>`" "`<password>`"            | Gere um ficheiro de reserva para o nó atual. O ficheiro de cópia de segurança inclui a chave do nó e as credenciais de loja de dados. | Não       |
-| **ImportBackupFile** "`<filePath>`" "`<password>`"              | Restaurar o nó de um ficheiro de reserva.                          | Não       |
-| **Reiniciar**                                                     | Reinicie o serviço de anfitrião de execução de integração auto-hospedado.   | Não       |
-| **Iniciar**                                                       | Inicie o serviço de anfitrião de execução de integração auto-hospedado.     | Não       |
-| **Parar**                                                        | Pare o serviço de anfitrião de execução de integração auto-hospedado.        | Não       |
-| **StartUpgradeService**                                         | Inicie o serviço de atualização de tempo de integração auto-hospedado.       | Não       |
-| **Serviço stopUpgrade**                                          | Pare o serviço de atualização de tempo de integração auto-hospedado.        | Não       |
-| **TurnOnAutoUpdate**                                            | Ligue a atualização automática do tempo de execução da integração auto-hospedada.        | Não       |
-| **TurnOffAutoUpdate**                                           | Desligue a atualização automática do tempo de execução da integração auto-hospedada.       | Não       |
-| **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | Defina o DIAHostService para funcionar como uma nova conta. Utilize a palavra-passe vazia "" para contas do sistema e contas virtuais. | Não       |
+|AÇÃO|args|Descrição|
+|------|----|-----------|
+|-rn,<br/>-RegistreNewNode|"`<AuthenticationKey>`" ["`<NodeName>`"]|Registe um nó de tempo de execução de integração auto-hospedado com a chave de autenticação especificada e o nome do nó.|
+|-era,<br/>-EnableRemoteAccess|"`<port>`" ["`<thumbprint>`"]|Permitir o acesso remoto no nó atual para configurar um cluster de alta disponibilidade. Ou ativar a definição de credenciais diretamente contra o IR auto-hospedado sem passar pela Azure Data Factory. Faz este último utilizando o cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** a partir de uma máquina remota na mesma rede.|
+|-erac,<br/>-EnableRemoteAccessInContainer|"`<port>`" ["`<thumbprint>`"]|Ativar o acesso remoto ao nó de corrente quando o nó estiver num recipiente.|
+|-dra,<br/>-DisableRemoteAccesss||Desative o acesso remoto ao nó de corrente. É necessário um acesso remoto para a configuração multinode. O **cmdlet New-AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell ainda funciona mesmo quando o acesso remoto é desativado. Este comportamento é verdadeiro desde que o cmdlet seja executado na mesma máquina que o nó IV auto-hospedado.|
+|-k,<br/>-Chave|"`<AuthenticationKey>`"|Substitua ou atualize a chave de autenticação anterior. Cuidado com esta ação. O seu nó IV auto-hospedado anteriormente pode ficar offline se a chave for de um novo tempo de integração.|
+|-gbf,<br/>-GenerateBackupFile|"`<filePath>`" "`<password>`"|Gere um ficheiro de reserva para o nó atual. O ficheiro de cópia de segurança inclui a chave do nó e as credenciais de loja de dados.|
+|-ibf,<br/>-ImportBackupFile|"`<filePath>`" "`<password>`"|Restaurar o nó de um ficheiro de reserva.|
+|-r,<br/>-Restart||Reinicie o serviço de anfitrião de execução de integração auto-hospedado.|
+|-s,<br/>-Começar||Inicie o serviço de anfitrião de execução de integração auto-hospedado.|
+|- t,<br/>- Parar||Pare o serviço de anfitrião de execução de integração auto-hospedado.|
+|-sus,<br/>-StartUpgradeService||Inicie o serviço de atualização de tempo de integração auto-hospedado.|
+|-tus,<br/>-StopUpgradeService||Pare o serviço de atualização de tempo de integração auto-hospedado.|
+|-tonau,<br/>-TurnOnAutoUpdate||Ligue a atualização automática do tempo de execução da integração auto-hospedada.|
+|-toffau,<br/>-TurnOffAutoUpdate||Desligue a atualização automática do tempo de execução da integração auto-hospedada.|
+|-ssa,<br/>-SwitchServiceAccount|"`<domain\user>`" ["`<password>`"]|Defina o DIAHostService para funcionar como uma nova conta. Utilize a palavra-passe vazia "" para contas do sistema e contas virtuais.|
 
 
 ## <a name="command-flow-and-data-flow"></a>Fluxo de comando e fluxo de dados
@@ -331,7 +330,7 @@ Ao nível da firewall do Windows ou ao nível da máquina, estas portas de saíd
 
 Certifique-se de que permite corretamente as regras de firewall na firewall corporativa, a firewall do Windows da máquina de tempo de execução de integração auto-hospedada e a própria loja de dados. Permitir estas regras permite que o tempo de execução de integração auto-organizado se conecte com sucesso tanto à fonte como à pia. Ativar as regras para cada loja de dados que esteja envolvida na operação de cópia.
 
-Por exemplo, para copiar de uma loja de dados no local para um lavatório SQL Database ou um lavatório Azure Synapse Analytics (ex-SQL Data Warehouse), tome os seguintes passos:
+Por exemplo, para copiar de uma loja de dados no local para um lavatório SQL Database ou um lavatório Azure Synapse Analytics, tome os seguintes passos:
 
 1. Permitir a comunicação TCP de saída na porta 1433 para a firewall do Windows e para a firewall corporativa.
 1. Configure as definições de firewall da Base de Dados SQL para adicionar o endereço IP da máquina de execução de integração auto-hospedada à lista de endereços IP permitidos.

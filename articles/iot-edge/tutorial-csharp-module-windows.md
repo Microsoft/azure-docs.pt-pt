@@ -9,18 +9,18 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: d6bc11f4f468b784b957ded954dc9a1720e89bfd
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 46d3a9e961be0717aba75c1f5845b97b52092510
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964444"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931967"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um módulo C# IoT Edge para dispositivos Windows
 
 Utilize o Visual Studio para desenvolver o código C# e implemente-o num dispositivo Windows que executa o Azure IoT Edge.
 
-Pode utilizar os módulos do Azure IoT Edge para implementar código que aplica a sua lógica de negócio diretamente aos seus dispositivos IoT Edge. Este tutorial explica-lhe como criar e implementar um módulo do IoT Edge que filtra dados de sensores. Neste tutorial, vai aprender a:
+Pode utilizar os módulos do Azure IoT Edge para implementar código que aplica a sua lógica de negócio diretamente aos seus dispositivos IoT Edge. Este tutorial explica-lhe como criar e implementar um módulo do IoT Edge que filtra dados de sensores. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -53,7 +53,7 @@ Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para 
 * [Docker Desktop](https://docs.docker.com/docker-for-windows/install/) configurado para executar recipientes Windows.
 
 > [!TIP]
-> Se estiver a utilizar o Visual Studio 2017 (versão 15.7 ou superior), descarregue plrease e instale [ferramentas de borda Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) para VS 2017 a partir do mercado do Visual Studio
+> Se estiver a utilizar o Visual Studio 2017 (versão 15.7 ou superior), por favor descarregue e instale [ferramentas de borda Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) para VS 2017 a partir do mercado do Estúdio Visual
 
 ## <a name="create-a-module-project"></a>Criar um projeto de módulo
 
@@ -77,7 +77,7 @@ As Ferramentas Azure IoT Edge fornecem modelos de projeto para todas as línguas
 
    | Campo | Valor |
    | ----- | ----- |
-   | Selecione um modelo | Selecione **C# Módulo**. |
+   | Selecionar um modelo | Selecione **C# Módulo**. |
    | Nome do projeto do módulo | Atribua o nome **CSharpModule** ao módulo. |
    | Repositório de imagem de estivador | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. A sua imagem de recipiente é pré-apultada do valor do nome do projeto do módulo. Substitua **o local:5000** pelo valor do **servidor login** do registo do seu contentor Azure. Pode recuperar o servidor 'Iniciar sessão' a partir da página de visão geral do seu registo de contentores no portal Azure. <br><br> O repositório de imagem final parece \<registry name\> .azurecr.io/csharpmodule. |
 
