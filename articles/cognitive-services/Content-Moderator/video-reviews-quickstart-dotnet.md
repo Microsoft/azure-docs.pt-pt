@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b2fb06c838de480bb73501307ab11cb3d6831921
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9f80de5a18e27de4a9f8e85613e3c2eee6c111c
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919323"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853480"
 ---
 # <a name="create-video-reviews-using-net"></a>Criar comentários de vídeo usando .NET
 
@@ -93,7 +93,7 @@ using Newtonsoft.Json;
 
 ### <a name="add-private-properties"></a>Adicionar propriedades privadas
 
-Adicione as seguintes propriedades privadas ao espaço de nome **VideoReviews,** **programa**de classe . Atualize os `AzureEndpoint` campos e os campos com os `CMSubscriptionKey` valores do URL do ponto final e da chave de subscrição. Pode encontrá-las no separador **Início Rápido** do seu recurso no portal Azure.
+Adicione as seguintes propriedades privadas ao espaço de nome **VideoReviews,** **programa** de classe . Atualize os `AzureEndpoint` campos e os campos com os `CMSubscriptionKey` valores do URL do ponto final e da chave de subscrição. Pode encontrá-las no separador **Início Rápido** do seu recurso no portal Azure.
 
 
 ```csharp
@@ -132,7 +132,7 @@ namespace VideoReviews
 
 ### <a name="create-content-moderator-client-object"></a>Criar objeto de cliente moderador de conteúdo
 
-Adicione a seguinte definição de método ao namespace **VideoReviews,** **programa**de classe .
+Adicione a seguinte definição de método ao namespace **VideoReviews,** **programa** de classe .
 
 ```csharp
 /// <summary>
@@ -158,7 +158,7 @@ Crie uma revisão de vídeo com **ContentModeratorClient.Reviews.CreateVideoRevi
 **A CreateVideoReviews** tem os seguintes parâmetros necessários:
 1. Uma corda que contém um tipo MIME, que deve ser "aplicação/json". 
 1. O nome da sua equipa de moderador de conteúdo.
-1. Um objeto **IList. \<CreateVideoReviewsBodyItem> ** Cada objeto **CreateVideoReviewsBodyItem** representa uma revisão de vídeo. Este quickstart cria uma revisão de cada vez.
+1. Um objeto **IList. \<CreateVideoReviewsBodyItem>** Cada objeto **CreateVideoReviewsBodyItem** representa uma revisão de vídeo. Este quickstart cria uma revisão de cada vez.
 
 **A CreateVideoReviewsBodyItem** tem várias propriedades. No mínimo, define as seguintes propriedades:
 - **Conteúdo**. A URL do vídeo a rever.
@@ -216,7 +216,7 @@ Adiciona quadros de vídeo a uma revisão de vídeo com **ContentModeratorClient
 1. Uma corda que contém um tipo MIME, que deve ser "aplicação/json".
 1. O nome da sua equipa de moderador de conteúdo.
 1. O ID de revisão de vídeo devolvido pela **CreateVideoReviews**.
-1. Um objeto **IList. \<VideoFrameBodyItem> ** Cada objeto **VideoFrameBodyItem** representa uma moldura de vídeo.
+1. Um objeto **IList. \<VideoFrameBodyItem>** Cada objeto **VideoFrameBodyItem** representa uma moldura de vídeo.
 
 **O VideoFrameBodyItem** tem as seguintes propriedades:
 - **Tempotam**. Uma corda que contém, em segundos, o tempo no vídeo a partir do qual a moldura de vídeo foi tirada.
@@ -549,7 +549,3 @@ Finalmente, vê a revisão de vídeo na sua conta de ferramenta de revisão do M
 ## <a name="next-steps"></a>Passos seguintes
 
 Obtenha o [Moderador de Conteúdo .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros rápidos moderadores de conteúdo para .NET.
-
-Saiba como adicionar moderação de [transcrição](video-transcript-moderation-review-tutorial-dotnet.md) à revisão de vídeo. 
-
-Confira o tutorial detalhado sobre como desenvolver uma solução completa de [moderação de vídeo.](video-transcript-moderation-review-tutorial-dotnet.md)

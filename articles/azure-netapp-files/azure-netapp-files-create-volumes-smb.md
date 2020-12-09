@@ -1,6 +1,6 @@
 ---
 title: Criar um volume SMB para ficheiros Azure NetApp Microsoft Docs
-description: Este artigo mostra-lhe como criar um volume SMBv3 em Ficheiros Azure NetApp. Saiba mais sobre os requisitos para ligações de Diretório Ativo e Serviços de Domínio.
+description: Este artigo mostra-lhe como criar um volume SMB3 em Ficheiros Azure NetApp. Saiba mais sobre os requisitos para ligações de Diretório Ativo e Serviços de Domínio.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: b-juche
-ms.openlocfilehash: 682a97738e94c2a8188b4976a229d6a850a5b6ac
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: cd2a293ebcc35d4884211f50783738a502dcc7de
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512006"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854830"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
-O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NFSv4.1), SMBv3 ou protocolo duplo (NFSv3 e SMB). O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto. Este artigo mostra-lhe como criar um volume SMBv3.
+O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NFSv4.1), SMB3 ou protocolo duplo (NFSv3 e SMB). O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto. Este artigo mostra-lhe como criar um volume SMB3.
 
 ## <a name="before-you-begin"></a>Before you begin 
 Tem de ter um conjunto de capacidade já configurado.   

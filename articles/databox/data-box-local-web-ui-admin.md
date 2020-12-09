@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/03/2020
+ms.date: 12/07/2020
 ms.author: alkohli
-ms.openlocfilehash: 90869af032a381cecd3e65f5d5b367156dd047c5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 859eb6abd138f0660407618bba4550daf9158ab9
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576878"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855010"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Utilize o UI web local para administrar a sua Caixa de Dados e Caixa de Dados Pesada
 
@@ -29,15 +29,15 @@ Se surgir qualquer problema com o dispositivo, pode criar um Pacote de suporte a
 
 Para gerar um pacote de suporte, tome os seguintes passos:
 
-1. Na UI web local, aceda ao **Contact Support**. Opcionalmente, **selecione Incluir o despejo de memória**. Em seguida, **selecione Criar pacote de suporte**.
+1. Na UI web local, aceda ao **Contact Support**. Opcionalmente, **selecione Inclua os depósitos de memória**. Em seguida, **selecione Criar pacote de suporte**.
 
     Um depósito de memória é o conteúdo da memória do seu dispositivo, guardado após uma falha do sistema.
 
-    Não deve selecionar a opção **de despejo de memória Incluir** a menos que o Suporte peça uma. Leva muito tempo para recolher um pacote de suporte que inclui um depósito de memória, e dados sensíveis são incluídos.
+    Não deve selecionar a opção **incluir opção de despejo de memória** a menos que o Suporte peça uma. Leva muito tempo para recolher um pacote de suporte que inclui despejos de memória, e dados sensíveis são incluídos.
 
     ![Criar Pacote de suporte 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
-    Um Pacote de suporte é recolhido. Esta operação demora alguns minutos se incluir apenas registos do sistema. Se incluires um depósito de memória, demora muito mais tempo.
+    Um Pacote de suporte é recolhido. Esta operação demora alguns minutos se incluir apenas registos do sistema. Se incluir depósitos de memória, demora muito mais tempo.
 
     ![Criar Pacote de suporte 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 

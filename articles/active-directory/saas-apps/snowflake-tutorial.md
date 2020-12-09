@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 26ca1fffb3932493dc7182de1b520f8c0a17d59c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 3beb4e7831ce17a46f6daaa1258f284a0caefe8e
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514848"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855141"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Tutorial: Integração do Diretório Ativo Azure com Floco de Neve
 
@@ -27,7 +27,7 @@ A integração do Floco de Neve com a AD Azure proporciona-lhe os seguintes bene
 * Pode permitir que os seus utilizadores sejam automaticamente inscritos no Snowflake (Sign-On Único) com as suas contas AD Azure.
 * Pode gerir as suas contas numa localização central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -39,16 +39,16 @@ Para configurar a integração AZure AD com o Floco de Neve, precisa dos seguint
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um ambiente de teste.
+Neste tutorial, irá configurar e testar o Azure AD num único sinal de teste.
 
-* Floco de neve apoia **SP e IDP** iniciado SSO
-* Floco de neve suporta [fornecimento e desprovisionamento automatizados de utilizadores](snowflake-provisioning-tutorial.md) (recomendado)
+- Floco de neve apoia **SP e IDP** iniciado SSO
+- Floco de neve suporta [fornecimento e desprovisionamento automatizados de utilizadores](snowflake-provisioning-tutorial.md) (recomendado)
 
 ## <a name="adding-snowflake-from-the-gallery"></a>Adicionando floco de neve da galeria
 
 Para configurar a integração do Snowflake em Azure AD, você precisa adicionar Snowflake da galeria à sua lista de aplicações geridas saaS.
 
-**Para adicionar Floco de Neve da galeria, execute os seguintes passos:**
+**Adicione Floco de Neve da galeria:**
 
 1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
@@ -64,11 +64,11 @@ Para configurar a integração do Snowflake em Azure AD, você precisa adicionar
 
 4. Na caixa de pesquisa, **digite Snowflake,** selecione **Snowflake** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
-     ![Floco de neve na lista de resultados](common/search-new-app.png)
+     ![Floco de neve na lista de resultados](common/search-new-app-snowflake.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, você configura e testa Azure AD single sign-on com Snowflake com base em um utilizador de teste chamado **Britta Simon**.
+Nesta secção, irá configurar e testar um único sinal de Azure AD com Snowflake com base num utilizador de teste chamado **Britta Simon**.
 Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado em Snowflake.
 
 Para configurar e testar um único sinal de Azure AD com Floco de Neve, você precisa completar os seguintes blocos de construção:
@@ -186,7 +186,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Snowflake.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Snowflake**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Snowflake**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

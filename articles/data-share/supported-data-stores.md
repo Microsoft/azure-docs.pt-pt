@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 11/12/2020
-ms.openlocfilehash: 6289395b5d508de8da3e5c8c89caebb4b0e9b817
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 12/7/2020
+ms.openlocfilehash: 566fd2c9c31933420769f7200a0434cc53f8c2f3
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592435"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853152"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Armazenamentos de dados suportados no Azure Data Share
 
@@ -30,7 +30,7 @@ A tabela abaixo detalha as fontes de dados suportadas para a Azure Data Share.
 | Armazenamento do Azure Data Lake Ger2 |✓ |✓ ||
 | Base de Dados SQL do Azure |✓ | | |
 | Azure Synapse Analytics (anteriormente Azure SQL DW) |✓ | | |
-| Piscina Azure Synapse Analytics (espaço de trabalho) SQL | Pré-visualização pública | | |
+| Azure Synapse Analytics (espaço de trabalho) piscina SQL dedicada |✓ | | |
 | Azure Data Explorer | | |✓ |
 
 ## <a name="data-store-support-matrix"></a>Matriz de suporte de loja de dados
@@ -39,14 +39,14 @@ O Azure Data Share oferece flexibilidade aos consumidores de dados ao decidir em
 
 A tabela abaixo detalha diferentes combinações e escolhas que os consumidores de dados têm ao aceitar e configurar a sua partilha de dados. Para obter mais informações sobre como configurar os mapeamentos do conjunto de dados, consulte [como configurar os mapeamentos do conjunto de dados](how-to-configure-mapping.md).
 
-| Arquivo de dados | Armazenamento de Blobs do Azure | Armazenamento do Azure Data Lake Ger1 | Armazenamento do Azure Data Lake Ger2 | Base de Dados SQL do Azure | Azure Synapse Analytics (anteriormente Azure SQL DW) | Piscina Azure Synapse Analytics (espaço de trabalho) SQL | Azure Data Explorer
+| Arquivo de dados | Armazenamento de Blobs do Azure | Armazenamento do Azure Data Lake Ger1 | Armazenamento do Azure Data Lake Ger2 | Base de Dados SQL do Azure | Azure Synapse Analytics (anteriormente Azure SQL DW) | Azure Synapse Analytics (espaço de trabalho) piscina SQL dedicada | Azure Data Explorer
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- | :--- |
 | Armazenamento de Blobs do Azure | ✓ || ✓ |||
 | Armazenamento do Azure Data Lake Ger1 | ✓ | | ✓ |||
 | Armazenamento do Azure Data Lake Ger2 | ✓ | | ✓ |||
 | Base de Dados SQL do Azure | ✓ | | ✓ | ✓ | ✓ | ✓ ||
 | Azure Synapse Analytics (anteriormente Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
-| Piscina Azure Synapse Analytics (espaço de trabalho) SQL | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Azure Synapse Analytics (espaço de trabalho) piscina SQL dedicada | ✓ | | ✓ | ✓ | ✓ | ✓ ||
 | Azure Data Explorer ||||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>Partilhar a partir de uma conta de armazenamento

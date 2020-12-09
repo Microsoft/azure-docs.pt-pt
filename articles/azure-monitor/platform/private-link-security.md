@@ -1,17 +1,17 @@
 ---
 title: Utilizar o Azure Private Link para se ligar em segurança a redes do Azure Monitor
 description: Utilizar o Azure Private Link para se ligar em segurança a redes do Azure Monitor
-author: nkiest
-ms.author: nikiest
+author: noakup
+ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 8633aba2f7cda5dec4a48e9f7132283f8235f746
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: a85619b4947808ba1c13df3c1543102eea7273fd
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317525"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853943"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utilizar o Azure Private Link para se ligar em segurança a redes do Azure Monitor
 
@@ -43,7 +43,7 @@ Azure Monitor Private Link Scope é um recurso de agrupamento para ligar um ou m
 Antes de configurar os seus recursos AMPLS, considere os seus requisitos de isolamento de rede. Avalie o acesso das suas redes virtuais à internet pública e as restrições de acesso de cada um dos seus recursos do Azure Monitor (isto é, componentes de Application Insights e espaços de trabalho Log Analytics).
 
 > [!NOTE]
-> As redes Hub-and-Spoke, ou qualquer outra topologia de redes vigiadas, podem configurar uma Ligação Privada entre o hub (principal) VNet e os recursos relevantes do Azure Monitor, em vez de criar uma Ligação Privada em cada VNet. Isto faz sentido especialmente se os recursos do Azure Monitor utilizados por estas redes forem partilhados. No entanto, se quiser permitir que cada VNet aceda a um conjunto separado de recursos de monitorização, crie uma Ligação Privada a um AMPLS dedicado para cada rede.
+> As redes de hub-spoke, ou qualquer outra topologia de redes vigiadas, podem configurar uma Ligação Privada entre o hub (principal) VNet e os recursos relevantes do Azure Monitor, em vez de criar uma Ligação Privada em cada VNet. Isto faz sentido especialmente se os recursos do Azure Monitor utilizados por estas redes forem partilhados. No entanto, se quiser permitir que cada VNet aceda a um conjunto separado de recursos de monitorização, crie uma Ligação Privada a um AMPLS dedicado para cada rede.
 
 ### <a name="evaluate-which-virtual-networks-should-connect-to-a-private-link"></a>Avaliar quais redes virtuais devem ligar-se a uma Ligação Privada
 
@@ -85,6 +85,11 @@ Na topologia abaixo:
 * O espaço de trabalho2 liga-se aos AMPLS A e AMPLS B, utilizando 2/5 (40%) das suas possíveis ligações AMPLS.
 
 ![Diagrama dos limites ampls](./media/private-link-security/ampls-limits.png)
+
+> [!NOTE]
+> Em algumas topologias de rede (principalmente fala-te em hub) pode rapidamente atingir o limite de 10 VNets para um único AMPLS. Nesses casos, é aconselhável usar uma ligação privada partilhada em vez de separadas. Crie um único Ponto Final Privado na rede de hubs, ligue-o ao seu AMPLS e perspeça as redes relevantes para a rede de hub.
+
+![Hub-and-spoke-single-PE](./media/private-link-security/hub-and-spoke-with-single-private-endpoint.png)
 
 ## <a name="example-connection"></a>Ligação de exemplo
 

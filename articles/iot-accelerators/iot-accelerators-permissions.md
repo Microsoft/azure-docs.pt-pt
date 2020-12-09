@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: 6585718a549c0e0a6eac1ab50788798e1021fef9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b05ed6e1239721bcf3c1cf33d3ee63a992fd9843
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446814"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853237"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Utilize o site azureiotsolutions.com para implantar o seu acelerador de solução
 
@@ -22,7 +22,7 @@ Pode colocar os aceleradores de solução Azure IoT na sua subscrição Azure a 
 ![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
 
 > [!TIP]
-> Se precisar de mais controlo sobre o processo de implantação, pode utilizar o [CLI para implementar um acelerador de solução](iot-accelerators-remote-monitoring-deploy-cli.md).
+> Se precisar de mais controlo sobre o processo de implantação, pode utilizar o CLI para implementar um acelerador de solução.
 
 Pode implantar os aceleradores de solução nas seguintes configurações:
 
@@ -64,9 +64,4 @@ Se for um fabricante de hardware, clique em **Tornar-se um Parceiro** para apren
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para experimentar um dos aceleradores de soluções de IoT, veja os inícios rápidos:
-
-* [Tentar uma solução de monitorização remota](quickstart-remote-monitoring-deploy.md)
-* [Tentar uma solução de fábrica ligada](quickstart-connected-factory-deploy.md)
-* [Tentar uma solução de manutenção preditiva](quickstart-predictive-maintenance-deploy.md)
-* [Tentar uma solução de simulação de dispositivos](quickstart-device-simulation-deploy.md)
+Para experimentar um dos aceleradores de solução IoT, confira o arranque rápido: [Experimente uma solução de fábrica conectada](quickstart-connected-factory-deploy.md).

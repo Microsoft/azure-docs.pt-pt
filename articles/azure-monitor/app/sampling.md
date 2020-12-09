@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3ec9718d313e7e8d757eb41c230225bdcf9ebd49
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: e9334d222d443679362514481ecd83b90bbda0ac
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96749050"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855078"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -33,12 +33,12 @@ O quadro que se segue resume os tipos de amostragem disponíveis para cada SDK e
 | Insights de Aplicação SDK | Amostragem adaptativa suportada | Amostragem de taxa fixa suportada | Amostragem de ingestão suportada |
 |-|-|-|-|
 | ASP.NET | [Sim (on on by default)](#configuring-adaptive-sampling-for-aspnet-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-applications) | Só se nenhuma outra amostragem estiver em vigor |
-| ASP.NET Core | [Sim (on on by default)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Só se nenhuma outra amostragem estiver em vigor |
-| Funções do Azure | [Sim (on on by default)](#configuring-adaptive-sampling-for-azure-functions) | No | Só se nenhuma outra amostragem estiver em vigor |
-| Java | No | [Sim](#configuring-fixed-rate-sampling-for-java-applications) | Só se nenhuma outra amostragem estiver em vigor |
-| Node.JS | No | [Sim](./nodejs.md#sampling) | Só se nenhuma outra amostragem estiver em vigor
-| Python | No | [Sim](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Só se nenhuma outra amostragem estiver em vigor |
-| Todos os outros | No | No | [Sim](#ingestion-sampling) |
+| Núcleo de ASP.NET | [Sim (on on by default)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Só se nenhuma outra amostragem estiver em vigor |
+| Funções do Azure | [Sim (on on by default)](#configuring-adaptive-sampling-for-azure-functions) | Não | Só se nenhuma outra amostragem estiver em vigor |
+| Java | Não | [Sim](#configuring-fixed-rate-sampling-for-java-applications) | Só se nenhuma outra amostragem estiver em vigor |
+| Node.JS | Não | [Sim](./nodejs.md#sampling) | Só se nenhuma outra amostragem estiver em vigor
+| Python | Não | [Sim](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Só se nenhuma outra amostragem estiver em vigor |
+| Todos os outros | Não | Não | [Sim](#ingestion-sampling) |
 
 > [!NOTE]
 > A informação sobre a maior parte desta página aplica-se às versões atuais dos SDKs application insights. Para obter informações sobre versões mais antigas dos SDKs, [consulte a secção abaixo](#older-sdk-versions).
@@ -315,18 +315,12 @@ Por predefinição, não está ativada qualquer amostragem no agente Java e na S
 
 1. Baixar [aplicaçõesinsights-agent-3.0.0-PREVIEW.5.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
 
-1. Para ativar a amostragem adicione o seguinte ao seu `ApplicationInsights.json` ficheiro:
+1. Para ativar a amostragem adicione o seguinte ao seu `applicationinsights.json` ficheiro:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "sampling": {
-        "fixedRate": {
-          "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
-        }
-      }
-    }
+  "sampling": {
+    "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
   }
 }
 ```
@@ -531,7 +525,7 @@ A precisão da aproximação depende em grande parte da percentagem de amostrage
 
 *A telemetria pode ser amostrada mais de uma vez?*
 
-* Não. Amostragem Os processos de amostragem ignoram os itens de consideração de amostragem se o item já estiver amostrado. O mesmo acontece com a amostragem de ingestão, que não aplicará amostras aos itens já recolhidos no próprio SDK.
+* N.º Amostragem Os processos de amostragem ignoram os itens de consideração de amostragem se o item já estiver amostrado. O mesmo acontece com a amostragem de ingestão, que não aplicará amostras aos itens já recolhidos no próprio SDK.
 
 *Por que provar um simples "recolher X% de cada tipo de telemetria"?*
 
@@ -559,7 +553,7 @@ A precisão da aproximação depende em grande parte da percentagem de amostrage
 
 * A amostragem de ingestão pode ocorrer automaticamente para qualquer telemetria acima de um determinado volume, se o SDK não estiver a efetuar a amostragem. Esta configuração funcionaria, por exemplo, se estiver a utilizar uma versão mais antiga do ASP.NET SDK ou Java SDK.
 * Se estiver a utilizar os ASP.NET atuais ou ASP.NET Core SDKs (hospedados no Azure ou no seu próprio servidor), obtém uma amostragem adaptativa por padrão, mas pode mudar para taxa fixa como descrito acima. Com a amostragem de taxa fixa, o browser SDK sincroniza-se automaticamente com eventos relacionados com a amostra. 
-* Se estiver a utilizar o agente Java atual, pode configurar `ApplicationInsights.json` (para Java SDK, `ApplicationInsights.xml` configurar) para ligar a amostragem de taxa fixa. A amostragem é desligada por defeito. Com a amostragem de taxa fixa, o browser SDK e o servidor sincronizam automaticamente para eventos relacionados com a amostra.
+* Se estiver a utilizar o agente Java atual, pode configurar `applicationinsights.json` (para Java SDK, `ApplicationInsights.xml` configurar) para ligar a amostragem de taxa fixa. A amostragem é desligada por defeito. Com a amostragem de taxa fixa, o browser SDK e o servidor sincronizam automaticamente para eventos relacionados com a amostra.
 
 *Há certos eventos raros que sempre quero ver. Como posso passá-los pelo módulo de amostragem?*
 

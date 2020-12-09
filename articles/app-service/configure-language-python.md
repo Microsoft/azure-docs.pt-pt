@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: f12ed42755af64f024fdcb0452173134f7b58482
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7589b5c66bf4fa86db243574f551ec585ccccea1
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183741"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855061"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configure uma aplicação Linux Python para o Azure App Service
 
@@ -68,7 +68,7 @@ Em vez disso, pode executar uma versão não suportada do Python construindo a s
 O sistema de construção do App Service, chamado Oryx, executa os seguintes passos quando implementa a sua aplicação utilizando pacotes Git ou zip:
 
 1. Executar um script pré-construção personalizado se especificado pela `PRE_BUILD_COMMAND` definição.
-1. Execute `pip install -r requirements.txt`. O *ficheirorequirements.txt* deve estar presente na pasta raiz do projeto. Caso contrário, o processo de construção relata o erro: "Não foi possível encontrar setup.py ou requirements.txt; Não a funcionar pip instalar."
+1. Execute o `pip install -r requirements.txt`. O *ficheirorequirements.txt* deve estar presente na pasta raiz do projeto. Caso contrário, o processo de construção relata o erro: "Não foi possível encontrar setup.py ou requirements.txt; Não a funcionar pip instalar."
 1. Se *manage.py* for encontrado na raiz do repositório (indicando uma aplicação Django), executar *manage.py a collectásta .* No entanto, se a `DISABLE_COLLECTSTATIC` regulação `true` for, este passo é ignorado.
 1. Executar script pós-construção personalizado se especificado pela `POST_BUILD_COMMAND` definição.
 
@@ -101,19 +101,19 @@ As aplicações web existentes podem ser redistribuídas para a Azure da seguint
 1. **Repositório de origem**: Mantenha o seu código fonte num repositório adequado como o GitHub, que lhe permite configurar uma implantação contínua mais tarde neste processo.
     1. O seu ficheiro *requirements.txt* deve estar na raiz do seu repositório para o Serviço de Aplicações instalar automaticamente as embalagens necessárias.    
 
-1. **Base de dados**: Se a aplicação depender de uma base de dados, também fornece os recursos necessários ao Azure. Ver [Tutorial: Implementar uma aplicação web Django com PostgreSQL - crie uma base de dados](tutorial-python-postgresql-app.md#create-postgres-database-in-azure) por exemplo.
+1. **Base de dados**: Se a aplicação depender de uma base de dados, também fornece os recursos necessários ao Azure. Ver [Tutorial: Implementar uma aplicação web Django com PostgreSQL - crie uma base de dados](tutorial-python-postgresql-app.md#3-create-postgres-database-in-azure) por exemplo.
 
-1. **Recursos de serviço de aplicações**: Crie um grupo de recursos, Plano de Serviço de Aplicações e aplicação web do Serviço de Aplicações para hospedar a sua aplicação. Pode fazê-lo mais facilmente fazendo uma primeira implementação do seu código através do comando Azure CLI `az webapp up` , como mostrado no [Tutorial: Implementar uma aplicação web Django com PostgreSQL - implementar o código](tutorial-python-postgresql-app.md#deploy-the-code-to-azure-app-service). Substitua os nomes do grupo de recursos, o Plano de Serviço de Aplicações e a aplicação web para ser mais adequado para a sua aplicação.
+1. **Recursos de serviço de aplicações**: Crie um grupo de recursos, Plano de Serviço de Aplicações e aplicação web do Serviço de Aplicações para hospedar a sua aplicação. Pode fazê-lo mais facilmente fazendo uma primeira implementação do seu código através do comando Azure CLI `az webapp up` , como mostrado no [Tutorial: Implementar uma aplicação web Django com PostgreSQL - implementar o código](tutorial-python-postgresql-app.md#4-deploy-the-code-to-azure-app-service). Substitua os nomes do grupo de recursos, o Plano de Serviço de Aplicações e a aplicação web para ser mais adequado para a sua aplicação.
 
 1. **Variáveis ambientais**: Se a sua aplicação necessitar de variáveis ambientais, crie [configurações equivalentes de aplicações do Serviço de Aplicações](configure-common.md#configure-app-settings)de Aplicações . Estas definições de Serviço de Aplicações aparecem no seu código como variáveis ambientais, conforme descrito nas [variáveis do ambiente Access](#access-app-settings-as-environment-variables).
-    - As ligações de base de dados, por exemplo, são frequentemente geridas através de tais configurações, como mostrado no [Tutorial: Implementar uma aplicação web Django com PostgreSQL - configurar variáveis para ligar a base de dados](tutorial-python-postgresql-app.md#configure-environment-variables-to-connect-the-database).
+    - As ligações de base de dados, por exemplo, são frequentemente geridas através de tais configurações, como mostrado no [Tutorial: Implementar uma aplicação web Django com PostgreSQL - configurar variáveis para ligar a base de dados](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database).
     - Consulte [as definições de Produção para apps Django](#production-settings-for-django-apps) para configurações específicas para aplicações típicas do Django.
 
 1. **Startup de aplicações**: Reveja a secção, [processo de arranque do Container](#container-startup-process) mais tarde neste artigo para entender como o Serviço de Aplicações tenta executar a sua app. O Serviço de Aplicações utiliza o servidor web Gunicorn por padrão, que deve ser capaz de encontrar o seu objeto de aplicação ou *wsgi.py* pasta. Se necessário, pode [personalizar o comando de arranque](#customize-startup-command).
 
 1. **Implementação contínua**: Crie uma implementação contínua, conforme descrito na [implementação contínua do Serviço de Aplicações Azure](deploy-continuous-deployment.md) se utilizar pipelines Azure ou implantação kudu, ou [implementar para o Serviço de Aplicações utilizando ações do GitHub](deploy-github-actions.md) se utilizar ações do GitHub.
 
-1. **Ações personalizadas**: Para executar ações dentro do recipiente de Serviço de Aplicações que acolhe a sua aplicação, como migrações de base de dados Django, pode [ligar-se ao recipiente através do SSH](configure-linux-open-ssh-session.md). Para um exemplo de execução das migrações na base de dados do Django, consulte [Tutorial: Implemente uma aplicação web Django com PostgreSQL - executar migrações de base de dados](tutorial-python-postgresql-app.md#run-django-database-migrations).
+1. **Ações personalizadas**: Para executar ações dentro do recipiente de Serviço de Aplicações que acolhe a sua aplicação, como migrações de base de dados Django, pode [ligar-se ao recipiente através do SSH](configure-linux-open-ssh-session.md). Para um exemplo de execução das migrações na base de dados do Django, consulte [Tutorial: Implemente uma aplicação web Django com PostgreSQL - executar migrações de base de dados](tutorial-python-postgresql-app.md#43-run-django-database-migrations).
     - Ao utilizar a implementação contínua, pode executar essas ações utilizando comandos pós-construção, conforme descrito anteriormente no [Customize build automation](#customize-build-automation).
 
 Com estes passos concluídos, deverá ser capaz de comprometer alterações no seu repositório de origem e ter essas atualizações automaticamente implantadas no Serviço de Aplicações.

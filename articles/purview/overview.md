@@ -7,23 +7,27 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 11/30/2020
-ms.openlocfilehash: e7ad561cf9ce9983f41fa166eb744c90f126e01e
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 9ead9a564c11901775ac7c471cd53fe65b3fdef9
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555962"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855112"
 ---
-# <a name="what-is-azure-purview"></a>O que é Azure Purview?
+# <a name="what-is-azure-purview"></a>O que é o Azure Purview?
 
 > [!IMPORTANT]
 > A Azure Purview está atualmente em PREVIEW. Os [Termos Complementares de Utilização para visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluem termos legais adicionais que se aplicam às funcionalidades do Azure que estão em versão beta, pré-visualização ou ainda não lançadas para a disponibilidade geral.
 
-O Azure Purview é um novo serviço de cloud para utilização pelos utilizadores de dados. Você usa a Azure Purview para gerir centralmente a governação de dados em toda a sua propriedade de dados, abrangendo ambientes em nuvem e on-prem. Este serviço permite que os analistas de negócios procurem dados relevantes utilizando termos de negócio significativos.
+O Azure Purview é um serviço unificado de governação de dados que o ajuda a gerir e a governar os seus dados no local, multi-cloud e software-as-a-service (SaaS). Facilmente crie um mapa holístico e atualizado da sua paisagem de dados com descoberta automatizada de dados, classificação de dados sensíveis e linhagem de dados de ponta a ponta. Capacitar os consumidores de dados para encontrar dados valiosos e fidedignas.
 
-Com a UI de Purview ou a Apache Atlas API, os utilizadores técnicos podem ver metadados e a linhagem de ativos de dados num catálogo central.
+O Azure Purview Data Map fornece a base para a descoberta de dados e uma efetiva governação de dados. O Purview Data Map é um serviço PaaS nativo da nuvem que captura metadados sobre dados da empresa presentes em sistemas de análise e operação no local e na nuvem. O Mapa de Dados de Purview é automaticamente mantido atualizado com o sistema de digitalização e classificação automatizado incorporado. Os utilizadores empresariais podem configurar e usar o Mapa de Dados de Purview através de uma UI intuitiva e os desenvolvedores podem interagir programáticamente com o Mapa de Dados usando APIs Apache Atlas 2.0 de código aberto.
 
-Os peritos em matéria de assuntos, proprietários de dados e administradores de segurança podem anotar ativos de dados para partilhar os seus conhecimentos comuns. Fazem-no com a UI ou em escala através de políticas automatizadas de classificação e rotulagem automática, com base em metadados e inspeção de conteúdos.
+O Azure Purview Data Map alimenta o Catálogo de Dados de Purview e insights de dados de purview como experiências unificadas dentro do Estúdio De Purview.
+ 
+Com o Catálogo de Dados da Purview, tanto os utilizadores empresariais como os técnicos podem rapidamente & encontrar dados relevantes utilizando uma experiência de pesquisa com filtros baseados em várias lentes como termos glossários, classificações, etiquetas de sensibilidade e muito mais. Para especialistas em assuntos, administradores de dados e oficiais, o Catálogo de Dados da Purview fornece funcionalidades de cura de dados como gestão glossária de negócios e capacidade de automatizar a marcação de ativos de dados com termos glossários. Os consumidores e produtores de dados também podem rastrear visualmente a linhagem de ativos de dados a partir dos sistemas operacionais no local, através de movimento, transformação & enriquecimento com vários sistemas de armazenamento de dados & sistemas de processamento na nuvem para consumo num sistema de análise como o Power BI.
+
+Com os dados de Purview, os oficiais de dados e os oficiais de segurança podem obter uma visão de um pássaro e, de um modo geral, entender que dados são digitalizados ativamente, onde os dados sensíveis são e como se move.
 
 ## <a name="discovery-challenges-for-data-consumers"></a>Desafios de deteção para os consumidores de dados
 

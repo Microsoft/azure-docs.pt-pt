@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 56a9861f0e25e1dcdf741cfdf5c8830dd9b6fc1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9fc465b5e5f132264fd36e004fa3ee7623b87a5
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325815"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854993"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performance and scale in Durable Functions (Azure Functions) (Desempenho e dimensionamento no Durable Functions [Funções do Azure])
 
@@ -20,13 +20,13 @@ Para entender o comportamento da escala, você tem que entender alguns dos detal
 
 ## <a name="history-table"></a>Tabela de história
 
-A tabela **História** é uma tabela de Armazenamento Azure que contém os eventos de história para todos os casos de orquestração dentro de um centro de tarefas. O nome desta tabela está na forma *TaskHubName*History. À medida que os casos são executados, novas linhas são adicionadas a esta tabela. A chave de partição desta tabela deriva do exemplo de identificação da orquestração. Um iD de caso é aleatório na maioria dos casos, o que garante uma distribuição ótima de divisórias internas no Azure Storage.
+A tabela **História** é uma tabela de Armazenamento Azure que contém os eventos de história para todos os casos de orquestração dentro de um centro de tarefas. O nome desta tabela está na forma *TaskHubName* History. À medida que os casos são executados, novas linhas são adicionadas a esta tabela. A chave de partição desta tabela deriva do exemplo de identificação da orquestração. Um iD de caso é aleatório na maioria dos casos, o que garante uma distribuição ótima de divisórias internas no Azure Storage.
 
 Quando uma instância de orquestração precisa de ser executada, as linhas apropriadas da tabela História são carregadas na memória. Estes *eventos de história* são então reproduzidos no código de função do orquestrador para o colocar de volta no seu estado previamente posto de controlo. O uso da história da execução para reconstruir o estado desta forma é influenciado pelo [padrão de Sourcing de Eventos.](/azure/architecture/patterns/event-sourcing)
 
 ## <a name="instances-table"></a>Tabela de casos
 
-A tabela **Instâncias** é outra tabela de Armazenamento Azure que contém os estatutos de todas as instâncias de orquestração e entidade dentro de um centro de tarefas. À medida que os casos são criados, novas linhas são adicionadas a esta tabela. A chave de partição desta tabela é a identificação de instância de orquestração ou chave de entidade e a chave de linha é uma constante fixa. Há uma linha por orquestração ou instância de entidade.
+A tabela **Instâncias** é outra tabela de Armazenamento Azure que contém os estatutos de todas as instâncias de orquestração e entidade dentro de um centro de tarefas. À medida que os casos são criados, novas linhas são adicionadas a esta tabela. A chave de partição desta tabela é a identificação de instância de orquestração ou chave de entidade e a chave da linha é uma corda vazia. Há uma linha por orquestração ou instância de entidade.
 
 Esta tabela é utilizada para satisfazer pedidos de consulta de instâncias das `GetStatusAsync` APIs (.NET) e `getStatus` (JavaScript), bem como a [consulta de estado HTTP API](durable-functions-http-api.md#get-instance-status). É eventualmente mantido consistente com o conteúdo da tabela **História** mencionada anteriormente. A utilização de uma tabela de armazenamento Azure separada para satisfazer eficazmente as operações de consulta de instância desta forma é influenciada pelo [padrão de Segregação de Responsabilidade De Comando e Consulta (CQRS).](/azure/architecture/patterns/cqrs)
 
@@ -192,7 +192,7 @@ No exemplo anterior, um máximo de 10 funções de orquestrador ou entidade e 10
 
 As sessões estendidas são um cenário que mantém as orquestrações e entidades na memória mesmo depois de terminarem o processamento de mensagens. O efeito típico de permitir sessões prolongadas é reduzido I/O contra a conta de Armazenamento Azure e melhoramento geral.
 
-Pode ativar sessões prolongadas definindo `durableTask/extendedSessionsEnabled` para ohost.js`true` ** no** ficheiro. A `durableTask/extendedSessionIdleTimeoutInSeconds` definição pode ser usada para controlar quanto tempo uma sessão ociosa será mantida na memória:
+Pode ativar sessões prolongadas definindo `durableTask/extendedSessionsEnabled` para ohost.js`true` **no** ficheiro. A `durableTask/extendedSessionIdleTimeoutInSeconds` definição pode ser usada para controlar quanto tempo uma sessão ociosa será mantida na memória:
 
 **Funções 2.0**
 ```json

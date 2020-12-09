@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 07/29/2020
-ms.openlocfilehash: bdb746c75a175d906301bcfca0b1472383fceff9
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.date: 12/07/2020
+ms.openlocfilehash: 118fe70abf52a6c96f4f2dc47e3ad23a388f3598
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778075"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853752"
 ---
 # <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>Disponibilidade geográfica e apoio cambial para o mercado comercial
 
@@ -46,22 +46,22 @@ As ofertas de mercado comercial podem ser compradas em 141 geografias, conforme 
 | Brunei                              | BN        | USD          | BND, EUR, SGD, USD |
 | Bulgária                            | BG        | EUR          | BGN, EUR, USD |
 | Cabo Verde                          | CV        | USD          | CVE, EUR, USD |
-| Camarões                            | CM        | USD          | XAF, EUR, USD |
-| Canadá                              | CA        | CAD          | CAD, EUR, USD  |
-| Ilhas Caimão                      | KY        | USD          | KYD, EUR, USD |
+| Camarões                            | CM        | USD          | EUR, USD, XAF |
+| Canadá                              | CA        | CAD          | CAD, EUR, USD |
+| Ilhas Caimão                      | KY        | USD          | EUR, KYD, USD |
 | Chile                               | CL        | USD          | CLP, EUR, USD |
 | China\**                            | CN        | N/D          | N/D |
 | Colômbia                            | CO        | USD          | COP, EUR, USD |
 | Costa Rica                          | CR        | USD          | CRC, EUR, USD |
-| Costa do Marfim (Côte d’Ivoire)                       | CI        | USD          | XOF, EUR, USD |
-| Croácia                             | HR        | EUR          | HRK, EUR, USD |
+| Costa do Marfim (Côte d’Ivoire)                       | CI        | USD          | EUR, USD, XOF |
+| Croácia                             | HR        | EUR          | EUR, HRK, USD |
 | Curaçao                             | CW        | USD          | ANG, EUR, USD |
 | Chipre                              | CY        | EUR          | EUR, USD  |
-| Checa                             | CZ        | EUR          | EUR, USD, CZK |
+| Checa                             | CZ        | EUR          | CZK, EUR, USD |
 | Dinamarca                             | DK        | DKK          | DKK, EUR, USD |
 | República Dominicana                  | DO        | USD          | DOP, EUR, USD |
 | Equador                             | EC        | USD          | EUR, USD |
-| Egito                               | EG        | USD          | EUR, USD EGP |
+| Egito                               | EG        | USD          | EGP, EUR, USD |
 | Salvador                         | SV        | USD          | EUR, USD |
 | Estónia                             | EE        | EUR          | EUR, USD |
 | Etiópia                            | ET        | USD          | ETB, EUR, USD |
@@ -91,7 +91,7 @@ As ofertas de mercado comercial podem ser compradas em 141 geografias, conforme 
 | Quénia                               | KE        | USD          | EUR, KES, USD |
 | Coreia (Sul)                       | KR        | KRW          | EUR, KRW, USD |
 | Koweit                              | KW        | USD          | EUR, KWD, USD |
-| Quirguistão                          | KG        | USD          | USD, EUR, KGS |
+| Quirguistão                          | KG        | USD          | EUR, KGS, USD |
 | Letónia                              | LV        | EUR          | EUR, USD |
 | Líbano                             | LB        | USD          | EUR, LBP, USD |
 | Líbia                               | LY        | USD          | EUR, LYD, USD |
@@ -139,8 +139,8 @@ As ofertas de mercado comercial podem ser compradas em 141 geografias, conforme 
 | Eslovénia                            | SI        | EUR          | EUR, USD |
 | África do Sul                        | ZA        | USD          | EUR, USD, ZAR |
 | Espanha                               | ES        | EUR          | EUR, USD |
-| Sri Lanca                           | LK        | USD          | EUR, USD, LKR |
-| Suécia                              | SE        | SEK          | EUR, USD, SEK |
+| Sri Lanca                           | LK        | USD          | EUR, LKR, USD |
+| Suécia                              | SE        | SEK          | EUR, SEK, USD  |
 | Suíça                         | CH        | CHF          | CHF, EUR, USD |
 | Taiwan                              | TW        | TWD          | EUR, TWD, USD |
 | Tajiquistão                          | TJ        | USD          | EUR, TJS, USD |
@@ -151,7 +151,7 @@ As ofertas de mercado comercial podem ser compradas em 141 geografias, conforme 
 | Turquia                              | TR        | USD          | EUR, TRY, USD |
 | Turquemenistão                        | TM        | USD          | EUR, TMT, USD |
 | Uganda                              | UG        | USD          | EUR, UGX, USD |
-| Ucrânia                             | UA        | USD          | EUR, UAH, RUB, USD |
+| Ucrânia                             | UA        | USD          | EUR, RUB, UAH, USD |
 | Emirados Árabes Unidos                | AE        | USD          | AED, EUR, USD |
 | Reino Unido                      | GB        | GBP          | EUR, GBP, USD |
 | Estados Unidos da América                       | EUA        | USD          | EUR, USD |

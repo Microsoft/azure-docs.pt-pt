@@ -1,49 +1,39 @@
 ---
 title: Configurar túneis forçados para ligações site-to-site
-description: Como redirecionar ou 'forçar' todo o tráfego ligado à Internet de volta ao seu local de localização.
+description: Como redirecionar (forçar) todo o tráfego ligado à Internet de volta para o seu local no local.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 12/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 00f98a5086b9a9bf21054138cf01d26a550338da
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c12297019b49d7b3cb644ae9c7a904e4ca697f0b
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92673855"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855044"
 ---
-# <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configurar o túnel forçado utilizando o modelo de implementação Azure Resource Manager
+# <a name="configure-forced-tunneling"></a>Configurar túnel forçado
 
-O túnel forçado permite redirecionar ou “forçar” todo o tráfego associado à Internet novamente para a localização no local através de um túnel de VPN site a site para inspeção e auditoria. Este é um requisito crítico de segurança para a maioria das políticas de TI da empresa. Sem fazer túneis forçados, o tráfego ligado à Internet a partir dos seus VMs em Azure atravessa sempre a partir da infraestrutura de rede Azure diretamente para a Internet, sem a opção de lhe permitir inspecionar ou auditar o tráfego. O acesso não autorizado à Internet pode potencialmente levar à divulgação de informações ou a outros tipos de falhas de segurança.
+O túnel forçado permite redirecionar ou “forçar” todo o tráfego associado à Internet novamente para a localização no local através de um túnel de VPN site a site para inspeção e auditoria. Este é um requisito crítico de segurança para a maioria das políticas de TI da empresa. Se não configurar túneis forçados, o tráfego ligado à Internet a partir dos seus VMs em Azure atravessa sempre a partir da infraestrutura da rede Azure diretamente para a Internet, sem a opção de lhe permitir inspecionar ou auditar o tráfego. O acesso não autorizado à Internet pode potencialmente levar à divulgação de informações ou a outros tipos de falhas de segurança.
 
-
-
-[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
-
-Este artigo acompanha-o através da configuração de túneis forçados para redes virtuais criadas usando o modelo de implementação do Gestor de Recursos. Os túneis forçados podem ser configurados usando o PowerShell, não através do portal. Se quiser configurar um túnel forçado para o modelo de implementação clássico, selecione o artigo clássico da seguinte lista de dropdown:
-
-> [!div class="op_single_selector"]
-> * [PowerShell - Clássico](vpn-gateway-about-forced-tunneling.md)
-> * [PowerShell – Resource Manager](vpn-gateway-forced-tunneling-rm.md)
-> 
-> 
+Os túneis forçados podem ser configurados utilizando a Azure PowerShell. Não pode ser configurado usando o portal Azure. Este artigo ajuda-o a configurar túneis forçados para redes virtuais criadas utilizando o modelo de implementação do Gestor de Recursos. Se quiser configurar um túnel forçado para o modelo de implantação clássico, veja [o túnel forçado - clássico](vpn-gateway-about-forced-tunneling.md).
 
 ## <a name="about-forced-tunneling"></a>Sobre o túnel forçado
 
-O diagrama seguinte ilustra como funciona o túnel forçado. 
+O diagrama seguinte ilustra como funciona o túnel forçado.
 
-![Túnel forçado](./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png)
+:::image type="content" source="./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png" alt-text="O diagrama mostra um túnel forçado.":::
 
-No exemplo acima, a sub-rede Frontend não é forçada a fazer um túnel. As cargas de trabalho na sub-rede Frontend podem continuar a aceitar e responder diretamente aos pedidos dos clientes da Internet. As sub-redes de nível médio e backend são forçadas a fazer um túnel. Quaisquer ligações de saída destas duas sub-redes para a Internet serão forçadas ou redirecionadas para um local no local através de um dos túneis S2S VPN.
+Neste exemplo, a sub-rede Frontend não é forçada a fazer um túnel. As cargas de trabalho na sub-rede Frontend podem continuar a aceitar e responder diretamente aos pedidos dos clientes da Internet. As sub-redes de nível médio e backend são forçadas a fazer um túnel. Quaisquer ligações de saída destas duas sub-redes para a Internet serão forçadas ou redirecionadas para um local através de um dos túneis VPN do Site-to-site (S2S).
 
 Isto permite-lhe restringir e inspecionar o acesso à Internet a partir das suas máquinas virtuais ou serviços em nuvem em Azure, ao mesmo tempo que continua a ativar a sua arquitetura de serviço multi-nível necessária. Se não houver cargas de trabalho viradas para a Internet nas suas redes virtuais, também pode aplicar túneis forçados a todas as redes virtuais.
 
 ## <a name="requirements-and-considerations"></a>Requisitos e considerações
 
-O túnel forçado em Azure é configurado através de rotas definidas pelo utilizador da rede virtual. Redirecionar o tráfego para um local no local é expresso como uma Rota Padrão para o gateway Azure VPN. Para obter mais informações sobre o encaminhamento definido pelo utilizador e redes virtuais, consulte [as rotas definidas pelo Utilizador e o encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
+O túnel forçado em Azure é configurado usando rotas personalizadas de rede virtual definidas pelo utilizador. Redirecionar o tráfego para um local no local é expresso como uma Rota Padrão para o gateway Azure VPN. Para obter mais informações sobre o encaminhamento definido pelo utilizador e redes virtuais, consulte [as rotas definidas pelo utilizador personalizado](../virtual-network/virtual-networks-udr-overview.md#user-defined).
 
 * Cada sub-rede de rede virtual tem uma tabela de encaminhamento de sistema incorporada. A tabela de encaminhamento do sistema tem os seguintes três grupos de rotas:
   
@@ -61,7 +51,7 @@ O procedimento a seguir ajuda a criar um grupo de recursos e um VNet. Em seguida
 
 As etapas de procedimento definem o 'DefaultSiteHQ' como a ligação padrão do local para a escavação forçada e configuram as subesí redes 'Midtier' e 'Backend' para utilizar túneis forçados.
 
-## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
+## <a name="before-you-begin"></a><a name="before"></a>Before you begin
 
 Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Veja [Como instalar e configurar o Azure PowerShell](/powershell/azure/) para obter mais informações sobre como instalar os cmdlets PowerShell.
 
@@ -70,9 +60,9 @@ Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manag
 >
 >
 
-### <a name="to-log-in"></a>Para fazer login
+### <a name="to-sign-in"></a>Para iniciar sinscrevi-lo
 
-[!INCLUDE [To log in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
+[!INCLUDE [Sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ## <a name="configure-forced-tunneling"></a>Configurar túnel forçado
 

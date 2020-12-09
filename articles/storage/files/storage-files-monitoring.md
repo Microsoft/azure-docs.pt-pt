@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: a190120e969959807911503f4c2ccf99e7135dd4
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: d756567e471fe4b29590f8a3efbaf49b56edd4f4
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781186"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853055"
 ---
 # <a name="monitoring-azure-files"></a>Monitorar ficheiros Azure
 
@@ -96,6 +96,8 @@ Para obter orientações gerais, consulte [Criar definição de diagnóstico par
 
 #### <a name="archive-logs-to-a-storage-account"></a>Registos de arquivo para uma conta de armazenamento
 
+Se optar por arquivar os seus registos numa conta de armazenamento, pagará o volume de registos que são enviados para a conta de armazenamento. Para obter preços **específicos,** consulte a secção de Registos de Plataforma da página de preços do [Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/#platform-logs)
+
 1. Selecione o Arquivo para uma caixa de verificação **de conta de armazenamento** e, em seguida, clique no botão **Configure.**
 
    > [!div class="mx-imgBorder"]   
@@ -107,6 +109,8 @@ Para obter orientações gerais, consulte [Criar definição de diagnóstico par
    > Antes de escolher uma conta de armazenamento como destino de exportação, consulte [os registos de recursos do Archive Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) para entender os pré-requisitos na conta de armazenamento.
 
 #### <a name="stream-logs-to-azure-event-hubs"></a>Registos de streaming para Azure Event Hubs
+
+Se optar por transmitir os seus registos para um centro de eventos, pagará o volume de registos que são enviados para o centro de eventos. Para obter preços **específicos,** consulte a secção de Registos de Plataforma da página de preços do [Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/#platform-logs)
 
 1. Selecione o Stream para uma caixa de verificação **do centro de eventos** e, em seguida, clique no botão **Configure.**
 
@@ -140,6 +144,8 @@ Para obter orientações gerais, consulte [Criar definição de diagnóstico par
 
 #### <a name="archive-logs-to-a-storage-account"></a>Registos de arquivo para uma conta de armazenamento
 
+Se optar por arquivar os seus registos numa conta de armazenamento, pagará o volume de registos que são enviados para a conta de armazenamento. Para obter preços **específicos,** consulte a secção de Registos de Plataforma da página de preços do [Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/#platform-logs)
+
 Ativar os registos utilizando o [cmdlet de definição de](/powershell/module/az.monitor/set-azdiagnosticsetting) diagnósticose de definição de energia, juntamente com o `StorageAccountId` parâmetro.
 
 ```powershell
@@ -157,6 +163,8 @@ Eis um exemplo:
 Para obter uma descrição de cada parâmetro, consulte os [registos de recursos archive Azure através do Azure PowerShell](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Registos de fluxo para um centro de eventos
+
+Se optar por transmitir os seus registos para um centro de eventos, pagará o volume de registos que são enviados para o centro de eventos. Para obter preços **específicos,** consulte a secção de Registos de Plataforma da página de preços do [Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/#platform-logs)
 
 Ativar os registos utilizando o [cmdlet de definição de](/powershell/module/az.monitor/set-azdiagnosticsetting) diagnósticos elétricos com o `EventHubAuthorizationRuleId` parâmetro.
 
@@ -198,6 +206,8 @@ Para obter mais informações, consulte [os Registos de Recursos stream Azure pa
 
 #### <a name="archive-logs-to-a-storage-account"></a>Registos de arquivo para uma conta de armazenamento
 
+Se optar por arquivar os seus registos numa conta de armazenamento, pagará o volume de registos que são enviados para a conta de armazenamento. Para obter preços **específicos,** consulte a secção de Registos de Plataforma da página de preços do [Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/#platform-logs)
+
 Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
 
 ```azurecli-interactive
@@ -215,6 +225,8 @@ Eis um exemplo:
 Para obter uma descrição de cada parâmetro, consulte os [registos de Recursos de Arquivo através do CLI Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Registos de fluxo para um centro de eventos
+
+Se optar por transmitir os seus registos para um centro de eventos, pagará o volume de registos que são enviados para o centro de eventos. Para obter preços **específicos,** consulte a secção de Registos de Plataforma da página de preços do [Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/#platform-logs)
 
 Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
 

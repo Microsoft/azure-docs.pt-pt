@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 079d5ea0259a436100b81489043b71a81ec1a330
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 05ece4d8ea24fb9da106ec3daa2cc1a63706dab9
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327224"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853503"
 ---
 # <a name="video-moderation-with-the-review-tool"></a>Moderação de vídeo com a ferramenta Review
 
@@ -103,4 +103,3 @@ Uma vez que os vídeos expirem do limbo, as suas avaliações são marcadas como
 - Começa com o arranque rápido da [moderação de vídeo](video-moderation-api.md).
 - Aprenda a gerar [comentários de vídeo](video-reviews-quickstart-dotnet.md) para os seus revisores humanos a partir da sua saída moderada.
 - Adicione [comentários de transcrição de vídeo](video-transcript-reviews-quickstart-dotnet.md) às suas avaliações de vídeo.
-- Confira o tutorial detalhado sobre como desenvolver uma solução completa de [moderação de vídeo.](video-transcript-moderation-review-tutorial-dotnet.md)

@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: db9ba3efe60af830c0e15310b6127c18130f00b9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e1409b43f0ce1fc0d8c622dda79e857ac6abdd33
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076254"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854568"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Use Insights de Séries temporais para visualizar a telemetria enviada do acelerador de solução de simulação do dispositivo
 
@@ -23,7 +23,7 @@ O acelerador de solução de simulação de dispositivo permite-lhe gerar teleme
 
 Para seguir os passos neste guia de como fazer, precisa de uma subscrição ativa do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Os passos neste guia assumem que implementou o acelerador de solução de Simulação de Dispositivos para a sua subscrição Azure. Se não tiver implantado o acelerador de solução, siga os passos no [Implementar e execute uma solução de simulação de dispositivo baseada](quickstart-device-simulation-deploy.md) na nuvem.
+Os passos neste guia assumem que implementou o acelerador de solução de Simulação de Dispositivos para a sua subscrição Azure. Se ainda não implementou a Simulação do Dispositivo, consulte a [implementação da simulação do dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) no GitHub.
 
 Este artigo assume que o nome do seu acelerador de solução é **contoso-simulação.** Substitua **a simulação de contoso** pelo nome do seu acelerador de solução à medida que completa os seguintes passos.
 
@@ -57,7 +57,7 @@ Os seguintes passos utilizam o Azure CLI na Azure Cloud Shell para criar o grupo
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. Selecione **Criar um recurso**Internet of  >  **Things**Time  >  **Series Insights**:
+1. Selecione **Criar um recurso** Internet of  >  **Things** Time  >  **Series Insights**:
 
     ![Novos Insights da Série Temporal](./media/iot-accelerators-device-simulation-time-series-insights/new-time-series-insights.png)
 
@@ -163,7 +163,7 @@ O explorador time series Insights é uma aplicação web que pode usar para visu
 
     ![Painel de explorador de insights de séries de tempo](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-dashboard.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretende explorar mais, deixe o acelerador de solução implantado.
 
