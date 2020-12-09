@@ -166,6 +166,18 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-conmod
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: API REST
 - id: programming-languages-set-fifteen
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação
@@ -298,6 +310,24 @@ groups:
     title: Python
   - id: programming-language-typescript
     title: TypeScript
+- id: programming-languages-set-functions-full
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-typescript
+    title: TypeScript
+  - id: programming-language-other
+    title: Outros
 - id: programming-languages-metrics-monitor
   title: Linguagens de programação
   prompt: Escolha uma linguagem de programação.
@@ -887,9 +917,9 @@ groups:
   - id: programming-languages-objectivec-swift
     title: Objective-C/Swift
 metadata:
-  ms.openlocfilehash: 3fd451bb34d4a0a83821018cc8a6ab519c55e12d
-  ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+  ms.openlocfilehash: 2938edac331faf56e5ba8dc380c01db281b3eb07
+  ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/07/2020
-  ms.locfileid: "96763541"
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96905864"

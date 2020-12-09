@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: 06f84e9c24c7ba76420b3d033cb3f1436730ba8c
-  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+  ms.openlocfilehash: a7c956bc1716eb50775e44d57703ddc1e0f9ccc3
+  ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/01/2020
-  ms.locfileid: "96453032"
+  ms.lasthandoff: 12/08/2020
+  ms.locfileid: "96854772"
 highlightedContent:
   items:
   - title: O que é o IoT do Azure?
@@ -166,9 +166,6 @@ conceptualContent:
     - url: ../iot-accelerators/about-iot-accelerators.md
       itemType: overview
       text: O que são os aceleradores de soluções IoT do Azure?
-    - url: ../iot-accelerators/quickstart-remote-monitoring-deploy.md
-      itemType: quickstart
-      text: Tentar uma solução de monitorização remota
     - url: ../iot-accelerators/quickstart-connected-factory-deploy.md
       itemType: quickstart
       text: Tentar uma solução de fábrica ligada

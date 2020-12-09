@@ -280,7 +280,7 @@
     - name: Trabalhar com a Biblioteca de Autenticação da Microsoft
       displayName: MSAL
       items:
-        - Name: Todas as plataformas
+        - name: Todas as plataformas
           items:
             - name: Fluxos de autenticação suportados
               href: msal-authentication-flows.md

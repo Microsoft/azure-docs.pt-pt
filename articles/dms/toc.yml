@@ -28,6 +28,10 @@
           href: resource-network-topologies.md
         - name: Funções personalizadas
           href: resource-custom-roles-sql-db-managed-instance.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
 - name: Tutoriais
   expanded: true
   items:

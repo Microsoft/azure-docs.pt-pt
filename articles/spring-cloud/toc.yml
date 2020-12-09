@@ -158,7 +158,7 @@
     - name: Perguntas Mais Frequentes
       href: spring-cloud-faq.md
     - name: Referência da API REST
-      href: /rest/api/azurespringclould/
+      href: /rest/api/azurespringcloud/
     - name: Incorporações do Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
