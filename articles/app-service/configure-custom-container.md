@@ -4,12 +4,12 @@ description: Saiba como configurar um recipiente personalizado no Azure App Serv
 ms.topic: article
 ms.date: 09/22/2020
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 2aece0550d7b78ac4312e71b2671de4a64e4b86b
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: a7582bbb866a63820abbd959e06628eda5d57e29
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557931"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007641"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configurar um contentor personalizado para o Serviço de Aplicações do Azure
 
@@ -23,7 +23,7 @@ Este guia fornece conceitos e instruções fundamentais para a contentorização
 
 ::: zone pivot="container-linux"
 
-Este guia fornece conceitos e instruções fundamentais para a contentorização de aplicações Linux no Serviço de Aplicações. Se nunca usou o Azure App Service, siga primeiro o [quickstart](quickstart-custom-container.md) e [tutorial](tutorial-custom-container.md) do recipiente personalizado. Há também um quickstart e tutorial [de aplicativo multi-contentores.](quickstart-multi-container.md) [tutorial](tutorial-multi-container-app.md)
+Este guia fornece conceitos e instruções fundamentais para a contentorização de aplicações Linux no Serviço de Aplicações. Se nunca usou o Azure App Service, siga primeiro o [quickstart](quickstart-custom-container.md) e [tutorial](tutorial-custom-container.md) do recipiente personalizado. Há também um quickstart e tutorial [de aplicativo multi-contentores.](quickstart-multi-container.md) [](tutorial-multi-container-app.md)
 
 ::: zone-end
 
@@ -174,7 +174,7 @@ As extremidades dianteiras estão localizadas dentro dos centros de dados Azure.
 
 ## <a name="customize-aspnet-machine-key-injection"></a>Personalize a injeção de chave de ASP.NET máquina
 
- Durante o início do recipiente, as teclas geradas automaticamente são injetadas no recipiente como as chaves da máquina para ASP.NET rotinas criptográficas. Pode [encontrar estas chaves no seu recipiente](#connect-to-the-container) procurando as seguintes variáveis ambientais: , . . . . . . . . `MACHINEKEY_Decryption` `MACHINEKEY_DecryptionKey` `MACHINEKEY_ValidationKey` `MACHINEKEY_Validation` . 
+ Durante o início do recipiente, as teclas geradas automaticamente são injetadas no recipiente como as chaves da máquina para ASP.NET rotinas criptográficas. Pode [encontrar estas chaves no seu recipiente](#connect-to-the-container) procurando as seguintes variáveis ambientais: , `MACHINEKEY_Decryption` `MACHINEKEY_DecryptionKey` `MACHINEKEY_ValidationKey` . `MACHINEKEY_Validation` 
 
 As novas teclas de cada reinício podem reiniciar ASP.NET forma a autenticação e visualizar o estado, caso a sua aplicação dependa delas. Para evitar a regeneração automática das teclas, [defina-as manualmente como definições de aplicações do Serviço de Aplicações](#configure-environment-variables). 
 
@@ -345,7 +345,7 @@ O SSH permite a comunicação segura entre um contentor e um cliente. Para que u
 
 Aplicações multi-contentores como o WordPress precisam de armazenamento persistente para funcionar corretamente. Para o ativar, a sua configuração Docker Compose deve indicar um local de armazenamento *fora do* seu contentor. Os locais de armazenamento dentro do seu contentor não persistem alterações para além do reinício da aplicação.
 
-Permitir o armazenamento persistente definindo a definição da `WEBSITES_ENABLE_APP_SERVICE_STORAGE` aplicação, utilizando o comando de configuração de [appsettings az webapp em](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) [Cloud Shell](https://shell.azure.com).
+Permitir o armazenamento persistente definindo a definição da `WEBSITES_ENABLE_APP_SERVICE_STORAGE` aplicação, utilizando o comando de configuração de [appsettings az webapp em](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE

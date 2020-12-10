@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 5c3bfbdf133777f0bc219d1306f80bd4d38b56ea
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 0a59c748dba87765537fc7c9d6382c7d2b726f43
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746272"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008066"
 ---
 # <a name="configure-ddos-attack-mitigation-reports-and-flow-logs"></a>Configurar registos de fluxos e relatórios de mitigação de ataques de DDoS 
 
@@ -80,7 +80,13 @@ Pode ligar os registos de fluxo de mitigação de ataques ao Azure Sentinel, ver
 
 ### <a name="azure-ddos-protection-workbook"></a>Livro de proteção Azure DDos
 
-Para visualizar os dados dos registos de fluxo no painel de análise Azure, pode importar o painel de amostras a partir de https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20DDoS%20Protection%20Workbook
+Pode utilizar este modelo Azure Resource Manager (ARM) para implementar um livro de análise de ataque. Este livro é sempre o que você visualiza os dados de ataque em vários painéis filtrantes para entender facilmente o que está em jogo. Ao implementar este modelo ARM, será necessário preencher o seguinte:
+
+* Nome da Área de Trabalho
+* Grupo de Recursos do Espaço de Trabalho
+* ID de assinatura de espaço de trabalho
+
+[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520DDoS%2520Protection%2520Workbook%2FAzureDDoSWorkbook_ARM.json)
 
 Os registos de fluxo terão os seguintes campos: 
 - IP de origem

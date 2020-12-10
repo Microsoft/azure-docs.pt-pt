@@ -1,25 +1,22 @@
 ---
-title: Use o Blob Storage como loja de ponto de verificação no Azure Stack Hub (pré-visualização)
-description: Este artigo descreve como usar o Blob Storage como uma loja de checkpoint em Event Hubs no Azure Stack Hub (pré-visualização).
+title: Utilizar o Armazenamento de Blobs como arquivo de pontos de verificação no Azure Stack Hub
+description: Este artigo descreve como usar o Blob Storage como uma loja de checkpoint em Event Hubs no Azure Stack Hub.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: 9da525decfb7b972f05af17c259836d0b17bb21e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/09/2020
+ms.openlocfilehash: 07d7cf844480a9a88468c17cecc7ca38cca5d176
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021240"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007828"
 ---
-# <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub-preview"></a>Use o Blob Storage como loja de ponto de verificação - Centros de eventos no Azure Stack Hub (pré-visualização)
+# <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub"></a>Use o Blob Storage como loja de checkpoint - Centros de eventos no Azure Stack Hub
 Se estiver a utilizar o Azure Blob Storage como loja de checkpoint num ambiente que suporta uma versão diferente do Storage Blob SDK do que os que estão normalmente disponíveis no Azure, terá de usar o código para alterar a versão API do serviço de armazenamento para a versão específica suportada por esse ambiente. Por exemplo, se estiver a executar Os Centros de [Eventos numa versão Azure Stack Hub 2002](/azure-stack/user/event-hubs-overview), a versão mais alta disponível para o serviço de Armazenamento é a versão 2017-11-09. Neste caso, é necessário utilizar o código para direcionar a versão API do serviço de armazenamento para 2017-11-09. Para um exemplo sobre como direcionar uma versão específica da API de armazenamento, consulte estas amostras no GitHub: 
 
 - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/)
 - [Java.](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java) 
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) ou  [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) 
 - Python - [Sincronizado,](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py) [Assíncronos](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
-
-> [!IMPORTANT]
-> Os Centros de Eventos no Azure Stack Hub estão atualmente em [pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) e são gratuitos. 
 
 Se executar o recetor Event Hubs que utiliza o Blob Storage como loja de pontos de verificação sem direcionar a versão que o Azure Stack Hub suporta, receberá a seguinte mensagem de erro:
 
@@ -57,6 +54,6 @@ The exception is HttpResponseError('The value for one of the HTTP headers is not
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o seguinte artigo aprender sobre partição e checkpointing: Equilibrar a [carga de partição em vários casos da sua aplicação](event-processor-balance-partition-load.md)

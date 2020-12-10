@@ -1,15 +1,14 @@
 ---
 title: FAQ - Backup Up Azure VMs
 description: Neste artigo, descubra respostas a perguntas comuns sobre o backup dos VMs Azure com o serviço Azure Backup.
-ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 0f4f990654cc23fde7cf1ad2e37ba1ada76d94e3
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ba2779305302e91f68cb2664c90f53fdf9a9ca55
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324793"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008355"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-Back up Azure VMs
 
@@ -29,7 +28,7 @@ Apesar de o tempo total das cópias de segurança incrementais ser inferior a 24
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>O custo de reserva está incluído no custo do VM?
 
-Não. Os custos de backup são separados dos custos de um VM. Saiba mais sobre [os preços de backup da Azure.](https://azure.microsoft.com/pricing/details/backup/)
+N.º Os custos de backup são separados dos custos de um VM. Saiba mais sobre [os preços de backup da Azure.](https://azure.microsoft.com/pricing/details/backup/)
 
 ### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Que permissões são necessárias para permitir a cópia de segurança para um VM?
 
@@ -49,7 +48,7 @@ Se o cofre dos Serviços de Recuperação e o VM tiverem diferentes grupos de re
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Um trabalho de reserva a pedido usa o mesmo horário de retenção que os backups programados?
 
-Não. Especifique o intervalo de retenção para um trabalho de backup a pedido. Por padrão, é retido por 30 dias quando disparado do portal.
+N.º Especifique o intervalo de retenção para um trabalho de backup a pedido. Por padrão, é retido por 30 dias quando disparado do portal.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Ativei recentemente o Azure Disk Encryption em algumas VMs. As minhas cópias de segurança vão continuar a funcionar?
 
@@ -163,11 +162,20 @@ Operações como o secret/key roll-over não requerem este passo e o mesmo cofre
 
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>Posso aceder ao VM uma vez restaurado devido a um VM ter quebrado a relação com o controlador de domínio?
 
-Sim, acede ao VM uma vez restaurado devido a um VM ter quebrado a relação com o controlador de domínio. Para mais informações, consulte este [artigo](./backup-azure-arm-restore-vms.md#post-restore-steps)
+Sim, acede ao VM uma vez restaurado devido a um VM ter quebrado a relação com o controlador de domínio. Para mais informações, consulte este [artigo.](./backup-azure-arm-restore-vms.md#post-restore-steps)
+
+### <a name="can-i-cancel-an-in-progress-restore-job"></a>Posso cancelar um trabalho de restauro em curso?
+Não, não pode cancelar o trabalho de restauro que está em andamento.
 
 ### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>Por que motivo a conclusão da operação de restauro está a demorar muito tempo?
 
 O tempo total de restauro depende das operações de Entrada/saída por segundo (IOPS) e do rendimento da conta de armazenamento. O tempo total de restauro pode ser afetado se a conta de armazenamento do alvo for carregada com outras operações de leitura e escrita de aplicações. Para melhorar o funcionamento da restauração, selecione uma conta de armazenamento que não esteja carregada com outros dados da aplicação.
+
+### <a name="how-do-we-handle-create-new-virtual-machine-restore-type-conflicts-with-governance-policies"></a>Como lidamos com conflitos do tipo "Criar nova máquina virtual" com políticas de governação?
+
+O Azure Backup utiliza discos "anexados" a partir de pontos de recuperação e não olha para as referências de imagem ou galerias. Assim, na política pode verificar "storageProfile.osDisk.createOption as Attach", e a condição do script será:
+
+`if (storageProfile.osDisk.createOption == "Attach") then { exclude <Policy> }`
 
 ## <a name="manage-vm-backups"></a>Gerir cópias de segurança de VMs
 

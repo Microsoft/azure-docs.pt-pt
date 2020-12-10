@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 31ae4605b6cc9e26c89beea692fe61fcbda49c4c
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 22bdf93e7236ae5220a6bb7c6ead898628bb51a1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621506"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007590"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Cache Azure para Redis com Link Privado Azure (Visualização pública)
 Neste artigo, você vai aprender a criar uma rede virtual e um Azure Cache para o caso Redis com um ponto final privado usando o portal Azure. Você também vai aprender a adicionar um ponto final privado a um Azure Cache existente para o exemplo de Redis.
@@ -224,7 +224,12 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
 ```
 
 ### <a name="are-network-security-groups-nsg-enabled-for-private-endpoints"></a>Os grupos de segurança de rede (NSG) estão habilitados para pontos finais privados?
-Não, são deficientes para pontos finais privados. No entanto, se existirem outros recursos na sub-rede, a aplicação da NSG aplicar-se-á a esses recursos.
+Não, são deficientes para pontos finais privados. Embora as sub-redes que contenham o ponto final privado possam ter NSG associada, as regras não serão eficazes no tráfego processado pelo ponto final privado. Deve ter [políticas de rede desativadas](../private-link/disable-private-endpoint-network-policy.md) para implantar pontos finais privados numa sub-rede. O NSG ainda é aplicado em outras cargas de trabalho alojoadas na mesma sub-rede. As rotas em qualquer sub-rede de clientes utilizarão um prefixo /32, alterando o comportamento de encaminhamento padrão requer um UDR semelhante. 
+
+Controle o tráfego utilizando as regras NSG para tráfego de saída em clientes de origem. Implementar rotas individuais com prefixo /32 para substituir rotas privadas de ponto final. Os registos do NSG Flow e as informações de monitorização das ligações de saída ainda são suportados e podem ser utilizados
+
+### <a name="can-i-use-firewall-rules-with-private-endpoints"></a>Posso usar regras de firewall com pontos finais privados?
+Não, esta é uma limitação atual de pontos finais privados. O ponto final privado não funcionará corretamente se as regras de firewall estiverem configuradas na cache.
 
 ### <a name="how-can-i-connect-to-a-clustered-cache"></a>Como posso ligar-me a uma cache agrupada?
 `publicNetworkAccess` precisa de ser definido `Disabled` e só pode haver uma ligação privada de ponto final.

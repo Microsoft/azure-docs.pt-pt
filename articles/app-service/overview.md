@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 1b72224441741990a1fc94400dfe718ea9d1b0b3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e9c49d472f6cf0b9f0e5b3e2f7728417034059b1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88961487"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007098"
 ---
 # <a name="app-service-overview"></a>Descrição geral do Serviço de Aplicações
 
@@ -36,7 +36,7 @@ Aqui estão algumas características-chave do Serviço de Aplicações:
 * **API e funcionalidades móveis** - O Serviço de Aplicações fornece suporte CORS chave-na-turno para cenários DE API RESTful, e simplifica cenários de aplicações móveis, permitindo a autenticação, sincronização de dados offline, notificações push, e muito mais.
 * **Código sem servidor** - Execute um fragmento de código ou script a pedido, sem ter de aprovisionar ou gerir a infraestrutura explicitamente, e pague apenas o tempo de computação que o seu código utiliza (veja [Azure Functions (Funções do Azure)](../azure-functions/index.yml)).
 
-Além do Serviço de Aplicações, o Azure oferece outros serviços que podem ser usados para hospedar websites e aplicações web. Para a maioria dos cenários, o Serviço de Aplicações é a melhor escolha.  Para a arquitetura de microserviços, considere [o Azure Spring-Cloud Service](../spring-cloud/index.yml) ou [o Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric).  Se precisar de mais controlo sobre os VMs em que o seu código funciona, considere [as Máquinas Virtuais Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Para obter mais informações sobre como escolher entre estes serviços do Azure, consulte a [Comparação entre o App Service do Azure, as Virtual Machines, o Service Fabric e os Cloud Services](/azure/architecture/guide/technology-choices/compute-decision-tree).
+Além do Serviço de Aplicações, o Azure oferece outros serviços que podem ser usados para hospedar websites e aplicações web. Para a maioria dos cenários, o Serviço de Aplicações é a melhor escolha.  Para a arquitetura de microserviços, considere [Azure Spring-Cloud Service](../spring-cloud/index.yml) ou [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric).  Se precisar de mais controlo sobre os VMs em que o seu código funciona, considere [as Máquinas Virtuais Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Para obter mais informações sobre como escolher entre estes serviços do Azure, consulte a [Comparação entre o App Service do Azure, as Virtual Machines, o Service Fabric e os Cloud Services](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## <a name="app-service-on-linux"></a>Serviço de Aplicações no Linux
 
@@ -44,7 +44,7 @@ O Serviço de Aplicações também pode hospedar aplicações web de forma nativ
 
 ### <a name="built-in-languages-and-frameworks"></a>Línguas e quadros incorporados
 
-O Serviço de Aplicações no Linux suporta uma série de imagens incorporadas específicas do idioma. Basta implementar o seu código. As línguas suportadas incluem: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core e Ruby. Corra [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) para ver os mais recentes idiomas e versões suportadas. Se o tempo de execução que a sua aplicação necessita não for suportado nas imagens incorporadas, pode implantá-la com um recipiente personalizado.
+O Serviço de Aplicações no Linux suporta uma série de imagens incorporadas específicas do idioma. Basta implementar o seu código. As línguas suportadas incluem: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core e Ruby. Corra [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes) para ver os mais recentes idiomas e versões suportadas. Se o tempo de execução que a sua aplicação necessita não for suportado nas imagens incorporadas, pode implantá-la com um recipiente personalizado.
 
 ### <a name="limitations"></a>Limitações
 

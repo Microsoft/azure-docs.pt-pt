@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: 834e4fe8c7b3923f40a07c02c0310200db222308
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 12/09/2020
+ms.openlocfilehash: 027852216b3f2055a5a381d00aff94526953b898
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697259"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007879"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Crie uma consulta simples na Pesquisa Cognitiva Azure
 
@@ -22,6 +22,14 @@ Na Pesquisa Cognitiva Azure, a [simples sintaxe de consulta](query-simple-syntax
 Neste artigo, usamos exemplos para ilustrar a simples sintaxe, povoando o `search=` parâmetro de uma operação de [Documentos de Busca.](/rest/api/searchservice/search-documents)
 
 Uma sintaxe de consulta alternativa é [Full Lucene,](query-lucene-syntax.md)suportando estruturas de consulta mais complexas, como a pesquisa fuzzy e wildcard, que pode levar mais tempo para processar. Para obter mais informações e exemplos que demonstrem a sintaxe completa, consulte [utilizar a sintaxe lucene completa](search-query-lucene-examples.md).
+
+Escolha entre as seguintes ferramentas e APIs para submeter consultas.
+
+| Metodologia | Descrição |
+|-------------|-------------|
+| [Explorador de procura (portal)](search-explorer.md) | Fornece uma barra de pesquisa e opções para seleções de versão index e api. Os resultados são devolvidos como documentos JSON. Recomendado para exploração, teste e validação. <br/>[Saiba mais.](search-get-started-portal.md#query-index) | 
+| [Código do Carteiro ou estúdio visual](search-get-started-rest.md) | As ferramentas de teste web são uma excelente escolha para formular [chamadas de Documentos de Busca](/rest/api/searchservice/search-documents) REST. A API REST suporta todas as operações programáticas em Azure Cognitive Search, para que possa emitir pedidos interativamente para concentrar a sua exploração numa tarefa específica.  |
+| [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) | Cliente que pode ser usado para consultar um índice de Pesquisa Cognitiva Azure.  <br/>[Saiba mais.](search-howto-dotnet-sdk.md)  |
 
 ## <a name="formulate-requests-in-postman"></a>Formular pedidos no Carteiro
 

@@ -9,12 +9,12 @@ ms.date: 07/06/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 7246bb3453f6e4863faf15dbcbfdf8534481ddad
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 21f937d95c6cd0dafa27daae50d7a74648af7bdc
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561453"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97006111"
 ---
 # <a name="create-an-app-service-app-and-deploy-private-endpoint-using-azure-cli"></a>Crie uma aplicação de Serviço de Aplicações e implemente o Private Endpoint usando o Azure CLI
 
@@ -37,7 +37,7 @@ az group create --name myResourceGroup --location francecentral
 ## <a name="create-an-app-service-plan"></a>Criar um Plano do Serviço de Aplicações
 
 Precisa de criar um Plano de Serviço de Aplicações para hospedar a sua Web App.
-Crie um Plano de Serviço de Aplicações com [plano de serviço de app az criar.](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create)
+Crie um Plano de Serviço de Aplicações com [plano de serviço de app az criar.](/cli/azure/appservice/plan#az-appservice-plan-create)
 Este exemplo cria o Plano de Serviço de Aplicações nomeado *myAppServicePlan* na localização *francecentral* com *sku P1V2* e apenas um trabalhador: 
 
 ```azurecli-interactive
@@ -64,7 +64,7 @@ az webapp create \
 
 ## <a name="create-a-vnet"></a>Criar uma VNet
 
-Criar uma Rede Virtual com [a rede Az vnet criar.](/cli/azure/network/vnet) Este exemplo cria uma Rede Virtual padrão chamada *myVNet* com uma sub-rede chamada *mySubnet* :
+Criar uma Rede Virtual com [a rede Az vnet criar.](/cli/azure/network/vnet) Este exemplo cria uma Rede Virtual padrão chamada *myVNet* com uma sub-rede chamada *mySubnet*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -78,7 +78,7 @@ az network vnet create \
 
 ## <a name="configure-the-subnet"></a>Configure a Sub-rede 
 
-É necessário atualizar a sub-rede para desativar as políticas privadas de rede de pontos finais. Atualize uma configuração de sub-rede chamada *mySubnet* com [atualização da sub-rede de rede az:](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)
+É necessário atualizar a sub-rede para desativar as políticas privadas de rede de pontos finais. Atualize uma configuração de sub-rede chamada *mySubnet* com [atualização da sub-rede de rede az:](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)
 
 ```azurecli-interactive
 az network vnet subnet update \

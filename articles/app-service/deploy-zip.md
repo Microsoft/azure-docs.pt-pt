@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: be230a6b3addce3ffc57c40b6af85bc3bdcf4a5a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 150f6b57f1dec0b6d925ef53b4a7001ae9f23607
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743630"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007913"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Implemente a sua aplicação para o Azure App Service com um ficheiro ZIP ou WAR
 
@@ -44,7 +44,7 @@ O ponto final acima não funciona para os Serviços de Aplicações Linux neste 
 
 ## <a name="deploy-zip-file-with-azure-cli"></a>Implementar ficheiro ZIP com Azure CLI
 
-Implemente o ficheiro ZIP carregado para a sua aplicação web utilizando o comando [config-zip de config-zip da fonte de implementação do webapp.](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip)  
+Implemente o ficheiro ZIP carregado para a sua aplicação web utilizando o comando [config-zip de config-zip da fonte de implementação do webapp.](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-zip)  
 
 O exemplo a seguir implementa o ficheiro ZIP que carregou. Ao utilizar uma instalação local do Azure CLI, especifique o caminho para o seu ficheiro ZIP local para `--src` .
 

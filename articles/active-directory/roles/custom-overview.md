@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f694a46fddbc84968b3267842aa19108d051590
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0876478d638963e7157f7a16a263000eec634db0
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499242"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005124"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Visão geral do controlo de acesso baseado em funções no Azure Ative Directory
 
@@ -30,10 +30,13 @@ Este artigo descreve como compreender o controlo de acesso baseado em funções 
 Ambos os sistemas contêm definições de funções igualmente utilizadas e atribuições de funções. No entanto, as permissões de papel da AD Azure não podem ser usadas em funções personalizadas Azure e vice-versa.
 
 ## <a name="understand-azure-ad-role-based-access-control"></a>Compreenda o controlo de acesso baseado em funções da Azure AD
+A Azure AD suporta 2 tipos de definições de funções - 
+* [Funções incorporadas](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference)
+* [Funções personalizadas](https://docs.microsoft.com/azure/active-directory/roles/custom-create)
 
-Conceder permissão usando funções Azure AD personalizadas é um processo em duas etapas que envolve criar uma definição de papel personalizada e, em seguida, atribuí-la usando uma atribuição de papel. Uma definição de função personalizada é uma coleção de permissões que você adiciona a partir de uma lista pré-configurada. Estas permissões são as mesmas permissões usadas nas funções incorporadas.  
+As funções incorporadas estão fora das funções de caixa que têm um conjunto fixo de permissões. Estas definições de papel não podem ser modificadas. Há muitos [papéis incorporados](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference) que a Azure AD suporta, e a lista está a crescer. Para arredondar as bordas e satisfazer os seus requisitos sofisticados, a Azure AD também suporta [funções personalizadas.](https://docs.microsoft.com/azure/active-directory/roles/custom-create) Conceder permissão usando funções Azure AD personalizadas é um processo em duas etapas que envolve criar uma definição de papel personalizada e, em seguida, atribuí-la usando uma atribuição de papel. Uma definição de função personalizada é uma coleção de permissões que você adiciona a partir de uma lista pré-configurada. Estas permissões são as mesmas permissões usadas nas funções incorporadas.  
 
-Uma vez criada a definição de papel, pode atribuí-la a um utilizador criando uma atribuição de funções. Uma atribuição de funções concede ao utilizador as permissões numa definição de função num âmbito especificado. Este processo em duas etapas permite-lhe criar uma definição de papel única e atribuí-la muitas vezes em diferentes âmbitos. Um âmbito define o conjunto de recursos Azure AD a que o membro tem acesso. O âmbito mais comum é o âmbito de organização (org-wide). Um papel personalizado pode ser atribuído no âmbito org-wide, o que significa que o membro do papel tem o papel permissões sobre todos os recursos na organização. Uma função personalizada também pode ser atribuída no âmbito do objeto. Um exemplo de um âmbito de objeto seria uma única aplicação. A mesma função pode ser atribuída a um utilizador em todas as aplicações da organização e depois a outro utilizador com âmbito apenas da app Contoso Expense Reports.  
+Uma vez criada a definição de papel personalizada (ou usando um papel incorporado), pode atribuí-la a um utilizador criando uma atribuição de funções. Uma atribuição de funções concede ao utilizador as permissões numa definição de função num âmbito especificado. Este processo em duas etapas permite-lhe criar uma definição de papel única e atribuí-la muitas vezes em diferentes âmbitos. Um âmbito define o conjunto de recursos Azure AD a que o membro tem acesso. O âmbito mais comum é o âmbito de organização (org-wide). Um papel personalizado pode ser atribuído no âmbito org-wide, o que significa que o membro do papel tem o papel permissões sobre todos os recursos na organização. Uma função personalizada também pode ser atribuída no âmbito do objeto. Um exemplo de um âmbito de objeto seria uma única aplicação. A mesma função pode ser atribuída a um utilizador em todas as aplicações da organização e depois a outro utilizador com âmbito apenas da app Contoso Expense Reports.  
 
 As funções azure AD incorporadas e personalizadas operam em conceitos semelhantes ao controlo de acesso baseado em [funções Azure (Azure RBAC)](../../active-directory-b2c/overview.md). A [diferença entre estes dois sistemas de controlo de acesso baseados em funções](../../role-based-access-control/rbac-and-directory-admin-roles.md) é que o Azure RBAC controla o acesso aos recursos Azure, tais como máquinas virtuais ou armazenamento usando a Azure Resource Management, e as funções personalizadas AZURE controlam o acesso aos recursos Azure AD usando a API do gráfico. Ambos os sistemas alavancam o conceito de definições de funções e atribuições de funções. As permissões Azure AD RBAC não podem ser incluídas em funções de Azure e vice-versa.
 
@@ -80,10 +83,10 @@ Um âmbito é a restrição de ações permitidas a um determinado recurso AD Az
 
 ## <a name="required-license-plan"></a>Plano de licença exigido
 
-[!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
+A utilização de funções incorporadas no Azure AD é gratuita, enquanto as funções personalizadas requerem uma licença Azure AD Premium P1. Para encontrar a licença certa para os seus requisitos, veja [Comparação das funcionalidades disponíveis geralmente das edições Gratuita, Básica e Premium](https://azure.microsoft.com/pricing/details/active-directory).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Compreenda os papéis da AD do AZure](concept-understand-roles.md)
+- [Compreender as funções do Azure AD](concept-understand-roles.md)
 - Crie atribuições de funções personalizadas utilizando [o portal Azure AD PowerShell e API de gráficos](custom-create.md)
 - [Ver as atribuições para um papel personalizado](custom-view-assignments.md)

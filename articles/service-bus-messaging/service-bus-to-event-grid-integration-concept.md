@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f0aaa82db61b5f40e42d6dad641bc09d5add9d0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 621402975411afb63055a7d6a45d86d9e026e284
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078338"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007760"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Descrição geral de integração do Azure Service Bus para o Event Grid
 
@@ -39,7 +39,9 @@ Vá ao seu espaço de nomes de Service Bus e, em seguida, selecione **Access con
 O Service Bus envia atualmente eventos para dois cenários:
 
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
-* DeadletterMessagesAvailable
+* [DeadletterMessagesAvailable](#deadletter-messages-available-event)
+* [ActiveMessagesAvailablePeriodicNotifications](#active-messages-available-periodic-notifications)
+* [DeadletterMessavailablePeriodicNotifications](#deadletter-messages-available-periodic-notifications)
 
 Além disso, utiliza a segurança padrão do Event Grid e [mecanismos de autenticação](../event-grid/security-authentication.md).
 
@@ -71,7 +73,7 @@ O esquema para este evento é o seguinte:
 }
 ```
 
-#### <a name="dead-letter-messages-available-event"></a>Evento Disponível de Mensagens Não Entregues
+#### <a name="deadletter-messages-available-event"></a>Evento de Mensagens Deadletter Disponível
 
 Obtém, pelo menos, um evento por fila de Mensagens Não Entregues, que tem mensagens e recetores não ativos.
 
@@ -82,6 +84,58 @@ O esquema para este evento é o seguinte:
   "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
   "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
   "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener",
+  "eventTime": "2018-02-14T05:12:53.4133526Z",
+  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
+  "data": {
+    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
+    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
+    "entityType": "subscriber",
+    "queueName": "QUEUE NAME IF QUEUE",
+    "topicName": "TOPIC NAME IF TOPIC",
+    "subscriptionName": "SUBSCRIPTION NAME"
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
+#### <a name="active-messages-available-periodic-notifications"></a>Mensagens Ativas Disponíveis Notificações Periódicas
+
+Este evento é gerado periodicamente se tiver mensagens ativas na fila ou subscrição específicas, mesmo que existam ouvintes ativos nessa fila ou subscrição específica.
+
+O esquema para o evento é o seguinte.
+
+```json
+[{
+  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
+  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
+  "eventType": "Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications",
+  "eventTime": "2018-02-14T05:12:53.4133526Z",
+  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
+  "data": {
+    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
+    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
+    "entityType": "subscriber",
+    "queueName": "QUEUE NAME IF QUEUE",
+    "topicName": "TOPIC NAME IF TOPIC",
+    "subscriptionName": "SUBSCRIPTION NAME"
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
+#### <a name="deadletter-messages-available-periodic-notifications"></a>Mensagens Deadletter Disponíveis Notificações Periódicas
+
+Este evento é gerado periodicamente se tiver mensagens deadletter na fila ou subscrição específicas, mesmo que existam ouvintes ativos na entidade deadletter dessa fila ou subscrição específica.
+
+O esquema para o evento é o seguinte.
+
+```json
+[{
+  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
+  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
+  "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications",
   "eventTime": "2018-02-14T05:12:53.4133526Z",
   "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
   "data": {
@@ -132,7 +186,7 @@ Para criar uma nova subscrição do Event Grid, efetue o seguinte:
 
 ## <a name="azure-cli-instructions"></a>Instruções da CLI do Azure
 
-Primeiro, certifique-se de que tem a versão 2.0 da CLI do Azure ou posterior instalada. [Descarregue o instalador](/cli/azure/install-azure-cli?view=azure-cli-latest). Selecione **Windows + X**e, em seguida, abra uma nova consola PowerShell com permissões de administrador. Em alternativa, pode utilizar uma shell de comandos no portal do Azure.
+Primeiro, certifique-se de que tem a versão 2.0 da CLI do Azure ou posterior instalada. [Descarregue o instalador](/cli/azure/install-azure-cli?view=azure-cli-latest). Selecione **Windows + X** e, em seguida, abra uma nova consola PowerShell com permissões de administrador. Em alternativa, pode utilizar uma shell de comandos no portal do Azure.
 
 Execute o seguinte código:
 

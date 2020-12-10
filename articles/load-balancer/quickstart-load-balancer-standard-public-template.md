@@ -5,22 +5,22 @@ description: Este quickstart mostra como criar um equilibrador de carga utilizan
 services: load-balancer
 documentationcenter: na
 author: asudbring
-manager: twooley
+manager: KumudD
 Customer intent: I want to create a load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2020
+ms.date: 12/09/2020
 ms.author: allensu
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 66d702846bac5825239e891ce47f8cca5bb857f0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 378ab88f4dee0c725e89f77cc6b2ffe049ff877a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90984420"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008440"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Quickstart: Criar um equilibrador de carga público para carregar VMs de equilíbrio utilizando um modelo ARM
 
@@ -51,12 +51,13 @@ O equilibrador de carga e os SKUs IP públicos devem coincidir. Quando cria um b
 Vários recursos Azure foram definidos no modelo:
 
 - [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadbalancers)
-- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses): para o equilibrador de carga e para cada uma das três máquinas virtuais.
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses): para o equilibrador de carga, hospedeiro de bastião e para cada uma das três máquinas virtuais.
+- [**Microsoft.Network/bastionHosts**](/azure/templates/microsoft.network/bastionhosts)
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines) (3 deles).
-- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) (3 deles).
-- [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3 delas): use para configurar o Servidor de Informações da Internet (IIS) e as páginas web.
+- [**Microsoft.Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines) (3).
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) (3).
+- [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3): use para configurar o Servidor de Informações da Internet (IIS) e as páginas web.
 
 Para encontrar mais modelos relacionados com o Azure Load Balancer, consulte [os modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
@@ -117,7 +118,7 @@ Azure PowerShell é usado para implementar o modelo. Também pode utilizar o por
 
 Para ver o equilibrador de carga distribuir tráfego através dos três VMs, você pode forçar uma atualização do seu navegador web a partir da máquina do cliente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar, elimine o: 
 
@@ -131,6 +132,8 @@ Vá ao portal Azure, selecione o grupo de recursos que contém o equilibrador de
 
 Neste início rápido, irá:
 
+* Criou uma rede virtual para o equilibrador de carga e máquinas virtuais.
+* Criei um anfitrião Azure Bastion para a gestão.
 * Criei um balanceador de carga padrão e ligou-lhe VMs.
 * Configurado a regra de tráfego do balanceador de carga, e a sonda de saúde.
 * Testei o equilibrador de carga.

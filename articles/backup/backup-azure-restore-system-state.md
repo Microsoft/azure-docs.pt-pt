@@ -3,12 +3,12 @@ title: Restaurar o Estado do Sistema num Servidor windows
 description: Explicação passo a passo para restaurar o Estado do Sistema do Servidor do Windows a partir de uma cópia de segurança no Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 824ed5e71934af370211bfa8b4c266fe4323b4ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ef23d6ff16c263e310304cc240c2090751640b1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89377442"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008474"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para o Servidor do Windows
 
@@ -88,7 +88,7 @@ A terminologia utilizada nestes passos inclui:
 6. No painel 'Selecionar backup', selecione a *máquina 'Fonte'* da lista de máquinas visualizadas.
 7. No painel de modo de recuperação selecionado, escolha **o Estado do Sistema** e selecione **Seguinte**.
 
-    ![Pesquisa](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Pesquisar](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. No calendário no painel **de volume e data selecionados,** selecione um ponto de recuperação. Pode restaurar a partir de qualquer ponto de recuperação no tempo. As datas em **negrito** indicam a disponibilidade de pelo menos um ponto de recuperação. Uma vez selecionada uma data, se estiverem disponíveis vários pontos de recuperação, escolha o ponto de recuperação específico do menu de entrega do **tempo.**
 
@@ -116,7 +116,7 @@ Assim que tiver recuperado o Estado do Sistema como ficheiros que utilizam o Age
 
 1. Abra o encaixe de backup do Servidor do Windows. Se não souber onde o encaixe foi instalado, procure no computador ou servidor para obter **cópia de segurança do Servidor do Windows**.
 
-    A aplicação de ambiente de trabalho aparece nos resultados da pesquisa. Se não aparecer, ou encontrar erros quando abrir a aplicação, tem de instalar as **Funcionalidades de Backup**do Servidor do Windows e componentes dependentes abaixo, que estão disponíveis no **'Add Features Wizard'** no **Server Manager**.
+    A aplicação de ambiente de trabalho aparece nos resultados da pesquisa. Se não aparecer, ou encontrar erros quando abrir a aplicação, tem de instalar as **Funcionalidades de Backup** do Servidor do Windows e componentes dependentes abaixo, que estão disponíveis no **'Add Features Wizard'** no **Server Manager**.
 
 1. No snap-in, selecione **Local Backup**.
 
@@ -124,7 +124,7 @@ Assim que tiver recuperado o Estado do Sistema como ficheiros que utilizam o Age
 
 1. Na consola De backup local, no **Painel de Ações,** selecione **Recuperar** para abrir o Assistente de Recuperação.
 
-1. Selecione a opção, **Uma cópia de segurança armazenada noutro local**e selecione **Seguinte**.
+1. Selecione a opção, **Uma cópia de segurança armazenada noutro local** e selecione **Seguinte**.
 
    ![optar por recuperar para um servidor diferente](./media/backup-azure-restore-system-state/backup-stored-in-diff-location.png)
 
@@ -201,6 +201,8 @@ Este artigo será apenas discutido o primeiro cenário, que exige uma restauraç
 
 1. Depois de ter concluído com sucesso uma restauração, deverá reiniciar o servidor em modo normal. Abra uma pronta de comando e digite o seguinte: `bcdedit /deletevalue safeboot`
 1. Reinicie o servidor.
+
+Para obter mais informações, consulte [Back up e restaure os controladores de domínio do Ative Directory](active-directory-backup-restore.md).
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Resolução de problemas falhou restauro do Estado do Sistema
 

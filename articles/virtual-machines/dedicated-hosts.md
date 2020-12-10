@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 07/28/2020
+ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: a42b07254deaf19d253f7523631018bfe7166a57
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4e29bb0fee496af6a8c0fd30d5559bf865123c39
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339596"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007896"
 ---
 # <a name="azure-dedicated-hosts"></a>Anfitriões Dedicados Azure
 
@@ -67,11 +67,6 @@ O modelo de amostra do Gestor de Recursos encontrado [aqui](https://github.com/A
 
 ## <a name="manual-vs-automatic-placement"></a>Colocação manual vs. automática 
 
-> [!IMPORTANT]
-> A colocação automática está atualmente em visualização pública.
-> Para participar na pré-visualização, complete o pré-visualização do inquérito de embarque em [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Ao criar um VM em Azure, pode selecionar qual o anfitrião dedicado a utilizar. Também pode utilizar a opção de colocar automaticamente os seus VMs nos anfitriões existentes, dentro de um grupo anfitrião. 
 
 Ao criar um novo grupo de anfitriões, certifique-se de que a definição para colocação automática de VM é selecionada. Ao criar o seu VM, selecione o grupo anfitrião e deixe a Azure escolher o melhor anfitrião para o seu VM. 
@@ -91,11 +86,6 @@ Questões e limitações conhecidas ao utilizar a colocação automática de VM:
 
 Conjuntos de escala de máquinas virtuais permitem tratar um grupo de máquinas virtuais como um único recurso, e aplicar políticas de disponibilidade, gestão, escala e orquestração como um grupo. Os anfitriões dedicados existentes também podem ser utilizados para conjuntos de escala de máquinas virtuais. 
 
-> [!IMPORTANT]
-> Os conjuntos de escala de máquina virtual em anfitriões dedicados estão atualmente em pré-visualização pública.
-> Para participar na pré-visualização, complete o pré-visualização do inquérito de embarque em [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Ao criar um conjunto de escala de máquina virtual, pode especificar um grupo anfitrião existente para ter todos os casos de VM criados em anfitriões dedicados.
 
 Aplicam-se os seguintes requisitos ao criar uma escala de máquina virtual definida num grupo de anfitriões dedicado:
@@ -109,7 +99,7 @@ Aplicam-se os seguintes requisitos ao criar uma escala de máquina virtual defin
 - Os tamanhos de VM suportados para os seus anfitriões dedicados devem corresponder ao utilizado para o seu conjunto de escala.
 
 Nem todas as definições de orquestração e otimização em escala são suportadas por anfitriões dedicados. Aplique as seguintes definições no seu conjunto de escala: 
-- Desativar a superprovisão.
+- A superprovisão não é recomendada e é desativada por padrão. Pode permitir uma sobreprovisão, mas a alocação definida em escala falhará se o grupo anfitrião não tiver capacidade para todos os VMs, incluindo as instâncias sobreprovisionadas. 
 - Utilize o modo de orquestração ScaleSetVM 
 - Não utilize grupos de colocação de proximidade para co-localização
 

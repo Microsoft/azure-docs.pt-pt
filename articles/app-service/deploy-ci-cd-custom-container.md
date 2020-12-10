@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 8a51fbcb7b7504b9a16e8d0025856c2b007070a9
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e879d8370821ea465147e344d0fe95836c843ff4
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928013"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008015"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Implementação contínua com a Aplicação Web para Contentores
 
@@ -55,7 +55,7 @@ Copie a URL webhook. Para adicionar um webhook para Docker Hub, siga <a href="ht
 
 ## <a name="automate-with-cli"></a>Automatize com CLI
 
-Para configurar o CI/CD utilizando o CLI Azure, executar o comando de configuração do [contentor de implementação az webapp](/cli/azure/webapp/deployment/container?view=azure-cli-latest#az-webapp-deployment-container-config) para gerar o URL webhook. O URL pode ser usado para configurar o seu Registo de Contentores DockerHub ou Azure.
+Para configurar o CI/CD utilizando o CLI Azure, executar o comando de configuração do [contentor de implementação az webapp](/cli/azure/webapp/deployment/container#az-webapp-deployment-container-config) para gerar o URL webhook. O URL pode ser usado para configurar o seu Registo de Contentores DockerHub ou Azure.
 
 ```azurecli-interactive
 az webapp deployment container config --name <app-name> --resource-group <group-name> --enable-cd true

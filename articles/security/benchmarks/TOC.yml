@@ -95,6 +95,8 @@
       href: ../../mysql/security-baseline.md
     - name: Linha de base de segurança do Azure Database for MariaDB
       href: ../../mariadb/security-baseline.md
+    - name: Linha de base de segurança do Azure Database Migration Service
+      href: ../../dms/security-baseline.md
     - name: Base de Dados do Azure para PostgreSQL - Linha de base de segurança do Hyperscale
       href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Base de Dados do Azure para PostgreSQL - Linha de base de segurança de Servidor Único

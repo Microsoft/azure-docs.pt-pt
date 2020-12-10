@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 5d3842675cf4b36dfaa95ed6041bf8c6f0978a53
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: b23ff9762ef519d66ed55f75f27dcb80e2d18039
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242879"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007250"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitetura de conectividade em Azure Database para MySQL
 Este artigo explica a Base de Dados Azure para a arquitetura de conectividade MySQL, bem como como o tráfego é direcionado para a sua Base de Dados Azure para o caso MySQL de clientes dentro e fora de Azure.
@@ -50,7 +50,7 @@ A tabela que se segue lista os IPs primários e secundários da Base de Dados Az
 | Índia Central | 104.211.96.159     |
 | Índia do Sul | 104.211.224.146  |
 | Oeste da Índia | 104.211.160.80    |
-| Leste do Japão | 13.78.61.196, 191.237.240.43  |
+| Leste do Japão | 13.78.61.196, 191.237.240.43, 40.79.192.23 |
 | Oeste do Japão | 104.214.148.156, 191.238.68.11, 40.74.96.6, 40.74.96.7    |
 | Coreia do Sul Central | 52.231.32.42   |
 | Sul da Coreia do Sul | 52.231.200.86    |

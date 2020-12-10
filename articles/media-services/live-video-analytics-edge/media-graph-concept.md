@@ -3,12 +3,12 @@ title: Conceito de gráfico de mídia - Azure
 description: Um gráfico mediático permite definir de onde os meios de comunicação devem ser capturados, como deve ser processado e onde os resultados devem ser entregues. Este artigo apresenta uma descrição detalhada do conceito de gráfico mediático.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 7def82160547b759c7ab4c40c681052747261920
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5efb62440b52d6219373d15ba3d19ddac1a2a834
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567083"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007845"
 ---
 # <a name="media-graph"></a>Grafo do suporte de dados
 
@@ -17,7 +17,7 @@ ms.locfileid: "91567083"
 * [Análise de vídeo ao vivo na visão geral do IoT Edge](overview.md)
 * [Análise de vídeo ao vivo na terminologia IoT Edge](terminology.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Um gráfico mediático permite definir de onde os meios de comunicação devem ser capturados, como deve ser processado e onde os resultados devem ser entregues. Consegue-o ligando componentes, ou nós, da maneira desejada. O diagrama abaixo fornece uma representação gráfica de um gráfico mediático.  
 
@@ -41,13 +41,13 @@ Os valores para os parâmetros na topologia são especificados quando cria inst�
 O ciclo de vida das topologias de gráficos e das instâncias de gráfico é mostrado no diagrama de estado seguinte.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Grafo do suporte de dados":::
+> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Topologia de gráficos e gráfico exemplo ciclo de vida":::
 
 Começa-se por [criar uma topologia de gráficos.](direct-methods.md#graphtopologyset) Em seguida, para cada vídeo em direto que pretende processar com esta topologia, [cria-se uma instância de gráfico](direct-methods.md#graphinstanceset). 
 
 A instância do gráfico estará no `Inactive` estado (ocioso).
 
-Quando estiver pronto para enviar o feed de vídeo [activate](direct-methods.md#graphinstanceactivate) ao vivo para a instância do gráfico, ative-o. A instância do gráfico passará brevemente por um estado de `Activating` transição, e se for bem sucedida, entrará num `Active` estado. No `Active` estado, os meios de comunicação serão processados (se a instância do gráfico receber dados de entrada).
+Quando estiver pronto para enviar o feed de vídeo [](direct-methods.md#graphinstanceactivate) ao vivo para a instância do gráfico, ative-o. A instância do gráfico passará brevemente por um estado de `Activating` transição, e se for bem sucedida, entrará num `Active` estado. No `Active` estado, os meios de comunicação serão processados (se a instância do gráfico receber dados de entrada).
 
 > [!NOTE]
 >  Uma instância de gráfico pode ser ativa sem que os dados fluam através dele (por exemplo, a câmara fica offline).
@@ -70,7 +70,7 @@ Live Video Analytics on IoT Edge suporta os seguintes tipos de nó de nó dentro
 
 #### <a name="rtsp-source"></a>Fonte RTSP 
 
-Um nó de origem RTSP permite-lhe ingerir meios de comunicação a partir de um [RTSP](https://tools.ietf.org/html/rfc2326 server). As câmaras de vigilância e ip transmitem os seus dados num protocolo chamado RTSP (protocolo de streaming em tempo real) que é diferente de outros tipos de dispositivos, como telefones e câmaras de vídeo. Este protocolo é utilizado para estabelecer e controlar as sessões de mídia entre um servidor (a câmara) e um cliente. O nó de origem RTSP num gráfico de mídia funciona como cliente e pode estabelecer uma sessão com um servidor RTSP. Muitos dispositivos, como a maioria das [câmaras IP,](https://en.wikipedia.org/wiki/IP_camera) têm um servidor RTSP incorporado. [A ONVIF](https://www.onvif.org/) obriga o RTSP a ser apoiado na sua definição de [dispositivos compatíveis com perfis G, S & T.](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) O nó de origem RTSP requer que especifique um URL RTSP, juntamente com credenciais para ativar uma ligação autenticada.
+Um nó de origem RTSP permite-lhe ingerir meios de comunicação a partir de um servidor [RTSP.](https://tools.ietf.org/html/rfc2326) As câmaras de vigilância e ip transmitem os seus dados num protocolo chamado RTSP (protocolo de streaming em tempo real) que é diferente de outros tipos de dispositivos, como telefones e câmaras de vídeo. Este protocolo é utilizado para estabelecer e controlar as sessões de mídia entre um servidor (a câmara) e um cliente. O nó de origem RTSP num gráfico de mídia funciona como cliente e pode estabelecer uma sessão com um servidor RTSP. Muitos dispositivos, como a maioria das [câmaras IP,](https://en.wikipedia.org/wiki/IP_camera) têm um servidor RTSP incorporado. [A ONVIF](https://www.onvif.org/) obriga o RTSP a ser apoiado na sua definição de [dispositivos compatíveis com perfis G, S & T.](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) O nó de origem RTSP requer que especifique um URL RTSP, juntamente com credenciais para ativar uma ligação autenticada.
 
 #### <a name="iot-hub-message-source"></a>Fonte de mensagem IoT Hub 
 

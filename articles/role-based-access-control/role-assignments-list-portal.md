@@ -7,15 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/16/2020
+ms.date: 12/09/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: a5b019068368f1c0c076f5a1ed157c288bb7169c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 06a9a955e8a963f94b1885abf5a920cb96c01940
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479923"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007489"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Liste atribuições de funções Azure usando o portal Azure
 
@@ -26,7 +25,7 @@ ms.locfileid: "92479923"
 
 ## <a name="list-role-assignments-for-a-user-or-group"></a>Listar atribuições de funções para um utilizador ou grupo
 
-A maneira mais fácil de ver as funções atribuídas a um utilizador ou grupo numa subscrição é utilizar o painel **de atribuições de funções Azure.**
+Uma forma rápida de ver as funções atribuídas a um utilizador ou grupo numa subscrição é utilizar o painel **de atribuições de funções Azure.**
 
 1. No portal Azure, selecione **Todos os serviços** do menu do portal Azure.
 
@@ -56,19 +55,19 @@ Os utilizadores que tenham sido atribuídos o papel [de Proprietário](built-in-
 
 1. Percorra a secção **Proprietários** para ver todos os utilizadores que foram designados para a função Proprietário para esta subscrição.
 
-   ![Controlo de acesso a subscrição - Separador de atribuições de funções](./media/role-assignments-list-portal/access-control-role-assignments-subscription.png)
+   ![Controlo de acesso a subscrição - Separador de atribuições de funções](./media/role-assignments-list-portal/sub-access-control-role-assignments-owners.png)
 
 ## <a name="list-role-assignments-at-a-scope"></a>Listar atribuições de funções num âmbito
 
-1. No portal Azure, clique em **Todos os serviços** e, em seguida, selecione o âmbito. Por exemplo, pode selecionar **grupos de Gestão,** **Assinaturas, Grupos** **de Recursos**ou um recurso.
+1. No portal Azure, clique em **Todos os serviços** e, em seguida, selecione o âmbito. Por exemplo, pode selecionar **grupos de Gestão,** **Assinaturas, Grupos** **de Recursos** ou um recurso.
 
 1. Clique no recurso específico.
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
 1. Clique no **separador atribuições de funções** para ver todas as atribuições de funções neste âmbito.
 
-   ![Controlo de acesso - Separador de atribuições de funções](./media/role-assignments-list-portal/access-control-role-assignments.png)
+   ![Controlo de acesso - Separador de atribuições de funções](./media/role-assignments-list-portal/rg-access-control-role-assignments.png)
 
    No separador Fun assignments, pode ver quem tem acesso neste âmbito. Tenha em conta que algumas funções têm o âmbito **Este recurso**, ao passo que outras são **(Herdadas)** de outro âmbito. O acesso é atribuído especificamente a este recurso ou herdado de uma atribuição ao âmbito dos pais.
 
@@ -76,27 +75,31 @@ Os utilizadores que tenham sido atribuídos o papel [de Proprietário](built-in-
 
 Para listar o acesso a um utilizador, grupo, principal de serviço ou identidade gerida, enumera as suas atribuições de funções. Siga estes passos para listar as atribuições de funções para um único utilizador, grupo, principal de serviço ou identidade gerida num determinado âmbito.
 
-1. No portal Azure, clique em **Todos os serviços** e, em seguida, selecione o âmbito. Por exemplo, pode selecionar **grupos de Gestão,** **Assinaturas, Grupos** **de Recursos**ou um recurso.
+1. No portal Azure, clique em **Todos os serviços** e, em seguida, selecione o âmbito. Por exemplo, pode selecionar **grupos de Gestão,** **Assinaturas, Grupos** **de Recursos** ou um recurso.
 
 1. Clique no recurso específico.
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
 1. Clique no separador **De acesso a Verificação.**
 
-    ![Controlo de acesso - Verifique o separador de acesso](./media/role-assignments-list-portal/access-control-check-access.png)
+    ![Controlo de acesso a grupos de recursos - Verifique o separador de acesso](./media/role-assignments-list-portal/rg-access-control-check-access.png)
 
-1. Na lista **Localizar,** selecione o tipo de princípio de segurança para o qual pretende verificar o acesso.
+1. Na lista **Localizar,** selecione o utilizador, grupo, principal de serviço ou identidade gerida que pretende verificar o acesso.
 
 1. Na caixa de pesquisa, introduza uma cadeia para pesquisar nomes de exibição, endereços de e-mail ou identificadores de objetos.
 
-    ![Verifique a lista de seleção de acessos](./media/role-assignments-list-portal/check-access-select.png)
+    ![Verifique a lista de seleção de acessos](./media/shared/rg-check-access-select.png)
 
 1. Clique no principal de segurança para abrir o painel **de atribuições.**
 
-    ![pane atribuições](./media/role-assignments-list-portal/check-access-assignments.png)
+    Neste painel, pode ver o acesso ao principal de segurança selecionado neste âmbito e herdado a este âmbito. As atribuições em âmbitos infantis não estão listadas. Vê as seguintes atribuições:
 
-    Neste painel, pode ver as funções atribuídas ao principal de segurança selecionado e o âmbito. Se houver alguma atribuição de negação neste âmbito ou herdada a este âmbito, serão listadas.
+    - Atribuições de funções adicionadas com Azure RBAC.
+    - Nego atribuições adicionadas usando a Azure Blueprints ou aplicações geridas pela Azure.
+    - Administrador de serviço clássico ou Co-Administrator atribuições para implementações clássicas. 
+
+    ![pane atribuições](./media/shared/rg-check-access-assignments-user.png)
 
 ## <a name="list-role-assignments-for-a-managed-identity"></a>Listar atribuições de funções para uma identidade gerida
 
@@ -152,11 +155,11 @@ Ao descarregar atribuições de funções, deve ter em mente os seguintes crité
 
 Siga estes passos para descarregar atribuições de funções num âmbito.
 
-1. No portal Azure, clique em **Todos os serviços** e, em seguida, selecione o âmbito onde pretende descarregar as atribuições de funções. Por exemplo, pode selecionar **grupos de Gestão,** **Assinaturas, Grupos** **de Recursos**ou um recurso.
+1. No portal Azure, clique em **Todos os serviços** e, em seguida, selecione o âmbito onde pretende descarregar as atribuições de funções. Por exemplo, pode selecionar **grupos de Gestão,** **Assinaturas, Grupos** **de Recursos** ou um recurso.
 
 1. Clique no recurso específico.
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
 1. Clique **em Baixar as atribuições de funções** para abrir o painel de atribuições de funções de descarregamento.
 

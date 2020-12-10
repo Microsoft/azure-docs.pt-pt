@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 653110b953b6947254d5063a9e389505d45ea4cb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e5793d21f27128162095e2d86e13006c5b6e7b7c
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149013"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007998"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configure credenciais de implementação para o Azure App Service
 [O Azure App Service](./overview.md) suporta dois tipos de credenciais para [a implantação local](deploy-local-git.md) de Git e [implantação ftp/S](deploy-ftp.md). Estas credenciais não são as mesmas que as suas credenciais de subscrição Azure.
@@ -23,7 +23,7 @@ Pode configurar as suas credenciais de nível de utilizador na página de [recur
 
 ### <a name="in-the-cloud-shell"></a>Na Casca de Nuvem
 
-Para configurar o utilizador de implementação no [Cloud Shell,](https://shell.azure.com)executar o comando [de conjunto de utilizadores de implementação az webapp.](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) Substitua \<username> e por um nome de utilizador de \<password> implementação e senha. 
+Para configurar o utilizador de implementação no [Cloud Shell,](https://shell.azure.com)executar o comando [de conjunto de utilizadores de implementação az webapp.](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) Substitua \<username> e por um nome de utilizador de \<password> implementação e senha. 
 
 - O nome de utilizador deve ser único dentro do Azure, e para os pushes git locais, não deve conter o símbolo '@'. 
 - A palavra-passe deve ter pelo menos oito caracteres, com dois dos seguintes três elementos: letras, números e símbolos. 
@@ -42,7 +42,7 @@ No portal Azure, deve ter pelo menos uma aplicação antes de poder aceder à p�
 
     ![Mostra como pode selecionar o dashboard FTP a partir do centro de implementação em Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
 
-    Ou, se já configurar a implementação do Git, selecione Serviços de **Aplicações**  >  ** &lt; any_app>**  >  **Centro de Implementação**  >  **FTP/Credenciais**.
+    Ou, se já configurar a implementação do Git, selecione Serviços de **Aplicações**  >  **&lt; any_app>**  >  **Centro de Implementação**  >  **FTP/Credenciais**.
 
     ![Mostra como pode selecionar o dashboard FTP a partir do centro de implementação em Azure App Services para a sua configuração de implementação do Git.](./media/app-service-deployment-credentials/access-with-git.png)
 
@@ -68,9 +68,9 @@ Uma vez que as credenciais ao nível do utilizador estão ligadas ao utilizador 
 ## <a name="get-and-reset-app-level-credentials"></a><a name="appscope"></a>Obtenha e reinicie credenciais de nível de aplicativo
 Para obter as credenciais de nível de aplicação:
 
-1. No [portal Azure](https://portal.azure.com), a partir do menu esquerdo, selecione Serviços de **Aplicações**  >  ** &lt; any_app>**  >  **Centro de Implementação**  >  **FTP/Credenciais**.
+1. No [portal Azure](https://portal.azure.com), a partir do menu esquerdo, selecione Serviços de **Aplicações**  >  **&lt; any_app>**  >  **Centro de Implementação**  >  **FTP/Credenciais**.
 
-2. Selecione **Credenciais de Aplicação**e selecione o link **Copy** para copiar o nome de utilizador ou palavra-passe.
+2. Selecione **Credenciais de Aplicação** e selecione o link **Copy** para copiar o nome de utilizador ou palavra-passe.
 
 Para redefinir as credenciais de nível de aplicação, selecione **'Repor credenciais'** no mesmo diálogo.
 
@@ -96,7 +96,7 @@ Para desativar o acesso básico à porta WebDeploy e ao site SCM, executar o seg
 az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
-Para confirmar que as credenciais de perfil de publicação estão bloqueadas na WebDeploy, tente [publicar uma aplicação web utilizando o Visual Studio 2019](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Para confirmar que as credenciais de perfil de publicação estão bloqueadas na WebDeploy, tente [publicar uma aplicação web utilizando o Visual Studio 2019](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 ### <a name="disable-access-to-the-api"></a>Desativar o acesso à API
 

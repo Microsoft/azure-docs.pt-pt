@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 1b1752db80f99c35e2b1b0876eef7a15184c6abf
-  ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+  ms.openlocfilehash: fa4db97e2aefe48e792f7d43dbb782e7a0967716
+  ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/06/2020
-  ms.locfileid: "96745847"
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96905269"
 landingContent:
 - title: Sobre o Azure Maps
   linkLists:
@@ -172,7 +172,7 @@ landingContent:
       url: /rest/api/maps/traffic
     - text: Serviço de Fuso Horário
       url: /rest/api/maps/timezone
-- title: Desenvolver com o Serviço de Elevação
+- title: Desenvolver com o Serviço de elevação
   linkLists:
   - linkListType: how-to-guide
     links:

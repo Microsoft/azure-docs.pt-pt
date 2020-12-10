@@ -2,7 +2,6 @@
 title: Copiar dados da Amazon Redshift
 description: Saiba como copiar dados da Amazon Redshift para lojas de dados de sumidouros suportados utilizando a Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
 manager: shwang
@@ -10,13 +9,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2018
-ms.openlocfilehash: a756a3cec5702570751e0bea09a4f59152accafc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/09/2020
+ms.openlocfilehash: b17c567b2e83bef3c37c8f1272091021a1943b15
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484549"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008333"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiar dados da Amazon Redshift usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -24,7 +23,6 @@ ms.locfileid: "89484549"
 > * [Versão atual](connector-amazon-redshift.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-
 
 Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de um Redshift da Amazon. Baseia-se no artigo [de visão geral](copy-activity-overview.md) da atividade de cópia que apresenta uma visão geral da atividade da cópia.
 
@@ -103,7 +101,7 @@ Para copiar dados da Amazon Redshift, as seguintes propriedades são suportadas:
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do conjunto de dados deve ser definida para: **AmazonRedshiftTable** | Sim |
 | esquema | O nome do esquema. |Não (se for especificada "consulta" na fonte de atividade)  |
-| table | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
+| mesa | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
 | tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` e para nova carga de `table` trabalho. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -164,9 +162,9 @@ Saiba mais sobre como usar o UNLOAD para copiar dados da Amazon Redshift de form
 
 [O UNLOAD](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) é um mecanismo fornecido pela Amazon Redshift, que pode descarregar os resultados de uma consulta a um ou mais ficheiros sobre o Amazon Simple Storage Service (Amazon S3). É a forma recomendada pela Amazon para copiar grandes conjuntos de dados da Redshift.
 
-**Exemplo: copiar dados da Amazon Redshift para Azure Synapse Analytics (anteriormente SQL Data Warehouse) usando UNLOAD, cópia encenada e PolyBase**
+**Exemplo: copiar dados da Amazon Redshift para Azure Synapse Analytics usando UNLOAD, cópia encenada e PolyBase**
 
-Para este caso de utilização de amostras, a atividade de cópia descarrega dados da Amazon Redshift para o Amazon S3 configurados em "redshiftUnloadSettings", e depois copiar dados da Amazon S3 para Azure Blob conforme especificado em "stagingSettings", por último, usar o PolyBase para carregar dados em Azure Synapse Analytics (ex-SQL Data Warehouse). Todo o formato provisório é manuseado corretamente pela atividade de cópia.
+Para este caso de utilização de amostras, a atividade de cópia descarrega dados da Amazon Redshift para o Amazon S3 configurados em "redshiftUnloadSettings", e depois copiar dados da Amazon S3 para Azure Blob como especificado em "stagingSettings", por último, usar o PolyBase para carregar dados em Azure Synapse Analytics. Todo o formato provisório é manuseado corretamente pela atividade de cópia.
 
 ![Redshift para Azure Synapse Analytics copy workflow](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 
@@ -221,17 +219,17 @@ Ao copiar dados da Amazon Redshift, os seguintes mapeamentos são usados desde o
 | Tipo de dados redshift da Amazon | Tipo de dados provisórios da fábrica de dados |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLEANA |Cadeia |
-| CHAR |Cadeia |
+| BOOLEANA |String |
+| CHAR |String |
 | DATE |DateTime |
 | DECIMAL |Decimal |
 | DUPLA PRECISÃO |Double (Duplo) |
 | INTEGER |Int32 |
 | REAL |Único |
 | SMALLINT |Int16 |
-| TEXT |Cadeia |
+| TEXT |String |
 | TIMETAMP |DateTime |
-| RIO VARCHAR |Cadeia |
+| RIO VARCHAR |String |
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 

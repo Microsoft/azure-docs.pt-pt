@@ -3,16 +3,16 @@ title: Azure Service Bus como fonte de grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos de Service Bus com Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 81293321b3a8fb989023a231c905996b4059bd81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34c6990c4e6e87304c457a5b2ca6459c404c8d9a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86121139"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008117"
 ---
 # <a name="azure-service-bus-as-an-event-grid-source"></a>Azure Service Bus como fonte de grade de eventos
 
-Este artigo fornece as propriedades e esquema para eventos de Service Bus.Para uma introdução aos esquemas de eventos, consulte [o esquema do evento Azure Event Grid](event-schema.md).
+Este artigo fornece as propriedades e esquema para eventos de Service Bus. Para uma introdução aos esquemas de eventos, consulte [o esquema do evento Azure Event Grid](event-schema.md).
 
 ## <a name="event-grid-event-schema"></a>Esquema de eventos do Event Grid
 
@@ -24,8 +24,12 @@ A Service Bus emite os seguintes tipos de eventos:
 | ---------- | ----------- |
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Levantado quando há mensagens ativas numa fila ou subscrição e não há recetores a ouvir. |
 | Microsoft.ServiceBus.DeadletterMessAvailableWithNoListener | Levantado quando há mensagens ativas numa fila de cartas mortas e sem ouvintes ativos. |
+| Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications | Angariado periodicamente se houver mensagens ativas numa fila ou subscrição, mesmo que existam ouvintes ativos nessa fila ou subscrição específica. |
+| Microsoft.ServiceBus.DeadletterMessagens DisponíveisNotificações | Levantado periodicamente se houver mensagens na entidade Deadletter de uma Fila ou Subscrição, mesmo que existam ouvintes ativos na entidade Deadletter dessa fila ou subscrição específica. | 
 
 ### <a name="example-event"></a>Exemplo evento
+
+#### <a name="active-messages-available-with-no-listeners"></a>Mensagens ativas disponíveis sem ouvintes
 
 O exemplo a seguir mostra o esquema de mensagens ativas sem evento de ouvintes:
 
@@ -49,6 +53,8 @@ O exemplo a seguir mostra o esquema de mensagens ativas sem evento de ouvintes:
 }]
 ```
 
+#### <a name="deadletter-messages-available-with-no-listener"></a>Mensagens Deadletter disponíveis sem ouvinte
+
 O esquema para um evento de fila de cartas mortas é semelhante:
 
 ```json
@@ -61,6 +67,50 @@ O esquema para um evento de fila de cartas mortas é semelhante:
   "data": {
     "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
     "requestUri": "https://{your-service-bus-namespace}.servicebus.windows.net/{your-topic}/subscriptions/{your-service-bus-subscription}/$deadletterqueue/messages/head",
+    "entityType": "subscriber",
+    "queueName": "QUEUE NAME IF QUEUE",
+    "topicName": "TOPIC NAME IF TOPIC",
+    "subscriptionName": "SUBSCRIPTION NAME"
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
+#### <a name="active-messages-available-periodic-notifications"></a>Mensagens Ativas Disponíveis Notificações Periódicas
+
+```json
+[{
+  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
+  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
+  "eventType": "Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications",
+  "eventTime": "2018-02-14T05:12:53.4133526Z",
+  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
+  "data": {
+    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
+    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
+    "entityType": "subscriber",
+    "queueName": "QUEUE NAME IF QUEUE",
+    "topicName": "TOPIC NAME IF TOPIC",
+    "subscriptionName": "SUBSCRIPTION NAME"
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
+#### <a name="deadletter-messages-available-periodic-notifications"></a>Mensagens Deadletter Disponíveis Notificações Periódicas
+
+```json
+[{
+  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
+  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
+  "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications",
+  "eventTime": "2018-02-14T05:12:53.4133526Z",
+  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
+  "data": {
+    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
+    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
     "entityType": "subscriber",
     "queueName": "QUEUE NAME IF QUEUE",
     "topicName": "TOPIC NAME IF TOPIC",

@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte para o
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 70a81b42ad2fb417902a627afb1651d572844648
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: be0c576da6e38233423a79f562f767de806d7640
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548516"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008372"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para backup Azure
 
@@ -67,7 +67,7 @@ Aqui está o que é suportado se você quiser apoiar VMs Azure:
 
 **Máquina** | **O que está apoiado** | **Localização** | **Funcionalidades**
 --- | --- | --- | ---
-**Backup Azure VM usando extensão VM** | VM inteiro | De volta ao cofre. | Extensão instalada quando ativa a cópia de segurança para um VM.<br/><br/> Recua uma vez por dia.<br/><br/> Cópia de segurança consciente da aplicação para VMs do Windows; cópia de segurança consistente com ficheiros para Os VMs Do Linux. Pode configurar a consistência da aplicação para máquinas Linux utilizando scripts personalizados.<br/><br/> Restaurar VM ou disco.<br/><br/> Não posso apoiar um Azure VM para um local no local.
+**Backup Azure VM usando extensão VM** | VM inteiro | De volta ao cofre. | Extensão instalada quando ativa a cópia de segurança para um VM.<br/><br/> Recua uma vez por dia.<br/><br/> Cópia de segurança consciente da aplicação para VMs do Windows; cópia de segurança consistente com ficheiros para Os VMs Do Linux. Pode configurar a consistência da aplicação para máquinas Linux utilizando scripts personalizados.<br/><br/> Restaurar VM ou disco.<br/><br/>[A cópia de segurança e a restauração dos controladores de domínio](active-directory-backup-restore.md) do Ative Directory são suportadas.<br><br> Não posso apoiar um Azure VM para um local no local.
 **Backup Azure VM usando agente MARS** | Ficheiros, pastas, estado do sistema | De volta ao cofre. | Recua três vezes por dia.<br/><br/> Se pretender fazer o back up ficheiros ou pastas específicos em vez de todo o VM, o agente MARS pode funcionar ao lado da extensão VM.
 **Azure VM com DPM** | Ficheiros, pastas, volumes, estado do sistema, dados de aplicações | Volte ao armazenamento local da Azure VM que está a executar DPM. DPM, em seguida, recua para o cofre. | Fotos conscientes da aplicação.<br/><br/> Granularidade total para apoio e recuperação.<br/><br/> Linux suportado para VMs (Hiper-V/VMware).<br/><br/> Oráculo não apoiado.
 **Azure VM com MABS** | Ficheiros, pastas, volumes, estado do sistema, dados de aplicações | Volte ao armazenamento local da Azure VM que está a executar mABS. MABS, em seguida, volta para o cofre. | Fotos conscientes da aplicação.<br/><br/> Granularidade total para apoio e recuperação.<br/><br/> Linux suportado para VMs (Hiper-V/VMware).<br/><br/> Oráculo não apoiado.

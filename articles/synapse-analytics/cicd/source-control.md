@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: b6cadbf5c3a33c1a954a47f37b33ad8703f40b69
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2f1fe7c25327e8ecab9b450cab167391d8949b0a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350743"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008169"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Controlo de fontes no Azure Synapse Studio
 
@@ -138,6 +138,24 @@ Se estiver a ligar-se ao GitHub do Synapse Studio pela primeira vez, siga estes 
 
 Assim que seguir estes passos, o seu espaço de trabalho poderá ligar-se aos repositórios públicos e privados dentro da sua organização. Se não conseguir ligar, tente limpar a cache do navegador e voltar a tentar.
 
+#### <a name="already-connected-to-github-using-a-personal-account"></a>Já ligado ao GitHub usando uma conta pessoal
+
+Se já ligou ao GitHub e só autorizou o acesso a uma conta pessoal, siga os passos abaixo para conceder permissões a uma organização.
+
+1. Vá ao GitHub e abra **as definições**.
+
+    ![Abra as definições do GitHub](media/github-settings.png)
+
+1. Selecione **Aplicações**. No separador **de aplicações OAuth Autorizado,** deverá ver *Azure Synapse*.
+
+    ![Autorizar aplicações OAuth](media/authorize-app.png)
+
+1. Selecione o *Azure Synapse* e conceda o acesso à sua organização.
+
+    ![Concessão de permissão de organização](media/grant-organization-permission.png)
+
+Assim que completar estes passos, o seu espaço de trabalho poderá ligar-se aos repositórios públicos e privados dentro da sua organização.
+
 ## <a name="version-control"></a>Controlo de versões
 
 Os sistemas de controlo de versão (também conhecidos como _controlo de fontes)_ permitem que os desenvolvedores colaborem em alterações de código e de rastreio. O controlo de fontes é uma ferramenta essencial para projetos multi-desenvolvedores.
@@ -163,6 +181,7 @@ Por padrão, o Synapse Studio gera os modelos de espaço de trabalho e guarda-os
 ```
 
 O Azure Synapse Studio só pode ter uma filial de cada vez. Quando especificar uma nova filial de publicação, a sucursal de publicação anterior não seria eliminada. Se pretender remover o ramo de publicação anterior, elimine-o manualmente.
+
 
 ### <a name="publish-code-changes"></a>Publicar alterações de código
 
@@ -192,7 +211,7 @@ Depois de remover a associação com o repo atual, pode configurar as suas defin
 
 ## <a name="best-practices-for-git-integration"></a>Melhores práticas para integração de Git
 
--   **Permissões.** Depois de ter um repositório de git ligado ao seu espaço de trabalho, qualquer pessoa que tenha acesso ao seu git repo com qualquer papel no seu espaço de trabalho será capaz de atualizar artefactos, como script sql, caderno, definição de trabalho de faísca, conjunto de dados, fluxo de dados e pipeline em modo git. Normalmente, não quer que todos os membros da equipa tenham permissões para atualizar o espaço de trabalho. Apenas conceda permissão de repositório git para autores de artefactos do espaço de trabalho sinapse. 
+-   **Permissões.** Depois de ter um repositório de git ligado ao seu espaço de trabalho, qualquer pessoa que possa aceder ao seu git repo com qualquer papel no seu espaço de trabalho será capaz de atualizar artefactos, como script sql, caderno, definição de trabalho de faísca, conjunto de dados, fluxo de dados e pipeline em modo git. Normalmente, não quer que todos os membros da equipa tenham permissões para atualizar o espaço de trabalho. Apenas conceda permissão de repositório git para autores de artefactos do espaço de trabalho sinapse. 
 -   **Colaboração**. Recomenda-se não permitir check-ins diretos no ramo da colaboração. Esta restrição pode ajudar a prevenir bugs, uma vez que cada check-in passará por um processo de revisão de pedidos de pull descrito na [Criação de ramos de funcionalidades.](source-control.md#creating-feature-branches)
 -   Modo ao vivo da **sinapse**. Após a publicação no modo git, todas as alterações serão refletidas no modo ao vivo da Synapse. No modo ao vivo da Synapse, a publicação é desativada. E podes ver, executar artefactos em modo ao vivo se te for dada a permissão certa. 
 -   **Editar artefactos em Estúdio.** O estúdio Synapse é o único local onde pode ativar o controlo de fontes de espaço de trabalho e alterar automaticamente o git. Qualquer alteração via SDK, PowerShell, não será sincronizada para git. Recomendamos que edite sempre artefacto em Studio quando o git estiver ativado.

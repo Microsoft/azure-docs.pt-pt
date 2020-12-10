@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: e5587c4826fea780c1e379ee1599440b2865dd50
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: e10834c921042f0bfedfc3196b855ce5dc7b0e8f
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862229"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007692"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Utilizar uma identidade gerida para proteger a ligação da Base de Dados SQL do Azure a partir do Serviço de Aplicações
 
@@ -57,7 +57,7 @@ Primeiro, ativar a autenticação Azure AD à Base de Dados SQL, atribuindo um u
 
 Se o seu inquilino AZURE AD ainda não tiver um utilizador, crie um seguindo os passos no [Add ou elimine os utilizadores usando o Azure Ative Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
-Encontre o ID do objeto do utilizador Azure AD utilizando o [`az ad user list`](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-list) e substitua *\<user-principal-name>* . O resultado é guardado para uma variável.
+Encontre o ID do objeto do utilizador Azure AD utilizando o [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) e substitua *\<user-principal-name>* . O resultado é guardado para uma variável.
 
 ```azurecli-interactive
 azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].objectId --output tsv)
@@ -66,7 +66,7 @@ azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-na
 > Para ver a lista de todos os nomes principais do utilizador em Azure AD, corra `az ad user list --query [].userPrincipalName` .
 >
 
-Adicione este utilizador Azure AD como administrador do Ative Directory utilizando [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) o comando na Cloud Shell. No comando seguinte, *\<server-name>* substitua-o pelo nome do servidor (sem o `.database.windows.net` sufixo).
+Adicione este utilizador Azure AD como administrador do Ative Directory utilizando [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) o comando na Cloud Shell. No comando seguinte, *\<server-name>* substitua-o pelo nome do servidor (sem o `.database.windows.net` sufixo).
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id $azureaduser
@@ -77,9 +77,9 @@ Para obter mais informações sobre a adição de um administrador ative directo
 ## <a name="set-up-visual-studio"></a>Configurar o Visual Studio
 
 ### <a name="windows-client"></a>Cliente Windows
-O Visual Studio for Windows está integrado com a autenticação Azure AD. Para permitir o desenvolvimento e depuração no Estúdio Visual, adicione o seu **File** utilizador AD AZure no Estúdio Visual selecionando  >  **Definições** de Conta de Ficheiros a partir do menu e clique em **Adicionar uma conta**.
+O Visual Studio for Windows está integrado com a autenticação Azure AD. Para permitir o desenvolvimento e depuração no Estúdio Visual, adicione o seu utilizador AD AZure no Estúdio Visual selecionando  >  **Definições** de Conta de Ficheiros a partir do menu e clique em **Adicionar uma conta**.
 
-Para definir o utilizador Azure AD para a autenticação do serviço Azure, selecione **Opções** de Ferramentas  >  **Options** no menu e, em seguida, selecione **Azure Service Authentication** Account  >  **Selection**. Selecione o utilizador AD Azure que adicionou e clique em **OK**.
+Para definir o utilizador Azure AD para a autenticação do serviço Azure, selecione **Opções** de Ferramentas  >   no menu e, em seguida, selecione **Azure Service Authentication** Account  >  **Selection**. Selecione o utilizador AD Azure que adicionou e clique em **OK**.
 
 Está agora pronto para desenvolver e depurar a sua aplicação com a Base de Dados SQL como a parte de trás, utilizando a autenticação AD AZure.
 
@@ -176,7 +176,7 @@ Em seguida, configura a sua aplicação de Serviço de Aplicações para ligar �
 
 ### <a name="enable-managed-identity-on-app"></a>Ativar a identidade gerida na app
 
-Para ativar uma identidade gerida na sua aplicação do Azure, utilize o comando [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) no Cloud Shell. No comando seguinte, *\<app-name>* substitua.
+Para ativar uma identidade gerida na sua aplicação do Azure, utilize o comando [az webapp identity assign](/cli/azure/webapp/identity#az-webapp-identity-assign) no Cloud Shell. No comando seguinte, *\<app-name>* substitua.
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app-name>

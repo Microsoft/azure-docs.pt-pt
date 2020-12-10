@@ -3,15 +3,15 @@ title: Criar um conjunto do Azure Batch sem endereços IP públicos
 description: Saiba como criar uma piscina sem endereços IP públicos
 author: pkshultz
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 12/9/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 09a5632f969117e69e68bbe0df2bfbab9a8a102b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 806e85fca0a509d56e248fc7779fba0f0a59a61d
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842140"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007675"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Criar um conjunto do Azure Batch sem endereços IP públicos
 
@@ -25,7 +25,8 @@ Para restringir o acesso a estes nós e reduzir a descoberta destes nós a parti
 
 > [!IMPORTANT]
 > O apoio a piscinas sem endereços IP públicos em Azure Batch está atualmente em pré-visualização pública para as seguintes regiões: França Central, Ásia Oriental, Central Ocidental, Eua Central, Eua Ocidental 2, Leste dos EUA, Norte da Europa, Leste dos EUA, América Central, Europa Ocidental, Norte-Americano, Eua Ocidental, Austrália Oriental, Japão Leste, Japão Ocidental.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,7 +35,7 @@ Para restringir o acesso a estes nós e reduzir a descoberta destes nós a parti
 - **Um Azure VNet.** Se estiver a criar a sua piscina numa [rede virtual,](batch-virtual-network.md)siga estes requisitos e configurações. Para preparar um VNet com uma ou mais sub-redes com antecedência, pode utilizar o portal Azure PowerShell, a Interface Azure Command-Line (CLI) ou outros métodos.
   - A VNet tem de estar na mesma subscrição e região da conta do Batch utilizada para criar o conjunto.
   - A sub-rede especificada para o conjunto deve ter endereços IP não atribuídos suficientes para acomodar o número de VMs direcionadas para o conjunto; ou seja, a soma de propriedades `targetDedicatedNodes` e `targetLowPriorityNodes` do conjunto. Se a sub-rede não tiver endereços IP não atribuídos suficientes, o conjunto atribui parcialmente os nós de computação e ocorre um erro de redimensionamento.
-  - Tem de desativar as políticas de serviço de ligação privada e de rede de pontos finais. Isto pode ser feito utilizando O Azure CLI: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resouce-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
+  - Deve desativar as políticas de serviço de ligação privada e de rede de pontos finais. Isto pode ser feito utilizando O Azure CLI: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resouce-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
 
 > [!IMPORTANT]
 > Para cada 100 nós dedicados ou de baixa prioridade, o Batch atribui um serviço de ligação privada e um equilibrador de carga. Estes recursos estão limitados pelas [quotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) da subscrição. Para piscinas grandes, você pode precisar [solicitar um aumento de quota](batch-quota-limit.md#increase-a-quota) para um ou mais destes recursos. Além disso, não devem ser aplicados bloqueios de recursos a qualquer recurso criado pelo Batch, uma vez que tal impede a limpeza de recursos como resultado de ações iniciadas pelo utilizador, tais como a eliminação de uma piscina ou a redimensionamento para zero.

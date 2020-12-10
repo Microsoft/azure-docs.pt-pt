@@ -5,25 +5,19 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 09/04/2020
+ms.date: 12/07/2020
 ms.author: cynthn
-ms.openlocfilehash: a6bef4944207e26f2de93daa89fa1418c5c44c4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b166363a8c64a4a4c5d34efa55dcaefa09d6df49
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91373157"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007947"
 ---
 # <a name="deploy-vms-and-scale-sets-to-dedicated-hosts-using-the-portal"></a>Implementar VMs e conjuntos de escala para anfitriões dedicados usando o portal 
 
 Este artigo guia-o através da forma de criar um [anfitrião dedicado](dedicated-hosts.md) a Azure para hospedar as suas máquinas virtuais (VMs). 
 
-
-> [!IMPORTANT]
-> Este artigo abrange também a colocação automática de VMs e instâncias definidas em escala. A colocação automática está atualmente em visualização pública.
-> Para participar na pré-visualização, complete o pré-visualização do inquérito de embarque em [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
-> Para aderiu a funcionalidade de pré-visualização no portal Azure, tem de utilizar este URL: [https://aka.ms/vmssadh](https://aka.ms/vmssadh) .
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="limitations"></a>Limitações
 
@@ -42,7 +36,7 @@ Também pode decidir utilizar as zonas de disponibilidade e os domínios de avar
 Neste exemplo, criaremos um grupo anfitrião usando 1 zona de disponibilidade e 2 domínios de falha. 
 
 
-1. Abra o [portal](https://portal.azure.com)Azure . Se quiser experimentar a pré-visualização para **colocação automática,** utilize este URL: [https://aka.ms/vmssadh](https://aka.ms/vmssadh) .
+1. Abra o [portal](https://portal.azure.com)Azure . 
 1. **Selecione Criar um recurso** no canto superior esquerdo.
 1. Procure no **grupo Host** e, em seguida, selecione **Grupos anfitriões** a partir dos resultados.
 1. Na página **Grupos anfitriões,** selecione **Criar**.
@@ -52,7 +46,7 @@ Neste exemplo, criaremos um grupo anfitrião usando 1 zona de disponibilidade e 
 1. Para **localização**, selecione **East US**.
 1. Para **Zona de Disponibilidade**, selecione **1**.
 1. Para **a contagem de domínios de falha**, selecione **2**.
-1. Se utilizar o URL **de colocação automática,** selecione esta opção para atribuir automaticamente VMs e classificar instâncias a um anfitrião disponível neste grupo.
+1. Selecione **a colocação automática** para atribuir automaticamente VMs e classificar as instâncias a um anfitrião disponível neste grupo.
 1. Selecione **Rever + criar** e, em seguida, esperar pela validação.
 1. Assim que vir a mensagem **de validação passada,** selecione **Criar** para criar o grupo anfitrião.
 
@@ -86,25 +80,14 @@ Se definir uma contagem de domínio de avaria para o seu grupo anfitrião, será
 1. Nas **opções disponibilidade** selecione **Zona de disponibilidade,** selecione *1* a partir do drop-down.
 1. Para o tamanho, selecione **Alterar o tamanho**. Na lista de tamanhos disponíveis, escolha um da série Esv3, como **o Standard E2s v3**. Pode ser necessário limpar o filtro para ver todos os tamanhos disponíveis.
 1. Complete o resto dos campos no separador **Básico,** conforme necessário.
-1. No topo da página, selecione o separador **Avançado** e na secção **Anfitrião,** selecione *myHostGroup* para **o grupo anfitrião** e *o myHost* para o **Anfitrião**. 
+1. Se pretender especificar qual o anfitrião a utilizar para o seu VM, em seguida, no topo da página, selecione o separador **Avançado** e na secção **Anfitrião,** selecione *myHostGroup* para **o grupo Host** e *myHost* para o **Anfitrião**. Caso contrário, o seu VM será automaticamente colocado num hospedeiro com capacidade.
     ![Selecione grupo de anfitriões e anfitrião](./media/dedicated-hosts-portal/advanced.png)
 1. Mantenha as restantes predefinições e, em seguida, selecione o botão **Rever + criar** na parte inferior da página.
 1. Quando vir a mensagem que a validação passou, **selecione Criar**.
 
 Irá demorar alguns minutos até a VM ser implementada.
 
-## <a name="create-a-scale-set-preview"></a>Criar um conjunto de escala (pré-visualização)
-
-> [!IMPORTANT]
-> Os conjuntos de escala de máquina virtual em anfitriões dedicados estão atualmente em pré-visualização pública.
->
-> Para participar na pré-visualização, complete o pré-visualização do inquérito de embarque em [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
->
-> Para aderiu a funcionalidade de pré-visualização no portal Azure, tem de utilizar este URL: [https://aka.ms/vmssadh](https://aka.ms/vmssadh) .
->
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
->
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento 
 
 Quando implementar um conjunto de escala, especifique o grupo anfitrião.
 

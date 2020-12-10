@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 5dbd49312b58dc656e2239e8a0a4acea614023de
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: d38c57a8c8504e1e03406f7cd8a0b61725cb0511
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317141"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008095"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integração contínua e entrega para o espaço de trabalho Azure Synapse
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Integração Contínua (CI) é o processo de automatização da construção e teste do código sempre que um membro da equipa comete alterações ao controlo da versão. A Implementação Contínua (CD) é o processo de construção, teste, configuração e implantação de múltiplos ambientes de teste ou de encenação para um ambiente de produção.
 
@@ -107,7 +107,13 @@ Utilize a extensão [de implantação do espaço de trabalho synapse](https://ma
 
      ![Adicionar extensão](media/add-extension-task.png)
 
-1.  Na tarefa, forneça informações relacionadas com o repositório de **git de workspace_publish** , e selecione o grupo de recursos, região, nome e ambiente cloud para o espaço de trabalho alvo. Forneça parâmetros e valores se precisar.
+1.  Na tarefa, selecione **...** ao lado da caixa **de modelo** para escolher o ficheiro do modelo.
+
+1. Selecione **...** ao lado da caixa **de parâmetros do modelo** para escolher o ficheiro de parâmetros.
+
+1. Selecione a ligação, o grupo de recursos e o nome do espaço de trabalho alvo. 
+
+1. Selecione **...** ao lado da caixa de **parâmetros do modelo de substituição** e introduza os valores de parâmetros desejados para o espaço de trabalho alvo. 
 
     ![Implantação do espaço de trabalho da Sinapse](media/create-release-artifacts-deployment.png)
 

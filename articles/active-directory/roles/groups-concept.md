@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d014a901791f16ecdcb9c3d5f0858a8626cc1072
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 54988c8bbc4a9c3d448ac35f31e97e2d20228209
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379082"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007573"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Utilize grupos de nuvem para gerir atribuições de funções no Azure Ative Directory (pré-visualização)
 
@@ -52,14 +52,12 @@ Desenhamos como os grupos são atribuídos a papéis para evitar que este tipo d
 
 Os seguintes cenários não são apoiados neste momento:  
 
-- Atribuir grupos de nuvem a funções personalizadas Azure AD
-- Atribua grupos de nuvem a funções AD Azure (incorporadas ou personalizadas) sobre uma unidade administrativa ou âmbito de aplicação.
 - Atribuir grupos no local a funções AD do Azure (incorporado ou personalizado)
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
 - O lançamento encenado por Enable para funcionalidade **de inscrição de utilizador gerida** não suporta a atribuição através do grupo.
-- *Clientes licenciados Azure AD P2 apenas* : Não atribua um grupo como Ative a um papel através da Azure AD e da Gestão de Identidade Privilegiada (PIM). Especificamente, não atribua um papel a um grupo atribuível a papéis quando está a ser criado *e* atribua um papel ao grupo usando PIM mais tarde. Isto levará a problemas em que os utilizadores não podem ver as suas atribuições de papel ativa no PIM, bem como a incapacidade de remover essa atribuição pim. As atribuições elegíveis não são afetadas neste cenário. Se tentar fazer esta tarefa, poderá ver comportamentos inesperados como:
+- *Clientes licenciados Azure AD P2 apenas*: Não atribua um grupo como Ative a um papel através da Azure AD e da Gestão de Identidade Privilegiada (PIM). Especificamente, não atribua um papel a um grupo atribuível a papéis quando está a ser criado *e* atribua um papel ao grupo usando PIM mais tarde. Isto levará a problemas em que os utilizadores não podem ver as suas atribuições de papel ativa no PIM, bem como a incapacidade de remover essa atribuição pim. As atribuições elegíveis não são afetadas neste cenário. Se tentar fazer esta tarefa, poderá ver comportamentos inesperados como:
   - O fim do tempo para a atribuição da função pode ser apresentado incorretamente.
   - No portal PIM, **my Roles** só pode mostrar uma tarefa de papel, independentemente de quantos métodos a atribuição é concedida (através de um ou mais grupos e diretamente).
 - *Clientes licenciados Azure AD P2 apenas* Mesmo depois de eliminar o grupo, é ainda mostrado um membro elegível do papel na PIM UI. Funcionalmente não há problema; é apenas um problema de cache no portal Azure.  

@@ -4,12 +4,12 @@ description: Configurar testes Web no Application Insights. Receber alertas se u
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 56644a4eb2f91dcce3bc2ee557542da75408ca83
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 82b433407906c09d38a46c842334153525fb3c17
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075148"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007930"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorize a disponibilidade de qualquer website
 
@@ -37,7 +37,7 @@ A partir do portal Azure, **selecione Criar um recurso** Developer  >  **Tools**
 
 O nome "teste de ping URL" é um pouco de um erro. Para ser claro, este teste não está a fazer qualquer uso do ICMP (Internet Control Message Protocol) para verificar a disponibilidade do seu site. Em vez disso, utiliza uma funcionalidade de pedido HTTP mais avançada para validar se um ponto final está a responder. Também mede o desempenho associado a essa resposta, e adiciona a capacidade de definir critérios de sucesso personalizados juntamente com funcionalidades mais avançadas como analisar pedidos dependentes, e permitir retréis.
 
-Para criar o seu primeiro pedido de disponibilidade, abra o painel de disponibilidade e selecione **Create Test** .
+Para criar o seu primeiro pedido de disponibilidade, abra o painel de disponibilidade e selecione **Create Test**.
 
 ![Indique, pelo menos, o URL do seu site](./media/monitor-web-app-availability/availability-create-test-001.png)
 
@@ -54,13 +54,13 @@ Para criar o seu primeiro pedido de disponibilidade, abra o painel de disponibil
 **Se o seu URL não for visível a partir da internet pública, pode optar por abrir seletivamente a sua firewall para permitir apenas as transações de teste através** de . Para saber mais sobre as exceções à firewall para os nossos agentes de teste de disponibilidade, consulte o [guia de endereços IP](./ip-addresses.md#availability-tests).
 
 > [!NOTE]
-> Recomendamos vivamente testes de vários locais com **um mínimo de cinco locais.** Isto é para evitar falsos alarmes que possam resultar de problemas transitórios com uma localização específica. Além disso, descobrimos que a configuração ideal é ter o **número de locais de teste igual ao limiar de localização de alerta + 2** .
+> Recomendamos vivamente testes de vários locais com **um mínimo de cinco locais.** Isto é para evitar falsos alarmes que possam resultar de problemas transitórios com uma localização específica. Além disso, descobrimos que a configuração ideal é ter o **número de locais de teste igual ao limiar de localização de alerta + 2**.
 
 ### <a name="success-criteria"></a>Critérios de sucesso
 
 |Definição| Explicação
 |----|----|----|
-| **Tempo limite de teste** |Diminua este valor para ser alertado sobre respostas lentas. O teste será contabilizado como uma falha se as respostas do seu site não foram recebidas durante este período. Se tiver selecionado **Pedidos dependentes de análise** , todas as imagens, ficheiros de estilos, scripts e outros recursos dependentes terão de ser recebidos durante este período.|
+| **Tempo limite de teste** |Diminua este valor para ser alertado sobre respostas lentas. O teste será contabilizado como uma falha se as respostas do seu site não foram recebidas durante este período. Se tiver selecionado **Pedidos dependentes de análise**, todas as imagens, ficheiros de estilos, scripts e outros recursos dependentes terão de ser recebidos durante este período.|
 | **Resposta HTTP** | O código de estado devolvido que é contado como um sucesso. 200 é o código que indica que foi devolvida uma página Web normal.|
 | **Correspondência de conteúdo** | Uma corda, como "Bem-vindo!" Podemos testar que uma correspondência sensíveis às maiúsculas e minúsculas ocorre em cada resposta. Tem de ser uma cadeia simples, sem carateres universais. Não se esqueça de que se alterar o conteúdo da página, poderá ter de a atualizar. **Apenas os caracteres ingleses são suportados com correspondência de conteúdo** |
 
@@ -85,20 +85,6 @@ As seguintes etiquetas populacionais podem ser usadas para o atributo geolocaliz
 | USGov Texas    | usgov-tx-azr        |
 | USDod Leste     | usgov-ddeast-azr    |
 | USDoD Central  | usgov-ddcentral-azr |
-
-#### <a name="us-sec"></a>SEC dos EUA
-
-| Nome a Apresentar | Nome da População |
-|--------------|-----------------|
-| USSec West   | ussec-west-azr  |
-| USSec Leste   | ussec-leste-azr  |
-
-#### <a name="us-nat"></a>Nat dos EUA
-
-| Nome a Apresentar | Nome da População |
-|--------------|-----------------|
-| USNat Leste   | usnat-leste-azr  |
-| USNat Oeste   | usnat-west-azr  |
 
 #### <a name="azure"></a>Azure
 

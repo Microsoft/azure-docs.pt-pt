@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 12/09/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cfcaec38a939291090da7d2229c4a95f984bf28
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 01da3c186aa5d2f64028a13e08cb892255d81854
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360445"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007811"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutorial: utilizar uma identidade gerida atribuída pelo sistema de VM do Linux para aceder ao Azure Key Vault 
 
@@ -36,7 +36,7 @@ Saiba como:
  
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma compreensão das identidades geridas. Se não estiver familiarizado com a funcionalidade das identidades geridas para os recursos do Azure, veja esta [descrição geral](overview.md). 
+- Uma compreensão básica das identidades geridas. Se não estiver familiarizado com a funcionalidade das identidades geridas para os recursos do Azure, veja esta [descrição geral](overview.md). 
 - Uma conta Azure, [inscreva-se para uma conta gratuita.](https://azure.microsoft.com/free/)
 - Permissões "Proprietário" no âmbito apropriado (a sua subscrição ou grupo de recursos) para executar as etapas necessárias de criação de recursos e gestão de funções. Se precisar de assistência com a atribuição de função, veja [Utilizar Controlo de Acesso Baseado em Funções para gerir o acesso aos recursos da sua subscrição do Azure](../../role-based-access-control/role-assignments-portal.md).
 - Também precisa de uma máquina Virtual Linux que tenha o sistema atribuído a identidades geridas ativadas.
@@ -75,7 +75,7 @@ A identidade gerida usada pela máquina virtual precisa de ter acesso para ler o
 1. Na secção **de política de acesso adicionar** ao abrigo do **Configure do modelo (opcional)** escolha **Gestão Secreta** no menu pull-down.
 1. Selecione **Selecionar Principal** e, no campo de pesquisa, introduza o nome da VM que criou anteriormente.  Selecione o VM na lista de resultados e escolha **Selecione.**
 1. Selecione **Adicionar**
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
 ## <a name="create-a-secret"></a>Criar um segredo
 
@@ -95,7 +95,7 @@ Em seguida, adicione um segredo ao Cofre de Chaves, para que possa recuperá-lo 
 
 Para concluir estes passos, precisa de um cliente SSH.  Se estiver a utilizar o Windows, pode utilizar o cliente SSH no [Subsistema Windows para Linux](/windows/wsl/about). Se precisar de ajuda para configurar as chaves do seu cliente SSH, veja [Como utilizar chaves SSH com o Windows no Azure](../../virtual-machines/linux/ssh-from-windows.md) ou [Como criar e utilizar um par de chaves SSH públicas e privadas para VMs do Linux no Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
  
-1. No portal, navegue para a VM do Linux e, em **Descrição Geral** , clique em **Ligar**. 
+1. No portal, navegue para a VM do Linux e, em **Descrição Geral**, clique em **Ligar**. 
 2. Clique em **Ligar** para ligar à VM com o cliente SSH que escolheu. 
 3. Na janela de terminal, através do CURL, envie um pedido às identidades geridas no local para que o ponto final dos recursos do Azure obtenha um token de acesso ao Azure Key Vault.  
  
@@ -121,7 +121,7 @@ Para concluir estes passos, precisa de um cliente SSH.  Se estiver a utilizar o 
     Pode utilizar este token de acesso para autenticação no Azure Key Vault.  O pedido CURL seguinte mostra como ler um segredo do Key Vault com o CURL e a API REST do Key Vault.  Precisará do URL do Key Vault, que está na secção **Informações Básicas** da página **Descrição Geral** do Key Vault.  Também precisará do token de acesso que obteve na chamada anterior. 
         
     ```bash
-    curl https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
+    curl 'https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01' -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
     
     A resposta terá o seguinte aspeto: 
@@ -138,7 +138,7 @@ Quando pretender limpar os recursos, visite o [portal Azure](https://portal.azur
 
 Em alternativa, também pode fazê-lo através [do PowerShell ou do CLI](../../azure-resource-manager/management/delete-resource-group.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a utilizar uma identidade gerida atribuída pelo sistema de VM do Linux para aceder ao Azure Key Vault.  Para saber mais sobre o Azure Key Vault, veja:
 

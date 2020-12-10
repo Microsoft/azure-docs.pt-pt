@@ -8,23 +8,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 11/19/2019
-ms.openlocfilehash: 60b100e1100b8a4925a967f8b7265f1612e5beb7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/08/2020
+ms.openlocfilehash: d4bde21dd13b562ffbb51b27ef083ee53685397a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018910"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007976"
 ---
 # <a name="add-contributors-to-your-app"></a>Adicione colaboradores à sua app
 
-Um proprietário de aplicações pode adicionar contribuintes a apps. Estes colaboradores podem modificar o modelo, treinar e publicar a app.
-
-[!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
+Um proprietário de aplicações pode adicionar contribuintes a apps. Estes colaboradores podem modificar o modelo, treinar e publicar a app. Depois de [migrar a](luis-migration-authoring.md) sua conta, _os contribuintes_ são geridos no portal Azure para o recurso de autoria, utilizando a página **de Controlo de Acesso (IAM).** Adicione um utilizador, utilizando o endereço de e-mail do colaborador e a _função de contribuinte._
 
 ## <a name="add-contributor-to-azure-authoring-resource"></a>Adicionar colaborador ao recurso de autoria Azure
-
-O procedimento a seguir é para todos os utilizadores que **migraram** para utilizar o recurso de autoria Azure.
 
 Emigrou se a sua experiência de autoria LUIS está ligada a um recurso de Autoria na página **de recursos Manage-> Azure** no portal LUIS.
 
@@ -41,26 +37,15 @@ Emigrou se a sua experiência de autoria LUIS está ligada a um recurso de Autor
 
     Se tiver problemas com esta atribuição de funções, reveja [as atribuições de funções da Azure](../../role-based-access-control/role-assignments-portal.md) e [a resolução de problemas do controlo de acesso da Azure](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments).
 
-## <a name="add-collaborator-to-luis-app"></a>Adicionar colaborador à app LUIS
+## <a name="view-the-app-as-a-contributor"></a>Ver a app como um contribuinte
 
-O procedimento a seguir é para todos os utilizadores que **não tenham migrado** para utilizar o recurso de autoria Azure.
+Depois de ter sido adicionado como contribuinte, [inscreva-se no portal LUIS](sign-in-luis-portal.md).
 
-Não emigrou se a sua experiência de autoria LUIS não estiver ligada a um recurso de Autoria na página **de recursos Manage-> Azure** no portal LUIS.
-
-Uma aplicação tem um único autor, o proprietário, mas pode ter muitos colaboradores. Para permitir que os colaboradores editem a sua app LUIS, tem de adicionar o e-mail que utilizam para aceder ao portal LUIS à lista de colaboradores. Uma vez adicionados, a aplicação mostra no seu portal LUIS.
-
-1. **Selecione Gerir** a partir do menu superior direito e, em seguida, selecione **Colaboradores** no menu esquerdo.
-
-1. Selecione **Adicionar Colaborador** da barra de ferramentas.
-
-1. Introduza o endereço de e-mail que o colaborador utiliza para iniciar sinscê-lo no portal LUIS.
-
-    ![Adicionar o endereço de e-mail do colaborador](./media/luis-how-to-collaborate/add-collaborator-pop-up.png)
-
+[!INCLUDE [switch azure directories](includes/switch-azure-directories.md)]
 
 ### <a name="users-with-multiple-emails"></a>Utilizadores com vários e-mails
 
-Se adicionar colaboradores/colaboradores a uma aplicação LUIS, está a especificar o endereço de e-mail exato. Enquanto o Azure Ative Directory (Azure AD) permite que um único utilizador tenha mais do que uma conta de e-mail utilizada intercambiavelmente, a LUIS exige que o utilizador assine com o endereço de e-mail especificado ao adicionar o colaborador/colaborador.
+Se adicionar colaboradores a uma aplicação LUIS, está a especificar o endereço de e-mail exato. Enquanto o Azure Ative Directory (Azure AD) permite que um único utilizador tenha mais do que uma conta de e-mail utilizada intercambiavelmente, a LUIS exige que o utilizador assine com o endereço de e-mail especificado ao adicionar o contribuinte.
 
 <a name="owner-and-collaborators"></a>
 
@@ -92,7 +77,7 @@ Se o administrador inquilino apenas quer que certos utilizadores utilizem o LUIS
 Saiba mais sobre os utilizadores de diretórios ativos da Azure e o consentimento:
 * [Restringir a sua aplicação](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) a um conjunto de utilizadores
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda [a usar versões](luis-how-to-manage-versions.md) para controlar o ciclo de vida da sua aplicação.
 * Compreenda os conceitos, incluindo o [recurso de autoria](luis-how-to-azure-subscription.md#authoring-key) e [os contribuintes](luis-how-to-azure-subscription.md#contributions-from-other-authors) nesse recurso.

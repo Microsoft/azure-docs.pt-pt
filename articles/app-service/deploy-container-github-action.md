@@ -7,12 +7,12 @@ ms.date: 12/04/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: 76d82695f0f43638e840589c52d6713ae36c1608
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: ae587b9501c9c68600ff880744d311ba966923ed
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607811"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008032"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Implementar um recipiente personalizado para o Serviço de Aplicações utilizando ações do GitHub
 
@@ -56,7 +56,7 @@ Um perfil de publicação é uma credencial de nível de aplicação. Configura 
 
 # <a name="service-principal"></a>[Service principal (Principal de serviço)](#tab/service-principal)
 
-Pode criar um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) no [Azure CLI](/cli/azure/). Executar este comando com [Azure Cloud Shell](https://shell.azure.com/) no portal Azure ou selecionando o botão **Try it.**
+Pode criar um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) no [Azure CLI](/cli/azure/). Executar este comando com [Azure Cloud Shell](https://shell.azure.com/) no portal Azure ou selecionando o botão **Try it.**
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -116,7 +116,7 @@ Quando configurar o ficheiro de fluxo de trabalho mais tarde, utilize o segredo 
 
 Defina segredos para usar com a ação de Login do Docker. O exemplo neste documento utiliza o Registo do Contentor Azure para o registo do contentor. 
 
-1. Vá ao seu recipiente no portal Azure ou Docker e copie o nome de utilizador e a palavra-passe. Pode encontrar o nome de utilizador e palavra-passe do Registo **Settings** do Contentor Azure no portal Azure nas  >  **teclas de acesso** de Definições para o seu registo. 
+1. Vá ao seu recipiente no portal Azure ou Docker e copie o nome de utilizador e a palavra-passe. Pode encontrar o nome de utilizador e palavra-passe do Registo do Contentor Azure no portal Azure nas  >  **teclas de acesso** de Definições para o seu registo. 
 
 2. Defina um novo segredo para o nome de utilizador do registo denominado `REGISTRY_USERNAME` . 
 

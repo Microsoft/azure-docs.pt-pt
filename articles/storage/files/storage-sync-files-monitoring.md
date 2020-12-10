@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 59c489fac8bf02263cc51833675af414d5de6a52
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 87d0b740ec4f7ffb8966b386c273c023f69c42d8
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686009"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008304"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorizar o Azure File Sync
 
@@ -46,10 +46,10 @@ As seguintes métricas para Azure File Sync estão disponíveis no Azure File Sy
 |-|-|
 | Bytes sincronizados | Tamanho dos dados transferidos (carregar e transferir).<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensões aplicáveis: Nome do ponto final do servidor, direção de sincronização, nome do grupo de sincronização |
 | Recuperação de camadas de nuvem | Tamanho dos dados recordados.<br><br>**Nota:** Esta métrica será removida no futuro. Utilize a métrica do tamanho da recolha de camadas cloud para monitorizar o tamanho dos dados recolhidos.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do servidor |
-| Tamanho de recuperação de nível de nuvem | Tamanho dos dados recordados.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do servidor, Nome do Grupo Sincronizado |
-| Tamanho de recolha de camadas de nuvem por aplicação | Tamanho dos dados recolhidos por aplicação.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome da aplicação, nome do servidor, nome do grupo de sincronização |
-| Produção de recolha de camadas de nuvem | Tamanho do número de dados de recolha de dados.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do servidor, Nome do Grupo Sincronizado |
-| Ficheiros não sincronizados | Contagem de ficheiros que não estão a sincronizar.<br><br>Unidade: Contagem<br>Tipo de agregação: Soma<br>Dimensões aplicáveis: Nome do ponto final do servidor, direção de sincronização, nome do grupo de sincronização |
+| Tamanho de recuperação de nível de nuvem | Tamanho dos dados recordados.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensões aplicáveis: Nome do servidor, Nome do Grupo Sincronizado |
+| Tamanho de recolha de camadas de nuvem por aplicação | Tamanho dos dados recolhidos por aplicação.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensões aplicáveis: Nome da aplicação, nome do servidor, nome do grupo de sincronização |
+| Produção de recolha de camadas de nuvem | Tamanho do número de dados de recolha de dados.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensões aplicáveis: Nome do servidor, Nome do Grupo Sincronizado |
+| Ficheiros não sincronizados | Contagem de ficheiros que não estão a sincronizar.<br><br>Unidade: Contagem<br>Tipos de agregação: Média, Soma<br>Dimensões aplicáveis: Nome do ponto final do servidor, direção de sincronização, nome do grupo de sincronização |
 | Ficheiros sincronizados | Contagem de ficheiros transferidos (carregar e transferir).<br><br>Unidade: Contagem<br>Tipo de agregação: Soma<br>Dimensões aplicáveis: Nome do ponto final do servidor, direção de sincronização, nome do grupo de sincronização |
 | Estado on-line do servidor | Contagem de batimentos cardíacos recebidos do servidor.<br><br>Unidade: Contagem<br>Tipo de agregação: Máximo<br>Dimensão aplicável: Nome do servidor |
 | Resultado da sessão de sincronização | Resultado da sessão de sincronização (1=sessão de sincronização bem sucedida; 0=sessão de sincronização falhada)<br><br>Unidade: Contagem<br>Tipos de agregação: Máximo<br>Dimensões aplicáveis: Nome do ponto final do servidor, direção de sincronização, nome do grupo de sincronização |
@@ -282,7 +282,7 @@ Esta secção fornece alguns alertas de exemplo para Azure File Sync.
 9. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
 10. Clique em **Criar regra de alerta**. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
 - [Considere as definições de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
 - [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)
