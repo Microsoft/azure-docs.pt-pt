@@ -7,20 +7,30 @@ ms.service: attestation
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dee9e7596c0a30301d9e0453ef22a6dfe9541522
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: fb8b0f12844ce1057bd3cfc4716a32ee64ec5586
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96020947"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937224"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-cli"></a>Quickstart: Instale a Azure Attestation com o Azure CLI
 
 Começa com o Azure Attestation utilizando o Azure CLI para configurar o atestado.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
-
 ## <a name="get-started"></a>Introdução
+
+1. Instale esta extensão utilizando o comando CLI abaixo
+
+   ```azurecli
+   az extension add --name attestation
+   ```
+   
+1. Verifique a versão
+
+   ```azurecli
+   az extension show --name attestation --query version
+   ```
 
 1. Utilize o seguinte comando para assinar no Azure:
 
@@ -55,19 +65,16 @@ Começa com o Azure Attestation utilizando o Azure CLI para configurar o atestad
 
 Aqui estão os comandos que pode utilizar para criar e gerir o provedor de atestado:
 
-1. Executar o [atestado az criar](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_create) comando para criar um provedor de atestado:
+1. Executar o [atestado az criar](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) comando para criar um provedor de atestado:
 
    ```azurecli
-   az attestation create --resource-group attestationrg --name attestationProvider --location uksouth \
-      --attestation-policy SgxDisableDebugMode --certs-input-path C:\test\policySignersCertificates.pem
+   az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" --location westus
    ```
-
-   O parâmetro **--certs-input-path** especifica um conjunto de chaves de assinatura fidedignas. Se especificar um nome de ficheiro para este parâmetro, o provedor de atestado deve ser configurado apenas com políticas em formato JWT assinado. Caso contrário, a política pode ser configurada em texto ou num formato JWT não assinado. Para obter informações sobre o JWT, consulte [Conceitos Básicos.](basic-concepts.md) Para amostras [de certificados, consulte exemplos de um certificado de sinalização de política de atestado](policy-signer-examples.md).
-
-1. Executar o comando [do az attestation show](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_show) para recuperar propriedades do fornecedor de atestados tais como estado e AttestURI:
+   
+1. Executar o comando [do az attestation show](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_show) para recuperar propriedades do fornecedor de atestados tais como estado e AttestURI:
 
    ```azurecli
-   az attestation show --resource-group attestationrg --name attestationProvider
+   az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup"
    ```
 
    Este comando apresenta valores como a seguinte saída:
@@ -84,34 +91,20 @@ Aqui estão os comandos que pode utilizar para criar e gerir o provedor de atest
    TagsTable:
    ```
 
-Pode eliminar um fornecedor de atestado utilizando o comando [az atestado eliminar:](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_delete)
+Pode eliminar um fornecedor de atestado utilizando o comando [az atestado eliminar:](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_delete)
 
 ```azurecli
-az attestation delete --resource-group attestationrg --name attestationProvider
+az attestation delete --name "myattestationprovider" --resource-group "sample-resource-group"
 ```
 
 ## <a name="policy-management"></a>Gestão de políticas
 
-Para gerir as políticas, um utilizador AD Azure requer as seguintes permissões `Actions` para:
+Utilize os comandos aqui descritos para fornecer gestão de políticas para um provedor de atestado, um tipo de atestado de cada vez.
 
-- `Microsoft.Attestation/attestationProviders/attestation/read`
-- `Microsoft.Attestation/attestationProviders/attestation/write`
-- `Microsoft.Attestation/attestationProviders/attestation/delete`
-
-Estas permissões podem ser atribuídas a um utilizador Azure AD através de uma função como `Owner` (permissões wildcard), `Contributor` ou `Attestation Contributor` (permissões específicas apenas para Azure Attestation).  
-
-Para ler políticas, um utilizador AZure AD requer a seguinte permissão `Actions` para:
-
-- `Microsoft.Attestation/attestationProviders/attestation/read`
-
-Esta permissão pode ser atribuída a um utilizador Azure AD através de uma função como `Reader` (permissões wildcard) ou `Attestation Reader` (permissões específicas apenas para Azure Attestation).
-
-Utilize os comandos aqui descritos para fornecer gestão de políticas para um provedor de atestado, um TEE de cada vez.
-
-O comando [de política az attestation devolve](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_show) a política atual para o TEE especificado:
+O comando [de política az attestation devolve](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_show) a política atual para o TEE especificado:
 
 ```azurecli
-az attestation policy show --resource-group attestationrg --name attestationProvider --tee SgxEnclave
+az attestation policy show --name "myattestationprovider" --resource-group "MyResourceGroup" --attestation-type SGX-IntelSDK
 ```
 
 > [!NOTE]
@@ -119,48 +112,24 @@ az attestation policy show --resource-group attestationrg --name attestationProv
 
 São suportados os tipos DE TEE suportados:
 
-- `CyResComponent`
-- `OpenEnclave`
-- `SgxEnclave`
-- `VSMEnclave`
+- `SGX-IntelSDK`
+- `SGX-OpenEnclaveSDK`
+- `TPM`
 
-Utilize o comando [de definição de política az attestation](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_set) para definir uma nova política para o TEE especificado.
+Utilize o comando [de definição de política az atestado](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_set) para definir uma nova política para o tipo de atestado especificado.
 
-```azurecli
-az attestation policy set --resource-group attestationrg --name attestationProvider --tee SgxEnclave \
-   --new-attestation-policy newAttestationPolicyname
-```
-
-A política de atestado no formato JWT deve conter uma reclamação denominada `AttestationPolicy` . Uma política assinada deve ser assinada com uma chave que corresponda a qualquer um dos certificados de signatários da política existentes.
-
-Para amostras de política, consulte [exemplos de uma política de atestado](policy-examples.md).
-
-O comando [de reset da política az attestation](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_reset) define uma nova política para o TEE especificado.
+Para definir a política em formato de texto para um dado tipo de tipo de atestado utilizando o caminho do ficheiro:
 
 ```azurecli
-az attestation policy reset --resource-group attestationrg --name attestationProvider --tee SgxEnclave \
-   --policy-jws "eyJhbGciOiJub25lIn0.."
+az attestation policy set --name testatt1 --resource-group testrg --attestation-type SGX-IntelSDK --new-attestation-policy-file "{file_path}"
 ```
 
-## <a name="policy-signer-certificates-management"></a>Gestão de certificados de signatários de apólices
-
-Utilize os seguintes comandos para gerir os certificados de sinalização de política para um prestador de atestado:
+Para definir a política no formato JWT para um dado tipo de tipo de atestado utilizando o caminho do ficheiro:
 
 ```azurecli
-az attestation signer list --resource-group attestationrg --name attestationProvider
-
-az attestation signer add --resource-group attestationrg --name attestationProvider \
-   --signer "eyAiYWxnIjoiUlMyNTYiLCAie..."
-
-az attestation signer remove --resource-group attestationrg --name attestationProvider \
-   --signer "eyAiYWxnIjoiUlMyNTYiLCAie..."
+az attestation policy set --name "myattestationprovider" --resource-group "MyResourceGroup" \
+--attestation-type SGX-IntelSDK --new-attestation-policy-file "{file_path}" --policy-format JWT
 ```
-
-Um certificado de sinalizador de apólice é um JWT assinado com uma reclamação denominada `maa-policyCertificate` . O valor da reclamação é um JWK, que contém a chave de assinatura fidedigna a adicionar. O JWT deve ser assinado com uma chave privada que corresponda a qualquer um dos certificados de sinalização de política existentes. Para obter informações sobre JWT e JWK, consulte [Conceitos Básicos.](basic-concepts.md)
-
-Toda a manipulação semântica do certificado de signatário da apólice deve ser feita fora do Azure CLI. No que diz respeito ao Azure CLI, é uma simples corda.
-
-Para amostras [de certificados, consulte exemplos de um certificado de sinalização de política de atestado](policy-signer-examples.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: f97facd8d184be05cbfd79af92dbcaab3a022ebd
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: d54994a7c64718835e70381f92abed83ef693018
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746306"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938516"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Upgrade Azure Public Load Balancer
 [O Azure Standard Load Balancer](load-balancer-overview.md) oferece um rico conjunto de funcionalidades e alta disponibilidade através da redundância de zona. Para saber mais sobre o Balancer de Carga SKU, consulte [a tabela de comparação](./skus.md#skus).
@@ -26,7 +26,7 @@ Há duas etapas numa atualização:
 
 Um script Azure PowerShell está disponível que faz o seguinte:
 
-* Cria um Balanceador de Carga Standard SKU no grupo de recursos e localização que especifica.
+* Cria um Balanceador de Carga Standard SKU com localização que especifica no mesmo grupo de recursos do Balanceador de Carga Padrão Básico.
 * Atualiza o endereço IP público de Basic SKU para Standard SKU no local.
 * Copia perfeitamente as configurações do Balanceador de Carga SKU Básico para o recém-criado Balancer de Carga Padrão.
 * Cria uma regra de saída padrão que permite a conectividade de saída.
@@ -58,7 +58,7 @@ Um script Azure PowerShell está disponível que faz o seguinte:
 
 ## <a name="download-the-script"></a>Descarregue o script
 
-Descarregue o roteiro de migração da [PowerShell Gallery.](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/2.0)
+Descarregue o roteiro de migração da [PowerShell Gallery.](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/4.0)
 ## <a name="use-the-script"></a>Use o script
 
 Existem duas opções para si, dependendo da configuração e preferências do ambiente PowerShell local:
@@ -92,14 +92,13 @@ Para executar o script:
 
    * **oldRgName: [String]: Required** – Este é o grupo de recursos para o seu balanceador de carga básico existente que pretende atualizar. Para encontrar este valor de cadeia, navegue no portal Azure, selecione a fonte do Balanceador de Carga Básica e clique na **visão geral** para o balançador de carga. O Grupo de Recursos está localizado nessa página.
    * **oldLBName: [String]: Required** – Este é o nome do seu Balanceador Básico existente que pretende atualizar. 
-   * **newrgName: [String]: Required** – Este é o grupo de recursos no qual o Balanceador de Carga Padrão será criado. Pode ser um novo grupo de recursos ou um grupo existente. Se escolher um grupo de recursos existente, note que o nome do Balanceador de Carga tem de ser único dentro do grupo de recursos. 
    * **novo NOMELB: [String]: Required** – Este é o nome para o Balanceador de Carga Padrão a ser criado.
 1. Executar o script usando os parâmetros apropriados. Pode levar 5 a 7 minutos para terminar.
 
     **Exemplo**
 
    ```azurepowershell
-   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newLbName "LBForUpgrade"
+   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newLbName "LBForUpgrade"
    ```
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>Criar uma regra de saída para a ligação de saída
@@ -112,7 +111,7 @@ Siga as [instruções](./quickstart-load-balancer-standard-public-powershell.md#
 
 ### <a name="are-there-any-limitations-with-the-azure-powershell-script-to-migrate-the-configuration-from-v1-to-v2"></a>Existem limitações com o script Azure PowerShell para migrar a configuração de V1 para v2?
 
-Yes. Ver [Ressalvas/Limitações.](#caveatslimitations)
+Sim. Ver [Ressalvas/Limitações.](#caveatslimitations)
 
 ### <a name="how-long-does-the-upgrade-take"></a>Quanto tempo demora a atualização?
 
@@ -120,7 +119,7 @@ Normalmente demora cerca de 5 a 10 minutos para o script terminar e pode demorar
 
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>O script Azure PowerShell também muda o tráfego do meu Balancer de Carga Básica para o recém-criado Balancer de Carga Padrão?
 
-Yes. O script Azure PowerShell não só atualiza o endereço IP público, copia a configuração de Basic para Standard Load Balancer, mas também migra VM para trás do recém-criado Balancer de Carga Pública Padrão também. 
+Sim. O script Azure PowerShell não só atualiza o endereço IP público, copia a configuração de Basic para Standard Load Balancer, mas também migra VM para trás do recém-criado Balancer de Carga Pública Padrão também. 
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Dei conta de alguns problemas com a utilização deste guião. Como posso conseguir ajuda?
   

@@ -9,12 +9,12 @@ ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 07ad0714d0294ad90150acb9df14f17bfc1f5f0d
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c2074402225c8134329e00003e4fbdfd95b5dba6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905371"
+ms.locfileid: "96938414"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar as firewalls e as redes virtuais do Armazenamento do Microsoft Azure
 
@@ -64,7 +64,7 @@ Pode gerir as regras de acesso à rede padrão para contas de armazenamento atra
 
 1. Aceda à conta de armazenamento que pretende proteger.
 
-1. Clique no menu de definições chamado **Firewalls e redes virtuais**.
+1. Clique no menu de definições chamado **Networking**.
 
 1. Para negar o acesso por padrão, opte por permitir o acesso a partir de **redes Selecionadas.** Para permitir tráfego de todas as redes, opte por permitir o acesso a partir de **Todas as redes**.
 
@@ -148,7 +148,7 @@ Pode gerir as regras de rede virtuais para contas de armazenamento através do p
 
 1. Aceda à conta de armazenamento que pretende proteger.
 
-1. Clique no menu de definições chamado **Firewalls e redes virtuais**.
+1. Clique no menu de definições chamado **Networking**.
 
 1. Verifique se selecionou para permitir o acesso a partir de **redes selecionadas.**
 
@@ -272,11 +272,11 @@ Pode gerir as regras da rede IP para contas de armazenamento através do portal 
 
 1. Aceda à conta de armazenamento que pretende proteger.
 
-1. Clique no menu de definições chamado **Firewalls e redes virtuais**.
+1. Clique no menu de definições chamado **Networking**.
 
 1. Verifique se selecionou para permitir o acesso a partir de **redes selecionadas.**
 
-1. Para conceder acesso a uma gama IP da Internet, insira o endereço IP ou o intervalo de endereços (em formato CIDR) no Âmbito de **Endereços de Firewall**  >  **Address Range**.
+1. Para conceder acesso a uma gama IP da Internet, insira o endereço IP ou o intervalo de endereços (em formato CIDR) no Âmbito de **Endereços de Firewall**  >  .
 
 1. Para remover uma regra de rede IP, clique no ícone do caixote do lixo ao lado da gama de endereços.
 
@@ -394,7 +394,7 @@ A **definição de Permitir serviços da Microsoft fidedignos...** a definição
 | Tarefas do Azure Container Registry | Microsoft.ContainerRegistry/registries | As tarefas ACR podem aceder às contas de armazenamento ao construir imagens de contentores. |
 | Azure Data Factory             | Microsoft.DataFactory/fábricas        | Permite o acesso às contas de armazenamento através do tempo de execução da ADF. |
 | Azure Data Share               | Microsoft.DataShare/contas           | Permite o acesso às contas de armazenamento através do Data Share. |
-| Hub IoT do Azure                  | Microsoft.Devices/IotHubs              | Permite que os dados de um hub IoT sejam escritos para o armazenamento blob. [Saiba mais](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
+| Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Permite que os dados de um hub IoT sejam escritos para o armazenamento blob. [Saiba mais](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Permite que as aplicações lógicas acedam a contas de armazenamento. [Saiba mais](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
 | Serviço Azure Machine Learning | Microsoft.MachineLearningServices      | Os espaços de trabalho autorizados de Aprendizagem automática Azure escrevem a saída de experiências, modelos e registos para o armazenamento blob e lêem os dados. [Saiba mais](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). | 
 | Azure Synapse Analytics       | Microsoft.Sql                          | Permite a importação e exportação de dados a partir de bases de dados SQL específicas utilizando a declaração COPY ou PolyBase. [Saiba mais](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
@@ -415,7 +415,7 @@ Pode gerir exceções de regras de rede através do portal Azure, PowerShell ou 
 
 1. Aceda à conta de armazenamento que pretende proteger.
 
-1. Clique no menu de definições chamado **Firewalls e redes virtuais**.
+1. Clique no menu de definições chamado **Networking**.
 
 1. Verifique se selecionou para permitir o acesso a partir de **redes selecionadas.**
 

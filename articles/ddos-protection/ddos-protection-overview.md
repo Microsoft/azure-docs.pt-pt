@@ -6,17 +6,17 @@ documentationcenter: na
 author: yitoh
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/9/2020
 ms.author: yitoh
-ms.openlocfilehash: 749d8d6edf9c94185c8363c5fec1b91e60ae9272
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: c3931cafb6c755c6119bf8deb4ecc6b58ea7bc51
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746476"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938448"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Descrição geral do Azure DDoS Protection Standard
 

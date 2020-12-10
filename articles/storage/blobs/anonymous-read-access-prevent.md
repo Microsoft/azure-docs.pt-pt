@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 12/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: f12a899d3b6daa3b233e6a799871afca1e24d046
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 179e60a41a9cd6a2277959b3cd31159c796d845d
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533757"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937292"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedir que o público anónimo leia o acesso a contentores e bolhas
 
@@ -287,6 +287,23 @@ Depois de criar a política com o efeito Deny e atribuí-la a um âmbito, um uti
 A imagem a seguir mostra o erro que ocorre se tentar criar uma conta de armazenamento que permita o acesso do público (o padrão para uma nova conta) quando uma política com efeito Deny requer que o acesso público seja proibido.
 
 :::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Screenshot mostrando o erro que ocorre ao criar uma conta de armazenamento em violação da política":::
+
+## <a name="permissions-for-allowing-or-disallowing-public-access"></a>Permissões para permitir ou desativar o acesso do público
+
+Para definir a propriedade **AllowBlobPublicAccess** para a conta de armazenamento, um utilizador deve ter permissões para criar e gerir contas de armazenamento. As funções de controlo de acesso baseado em funções (Azure RBAC) que fornecem estas permissões incluem a **microsoft.Storage/storageAccounts/write** ou **Microsoft.Storage/storageAçãos/ \** _ ação. As funções incorporadas com esta ação incluem:
+
+- A função [de proprietário](../../role-based-access-control/built-in-roles.md#owner) de recursos Azure
+- O papel de [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) do Gestor de Recursos Azure
+- A [função de contribuinte da conta de armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+
+Estas funções não fornecem acesso a dados numa conta de armazenamento via Azure Ative Directory (Azure AD). No entanto, incluem as chaves de acesso à conta _*Microsoft.Storage/storageAs/listkeys/action**, que dá acesso às chaves de acesso à conta. Com esta permissão, um utilizador pode utilizar as chaves de acesso à conta para aceder a todos os dados numa conta de armazenamento.
+
+As atribuições de funções devem ser a nível da conta de armazenamento ou superior para permitir que um utilizador permita ou não permita o acesso público à conta de armazenamento. Para obter mais informações sobre o âmbito de funções, consulte [o âmbito de aplicação do Azure RBAC](../../role-based-access-control/scope-overview.md).
+
+Tenha cuidado para restringir a atribuição destas funções apenas a quem necessita da capacidade de criar uma conta de armazenamento ou atualizar as suas propriedades. Utilize o princípio do menor privilégio para garantir que os utilizadores têm menos permissões necessárias para realizar as suas tarefas. Para obter mais informações sobre como gerir o acesso com o Azure RBAC, consulte [as Melhores Práticas para O RBAC Azure](../../role-based-access-control/best-practices.md).
+
+> [!NOTE]
+> As funções clássicas de administrador de subscrição Administrador de serviço e Co-Administrator incluem o equivalente à função de [Gestor](../../role-based-access-control/built-in-roles.md#owner) de Recursos Azure. A função **Proprietário** inclui todas as ações, para que um utilizador com uma destas funções administrativas também possa criar e gerir contas de armazenamento. Para obter mais informações, consulte [as funções de administrador de subscrição clássica, funções de Azure e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## <a name="next-steps"></a>Passos seguintes
 

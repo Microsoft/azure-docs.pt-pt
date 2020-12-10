@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: dineshm
-ms.openlocfilehash: cb9d25bc9449c96ec7bf5ba11f8d64d59c8ddb4d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c6bd16796671065939f491efe152e6818c2a2453
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491949"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938618"
 ---
 # <a name="what-are-azure-queues"></a>O que são as filas do Azure?
 
@@ -43,3 +43,6 @@ O serviço Fila contém os seguintes componentes:
 
 - [Criar uma conta de armazenamento](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 - [Começar com filas usando .NET](storage-dotnet-how-to-use-queues.md)
+- [Começar com filas usando Java](storage-java-how-to-use-queue-storage.md)
+- [Começar com filas usando Python](storage-python-how-to-use-queue-storage.md)
+- [Começar com filas usando JS](storage-nodejs-how-to-use-queues.md)

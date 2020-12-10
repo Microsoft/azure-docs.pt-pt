@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/22/2019
+ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: f462a78790e73f3e0f67f55b6417589c7826a75d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1c88b9f77513021609b99c81ea572c2b5b3d365b
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173673"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936799"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: personalizar reclamações emitidas no token SAML para aplicações empresariais
 
@@ -54,13 +54,12 @@ Se o pedido DE SAML não contiver um elemento para NameIDPolicy, então a plataf
 
 A partir do dropdown do **formato do identificador de nome Escolher,** pode selecionar uma das seguintes opções.
 
-| Formato NameID | Description |
+| Formato NameID | Descrição |
 |---------------|-------------|
 | **Predefinição** | A plataforma de identidade da Microsoft utilizará o formato de origem padrão. |
 | **Persistente** | A plataforma de identidade da Microsoft utilizará o Persistente como formato NameID. |
 | **EmailAddress** | A plataforma de identidade da Microsoft utilizará o EmailAddress como o formato NameID. |
 | **Não especificado** | A plataforma de identidade da Microsoft utilizará o formato NameID não especificado como. |
-| **Nome qualificado do domínio do Windows** | A plataforma de identidade da Microsoft utilizará o Nome WindowsDomainQualified como o formato NameID. |
 
 O NameID transitório também é suportado, mas não está disponível no dropdown e não pode ser configurado do lado de Azure. Para saber mais sobre o atributo NameIDPolicy, consulte [o protocolo Single Sign-On SAML](single-sign-on-saml-protocol.md).
 

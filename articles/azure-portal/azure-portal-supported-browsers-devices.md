@@ -5,12 +5,12 @@ ms.assetid: 35fa18ec-21d8-41bf-af2b-e5e92703401d
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.custom: accessibility
-ms.openlocfilehash: 8009d0d4ac971d81e25b276b19605bc6a70cff02
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 81c4ccef688622ec20d111383359053b82045996
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745677"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938091"
 ---
 # <a name="supported-devices"></a>Dispositivos suportados
 
@@ -23,7 +23,7 @@ Se precisar de gerir os recursos do Azure a partir de um dispositivo móvel, exp
 Recomendamos que utilize o browser mais atualizado compatível com o seu sistema operativo. Os seguintes navegadores são suportados:
 
 * Microsoft Edge (versão mais recente)
-* Internet Explorer 11
+* Internet Explorer 11 (suportado até 31 de março de 2021)
 * Safari (versão mais recente, apenas Mac)
 * Chrome (versão mais recente)
 * Firefox (versão mais recente)

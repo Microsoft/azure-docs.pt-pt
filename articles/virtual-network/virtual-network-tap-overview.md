@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: ceafbacb4cfc99b5327423ff1a50b82292030893
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c468f289c9dbfe949890c5462dd7c9be3e548d5a
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479260"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938765"
 ---
 # <a name="virtual-network-tap"></a>TAP de rede virtual
 > [!IMPORTANT]
@@ -38,7 +38,7 @@ Antes de criar uma rede virtual TAP, deve ter recebido um e-mail de confirmaçã
 
 As contas que utiliza para aplicar a configuração TAP nas interfaces de rede devem ser atribuídas à função [de contribuinte](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) de rede ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que seja atribuída a partir do quadro seguinte:
 
-| Ação | Nome |
+| Ação | Name |
 |---|---|
 | Microsoft.Network/virtualNetworkTaps/* | Necessário para criar, atualizar, ler e apagar um recurso TAP de rede virtual |
 | Microsoft.Network/networkInterfaces/read | Obrigado a ler o recurso de interface de rede em que a TAP será configurada |

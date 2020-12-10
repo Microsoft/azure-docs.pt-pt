@@ -12,12 +12,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 8cbc683f06b809ec4d9c63a61d73a0c731a92cd7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 14b49c531ae11c056f9b6970e1ac00adcd68b296
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651623"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937173"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Problemas de resolução de problemas inscrevem-se numa aplicação da Azure AD My Apps
 
@@ -61,6 +61,7 @@ O acesso às Minhas Apps pode ser bloqueado devido a um problema na conta do uti
 -   [Verifique o estado de autenticação de vários fatores do utilizador](#check-a-users-multi-factor-authentication-status)
 -   [Verifique as informações de contacto de autenticação de um utilizador](#check-a-users-authentication-contact-info)
 -   [Verifique os membros do grupo de um utilizador](#check-a-users-group-memberships)
+-   [Verifique se um utilizador tem mais de 999 atribuições de funções de aplicações](#check-if-a-user-has-more-than-999-app-role-assignments)
 -   [Verifique as licenças atribuídas a um utilizador](#check-a-users-assigned-licenses)
 -   [Atribuir a um utilizador uma licença](#assign-a-user-a-license)
 
@@ -139,6 +140,16 @@ Para verificar os membros do grupo de um utilizador, siga estes passos:
 6.  **Procure** o utilizador em que está interessado e **selecione a linha** para selecionar.
 7.  Selecione **Grupos** para ver em que grupos o utilizador é membro.
 
+### <a name="check-if-a-user-has-more-than-999-app-role-assignments"></a>Verifique se um utilizador tem mais de 999 atribuições de funções de aplicações
+Se um utilizador tiver mais de 999 atribuições de funções de aplicação atribuídas a elas, então pode não ver todas as suas aplicações nas Minhas Apps.
+
+Isto porque as Minhas Apps lêem atualmente até 999 atribuições de funções de aplicações para determinar as aplicações às quais os utilizadores estão atribuídos. Se um utilizador for designado para mais de 999 aplicações, não é possível controlar quais destas aplicações irão aparecer no portal My Apps.
+
+Para verificar o número de atribuições de funções de aplicação concedidas a um utilizador, siga estes passos:
+1. Instale o módulo [**Microsoft.Graph**](https://github.com/microsoftgraph/msgraph-sdk-powershell) PowerShell.
+2. Executar `Connect-MgGraph -Scopes "Directory.Read.All"` e autenticar como **Administrador Global.**
+3. Corra `$m = Get-MgUserAppRoleAssignment -UserId "<userId>" | Measure; $m.Count` para determinar o número de atribuições de funções de aplicação que o utilizador concedeu atualmente.
+
 ### <a name="check-a-users-assigned-licenses"></a>Verifique as licenças atribuídas a um utilizador
 Para verificar as licenças atribuídas a um utilizador, siga estes passos:
 1.  Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global.**
@@ -172,14 +183,14 @@ Para verificar se tem o elo de fundo correto, siga estes passos:
 1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministração.**
 2. Abra a **Extensão do Diretório Ativo Azure** selecionando **todos os serviços** no topo do menu principal de navegação à esquerda.
 3. Digite **"Azure Ative Directory"** na caixa de pesquisa do filtro e selecione o item **Azure Ative Directory.**
-4. Selecione **Aplicações empresariais** do menu de navegação à esquerda do Azure Ative.
-5. Selecione **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
+4. Selecione **Aplicações Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+5. Selecione **Todas as Aplicações** para ver uma lista de todas as aplicações.
    * Se não vir a aplicação deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e desate a opção **'Mostrar'** a **todas as aplicações.**
 6. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministração.**
 7. Abra a **Extensão do Diretório Ativo Azure** selecionando **todos os serviços** no topo do menu principal de navegação à esquerda.
 8. Digite **"Azure Ative Directory"** na caixa de pesquisa do filtro e selecione o item **Azure Ative Directory.**
-9. Selecione **Aplicações empresariais** do menu de navegação à esquerda do Azure Ative.
-10. Selecione **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
+9. Selecione **Aplicações Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+10. Selecione **Todas as Aplicações** para ver uma lista de todas as aplicações.
     * Se não vir a aplicação deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e desate a opção **'Mostrar'** a **todas as aplicações.**
 11. Selecione a aplicação para a seguinte a verificação do link profundo.
 12. Encontre o **URL de Acesso ao Utilizador da** etiqueta . A sua ligação profunda deve coincidir com esta URL.
@@ -193,5 +204,5 @@ Abra um bilhete de apoio com as seguintes informações, se disponível:
 -   Fuso horário e tempo/prazo durante o erro ocorre
 -   Traços de violino
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)

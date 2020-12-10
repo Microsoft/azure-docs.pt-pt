@@ -9,16 +9,17 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e8decbe22f869573bf7a2221099d2bc30c00fc8a
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: d6409c005e006372f55e77aeb4d977e6b1c45832
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888849"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936293"
 ---
 # <a name="quickstart-handle-sms-events"></a>Quickstart: Lidar com eventos DE SMS
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Inicie-se com os Serviços de Comunicação Azure utilizando a Azure Event Grid para lidar com eventos DE SMS dos Serviços de Comunicação. 
 

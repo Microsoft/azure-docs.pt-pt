@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 54d92da469625a3b81d0027558ec14166d916b80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae3865c1ee5e656fc4feda48de9ab67995619593
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163191"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936374"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Começar com políticas personalizadas no Azure Ative Directory B2C
 
@@ -77,7 +77,7 @@ Você precisa registrar estas duas aplicações no seu inquilino Azure AD B2C ap
 
 Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a experiência de registos da **App.**
 
-1. Selecione **as inscrições da App**e, em seguida, selecione Novo **registo**.
+1. Selecione **as inscrições da App** e, em seguida, selecione Novo **registo**.
 1. Para **nome,** insira `IdentityExperienceFramework` .
 1. Nos **tipos de conta suportada,** selecione Contas **apenas neste diretório organizacional**.
 1. Em **Redirect URI**, selecione **Web**, e, em seguida, insira , onde está o seu nome de domínio de `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` inquilino `your-tenant-name` Azure AD B2C.
@@ -99,7 +99,7 @@ Em seguida, expor a API adicionando um âmbito:
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Registar a aplicação ProxyIdentityExperienceFramework
 
-1. Selecione **as inscrições da App**e, em seguida, selecione Novo **registo**.
+1. Selecione **as inscrições da App** e, em seguida, selecione Novo **registo**.
 1. Para **nome,** insira `ProxyIdentityExperienceFramework` .
 1. Nos **tipos de conta suportada,** selecione Contas **apenas neste diretório organizacional**.
 1. Em **Redirecionar URI,** utilize o drop-down para selecionar **cliente público/nativo (ambiente de trabalho móvel &)**.
@@ -141,7 +141,7 @@ Cada pacote de arranque contém:
 
 - **Ficheiro base** - São necessárias poucas modificações na base. Exemplo: *TrustFrameworkBase.xml*
 - **Ficheiro de extensão** - Este ficheiro é onde a maioria das alterações de configuração são feitas. Exemplo: *TrustFrameworkExtensions.xml*
-- **Ficheiros de partes dependentes** - Ficheiros específicos de tarefas chamados pela sua aplicação. Exemplos: *SignUpOrSignin.xml*, *ProfileEdit.xml, * *PasswordReset.xml*
+- **Ficheiros de partes dependentes** - Ficheiros específicos de tarefas chamados pela sua aplicação. Exemplos: *SignUpOrSignin.xml*, *ProfileEdit.xml,* *PasswordReset.xml*
 
 Neste artigo, edita os ficheiros de política personalizados XML no pacote de arranque **SocialAndLocalAccounts.** Se precisar de um editor XML, experimente [o Visual Studio Code,](https://code.visualstudio.com/download)um editor de plataformas cruzadas leve.
 
@@ -213,6 +213,6 @@ Como mencionado em [Pré-requisitos](#prerequisites), o Facebook *não* é neces
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Em seguida, tente adicionar a Azure Ative Directory (Azure AD) como fornecedor de identidade. O ficheiro base utilizado neste guia de arranque já contém alguns dos conteúdos necessários para adicionar outros fornecedores de identidade como o Azure AD. Para obter informações sobre a criação do Azure AD como fornecedor de identidade, consulte [Configurar e iniciar sposição com uma conta Azure Ative Directory utilizando políticas personalizadas do Ative Directory B2C](identity-provider-azure-ad-single-tenant-custom.md). 
+Em seguida, tente adicionar a Azure Ative Directory (Azure AD) como fornecedor de identidade. O ficheiro base utilizado neste guia de arranque já contém alguns dos conteúdos necessários para adicionar outros fornecedores de identidade como o Azure AD. Para obter informações sobre a criação do Azure AD como fornecedor de identidade, consulte [Configurar e iniciar sposição com uma conta Azure Ative Directory utilizando políticas personalizadas do Ative Directory B2C](identity-provider-azure-ad-single-tenant.md). 
 
 Visite a nossa [galeria de parceiros](partner-gallery.md) para saber mais sobre como implementar a integração isv usando políticas personalizadas. 

@@ -10,21 +10,22 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 0420360b70485e49dc6cd06dbeb19400c0f73ef5
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 271d7ce38d50fd21975327eb1f21528aeacc485e
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070355"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937241"
 ---
 # <a name="plan-your-telephony-and-sms-solution"></a>Planear a solução de telefonia e SMS
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Os Serviços de Comunicação Azure permitem-lhe utilizar números de telefone para fazer chamadas de voz e enviar mensagens SMS com a rede telefónica comutada pelo público (PSTN). Neste documento, vamos rever os tipos de números de telefone, opções de configuração e disponibilidade da região para o planeamento da sua solução de telefonia e SMS utilizando serviços de comunicação.
 
-[!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
+
+
 
 
 ## <a name="phone-number-types-in-azure-communication-services"></a>Tipos de números de telefone nos Serviços de Comunicação Azure
@@ -48,10 +49,12 @@ A tabela abaixo resume estes tipos de números de telefone:
 | Tipo de número de telefone | Exemplo                              | Disponibilidade do país    | Capacidade de número de telefone |Caso de uso comum                                                                                                     |
 | ----------------- | ------------------------------------ | ----------------------- | ------------------------|------------------------------------------------------------------------------------------------------------------- |
 | Local (Geográfico)        | +1 (código de área local) XXX XX XX XX  | EUA                      | Chamando (Saída) | Atribuir números de telefone aos utilizadores nas suas aplicações  |
-| Toll-Free         | +1 *(código*de área sem portagem) XXX XX XX XX XX | EUA                      | Chamada (Saída), SMS (Entrada/Saída)| Atribuir números de telefone a sistemas/Bots de resposta vocal interativa (IVR), aplicações SMS                                        |
+| Toll-Free         | +1 *(código* de área sem portagem) XXX XX XX | EUA                      | Chamada (Saída), SMS (Entrada/Saída)| Atribuir números de telefone a sistemas/Bots de resposta vocal interativa (IVR), aplicações SMS                                        |
 
 
 ## <a name="phone-number-features-in-azure-communication-services"></a>Características de número de telefone nos Serviços de Comunicação Azure 
+
+[!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
 Para a maioria dos números de telefone, permitimos configurar um conjunto de funcionalidades "à la carte". Estas funcionalidades podem ser selecionadas à medida que aluga os seus números de telefone nos Serviços de Comunicação Azure.
 

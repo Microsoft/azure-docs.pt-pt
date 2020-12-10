@@ -10,12 +10,12 @@ ms.date: 11/20/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 118aaa368f48838a33d130d8dddc89bb8dce3f3e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d435ced4c8ec56fae5081ede367b593d2b66ef0f
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498188"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936544"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Conceder acesso limitado aos recursos de armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)
 
@@ -76,6 +76,9 @@ Uma assinatura de acesso partilhado pode tomar um dos dois formulários seguinte
 ## <a name="how-a-shared-access-signature-works"></a>Como funciona uma assinatura de acesso partilhado
 
 Uma assinatura de acesso partilhado é um URI assinado que aponta para um ou mais recursos de armazenamento. O URI inclui um símbolo que contém um conjunto especial de parâmetros de consulta. O token indica como os recursos podem ser acedidos pelo cliente. Um dos parâmetros de consulta, a assinatura, é construído a partir dos parâmetros SAS e assinado com a chave que foi usada para criar o SAS. Esta assinatura é utilizada pela Azure Storage para autorizar o acesso ao recurso de armazenamento.
+
+> [!NOTE]
+> Não é possível auditar a geração de fichas SAS. Qualquer utilizador que tenha privilégios para gerar um token SAS, quer utilizando a chave de conta, quer através de uma atribuição de funções Azure RBAC, pode fazê-lo sem o conhecimento do proprietário da conta de armazenamento. Tenha cuidado para restringir permissões que permitem aos utilizadores gerar fichas SAS. Para evitar que os utilizadores geram um SAS assinado com a chave de conta para cargas de trabalho de bolhas e filas, pode não permitir o acesso da Chave Partilhada à conta de armazenamento. Para obter mais informações, consulte [Prevenir a autorização com chave partilhada.](shared-key-authorization-prevent.md)
 
 ### <a name="sas-signature-and-authorization"></a>Assinatura e autorização SAS
 

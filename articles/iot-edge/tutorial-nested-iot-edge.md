@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 0226635fe34244bf09bc92f9fe065593d3a79a5a
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: c1dba383f259e35b143688b2db68f05f1a67def6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621064"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938232"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Tutorial: Criar uma hierarquia de dispositivos IoT Edge (Pré-visualização)
 
@@ -50,10 +50,19 @@ Este tutorial usa uma hierarquia de dois dispositivos para a simplicidade. Um di
 Para criar uma hierarquia de dispositivos IoT Edge, você precisará:
 
 * Um computador (Windows ou Linux) com conectividade à Internet.
-* Dois dispositivos Linux para configurar como dispositivos IoT Edge. Se não tiver dispositivos disponíveis, pode utilizar [máquinas virtuais Azure.](../virtual-machines/linux/index.yml)
 * Uma conta Azure com uma subscrição válida. Se não tiver uma [subscrição do Azure,](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Um [hub IoT](../iot-hub/iot-hub-create-through-portal.md) de nível gratuito ou padrão em Azure.
 * Azure CLI v2.3.1 com a extensão Azure IoT v0.10.6 ou superior instalada. Este tutorial usa a [Azure Cloud Shell.](../cloud-shell/overview.md) Se não está familiarizado com a Azure Cloud Shell, [consulte um quickstart para obter detalhes.](./quickstart-linux.md#prerequisites)
+* Dois dispositivos Linux para configurar como dispositivos IoT Edge. Se não tiver dispositivos disponíveis, pode criar duas máquinas virtuais Azure substituindo o texto reservado no seguinte comando e executando-o duas vezes:
+
+   ```azurecli-interactive
+   az vm create \
+    --resource-group <REPLACE_WITH_RESOURCE_GROUP> \
+    --name <REPLACE_WITH_UNIQUE_NAMES_FOR_EACH_VM> \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --admin-password <REPLACE_WITH_PASSWORD>
+   ```
 
 Você também pode experimentar este cenário seguindo a amostra de [IoT Azure IoT](https://aka.ms/iotedge-nested-sample)scripted, que implementa máquinas virtuais Azure como dispositivos pré-configurados para simular um ambiente de fábrica.
 
@@ -185,11 +194,11 @@ Instale o IoT Edge seguindo estes passos em ambos os dispositivos.
    sudo apt-get install moby-engine
    ```
 
-1. Instale o daemon hsmlib e IoT Edge <!-- Update with proper image links on release -->
+1. Instale o daemon hsmlib e IoT Edge. Para ver os ativos para outras distribuições do Linux, [visite o lançamento do GitHub.](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1) <!-- Update with proper image links on release -->
 
    ```bash
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc2/libiothsm-std_1.2.0.rc2-1-1_debian9_amd64.deb -o libiothsm-std.deb
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc2/iotedge_1.2.0_rc2-1_debian9_amd64.deb -o iotedge.deb
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/libiothsm-std_1.2.0.rc1-1-1_debian9_amd64.deb -o libiothsm-std.deb
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/iotedge_1.2.0_rc1-1_debian9_amd64.deb -o iotedge.deb
    sudo dpkg -i ./libiothsm-std.deb
    sudo dpkg -i ./iotedge.deb
    ```
@@ -597,7 +606,7 @@ You can also view these messages through the [Azure Cloud Shell](https://shell.a
    az iot hub monitor-events -n <iothub_name> -d <lower-layer-device-name>
    ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode eliminar as configurações locais e os recursos Azure que criou neste artigo para evitar encargos.
 

@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
 ms.author: roy-har
-ms.openlocfilehash: 9965e4c856fdef2af17b116264ad5344ebc97eb2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 081b9288d091e26d0e6d30aa849ced18a3c2ffb6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84466933"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938465"
 ---
 Crie a aplicação de pizza.
 
@@ -48,18 +48,18 @@ Você deve ver a página **Intenções** com uma lista das intenções na aplica
 1. Selecione **o recurso de autoria.**
 1. Selecione **Alterar recurso de autoria**.
 
-Se tiver um recurso de autoria, insira o Nome do **Inquilino,** **Nome de Assinatura**e nome de recurso **LUIS** do seu recurso de autoria.
+Se tiver um recurso de autoria, insira o Nome do **Inquilino,** **Nome de Assinatura** e nome de recurso **LUIS** do seu recurso de autoria.
 
 Se não tiver um recurso de autoria:
 
 1. **Selecione Criar novo recurso.**
-1. Insira um **Nome de Inquilino,** **Nome de Recurso,** **Nome de Assinatura**e Nome do Grupo de **Recursos Azure**.
+1. Insira um **Nome de Inquilino,** **Nome de Recurso,** **Nome de Assinatura** e Nome do Grupo de **Recursos Azure**.
 
 A sua aplicação Pizza está agora pronta a ser utilizada.
 
 ## <a name="record-the-access-values-for-your-pizza-app"></a>Registem os valores de acesso para a sua app Pizza
 
-Para utilizar a sua nova aplicação Pizza, vai precisar do ID da aplicação, da chave de autoria e da autoria da sua aplicação Pizza.
+Para utilizar a sua nova aplicação Pizza, vai precisar do ID da aplicação, da chave de autoria e da autoria da sua aplicação Pizza. Para obter previsões, vai precisar do seu ponto final de previsão e chave de previsão separada.
 
 Para encontrar estes valores:
 
@@ -67,5 +67,5 @@ Para encontrar estes valores:
 1. A partir da página Configurações de **Aplicações,** grave o **ID da aplicação.**
 1. Selecione **Recursos do Azure**.
 1. Selecione **o recurso de autoria.**
-1. A partir do **separador Recursos de Autoria,** grave a **Chave Primária**. Este valor é a sua chave de autoria.
+1. A partir dos separadores **de Recursos de Autoria** e **Recursos de Previsão,** registem a **Chave Primária**. Este valor é a sua chave de autoria.
 1. Grave o **URL endpoint**. Este valor é o seu ponto final de autoria.

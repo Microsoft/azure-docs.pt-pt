@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 11/23/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperfq1
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: bf7d911c6f9d90e400e589828c093877875e7d97
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 7aeadaf7b52440504abf541fe6c29a537a92bc08
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96015694"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937275"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Quickstart: Criar uma aplicação web core ASP.NET em Azure
 
@@ -322,7 +322,7 @@ await context.Response.WriteAsync("Hello Azure!");
 Guarde as alterações e, em seguida, volte a recolocar a aplicação utilizando o `az webapp up` comando:
 
 ```azurecli
-az webapp up
+az webapp up --os-type linux
 ```
 
 Este comando utiliza valores que estão em cache localmente no ficheiro *.azure/config,* incluindo o nome da aplicação, grupo de recursos e plano de Serviço de Aplicações.

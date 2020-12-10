@@ -3,12 +3,12 @@ title: Proteja o seu VMS de Solução VMware Azure com integração do Centro de
 description: Aprenda a proteger os seus VMS Azure VMware Solution com as ferramentas de segurança nativas da Azure a partir de um único dashboard no Azure Security Center.
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 53669f2988a7ff7ab1150b155a65c7a187c6f1c8
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e461e7e49619f7063c0583975f36a2e3dfe5a724
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370391"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937343"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Proteja o seu VMS de Solução VMware Azure com integração do Centro de Segurança Azure
 
@@ -100,7 +100,7 @@ O Azure Defender estende a proteção avançada de ameaças do Azure Security Ce
 
 3. Selecione o nome do seu recurso. Abre-se uma página que mostra os detalhes de saúde de segurança do seu recurso.
 
-4. Na **lista de recomendações** , selecione as **recomendações** , **avaliações aprovadas** e **separadores de avaliações indisponíveis** para visualizar estes detalhes.
+4. Na **lista de recomendações**, selecione as **recomendações**, **avaliações aprovadas** e **separadores de avaliações indisponíveis** para visualizar estes detalhes.
 
     :::image type="content" source="media/azure-security-integration/view-recommendations-assessments.png" alt-text="Uma imagem do Centro de Segurança Azure mostrando recomendações de segurança e avaliações.":::
 
@@ -173,7 +173,7 @@ Depois de ligar fontes de dados ao Azure Sentinel, pode criar regras para gerar 
         |where count_ > 3
         ```
         
-    - Entidade do mapa
+    - Entidades do mapa
     - Agendamento de consultas
     - Limiar de alerta
     - Agrupamento de eventos
@@ -213,7 +213,7 @@ Pode criar consultas ou utilizar a consulta pré-definida disponível no Azure S
 
 2. Sob a gestão de ameaças, selecione **Hunting**. É apresentada uma lista de consultas pré-definidas.
 
-3. Selecione uma consulta e, em seguida, **selecione ''' ''' '''**
+3. Selecione uma consulta e, em seguida, **selecione '**
 
 4. Selecione **Ver Resultados** para verificar os resultados.
 

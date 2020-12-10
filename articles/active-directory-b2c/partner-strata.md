@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: bddc4c64feb31f78bed482bbd729ab1c4b8e676e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c7f7f162355b919c395dd0ee6d03b2bc5526e3da
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96171420"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936697"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Tutorial para alargar a Azure AD B2C para proteger aplicações no local utilizando estratos
 
@@ -57,7 +57,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ![A imagem mostra a arquitetura de uma integração AD B2C Azure com Strata Maverics para permitir o acesso a aplicações híbridas](./media/partner-strata/strata-architecture-diagram.png)
 
-| Passos | Description |
+| Passos | Descrição |
 |:-------|:---------------|
 | 1. | O utilizador faz um pedido de acesso à aplicação hospedada no local. O Orquestrador de Identidade Maverics solicita o pedido feito pelo utilizador à aplicação.|
 | 2. | O Orquestrador verifica o estado de autenticação do utilizador. Se não receber um token de sessão, ou o token da sessão fornecido for inválido, então envia o utilizador para Azure AD B2C para autenticação.|
@@ -83,7 +83,7 @@ Para obter o software que utilizará para integrar a sua aplicação de legado n
 
    c. Adicione um URI de redirecionamento para a sua aplicação. Este URI corresponderá ao `oauthRedirectURL` parâmetro da configuração do conector Azure AD B2C do seu Orquestrador, por exemplo, `https://example.com/oidc-endpoint` .
 
-2. **Criar um fluxo de utilizador**: Crie um sinal e assine no fluxo do [utilizador](./tutorial-create-user-flows.md).
+2. **Criar um fluxo de utilizador**: Crie um fluxo de utilizador de [inscrição e de entrada](./tutorial-create-user-flows.md).
 
 3. **Adicione um IdP**: Escolha inscrever-se no seu utilizador com uma conta local ou com um [IdP](./tutorial-add-identity-providers.md)social ou empresarial.
 

@@ -6,17 +6,17 @@ documentationcenter: na
 author: yitoh
 ms.service: ddos-protection
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: b3f903b69cebd22e870f7ccd5923e6f08455dff3
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 104c9dcd3b7fd931e4f54841c9de9d17cfd72353
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992391"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937326"
 ---
 # <a name="azure-ddos-protection-standard-features"></a>Funcionalidades do Azure DDoS Protection Standard
 
@@ -52,7 +52,7 @@ A DDoS Protection Standard expõe telemetria rica via [Azure Monitor](../azure-m
 
 ### <a name="ddos-mitigation-policies"></a>Políticas de mitigação do DDoS
 
-No portal Azure, **Monitor** selecione  >  **Monitor Metrics**. No painel **Métricas,** selecione o grupo de recursos, selecione um tipo de recurso de **Endereço IP Público** e selecione o seu endereço IP público Azure. As métricas DDoS são visíveis no painel **de métricas disponíveis.**
+No portal Azure, selecione  >  **Monitor Metrics**. No painel **Métricas,** selecione o grupo de recursos, selecione um tipo de recurso de **Endereço IP Público** e selecione o seu endereço IP público Azure. As métricas DDoS são visíveis no painel **de métricas disponíveis.**
 
 A DDoS Protection Standard aplica três políticas de mitigação autofinadas (TCP SYN, TCP e UDP) para cada IP público do recurso protegido, na rede virtual que tem DDoS ativado. Pode ver os limiares de política selecionando os **pacotes métricos de entrada para desencadear a mitigação do DDoS**.
 
@@ -86,6 +86,6 @@ Monitorize as suas aplicações de forma independente. Entenda o comportamento n
 
 Saiba como os seus serviços responderão a um ataque [testando através de simulações.](test-through-simulations.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um plano de proteção DDoS](manage-ddos-protection.md).

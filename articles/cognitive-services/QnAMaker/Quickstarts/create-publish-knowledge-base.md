@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: f1712a51fcd35c348f6177b670a7686898a0c78b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: efe1b212ab45da3cddc038957f83991defd65e41
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346143"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937734"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Quickstart: Crie, treine e publique a sua base de conhecimentos QnA Maker
 
@@ -48,7 +48,7 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
     |--|--|
     |**Ativar a extração em várias voltas a partir de ficheiros URLs, .pdf ou .docx.**|Marcado|
     |**Texto predefinido de várias voltas**| Selecione e opção|
-    |**+ Adicionar URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ Adicionar URL**|`https://azure.microsoft.com/en-us/support/faq/`|
     |**Conversa**|Selecione **Profissional**|
 
 7. No **passo 5**, selecione **Criar o seu KB**.
@@ -83,7 +83,7 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
     |--|--|
     |**Ativar a extração em várias voltas a partir de ficheiros URLs, .pdf ou .docx.**|Marcado|
     |**Texto predefinido de várias voltas**| Selecione e opção|
-    |**+ Adicionar URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ Adicionar URL**|`https://azure.microsoft.com/en-us/support/faq/`|
     |**Conversa**|Selecione **Profissional**|
 
 8. No **passo 5**, selecione **Criar o seu KB**.

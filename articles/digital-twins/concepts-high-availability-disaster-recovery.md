@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ac75a5b0b59a06855b7ee88d971c269ca915e429
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 35f4aae246f105d832aaf92c5c5797c8a65b44f1
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763170"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938551"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Azure Digital Twins alta disponibilidade e recuperação de desastres
 
@@ -38,6 +38,29 @@ Pode haver algumas situações raras quando um centro de dados experimenta inter
 
 >[!NOTE]
 > Alguns serviços Azure também fornecem uma opção adicional chamada **failover iniciado pelo cliente**, que permite que os clientes iniciem uma falha apenas para o seu exemplo, como para executar um berbequim DR. Este mecanismo não é **atualmente suportado** pela Azure Digital Twins. 
+
+## <a name="monitor-service-health"></a>Monitorizar o estado de funcionamento do serviço
+
+À medida que as instâncias Azure Digital Twins são falhadas e recuperadas, pode monitorizar o processo utilizando a ferramenta [Azure Service Health.](https://docs.microsoft.com/azure/service-health/service-health-overview) O Service Health acompanha a saúde dos seus serviços Azure em diferentes regiões e subscrições, e partilha comunicações com impacto de serviços sobre interrupções e tempos de inatividade.
+
+Durante um evento de failover, a Service Health pode fornecer uma indicação de quando o seu serviço está em baixo, e quando é de volta.
+
+Para ver eventos de Saúde de Serviço...
+1. Navegue para a [Saúde](https://portal.azure.com/?feature.customportal=false#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues) do Serviço no portal Azure (pode utilizar este link ou pesquisar através da barra de pesquisa do portal).
+1. Utilize o menu esquerdo para mudar para a página *de histórico da Saúde.*
+1. Procure um *Nome de Emissão* começando com **Azure Digital Twins,** e selecione-o.
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/navigate.png" alt-text="Screenshot do portal Azure mostrando a página de Histórico de Saúde. Há uma lista de várias questões dos últimos dias e está em destaque uma questão chamada &quot;Azure Digital Twins - West Europe - Mitigated&quot;." lightbox="media/concepts-high-availability-disaster-recovery/navigate.png":::
+
+1. Para obter informações gerais sobre a paralisação, consulte o *separador Resumo.*
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/summary.png" alt-text="Na página 'Histórico da Saúde', destaca-se o separador Resumo. O separador apresenta informações gerais, como o recurso que foi afetado, a sua região e a sua subscrição." lightbox="media/concepts-high-availability-disaster-recovery/summary.png":::
+1. Para obter mais informações e atualizações sobre o problema ao longo do tempo, consulte o *separador 'Atualizações de Problemas'.*
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/issue-updates.png" alt-text="Na página 'Histórico de Saúde', destaca-se o separador 'Atualizações de Problemas'. O separador apresenta várias entradas que mostram o estado atual de há um dia." lightbox="media/concepts-high-availability-disaster-recovery/issue-updates.png":::
+
+
+Note que as informações apresentadas nesta ferramenta não são específicas de um exemplo Azure Digital. Depois de usar a Saúde do Serviço para entender o que se passa com o serviço Azure Digital Twins numa determinada região ou subscrição, pode dar um passo mais além, utilizando a [ferramenta de saúde de recursos](troubleshoot-resource-health.md) para aprofundar casos específicos e ver se são impactados.
 
 ## <a name="best-practices"></a>Melhores práticas
 

@@ -8,22 +8,22 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 3b0a413db304b4f9d2c50a3d221c480f1e9dc37a
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 57cb1c405e00acb346421d64190a71e9211d21ff
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553710"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938839"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-purview"></a>Gerir e aumentar quotas para recursos com a Azure Purview
  
 A Azure Purview é um serviço de cloud para utilização pelos utilizadores de dados. Você usa a Azure Purview para gerir centralmente a governação de dados em toda a sua propriedade de dados, abrangendo ambientes em nuvem e on-prem. O serviço permite que os analistas de negócios procurem dados relevantes utilizando termos de negócio significativos. Para elevar os limites até ao máximo para a sua subscrição, contacte o suporte.
  
-## <a name="azure-purview-limits"></a>Limites de visão azul
+## <a name="azure-purview-limits"></a>Limites do Azure Purview
  
 |**Recurso**|  **Limite de predefinição**  |**Limite Máximo**|
 |---|---|---|
-|Contas de competência por inquilino (todas as subscrições combinadas)|3|Contactar o Suporte|
+|Contas de competência por região, por inquilino (todas as assinaturas combinadas)|3|Contactar o Suporte|
 |vCores disponíveis para digitalização, por conta*|160|160|
 |Exames simultâneos, por conta num dado ponto. O limite baseia-se no tipo de fontes de dados digitalizadas*|5 | 10 |
 |Tempo máximo que uma varredura pode correr para|7 dias|7 dias|

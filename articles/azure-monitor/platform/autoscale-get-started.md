@@ -1,17 +1,17 @@
 ---
-title: Introdução ao dimensionamento automático no Azure
+title: Começar com autoescala em Azure
 description: Saiba como escalar o seu recurso Web App, Cloud Service, Virtual Machine ou Virtual Machine Scale definido em Azure.
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 95f94bd1e80c05658d9033047950d4b49fca4643
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: bf0194e82acde0406cfeb57af027831f92a90c92
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920659"
+ms.locfileid: "96938312"
 ---
-# <a name="get-started-with-autoscale-in-azure"></a>Começa com a Autoscale em Azure
+# <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
 Este artigo descreve como configurar as suas definições de Autoscale para o seu recurso no portal Microsoft Azure.
 
 A autoescala do Azure Monitor aplica-se apenas a [conjuntos de escalas de máquinas virtuais,](https://azure.microsoft.com/services/virtual-machine-scale-sets/) [serviços de nuvem,](https://azure.microsoft.com/services/cloud-services/) [serviço de aplicações - Web Apps](https://azure.microsoft.com/services/app-service/web/)e [serviços de Gestão API.](../../api-management/api-management-key-concepts.md)
@@ -136,9 +136,11 @@ Quando o caminho de verificação de saúde é fornecido, o Serviço de Aplicaç
 > [!NOTE]
 > Lembre-se que o seu Plano de Serviço de Aplicações deve ser dimensionado para 2 ou mais instâncias e ser **de nível básico ou superior** para que a exclusão do balançador de carga ocorra. Se tiver apenas 1 instância, não será removido do equilibrador de carga, mesmo que não seja saudável. 
 
-Os casos saudáveis restantes podem experimentar um aumento da carga. Para evitar sobrecarregar as restantes instâncias, não mais de metade dos seus casos serão excluídos. Por exemplo, se um Plano de Serviço de Aplicações for dimensionado para 4 instâncias e 3 não saudáveis, no máximo 2 serão excluídos da rotação do loadbalancer. As outras 2 instâncias (1 saudável e 1 insalubre) continuarão a receber pedidos. No pior dos cenários, em que todos os casos não são saudáveis, nenhum será excluído. Se quiser anular este comportamento, pode definir a definição da `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` aplicação para um valor entre `0` e `100` . Defini-lo para um valor mais elevado significa que mais casos insalubres serão removidos (o valor predefinido é de 50).
+Além disso, a via de verificação de saúde é pingada quando as ocorrências são adicionadas ou reiniciadas, tais como durante operações de escala, reiniciamento manual ou implementação de código através do site SCM. Se o exame de saúde falhar durante estas operações, as ocorrências de falha não serão adicionadas ao balançador de carga. Isto evita que estas operações impactem negativamente a disponibilidade da sua aplicação.
 
-Se um caso não for saudável durante uma hora, será substituído por uma nova instância. No máximo, um caso será substituído por hora, com um máximo de três instâncias por dia por Plano de Serviço de Aplicação.
+Ao utilizar o healthcheck, os seus casos saudáveis restantes podem experimentar um aumento da carga. Para evitar sobrecarregar as restantes instâncias, não mais de metade dos seus casos serão excluídos. Por exemplo, se um Plano de Serviço de Aplicações for dimensionado para 4 instâncias e 3 não saudáveis, no máximo 2 serão excluídos da rotação do loadbalancer. As outras 2 instâncias (1 saudável e 1 insalubre) continuarão a receber pedidos. No pior dos cenários, em que todos os casos não são saudáveis, nenhum será excluído. Se quiser anular este comportamento, pode definir a definição da `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` aplicação para um valor entre `0` e `100` . Defini-lo para um valor mais elevado significa que mais casos insalubres serão removidos (o valor predefinido é de 50).
+
+Se os controlos de saúde falharem em todas as aplicações de uma instância durante uma hora, o caso será substituído. No máximo, um caso será substituído por hora, com um máximo de três instâncias por dia por Plano de Serviço de Aplicação.
 
 ### <a name="monitoring"></a>Monitorização
 

@@ -5,18 +5,15 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/05/2020
-ms.openlocfilehash: cda305ac705b728e0d2e129d7d42d53ea0251d86
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 12/09/2020
+ms.openlocfilehash: 0ea58050c5dc952392df56b4fb556a0998eef165
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591534"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938907"
 ---
 # <a name="logical-decoding"></a>Descodificação lógica
- 
-> [!NOTE]
-> A descodão lógica está em pré-visualização pública na Base de Dados Azure para PostgreSQL - Servidor Único.
 
 [A descodão lógica no PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) permite-lhe transmitir alterações de dados a consumidores externos. A descodão lógica é popularmente usada para streaming de eventos e alterar cenários de captura de dados.
 

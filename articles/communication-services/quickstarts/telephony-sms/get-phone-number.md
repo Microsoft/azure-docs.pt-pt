@@ -9,16 +9,17 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: cff39f93f9caddfdbe48788f14b62642a373e2bf
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3c7f171a2b4957b687831ec2777ecc40b5913a15
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148191"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938652"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>Quickstart: Obtenha um número de telefone usando o portal Azure
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Inicie-se com os Serviços de Comunicação Azure utilizando o portal Azure para comprar um número de telefone.
 
@@ -37,13 +38,13 @@ Para começar a aprovisionar os números, aceda ao seu recurso de Serviços de C
 
 Navegue para a lâmina **números de telefone** no menu de recursos.
 
-:::image type="content" source="../media/manage-phone-azure-portal-phone-page.png" alt-text="Screenshot mostrando a página principal de um recurso dos Serviços de Comunicação.":::
+:::image type="content" source="../media/manage-phone-azure-portal-phone-page.png" alt-text="Screenshot mostrando a página de telefone de um recurso de serviços de comunicação.":::
 
 Prima o botão **Obter** para lançar o assistente. O assistente na lâmina dos **números de telefone** irá acompanhá-lo através de uma série de perguntas que o ajudam a escolher o número de telefone que melhor se adequa ao seu cenário. 
 
 Primeiro terá de escolher o **País/região** onde pretende provisionar o número de telefone. Depois de selecionar o País/região, terá então de selecionar o **caso Utilização,** que melhor acomoda as suas necessidades. 
 
-:::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="Screenshot mostrando a página principal de um recurso dos Serviços de Comunicação.":::
+:::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="Screenshot mostrando a vista de números de telefone Get.":::
 
 ### <a name="select-your-phone-number-features"></a>Selecione as funcionalidades do seu número de telefone
 
@@ -52,11 +53,11 @@ Configurar o seu número de telefone é dividido em dois passos:
 1. A seleção do [tipo número](../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services)
 2. A seleção dos [recursos do número](../../concepts/telephony-sms/plan-solution.md#phone-number-features-in-azure-communication-services)
 
-Pode selecionar entre dois tipos de números de telefone: **Geográfico**e **Gratuito**. Quando tiver selecionado um tipo de número, pode então escolher a funcionalidade.
+Pode selecionar entre dois tipos de números de telefone: **Geográfico** e **Gratuito**. Quando tiver selecionado um tipo de número, pode então escolher a funcionalidade.
 
 No nosso exemplo, selecionamos um tipo de número **gratuito** com as **funcionalidades** de chamada de saída e **de entrada e saída.**
 
-:::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="Screenshot mostrando a página principal de um recurso dos Serviços de Comunicação.":::
+:::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="Screenshot mostrando a visualização de funcionalidades Select.":::
 
 A partir daqui, clique no botão **Seguinte: Números** na parte inferior da página para personalizar o número de telefone(s) que pretende providenciar.
 
@@ -64,14 +65,14 @@ A partir daqui, clique no botão **Seguinte: Números** na parte inferior da pá
 
 Na página **Números,** irá personalizar os números de telefone que pretende prever.
 
-:::image type="content" source="../media/manage-phone-azure-portal-select-numbers-start.png" alt-text="Screenshot mostrando a página principal de um recurso dos Serviços de Comunicação.":::
+:::image type="content" source="../media/manage-phone-azure-portal-select-numbers-start.png" alt-text="Screenshot mostrando a página de seleção de números.":::
 
 > [!NOTE]
 > Este quickstart mostra o fluxo de personalização do tipo número **gratuito.** A experiência pode ser ligeiramente diferente se tiver escolhido o tipo de Número **Geográfico,** mas o resultado final será o mesmo.
 
 Escolha o **código De área** na lista dos códigos de Área disponíveis e introduza a quantidade que pretende disponibilizar e, em seguida, clique em **Procurar** para encontrar números que satisfaçam os requisitos selecionados. Os números de telefone que satisfaçam as suas necessidades serão mostrados juntamente com o seu custo mensal.
 
-:::image type="content" source="../media/manage-phone-azure-portal-found-numbers.png" alt-text="Screenshot mostrando a página principal de um recurso dos Serviços de Comunicação.":::
+:::image type="content" source="../media/manage-phone-azure-portal-found-numbers.png" alt-text="Screenshot mostrando a página de seleção de números com números reservados.":::
 
 > [!NOTE]
 > A disponibilidade depende do tipo, localização e funcionalidades que selecionou.
@@ -88,17 +89,17 @@ A página de resumo irá rever o tipo de número, funcionalidades, números de t
 
 Por fim, clique **em Colocar** o pedido na parte inferior da página para confirmar.
 
-:::image type="content" source="../media/manage-phone-azure-portal-get-numbers-summary.png" alt-text="Screenshot mostrando a página principal de um recurso dos Serviços de Comunicação.":::
+:::image type="content" source="../media/manage-phone-azure-portal-get-numbers-summary.png" alt-text="Screenshot mostrando a página Resumo com o tipo número, funcionalidades, números de telefone e custo mensal total mostrado.":::
 
 ## <a name="find-your-phone-numbers-on-the-azure-portal"></a>Encontre os seus números de telefone no portal Azure
 
 Navegue para o seu Recurso de Comunicação Azure no [portal Azure:](https://portal.azure.com)
 
-:::image type="content" source="../media/manage-phone-azure-portal-start.png" alt-text="Screenshot mostrando a página principal de um recurso dos Serviços de Comunicação.":::
+:::image type="content" source="../media/manage-phone-azure-portal-start.png" alt-text="Screenshot mostrando a página principal de um recurso de serviços de comunicação.":::
 
 Selecione a lâmina números de telefone no menu para gerir os seus números de telefone.
 
-:::image type="content" source="../media/manage-phone-azure-portal-phones.png" alt-text="Screenshot mostrando a página principal de um recurso dos Serviços de Comunicação.":::
+:::image type="content" source="../media/manage-phone-azure-portal-phones.png" alt-text="Screenshot mostrando a página de número de telefone de um recurso de comunicação.":::
 
 > [!NOTE]
 > Pode levar alguns minutos para que os números apresentados sejam mostrados nesta página.
@@ -108,7 +109,7 @@ Selecione a lâmina números de telefone no menu para gerir os seus números de 
 
 Na página **Números,** pode selecionar um número de telefone para o configurar.
 
-:::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Screenshot mostrando a página principal de um recurso dos Serviços de Comunicação.":::
+:::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Screenshot mostrando a página de funcionalidades da atualização.":::
 
 Selecione as funcionalidades das opções disponíveis e, em seguida, clique em **Confirmar** para aplicar a sua seleção.
 

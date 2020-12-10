@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 10/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 775075765c8c8eaa94541c0f094c1f7743fe59d9
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 88ad060c1ba28285051a91bd928a2a7116dff1ce
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886792"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937547"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Resolução de problemas nos Serviços de Comunicação da Azure
 
@@ -165,6 +165,25 @@ No Android Studio, navegue para o Explorador de Ficheiros de Dispositivos seleci
    
 
 ---
+
+
+## <a name="calling-client-library-error-codes"></a>Ligar para os códigos de erro da biblioteca do cliente
+
+Os Serviços de Comunicação Azure que ligam para a biblioteca de clientes utilizam os seguintes códigos de erro para ajudá-lo a resolver problemas de chamadas. Estes códigos de erro são expostos através da propriedade após o `call.callEndReason` fim de uma chamada.
+
+| Código de erro | Descrição | Medidas a tomar |
+| -------- | ---------------| ---------------|
+| 403 | Falha de autenticação proibida/ proibida. | Certifique-se de que o seu token de Serviços de Comunicação é válido e não caducado. |
+| 404 | Chamada não encontrada. | Certifique-se de que o número que está a ligar (ou ligue para o qual está a aderir) existe. |
+| 408 | O controlador de chamadas está esgotado. | O Controlador de Chamada sai em tempo de espera por mensagens de protocolo dos pontos finais do utilizador. Certifique-se de que os clientes estão conectados e disponíveis. |
+| 410 | Pilha de meios de comunicação locais ou erro de infraestrutura de mídia. | Certifique-se de que está a utilizar a mais recente biblioteca de clientes num ambiente suportado. |
+| 430 | Incapaz de entregar mensagem à aplicação do cliente. | Certifique-se de que a aplicação do cliente está em execução e disponível. |
+| 480 | Ponto final remoto do cliente não registado. | Certifique-se de que o ponto de terminação remoto está disponível. |
+| 481 | Falhou em lidar com a chamada recebida. | Arquivar um pedido de apoio através do portal Azure. |
+| 487 | Chamada cancelada, recusada localmente, terminou devido a um problema de incompatibilidade de pontos finais, ou não gerou oferta de mídia. | Comportamento esperado. |
+| 490, 491, 496, 487, 498 | Problemas de rede de pontos finais locais. | Verifique a sua rede. |
+| 500, 503, 504 | Erro de infraestrutura dos Serviços de Comunicação. | Arquivar um pedido de apoio através do portal Azure. |
+| 603 | Chamada globalmente recusada por participante remoto dos Serviços de Comunicação | Comportamento esperado. |
 
 
 ## <a name="related-information"></a>Informações relacionadas

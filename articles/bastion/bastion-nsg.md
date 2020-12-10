@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 822a90aa2bd3a19cf3459924e6b577cc416aa3a5
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: afb751e08faea6dabde72b192d246b48735cff53
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616829"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938707"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabalhar com acesso NSG e Azure Bastion
 
@@ -34,7 +34,7 @@ Esta secção mostra-lhe o tráfego de rede entre o utilizador e o Bastião Azur
 
 ### <a name="azurebastionsubnet"></a><a name="apply"></a>AzureBastionSubnet
 
-Azure Bastion é implantado especificamente para * **AzureBastionSubnet** _.
+Azure Bastion é implantado especificamente para ***AzureBastionSubnet** _.
 
 _ **Tráfego ingresso:**
 

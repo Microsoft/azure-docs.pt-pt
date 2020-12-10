@@ -7,24 +7,24 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 3ac90b79053e59047dbe64598688e77b9df059d1
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: b51be165d3d05ae753c7e0e5536a157fbbacf1ab
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358716"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938635"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compreender a fatura do Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Como um serviço de base de dados totalmente gerido na nuvem, a Azure Cosmos DB simplifica a faturação cobrando apenas para as suas operações de base de dados e armazenamento consumido. Não existem taxas adicionais de licença, hardware, custos de utilidade ou custos de instalação em comparação com as alternativas no local ou alternativas hospedadas pelo IaaS. Quando se considera as capacidades multi-regiões da Azure Cosmos DB, o serviço de base de dados proporciona uma redução substancial dos custos em comparação com as soluções existentes no local ou iaaS.
 
-- **Operações de base de dados** : A forma como é cobrado pelas suas operações de base de dados depende do tipo de conta Azure Cosmos que está a utilizar.
+- **Operações de base de dados**: A forma como é cobrado pelas suas operações de base de dados depende do tipo de conta Azure Cosmos que está a utilizar.
 
-  - **Produção prevista** : É cobrado de hora em hora para o rendimento máximo previsto para uma determinada hora, em incrementos de 100 RU/s.
-  - **Serverless** : É cobrado por hora a quantidade total de Unidades de Pedido consumidas pelas suas operações de base de dados.
+  - **Produção prevista**: É cobrado de hora em hora para o rendimento máximo previsto para uma determinada hora, em incrementos de 100 RU/s.
+  - **Serverless**: É cobrado por hora a quantidade total de Unidades de Pedido consumidas pelas suas operações de base de dados.
 
-- **Armazenamento** : É faturada uma taxa fixa para a quantidade total de armazenamento (em BB) consumida pelos seus dados e índices durante uma hora.
+- **Armazenamento**: É faturada uma taxa fixa para a quantidade total de armazenamento (em BB) consumida pelos seus dados e índices durante uma hora.
 
 Consulte [a página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as últimas informações sobre preços.
 
@@ -130,7 +130,7 @@ Vamos supor que crias um contentor Azure Cosmos no Oeste dos EUA. O contentor é
 |**Item** |**Utilização (mês)**|**Rate** (Taxa) |**Custo Mensal** |
 |---------|---------|---------|-------|
 |Conta de produção de contentores nos EUA Ocidentais (todas as regiões são writable)       | 10K RU/seg * 24 * 30    |$0,016 por 100 RU/seg por hora    |$1.152 |
-|Conta de produção para 3 regiões adicionais - Leste dos EUA, Norte da Europa e Ásia Oriental (todas as regiões são writable)        | (3 + 1) * 10K RU/seg * 24 * 30    |$0,016 por 100 RU/seg por hora   |$4.608 |
+|Conta de produção para 3 regiões adicionais - Leste dos EUA, Norte da Europa e Ásia Oriental (todas as regiões são writable)        | 3 * 10K RU/seg * 24 * 30    |$0,016 por 100 RU/seg por hora   |$3.456 |
 |Conta de armazenamento para contentor no Oeste dos EUA      | 250 GB    |$0,25/GB  |$62,50|
 |Conta de armazenamento para 3 regiões adicionais - Leste dos EUA, Norte da Europa e Ásia Oriental      | 3 * 250 GB    |$0,25/GB  |$187,50|
 |**Total**     |     |  |**$6.010**|

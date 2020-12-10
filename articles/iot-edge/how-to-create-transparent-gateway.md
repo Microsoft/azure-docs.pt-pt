@@ -11,22 +11,37 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 506f6a2025a61b4d9d16918b2a95de620171c46b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 9f81d059c1a71bf6349d0ef9b4aae8f7a47c161f
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147854"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938788"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para atuar como um gateway transparente
 
 Este artigo fornece instruções detalhadas para configurar um dispositivo IoT Edge para funcionar como um gateway transparente para outros dispositivos comunicarem com o IoT Hub. Este artigo usa o termo *gateway IoT Edge* para se referir a um dispositivo IoT Edge configurado como um gateway transparente. Para obter mais informações, consulte [como um dispositivo IoT Edge pode ser usado como porta de entrada](./iot-edge-as-gateway.md).
+
+<!-- 1.0.10 -->
+::: moniker range="iotedge-2018-06"
 
 >[!NOTE]
 >Atualmente:
 >
 > * Os dispositivos ativados por arestas não conseguem ligar-se aos gateways IoT Edge.
 > * Os dispositivos a jusante não podem usar o upload de ficheiros.
+
+::: moniker-end
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>Atualmente:
+>
+> * Os dispositivos a jusante não podem usar o upload de ficheiros.
+
+::: moniker-end
 
 Existem três passos gerais para estabelecer uma ligação transparente de gateway bem sucedida. Este artigo abrange o primeiro passo:
 

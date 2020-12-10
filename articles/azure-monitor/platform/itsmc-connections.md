@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 502d5a5c4b3d13d32fece648ce1de6763d012096
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: a0ef8d9f28f90db77686c3139c8b45eccfb669aa
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932290"
+ms.locfileid: "96938822"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar os produtos/serviços do ITSM ao Conector de Gestão de Serviços de TI
 Este artigo fornece informações sobre como configurar a ligação entre o seu produto/serviço ITSM e o It Service Management Connector (ITSMC) no Log Analytics para gerir centralmente os seus itens de trabalho. Para obter mais informações sobre o ITSMC, consulte [a Visão Geral.](./itsmc-overview.md)
@@ -309,8 +309,7 @@ As seguintes secções fornecem detalhes sobre como ligar o seu produto Provance
 
 > [!NOTE]
 > 
-> A partir de 1 de outubro-2020 a integração do ITSM com o Azure Alert deixará de ser ativada para novos clientes. As novas Ligações ITSM não serão suportadas. 
-> As ligações ITSM existentes serão suportadas.
+> Propomos aos nossos clientes provance que utilizem a [ação Webhook](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) para cherwell e provance como outra solução para a integração.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -367,8 +366,7 @@ As seguintes secções fornecem detalhes sobre como ligar o seu produto Cherwell
 
 > [!NOTE]
 > 
-> A partir de 1 de outubro de 2020 a integração da Cherwell ITSM com o Azure Alert deixará de ser ativada para novos clientes. As novas Ligações ITSM não serão suportadas. 
-> As ligações ITSM existentes serão suportadas.
+> Propomos aos nossos clientes Cherwell que utilizem a [ação Webhook](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) para cherwell e provance como outra solução para a integração.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 

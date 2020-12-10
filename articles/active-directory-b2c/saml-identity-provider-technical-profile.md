@@ -11,18 +11,18 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30f110c3955315f560eef9972b1e3e4a956bdd8a
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 572d6964384c711a7d2b98b0fa27852a7d28951f
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750531"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936714"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico do fornecedor de identidade SAML numa política personalizada do Azure Ative Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure Ative Directory B2C (Azure AD B2C) presta apoio ao fornecedor de identidade SAML 2.0. Este artigo descreve as especificidades de um perfil técnico para interagir com um fornecedor de sinistros que suporta este protocolo padronizado. Com um perfil técnico SAML pode federar com um fornecedor de identidade baseado em SAML, como [a ADFS](identity-provider-adfs2016-custom.md) e [a Salesforce.](identity-provider-salesforce-custom.md) Esta federação permite que os seus utilizadores assinem o seu contrato com as suas identidades sociais ou empresariais existentes.
+O Azure Ative Directory B2C (Azure AD B2C) presta apoio ao fornecedor de identidade SAML 2.0. Este artigo descreve as especificidades de um perfil técnico para interagir com um fornecedor de sinistros que suporta este protocolo padronizado. Com um perfil técnico SAML pode federar com um fornecedor de identidade baseado em SAML, como [a ADFS](identity-provider-adfs2016-custom.md) e [a Salesforce.](identity-provider-salesforce.md) Esta federação permite que os seus utilizadores assinem o seu contrato com as suas identidades sociais ou empresariais existentes.
 
 ## <a name="metadata-exchange"></a>Troca de metadados
 
@@ -102,7 +102,7 @@ O elemento **OutputClaims** contém uma lista de reclamações devolvidas pelo f
 
 ### <a name="subject-name-output-claim"></a>Reclamação de produção de nome de sujeito
 
-Para ler a afirmação SAML **NameId** no **Sujeito** como uma reclamação normalizada, desajuste o Parceiro de **ReclamaçãoClaimType** ao valor do `SPNameQualifier` atributo. Se o `SPNameQualifier` atributo não for apresentado, desavenda o Parceiro de ReclamaçãoClaimType ao valor do **PartnerClaimType** `NameQualifier` atributo. 
+Para ler a afirmação SAML **NameId** no **Sujeito** como uma reclamação normalizada, desajuste o Parceiro de **ReclamaçãoClaimType** ao valor do `SPNameQualifier` atributo. Se o `SPNameQualifier` atributo não for apresentado, desavenda o Parceiro de ReclamaçãoClaimType ao valor do  `NameQualifier` atributo. 
 
 
 Afirmação SAML: 
@@ -123,7 +123,7 @@ Reclamação de saída:
 <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="http://your-idp.com/unique-identifier" />
 ```
 
-Se ambos `SPNameQualifier` ou `NameQualifier` atributos não forem apresentados na afirmação SAML, desa um conjunto de parceiros de reclamaçãoClaimType para **PartnerClaimType** `assertionSubjectName` . Certifique-se de que o **NameId** é o primeiro valor em afirmação XML. Quando define mais do que uma afirmação, a Azure AD B2C escolhe o valor do sujeito a partir da última afirmação.
+Se ambos `SPNameQualifier` ou `NameQualifier` atributos não forem apresentados na afirmação SAML, desa um conjunto de parceiros de reclamaçãoClaimType para  `assertionSubjectName` . Certifique-se de que o **NameId** é o primeiro valor em afirmação XML. Quando define mais do que uma afirmação, a Azure AD B2C escolhe o valor do sujeito a partir da última afirmação.
 
 O exemplo a seguir mostra as reclamações devolvidas por um fornecedor de identidade SAML:
 
@@ -216,5 +216,5 @@ Exemplo:
 
 Consulte os seguintes artigos para exemplos de trabalhar com fornecedores de identidade SAML em Azure AD B2C:
 
-- [Adicione a ADFS como fornecedor de identidade SAML usando políticas personalizadas](identity-provider-adfs2016-custom.md)
-- [Inscreva-se utilizando as contas salesforce via SAML](identity-provider-salesforce-custom.md)
+- [Adicione a ADFS como fornecedor de identidade SAML usando políticas personalizadas](identity-provider-adfs.md)
+- [Inscreva-se utilizando as contas salesforce via SAML](identity-provider-salesforce.md)

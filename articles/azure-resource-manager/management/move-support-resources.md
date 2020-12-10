@@ -3,12 +3,12 @@ title: Mover suporte de operação por tipo de recurso
 description: Lista os tipos de recursos Azure que podem ser transferidos para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 226686e51c8b59b6963609a95a2cb3c2cc03d621
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 0b1304b273523d42ad62f4e392fb803e1c174b69
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780999"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937530"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover suporte de operação para recursos
 
@@ -1423,7 +1423,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | networkinterfaces | Sim | Sim |
 > | redes de mentofils | Não | Não |
 > | networksecuritygroups | Sim | Sim |
-> | observadores de rede | Sim | Não |
+> | observadores de rede | Não | Não |
 > | observadores de rede / suportes de conexão | Sim | Não |
 > | networkwatchers / fluxologs | Sim | Não |
 > | observadores de rede / pingmeshes | Sim | Não |

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 12/09/2020
 ms.author: b-juche
-ms.openlocfilehash: db1e8ce2e4fe9ae81bc2299ae70e9ff83941b5b4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7c78d5fa89d6d4f3c73bdd1fe9b6d2fdae97c011
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95245879"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937479"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replicação transversal dos volumes dos Ficheiros Azure NetApp
 
@@ -38,14 +38,15 @@ A replicação do volume Azure NetApp Files está atualmente disponível nos seg
 * Centro Sul dos EUA e Leste dos EUA
 * Centro Sul dos EUA e Leste dos EUA 2 
 * EUA Leste 2 e Central dos EUA 
-* Europa do Norte e Europa Ocidental
-* Reino Unido Sul e Reino Unido Oeste
 * Austrália Leste e Austrália Sudeste
 * Canadá Central e Canadá Leste
-* Japão Leste e Japão Oeste
-* Reino Unido Sul e Alemanha West Central
-* Sudeste Asiático e Austrália Oriental
 * Índia Central e Sul da Índia
+* Alemanha Centro Ocidental e Alemanha Norte
+* Japão Leste e Japão Oeste
+* Europa do Norte e Europa Ocidental
+* Sudeste Asiático e Austrália Oriental
+* Reino Unido Sul e Alemanha West Central
+* Reino Unido Sul e Reino Unido Oeste
 
 ## <a name="service-level-objectives"></a>Objetivos ao nível do serviço
 
@@ -109,13 +110,13 @@ Por conseguinte, até ao final do Mês 2, a taxa total de replicação entre reg
 
 A taxa regular de capacidade de armazenamento dos Ficheiros Azure NetApp para o Mês 2 aplica-se ao volume de destino.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Requisitos e considerações para a utilização da replicação entre regiões](cross-region-replication-requirements-considerations.md)
 * [Criar replicação de volume](cross-region-replication-create-peering.md)
 * [Apresentar o estado de funcionamento da relação de replicação](cross-region-replication-display-health-status.md)
 * [Gerir a recuperação após desastre](cross-region-replication-manage-disaster-recovery.md)
 * [Métricas de replicação de volume](azure-netapp-files-metrics.md#replication)
-* [Eliminar replicações ou volumes de volume](cross-region-replication-delete.md)
+* [Eliminar volumes ou replicações de volume](cross-region-replication-delete.md)
 * [Resolver problemas da replicação entre regiões](troubleshoot-cross-region-replication.md)
 
 

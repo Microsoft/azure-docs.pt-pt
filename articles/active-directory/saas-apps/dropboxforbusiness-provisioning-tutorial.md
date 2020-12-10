@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 7bbf9b199b15815127f0ecb26ae027ef7bfa52d2
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 04d17e17ef11696efd52f04ea83639f2a9b81fea
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355447"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938771"
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Tutorial: Configurar o Dropbox para o Negócio para o provisionamento automático do utilizador
 
 O objetivo deste tutorial é demonstrar os passos a serem realizados no Dropbox para Business and Azure Ative Directory (Azure AD) para configurar a Azure AD para fornecimento e desa provisionamento automaticamente de utilizadores e/ou grupos ao Dropbox para negócios.
 
 > [!IMPORTANT]
-> A Microsoft e o Dropbox vão depreciar a antiga integração dropbox eficaz 04/01/2021. Para evitar perturbações no serviço, recomendamos migrar para a nova integração dropbox que suporta grupos. Para migrar para a nova integração dropbox, adicione e configuure um novo exemplo de Dropbox for Provisioning no seu inquilino Azure AD usando os passos abaixo. Uma vez configurado a nova integração dropbox, desative o Provisioning na antiga integração dropbox para evitar conflitos de provisionamento.
+> A Microsoft e o Dropbox vão depreciar a antiga integração dropbox eficaz 04/01/2021. Para evitar perturbações no serviço, recomendamos migrar para a nova integração dropbox que suporta grupos. Para migrar para a nova integração dropbox, adicione e configuure um novo exemplo de Dropbox for Provisioning no seu inquilino Azure AD usando os passos abaixo. Uma vez configurado a nova integração dropbox, desative o Provisioning na antiga integração dropbox para evitar conflitos de provisionamento. Para obter etapas mais detalhadas sobre a migração para a nova integração dropbox, consulte [Update to the new mais recente aplicação Dropbox for Business utilizando Azure AD](https://help.dropbox.com/installs-integrations/third-party/update-dropbox-azure-ad-connector).
 
 > [!NOTE]
 > Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -97,7 +97,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Screenshot da lista de retirada do modo de provisionamento com a opção Automática chamada.](common/provisioning-automatic.png)
 
-5. Na secção **Credenciais de Administrador** , clique em **Autorizar**. Abre um diálogo de login dropbox para Negócios numa nova janela do navegador.
+5. Na secção **Credenciais de Administrador**, clique em **Autorizar**. Abre um diálogo de login dropbox para Negócios numa nova janela do navegador.
 
     ![Aprovisionamento ](common/provisioning-oauth.png)
 

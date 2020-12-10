@@ -8,17 +8,17 @@ author: KumudD
 manager: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: aldomel
-ms.openlocfilehash: ad0a5fc5940c36aa5d2d6912987b154532bc80a1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ca6460497fa026feca503df741ad6811a95fb9e3
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000883"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936935"
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
 
@@ -252,7 +252,7 @@ A tabela de rotas de *Subnet2* na imagem contém as rotas seguintes:
 |Predefinição |Ativo |100.64.0.0/10       |Nenhum                      |                   |
 |Predefinição |Ativo |192.168.0.0/16      |Nenhum                      |                   |
 
-A tabela de rotas para *Subnet2* contém todas as rotas predefinidas criadas pelo Azure e as rotas opcionais de peering de VNet e de gateway de rede virtual. O Azure adicionou as rotas opcionais a todas as sub-redes na rede virtual quando o gateway e o peering foram adicionados à rede virtual. A Azure removeu as rotas para os prefixos de endereço 10.0.0.0/8, 192.168.0.0/16 e 100.64.0.0/10 prefixos da tabela de rotas *Subnet1* quando a *Subnet1* rota definida pelo utilizador para o pré-fixo de 0,0.0.0/0.  
+A tabela de rotas para *Subnet2* contém todas as rotas predefinidas criadas pelo Azure e as rotas opcionais de peering de VNet e de gateway de rede virtual. O Azure adicionou as rotas opcionais a todas as sub-redes na rede virtual quando o gateway e o peering foram adicionados à rede virtual. A Azure removeu as rotas para os prefixos de endereço 10.0.0.0/8, 192.168.0.0/16 e 100.64.0.0/10 prefixos da tabela de rotas *Subnet1* quando a rota definida pelo utilizador para o pré-fixo de 0,0.0.0/0.  
 
 ## <a name="next-steps"></a>Passos seguintes
 

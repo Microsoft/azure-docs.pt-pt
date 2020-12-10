@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 70b60d340e3af8d726915db513e30eaff26ed217
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 203af02841e6d17546d254ed83868c859ba3ac0d
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96347604"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938941"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Tutorial: Configurar consola de infraestrutura oracle cloud para fornecimento automático de utilizadores
 
@@ -37,8 +37,8 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 * [Um inquilino da AD AZure](../develop/quickstart-create-new-tenant.md) 
 * Uma conta de utilizador no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
-* Um [inquilino](https://www.oracle.com/cloud/sign-in.html?intcmp=OcomFreeTier&source=:ow:o:p:nav:0916BCButton)do Controlo de Infraestruturas da Nuvem oracle.
-* Uma conta de utilizador no Controlo de Infraestruturas da Oracle Cloud com permissões de administração.
+* Um [inquilino](https://www.oracle.com/cloud/sign-in.html?intcmp=OcomFreeTier&source=:ow:o:p:nav:0916BCButton)da Consola oracle Cloud Infrastructure.
+* Uma conta de utilizador na Oracle Cloud Infrastructure Console com permissões de Administração.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passo 1. Planear a sua implementação de aprovisionamento
 1. Saiba [como funciona o serviço de aprovisionamento](../app-provisioning/user-provisioning.md).

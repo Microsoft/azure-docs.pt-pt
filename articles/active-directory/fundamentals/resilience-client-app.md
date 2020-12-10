@@ -11,12 +11,12 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: 9189d4d8cda5f9fcfce7e6ac2097414aa29f0a68
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: fc15176318dcfae99434f50a0b4370f371cec05a
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317474"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938244"
 ---
 # <a name="increase-the-resilience-of-authentication-and-authorization-in-client-applications-you-develop"></a>Aumentar a resiliência da autenticação e autorização nas aplicações do cliente que desenvolve
 
@@ -30,7 +30,9 @@ MSAL caches tokens e usa um padrão de aquisição de token silencioso. Também 
 
 ![Imagem de dispositivo com e aplicação usando MSAL para ligar para a Identidade do Microsoft](media/resilience-client-app/resilience-with-microsoft-authentication-library.png)
 
-Ao utilizar o MSAL, obtém-se uma aquisição simbólica, refrescante e silenciosa, utilizando o seguinte padrão.
+Ao utilizar o MSAL, a aquisição simbólica, refrescante e silenciosa é suportada automaticamente. Você pode usar padrões simples para adquirir os tokens necessários para a autenticação moderna. Apoiamos muitas línguas e pode encontrar uma amostra que corresponda ao seu idioma e cenário na nossa página [Samples.](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code)
+
+## <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 try
@@ -42,6 +44,28 @@ catch(MsalUiRequiredException ex)
     result = await app.AcquireToken(scopes).WithClaims(ex.Claims).ExecuteAsync()
 }
 ```
+
+## <a name="javascript"></a>[Javascript](#tab/javascript)
+
+```javascript
+return myMSALObj.acquireTokenSilent(request).catch(error => {
+    console.warn("silent token acquisition fails. acquiring token using redirect");
+    if (error instanceof msal.InteractionRequiredAuthError) {
+        // fallback to interaction when silent call fails
+        return myMSALObj.acquireTokenPopup(request).then(tokenResponse => {
+            console.log(tokenResponse);
+
+            return tokenResponse;
+        }).catch(error => {
+            console.error(error);
+        });
+    } else {
+        console.warn(error);
+    }
+});
+```
+
+---
 
 A MSAL pode, em alguns casos, renovar proativamente as fichas. Quando a Microsoft Identity emite um símbolo de longa data, pode enviar informações ao cliente durante o momento ideal para refrescar o token ("refresh \_ in"). A MSAL irá atualizar proativamente o símbolo com base nesta informação. A aplicação continuará a funcionar enquanto o token antigo é válido, mas terá um prazo mais longo para fazer outra aquisição de token bem sucedida.
 
@@ -65,7 +89,9 @@ Os desenvolvedores devem ter um processo de atualização para a versão mais re
 
 [Consulte a versão mais recente do Microsoft.Identity.Web e ver notas de lançamento](https://github.com/AzureAD/microsoft-identity-web/releases)
 
-## <a name="if-not-using-msal-use-these-resilient-patterns-for-token-handling"></a>Se não utilizar o MSAL, utilize estes padrões resilientes para manuseamento de símbolos
+## <a name="use-resilient-patterns-for-token-handling"></a>Use padrões resilientes para manuseamento de símbolos
+
+Se não estiver a utilizar o MSAL, pode utilizar estes padrões resilientes para o manuseamento de fichas. Estas boas práticas são implementadas automaticamente pela biblioteca MSAL. 
 
 Em geral, uma aplicação que utilize a autenticação moderna chamará um ponto final para recuperar fichas que autenticam o utilizador ou autorizar a aplicação a chamar APIs protegidas. A MSAL destina-se a lidar com os detalhes da autenticação e implementa vários padrões para melhorar a resiliência deste processo. Utilize as orientações nesta secção para implementar as melhores práticas se optar por utilizar uma biblioteca diferente da MSAL. Se utilizar o MSAL, obtém todas estas boas práticas gratuitamente, uma vez que a MSAL as implementa automaticamente.
 

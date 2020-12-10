@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 3fb4085ba275bda1fe784f368eb5d92ac0c668f0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 059aad8b45aa449f5cd28c97f4ba55e2204c04ce
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448521"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937071"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>O que é o Azure Stack Edge Pro com GPU?
 
@@ -51,7 +51,7 @@ Azure Stack Edge Pro tem as seguintes capacidades:
 |Atualização de dados     | Capacidade de atualizar os ficheiros locais com a versão mais recente da cloud.|
 |Encriptação    | Suporte de BitLocker para encriptar localmente os dados e proteger a transferência de dados para a cloud através de *https*.|
 |Estrangulamento de largura de banda| Acelerador para limitar o uso da largura de banda durante as horas de ponta.|
-<!--|ExpressRoute | Segurança acrescida através do ExpressRoute. Utilize a configuração de peering onde o tráfego de dispositivos locais para os pontos finais de armazenamento de nuvem viaja sobre o ExpressRoute. Para mais informações, consulte [a visão geral do ExpressRoute](../expressroute/expressroute-introduction.md).-->
+<!--|ExpressRoute | Segurança acrescida através do ExpressRoute. Utilize a configuração de peering onde o tráfego de dispositivos locais para os pontos finais de armazenamento de nuvem viaja sobre o ExpressRoute. Para obter mais informações, veja [Descrição geral do ExpressRoute](../expressroute/expressroute-introduction.md).|-->
 
 ## <a name="components"></a>Componentes
 

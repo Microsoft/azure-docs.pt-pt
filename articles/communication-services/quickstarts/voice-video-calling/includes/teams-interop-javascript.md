@@ -5,12 +5,12 @@ ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 820659c513674dc04e914c8f1094afab4f5a89e2
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c191da32444c3eb0315373780c8037f1b45be423
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356465"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96993004"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,79 +28,89 @@ Deve ser membro da organização proprietária de ambas as entidades para utiliz
 
 ## <a name="add-the-teams-ui-controls"></a>Adicione os controlos de UI das equipas
 
-Adicione uma nova caixa de texto e um botão dentro do seu HTML. A caixa de texto será usada para entrar no contexto de reunião das Equipas e o botão será utilizado para se juntar à reunião especificada:
+Substitua o código em index.html por seguinte corte.
+A caixa de texto será usada para entrar no contexto de reunião das Equipas e o botão será utilizado para se juntar à reunião especificada:
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Communication Client - Calling Sample</title>
-  </head>
-  <body>
+</head>
+<body>
     <h4>Azure Communication Services</h4>
-    <h1>Calling Quickstart</h1>
-    <input 
-      id="callee-id-input"
-      type="text"
-      placeholder="Who would you like to call?"
-      style="margin-bottom:1em; width: 200px;"
-    />
-    <input 
-      id="teams-id-input"
-      type="text"
-      placeholder="Teams meeting context"
-      style="margin-bottom:1em; width: 300px;"
-    />
+    <h1>Teams meeting join quickstart</h1>
+    <input id="teams-link-input" type="text" placeholder="Teams meeting link"
+        style="margin-bottom:1em; width: 300px;" />
+        <p>Call state <span style="font-weight: bold" id="call-state">-</span></p>
     <div>
-      <button id="call-button" type="button" disabled="true">
-        Start Call
-      </button>
-      &nbsp;
-      <button id="hang-up-button" type="button" disabled="true">
-        Hang Up
-      </button>
-         <button id="meeting-button" type="button" disabled="false">
-        Join Teams Meeting
-      </button>
+        <button id="join-meeting-button" type="button" disabled="false">
+            Join Teams Meeting
+        </button>
+        <button id="hang-up-button" type="button" disabled="true">
+            Hang Up
+        </button>
     </div>
     <script src="./bundle.js"></script>
-  </body>
+</body>
+
 </html>
 ```
 
 ## <a name="enable-the-teams-ui-controls"></a>Ativar os controlos de UI das equipas
 
-Podemos agora ligar o botão **de Reunião de Equipas** de Junção ao código que se junta à reunião das equipas fornecida:
+Substitua o conteúdo do ficheiro client.js por um corte seguinte.
 
 ```javascript
-meetingButton.addEventListener("click", () => {
+import { CallClient } from "@azure/communication-calling";
+import { AzureCommunicationUserCredential } from '@azure/communication-common';
+
+let call;
+let callAgent;
+const meetingLinkInput = document.getElementById('teams-link-input');
+const hangUpButton = document.getElementById('hang-up-button');
+const teamsMeetingJoinButton = document.getElementById('join-meeting-button');
+const callStateElement = document.getElementById('call-state');
+
+async function init() {
+    const callClient = new CallClient();
+    const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
+    callAgent = await callClient.createCallAgent(tokenCredential);
+    teamsMeetingJoinButton.disabled = false;
+}
+init();
+
+hangUpButton.addEventListener("click", async () => {
+    // end the current call
+    await call.hangUp();
+  
+    // toggle button states
+    hangUpButton.disabled = true;
+    teamsMeetingJoinButton.disabled = false;
+    callStateElement.innerText = '-';
+  });
+
+teamsMeetingJoinButton.addEventListener("click", () => {
     
     // set display name in the meeting
-    callAgent.updateDisplayName('YOUR_NAME');
+    callAgent.updateDisplayName('ACS user');
     
     // join with meeting link
-    call = callAgent.join({meetingLink: 'MEETING_LINK'}, {});
-
-     // join with meeting coordinates
-     call = callAgent.join({
-        threadId: 'CHAT_THREAD_ID',
-        organizerId: 'ORGANIZER_ID',
-        tenantId: 'TENANT_ID',
-        messageId: 'MESSAGE_ID'
-    }, {})
+    call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
     
+    call.on('callStateChanged', () => {
+        callStateElement.innerText = call.state;
+    })
     // toggle button states
     hangUpButton.disabled = false;
-    callButton.disabled = true;
-    meetingButton.disabled = true;
+    teamsMeetingJoinButton.disabled = true;
 });
 ```
 
-## <a name="get-the-meeting-context"></a>Obtenha o contexto de reunião
+## <a name="get-the-teams-meeting-link"></a>Obtenha o link de reunião das equipas
 
-O contexto de Equipas pode ser recuperado usando APIs de gráfico. Isto é detalhado na [documentação do Gráfico.](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta)
-
-Você também pode obter as informações de reunião necessárias da URL **de reunião** de encontro na reunião convidar-se a si mesmo.
+O link de encontro das equipas pode ser recuperado usando APIs de gráfico. Isto é detalhado na [documentação do Gráfico.](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta)
+Os Serviços de Comunicação Que Ligam a SDK aceitam uma ligação completa de reuniões de equipas. Este link é devolvido como parte do `onlineMeeting` recurso, acessível sob a [ `joinWebUrl` propriedade](/graph/api/resources/onlinemeeting?view=graph-rest-beta) Também pode obter as informações de reunião necessárias do URL de Encontro de **Adesão** na reunião das Equipas.
 
 ## <a name="run-the-code"></a>Executar o código
 
@@ -112,6 +122,6 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Abra o seu navegador e navegue para http://localhost:8080/ . Deverá ver o seguinte:
 
-:::image type="content" source="../media/javascript/calling-javascript-app.png" alt-text="Screenshot da aplicação JavaScript concluída.":::
+:::image type="content" source="../media/javascript/acs-join-teams-meeting-quickstart.PNG" alt-text="Screenshot da aplicação JavaScript concluída.":::
 
 Insira o contexto das Equipas na caixa de texto e pressione o Encontro de Equipas de *Adesão* para se juntar à reunião das Equipas a partir da sua aplicação de Serviços de Comunicação.
