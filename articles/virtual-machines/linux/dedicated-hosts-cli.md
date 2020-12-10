@@ -4,14 +4,14 @@ description: Implementar VMs e conjuntos de escalas para anfitriões dedicados u
 author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 11/12/2020
 ms.author: cynthn
-ms.openlocfilehash: d99f8c380b486ed818aff64782ca817dab41c916
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d2cf78d328017f96552bd51794ac997c394d18f1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975286"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008423"
 ---
 # <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Implementar para anfitriões dedicados usando o CLI Azure
  
@@ -65,14 +65,6 @@ az vm host group create \
 
 Adicione o `--automatic-placement true` parâmetro para ter os seus VMs e séries de instâncias colocadas automaticamente nos anfitriões, dentro de um grupo anfitrião. Para obter mais informações, consulte [Manual vs. colocação automática ](../dedicated-hosts.md#manual-vs-automatic-placement).
 
-> [!IMPORTANT]
-> A colocação automática está atualmente em visualização pública.
->
-> Para participar na pré-visualização, complete o pré-visualização do inquérito de embarque em [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
->
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
->
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### <a name="other-examples"></a>Outros exemplos
 
@@ -95,7 +87,7 @@ az vm host group create \
    --platform-fault-domain-count 2 
 ```
  
-## <a name="create-a-host"></a>Criar um hospedeiro 
+## <a name="create-a-host"></a>Criar um anfitrião 
 
 Agora vamos criar um anfitrião dedicado no grupo anfitrião. Além de um nome para o anfitrião, você é obrigado a fornecer o SKU para o anfitrião. Host SKU captura a série VM suportada, bem como a geração de hardware para o seu anfitrião dedicado.  
 
@@ -133,16 +125,7 @@ Para colocar o VM num hospedeiro específico, utilize `--host` em vez de especif
 > [!WARNING]
 > Se criar uma máquina virtual num hospedeiro que não tenha recursos suficientes, a máquina virtual será criada num estado FALHADO. 
 
-## <a name="create-a-scale-set-preview"></a>Criar um conjunto de escala (pré-visualização)
-
-> [!IMPORTANT]
-> Os conjuntos de escala de máquina virtual em anfitriões dedicados estão atualmente em pré-visualização pública.
->
-> Para participar na pré-visualização, complete o pré-visualização do inquérito de embarque em [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
->
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
->
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento 
 
 Quando implementar um conjunto de escala, especifique o grupo anfitrião.
 

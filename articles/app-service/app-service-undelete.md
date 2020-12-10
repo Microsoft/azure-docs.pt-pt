@@ -5,16 +5,16 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: 04e496806f2c388eb3a69df1b4cc3897b8132f6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71f762ac0effc9ad14510c02679109362163f66d
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962915"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008542"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Restaurar a aplicação do Serviço de Aplicações eliminada com o PowerShell
 
-Se por acaso eliminar acidentalmente a sua aplicação no Azure App Service, pode restaurá-la utilizando os comandos do [módulo Az PowerShell](/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
+Se por acaso eliminar acidentalmente a sua aplicação no Azure App Service, pode restaurá-la utilizando os comandos do [módulo Az PowerShell](/powershell/azure/).
 
 > [!NOTE]
 > - As aplicações eliminadas são expurgadas do sistema 30 dias após a eliminação inicial. Depois de uma aplicação ser purgada, não pode ser recuperada.

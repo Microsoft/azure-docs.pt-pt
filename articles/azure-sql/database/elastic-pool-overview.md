@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
-ms.date: 07/28/2020
-ms.openlocfilehash: 3b76af2c6c949f2591cee880a1991c6f240806a2
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 12/9/2020
+ms.openlocfilehash: d1ba9445441f38c55b40a8f8ca55471ea8b0a06d
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107900"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008593"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Piscinas elásticas ajudam a gerir e escalar várias bases de dados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -74,38 +74,18 @@ Este exemplo é ideal pelos motivos seguintes:
 - A utilização de pico de cada base de dados ocorre em diferentes alturas no tempo.
 - Os eDTUs são partilhados entre muitas bases de dados.
 
-O preço de um conjunto é uma função das eDTUs do conjunto. Embora o preço unitário de eDTU de um conjunto seja 1,5 vezes superior ao preço unitário de DTU para bases de dados individuais, **as eDTUs de conjuntos podem ser partilhadas por muitas bases de dados e são necessárias menos eDTUs totais**. Estas distinções nos preços e na partilha das eDTUs são as bases do potencial de poupança nos custos que os conjuntos podem proporcionar.
+No modelo de compra da DTU, o preço de uma piscina é uma função da piscina eDTUs. Embora o preço unitário de eDTU de um conjunto seja 1,5 vezes superior ao preço unitário de DTU para bases de dados individuais, **as eDTUs de conjuntos podem ser partilhadas por muitas bases de dados e são necessárias menos eDTUs totais**. Estas distinções nos preços e na partilha das eDTUs são as bases do potencial de poupança nos custos que os conjuntos podem proporcionar.
 
-As seguintes regras do polegar relacionadas com a contagem de bases de dados e a utilização da base de dados ajudam a garantir que um pool oferece um custo reduzido em comparação com a utilização de tamanhos de cálculo para bases de dados individuais.
-
-### <a name="minimum-number-of-databases"></a>Número mínimo de bases de dados
-
-Se a quantidade agregada de recursos para bases de dados individuais for superior a 1,5x os recursos necessários para a piscina, então uma piscina elástica é mais rentável.
-
-***Exemplo do modelo de compra baseado em DTU*** São necessárias pelo menos duas bases de dados S3 ou pelo menos 15 S0 para que um pool de 100 eDTU seja mais rentável do que utilizar tamanhos de cálculo para bases de dados individuais.
-
-### <a name="maximum-number-of-concurrently-peaking-databases"></a>Número máximo de bases de dados com picos simultâneos
-
-Ao partilhar recursos, nem todas as bases de dados de um pool podem simultaneamente utilizar recursos até ao limite disponível para bases de dados únicas. Quanto menos bases de dados atingirem simultaneamente o pico, menor é a definição dos recursos da piscina e mais rentável se torna a piscina. Em geral, não mais de 2/3 (ou 67%) das bases de dados na piscina devem simultaneamente atingir o limite de recursos.
-
-***Exemplo do modelo de compra baseado em DTU*** Para reduzir os custos de três bases de dados S3 num pool de 200 eDTU, no máximo duas destas bases de dados podem simultaneamente atingir o pico na sua utilização. Caso contrário, se mais de duas destas quatro bases de dados S3 tiverem o pico em simultâneo, o conjunto terá de ser dimensionado para mais de 200 eDTUs. Se a piscina for redimensionada para mais de 200 eDTUs, mais bases de dados S3 teriam de ser adicionadas à piscina para manter os custos inferiores aos tamanhos de cálculo para bases de dados individuais.
-
-Note que este exemplo não considera a utilização de outras bases de dados na piscina. Se todas as bases de dados tiverem alguma utilização num determinado momento, menos de 2/3 (67%) das bases de dados podem ter o pico em simultâneo.
-
-### <a name="resource-utilization-per-database"></a>Utilização de recursos por base de dados
-
-Uma grande diferença entre o pico e a utilização média das bases de dados indica períodos longos de pouca utilização e curtos períodos de elevada utilização. Este padrão de utilização é ideal para partilhar recursos entre bases de dados. A inclusão de bases de dados num conjunto deve ser considerada quando o pico de utilização for cerca de 1,5 vezes superior à utilização média.
-
-***Exemplo do modelo de compra baseado em DTU*** Uma base de dados S3 que atinge 100 DTUs e, em média, utiliza 67 DTUs ou menos é um bom candidato para a partilha de eDTUs numa piscina. Em alternativa, uma base de dados S1 que tenha como pico 20 DTUs e utilize, em média, 13 DTUs ou menos, é uma boa candidata para um conjunto.
+No modelo de compra vCore, o preço unitário vCore para piscinas elásticas é o mesmo que o preço unitário vCore para bases de dados individuais.
 
 ## <a name="how-do-i-choose-the-correct-pool-size"></a>Como posso escolher o tamanho correto da piscina
 
 O melhor tamanho para uma piscina depende dos recursos agregados necessários para todas as bases de dados na piscina. Trata-se de determinar o seguinte:
 
-- Recursos máximos utilizados por todas as bases de dados da piscina (ou DTUs máximos ou vCores máximos dependendo da sua escolha do modelo de compra).
+- Recursos máximos de computação utilizados por todas as bases de dados da piscina.  Os recursos computacional são indexados por eDTUs ou vCores dependendo da sua escolha de modelo de compra.
 - Bytes de armazenamento máximos utilizados por todas as bases de dados do conjunto.
 
-Para os níveis de serviço disponíveis e limites para cada modelo de recurso, consulte o [modelo de compra baseado em DTU](service-tiers-dtu.md) ou o modelo de compra baseado em [vCore.](service-tiers-vcore.md)
+Para os níveis de serviço e limites de recursos em cada modelo de compra, consulte o [modelo de compra baseado em DTU](service-tiers-dtu.md) ou o modelo de compra baseado em [vCore](service-tiers-vcore.md).
 
 Os seguintes passos podem ajudá-lo a estimar se uma piscina é mais rentável do que bases de dados individuais:
 
@@ -119,10 +99,10 @@ Para o modelo de compra baseado em vCore:
 
 MAX (<Número total de utilização média vCore *de DBs* X *por> DB,* <Número de utilização *simultânea de DBs* X *Peak vCore por DB*>)
 
-2. Calcule o espaço de armazenamento necessário para o conjunto ao adicionar o número de bytes de que todas as bases de dados do conjunto precisam. Em seguida, determine o tamanho do conjunto de eDTUs que disponibiliza esta quantidade de armazenamento.
+2. Estimar o espaço de armazenamento total necessário para o pool adicionando o tamanho de dados necessário para todas as bases de dados na piscina. Para o modelo de compra DTU, determine então o tamanho da piscina eDTU que fornece esta quantidade de armazenamento.
 3. Para o modelo de compra baseado em DTU, pegue o maior das estimativas do eDTU do Passo 1 e Passo 2. Para o modelo de compra baseado em vCore, pegue a estimativa vCore do Passo 1.
 4. Consulte a [página de preços da Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/) e encontre o menor tamanho da piscina que é maior do que a estimativa do Passo 3.
-5. Compare o preço da piscina do Passo 5 com o preço de utilizar os tamanhos de cálculo adequados para bases de dados individuais.
+5. Compare o preço da piscina do Passo 4 com o preço de utilizar os tamanhos de cálculo adequados para bases de dados individuais.
 
 > [!IMPORTANT]
 > Se o número de bases de dados de uma piscina se aproximar do máximo suportado, certifique-se de considerar a [gestão de Recursos em piscinas elásticas densas](elastic-pool-resource-management.md).
@@ -176,34 +156,7 @@ Quando tiver concluído a configuração da piscina, pode clicar em 'Aplicar', n
 
 No portal Azure, pode monitorizar a utilização de uma piscina elástica e as bases de dados dentro dessa piscina. Também pode fazer um conjunto de alterações na sua piscina elástica e submeter todas as alterações ao mesmo tempo. Estas alterações incluem adicionar ou remover bases de dados, alterar as definições de piscina elástica ou alterar as definições da base de dados.
 
-Para começar a monitorizar a sua piscina elástica, encontre e abra uma piscina elástica no portal. Você verá primeiro um ecrã que lhe dá uma visão geral do estado da sua piscina elástica. O que está incluído:
-
-- Gráficos de monitorização mostrando o uso de recursos da piscina elástica
-- Alertas e recomendações recentes, se disponíveis, para a piscina elástica
-
-O gráfico a seguir mostra uma piscina elástica exemplo:
-
-![Vista para a piscina](./media/elastic-pool-overview/basic.png)
-
-Se quiser mais informações sobre o pool, pode clicar em qualquer informação disponível nesta visão geral. Clicar no gráfico **de utilização de recursos** irá levá-lo à vista de Monitorização Azure, onde pode personalizar as métricas e a janela de tempo mostrada na tabela. Clicar em quaisquer notificações disponíveis irá levá-lo a uma lâmina que mostre todos os detalhes desse alerta ou recomendação.
-
-Se quiser monitorizar as bases de dados dentro da sua piscina, pode clicar na **utilização de recursos da Base de Dados** na secção de **Monitorização** do menu de recursos à esquerda.
-
-![Página de utilização de recursos de base de dados](./media/elastic-pool-overview/db-utilization.png)
-
-### <a name="to-customize-the-chart-display"></a>Para personalizar o ecrã do gráfico
-
-Pode editar o gráfico e a página métrica para apresentar outras métricas, como a percentagem de CPU, percentagem de IO de dados e percentagem de IO utilizada.
-
-No formulário **Edit Gráfico,** pode selecionar um intervalo de tempo fixo ou clicar **no costume** para selecionar qualquer janela de 24 horas nas últimas duas semanas e, em seguida, selecionar os recursos para monitorizar.
-
-### <a name="to-select-databases-to-monitor"></a>Para selecionar bases de dados para monitorizar
-
-Por predefinição, o gráfico na lâmina **de utilização de recursos de base** de dados mostrará as 5 principais bases de dados por DTU ou CPU (dependendo do seu nível de serviço). Pode alternar as bases de dados deste gráfico selecionando e desacolando bases de dados da lista abaixo da tabela através das caixas de verificação à esquerda.
-
-Também pode selecionar mais métricas para visualizar lado a lado nesta tabela de bases de dados para obter uma visão mais completa do desempenho das suas bases de dados.
-
-Para obter mais informações, consulte [criar alertas de base de dados SQL no portal Azure.](alerts-insights-configure-portal.md)
+Pode utilizar as ferramentas de [monitorização](https://docs.microsoft.com/azure/azure-sql/database/performance-guidance) e alerta de desempenho [incorporadas,](https://docs.microsoft.com/azure/azure-sql/database/alerts-insights-configure-portal)combinadas com classificações de desempenho.  Além disso, a BASE de Dados SQL pode [emitir métricas e registos de recursos](https://docs.microsoft.com/azure/azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure?tabs=azure-portal) para uma monitorização mais fácil.
 
 ## <a name="customer-case-studies"></a>Casos práticos de clientes
 

@@ -8,16 +8,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/13/2020
-ms.openlocfilehash: fd7499bd5e216f2a625d87ea13996da851a1889e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/07/2020
+ms.openlocfilehash: a58bcff4e39c4a4a907cd8567b47b074ff299bd5
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019216"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008457"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Armazenamento e remoção de dados em Serviços Cognitivos de Compreensão linguística (LUIS)
-A LUIS armazena dados encriptados numa loja de dados Azure correspondente à região especificada pela chave. Estes dados são armazenados por 30 dias. 
+
+A LUIS armazena dados encriptados numa loja de dados Azure correspondente [à região](luis-reference-regions.md) especificada pela chave. 
+
+* Os dados utilizados para treinar o modelo, tais como entidades, intenções e declarações serão guardados em LUIS para o resto da vida da aplicação. Se um proprietário ou colaborador eliminar a aplicação, estes dados serão eliminados com a sua. Se uma aplicação não for utilizada em 90 dias, será eliminada. 
+
+* Os autores da aplicação podem optar por permitir o [registo](luis-how-to-review-endpoint-utterances.md#log-user-queries-to-enable-active-learning) das declarações enviadas para uma aplicação publicada. Se ativadas, as expressões serão guardadas durante 30 dias e podem ser vistas pelo autor da aplicação. Se o registo não estiver ativado quando a aplicação for publicada, estes dados não são armazenados.
 
 ## <a name="export-and-delete-app"></a>Exportar e eliminar aplicativo
 Os utilizadores têm total controlo sobre [a exportação](luis-how-to-start-new-app.md#export-app) e [eliminação](luis-how-to-start-new-app.md#delete-app) da app. 
@@ -67,7 +72,7 @@ Para efeitos de retenção e eliminação de dados, uma aplicação LUIS inativa
 * Não tem uma chave atual atribuída.
 * Não teve um sinal de utilizador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre exportação e eliminação de uma app](luis-how-to-start-new-app.md)

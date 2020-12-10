@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c35647a46cd252ce045d10e8dfefcf78236ba74b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2ab39f090124aaf590798795f446bda5b0fe48a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961725"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008559"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ do Serviço de Aplicações do Azure no Linux
 
@@ -94,7 +94,7 @@ Sim, desative `perMessageDeflate` o código de Node.js do lado do servidor. Por 
 
 ```nodejs
 const io = require('socket.io')(server,{
-  perMessageDeflate :false
+  perMessageDeflate :false
 });
 ```
 
@@ -122,7 +122,7 @@ Forneça o URL de registo completo, incluindo `http://` ou `https://` .
 
 **Qual é o formato do nome de imagem na opção de registo privado?**
 
-Adicione o nome de imagem completo, incluindo o URL de registo privado (por exemplo, myacr.azurecr.io/dotnet:latest). Os nomes de imagem que utilizam uma porta personalizada [não podem ser introduzidos através do portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para `docker-custom-image-name` definir, utilize a [ `az` ferramenta de linha de comando](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
+Adicione o nome de imagem completo, incluindo o URL de registo privado (por exemplo, myacr.azurecr.io/dotnet:latest). Os nomes de imagem que utilizam uma porta personalizada [não podem ser introduzidos através do portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para `docker-custom-image-name` definir, utilize a [ `az` ferramenta de linha de comando](/cli/azure/webapp/config/container#az-webapp-config-container-set).
 
 **Posso expor mais do que uma porta na minha imagem personalizada do contentor?**
 

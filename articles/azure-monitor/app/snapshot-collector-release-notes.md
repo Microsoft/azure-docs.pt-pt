@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
-ms.openlocfilehash: 73fea1e1928cf4e1bd5342aa0a4c885ccb5cf137
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: e4fffe0efa9f6900ef8d83c0a1b150b4249c22b3
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548176"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008576"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Notas de lançamento para Microsoft.ApplicationInsights.SnapshotCollector
 
@@ -21,6 +21,11 @@ Este artigo contém as notas de lançamento para o pacote Microsoft.ApplicationI
 Para relatórios de bugs e feedback, abra um problema no GitHub em https://github.com/microsoft/ApplicationInsights-dotnet
 
 ## <a name="release-notes"></a>Notas de versão
+
+## <a name="1375"></a>[1.3.7.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.5)
+Um lançamento de ponto para retroportar uma correção a partir de 1.4.0-pre.
+### <a name="bug-fixes"></a>Correções de erros
+- Corrigir [ObjectDisposedException on shutdown](https://github.com/microsoft/ApplicationInsights-dotnet/issues/2097).
 
 ## <a name="1374"></a>[1.3.7.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.4)
 Um lançamento de ponto para resolver um problema descoberto no teste do cenário de anexação codeless do Azure App Service.
