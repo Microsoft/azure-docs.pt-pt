@@ -107,8 +107,6 @@ items:
                 href: register-scan-power-bi-tenant.md
               - name: Inquilino do Power BI - PowerShell
                 href: powershell-register-scan-power-bi.md
-              - name: Teradata
-                href: register-scan-teradata-source.md
       - name: Glossário comercial
         items:
           - name: 'Criar, importar e exportar termos do glossário'

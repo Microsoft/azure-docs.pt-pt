@@ -74,7 +74,7 @@
         - name: Disponibilidade
           href: ../availability.md
         - name: Colocalização
-          href: co-location.md
+          href: ../co-location.md
         - name: Desempenho da rede
           href: ../../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Tipos e tamanhos de VM
