@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 12/02/2020
 ms.author: banders
-ms.openlocfilehash: 619dec1b2246b7e74b058e570df4021888196b0c
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b5de81f5eaf76c16c1ea8fc78075c4567c77aeee
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447548"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531989"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>Tutorial: Analisar a fatura do Contrato de Cliente Microsoft
 
@@ -54,6 +54,8 @@ Se tiver acesso a apenas um âmbito de faturação, selecione **Propriedades** n
 ![Captura de ecrã que mostra o Contrato de Cliente Microsoft na página de propriedades](./media/review-customer-agreement-bill/billing-mca-property.png)
 
 Se tiver acesso a vários âmbitos de faturação, verifique o tipo na coluna da conta de faturação. Tem acesso a uma conta de faturação de um Contrato de Cliente Microsoft se o tipo de conta de faturação de qualquer um dos âmbitos for **Contrato de Cliente Microsoft**.
+
+Na página dos âmbitos de faturação, selecione **Âmbitos de faturação** e a conta de faturação que seria utilizada para pagar a utilização das subscrições. A conta de faturação deverá ser do tipo **Contrato de Cliente Microsoft**.
 
 ![Captura de ecrã que mostra o Contrato de Cliente Microsoft na página com a lista de contas de faturação](./media/review-customer-agreement-bill/billing-mca-in-the-list.png)
 
@@ -146,7 +148,7 @@ Utilize o ficheiro CSV Utilização e custos do Azure para analisar os seus cust
 
 ### <a name="download-your-invoice-and-usage-details"></a>Transferir a fatura e os detalhes de utilização
 
-Dependendo do acesso, pode precisar de selecionar uma conta de faturação ou um perfil de faturação em Cost Management + Faturação. No menu esquerdo, selecione **Faturas** em **Faturação**. Na grelha da fatura, localize a linha da fatura que quer transferir. Clique no símbolo de transferência ou nas reticências (...) no final da linha. Na caixa **Transferir**, transfira os detalhes de utilização e a fatura.
+Dependendo do acesso, pode precisar de selecionar uma conta de faturação ou um perfil de faturação em Cost Management + Faturação. No menu esquerdo, selecione **Faturas** em **Faturação**. Na grelha da fatura, localize a linha da fatura que quer transferir. Selecione o símbolo de transferência ou as reticências (...) no final da linha. Na caixa **Transferir**, transfira os detalhes de utilização e a fatura.
 
 ### <a name="view-detailed-usage-by-invoice-section"></a>Ver a secção de utilização detalhada por fatura
 

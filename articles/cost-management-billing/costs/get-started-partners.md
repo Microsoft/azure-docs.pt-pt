@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: d2b90db18a31fff4190be4f84625ad52fcaae578
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: cd3ca4d3ddf73469cd1f1fc065eccb369cf765af
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657317"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905684"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Começar a utilizar o Azure Cost Management para parceiros
 
@@ -262,7 +262,7 @@ Também pode agrupar e filtrar pela propriedade **PartnerEarnedCreditApplied** c
 
 ## <a name="export-cost-data-to-azure-storage"></a>Exportar os dados dos custos para o Armazenamento do Microsoft Azure
 
-Os parceiros com acesso aos âmbitos de faturação num inquilino do parceiro podem exportar os dados dos custos e da utilização para um blob do Armazenamento do Microsoft Azure. O blob deve estar numa subscrição no inquilino do parceiro que não seja uma subscrição de serviço partilhada ou uma subscrição do cliente. Para permitir a exportação dos dados dos custos, recomendamos que configure uma subscrição pay as you go independente no inquilino do parceiro para alojar os dados dos custos exportados. A conta de armazenamento de exportação é criada no blob do Armazenamento do Microsoft Azure alojado na subscrição pay as you go. Com base no âmbito em que o parceiro cria a exportação, os dados associados são exportados automaticamente para a conta de armazenamento periodicamente.
+Os parceiros com acesso aos âmbitos de faturação num inquilino do parceiro podem exportar os dados dos custos e da utilização para um blob do Armazenamento do Microsoft Azure. O blob tem de estar numa subscrição no inquilino do parceiro que não seja uma [subscrição de serviço partilhada](/partner-center/shared-services) ou uma subscrição do cliente. Para permitir a exportação dos dados dos custos, recomendamos que configure uma subscrição pay as you go independente no inquilino do parceiro para alojar os dados dos custos exportados. A conta de armazenamento de exportação é criada no blob do Armazenamento do Microsoft Azure alojado na subscrição pay as you go. Com base no âmbito em que o parceiro cria a exportação, os dados associados são exportados automaticamente para a conta de armazenamento periodicamente.
 
 Os utilizadores com acesso RBAC do Azure à subscrição também podem exportar os dados de custos para um blob do Armazenamento do Microsoft Azure alojado em qualquer subscrição do inquilino do cliente.
 

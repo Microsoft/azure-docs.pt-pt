@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 12/02/2020
 ms.author: banders
-ms.openlocfilehash: 070d105785ee3ab9811188406bda56dbe6ceb558
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 874d5cb022a38b172bb37009bd86b5e6988f3204
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350896"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545609"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obter custos e utilização de reservas do Contrato Enterprise
 
@@ -140,13 +140,15 @@ Obtenha os dados de Custos amortizados e filtre os dados de uma instância reser
 2. Obtenha os custos de reserva. Some os valores de _Custo_ para obter o valor monetário do que pagou pela instância reservada. O valor inclui os custos utilizados e não utilizados da reserva.
 3. Subtraia os custos da reserva dos custos pay as you go estimados para obter a poupança estimada.
 
+Tenha em atenção que se tiver uma reserva subutilizada, a entrada _UnusedReservation_ para _ChargeType_ passa a ser um fator a considerar. Quando tem uma reserva totalmente utilizada, recebe o máximo de poupanças possível. Qualquer quantidade de _UnusedReservation_ reduz as poupanças.
+
 ## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>Compras de reserva e amortização na análise de custo
 
 Os custos de reserva estão disponíveis na [análise de custo](https://aka.ms/costanalysis). Por predefinição, a análise de custo mostra **Custo real**, que é o modo como os custos serão mostrados na sua fatura. Para ver as compras de reserva discriminadas e associadas aos recursos que utilizaram o benefício, mude para **Custo amortizado**:
 
 ![Exemplo que mostra onde selecionar o custo amortizado na análise de custo](./media/understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-Agrupar por tipo de encargo para ver uma discriminação da utilização, das compras e dos reembolsos; ou por reserva para uma discriminação de reserva e custos a pedido. Lembre-se de que os únicos custos de reserva que verá ao examinar o custo real são as compras, mas os custos serão alocados aos recursos individuais que utilizaram o benefício ao examinar o custo amortizado. Também verá um novo tipo de encargo  **UnusedReservation** ao examinar o custo amortizado.
+Agrupar por tipo de encargo para ver uma discriminação da utilização, das compras e dos reembolsos; ou por reserva para uma discriminação de reserva e custos a pedido. Lembre-se de que os únicos custos de reserva que verá ao examinar o custo real são as compras, mas os custos serão alocados aos recursos individuais que utilizaram o benefício ao examinar o custo amortizado. Também verá um novo tipo de encargo **UnusedReservation** ao examinar o custo amortizado.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
@@ -160,6 +162,6 @@ Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 - [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../../azure-sql/database/reserved-capacity-overview.md)
 - [Gerir o Azure Reservations](manage-reserved-vm-instance.md)
-- [Compreender como o desconto de reserva é aplicado](../manage/understand-vm-reservation-charges.md)
+- [Compreender como o desconto das reservas é aplicado](../manage/understand-vm-reservation-charges.md)
 - [Compreender a utilização de reservas na sua subscrição Pay As You Go](understand-reserved-instance-usage.md)
 - [Custos de software Windows não incluídos nas Reservas](reserved-instance-windows-software-costs.md)

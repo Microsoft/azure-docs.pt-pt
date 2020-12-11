@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: f4dd6d67d60603ed6cad7056cff4bb07dcb1c2e5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 82b33a7a9403993ec883090559884a45d04b7aa2
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149386"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932205"
 ---
 # <a name="about-transferring-billing-ownership-for-an-azure-subscription"></a>Sobre a transferência da propriedade de faturação de uma subscrição do Azure
 
@@ -36,7 +36,7 @@ Só o administrador de faturação de uma conta pode transferir a propriedade de
 
 O administrador de faturação é a pessoa que tem permissão para gerir a faturação de uma conta. Está autorizado a aceder à faturação no [portal do Azure](https://portal.azure.com) e a realizar várias tarefas de faturação, como criar subscrições, ver e pagar faturas ou atualizar métodos de pagamento.
 
-Para identificar as contas das quais é administrador de faturação, visite a [página Cost Management + Faturação no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview). Em seguida, selecione **Todos os âmbitos de faturação** no painel à esquerda. A página de subscrições mostra todas as subscrições nas quais é administrador de faturação.
+Para identificar as contas das quais é administrador de faturação, visite a [página Cost Management + Faturação no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview). Em seguida, selecione **Todos os âmbitos de faturação** no painel à esquerda. A página de subscrições mostra todas as subscrições nas quais é administrador da faturação.
 
 Se não tiver a certeza de quem é o administrador de conta de uma subscrição, visite a [página Subscrições no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Depois, selecione a subscrição que pretende verificar e, em seguida, procure em **Definições**. Selecione **Propriedades** e o administrador de conta da subscrição é apresentado na caixa **Administrador de Conta**.
 

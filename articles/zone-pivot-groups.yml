@@ -368,6 +368,18 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-luis
+  title: Linguagens de programação
+  prompt: Fazer uma seleção
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: API REST
 - id: java-build-tools-set
   title: Ferramentas de compilação
   prompt: Escolha uma ferramenta de compilação
@@ -916,10 +928,18 @@ groups:
     title: Python
   - id: programming-languages-objectivec-swift
     title: Objective-C/Swift
+- id: b2c-policy-type
+  title: Tipo de política do Azure AD B2C
+  prompt: Escolher um tipo de política
+  pivots:
+  - id: b2c-user-flow
+    title: Fluxo de utilizador
+  - id: b2c-custom-policy
+    title: Política personalizada
 metadata:
-  ms.openlocfilehash: 2938edac331faf56e5ba8dc380c01db281b3eb07
-  ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+  ms.openlocfilehash: e08450244e33189eafe2009660c4175a1a5776b1
+  ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96905864"
+  ms.locfileid: "96938431"
