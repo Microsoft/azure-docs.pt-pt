@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: dda6f6e37a42d4ee55a32fc8e1c05916c6be4367
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: ce86da7697341e769ada120dc7a941319b64fc18
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753132"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109543"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>Tutorial: Descubra instâncias AWS com avaliação do servidor
 
@@ -133,7 +133,7 @@ Para configurar o aparelho:
 ### <a name="generate-the-azure-migrate-project-key"></a>Gere a chave do projeto Azure Migrate
 
 1. Em **Objetivos de Migração** > **Servidores** > **Azure Migrate: Avaliação do Servidor**, selecione **Detetar**.
-2. In **Discover machines**  >  **Are your machines virtualized?** **Physical or other (AWS, GCP, Xen, etc.)**
+2. In **Discover machines**  >  **Are your machines virtualized?** 
 3. Na **tecla de projeto 1:Generate Azure Migrate,** forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de servidores físicos ou virtuais. O nome deve ser alfanumérico com 14 caracteres ou menos.
 1. Clique na **chave Gerar** para iniciar a criação dos recursos Azure necessários. Por favor, não feche a página das máquinas Discover durante a criação de recursos.
 1. Após a criação bem sucedida dos recursos Azure, é gerada uma **chave de projeto Azure Migrate.**
@@ -158,7 +158,7 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 
         **Cenário** | **Download** _ | _ *Valor do haxixe**
         --- | --- | ---
-        Físico (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa0aaa7c92f480138e1797761163fb
+        Físico (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa0a7c92f480138e1797761163fb
 
     - Para o Governo de Azure:
 
@@ -235,7 +235,15 @@ Coloque o aparelho pela primeira vez.
 
 Agora, ligue-se do aparelho aos servidores físicos a descobrir e inicie a descoberta.
 
-1. No **Passo 1: Forneça credenciais para a descoberta de servidores físicos ou virtuais do Windows e Linux**, clique em **Adicionar credenciais** para especificar um nome amigável para credenciais, adicionar **username** e **Password** para um servidor Windows ou Linux. Clique em **Guardar**.
+1. No **Passo 1: Forneça credenciais para a descoberta de servidores físicos ou virtuais do Windows e Linux,** clique em **Adicionar credenciais**.
+1. Para o servidor do Windows, selecione o tipo de fonte como **Windows Server**, especifique um nome amigável para credenciais, adicione o nome de utilizador e a palavra-passe. Clique em **Guardar**.
+1. Se estiver a utilizar a autenticação baseada em palavras-passe para o servidor Linux, selecione o tipo de fonte como **Linux Server (baseado em palavras-passe)**, especifique um nome amigável para credenciais, adicione o nome de utilizador e a palavra-passe. Clique em **Guardar**.
+1. Se estiver a utilizar a autenticação baseada em chaves SSH para o servidor Linux, pode selecionar o tipo de fonte como **Linux Server (baseado em teclas SSH)**, especifique um nome amigável para credenciais, adicione o nome de utilizador, navegue e selecione o ficheiro de chave privada SSH. Clique em **Guardar**.
+
+    - A azure Migrate suporta a chave privada SSH gerada pelo comando ssh-keygen usando algoritmos RSA, DSA, ECDSA e ed25519.
+    - Atualmente, a Azure Migrate não suporta a chave SSH baseada em palavras-passe. Por favor, use uma chave SSH sem uma palavra-passe.
+    - Atualmente, a Azure Migrate não suporta ficheiro chave ssh gerado pela PuTTY.
+
 1. Se quiser adicionar várias credenciais de uma só vez, clique em **Adicionar mais** para guardar e adicionar mais credenciais. Várias credenciais são suportadas para a descoberta de servidores físicos.
 1. No **Passo 2:Forneça detalhes físicos ou virtuais do servidor**, clique na fonte de descoberta **Adicionar** para especificar o **endereço IP/FQDN** do servidor e o nome amigável para credenciais para se ligar ao servidor.
 1. Pode **adicionar um único item** de cada vez ou adicionar **vários itens** de uma só vez. Existe também uma opção para fornecer detalhes do servidor através **do Import CSV**.

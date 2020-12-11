@@ -5,12 +5,12 @@ description: Aprenda as melhores práticas do operador do cluster para utilizar 
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: c0c1f587b4e52607e9466300f976a52874c9e5ad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1a8138b4b2fdab2cdef8d2cb4c27de8d12ef38cd
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993708"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107351"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Melhores práticas para funcionalidades avançadas do agendador no Azure Kubernetes Service (AKS)
 
@@ -131,7 +131,7 @@ Para obter mais informações sobre a utilização de seletores de nó, consulte
 
 ### <a name="node-affinity"></a>Afinidade do nó
 
-Um seletor de nó é uma forma básica de atribuir cápsulas a um dado nó. Mais flexibilidade está disponível usando *afinidade do nó.* Com a afinidade do nó, você define o que acontece se a vagem não pode ser combinado com um nó. Você pode *exigir* que o programador Kubernetes corresponda a um casulo com um anfitrião rotulado. Ou, você pode *preferir* um jogo, mas permitir que o pod seja agendado em um anfitrião diferente se não corresponder está disponível.
+Um seletor de nó é uma forma básica de atribuir cápsulas a um dado nó. Mais flexibilidade está disponível usando *afinidade do nó.* Com a afinidade do nó, você define o que acontece se a vagem não pode ser combinado com um nó. Você pode *exigir* que o programador Kubernetes corresponda a um casulo com um anfitrião rotulado. Ou, você pode *preferir* um jogo, mas permitir que o pod seja agendado em um anfitrião diferente se não houver correspondência disponível.
 
 O exemplo a seguir define a afinidade do nó para *o necessárioDuringSchedulingIgnoredDuringExecution*. Esta afinidade requer que o calendário de Kubernetes utilize um nó com uma etiqueta correspondente. Se não houver nó disponível, a cápsula tem de esperar que o agendamento continue. Para permitir que a cápsula seja programada num nó diferente, pode, em vez disso, definir o valor para *o preferidaDingSchedulingIgnoreDuringExecution*:
 

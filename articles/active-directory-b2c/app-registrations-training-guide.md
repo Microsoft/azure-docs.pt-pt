@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7bb38b382add2a0ea3506c31c5e6e76a985df6a1
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 7c9e3344ed819f607feeab88ac43a9dc286a61e0
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936476"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109101"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>A nova experiência de registos de aplicações para o Azure Ative Directory B2C
 
@@ -97,7 +97,7 @@ Na nova experiência, em vez de **Keys,** usa a lâmina **de segredos & certific
 ## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>Características não aplicáveis nos inquilinos Azure AD B2C
 As seguintes capacidades de registo de aplicações AD AD não são aplicáveis ou disponíveis em inquilinos Azure AD B2C:
 - **Funções e administradores** - Não disponível para Azure AD B2C.
-- **Branding** - A personalização UI/UX está configurada na experiência **de marca da Empresa** ou como parte de um fluxo de utilizador. Aprenda a [personalizar a interface do utilizador no Azure Ative Directory B2C](customize-ui-overview.md).
+- **Branding** - A personalização UI/UX está configurada na experiência **de marca da Empresa** ou como parte de um fluxo de utilizador. Aprenda a [personalizar a interface do utilizador no Azure Ative Directory B2C](customize-ui-with-html.md).
 - **Verificação de domínio de** editor - A sua aplicação está registada em *.onmicrosoft.com*, o que não é um domínio verificado. Além disso, o domínio da editora é usado principalmente para conceder o consentimento do utilizador, o que não se aplica às aplicações AZURE AD B2C para a autenticação do utilizador. [Saiba mais sobre o domínio da editora.](../active-directory/develop/howto-configure-publisher-domain.md)
 - **Configuração token** - O token é configurado como parte de um fluxo de utilizador em vez de uma aplicação.
 - A experiência **Quickstarts** não está atualmente disponível para inquilinos Azure AD B2C.

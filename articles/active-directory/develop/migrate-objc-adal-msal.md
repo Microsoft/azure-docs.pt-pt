@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 13923596b7ad0f6d3fdef24e847f469645b448ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb66d8a4bf97a6f8a10534c9c4459123ad6a2654
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119934"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107925"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrar aplicações para MSAL para iOS e macOS
 
@@ -136,7 +136,7 @@ A MSAL fornece mais clareza entre os erros que podem ser tratados pela sua app e
 
 Lidar com todos os outros erros da [ `MSALError` lista](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128) é opcional. Pode utilizar a informação nesses erros para melhorar a experiência do utilizador.
 
-Consulte [exceções e erros de manuseamento utilizando o MSAL](msal-handling-exceptions.md) para obter mais informações sobre o tratamento de erros da MSAL.
+Consulte [exceções e erros de manuseamento utilizando o MSAL](msal-error-handling-ios.md) para obter mais informações sobre o tratamento de erros da MSAL.
 
 ### <a name="broker-support"></a>Suporte a corretor
 
@@ -165,7 +165,7 @@ Para ativar a sua aplicação:
     </array>
     ```
 
-4. Adicione o seguinte ao seu ficheiro AppDeegate.m para lidar com chamadas: Objective-C:
+4. Adicione o seguinte ao seu ficheiro .m AppDeegate para lidar com chamadas: Objective-C:
     
     ```objc
     - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options`
@@ -261,7 +261,7 @@ Adicione os seguintes esquemas à info.plist da sua aplicação em `LSApplicatio
 
 ### <a name="update-your-appdelegate-code"></a>Atualize o seu código AppDeegate
 
-Apenas para iOS, adicione o seguinte ao seu ficheiro AppDeegate.m:
+Apenas para iOS, adicione o seguinte ao seu ficheiro .m AppDeegate:
 
 Objetivo C:
 
@@ -322,7 +322,7 @@ Por predefinição, o MSAL caches os tokens da sua aplicação no chaveiro iOS o
 Para permitir o caching token:
 1. Certifique-se de que a sua candidatura está devidamente assinada
 2. Aceda ao seu separador de Definições de Projeto Xcode > **Capacidades**  >  **Ativar a partilha de chavechains**
-3. Clique **+** e introduza uma seguinte entrada **dos Grupos Keychain:** 3.a Para iOS, introduza `com.microsoft.adalcache` 3.b Para a entrada do macOS `com.microsoft.identity.universalstorage`
+3. Clique **+** e introduza uma seguinte entrada **dos Grupos Keychain:** 3.a Para iOS, introduza `com.microsoft.adalcache` 3.b Para introduzir o macOS `com.microsoft.identity.universalstorage`
 
 ### <a name="create-msalpublicclientapplication-and-switch-to-its-acquiretoken-and-acquiretokesilent-calls"></a>Crie MSALPublicClientApplication e mude para a sua aquisiçãoToken e adquira chamadasTokeSilent
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fd2f7d46df09085d19b19709c7f45cd3d6566988
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 018d90db06948f3fd6a34b56c65088641a9ca874
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628665"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108982"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -90,7 +90,7 @@ O elemento **DataUri** é utilizado para especificar o identificador de página.
 
 ### <a name="select-a-page-layout"></a>Selecione um layout de página
 
-Pode ativar o [código do lado do cliente JavaScript](javascript-samples.md) inserindo entre o tipo de `contract` `elements` página. Por exemplo, `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
+Pode ativar o [código do lado do cliente JavaScript](javascript-and-page-layout.md) inserindo entre o tipo de `contract` `elements` página. Por exemplo, `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -111,7 +111,7 @@ O exemplo a seguir mostra o **DataUri** da `selfasserted` `1.2.0` versão:
 
 #### <a name="migrating-to-page-layout"></a>Migrando para o layout da página
 
-O formato do valor deve conter a palavra `contract` : _urn:com:microsoft:aad:b2c:elements: **contract** :p age-name:version_ . Para especificar um layout de página nas suas políticas personalizadas que usam um valor **DataUri** antigo, use a tabela seguinte para migrar para o novo formato.
+O formato do valor deve conter a palavra `contract` : _urn:com:microsoft:aad:b2c:elements:**contract**:p age-name:version_. Para especificar um layout de página nas suas políticas personalizadas que usam um valor **DataUri** antigo, use a tabela seguinte para migrar para o novo formato.
 
 | Valor DataUri antigo | Novo valor DataUri |
 | ----------------- | ----------------- |
@@ -238,4 +238,4 @@ O atributo ID do elemento **ContentDefinition** especifica o tipo de página que
 
 Para um exemplo de personalização da interface do utilizador utilizando definições de conteúdo, consulte:
 
-[Personalize a interface de utilizador da sua aplicação utilizando uma política personalizada](custom-policy-ui-customization.md)
+[Personalize a interface de utilizador da sua aplicação utilizando uma política personalizada](customize-ui-with-html.md)

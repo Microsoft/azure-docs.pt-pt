@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/09/2020
+ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01da3c186aa5d2f64028a13e08cb892255d81854
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 5151f97386ebb6b06be2320505771dc8f47d59a0
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007811"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107537"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutorial: utilizar uma identidade gerida atribuída pelo sistema de VM do Linux para aceder ao Azure Key Vault 
 
@@ -62,6 +62,20 @@ Primeiro, é preciso criar um Key Vault e conceder o acesso de identidade gerida
 1. **Selecione Review+ criar**
 1. Selecione **Criar**
 
+### <a name="create-a-secret"></a>Criar um segredo
+
+Em seguida, adicione um segredo ao Cofre de Chaves, para que possa recuperá-lo mais tarde usando o código em execução no seu VM. Para efeitos deste tutorial, estamos a usar o PowerShell mas os mesmos conceitos aplicam-se a qualquer código de execução nesta máquina virtual.
+
+1. Navegue para o seu recém-criado Cofre-Chave.
+1. Selecione **Segredos** e clique em **Adicionar**.
+1. **Selecione Gerar/Importar**
+1. No **Criar um** ecrã secreto a partir das **opções de Upload** deixar o **Manual** selecionado.
+1. Introduza o nome e o valor do segredo.  O valor pode ser o que quiser. 
+1. Deixe as datas de ativação e expiração claras e mantenha **Ativado** como **Sim**. 
+1. Clique em **Criar** para criar o segredo.
+
+   ![Criar um segredo](./media/tutorial-linux-vm-access-nonaad/create-secret.png)
+
 ## <a name="grant-access"></a>Conceder acesso
 
 A identidade gerida usada pela máquina virtual precisa de ter acesso para ler o segredo que armazenaremos no Cofre de Chaves.
@@ -77,20 +91,6 @@ A identidade gerida usada pela máquina virtual precisa de ter acesso para ler o
 1. Selecione **Adicionar**
 1. Selecione **Guardar**.
 
-## <a name="create-a-secret"></a>Criar um segredo
-
-Em seguida, adicione um segredo ao Cofre de Chaves, para que possa recuperá-lo mais tarde usando o código em execução no seu VM. Para efeitos deste tutorial, estamos a usar o PowerShell mas os mesmos conceitos aplicam-se a qualquer código de execução nesta máquina virtual.
-
-1. Navegue para o seu recém-criado Cofre-Chave.
-1. Selecione **Segredos** e clique em **Adicionar**.
-1. **Selecione Gerar/Importar**
-1. No **Criar um** ecrã secreto a partir das **opções de Upload** deixar o **Manual** selecionado.
-1. Introduza o nome e o valor do segredo.  O valor pode ser o que quiser. 
-1. Deixe as datas de ativação e expiração claras e mantenha **Ativado** como **Sim**. 
-1. Clique em **Criar** para criar o segredo.
-
-   ![Criar um segredo](./media/tutorial-linux-vm-access-nonaad/create-secret.png)
- 
 ## <a name="access-data"></a>Aceder a dados
 
 Para concluir estes passos, precisa de um cliente SSH.  Se estiver a utilizar o Windows, pode utilizar o cliente SSH no [Subsistema Windows para Linux](/windows/wsl/about). Se precisar de ajuda para configurar as chaves do seu cliente SSH, veja [Como utilizar chaves SSH com o Windows no Azure](../../virtual-machines/linux/ssh-from-windows.md) ou [Como criar e utilizar um par de chaves SSH públicas e privadas para VMs do Linux no Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).

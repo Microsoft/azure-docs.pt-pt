@@ -13,12 +13,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: da79a74121318993f807ec3bde101b652a8b49da
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 34cdaa42f3a41ae04c73c570bb4fede01a786af2
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628140"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107843"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquirir e cache fichas utilizando a Biblioteca de Autenticação da Microsoft (MSAL)
 
@@ -122,6 +122,8 @@ Quando o seu cliente solicita um token de acesso, a Azure AD também retorna um 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se estiver a utilizar o MSAL para Java, aprenda sobre [a serialização de cache de fichas personalizadas em MSAL para Java.](msal-java-token-cache-serialization.md)
-
-Saiba mais [sobre erros e exceções](msal-handling-exceptions.md)de manuseamento .
+Várias das plataformas apoiadas pela MSAL têm informações adicionais relacionadas com cache na documentação para a biblioteca daquela plataforma. Por exemplo:
+- [Obtenha um símbolo da cache simbólica usando MSAL.NET](msal-net-acquire-token-silently.md)
+- [Início de sessão único com MSAL.js](msal-js-sso.md)
+- [Serialização de cache de ficha personalizada em MSAL para Python](msal-python-token-cache-serialization.md)
+- [Serialização de cache de ficha personalizada em MSAL para Java](msal-java-token-cache-serialization.md)

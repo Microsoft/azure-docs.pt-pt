@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 67949c31c710d88a05e1e110860fe703caf66d04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75ad3743a90f5773163a8f115e1924b8c5bbe097
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87481330"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108098"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Versões de fluxo de utilizador em Azure Ative Directory B2C
 
@@ -35,11 +35,11 @@ Os fluxos recomendados para o utilizador são versões de pré-visualização qu
 
 | Fluxo de utilizador | Descrição |
 | --------- | ----------- |
-| Reset da palavra-passe (pré-visualização) | Permite que um utilizador escolha uma nova palavra-passe depois de verificar o seu e-mail. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](custom-policy-multi-factor-authentication.md)</li><li>Definições de compatibilidade token</li><li>[Controlo de idade](basic-age-gating.md)</li><li>[requisitos de complexidade de palavras-passe](user-flow-password-complexity.md)</li></ul> |
+| Reset da palavra-passe (pré-visualização) | Permite que um utilizador escolha uma nova palavra-passe depois de verificar o seu e-mail. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>Definições de compatibilidade token</li><li>[Controlo de idade](basic-age-gating.md)</li><li>[requisitos de complexidade de palavras-passe](password-complexity.md)</li></ul> |
 | Edição de perfis (pré-visualização) | Permite que um utilizador configuure os seus atributos de utilizador. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Vida útil simbólica](tokens-overview.md)</li><li>Definições de compatibilidade token</li><li>Comportamento da sessão</li></ul> |
-| Iniciar sção (pré-visualização) | Permite que um utilizador entre na sua conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](custom-policy-multi-factor-authentication.md)</li><li>[Vida útil simbólica](tokens-overview.md)</li><li>Definições de compatibilidade token</li><li>Comportamento da sessão</li><li>[Controlo de idade](basic-age-gating.md)</li><li>Personalização de página de inscrição</li></ul> |
-| Inscreva-se (pré-visualização) | Permite que um utilizador crie uma conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](custom-policy-multi-factor-authentication.md)</li><li>[Vida útil simbólica](tokens-overview.md)</li><li>Definições de compatibilidade token</li><li>Comportamento da sessão</li><li>[Controlo de idade](basic-age-gating.md)</li><li>[Requisitos de complexidade de palavras-passe](user-flow-password-complexity.md)</li></ul> |
-| Inscreva-se e inscreva-se (pré-visualização) | Permite que um utilizador crie uma conta ou assine na sua conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](custom-policy-multi-factor-authentication.md)</li><li>[Controlo de idade](basic-age-gating.md)</li><li>[Requisitos de complexidade de palavras-passe](user-flow-password-complexity.md)</li></ul> |
+| Iniciar sção (pré-visualização) | Permite que um utilizador entre na sua conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>[Vida útil simbólica](tokens-overview.md)</li><li>Definições de compatibilidade token</li><li>Comportamento da sessão</li><li>[Controlo de idade](basic-age-gating.md)</li><li>Personalização de página de inscrição</li></ul> |
+| Inscreva-se (pré-visualização) | Permite que um utilizador crie uma conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>[Vida útil simbólica](tokens-overview.md)</li><li>Definições de compatibilidade token</li><li>Comportamento da sessão</li><li>[Controlo de idade](basic-age-gating.md)</li><li>[Requisitos de complexidade de palavras-passe](password-complexity.md)</li></ul> |
+| Inscreva-se e inscreva-se (pré-visualização) | Permite que um utilizador crie uma conta ou assine na sua conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>[Controlo de idade](basic-age-gating.md)</li><li>[Requisitos de complexidade de palavras-passe](password-complexity.md)</li></ul> |
 
 ## <a name="standard-user-flows"></a>Fluxos padrão do utilizador
 
@@ -47,11 +47,11 @@ Os fluxos padrão do utilizador (anteriormente referidos como V1) estão geralme
 
 | Fluxo de utilizador | Descrição |
 | --------- | ----------- | ----------- |
-| Reposição de palavras-passe | Permite que um utilizador escolha uma nova palavra-passe depois de verificar o seu e-mail. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](custom-policy-multi-factor-authentication.md)</li><li>Definições de compatibilidade token</li><li>[Requisitos de complexidade de palavras-passe](user-flow-password-complexity.md)</li></ul> |
+| Reposição de palavras-passe | Permite que um utilizador escolha uma nova palavra-passe depois de verificar o seu e-mail. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>Definições de compatibilidade token</li><li>[Requisitos de complexidade de palavras-passe](password-complexity.md)</li></ul> |
 | Edição de perfis | Permite que um utilizador configuure os seus atributos de utilizador. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Vida útil simbólica](tokens-overview.md)</li><li>Definições de compatibilidade token</li><li>Comportamento da sessão</li></ul> |
-| Iniciar sessão | Permite que um utilizador entre na sua conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](custom-policy-multi-factor-authentication.md)</li><li>[Vida útil simbólica](tokens-overview.md)</li><li>Definições de compatibilidade token</li><li>Comportamento da sessão</li><li>Iniciar s-in</li><li>Redefinição da palavra-passe da força</li><li>Mantenha-me inscrito (KMSI)</ul><br>Não é possível personalizar a interface do utilizador com este fluxo de utilizador. |
-| Inscrever-se | Permite que um utilizador crie uma conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](custom-policy-multi-factor-authentication.md)</li><li>[Vida útil simbólica](tokens-overview.md)</li><li>Definições de compatibilidade token</li><li>Comportamento da sessão</li><li>[Requisitos de complexidade de palavras-passe](user-flow-password-complexity.md)</li></ul> |
-| Inscrever-se e iniciar sessão | Permite que um utilizador crie uma conta ou inscreva-se na sua conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](custom-policy-multi-factor-authentication.md)</li><li>[Vida útil simbólica](tokens-overview.md)</li><li>Definições de compatibilidade token</li><li>Comportamento da sessão</li><li>[Requisitos de complexidade de palavras-passe](user-flow-password-complexity.md)</li></ul>|
+| Iniciar sessão | Permite que um utilizador entre na sua conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>[Vida útil simbólica](tokens-overview.md)</li><li>Definições de compatibilidade token</li><li>Comportamento da sessão</li><li>Iniciar s-in</li><li>Redefinição da palavra-passe da força</li><li>Mantenha-me inscrito (KMSI)</ul><br>Não é possível personalizar a interface do utilizador com este fluxo de utilizador. |
+| Inscrever-se | Permite que um utilizador crie uma conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>[Vida útil simbólica](tokens-overview.md)</li><li>Definições de compatibilidade token</li><li>Comportamento da sessão</li><li>[Requisitos de complexidade de palavras-passe](password-complexity.md)</li></ul> |
+| Inscrever-se e iniciar sessão | Permite que um utilizador crie uma conta ou inscreva-se na sua conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Autenticação multifator](multi-factor-authentication.md)</li><li>[Vida útil simbólica](tokens-overview.md)</li><li>Definições de compatibilidade token</li><li>Comportamento da sessão</li><li>[Requisitos de complexidade de palavras-passe](password-complexity.md)</li></ul>|
 
 
 ## <a name="how-to-switch-to-a-new-recommended-user-flow"></a>Como mudar para um novo fluxo de utilizador recomendado

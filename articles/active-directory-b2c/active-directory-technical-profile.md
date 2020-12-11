@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 67acf675c6636c5d1066d4fe25310d875fa7c064
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49d8e83c158cd14357a74b9dde4af1daba26dc36
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201519"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109118"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico do Azure Ative Directory numa política personalizada do Azure Ative Directory B2C
 
@@ -253,7 +253,7 @@ O seguinte perfil técnico elimina uma conta de utilizador social utilizando **o
 | RaiseErrorIfClaimsPrincipalAlreadyExists | Não | Levante um erro se o objeto do utilizador já existir. Valores possíveis: `true` ou `false` .|
 | AplicaçãoObjectid | Não | O identificador de objeto de aplicação para atributos de extensão. Valor: ObjectId de uma aplicação. Para obter mais informações, consulte [Utilizar atributos personalizados numa política de edição de perfis personalizados.](custom-policy-custom-attributes.md) |
 | ClientId | Não | O identificador de cliente para aceder ao inquilino como um terceiro. Para obter mais informações, consulte [Utilizar atributos personalizados numa política de edição de perfil personalizado](custom-policy-custom-attributes.md) |
-| IncluirClaimResolvingInClaimsHandling  | Não | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false`   (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
+| IncluirClaimResolvingInClaimsHandling  | Não | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false` (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
 
 ### <a name="ui-elements"></a>Elementos da IU
  
@@ -269,7 +269,7 @@ As seguintes definições podem ser utilizadas para configurar a mensagem de err
 
 Consulte o seguinte artigo, por exemplo, utilizando o perfil técnico Azure AD:
 
-- [Adicione reclamações e personalize a entrada do utilizador usando políticas personalizadas no Azure Ative Directory B2C](custom-policy-configure-user-input.md)
+- [Adicione reclamações e personalize a entrada do utilizador usando políticas personalizadas no Azure Ative Directory B2C](configure-user-input.md)
 
 
 

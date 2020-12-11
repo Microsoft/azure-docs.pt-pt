@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 04b70e593e8b1bee8beb72ac88bc8441bc38bb9a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fb0928c75b8fee567e9d0f03489794bd9f65e91e
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963249"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109441"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnóstico de desempenho para máquinas virtuais do Azure
 
@@ -48,12 +48,12 @@ Pode executar diagnósticos de desempenho diretamente a partir do portal Azure, 
 
     | Distribuição               | Versão                                         |
     |----------------------------|-------------------------------------------------|
-    | Servidor Oracle Linux        | 6.10 [ `*` ], 7.3, 7.6, 7.5 |
-    | CentOS                     | 6.5 `*` [ ], 7.6                                    |
-    | RHEL                       | 7.2, 7.5, 8.0 `*` .                               |
+    | Servidor Oracle Linux        | 6.10 [ `*` ], 7.3, 7.5, 7.6, 7.7, 7.8 |
+    | CentOS                     | 6.5 [ `*` ], 7.6, 7.7, 7.8                                    |
+    | RHEL                       | 7.2, 7.5, 8.0 `*` , 8.1, 8.2                               |
     | Ubuntu                     | 14.04, 16.04, 18.04, 20.04                               |
     | Debian                     | 8, 9, 10 `*` .                                    |
-    | SLES                       | 12 SP4 `*` [ ]                                      |
+    | SLES                       | 12 SP4 [ `*` ], 12 SP5 [ `*` ], 15 [ `*` ], 15 SP1 [ `*` ], 15 SP2 [ `*` ]                                      |
     |                            |                                                   |
 
 >[!Note]
@@ -65,7 +65,7 @@ O diagnóstico de desempenho instala uma extensão VM que executa uma ferramenta
 
 1. Na coluna esquerda de comandos, selecione **Máquinas Virtuais**.
 1. A partir da lista de nomes VM, selecione o VM em que pretende executar diagnósticos.
-1. Na coluna de comandos direita, selecione **Diagnósticos**de Desempenho .
+1. Na coluna de comandos direita, selecione **Diagnósticos** de Desempenho .
 
     ![Screenshot do portal Azure, com botão de diagnóstico de desempenho de instalação em destaque](media/performance-diagnostics/performance-diagnostics-install.png)
 
@@ -126,7 +126,7 @@ Uma notificação é apresentada à medida que os diagnósticos de desempenho co
 Após a análise estar concluída, os seguintes itens são enviados para as tabelas Azure e um contentor binário de objeto grande (BLOB) na conta de armazenamento especificada:
 
 * Todas as informações e informações relacionadas sobre a corrida
-* Um ficheiro comprimido de saída (.zip) (nomeado **PerformanceDiagnostics_yyyy-MM-dd_hh-mm-ss-fff.zip) ** no Windows e um ficheiro de bola de alcatrão (denominado **PerformanceDiagnostics_yyyy-MM-dd_hh-mm-ss-fff.tar.gz)** no Linux que contém ficheiros de registo
+* Um ficheiro comprimido de saída (.zip) (denominado **PerformanceDiagnostics_yyyy-MM-dd_hh-mm-ss-fff.zip)** no Windows e um ficheiro de bola de alcatrão (denominado **PerformanceDiagnostics_yyyy-MM-dd_hh-mm-ss-fff.tar.gz** ) no Linux que contém ficheiros de registo
 * Um relatório HTML
 
 Após o upload, um novo relatório de diagnóstico é listado no portal Azure.
@@ -139,7 +139,7 @@ Utilize o botão de barra de **ferramentas Definições** para alterar a conta d
 
 ## <a name="review-insights-and-performance-diagnostics-report"></a>Relatório de avaliação de insights e diagnósticos de desempenho
 
-Cada execução de diagnóstico contém uma lista de insights e recomendações, recursos afetados, ficheiros de registo e outras informações ricas de diagnóstico que são recolhidas, além de um relatório para visualização offline. Para obter uma lista completa de todos os dados de diagnóstico recolhidos, [Windows](how-to-use-perfinsights.md#what-kind-of-information-is-collected-by-perfinsights) consulte [Linux](how-to-use-perfinsights-linux.md#what-kind-of-information-is-collected-by-perfinsights) **que tipo de informação é recolhida pela PerfInsights?**
+Cada execução de diagnóstico contém uma lista de insights e recomendações, recursos afetados, ficheiros de registo e outras informações ricas de diagnóstico que são recolhidas, além de um relatório para visualização offline. Para obter uma lista completa de todos os dados de diagnóstico recolhidos, [](how-to-use-perfinsights.md#what-kind-of-information-is-collected-by-perfinsights) consulte [](how-to-use-perfinsights-linux.md#what-kind-of-information-is-collected-by-perfinsights) **que tipo de informação é recolhida pela PerfInsights?**
 
 ### <a name="select-a-performance-diagnostics-report"></a>Selecione um relatório de diagnóstico de desempenho
 
@@ -199,7 +199,7 @@ Pode partilhar um link para os relatórios comprimidos através da utilização 
 1. Selecione o ficheiro comprimido de saída de diagnóstico de desempenho que pretende partilhar.
 1. No **separador Gerar SAS,** selecione os critérios de partilha.
 1. Clique **em Gerar símbolo SAS blob e URL**.
-1. Copie o **URL Blob SAS**e partilhe-o com o engenheiro de suporte.
+1. Copie o **URL Blob SAS** e partilhe-o com o engenheiro de suporte.
 
 **Opção 3:** Faça o download do relatório da conta de armazenamento
 

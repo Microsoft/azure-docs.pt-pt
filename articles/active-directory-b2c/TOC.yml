@@ -418,6 +418,8 @@
           href: partner-typingdna.md
         - name: WhoIAM
           href: partner-whoiam.md
+        - name: Zscaler
+          href: partner-zscaler.md
     - name: Utilizar b2clogin.com
       items:
         - name: Descrição geral do b2clogin.com

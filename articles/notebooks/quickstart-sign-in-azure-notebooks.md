@@ -3,12 +3,12 @@ title: Inscreva-se na Pré-visualização de Cadernos Azure
 description: Assine rapidamente o Azure Notebooks Preview e descreva um ID do utilizador, o que lhe dá a capacidade de aceder a projetos guardados e partilhar cadernos com outros.
 ms.topic: quickstart
 ms.date: 04/15/2019
-ms.openlocfilehash: 8a2d9836cd005ab11106c569929a6776d605da50
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 168da5d4d36cd4cfadb4ef120ddfabbd261cafaf
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85830422"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109458"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id-for-azure-notebooks-preview"></a>Quickstart: Inicie e descreva um ID de utilizador para pré-visualização de cadernos Azure
 
@@ -59,4 +59,4 @@ Para iniciar sedida, selecione o seu nome de utilizador na parte superior direit
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Quickstart: Criar e partilhar um caderno](quickstart-create-share-jupyter-notebook.md)
+> [Quickstart: Export a Jupyter Notebook project](quickstart-export-jupyter-notebook-project.md)

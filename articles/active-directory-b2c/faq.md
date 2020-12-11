@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 384f178481f7a6ff202d5363ba09c242b1fc366d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 30b7788419695db7ee5d4b81714bf55248a41b4a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951796"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108727"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ)
 
@@ -78,7 +78,7 @@ A assinatura do e-mail contém o nome do inquilino Azure AD B2C que forneceu qua
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) como Administrador Global.
 1. Abra o painel **Azure Active Directory**.
-1. Clique no separador **Propriedades.**
+1. Clique no separador **Propriedades**.
 1. Mude o campo **Nome.**
 1. Clique em **Guardar** no início da página.
 
@@ -124,7 +124,7 @@ Não, o Azure AD B2C não suporta o mesmo conjunto de relatórios que o Azure AD
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Posso localizar a UI das páginas servidas pelo Azure AD B2C? Que línguas são apoiadas?
 
-Sim, consulte [a personalização da linguagem.](user-flow-language-customization.md) Fornecemos traduções para 36 línguas, e você pode sobrepor qualquer cadeia para atender às suas necessidades.
+Sim, consulte [a personalização da linguagem.](language-customization.md) Fornecemos traduções para 36 línguas, e você pode sobrepor qualquer cadeia para atender às suas necessidades.
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>Posso usar os meus próprios URLs nas minhas páginas de inscrição e inscrição que são servidas pelo Azure AD B2C? Por exemplo, posso mudar a URL de contoso.b2clogin.com para login.contoso.com?
 

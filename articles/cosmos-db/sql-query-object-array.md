@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/08/2020
 ms.author: tisande
-ms.openlocfilehash: 80d158e209943d65b9934d5425ccce7d69422bc4
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: f65d179baa2c0a08e2c1dca1716c9691797fc242
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93338367"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106330"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Trabalhando com matrizes e objetos em Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -143,7 +143,7 @@ Os resultados são:
 Também pode agregar o resultado de uma iteração de matrizes. Por exemplo, a seguinte consulta conta o número de crianças entre todas as famílias:
 
 ```sql
-SELECT COUNT(child)
+SELECT COUNT(1) AS Count
 FROM child IN Families.children
 ```
 
@@ -152,7 +152,7 @@ Os resultados são:
 ```json
 [
   {
-    "$1": 3
+    "Count": 3
   }
 ]
 ```

@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9ca6d91be95bfb1a47f85b20f3775a57518ffcf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 036e9e6bf58d837c698a6092770ef581f77bc20c
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922137"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108251"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: Personalize a interface das experiências do utilizador no Azure Ative Directory B2C
 
-Para experiências mais comuns do utilizador, tais como inscrição, inscrição e edição de perfis, pode utilizar [fluxos de utilizador](user-flow-overview.md) em Azure Ative Directory B2C (Azure AD B2C). As informações neste tutorial ajudam-no a aprender a [personalizar a interface do utilizador (UI)](customize-ui-overview.md) destas experiências utilizando os seus próprios ficheiros HTML e CSS.
+Para experiências mais comuns do utilizador, tais como inscrição, inscrição e edição de perfis, pode utilizar [fluxos de utilizador](user-flow-overview.md) em Azure Ative Directory B2C (Azure AD B2C). As informações neste tutorial ajudam-no a aprender a [personalizar a interface do utilizador (UI)](customize-ui-with-html.md) destas experiências utilizando os seus próprios ficheiros HTML e CSS.
 
 Neste artigo, vai aprender a:
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Crie um fluxo de utilizador](tutorial-create-user-flows.md) para permitir que os utilizadores se inscrevam e se inscrevam na sua aplicação.
+[Criar um fluxo de utilizador](tutorial-create-user-flows.md) para permitir que os utilizadores se inscrevam e iniciem sessão na sua aplicação.
 
 ## <a name="create-customization-files"></a>Criar ficheiros de personalização
 
@@ -50,7 +50,7 @@ Embora possa armazenar os seus ficheiros de várias formas, para este tutorial, 
 5. No **grupo de Recursos**, selecione Criar **novo,** insira um nome para o novo grupo de recursos e, em seguida, clique em **OK**.
 6. Introduza um nome para a conta de armazenamento. O nome que escolher tem de ser exclusivo no Azure, deve ter entre 3 e 24 carateres de comprimento e apenas pode conter números e letras minúsculas.
 7. Selecione a localização da conta de armazenamento ou aceite a localização predefinitiva.
-8. Aceite todos os outros valores predefinidos, **selecione Rever + criar**e, em seguida, clique em **Criar**.
+8. Aceite todos os outros valores predefinidos, **selecione Rever + criar** e, em seguida, clique em **Criar**.
 9. Depois de criar a conta de armazenamento, selecione **Ir para o recurso**.
 
 ### <a name="create-a-container"></a>Criar um contentor
@@ -121,27 +121,27 @@ Para personalizar a UI da experiência de inscrição, começa por criar um fich
     }
     ```
 
-5. Guarde o ficheiro como *style.css*.
+5. Guarde o ficheiro como *estilo.css*.
 
 ### <a name="upload-the-customization-files"></a>Faça o upload dos ficheiros de personalização
 
 Neste tutorial, armazena os ficheiros que criou na conta de armazenamento para que o Azure AD B2C possa aceder aos mesmos.
 
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure, procure e selecione **contas de Armazenamento.**
-2. Selecione a conta de armazenamento que criou, selecione **Blobs**e, em seguida, selecione o recipiente que criou.
+2. Selecione a conta de armazenamento que criou, selecione **Blobs** e, em seguida, selecione o recipiente que criou.
 3. Selecione **Upload**, navegue para e selecione o ficheiro *custom-ui.html* e, em seguida, clique em **Upload**.
 
     ![Enviar página blob no portal com botão de upload e ficheiros em destaque](./media/tutorial-customize-ui/upload-blob.png)
 
 4. Copie o URL para o ficheiro que carregou para utilizar mais tarde no tutorial.
-5. Repita os passos 3 e 4 para o ficheiro *style.css.*
+5. Repita *o* passo 3 e 4 para o .css arquivo.
 
 ## <a name="update-the-user-flow"></a>Atualizar o fluxo do utilizador
 
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
-2. Selecione **os fluxos do Utilizador**e, em seguida, selecione o fluxo do utilizador *B2C_1_signupsignin1.*
-3. Selecione **os layouts de página**e, em seguida, na página de **inscrição ou de inscrição unificada**, clique em **Sim** para Utilizar o conteúdo da **página personalizada**.
-4. Na **página personalizada URI**, insira o URI para o * ficheirocustom-ui.html* que gravou anteriormente.
+2. Selecione **os fluxos do Utilizador** e, em seguida, selecione o fluxo do utilizador *B2C_1_signupsignin1.*
+3. Selecione **os layouts de página** e, em seguida, na página de **inscrição ou de inscrição unificada**, clique em **Sim** para Utilizar o conteúdo da **página personalizada**.
+4. Na **página personalizada URI**, insira o URI para o *ficheirocustom-ui.html* que gravou anteriormente.
 5. No topo da página, **selecione Guardar**.
 
 ## <a name="test-the-user-flow"></a>Teste o fluxo do utilizador
@@ -166,4 +166,4 @@ Neste artigo, aprendeu a:
 > * Teste a UI personalizada
 
 > [!div class="nextstepaction"]
-> [Personalize a UI em Azure Ative Directory B2C](customize-ui-overview.md)
+> [Personalize a UI em Azure Ative Directory B2C](customize-ui-with-html.md)

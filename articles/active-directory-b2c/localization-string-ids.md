@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4fa0f4d87567bd77faacfd2373dba0d2b8996446
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 81a1263d0eacbffa77e2e35e4594e23235394183
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873374"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108676"
 ---
 # <a name="localization-string-ids"></a>IDs de cadeia de localização
 
@@ -152,7 +152,7 @@ Seguem-se os IDs para uma definição de conteúdo com identificação ou qualqu
 | **cancel_message** | O utilizador cancelou a introdução de informações autoafirmadas |
 | **preloader_alt** | Aguarde |
 | **ver_but_send** | Enviar código de verificação |
-| **alert_yes** | Yes |
+| **alert_yes** | Sim |
 | **error_fieldIncorrect** | Um ou mais campos são preenchidos incorretamente. Por favor, verifiquem as suas entradas e tentem novamente. |
 | **ano** | Ano |
 | **verifying_blurb** | Por favor, aguarde enquanto processamos a sua informação. |
@@ -170,7 +170,7 @@ Seguem-se os IDs para uma definição de conteúdo com identificação ou qualqu
 | **ver_incorrect_format** | Formato incorreto. |
 | **ver_but_edit** | Alterar e-mail |
 | **ver_but_verify** | Verificar código |
-| **alert_no** | No |
+| **alert_no** | Não |
 | **ver_info_msg** | O código de verificação foi enviado para a sua caixa de entrada. Por favor, copie-o para a caixa de entrada abaixo. |
 | **dia** | Dia |
 | **ver_fail_throttled** | Houve muitos pedidos para verificar este endereço de e-mail. Por favor, espere um pouco, e tente de novo. |
@@ -442,7 +442,7 @@ Seguem-se os IDs para mensagens de erro [de perfil técnico do serviço Restful:
 
 ## <a name="azure-ad-mfa-error-messages"></a>Mensagens de erro do Azure AD MFA
 
-Seguem-se os IDs para uma [azure AD MFA mensagens de](multi-factor-auth-technical-profile.md) erro de perfil técnico:
+Seguem-se os IDs de uma mensagem de erro [de perfil técnico Azure AD MFA:](multi-factor-auth-technical-profile.md)
 
 | ID | Valor predefinido |
 | -- | ------------- |
@@ -547,5 +547,5 @@ Seguem-se os IDs para as mensagens de erro de transformação de reclamações:
 
 Consulte os seguintes artigos para exemplos de localização:
 
-- [Personalização linguística com política personalizada no Azure Ative Directory B2C](custom-policy-localization.md)
-- [Personalização linguística com fluxos de utilizadores no Azure Ative Directory B2C](user-flow-language-customization.md)
+- [Personalização linguística com política personalizada no Azure Ative Directory B2C](language-customization.md)
+- [Personalização linguística com fluxos de utilizadores no Azure Ative Directory B2C](language-customization.md)

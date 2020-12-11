@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: e55638e20bceb6df4b8e74375d67836123167162
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 7acfb168462354017168ee333ea0b1ecaea434c1
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931746"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107129"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Tutorial: Adicione saídas ao seu modelo ARM
 
@@ -41,17 +41,17 @@ O exemplo a seguir destaca a alteração ao seu modelo para adicionar um valor d
 
 Existem alguns itens importantes a notar sobre o valor de saída que adicionou.
 
-O tipo de valor devolvido está definido para **opor- se**, o que significa que devolve um objeto JSON.
+O tipo de valor devolvido é definido para `object` , o que significa que devolve um objeto JSON.
 
 Utiliza a função [de referência](template-functions-resource.md#reference) para obter o estado de funcionamento da conta de armazenamento. Para obter o estado de execução de um recurso, você passa no nome ou identificação de um recurso. Neste caso, usa a mesma variável que usou para criar o nome da conta de armazenamento.
 
-Finalmente, devolve a propriedade **principal Deendpoints** da conta de armazenamento
+Finalmente, devolve a `primaryEndpoints` propriedade da conta de armazenamento
 
 ## <a name="deploy-template"></a>Implementar o modelo
 
 Está pronto para implementar o modelo e olhar para o valor devolvido.
 
-Se não criou o grupo de recursos, consulte [criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que definiu a variável **modeloFile** para o caminho para o ficheiro do modelo, como mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+Se não criou o grupo de recursos, consulte [criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que definiu a `templateFile` variável para o caminho para o ficheiro do modelo, como mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -92,7 +92,7 @@ Na saída para o comando de implantação, verá um objeto semelhante ao seguint
 ```
 
 > [!NOTE]
-> Se a implementação falhar, utilize o interruptor **verboso** para obter informações sobre os recursos que estão a ser criados. Use o **interruptor de depuração** para obter mais informações para depurar.
+> Se a implementação falhar, utilize o `verbose` interruptor para obter informações sobre os recursos que estão a ser criados. Use o `debug` interruptor para obter mais informações para depuração.
 
 ## <a name="review-your-work"></a>Reveja o seu trabalho
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: f785f44b88c7f0d5f0b6f43114070888bb23146d
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 340164ef86d34f273b3d5a98b62300bc6cc50df7
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302481"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109424"
 ---
 # <a name="how-to-use-perfinsights"></a>Como utilizar o PerfInsights
 
@@ -78,7 +78,7 @@ São recolhidas informações sobre a máquina virtual Linux, sistema operativo,
   - Captura de perfis de CPU e processa utilização do CPU em intervalo de 5 segundos
   - Captura de perfis de utilização da memória dos processos com intervalo de 5 segundos
 
-- Rede  
+- Redes  
   - Lista de adaptadores de rede com estatísticas de adaptadores
   - Tabela de encaminhamento de rede
   - Portas abertas e estatuto
@@ -130,12 +130,12 @@ São recolhidas informações sobre a máquina virtual Linux, sistema operativo,
 
     | Distribuição               | Versão                                         |
     |----------------------------|-------------------------------------------------|
-    | Servidor Oracle Linux        | 6.10 [ `*` ], 7.3, 7.6, 7.5 |
-    | CentOS                     | 6.5 `*` [ ], 7.6                                    |
-    | RHEL                       | 7.6, 7.7, 7.8, 7.9                                |
+    | Servidor Oracle Linux        | 6.10 [ `*` ], 7.3, 7.5, 7.6, 7.7, 7.8 |
+    | CentOS                     | 6.5 [ `*` ], 7.6, 7.7, 7.8                                    |
+    | RHEL                       | 7.2, 7.5, 8.0 `*` , 8.1, 8.2                               |
     | Ubuntu                     | 14.04, 16.04, 18.04, 20.04                               |
     | Debian                     | 8, 9, 10 `*` .                                    |
-    | SLES                       | 12 SP4 `*` [ ]                                      |
+    | SLES                       | 12 SP4 [ `*` ], 12 SP5 [ `*` ], 15 [ `*` ], 15 SP1 [ `*` ], 15 SP2 [ `*` ]                                      |
     |                            |                                                   |
 
 >[!Note]
@@ -212,7 +212,7 @@ Quando a execução estiver concluída, aparece uma nova pasta de alcatrão na m
 
 ## <a name="review-the-diagnostics-report"></a>Reveja o relatório de diagnósticos
 
-Dentro do ficheiro **PerformanceDiagnostics \_ yyyy-MM-dd \_ hh-mm-ss-fff.tar.gz** pode encontrar um relatório HTML que detalha as conclusões do PerfInsights. Para rever o relatório, expanda o ficheiro **PerformanceDiagnostics \_ yyyy-MM-mm-mm-ss-fff.tar.gz \_ e,** em seguida, abra o ficheiro **PerfInsights Report.html.**
+Dentro do ficheiro **PerformanceDiagnostics \_ yy-MM-dd \_ hh-mm-ss-fff.tar.gz** pode encontrar um relatório HTML que detalha as conclusões do PerfInsights. Para rever o relatório, expanda o ficheiro **PerformanceDiagnostics \_ yyyy-MM-mm-mm-ss-fff.tar.gz \_ e,** em seguida, abra o ficheiro **PerfInsights Report.html.**
 
 ### <a name="overview-tab"></a>Separador de visão geral
 
@@ -247,7 +247,7 @@ O separador **Linux** contém informações sobre o hardware e o sistema operati
 
 ![Screenshot do separador Linux](media/how-to-use-perfinsights-linux/perfinsights-linux-tab.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode fazer o upload de registos e relatórios de diagnóstico para o Microsoft Support para posterior revisão. Quando trabalha com a equipa de Suporte do Microsoft, podem solicitar que transmita a saída gerada pela PerfInsights para ajudar no processo de resolução de problemas.
 

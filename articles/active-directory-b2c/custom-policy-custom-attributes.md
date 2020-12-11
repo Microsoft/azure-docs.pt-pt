@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dbeb2540084fad2cfab3ce360dd15b60a75e5e59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ec99558f3a168b770ad19fb4f6c811a31c44f08
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85389331"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108898"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Ative Directory B2C: Ative atributos personalizados numa política de perfil personalizado
 
-Nas reclamações do Add e personalize a entrada do utilizador utilizando o artigo [de políticas personalizadas,](custom-policy-configure-user-input.md) aprende-se a utilizar atributos de perfil de [utilizador incorporados](user-profile-attributes.md). Neste artigo, você ativa um atributo personalizado no seu diretório Azure Ative Diretório B2C (Azure AD B2C). Mais tarde, pode utilizar o novo atributo como uma reivindicação personalizada nos [fluxos do utilizador](user-flow-overview.md) ou políticas [personalizadas](custom-policy-get-started.md) simultaneamente.
+Nas reclamações do Add e personalize a entrada do utilizador utilizando o artigo [de políticas personalizadas,](configure-user-input.md) aprende-se a utilizar atributos de perfil de [utilizador incorporados](user-profile-attributes.md). Neste artigo, você ativa um atributo personalizado no seu diretório Azure Ative Diretório B2C (Azure AD B2C). Mais tarde, pode utilizar o novo atributo como uma reivindicação personalizada nos [fluxos do utilizador](user-flow-overview.md) ou políticas [personalizadas](custom-policy-get-started.md) simultaneamente.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -49,7 +49,7 @@ Os termos *propriedade de extensão,* *atributo personalizado,* e *reivindicaç�
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
 1. No menu esquerdo, selecione **Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
-1. Selecione **as inscrições da App**e, em seguida, selecione Todas as **aplicações**.
+1. Selecione **as inscrições da App** e, em seguida, selecione Todas as **aplicações**.
 1. Selecione a aplicação `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.`.
 1. Copie os seguintes identificadores para a sua área de transferência e guarde-os:
     * **ID da Aplicação**. Exemplo: `11111111-1111-1111-1111-111111111111`.
@@ -88,7 +88,7 @@ Para ativar atributos personalizados na sua política, forneça **ID de Aplicaç
 5. Selecione **''Personal's Personal Policy**' '' e, em seguida, faça o upload dos ficheiros de política TrustFrameworkExtensions.xml que alterou.
 
 > [!NOTE]
-> A primeira vez que o perfil técnico AZure AD persiste na reclamação ao diretório, verifica se o atributo personalizado existe. Caso contrário, cria o atributo personalizado.  
+> A primeira vez que o perfil técnico AZure AD persiste na reclamação ao diretório, verifica se o atributo personalizado existe. Caso contrário, cria o atributo personalizado.  
 
 ## <a name="create-a-custom-attribute-through-azure-portal"></a>Criar um atributo personalizado através do portal Azure
 
@@ -132,7 +132,7 @@ O exemplo a seguir demonstra a utilização de um atributo personalizado na pol�
 
 ## <a name="use-a-custom-attribute-in-a-policy"></a>Use um atributo personalizado numa política
 
-Siga as orientações para adicionar [reclamações e personalizar](custom-policy-configure-user-input.md)a entrada do utilizador utilizando políticas personalizadas . Esta amostra usa uma reivindicação incorporada de "cidade". Para utilizar um atributo personalizado, substitua a 'cidade' com os seus próprios atributos personalizados.
+Siga as orientações para adicionar [reclamações e personalizar](configure-user-input.md)a entrada do utilizador utilizando políticas personalizadas . Esta amostra usa uma reivindicação incorporada de "cidade". Para utilizar um atributo personalizado, substitua a 'cidade' com os seus próprios atributos personalizados.
 
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -1,17 +1,17 @@
 ---
 title: Enviar ou receber eventos de Azure Event Hubs usando Python (mais recente)
-description: Este artigo fornece uma passagem para a criação de uma aplicação Python que envia/recebe eventos de/para Azure Event Hubs usando o mais recente pacote azure-eventhub versão 5.
+description: Este artigo fornece uma passagem para a criação de uma aplicação Python que envia/recebe eventos de/para Azure Event Hubs usando o mais recente pacote azure-eventhub.
 ms.topic: quickstart
 ms.date: 02/11/2020
-ms.openlocfilehash: bdcd85786afdf307fdc7043db7ed7651d41820a4
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 4850dc9119f6ef43e687f476f66928f13713f051
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729088"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105956"
 ---
-# <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub-version-5"></a>Enviar eventos para ou receber eventos de centros de eventos utilizando Python (versão azure-eventhub 5)
-Este quickstart mostra como enviar eventos e receber eventos de um centro de eventos usando o pacote **azure-eventhub versão 5** Python.
+# <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub"></a>Enviar eventos para ou receber eventos de centros de eventos usando Python (azure-eventhub)
+Este quickstart mostra como enviar eventos e receber eventos de um centro de eventos usando o pacote **azure-eventhub** Python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Se você é novo em Azure Event Hubs, consulte o [Event Hubs](event-hubs-about.md) antes de fazer este quickstart. 
@@ -70,7 +70,7 @@ Nesta secção, você cria um script Python para enviar eventos para o centro de
     ```
 
     > [!NOTE]
-    > Para obter o código fonte completo, incluindo comentários informativos, aceda à [página gitHub send_async.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/send_async.py).
+    > Para obter o código fonte completo, incluindo comentários informativos, aceda à [página send_async.py GitHub](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/send_async.py).
     
 
 ## <a name="receive-events"></a>Receber eventos
@@ -80,7 +80,7 @@ Este quickstart utiliza o armazenamento Azure Blob como uma loja de ponto de ver
 > [!WARNING]
 > Se executar este código no Azure Stack Hub, sofrerá erros de tempo de execução a menos que tenha como alvo uma versão API de armazenamento específica. Isto porque o Event Hubs SDK utiliza a mais recente API de Armazenamento Azure disponível disponível no Azure que pode não estar disponível na sua plataforma Azure Stack Hub. O Azure Stack Hub pode suportar uma versão diferente do Storage Blob SDK do que os normalmente disponíveis no Azure. Se estiver a utilizar o Azure Blog Storage como uma loja de checkpoint, verifique a [versão API suportada do Azure Storage para a sua construção do Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) e direcione essa versão no seu código. 
 >
-> Por exemplo, Se estiver a executar a versão Azure Stack Hub 2005, a versão mais alta disponível para o serviço de armazenamento é a versão 2019-02-02. Por padrão, a biblioteca de clientes Event Hubs SDK utiliza a versão mais alta disponível no Azure (2019-07-07 no momento do lançamento do SDK). Neste caso, além de seguir os passos nesta secção, também terá de adicionar código para direcionar o serviço de armazenamento API versão 2019-02-02. Para um exemplo sobre como direcionar uma versão específica da API de armazenamento, consulte as amostras sincronizadas e [assíncronos](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py) no GitHub. [synchronous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py) 
+> Por exemplo, Se estiver a executar a versão Azure Stack Hub 2005, a versão mais alta disponível para o serviço de armazenamento é a versão 2019-02-02. Por padrão, a biblioteca de clientes Event Hubs SDK utiliza a versão mais alta disponível no Azure (2019-07-07 no momento do lançamento do SDK). Neste caso, além de seguir os passos nesta secção, também terá de adicionar código para direcionar o serviço de armazenamento API versão 2019-02-02. Para um exemplo sobre como direcionar uma versão específica da API de armazenamento, consulte as amostras sincronizadas e [assíncronos](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py) no GitHub. [](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py) 
 
 
 ### <a name="create-an-azure-storage-account-and-a-blob-container"></a>Criar uma conta de armazenamento Azure e um recipiente blob
@@ -132,7 +132,7 @@ Nesta secção, você cria um script Python para receber eventos do seu centro d
     ```
 
     > [!NOTE]
-    > Para obter o código fonte completo, incluindo comentários informativos adicionais, aceda à [página gitHub recv_with_checkpoint_store_async.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/recv_with_checkpoint_store_async.py).
+    > Para obter o código fonte completo, incluindo comentários informativos adicionais, aceda à [página recv_with_checkpoint_store_async.py GitHub](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/recv_with_checkpoint_store_async.py).
 
 
 ### <a name="run-the-receiver-app"></a>Executar a aplicação recetora

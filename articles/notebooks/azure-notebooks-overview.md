@@ -3,12 +3,12 @@ title: Visão geral da pré-visualização dos cadernos Azure
 description: Executar os cadernos Jupyter na nuvem utilizando o serviço gratuito de pré-visualização de cadernos Azure, onde não é necessária configuração ou configuração.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: d59faaf85a1fdbad776e954e974bafa300f93d85
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ef0a033c5125b3a359d281be30dd0ec2a2aa1747
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94845140"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109492"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Visão geral da pré-visualização dos cadernos Azure
 
@@ -49,7 +49,7 @@ Em suma, os Cadernos Azure ajudam-no a realizar o seu trabalho de forma mais efi
 
 O Azure Notebooks é um serviço gratuito, mas cada projeto está limitado a 4GB de memória e dados de 1GB para prevenir abusos. Os utilizadores legítimos que excedam estes limites vêem um desafio do Captcha para continuar a executar cadernos.
 
-Para libertar todos os limites, inscreva-se em Azure Notebooks com uma conta utilizando o Azure Ative Directory (como uma conta corporativa). Se essa conta estiver associada a uma subscrição do Azure, pode ligar-se a quaisquer instâncias da Azure Data Science Virtual Machine dentro dessa subscrição. Para obter mais informações, consulte [Gerir e configurar projetos - Nível compute](configure-manage-azure-notebooks-projects.md#compute-tier).
+Para libertar todos os limites, inscreva-se em Azure Notebooks com uma conta utilizando o Azure Ative Directory (como uma conta corporativa). Se essa conta estiver associada a uma subscrição do Azure, pode ligar-se a quaisquer instâncias da Azure Data Science Virtual Machine dentro dessa subscrição. 
 
 Os servidores de portátil são garantidos que existem durante no máximo 8 horas. Na maioria dos casos, o seu recipiente não está sujeito a este limite e continua a ir além deste tempo, mas sessões de longa duração podem ocasionalmente ser encerradas para estabilidade do sistema.
 
@@ -65,7 +65,7 @@ Para cada caderno, selecione o núcleo (isto é, o ambiente de tempo de execuç�
 
 Os Cadernos Azure também incluem pacotes extra para além das distribuições base. Os núcleos python, por exemplo, incluem as bibliotecas dormentes, pandas, scikit-learn, matplotlib e bokeh.
 
-Você também pode personalizar um projeto para criar um ambiente para todos os cadernos nesse projeto. Para mais informações, consulte [Quickstart: Criar um projeto com um ambiente personalizado.](quickstart-create-jupyter-notebook-project-environment.md)
+Você também pode personalizar um projeto para criar um ambiente para todos os cadernos nesse projeto.
 
 Além das distribuições base, os Cadernos Azure vêm pré-instalados com muitos pacotes extra que são úteis para cientistas de dados. Também pode instalar os seus próprios pacotes usando o processo típico para cada idioma.
 
@@ -73,7 +73,7 @@ Além das distribuições base, os Cadernos Azure vêm pré-instalados com muito
 
 Os Cadernos Azure estão pré-configurados com as seguintes extensões Jupyter:
 
-- [RISE](https://github.com/damianavila/RISE): Uma extensão jupyter slideshow (também conhecida como live_reveal). Para obter mais informações, consulte [executar uma apresentação de diapositivos de caderno.](present-jupyter-notebooks-slideshow.md)
+- [RISE](https://github.com/damianavila/RISE): Uma extensão jupyter slideshow (também conhecida como live_reveal).
 - [JupyterLab](https://github.com/jupyterlab/jupyterlab): Um ambiente computacional completo para trabalhar com cadernos Jupyter.
 - [Altair](https://github.com/ellisonbg/altair): Uma biblioteca de visualização estatística declarativa para Python.
 - [BQPlot](https://github.com/bloomberg/bqplot): Uma estrutura de conspiração interativa para cadernos Jupyter.
@@ -89,26 +89,7 @@ Para discutir as suas perguntas sobre os Cadernos Azure, preencha uma questão s
 
 ## <a name="next-steps"></a>Passos seguintes  
 
-- [Explore cadernos de amostras](azure-notebooks-samples.md)
-
 - Guias de Início Rápido:
 
-  - [Criar e partilhar um caderno](quickstart-create-share-jupyter-notebook.md)
-  - [Clone um caderno](quickstart-clone-jupyter-notebook.md)
-  - [Migrar um caderno jupyter local](quickstart-migrate-local-jupyter-notebook.md)
-  - [Utilizar um ambiente personalizado](quickstart-create-jupyter-notebook-project-environment.md)
   - [Iniciar sessão e definir um ID de utilizador](quickstart-sign-in-azure-notebooks.md)
-
-- Tutoriais:
-
-  - [Criar e executar um bloco de notas](tutorial-create-run-jupyter-notebook.md  )
-
-- Artigos de como fazer:
-  
-  - [Criar e clonar projetos](create-clone-jupyter-notebooks.md)
-  - [Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-  - [Instalar pacotes a partir de um caderno](install-packages-jupyter-notebook.md)
-  - [Apresentar diapositivos](present-jupyter-notebooks-slideshow.md)
-  - [Trabalhar com ficheiros de dados](work-with-project-data-files.md)
-  - [Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)
-  - [Utilizar o Azure Machine Learning](../machine-learning/samples-notebooks.md)
+  - [Exportar um caderno Jupyter](quickstart-export-jupyter-notebook-project.md)

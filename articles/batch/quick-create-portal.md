@@ -1,15 +1,15 @@
 ---
 title: Azure Quickstart - Executar o seu primeiro trabalho em Batch no portal Azure
-description: Aprenda a usar o portal Azure para criar uma conta Batch, um conjunto de nós computacional, e um trabalho que executa tarefas básicas na piscina.
+description: Este quickstart mostra como usar o portal Azure para criar uma conta Batch, um conjunto de nós computacional, e um trabalho que executa tarefas básicas na piscina.
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: mvc
-ms.openlocfilehash: cf65a681764a848f8132ec44b8ba313ef1a83235
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d8584ecea8ddd5934771dbe5945a6172a28c801c
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88511376"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106482"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início Rápido: executar o seu primeiro trabalho do Batch com o portal do Azure
 
@@ -23,7 +23,7 @@ Começa com o Azure Batch utilizando o portal Azure para criar uma conta Batch, 
 
 Siga estes passos para criar uma conta do Batch de exemplo para fins de teste. Tem de ter uma conta do Batch para criar conjuntos e trabalhos. Conforme mostrado aqui, pode associar uma conta de armazenamento do Azure à conta do Batch. Apesar de não ser obrigatório para este início rápido, a conta de armazenamento é útil para implementar aplicações e armazenar dados de entrada e saída para a maioria das cargas de trabalho do mundo real.
 
-1. No [portal Azure](https://portal.azure.com), selecione **Criar um**serviço de lote  >  **compute**  >  **de**recurso . 
+1. No [portal Azure](https://portal.azure.com), selecione **Criar um** serviço de lote  >  **compute**  >  **de** recurso . 
 
    :::image type="content" source="media/quick-create-portal/marketplace-batch.png" alt-text="Screenshot do Serviço de Lote no Mercado Azure.":::
 
@@ -33,7 +33,7 @@ Siga estes passos para criar uma conta do Batch de exemplo para fins de teste. T
 
 1. Na **conta de Armazenamento**, selecione uma conta de armazenamento existente ou crie uma nova.
 
-1. Não altere quaisquer outras definições. Selecione **Rever + criar**e, em seguida, selecione **Criar** para criar a conta Lote.
+1. Não altere quaisquer outras definições. Selecione **Rever + criar** e, em seguida, selecione **Criar** para criar a conta Lote.
 
 Quando a mensagem **de implementação tiver sido bem sucedida,** aceda à conta Batch que criou.
 
@@ -67,7 +67,7 @@ O Batch cria o conjunto de imediato, mas demora alguns minutos a alocar e a inic
 
 Após alguns minutos, o estado de atribuição muda para **Steady**, e os nós começam. Para verificar o estado dos nós, selecione a piscina e, em seguida, selecione **Nós**. Quando o estado de um nó for **Inativo**, o mesmo estará pronto para executar tarefas.
 
-## <a name="create-a-job"></a>Criar uma tarefa
+## <a name="create-a-job"></a>Criar um trabalho
 
 Agora que tem um conjunto, crie um trabalho para ser executado no mesmo. Os trabalhos do Batch são grupos lógicos de uma ou mais tarefas. Os trabalhos incluem definições comuns às tarefas, como a prioridade e o conjunto no qual as tarefas vão ser executadas. Inicialmente, o trabalho não tem tarefas.
 
@@ -97,11 +97,11 @@ Para criar uma segunda tarefa, repita os passos acima. Introduza outro **ID de T
 
 As tarefas de exemplo que criou serão concluídas em alguns minutos. Para visualizar a saída de uma tarefa concluída, selecione a tarefa e, em seguida, selecione **Ficheiros no nó**. Selecione o ficheiro `stdout.txt` para visualizar a saída padrão da tarefa. Os conteúdos são semelhantes ao seguinte:
 
-:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Screenshot do Serviço de Lote no Mercado Azure.":::
+:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Screenshot da saída a partir de uma tarefa completa.":::
 
 O conteúdo mostra as variáveis de ambiente do Azure Batch que estão definidas no nó. Quando criar os seus próprios trabalhos e as suas próprias tarefas do Batch, pode referenciar estas variáveis de ambiente nas linhas de comandos de tarefas e nas aplicações e scripts executados pelas linhas de comandos.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender continuar com os tutoriais e exemplos do Batch, utilize a conta do Batch e a conta de armazenamento associada que foi criada neste início rápido. A conta do Batch em si não é cobrada.
 

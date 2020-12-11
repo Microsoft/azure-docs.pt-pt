@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: c9fde904d6befebfcfd87b55bd7b2bf4e4c825f2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e42b6b7ffa39110ce356094de690bb353a3fb10f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443828"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107792"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicação de uma página única: Registo de aplicações
 
@@ -27,10 +27,12 @@ Para registar uma aplicação de uma página (SPA) na plataforma de identidade d
 
 Para aplicações com base em MSAL.js 1.0 e 2.0, comece por completar as seguintes etapas para criar o registo inicial da aplicação.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Se a sua conta tiver acesso a vários inquilinos, selecione o filtro **Diretório + Subscrição** no menu superior e, em seguida, selecione o inquilino que deve conter o registo de aplicações que está prestes a criar.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 1. Procure e selecione **Azure Active Directory**.
-1. Em **Gerir** , selecione **Registos de aplicações**.
-1. Selecione **Novo registo,** introduza um **Nome** para a candidatura e escolha os **tipos de conta suportado** para a aplicação. **NÃO** introduza um **URI de redirecionamento**. Para obter uma descrição dos diferentes tipos de conta, consulte o [Registo de uma nova aplicação utilizando o portal Azure.](quickstart-register-app.md)
+1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
+1. Insira um **Nome** para a sua inscrição. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
+1. Escolha os **tipos de conta suportados** para a aplicação. **NÃO** introduza um **URI de redirecionamento**. Para obter uma descrição dos diferentes tipos de conta, consulte o [Registo de um pedido](quickstart-register-app.md).
 1. Selecione **Registar-se** para criar o registo da aplicação.
 
 Em seguida, configurar o registo da aplicação com um **Redirect URI** para especificar onde a plataforma de identidade da Microsoft deve redirecionar o cliente juntamente com quaisquer fichas de segurança. Utilize os passos adequados para a versão de MSAL.js que está a utilizar na sua aplicação:
@@ -43,9 +45,9 @@ Em seguida, configurar o registo da aplicação com um **Redirect URI** para esp
 Siga estes passos para adicionar um URI de redirecionamento para uma aplicação que utiliza MSAL.js 2.0 ou mais tarde. MSAL.js 2.0+ suporta o fluxo de código de autorização com PKCE e CORS em resposta às restrições de [cookies de terceiros do navegador](reference-third-party-cookies-spas.md). O fluxo de subvenção implícita não é suportado em MSAL.js 2.0+.
 
 1. No portal Azure, selecione o registo de aplicações que criou anteriormente no [Registo da aplicação.](#create-the-app-registration)
-1. Em **Gestão** , selecione **Autenticação** e, em seguida, selecione **Adicionar uma plataforma**.
+1. Em **Gestão**, **selecione Autenticação**  >  **Adicione uma plataforma**.
 1. Nas **aplicações Web,** selecione o azulejo **de aplicação de página única.**
-1. Em **Redirecionar URIs** , [insira um URI de redirecionamento](reply-url.md). **NÃO** selecione uma caixa de verificação sob **subvenção Implícita**.
+1. Em **Redirecionar URIs**, [insira um URI de redirecionamento](reply-url.md). **NÃO** selecione uma caixa de verificação sob **subvenção Implícita**.
 1. Selecione **Configurar** para terminar a adição do URI de redirecionamento.
 
 Já concluiu o registo da sua aplicação de uma página única (SPA) e configura um URI de redirecionamento para o qual o cliente será redirecionado e quaisquer fichas de segurança serão enviadas. Ao configurar o seu URI de redirecionamento utilizando o azulejo **de aplicação de página única** no painel de plataforma Add **a,** o seu registo de candidatura está configurado para suportar o fluxo de código de autorização com PKCE e CORS.
@@ -57,9 +59,9 @@ Siga o [tutorial](tutorial-v2-javascript-auth-code.md) para mais orientação.
 Siga estes passos para adicionar um URI de redirecionamento para uma aplicação de uma página que utiliza MSAL.js 1.3 ou mais cedo e o fluxo de concessão implícito. As aplicações que utilizam MSAL.js 1.3 ou mais cedo não suportam o fluxo de código auth.
 
 1. No portal Azure, selecione o registo de aplicações que criou anteriormente no [Registo da aplicação.](#create-the-app-registration)
-1. Em **Gestão** , selecione **Autenticação** e, em seguida, selecione **Adicionar uma plataforma**.
+1. Em **Gestão**, **selecione Autenticação**  >  **Adicione uma plataforma**.
 1. Nas **aplicações Web,** selecione **azulejo de aplicação de página única.**
-1. Em **Redirecionar URIs** , [insira um URI de redirecionamento](reply-url.md).
+1. Em **Redirecionar URIs**, [insira um URI de redirecionamento](reply-url.md).
 1. Ativar o **fluxo implícito:**
     - Se a sua aplicação assinar nos utilizadores, selecione **fichas de identificação**.
     - Se a sua aplicação também precisar de chamar uma API web protegida, selecione **Tokens de acesso**. Para obter mais informações sobre estes tipos [simbólicos, consulte fichas de identificação](id-tokens.md) e [fichas de acesso.](access-tokens.md)
@@ -79,4 +81,4 @@ Quando todas as aplicações de produção de uma página única representadas p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Em seguida, configuure o código da sua aplicação para utilizar o registo de aplicações que criou nos passos anteriores: [configuração de código da App.](scenario-spa-app-configuration.md)
+Configure o código da sua aplicação para utilizar o registo de aplicações que criou nos passos anteriores: [configuração de código da App](scenario-spa-app-configuration.md).

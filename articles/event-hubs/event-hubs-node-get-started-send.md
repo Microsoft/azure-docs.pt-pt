@@ -1,18 +1,18 @@
 ---
 title: Enviar ou receber eventos de Azure Event Hubs usando JavaScript (mais recente)
-description: Este artigo fornece uma passagem para a criação de uma aplicação JavaScript que envia/recebe eventos de/para Azure Event Hubs usando o mais recente pacote azure/event-hubs versão 5.
+description: Este artigo fornece uma passagem para a criação de uma aplicação JavaScript que envia/recebe eventos de/para Azure Event Hubs usando o mais recente pacote azure/event-hubs.
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 01516f29e727b5be2a81d3d8dd473808b6ea60f7
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 2e5f297d5edb9a271843db060f948209dd076074
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728952"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106092"
 ---
-# <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>Enviar eventos para ou receber eventos de centros de eventos utilizando o JavaScript (versão azure/event-hubs 5)
-Este quickstart mostra como enviar eventos e receber eventos de um centro de eventos usando o pacote **Azure/event-hubs versão 5** JavaScript. 
+# <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs"></a>Enviar eventos para ou receber eventos de centros de eventos utilizando o JavaScript (azure/event-hubs)
+Este quickstart mostra como enviar eventos e receber eventos de um centro de eventos usando o pacote **azure/event-hubs** JavaScript. 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -113,7 +113,7 @@ Nesta secção, você recebe eventos de um centro de eventos usando uma loja de 
 ### <a name="create-an-azure-storage-account-and-a-blob-container"></a>Criar uma conta de armazenamento Azure e um recipiente blob
 Para criar uma conta de armazenamento Azure e um recipiente de bolhas nele, faça as seguintes ações:
 
-1. [Criar uma conta de armazenamento Azure](../storage/common/storage-account-create.md?tabs=azure-portal)  
+1. [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal)  
 2. [Criar um contentor de blobs na conta de armazenamento](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
 3. [Obtenha o fio de ligação para a conta de armazenamento](../storage/common/storage-configure-connection-string.md)
 

@@ -13,12 +13,12 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev devx-track-js
-ms.openlocfilehash: 327280c193c3c2fb829e468bccfc352f35edfdb5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ef1c0003978251dd2637915e56dc396e85f4438f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92673515"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107877"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Utilize a Microsoft Authentication Library para o JavaScript para trabalhar com o Azure AD B2C
 
@@ -207,14 +207,14 @@ Quando um utilizador **seleciona a palavra-passe Esquecida,** a sua aplicação 
 
     Depois de redefinir a sua palavra-passe, o utilizador é devolvido à aplicação para iniciar novamente o sposição.
 
-    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Ecrã de inscrição exibido por Azure AD B2C" border="false":::
+    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Ecrãs de fluxo de reset de palavra-passe mostrados por Azure AD B2C" border="false":::
 
-    Para obter mais informações sobre códigos de erro e exceções de manuseamento, consulte [códigos de erro e de exceção da MSAL](msal-handling-exceptions.md).
+    Para obter mais informações sobre códigos de erro e exceções de manuseamento, consulte [códigos de erro e de exceção da MSAL](msal-error-handling-js.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre estes conceitos Azure AD B2C:
 
-- [Fluxos de utilizadores](../../active-directory-b2c/tutorial-create-user-flows.md)
+- [Fluxos do utilizador](../../active-directory-b2c/tutorial-create-user-flows.md)
 - [Políticas personalizadas](../../active-directory-b2c/custom-policy-get-started.md)
-- [Personalização da Experiência do Utilizador](../../active-directory-b2c/custom-policy-configure-user-input.md)
+- [Personalização da Experiência do Utilizador](../../active-directory-b2c/configure-user-input.md)

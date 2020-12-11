@@ -1,44 +1,45 @@
 ---
-title: Tutorial - Use a biblioteca de clientes Azure Batch para Node.js
+title: Utilize a biblioteca de clientes Azure Batch para Node.js
 description: Aprenda os conceitos básicos do Azure Batch e crie uma solução simples com Node.js.
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: 33ca65421802cdbe31497f3a19ba5992961daa12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d34d5bbb302e3781aabdd697de11d3d492b879a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850613"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106704"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introdução ao SDK do Batch para Node.js
 
 Aprenda as noções básicas da criação de clientes do Batch em Node.js com o [SDK do Azure Batch para Node.js](/javascript/api/overview/azure/batch). Adotamos uma abordagem passo a passo para compreender um cenário para uma aplicação de lote e, depois, utilizar um cliente Node.js para a configurar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Este artigo pressupõe que tem conhecimento do funcionamento de Node.js e que está familiarizado com o Linux. Também parte do princípio de que tem uma conta do Azure configurada com direitos de acesso para criar serviços do Batch e de Armazenamento.
 
 Antes de seguir os passos descritos neste artigo, recomendamos ler a [Descrição Geral Técnica do Azure Batch](batch-technical-overview.md).
 
-## <a name="the-tutorial-scenario"></a>O cenário de introdução
-Comecemos por compreender o cenário dos fluxos de trabalho de lote. Temos um script simples escrito em Python que transfere todos os ficheiros csv de um contentor de armazenamento de Blobs do Azure e os converte em JSON. Para processar em paralelo vários contentores da conta de armazenamento, podemos implementar o script como uma tarefa do Azure Batch.
+## <a name="understand-the-scenario"></a>Compreender o cenário
 
-## <a name="azure-batch-architecture"></a>Arquitetura do Azure Batch
+Aqui, temos um simples script escrito em Python que descarrega todos os ficheiros csv de um recipiente de armazenamento Azure Blob e os converte para JSON. Para processar em paralelo vários contentores da conta de armazenamento, podemos implementar o script como uma tarefa do Azure Batch.
+
+## <a name="azure-batch-architecture"></a>Arquitetura Azure Batch
+
 O diagrama seguinte ilustra como podemos ampliar o script Python com o Azure Batch e um cliente Node.js.
 
-![Cenário do Azure Batch](./media/batch-nodejs-get-started/BatchScenario.png)
+![Diagrama mostrando arquitetura de cenário.](./media/batch-nodejs-get-started/BatchScenario.png)
 
 O cliente de Node.js implementa uma tarefa de lote com uma tarefa de preparação (explicada em detalhe mais à frente) e um conjunto de tarefas, dependendo do número de contentores na conta de armazenamento. Você pode baixar os scripts do repositório GitHub.
 
-* [Cliente Node.js](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
-* [Scripts de shell da tarefa de preparação](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
-* [Processador de csv em JSON em Python](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
+- [Cliente Node.js](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
+- [Scripts de shell da tarefa de preparação](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
+- [Processador de csv em JSON em Python](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
 
 > [!TIP]
 > O cliente Node.js na ligação especificada não contém código específico para implementação como uma aplicação de função das Funções do Azure. Para saber como criar uma aplicação destas, pode ver as ligações seguintes:
 > - [Criar a aplicação de funções](../azure-functions/functions-create-first-azure-function.md)
 > - [Create timer trigger function](../azure-functions/functions-bindings-timer.md) (Criar função de acionador de temporizador)
->
->
 
 ## <a name="build-the-application"></a>Criar a aplicação
 
@@ -54,8 +55,6 @@ Este comando instala a versão mais recente do SDK do nó azure-batch.
 
 >[!Tip]
 > Numa aplicação de função das Funções do Azure, pode aceder à “Consola Kudu”, no separador Definições da aplicação das Funções do Azure, para executar os comandos npm install. Neste caso, para instalar o SDK do Azure Batch para Node.js.
->
->
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Passo 2: Criar uma conta do Azure Batch
 
@@ -78,6 +77,7 @@ Cada conta do Batch tem chaves de acesso correspondentes. Estas chaves são nece
 Copie e armazene a chave, para utilizá-la nos passos subsequentes.
 
 ### <a name="step-3-create-an-azure-batch-service-client"></a>Passo 3: Criar um cliente do serviço Azure Batch
+
 O fragmento de código seguinte começa por importar o módulo de Node.js azure-batch e, em seguida, cria um cliente do Serviço Batch. Em primeiro lugar, tem de criar um objeto SharedKeyCredentials com a chave da conta do Batch copiada do passo anterior.
 
 ```nodejs
@@ -109,19 +109,16 @@ Veja a captura de ecrã:
 
 ![URI do Azure Batch](./media/batch-nodejs-get-started/azurebatchuri.png)
 
-
-
 ### <a name="step-4-create-an-azure-batch-pool"></a>Passo 4: Criar um conjunto do Azure Batch
+
 Os conjuntos do Azure Batch consistem em várias VMs (também conhecidas como Nós do Batch). O serviço do Azure Batch implementa a tarefa nestes nós e gere-as. Pode definir os seguintes parâmetros de configuração para o conjunto.
 
-* Tipo de imagem das Máquinas Virtuais
-* Tamanho dos nós de Máquinas Virtuais
-* Número de nós de Máquinas Virtuais
+- Tipo de imagem das Máquinas Virtuais
+- Tamanho dos nós de Máquinas Virtuais
+- Número de nós de Máquinas Virtuais
 
-> [!Tip]
+> [!TIP]
 > O tamanho e o número dos nós de máquinas virtuais depende muito do número de tarefas que quer executar em paralelo e também das próprias tarefas. Para determinar o tamanho e o número ideais, recomendamos que faça testes.
->
->
 
 O fragmento de código seguinte cria os objetos do parâmetro de configuração.
 
@@ -139,10 +136,8 @@ var vmSize = "STANDARD_F4"
 var numVMs = 4
 ```
 
-> [!Tip]
+> [!TIP]
 > Para obter a lista de imagens de VMs do Linux disponíveis para o Azure Batch e IDs dos respetivos SKUs, veja [List of virtual machine images](batch-linux-nodes.md#list-of-virtual-machine-images) (Lista de imagens de máquinas virtuais).
->
->
 
 Depois de definida a configuração do conjunto, pode criar o conjunto do Azure Batch. O comando Batch pool cria os nós de Máquinas Virtuais e prepara-os para receberem tarefas a executar. Cada conjunto deve ter um ID único para referência em passos subsequentes.
 
@@ -245,40 +240,37 @@ Segue-se um objeto de resultado de exemplo devolvido pela função pool.get.
   taskSchedulingPolicy: { nodeFillType: 'Spread' } }
 ```
 
-
 ### <a name="step-4-submit-an-azure-batch-job"></a>Passo 4: Submeter uma tarefa do Azure Batch
+
 As tarefas do Azure Batch são grupos lógicos de tarefas semelhantes. No nosso cenário, é "Processar csv para JSON". Cada tarefa neste cenário pode processar ficheiros csv presentes em cada contentor do Armazenamento do Azure.
 
 Estas tarefas serão executadas em paralelo e implementadas em vários nós, orquestradas pelo serviço Azure Batch.
 
-> [!Tip]
+> [!TIP]
 > Pode utilizar a [propriedade TaskSlotsPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) para especificar o número máximo de tarefas que podem ser executadas simultaneamente num único nó.
->
->
 
 #### <a name="preparation-task"></a>Tarefa de preparação
 
 Os nós de VMs criados são nós Ubuntu vazios. Muitas vezes, tem de instalar um conjunto de programas como pré-requisitos.
 Normalmente, relativamente a nós do Linux, pode ser um script de shell que instala os pré-requisitos antes de a tarefa em si ser executada. No entanto, pode ser qualquer executável programável.
+
 O [script de shell](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/startup_prereq.sh) neste exemplo instala Python-pip e o SDK do Armazenamento do Azure para Python.
 
 Pode carregar o script numa conta de Armazenamento do Azure e gerar um URI de SAS para aceder ao mesmo. Também pode utilizar o SDK do Armazenamento do Azure para Node.js para automatizar este processo.
 
-> [!Tip]
+> [!TIP]
 > As tarefas de preparação para tarefas só são executadas nos nós de VMs, nos quais essas tarefas específicas têm de ser executadas. Se quiser instalar pré-requisitos em todos os nós, independentemente das tarefas que são executadas nos mesmos, pode utilizar a propriedade [startTask](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) enquanto estiver a adicionar um conjunto. Pode utilizar a definição de tarefa de preparação seguinte como referência.
->
->
 
 As tarefas de preparação são especificadas durante a submissão do trabalho do Azure Batch. Seguem-se todos os parâmetros de configuração da tarefa de preparação:
 
-* **ID**: um identificador exclusivo para a tarefa de preparação
-* **commandLine**: a linha de comandos para executar o executável da tarefa
-* **resourceFiles**: matriz de objetos que disponibiliza detalhes dos ficheiros que têm de ser transferidos para que esta tarefa seja executada.  Seguem-se as respetivas opções
-    - blobSource: o URI de SAS do ficheiro
-    - filePath: o caminho local para transferir e guardar o ficheiro
-    - fileMode: aplicável apenas a nós do Linux, o fileMode está no formato octal e tem o valor predefinido 0770
-* **waitForSuccess**: se definido como verdadeiro, a tarefa não é executada em falhas da tarefa de preparação
-* **runElevated**: defina como verdadeiro, se forem necessários privilégios elevados para executar a tarefa.
+- **ID**: um identificador exclusivo para a tarefa de preparação
+- **commandLine**: a linha de comandos para executar o executável da tarefa
+- **resourceFiles**: matriz de objetos que disponibiliza detalhes dos ficheiros que têm de ser transferidos para que esta tarefa seja executada.  Seguem-se as respetivas opções
+  - blobSource: o URI de SAS do ficheiro
+  - filePath: o caminho local para transferir e guardar o ficheiro
+  - fileMode: aplicável apenas a nós do Linux, o fileMode está no formato octal e tem o valor predefinido 0770
+- **waitForSuccess**: se definido como verdadeiro, a tarefa não é executada em falhas da tarefa de preparação
+- **runElevated**: defina como verdadeiro, se forem necessários privilégios elevados para executar a tarefa.
 
 O fragmento de código seguinte mostra o exemplo de configuração de script de tarefa de preparação:
 
@@ -302,15 +294,14 @@ Se não for necessário instalar pré-requisitos para que as tarefas sejam execu
      }});
 ```
 
-
 ### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>Passo 5: Submeter tarefas do Azure Batch para trabalhos
 
 Agora que o trabalho “process csv” está criado, vamos criar tarefas para o mesmo. Partindo do princípio de que temos quatro contentores, temos de criar quatro tarefas, uma para cada contentor.
 
 Se olharmos para o [script de Python](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py), este aceita dois parâmetros:
 
-* nome do contentor: o contentor do Armazenamento a partir do qual transferir ficheiros
-* padrão: um parâmetro opcional do padrão de nomenclatura do ficheiro
+- nome do contentor: o contentor do Armazenamento a partir do qual transferir ficheiros
+- padrão: um parâmetro opcional do padrão de nomenclatura do ficheiro
 
 Partindo do princípio de que temos quatro contentores "con1", "con2", "con3" e "con4", o código seguinte mostra a submissão relativa a tarefas para o trabalho do Azure Batch “process csv” que criámos anteriormente.
 
@@ -347,4 +338,3 @@ O portal tem vistas detalhadas sobre as tarefas e os estados dos trabalhos. Tamb
 
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - Veja [Batch Node.js reference](/javascript/api/overview/azure/batch) (Referência de Node.js do Batch) para explorar a API do Batch.
-

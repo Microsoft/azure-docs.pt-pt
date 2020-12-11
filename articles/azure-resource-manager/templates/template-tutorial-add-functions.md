@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 67c88e98d966a21163aafefcad8363086d5b3bf4
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 52b5bd0650b3a069adc3ef7f101c48a4674deaab
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931049"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107112"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>Tutorial: Adicione funções de modelo ao seu modelo ARM
 
@@ -33,11 +33,11 @@ A localização da conta de armazenamento é codificada para os **EUA.** No enta
 
 ## <a name="use-function"></a>Função de utilização
 
-Se completou o tutorial anterior nesta série, já utilizou uma função. Quando `"[parameters('storageName')]"` adicionado, utilizou a função [de parâmetros.](template-functions-deployment.md#parameters) Os suportes indicam que a sintaxe dentro dos suportes é uma [expressão do modelo](template-expressions.md). O Gestor de Recursos resolve a sintaxe em vez de a tratar como um valor literal.
+Se completou o tutorial anterior nesta série, já utilizou uma função. Quando `"[parameters('storageName')]"` adicionou, utilizou a função de [parâmetros.](template-functions-deployment.md#parameters) Os suportes indicam que a sintaxe dentro dos suportes é uma [expressão do modelo](template-expressions.md). O Gestor de Recursos resolve a sintaxe em vez de a tratar como um valor literal.
 
 As funções adicionam flexibilidade ao seu modelo obtendo valores dinamicamente durante a implementação. Neste tutorial, você usa uma função para obter a localização do grupo de recursos que você está usando para implantação.
 
-O exemplo a seguir destaca as alterações para adicionar um parâmetro chamado **localização**.  O valor predefinido do parâmetro chama a função [grupo de recursos.](template-functions-resource.md#resourcegroup) Esta função devolve um objeto com informações sobre o grupo de recursos que está a ser utilizado para a implantação. Uma das propriedades do objeto é uma propriedade de localização. Quando utiliza o valor predefinido, a localização da conta de armazenamento tem a mesma localização que o grupo de recursos. Os recursos dentro de um grupo de recursos não têm que partilhar o mesmo local. Também pode fornecer uma localização diferente quando necessário.
+O exemplo a seguir destaca as alterações para adicionar um parâmetro chamado `location` . O valor predefinido do parâmetro chama a função [grupo de recursos.](template-functions-resource.md#resourcegroup) Esta função devolve um objeto com informações sobre o grupo de recursos que está a ser utilizado para a implantação. Uma das propriedades do objeto é uma propriedade de localização. Quando utiliza o valor predefinido, a localização da conta de armazenamento tem a mesma localização que o grupo de recursos. Os recursos dentro de um grupo de recursos não têm que partilhar o mesmo local. Também pode fornecer uma localização diferente quando necessário.
 
 Copie todo o ficheiro e substitua o seu modelo pelo seu conteúdo.
 
@@ -47,7 +47,7 @@ Copie todo o ficheiro e substitua o seu modelo pelo seu conteúdo.
 
 Nos tutoriais anteriores, criou uma conta de armazenamento no Leste dos EUA, mas o seu grupo de recursos foi criado nos EUA Centrais. Para este tutorial, a sua conta de armazenamento é criada na mesma região que o grupo de recursos. Use o valor padrão para a localização, para que não seja necessário fornecer esse valor de parâmetro. Você deve fornecer um novo nome para a conta de armazenamento porque você está criando uma conta de armazenamento em um local diferente. Por exemplo, utilize **a loja2** como prefixo em vez de **armazenar1**.
 
-Se não criou o grupo de recursos, consulte [criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que definiu a variável **modeloFile** para o caminho para o ficheiro do modelo, como mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+Se não criou o grupo de recursos, consulte [criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que definiu a `templateFile` variável para o caminho para o ficheiro do modelo, como mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -74,7 +74,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implementação falhar, utilize o interruptor **verboso** para obter informações sobre os recursos que estão a ser criados. Use o **interruptor de depuração** para obter mais informações para depurar.
+> Se a implementação falhar, utilize o `verbose` interruptor para obter informações sobre os recursos que estão a ser criados. Use o `debug` interruptor para obter mais informações para depuração.
 
 ## <a name="verify-deployment"></a>Verificar a implementação
 

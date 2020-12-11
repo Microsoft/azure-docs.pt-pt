@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 27a00c69a4423e45b46b9c3d0340bb7cd1a35d65
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 88244ec3ba4bbebe7d6096fa3ac49bd4f1b8f661
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095904"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108625"
 ---
 # <a name="localization-element"></a>Elemento de localização
 
@@ -45,7 +45,7 @@ O elemento **de localização** contém os seguintes atributos:
 
 O elemento **de localização** contém elementos XML
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Apoio deGuages | 1:n | Lista de línguas apoiadas. |
 | Recursos Localizados | 0:n | Lista de recursos localizados. |
@@ -63,7 +63,7 @@ O elemento **SuportadoLanguages** contém os seguintes atributos:
 
 O elemento **Suportado Deguages** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Apoio àguagem | 1:n | Exibe conteúdo satisfatório em conformidade com uma etiqueta linguística por RFC 5646 - Tags para Identificar Línguas. |
 
@@ -77,7 +77,7 @@ O elemento **Imagens Locais** contém os seguintes atributos:
 
 O elemento **LocaledResources** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Collections localizadas | 0:n | Define coleções inteiras em várias culturas. Uma coleção pode ter um número diferente de itens e diferentes cordas para várias culturas. Exemplos de coleções incluem as enumerações que aparecem nos tipos de reclamações. Por exemplo, uma lista de país/região é mostrada ao utilizador numa lista de abandono. |
 | Padrões Localizados | 0:n | Define todas as cordas, exceto as cordas que aparecem em coleções, em várias culturas. |
@@ -86,7 +86,7 @@ O elemento **LocaledResources** contém os seguintes elementos:
 
 O elemento **LocalizedCollections** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Collecto Localizado | 1:n | Lista de línguas apoiadas. |
 
@@ -102,7 +102,7 @@ O elemento **Decolecção Localizada** contém os seguintes atributos:
 
 O elemento **Decolecção Localizada** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Item | 0:n | Define uma opção disponível para o utilizador selecionar para uma reclamação na interface do utilizador, como um valor numa queda. |
 
@@ -138,7 +138,7 @@ O exemplo a seguir mostra a utilização do elemento **Decollections Localizado.
 
 O elemento **LocalizadoStrings** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Estamos localizados | 1:n | Uma corda localizada. |
 
@@ -354,5 +354,5 @@ Na secção de metadados de um perfil técnico autoafirmado, a definição de co
 
 Consulte os seguintes artigos para exemplos de localização:
 
-- [Personalização linguística com política personalizada no Azure Ative Directory B2C](custom-policy-localization.md)
-- [Personalização linguística com fluxos de utilizadores no Azure Ative Directory B2C](user-flow-language-customization.md)
+- [Personalização linguística com política personalizada no Azure Ative Directory B2C](language-customization.md)
+- [Personalização linguística com fluxos de utilizadores no Azure Ative Directory B2C](language-customization.md)

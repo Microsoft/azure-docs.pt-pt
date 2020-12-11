@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 445e7ce2d6e609d75bff38bb3d049a87f184be12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46b32ae7aeb971c9391a69e3ca3d01f669774248
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613599"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106908"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Tutorial: Use modelos de arranque rápido Azure
 
@@ -34,10 +34,10 @@ Este modelo funciona para implementar contas de armazenamento e planos de servi�
 ## <a name="find-template"></a>Modelo de descoberta
 
 1. Abra [os modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/)
-1. Em **Search**, insira **a aplicação web linux**.
-1. Selecione aquele com o título **Implementar uma aplicação web básica do Linux.** Se tiver problemas em encontrá-lo, aqui está o [link direto.](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/)
+1. Em **Search**, insira _a aplicação web linux_.
+1. Selecione o azulejo com o título **Implementar uma aplicação web básica do Linux.** Se tiver problemas em encontrá-lo, aqui está o [link direto.](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/)
 1. **Selecione Procurar no GitHub**.
-1. Selecione **azuredeploy.jsem**.
+1. Selecione _azuredeploy.jsem_.
 1. Reveja o modelo. Em particular, procure o `Microsoft.Web/sites` recurso.
 
     ![Site de arranque rápido do modelo do gestor de recursos](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
@@ -48,15 +48,15 @@ Fundir o modelo de arranque rápido com o modelo existente:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json" range="1-108" highlight="32-45,49,85-100":::
 
-O nome da aplicação web tem de ser único em todo o Azure. Para evitar ter nomes duplicados, a variável **webAppPortalName** foi atualizada a partir de **"webAppPortalName": "[concat(parâmetros('webAppName'), 'webapp')]]** para **"webAppPortalName": "[concat(parâmetros('webAppName'), uniqueString (resourceGroup().id))"]**
+O nome da aplicação web tem de ser único em todo o Azure. Para evitar ter nomes duplicados, a `webAppPortalName` variável foi atualizada a partir de `"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"` `"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"` .
 
 Adicione uma vírgula no final da `Microsoft.Web/serverfarms` definição para separar a definição de recurso da `Microsoft.Web/sites` definição.
 
 Há algumas características importantes a notar neste novo recurso.
 
-Você vai notar que tem um elemento chamado **dependon** que está definido para o plano de serviço de aplicações. Esta definição é necessária porque o plano de serviço de aplicações deve existir antes da criação da aplicação web. O elemento **dependOn** diz ao Gestor de Recursos como encomendar os recursos para a implantação.
+Você vai notar que tem um elemento nomeado `dependsOn` que está definido para o plano de serviço de aplicações. Esta definição é necessária porque o plano de serviço de aplicações deve existir antes da criação da aplicação web. O `dependsOn` elemento diz ao Gestor de Recursos como encomendar os recursos para a implantação.
 
-A propriedade **serverFarmId** utiliza a função [resourceId.](template-functions-resource.md#resourceid) Esta função obtém o identificador único para um recurso. Neste caso, obtém o identificador único para o plano de serviço de aplicações. A aplicação web está associada a um plano específico de serviço de aplicações.
+A `serverFarmId` propriedade utiliza a função [resourceId.](template-functions-resource.md#resourceid) Esta função obtém o identificador único para um recurso. Neste caso, obtém o identificador único para o plano de serviço de aplicações. A aplicação web está associada a um plano específico de serviço de aplicações.
 
 ## <a name="deploy-template"></a>Implementar o modelo
 
@@ -91,7 +91,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implementação falhar, utilize o interruptor **verboso** para obter informações sobre os recursos que estão a ser criados. Use o **interruptor de depuração** para obter mais informações para depurar.
+> Se a implementação falhar, utilize o `verbose` interruptor para obter informações sobre os recursos que estão a ser criados. Use o `debug` interruptor para obter mais informações para depuração.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

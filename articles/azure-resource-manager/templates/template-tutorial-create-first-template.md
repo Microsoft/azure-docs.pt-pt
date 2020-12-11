@@ -1,17 +1,17 @@
 ---
 title: Tutorial - Criar & modelo de implementação
-description: Crie o seu primeiro modelo de Gestor de Recursos Azure. No tutorial, você aprende sobre a sintaxe do ficheiro do modelo e como implementar uma conta de armazenamento.
+description: Crie o seu primeiro modelo de Gestor de Recursos Azure (modelo ARM). No tutorial, você aprende sobre a sintaxe do ficheiro do modelo e como implementar uma conta de armazenamento.
 author: mumian
 ms.date: 09/28/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 25ddcc2c3a890b407b2116f64ebab577e30c9457
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 191eacbc9cc66ccfb9b378cb5e8a90b4e0fb20e6
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613191"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107028"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Crie e implemente o seu primeiro modelo ARM
 
@@ -19,7 +19,7 @@ Este tutorial apresenta-o aos modelos do Gestor de Recursos Azure (modelos ARM).
 
 Este tutorial é o primeiro de uma série. À medida que progride através da série, modifica o modelo inicial passo a passo até que tenha explorado todas as partes centrais de um modelo ARM. Estes elementos são os blocos de construção para modelos muito mais complexos. Esperamos que até ao final da série esteja confiante em criar os seus próprios modelos e pronto para automatizar as suas implementações com modelos.
 
-Se quiser saber sobre os benefícios da utilização de modelos e por que deve automatizar a implementação com modelos, consulte [os modelos do Gestor de Recursos Azure](overview.md).
+Se quiser saber sobre os benefícios da utilização de modelos e por que deve automatizar a implementação com modelos, consulte a [visão geral do modelo ARM](overview.md).
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -29,13 +29,13 @@ Comecemos por ter a certeza de que tem as ferramentas necessárias para criar e 
 
 ### <a name="editor"></a>Editor
 
-Os modelos são ficheiros JSON. Para criar modelos, precisa de um bom editor JSON. Recomendamos o Código do Estúdio Visual com a extensão de Ferramentas do Gestor de Recursos. Se precisar de instalar estas ferramentas, consulte [Quickstart: Crie modelos de Gestor de Recursos Azure com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
+Os modelos são ficheiros JSON. Para criar modelos, precisa de um bom editor JSON. Recomendamos o Código do Estúdio Visual com a extensão de Ferramentas do Gestor de Recursos. Se precisar de instalar estas ferramentas, consulte [Quickstart: Crie modelos ARM com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
 
 ### <a name="command-line-deployment"></a>Implantação da linha de comando
 
 Também precisa de Azure PowerShell ou Azure CLI para implementar o modelo. Se utilizar o Azure CLI, deve ter a versão mais recente. Para as instruções de instalação, consulte:
 
-- [Instalar o Azure PowerShell](/powershell/azure/install-az-ps)
+- [Instalar Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows)
 - [Instale o Azure CLI no Linux](/cli/azure/install-azure-cli-linux)
 - [Instalar a CLI do Azure no macOS](/cli/azure/install-azure-cli-macos)
@@ -52,7 +52,7 @@ Está pronto para começar a aprender sobre modelos.
 1. Código de estúdio visual aberto com a extensão de Ferramentas do Gestor de Recursos instaladas.
 1. A partir do menu **Ficheiro,** selecione **Novo Ficheiro** para criar um novo ficheiro.
 1. A partir do menu **'Ficheiro',** **selecione Guardar como**.
-1. Nomeie o **ficheiro** e selecione a extensão do ficheiro **JSON.** O nome completo do ficheiro **azuredeploy.jsem**.
+1. Nomeie o ficheiro _azuredeploy_ e selecione a extensão do ficheiro _json._ O nome completo do ficheiro é _azuredeploy.js._
 1. Guarde o ficheiro para a sua estação de trabalho. Selecione um caminho que seja fácil de lembrar porque irá fornecer esse caminho mais tarde ao implementar o modelo.
 1. Copiar e colar o seguinte JSON no ficheiro:
 
@@ -64,17 +64,17 @@ Está pronto para começar a aprender sobre modelos.
     }
     ```
 
-    Aqui está o seu ambiente vs Code:
+    Aqui está o seu ambiente visual Studio Code:
 
-    ![Modelo de código de estúdio visual do gestor de recursos](./media/template-tutorial-create-first-template/resource-manager-visual-studio-code-first-template.png)
+    ![Modelo de arm visual studio código primeiro modelo](./media/template-tutorial-create-first-template/resource-manager-visual-studio-code-first-template.png)
 
     Este modelo não implementa recursos. Estamos começando com um modelo em branco para que você possa se familiarizar com os passos para implementar um modelo, minimizando a chance de algo correr mal.
 
     O ficheiro JSON tem estes elementos:
 
-    - **$schema**: Especifica a localização do ficheiro de esquema JSON. O ficheiro de esquema descreve as propriedades que estão disponíveis dentro de um modelo. Por exemplo, o esquema define os **recursos** como uma das propriedades válidas para um modelo. Não se preocupe que a data para o esquema é 2019-04-01. Esta versão de esquema está atualizada e inclui todas as funcionalidades mais recentes. A data do esquema não foi alterada porque não houve alterações de rutura desde a sua introdução.
-    - **versão de conteúdo**: Especifica a versão do modelo (tal como 1.0.0.0). Pode fornecer qualquer valor para este elemento. Utilize este valor para documentar alterações significativas no seu modelo. Ao utilizar recursos utilizando o modelo, este valor pode ser usado para garantir que o modelo certo está a ser utilizado.
-    - **recursos**: Contém os recursos que pretende utilizar ou atualizar. Atualmente, está vazio, mas vai adicionar recursos mais tarde.
+    - `$schema`: Especifica a localização do ficheiro de esquema JSON. O ficheiro de esquema descreve as propriedades que estão disponíveis dentro de um modelo. Por exemplo, o esquema define `resources` como uma das propriedades válidas para um modelo. Não se preocupe que a data para o esquema é 2019-04-01. Esta versão de esquema está atualizada e inclui todas as funcionalidades mais recentes. A data do esquema não foi alterada porque não houve alterações de rutura desde a sua introdução.
+    - `contentVersion`: Especifica a versão do modelo (tal como 1.0.0.0). Pode fornecer qualquer valor para este elemento. Utilize este valor para documentar alterações significativas no seu modelo. Ao utilizar recursos utilizando o modelo, este valor pode ser usado para garantir que o modelo certo está a ser utilizado.
+    - `resources`: Contém os recursos que pretende utilizar ou atualizar. Atualmente, está vazio, mas vai adicionar recursos mais tarde.
 
 1. Guarde o ficheiro.
 
@@ -83,6 +83,8 @@ Parabéns, criaste o teu primeiro modelo.
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Para começar a trabalhar com a Azure PowerShell/Azure CLI, inscreva-se com as suas credenciais Azure.
+
+Selecione os separadores nas seguintes secções de código para escolher entre Azure PowerShell e Azure CLI. Os exemplos do CLI neste artigo são escritos para a concha bash.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -98,7 +100,7 @@ az login
 
 ---
 
-Se tiver várias subscrições do Azure, selecione a subscrição que pretende utilizar:
+Se tiver várias subscrições do Azure, selecione a subscrição que pretende utilizar. Substitua `[SubscriptionID/SubscriptionName]` e os suportes quadrados `[]` por informações de subscrição:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -114,10 +116,9 @@ az account set --subscription [SubscriptionID/SubscriptionName]
 
 ---
 
-
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Quando implementa um modelo, especifica um grupo de recursos que conterá os recursos. Antes de executar o comando de implantação, crie o grupo de recursos com Azure CLI ou Azure PowerShell. Selecione os separadores na seguinte secção de código para escolher entre Azure PowerShell e Azure CLI. Os exemplos do CLI neste artigo são escritos para a concha bash.
+Quando implementa um modelo, especifica um grupo de recursos que conterá os recursos. Antes de executar o comando de implementação, crie o grupo de recursos com a CLI do Azure ou o Azure PowerShell.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -139,7 +140,7 @@ az group create \
 
 ## <a name="deploy-template"></a>Implementar o modelo
 
-Para implementar o modelo, utilize o Azure CLI ou o Azure PowerShell. Utilize o grupo de recursos que criou. Dê um nome à implementação para que possa identificá-lo facilmente no histórico de implantação. Por conveniência, também crie uma variável que armazena o caminho para o arquivo do modelo. Esta variável torna mais fácil executar os comandos de implementação, porque não tem de reescrever o caminho sempre que implementa.
+Para implementar o modelo, utilize o Azure CLI ou o Azure PowerShell. Utilize o grupo de recursos que criou. Dê um nome à implementação para que possa identificá-lo facilmente no histórico de implantação. Por conveniência, também crie uma variável que armazena o caminho para o arquivo do modelo. Esta variável torna mais fácil executar os comandos de implementação, porque não tem de reescrever o caminho sempre que implementa. Substitua `{provide-the-path-to-the-template-file}` e as chaves encaracoladas `{}` pelo caminho para o seu ficheiro de modelo.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -178,7 +179,7 @@ O comando de implantação retorna os resultados. Procure `ProvisioningState` pa
 ---
 
 > [!NOTE]
-> Se a implementação falhar, utilize o interruptor **verboso** para obter informações sobre os recursos que estão a ser criados. Use o **interruptor de depuração** para obter mais informações para depurar.
+> Se a implementação falhar, utilize o `verbose` interruptor para obter informações sobre os recursos que estão a ser criados. Use o `debug` interruptor para obter mais informações para depuração.
 
 ## <a name="verify-deployment"></a>Verificar a implementação
 

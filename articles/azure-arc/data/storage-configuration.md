@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: uc-msft
 ms.author: umajay
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: c420652a6385be2cade9723c20cff7c32a4a60b0
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7b683029b7fd05078755d4e8cd027f55c805f991
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127238"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107265"
 ---
 # <a name="storage-configuration"></a>Configuração do Armazenamento
 
@@ -28,13 +28,13 @@ A Kubernetes fornece uma forma de os fornecedores de infraestruturas de armazena
 
 Pode ver quais as aulas de armazenamento configuradas no seu cluster Kubernetes executando este comando:
 
-``` terminal
+```console
 kubectl get storageclass
 ```
 
 Saída de exemplo de um cluster Azure Kubernetes Service (AKS):
 
-``` terminal
+```console
 NAME                PROVISIONER                AGE
 azurefile           kubernetes.io/azure-file   15d
 azurefile-premium   kubernetes.io/azure-file   15d
@@ -44,13 +44,13 @@ managed-premium     kubernetes.io/azure-disk   4d3h
 
 Você pode obter detalhes sobre uma classe de armazenamento executando este comando:
 
-``` terminal
-kubectl describe storageclass\<storage class name>
+```console
+kubectl describe storageclass/<storage class name>
 ```
 
 Exemplo:
 
-``` terminal
+```console
 kubectl describe storageclass/azurefile
 
 Name:            azurefile
@@ -69,7 +69,7 @@ Events:                <none>
 
 Pode ver os volumes persistentes atualmente previstos e as reivindicações de volume persistentes executando os seguintes comandos:
 
-``` terminal
+```console
 kubectl get persistentvolumes -n <namespace>
 
 kubectl get persistentvolumeclaims -n <namespace>
@@ -77,7 +77,7 @@ kubectl get persistentvolumeclaims -n <namespace>
 
 Exemplo de mostrar volumes persistentes:
 
-``` terminal
+```console
 
 kubectl get persistentvolumes -n arc
 
@@ -98,7 +98,7 @@ pvc-ecd7d07f-2c2c-421d-98d7-711ec5d4a0cd   15Gi       RWO            Delete     
 
 Exemplo de alegações persistentes de volume:
 
-``` terminal
+```console
 
 kubectl get persistentvolumeclaims -n arc
 
@@ -120,39 +120,39 @@ sqldemo11-logs-claim   Bound    pvc-41b33bbd-debb-4153-9a41-02ce2bf9c665   10Gi 
 
 ## <a name="factors-to-consider-when-choosing-your-storage-configuration"></a>Fatores a ter em conta na escolha da sua configuração de armazenamento
 
-A seleção da classe de armazenamento certa é muito importante para a resiliência e desempenho dos dados. Escolher a classe de armazenamento errada pode colocar os seus dados em risco de perda total de dados em caso de falha de hardware ou pode resultar num desempenho menos ideal.
+A seleção da classe de armazenamento certa é importante para a resiliência e desempenho dos dados. Escolher a classe de armazenamento errada pode colocar os seus dados em risco de perda total de dados em caso de falha de hardware ou pode resultar num desempenho menos ideal.
 
 Existem geralmente dois tipos de armazenamento:
 
-- **Armazenamento local** - armazenamento que é a provisionado em discos rígidos locais em um dado nó. Este tipo de armazenamento pode ser ideal em termos de desempenho, mas requer especificamente a conceção para redundância de dados replicando os dados em vários nós.
-- **Armazenamento remoto e compartilhado** - armazenamento que é abastado em algum dispositivo de armazenamento remoto - por exemplo, um serviço de armazenamento de SAN, NAS ou cloud como EBS ou Azure Files. Este tipo de armazenamento geralmente fornece redundância de dados automaticamente, mas geralmente não é tão rápido quanto o armazenamento local pode ser.
+- **Armazenamento local** - armazenamento a provisionado em discos rígidos locais em um dado nó. Este tipo de armazenamento pode ser ideal em termos de desempenho, mas requer especificamente a conceção para redundância de dados replicando os dados em vários nós.
+- **Armazenamento remoto e compartilhado** - armazenamento ateado em algum dispositivo de armazenamento remoto - por exemplo, um serviço de armazenamento de SAN, NAS ou cloud como EBS ou Azure Files. Este tipo de armazenamento geralmente prevê a redundância de dados automaticamente, mas não é tão rápido quanto o armazenamento local pode ser.
 
 > [!NOTE]
 > Por enquanto, se estiver a utilizar o NFS, tem de definir o modo de permitir que oRunAsRoot seja verdadeiro no seu ficheiro de perfil de implementação antes de implementar o controlador de dados Azure Arc.
 
 ### <a name="data-controller-storage-configuration"></a>Configuração de armazenamento de controlador de dados
 
-Alguns serviços em Azure Arc para serviços de dados dependem de serem configurados para utilizar armazenamento remoto e compartilhado porque os serviços não têm a capacidade de replicar os dados. Estes serviços encontram-se na recolha de cápsulas de tratamento de dados:
+Alguns serviços em Azure Arc para serviços de dados dependem de serem configurados para usar armazenamento remoto e compartilhado porque os serviços não têm a capacidade de replicar os dados. Estes serviços encontram-se na recolha de cápsulas de tratamento de dados:
 
 |**Serviço**|**Reclamações persistentes de volume**|
 |---|---|
 |**ElasticSearch**|`<namespace>/logs-logsdb-0`, `<namespace>/data-logsdb-0`|
-|**AfluxoDB**|`<namespace>/logs-metricsdb-0`, `<namespace>/data-metricsdb-0`|
+|**InfluxDB**|`<namespace>/logs-metricsdb-0`, `<namespace>/data-metricsdb-0`|
 |**Exemplo SQL controlador**|`<namespace>/logs-controldb`, `<namespace>/data-controldb`|
 |**Serviço API controlador**|`<namespace>/data-controller`|
 
 No momento em que o controlador de dados é a provisionado, a classe de armazenamento a utilizar para cada um destes volumes persistentes é especificada através da passagem da classe --armazenamento / -sc parâmetro para o `azdata arc dc create` comando ou definindo as classes de armazenamento no control.jsno ficheiro de modelo de implantação que é usado.
 
-Os modelos de implementação fornecidos fora da caixa têm uma classe de armazenamento padrão especificada que é apropriada para o ambiente alvo, mas pode ser ultrapassada no tempo de implementação. Consulte os passos detalhados para [alterar o perfil de implementação](create-data-controller.md) para alterar a configuração da classe de armazenamento para as cápsulas do controlador de dados no momento de implementação.
+Os modelos de implementação fornecidos fora da caixa têm uma classe de armazenamento padrão especificada que é apropriada para o ambiente alvo, mas pode ser ultrapassada durante a implementação. Consulte os passos detalhados para [alterar o perfil de implementação](create-data-controller.md) para alterar a configuração da classe de armazenamento para as cápsulas do controlador de dados no momento de implementação.
 
 Se definir a classe de armazenamento usando a classe de armazenamento / -sc parâmetro a classe de armazenamento será usada tanto para as classes de registo como para armazenamento de dados. Se definir as classes de armazenamento no ficheiro do modelo de implementação, pode especificar diferentes classes de armazenamento para registos e dados.
 
 Fatores importantes a ter em conta na escolha de uma classe de armazenamento para as cápsulas de tratamento de dados:
 
-- Deve **must** utilizar uma classe de armazenamento remota e partilhada para garantir a durabilidade dos dados e para que, se uma vagem ou nó morrer, quando a cápsula é trazida de volta, pode voltar a ligar-se ao volume persistente.
+- Deve  utilizar uma classe de armazenamento remota e partilhada para garantir a durabilidade dos dados e para que, se uma vagem ou nó morrer, quando a cápsula é trazida de volta, pode voltar a ligar-se ao volume persistente.
 - Os dados que estão a ser escritos para o controlador SQL, métricas DB e logs DB são tipicamente de volume bastante baixo e não são sensíveis à latência, pelo que o armazenamento de desempenho ultrarrápido não é crítico. Se tiver utilizadores que usam frequentemente as interfaces Grafana e Kibana e tem um grande número de casos de base de dados, então os seus utilizadores poderão beneficiar de um armazenamento mais rápido.
-- A capacidade de armazenamento necessária é variável com o número de casos de base de dados que implementou porque os registos e métricas são recolhidos para cada instância da base de dados. Os dados são retidos nos registos e métricas DB durante 2 semanas antes de serem purgados. 
-- Mudar a colocação de posto de classe de armazenamento é muito difícil, não documentado e não suportado. Certifique-se de que escolhe a classe de armazenamento corretamente no momento de implantação.
+- A capacidade de armazenamento necessária é variável com o número de casos de base de dados que implementou porque os registos e métricas são recolhidos para cada instância da base de dados. Os dados são retidos nos registos e métricas DB por duas (2) semanas antes de serem purgados. 
+- Mudar a colocação de posto de classe de armazenamento é difícil, não documentado e não suportado. Certifique-se de que escolhe a classe de armazenamento corretamente no momento de implantação.
 
 > [!NOTE]
 > Se não for especificada nenhuma classe de armazenamento, a classe de armazenamento predefinida será utilizada. Pode haver apenas uma classe de armazenamento padrão por cluster Kubernetes. Pode [alterar a classe de armazenamento predefinido](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
@@ -161,7 +161,7 @@ Fatores importantes a ter em conta na escolha de uma classe de armazenamento par
 
 Cada instância da base de dados tem dados, registos e volumes persistentes de backup. As classes de armazenamento para estes volumes persistentes podem ser especificadas no momento da implementação. Se não for especificada nenhuma classe de armazenamento, a classe de armazenamento predefinida será utilizada.
 
-Ao criar uma instância utilizando `azdata arc sql mi create` ou `azdata arc postgres server create` comandos, existem dois parâmetros que podem ser usados para definir as classes de armazenamento:
+Ao criar uma instância utilizando `azdata arc sql mi create` `azdata arc postgres server create` ou, existem dois parâmetros que podem ser usados para definir as classes de armazenamento:
 
 > [!NOTE]
 > Alguns destes parâmetros estão em desenvolvimento e ficarão disponíveis `azdata arc sql mi create` `azdata arc postgres server create` nos próximos lançamentos.
@@ -199,9 +199,9 @@ Se existirem várias bases de dados numa determinada caixa de dados, todas as ba
 
 Fatores importantes a ter em conta na escolha de uma classe de armazenamento para as cápsulas de caso de base de dados:
 
-- As instâncias da base de dados podem ser implantadas num único padrão de vagem ou num padrão de vagem múltipla. Um exemplo de um único padrão de vagem é uma instância de desenvolvimento de exemplo gerido Azure SQL ou um caso de preço geral de preço Azure SQL gerido. Um exemplo de um padrão de vagem múltipla é um caso de gestão de preços críticos de negócio altamente disponíveis Azure SQL. (Nota: os níveis de preços estão em desenvolvimento e ainda não estão disponíveis para os clientes.)  As instâncias de base de dados implementadas com o padrão de vagem única **devem** utilizar uma classe de armazenamento remota e partilhada para garantir a durabilidade dos dados e para que, se uma vagem ou nó morrer, quando a cápsula é trazida de volta, pode ligar-se novamente ao volume persistente. Em contraste, um exemplo gerido pelo Azure SQL altamente disponível utiliza grupos always on availability para replicar os dados de um caso para outro, sincronizado ou assíncronamente. Especialmente no caso em que os dados são replicados sincronizadamente, há sempre várias cópias dos dados - tipicamente 3 cópias. Por isso, é possível utilizar aulas de armazenamento local ou remotas, partilhadas para dados e ficheiros de registo. No caso de utilização do armazenamento local, os dados ainda são preservados mesmo no caso de uma vagem, nó ou hardware de armazenamento falhados. Dada esta flexibilidade, poderá optar por utilizar o armazenamento local para um melhor desempenho.
-- O desempenho da base de dados é em grande parte uma função da produção de E/S de um determinado dispositivo de armazenamento. Se a sua base de dados for leituras pesadas ou escritas pesadas, então deve escolher uma classe de armazenamento que tenha hardware por baixo que seja projetado para esse tipo de carga de trabalho. Por exemplo, se a sua base de dados for usada principalmente para escritas, poderá escolher o armazenamento local com RAID 0. Se a sua base de dados for utilizada principalmente para leituras de uma pequena quantidade de "dados quentes", mas existe um grande volume global de armazenamento de dados frios, então pode escolher um dispositivo SAN capaz de armazenamento hierárquico. Escolher a classe de armazenamento certa não é muito diferente de escolher o tipo de armazenamento que usaria para qualquer base de dados.
-- Se estiver a utilizar um provisionador local de volume de armazenamento, deve certificar-se de que os volumes locais que estão previstos para dados, registos e cópias de segurança estão cada um a aterrar em diferentes dispositivos de armazenamento subjacentes para evitar a contenção na E/S do disco. O SO também deve estar num volume montado num ou num disco separado. Esta é essencialmente a mesma orientação que seria seguida para uma instância de base de dados sobre hardware físico.
+- As instâncias da base de dados podem ser implantadas num único padrão de vagem ou num padrão de vagem múltipla. Um exemplo de um único padrão de vagem é uma instância de desenvolvimento de exemplo gerido Azure SQL ou um caso de preço geral de preço Azure SQL gerido. Um exemplo de um padrão de vagem múltipla é um caso de gestão de preços críticos de negócio altamente disponíveis Azure SQL. (Nota: os níveis de preços estão em desenvolvimento e ainda não estão disponíveis para os clientes.)  As instâncias de base de dados implementadas com o padrão de vagem única **devem** utilizar uma classe de armazenamento remota e partilhada para garantir a durabilidade dos dados e para que, se uma vagem ou nó morrer, quando a cápsula é trazida de volta, pode ligar-se novamente ao volume persistente. Em contraste, um exemplo gerido pelo Azure SQL altamente disponível utiliza grupos always on availability para replicar os dados de um caso para outro, sincronizado ou assíncronamente. Especialmente no caso em que os dados são replicados sincronizadamente, há sempre várias cópias dos dados - tipicamente três(3) cópias. Por isso, é possível utilizar aulas de armazenamento local ou remotas, partilhadas para dados e ficheiros de registo. Se utilizar o armazenamento local, os dados ainda são preservados mesmo no caso de um pod, nó ou hardware de armazenamento falhado. Dada esta flexibilidade, poderá optar por utilizar o armazenamento local para um melhor desempenho.
+- O desempenho da base de dados é em grande parte uma função da produção de E/S de um determinado dispositivo de armazenamento. Se a sua base de dados for leituras pesadas ou escritas pesadas, então deve escolher uma classe de armazenamento com hardware concebido para esse tipo de carga de trabalho. Por exemplo, se a sua base de dados for usada principalmente para escritas, poderá escolher o armazenamento local com RAID 0. Se a sua base de dados for utilizada principalmente para leituras de uma pequena quantidade de "dados quentes", mas existe um grande volume global de armazenamento de dados frios, então pode escolher um dispositivo SAN capaz de armazenamento hierárquico. Escolher a classe de armazenamento certa não é muito diferente de escolher o tipo de armazenamento que usaria para qualquer base de dados.
+- Se estiver a utilizar um provisionador local de volume de armazenamento, certifique-se de que os volumes locais previstos para dados, registos e cópias de segurança estão cada um a aterrar em diferentes dispositivos de armazenamento subjacentes para evitar a contenção na E/S do disco. O SO também deve estar num volume montado num disco separado. Esta é essencialmente a mesma orientação que seria seguida para uma instância de base de dados sobre hardware físico.
 - Uma vez que todas as bases de dados de um dado caso partilham uma reclamação persistente de volume e volume persistente, certifique-se de não apresentar casos de bases de dados ocupados na mesma caixa de dados. Se possível, separe as bases de dados ocupadas nas suas próprias situações de base de dados para evitar a contenção de E/S. Além disso, utilize a etiqueta de nó direcionada para as instâncias da base de dados terrestres em nós separados, de modo a distribuir o tráfego geral de E/S através de múltiplos nós. Se estiver a utilizar a virtualização, não se esqueça de considerar a distribuição do tráfego de E/O não só ao nível do nó, mas também à atividade combinada de E/S que acontece por todos os VMs de nó num dado hospedeiro físico.
 
 ## <a name="estimating-storage-requirements"></a>Estimativa dos requisitos de armazenamento
@@ -222,9 +222,9 @@ O quadro a seguir indica o número total de volume persistente necessário para 
 |Instância Gerida do Azure SQL|5|5 * 2 = 10|
 |Base de Dados Azure para instância pós-SQL|5| 5 * 2 = 10|
 |Hiperescala Azure PostgresqL|2 (Número de trabalhadores = 4 por exemplo)|2 * 2 * (1 + 4) = 20|
-|***Número total de volumes persistentes***||8 + 10 + 10 + 20 = 48|
+|***Número total de volumes persistentes** _||8 + 10 + 10 + 20 = 48|
 
-Este cálculo pode ser usado para planear o armazenamento do seu cluster Kubernetes com base no provisionador de armazenamento ou ambiente. Por exemplo, se o provisão de armazenamento local for utilizado para um cluster Kubernetes com 5 nós, então para a colocação da amostra acima de cada nó requer pelo menos armazenamento para 10 volumes persistentes. Da mesma forma, ao a provisionar um cluster Azure Kubernetes Service (AKS) com 5 nós escolhendo um tamanho VM apropriado para o conjunto de nós de modo que 10 discos de dados podem ser ligados é fundamental. Mais detalhes sobre como dimensionar os nós para necessidades de armazenamento para nós AKS podem ser encontrados [aqui.](../../aks/operator-best-practices-storage.md#size-the-nodes-for-storage-needs)
+Este cálculo pode ser usado para planear o armazenamento do seu cluster Kubernetes com base no provisionador de armazenamento ou ambiente. Por exemplo, se o provisão de armazenamento local for utilizado para um cluster Kubernetes com cinco (5) nós, então para a colocação da amostra acima de cada nó requer pelo menos armazenamento para 10 volumes persistentes. Da mesma forma, ao a provisionar um cluster Azure Kubernetes Service (AKS) com cinco (5) nós escolhendo um tamanho VM apropriado para o conjunto de nós de modo a que 10 discos de dados possam ser ligados é fundamental. Mais detalhes sobre como dimensionar os nós para necessidades de armazenamento para nós AKS podem ser encontrados [aqui.](../../aks/operator-best-practices-storage.md#size-the-nodes-for-storage-needs)
 
 ## <a name="choosing-the-right-storage-class"></a>Escolher a classe de armazenamento certa
 
@@ -238,6 +238,6 @@ Para serviços públicos baseados em nuvem, geridos kubernetes podemos fazer as 
 
 |Serviço público de nuvem|Recomendação|
 |---|---|
-|**Azure Kubernetes Service (AKS)**|O Azure Kubernetes Service (AKS) tem dois tipos de armazenamento - Ficheiros Azure e Discos Geridos Azure. Cada tipo de armazenamento tem dois níveis de preços/desempenho - standard (HDD) e premium (SSD). Assim, as quatro classes de armazenamento fornecidas em AKS são `azurefile` (nível padrão Azure Files), `azurefile-premium` (nível premium Azure Files), `default` (nível padrão Azure Disks) e `managed-premium` (nível premium Azure Disks). A classe de armazenamento predefinida é `default` (nível padrão de Discos Azure). Existem **[diferenças](https://azure.microsoft.com/en-us/pricing/details/storage/)** de preços substanciais entre os tipos e os níveis que devem ser contabilizados na sua decisão. Para cargas de trabalho de produção com requisitos de alto desempenho, recomendamos a utilização `managed-premium` para todas as classes de armazenamento. Para cargas de trabalho dev/teste, provas de conceito, etc. onde o custo é uma consideração, então `azurefile` é a opção menos dispendiosa. Todas as quatro opções podem ser usadas para situações que requerem armazenamento remoto e partilhado, uma vez que são todos dispositivos de armazenamento ligados à rede em Azure. Leia mais sobre [o Armazenamento AKS.](../../aks/concepts-storage.md)|
+|_ *Serviço Azure Kubernetes (AKS)**|O Azure Kubernetes Service (AKS) tem dois tipos de armazenamento - Ficheiros Azure e Discos Geridos Azure. Cada tipo de armazenamento tem dois níveis de preços/desempenho - standard (HDD) e premium (SSD). Assim, as quatro classes de armazenamento fornecidas em AKS são `azurefile` (nível padrão Azure Files), `azurefile-premium` (nível premium Azure Files), `default` (nível padrão Azure Disks) e `managed-premium` (nível premium Azure Disks). A classe de armazenamento predefinida é `default` (nível padrão de Discos Azure). Existem **[diferenças](https://azure.microsoft.com/en-us/pricing/details/storage/)** de preços substanciais entre os tipos e os níveis que devem ser contabilizados na sua decisão. Para cargas de trabalho de produção com requisitos de alto desempenho, recomendamos a utilização `managed-premium` para todas as classes de armazenamento. Para cargas de trabalho dev/teste, provas de conceito, etc. onde o custo é uma consideração, então `azurefile` é a opção menos dispendiosa. Todas as quatro opções podem ser usadas para situações que exijam armazenamento remoto e partilhado, uma vez que são todos dispositivos de armazenamento ligados à rede em Azure. Leia mais sobre [o Armazenamento AKS.](../../aks/concepts-storage.md)|
 |**Elastic Kubernetes Service (EKS) do AWS**| O Serviço Elástico Kubernetes da Amazon tem uma classe primária de armazenamento - baseada no [controlador de armazenamento EBS CSI](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html). Isto é recomendado para cargas de trabalho de produção. Existe um novo controlador de armazenamento - [o controlador de armazenamento EFS CSI](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html) - que pode ser adicionado a um cluster EKS, mas está atualmente numa fase beta e sujeito a alterações. Embora a AWS diga que este controlador de armazenamento é suportado para produção, não recomendamos a sua utilização porque ainda está em fase beta e sujeita a alterações. A classe de armazenamento EBS é o padrão e é chamada `gp2` . Leia mais sobre [o armazenamento EKS.](https://docs.aws.amazon.com/eks/latest/userguide/storage-classes.html)|
-|**Google Kubernetes Engine (GKE)**|O Google Kubernetes Engine (GKE) tem apenas uma classe de armazenamento chamada `standard` que é usada para discos [persistentes GCE](https://kubernetes.io/docs/concepts/storage/volumes/#gcepersistentdisk). Sendo o único, é também o padrão. Embora exista um [provisionador de volume estático local](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd#run-local-volume-static-provisioner) para O GKE que pode usar com SSDs ligados diretamente, não recomendamos a sua utilização, uma vez que não é mantida ou suportada pela Google. Leia mais sobre [o armazenamento de GKE.](https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes)
+|**Google Kubernetes Engine (GKE)**|O Google Kubernetes Engine (GKE) tem apenas uma classe de armazenamento chamada `standard` , que é usada para discos [persistentes GCE](https://kubernetes.io/docs/concepts/storage/volumes/#gcepersistentdisk). Sendo o único, é também o padrão. Embora exista um [provisionador de volume estático local](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd#run-local-volume-static-provisioner) para O GKE que pode usar com SSDs ligados diretamente, não recomendamos a sua utilização, uma vez que não é mantida ou suportada pela Google. Leia mais sobre [o armazenamento de GKE.](https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes)

@@ -6,12 +6,12 @@ ms.date: 09/09/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 310637ce099aca7b8b9057a674d6b2094b008a87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba1797da5a78eeebd25f5df1b6e37eb92470f584
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613616"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106925"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: Use modelo exportado a partir do portal Azure
 
@@ -35,7 +35,7 @@ Este modelo funciona bem para implementar contas de armazenamento, mas é melhor
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione **Criar um recurso**.
-1. Em **Search the Marketplace**, insira o plano de Serviço de **Aplicações**e, em seguida, selecione **o plano de Serviço de Aplicações**.  Não selecione **o plano de Serviço de Aplicações (clássico)**
+1. Em **Search the Marketplace**, insira o plano de Serviço de **Aplicações** e, em seguida, selecione **o plano de Serviço de Aplicações**.  Não selecione **o plano de Serviço de Aplicações (clássico)**
 1. Selecione **Criar**.
 1. Introduza:
 
@@ -62,12 +62,12 @@ Este modelo funciona bem para implementar contas de armazenamento, mas é melhor
 
    A característica do modelo de exportação toma o estado atual de um recurso e gera um modelo para implementá-lo. Exportar um modelo pode ser uma forma útil de obter rapidamente o JSON que você precisa para implementar um recurso.
 
-1. Veja a definição **microsoft.Web/serverfarms** e a definição de parâmetro no modelo exportado. Não precisas de copiar estas secções. Você pode apenas usar este modelo exportado como um exemplo de como você quer adicionar este recurso ao seu modelo.
+1. Veja a `Microsoft.Web/serverfarms` definição e a definição de parâmetro no modelo exportado. Não precisas de copiar estas secções. Você pode apenas usar este modelo exportado como um exemplo de como você quer adicionar este recurso ao seu modelo.
 
     ![Modelo de exportação de modelo de gestor de recursos modelo exportado](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
 
 > [!IMPORTANT]
-> Tipicamente, o modelo exportado é mais verboso do que você poderia querer ao criar um modelo. Por exemplo, o objeto SKU no modelo exportado tem cinco propriedades. Este modelo funciona, mas você poderia apenas usar a propriedade **do nome.** Pode começar com o modelo exportado e, em seguida, modificá-lo como quiser para se adaptar às suas necessidades.
+> Tipicamente, o modelo exportado é mais verboso do que você poderia querer ao criar um modelo. Por exemplo, o objeto SKU no modelo exportado tem cinco propriedades. Este modelo funciona, mas você poderia apenas usar a `name` propriedade. Pode começar com o modelo exportado e, em seguida, modificá-lo como quiser para se adaptar às suas necessidades.
 
 ## <a name="revise-existing-template"></a>Rever o modelo existente
 
@@ -83,7 +83,7 @@ Copie todo o ficheiro e substitua o seu modelo pelo seu conteúdo.
 
 Utilize o Azure CLI ou o Azure PowerShell para implementar um modelo.
 
-Se não criou o grupo de recursos, consulte [criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que definiu a variável **modeloFile** para o caminho para o ficheiro do modelo, como mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+Se não criou o grupo de recursos, consulte [criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que definiu a `templateFile` variável para o caminho para o ficheiro do modelo, como mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -111,7 +111,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implementação falhar, utilize o interruptor **verboso** para obter informações sobre os recursos que estão a ser criados. Use o **interruptor de depuração** para obter mais informações para depurar.
+> Se a implementação falhar, utilize o `verbose` interruptor para obter informações sobre os recursos que estão a ser criados. Use o `debug` interruptor para obter mais informações para depuração.
 
 ## <a name="verify-deployment"></a>Verificar a implementação
 

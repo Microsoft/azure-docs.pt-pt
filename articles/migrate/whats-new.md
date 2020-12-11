@@ -1,22 +1,24 @@
 ---
 title: Novidades em Azure Migrate
 description: Saiba mais sobre as novidades e novidades recentes no serviço Azure Migrate.
-author: bsiva
-ms.author: bsiva
-ms.manager: abhemraj
 ms.topic: overview
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: e39b8f7ee7b76a1955e02a7140524f812be086b5
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 4d87602ccd0ff576c0580f9cc20b475335ee577f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752452"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109186"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novidades em Azure Migrate
 
 [O Azure Migrate](migrate-services-overview.md) ajuda-o a descobrir, avaliar e migrar para o local servidores, apps e dados para a nuvem do Microsoft Azure. Este artigo resume novos lançamentos e funcionalidades em Azure Migrate.
+## <a name="update-december-2020"></a>Atualização (dezembro de 2020)
+- A Azure Migrate instala agora automaticamente o agente Azure VM nos VMware VMs enquanto os migra para Azure utilizando o método sem agente da migração de VMware.
 
 ## <a name="update-september-2020"></a>Atualização (setembro 2020)
 - A migração de servidores para Zonas de Disponibilidade é agora suportada.
@@ -25,7 +27,7 @@ ms.locfileid: "96752452"
 - A análise da dependência (sem agente) pode agora ser executada simultaneamente em 1000 VMs.
 - A análise de dependência (sem agente) pode agora ser ativada ou desativada em escala utilizando scripts PowerShell. [Saiba mais.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
 - Visualize as ligações de rede no Power BI utilizando os dados recolhidos através da análise de dependência (sem agente) [Saiba mais.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
-- A migração de VMware VMs com tamanho de disco de dados até 32 TB é agora suportada usando o método de migração de VMware sem agente do servidor. 
+- A migração de VMware VMs com tamanho de disco de dados até 32 TB é agora suportada usando o método de migração de VMware sem agente do servidor.
 
 ## <a name="update-august-2020"></a>Atualização (agosto 2020)
 

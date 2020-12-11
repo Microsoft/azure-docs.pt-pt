@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: d259510d880cbfc60e9ae80b533af6792cc95536
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 46ed1fc55a108bf80089d249abc58bc5d1a6479a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930733"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106959"
 ---
 # <a name="tutorial-add-variables-to-your-arm-template"></a>Tutorial: Adicione variáveis ao seu modelo ARM
 
@@ -37,17 +37,17 @@ O exemplo a seguir destaca as alterações para adicionar uma variável ao seu m
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json" range="1-47" highlight="5-9,29-31,36":::
 
-Note que inclui uma variável chamada **UntorageName**. Esta variável usa quatro funções para construir um valor de corda.
+Note que inclui uma variável chamada `uniqueStorageName` . Esta variável usa quatro funções para construir um valor de corda.
 
 Já está familiarizado com a função dos [parâmetros,](template-functions-deployment.md#parameters) por isso não vamos examiná-la.
 
-Também está familiarizado com a função [grupo de recursos.](template-functions-resource.md#resourcegroup) Neste caso, obtém-se a propriedade **de id** em vez da propriedade de **localização,** como mostrado no tutorial anterior. A propriedade **id** devolve o identificador completo do grupo de recursos, incluindo o ID de subscrição e o nome do grupo de recursos.
+Também está familiarizado com a função [grupo de recursos.](template-functions-resource.md#resourcegroup) Neste caso, obtém-se a `id` propriedade em vez da `location` propriedade, como mostra o tutorial anterior. A `id` propriedade devolve o identificador completo do grupo de recursos, incluindo o ID de subscrição e o nome do grupo de recursos.
 
 A função [unímos o adc de 13](template-functions-string.md#uniquestring) caracteres cria um valor de haxixe de 13 caracteres. O valor devolvido é determinado pelos parâmetros que se passam. Para este tutorial, utilize o ID do grupo de recursos como entrada para o valor do haxixe. Isto significa que você poderia implementar este modelo para diferentes grupos de recursos e obter um valor de cadeia único diferente. No entanto, obtém o mesmo valor se implementar para o mesmo grupo de recursos.
 
-A função [concat](template-functions-string.md#concat) toma valores e combina-os. Para esta variável, pega a corda a partir do parâmetro e da corda da função unímos deString, e combina-as numa corda.
+A função [concat](template-functions-string.md#concat) toma valores e combina-os. Para esta variável, retira a corda do parâmetro e da corda da `uniqueString` função, e combina-as numa corda.
 
-O parâmetro **de armazenamentoPrefix** permite-lhe passar num prefixo que o ajuda a identificar contas de armazenamento. Você pode criar a sua própria convenção de nomeação que facilita a identificação de contas de armazenamento após a implantação de uma longa lista de recursos.
+O `storagePrefix` parâmetro permite-lhe passar num prefixo que o ajuda a identificar contas de armazenamento. Você pode criar a sua própria convenção de nomeação que facilita a identificação de contas de armazenamento após a implantação de uma longa lista de recursos.
 
 Finalmente, note que o nome de armazenamento está agora definido para a variável em vez de um parâmetro.
 
@@ -55,7 +55,7 @@ Finalmente, note que o nome de armazenamento está agora definido para a variáv
 
 Vamos implementar o modelo. A implementação deste modelo é mais fácil do que os modelos anteriores porque fornece apenas o prefixo para o nome de armazenamento.
 
-Se não criou o grupo de recursos, consulte [criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que definiu a variável **modeloFile** para o caminho para o ficheiro do modelo, como mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+Se não criou o grupo de recursos, consulte [criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que definiu a `templateFile` variável para o caminho para o ficheiro do modelo, como mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -83,7 +83,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implementação falhar, utilize o interruptor **verboso** para obter informações sobre os recursos que estão a ser criados. Use o **interruptor de depuração** para obter mais informações para depurar.
+> Se a implementação falhar, utilize o `verbose` interruptor para obter informações sobre os recursos que estão a ser criados. Use o `debug` interruptor para obter mais informações para depuração.
 
 ## <a name="verify-deployment"></a>Verificar a implementação
 

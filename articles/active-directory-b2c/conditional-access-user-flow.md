@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60bfac3b80e772e7b359b1e926d5fb84e447a8fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0c120f343ec539783f04fe35e96891c5372c5d39
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89271614"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109084"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Adicionar Acesso Condicional aos fluxos de utilizadores no Azure Ative Directory B2C
 
@@ -40,15 +40,15 @@ Saiba mais sobre [a Proteção de Identidade e Acesso Condicional](conditional-a
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o ícone **de Inscrição + Diretório** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
 1. No portal Azure, procure e selecione **Azure AD B2C**.
-1. Em **Políticas**, selecione **os fluxos do Utilizador**e, em seguida, selecione Novo fluxo de **utilizador**.
+1. Em **Políticas**, selecione **os fluxos do Utilizador** e, em seguida, selecione Novo fluxo de **utilizador**.
 1. Na página De fluxo do **utilizador,** selecione o tipo de fluxo do utilizador.
-1. Em **Selecione uma versão**, selecione **Recomendado**e, em seguida, selecione **Criar**. (Saiba mais sobre[as](user-flow-versions.md) versões de fluxo de utilizador.)
+1. Em **Selecione uma versão**, selecione **Recomendado** e, em seguida, selecione **Criar**. (Saiba mais sobre[as](user-flow-versions.md) versões de fluxo de utilizador.)
 
     ![Crie a página de fluxo do utilizador no portal Azure com propriedades destacadas](./media/tutorial-create-user-flows/select-version.png)
 
 1. Introduza um **Nome** para o fluxo do utilizador. Por exemplo, *signo de inscrição em 1*.
 1. Na secção **de fornecedores de identidade,** selecione os fornecedores de identidade que pretende permitir este fluxo de utilizador.
-2. Na secção de **autenticação multifactor,** selecione o **método MFA**pretendido e, em seguida, sob **a seleção de MFA** **Conditional (Recomendado)**.
+2. Na secção de **autenticação multifactor,** selecione o **método MFA** pretendido e, em seguida, sob **a seleção de MFA** **Conditional (Recomendado)**.
  
    ![Configurar a autenticação multifactor](media/conditional-access-user-flow/configure-mfa.png)
 
@@ -56,7 +56,7 @@ Saiba mais sobre [a Proteção de Identidade e Acesso Condicional](conditional-a
 
    ![Configurar configurações de acesso condicional](media/conditional-access-user-flow/configure-conditional-access.png)
 
-1. Na secção **de atributos e reclamações** do Utilizador, escolha as reclamações e atributos que pretende recolher e enviar do utilizador durante a inscrição. Por exemplo, selecione **Mostrar mais**e, em seguida, escolha atributos e reclamações para **País/Região** e **Nome de Exibição**. Selecione **OK**.
+1. Na secção **de atributos e reclamações** do Utilizador, escolha as reclamações e atributos que pretende recolher e enviar do utilizador durante a inscrição. Por exemplo, selecione **Mostrar mais** e, em seguida, escolha atributos e reclamações para **País/Região** e **Nome de Exibição**. Selecione **OK**.
 
     ![Página de seleção de atributos e reclamações com três reclamações selecionadas](./media/conditional-access-user-flow/configure-user-attributes-claims.png)
 
@@ -75,11 +75,11 @@ Saiba mais sobre [a Proteção de Identidade e Acesso Condicional](conditional-a
 
 1. Em **Políticas**, selecione **fluxos de utilizador**. Em seguida, selecione o fluxo do utilizador.
 
-1. Selecione **Propriedades** e certifique-se de que o fluxo do utilizador suporta o Acesso Condicional selecionando **propriedades** e procurando a definição de **Acesso Condicional**com rótulo .
+1. Selecione **Propriedades** e certifique-se de que o fluxo do utilizador suporta o Acesso Condicional selecionando **propriedades** e procurando a definição de **Acesso Condicional** com rótulo .
  
    ![Configure MFA e Acesso Condicional em Imóveis](media/conditional-access-user-flow/add-conditional-access.png)
 
-1. Na secção de **autenticação multifactor,** selecione o **método MFA**pretendido e, em seguida, sob **a seleção de MFA** **Conditional (Recomendado)**.
+1. Na secção de **autenticação multifactor,** selecione o **método MFA** pretendido e, em seguida, sob **a seleção de MFA** **Conditional (Recomendado)**.
  
 1. Na secção **acesso condicional,** selecione a caixa de verificação **de políticas de acesso condicional.**
 
@@ -97,8 +97,8 @@ Para testar o Acesso Condicional no fluxo do utilizador, [crie uma política de 
 - Utilizando as seguintes definições, [crie uma política de acesso condicional:](conditional-access-identity-protection-setup.md)
    
    - Para **Utilizadores e grupos**, selecione o utilizador de teste (não selecione **Todos os utilizadores** ou pode bloquear-se a iniciar sessão).
-   - Para **aplicações ou ações cloud**, escolha **apps Selecione**e, em seguida, escolha a sua aplicação de partido em gestão.
-   - Para as condições, selecione **o risco de inscrição** e os níveis de risco **elevados,** **médios**e **baixos.**
+   - Para **aplicações ou ações cloud**, escolha **apps Selecione** e, em seguida, escolha a sua aplicação de partido em gestão.
+   - Para as condições, selecione **o risco de inscrição** e os níveis de risco **elevados,** **médios** e **baixos.**
    - Para **Grant,** escolha **o acesso ao Bloco.**
 
       ![Deteções de riscos](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
@@ -119,4 +119,4 @@ Para testar o Acesso Condicional no fluxo do utilizador, [crie uma política de 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Personalize a interface do utilizador num fluxo de utilizador Azure AD B2C](customize-ui-overview.md)
+[Personalize a interface do utilizador num fluxo de utilizador Azure AD B2C](customize-ui-with-html.md)

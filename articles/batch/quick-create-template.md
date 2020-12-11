@@ -1,15 +1,15 @@
 ---
 title: Azure Quickstart - Criar uma conta batch - Modelo de Gestor de Recursos Azure
-description: Aprenda mais rapidamente a executar uma tarefa do Batch com a CLI do Azure. Criar e gerir recursos Azure a partir da linha de comando ou em scripts.
+description: Este quickstart mostra como criar uma conta Batch utilizando um modelo ARM.
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 606862b31ba4921e39e693735507fca39282091c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fc6f1537b32c8ced2cfc2bf09f16106f791001fc
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88642406"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106585"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>Quickstart: Criar uma conta batch utilizando o modelo ARM
 
@@ -66,7 +66,7 @@ Neste exemplo, o portal Azure é utilizado para implantar o modelo. Além do por
 
 Pode validar a implementação no portal Azure navegando para o grupo de recursos que criou. No ecrã **de visão geral,** confirme que a conta Batch e a conta de armazenamento estão presentes.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender continuar a trabalhar com [tutoriais subsequentes,](./tutorial-parallel-dotnet.md)poderá querer deixar estes recursos no lugar. Ou, se já não precisar deles, pode [eliminar o grupo de recursos](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group), que também eliminará a conta Batch e a conta de armazenamento que criou.
 

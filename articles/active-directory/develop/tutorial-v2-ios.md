@@ -13,12 +13,12 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: aff89d49dec9bafedb3c9a5a76abdeb803740a12
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 5260ca049f971cce07659f12b54ce30304dd826d
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95746732"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107639"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Tutorial: Inscreva-se nos utilizadores e ligue para o Microsoft Graph a partir de uma aplicação para iOS ou macOS
 
@@ -63,7 +63,7 @@ Se quiser descarregar uma versão completa da app que constrói neste tutorial, 
 ## <a name="create-a-new-project"></a>Criar um novo projeto
 
 1. Abra o Xcode e **selecione Criar um novo projeto Xcode**.
-2. Para aplicações iOS, selecione a aplicação de visualização única **do iOS**  >  **Single view App** e selecione **Next**.
+2. Para aplicações iOS, selecione a aplicação de visualização única **do iOS**  >   e selecione **Next**.
 3. Para aplicações para macOS, selecione **macOS**  >  **App Cocoa** e selecione **Next**.
 4. Forneça um nome de produto.
 5. Desa estaca o **idioma** para **Swift** e selecione **Seguinte**.
@@ -520,7 +520,7 @@ O seguinte corte de código recebe um símbolo pela primeira vez criando um `MSA
 
 1. Cria `MSALInteractiveTokenParameters` com miras.
 2. Chamadas `acquireToken()` com os parâmetros criados.
-3. Lida com erros. Para obter mais detalhes, consulte o MSAL para o [guia de manuseamento de erros iOS e macOS](msal-handling-exceptions.md).
+3. Lida com erros. Para obter mais detalhes, consulte o MSAL para o [guia de manuseamento de erros iOS e macOS](msal-error-handling-ios.md).
 4. Lida com o caso de sucesso.
 
 Adicione o seguinte código à classe `ViewController`.

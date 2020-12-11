@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 6f62675d27310a15c434baba8e3451a3cd81f058
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 68617d86fda940c5d3752f2389088a8c729aebec
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953530"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108353"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>Tutorial para configurar o TNA da tipografia com o Azure Ative Directory B2C
 
@@ -36,7 +36,7 @@ Nesta passagem, aprenda a integrar uma aplicação de pagamento online de amostr
 
 2. Quando o utilizador submeter a página, a biblioteca DadopingDNA calculará a característica da dactilografia do utilizador. Depois disso, insira a informação num campo de texto oculto que o Azure AD B2C tenha prestado. Este campo está escondido com CSS.  
 
-    A [amostra contém ficheiros HTML](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignUp.cshtml) com as modificações JavaScript e CSS, e é referenciada pelas `api.selfasserted.tdnasignin` definições e `api.selfasserted.tdnasignup` conteúdo. Consulte o [conteúdo da página](./custom-policy-ui-customization.md#hosting-the-page-content) para alojar os seus ficheiros HTML.
+    A [amostra contém ficheiros HTML](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignUp.cshtml) com as modificações JavaScript e CSS, e é referenciada pelas `api.selfasserted.tdnasignin` definições e `api.selfasserted.tdnasignup` conteúdo. Consulte o [conteúdo da página](./customize-ui-with-html.md#hosting-the-page-content) para alojar os seus ficheiros HTML.
 
 3. O Azure AD B2C tem agora o padrão de dactilografia dentro do saco de reclamação quando o utilizador apresenta as suas credenciais. Deve chamar uma API (sua) para passar estes dados para o ponto final da API da TipingDNA REST. Esta API está incluída na [amostra (dactilografia DNA-API-Interface)](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface).
 4. A API de camada média passa então os dados do padrão de dactilografia para a API DA TIPINGDNA REST. Na inscrição, o ponto final do utilizador de [verificação](https://api.typingdna.com/index.html#api-API_Services-GetUser) é chamado para confirmar que o utilizador não existia e, em seguida, o ponto final do [padrão de poupança](https://api.typingdna.com/index.html#api-API_Services-saveUserPattern) é chamado para salvar o primeiro padrão de dactilografia do utilizador.
@@ -160,7 +160,7 @@ Estes limiares devem ser ajustados no seu caso de utilização.
 
 1. Hospedar a [TipografiaDNA-API-Interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) no seu fornecedor de hospedagem de eleição
 2. Substitua todas as instâncias de `apiKey` e `apiSecret` em solução de [dactilografia DANA-API-Interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) pelas credenciais do seu painel de tipografiaDNA
-3. Hospedar os ficheiros HTML no seu fornecedor de eleição seguindo os requisitos do CORS [aqui](./custom-policy-ui-customization.md#3-configure-cors)
+3. Hospedar os ficheiros HTML no seu fornecedor de eleição seguindo os requisitos do CORS [aqui](./customize-ui-with-html.md#3-configure-cors)
 4. Substitua os elementos LoadURI para as `api.selfasserted.tdnasignup` definições e `api.selfasserted.tdnasignin` conteúdo no ficheiro no ficheiro para o `TrustFrameworkExtensions.xml` URI dos ficheiros HTML alojados, respectivamente.
 5. Criar uma chave de política B2C no quadro de experiência de identidade na lâmina Azure AD no **portal Azure**. Utilize a `Generate` opção e nomeie esta chave `tdnaHashedId` .
 6. Substitua os TenantId's nos ficheiros de política

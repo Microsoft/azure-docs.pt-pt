@@ -1,15 +1,15 @@
 ---
-title: Render uma cena na nuvem
+title: Tutorial - Rendere uma cena na nuvem
 description: Tutorial - como apresentar uma cena Autodesk 3DS Max com o Arnold, através do Serviço Batch Rendering e da Interface de Linha de Comandos do Azure
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 579a5446cb199bb73f98e2e1cbb0948f062470a8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e0858e838ba73862ef7f15040915c5f5cd3c751b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542393"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106347"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: compor uma cena com o Azure Batch 
 
@@ -278,7 +278,7 @@ Abra *dragon.jpg* no seu computador. A imagem composta é semelhante à seguinte
 
 ## <a name="scale-the-pool"></a>Dimensionar o conjunto
 
-Agora, modifique o conjunto para preparar um trabalho de composição maior, com vários fotogramas. O Batch fornece várias formas de dimensionar os recursos de computação, incluindo o [dimensionamento automático](batch-automatic-scaling.md) que adiciona ou remove nós à medida que a tarefa requer alterações. Para este exemplo básico, utilize o comando [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) para aumentar o número de nós de baixa prioridade no conjunto para *6* :
+Agora, modifique o conjunto para preparar um trabalho de composição maior, com vários fotogramas. O Batch fornece várias formas de dimensionar os recursos de computação, incluindo o [dimensionamento automático](batch-automatic-scaling.md) que adiciona ou remove nós à medida que a tarefa requer alterações. Para este exemplo básico, utilize o comando [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) para aumentar o número de nós de baixa prioridade no conjunto para *6*:
 
 ```azurecli-interactive
 az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 0 --target-low-priority-nodes 6
@@ -288,7 +288,7 @@ O conjunto demora alguns minutos a redimensionar. Durante o processo, configure 
 
 ## <a name="render-a-multiframe-scene"></a>Compor uma cena com vários fotogramas
 
-Tal como no exemplo de fotograma único, utilize o comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para criar tarefas de composição no trabalho com o nome *myrenderjob*. Aqui, especifique as definições de tarefas num ficheiro JSON denominado *myrendertask_multi.json*. (Pode descarregar o ficheiro a partir do [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json).) Cada uma das seis tarefas especifica uma linha de comando Arnold para renderizar uma moldura da cena 3ds Max *MotionBlur-DragonFlying.max*.
+Tal como no exemplo de fotograma único, utilize o comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para criar tarefas de composição no trabalho com o nome *myrenderjob*. Aqui, especifique as definições de tarefas num ficheiro JSON denominado *myrendertask_multi.json*. (Pode descarregar o ficheiro a partir do [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json).) Cada uma das seis tarefas especifica uma linha de comando Arnold para render um quadro da cena 3ds Max *MotionBlur-DragonFlying.max*.
 
 Crie um ficheiro na sua shell atual com o nome *myrendertask_multi.json* e copie e cole o conteúdo do ficheiro transferido. Modifique os elementos `blobSource` e `containerURL` no ficheiro JSON, para incluir o nome da sua conta de armazenamento e o token SAS. Não se esqueça de alterar as definições para cada uma das seis tarefas. Guarde o ficheiro e execute o seguinte comando para colocar as tarefas em fila:
 
@@ -327,7 +327,7 @@ Abra um dos ficheiros no seu computador. O fotograma composto 6 é semelhante ao
 ![Fotograma composto dragon 6](./media/tutorial-rendering-cli/dragon-frame6.png) 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, a conta do Batch, os conjuntos e todos os recursos relacionados. Elimine os recursos da seguinte forma:
 
@@ -346,7 +346,7 @@ Neste tutorial, ficou a saber como:
 > * Dimensionar o conjunto e compor uma cena com vários fotogramas
 > * Transferir o resultado composto
 
-Para saber mais sobre a composição à escala da cloud, consulte as opções para o serviço Batch Rendering. 
+Para saber mais sobre a renderização em escala de nuvem, consulte a documentação de renderização do Lote.
 
 > [!div class="nextstepaction"]
 > [Serviço de Composição do Batch](batch-rendering-service.md)

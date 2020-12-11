@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 4befcaf6b8c6b6bc4fddacb179883551609f7e19
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 5f408699cae9580188a3780fc8f8654eaa97c26b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928652"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108438"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Tutorial para configurar LexisNexis com Azure Ative Directory B2C
 
@@ -95,7 +95,7 @@ As definições de aplicação podem ser [configuradas no serviço app em Azure.
 
 Esta solução utiliza modelos de UI personalizados que são carregados por Azure AD B2C. Estes modelos de UI fazem o perfil que é enviado diretamente para o serviço ThreatMetrix.
 
-Consulte estas [instruções](./custom-policy-ui-customization.md#custom-page-content-walkthrough) para implantar os [ficheiros de UI incluídos](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) numa conta de armazenamento de bolhas. As instruções incluem a criação de uma conta de armazenamento de bolhas, a configuração do CORS e o acesso do público.
+Consulte estas [instruções](./customize-ui-with-html.md#custom-page-content-walkthrough) para implantar os [ficheiros de UI incluídos](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) numa conta de armazenamento de bolhas. As instruções incluem a criação de uma conta de armazenamento de bolhas, a configuração do CORS e o acesso do público.
 
 A UI é baseada no modelo azul do [oceano.](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template/ocean_blue) Todas as ligações dentro da UI devem ser atualizadas para se referirem à localização implantada. Na pasta UI, encontre e https://yourblobstorage/blobcontainer substitua pelo local implantado.
 

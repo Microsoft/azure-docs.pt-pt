@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1c942d52bbcdad711115d81a78395979c507784b
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: a471f510f60eeb6428c5c4e8ec7cccd1e0804d10
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131756"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108863"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a mudança de senha usando políticas personalizadas no Azure Ative Directory B2C
 
@@ -170,8 +170,8 @@ Ao testar as suas aplicações em Azure AD B2C, pode ser útil ter o token AD B2
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro **de subscrição Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
 3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 4. Selecione **o Quadro de Experiência de Identidade.**
-5. Na página 'Políticas Personalizadas', clique em **''' ''' 'Carregar' Política**.
-6. Selecione **Overwrite a política se ela existe**e, em seguida, procure e selecione o ficheiro *TrustframeworkExtensions.xml.*
+5. Na página 'Políticas Personalizadas', clique em **'Carregar' Política**.
+6. Selecione **Overwrite a política se ela existe** e, em seguida, procure e selecione o ficheiro *TrustframeworkExtensions.xml.*
 7. Clique em **Carregar**.
 8. Repita os passos 5 a 7 para o ficheiro do partido, como *ProfileEditPasswordChange.xml*.
 
@@ -183,4 +183,4 @@ Ao testar as suas aplicações em Azure AD B2C, pode ser útil ter o token AD B2
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como pode [configurar a complexidade da palavra-passe utilizando políticas personalizadas no Azure Ative Directory B2C](custom-policy-password-complexity.md).
+- Saiba como pode [configurar a complexidade da palavra-passe utilizando políticas personalizadas no Azure Ative Directory B2C](password-complexity.md).

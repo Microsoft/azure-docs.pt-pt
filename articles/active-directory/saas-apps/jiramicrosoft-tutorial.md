@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 2d4c8675d8f03d19a63b7564b05e2de1a809e763
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3a188189b39311734a25a2fc98ea78a62bbe0cff
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459480"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108846"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com JIRA SAML SSO pela Microsoft
 
@@ -37,7 +37,7 @@ Utilize a sua conta Microsoft Azure Ative Directory com o servidor Atlassian JIR
 Para configurar a integração AZure AD com o JIRA SAML SSO pela Microsoft, precisa dos seguintes itens:
 
 - Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-- JIRA Core e Software 6.4 a 8.11.0 ou JIRA Service Desk 3.0 a 4.11.1 devem ser instalados e configurados na versão do Windows 64-bit
+- JIRA Core e Software 6.4 a 8.14.0 ou JIRA Service Desk 3.0 a 4.11.1 devem ser instalados e configurados na versão do Windows 64-bit
 - O servidor JIRA está com ATIVAR HTTPS
 - Note que as versões suportadas para O Plugin JIRA são mencionadas na secção seguinte.
 - O servidor JIRA é acessível na internet particularmente à página de Login AZure para autenticação e deve ser capaz de receber o token da Azure AD
@@ -58,7 +58,7 @@ Para começar, precisa dos seguintes itens:
 
 ## <a name="supported-versions-of-jira"></a>Versões apoiadas do JIRA
 
-* JIRA Core e Software: 6.4 a 8.11.0
+* JIRA Core e Software: 6.4 a 8.14.0
 * Balcão de Serviço JIRA 3.0.0 a 4.11.1
 * JIRA também suporta 5.2. Para mais detalhes, clique [no Microsoft Azure Ative Directory para o JIRA 5.2](jira52microsoft-tutorial.md)
 
@@ -136,7 +136,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao JIRA SAML SSO pela Microsoft.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **JIRA SAML SSO pela Microsoft**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -228,7 +228,7 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no servidor JIRA no l
 
 1. Inscreva-se no seu servidor JIRA no local como administrador.
 
-2. Hover on cog e clique na **gestão**do Utilizador .
+2. Hover on cog e clique na **gestão** do Utilizador .
 
     ![A screenshot mostra a gestão do utilizador selecionada a partir do menu Definições.](./media/jiramicrosoft-tutorial/user1.png)
 

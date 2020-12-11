@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/09/2018
+ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b57fcc26a64ee766d2fd70ebaad36edb133566e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1ece1fbd75c975f549cb9096149c2a2d562dec6
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90968813"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107571"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema numa VM do Linux, para aceder ao Azure Cosmos DB 
 
@@ -38,8 +38,9 @@ Este tutorial mostra-lhe como utilizar a identidade gerida atribuída pelo siste
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
+- Se não estiver familiarizado com a funcionalidade das identidades geridas para os recursos do Azure, veja esta [descrição geral](overview.md). 
+- Se não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Para executar a criação de recursos e gestão de funções, a sua conta precisa de permissões de "Proprietário" no âmbito adequado (a sua subscrição ou grupo de recursos). Se precisar de assistência com a atribuição de função, veja [Utilizar Controlo de Acesso Baseado em Funções para gerir o acesso aos recursos da sua subscrição do Azure](../../role-based-access-control/role-assignments-portal.md).
 - Para executar os scripts de exemplo, tem duas opções:
     - Utilize o [Azure Cloud Shell,](../../cloud-shell/overview.md)que pode abrir utilizando o botão **Try It** no canto superior direito dos blocos de código.
     - Executar scripts localmente instalando a versão mais recente do [Azure CLI,](/cli/azure/install-azure-cli)em seguida, inicie sessão no Azure usando [login az](/cli/azure/reference-index#az-login). Utilize uma conta associada à subscrição do Azure na qual pretende criar recursos.
@@ -48,14 +49,14 @@ Este tutorial mostra-lhe como utilizar a identidade gerida atribuída pelo siste
 
 Se ainda não tiver uma, crie uma conta do Cosmos DB. Pode ignorar este passo e utilizar uma conta do Cosmos DB existente. 
 
-1. Clique no botão **+/Criar novo serviço**, no canto superior esquerdo do portal do Azure.
+1. Clique no botão **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 2. Clique em **Bases de Dados** e, em seguida, **Azure Cosmos DB**, e um painel “Nova conta” é apresentado.
 3. Introduza um **ID** para a conta do Cosmos DB, que irá utilizar mais tarde.  
 4. A **API** deve ser definida como "SQL". A abordagem descrita neste tutorial pode ser utilizada com os outros tipos de API disponíveis, mas os passos neste tutorial são para a API de SQL.
 5. Certifique-se de que a **Subscrição** e o **Grupo de Recursos** correspondem aos perfis que especificou quando criou a VM no passo anterior.  Selecione uma **Localização** em que o Cosmos DB esteja disponível.
 6. Clique em **Criar**.
 
-## <a name="create-a-collection-in-the-cosmos-db-account"></a>Criar uma coleção na conta do Cosmos DB
+### <a name="create-a-collection-in-the-cosmos-db-account"></a>Criar uma coleção na conta do Cosmos DB
 
 Em seguida, adicione uma coleção de dados à conta do Cosmos DB, que possa consultar em passos posteriores.
 
@@ -63,7 +64,7 @@ Em seguida, adicione uma coleção de dados à conta do Cosmos DB, que possa con
 2. No separador **Descrição Geral**, clique no botão **+/Adicionar Coleção**, e um painel “Adicionar Coleção” surge.
 3. Dê à a coleção um ID de base de dados, um ID de coleção, selecione uma capacidade de armazenamento, introduza uma chave de partição, introduza um valor de débito e clique em **OK**.  Neste tutorial, é suficiente utilizar a opção "Teste" como o ID de base de dados e o ID de coleção, selecionar uma capacidade de armazenamento fixa e o débito mais baixo (400 RU/s).  
 
-## <a name="retrieve-the-principalid-of-the-linux-vms-system-assigned-managed-identity"></a>Obter o `principalID` da identidade gerida atribuída pelo sistema da VM do Linux
+## <a name="grant-access"></a>Conceder acesso
 
 Para obter acesso às chaves de acesso à conta do Cosmos DB do Resource Manager na secção seguinte, terá de obter o `principalID` da identidade gerida atribuída pelo sistema da VM do Linux.  Certifique-se de que substitui o `<SUBSCRIPTION ID>` grupo `<RESOURCE GROUP>` de recursos (grupo de recursos em que reside o seu VM) e `<VM NAME>` os valores dos parâmetros pelos seus próprios valores.
 
@@ -82,7 +83,7 @@ A resposta inclui os detalhes da identidade gerida atribuída pelo sistema (anot
  }
 ```
 
-## <a name="grant-your-linux-vms-system-assigned-identity-access-to-the-cosmos-db-account-access-keys"></a>Conceder acesso à identidade gerida atribuída pelo sistema da VM do Linux às chaves de acesso da conta do Cosmos DB
+### <a name="grant-your-linux-vms-system-assigned-identity-access-to-the-cosmos-db-account-access-keys"></a>Conceder acesso à identidade gerida atribuída pelo sistema da VM do Linux às chaves de acesso da conta do Cosmos DB
 
 O Cosmos DB não suporta nativamente a autenticação do Azure AD. No entanto, pode utilizar uma identidade gerida para obter uma chave de acesso do Cosmos DB do Resource Manager e, em seguida, utilizar a chave para aceder ao Cosmos DB. Neste passo, pode conceder o acesso da identidade gerida atribuída pelo sistema às chaves da conta do Cosmos DB.
 
@@ -108,9 +109,9 @@ A resposta inclui os detalhes da atribuição de funções que criou:
 }
 ```
 
-## <a name="get-an-access-token-using-the-linux-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager"></a>Obter um token de acesso com a identidade gerida atribuída pelo sistema da VM do Linux e utilizá-lo para chamar o Azure Resource Manager
+## <a name="access-data"></a>Aceder a dados
 
-No resto do tutorial, trabalhe a partir da VM criada anteriormente.
+Para o resto do tutorial, trabalhe a partir da máquina virtual.
 
 Para concluir estes passos, precisa de um cliente SSH. Se estiver a utilizar o Windows, pode utilizar o cliente SSH no [Subsistema Windows para Linux](/windows/wsl/install-win10). Se precisar de ajuda para configurar as chaves do seu cliente SSH, veja [Como utilizar chaves SSH com o Windows no Azure](../../virtual-machines/linux/ssh-from-windows.md) ou [Como criar e utilizar um par de chaves SSH públicas e privadas para VMs do Linux no Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
@@ -137,7 +138,7 @@ Para concluir estes passos, precisa de um cliente SSH. Se estiver a utilizar o W
      "client_id":"1ef89848-e14b-465f-8780-bf541d325cd5"}
      ```
     
-## <a name="get-access-keys-from-azure-resource-manager-to-make-cosmos-db-calls"></a>Obter chaves de acesso do Azure Resource Manager para fazer chamadas do Cosmos DB  
+### <a name="get-access-keys-from-azure-resource-manager-to-make-cosmos-db-calls"></a>Obter chaves de acesso do Azure Resource Manager para fazer chamadas do Cosmos DB  
 
 Agora, utilize o CURL para chamar o Resource Manager com o token de acesso que obteve na secção anterior para obter a chave de acesso à conta do Cosmos DB. Assim que tivermos a chave de acesso, podemos fazer consultas no Cosmos DB. Certifique-se de que substitui os valores de parâmetros `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` e `<COSMOS DB ACCOUNT NAME>` pelos seus próprios valores. Substitua o valor `<ACCESS TOKEN>` pelo o token de acesso que obteve anteriormente.  Se pretender obter chaves de leitura/escrita, utilize o tipo de operação de chave `listKeys`.  Se pretender obter chaves só de leitura, utilize o tipo de operação de chave `readonlykeys`:
 
@@ -146,7 +147,7 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 ```
 
 > [!NOTE]
-> O texto no URL anterior é sensível às maiúsculas e minúsculas; por isso, certifique-se de que, se estiver a utilizar maiúsculas e minúsculas nos seus Grupos de Recursos, tal é refletido em conformidade. Além disso, é importante saber que se trata de um pedido POST e não de um pedido GET, e certifique-se de que passa um valor para capturar um limite de comprimento com -d que possa ser NULL.  
+> O texto no URL anterior é sensível a casos, por isso utilize o caso que corresponda ao caso utilizado em nome do seu grupo de recursos. Além disso, é importante saber que se trata de um pedido POST e não de um pedido GET, e certifique-se de que passa um valor para capturar um limite de comprimento com -d que possa ser NULL.  
 
 A resposta CURL dá-lhe a lista de chaves.  Por exemplo, se obtiver as chaves só de leitura:  
 

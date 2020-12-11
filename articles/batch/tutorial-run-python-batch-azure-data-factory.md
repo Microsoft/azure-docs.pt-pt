@@ -7,16 +7,16 @@ ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: peshultz
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 7752bc3f768aec7a3e98fb1813c4194f81fb9dfb
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 6cc6e6a9739b8b06ab3c48dd3fd75f19de8d0787
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917635"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106279"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Executar scripts Python através da Azure Data Factory usando Azure Batch
 
-Neste tutorial, irá aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Autenticar com contas do Batch e de Armazenamento
@@ -148,12 +148,23 @@ Caso sejam produzidos avisos ou erros pela execução do seu script, pode verifi
 1. Clique na tarefa que tinha um código de saída de falha.
 1. Ver `stdout.txt` e investigar e diagnosticar o seu `stderr.txt` problema.
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Apesar de os próprios trabalhos e tarefas não lhe serem cobrados, os nós de computação são cobrados. Assim, recomendamos que atribua conjuntos apenas conforme necessário. Quando eliminar o conjunto, todos os resultados da tarefa nos nós são eliminados. No entanto, os ficheiros de entrada e saída permanecem na conta de armazenamento. Quando já não é necessário, pode também eliminar a conta Batch e a conta de armazenamento.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você explorou um exemplo que o ensinou a executar scripts Python como parte de um oleoduto através da Azure Data Factory usando Azure Batch.
+Neste tutorial, ficou a saber como:
+
+> [!div class="checklist"]
+> * Autenticar com contas do Batch e de Armazenamento
+> * Desenvolver e executar um script em Python
+> * Criar um conjunto de nós de computação para executar uma aplicação
+> * Agende as suas cargas de trabalho python
+> * Monitorize o seu pipeline de análise
+> * Aceda aos seus registos
 
 Para saber mais sobre a Azure Data Factory, consulte:
 
 > [!div class="nextstepaction"]
 > [Visão geral da Fábrica de Dados Azure](../data-factory/introduction.md)
-

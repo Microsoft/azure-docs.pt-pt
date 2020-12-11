@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2d00942331b7e6c881803af366d1c08e173462b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 321669457c479f7f59ccbb9b7950457b7f9a1af5
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90023793"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108317"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -117,7 +117,7 @@ O elemento **UserJourneyBehaviors** contém os seguintes elementos:
 | SessionExpiryInSeconds | 0:1 | O cookie de sessão do Azure AD B2C especificado como um número inteiro armazenado no navegador do utilizador após a autenticação bem sucedida. |
 | JourneyInsights | 0:1 | A chave de instrumentação Azure Application Insights a utilizar. |
 | ConteúdoDefinitionParameters | 0:1 | A lista de pares de valores-chave a anexar à definição de conteúdo carregar URI. |
-|ScriptExecution| 0:1| Os modos de execução [JavaScript](javascript-samples.md) suportados. Valores possíveis: `Allow` ou `Disallow` (predefinição).
+|ScriptExecution| 0:1| Os modos de execução [JavaScript](javascript-and-page-layout.md) suportados. Valores possíveis: `Allow` ou `Disallow` (predefinição).
 
 ### <a name="singlesignon"></a>SingleSignOn
 
@@ -165,7 +165,7 @@ O elemento **ContentDefinitionParameter** contém o seguinte atributo:
 | --------- | -------- | ----------- |
 | Nome | Sim | O nome do par de valores chave. |
 
-Para obter mais informações, consulte [configurar a UI com conteúdo dinâmico utilizando políticas personalizadas](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri)
+Para obter mais informações, consulte [configurar a UI com conteúdo dinâmico utilizando políticas personalizadas](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)
 
 ## <a name="technicalprofile"></a>Ficha Técnica
 
@@ -231,7 +231,7 @@ O elemento **SubjectNamingInfo** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ClaimType | Sim | Uma referência ao **PartnerClaimType**de uma reclamação de saída. As reclamações de saída devem ser definidas na política do partido dependente Da recolha **OutputClaims.** |
+| ClaimType | Sim | Uma referência ao **PartnerClaimType** de uma reclamação de saída. As reclamações de saída devem ser definidas na política do partido dependente Da recolha **OutputClaims.** |
 | Formato | Não | Utilizado para as partes de confiança SAML para definir o **formato NameId** devolvido na Afirmação SAML. |
 
 O exemplo a seguir mostra como definir uma parte de confiante OpenID Connect. A informação sobre o nome do sujeito é configurada `objectId` como:

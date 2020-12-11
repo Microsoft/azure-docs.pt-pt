@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: jgao
-ms.openlocfilehash: 3a229d1e6752eabd099a5bc60ef93f1d4e85a26b
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 7566235cf92965d5d3de1ec7f40353430ec7e0c6
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092759"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107146"
 ---
 # <a name="use-deployment-scripts-in-arm-templates-preview"></a>Utilize scripts de implementação em modelos ARM (Pré-visualização)
 
@@ -529,14 +529,14 @@ O ciclo de vida destes recursos é controlado pelas seguintes propriedades no mo
 
   - **Sempre:** Elimine os recursos automaticamente criados assim que a execução do script chegar a um estado terminal. Se for utilizada uma conta de armazenamento existente, o serviço de scripts elimina a parte de ficheiro criada na conta de armazenamento. Como o recurso de implementaçãoScripts ainda pode estar presente após a limpeza dos recursos, o serviço de scripts persiste nos resultados da execução do script, por exemplo, stdout, saídas, valor de retorno, etc. antes de os recursos serem eliminados.
   - **OnSuccess**: Elimine os recursos criados automaticamente apenas quando a execução do script for bem sucedida. Se for utilizada uma conta de armazenamento existente, o serviço de scripts remove a partilha de ficheiros apenas quando a execução do script for bem sucedida. Você ainda pode aceder aos recursos para encontrar a informação de depurar.
-  - **OnExpiration**: Elimine os recursos criados automaticamente apenas quando a **definição de retençãoInterval** estiver expirada. Se for utilizada uma conta de armazenamento existente, o serviço de scripts remove a parte do ficheiro, mas conserva a conta de armazenamento.
+  - **OnExpiration**: Elimine os recursos criados automaticamente apenas quando a **definição de retençãoInterval** estiver expirada. Se for utilizada uma conta de armazenamento existente, o serviço de scripts remove a parte do ficheiro, mas mantém a conta de armazenamento.
 
 - **retençãoInterval**: Especifique o intervalo de tempo de que um recurso de script será mantido e após o qual será expirado e eliminado.
 
 > [!NOTE]
 > Não é aconselhável utilizar a conta de armazenamento e a instância do recipiente que são geradas pelo serviço de scripts para outros fins. Os dois recursos podem ser removidos dependendo do ciclo de vida do script.
 
-Para reter a instância do recipiente e a conta de armazenamento para a resolução de problemas, pode adicionar um comando de sono no script.  Por exemplo, utilize [start-sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep).
+A instância do contentor e a conta de armazenamento são eliminadas de acordo com a **limpezaPreferência**. No entanto, se o script falhar e **a limpeza A sua definição** não estiver definida para **Sempre**, o processo de implantação mantém automaticamente o recipiente em funcionamento durante uma hora. Podes usar esta hora para resolver problemas no guião. Se quiser manter o recipiente a funcionar após implementações bem sucedidas, adicione um passo de sono no seu script. Por exemplo, adicione [Start-Sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) ao fim do seu script. Se não adicionar o passo de sono, o recipiente está definido para um estado terminal e não pode ser acedido mesmo que ainda não tenha sido apagado.
 
 ## <a name="run-script-more-than-once"></a>Executar script mais de uma vez
 

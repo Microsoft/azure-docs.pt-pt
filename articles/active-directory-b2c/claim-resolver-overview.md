@@ -11,18 +11,18 @@ ms.topic: reference
 ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 39b61815c33f933e0cdf08bd46382e74eea2f806
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e55bb9ba49cfcaf07e8d3dc17dc13e30036e100f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040459"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109050"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre as reclamações em Azure Ative Directory B2C políticas personalizadas
 
 As [políticas personalizadas](custom-policy-overview.md) de reclamação em Azure Ative Directory B2C (Azure AD B2C) fornecem informações de contexto sobre um pedido de autorização, tais como o nome da apólice, solicitar iD de correlação, linguagem de interface de utilizador, e muito mais.
 
-Para utilizar uma reclamação de resposta numa reclamação de entrada ou saída, define um **String ClaimType** , sob o elemento [ClaimsSchema,](claimsschema.md) e, em seguida, define o **DefaultValue** para a reclamação no elemento de reivindicação ou de entrada ou saída. Azure AD B2C lê o valor da reclamação e utiliza o valor no perfil técnico.
+Para utilizar uma reclamação de resposta numa reclamação de entrada ou saída, define um **String ClaimType**, sob o elemento [ClaimsSchema,](claimsschema.md) e, em seguida, define o **DefaultValue** para a reclamação no elemento de reivindicação ou de entrada ou saída. Azure AD B2C lê o valor da reclamação e utiliza o valor no perfil técnico.
 
 No exemplo seguinte, um tipo de reclamação nomeado `correlationId` é definido com um **DataType** de `string` .
 
@@ -185,7 +185,7 @@ Utilizando os problemas de reclamação, pode pré-fazer o sinal ou iniciar sôs
 
 ### <a name="dynamic-ui-customization"></a>Personalização dinâmica da UI
 
-O Azure AD B2C permite-lhe passar parâmetros de cadeia de consulta para os seus pontos finais de definição de conteúdo HTML para tornar dinamicamente o conteúdo da página. Por exemplo, esta funcionalidade permite modificar a imagem de fundo na página de inscrição ou inscrição Azure AD B2C com base num parâmetro personalizado que passa a partir da sua web ou aplicação móvel. Para obter mais informações, consulte [a Configuração Dinâmica da UI utilizando políticas personalizadas no Azure Ative Directory B2C](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri). Também pode localizar a sua página HTML com base num parâmetro de idioma, ou pode alterar o conteúdo com base no ID do cliente.
+O Azure AD B2C permite-lhe passar parâmetros de cadeia de consulta para os seus pontos finais de definição de conteúdo HTML para tornar dinamicamente o conteúdo da página. Por exemplo, esta funcionalidade permite modificar a imagem de fundo na página de inscrição ou inscrição Azure AD B2C com base num parâmetro personalizado que passa a partir da sua web ou aplicação móvel. Para obter mais informações, consulte [a Configuração Dinâmica da UI utilizando políticas personalizadas no Azure Ative Directory B2C](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri). Também pode localizar a sua página HTML com base num parâmetro de idioma, ou pode alterar o conteúdo com base no ID do cliente.
 
 O exemplo a seguir passa no parâmetro de cadeia de consulta nomeado **campanhaId** com um valor de `Hawaii` , um código de **idioma** de `en-US` - e **app** que representa o ID do cliente:
 

@@ -1,16 +1,16 @@
 ---
-title: Executar uma carga de trabalho paralela utilizando a API .NET
+title: Tutorial - Executar uma carga de trabalho paralela utilizando a API .NET
 description: Tutorial – Transcodificar ficheiros de multimédia em paralelo com o ffmpeg no Azure Batch através da biblioteca de cliente .NET para o Batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 396d0f6a2ef9a8c24fc92b641c889ef9e1a7df49
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: a990a5480a8a6462bb6ef9f84070b78768628fd0
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578302"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106551"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Azure Batch através da API .NET
 
@@ -47,7 +47,7 @@ Utilize o portal do Azure para adicionar o ffmpeg à sua conta do Batch como um 
 
 1. No portal Azure, clique em **Mais**  >  **serviços Contas Lote** e clique no nome da sua conta Batch.
 3. Clique **em Aplicações**  >  **Adicionar**.
-4. Para **aplicação id** insira *ffmpeg* , e uma versão pacote de *4.3.1*. Selecione o ficheiro zip do ffmpeg que transferiu anteriormente e, em seguida, clique em **OK**. O pacote de aplicação do ffmpeg é adicionado à sua conta do Batch.
+4. Para **aplicação id** insira *ffmpeg*, e uma versão pacote de *4.3.1*. Selecione o ficheiro zip do ffmpeg que transferiu anteriormente e, em seguida, clique em **OK**. O pacote de aplicação do ffmpeg é adicionado à sua conta do Batch.
 
 ![Adicionar pacote de aplicação](./media/tutorial-parallel-dotnet/add-application.png)
 
@@ -309,7 +309,7 @@ batchClient.JobOperations.TerminateJob(jobId);
 
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de executar as tarefas, a aplicação elimina automaticamente o contentor de armazenamento de entrada que criou e dá-lhe a opção de eliminar o conjunto e o trabalho do Batch. As classes [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) e [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) do BatchClient têm métodos de eliminação correspondentes, que são chamados se confirmar a eliminação. Apesar de os próprios trabalhos e tarefas não lhe serem cobrados, os nós de computação são cobrados. Assim, recomendamos que atribua conjuntos apenas conforme necessário. Quando eliminar o conjunto, todos os resultados da tarefa nos nós são eliminados. No entanto, os ficheiros de saída permanecem na conta de armazenamento.
 
@@ -332,6 +332,3 @@ Para obter mais exemplos de utilização da API .NET para agendar e processar ca
 
 > [!div class="nextstepaction"]
 > [Exemplos de C# para o Batch](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)
-
-
-Definir a variável de instância LowPriorityNodeCount=0 e o DedicadoNodeCount=5 corrigiu o problema e permitiu que o trabalho terminasse.

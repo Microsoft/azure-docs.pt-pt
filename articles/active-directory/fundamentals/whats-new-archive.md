@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f50a380f2c794d26903e44c0bd1b1569d77a127
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: a8e9841c71a6f5bc2e12887f41c62b43a17203a6
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093320"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107589"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivo para o que há de novo no Azure Ative Directory?
 
@@ -2536,7 +2536,7 @@ Para obter mais informações sobre a escolha de versões específicas de elemen
 
 Pode agora configurar a complexidade da palavra-passe da sua organização para os seus utilizadores finais, em vez de ter de usar a sua política de senha AZure AD nativa. A partir da lâmina **Propriedades** dos fluxos do seu utilizador (anteriormente conhecidas como as suas políticas incorporadas), pode escolher uma complexidade de palavra-passe de **Simples** ou **Forte,** ou pode criar um conjunto de requisitos **personalizados.**
 
-Para obter mais informações sobre a configuração do requisito de complexidade da palavra-passe, consulte [os requisitos de complexidade de configuração para palavras-passe no Azure Ative Directory B2C](../../active-directory-b2c/user-flow-password-complexity.md).
+Para obter mais informações sobre a configuração do requisito de complexidade da palavra-passe, consulte [os requisitos de complexidade de configuração para palavras-passe no Azure Ative Directory B2C](../../active-directory-b2c/password-complexity.md).
 
 ---
 

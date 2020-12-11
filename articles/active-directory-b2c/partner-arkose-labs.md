@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 333bb42643539cedec04d37680749c749a003536
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cf0437b985865248393e9f68da264fcae5af7f12
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994065"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108557"
 ---
 # <a name="tutorial-for-configuring-arkose-labs-with-azure-active-directory-b2c"></a>Tutorial para configurar arkose Labs com Azure Ative Directory B2C
 
@@ -72,7 +72,7 @@ Para criar uma conta de armazenamento, siga estes passos:
 
 7. Selecione a localização da conta de armazenamento ou aceite a localização predefinitiva.
 
-8. Aceite todos os outros valores predefinidos,  **selecione Rever & criar.**  >  **Create**
+8. Aceite todos os outros valores predefinidos,  **selecione Rever & criar.**  >  
 
 9. Depois de criar a conta de armazenamento, selecione  **Ir para o recurso**.
 
@@ -138,7 +138,7 @@ Baixe Git Bash e siga os passos abaixo:
 
 5. Faça o upload do ficheiro index.html para o armazenamento de bolhas acima criado.
 
-6. Vá ao **upload do** contentor  >  **Container**  >  **de armazenamento.**
+6. Vá ao **upload do** contentor  >    >  **de armazenamento.**
 
 #### <a name="set-up-azure-ad-b2c"></a>Configurar Azure AD B2C
 
@@ -147,9 +147,9 @@ Baixe Git Bash e siga os passos abaixo:
 
 1. Crie um fluxo de utilizador com base nas informações [aqui.](tutorial-create-user-flows.md) Parar quando chegar à secção **Teste o fluxo do utilizador**.
 
-2. Ativar o JavaScript no [fluxo do utilizador.](user-flow-javascript-overview.md)
+2. Ativar o JavaScript no [fluxo do utilizador.](javascript-and-page-layout.md)
 
-3. Na mesma página de fluxo do utilizador, ative o URL da página personalizada: Vá ao layout da página **de fluxo do utilizador** use conteúdo de página  >  **page layout**  >  **personalizada**  =  **sim**  >  **insira URL de página personalizada**.
+3. Na mesma página de fluxo do utilizador, ative o URL da página personalizada: Vá ao layout da página **de fluxo do utilizador** use conteúdo de página  >    >  **personalizada**  =  **sim**  >  **insira URL de página personalizada**.
 Este URL de página personalizada é obtido a partir da localização do ficheiro index.html dentro do armazenamento do blob  
 
    ![Screenshot mostrando o url de armazenamento arkose Labs](media/partner-arkose-labs/arkose-storage-url.png)

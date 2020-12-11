@@ -1,16 +1,16 @@
 ---
-title: Compor uma cena do Blender com o Azure Batch e o Batch Explorer
+title: Tutorial - Rendere uma cena liquidificador usando Azure Batch e Batch Explorer
 description: Tutorial - Como compor vários frames de uma cena do Blender com o Azure Batch e a aplicação cliente Batch Explorer
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 65baff827417cebe2289cc821df94acd38a1ae61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c015e4e83b0505a45690e92c1d732f74b6f6b0e
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85964809"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106468"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Tutorial: Compor uma cena do Blender com o Batch Explorer
 
@@ -93,6 +93,7 @@ O estado do conjunto e das VMs pode ser monitorizado na vista “Pools” (“Co
 ## <a name="create-a-rendering-job"></a>Criar um trabalho de composição
 
 Criar um trabalho de composição para compor alguns frames com o conjunto que foi criado:
+
 * Selecione o item de menu “Galery” (“Galeria”) no menu principal, no lado esquerdo
 * Selecione o item “Blender” para a lista de itens de aplicação.
 * Selecione os itens para a composição de frames no Windows Server.
@@ -137,6 +138,18 @@ Após a conclusão de todas as tarefas, o trabalho é marcado como concluído: !
 * Clique com o botão direito do rato e em “Delete” (“Eliminar”) ou selecione o ícone de caixote do lixo, acima do conjunto.
 
 ## <a name="next-steps"></a>Passos seguintes
-* Na secção “Gallery” (“Galeria”), explore as aplicações de composição disponíveis através do Batch Explorer.
-* Há vários modelos disponíveis para cada aplicação, que vão aumentar ao longo do tempo.  Por exemplo, para os modelos do Blender, existe um que divide uma imagem em mosaicos, pelo que é possível compor partes de uma imagem em paralelo.
-* Para obter uma descrição completa das capacidades de composição, veja o conjunto de artigos [aqui](./batch-rendering-service.md).
+
+Neste tutorial, ficou a saber como:
+
+> [!div class="checklist"]
+> * Carregar uma cena do Blender para o armazenamento do Azure
+> * Criar um conjunto do Batch com múltiplos nós para realizar a composição
+> * Compor vários frames
+> * Ver e transferir os ficheiros de frames compostos
+
+Continue explorando as aplicações de renderização disponíveis através do Batch Explorer na secção **Galeria.** Há vários modelos disponíveis para cada aplicação, que vão aumentar ao longo do tempo. Por exemplo, para os modelos do Blender, existe um que divide uma imagem em mosaicos, pelo que é possível compor partes de uma imagem em paralelo.
+
+Para saber mais sobre a composição à escala da cloud, consulte as opções para o serviço Batch Rendering.
+
+> [!div class="nextstepaction"]
+> [Serviço de Composição do Batch](batch-rendering-service.md)

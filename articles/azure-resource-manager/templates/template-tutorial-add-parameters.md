@@ -6,12 +6,12 @@ ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7d0743d316b9d879017f3b0fbe08ee4dc2b3e1c2
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: e983f8499cbeaf400a8da6f48d7f6c8b75c4795a
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931066"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107067"
 ---
 # <a name="tutorial-add-parameters-to-your-arm-template"></a>Tutorial: Adicione parâmetros ao seu modelo ARM
 
@@ -33,7 +33,7 @@ Você pode ter reparado que há um problema com este modelo. O nome da conta de 
 
 ## <a name="make-template-reusable"></a>Tornar o modelo reutilizável
 
-Para tornar o seu modelo reutilizável, vamos adicionar um parâmetro que pode usar para passar num nome de conta de armazenamento. O JSON destacado no exemplo a seguir mostra o que mudou no seu modelo. O **parâmetro de armazenamentoName** é identificado como uma corda. O comprimento máximo é definido para 24 caracteres para evitar nomes demasiado longos.
+Para tornar o seu modelo reutilizável, vamos adicionar um parâmetro que pode usar para passar num nome de conta de armazenamento. O JSON destacado no exemplo a seguir mostra o que mudou no seu modelo. O `storageName` parâmetro é identificado como uma corda. O comprimento máximo é definido para 24 caracteres para evitar nomes que sejam demasiado longos.
 
 Copie todo o ficheiro e substitua o seu modelo pelo seu conteúdo.
 
@@ -43,7 +43,7 @@ Copie todo o ficheiro e substitua o seu modelo pelo seu conteúdo.
 
 Vamos implementar o modelo. O exemplo a seguir implanta o modelo com Azure CLI ou PowerShell. Note que fornece o nome da conta de armazenamento como um dos valores no comando de implantação. Para o nome da conta de armazenamento, forneça o mesmo nome que usou no tutorial anterior.
 
-Se não criou o grupo de recursos, consulte [criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que definiu a variável **modeloFile** para o caminho para o ficheiro do modelo, como mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+Se não criou o grupo de recursos, consulte [criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que definiu a `templateFile` variável para o caminho para o ficheiro do modelo, como mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -81,11 +81,11 @@ Esta forma de lidar com atualizações significa que o seu modelo pode incluir t
 
 Os parâmetros permitem-lhe personalizar a implementação, ao fornecer valores que são adaptados para um determinado ambiente. Por exemplo, pode passar valores diferentes com base no facto de estar a implantar-se num ambiente para desenvolvimento, teste e produção.
 
-O modelo anterior sempre implementou uma conta de armazenamento Standard_LRS. Pode querer a flexibilidade para implantar diferentes SKUs dependendo do ambiente. O exemplo a seguir mostra as alterações para adicionar um parâmetro para o SKU. Copie todo o ficheiro e cole sobre o seu modelo.
+O modelo anterior sempre implementou uma conta de armazenamento **Standard_LRS.** Pode querer a flexibilidade para implantar diferentes SKUs dependendo do ambiente. O exemplo a seguir mostra as alterações para adicionar um parâmetro para o SKU. Copie todo o ficheiro e cole sobre o seu modelo.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json" range="1-40" highlight="10-23,32":::
 
-O parâmetro **storageSKU** tem um valor predefinido. Este valor é utilizado quando um valor não é especificado durante a implantação. Tem também uma lista de valores permitidos. Estes valores correspondem aos valores necessários para criar uma conta de armazenamento. Não quer que os utilizadores do seu modelo passem em SKUs que não funcionam.
+O `storageSKU` parâmetro tem um valor padrão. Este valor é utilizado quando um valor não é especificado durante a implantação. Tem também uma lista de valores permitidos. Estes valores correspondem aos valores necessários para criar uma conta de armazenamento. Não quer que os utilizadores do seu modelo passem em SKUs que não funcionam.
 
 ## <a name="redeploy-template"></a>Reimplementar o modelo
 
@@ -114,7 +114,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implementação falhar, utilize o interruptor **verboso** para obter informações sobre os recursos que estão a ser criados. Use o **interruptor de depuração** para obter mais informações para depurar.
+> Se a implementação falhar, utilize o `verbose` interruptor para obter informações sobre os recursos que estão a ser criados. Use o `debug` interruptor para obter mais informações para depuração.
 
 Para ver a flexibilidade do seu modelo, vamos implementar novamente. Desta vez, de definiu o parâmetro SKU para **Standard_GRS**. Pode passar um novo nome para criar uma conta de armazenamento diferente, ou usar o mesmo nome para atualizar a sua conta de armazenamento existente. Ambas as opções funcionam.
 

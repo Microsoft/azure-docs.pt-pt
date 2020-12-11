@@ -3,12 +3,12 @@ title: Gerir o agente de servidores ativado pelo Arco Azure
 description: Este artigo descreve as diferentes tarefas de gestão que normalmente irá executar durante o ciclo de vida do agente ativado pelos servidores Azure Arc Connected Machine.
 ms.date: 10/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 63db1177b193cad66208964ec377fab0779f23ba
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9e17bf58d1e94b64d1cdc6ff0b57b1b6a81be180
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130974"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107197"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gerir e manter o agente da Máquina Conectada
 
@@ -160,16 +160,16 @@ A ferramenta Azcmagent (Azcmagent.exe) é utilizada para configurar o agente de 
 
 * **-h ou --ajuda** - Mostra parâmetros disponíveis de linha de comando
 
-    Por exemplo, para ver uma ajuda detalhada para o parâmetro **Deconnect, escreva** `azcmagent reconnect -h` . 
+    Por exemplo, para ver uma ajuda detalhada para o parâmetro **Connect,** escreva `azcmagent connect -h` . 
 
 * **-v ou --verbose** - Permitir a exploração de verbose
 
 Pode executar um **Connect** and **Disconnect** manualmente enquanto iniciado ininterruptamente, ou automatizar utilizando o mesmo principal de serviço que usou para bordo de vários agentes ou com um [token de acesso à](../../active-directory/develop/access-tokens.md)plataforma de identidade da Microsoft. Se não usou um principal de serviço para registar a máquina com servidores ativados Azure Arc, consulte o [seguinte artigo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) para criar um principal de serviço.
 
 >[!NOTE]
->Você deve ter permissões de acesso à *raiz* em máquinas Linux para executar **azcmagent** .
+>Você deve ter permissões de acesso à *raiz* em máquinas Linux para executar **azcmagent**.
 
-### <a name="connect"></a>Ligar
+### <a name="connect"></a>Ligar-se
 
 Este parâmetro especifica um recurso no Azure Resource Manager que representa a máquina é criado em Azure. O recurso encontra-se no grupo de subscrição e recursos especificado, e os dados sobre a máquina são armazenados na região de Azure especificada pela `--location` definição. O nome de recurso predefinido é o nome de hospedeiro da máquina, se não for especificado.
 
@@ -219,8 +219,8 @@ Ambos os métodos seguintes removem o agente, mas não removem a pasta *C:\Progr
 1. Para desinstalar o agente Windows a partir da máquina, faça o seguinte:
 
     a. Inscreva-se no computador com uma conta que tenha permissões de administrador.  
-    b. No **Painel de Controlo** , selecione Programas e **Funcionalidades** .  
-    c. Em **Programas e Funcionalidades** , selecione **Azure Connected Machine Agent** , selecione **Desinstalar** e, em seguida, selecione **Sim** .  
+    b. No **Painel de Controlo**, selecione Programas e **Funcionalidades**.  
+    c. Em **Programas e Funcionalidades**, selecione **Azure Connected Machine Agent**, selecione **Desinstalar** e, em seguida, selecione **Sim**.  
 
     >[!NOTE]
     > Também pode executar o assistente de configuração do agente clicando duas vezes no pacote de instalação **AzureConnectedMachineAgent.msi.**
@@ -281,7 +281,7 @@ Se estiver a planear parar de gerir a máquina com serviços de suporte em Azure
 
 1. Abra o Arco Azure ativando os servidores indo para o [portal Azure](https://aka.ms/hybridmachineportal).
 
-2. Selecione a máquina na lista, selecione a elipse **(... )** e, em seguida, selecione **Delete** .
+2. Selecione a máquina na lista, selecione a elipse **(... )** e, em seguida, selecione **Delete**.
 
 ## <a name="update-or-remove-proxy-settings"></a>Atualizar ou remover definições de procuração
 

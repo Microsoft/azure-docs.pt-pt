@@ -1,21 +1,29 @@
 ---
-title: Desencadeie uma função de lote utilizando funções Azure
+title: Tutorial - Desencadear um trabalho de lote usando funções Azure
 description: Tutorial - Aplique OCR em documentos digitalizados, uma vez que são adicionados a uma bolha de armazenamento
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 6e481219c6be68f9e9da06d92b6c28998cc7a6e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b441b4c4fcbeb089cef24c3a84fa33021e7840de
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88930099"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106387"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Tutorial: Desencadear um trabalho de lote utilizando funções Azure
 
-Neste tutorial, você vai aprender a desencadear um trabalho de Batch usando Funções Azure. Vamos percorrer um exemplo em que documentos adicionados a um recipiente de blob de armazenamento Azure têm reconhecimento de caracteres óticos (OCR) aplicados a eles através de Azure Batch. Para simplificar o processamento de OCR, configuraremos uma função Azure que executa uma função de OCR de lote cada vez que um ficheiro é adicionado ao recipiente blob.
+Neste tutorial, você aprenderá a desencadear um trabalho de Batch usando [funções Azure](../azure-functions/functions-overview.md). Vamos percorrer um exemplo em que documentos adicionados a um recipiente de blob de armazenamento Azure têm reconhecimento de caracteres óticos (OCR) aplicados a eles através de Azure Batch. Para simplificar o processamento de OCR, configuraremos uma função Azure que executa uma função de OCR de lote cada vez que um ficheiro é adicionado ao recipiente blob. Saiba como:
+
+> [!div class="checklist"]
+> * Use o Batch Explorer para criar piscinas e empregos
+> * Use o Storage Explorer para criar recipientes blob e uma assinatura de acesso partilhado (SAS)
+> * Criar uma função Azure acionada por bolhas
+> * Carregar ficheiros de entrada para o Armazenamento
+> * Monitorizar a execução de tarefas
+> * Obter ficheiros de saída
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +50,7 @@ Nesta secção, você usará o Batch Explorer para criar o lote de lote e o trab
     1. Escolha `Standard_f2s_v2` como o tamanho da máquina virtual.
     1. Ativar a tarefa inicial e adicionar o comando `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"` . Certifique-se de definir a identidade do utilizador como **utilizador predefinido de tarefa (Administrador)**, o que permite iniciar tarefas para incluir comandos com `sudo` .
     1. Selecione **OK**.
-### <a name="create-a-job"></a>Criar uma tarefa
+### <a name="create-a-job"></a>Criar um trabalho
 
 1. Crie um trabalho na piscina selecionando **Jobs** na barra lateral esquerda e, em seguida, o botão **Adicionar** acima do formulário de pesquisa. 
     1. Escolha um ID e um nome de exibição. Vamos usar `ocr-job` para este exemplo.
@@ -97,9 +105,13 @@ Para descarregar os ficheiros de saída do Storage Explorer para a sua máquina 
 > [!TIP]
 > Os ficheiros descarregados são pesmáveis se abertos num leitor PDF.
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+É cobrado o conjunto enquanto os nós estiverem em execução, mesmo se não existirem tarefas agendadas. Quando já não precisar do conjunto, elimine-o. Na vista da conta, selecione **Conjuntos** e o nome do conjunto. Em seguida, selecione **Eliminar**. Quando eliminar o conjunto, todos os resultados da tarefa nos nós são eliminados. No entanto, os ficheiros de saída permanecem na conta de armazenamento. Quando já não é necessário, pode também eliminar a conta Batch e a conta de armazenamento.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, ficou a saber como: 
+Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
 > * Use o Batch Explorer para criar piscinas e empregos
@@ -109,6 +121,10 @@ Neste tutorial, ficou a saber como:
 > * Monitorizar a execução de tarefas
 > * Obter ficheiros de saída
 
-* Para obter mais exemplos de utilização da API .NET para agendar e processar cargas de trabalho do Lote, consulte [as amostras no GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp). 
 
-* Para ver mais acionamentos de funções Azure que pode utilizar para executar cargas de trabalho do Lote, consulte [a documentação das Funções Azure](../azure-functions/functions-triggers-bindings.md).
+Continue explorando as aplicações de renderização disponíveis através do Batch Explorer na secção **Galeria.** Há vários modelos disponíveis para cada aplicação, que vão aumentar ao longo do tempo. Por exemplo, para os modelos do Blender, existe um que divide uma imagem em mosaicos, pelo que é possível compor partes de uma imagem em paralelo.
+
+Para obter mais exemplos de utilização da API .NET para agendar e processar cargas de trabalho do Batch, veja os exemplos no GitHub.
+
+> [!div class="nextstepaction"]
+> [Exemplos de C# para o Batch](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)

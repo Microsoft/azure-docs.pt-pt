@@ -3,12 +3,12 @@ title: Considerações de armazenamento para funções Azure
 description: Saiba mais sobre os requisitos de armazenamento das Funções Azure e sobre a encriptação de dados armazenados.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: aefd9a35235a09d94973f383603349f6862bbdd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67ff822208f065041e479fc484173d9f06a773ba
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318186"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107248"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerações de armazenamento para funções Azure
 
@@ -27,15 +27,19 @@ As Funções Azure requerem uma conta de Armazenamento Azure quando cria uma ins
 
 ## <a name="storage-account-requirements"></a>Requisitos da conta de armazenamento
 
-Ao criar uma aplicação de função, deve criar ou ligar para uma conta de Armazenamento Azure de uso geral que suporte o armazenamento de Blob, Queue e Table. Isto porque as funções dependem do Azure Storage para operações como a gestão de gatilhos e execuções de funções de registo. Algumas contas de armazenamento não suportam filas e mesas. Estas contas incluem contas de armazenamento apenas blob, armazenamento Azure Premium e contas de armazenamento de uso geral com replicação ZRS. Estas contas não suportadas são filtradas a partir da lâmina da Conta de Armazenamento ao criar uma aplicação de função.
+Ao criar uma aplicação de função, deve criar ou ligar para uma conta de Armazenamento Azure de uso geral que suporte o armazenamento de Blob, Queue e Table. Isto porque as funções dependem do Azure Storage para operações como a gestão de gatilhos e execuções de funções de registo. Algumas contas de armazenamento não suportam filas e mesas. Estas contas incluem contas de armazenamento apenas blob, armazenamento Azure Premium e contas de armazenamento de uso geral com replicação ZRS.
 
 Para saber mais sobre os tipos de conta de armazenamento, veja [Introdução dos Serviços de Armazenamento do Azure](../storage/common/storage-introduction.md#core-storage-services). 
 
-Embora possa utilizar uma conta de armazenamento existente com a sua aplicação de função, deve certificar-se de que cumpre estes requisitos. As contas de armazenamento criadas como parte do fluxo de criação de apps de função são garantidas para satisfazer estes requisitos de conta de armazenamento.  
+Embora possa utilizar uma conta de armazenamento existente com a sua aplicação de função, deve certificar-se de que cumpre estes requisitos. As contas de armazenamento criadas como parte da aplicação de função criam fluxo no portal Azure são garantidas para satisfazer estes requisitos de conta de armazenamento. No portal, as contas não suportadas são filtradas ao escolher uma conta de armazenamento existente enquanto criam uma aplicação de função. Neste fluxo, só é permitido escolher as contas de armazenamento existentes na mesma região que a app de função que está a criar. Para saber mais, consulte a [localização da conta de Armazenamento.](#storage-account-location)
 
 ## <a name="storage-account-guidance"></a>Orientação da conta de armazenamento
 
 Cada aplicação de função requer que uma conta de armazenamento funcione. Se essa conta for eliminada, a sua aplicação de função não será executada. Para resolver problemas relacionados com o armazenamento, consulte [como resolver problemas relacionados com o armazenamento](functions-recover-storage-account.md). As seguintes considerações adicionais aplicam-se à conta de Armazenamento utilizada pelas aplicações de função.
+
+### <a name="storage-account-location"></a>Localização da conta de armazenamento
+
+Para melhor desempenho, a sua aplicação de função deve usar uma conta de armazenamento na mesma região, o que reduz a latência. O portal Azure impõe esta melhor prática. Se, por alguma razão, precisar de utilizar uma conta de armazenamento numa região diferente da sua aplicação de função, tem de criar a sua aplicação de função fora do portal. 
 
 ### <a name="storage-account-connection-setting"></a>Definição de ligação de conta de armazenamento
 
