@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6e2df9168b880e565ea9b70c82c2c0c1b55b4db8
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 2f5c16fce68213b291b970c11921a17b39527270
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94737248"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032122"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Tutorial: Implementar Azure Spring Cloud em rede virtual Azure (injeção VNet)
 
@@ -42,7 +42,7 @@ A rede virtual à qual implementa a sua instância de serviço Azure Spring Clou
     * Um para o tempo de funcionação do serviço
     * Um para as suas aplicações de microserviço de botas de mola. 
     * Existe uma relação um-para-um entre estas sub-redes e uma instância de serviço Azure Spring Cloud. Tem de utilizar uma nova sub-rede para cada instância de serviço que implementa e cada sub-rede só pode incluir uma única instância de serviço.
-* **Espaço de endereço**: Um bloco CIDR até /28 para a sub-rede de tempo de funcionamento do serviço e outro bloco CIDR até /24 para a sub-rede de aplicações de microserviços de botas de mola.
+* **Espaço de endereço**: CIDR bloqueia até **/28** para a sub-rede de tempo de execução de serviço e sub-rede de micro-serviços de arranque de mola.
 * **Tabela de rotas**: As sub-redes não devem ter uma tabela de rotas existente associada.
 
 Os seguintes procedimentos descrevem a configuração da rede virtual para conter a instância de Azure Spring Cloud.
@@ -50,7 +50,7 @@ Os seguintes procedimentos descrevem a configuração da rede virtual para conte
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 Se já tem uma rede virtual para hospedar a instância de serviço Azure Spring Cloud, salte os passos 1, 2 e 3. Pode começar do passo 4 para preparar sub-redes para a rede virtual.
 
-1. No menu do portal do Azure, selecione **Criar um recurso**. A partir do Mercado Azure, **selecione rede** Virtual de Rede  >  **Virtual network**.
+1. No menu do portal do Azure, selecione **Criar um recurso**. A partir do Mercado Azure, **selecione rede** Virtual de Rede  >  .
 
 1. No diálogo **de rede virtual Criar,** insira ou selecione as seguintes informações:
 
@@ -58,16 +58,16 @@ Se já tem uma rede virtual para hospedar a instância de serviço Azure Spring 
     |-----------------|--------------------------------------------------|
     |Subscrição     |Selecione a sua subscrição.                         |
     |Grupo de recursos   |Selecione o seu grupo de recursos ou crie um novo.  |
-    |Name             |*Insira azure-spring-cloud-vnet*                   |
+    |Nome             |*Insira azure-spring-cloud-vnet*                   |
     |Localização         |Selecione **E.U.A. Leste**.                                |
 
 1. Clique **em seguida: endereços IP >**. 
  
 1. Para o espaço de endereço IPv4, insira 10.1.0.0/16.
 
-1. **Selecione Adicionar a sub-rede**, em seguida, introduza *a sub-rede de funcionação do serviço* para o nome da **sub-rede** e 10.1.0.0/24 para **a gama de endereços sub-rede**. Em seguida, clique em **Adicionar**.
+1. **Selecione Adicionar a sub-rede**, em seguida, introduza *a sub-rede de funcionação do serviço* para o nome da **sub-rede** e 10.1.0.0/28 para **a gama de endereços sub-rede**. Em seguida, clique em **Adicionar**.
 
-1. Selecione Adicionar novamente a **sub-rede** e, em seguida, insira **o nome da sub-rede** e **a gama de endereços Sub-rede**, por exemplo, *aplicações-sub-redes* e 10.1.1.0/24 .  Clique em **Adicionar**.
+1. Selecione Adicionar novamente a **sub-rede** e, em seguida, insira **o nome da sub-rede** e **a gama de endereços Sub-rede**, por exemplo, *aplicações-sub-redes* e 10.1.1.0/28 .  Clique em **Adicionar**.
 
 1. Clique em **Rever + criar**. Deixe o resto como padrão e clique em **Criar**.
 
@@ -84,7 +84,7 @@ Selecione a rede virtual *azure-spring-cloud-vnet* que criou anteriormente.
     |Definição  |Valor                                             |
     |---------|--------------------------------------------------|
     |Função     |Selecione **Proprietário**                                  |
-    |Selecionar   |Insira *o fornecedor de recursos cloud da mola Azure*      |
+    |Selecione   |Insira *o fornecedor de recursos cloud da mola Azure*      |
 
     Em seguida, selecione *Azure Spring Cloud Resource Provider* e clique em **Guardar**.
 
@@ -107,7 +107,7 @@ az role assignment create \
 
 ## <a name="deploy-azure-spring-cloud-service-instance-in-the-virtual-network"></a>Implementar a instância de serviço Azure Spring Cloud na rede virtual
 
-1. Abra o portal Azure utilizando em https://ms.portal.azure.com .
+1. Abra o portal Azure utilizando em https://portal.azure.com .
 
 1. A partir da caixa de pesquisa superior, procure **por Azure Spring Cloud** e selecione **Azure Spring Cloud** a partir do resultado.
 
@@ -134,6 +134,8 @@ az role assignment create \
 
 1. Verifique as suas especificações e clique em **Criar**.
 
+    ![Verificar especificações](./media/spring-cloud-v-net-injection/verify-specifications.png)
+
 Após a implementação, dois grupos de recursos adicionais serão criados na sua subscrição para hospedar os recursos da rede para a instância do serviço Azure Spring Cloud.  Navegue para **casa** e, em seguida, selecione **grupos** de recursos a partir dos itens de menu superiores para encontrar os seguintes novos grupos de recursos.
 
 O grupo de recursos nomeado como *ap-svc-rt_{nome de instância de serviço}_{região de instância de serviço}* contém recursos de rede para o tempo de execução de serviço da instância de serviço.
@@ -150,6 +152,18 @@ Esses recursos de rede estão ligados à sua rede virtual criada acima.
 
    > [!Important]
    > Os grupos de recursos são totalmente geridos pelo serviço Azure Spring Cloud. Não elimine manualmente ou modifique qualquer recurso no seu interior.
+
+## <a name="limitations"></a>Limitações
+
+A pequena gama de sub-redes guarda endereços IP, mas traz limitações ao número máximo de Instâncias de Aplicação que a Nuvem de primavera Azure pode conter. 
+
+| CIDR | Total IPs | IPs disponíveis | Ocorrências máximas de aplicações                                        |
+| ---- | --------- | ------------- | ------------------------------------------------------------ |
+| /28  | 16        | 8             | <p> App com 1 núcleo: 96 <br/> App com 2 núcleos: 48<br/>  App com 3 núcleos: 32 <br/> App com 4 núcleos: 24 </p> |
+| /27  | 32        | 24            | <p> App com 1 núcleo: 228<br/> App com 2 núcleos: 144<br/>  App com 3 núcleos: 96 <br/>  App com 4 núcleos: 72</p> |
+| /26  | 64        | 56            | <p> App com 1 núcleo: 500<br/> App com 2 núcleos: 336<br/>  App com 3 núcleos: 224<br/>  App com 4 núcleos: 168</p> |
+| /25  | 128       | 120           | <p> App com 1 núcleo: 500<br> App com 2 núcleos: 500<br>  App com 3 núcleos: 480<br>  App com 4 núcleos: 360</p> |
+| /24  | 256       | 248           | <p> App com 1 núcleo: 500<br/> App com 2 núcleos: 500<br/>  App com 3 núcleos: 500<br/>  App com 4 núcleos: 500</p> |
 
 ## <a name="next-steps"></a>Passos seguintes
 

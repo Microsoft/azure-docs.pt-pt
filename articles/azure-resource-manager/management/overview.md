@@ -3,13 +3,13 @@ title: Descrição geral do Azure Resource Manager
 description: Descreve como utilizar o Azure Resource Manager para a implementação, a gestão e o controlo de acesso de recursos no Azure.
 ms.topic: overview
 ms.date: 09/01/2020
-ms.custom: contperfq1
-ms.openlocfilehash: 317d7cae9c0febcc99831b20525b9d9d2cc96651
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: f3b3ebce3dd34637a787895e7724736adfc186fb
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903195"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032257"
 ---
 # <a name="what-is-azure-resource-manager"></a>O que é o Azure Resource Manager?
 

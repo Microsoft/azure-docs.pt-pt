@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
-ms.custom: devx-track-java, contperfq2
-ms.openlocfilehash: 1359d01136067b6a939efd1cc0cd7db36f4dc2d6
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.custom: devx-track-java, contperf-fy21q2
+ms.openlocfilehash: 79f8c868b68cba1cff3e99e88e989fcc4d2a3df2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545473"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029044"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Sugestões de desempenho para o SDK Java v4 do Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,7 +35,7 @@ Azure Cosmos DB é uma base de dados distribuída rápida e flexível que escala
 
 Então, se está a perguntar"Como posso melhorar o desempenho da minha base de dados?" Considerar as seguintes opções:
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 * **Modo de ligação: Utilize o modo direto**
 <a id="direct-connection"></a>

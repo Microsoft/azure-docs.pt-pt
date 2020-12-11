@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
-ms.custom: contperfq2
-ms.openlocfilehash: 9379417fcb96dce8a59f7d81335cec44e1bb5e6a
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 6232b315abf8840d6fd77d02e3e928c0004746a0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96901777"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029333"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 

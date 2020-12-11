@@ -10,13 +10,13 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
-ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: c85989dc02bddd136c56a81993df7a507a84d3b4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
+ms.openlocfilehash: bb63ac6de6c48bb3853bd235d908ee745ff5279d
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460274"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032852"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Conecte-se aos serviços de armazenamento em Azure
 
@@ -53,7 +53,7 @@ Precisará:
     Quando cria um espaço de trabalho, um recipiente de blob Azure e uma partilha de ficheiros Azure são automaticamente registados como datastores para o espaço de trabalho. São nomeados `workspaceblobstore` `workspacefilestore` e, respectivamente. É `workspaceblobstore` usado para armazenar artefactos do espaço de trabalho e seus registos de experiências de aprendizagem automática. Também é definido como a **datastore padrão** e não pode ser eliminado do espaço de trabalho. O `workspacefilestore` é usado para armazenar cadernos e scripts R autorizados através de instância [computacional](./concept-compute-instance.md#accessing-files).
     
     > [!NOTE]
-    > O designer de Machine Learning Azure criará uma loja de dados com o nome **azureml_globaldatasets** automaticamente quando abrir uma amostra na página inicial do designer. Esta loja de dados contém apenas conjuntos de dados de amostra. Não **do not** utilize esta loja de dados para qualquer acesso confidencial aos dados.
+    > O designer de Machine Learning Azure criará uma loja de dados com o nome **azureml_globaldatasets** automaticamente quando abrir uma amostra na página inicial do designer. Esta loja de dados contém apenas conjuntos de dados de amostra. Não  utilize esta loja de dados para qualquer acesso confidencial aos dados.
 
 <a name="matrix"></a>
 

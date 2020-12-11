@@ -7,13 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
-ms.custom: devx-track-dotnet, contperfq2
-ms.openlocfilehash: f2da2047469f342814ff349cfa059ed61e3adc25
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.custom: devx-track-dotnet, contperf-fy21q2
+ms.openlocfilehash: 962b95307b440c3bafde019b5b2b630461718073
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339687"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029010"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Sugestões de desempenho para o Azure Cosmos DB e SDK de .NET v2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -46,9 +46,9 @@ Recomendamos o processamento do anfitrião Windows 64 bits para um melhor desemp
 
 - Para aplicações executáveis, pode alterar o processamento do anfitrião definindo o alvo da [plataforma](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) para **x64** na janela Propriedades do **Projeto,** no separador **Construir.**
 
-- Para projetos de teste baseados em VSTest, pode alterar o processamento do hospedeiro selecionando a Arquitetura do Processador Padrão de Definições de **Teste** de Teste  >  **Test Settings**  >  **como X64** no menu Visual Studio **Test.**
+- Para projetos de teste baseados em VSTest, pode alterar o processamento do hospedeiro selecionando a Arquitetura do Processador Padrão de Definições de **Teste** de Teste  >    >  **como X64** no menu Visual Studio **Test.**
 
-- Para aplicações web de ASP.NET implementadas localmente, pode alterar o processamento de anfitriões selecionando **Utilize a versão de 64 bits do IIS Express para sites e projetos** no âmbito de **Projetos** Web  >  **de Opções de**  >  **Ferramentas e Soluções.**  >  **Web Projects**
+- Para aplicações web de ASP.NET implementadas localmente, pode alterar o processamento de anfitriões selecionando **Utilize a versão de 64 bits do IIS Express para sites e projetos** no âmbito de **Projetos** Web  >  **de Opções de**  >  **Ferramentas e Soluções.**  >  
 
 - Para ASP.NET aplicações web implementadas no Azure, pode alterar o processamento do anfitrião selecionando a plataforma **de 64 bits** nas **definições de Aplicação** no portal Azure.
 

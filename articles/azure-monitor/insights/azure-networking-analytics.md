@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 7df04bd75f3fd11b1caa702655cbd204fc2b4fda
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 9e2210cdbcc2916723c8c2e2ed1ef514d427c9d6
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854887"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032189"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluções de monitorização da rede Azure no Azure Monitor
 
@@ -121,6 +121,8 @@ O separador "ver métricas detalhadas" abrirá o livro pré-povoado resumindo os
 
 [![Screenshot da opção de eliminação para solução de análise Azure Application Gateway.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
 
+Para obter mais informações sobre as capacidades da nova solução de livro, consulte [a visão geral dos livros de trabalho](../platform/workbooks-overview.md)
+
 ## <a name="azure-network-security-group-analytics-solution-in-azure-monitor"></a>Solução de análise do Grupo de Segurança da Rede Azure no Azure Monitor
 
 ![Símbolo de análise do grupo de segurança da rede Azure](media/azure-networking-analytics/azure-analytics-symbol.png)
@@ -151,7 +153,7 @@ Utilize as seguintes instruções para instalar e configurar a solução Azure N
 3. Clique *em Ligar os diagnósticos* para abrir a página seguinte
 
    ![Screenshot da página para configurar as definições de Diagnóstico. O estado está definido para On, Send to Log Analytics é selecionado e dois tipos de Log são selecionados.](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
-4. Para ligar os diagnósticos, clique *em 'On'* *Status*
+4. Para ligar os diagnósticos, clique *em 'On'* 
 5. Clique na caixa de verificação para *Enviar para Registar Analytics*
 6. Selecione um espaço de trabalho log analytics existente ou crie um espaço de trabalho
 7. Clique na caixa de verificação em **Log** para cada um dos tipos de registo para recolher

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/22/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: aa0a001f9c35202939eeb4a7752803b998a3acf7
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e85e433e1b1b31470fc8d7dee24353fd719b64e2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562020"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031186"
 ---
 # <a name="quickstart-protect-an-aspnet-core-web-api-with-microsoft-identity-platform"></a>Quickstart: Proteja uma API web core ASP.NET com plataforma de identidade microsoft
 
@@ -38,19 +38,17 @@ Neste quickstart, você descarrega uma amostra de código API web ASP.NET e rev�
 > 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 > 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 > 1. Procure e selecione **Azure Active Directory**.
-> 1. Em **Gestão** , selecione **registos de Aplicações,** em seguida, **Novo registo**.
+> 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
 > 1. Introduza um **Nome** para a sua aplicação, por `AspNetCoreWebApi-Quickstart` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
 > 1. Selecione **Registar**.
-> 1. Under **Manage** , selecione **Expor uma API**
-> 1. **Selecione Adicionar um âmbito** e selecione Guardar e continuar **a** aceitar o **ID URI de aplicação predefinido**.
-> 1. No painel de âmbito Adicionar um painel de **âmbito,** insira os seguintes valores:
+> 1. Em **Gestão**, **selecione Expor uma API** Adicione um  >  **âmbito**. Aceite o **ID URI de aplicação** predefinido selecionando **Save e continue** e introduza os seguintes detalhes:
 >    - **Nome do âmbito:**`access_as_user`
->    - **Quem pode consentir?** : **Administradores e utilizadores**
+>    - **Quem pode consentir?**: **Administradores e utilizadores**
 >    - **Nome do exposição de consentimento de administração:**`Access AspNetCoreWebApi-Quickstart`
->    - **Descrição do consentimento da administração** : `Allows the app to access AspNetCoreWebApi-Quickstart as the signed-in user.`
+>    - **Descrição do consentimento da administração**: `Allows the app to access AspNetCoreWebApi-Quickstart as the signed-in user.`
 >    - **Nome de visualização do consentimento do utilizador:**`Access AspNetCoreWebApi-Quickstart`
->    - **Descrição do consentimento do utilizador** : `Allow the application to access AspNetCoreWebApi-Quickstart on your behalf.`
->    - **Estado** : **Habilitado**
+>    - **Descrição do consentimento do utilizador**: `Allow the application to access AspNetCoreWebApi-Quickstart on your behalf.`
+>    - **Estado**: **Habilitado**
 > 1. **Selecione Adicionar âmbito** para completar a adição de âmbito.
 
 ## <a name="step-2-download-the-aspnet-core-project"></a>Passo 2: Descarregue o projeto ASP.NET Core
@@ -75,7 +73,7 @@ Neste quickstart, você descarrega uma amostra de código API web ASP.NET e rev�
 >    - Substitua `Enter_the_Application_Id_here` pelo ID de **Aplicação (cliente)** da aplicação que registou no portal Azure. Pode encontrar **iD de aplicação (cliente)** na **página** geral da aplicação.
 >    - Substitua `Enter_the_Tenant_Info_Here` por uma das seguintes:
 >       - Se a sua candidatura apoiar **apenas neste diretório organizacional,** substitua este valor pelo **ID do Diretório (inquilino)** (um **GUIADO)** ou nome de inquilino (por exemplo, `contoso.onmicrosoft.com` ). Pode encontrar o ID do **Diretório (inquilino)** na **página** geral da aplicação.
->       - Se a sua aplicação suportar **Contas em qualquer diretório organizacional** , substitua este valor por `organizations`
+>       - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
 >       - Se a sua aplicação suportar **todos os utilizadores da conta microsoft,** deixe este valor como `common`
 >
 > Para este arranque rápido, não altere quaisquer outros valores no *appsettings.jsno* ficheiro.

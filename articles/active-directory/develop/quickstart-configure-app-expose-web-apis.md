@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, contperfq1
+ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 72d66bd4c738ed60bbaefc123daae90ecc0db163
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4ebae7e97f9128bb9302e9076e71dd3164f0c29e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89442163"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030965"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Quickstart: Configurar uma aplicação para expor uma API web
 
@@ -47,7 +47,7 @@ Em primeiro lugar, siga estes passos para criar um exemplo de âmbito `Employees
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/quickstart-configure-app-expose-web-apis/portal-01-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino que contém o registo da sua aplicação do cliente.
-1. Selecione as inscrições da **App Azure Ative Directory**  >  **App registrations**App e, em seguida, selecione o registo da sua aplicação da API.
+1. Selecione as inscrições da **App Azure Ative Directory**  >  App e, em seguida, selecione o registo da sua aplicação da API.
 1. Selecione **Expor uma API**  >  **Adicione um âmbito**.
 
     :::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-02-expose-api.png" alt-text="Um registo de aplicações expõe um painel de API no portal Azure":::
@@ -67,7 +67,7 @@ Em primeiro lugar, siga estes passos para criar um exemplo de âmbito `Employees
     | **Nome a apresentar do consentimento do utilizador** | Uma breve descrição do propósito do âmbito. Mostrado aos utilizadores apenas se definir **Quem pode consentir com** Administradores e **utilizadores**. | `Read-only access to your Employee records` |
     | **Descrição do consentimento do utilizador** | Uma descrição mais detalhada da autorização concedida pelo âmbito de aplicação. Mostrado aos utilizadores apenas se definir **Quem pode consentir com** Administradores e **utilizadores**. | `Allow the application to have read-only access to your Employee data.` |
 
-1. Desa estaca o **Estado** **para ativar**e, em seguida, selecione **adicionar o âmbito**.
+1. Desa estaca o **Estado** **para ativar** e, em seguida, selecione **adicionar o âmbito**.
 
 1. (Opcional) Para suprimir o pedido de consentimento dos utilizadores da sua app para os âmbitos definidos, pode *pré-autorizar* a aplicação do cliente a aceder à sua API web. Pré-autorizar *apenas* as aplicações de cliente em que confia, uma vez que os seus utilizadores não terão a oportunidade de recusar o consentimento.
     1. Sob **aplicações de cliente autorizadas,** selecione **Adicionar uma aplicação ao cliente**
@@ -95,9 +95,9 @@ Para adicionar o âmbito de `Employees.Write.All` exemplo, siga os passos na sec
 
 Se tiver adicionado com sucesso ambos os âmbitos de exemplo descritos nas secções anteriores, eles aparecerão no painel **de API expondo um** painel API do registo de aplicações da API da web, semelhante a esta imagem:
 
-:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Um registo de aplicações expõe um painel de API no portal Azure":::
+:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Screenshot do painel De exposição de API mostrando dois âmbitos expostos.":::
 
-Como mostrado na imagem, a cadeia completa de um âmbito é a concatenação do **ID URI** de aplicação da sua Web API e o **nome**scope do âmbito .
+Como mostrado na imagem, a cadeia completa de um âmbito é a concatenação do **ID URI** de aplicação da sua Web API e o **nome** scope do âmbito .
 
 Por exemplo, se o ID URI de aplicação da sua Web for `https://contoso.com/api` e o nome do âmbito `Employees.Read.All` for, o âmbito completo é:
 

@@ -4,14 +4,14 @@ description: Aprenda a executar aplicações web no Azure App Service implementa
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 11/23/2020
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperfq1
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 7aeadaf7b52440504abf541fe6c29a537a92bc08
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: d7b7d8845eda87132cbfa7981c20c39bb210aa5c
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937275"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032699"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Quickstart: Criar uma aplicação web core ASP.NET em Azure
 

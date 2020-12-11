@@ -10,13 +10,13 @@ ms.subservice: core
 ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4
-ms.openlocfilehash: 20d44fd3150f9da31e9c242017e597d4f46e4d5d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.custom: how-to, contperf-fy20q4
+ms.openlocfilehash: 37a18d147d3aca713d0c6bd934e23aa22b2521a5
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963934"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028891"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Desencadear uma corrida de um pipeline de Machine Learning a partir de uma App Lógica
 
@@ -100,7 +100,7 @@ Uma vez que a sua App Lógica tenha sido aprovisionada, utilize estes passos par
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 > [!div class="nextstepaction"]
 > [Utilize gasodutos de aprendizagem de máquinas Azure para pontuação de lotes](tutorial-pipeline-batch-scoring-classification.md)

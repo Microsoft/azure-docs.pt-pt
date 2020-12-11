@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq1
-ms.openlocfilehash: 6cb455880852295d7176e813208a93919a2c14bb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperf-fy21q1
+ms.openlocfilehash: ab7a74166e85f2ba9fd73e7323cf9cd200cf32e4
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318262"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031033"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Criar metas de computação para formação de modelos e implantação no estúdio Azure Machine Learning
 
@@ -45,7 +45,7 @@ Para ver todos os alvos de cálculo para o seu espaço de trabalho, utilize os s
 
 1. Navegue para [o estúdio Azure Machine Learning.](https://ml.azure.com)
  
-1. Em __Gestão__ , __selecione Compute__.
+1. Em __Gestão__, __selecione Compute__.
 
 1. Selecione separadores no topo para mostrar cada tipo de alvo de computação.
 
@@ -93,7 +93,7 @@ Use os [passos acima](#portal-create) para criar a instância de computação.  
 |Tipo de máquina virtual |  Escolha CPU ou GPU. Este tipo não pode ser alterado após a criação     |
 |Tamanho da máquina virtual     |  Os tamanhos de máquina virtual suportados podem ser restringidos na sua região. Consulte a [lista de disponibilidades](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Ativar/desativar o acesso ao SSH     |   O acesso ao SSH é desativado por predefinição.  O acesso ao SSH não pode ser. mudou após a criação. Certifique-se de que permite o acesso se planeia depurar interativamente com [o vs Code Remote](how-to-set-up-vs-code-remote.md)   |
-|Definições avançadas     |  Opcional. Configurar uma rede virtual. Especifique o **grupo de Recursos** , rede **virtual** e **sub-rede** para criar a instância computacional dentro de uma Rede Virtual Azure (vnet). Para mais informações, consulte estes [requisitos de rede](./how-to-secure-training-vnet.md) para vnet.  |
+|Definições avançadas     |  Opcional. Configurar uma rede virtual. Especifique o **grupo de Recursos**, rede **virtual** e **sub-rede** para criar a instância computacional dentro de uma Rede Virtual Azure (vnet). Para mais informações, consulte estes [requisitos de rede](./how-to-secure-training-vnet.md) para vnet.  |
 
 ### <a name="compute-clusters"></a><a name="amlcompute"></a> Clusters computacional
 
@@ -108,7 +108,7 @@ Crie um cluster de computação de nó único ou multi-nós para a sua formaçã
 |Tamanho da máquina virtual     |  Os tamanhos de máquina virtual suportados podem ser restringidos na sua região. Consulte a [lista de disponibilidades](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Número mínimo de nós | Número mínimo de nós que pretende providenciar. Se quiser um número dedicado de nós, desemote a contagem aqui. Poupe dinheiro definindo o mínimo para 0, para que não pague por nenhum nós quando o cluster estiver inativo. |
 |Número máximo de nós | Número máximo de nós que pretende providenciar. O cálculo irá autodimensionar-se automaticamente para um máximo desta contagem de nós quando um trabalho é submetido. |
-|Definições avançadas     |  Opcional. Configurar uma rede virtual. Especifique o **grupo de Recursos** , rede **virtual** e **sub-rede** para criar a instância computacional dentro de uma Rede Virtual Azure (vnet). Para mais informações, consulte estes [requisitos de rede](./how-to-secure-training-vnet.md) para vnet.   Também anexar [identidades geridas](#managed-identity) para conceder acesso a recursos     |
+|Definições avançadas     |  Opcional. Configurar uma rede virtual. Especifique o **grupo de Recursos**, rede **virtual** e **sub-rede** para criar a instância computacional dentro de uma Rede Virtual Azure (vnet). Para mais informações, consulte estes [requisitos de rede](./how-to-secure-training-vnet.md) para vnet.   Também anexar [identidades geridas](#managed-identity) para conceder acesso a recursos     |
 
 #### <a name="set-up-managed-identity"></a><a name="managed-identity"></a> Configurar identidade gerida
 
@@ -132,7 +132,7 @@ Crie ou anexe um cluster Azure Kubernetes Service (AKS) para inferenização em 
 |---------|---------|
 |Nome da computação     |  <li>O nome é necessário. O nome deve ter entre 2 a 16 caracteres. </li><li>Os caracteres válidos são letras maiúsculas e minúsculas, dígitos e o  **-** personagem.</li><li>O nome deve começar com uma carta</li><li>O nome tem de ser único em todos os cálculos existentes dentro de uma região de Azure. Verá um alerta se o nome que escolher não for único</li><li>Se **-**  o caráter é usado, então precisa ser seguido por pelo menos uma letra mais tarde no nome</li>     |
 |Kubernetes Service | Selecione **Create New** e preencha o resto do formulário.  Ou selecione **Use existente** e, em seguida, selecione um cluster AKS existente a partir da sua subscrição.
-|Region |  Selecione a região onde o cluster será criado |
+|Região |  Selecione a região onde o cluster será criado |
 |Tamanho da máquina virtual     |  Os tamanhos de máquina virtual suportados podem ser restringidos na sua região. Consulte a [lista de disponibilidades](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Finalidade do cluster  | Selecione **Produção** ou **Teste de Dev** |
 |Número de nós | O número de nós multiplicados pelo número de núcleos (vCPUs) da máquina virtual deve ser superior ou igual a 12. |

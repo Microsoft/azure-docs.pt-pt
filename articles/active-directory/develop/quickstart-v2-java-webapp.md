@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: e93c0c6bb689980cab1b41e529c491cdf3920260
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: e188c00840a4d043e94f94f9db565e2d4e06aaba
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591721"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031067"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Quickstart: Adicione o início de sôs com a Microsoft a uma aplicação web java
 
@@ -47,25 +47,22 @@ Para executar esta amostra, você precisará:
 >
 > Para registar a sua aplicação e adicionar manualmente as informações de registo da aplicação à sua aplicação, siga estes passos:
 >
-> 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
-> 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
->
-> 1. Navegue para a plataforma de identidade da Microsoft para programadores [Página de registos de aplicações.](https://go.microsoft.com/fwlink/?linkid=2083908)
-> 1. Selecione **Novo registo**.
-> 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
->    - Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por `java-webapp` exemplo.
->    - Selecione **Registar**.
-> 1. Na página **geral,** encontre o **ID da Aplicação (cliente)** e os valores de ID do **Diretório (inquilino)** da aplicação. Copie estes valores para mais tarde.
-> 1. Selecione a **Autenticação** do menu e, em seguida, adicione as seguintes informações:
->    - Adicione a configuração da plataforma **Web.**  Adicione estes `https://localhost:8443/msal4jsample/secure/aad` e `https://localhost:8443/msal4jsample/graph/me` como **URIs redirecionado**..
->    - Selecione **Guardar**.
-> 1. Selecione os **Certificados & segredos** do menu e na secção segredos do **Cliente,** clique em **Novo segredo de cliente:**
->
->    - Digite uma descrição chave (por exemplo, segredo de aplicações).
->    - Selecione uma duração de chave **Em 1 ano**.
->    - O valor da chave será exibido quando selecionar **Adicionar**.
->    - Copie o valor da chave para mais tarde. Este valor chave não será exibido novamente, nem recuperável por qualquer outro meio, por isso grave-o assim que for visível a partir do portal Azure.
->
+> 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+> 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
+> 1. Procure e selecione **Azure Active Directory**.
+> 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
+> 1. Introduza um **Nome** para a sua aplicação, por `java-webapp` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
+> 1. Selecione **Registar**.
+> 1. Na página **geral,** note o **ID de Aplicação (cliente)** e o ID do **Diretório (inquilino)** para posterior utilização.
+> 1. Em **Gestão**, **selecione Autenticação**.
+> 1. **Selecione Adicionar uma plataforma**  >  **Web**.
+> 1. A partir da secção **Redirecionar URIs,** adicione `https://localhost:8443/msal4jsample/secure/aad` .
+> 1. Selecione **Configurar**.
+> 1. A partir da secção **Web,** adicione `https://localhost:8443/msal4jsample/graph/me` como um segundo **URIs de redirecionamento**.
+> 1. Em **Gestão**, selecione os **certificados & segredos**. A partir da secção **de segredos** do Cliente, selecione **Novo segredo de cliente.**
+> 1. Digite uma descrição chave (por exemplo, o segredo da aplicação), deixe a expiração predefinitiva e selecione **Adicionar**.
+> 1. Note o **valor** do Segredo do **Cliente** para posterior utilização.
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passo 1: Configurar a sua candidatura no portal Azure
 >
@@ -150,13 +147,13 @@ Execute-o diretamente a partir do seu IDE utilizando o servidor de arranque de m
 
 ##### <a name="running-from-ide"></a>Correndo do IDE
 
-Se estiver a executar a aplicação web a partir de um IDE, clique em execução e, em seguida, navegue para a página inicial do projeto. Para esta amostra, o URL de página inicial padrão é https://localhost:8443
+Se estiver a executar a aplicação web a partir de um IDE, selecione executar e, em seguida, navegue para a página inicial do projeto. Para esta amostra, o URL de página inicial padrão é https://localhost:8443 .
 
 1. Na primeira página, selecione o botão **De início de Sessão** para redirecionar para o Azure Ative Directory e instrua o utilizador para as suas credenciais.
 
 1. Depois de autenticado o utilizador, são redirecionados para *https://localhost:8443/msal4jsample/secure/aad* . Eles estão agora assinados, e a página mostrará informações sobre a conta de assinatura. A UI da amostra tem os seguintes botões:
-    - *Assine* : Assina o utilizador atual fora da aplicação e redireciona-os para a página inicial.
-    - *Mostrar informações do utilizador* : Adquire um símbolo para o Microsoft Graph e liga para o Microsoft Graph com um pedido que contém o token, que devolve informações básicas sobre o utilizador inscrito.
+    - *Assine*: Assina o utilizador atual fora da aplicação e redireciona-os para a página inicial.
+    - *Mostrar informações do utilizador*: Adquire um símbolo para o Microsoft Graph e liga para o Microsoft Graph com um pedido que contém o token, que devolve informações básicas sobre o utilizador inscrito.
 
 ##### <a name="running-from-tomcat"></a>Correndo de Tomcat
 

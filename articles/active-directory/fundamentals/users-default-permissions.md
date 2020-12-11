@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: ajburnle
 ms.reviewer: vincesm
-ms.custom: it-pro, seodec18, contperfq1
+ms.custom: it-pro, seodec18, contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8825dcb2d8dbcf4a1296d8bace84b3d2716687f
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 2c556940ace02f2e7bf0354e67d32df7c5c6714e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602036"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032767"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quais são as permissões de utilizador predefinidas no Azure Ative Directory?
 No Azure Active Directory (Azure AD), é concedido a todos os utilizadores um conjunto de permissões predefinidas. O acesso de um utilizador consiste no tipo de utilizador, nas suas [atribuições de papel](active-directory-users-assign-role-azure-portal.md)e na sua propriedade de objetos individuais. Este artigo descreve essas permissões predefinidas e contém uma comparação entre as predefinições do utilizador membro e convidado. As permissões do utilizador predefinidas só podem ser alteradas nas definições do utilizador em Azure AD.
@@ -140,7 +140,7 @@ Os utilizadores podem realizar as seguintes ações em grupos de propriedade.
 | microsoft.diretório/grupos/restaurar | Restaurar grupos no Diretório Ativo Azure. |
 | microsoft.diretório/grupos/definições/atualização | Atualizar a propriedade grupos.configurações em Azure Ative Directory. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre a definição de restrições de acesso ao utilizador dos hóspedes, consulte [permissões de acesso ao hóspede (pré-visualização) em Azure Ative Directory](../enterprise-users/users-restrict-guest-permissions.md).
 * Para saber mais sobre como atribuir funções de administrador AZure, consulte [atribuir um utilizador às funções de administrador no Azure Ative Directory](active-directory-users-assign-role-azure-portal.md)

@@ -7,13 +7,13 @@ ms.author: viviali
 ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.custom: contperfq1
-ms.openlocfilehash: b16880f42cab21c1437d9adcbeb9825d77475e0e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: b84f1efd77ca757fd2ceaa8bb5605e3fc78297d0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413178"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032376"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportar dados de IoT para destinos em nuvem usando exportação de dados
 
@@ -65,7 +65,7 @@ Se você não tem um espaço de nomes de Event Hubs existente para exportar, sig
     - Copie a cadeia de ligação primária ou secundária. Utilize esta cadeia de ligação para configurar um novo destino na IoT Central.
     - Em alternativa, pode gerar uma cadeia de ligação para todo o espaço de nomes do Event Hubs:
         1. Vá ao seu espaço de nomes do Event Hubs no portal Azure.
-        2. Em **Definições** , **selecione Políticas de Acesso Partilhado**
+        2. Em **Definições**, **selecione Políticas de Acesso Partilhado**
         3. Crie uma nova chave ou escolha uma chave existente que tenha permissões **enviar.**
         4. Copie a cadeia de ligação primária ou secundária
         
@@ -85,7 +85,7 @@ Se você não tem um espaço de nome de Service Bus existente para exportar para
     - Copie a cadeia de ligação primária ou secundária. Utilize esta cadeia de ligação para configurar um novo destino na IoT Central.
     - Em alternativa, pode gerar uma cadeia de ligação para todo o espaço de nomes do Service Bus:
         1. Vá ao seu espaço de nomes de Service Bus no portal Azure.
-        2. Em **Definições** , **selecione Políticas de Acesso Partilhado**
+        2. Em **Definições**, **selecione Políticas de Acesso Partilhado**
         3. Crie uma nova chave ou escolha uma chave existente que tenha permissões **enviar.**
         4. Copie a cadeia de ligação primária ou secundária
 
@@ -102,7 +102,7 @@ Se não tiver uma conta de armazenamento Azure existente para exportar, siga est
     |Standard|Armazenamento de blobs|
     |Premium|Armazenamento Blob de bloco|
 
-1. Para criar um recipiente na sua conta de armazenamento, vá à sua conta de armazenamento. No **serviço Blob** , **selecione Browse Blobs**. Selecione **+ Recipiente** na parte superior para criar um novo recipiente.
+1. Para criar um recipiente na sua conta de armazenamento, vá à sua conta de armazenamento. No **serviço Blob**, **selecione Browse Blobs**. Selecione **+ Recipiente** na parte superior para criar um novo recipiente.
 
 1. Gere uma cadeia de ligação para a sua conta de armazenamento indo para **as definições > teclas de acesso**. Copie uma das duas cordas de ligação.
 
@@ -142,20 +142,20 @@ Agora que tem um destino para exportar os seus dados, crie exportação de dados
 
     - **Filtrar** o fluxo exportado para conter apenas telemetria de dispositivos que correspondam ao nome do dispositivo, iD do dispositivo e condição do filtro do modelo do dispositivo.
     - **Filtrar** as capacidades: Se escolher um item de telemetria no dropdown **Name,** o fluxo exportado contém apenas telemetria que satisfaz a condição do filtro. Se escolher um item de propriedade de dispositivo ou nuvem no dropdown **Name,** o fluxo exportado contém apenas telemetria de dispositivos com propriedades correspondentes à condição do filtro.
-    - **Filtro de propriedade de mensagem** : Os dispositivos que utilizam o dispositivo SDKs podem enviar *propriedades de mensagens* ou *propriedades de aplicação* em cada mensagem de telemetria. As propriedades são um saco de pares de valores-chave que marcam a mensagem com identificadores personalizados. Para criar um filtro de propriedade de mensagem, insira a chave de propriedade de mensagem que procura e especifique uma condição. Apenas são exportadas mensagens de telemetria com propriedades que correspondam ao estado do filtro especificado. Os seguintes operadores de comparação de cordas são apoiados: iguais, não iguais, contém, não contém, existe, não existe. [Saiba mais sobre as propriedades da aplicação a partir de docs IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
+    - **Filtro de propriedade de mensagem**: Os dispositivos que utilizam o dispositivo SDKs podem enviar *propriedades de mensagens* ou *propriedades de aplicação* em cada mensagem de telemetria. As propriedades são um saco de pares de valores-chave que marcam a mensagem com identificadores personalizados. Para criar um filtro de propriedade de mensagem, insira a chave de propriedade de mensagem que procura e especifique uma condição. Apenas são exportadas mensagens de telemetria com propriedades que correspondam ao estado do filtro especificado. Os seguintes operadores de comparação de cordas são apoiados: iguais, não iguais, contém, não contém, existe, não existe. [Saiba mais sobre as propriedades da aplicação a partir de docs IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
     Para filtrar as alterações de propriedade, utilize um **filtro Capability**. Escolha um item de propriedade no dropdown. O fluxo exportado contém apenas alterações na propriedade selecionada que satisfaz a condição do filtro.
 
 <a name="DataExportEnrichmnents"></a>
 1. Opcionalmente, enriqueça mensagens exportadas com metadados de par de chaves adicionais. Estão disponíveis os seguintes enriquecimentos para a telemetria e alteram os tipos de exportação de dados:
 
-    - **Cadeia personalizada** : Adiciona uma cadeia estática personalizada a cada mensagem. Introduza qualquer chave e introduza qualquer valor de cadeia.
-    - **Propriedade** : Adiciona o valor de propriedade ou propriedade reportada ao dispositivo atual a cada mensagem. Introduza qualquer chave e escolha um dispositivo ou propriedade na nuvem. Se a mensagem exportada for de um dispositivo que não tenha a propriedade especificada, a mensagem exportada não recebe o enriquecimento.
+    - **Cadeia personalizada**: Adiciona uma cadeia estática personalizada a cada mensagem. Introduza qualquer chave e introduza qualquer valor de cadeia.
+    - **Propriedade**: Adiciona o valor de propriedade ou propriedade reportada ao dispositivo atual a cada mensagem. Introduza qualquer chave e escolha um dispositivo ou propriedade na nuvem. Se a mensagem exportada for de um dispositivo que não tenha a propriedade especificada, a mensagem exportada não recebe o enriquecimento.
 
 1. Adicione um novo destino ou adicione um destino que já criou. Selecione o **Criar um novo** link de um e adicione as seguintes informações:
 
-    - **Nome do destino** : o nome de exposição do destino na IoT Central.
-    - **Tipo de destino** : escolha o tipo de destino. Se ainda não definiu o seu destino, consulte [o destino de exportação.](#set-up-export-destination)
+    - **Nome do destino**: o nome de exposição do destino na IoT Central.
+    - **Tipo de destino**: escolha o tipo de destino. Se ainda não definiu o seu destino, consulte [o destino de exportação.](#set-up-export-destination)
     - Para Azure Event Hubs, fila ou tópico do Azure Service Bus, cole a cadeia de ligação para o seu recurso e introduza o centro de eventos sensível ao caso, a fila ou o nome do tópico, se necessário.
     - Para o armazenamento Azure Blob, cole o fio de ligação para o seu recurso e introduza o nome do recipiente sensível à caixa, se necessário.
     - Para webhook, cole o URL de retorno para o seu ponto final webhook. Pode configurar opcionalmente a autorização webhook (OAuth 2.0 e Token de Autorização) e adicionar cabeçalhos personalizados. 

@@ -3,12 +3,12 @@ title: FAQ de Saúde de Recursos Azure
 description: Visão geral da Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: c8089e907f555ac970fea06361a2ab1bbc944778
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5ad8867b110039e4dcc34b20c8a61fccfd39eaf
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536499"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032869"
 ---
 # <a name="azure-resource-health-faq"></a>FAQ de Saúde de Recursos Azure
 Aprenda as respostas a perguntas comuns sobre a Azure Resource Health.
@@ -52,7 +52,6 @@ A saúde dos recursos [suporta alertas baseados](resource-health-alert-arm-templ
 Depois de iniciar sessão no portal Azure, existem várias formas de aceder à Saúde dos Recursos:
 - Navegue para o seu recurso. Na navegação à esquerda, selecione **a saúde do recurso**
 - Vá ao Serviço Azure Health Blade.  Na navegação à esquerda, selecione **a saúde dos recursos.**
-- Abra a lâmina **de ajuda + suporte** selecionando o ponto de interrogação no canto superior direito do portal e, em seguida, selecionando Ajuda + **Suporte**. Assim que a lâmina abrir, selecione **a saúde do recurso**
 
 Também pode utilizar a API de Saúde de Recursos para obter informações sobre a saúde dos seus recursos.
 
@@ -70,13 +69,11 @@ A informação fornecida pela Resource Health é mais específica do que a forne
 
 Enquanto o [estado do Azure](https://status.azure.com) e o painel de saúde do serviço o informam sobre problemas de serviço que afetam um vasto conjunto de clientes (por exemplo, uma região Azure), a Resource Health expõe mais eventos granulares que são relevantes apenas para o recurso específico. Por exemplo, se um hospedeiro reiniciar inesperadamente, a Resource Health alerta apenas os clientes cujas máquinas virtuais estavam a funcionar nesse hospedeiro.
 
-É importante notar que para lhe proporcionar uma visibilidade completa dos eventos que impactam os seus recursos, a Resource Health também surge em eventos publicados no painel de saúde do serviço.
-
 ## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>Preciso de ativar a Saúde dos Recursos para cada recurso?
 Não, a informação de saúde está disponível para todos os tipos de recursos disponíveis através da Resource Health. 
 
 ## <a name="do-we-need-to-enable-resource-health-for-my-organization"></a>Precisamos de capacitar a Saúde dos Recursos para a minha organização?
-N.º  A Azure Resource Health é acessível dentro do portal Azure sem quaisquer requisitos de configuração.
+Não.  A Azure Resource Health é acessível dentro do portal Azure sem quaisquer requisitos de configuração.
 
 ## <a name="is-resource-health-available-free-of-charge"></a>A Saúde dos Recursos está disponível gratuitamente?
 Sim.  A Azure Resource Health é gratuita.

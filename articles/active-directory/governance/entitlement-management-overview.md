@@ -16,13 +16,13 @@ ms.date: 11/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.custom: contperfq1
-ms.openlocfilehash: 163947268d79a0297eef3f3f6e97187a0aef6994
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: c9815355b26a9c14c02110e4bb5fff4f998d2105
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95738147"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032037"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é a gestão de direitos do Azure AD?
 

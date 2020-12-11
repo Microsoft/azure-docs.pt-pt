@@ -10,13 +10,13 @@ author: lobrien
 ms.author: laobri
 ms.topic: reference
 ms.date: 07/17/2020
-ms.custom: contperfq4
-ms.openlocfilehash: bf35d3594a8f0256462422eee501012fad76edf9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: ef8cf3115560ec402ebe6f90ce717363fbdc2c08
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320905"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029826"
 ---
 # <a name="what-tools-are-included-on-the-azure-data-science-virtual-machine"></a>Que ferramentas estão incluídas na Máquina Virtual de Ciência de Dados do Azure?
 

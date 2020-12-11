@@ -9,14 +9,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
-ms.custom: troubleshooting, contperfq4
+ms.custom: troubleshooting, contperf-fy20q4
 ms.date: 11/09/2020
-ms.openlocfilehash: 55ac11b7888a8e351b52554f76fb44af35633c16
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: e383ac260a67c7334b806612325ed0b6a9fbbef9
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780982"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030982"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conhecidos e resolução de problemas no Azure Machine Learning
 
@@ -398,7 +398,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   * Para a conda local, primeiro certifique-se de que automl_setup tem funcionada com sucesso.
   * Certifique-se de que o subscription_id está correto. Encontre o subscription_id no portal Azure selecionando Todos os Serviços e, em seguida, Subscrições. Os caracteres "<" e ">" não devem ser incluídos no valor subscription_id. Por exemplo, `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` tem o formato válido.
   * Garantir ao Contribuinte ou ao Proprietário o acesso à Subscrição.
-  * Verifique se a região é uma das regiões apoiadas: `eastus2` , , , , , , , , `eastus` `westcentralus` `southeastasia` `westeurope` `australiaeast` `westus2` . `southcentralus`
+  * Verifique se a região é uma das regiões apoiadas: `eastus2` `eastus` , `westcentralus` `southeastasia` `westeurope` `australiaeast` `westus2` . `southcentralus`
   * Garantir o acesso à região através do portal Azure.
   
 * **falha no AutoMLConfig** de importação : Houve alterações de pacotes na versão automatizada de machine learning 1.0.76, que exigem que a versão anterior seja desinstalada antes da atualização para a nova versão. Se o for `ImportError: cannot import name AutoMLConfig` encontrado após a atualização de uma versão SDK antes de v1.0.76 para v1.0.76 ou posterior, resolva o erro correndo: `pip uninstall azureml-train automl` e depois `pip install azureml-train-auotml` . O automl_setup.cmd script faz isto automaticamente. 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 00b5d220cdbc511a309d55cfca2049508049fa30
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 0895e84363d40bdbf30408f2b2a0d95f951eb303
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549009"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032563"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de lançamento do Azure HDInsight
 
@@ -64,3 +64,18 @@ O HDInsight continua a fazer melhorias na fiabilidade do cluster e no desempenho
 
 ## <a name="component-version-change"></a>Alteração da versão do componente
 Nenhuma alteração da versão componente para esta versão. Pode encontrar as versões componentes atuais para HDInsight 4.0 e HDInsight 3.6 [neste doc](./hdinsight-component-versioning.md).
+
+## <a name="known-issues"></a>Problemas conhecidos
+### <a name="prevent-hdinsight-cluster-vms-from-rebooting-periodically"></a>Evite que os VMs do cluster HDInsight reiniciem periodicamente
+
+A partir de meados de novembro de 2020, pode ter reparado que os VMs do cluster HDInsight são reiniciados regularmente. Isto pode ser causado por:
+
+1.  O Clamav está ativado no seu aglomerado. O novo pacote azsec-clamav consome uma grande quantidade de memória que desencadeia o reinício do nó. 
+2.  É programado um trabalho cron diariamente que monitoriza as alterações à lista de autoridades de certificados (AC) utilizadas pelos serviços Azure. Quando um novo certificado de CA está disponível, o script adiciona o certificado à loja de confiança JDK e agenda um reboot.
+
+O HDInsight está a implementar correções e a aplicar patch para todos os clusters de execução para ambos os problemas. Para aplicar a correção imediatamente e evitar o reinício inesperado dos VMs, pode correr abaixo as ações de script em todos os nós do cluster como uma ação persistente do script. O HDInsight publicará outro aviso após a correção e remendação completa.
+```
+https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/replace_cacert_script.sh
+https://healingscriptssa.blob.core.windows.net/healingscripts/ChangeOOMPolicyAndApplyLatestConfigForClamav.sh
+```
+

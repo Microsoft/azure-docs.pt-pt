@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2, automl
-ms.openlocfilehash: a3b3640922daf84357354efc389e20afea78d216
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.custom: how-to, contperf-fy21q2, automl
+ms.openlocfilehash: 747cc88cdea59017483245b59e4b2c56c4b06a40
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937717"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032937"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Avaliar resultados automatizados de experiências de aprendizagem automática
 
@@ -88,7 +88,7 @@ weighted_accuracy|A precisão ponderada é a precisão em que cada amostra é po
 
 ### <a name="binary-vs-multiclass-classification-metrics"></a>Métricas de classificação binárias vs. multiclasse
 
-ML automatizado não diferencia entre métricas binárias e multiclasses. As mesmas métricas de validação são reportadas se um conjunto de dados tem duas classes ou mais de duas classes. No entanto, algumas métricas destinam-se à classificação multiclasse. Quando aplicadas a um conjunto binário de dados, estas métricas não tratarão nenhuma classe como a `true` classe, como seria de esperar. As métricas claramente destinadas a multiclasse são sufixadas com `micro` `macro` , ou `weighted` . Exemplos `average_precision_score` `f1_score` incluem, , , `precision_score` e `recall_score` `AUC` .
+ML automatizado não diferencia entre métricas binárias e multiclasses. As mesmas métricas de validação são reportadas se um conjunto de dados tem duas classes ou mais de duas classes. No entanto, algumas métricas destinam-se à classificação multiclasse. Quando aplicadas a um conjunto binário de dados, estas métricas não tratarão nenhuma classe como a `true` classe, como seria de esperar. As métricas claramente destinadas a multiclasse são sufixadas com `micro` `macro` , ou `weighted` . Exemplos `average_precision_score` `f1_score` incluem, e `precision_score` `recall_score` `AUC` .
 
 Por exemplo, em vez de calcular a recordação como `tp / (tp + fn)` , as médias médias multiclasse `micro` `macro` (, ou ) `weighted` médias em ambas as classes de um conjunto de dados de classificação binária. Isto equivale a calcular a recordação para a `true` classe e a classe `false` separadamente, e, em seguida, tomar a média dos dois.
 
@@ -190,6 +190,7 @@ A tabela seguinte resume as métricas de desempenho do modelo geradas para exper
 --|--|--|
 explained_variance|A variação explicada mede até que ponto um modelo explica a variação da variável-alvo. É a diminuição percentual da variação dos dados originais para a variação dos erros. Quando a média dos erros é 0, é igual ao coeficiente de determinação (ver r2_score abaixo). <br> <br> **Objetivo:** Mais perto de 1, melhor <br> **Alcance:** (inf, 1]|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|
 mean_absolute_error|Erro absoluto médio é o valor esperado do valor absoluto da diferença entre o alvo e a previsão.<br><br> **Objetivo:** Mais perto de 0, melhor <br> **Alcance:** [0, inf) <br><br> Tipos: <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error`, o mean_absolute_error dividido pelo alcance dos dados. | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
+mean_absolute_percentage_error|Erro percentual absoluto médio (MAPE) é uma medida da diferença média entre um valor previsto e o valor real.<br><br> **Objetivo:** Mais perto de 0, melhor <br> **Alcance:** [0, inf) ||
 median_absolute_error|O erro absoluto mediano é a mediana de todas as diferenças absolutas entre o alvo e a previsão. Esta perda é robusta para os forasteiros.<br><br> **Objetivo:** Mais perto de 0, melhor <br> **Alcance:** [0, inf)<br><br>Tipos: <br> `median_absolute_error`<br> `normalized_median_absolute_error`: o median_absolute_error dividido pelo intervalo dos dados. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
 r2_score|R^2 é o coeficiente de determinação ou a redução por cento em erros quadrados em comparação com um modelo de base que produz a média. <br> <br> **Objetivo:** Mais perto de 1, melhor <br> **Alcance:** (inf, 1]|[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
 root_mean_squared_error |Erro quadrado de raiz (RMSE) é a raiz quadrada da diferença quadrada esperada entre o alvo e a previsão. Para um estimador imparcial, o RMSE é igual ao desvio padrão.<br> <br> **Objetivo:** Mais perto de 0, melhor <br> **Alcance:** [0, inf)<br><br>Tipos:<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error`: o root_mean_squared_error dividido pelo intervalo dos dados. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|

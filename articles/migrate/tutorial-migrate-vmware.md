@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 88b3879a648117329f2485012542b48d6a7a7755
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 56a350f886229cfb5479b5adae52a9c871f5bb65
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752690"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032342"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrar VMware VMs para Azure (sem agente)
 
@@ -71,7 +71,7 @@ Ative a replicação da seguinte forma:
 
     ![Definições de origem](./media/tutorial-migrate-vmware/source-settings.png)
 
-4. Em **Máquinas virtuais**, selecione aquelas que quer replicar. Para aplicar o tamanho de VM e o tipo de disco a partir de uma avaliação se **Yes** executou um, em **definições de migração de importação a partir de uma avaliação de Azure Migrate?** Se não estiver a utilizar as definições de avaliação, selecione **Nº**.
+4. Em **Máquinas virtuais**, selecione aquelas que quer replicar. Para aplicar o tamanho de VM e o tipo de disco a partir de uma avaliação se executou um, em **definições de migração de importação a partir de uma avaliação de Azure Migrate?** Se não estiver a utilizar as definições de avaliação, selecione **Nº**.
    
     ![Selecionar avaliação](./media/tutorial-migrate-vmware/select-assessment.png)
 
@@ -182,7 +182,7 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 ## <a name="complete-the-migration"></a>Complete a migração
 
 1. Depois de terminar a migração, clique com a direita na replicação de > **de paragem VM**. Isto para a replicação para a máquina no local e limpa as informações do estado de replicação para o VM.
-2. Instale o Azure VM [Windows](../virtual-machines/extensions/agent-windows.md) ou o agente [Linux](../virtual-machines/extensions/agent-linux.md) nas máquinas migratórias.
+2. Instale o agente Azure VM [Linux](../virtual-machines/extensions/agent-linux.md) nas máquinas migradas se a máquina tiver Linux OS. Instalamos automaticamente o agente VM para VMs do Windows durante a migração.
 3. Execute otimizações de aplicação pós-migração, tais como atualizar cadeias de ligação de base de dados e configurações de servidor Web.
 4. Execute testes de aplicação final e de aceitação da migração na aplicação migrada em execução no Azure.
 5. Corte o tráfego para o exemplo de Azure VM migrado.

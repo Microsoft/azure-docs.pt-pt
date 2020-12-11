@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, contperfq1
+ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: fc2f3202ac88e3ee6c24db21dd9072a13a8deef9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2630984d54134ca8fca94fdc1960265ba71935a6
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89442316"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031305"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Quickstart: Configurar uma aplicação do cliente para aceder a uma API web
 
@@ -44,7 +44,7 @@ Uma vez registado tanto a sua app de clientes como a API web e expôs a API cria
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino que contém o registo da sua aplicação do cliente.
-1. Selecione as inscrições da **Azure Ative Directory**  >  **App**e, em seguida, selecione a sua aplicação ao cliente *(não* a sua API web).
+1. Selecione as inscrições da **Azure Ative Directory**  >  **App** e, em seguida, selecione a sua aplicação ao cliente *(não* a sua API web).
 1. Selecione **permissões API**  >  **Adicione uma permissão**  >  **As minhas APIs**.
 1. Selecione a API web que registou como parte dos pré-requisitos.
 
@@ -59,7 +59,7 @@ Uma vez registado tanto a sua app de clientes como a API web e expôs a API cria
 
 Depois de adicionar permissões à sua API, deverá consultar as permissões selecionadas sob **permissões configuradas.** A imagem que se segue mostra o exemplo *Funcionários.Read.Todas as* permissões delegadas adicionadas ao registo da aplicação do cliente.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Diagrama de linha mostrando uma API web com âmbitos expostos à direita e uma aplicação de cliente à esquerda com esses âmbitos selecionados como permissões":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Permissões configuradas painel no portal Azure mostrando a permissão recém-adicionada":::
 
 Também pode notar a permissão *user.Read* para a API do Gráfico microsoft. Esta permissão é adicionada automaticamente quando regista uma aplicação no portal Azure.
 
@@ -73,7 +73,7 @@ Configure a permissão delegada no Microsoft Graph para permitir que a sua aplic
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino que contém o registo da sua aplicação do cliente.
-1. Selecione as inscrições da **App Azure Ative Directory**  >  **App registrations**App e, em seguida, selecione a sua aplicação ao cliente.
+1. Selecione as inscrições da **App Azure Ative Directory**  >  App e, em seguida, selecione a sua aplicação ao cliente.
 1. Selecione **permissões API**  >  **Adicionar uma permissão**  >  **Microsoft Graph**
 1. Selecione **permissões delegadas**. O Microsoft Graph expõe muitas permissões, com as mais utilizadas mostradas no topo da lista.
 1. Sob **permissões Selecione,** selecione as seguintes permissões:
@@ -98,12 +98,12 @@ Nos seguintes passos, concede permissão aos Ficheiros do Microsoft *Graph.Read.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino que contém o registo da sua aplicação do cliente.
-1. Selecione as inscrições da **App Azure Ative Directory**  >  **App registrations**App e, em seguida, selecione a sua aplicação ao cliente.
-1. Selecione **permissões API**  >  **Adicione uma permissão**as  >  **Microsoft Graph**  >  **permissões da Aplicação de Gráficos do**Microsoft .
+1. Selecione as inscrições da **App Azure Ative Directory**  >  App e, em seguida, selecione a sua aplicação ao cliente.
+1. Selecione **permissões API**  >  **Adicione uma permissão** as  >    >  **permissões da Aplicação de Gráficos do** Microsoft .
 1. Todas as permissões expostas pelo Microsoft Graph são apresentadas sob **permissões Select**.
 1. Selecione a permissão ou permissões que pretende conceder ao seu pedido. Como exemplo, pode ter uma aplicação daemon que digitaliza ficheiros na sua organização, alertando sobre um tipo ou nome de ficheiro específico.
 
-    Sob **permissões Selecione,** expanda **ficheiros**e, em seguida, selecione a permissão *Ficheiros.Read.All.*
+    Sob **permissões Selecione,** expanda **ficheiros** e, em seguida, selecione a permissão *Ficheiros.Read.All.*
 1. **Selecione Permissões de adicionar**.
 
 Algumas permissões, como os Ficheiros do Microsoft *Graph.Read.All,* requerem o consentimento administrativo. Concede o consentimento administrativo selecionando o botão **de consentimento administrativo Grant,** discutido mais tarde na secção de [botão de consentimento](#admin-consent-button) de Administração.
@@ -136,11 +136,11 @@ Pode adicionar o conjunto completo das permissões de uma API ou permissões ind
 
 O **consentimento administrativo do botão {seu inquilino}** permite que um administrador conceda consentimento administrativo às permissões configuradas para o pedido. Quando seleciona o botão, é mostrado um diálogo solicitando que confirme a ação de consentimento.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Diagrama de linha mostrando uma API web com âmbitos expostos à direita e uma aplicação de cliente à esquerda com esses âmbitos selecionados como permissões":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Botão de consentimento administrativo de concessão destacado no painel de permissões configurados no portal Azure":::
 
 Após a concessão do consentimento, as permissões que requerem o consentimento administrativo são mostradas como tendo o consentimento concedido:
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Diagrama de linha mostrando uma API web com âmbitos expostos à direita e uma aplicação de cliente à esquerda com esses âmbitos selecionados como permissões":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Configure tabela de permissões no portal Azure mostrando o consentimento administrativo concedido para os Ficheiros.Leia.Toda a permissão":::
 
 O botão **de consentimento administrativo Grant** é *desativado* se não for administrador ou se não tiver sido configurada nenhuma autorização para a aplicação. Se tiver permissões que tenham sido concedidas mas ainda não configuradas, o botão de consentimento administrativo solicita-lhe que manuseie estas permissões. Pode adicioná-las a permissões configuradas ou removê-las.
 

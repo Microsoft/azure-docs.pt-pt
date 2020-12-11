@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
-ms.custom: contperfq1
-ms.openlocfilehash: c612e2a95e2596b2732ed8282037c8ded908a0a0
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 0379fd186c499e19d949d9494b0eb5dec4f2bb50
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571390"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032546"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Aprendizagem profunda vs. aprendizagem automática em Azure Machine Learning
 

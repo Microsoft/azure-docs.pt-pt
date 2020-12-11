@@ -5,15 +5,15 @@ services: load-balancer
 author: asudbring
 ms.service: load-balancer
 ms.topic: conceptual
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: d0fad3a257b6d1b3723cdf337179573b4667b054
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: d30998e0d99ba7b1eeb55bdc47cd5cc54690156f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780115"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032920"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Utilização de SNAT para ligações de saída
 

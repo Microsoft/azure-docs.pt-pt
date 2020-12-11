@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.custom: contperfq2
-ms.openlocfilehash: 4368f20171da0c1896e642361578580b1d958296
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 3587beaeb788665c68c1fcb6376af40566b6c35e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659051"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032784"
 ---
 # <a name="manage-app-consent-policies"></a>Gerir as políticas de consentimento da aplicação
 
@@ -141,7 +141,7 @@ A tabela seguinte fornece a lista de condições suportadas para políticas de c
 | ClientApplicationPublisherIds | Uma lista de IDs da Microsoft Partner Network (MPN) para [editores verificados](../develop/publisher-verification-overview.md) da aplicação do cliente, ou uma lista com o valor único "todos" para combinar com aplicações de clientes de qualquer editor. O padrão é o único valor "todos". |
 | Aplicações clientesFromVerifiedPublisherOnly | Definido `$true` para apenas combinar em aplicações de cliente com uma [editora verificada](../develop/publisher-verification-overview.md). Definido `$false` para corresponder em qualquer app do cliente, mesmo que não tenha um editor verificado. A predefinição é `$false`. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais:
 
