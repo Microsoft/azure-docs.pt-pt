@@ -2,7 +2,7 @@
 title: Perguntas frequentes - Azure Dedicado HSM / Microsoft Docs
 description: Encontre respostas a perguntas comuns sobre o Módulo de Segurança de Hardware Dedicado Azure, tais como informações básicas, interoperabilidade, alta disponibilidade e suporte.
 services: dedicated-hsm
-author: johncdawson
+author: keithp
 manager: rkarlin
 tags: azure-resource-manager
 ms.custom: mvc, seodec18
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/05/2020
-ms.author: mbaldwin
-ms.openlocfilehash: 0d3309283279c887c00a475ccedfe1edaf311ae5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/10/2020
+ms.author: keithp
+ms.openlocfilehash: 61a9fcc5490c20383a2ae7d5c57b7fda7567c643
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88189878"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095156"
 ---
-# <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ)
+# <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
 Encontre respostas a perguntas comuns sobre o Microsoft Azure Dedicado HSM.
 
@@ -32,11 +32,11 @@ Um Módulo de Segurança de Hardware (HSM) é um dispositivo de computação fí
 
 ### <a name="q-what-is-the-azure-dedicated-hsm-offering"></a>P: O que é a oferta de HSM dedicada a Azure?
 
-O Azure Dedicated HSM é um serviço baseado na nuvem que fornece HSMs hospedados em datacenters Azure que estão diretamente ligados à rede virtual de um cliente. Estes HSMs são aparelhos de rede dedicados (Rede SafeNet HSM 7 Model A790 da Gemalto). São implantados diretamente no espaço de endereço IP privado de um cliente e a Microsoft não tem qualquer acesso à funcionalidade criptográfica dos HSMs. Apenas o cliente tem controlo administrativo e criptográfico completo sobre estes dispositivos. Os clientes são responsáveis pela gestão do dispositivo e podem obter registos de atividade completos diretamente dos seus dispositivos. Os HSMs dedicados ajudam os clientes a cumprir os requisitos de conformidade/regulamentação, tais como FIPS 140-2 Nível 3, HIPAA, PCI-DSS, e eIDAS e muitos outros.
+O Azure Dedicated HSM é um serviço baseado na nuvem que fornece HSMs hospedados em datacenters Azure que estão diretamente ligados à rede virtual de um cliente. Estes HSMs são aparelhos de rede dedicados (Thales Network Luna HSM 7). São implantados diretamente no espaço de endereço IP privado de um cliente e a Microsoft não tem qualquer acesso à funcionalidade criptográfica dos HSMs. Apenas o cliente tem controlo administrativo e criptográfico completo sobre estes dispositivos. Os clientes são responsáveis pela gestão do dispositivo e podem obter registos de atividade completos diretamente dos seus dispositivos. Os HSMs dedicados ajudam os clientes a cumprir os requisitos de conformidade/regulamentação, tais como FIPS 140-2 Nível 3, HIPAA, PCI-DSS, e eIDAS e muitos outros.
 
 ### <a name="q-what-hardware-is-used-for-dedicated-hsm"></a>P: Que hardware é usado para HSM dedicado?
 
-A Microsoft estabeleceu uma parceria com a Gemalto para entregar o serviço HSM dedicado à Azure. O dispositivo específico utilizado é o [Modelo A790 da Rede SafeNet Luna HSM 7](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/). Este dispositivo não só fornece firmware validado FIPS 140-2 Nível 3, como também oferece baixa latência, alto desempenho e alta capacidade através de 10 divisórias. 
+A Microsoft estabeleceu uma parceria com a Thales para entregar o serviço HSM dedicado à Azure. O dispositivo específico utilizado é a [Rede Thales Luna HSM 7](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms). Este dispositivo não só fornece firmware validado FIPS 140-2 Nível 3, como também oferece baixa latência, alto desempenho e alta capacidade através de 10 divisórias. 
 
 ### <a name="q-what-is-an-hsm-used-for"></a>P: Para que é usado um HSM?
 
@@ -44,11 +44,18 @@ Os HSMs são utilizados para armazenar chaves criptográficas que são usadas pa
 
 ### <a name="q-how-does-dedicated-hsm-work"></a>P: Como funciona o HSM dedicado?
 
-Os clientes podem fornecer HSMs em regiões específicas utilizando a interface PowerShell ou a interface de linha de comando. O cliente especifica a rede virtual a que os HSMs serão ligados e uma vez disponibilizados os HSMs estarão disponíveis na sub-rede designada nos endereços IP atribuídos no espaço de endereço IP privado do cliente. Em seguida, os clientes podem ligar-se aos HSMs usando SSH para gestão e administração de aparelhos, configurar ligações de clientes HSM, inicializar HSMs, criar divisórias, definir e atribuir funções como oficial de partição, crypto officer e utilizador de criptomoedas. Em seguida, o cliente utilizará a Gemalto forneceu ferramentas de clientes HSM/SDK/software para realizar operações criptográficas a partir das suas aplicações.
+Os clientes podem fornecer HSMs em regiões específicas utilizando a interface PowerShell ou a interface de linha de comando. O cliente especifica a rede virtual a que os HSMs serão ligados e uma vez disponibilizados os HSMs estarão disponíveis na sub-rede designada nos endereços IP atribuídos no espaço de endereço IP privado do cliente. Em seguida, os clientes podem ligar-se aos HSMs usando SSH para gestão e administração de aparelhos, configurar ligações de clientes HSM, inicializar HSMs, criar divisórias, definir e atribuir funções como oficial de partição, crypto officer e utilizador de criptomoedas. Em seguida, o cliente utilizará thales fornecendo ferramentas de cliente hSM/SDK/software para realizar operações criptográficas a partir das suas aplicações.
 
 ### <a name="q-what-software-is-provided-with-the-dedicated-hsm-service"></a>P: Que software é fornecido com o serviço dedicado HSM?
 
-A Gemalto fornece todo o software para o dispositivo HSM uma vez provisionado pela Microsoft. O software está disponível no [portal de apoio ao cliente Gemalto.](https://supportportal.gemalto.com/csm/) Os clientes que utilizam o serviço Dedicado HSM são obrigados a estar registados para suporte Gemalto e têm um ID do Cliente que permite o acesso e o descarregamento de software relevante. O software de cliente suportado é a versão 7.2, que é compatível com a versão validada do firmware 7.0.3 do FIPS 140-2 Nível 3. 
+O Thales fornece todo o software para o dispositivo HSM uma vez provisionado pela Microsoft. O software está disponível no portal de apoio ao [cliente thales.](https://supportportal.gemalto.com/csm/) Os clientes que utilizam o serviço Dedicado HSM são obrigados a estar registados para suporte thales e têm um ID do Cliente que permite o acesso e o descarregamento de software relevante. O software de cliente suportado é a versão 7.2, que é compatível com a versão validada do firmware 7.0.3 do FIPS 140-2 Nível 3. 
+
+### <a name="q-what-extra-costs-may-be-incurred-with-dedicated-hsm-service"></a>P: Que custos adicionais podem ser incorridos com o serviço dedicado HSM?
+
+Os seguintes itens incorrerão num custo extra ao utilizar o serviço Dedicado HSM. 
+* A utilização de um dispositivo de backup dedicado no local é viável para ser utilizada com o serviço dedicado HSM, no entanto isso incorrerá num custo extra, e deve ser diretamente proveniente do Thales.
+* O HSM dedicado é fornecido com uma licença de 10 divisórias. Se um cliente necessitar de mais divisórias, isso incorrerá num custo extra para licenças adicionais diretamente provenientes do Thales.
+* O HSM dedicado requer infraestruturas de rede (VNET, VPN Gateway, Etc.) e recursos como máquinas virtuais para a configuração do dispositivo. Estes recursos adicionais incorrerão em custos adicionais e não estão incluídos no preço dedicado do serviço HSM.
 
 ### <a name="q-does-azure-dedicated-hsm-offer-password-based-and-ped-based-authentication"></a>P: O Azure Dedicado HSM oferece autenticação baseada em passwords e PED?
 
@@ -56,11 +63,11 @@ Neste momento, o Azure Dedicated HSM apenas fornece hSMs com autenticação base
 
 ### <a name="q-will-azure-dedicated-hsm-host-my-hsms-for-me"></a>P: A Azure Dedicado HSM vai receber os meus HSMs para mim?
 
-A Microsoft apenas oferece o Gemalto SafeNet Luna Network HSM através do serviço Dedicado HSM e não pode hospedar nenhum dispositivo fornecido pelo cliente.
+A Microsoft apenas oferece o Thales Network Luna HSM 7 através do serviço Dedicado HSM e não pode hospedar nenhum dispositivo fornecido pelo cliente.
 
 ### <a name="q-does-azure-dedicated-hsm-support-payment-pineft-features"></a>P: As funcionalidades de suporte de suporte do HSM dedicado ao Azure (PIN/EFT) são suficientes?
 
-O serviço HSM dedicado a Azure utiliza dispositivos SafeNet Luna Network HSM 7 (modelo A790). Estes dispositivos não suportam funcionalidades específicas do HSM de pagamento (como PIN ou EFT) ou certificações. Se pretender que o serviço HSM dedicado da Azure suporte o pagamento de HSMs no futuro, transmita o feedback ao seu Representante de Conta da Microsoft.
+O serviço HSM dedicado Azure utiliza dispositivos Thales Network Luna HSM 7. Estes dispositivos não suportam funcionalidades específicas do HSM de pagamento (como PIN ou EFT) ou certificações. Se pretender que o serviço HSM dedicado da Azure suporte o pagamento de HSMs no futuro, transmita o feedback ao seu Representante de Conta da Microsoft.
 
 ### <a name="q-which-azure-regions-is-dedicated-hsm-available-in"></a>P: Em que regiões de Azure está disponível O HSM dedicado?
 
@@ -94,7 +101,7 @@ A partir do final de março de 2019, o HSM dedicado está disponível nas 14 reg
 
 ### <a name="q-how-does-my-application-connect-to-a-dedicated-hsm"></a>P: Como é que a minha aplicação se liga a um HSM dedicado?
 
-Utiliza a Gemalto forneceu ferramentas de cliente/SDK/software HSM para realizar operações criptográficas a partir das suas aplicações. O software está disponível no [portal de apoio ao cliente Gemalto.](https://supportportal.gemalto.com/csm/) Os clientes que utilizam o serviço Dedicado HSM são obrigados a estar registados para suporte Gemalto e têm um ID do Cliente que permite o acesso e o descarregamento de software relevante.
+Utiliza thales fornecendo ferramentas de cliente hSM/SDK/software para realizar operações criptográficas a partir das suas aplicações. O software está disponível no portal de apoio ao [cliente thales.](https://supportportal.gemalto.com/csm/) Os clientes que utilizam o serviço Dedicado HSM são obrigados a estar registados para suporte thales e têm um ID do Cliente que permite o acesso e o descarregamento de software relevante.
 
 ### <a name="q-can-an-application-connect-to-dedicated-hsm-from-a-different-vnet-in-or-across-regions"></a>P: Pode uma aplicação ligar-se ao HSM dedicado a partir de um VNET diferente dentro ou em regiões?
 
@@ -106,11 +113,11 @@ Sim, pode sincronizar hSMs no local com HSMs dedicado. [A VPN ponto-a-ponto ou a
 
 ### <a name="q-can-i-encrypt-data-used-by-other-azure-services-using-keys-stored-in-dedicated-hsm"></a>P: Posso encriptar dados utilizados por outros serviços Azure utilizando chaves armazenadas em HSM dedicado?
 
-N.º Os HSMs dedicados Azure só estão acessíveis a partir de dentro da sua rede virtual.
+Não. Os HSMs dedicados Azure só estão acessíveis a partir de dentro da sua rede virtual.
 
 ### <a name="q-can-i-import-keys-from-an-existing-on-premises-hsm-to-dedicated-hsm"></a>P: Posso importar chaves de um HSM existente no local para o HSM dedicado?
 
-Sim, se tiver no local Gemalto SafeNet HSMs. Há vários métodos. Consulte a documentação gemalto HSM.
+Sim, se tiver no local Thales Network Luna HSM 7 HSMs. Há vários métodos. Consulte a [documentação do Thales HSM](https://thalesdocs.com/gphsm/luna/7.2/docs/network/Content/Home_network.htm).
 
 ### <a name="q-what-operating-systems-are-supported-by-dedicated-hsm-client-software"></a>P: Que sistemas operativos são suportados por software dedicado ao cliente HSM?
 
@@ -119,7 +126,7 @@ Sim, se tiver no local Gemalto SafeNet HSMs. Há vários métodos. Consulte a do
 
 ### <a name="q-how-do-i-configure-my-client-application-to-create-a-high-availability-configuration-with-multiple-partitions-from-multiple-hsms"></a>P: Como configurar a minha aplicação de cliente para criar uma configuração de alta disponibilidade com múltiplas divisórias de vários HSMs?
 
-Para ter uma elevada disponibilidade, é necessário configurar a configuração da aplicação do cliente HSM para utilizar divisórias de cada HSM. Consulte a documentação do software do cliente Gemalto HSM.
+Para ter uma elevada disponibilidade, é necessário configurar a configuração da aplicação do cliente HSM para utilizar divisórias de cada HSM. Consulte a documentação do software do cliente Thales HSM.
 
 ### <a name="q-what-authentication-mechanisms-are-supported-by-dedicated-hsm"></a>P: Que mecanismos de autenticação são suportados pelo HSM dedicado?
 
@@ -131,7 +138,7 @@ PKCS#11, Java (JCA/JCE), Microsoft CAPI, e CNG, OpenSSL
 
 ### <a name="q-can-i-importmigrate-keys-from-luna-56-hsms-to-azure-dedicated-hsms"></a>P: Posso importar/migrar chaves de Luna 5/6 HSMs para Azure Dedicados HSMs?
 
-Sim. Consulte o guia de migração gemalto. 
+Sim. Contacte o seu representante thales para o guia de migração apropriado do Thales. 
 
 ## <a name="using-your-hsm"></a>Utilizando o seu HSM
 
@@ -152,11 +159,11 @@ O HSM dedicado a Azure é o mais adequado para cenários de migração. Isto sig
 
 ### <a name="q-can-dedicated-hsm-be-used-with-office-365-customer-key-azure-information-protection-azure-data-lake-store-disk-encryption-azure-storage-encryption-azure-sql-tde"></a>P: O HSM dedicado pode ser utilizado com a chave de cliente do Office 365, Azure Information Protection, Azure Data Lake Store, Disk Encryption, Azure Storage Encryption, Azure SQL TDE?
 
-N.º O HSM dedicado é a provisionado diretamente no espaço de endereço IP privado de um cliente para que não seja acessível por outros serviços Azure ou Microsoft.
+Não. O HSM dedicado é a provisionado diretamente no espaço ip address privado de um cliente para que não seja acessível por outros serviços Azure ou Microsoft.
 
 ## <a name="administration-access-and-control"></a>Administração, acesso e controlo
 
-### <a name="q-does-the-customer-get-full-exclusive-control-over-the-hsms-with-dedicated-hsms"></a>P: O cliente obtém controlo exclusivo total sobre os HSMs com HSMs dedicados?
+### <a name="q-does-the-customer-get-full-exclusive-control-over-the-hsms-with-dedicated-"></a>P: O cliente obtém controlo exclusivo total sobre os HSMs com dedicado '?
 
 Sim. Cada aparelho HSM é totalmente dedicado a um único cliente e mais ninguém tem controlo administrativo uma vez provisionado e a senha do administrador alterada.
 
@@ -164,17 +171,17 @@ Sim. Cada aparelho HSM é totalmente dedicado a um único cliente e mais ningué
 
 A Microsoft não tem qualquer controlo administrativo ou criptográfico sobre o HSM. A Microsoft tem acesso ao nível do monitor através da ligação da porta em série para recuperar a telemetria básica, como a temperatura e a saúde dos componentes. Isto permite à Microsoft fornecer uma notificação proativa de problemas de saúde. Se necessário, o cliente pode desativar esta conta.
 
-### <a name="q-what-is-the-tenantadmin-account-microsoft-uses-i-am-used-to-the-admin-user-being-admin-on-safenet-hsms"></a>P: O que é a conta "tenantadmin" que a Microsoft usa, estou habituado a que o utilizador administrativo seja "administrador" em HSMs SafeNet?
+### <a name="q-what-is-the-tenant-admin-account-microsoft-uses-i-am-used-to-the-admin-user-being-admin-on-thales-luna-hsms"></a>P: O que é a conta de "administrador inquilino" que a Microsoft usa, estou habituado a que o utilizador administrativo seja "administrador" em Thales Luna HSMs?
 
-O dispositivo HSM envia com um utilizador predefinido de administração com a sua senha padrão habitual. A Microsoft não queria ter senhas padrão em uso enquanto qualquer dispositivo se encontra numa piscina à espera de ser a provisionado pelos clientes. Isto não satisfaria os nossos rigorosos requisitos de segurança. Por esta razão, estabelecemos uma palavra-passe forte, que é descartada no momento do provisionamento. Além disso, no momento de provisionamento criamos um novo utilizador na função de administrador chamado "tenantadmin". Este utilizador tem a palavra-passe padrão e os clientes alteram-na como a primeira ação quando iniciam sessão no dispositivo recém-atado. Este processo garante elevados graus de segurança e mantém a nossa promessa de controlo administrativo exclusivo para os nossos clientes. Note-se que o utilizador "tenantadmin" pode ser usado para redefinir a palavra-passe do utilizador administrativo se um cliente preferir utilizar essa conta. 
+O dispositivo HSM envia com um utilizador predefinido de administração com a sua senha padrão habitual. A Microsoft não queria ter senhas padrão em uso enquanto qualquer dispositivo se encontra numa piscina à espera de ser a provisionado pelos clientes. Isto não satisfaria os nossos rigorosos requisitos de segurança. Por esta razão, estabelecemos uma palavra-passe forte, que é descartada no momento do provisionamento. Além disso, no momento de provisionamento criamos um novo utilizador na função de administrador chamado "administrador de inquilinos". Este utilizador tem a palavra-passe padrão e os clientes alteram-na como a primeira ação quando iniciam sessão no dispositivo recém-atado. Este processo garante elevados graus de segurança e mantém a nossa promessa de controlo administrativo exclusivo para os nossos clientes. Note-se que o utilizador "administrador do arrendatário" pode ser utilizado para redefinir a palavra-passe do utilizador administrativo se um cliente preferir utilizar essa conta. 
 
 ### <a name="q-can-microsoft-or-anyone-at-microsoft-access-keys-in-my-dedicated-hsm"></a>P: A Microsoft ou qualquer pessoa na Microsoft pode aceder às teclas de acesso no meu HSM dedicado?
 
-N.º A Microsoft não tem qualquer acesso às chaves armazenadas no HSM dedicado ao cliente.
+Não. A Microsoft não tem qualquer acesso às chaves armazenadas no HSM dedicado ao cliente.
 
 ### <a name="q-can-i-upgrade-softwarefirmware-on-hsms-allocated-to-me"></a>P: Posso atualizar software/firmware em HSMs que me foram atribuídos?
 
-Para obter o melhor suporte, a Microsoft recomenda vivamente não atualizar software/firmware no HSM. No entanto, o cliente tem controlo administrativo total, incluindo a atualização de software/firmware se forem necessárias funcionalidades específicas a partir de diferentes versões de firmware. Antes de efetuá-lo, as implicações devem ser entendidas, uma vez que isso poderia, por exemplo, afetar o estado validado pelo FIPS. 
+O cliente tem controlo administrativo completo, incluindo a atualização de software/firmware se forem necessárias funcionalidades específicas a partir de diferentes versões de firmware. Antes de estoitar as alterações consulte a Microsoft sobre a sua atualização contactando HSMRequest@microsoft.com  
 
 ### <a name="q-how-do-i-manage-dedicated-hsm"></a>P: Como posso gerir o HSM dedicado?
 
@@ -182,7 +189,7 @@ Pode gerir HSMs dedicados acedendo-os através do SSH.
 
 ### <a name="q-how-do-i-manage-partitions-on-the-dedicated-hsm"></a>P: Como posso gerir as divisórias no HSM dedicado?
 
-O software cliente Gemalto HSM é utilizado para gerir os HSMs e divisórias.
+O software de cliente Thales HSM é utilizado para gerir os HSMs e divisórias.
 
 ### <a name="q-how-do-i-monitor-my-hsm"></a>P: Como monitorar o meu HSM?
 
@@ -196,7 +203,7 @@ Sim. Pode enviar registos do aparelho HSM para um servidor sislog
 
 ### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>P: É possível configurar uma elevada disponibilidade na mesma região ou em várias regiões?
 
-Sim. A configuração e configuração de alta disponibilidade são realizadas no software do cliente HSM fornecido pela Gemalto. Os HSMs dos mesmos VNET ou outros VNETs na mesma região ou em regiões, ou em instalações HSMs ligados a um VNET utilizando VPN site-to-local ou ponto-a-ponto podem ser adicionados à mesma configuração de alta disponibilidade. Note-se que este material sincroniza apenas e não itens de configuração específicos, tais como funções.
+Sim. A configuração e configuração de alta disponibilidade são realizadas no software do cliente HSM fornecido pela Thales. Os HSMs dos mesmos VNET ou outros VNETs na mesma região ou em regiões, ou em instalações HSMs ligados a um VNET utilizando VPN site-to-local ou ponto-a-ponto podem ser adicionados à mesma configuração de alta disponibilidade. Note-se que este material sincroniza apenas e não itens de configuração específicos, tais como funções.
 
 ### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>P: Posso adicionar HSMs da minha rede no local a um grupo de alta disponibilidade com Azure Dedicado HSM?
 
@@ -204,7 +211,7 @@ Sim. Devem satisfazer os elevados requisitos de disponibilidade para a Rede Safe
 
 ### <a name="q-can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>P: Posso adicionar Luna 5/6 HSMs de redes no local a um grupo de alta disponibilidade com Azure Dedicado HSM?
 
-N.º
+Não.
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>P: Quantos HSMs posso adicionar à mesma configuração de alta disponibilidade de uma única aplicação?
 
@@ -222,7 +229,7 @@ Os centros de dados Azure têm extensos controlos de segurança física e proces
 
 ### <a name="q-what-happens-if-there-is-a-security-breach-or-hardware-tampering-event"></a>P: O que acontece se houver uma falha de segurança ou evento de adulteração de hardware?
 
-Serviço dedicado HSM utiliza aparelhos SafeNet Network HSM 7. Estes aparelhos suportam a deteção de adulteração física e lógica. Se houver algum evento de adulteração, os HSMs são automaticamente zeros.
+Serviço dedicado HSM utiliza eletrodomésticos Thales Network Luna HSM 7. Estes aparelhos suportam a deteção de adulteração física e lógica. Se houver algum evento de adulteração, os HSMs são automaticamente zeros.
 
 ### <a name="q-how-do-i-ensure-that-keys-in-my-dedicated-hsms-are-not-lost-due-to-error-or-a-malicious-insider-attack"></a>P: Como posso garantir que as chaves nos meus HSMs dedicados não se percam devido a um erro ou a um ataque de infiltrado malicioso?
 
@@ -230,13 +237,13 @@ Serviço dedicado HSM utiliza aparelhos SafeNet Network HSM 7. Estes aparelhos s
 
 ### <a name="q-how-do-i-get-support-for-dedicated-hsm"></a>P: Como posso obter apoio para o HSM dedicado?
 
-O suporte é fornecido tanto pela Microsoft como pela Gemalto.  Se tiver algum problema com o hardware ou acesso à rede, levante um pedido de suporte com a Microsoft e se tiver algum problema com a configuração, software e desenvolvimento de aplicações do HSM, faça um pedido de suporte com a Gemalto. Se tiver um problema indeterminado, levante um pedido de suporte com a Microsoft e, em seguida, Gemalto pode ser contratado conforme necessário. 
+O suporte é fornecido tanto pela Microsoft como pelo Thales.  Se tiver algum problema com o hardware ou acesso à rede, levante um pedido de suporte com a Microsoft e se tiver algum problema com a configuração, software e desenvolvimento de aplicações do HSM, faça um pedido de suporte com o Thales. Se tiver um problema indeterminado, levante um pedido de suporte com a Microsoft e, em seguida, o Thales pode ser contratado conforme necessário. 
 
-### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>P: Como consigo o software, documentação e acesso ao cliente de orientação de integração para o SafeNet Luna 7 HSM?
+### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-thales-network-luna-hsm-7"></a>P: Como consigo o software, documentação e acesso ao cliente orientação de integração para a Rede Thales Luna HSM 7?
 
-Após a inscrição para o serviço, será fornecido um ID do Cliente Gemalto que permite a inscrição no portal de apoio ao cliente Gemalto. Isto permitirá o acesso a todo o software e documentação, bem como permitirá pedidos de suporte diretamente com Gemalto.
+Após o registo do serviço, será fornecido um ID do Cliente Thales que permite a inscrição no portal de apoio ao cliente thales. Isto permitirá o acesso a todo o software e documentação, bem como permitirá pedidos de suporte diretamente com Thales.
 
-### <a name="q-if-there-is-a-security-vulnerability-found-and-a-patch-is-released-by-gemalto-who-is-responsible-for-upgradingpatching-osfirmware"></a>P: Se houver uma vulnerabilidade de segurança encontrada e um patch for lançado pela Gemalto, quem é responsável pela atualização/remendação do SISTEMA/Firmware?
+### <a name="q-if-there-is-a-security-vulnerability-found-and-a-patch-is-released-by-thales-who-is-responsible-for-upgradingpatching-osfirmware"></a>P: Se houver uma vulnerabilidade de segurança encontrada e um patch for lançado pela Thales, quem é responsável pela atualização/remendação do SISTEMA/Firmware?
 
 A Microsoft não tem a capacidade de se ligar aos HSMs atribuídos aos clientes. Os clientes devem atualizar e corrigir os seus HSMs.
 
@@ -248,11 +255,11 @@ O HSM tem uma opção de reboot de linha de comando, no entanto, estamos a exper
 
 ### <a name="q-is-it-safe-to-store-encryption-keys-for-my-most-important-data-in-dedicated-hsm"></a>P: É seguro armazenar chaves de encriptação para os meus dados mais importantes no HSM dedicado?
 
-Sim, disposições dedicadas do HSM aparelhos SafeNet Network HSM 7 que utilizam HSMs validados FIPS 140-2 Nível 3. 
+Sim, disposições dedicadas do HSM Thales Rede Thales Os aparelhos Luna HSM 7 que utilizam HSMs validados FIPS 140-2 Nível 3. 
 
 ### <a name="q-what-cryptographic-keys-and-algorithms-are-supported-by-dedicated-hsm"></a>P: Que chaves e algoritmos criptográficos são suportados pelo HSM dedicado?
 
-Serviços dedicados de serviço HSM prevêem aparelhos SafeNet Network HSM 7. Eles suportam uma ampla gama de tipos e algoritmos de chaves criptográficas, incluindo: Suporte Full Suite B
+Serviços dedicados HSM prevêem aparelhos Thales Network Luna HSM 7. Eles suportam uma ampla gama de tipos e algoritmos de chaves criptográficas, incluindo: Suporte Full Suite B
 
 * Assimétrico:
   * RSA
@@ -276,21 +283,21 @@ Serviços dedicados de serviço HSM prevêem aparelhos SafeNet Network HSM 7. El
 
 ### <a name="q-is-dedicated-hsm-fips-140-2-level-3-validated"></a>P: O HSM FIPS 140-2 Nível 3 é validado?
 
-Sim. Serviços dedicados de serviço HSM prevêem aparelhos shsm 7 da rede SafeNet que utilizam HSMs validados FIPS 140-2 Nível 3.
+Sim. Serviços dedicados de serviço HSM prevêem aparelhos validados pela Rede Thales Luna HSM 7 que utilizam HSMs validados FIPS 140-2 Nível 3.
 
 ### <a name="q-what-do-i-need-to-do-to-make-sure-i-operate-dedicated-hsm-in-fips-140-2-level-3-validated-mode"></a>P: O que preciso de fazer para garantir que opero HSM dedicado no modo validado FIPS 140-2 Nível 3?
 
-O serviço dedicado HSM fornece aparelhos SafeNet Luna Network HSM 7. Estes aparelhos utilizam HSMs validados FIPS 140-2 Nível 3. A configuração, o sistema operativo e o firmware por defeito também são validados pelo FIPS. Não precisa de tomar qualquer medida para o cumprimento do NÍVEL 3 fips 140-2.
+O serviço dedicado HSM fornece aparelhos Thales Network Luna HSM 7. Estes aparelhos utilizam HSMs validados FIPS 140-2 Nível 3. A configuração, o sistema operativo e o firmware por defeito também são validados pelo FIPS. Não precisa de tomar qualquer medida para o cumprimento do NÍVEL 3 fips 140-2.
 
 ### <a name="q-how-does-a-customer-ensure-that-when-an-hsm-is-deprovisioned-all-the-key-material-is-wiped-out"></a>P: Como é que um cliente garante que quando um HSM é desprovisionado todo o material chave é eliminado?
 
-Antes de solicitar a desprovisionamento, um cliente deve ter zeroizado o HSM usando gemalto forneceu ferramentas de cliente HSM.
+Antes de solicitar a desprovisionamento, um cliente deve ter zeroizado o HSM usando thales fornecendo ferramentas de cliente HSM.
 
 ## <a name="performance-and-scale"></a>Desempenho e dimensionamento
 
 ### <a name="q-how-many-cryptographic-operations-are-supported-per-second-with-dedicated-hsm"></a>P: Quantas operações criptográficas são suportadas por segundo com HSM dedicado?
 
-Disposições dedicadas do HSM Aparelhos HSM 7 da Rede SafeNet (modelo A790). Aqui está um resumo do máximo desempenho para algumas operações: 
+Disposições dedicadas do HSM Thales Network Luna HSM 7 HSMs. Aqui está um resumo do máximo desempenho para algumas operações: 
 
 * RSA-2048: 10.000 transações por segundo
 * ECC P256: 20.000 transações por segundo

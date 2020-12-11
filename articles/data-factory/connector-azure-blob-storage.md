@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/08/2020
-ms.openlocfilehash: 1dd40756c05370d32b26c0a97ba23d0d7d7f1208
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c13f3e2e4e5ee6fb60f6691abe8164e9e7a03712
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902379"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094663"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiar e transformar dados no armazenamento da Azure Blob utilizando a Azure Data Factory
 
@@ -284,7 +284,7 @@ Para obter informações gerais sobre a autenticação do Armazenamento Azure, c
     - **Como sink**, in **Access control (IAM)**, concede pelo menos a função de Contribuinte de **Dados blob de armazenamento.**
 
 >[!IMPORTANT]
->Se utilizar a declaração PolyBase ou COPY para carregar dados do armazenamento blob (como fonte ou como encenação) no Azure Synapse Analytics, quando utilizar a autenticação de identidade gerida para armazenamento de Blob, certifique-se de que também segue os passos 1 a 3 [nesta orientação](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Esses passos registarão o seu servidor com Azure AD e atribuirão a função de Contribuinte de Dados de Armazenamento blob ao seu servidor. A Fábrica de Dados trata do resto. Se configurar o armazenamento blob com um ponto final da Rede Virtual Azure, também precisa de permitir **que os serviços fidedignos da Microsoft acedam a esta conta de armazenamento** ligados no menu de firewalls da conta de armazenamento Azure e redes **virtuais,** conforme exigido pelo Synapse.
+>Se utilizar a declaração PolyBase ou COPY para carregar dados do armazenamento blob (como fonte ou como encenação) no Azure Synapse Analytics, quando utilizar a autenticação de identidade gerida para armazenamento de Blob, certifique-se de que também segue os passos 1 a 3 [nesta orientação](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Esses passos registarão o seu servidor com Azure AD e atribuirão a função de Contribuinte de Dados de Armazenamento blob ao seu servidor. A Fábrica de Dados trata do resto. Se configurar o armazenamento blob com um ponto final da Rede Virtual Azure, também precisa de permitir **que os serviços fidedignos da Microsoft acedam a esta conta de armazenamento** ligados no menu de firewalls da conta de armazenamento Azure e redes **virtuais,** conforme exigido pelo Synapse.
 
 Estas propriedades são suportadas para um serviço ligado ao armazenamento Azure Blob:
 
@@ -330,7 +330,7 @@ As seguintes propriedades são suportadas para armazenamento Azure Blob `locatio
 
 | Propriedade   | Descrição                                                  | Obrigatório |
 | ---------- | ------------------------------------------------------------ | -------- |
-| tipo       | A **type** propriedade tipo da localização no conjunto de dados deve ser definida para **AzureBlobStorageLocation**. | Sim      |
+| tipo       | A  propriedade tipo da localização no conjunto de dados deve ser definida para **AzureBlobStorageLocation**. | Sim      |
 | contentor  | O recipiente da bolha.                                          | Sim      |
 | folderPath | O caminho para a pasta sob o recipiente dado. Se pretender utilizar um wildcard para filtrar a pasta, ignore esta definição e especifique-a nas definições de origem da atividade. | Não       |
 | fileName   | O nome do ficheiro sob o caminho do recipiente e da pasta. Se pretender utilizar o wildcard para filtrar ficheiros, ignore esta definição e especifique-a nas definições de fonte de atividade. | Não       |

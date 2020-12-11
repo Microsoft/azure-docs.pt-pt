@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/06/2020
+ms.date: 12/10/2020
 ms.author: rolyon
-ms.openlocfilehash: ad0ba3c63f6f0ef6e7e02051031cf215c2e72cce
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 92b27690ab1f2ca8d98eb2231c5a27bc508613f8
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648247"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095428"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transfira uma subscrição do Azure para um diretório AD Azure diferente
 
@@ -53,7 +53,12 @@ Seguem-se algumas razões pelas quais poderá querer transferir uma subscrição
 - Uma parte do seu negócio foi dividida numa empresa separada e precisa de transferir alguns dos seus recursos para um diretório AD Azure diferente.
 - Você quer gerir alguns dos seus recursos em um diretório AD Azure diferente para fins de isolamento de segurança.
 
-A transferência de uma subscrição requer tempo de inatividade para concluir o processo. Dependendo do seu cenário, talvez seja melhor recriar os recursos e copiar dados para o diretório e subscrição de destino.
+### <a name="alternate-approaches"></a>Abordagens alternativas
+
+A transferência de uma subscrição requer tempo de inatividade para concluir o processo. Dependendo do seu cenário, pode considerar as seguintes abordagens alternativas:
+
+- Re-crie os recursos e copie os dados para o diretório e subscrição alvo.
+- Adotar uma arquitetura multi-directório e deixar a subscrição no diretório de origem. Utilize o Farol Azure para delegar recursos para que os utilizadores no directório-alvo possam aceder à subscrição no diretório de origem. Para mais informações, consulte [o Farol Azure em cenários empresariais.](../lighthouse/concepts/enterprise.md)
 
 ### <a name="understand-the-impact-of-transferring-a-subscription"></a>Compreender o impacto da transferência de uma subscrição
 
@@ -364,9 +369,9 @@ Esta secção descreve os passos básicos para atualizar os cofres das chaves. P
 
 Mesmo que as atribuições de funções sejam removidas durante a transferência, os utilizadores na conta original do proprietário podem continuar a ter acesso à subscrição através de outros métodos de segurança, incluindo:
 
-- As chaves de acesso para serviços, como o Armazenamento.
+- Chaves de acesso dos serviços como o Armazenamento.
 - [Certificados de gestão](../cloud-services/cloud-services-certs-create.md) que concedem ao administrador do utilizador acesso aos recursos de subscrição.
-- As credenciais de Acesso Remoto para serviços, como as Máquinas Virtuais do Azure.
+- Credenciais de Acesso Remoto dos serviços como máquinas virtuais do Azure.
 
 Se a sua intenção é remover o acesso dos utilizadores no diretório de origem para que não tenham acesso no directório-alvo, deve considerar a rotação de quaisquer credenciais. Até que as credenciais sejam atualizadas, os utilizadores continuarão a ter acesso após a transferência.
 
@@ -378,8 +383,9 @@ Se a sua intenção é remover o acesso dos utilizadores no diretório de origem
 
 1. Para os recursos que utilizam certificados, atualize o certificado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Transferir a propriedade de faturação de uma subscrição do Azure para outra conta](../cost-management-billing/manage/billing-subscription-transfer.md)
 - [Transferir subscrições do Azure entre subscritores e CSPs](../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md)
 - [Associar ou adicionar uma subscrição do Azure ao inquilino do Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Azure Lighthouse em cenários empresariais](../lighthouse/concepts/enterprise.md)

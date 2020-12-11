@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 11/24/2020
-ms.openlocfilehash: c436d75384c527ba7666cd2e6e780b9d8a93eae2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1c0ed7cf38cc01623169216ec45e88d198ede3d2
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003956"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095088"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Atividade do Fluxo de Dados na Fábrica de Dados Azure
 
@@ -61,7 +61,7 @@ fluxo de dados | A referência ao Fluxo de Dados a ser executado | DataFlowRefer
 integraçãoRuntime | O ambiente computacional em que o fluxo de dados funciona. Se não for especificado, será utilizado o tempo de funcionamento da integração Azure de resolução automática. | IntegraçãoReferiaruntimeReference | Não
 compute.coreCount | O número de núcleos usados no aglomerado de faíscas. Só pode ser especificado se for utilizado o tempo de funcionamento da integração Azure de resolução automática | 8, 16, 32, 48, 80, 144, 272 | Não
 compute.computeType | O tipo de computação usada no aglomerado de faíscas. Só pode ser especificado se for utilizado o tempo de funcionamento da integração Azure de resolução automática | "Geral", "ComputeOptimizado", "MemoryOptimed" | Não
-staging.linkedService | Se estiver a utilizar uma fonte ou pia Azure Synapse Analytics, especifique a conta de armazenamento utilizada para a paragem da PolyBase.<br/><br/>Se o seu Azure Storage estiver configurado com o ponto final do serviço VNet, deve utilizar a autenticação de identidade gerida com "permitir um serviço Microsoft confiável" ativado na conta de armazenamento, consulte o [Impacto da utilização de Pontos Finais do Serviço VNet com armazenamento Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Aprenda também as configurações necessárias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake Storage Gen2,](connector-azure-data-lake-storage.md#managed-identity) respectivamente.<br/> | LinkedServiceReference | Só se o fluxo de dados ler ou escrever para um Azure Synapse Analytics
+staging.linkedService | Se estiver a utilizar uma fonte ou pia Azure Synapse Analytics, especifique a conta de armazenamento utilizada para a paragem da PolyBase.<br/><br/>Se o seu Azure Storage estiver configurado com o ponto final do serviço VNet, deve utilizar a autenticação de identidade gerida com "permitir um serviço Microsoft confiável" ativado na conta de armazenamento, consulte o [Impacto da utilização de Pontos Finais do Serviço VNet com armazenamento Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Aprenda também as configurações necessárias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake Storage Gen2,](connector-azure-data-lake-storage.md#managed-identity) respectivamente.<br/> | LinkedServiceReference | Só se o fluxo de dados ler ou escrever para um Azure Synapse Analytics
 staging.folderPath | Se estiver a utilizar uma fonte ou pia Azure Synapse Analytics, o caminho da pasta na conta de armazenamento de bolhas utilizada para a paragem da PolyBase | String | Só se o fluxo de dados ler ou escrever para a Azure Synapse Analytics
 traceLevel | Definir o nível de registo da execução da atividade do fluxo de dados | Tudo bem, grosseiro, nenhum | Não
 
@@ -88,7 +88,7 @@ Para execuções de gasodutos, o cluster é um cluster de trabalho, que leva vá
 
 ### <a name="polybase"></a>PolyBase
 
-Se estiver a utilizar um Azure Synapse Analytics (anteriormente SQL Data Warehouse) como pia ou fonte, deve escolher um local de preparação para a sua carga de lote PolyBase. A PolyBase permite o carregamento de lotes a granel em vez de carregar os dados linha a linha. A PolyBase reduz drasticamente o tempo de carga para a Azure Synapse Analytics.
+Se estiver a utilizar um Azure Synapse Analytics como pia ou fonte, deve escolher um local de preparação para a carga do seu lote PolyBase. A PolyBase permite o carregamento de lotes a granel em vez de carregar os dados linha a linha. A PolyBase reduz drasticamente o tempo de carga para a Azure Synapse Analytics.
 
 ## <a name="logging-level"></a>Nível de registo
 

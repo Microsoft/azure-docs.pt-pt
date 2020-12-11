@@ -944,8 +944,6 @@
               href: ../disks-enable-ultra-ssd.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Criar um disco de referência
               href: disks-benchmarks.md
-            - name: Otimizar o desempenho
-              href: optimization.md
         - name: Localizar discos desanexados - CLI
           href: find-unattached-disks.md
         - name: Localizar discos desanexados - Portal

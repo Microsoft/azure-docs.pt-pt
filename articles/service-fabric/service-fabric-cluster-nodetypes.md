@@ -4,16 +4,16 @@ description: Saiba como os tipos de nós de tecido de serviço Azure se relacion
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
-ms.openlocfilehash: 7df7ed9fa1f872cd9554dcf4c8880b7c9d5e53c4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 9e30c02de54806006a1881448bcb9f788a57310c
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576405"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095258"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nó de nó de tecido de serviço Azure e conjuntos de escala de máquina virtual
 
-[Os conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/index.yml) são um recurso de computação Azure. Pode utilizar conjuntos de escala para implantar e gerir uma coleção de máquinas virtuais como conjunto. Cada tipo de nó que define num cluster de tecido de serviço Azure configura exatamente um conjunto de escala: vários tipos de nós não podem ser apoiados pelo mesmo conjunto de escala e um tipo de nó não deve (na maioria dos casos) ser apoiado por conjuntos de várias escalas. Uma exceção a isso encontra-se na rara situação de [escalonamento vertical](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) de um tipo de nó, quando você temporariamente tem dois conjuntos de escala com o mesmo `nodeTypeRef` valor enquanto as réplicas são migradas do original para o conjunto de escala atualizado.
+[Os conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/index.yml) são um recurso de computação Azure. Pode utilizar conjuntos de escala para implantar e gerir uma coleção de máquinas virtuais como conjunto. Cada tipo de nó que define num cluster de tecido de serviço Azure configura exatamente um conjunto de escala: vários tipos de nós não podem ser apoiados pelo mesmo conjunto de escala e um tipo de nó não deve ser apoiado por conjuntos de escala múltipla.
 
 O tempo de funcionamento do Tecido de Serviço é instalado em cada máquina virtual na escala definida pela extensão da Máquina Virtual *Microsoft.Azure.ServiceFabric.* Pode escalar independentemente cada tipo de nó para cima ou para baixo, alterar o SISTEMA SKU funcionando em cada nó de cluster, ter diferentes conjuntos de portas abertas e usar diferentes métricas de capacidade.
 

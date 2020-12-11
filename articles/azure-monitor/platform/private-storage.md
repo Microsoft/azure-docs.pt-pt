@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: f424a2c3102f7b270a64c612a91d645ab71461fc
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f221237bee441ec78d726dabf476d1085a27071d
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184098"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095309"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Utilização de contas de armazenamento geridas pelo cliente no Azure Monitor Log Analytics
 
@@ -22,7 +22,7 @@ O Log Analytics conta com o Azure Storage em vários cenários. Esta utilizaçã
 
 ## <a name="ingesting-azure-diagnostics-extension-logs-wadlad"></a>Ingerir registos de extensão de Diagnóstico Azure (WAD/LAD)
 Os agentes de extensão Azure Diagnostics (também chamados WAD e LAD para agentes Windows e Linux, respectivamente) recolhem vários registos do sistema operativo e armazenam-nos numa conta de armazenamento gerida pelo cliente. Em seguida, pode ingerir estes registos no Log Analytics para analisá-los e analisá-los.
-Como recolher registos de extensão Azure Diagnostics da sua conta de armazenamento Conecte a conta de armazenamento ao seu espaço de trabalho Log Analytics como fonte de dados de armazenamento utilizando [o portal Azure](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) ou ligando para a [API de Insights de Armazenamento](/rest/api/loganalytics/connectedsources/storage%20insights/createorupdate).
+Como recolher registos de extensão Azure Diagnostics da sua conta de armazenamento Conecte a conta de armazenamento ao seu espaço de trabalho Log Analytics como fonte de dados de armazenamento utilizando [o portal Azure](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) ou ligando para a [API de Insights de Armazenamento](/rest/api/loganalytics/storage%20insights/createorupdate).
 
 Tipos de dados suportados:
 * Syslog

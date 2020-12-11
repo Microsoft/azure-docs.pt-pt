@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 0e2e09bc72991330ccdec7a35400460cbeba26fc
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 0e3ba9aa4eac30c3387bdf6c2890a1172ebef544
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327037"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094731"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Gatilho da grelha de eventos Azure para funções Azure
 
@@ -128,78 +128,6 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-O exemplo a seguir mostra uma ligação do gatilho numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação.
-
-Aqui estão os dados vinculativos do *function.jsarquivado:*
-
-```json
-{
-  "bindings": [
-    {
-      "type": "eventGridTrigger",
-      "name": "eventGridEvent",
-      "direction": "in"
-    }
-  ],
-  "disabled": false
-}
-```
-
-Aqui está o código JavaScript:
-
-```javascript
-module.exports = function (context, eventGridEvent) {
-    context.log("JavaScript Event Grid function processed a request.");
-    context.log("Subject: " + eventGridEvent.subject);
-    context.log("Time: " + eventGridEvent.eventTime);
-    context.log("Data: " + JSON.stringify(eventGridEvent.data));
-    context.done();
-};
-```
-
-# <a name="python"></a>[Python](#tab/python)
-
-O exemplo a seguir mostra uma ligação do gatilho numa *function.jsem* ficheiro e uma [função Python](functions-reference-python.md) que utiliza a ligação.
-
-Aqui estão os dados vinculativos do *function.jsarquivado:*
-
-```json
-{
-  "bindings": [
-    {
-      "type": "eventGridTrigger",
-      "name": "event",
-      "direction": "in"
-    }
-  ],
-  "disabled": false,
-  "scriptFile": "__init__.py"
-}
-```
-
-Aqui está o código Python:
-
-```python
-import json
-import logging
-
-import azure.functions as func
-
-def main(event: func.EventGridEvent):
-
-    result = json.dumps({
-        'id': event.id,
-        'data': event.get_json(),
-        'topic': event.topic,
-        'subject': event.subject,
-        'event_type': event.event_type,
-    })
-
-    logging.info('Python EventGrid trigger processed an event: %s', result)
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 Esta secção contém os seguintes exemplos:
@@ -265,6 +193,103 @@ public class EventSchema {
 
 Na biblioteca de [funções Java,](/java/api/overview/azure/functions/runtime)utilize a `EventGridTrigger` anotação em parâmetros cujo valor viria do EventGrid. Parâmetros com estas anotações fazem com que a função funcione quando um evento chega.  Esta anotação pode ser usada com tipos nativos de Java, POJOs ou valores anulados usando `Optional<T>` .
 
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+O exemplo a seguir mostra uma ligação do gatilho numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação.
+
+Aqui estão os dados vinculativos do *function.jsarquivado:*
+
+```json
+{
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "eventGridEvent",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Aqui está o código JavaScript:
+
+```javascript
+module.exports = function (context, eventGridEvent) {
+    context.log("JavaScript Event Grid function processed a request.");
+    context.log("Subject: " + eventGridEvent.subject);
+    context.log("Time: " + eventGridEvent.eventTime);
+    context.log("Data: " + JSON.stringify(eventGridEvent.data));
+    context.done();
+};
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+O exemplo a seguir mostra como configurar uma ligação de gatilho de rede de eventos no *function.jsficheiro.*
+
+```powershell
+{
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "eventGridEvent",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+O evento Event Grid é disponibilizado à função através de um parâmetro denominado `eventGridEvent` , como mostrado no exemplo powerShell seguinte.
+
+```powershell
+param($eventGridEvent, $TriggerMetadata)
+
+# Make sure to pass hashtables to Out-String so they're logged correctly
+$eventGridEvent | Out-String | Write-Host
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+O exemplo a seguir mostra uma ligação do gatilho numa *function.jsem* ficheiro e uma [função Python](functions-reference-python.md) que utiliza a ligação.
+
+Aqui estão os dados vinculativos do *function.jsarquivado:*
+
+```json
+{
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "event",
+      "direction": "in"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "__init__.py"
+}
+```
+
+Aqui está o código Python:
+
+```python
+import json
+import logging
+
+import azure.functions as func
+
+def main(event: func.EventGridEvent):
+
+    result = json.dumps({
+        'id': event.id,
+        'data': event.get_json(),
+        'topic': event.topic,
+        'subject': event.subject,
+        'event_type': event.event_type,
+    })
+
+    logging.info('Python EventGrid trigger processed an event: %s', result)
+```
+
 ---
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
@@ -289,17 +314,21 @@ Para um exemplo completo, consulte o exemplo C#.
 
 Os atributos não são suportados pelo Script C#.
 
+# <a name="java"></a>[Java](#tab/java)
+
+A anotação [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) permite-lhe configurar declarativamente uma ligação de Grade de Eventos, fornecendo valores de configuração. Consulte as secções [de exemplo](#example) e [configuração](#configuration) para obter mais detalhes.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Os atributos não são suportados pelo JavaScript.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Os atributos não são suportados pela PowerShell.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Os atributos não são suportados pela Python.
-
-# <a name="java"></a>[Java](#tab/java)
-
-A anotação [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) permite-lhe configurar declarativamente uma ligação de Grade de Eventos, fornecendo valores de configuração. Consulte as secções [de exemplo](#example) e [configuração](#configuration) para obter mais detalhes.
 
 ---
 
@@ -343,17 +372,21 @@ Nas Funções Azure 2.x e superior, também tem a opção de utilizar o seguinte
 > [!NOTE]
 > Em Funções v1 se tentar ligar-se, `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent` o compilador apresentará uma mensagem "depreciada" e aconselhará-o a `Microsoft.Azure.EventGrid.Models.EventGridEvent` utilizar. Para utilizar o tipo mais recente, consulte o pacote [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet e qualifique totalmente o nome do `EventGridEvent` tipo, pré-fixando-o com `Microsoft.Azure.EventGrid.Models` . Para obter informações sobre como referenciar pacotes NuGet numa função de script C#, consulte [usando pacotes NuGet](functions-reference-csharp.md#using-nuget-packages)
 
+# <a name="java"></a>[Java](#tab/java)
+
+A instância do evento Event Grid está disponível através do parâmetro associado ao `EventGridTrigger` atributo, dactilografado como `EventSchema` um . Veja o [exemplo](#example) para mais detalhes.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+A instância 'Grade de Evento' está disponível através do parâmetro configurado no *function.jsna* propriedade do `name` ficheiro.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 A instância 'Grade de Evento' está disponível através do parâmetro configurado no *function.jsna* propriedade do `name` ficheiro.
 
 # <a name="python"></a>[Python](#tab/python)
 
 A instância da Grade de Eventos está disponível através do parâmetro configurado no *function.jsna* propriedade do `name` ficheiro, dactilografado como `func.EventGridEvent` .
-
-# <a name="java"></a>[Java](#tab/java)
-
-A instância do evento Event Grid está disponível através do parâmetro associado ao `EventGridTrigger` atributo, dactilografado como `EventSchema` um . Veja o [exemplo](#example) para mais detalhes.
 
 ---
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: fd773ade0173fc1c238a5ce44e864e1255ed9044
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 9b5b20de1b86eae72de54b3f2c1cf37074fba144
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920644"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095173"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ações no portal do Azure
 Um grupo de ação é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure. Os alertas Azure Monitor e Service Health utilizam grupos de ação para notificar os utilizadores de que foi desencadeado um alerta. Vários alertas podem utilizar o mesmo grupo de ação ou diferentes grupos de ação, dependendo dos requisitos do utilizador. 
@@ -251,8 +251,46 @@ Pode ter um número limitado de ações de SMS num Grupo de Ação.
 
 Os preços dos países/regiões apoiados constam da página de preços do [Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
-**Lista de países onde a notificação por SMS é suportada** 
-| Código do **País**  |  **Nome do** País [ 61 ] Austrália [ 43 ] Áustria [ 32 ] Bélgica [ 55 ] Brasil [ 1 ] Canadá [ 56 ] Chile [ 86 ] China [ 420 ] República Checa [ 45 ] Dinamarca [ 372 ] Estónia [ 358 ] Finlândia [ 33 ] França [ 49 ] Alemanha [ 852 ] Hong Kong [ 91 ] Índia [ 353 ] Irlanda [ 972 ] Israel [ 39 ] Itália [ 81 ] Japão [ 352 ] Luxemburgo / 60 ! Malásia [ 52 ] México [ 31 ] Holanda [ 64 ] Nova Zelândia [ 47 ] Noruega [ 351 ] Portugal [ 1 ] Porto Rico [ 40 ] Roménia / 65 Singapura [ 27 ] África do Sul [ 82 ] Coreia do Sul Espanha [ 41 ] Suíça [ 886 ] Taiwan [ 44 ]  Reino Unido [ 1 ] Estados Unidos da Estado
+**Lista de países onde a notificação por SMS é suportada**
+
+| Código do País | Nome do País |
+|:---|:---|
+| 61 | Austrália |
+| 43 | Áustria |
+| 32 | Bélgica |
+| 55 | Brasil |
+| 1 |Canadá |
+| 56 | Chile |
+| 86 | China |
+| 420 | República Checa |
+| 45 | Dinamarca |
+| 372 | Estónia |
+| 358 | Finlândia |
+| 33 | França |
+| 49 | Alemanha |
+| 852 | RAE de Hong Kong |
+| 91 | Índia |
+| 353 | Irlanda |
+| 972 | Israel |
+| 39 | Itália |
+| 81 | Japão |
+| 352 | Luxemburgo |
+| 60 | Malásia |
+| 52 | México |
+| 31 | Países Baixos |
+| 64 | Nova Zelândia |
+| 47 | Noruega |
+| 351 | Portugal |
+| 1 | Porto Rico |
+| 40 | Roménia |
+| 65 | Singapura |
+| 27 | África do Sul |
+| 82 | Coreia do Sul |
+| 34 | Espanha |
+| 41 | Suíça |
+| 886 | Taiwan |
+| 44 | Reino Unido |
+| 1 | Estados Unidos da América |
 
 ### <a name="voice"></a>Voz
 Consulte o artigo [de informação limitativo](./alerts-rate-limiting.md) da taxa para um comportamento adicional importante.

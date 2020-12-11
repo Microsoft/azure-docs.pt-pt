@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 96cd460ddfea863eb27a1087ff59f3b87acf65d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41cfff11e44a3d052614aa3c81a4623f59bbbbf5
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531309"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095292"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planeamento e dimensionamento de capacidades para o tecido de serviço Azure
 
@@ -50,21 +50,11 @@ A utilização de escalas automáticas através de conjuntos de escala de máqui
 > [!NOTE]
 > O seu tipo de nó primário que acolhe serviços de sistema stateful Service Fabric deve ser o nível de durabilidade prateada ou maior. Depois de ativar a durabilidade da Prata, as operações de cluster, tais como upgrades, adição ou remoção de nós, e assim por diante serão mais lentas porque o sistema otimiza para a segurança de dados em relação à velocidade das operações.
 
-Escalar verticalmente um conjunto de escala de máquina virtual é uma operação destrutiva. Em vez disso, dimensione horizontalmente o seu cluster adicionando um conjunto de escala nova com o SKU desejado. Em seguida, emigre os seus serviços para o seu SKU desejado para completar uma operação de escala vertical segura. Alterar um recurso de conjunto de escala de máquina virtual SKU é uma operação destrutiva porque reimagema os seus anfitriões, que remove todo o estado persistido localmente.
+Escalar verticalmente uma escala de máquina virtual definida simplesmente alterando o seu recurso SKU é uma operação destrutiva, porque re-imagens seus anfitriões, removendo assim todo o estado persistido localmente. Em vez disso, você vai querer escalar horizontalmente o seu cluster adicionando um conjunto de nova escala com o SKU desejado e, em seguida, migrar os seus serviços para a nova escala definida para completar uma operação de escala vertical segura.
 
-O seu cluster utiliza propriedades de nó de nó de tecido de serviço [e restrições de colocação](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) para decidir onde hospedar os serviços da sua aplicação. Quando estiver a escalonar verticalmente o seu tipo de nó primário, declare valores de propriedade idênticos para `"nodeTypeRef"` . Pode encontrar estes valores na extensão do Tecido de Serviço para conjuntos de escala de máquina virtual. 
-
-O seguinte corte de um modelo de Gestor de Recursos mostra as propriedades que vai declarar. Tem o mesmo valor para os conjuntos de escala recém-a provisionados a que está a escalonar, e é suportado apenas como um serviço temporário estatal para o seu cluster.
-
-```json
-"settings": {
-   "nodeTypeRef": ["[parameters('primaryNodetypeName')]"]
-}
-```
+O seu cluster utiliza propriedades de nó de nó de tecido de serviço [e restrições de colocação](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) para decidir onde hospedar os serviços da sua aplicação. Ao escalar verticalmente um tipo de nó primário, irá implantar um segundo tipo de nó primário e, em seguida, definir `"isPrimary": false` () no tipo de nó primário original e proceder para desativar os seus nós e remover o seu conjunto de escala e os seus recursos relacionados. Para mais detalhes, consulte [Escalar um tipo de nó primário de cluster de tecido de serviço](service-fabric-scale-up-primary-node-type.md).
 
 > [!NOTE]
-> Não deixe o seu cluster em funcionamento com conjuntos de várias escalas que usam o mesmo `nodeTypeRef` valor de propriedade por mais tempo do que o necessário para completar uma operação de escala vertical bem sucedida.
->
 > Valide sempre as operações em ambientes de teste antes de tentar alterações no ambiente de produção. Por predefinição, os serviços de sistema de cluster de tecido de serviço têm uma restrição de colocação apenas para o tipo de nó primário alvo.
 
 Com as propriedades do nó e os constrangimentos de colocação declarados, faça os seguintes passos uma instância VM de cada vez. Isto permite que os serviços de sistema (e os seus serviços imponentes) sejam encerrados graciosamente no caso VM que está a remover à medida que novas réplicas são criadas em outros lugares.

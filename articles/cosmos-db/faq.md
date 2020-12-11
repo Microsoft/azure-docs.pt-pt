@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 9e0c5ae119b734f91e8cfa1e7afb11a96e13035c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 2e4ff4d9159947ea87f97d56f3fb9c2825698227
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549077"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095071"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas mais frequentes sobre as diferentes APIs no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -41,7 +41,7 @@ Cada API opera de forma independente, com exceção da API Gremlin e SQL, que s�
 
 ### <a name="is-azure-cosmos-db-hipaa-compliant"></a>A Azure Cosmos DB HIPAA está em conformidade?
 
-Sim, a Azure Cosmos DB é compatível com a HIPAA. A HIPAA estabelece requisitos para a utilização, divulgação e salvaguarda das informações médicas pessoalmente identificáveis. Para obter mais informações, consulte o [Centro de Fidedignidade da Microsoft](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
+Sim, a Azure Cosmos DB é compatível com a HIPAA. A HIPAA estabelece requisitos para a utilização, divulgação e salvaguarda das informações médicas pessoalmente identificáveis. Para obter mais informações, consulte o [Centro de Fidedignidade da Microsoft](/compliance/regulatory/offering-hipaa-hitech).
 
 ### <a name="what-are-the-storage-limits-of-azure-cosmos-db"></a>Quais são os limites de armazenamento da Azure Cosmos DB?
 
@@ -105,7 +105,7 @@ AZure Cosmos DB está disponível no portal Azure. Primeiro, inscreva-se para um
 
 ### <a name="what-is-a-primary-key"></a>O que é uma chave primária?
 
-Uma chave primária é um sinal de segurança para aceder a todos os recursos para uma conta. Os indivíduos com a chave leram e escreveram acesso a todos os recursos na conta de base de dados. Tenha cuidado quando distribuir as teclas primárias. A chave primária primária primária e a chave primária secundária estão disponíveis na lâmina de **Chaves** do [portal Azure][azure-portal]. Para mais informações sobre chaves, consulte [Ver, copiar e voltar a gerar chaves de acesso](manage-with-cli.md#list-account-keys).
+Uma chave primária é um sinal de segurança para aceder a todos os recursos para uma conta. Os indivíduos com a chave leram e escreveram acesso a todos os recursos na conta de base de dados. Tenha cuidado quando distribuir as teclas primárias. A chave primária e a chave primária secundária estão disponíveis na lâmina de **Chaves** do [portal Azure][azure-portal]. Para mais informações sobre chaves, consulte [Ver, copiar e voltar a gerar chaves de acesso](manage-with-cli.md#list-account-keys).
 
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>Quais são as regiões que as PreferênciasLocações podem definir?
 

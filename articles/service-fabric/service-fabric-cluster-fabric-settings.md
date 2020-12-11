@@ -3,12 +3,12 @@ title: Alterar configurações de cluster de tecido de serviço Azure
 description: Este artigo descreve as definições de tecido e as políticas de upgrade de tecido que pode personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 1f16e89dd1131f6aea64e5e72a342b3b737f3728
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c055ad1dad8b9574c8d811284a34619ee3648a10
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187226"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095275"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizar as definições do cluster do Service Fabric
 Este artigo descreve as várias definições de tecido para o seu cluster de Tecido de Serviço que pode personalizar. Para os clusters alojados no Azure, pode personalizar as definições através do [portal Azure](https://portal.azure.com) ou utilizando um modelo de Gestor de Recursos Azure. Para obter mais informações, consulte [atualizar a configuração de um cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personaliza as definições atualizando o *ClusterConfig.jsno* ficheiro e executando uma atualização de configuração no seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -857,7 +857,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 
 | **Parâmetro** | **Valores Permitidos** | **Política de Upgrade** | **Orientação ou Breve Descrição** |
 | --- | --- | --- | --- |
-|Nível |Int, o padrão é 4 | Dinâmica |O nível de etw pode levar os valores 1, 2, 3, 4. Para ser apoiado deve manter o nível de rastreada em 4 |
+|Level |Int, o padrão é 4 | Dinâmica |O nível de etw pode levar os valores 1, 2, 3, 4. Para ser apoiado deve manter o nível de rastreada em 4 |
 
 ## <a name="transactionalreplicator"></a>TransatoAlReplicador
 
@@ -877,7 +877,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 | --- | --- | --- | --- |
 |ConnectionOpenTimeout|TimeSpan, o padrão é Comum::TimeSpan::FromSeconds(60)|Estático|Especifique a timepan em segundos. Tempo de saída para a configuração da ligação tanto no lado de entrada como aceitação (incluindo negociação de segurança em modo seguro) |
 |FrameHeaderErrorCheckingEnabled|bool, o padrão é VERDADEIRO|Estático|Definição predefinição para verificação de erros no cabeçalho do quadro no modo não seguro; a definição de componentes substitui isto. |
-|MessageErrorCheckingEnabled|bool,padrão é FALSO|Estático|Definição predefinição para verificação de erros no cabeçalho de mensagem e no corpo no modo não seguro; a definição de componentes substitui isto. |
+|MessageErrorCheckingEnabled|bool,padrão é VERDADEIRO|Estático|Definição predefinição para verificação de erros no cabeçalho de mensagem e no corpo no modo não seguro; a definição de componentes substitui isto. |
 |ResolveOption|cadeia, o padrão é "não especificado"|Estático|Determina como o FQDN é resolvido.  Os valores válidos são "não especificados/ipv4/ipv6". |
 |SendTimeout|TimeSpan, o padrão é Comum::TimeSpan::FromSeconds(300)|Dinâmica|Especifique a timepan em segundos. Envie um tempo para detetar a ligação presa. Os relatórios de falhas da TCP não são fiáveis em algum ambiente. Isto pode ter de ser ajustado de acordo com a largura de banda de rede disponível e o tamanho dos dados de saída \* (MaxMessageSize \/ \* SendQueueSizeLimit). |
 

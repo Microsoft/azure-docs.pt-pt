@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 129534727248ff05b5d38da60dead7903d9a5815
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 22103ad580fa474f44eaf42c696d19bbbd137c8e
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744470"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095105"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Dados DB de consulta Azure Cosmos com uma piscina SQL sem servidor em Azure Synapse Link Preview
 
@@ -31,7 +31,7 @@ Neste artigo, você aprenderá a escrever uma consulta com uma piscina SQL sem s
 > [!IMPORTANT]
 > Este tutorial usa um recipiente com um [esquema bem definido da Azure Cosmos.](../../cosmos-db/analytical-store-introduction.md#schema-representation) A experiência de consulta que a piscina SQL sem servidor proporciona um [esquema de fidelidade completa Azure Cosmos DB](#full-fidelity-schema) é um comportamento temporário que mudará com base no feedback de pré-visualização. Não confie no esquema de definição de resultados da `OPENROWSET` função sem a `WITH` cláusula que lê dados de um recipiente com um esquema de fidelidade completo porque a experiência de consulta pode estar alinhada e mudar com base no esquema bem definido. Pode publicar o seu feedback no [fórum de feedback Azure Synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics). Também pode contactar a equipa de [produtos Azure Synapse Link](mailto:cosmosdbsynapselink@microsoft.com) para fornecer feedback.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O pool SQL sem servidor permite-lhe consultar o armazenamento analítico Azure Cosmos DB utilizando `OPENROWSET` a função. 
 - `OPENROWSET` com chave em linha. Esta sintaxe pode ser usada para consultar coleções DB Azure Cosmos sem necessidade de preparar credenciais.
@@ -222,7 +222,7 @@ FROM OPENROWSET(
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
-Não utilize `OPENROWSET` sem esquemas explicitamente definidos porque pode ter impacto no seu desempenho. Certifique-se de que utiliza os tamanhos mais pequenos possíveis para as suas colunas (por exemplo VARCHAR(100) em vez de VARCHAR predefinido (8000)). Deve utilizar uma colagem UTF-8 como colagem de base de dados predefinida ou defini-la como uma combinação explícita de colunas para evitar a [emissão de conversão UTF-8](/troubleshoot/reading-utf8-text). A colisão `Latin1_General_100_BIN2_UTF8` proporciona o melhor desempenho quando os dados do filtro yu utilizam algumas colunas de cordas.
+Não utilize `OPENROWSET` sem esquemas explicitamente definidos porque pode ter impacto no seu desempenho. Certifique-se de que utiliza os tamanhos mais pequenos possíveis para as suas colunas (por exemplo VARCHAR(100) em vez de VARCHAR predefinido (8000)). Deve utilizar uma colagem UTF-8 como colagem de base de dados predefinida ou defini-la como uma combinação explícita de colunas para evitar a [emissão de conversão UTF-8](/azure/synapse-analytics/troubleshoot/reading-utf8-text). A colisão `Latin1_General_100_BIN2_UTF8` proporciona o melhor desempenho quando os dados do filtro yu utilizam algumas colunas de cordas.
 
 ## <a name="query-nested-objects-and-arrays"></a>Consulta objetos aninhados e matrizes
 
@@ -338,7 +338,7 @@ As contas DB da Azure Cosmos de SQL (Core) suportam tipos de propriedade JSON de
 | Booleano | bit |
 | Número inteiro | bigint |
 | Decimal | float |
-| Cadeia | varchar (colagem de base de dados UTF-8) |
+| String | varchar (colagem de base de dados UTF-8) |
 | Data (cadeia formatada pela ISO) | varchar(30) |
 | Data (relógio UNIX) | bigint |
 | Nulo | `any SQL type` 

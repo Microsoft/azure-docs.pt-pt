@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 45393f116149f6cf16763d2d7033f8425df235bf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fd33ca4c5d637e31230d8c124fdb9ec7c71d2ba7
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998852"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094850"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento Azure Blob para Funções Azure
 
@@ -322,6 +322,9 @@ O `@BlobTrigger` atributo é usado para lhe dar acesso à bolha que desencadeou 
 ## <a name="blob-name-patterns"></a>Padrões de nome de blob
 
 Pode especificar um padrão de nome blob na `path` propriedade emfunction.js *sobre* ou no construtor `BlobTrigger` de atributos. O padrão de nome pode ser um [filtro ou expressão de ligação](./functions-bindings-expressions-patterns.md). As seguintes secções dão exemplos.
+
+> [!TIP]
+> Um nome de recipiente não pode conter uma placa no padrão de nome.
 
 ### <a name="get-file-name-and-extension"></a>Obtenha nome e extensão de ficheiros
 

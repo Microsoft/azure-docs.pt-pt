@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7555a0b9d7b3336b1020e8f1d9c3445e09afc6f0
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: 6c03009b08dcf33bf4b84bc91232af96e7ba2c71
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96318226"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095190"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Tutorial para implementar F5 BIG-IP Virtual Edition VM em Azure IaaS para acesso híbrido seguro
 
@@ -44,7 +44,7 @@ A experiência ou conhecimento prévio de F5 BIG-IP não é necessário, no enta
 
 - Um certificado wildcard ou nome alternativo sujeito (SAN) para publicar aplicações web sobre Secure Socket Layer (SSL). [Vamos encriptar](https://letsencrypt.org/) oferece certificado gratuito de 90 dias para testes.
 
-- Um certificado SSL para assegurar a interface de gestão BIG-IPs. Um certificado utilizado para a publicação de aplicações web pode ser usado, se o seu assunto corresponder ao nome de domínio totalmente qualificado (FQDN) da BIG-IP. Por exemplo, um certificado wildcard definido com um assunto *.contoso.com seria adequado para https://big-ip-vm.contoso.com:8443
+- Um certificado SSL para assegurar a interface de gestão BIG-IPs. Um certificado utilizado para a publicação de aplicações web pode ser usado, se o seu assunto corresponder ao nome de domínio totalmente qualificado (FQDN) da BIG-IP. Por exemplo, um certificado wildcard definido com um assunto *.contoso.com seria adequado para `https://big-ip-vm.contoso.com:8443`
 
 A implementação de VM e os configs do sistema de base demoram cerca de 30 minutos, altura em que a sua plataforma BIG-IP estará pronta para implementar qualquer um dos cenários sha listados [aqui](f5-aad-integration.md).
 
@@ -107,14 +107,14 @@ Complete as seguintes tarefas para implantar BIG-IP VE a partir do [Mercado Azur
  |Grupo de Segurança da Rede NIC| Selecione Nenhuma se a sub-rede Azure selecionada nos passos anteriores já estiver associada a um grupo de segurança da Rede (NSG); caso contrário, selecione Básico|
  |Acelerar a rede| Desativado |
  |**Balanceamento de carga**|     |
- |Balanço de carga VM| No|
+ |Balanço de carga VM| Não|
 
 10. Selecione **Seguinte: Gestão** e preencha estas definições.
 
  |Monitorização|    Valor |
  |:---------|:-----|
  |Acompanhamento detalhado| Desativado|
- |Diagnósticos de arranque|Ativar com conta de armazenamento personalizada. Permite a ligação à interface BIG-IP Secure Shell (SSH) através da opção Consola em Série no portal Azure. Selecione qualquer conta de armazenamento Azure disponível|
+ |Diagnósticos de arranque.|Ativar com conta de armazenamento personalizada. Permite a ligação à interface BIG-IP Secure Shell (SSH) através da opção Consola em Série no portal Azure. Selecione qualquer conta de armazenamento Azure disponível|
  |**Identidade**|  |
  |Identidade gerida atribuída ao sistema|Desativado|
  |Azure Active Directory|Big-IP não suporta atualmente esta opção|
@@ -145,7 +145,7 @@ Neste arranjo, uma regra NSG permite o tráfego remoto destinado `intranet.conto
 
 ![A imagem mostra a implantação de um único nic ](./media/f5ve-deployment-plan/single-nic-deployment.png) Por padrão, os IPs privados e públicos emitidos para VMs Azure são sempre dinâmicos, pelo que provavelmente mudará em cada reinício de um VM. Evite problemas de conectividade imprevistos alterando o IP de gestão BIG-IPs para estático e faça o mesmo com os IPs secundários utilizados para a publicação de serviços.
 
-1. A partir do menu do seu VM BIG-IP, aceda ao **Networking de Definições**  >  **Networking**
+1. A partir do menu do seu VM BIG-IP, aceda ao **Networking de Definições**  >  
 
 2. Na vista de networking, selecione o link para o direito da **Interface de Rede**
 
@@ -200,7 +200,7 @@ Os passos seguintes pressupõem que a zona DE DNS do domínio público utilizado
 
 1. Se ainda não estiver aberto, expanda o menu à esquerda do portal e navegue para o seu BIG-IP-VM através da opção **Grupos de Recursos**
 
-2. A partir do menu do seu VM BIG-IP, aceda ao **Networking de Definições**  >  **Networking**
+2. A partir do menu do seu VM BIG-IP, aceda ao **Networking de Definições**  >  
 
 3. Na vista de rede BIG-IP-VMs, selecione o primeiro IP secundário a partir da lista de configuração IP drop-down e selecione o link para o seu **NIC Public IP**
 
@@ -216,7 +216,7 @@ Os passos seguintes pressupõem que a zona DE DNS do domínio público utilizado
  |:-------|:-----------|
  |Subscrição| Mesma subscrição do BIG-IP-VM|
  |Zona DNS| A zona de DNS que é autoritária para o sufixo de domínio verificado os seus websites publicados usará, por exemplo, www.contoso.com |
- |Name | O nome de anfitrião que especifica irá resolver para o IP público que está associado ao IP secundário selecionado. Certifique-se de que define os mapeamentos DNS corretos para IP. Consulte a última imagem na secção de configs de rede, por exemplo, intranet.contoso.com > 13.77.148.215|
+ |Nome | O nome de anfitrião que especifica irá resolver para o IP público que está associado ao IP secundário selecionado. Certifique-se de que define os mapeamentos DNS corretos para IP. Consulte a última imagem na secção de configs de rede, por exemplo, intranet.contoso.com > 13.77.148.215|
  | TTL | 1 |
  |Unidades TTL | Horas |
 
@@ -250,7 +250,7 @@ Por padrão, os VNets Azure e as sub-redes associadas são redes privadas que n�
  |Protocolo| TCP |
  |Ação| Permitir|
  |Prioridade|Valor disponível mais baixo entre 100 e 4096|
- |Name | Um nome descritivo, por exemplo: `BIG-IP-VM_Web_Services_80_443`|
+ |Nome | Um nome descritivo, por exemplo: `BIG-IP-VM_Web_Services_80_443`|
 
 3. **Selecione Adicionar** para comprometer as alterações e fechar o menu **de Networking.**
 
@@ -296,7 +296,7 @@ Um sistema BIG-IP deve ser ativado e a provisionado com o módulo APM antes de p
 
 4. **Selecione Aceitar** e esperar que a ativação esteja concluída, antes de selecionar **Continue**.
 
-5. Faça o login de volta e na parte inferior da página de resumo da Licença, selecione **Seguinte**. O BIG-IP irá agora apresentar uma lista de módulos que fornecem as várias funcionalidades necessárias para a SHA. Se não vir isto, a partir do separador principal aceda ao Fornecimento de Recursos **do Sistema.**  >  **Resource Provisioning**
+5. Faça o login de volta e na parte inferior da página de resumo da Licença, selecione **Seguinte**. O BIG-IP irá agora apresentar uma lista de módulos que fornecem as várias funcionalidades necessárias para a SHA. Se não vir isto, a partir do separador principal aceda ao Fornecimento de Recursos **do Sistema.**  >  
 
 6. Consulte a coluna de provisionamento para a Política de Acesso (APM)
 
@@ -306,7 +306,7 @@ Um sistema BIG-IP deve ser ativado e a provisionado com o módulo APM antes de p
 
 8. Tenha paciência e aguarde que o BIG-IP complete a iluminação das novas funcionalidades. Pode pedalar várias vezes antes de ser totalmente inicializado. 
 
-9. Quando estiver pronto **selecione Continue** e a partir do separador Sobressaí-lo **About** **Selecione Executar o utilitário de configuração**
+9. Quando estiver pronto **selecione Continue** e a partir do separador Sobressaí-lo  **Selecione Executar o utilitário de configuração**
 
 >[!IMPORTANT]
 >As licenças F5 estão limitadas a serem consumidas por uma única instância BIG-IP VE a qualquer momento. Pode haver razões para querer migrar uma licença de um caso para outro, e se isso acontecer, então certifique-se de [revogar](https://support.f5.com/csp/article/K41458656) a sua licença de julgamento no caso ativo antes de desativá-la, caso contrário a licença será permanentemente perdida.
@@ -315,13 +315,13 @@ Um sistema BIG-IP deve ser ativado e a provisionado com o módulo APM antes de p
 
 Garantir o tráfego de gestão de e para BIG-IPs web config é primordial. Configure um certificado de gestão de dispositivos para ajudar a proteger o canal web config de compromisso.
 
-1. A partir da barra de navegação à esquerda, vá para **a Gestão de** Certificados de  >  **Gestão** de  >  **Certificados** de Gestão de Certificados de Gestão  >  **de Certificados SSL SSL Certificate**  >  **Import**
+1. A partir da barra de navegação à esquerda, vá para **a Gestão de** Certificados de  >  **Gestão** de  >  **Certificados** de Gestão de Certificados de Gestão  >  **de Certificados SSL SSL Certificate**  >  
 
 2. Da lista de down down **do Tipo de Importação,** selecione **PKCS 12(IIS)** e **Escolha Ficheiro**. Localize um certificado web SSL que tenha um nome sujeito ou SAN que cubra o FQDN irá atribuir o BIG-IP-VM nos próximos passos
 
 3. Forneça a palavra-passe para o certificado e, em seguida, **selecione Import**
 
-4. A partir da barra de navegação à esquerda, vá para a Plataforma **do Sistema**  >  **Platform**
+4. A partir da barra de navegação à esquerda, vá para a Plataforma **do Sistema**  >  
 
 5. Configure o BIG-IP-VM com um nome de anfitrião totalmente qualificado e o fuso horário para o seu ambiente, seguido de **Update**
 
@@ -348,7 +348,7 @@ Existem dois tipos de perfis:
 
 Fornecendo ambos os perfis SSL do Cliente e do Servidor terão o BIG-IP pré-configurado e pronto para todos os cenários SHA.
 
-1. A partir da barra de navegação à esquerda, vá para **a Gestão de** Certificados de  >  **Gestão** de  >  **Certificados** de Gestão de Certificados de Gestão  >  **de Certificados SSL SSL Certificate**  >  **Import**
+1. A partir da barra de navegação à esquerda, vá para **a Gestão de** Certificados de  >  **Gestão** de  >  **Certificados** de Gestão de Certificados de Gestão  >  **de Certificados SSL SSL Certificate**  >  
 
 2. Da lista de down down **do Tipo de Importação,** selecione **PKCS 12(IIS)**
 
@@ -358,7 +358,7 @@ Fornecendo ambos os perfis SSL do Cliente e do Servidor terão o BIG-IP pré-con
 
 5. Forneça a **palavra-passe** para o certificado importado e, em seguida, **selecione Import**
 
-6. A partir da barra de navegação à esquerda, vá a **Perfis de Tráfego Local**  >  **Profiles**  >  **SSL**  >  **Cliente** e, em seguida, selecione **Criar**
+6. A partir da barra de navegação à esquerda, vá a **Perfis de Tráfego Local**  >    >  **SSL**  >  **Cliente** e, em seguida, selecione **Criar**
 
 7. Na página New **Client SSL Profile,** forneça um nome amigo único para o novo perfil SSL do novo cliente e certifique-se de que o perfil dos Pais está definido para **clientes**
 

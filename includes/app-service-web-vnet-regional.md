@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 963f0698b921caa413c61059ad69284c41b4f265
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 86d4eb68866e35300738a15cbd3549485c3cbafb
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999457"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97096427"
 ---
 A utilização da Integração VNet regional permite que a sua aplicação aceda:
 
@@ -96,7 +96,17 @@ As rotas do Border Gateway Protocol (BGP) também afetam o tráfego da sua aplic
 
 ### <a name="azure-dns-private-zones"></a>Zonas Privadas Azure DNS 
 
-Depois de a sua aplicação se integrar com o seu VNet, utiliza o mesmo servidor DNS com o qual o seu VNet está configurado. Pode sobrepor este comportamento na sua aplicação configurando a definição da aplicação WEBSITE_DNS_SERVER com o endereço do servidor DNS pretendido. Se tinha um servidor DNS personalizado configurado com o seu VNet mas queria que a sua aplicação usasse zonas privadas Azure DNS, deverá definir WEBSITE_DNS_SERVER com o valor 168.63.129.16. 
+Depois de a sua aplicação se integrar com o seu VNet, utiliza o mesmo servidor DNS com o qual o seu VNet está configurado. Por padrão, a sua aplicação não funcionará com as Zonas Privadas Azure DNS. Para trabalhar com as Zonas Privadas Azure DNS, tem de adicionar as seguintes definições de aplicações:
+
+
+1. WEBSITE_DNS_SERVER com o valor 168.63.129.16 1. WEBSITE_DNS_SERVER com o valor 168.63.129.16
+1. WEBSITE_VNET_ROUTE_ALL com o valor 11. WEBSITE_VNET_ROUTE_ALL com o valor 1
+
+
+Estas definições enviarão todas as suas chamadas de saída da sua app para o seu VNet, além de permitir que a sua aplicação utilize zonas privadas Azure DNS.   Estas definições enviarão todas as chamadas de saída da sua aplicação para o seu VNet. Além disso, permitirá que a app utilize o Azure DNS consultando a Zona Privada de DNS ao nível do trabalhador. Esta funcionalidade deve ser utilizada quando uma aplicação em execução estiver a aceder a uma Zona Privada de DNS.
+
+> [!NOTE]
+>Tentar adicionar um domínio personalizado a uma Aplicação Web utilizando a Zona Privada de DNS não é possível com a Integração VNET. A validação de domínio personalizado é feita ao nível do controlador, não ao nível do trabalhador, o que impede que os registos dns sejam vistos. Para utilizar um domínio personalizado a partir de uma Zona Privada de DNS, a validação teria de ser contornada usando um Gateway de Aplicações ou um Ambiente de Serviço de Aplicações ILB.
 
 ### <a name="private-endpoints"></a>Pontos finais privados
 
