@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Pausa e retomar o cálculo na piscina SQL dedicada (anteriormente SQL DW) através do portal Azure'
-description: Utilize o portal Azure para fazer uma pausa no cálculo da piscina SQL para poupar custos. Retomar o cálculo quando estiver pronto para utilizar o armazém de dados.
+title: 'Quickstart: Pausa e retomar o cálculo na piscina SQL dedicada através do portal Azure'
+description: Utilize o portal Azure para fazer uma pausa no cálculo para uma piscina SQL dedicada para economizar custos. Retomar o cálculo quando estiver pronto para utilizar o armazém de dados.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 88f6782a0f81b94977b37bd8f87bf26a0d4c8a72
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7d258243dae06461d21e9b5f0346e419f034eea9
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457695"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109702"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-via-the-azure-portal"></a>Quickstart: Pausa e retomar o cálculo na piscina SQL dedicada (anteriormente SQL DW) através do portal Azure
+# <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-via-the-azure-portal"></a>Quickstart: Pausa e retomar o cálculo na piscina SQL dedicada através do portal Azure
 
-Você pode usar o portal Azure para parar e retomar os recursos de cálculo dedicados sql (anteriormente SQL DW). Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Você pode usar o portal Azure para parar e retomar os recursos dedicados de cálculo de piscina SQL. Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -40,9 +40,8 @@ Para reduzir custos, pode parar e retomar os recursos de cálculo a pedido. Por 
 Siga estes passos para fazer uma pausa numa piscina DE SQL dedicada:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Clique **na piscina SQL (anteriormente SQL DW)** na página de navegação esquerda do portal Azure.
-2. Selecione **mySampleDataWarehouse** da **página dedicada sql pool (anteriormente SQL DW)** para abrir a piscina SQL. 
-3. Na página **mySampleDataWarehouse,** note **status** is **Online**.
+2. Navegue até você é a página **de piscina dedicada SQL** para abrir a piscina SQL. 
+3. O **Estado do** Aviso está **Online**.
 
     ![Computação online](././media/pause-and-resume-compute-portal/compute-online.png)
 
@@ -62,8 +61,7 @@ Siga estes passos para fazer uma pausa numa piscina DE SQL dedicada:
 
 Siga estes passos para retomar uma piscina SQL dedicada.
 
-1. Clique **na piscina SQL (anteriormente SQL DW)** na página esquerda do portal Azure.
-2. Selecione **mySampleDataWarehouse** a partir da página **dedicada sql pool (anteriormente SQL DW))** para abrir a página da piscina SQL. 
+1. Navegue até você é a página **de piscina dedicada SQL** para abrir a piscina SQL.
 3. Na página **mySampleDataWarehouse,** note **que o Estado** é **pausado**.
 
     ![Compute offline](././media/pause-and-resume-compute-portal/compute-offline.png)

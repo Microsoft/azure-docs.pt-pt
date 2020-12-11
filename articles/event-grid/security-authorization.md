@@ -3,12 +3,12 @@ title: Segurança e autenticação da Grelha de Eventos Azure
 description: Descreve o Azure Event Grid e respetivos conceitos.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 5a1e4af17c2f4335ed26490bfc2408c66f4aee6b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 24954ce0a0dc54a04720c0d0b495d14e950a2f71
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328730"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109594"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorizar o acesso aos recursos da Grade de Eventos
 O Azure Event Grid permite-lhe controlar o nível de acesso dado a diferentes utilizadores para fazer várias operações de **gestão,** tais como subscrições de eventos de lista, criar novas e gerar chaves. A Grade de Eventos utiliza o controlo de acesso baseado em funções Azure (Azure RBAC).
@@ -17,17 +17,18 @@ O Azure Event Grid permite-lhe controlar o nível de acesso dado a diferentes ut
 > O EventGrid não suporta o Azure RBAC para publicar eventos para tópicos ou domínios de Event Grid. Utilize uma chave ou ficha de assinatura de acesso partilhado (SAS) para autenticar clientes que publiquem eventos. Para mais informações, consulte [autenticar clientes editoriais.](security-authenticate-publishing-clients.md) 
 
 ## <a name="operation-types"></a>Tipos de operação
+Para uma lista de operação apoiada pela Azure Event Grid, execute o seguinte comando Azure CLI: 
 
-A Grade de Eventos suporta as seguintes ações:
+```azurecli-interactive
+az provider operation show --namespace Microsoft.EventGrid
+```
 
-* Microsoft.EventGrid/*/read
-* Microsoft.EventGrid/*/write
-* Microsoft.EventGrid/*/delete
+As seguintes operações devolvem informações potencialmente secretas, que são filtradas fora das operações normais de leitura. Recomenda-se que restrinja o acesso a estas operações. 
+
 * Microsoft.EventGrid/eventSubscriptions/getFullUrl/action
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-As últimas três operações devolvem informações potencialmente secretas, que são filtradas fora das operações normais de leitura. Recomenda-se que restrinja o acesso a estas operações. 
 
 ## <a name="built-in-roles"></a>Funções incorporadas
 
@@ -177,7 +178,7 @@ Pode criar funções personalizadas com [PowerShell,](../role-based-access-contr
 
 
 
-### <a name="encryption-at-rest"></a>Encriptação inativa
+### <a name="encryption-at-rest"></a>Encriptação de dados inativos
 
 Todos os eventos ou dados escritos em disco pelo serviço Desempenhado pelo Serviço de Grelha de Eventos são encriptados por uma chave gerida pela Microsoft, garantindo que está encriptada em repouso. Adicionalmente, o período máximo de tempo que os eventos ou dados retidos são de 24 horas de adesão à [política de relíndi da Grelha de Eventos.](delivery-and-retry.md) A Grelha de Eventos eliminará automaticamente todos os eventos ou dados após 24 horas, ou o tempo de vida do evento, o que for menor.
 

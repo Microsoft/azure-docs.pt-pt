@@ -3,12 +3,12 @@ title: Planeie uma implantação de cluster de tecido de serviço Azure
 description: Saiba mais sobre o planeamento e preparação para uma implantação de cluster de tecido de serviço de produção para a Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 1064e59491b7144aafade24bd50131478fe025eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9de59811397eb47809c6d71f608e43beae5bfadb
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281332"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109628"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planear e preparar uma implantação de clusters
 
@@ -89,8 +89,6 @@ Os discos EFÉMER OS não são uma característica específica do Tecido de Serv
 
 > [!NOTE]
 > As aplicações do utilizador não devem ter qualquer dependência/ficheiro/artefacto no disco os, uma vez que o disco de so seria perdido no caso de uma atualização do SISTEMA.
-> Por isso, não é recomendado utilizar [patchOrchestrationApplicationApplication](https://github.com/microsoft/Service-Fabric-POA) com discos efémeros.
->
 
 > [!NOTE]
 > Os VMSS não efémeros existentes não podem ser atualizados no local para utilizar discos efémeros.

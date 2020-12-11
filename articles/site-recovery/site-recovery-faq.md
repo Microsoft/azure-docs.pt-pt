@@ -4,12 +4,12 @@ description: Este artigo discute questões gerais populares sobre a Recuperaçã
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 3da86eead5b927a2a71d7b1a28bc5966bf5f8840
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: add5874dc828f05c7c51f0f378988c94cbd42486
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369442"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109560"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Perguntas gerais sobre o Azure Site Recovery
 
@@ -273,6 +273,9 @@ Os pontos de recuperação consistentes da aplicação são criados a partir de 
 
 Devido ao seu conteúdo extra, as fotos consistentes com aplicações são as mais envolvidas e demoram mais tempo. Recomendamos pontos de recuperação consistentes de aplicações para sistemas operativos de base de dados e aplicações como o SQL Server.
 
+>[!Note]
+>A criação de pontos de recuperação consistentes com aplicações falha na máquina do Windows, se tiver mais de 64 volumes.
+
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Qual é o impacto dos pontos de recuperação consistentes da aplicação no desempenho da aplicação?
 
 Os pontos de recuperação consistentes da aplicação captam todos os dados na memória e no processo. Como os pontos de recuperação capturam esses dados, eles requerem uma estrutura como o Serviço de Cópia Sombra de Volume no Windows para quiesce a aplicação. Se o processo de captura for frequente, pode afetar o desempenho quando a carga de trabalho já está ocupada. Não recomendamos que utilize baixa frequência para pontos de recuperação consistentes com aplicações para cargas de trabalho não-base. Mesmo para a carga de trabalho da base de dados, uma hora é suficiente.
@@ -304,7 +307,7 @@ Não, a Recuperação do Site manterá todos os seus pontos de recuperação ant
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Depois de a replicação ser ativada num VM, como posso alterar a política de replicação?
 
-Aceda às políticas **de**  >  replicação da infraestrutura do local**de recuperação do local de recuperação do local.**  >  **Replication policies** Selecione a política que pretende editar e guarde as alterações. Qualquer alteração aplicar-se-á também a todas as replicações existentes.
+Aceda às políticas **de**  >  replicação da infraestrutura do local **de recuperação do local de recuperação do local.**  >   Selecione a política que pretende editar e guarde as alterações. Qualquer alteração aplicar-se-á também a todas as replicações existentes.
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>Todos os pontos de recuperação são uma cópia completa do VM ou um diferencial?
 

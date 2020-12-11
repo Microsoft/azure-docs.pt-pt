@@ -4,12 +4,12 @@ description: Mostra como gerir grandes conjuntos de tópicos em Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 277db97211b196c9853470c2d12cc2246a4005b2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e6861e89def10eec391bf302b1ddc726b38bb98c
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330082"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109900"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gerir tópicos e publicar eventos usando domínios de eventos
 
@@ -22,12 +22,6 @@ Este artigo mostra como:
 
 Para conhecer os domínios do evento, consulte [os domínios do evento para gerir tópicos de Grelha de Eventos.](event-domains.md)
 
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
-
-## <a name="install-preview-feature"></a>Instale a função de pré-visualização
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
-
 ## <a name="create-an-event-domain"></a>Criar um domínio de evento
 
 Para gerir grandes conjuntos de tópicos, crie um domínio de evento.
@@ -35,10 +29,6 @@ Para gerir grandes conjuntos de tópicos, crie um domínio de evento.
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azurecli)
 
 ```azurecli-interactive
-# If you haven't already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid domain create \
   -g <my-resource-group> \
   --name <my-domain-name> \
@@ -47,11 +37,7 @@ az eventgrid domain create \
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
-New-AzureRmEventGridDomain `
+New-AzEventGridDomain `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain-name> `
   -Location <location>
@@ -97,7 +83,7 @@ az role assignment create \
 Os seguintes limites de comando PowerShell `alice@contoso.com` para criar e eliminar subscrições de eventos apenas no `demotopic1` tópico:
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment `
+New-AzRoleAssignment `
   -SignInName alice@contoso.com `
   -RoleDefinitionName "EventGrid EventSubscription Contributor (Preview)" `
   -Scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
@@ -126,7 +112,7 @@ az eventgrid event-subscription create \
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1" `
   -EventSubscriptionName <event-subscription> `
   -Endpoint https://contoso.azurewebsites.net/api/updates
@@ -193,7 +179,7 @@ az eventgrid domain key list \
 Para obter o ponto final de domínio com PowerShell, use
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridDomain `
+Get-AzEventGridDomain `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain>
 ```
@@ -201,13 +187,27 @@ Get-AzureRmEventGridDomain `
 Para obter as chaves de um domínio, use:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridDomainKey `
+Get-AzEventGridDomainKey `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain>
 ```
 ---
 
 E, em seguida, use o seu método favorito de fazer um HTTP POST para publicar os seus eventos no seu domínio De Grelha de Eventos.
+
+## <a name="search-lists-of-topics-or-subscriptions"></a>Listas de pesquisa de tópicos ou subscrições
+
+Para pesquisar e gerir um grande número de tópicos ou subscrições, a lista de suporte e paginação de suporte de ApIs do Event Grid.
+
+### <a name="using-cli"></a>Com a CLI
+Por exemplo, o seguinte comando lista todos os tópicos com nome que contém `mytopic` . 
+
+```azurecli-interactive
+az eventgrid topic list --odata-query "contains(name, 'mytopic')"
+```
+
+Para mais informações sobre este comando, [`az eventgrid topic list`](/cli/azure/eventgrid/topic?#az_eventgrid_topic_list) consulte. 
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

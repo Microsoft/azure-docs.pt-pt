@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: aadc8e817eb2b5de856ac73cfd010b48d0531bfc
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 9735293c182e7fe67a498529425459c13a199101
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523501"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109798"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Compreender as funções necessárias para executar tarefas comuns na Sinapse
 
@@ -58,6 +58,7 @@ O quadro abaixo lista tarefas comuns e para cada tarefa, as funções DE RBAC de
 
 >[!Note]
 >- O Administrador da Sinapse não está listado para cada tarefa, a menos que seja a única função que forneça a permissão necessária.  Um Administrador da Sinapse pode executar todas as tarefas habilitados por outras funções do RBAC da Sinapse.</br>
+>- É indicado o papel mínimo de Sinaapse RBAC.
 >- Todas as funções DE Sinaapse RBAC em qualquer âmbito fornecem-lhe permissões do Utilizador Synapse no espaço de trabalho
 >- Todas as permissões/ações do RBAC da Synapse mostradas na tabela estão pré-fixas Microsoft/Synapse/workspaces/... </br>
 
@@ -69,51 +70,50 @@ Tarefa (quero...) |Papel (preciso ser...)|Permissão/ação do RBAC de Sinapse
 |Listar piscinas SQL, piscinas Apache Spark, tempos de integração e aceder aos seus detalhes de configuração|Utilizador da Sinapse, ou|leitura|
 ||Proprietário, Colaborador ou Leitor do Azure Proprietário, Colaborador ou Leitor no espaço de trabalho|nenhum
 |Lista de serviços ligados, credenciais, pontos finais privados geridos|Utilizador da Sinapse|leitura
-**Conjuntos de SQL**||
+PISCINAS SQL|
 Crie uma piscina SQL dedicada ou uma piscina SQL sem servidor|Proprietário ou Colaborador Azure no espaço de trabalho|nenhum
 Gerir (pausa, escala ou apagar) uma piscina SQL dedicada|Proprietário ou Colaborador Azure na piscina ou espaço de trabalho SQL|nenhum
-Criar um script SQL</br>|Utilizador da Sinapse, ou </br>Proprietário ou Colaborador da Azure no espaço de trabalho, </br>*São necessárias permissões SQL adicionais para executar um script SQL*.|
+Criar um script SQL</br>|Utilizador da Sinapse, ou </br>Proprietário ou Colaborador da Azure no espaço de trabalho, </br>*São necessárias permissões SQL adicionais para executar um script SQL, publicar ou cometer alterações.*|
 Liste e abra qualquer script SQL publicado| Utilizador de Artefactos De Sinapse, Editor de Artefactos, Colaborador da Sinapse|artefactos/leitura
 Executar um script SQL em uma piscina SQL sem servidor|Permissões SQL na piscina (concedidas automaticamente a um administrador da Sinapse)|nenhum
-Executar um script SQL em uma piscina DE SQL dedicada|Requer permissões SQL na piscina|nenhum
+Executar um script SQL em uma piscina DE SQL dedicada|Permissões SQL na piscina|nenhum
 Publique um novo script SQL atualizado ou eliminado|Editor de Artefactos Da Sinapse, Colaborador da Sinapse|sqlScripts/write, delete
-Comprometa alterações a um script SQL a um git repo|Requer permissões de Git no repo|
+Comprometa alterações a um script SQL para o git repo|Requer permissões de Git no repo|
 Atribuir a Administração Ative No espaço de trabalho (através de propriedades de espaço de trabalho no Portal Azure)|Proprietário ou Colaborador Azure no espaço de trabalho |
-**Piscinas apache spark**||
+PISCINAS DE FAÍSCAS APACHE|
 Criar uma piscina Apache Spark|Proprietário ou Colaborador Azure no espaço de trabalho|
 Monitore aplicações Apache Spark| Utilizador da Sinapse|leitura
 Ver os registos para o caderno e execução de emprego |Operador de Computação De Sinapse|
 Cancele qualquer caderno ou trabalho de faísca em execução numa piscina Apache Spark|Operador de computação de sinapse na piscina Apache Spark.|bigDataPools/useCompute
-Criar um caderno ou definição de trabalho|Utilizador sinapse ou proprietário do Azure, colaborador ou leitor no espaço de trabalho</br> *Permissões adicionais são necessárias para executar, publicar ou salvar*|leitura
+Criar um caderno ou definição de trabalho|Utilizador da Sinapse, ou </br>Proprietário, Colaborador ou Leitor do Azure Proprietário, Colaborador ou Leitor no espaço de trabalho</br> *São necessárias permissões adicionais para executar, publicar ou cometer alterações*|leitura</br></br></br></br></br> 
 Listar e abrir um caderno publicado ou definição de emprego, incluindo a revisão de saídas guardadas|Utilizador de Artefactos De Sinapse, Editor de Artefactos De Sinapse, Colaborador de Sinapse no espaço de trabalho|artefactos/leitura
 Executar um caderno e rever a sua saída|Administrador de faíscas Da Sinapse Apache, Operador de Cálculo De Sinapse na piscina selecionada apache spark|bigDataPools/useCompute 
 Publicar ou excluir um caderno ou definição de emprego (incluindo saída) para o serviço|Editor de Artefactos no espaço de trabalho, Administrador de Faíscas Apache Synapse|cadernos/escrever, excluir
-Comprometer alterações a um caderno ou definição de emprego para o ramo de trabalho git|Permissões de Git|nenhum
-**Pipelines, Tempos de Integração, Fluxos de Dados, Conjuntos de Dados e Gatilhos**||
+Comprometer alterações a um caderno ou definição de emprego para o git repo|Permissões de Git|nenhum
+PIPELINES, INTEGRAÇÃO TEMPOS DE EXECUÇÃO, FLUXOS DE DADOS, DATASETS & TRIGGERS|
 Criar, atualizar ou eliminar um tempo de execução de integração|Proprietário ou Colaborador Azure no espaço de trabalho|
 Estado do tempo de funcionação da integração do monitor|Utilizador da Sinapse|ler, gasodutos/visualizaroutputs
 Revisão do gasoduto corre|Editor de Artefactos da Sinapse/Colaborador da Sinapse|ler, gasodutos/visualizaroutputs 
-Criar um pipeline |Utilizador da Sinapse </br>[**_em consideração + Utilizador Credencial De Sinapse no WorkspaceSystemIdentity_* _]</br>_Additional permissões são necessárias para publicar ou guardar*|ler, credenciais/UseSecret/ação
-Criar um fluxo de dados, conjunto de dados ou gatilho |Utilizador da Sinapse</br>*Permissões adicionais são necessárias para publicar ou salvar*|leitura
+Criar um pipeline |Utilizador da Sinapse</br>*Permissões adicionais de sinapse são necessárias para depurar, adicionar gatilhos, publicar ou cometer alterações*|leitura
+Criar um fluxo de dados ou conjunto de dados |Utilizador da Sinapse</br>*Permissões adicionais de sinapse são necessárias para publicar ou cometer alterações*|leitura
 Listar e abrir um oleoduto publicado |Utilizador de artefactos de sinapse | artefactos/leitura
 Dados do conjunto de dados de pré-visualização|Utilizador de Sinapse + Utilizador Credencial De Sinapse na WorkspaceSystemIdentity| 
 Depurar um oleoduto utilizando o tempo de funcionação padrão da integração|Utilizador de Sinapse + Utilizador Credencial De Sinapse na credencial de entidade WorkspaceSystemId|ler, </br>credenciais/usoSecret
-Criar um gatilho, incluindo o gatilho agora|Utilizador de Sinapse + Utilizador Credencial De Sinapse na WorkspaceSystemIdentity|ler, credenciais/usoTere/ação
+Crie um gatilho, incluindo o gatilho agora (requer permissão para executar o gasoduto)|Utilizador de Sinapse + Utilizador Credencial De Sinapse na WorkspaceSystemIdentity|ler, credenciais/usoTere/ação
+Executar/executar um oleoduto|Utilizador de Sinapse + Utilizador Credencial De Sinapse na WorkspaceSystemIdentity|ler, credenciais/usoTere/ação
 Copiar dados utilizando a ferramenta Dados de Cópia|Utilizador de Sinapse + Utilizador credencial de sinapse na identidade do sistema de espaço de trabalho|ler, credenciais/usoTere/ação
 Ingerir dados (usando um horário)|Autor de Sinapse + Utilizador Credencial De Sinapse na Identidade do Sistema de Espaço de Trabalho|ler, credenciais/usoTere/ação
-Publicar um novo, atualizado ou eliminado pipeline, fluxo de dados ou gatilho para o serviço|Sinapse Artifact Publisher no espaço de trabalho|gasodutos/escrever, eliminar</br>fluxos de dados escrever, excluir</br>gatilhos/escrever, eliminar
-Publicar um novo fluxo de dados, conjunto de dados atualizado ou eliminado|Editor de artefactos no espaço de trabalho|gatilhos/escrever, eliminar
-Guardar (cometer) alterações em oleodutos, fluxos de dados, conjuntos de dados, gatilhos para o repo Git |Permissões de Git|nenhum 
-**Serviços ligados**||
-Criar um serviço ligado (inclui a atribuição de uma credencial)|Utilizador da Sinapse</br>*Permissões adicionais são necessárias para executar, publicar ou salvar*|leitura
+Publique um novo, atualizado ou eliminado pipeline, fluxo de dados ou gatilho para o serviço|Sinapse Artifact Publisher no espaço de trabalho|gasodutos/escrever, eliminar</br>fluxos de dados/escrever, excluir</br>gatilhos/escrever, eliminar
+Cometer alterações em oleodutos, fluxos de dados, conjuntos de dados ou gatilhos para o repo Git |Permissões de Git|nenhum 
+SERVIÇOS LIGADOS|
+Criar um serviço ligado (inclui a atribuição de uma credencial)|Utilizador da Sinapse</br>*Permissões adicionais são necessárias para usar um serviço ligado com credenciais, ou para publicar, ou cometer alterações*|leitura
 Listar e abrir um serviço de ligação publicado|Utilizador de artefactos de sinapse|linkedServices/write, delete  
-Ligação de teste num serviço ligado garantido por uma credencial|Utilizador de Sinapse e Utilizador credencial de sinapse|credenciais/usoTere/ação|
-Publicar um serviço ligado|Editora de Artefactos Da Sinapse|linkedServices/write, delete
-Guardar (comprometer) definições de serviço ligadas ao git repo|Permissões de Git|nenhum
-**Gestão de acesso**||
+Ligação de teste num serviço ligado garantido por uma credencial|Utilizador da Sinapse + Utilizador credencial de sinapse|credenciais/usoTere/ação|
+Publicar um serviço ligado|Synapse Artifact Publisher, Synapse Linked Data Manager|linkedServices/write, delete
+Comprometer definições de serviço ligadas ao Git repo|Permissões de Git|nenhum
+GESTÃO DE ACESSOS|
 Rever atribuições de funções do RBAC da Synapse em qualquer âmbito|Utilizador da Sinapse|leitura
-Atribuir e remover atribuições de funções de RBAC da Synapse para utilizadores, grupos e diretores de serviços| Administrador de Sinapse no espaço de trabalho ou num âmbito específico de item do espaço de trabalho|papelAssignments/write, delete
-Criar ou remover o acesso do RBAC do Synapse a artefactos de código|Administrador de Sinapse no âmbito do espaço de trabalho|papelAssignments/write, delete   
+Atribuir e remover atribuições de funções de RBAC da Synapse para utilizadores, grupos e diretores de serviços| Administrador de Sinapse no espaço de trabalho ou num âmbito específico de item do espaço de trabalho|papelAssignments/write, delete 
 
 >[!Note]
 >Os utilizadores convidados de outro inquilino não podem rever, adicionar ou alterar atribuições de funções, independentemente do papel que lhes tenha sido atribuído. 

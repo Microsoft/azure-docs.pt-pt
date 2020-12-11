@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 56f7224d93293a0a26d09692996d2c4a4ace344b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8e4a9201c14e71520bd58ff1017b700ca47fa21
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803743"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109827"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implementar um cluster de tecido de serviço Azure em zonas de disponibilidade
 Availability Zones in Azure é uma oferta de alta disponibilidade que protege as suas aplicações e dados contra falhas do datacenter. Uma Zona de Disponibilidade é um local físico único equipado com potência independente, arrefecimento e networking dentro de uma região de Azure.
@@ -332,4 +332,96 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 
 ```
 
+## <a name="preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set"></a>(Pré-visualização) Ativar várias zonas de disponibilidade em conjunto de escala de máquina virtual única
+
+A solução anteriormente mencionada utiliza um nóType por AZ. A seguinte solução permitirá aos utilizadores implantar 3 AZ's no mesmo nóType.
+
+O modelo completo da amostra está presente [aqui.](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-Windows-Multiple-AZ-Secure)
+
+![Arquitetura da zona de disponibilidade de tecido de serviço Azure][sf-multi-az-arch]
+
+### <a name="configuring-zones-on-a-virtual-machine-scale-set"></a>Zonas de configuração em um conjunto de escala de máquina virtual
+Para ativar zonas num conjunto de escala de máquina virtual, deve incluir os seguintes três valores no recurso conjunto de escala de máquina virtual.
+
+* O primeiro valor é a propriedade **zonas,** que especifica as Zonas de Disponibilidade presentes no conjunto de escala de máquina virtual.
+* O segundo valor é a propriedade "singlePlacementGroup", que deve ser definida como verdadeira.
+* O terceiro valor é "zoneBalance" e é opcional, o que garante um equilíbrio estrito da zona se definido como verdadeiro. Leia sobre [a zonaBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
+* As sobreposições FaultDomain e UpgradeDomain não são necessárias para serem configuradas.
+
+```json
+{
+    "apiVersion": "2018-10-01",
+    "type": "Microsoft.Compute/virtualMachineScaleSets",
+    "name": "[parameters('vmNodeType1Name')]",
+    "location": "[parameters('computeLocation')]",
+    "zones": ["1", "2", "3"],
+    "properties": {
+        "singlePlacementGroup": "true",
+        "zoneBalance": false
+    }
+}
+```
+
+>[!NOTE]
+> * **Os clusters SF devem ter pelo menos um nó de nó primário. Durabilidade O nível de nó de nó primário deve ser prateado ou superior.**
+> * O conjunto de escala de máquina virtual AZ abrangendo deve ser configurado com pelo menos 3 zonas de disponibilidade, independentemente da durabilidadeLevel.
+> * A AZ abrangendo a balança de máquina virtual definida com durabilidade prateada (ou superior), deve ter pelo menos 15 VMs.
+> * A AZ abrangendo a balança de máquina virtual definida com durabilidade de Bronze, deve ter pelo menos 6 VMs.
+
+### <a name="enabling-the-support-for-multiple-zones-in-the-service-fabric-nodetype"></a>Habilitando o suporte para várias zonas no nó de tecido de serviço
+O nó de tecido de serviçoType deve ser ativado para suportar várias zonas de disponibilidade.
+
+* O primeiro valor é **multipleSSeabilityZones** que devem ser definidos como verdadeiros para o nóType.
+* O segundo valor é **sfZonalUpgradeMode** e é opcional. Esta propriedade não pode ser modificada se um nó detipo com vários AZ's já estiver presente no cluster.
+      A propriedade controla o agrupamento lógico de VMs em domínios de upgrade.
+          Se o valor for definido como falso (modo plano): os VMs sob o tipo de nó serão agrupados em UD ignorando a informação da zona em 5 UDs.
+          Se o valor for omitido ou definido para verdadeiro (modo hierárquico): os VMs serão agrupados para refletir a distribuição zonal em até 15 UDs. Cada uma das 3 zonas terá 5 UDs.
+          Esta propriedade apenas define o comportamento de upgrade para aplicação ServiceFabric e atualizações de código. As atualizações de escala de máquinas virtuais subjacentes continuarão paralelas em todos os AZ's.
+      Esta propriedade não terá qualquer impacto na distribuição de UD para tipos de nó que não têm várias zonas ativadas.
+* O terceiro valor é **vmssZonalUpgradeMode = Paralelo.** Esta é uma propriedade *obrigatória* a ser configurada no cluster, se for adicionado um nó com várias AZs. Esta propriedade define o modo de upgrade para as atualizações de escala de máquina virtual que irão acontecer em paralelo em todos os AZ's de uma só vez.
+      Neste momento, esta propriedade só pode ser definida paralelamente.
+* A apiversão de recursos do cluster de tecido de serviço deve ser "2020-12-01-pré-visualização" ou superior.
+* A versão do código de cluster deve ser "7.2.445" ou superior.
+
+```json
+{
+    "apiVersion": "2020-12-01-preview",
+    "type": "Microsoft.ServiceFabric/clusters",
+    "name": "[parameters('clusterName')]",
+    "location": "[parameters('clusterLocation')]",
+    "dependsOn": [
+        "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
+    ],
+    "properties": {
+        "SFZonalUpgradeMode": "Hierarchical",
+        "VMSSZonalUpgradeMode": "Parallel",
+        "nodeTypes": [
+          {
+                "name": "[parameters('vmNodeType0Name')]",
+                "multipleAvailabilityZones": true,
+          }
+        ]
+}
+```
+
+>[!NOTE]
+> * Os Recursos De Equilíbrio de IP e carga pública devem utilizar o SKU Standard, conforme descrito anteriormente no artigo.
+> * A propriedade "multipleAvailabilityZones" no nóType só pode ser definida no momento da criação do nodeType e não pode ser modificada mais tarde. Assim, os nótipos existentes não podem ser configurados com esta propriedade.
+> * Quando o "HierarchicalUpgradeDomain" for omitido ou definido como verdadeiro, as implementações de cluster e aplicação serão mais lentas, uma vez que existem mais domínios de atualização no cluster. É importante ajustar corretamente os intervalos de tempo da política de atualização para incorporar durante a duração do tempo de atualização de 15 domínios de atualização.
+> * Recomenda-se definir o nível de fiabilidade do cluster para platinum para garantir que o cluster sobrevive ao cenário de uma zona para baixo.
+
+>[!NOTE]
+> Para as melhores práticas recomendamos que o HierarchicalUpgradeDomain seja definido para verdadeiro ou omitido. A implantação seguirá a distribuição zonal de VMs com impacto numa menor quantidade de réplicas e/ou instâncias tornando-as mais seguras.
+> Use hierarquiaUpgradeDomain definido para falso se a velocidade de implantação for uma prioridade ou apenas a carga de trabalho apátrida for executado no tipo de nó com vários AZ's. Isto resultará na caminhada da UD para acontecer paralelamente em todos os AZ's.
+
+### <a name="migration-to-the-node-type-with-multiple-availability-zones"></a>Migração para o tipo de nó com múltiplas Zonas de Disponibilidade
+Para todos os cenários de migração, um novo nóType precisa de ser adicionado que terá múltiplas zonas de disponibilidade suportadas. Um nótype existente não pode ser migrado para suportar várias zonas.
+O artigo [aqui](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-primary-node-type ) captura os passos detalhados de adicionar um novo nóType e também adicionar os outros recursos necessários para o novo nóType como os recursos IP e LB. O mesmo artigo também descreve agora a retirada do nótype existente após o nó deType com várias zonas de Disponibilidade ser adicionado ao cluster.
+
+* Migração a partir de um nóType que está a utilizar recursos básicos LB e IP: Isto já está descrito [aqui](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) para a solução com um nó por AZ. 
+    Para o novo tipo de nó, a única diferença é que há apenas 1 conjunto de balança de máquina virtual e 1 nodetipo para todos os AZ's em vez de 1 cada AZ.
+* Migração a partir de um nóType que está a utilizar os recursos Standard SKU LB e IP com NSG: Siga o mesmo procedimento acima descrito com a exceção de que não há necessidade de adicionar novos recursos LB, IP e NSG, e os mesmos recursos podem ser reutilizados no novo nóType.
+
+
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
+[sf-multi-az-arch]: ./media/service-fabric-cross-availability-zones/sf-multi-az-topology.png

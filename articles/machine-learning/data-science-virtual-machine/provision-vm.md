@@ -8,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: b36e6ce09cd4356a9892a5be9cbe7046cf7fd40e
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: e876ddc9b4df32cad5bbf15215da5ce2f912bba1
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094561"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109730"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Quickstart: Configurar a máquina virtual da Ciência de Dados para windows
 
@@ -59,8 +59,6 @@ Para criar um exemplo DSVM:
 Depois de o VM ser criado e provisionado, siga os passos listados para [ligar à sua máquina virtual baseada em Azure.](../../marketplace/azure-vm-create-using-approved-base.md) Use as credenciais de conta de administração que configuraste no passo **Básico** de criar uma máquina virtual. 
 
 Está pronto para começar a usar as ferramentas instaladas e configuradas no VM. Muitas das ferramentas podem ser acedidas através de telhas de menu **Iniciar** e ícones de ambiente de trabalho.
-
-Também pode anexar um DSVM a Azure Notebooks para executar os cadernos Jupyter no VM e contornar as limitações do nível de serviço gratuito. Para mais informações, consulte [Gerir e configurar projetos de Cadernos.](../../notebooks/configure-manage-azure-notebooks-projects.md)
 
 <a name="tools"></a>
 

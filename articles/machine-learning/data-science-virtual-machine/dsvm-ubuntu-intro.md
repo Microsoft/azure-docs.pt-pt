@@ -8,12 +8,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: 97283a096d1b1549b2c7fa8f34a32b4bb4dca1eb
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4a414b706dffae76eaa9841ee7b1fe6bcc1ac0d3
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349057"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109849"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Quickstart: Configurar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
@@ -41,23 +41,23 @@ Aqui estão os passos para criar uma instância da Máquina Virtual de Ciência 
 
     1. **Básicos:**
     
-       * **Subscrição** : Se tiver mais de uma subscrição, selecione aquela em que a máquina será criada e faturada. Tem de ter privilégios de criação de recursos para esta subscrição.
-       * **Grupo de recursos** : Criar um novo grupo ou utilizar um existente.
-       * **Nome da máquina virtual** : Introduza o nome da máquina virtual. Este nome será usado no seu portal Azure.
-       * **Região** : Selecione o datacenter que é mais apropriado. Para um acesso mais rápido à rede, é o datacenter que tem a maioria dos seus dados ou está mais próximo da sua localização física. Saiba mais sobre [as Regiões Azure.](https://azure.microsoft.com/global-infrastructure/regions/)
-       * **Imagem** : Deixe o valor predefinido.
-       * **Tamanho** : Esta opção deve autopovoar-se automaticamente com um tamanho adequado para cargas de trabalho gerais. Leia mais sobre [os tamanhos Linux VM em Azure](../../virtual-machines/sizes.md).
-       * **Tipo de autenticação** : Para uma configuração mais rápida, selecione "Password". 
+       * **Subscrição**: Se tiver mais de uma subscrição, selecione aquela em que a máquina será criada e faturada. Tem de ter privilégios de criação de recursos para esta subscrição.
+       * **Grupo de recursos**: Criar um novo grupo ou utilizar um existente.
+       * **Nome da máquina virtual**: Introduza o nome da máquina virtual. Este nome será usado no seu portal Azure.
+       * **Região**: Selecione o datacenter que é mais apropriado. Para um acesso mais rápido à rede, é o datacenter que tem a maioria dos seus dados ou está mais próximo da sua localização física. Saiba mais sobre [as Regiões Azure.](https://azure.microsoft.com/global-infrastructure/regions/)
+       * **Imagem**: Deixe o valor predefinido.
+       * **Tamanho**: Esta opção deve autopovoar-se automaticamente com um tamanho adequado para cargas de trabalho gerais. Leia mais sobre [os tamanhos Linux VM em Azure](../../virtual-machines/sizes.md).
+       * **Tipo de autenticação**: Para uma configuração mais rápida, selecione "Password". 
          
          > [!NOTE]
          > Se pretender utilizar o JupyterHub, certifique-se de selecionar "Password", uma vez que o JupyterHub *não* está configurado para utilizar as teclas públicas SSH.
 
-       * **Nome de utilizador** : Introduza o nome de utilizador do administrador. Utilizará este nome de utilizador para iniciar sessão na sua máquina virtual. Este nome de utilizador não precisa de ser o mesmo que o seu nome de utilizador Azure. *Não* utilize letras maiúsculas.
+       * **Nome de utilizador**: Introduza o nome de utilizador do administrador. Utilizará este nome de utilizador para iniciar sessão na sua máquina virtual. Este nome de utilizador não precisa de ser o mesmo que o seu nome de utilizador Azure. *Não* utilize letras maiúsculas.
          
          > [!IMPORTANT]
          > Se utilizar letras maiúsculas no seu nome de utilizador, o JupyterHub não funcionará e encontrará um erro de 500 servidor interno.
 
-       * **Palavra-passe** : Introduza a palavra-passe que utilizará para iniciar sessão na sua máquina virtual.    
+       * **Palavra-passe**: Introduza a palavra-passe que utilizará para iniciar sessão na sua máquina virtual.    
     
    1. Selecione **Rever + criar**.
    1. **Review+criar**
@@ -73,8 +73,6 @@ Pode aceder ao Ubuntu DSVM de uma de três formas:
   * SSH para sessões de terminal
   * X2Go para sessões gráficas
   * JupyterHub e JupyterLab para blocos de notas do Jupyter
-
-Também pode anexar uma Máquina Virtual de Ciência de Dados a Cadernos Azure para executar cadernos Jupyter no VM e contornar as limitações do nível de serviço gratuito. Para mais informações, consulte [Gerir e configurar projetos de Cadernos Azure.](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)
 
 ### <a name="ssh"></a>SSH
 
@@ -95,13 +93,13 @@ O Linux VM já está a provisionado com o X2Go Server e pronto para aceitar liga
 1. Execute o X2Go Client. Se a janela "New Session" não aparecer automaticamente, vá a Session -> New Session.
 
 1. Na janela de configuração resultante, introduza os seguintes parâmetros de configuração:
-   * **Separador Sessão** :
-     * **Anfitrião** : Introduza o endereço IP da sua VM, que anotou anteriormente.
-     * **Iniciar sessão** : introduza o nome de utilizador na VM do Linux.
-     * **Porta SSH** : deixe-a em 22, o valor predefinido.
-     * **Tipo de Sessão** : Altere o valor para **XFCE**. Atualmente, a VM do Linux apenas suporta o ambiente de trabalho XFCE.
-   * **Separador Multimédia** : pode desativar o suporte de som e a impressão de cliente se não precisar de utilizá-los.
-   * **Pastas partilhadas** : Utilize este separador para adicionar o diretório de máquinas do cliente que gostaria de montar no VM. 
+   * **Separador Sessão**:
+     * **Anfitrião**: Introduza o endereço IP da sua VM, que anotou anteriormente.
+     * **Iniciar sessão**: introduza o nome de utilizador na VM do Linux.
+     * **Porta SSH**: deixe-a em 22, o valor predefinido.
+     * **Tipo de Sessão**: Altere o valor para **XFCE**. Atualmente, a VM do Linux apenas suporta o ambiente de trabalho XFCE.
+   * **Separador Multimédia**: pode desativar o suporte de som e a impressão de cliente se não precisar de utilizá-los.
+   * **Pastas partilhadas**: Utilize este separador para adicionar o diretório de máquinas do cliente que gostaria de montar no VM. 
 
    ![Configuração X2go](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
 1. Selecione **OK**.
@@ -142,7 +140,7 @@ Pode definir o JupyterLab como o servidor de portátil predefinido adicionando e
 c.Spawner.default_url = '/lab'
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Eis como pode continuar a sua aprendizagem e exploração:
 
