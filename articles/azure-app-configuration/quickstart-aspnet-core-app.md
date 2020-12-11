@@ -5,16 +5,16 @@ services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp, contperfq1
+ms.custom: devx-track-csharp, contperf-fy21q1
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.author: alkemper
-ms.openlocfilehash: fc2b218621fcf91a7d82b0554da79a8b4582c3a2
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: d1582cda4b083623daf7bb756d0bc8aa3e74eae8
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932171"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033651"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Quickstart: Criar uma aplicação Core ASP.NET com configuração de aplicações Azure
 
@@ -32,7 +32,7 @@ Neste arranque rápido, utilizará a Configuração de Aplicações Azure para c
 
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
-7. Selecione Explorador de configuração de **configuração de operações**  >  **Configuration explorer**  >  **Crie**  >  **valor chave** para adicionar os seguintes pares de valor-chave:
+7. Selecione Explorador de configuração de **configuração de operações**  >    >  **Crie**  >  **valor chave** para adicionar os seguintes pares de valor-chave:
 
     | Chave                                | Valor                               |
     |------------------------------------|-------------------------------------|

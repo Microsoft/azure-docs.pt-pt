@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/24/2020
-ms.openlocfilehash: 4b19ae1b584a2d300e4144e79ef76245c71035cf
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 6a6baa14d7521f4a85350af7b08b5fcbe82ddf6b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96127085"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033881"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,7 +27,7 @@ Quando executar a amostra para ligar à IoT Central, utiliza o Serviço de Provi
 
 O `main` método:
 
-* Cria um `client` objeto e define o ID do modelo antes de abrir a `dtmi:com:example:Thermostat;1` ligação.
+* Cria um `client` objeto e define o ID do modelo antes de abrir a `dtmi:com:example:Thermostat;1` ligação. A IoT Central utiliza o ID do modelo para identificar ou gerar o modelo do dispositivo para este dispositivo. Para saber mais, consulte [Associar um dispositivo com um modelo de dispositivo](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
 * Cria um manipulador de comando.
 * Inicia um loop para enviar telemetria de temperatura a cada 10 segundos.
 * Envia a `maxTempSinceLastReboot` propriedade para a IoT Central. A IoT Central ignora a `serialNumber` propriedade porque não faz parte do modelo do dispositivo.
@@ -83,7 +83,7 @@ async function main() {
 }
 ```
 
-A `provisionDevice` função mostra como o dispositivo utiliza DPS para registar e ligar à IoT Central. A carga útil inclui o ID do modelo:
+A `provisionDevice` função mostra como o dispositivo utiliza DPS para registar e ligar à IoT Central. A carga útil inclui o ID do modelo que a IoT Central utiliza para [associar o dispositivo a um modelo de dispositivo:](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template)
 
 ```javascript
 async function provisionDevice(payload) {

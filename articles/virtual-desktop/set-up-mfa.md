@@ -3,15 +3,15 @@ title: Configurar a autenticação multifactor Azure para o Windows Virtual Desk
 description: Como configurar a autenticação multifactor Azure para uma maior segurança no Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 12/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 35af8191cfe237175cbd6669797d1744ac3ecd49
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 00aba5d169a05eab25dcc63ca813955e71d09598
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312657"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092385"
 ---
 # <a name="enable-azure-multifactor-authentication-for-windows-virtual-desktop"></a>Ativar a autenticação multifactor Azure para o Windows Virtual Desktop
 
@@ -40,7 +40,7 @@ Eis o que precisa para começar:
 Eis como criar uma política de acesso condicional que requer autenticação multifactor ao ligar-se ao Windows Virtual Desktop:
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-2. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+2. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >    >  .
 3. Selecione **Nova política**.
 4. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 5. Em **Atribuições**, selecione **Utilizadores e grupos**.
@@ -67,7 +67,7 @@ Eis como criar uma política de acesso condicional que requer autenticação mul
    > 
    > Se estiver a utilizar o Windows Virtual Desktop (clássico), se a política de Acesso Condicional bloquear todos os acessos e excluir apenas iDs de aplicações virtuais do Windows Desktop, pode corrigi-lo adicionando a aplicação ID 9cdead84-a844-4324-93f2-b2e6bb768d07 à apólice. Não adicionar este ID de aplicação bloqueará a descoberta de feed de recursos do Windows Virtual Desktop (clássico).
 
-10. Vá às aplicações do Cliente **condições,**  >  **Client apps**em seguida, selecione onde pretende aplicar a política para:
+10. Vá às aplicações do Cliente **condições,**  >  em seguida, selecione onde pretende aplicar a política para:
     
     - Selecione **Browser** se quiser que a política se aplique ao cliente web.
     - Selecione **aplicativos Móveis e clientes de desktop** se quiser aplicar a política a outros clientes.
@@ -76,7 +76,7 @@ Eis como criar uma política de acesso condicional que requer autenticação mul
     > [!div class="mx-imgBorder"]
     > ![Uma imagem da página de aplicativos do Cliente. O utilizador selecionou as aplicações móveis e a caixa de verificação dos clientes de ambiente de trabalho.](media/select-apply.png)
 
-11. Uma vez selecionado a sua aplicação, escolha **Select**e, em seguida, selecione **Fazer**.
+11. Uma vez selecionado a sua aplicação, escolha **Select** e, em seguida, selecione **Fazer**.
 
     > [!div class="mx-imgBorder"]
     > ![Uma imagem da página de aplicações ou ações cloud. As aplicações do Windows Virtual Desktop e do Windows Virtual Desktop Client estão em destaque a vermelho.](media/cloud-apps-enterprise.png)
@@ -88,6 +88,9 @@ Eis como criar uma política de acesso condicional que requer autenticação mul
 13. In **Access controls**  >  **Session**, selecione a frequência de **inscrição,** descreva o valor para o tempo que deseja entre as indicações e, em seguida, selecione **Select**. Por exemplo, definir o valor para **1** e a unidade para **Horas,** exigirá a autenticação multifactor se uma ligação for lançada uma hora após a última.
 14. Confirme as suas definições e defina **Ativar** a política para **on**.
 15. **Selecione Criar** para ativar a sua política.
+
+>[!NOTE]
+>Quando utilizar o cliente web para iniciar sessão no Windows Virtual Desktop através do seu browser, o registo listará o ID da aplicação do cliente como a85cf173-4192-42f8-81fa-77763e6e2c (cliente Do Windows Virtual Desktop). Isto porque a aplicação do cliente está internamente ligada ao ID da aplicação do servidor onde foi definida a política de acesso condicional. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 09/14/2020
-ms.openlocfilehash: 385e910befb79daafa532fa816b96d50a46b7d8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09e4412128a3b13abfa91bf0c128372b30b3e686
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620091"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033141"
 ---
 # <a name="autoscale-azure-hdinsight-clusters"></a>Aglomerados autoscale Azure HDInsight
 
@@ -120,7 +120,7 @@ O número de nós deve estar entre 3 e o número máximo de nós de trabalhador 
 
 Selecione o tipo VM para nós de trabalhador selecionando um VM da lista de drop-down sob o **tamanho do nó**. Depois de escolher o tipo VM para cada tipo de nó, pode ver a gama de custos estimada para todo o cluster. Ajuste os tipos de VM para se adaptar ao seu orçamento.
 
-![Ativar o tamanho do nó de escala automática baseado no nó do nó do nó do nó do nó de marcação automática](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-vmsize.png)
+![Ativar o tamanho do nó de escala automática baseado no nó do nó de marcação automática](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-vmsize.png)
 
 A sua subscrição tem uma quota de capacidade para cada região. O número total de núcleos dos seus nós de cabeça e os nós máximos dos trabalhadores não podem exceder a quota de capacidade. No entanto, esta quota é um limite suave; você sempre pode criar um bilhete de apoio para fazê-lo aumentado facilmente.
 

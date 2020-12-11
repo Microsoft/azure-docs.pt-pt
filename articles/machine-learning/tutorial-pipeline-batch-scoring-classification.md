@@ -10,13 +10,13 @@ author: lobrien
 ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
-ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: 8748d6e155eb84cf948966d768dda1a992207f7e
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.custom: contperf-fy20q4, devx-track-python
+ms.openlocfilehash: b0b415cce37e464abcba9fab5ad4c1196b1b2e1b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629636"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033481"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Construir um pipeline de aprendizagem automática Azure para pontuação de lotes
 
@@ -305,7 +305,7 @@ Um passo de oleoduto é um objeto que encapsula tudo o que precisa para executar
 * Dados de entrada e saída, e quaisquer parâmetros personalizados
 * Referência a um script ou lógica SDK para executar durante o passo
 
-Várias classes herdam da classe dos [`PipelineStep`](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?preserve-view=true&view=azure-ml-py) pais. Pode escolher aulas para usar quadros ou pilhas específicos para construir um passo. Neste exemplo, você usa a `ParallelRunStep` classe para definir a sua lógica de passo usando um script Python personalizado. Se um argumento para o seu script for uma entrada para o passo ou uma saída do passo, o argumento deve ser definido *tanto* na matriz como `arguments` no *and* `input` `output` parâmetro, respectivamente. 
+Várias classes herdam da classe dos [`PipelineStep`](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?preserve-view=true&view=azure-ml-py) pais. Pode escolher aulas para usar quadros ou pilhas específicos para construir um passo. Neste exemplo, você usa a `ParallelRunStep` classe para definir a sua lógica de passo usando um script Python personalizado. Se um argumento para o seu script for uma entrada para o passo ou uma saída do passo, o argumento deve ser definido *tanto* na matriz como `arguments` no  `input` `output` parâmetro, respectivamente. 
 
 Em cenários em que há mais de um passo, uma referência de objeto na `outputs` matriz torna-se disponível como *entrada* para um passo de pipeline subsequente.
 

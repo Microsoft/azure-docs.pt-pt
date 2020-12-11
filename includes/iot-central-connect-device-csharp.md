@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/25/2020
-ms.openlocfilehash: 3668d4e5164ad731058f944feaef66029c2ed2a9
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: f4536beae18a50d3e1d42fc1593cf826c94418f8
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96127059"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033891"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,7 +27,7 @@ Quando executar a amostra para ligar à IoT Central, utiliza o Serviço de Provi
 
 Em *Program.cs,* o `main` método chama `SetupDeviceClientAsync` a:
 
-* Utilize o ID do modelo `dtmi:com:example:Thermostat;1` quando forissar o dispositivo com DPS.
+* Utilize o ID do modelo `dtmi:com:example:Thermostat;1` quando forissar o dispositivo com DPS. A IoT Central utiliza o ID do modelo para identificar ou gerar o modelo do dispositivo para este dispositivo. Para saber mais, consulte [Associar um dispositivo com um modelo de dispositivo](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
 * Crie um **dispositivo Desaquiente** para ligar à IoT Central.
 
 ```csharp
@@ -202,7 +202,7 @@ Para executar o pedido de amostragem:
 
 1. No Estúdio Visual, navegue para **Project > Thermostat Properties > Debug**. Em seguida, adicione as seguintes variáveis ambientais ao projeto:
 
-    | Name | Valor |
+    | Nome | Valor |
     | ---- | ----- |
     | IOTHUB_DEVICE_SECURITY_TYPE | DPS |
     | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |

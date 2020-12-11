@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 0d1c2304f68f5e24c45390dca2cc0deb6e8dede2
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 51430a37f34600d3191a646df7c1890b6d94f481
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931950"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033022"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Serviço Azure Kubernetes (AKS) Uptime SLA
 
@@ -28,13 +28,6 @@ Os clientes podem ainda criar clusters gratuitos ilimitados com um objetivo de n
 O Uptime SLA está disponível nas regiões públicas e nas regiões do Governo de Azure onde [a AKS é apoiada.](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)
 
 ## <a name="limitations"></a>Limitações
-
-Os aglomerados privados só são apoiados nas seguintes regiões:
- *  E.U.A. Leste
- *  E.U.A. Oeste
- *  E.U.A. Oeste 2
- *  E.U.A. Centro-Norte
- *  E.U.A. Centro-Oeste
 
 ## <a name="sla-terms-and-conditions"></a>Termos e condições do SLA
 

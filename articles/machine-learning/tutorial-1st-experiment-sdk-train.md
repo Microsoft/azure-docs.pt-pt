@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 17bf7b3f457ff6046d92012ffd679ed4b9315530
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: a2f76df05878151405d56b1bff5e588f426d9d92
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574127"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093558"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>Tutorial: Treine o seu primeiro modelo de aprendizagem automática (parte 3 de 4)
 
@@ -133,7 +133,7 @@ Crie um novo ficheiro Python no `tutorial` diretório chamado `04-run-pytorch.py
 :::row-end:::
 
 > [!div class="nextstepaction"]
-> [Criei o guião de controlo](?success=control-script#submit) [que encontrei num problema.](https://www.research.net/r/7CTJQQ?issue=control-script)
+> [Criei o guião de controlo](?success=control-script#submit) [que encontrei num problema.](https://www.research.net/r/7CTJQQN?issue=control-script)
 
 
 ## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit"></a> Submeta a corrida para Azure Machine Learning
@@ -186,7 +186,7 @@ A Azure Machine Learning também mantém uma coleção de ambientes curados. Est
 Em suma, a utilização de ambientes registados pode poupar-lhe tempo! Leia [Como utilizar ambientes](./how-to-use-environments.md) para obter mais informações.
 
 > [!div class="nextstepaction"]
-> [Apresentei a corrida](?success=test-w-environment#log) [que encontrei um problema](https://www.research.net/r/7CTJQQ?issue=test-w-environment)
+> [Apresentei a corrida](?success=test-w-environment#log) [que encontrei um problema](https://www.research.net/r/7CTJQQN?issue=test-w-environment)
 
 ## <a name="log-training-metrics"></a><a name="log"></a> Métricas de treinamento de registo
 
@@ -203,7 +203,7 @@ Modifique o seu `train.py` script para incluir mais duas linhas de código:
 
 #### <a name="understand-the-additional-two-lines-of-code"></a>Compreenda as duas linhas de código adicionais
 
-Em `train.py` , aceda ao _within_ objeto de execução a partir do próprio script de treino, utilizando o método `Run.get_context()` e usá-lo para registar métricas:
+Em `train.py` , aceda ao  objeto de execução a partir do próprio script de treino, utilizando o método `Run.get_context()` e usá-lo para registar métricas:
 
 ```python
 # in train.py
@@ -221,7 +221,7 @@ As métricas em Azure Machine Learning são:
 - Projetado para escalar, então você mantém estes benefícios mesmo que você executar centenas de experiências.
 
 > [!div class="nextstepaction"]
-> [Modifiquei train.py ](?success=modify-train#log) [dei uma questão.](https://www.research.net/r/7CTJQQ?issue=modify-train)
+> [Modifiquei train.py ](?success=modify-train#log) [dei uma questão.](https://www.research.net/r/7CTJQQN?issue=modify-train)
 
 ### <a name="update-the-conda-environment-file"></a>Atualizar o ficheiro ambiente Conda
 
@@ -230,7 +230,7 @@ O `train.py` guião acabou de assumir uma nova `azureml.core` dependência. Atua
 :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/configuration/pytorch-aml-env.yml":::
 
 > [!div class="nextstepaction"]
-> [Atualizei o ficheiro ambiental](?success=update-environment#submit-again) [que desvendou um problema.](https://www.research.net/r/7CTJQQ?issue=update-environment)
+> [Atualizei o ficheiro ambiental](?success=update-environment#submit-again) [que desvendou um problema.](https://www.research.net/r/7CTJQQN?issue=update-environment)
 
 ### <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit-again"></a> Submeta a corrida para Azure Machine Learning
 Submeta este script mais uma vez:
@@ -244,7 +244,7 @@ Desta vez, quando visitar o estúdio, vá ao separador **Métricas** onde agora 
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Gráfico de perda de treino no separador Métricas.":::
 
 > [!div class="nextstepaction"]
-> [Resubmeti-me a correr](?success=resubmit-with-logging#next-steps) [e encontrei um problema.](https://www.research.net/r/7CTJQQ?issue=resubmit-with-logging)
+> [Resubmeti-me a correr](?success=resubmit-with-logging#next-steps) [e encontrei um problema.](https://www.research.net/r/7CTJQQN?issue=resubmit-with-logging)
 
 ## <a name="next-steps"></a>Passos seguintes
 

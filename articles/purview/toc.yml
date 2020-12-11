@@ -93,9 +93,6 @@ items:
               - name: Base de Dados SQL do Azure
                 href: register-scan-azure-sql-database.md
                 displayName: Register and scan Azure SQL DB
-              - name: BD SQL do Azure com uma firewall
-                href: scan-sqlresource-firewall.md
-                displayName: Register and scan Azure SQL DB with a firewall
               - name: "Instância Gerida da Base de Dados\_SQL do Azure"
                 href: register-scan-azure-sql-database-managed-instance.md
                 displayName: Register and scan Azure SQL DB Managed Instance

@@ -3,13 +3,13 @@ title: Especificar pontos finais de serviço de tecido de serviço
 description: Como descrever os recursos de ponto final num manifesto de serviço, incluindo como configurar pontos finais HTTPS
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.custom: contperfq1
-ms.openlocfilehash: 5e8f39fe25011d02b989614fdc6538cd92c12d4e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 0ed5a4aa8993f52d42b97288cd143e6114ff36ff
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313575"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033311"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos num manifesto de serviço
 ## <a name="overview"></a>Descrição geral
@@ -102,7 +102,7 @@ O manifesto de serviço que se segue define um recurso de ponto final TCP e dois
 ```
 
 ## <a name="example-specifying-an-https-endpoint-for-your-service"></a>Exemplo: especificar um ponto final HTTPS para o seu serviço
-O protocolo HTTPS fornece autenticação do servidor e também é utilizado para encriptar a comunicação do servidor cliente. Para ativar HTTPS no seu serviço Service Fabric, especifique o protocolo na secção *De ponto final de > Recursos ->* do manifesto de serviço, como mostrado anteriormente para o ponto de serviço endpoint3 . *ServiceEndpoint3*
+O protocolo HTTPS fornece autenticação do servidor e também é utilizado para encriptar a comunicação do servidor cliente. Para ativar HTTPS no seu serviço Service Fabric, especifique o protocolo na secção *De ponto final de > Recursos ->* do manifesto de serviço, como mostrado anteriormente para o ponto de serviço endpoint3 . 
 
 > [!NOTE]
 > O protocolo de um serviço não pode ser alterado durante a atualização da aplicação. Se for alterada durante a atualização, é uma mudança de rutura.

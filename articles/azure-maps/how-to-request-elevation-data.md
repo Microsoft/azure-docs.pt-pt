@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: af3653d9e4509b1aa31a377dfc22cb6b6b2ff34e
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 76232a917e8856a06645fabc0ab4716195c5c0e1
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906068"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094204"
 ---
 # <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Solicite dados de elevação utilizando o serviço Azure Maps Elevation (Pré-visualização)
 
@@ -56,8 +56,8 @@ Para solicitar dados de elevação em formato de azulejo raster, utilize o [Rend
 
 Utilize o serviço elevação (Pré-visualização) APIs para solicitar dados de elevação no formato GeoJSON. Esta secção irá mostrar-lhe cada uma das três APIs:
 
-* [Obter dados para pontos](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
-* [Post Dados para Pontos](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates)
+* [Obter dados para pontos](/rest/api/maps/elevation/getdataforpoints)
+* [Post Dados para Pontos](/rest/api/maps/elevation/postdataforpoints)
 * [Obter Dados para Poliline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
 * [Post Dados para Poliline](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline)
 * [Obtenha dados para a caixa de limites](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
@@ -67,7 +67,7 @@ Utilize o serviço elevação (Pré-visualização) APIs para solicitar dados de
 
 ### <a name="request-elevation-data-for-points"></a>Solicite dados de elevação para pontos
 
-Neste exemplo, usaremos o [Get Data for Points API](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates) para solicitar dados de elevação no Mt. Montanhas Everest e Chamlang. Em seguida, usaremos os [Dados Post para Pontos API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates) para solicitar dados de elevação usando os mesmos dois pontos. Espera-se que latitudes e longitudes no URL estejam em grau decimal WGS84 (World Geodetic System).
+Neste exemplo, usaremos o [Get Data for Points API](/rest/api/maps/elevation/getdataforpoints) para solicitar dados de elevação no Mt. Montanhas Everest e Chamlang. Em seguida, usaremos os [Dados Post para Pontos API](/rest/api/maps/elevation/postdataforpoints) para solicitar dados de elevação usando os mesmos dois pontos. Espera-se que latitudes e longitudes no URL estejam em grau decimal WGS84 (World Geodetic System).
 
  >[!IMPORTANT]
  >Devido ao limite de comprimento do personagem URL de 2048, não é possível passar mais de 100 coordenadas como uma cadeia delimitada de pipeline num pedido URL GET. Se pretender passar mais de 100 coordenadas como uma cadeia delimitada por gasoduto, utilize os dados post para pontos.
@@ -103,7 +103,7 @@ Neste exemplo, usaremos o [Get Data for Points API](https://docs.microsoft.com/r
     }
     ```
 
-4. Agora, vamos ligar para o [Post Data for Points API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates) para obter dados de elevação para os mesmos dois pontos. Selecione o método **POST** HTTP no separador construtor e introduza o seguinte URL. Para este pedido, e outros pedidos mencionados neste artigo, `{Azure-Maps-Primary-Subscription-key}` substitua-o pela sua chave de subscrição primária.
+4. Agora, vamos ligar para o [Post Data for Points API](/rest/api/maps/elevation/postdataforpoints) para obter dados de elevação para os mesmos dois pontos. Selecione o método **POST** HTTP no separador construtor e introduza o seguinte URL. Para este pedido, e outros pedidos mencionados neste artigo, `{Azure-Maps-Primary-Subscription-key}` substitua-o pela sua chave de subscrição primária.
 
     ```http
     https://atlas.microsoft.com/elevation/point/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
@@ -485,7 +485,7 @@ Consulte o <a href='https://codepen.io/azuremaps/pen/7bee08e5cb13d05cb0a11636b60
 Para explorar ainda mais as APIs de Elevação de Mapas Azure (Pré-visualização), consulte:
 
 > [!div class="nextstepaction"]
-> [Elevação (Pré-visualização) - Obtenha dados para coordenadas lat long](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
+> [Elevação (Pré-visualização) - Obtenha dados para coordenadas lat long](/rest/api/maps/elevation/getdataforpoints)
 
 > [!div class="nextstepaction"]
 > [Elevação (Pré-visualização) - Obtenha dados para a caixa de limites](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)

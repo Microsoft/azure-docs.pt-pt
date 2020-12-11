@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 08/21/2020
-ms.openlocfilehash: 02192f3960b8021ee32203620893620c7b96f076
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5be4ce97e6087847f084f9b9ec2a6b8b0df84e14
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023998"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033515"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Tutorial: Criar uma aplicação Scala Maven para Apache Spark em HDInsight usando IntelliJ
 
@@ -25,7 +25,7 @@ Neste tutorial, você aprende a criar uma aplicação Apache Spark escrita em Sc
 * Gerar um ficheiro jar que pode ser submetido para clusters do Spark no HDInsight.
 * Utilizar o Livy para executar a aplicação no cluster do Spark.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Instalar o plug-in do Scala para o IntelliJ IDEA
 > * Utilizar o IntelliJ para desenvolver uma aplicação Scala Maven
@@ -115,13 +115,13 @@ Faça os seguintes passos para instalar o plugin Scala:
 
 10. Confirme o nome e a localização do projeto e selecione **Finish** (Concluir).  O projeto levará alguns minutos para importar.
 
-11. Uma vez importado o projeto, desde o painel esquerdo navegue para **SparkSimpleApp**  >  **src**  >  **src test**  >  **scala**  >  **com**  >  **microsoft**  >  **spark**  >  **exemplo**.  Clique com o botão direito **MySpec** e, em seguida, **selecione Delete...**. Não precisa deste ficheiro para o pedido.  Selecione **OK** na caixa de diálogo.
+11. Uma vez importado o projeto, desde o painel esquerdo navegue para **SparkSimpleApp**  >    >  **src test**  >  **scala**  >  **com**  >  **microsoft**  >    >  **exemplo**.  Clique com o botão direito **MySpec** e, em seguida, **selecione Delete...**. Não precisa deste ficheiro para o pedido.  Selecione **OK** na caixa de diálogo.
   
 12. Nos passos posteriores, atualiza o **pom.xml** para definir as dependências da aplicação Spark Scala. Para que essas dependências sejam descarregadas e resolvidas automaticamente, tem de configurar o Maven.
 
 13. A partir do menu **'Ficheiro',** selecione **Definições** para abrir a janela **Definições.**
 
-14. A partir da janela **Definições,** navegue para **construir, executar,**  >  **construir ferramentas** de  >  **Maven**  >  **construção Maven Importar.**
+14. A partir da janela **Definições,** navegue para **construir, executar,**  >  **construir ferramentas** de  >    >  **construção Maven Importar.**
 
 15. Selecione os **projetos Import Maven automaticamente.**
 
@@ -203,7 +203,7 @@ Faça os seguintes passos para instalar o plugin Scala:
 
         Certifique-se de que o Incluir na caixa de verificação **de construção** de projetos está selecionado. Esta opção garante que o frasco é criado sempre que o projeto é construído ou atualizado. **Selecione Aplicar** e, em seguida, **OK**.
 
-    7. Para criar o jarro, navegue para **construir**  >  **construção de artefactos.**  >  **Build** O projeto vai compilar em cerca de 30 segundos.  O jar de saída é criado em **\out\artifacts**.
+    7. Para criar o jarro, navegue para **construir**  >  **construção de artefactos.**  >   O projeto vai compilar em cerca de 30 segundos.  O jar de saída é criado em **\out\artifacts**.
 
         ![Saída de artefactos do projeto IntelliJ IDEA](./media/apache-spark-create-standalone-application/hdi-artifact-output-jar.png)
 

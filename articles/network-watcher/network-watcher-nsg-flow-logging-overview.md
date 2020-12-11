@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: b6f66813ea23f6c9d4b47a3733d0c72c683d0676
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 03ef75f43d8c8c854c3803ceb30f31b292d566c3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493989"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033430"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao registo de fluxos para grupos de segurança de rede
 
@@ -48,7 +48,7 @@ Análise de segurança da rede **forense &:** Analise os fluxos de rede de IPs c
 **Propriedades-chave**
 
 - Os registos de fluxo operam na [Camada 4](https://en.wikipedia.org/wiki/OSI_model#Layer_4:_Transport_Layer) e registam todos os fluxos IP que entram e saem de um NSG
-- Os registos são recolhidos através da plataforma Azure e não afetam de forma alguma os recursos do cliente ou o desempenho da rede.
+- Os registos são recolhidos com **um intervalo de 1 min** através da plataforma Azure e não afetam de forma alguma os recursos do cliente ou o desempenho da rede.
 - Os registos são escritos no formato JSON e mostram fluxos de saída e entrada numa base de regra de NSG.
 - Cada registo de registo contém a interface de rede (NIC) que o fluxo se aplica a informações de 5 tuple, a decisão de tráfego & (apenas versão 2). Consulte _o Formato de Registo_ abaixo para mais detalhes.
 - Os Registos de Fluxo têm uma funcionalidade de retenção que permite eliminar automaticamente os registos até um ano após a sua criação. 
@@ -361,6 +361,8 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Fluxos de entrada registados de IPs de internet para VMs sem IPs públicos**: VMs que não têm um endereço IP público atribuído através de um endereço IP público associado ao NIC como um IP público de nível de instância, ou que fazem parte de um pool de back-end do balancer de carga básico, usam [SNAT padrão](../load-balancer/load-balancer-outbound-connections.md) e têm um endereço IP atribuído pela Azure para facilitar a conectividade de saída. Como resultado, pode ver entradas de registo de fluxo para fluxos a partir de endereços IP da Internet, se o fluxo estiver destinado a uma porta na gama de portas atribuídas ao SNAT. Embora o Azure não permita estes fluxos para o VM, a tentativa é registada e aparece no registo de fluxo NSG do Observador de Rede por design. Recomendamos que o tráfego de internet de entrada indesejada seja explicitamente bloqueado com o NSG.
 
+**Problema com a sub-rede NSG do Gateway de Aplicação V2**: A registo de fluxo na sub-rede NSG do gateway de aplicações V2 não é [suportada](https://docs.microsoft.com/azure/application-gateway/application-gateway-faq#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) atualmente. Este problema não afeta o Gateway V1.
+
 **Serviços Incompatíveis**: Devido às limitações atuais da plataforma, um pequeno conjunto de serviços Azure não são suportados por Registos de Fluxo NSG. A lista atual de serviços incompatíveis é
 - [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/)
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
@@ -371,7 +373,11 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Ativar o registo de fluxo NSG em todos os NSGs ligados a um recurso**: A exploração de fluxo em Azure está configurada no recurso NSG. Um fluxo só será associado a uma regra NSG. Em cenários em que vários NSGs são utilizados, recomendamos que os registos de fluxo NSG em todos os NSGs apliquem a sub-rede ou interface de rede de um recurso para garantir que todo o tráfego seja registado. Para mais informações, consulte [como o tráfego é avaliado](../virtual-network/network-security-group-how-it-works.md) em Grupos de Segurança de Rede.
 
+**Ter NSG tanto no NÍVEL NIC como no Nível de Sub-rede**: No caso de o NSG estar configurado no NIC, bem como no nível de sub-rede, deve então ser ativado o registo de fluxo em ambos os NSGs. 
+
 **Fornecimento de armazenamento**: O armazenamento deve ser a provisionado em sintonia com o volume esperado do Registo de Fluxo.
+
+**Nomeação**: O nome NSG deve ser até 80 chars e as regras NSG devem ser até 65 chars. Se os nomes excederem o seu limite de caracteres, pode ser truncado durante a exploração madeireira.
 
 ## <a name="troubleshooting-common-issues"></a>Resolução de problemas comuns
 

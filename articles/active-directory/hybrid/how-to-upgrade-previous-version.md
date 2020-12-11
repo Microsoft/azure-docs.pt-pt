@@ -16,15 +16,18 @@ ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b78d3cab17b0cc4085c824cf35d4c6037f0e2af5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65fc0e84582c005c5796ceac86ee28fc46b2e1d8
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319865"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094221"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: atualizar de uma versão anterior para a mais recente
-Este tópico descreve os diferentes métodos que pode utilizar para atualizar o seu Diretório Ativo Azure (Azure AD) Ligar a instalação à mais recente versão. Recomendamos que se mantenha atual com as versões do Azure AD Connect. Também utiliza os passos na secção [de migração swing](#swing-migration) quando faz uma alteração substancial de configuração.
+Este tópico descreve os diferentes métodos que pode utilizar para atualizar o seu Diretório Ativo Azure (Azure AD) Ligar a instalação à mais recente versão.  Também utiliza os passos na secção [de migração swing](#swing-migration) quando faz uma alteração substancial de configuração.
+
+>[!NOTE]
+> É importante que mantenha os seus servidores atuais com as mais recentes versões do Azure AD Connect. Estamos constantemente a fazer upgrades para o AADConnect, e estas atualizações incluem correções para problemas de segurança e bugs, bem como melhorias de serviço, desempenho e escalabilidade. Para ver qual é a versão mais recente, e para saber que mudanças foram feitas entre versões, consulte o histórico da [versão de lançamento](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history)
 
 >[!NOTE]
 > Atualmente é suportado para atualizar a partir de qualquer versão do Azure AD Connect para a versão atual. As atualizações in-place da DirSync ou da ADSync não são suportadas e é necessária uma migração de balanço.  Se quiser atualizar a partir de DirSync, consulte [a ferramenta de sincronização AD AD (DirSync)](how-to-dirsync-upgrade-get-started.md) ou a secção [de migração Swing.](#swing-migration)  </br>Na prática, os clientes em versões extremamente antigas podem encontrar problemas não diretamente relacionados com o Azure AD Connect. Servidores que estão em produção há vários anos, normalmente têm vários patches aplicados a eles e nem todos podem ser contabilizados.  Geralmente, os clientes que não atualizaram em 12-18 meses devem considerar uma atualização de balanço, uma vez que esta é a opção mais conservadora e menos arriscada.
@@ -54,7 +57,7 @@ Se tiver feito alterações às regras de sincronização fora de caixa, então 
 
 Durante a atualização no local, podem ser introduzidas alterações que exigem que atividades específicas de sincronização (incluindo passo de Importação Completa e passo de Sincronização Completa) sejam executadas após a conclusão do upgrade. Para adiar tais atividades, consulte a secção [Como adiar a sincronização completa após a atualização](#how-to-defer-full-synchronization-after-upgrade).
 
-Se estiver a utilizar o Azure AD Connect com um conector não padrão (por exemplo, Conector LDAP Genérico e Conector SQL Genérico), deve atualizar a configuração correspondente do conector no Gestor de Serviço de [Sincronização](./how-to-connect-sync-service-manager-ui-connectors.md) após a atualização no local. Para obter mais informações sobre como refrescar a configuração do conector, consulte a secção de [artigos Connector Version Release History - Troubleshooting](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#troubleshooting). Se não atualizar a configuração, as etapas de importação e de exportação não funcionarão corretamente para o conector. Receberá o seguinte erro no registo do evento de aplicação com a mensagem *"Assembléia versão na configuração do Conector AAD ("X.X.XXX. X") é mais cedo do que a versão real ("X.X.XXX. X") de "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".*
+Se estiver a utilizar o Azure AD Connect com um conector não padrão (por exemplo, Conector LDAP Genérico e Conector SQL Genérico), deve atualizar a configuração correspondente do conector no Gestor de Serviço de [Sincronização](./how-to-connect-sync-service-manager-ui-connectors.md) após a atualização no local. Para obter mais informações sobre como refrescar a configuração do conector, consulte a secção de [artigos Connector Version Release History - Troubleshooting](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#troubleshooting). Se não atualizar a configuração, as etapas de importação e de exportação não funcionarão corretamente para o conector. Receberá o seguinte erro no registo do evento de aplicação com a mensagem *"A versão de montagem na configuração do Conector AAD ("X.X.XXX.X") é mais cedo do que a versão real ("X.X.XXX.X") de "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".*
 
 ## <a name="swing-migration"></a>Migração rotativa
 Se tiver uma implementação complexa ou muitos objetos, pode ser impraticável fazer uma atualização no local do sistema ao vivo. Para alguns clientes, este processo pode demorar vários dias -- e durante este tempo, não são processadas alterações delta. Também pode usar este método quando planeia fazer alterações substanciais na sua configuração e pretende experimentá-las antes de serem empurradas para a nuvem.

@@ -4,14 +4,14 @@ description: Saiba como gerir metadados de projetos, ficheiros de projetos, ambi
 ms.topic: how-to
 ms.date: 02/28/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 7674c2151922d26e069b5cd285cb311d7a18fa98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb106132cf0dfb14dc41c1d4b480fd3a1d7fd7fe
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852808"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093541"
 ---
-# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> Gerir e configurar projetos em Pré-visualização de Cadernos Azure
+# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a>Gerir e configurar projetos em Pré-visualização de Cadernos Azure
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
@@ -117,7 +117,7 @@ A primeira vez que o Azure Notebooks cria um servidor para o projeto, procura um
 
 Pode utilizar as definições ambientais do projeto para criar passos individuais que configuram o ambiente.
 
-No painel de **instrumentos**do projeto, selecione Definições de Projeto, em seguida, selecione o **separador Ambiente** no qual adiciona, remove e modifica os passos de configuração para o projeto:
+No painel de **instrumentos** do projeto, selecione Definições de Projeto, em seguida, selecione o **separador Ambiente** no qual adiciona, remove e modifica os passos de configuração para o projeto:
 
 ![Definições de projeto popup com separador Ambiente selecionado](media/project-settings-environment-steps.png)
 
@@ -127,9 +127,9 @@ Para adicionar um passo, selecione primeiro **+ Adicione,** em seguida, selecion
 
 A informação que então projeta depende do tipo de operação que escolheu:
 
-- **Requirements.txt**: Na segunda lista de drop-down, selecione um ficheiro *requirements.txt* que já está no projeto. Em seguida, selecione uma versão Python da terceira lista de drop-down que aparece. Ao utilizar um ficheiro *requirements.txt, * o Azure Notebooks funciona `pip install -r` com o ficheiro *requirements.txt* ao iniciar um servidor de portátil. Não é necessário instalar explicitamente pacotes a partir do próprio caderno.
+- **Requirements.txt**: Na segunda lista de drop-down, selecione um ficheiro *requirements.txt* que já está no projeto. Em seguida, selecione uma versão Python da terceira lista de drop-down que aparece. Ao utilizar um ficheiro *requirements.txt,* o Azure Notebooks funciona `pip install -r` com o ficheiro *requirements.txt* ao iniciar um servidor de portátil. Não é necessário instalar explicitamente pacotes a partir do próprio caderno.
 
-- **Script de concha**: Na segunda lista de drop-down, selecione um script de concha de bash no projeto (normalmente um ficheiro com a extensão *.sh)* que contém quaisquer comandos que deseje executar para inicializar o ambiente.
+- **Script de concha**: Na segunda lista de drop-down, selecione um script de concha de bash no projeto (normalmente um ficheiro com a extensão *.sh)* que contenha quaisquer comandos que deseje executar para inicializar o ambiente.
 
 - **Environment.yml**: Na segunda lista de drop-down, selecione um ficheiro *ambiente.yml* para projetos Python utilizando um ambiente conda.
 

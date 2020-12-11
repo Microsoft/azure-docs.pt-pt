@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74cc5bb2b434e757e090bac45202704eb934a522
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 242e0e4614994c30d0a14b8fe3d7a5c2b217bb5a
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835752"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033345"
 ---
 # <a name="what-is-identity-protection"></a>O que é o Identity Protection?
 
@@ -104,15 +104,15 @@ Os administradores de acesso condicional também podem criar políticas que fato
 
 | Funcionalidade | Detalhes  | Azure AD Free / Microsoft 365 Apps | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
-| Políticas de risco | Política de risco do utilizador (via Proteção de Identidade)  | No | No |Yes | 
-| Políticas de risco | Política de risco de acesso (via Proteção de Identidade ou Acesso Condicional)  | No |  No |Yes |
-| Relatórios de segurança | Descrição Geral |  No | No |Yes |
+| Políticas de risco | Política de risco do utilizador (via Proteção de Identidade)  | Não | Não |Sim | 
+| Políticas de risco | Política de risco de acesso (via Proteção de Identidade ou Acesso Condicional)  | Não |  Não |Sim |
+| Relatórios de segurança | Descrição geral |  Não | Não |Sim |
 | Relatórios de segurança | Utilizadores de risco  | Informação limitada. Apenas são mostrados utilizadores com risco médio e elevado. Sem detalhes gaveta ou histórico de risco. | Informação limitada. Apenas são mostrados utilizadores com risco médio e elevado. Sem detalhes gaveta ou histórico de risco. | Acesso completo|
 | Relatórios de segurança | Inícios de sessão de risco  | Informação limitada. Não é mostrado nenhum detalhe de risco ou nível de risco. | Informação limitada. Não é mostrado nenhum detalhe de risco ou nível de risco. | Acesso completo|
-| Relatórios de segurança | Deteções de riscos   | No | Informação limitada. Sem detalhes na gaveta.| Acesso completo|
-| Notificações | Utilizadores em risco detetados alertas  | No | No |Yes |
-| Notificações | Digestão semanal| No | No | Yes | 
-| | Política de registo na MFA | No | No | Yes |
+| Relatórios de segurança | Deteções de riscos   | Não | Informação limitada. Sem detalhes na gaveta.| Acesso completo|
+| Notificações | Utilizadores em risco detetados alertas  | Não | Não |Sim |
+| Notificações | Digestão semanal| Não | Não | Sim | 
+| | Política de registo na MFA | Não | Não | Sim |
 
 Mais informações sobre estes relatórios ricos podem ser encontradas no artigo, [Como: Investigar o risco](howto-identity-protection-investigate-risk.md#navigating-the-reports).
 

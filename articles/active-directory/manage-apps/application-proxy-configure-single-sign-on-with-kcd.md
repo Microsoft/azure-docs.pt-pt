@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.date: 08/13/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: contperfq2
-ms.openlocfilehash: e43ad9dedf4212e9b30a08f0c978cb8d1a86776c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: bd657655d6857f1bb0e3c5a2d868169788e4998d
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997584"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033532"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-sso-to-your-apps-with-application-proxy"></a>Kerberos Restrita Delegação para um único sign-on (SSO) para as suas apps com Proxy de aplicação
 
@@ -51,9 +51,9 @@ Antes de iniciar com um único sinal de acesso para aplicações IWA, certifique
 A configuração do Ative Directory varia, dependendo se o conector Proxy da aplicação e o servidor de aplicação estão no mesmo domínio ou não.
 
 #### <a name="connector-and-application-server-in-the-same-domain"></a>Conector e servidor de aplicações no mesmo domínio
-1. No Ative Directory, **Tools** aceda a  >  **Utilizadores e Computadores de Ferramentas.**
+1. No Ative Directory, aceda a  >  **Utilizadores e Computadores de Ferramentas.**
 2. Selecione o servidor que executa o conector.
-3. Clique com o **Properties** botão direito e selecione  >  **a Delegação de** Propriedades.
+3. Clique com o botão direito e selecione  >  **a Delegação de** Propriedades.
 4. Selecione **Confiar no computador p/ delegação apenas p/ serviços especificados**. 
 5. Selecione **Utilizar qualquer protocolo de autenticação**.
 6. Nos **Serviços aos quais esta conta pode apresentar credenciais delegadas** acrescentam o valor para a identidade SPN do servidor de aplicações. Isto permite que o Conector Proxy de aplicação personiem os utilizadores em AD contra as aplicações definidas na lista.

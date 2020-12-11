@@ -11,12 +11,12 @@ ms.custom:
 - mqtt
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 9eeb8174c900b0f548144231e65643c9559f75e3
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 2757d696f5922263abf87399d6491e46b5e5513c
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96127055"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033901"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>Tutorial: Criar e ligar uma aplicação de cliente à sua aplicação Azure IoT Central
 
@@ -24,7 +24,7 @@ ms.locfileid: "96127055"
 
 Este tutorial mostra-lhe como, como desenvolvedor de dispositivos, ligar uma aplicação do cliente à sua aplicação Azure IoT Central. A aplicação simula o comportamento de um dispositivo termóstato. Quando a aplicação se liga à IoT Central, envia o ID do modelo do dispositivo termóstato. A IoT Central utiliza o ID do modelo para recuperar o modelo do dispositivo e criar um modelo de dispositivo para si. Adiciona personalizações e vistas ao modelo do dispositivo para permitir que um operador interaja com um dispositivo.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie e execute o código do dispositivo e veja-o ligar-se à sua aplicação IoT Central.
@@ -84,3 +84,4 @@ Como desenvolvedor de dispositivos, agora que aprendeu o básico de como criar u
 * Leia [Quais são os modelos do dispositivo para](./concepts-device-templates.md) saber mais sobre o papel dos modelos do dispositivo quando estiver a implementar o código do dispositivo.
 * Leia [Se ligar à Azure IoT Central](./concepts-get-connected.md) para saber mais sobre como registar os dispositivos com a IoT Central e como a IoT Central assegura as ligações do dispositivo.
 * Leia [Telemetria, propriedade e cargas de comando](concepts-telemetry-properties-commands.md) para saber mais sobre os dados que o dispositivo troca com a IoT Central.
+* Leia [o guia de desenvolvimento do dispositivo IoT Plug and Play](../../iot-pnp/concepts-developer-guide-device.md).

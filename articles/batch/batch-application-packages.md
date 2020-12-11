@@ -6,13 +6,13 @@ ms.date: 09/24/2020
 ms.custom:
 - H1Hack27Feb2017
 - devx-track-csharp
-- contperfq1
-ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+- contperf-fy21q1
+ms.openlocfilehash: b4c6ab99b0fa93e5fdea4256d6f232cc0fe4218e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "91277704"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033736"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementar aplicações para calcular os nóns com pacotes de aplicações batch
 
@@ -33,7 +33,7 @@ Existem restrições ao número de pedidos e pacotes de aplicações dentro de u
 
 ## <a name="understand-applications-and-application-packages"></a>Compreender aplicações e pacotes de aplicações
 
-Dentro do Azure Batch, uma *aplicação* refere-se a um conjunto de binários versados que podem ser automaticamente descarregados para os nós computacional na sua piscina. Uma aplicação contém um ou mais pacotes de *aplicações* , que representam diferentes versões da aplicação.
+Dentro do Azure Batch, uma *aplicação* refere-se a um conjunto de binários versados que podem ser automaticamente descarregados para os nós computacional na sua piscina. Uma aplicação contém um ou mais pacotes de *aplicações*, que representam diferentes versões da aplicação.
 
 Cada *pacote de aplicações* é um ficheiro .zip que contém os binários de aplicação e quaisquer ficheiros de suporte. Apenas o formato .zip é suportado.
 
@@ -81,9 +81,9 @@ Para ver as aplicações na sua conta Batch, selecione **Aplicações** no menu 
 
 A seleção desta opção de menu abre a janela **Aplicações.** Esta janela apresenta o ID de cada aplicação na sua conta e as seguintes propriedades:
 
-- **Pacotes** : Número de versões associadas a esta aplicação.
-- **Versão predefinida** : Se aplicável, a versão de aplicação que será instalada se nenhuma versão for especificada ao implementar a aplicação.
-- **Permitir atualizações** : Especifica se são permitidas atualizações e supressões de pacotes.
+- **Pacotes**: Número de versões associadas a esta aplicação.
+- **Versão predefinida**: Se aplicável, a versão de aplicação que será instalada se nenhuma versão for especificada ao implementar a aplicação.
+- **Permitir atualizações**: Especifica se são permitidas atualizações e supressões de pacotes.
 
 Para ver a estrutura de [ficheiros](files-and-directories.md) do pacote de aplicações num nó de computação, navegue para a sua conta Batch no portal Azure. Selecione **Piscinas**. em seguida, selecione a piscina que contém o nó de computação. Selecione o nó de cálculo no qual o pacote de aplicações está instalado e abra a pasta **de aplicações.**
 
@@ -91,9 +91,9 @@ Para ver a estrutura de [ficheiros](files-and-directories.md) do pacote de aplic
 
 Para ver os detalhes de uma aplicação, selecione-o na janela **Aplicações.** Pode configurar as seguintes definições para a sua aplicação.
 
-- **Permitir atualizações** : Indica se os pacotes de aplicações podem ser [atualizados ou eliminados](#update-or-delete-an-application-package). A predefinição é **Sim**. Se definidos para **Nº** , os pacotes de aplicações existentes não podem ser atualizados ou eliminados, mas ainda podem ser adicionadas novas versões de pacotes de aplicações.
-- **Versão predefinida** : O pacote de aplicação predefinido a utilizar quando a aplicação for implementada, se nenhuma versão for especificada.
-- **Nome do visor** : Um nome amigável que a sua solução Batch pode usar quando apresenta informações sobre a aplicação. Por exemplo, este nome pode ser usado na UI de um serviço que fornece aos seus clientes através do Batch.
+- **Permitir atualizações**: Indica se os pacotes de aplicações podem ser [atualizados ou eliminados](#update-or-delete-an-application-package). A predefinição é **Sim**. Se definidos para **Nº**, os pacotes de aplicações existentes não podem ser atualizados ou eliminados, mas ainda podem ser adicionadas novas versões de pacotes de aplicações.
+- **Versão predefinida**: O pacote de aplicação predefinido a utilizar quando a aplicação for implementada, se nenhuma versão for especificada.
+- **Nome do visor**: Um nome amigável que a sua solução Batch pode usar quando apresenta informações sobre a aplicação. Por exemplo, este nome pode ser usado na UI de um serviço que fornece aos seus clientes através do Batch.
 
 ### <a name="add-a-new-application"></a>Adicionar uma nova aplicação
 
@@ -105,9 +105,9 @@ Na sua conta Batch, selecione **Aplicações** e, em seguida, **selecione Adicio
 
 Introduza as seguintes informações:
 
-- **ID de aplicação** : O ID da sua nova aplicação.
-- **Versão** ": A versão para o pacote de aplicações que está a carregar.
-- **Pacote de aplicações** : O ficheiro .zip que contém os binários de aplicação e ficheiros de suporte necessários para executar o pedido.
+- **ID de aplicação**: O ID da sua nova aplicação.
+- **Versão**": A versão para o pacote de aplicações que está a carregar.
+- **Pacote de aplicações**: O ficheiro .zip que contém os binários de aplicação e ficheiros de suporte necessários para executar o pedido.
 
 O ID de **aplicação** e **a versão** que inseri devem seguir estes requisitos:
 

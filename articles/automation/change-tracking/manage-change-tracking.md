@@ -3,14 +3,14 @@ title: Gerir o Rastreio e Inventário de Mudanças na Automação Azure
 description: Este artigo diz como usar Change Tracking and Inventory para rastrear o software e as alterações de serviço da Microsoft no seu ambiente.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/02/2020
+ms.date: 12/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 99cdc4191320efb37b37e4ec38e808f3961a1207
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 636dbf95567f761aee19bd567b0835173ce36ccc
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288741"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093626"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gerir o Controlo de Alterações e o Inventário
 
@@ -53,8 +53,8 @@ Utilize os seguintes passos para configurar o rastreio de ficheiros nos computad
     |---------|---------|
     |Ativado     | Verdade se a definição for aplicada, e falso de outra forma.        |
     |Nome do Item     | Nome amigável do ficheiro a ser rastreado.        |
-    |Group     | Um nome de grupo para agrupar logicamente ficheiros.        |
-    |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo, **c:\temp \\ \* .txt**. Também pode utilizar variáveis ambientais, tais `%winDir%\System32\\\*.*` como.       |
+    |Grupo     | Um nome de grupo para agrupar logicamente ficheiros.        |
+    |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo, **c:\temperatura \\ \* .txt**. Também pode utilizar variáveis ambientais, tais `%winDir%\System32\\\*.*` como.       |
     |Tipo de Caminho     | O tipo de caminho. Os valores possíveis são Ficheiro e Pasta.        |    
     |Recursão     | É verdade que se a recursão for usada quando se procura que o item seja rastreado, e falso de outra forma.        |    
     |Carregar o conteúdo do ficheiro | Fiel ao upload de conteúdo de ficheiros em alterações rastreadas, e Falso de outra forma.|
@@ -82,7 +82,7 @@ Utilize os seguintes passos para configurar o rastreio de ficheiros nos computad
     |---------|---------|
     |Ativado     | Verdade se a definição for aplicada, e falso de outra forma.        |
     |Nome do Item     | Nome amigável do ficheiro a ser rastreado.        |
-    |Group     | Um nome de grupo para agrupar logicamente ficheiros.        |
+    |Grupo     | Um nome de grupo para agrupar logicamente ficheiros.        |
     |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo, **/etc/*.conf**.       |
     |Tipo de Caminho     | O tipo de caminho. Os valores possíveis são Arquivo e Diretório.        |
     |Recursão     | É verdade que se a recursão for usada quando se procura que o item seja rastreado, e falso de outra forma.        |
@@ -99,6 +99,7 @@ Utilize os seguintes passos para configurar o rastreio de ficheiros nos computad
 O rastreio de conteúdos de ficheiros permite-lhe visualizar o conteúdo de um ficheiro antes e depois de uma alteração rastreada. A funcionalidade guarda o conteúdo do ficheiro numa [conta de armazenamento](../../storage/common/storage-account-overview.md) depois de ocorrer cada alteração. Aqui estão algumas regras a seguir para rastrear o conteúdo do ficheiro:
 
 * É necessária uma conta de armazenamento padrão utilizando o modelo de implementação do Gestor de Recursos para armazenar o conteúdo dos ficheiros.
+* Por predefinição, as contas de armazenamento aceitam ligações de clientes em qualquer rede. Se tiver assegurado a sua conta de armazenamento para permitir apenas determinado tráfego, tem de modificar as suas regras de configuração para permitir que a sua conta Demôm automação se conecte à sua conta. Consulte as firewalls de [armazenamento Configure Azure e redes virtuais](../../storage/common/storage-network-security.md).
 * Não utilize contas de armazenamento de modelos de implantação premium e clássicas. Consulte [as contas de armazenamento Azure](../../storage/common/storage-account-create.md).
 * Pode ligar a conta de armazenamento a apenas uma conta De Automação.
 * O Rastreio e Inventário de Alteração devem ser ativados na sua conta de Automação.
@@ -151,14 +152,14 @@ Utilize os seguintes passos para configurar o rastreio das chaves de registo nos
     |---------|---------|
     |Ativado     | Verdade se uma definição é aplicada, e falso de outra forma.        |
     |Nome do Item     | Nome amigável da chave de registo para rastrear.        |
-    |Group     | Nome do grupo para agrupar logicamente chaves de registo.        |
+    |Grupo     | Nome do grupo para agrupar logicamente chaves de registo.        |
     |Chave do Registo do Windows   | Nome chave com caminho, por `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup` exemplo, .      |
 
 ## <a name="search-logs-for-change-records"></a>Registos de pesquisa para registos de alteração
 
 Pode fazer várias pesquisas contra os registos do Azure Monitor para alterar registos. Com a página de rastreio de Alteração aberta, clique em **Registar Analytics** para abrir a página 'Registar'. A tabela seguinte fornece pesquisas de registo de amostras para registos de alteração.
 
-|Consulta  |Description  |
+|Consulta  |Descrição  |
 |---------|---------|
 |`ConfigurationData`<br>&#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Mostra os registos de inventário mais recentes dos serviços da Microsoft que foram definidos para Auto, mas foram reportados como sendo parados. Os resultados estão limitados ao registo mais recente do nome e computador especificados.    |
 |`ConfigurationChange`<br>&#124; `where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124; `order by TimeGenerated desc`|Mostra registos de alteração para software removido.|

@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/24/2020
-ms.openlocfilehash: cd7d4d3653dc775a949da229e4005d297f7810aa
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 2eff30333362d461f196972fbaedbeac8f2ae7c9
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96127063"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033900"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,7 +27,7 @@ Quando executar a amostra para ligar à IoT Central, utiliza o Serviço de Provi
 
 A `main` função:
 
-* Utiliza DPS para o fornecimento do dispositivo. A informação de fornecimento inclui o ID do modelo.
+* Utiliza DPS para o fornecimento do dispositivo. A informação de fornecimento inclui o ID do modelo. A IoT Central utiliza o ID do modelo para identificar ou gerar o modelo do dispositivo para este dispositivo. Para saber mais, consulte [Associar um dispositivo com um modelo de dispositivo](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
 * Cria um `Device_client` objeto e define o ID do modelo antes de abrir a `dtmi:com:example:Thermostat;1` ligação.
 * Envia a `maxTempSinceLastReboot` propriedade para a IoT Central.
 * Cria um ouvinte para o `getMaxMinReport` comando.
@@ -113,7 +113,7 @@ async def main():
     # ...
 ```
 
-A `provision_device` função utiliza DPS para forrar o dispositivo e registá-lo com a IoT Central. A função inclui o ID do modelo do dispositivo na carga útil do provisionamento:
+A `provision_device` função utiliza DPS para forrar o dispositivo e registá-lo com a IoT Central. A função inclui o ID do modelo do dispositivo, que a IoT Central utiliza para [associar um dispositivo a um modelo de dispositivo,](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template)na carga útil do provisionamento:
 
 ```python
 async def provision_device(provisioning_host, id_scope, registration_id, symmetric_key, model_id):

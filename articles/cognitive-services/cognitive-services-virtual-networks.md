@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 12/04/2020
 ms.author: aahi
-ms.openlocfilehash: f79cfce514b81c5829ee7791c18e24d3bc6563b5
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 3b6c2a5a50cedadd8818eae735df55b661e794ef
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369380"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97034025"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurar redes virtuais dos Serviços Cognitivos do Azure
 
@@ -49,19 +49,22 @@ As redes virtuais (VNETs) são suportadas em [regiões onde os Serviços Cogniti
 > * Visão Personalizada
 > * Rostos
 > * Reconhecedor de Formato
+> * Leitura Avançada
 > * Compreensão de Idiomas (LUIS)
 > * Personalizador
+> * Serviços de Voz
 > * Análise de Texto
 > * Criador de FAQ
 > * Tradução de Texto
-> * Leitura Avançada
+
 
 > [!NOTE]
 > Se estiver a utilizar o LUIS, a etiqueta **CognitiveServicesManagement** apenas permite a utilização do serviço utilizando a API SDK ou REST. Para aceder e utilizar o portal LUIS a partir de uma rede virtual, terá de utilizar as seguintes tags:  
-> * **AzureResourceManager** 
-> * **CognitiveServicesManagement**
 > * **AzureActiveDirectory**
 > * **AzureFrontDoor.Frontend**
+> * **AzureResourceManager** 
+> * **CognitiveServicesManagement**
+
 
 
 ## <a name="change-the-default-network-access-rule"></a>Change the default network access rule (Alterar a regra de acesso de rede predefinida)
@@ -206,7 +209,7 @@ Pode gerir as regras de rede virtual para recursos de Serviços Cognitivos atrav
     >
     > Atualmente, apenas as redes virtuais pertencentes ao mesmo inquilino do Azure Ative Directory são mostradas para seleção durante a criação de regras. Para conceder acesso a uma sub-rede numa rede virtual pertencente a outro inquilino, utilize as APIs powershell, CLI ou REST.
 
-1. Para remover uma regra de rede virtual ou sub-rede, selecione... para abrir o menu de contexto para a rede virtual ou sub-rede e selecione **Remover**. **...**
+1. Para remover uma regra de rede virtual ou sub-rede, selecione... para abrir o menu de contexto para a rede virtual ou sub-rede e selecione **Remover**. 
 
    ![Remover vNet](media/vnet/virtual-network-remove.png)
 
@@ -361,7 +364,7 @@ Pode gerir as regras de rede IP para recursos de Serviços Cognitivos através d
 
 1. Verifique se selecionou para permitir o acesso a partir de **redes selecionadas.**
 
-1. Para conceder acesso a uma gama IP da Internet, insira o endereço IP ou o intervalo de endereços (em [formato CIDR](https://tools.ietf.org/html/rfc4632)) no Campo de **Endereços de Firewall**  >  **Address Range**. Apenas são aceites endereços IP públicos válidos (não reservados).
+1. Para conceder acesso a uma gama IP da Internet, insira o endereço IP ou o intervalo de endereços (em [formato CIDR](https://tools.ietf.org/html/rfc4632)) no Campo de **Endereços de Firewall**  >  . Apenas são aceites endereços IP públicos válidos (não reservados).
 
    ![Adicionar gama IP](media/vnet/virtual-network-add-ip-range.png)
 
@@ -491,13 +494,13 @@ Os pontos finais privados para os recursos dos Serviços Cognitivos permitem-lhe
 
 Um ponto final privado é uma interface de rede especial para um recurso Azure no seu [VNet](../virtual-network/virtual-networks-overview.md). A criação de um ponto final privado para o seu recurso Serviços Cognitivos proporciona uma conectividade segura entre os clientes no seu VNet e o seu recurso. O ponto final privado é atribuído um endereço IP a partir do intervalo de endereço IP do seu VNet. A ligação entre o ponto final privado e o serviço de Serviços Cognitivos utiliza uma ligação privada segura.
 
-As aplicações no VNet podem ligar-se ao serviço através do ponto final privado de forma perfeita, utilizando as mesmas cordas de ligação e mecanismos de autorização que utilizariam de outra forma. A exceção é o Serviço de Fala, que requer um ponto final separado. Consulte a secção [de pontos finais privados com o Serviço de Fala](#private-endpoints-with-the-speech-service). Os pontos finais privados podem ser utilizados com todos os protocolos suportados pelo recurso Serviços Cognitivos, incluindo REST.
+As aplicações no VNet podem ligar-se ao serviço através do ponto final privado de forma perfeita, utilizando as mesmas cordas de ligação e mecanismos de autorização que utilizariam de outra forma. A exceção são os Serviços de Fala, que requerem um ponto final separado. Consulte a secção sobre [pontos finais privados com os Serviços de Fala](#private-endpoints-with-the-speech-services). Os pontos finais privados podem ser utilizados com todos os protocolos suportados pelo recurso Serviços Cognitivos, incluindo REST.
 
 Os pontos finais privados podem ser criados em sub-redes que utilizam [pontos finais de serviço](../virtual-network/virtual-network-service-endpoints-overview.md). Os clientes numa sub-rede podem ligar-se a um recurso de Serviços Cognitivos utilizando o ponto final privado, enquanto utilizam pontos finais de serviço para aceder a outros.
 
 Quando cria um ponto final privado para um recurso de Serviços Cognitivos no seu VNet, é enviado um pedido de consentimento para aprovação ao proprietário de recursos dos Serviços Cognitivos. Se o utilizador que solicita a criação do ponto final privado for também proprietário do recurso, este pedido de consentimento é automaticamente aprovado.
 
-Os proprietários de recursos dos Serviços Cognitivos podem gerir os pedidos de consentimento e os pontos finais privados, através do separador ' *Pontos finais Privados'* para o recurso serviços cognitivos no [portal Azure.](https://portal.azure.com)
+Os proprietários de recursos dos Serviços Cognitivos podem gerir os pedidos de consentimento e os pontos finais privados, através do separador '*Pontos finais Privados'* para o recurso serviços cognitivos no [portal Azure.](https://portal.azure.com)
 
 ### <a name="private-endpoints"></a>Pontos finais privados
 
@@ -509,17 +512,17 @@ Ao criar o ponto final privado, deve especificar o recurso serviços cognitivos 
 
 ### <a name="connecting-to-private-endpoints"></a>Ligação a pontos finais privados
 
-Os clientes de um VNet que utilizem o ponto final privado devem utilizar a mesma cadeia de ligação para o recurso Serviços Cognitivos que os clientes que se ligam ao ponto final público. A exceção é o Serviço de Fala, que requer um ponto final separado. Consulte a secção [de pontos finais privados com o Serviço de Fala](#private-endpoints-with-the-speech-service). Contamos com a resolução do DNS para encaminhar automaticamente as ligações do VNet para o recurso Serviços Cognitivos por uma ligação privada. O Serviço de Fala 
+Os clientes de um VNet que utilizem o ponto final privado devem utilizar a mesma cadeia de ligação para o recurso Serviços Cognitivos que os clientes que se ligam ao ponto final público. A exceção são os Serviços de Fala, que requerem um ponto final separado. Consulte a secção sobre [pontos finais privados com os Serviços de Fala](#private-endpoints-with-the-speech-services). Contamos com a resolução do DNS para encaminhar automaticamente as ligações do VNet para o recurso Serviços Cognitivos por uma ligação privada. 
 
 Criamos uma [zona de DNS privada](../dns/private-dns-overview.md) anexada ao VNet com as atualizações necessárias para os pontos finais privados, por padrão. No entanto, se estiver a utilizar o seu próprio servidor DNS, poderá ter de es fazer alterações adicionais na sua configuração DNS. A secção sobre [as alterações do DNS](#dns-changes-for-private-endpoints) abaixo descreve as atualizações necessárias para os pontos finais privados.
 
-### <a name="private-endpoints-with-the-speech-service"></a>Pontos finais privados com o Serviço de Fala
+### <a name="private-endpoints-with-the-speech-services"></a>Pontos finais privados com os Serviços de Fala
 
-Ao utilizar pontos finais privados com o Serviço de Fala, deve utilizar um ponto final personalizado para ligar para o Serviço de Fala. Não podes usar o ponto final global. O ponto final deve seguir este padrão: `{account}.{stt|tts|voice|dls}.speech.microsoft.com` .
+Consulte [a utilização de serviços de fala com pontos finais privados fornecidos pela Azure Private Link](Speech-Service/speech-services-private-link.md).
 
 ### <a name="dns-changes-for-private-endpoints"></a>DNS alterações para pontos finais privados
 
-Quando cria um ponto final privado, o registo de recursos DNS CNAME para o recurso Serviços Cognitivos é atualizado para um pseudónimo num subdomínio com o prefixo ' *privatelink* '. Por padrão, também criamos uma [zona privada de DNS,](../dns/private-dns-overview.md)correspondente ao subdomínio ' *privatelink* ', com os registos de recursos DNS A para os pontos finais privados.
+Quando cria um ponto final privado, o registo de recursos DNS CNAME para o recurso Serviços Cognitivos é atualizado para um pseudónimo num subdomínio com o prefixo '*privatelink*'. Por padrão, também criamos uma [zona privada de DNS,](../dns/private-dns-overview.md)correspondente ao subdomínio '*privatelink*', com os registos de recursos DNS A para os pontos finais privados.
 
 Quando resolve o URL de ponto final de fora do VNet com o ponto final privado, resolve-se para o ponto final público do recurso Serviços Cognitivos. Quando resolvido a partir do VNet que hospeda o ponto final privado, o URL do ponto final resolve-se para o endereço IP do ponto final privado.
 

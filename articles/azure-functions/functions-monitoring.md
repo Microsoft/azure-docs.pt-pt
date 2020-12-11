@@ -4,13 +4,13 @@ description: Aprenda a utilizar insights de aplicação Azure com funções Azur
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.custom: devx-track-csharp, fasttrack-edit, contperfq2, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: b27fb14341e07683d66418485158a94c18e7a997
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js
+ms.openlocfilehash: 7dbaa8712e09de9084e2bcb66d43f2181af292a0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748165"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033039"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
@@ -33,7 +33,7 @@ A lista completa das funcionalidades de Insights de Aplicação disponível para
 
 ## <a name="application-insights-integration"></a>Integração de Insights de Aplicação
 
-Normalmente, cria uma instância de Insights de Aplicação quando cria a sua aplicação de função. Neste caso, a chave de instrumentação necessária para a integração já está definida como uma definição de aplicação denominada *APPINSIGHTS_INSTRUMENTATIONKEY* . Se, por alguma razão, a sua aplicação de função não tiver o conjunto de teclas de instrumentação, precisa de ativar a [integração do Application Insights](configure-monitoring.md#enable-application-insights-integration).  
+Normalmente, cria uma instância de Insights de Aplicação quando cria a sua aplicação de função. Neste caso, a chave de instrumentação necessária para a integração já está definida como uma definição de aplicação denominada *APPINSIGHTS_INSTRUMENTATIONKEY*. Se, por alguma razão, a sua aplicação de função não tiver o conjunto de teclas de instrumentação, precisa de ativar a [integração do Application Insights](configure-monitoring.md#enable-application-insights-integration).  
 
 ## <a name="collecting-telemetry-data"></a>Recolha de dados de telemetria
 
@@ -95,9 +95,9 @@ Ao desenvolver uma aplicação, muitas vezes quer ver o que está a ser escrito 
 
 Existem duas formas de ver um fluxo dos dados de registo que estão a ser gerados pelas suas execuções de funções.
 
-* **Streaming de registo incorporado** : a plataforma Serviço de Aplicações permite-lhe visualizar um fluxo de ficheiros de registo de aplicações. Este fluxo é equivalente à saída observada quando desorga as suas funções durante o [desenvolvimento local](functions-develop-local.md) e quando utiliza o separador **Teste** no portal. Todas as informações baseadas em registos são apresentadas. Para obter mais informações, consulte [os registos de stream](../app-service/troubleshoot-diagnostic-logs.md#stream-logs). Este método de streaming suporta apenas uma única instância, e não pode ser usado com uma aplicação em execução no Linux num plano de Consumo.
+* **Streaming de registo incorporado**: a plataforma Serviço de Aplicações permite-lhe visualizar um fluxo de ficheiros de registo de aplicações. Este fluxo é equivalente à saída observada quando desorga as suas funções durante o [desenvolvimento local](functions-develop-local.md) e quando utiliza o separador **Teste** no portal. Todas as informações baseadas em registos são apresentadas. Para obter mais informações, consulte [os registos de stream](../app-service/troubleshoot-diagnostic-logs.md#stream-logs). Este método de streaming suporta apenas uma única instância, e não pode ser usado com uma aplicação em execução no Linux num plano de Consumo.
 
-* **Live Metrics Stream** : quando a sua aplicação de função está [ligada ao Application Insights](configure-monitoring.md#enable-application-insights-integration), pode visualizar dados de registo e outras métricas em tempo real no portal Azure utilizando o Live [Metrics Stream](../azure-monitor/app/live-stream.md). Utilize este método ao monitorizar as funções em execução em múltiplas instâncias ou em Linux num plano de consumo. Este método utiliza [dados amostrados.](configure-monitoring.md#configure-sampling)
+* **Live Metrics Stream**: quando a sua aplicação de função está [ligada ao Application Insights](configure-monitoring.md#enable-application-insights-integration), pode visualizar dados de registo e outras métricas em tempo real no portal Azure utilizando o Live [Metrics Stream](../azure-monitor/app/live-stream.md). Utilize este método ao monitorizar as funções em execução em múltiplas instâncias ou em Linux num plano de consumo. Este método utiliza [dados amostrados.](configure-monitoring.md#configure-sampling)
 
 Os fluxos de log podem ser vistos tanto no portal como na maioria dos ambientes de desenvolvimento local. Para saber como ativar as correntes de registo, consulte [Ativar os registos de execução em funções de Azure](streaming-logs.md).
 

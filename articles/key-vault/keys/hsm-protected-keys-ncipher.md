@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: f5d58f89aa87a39d12b2d6f6a3a91254a653a088
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8a1f3b5e80152fb0fb9458aef0d3524dd2d6f5eb
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784665"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092334"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Chaves protegidas pelo HSM para o Cofre-Chave (nCipher)
 
@@ -61,7 +61,7 @@ Consulte a seguinte tabela para obter uma lista de pré-requisitos para trazer a
 | --- | --- |
 | Uma assinatura do Azure |Para criar um Cofre de Chaves Azure, precisa de uma subscrição Azure: [Inscreva-se para teste gratuito](https://azure.microsoft.com/pricing/free-trial/) |
 | O nível de serviço Azure Key Vault Premium para suportar chaves protegidas pelo HSM |Para obter mais informações sobre os níveis de serviço e as capacidades para o Azure Key Vault, consulte o site de preços do [cofre de chaves Azure.](https://azure.microsoft.com/pricing/details/key-vault/) |
-| nCipher nShield HSMs, smartcards e software de suporte |Você deve ter acesso a um módulo de segurança de hardware nCipher e conhecimentos operacionais básicos de nCipher nShield HSMs. Consulte [nCipher nShield Hardware Security Module](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/how-to-buy) para obter a lista de modelos compatíveis ou para adquirir um HSM se não tiver um. |
+| nCipher nShield HSMs, smartcards e software de suporte |Você deve ter acesso a um módulo de segurança de hardware nCipher e conhecimentos operacionais básicos de nCipher nShield HSMs. Consulte [nCipher nShield Hardware Security Module](https://go.ncipher.com/rs/104-QOX-775/images/nCipher_nShield_Family_Brochure.pdf?_ga=2.106120835.1607422418.1590478092-577009923.1587131206) para obter a lista de modelos compatíveis ou para adquirir um HSM se não tiver um. |
 | O seguinte hardware e software:<ol><li>Uma estação de trabalho offline x64 com um sistema de funcionamento mínimo do Windows 7 e software nCipher nShield que é pelo menos a versão 11.50.<br/><br/>Se esta estação de trabalho executar o Windows 7, tem de [instalar o Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Uma estação de trabalho que está ligada à Internet e tem um sistema operativo mínimo Windows do Windows 7 e [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) **na versão mínima 1.1.0** instalada.</li><li>Uma unidade USB ou outro dispositivo de armazenamento portátil que tenha pelo menos 16 MB de espaço livre.</li></ol> |Por motivos de segurança, recomendamos que a primeira estação de trabalho não esteja ligada a uma rede. No entanto, esta recomendação não é aplicada programáticamente.<br/><br/>Nas instruções que se seguem, esta estação de trabalho é referida como a estação de trabalho desligada.</p></blockquote><br/>Além disso, se a chave do seu inquilino for para uma rede de produção, recomendamos que use uma segunda estação de trabalho separada para descarregar o depósito de ferramentas e fazer o upload da chave do inquilino. Contudo, para fins de teste, pode utilizar a mesma estação de trabalho.<br/><br/>Nas instruções que se seguem, esta segunda estação de trabalho é referida como a estação de trabalho ligada à Internet.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Gere e transfira a sua chave para Azure Key Vault HSM
@@ -255,7 +255,7 @@ Para este segundo passo, faça os seguintes procedimentos no posto de trabalho q
 
 Instale o software de suporte nCipher num computador Windows e, em seguida, prenda um nCipher nShield HSM a esse computador.
 
-Certifique-se de que as ferramentas nCipher estão no seu caminho **(%nfast_home%\bin** ). Por exemplo, escreva o seguinte:
+Certifique-se de que as ferramentas nCipher estão no seu caminho **(%nfast_home%\bin**). Por exemplo, escreva o seguinte:
 
   ```cmd
   set PATH=%PATH%;"%nfast_home%\bin"
@@ -416,7 +416,7 @@ Para validar o pacote descarregado:
      >
 2. Confirme que vê o seguinte, o que indica validação bem sucedida: **Resultado: SUCESSO**
 
-Este script valida a corrente do signatário até à tecla raiz nShield. O hash desta chave de raiz é incorporado no script e o respetivo valor deve ser **59178a47 de508c3f 291277ee 184f46c4 f1d9c639** . Também pode confirmar este valor separadamente visitando o [site nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/validation).
+Este script valida a corrente do signatário até à tecla raiz nShield. O hash desta chave de raiz é incorporado no script e o respetivo valor deve ser **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Também pode confirmar este valor separadamente visitando o [site nCipher](https://www.ncipher.com).
 
 Agora estás pronto para criar uma nova chave.
 
@@ -432,11 +432,11 @@ generatekey --generate simple type=RSA size=2048 protect=module ident=contosokey
 
 Quando executar este comando, utilize estas instruções:
 
-* O parâmetro *protect* tem de ser definido para o valor **module** , conforme mostrado. Esta ação cria uma chave protegida por um módulo. O conjunto de ferramentas BYOK não suporta chaves protegidas por OCS.
+* O parâmetro *protect* tem de ser definido para o valor **module**, conforme mostrado. Esta ação cria uma chave protegida por um módulo. O conjunto de ferramentas BYOK não suporta chaves protegidas por OCS.
 * Substitua o valor *contosokey* por **ident** e **plainname** por qualquer valor da cadeia. Para minimizar as despesas administrativas e reduzir o risco de erros, recomendamos que utilize o mesmo valor para ambos. O valor **do identificador** deve conter apenas números, traços e letras minúsculas.
-* O pubexp fica em branco (predefinição) neste exemplo, mas pode especificar valores. Para mais informações, consulte a [documentação nCipher.](https://www.ncipher.com/resources/solution-briefs/protect-sensitive-data-rest-and-use-across-premises-and-azure-based)
+* O pubexp fica em branco (predefinição) neste exemplo, mas pode especificar valores. Para mais informações, consulte a [documentação nCipher.](https://www.entrust.com/-/media/documentation/brochures/entrust-nshield-general-purpose-hsms-br-a4.pdf)
 
-Este comando cria um ficheiro Chave Tokenized na pasta %NFAST_KMDATA%\local com um nome a começar por **key_simple_** , seguido do **identificador** especificado no comando. Por exemplo: **key_simple_contosokey** . Este ficheiro contém uma chave encriptada.
+Este comando cria um ficheiro Chave Tokenized na pasta %NFAST_KMDATA%\local com um nome a começar por **key_simple_**, seguido do **identificador** especificado no comando. Por exemplo: **key_simple_contosokey**. Este ficheiro contém uma chave encriptada.
 
 Crie uma cópia de segurança deste Ficheiro de Chave com Token numa localização segura.
 
@@ -668,7 +668,7 @@ Quando executar este comando, utilize estas instruções:
 * Substitua *a SubscriçãoID* pelo ID da subscrição Azure que contém o seu cofre de chaves. Você recuperou este valor anteriormente, no **Passo 1.2: Obtenha o seu ID de subscrição Azure** a partir do passo de [estação de trabalho ligado à Internet.](#step-1-prepare-your-internet-connected-workstation)
 * Substitua *o ContosoFirstHSMKey* por uma etiqueta que seja utilizada para o nome do ficheiro de saída.
 
-Quando isto termina com sucesso, apresenta **Resultado: SUCESSO** e há um novo ficheiro na pasta atual que tem o seguinte nome: KeyTransferPackage- *ContosoFirstHSMkey* .byok
+Quando isto termina com sucesso, apresenta **Resultado: SUCESSO** e há um novo ficheiro na pasta atual que tem o seguinte nome: KeyTransferPackage-*ContosoFirstHSMkey*.byok
 
 ### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>Passo 4.3: Copie o seu pacote de transferência chave para a estação de trabalho ligada à Internet
 

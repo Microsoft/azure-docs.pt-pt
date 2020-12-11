@@ -8,19 +8,22 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/04/2020
+ms.date: 12/10/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 5d0b2df551c73e8c9b24d80280bbc993d9b361b7
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: a15ac2b5632cb881b094ca2c333dfca55a689062
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928472"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092623"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure
 
 O Azure Ative Directory (Azure AD) tem um serviço de Procuração de Aplicações que permite aos utilizadores aceder em aplicações no local, insinundo-se com a sua conta Azure AD. Este tutorial prepara o seu ambiente para uso com Aplicação Proxy. Assim que o seu ambiente estiver pronto, utilizará o portal Azure para adicionar uma aplicação no local ao seu inquilino AZure AD.
+
+Os conectores são uma parte chave do Application Proxy. Para saber mais sobre conectores, consulte [os conectores Proxy da aplicação AD Azure.](application-proxy-connectors.md)
 
 Este tutorial permite:
 
@@ -191,7 +194,7 @@ Agora que preparou o seu ambiente e instalou um conector, está pronto para adic
 1. Inscreva-se como administrador no [portal Azure](https://portal.azure.com/).
 2. No painel de navegação esquerdo, selecione **Azure Ative Directory**.
 3. Selecione **as aplicações da Enterprise** e, em seguida, selecione Nova **aplicação**.
-4. Na secção Criar a sua própria secção **de aplicação,** selecione **Proxy Proxy Configure Application para acesso remoto seguro a uma aplicação no local.**
+4. Selecione Adicione um botão **de aplicação no local** que aparece a meio da página na secção de **aplicações no local.** Em alternativa, pode selecionar **Criar a sua própria aplicação** no topo da página e, em seguida, selecionar **Proxy Proxy Configure Application para acesso remoto seguro a uma aplicação no local.**
 5. Na secção **de aplicação adicionar** a sua própria no local, forneça as seguintes informações sobre a sua aplicação:
 
     | Campo | Descrição |

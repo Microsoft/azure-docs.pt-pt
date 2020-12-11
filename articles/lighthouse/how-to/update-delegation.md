@@ -3,12 +3,12 @@ title: Atualizar uma delegação
 description: Saiba como atualizar uma delegação para um cliente previamente a bordo do Farol de Azure.
 ms.date: 12/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 90827281ac9b05105700298494af0b60b0fa511f
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: e204d1f3546e6e978f91c7e808065a388a4af4b3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96610905"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093422"
 ---
 # <a name="update-a-delegation"></a>Atualizar uma delegação
 
@@ -17,7 +17,7 @@ Depois de ter acedido a uma subscrição (ou grupo de recursos) para o Farol de 
 > [!TIP]
 > Embora nos refiramos a prestadores de serviços e clientes neste tópico, [as empresas que gerem vários inquilinos](../concepts/enterprise.md) podem usar o mesmo processo para criar o Farol Azure e consolidar a sua experiência de gestão.
 
-Se [embarcar no seu cliente através dos modelos Azure Resource Manager (ARM),](onboard-customer.md)deve ser realizada uma nova implementação para esse cliente. Dependendo do que está a mudar, pode querer atualizar a oferta original, ou remover a oferta original e criar uma nova.
+Se você [embarcar no seu cliente através de modelos Azure Resource Manager (modelos ARM)](onboard-customer.md), uma nova implementação deve ser realizada para esse cliente. Dependendo do que está a mudar, pode querer atualizar a oferta original, ou remover a oferta original e criar uma nova.
 
 - **Se estiver a alterar apenas as autorizações:** Pode atualizar a sua delegação alterando apenas a secção de **autorizações** do modelo ARM.
 - **Se estiver a mudar o inquilino de gestão:** Tem de criar um novo modelo ARM utilizando um **nome mspOffer** diferente da sua oferta anterior.

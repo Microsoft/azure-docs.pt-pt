@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/25/2020
-ms.openlocfilehash: 3d02210559e3da0d42f7de96157cbbe886b16082
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 07af7f7f716a83ee9fa47619c1334a29786818d7
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558613"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033090"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Create a trigger that runs a pipeline on a tumbling window(Criar um acionador que execute um pipeline numa janela em cascata)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,9 +27,9 @@ Os acionadores de janela em cascata são um tipo de acionador que é acionado nu
 
 ## <a name="data-factory-ui"></a>IU do Data Factory
 
-1. Para criar um gatilho de janela caindo na UI da Fábrica de Dados, selecione o **separador Gatilhos** e, em seguida, selecione **New** . 
+1. Para criar um gatilho de janela caindo na UI da Fábrica de Dados, selecione o **separador Gatilhos** e, em seguida, selecione **New**. 
 1. Depois de abrir o painel de configuração do gatilho, selecione **Tumbling Window** e, em seguida, defina as propriedades do gatilho da janela caindo. 
-1. Quando tiver terminado, selecione **Guardar** .
+1. Quando tiver terminado, selecione **Guardar**.
 
 ![Criar um gatilho de janela caindo no portal Azure](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
 
@@ -37,7 +37,7 @@ Os acionadores de janela em cascata são um tipo de acionador que é acionado nu
 
 Uma janela de tropeçar tem as seguintes propriedades do tipo gatilho:
 
-```
+```json
 {
     "name": "MyTriggerName",
     "properties": {
@@ -47,7 +47,7 @@ Uma janela de tropeçar tem as seguintes propriedades do tipo gatilho:
             "frequency": <<Minute/Hour>>,
             "interval": <<int>>,
             "startTime": "<<datetime>>",
-            "endTime: <<datetime – optional>>,
+            "endTime": <<datetime – optional>>,
             "delay": <<timespan – optional>>,
             "maxConcurrency": <<int>> (required, max allowed: 50),
             "retryPolicy": {
@@ -96,18 +96,18 @@ A tabela a seguir fornece uma visão geral de alto nível dos principais element
 
 | Elemento JSON | Descrição | Tipo | Valores permitidos | Necessário |
 |:--- |:--- |:--- |:--- |:--- |
-| **tipo** | O tipo do gatilho. O tipo é o valor fixo "TumblingWindowTrigger". | String | "TumblingWindowTrigger" | Yes |
-| **estado de tempo de execução** | O estado atual do tempo de execução do gatilho.<br/>**Nota:** Este elemento é \<readOnly> . | String | "Iniciado", "Parado", "Deficiente" | Yes |
-| **frequência** | Uma corda que representa a unidade de frequência (minutos ou horas) em que o gatilho se repete. Se os valores da data **de início do Tempo** forem mais granulares do que o valor da **frequência,** as datas **de início são** consideradas quando os limites da janela são calculados. Por exemplo, se o valor da **frequência** for de hora em hora e o valor inicial do Tempo de **Arranque** for 2017-09-01T10:10:10Z, a primeira janela é (2017-09-01T10:10:10Z, 2017-09-011:10:10Z). | String | "minuto", "hora"  | Yes |
-| **interval** | Um valor inteiro positivo que indica o intervalo do valor **frequency** , que determina o número de vezes que o acionador é executado. Por exemplo, se o **intervalo** for 3 e a **frequência** for "hora", o gatilho repete-se a cada 3 horas. <br/>**Nota:** O intervalo mínimo da janela é de 5 minutos. | Número inteiro | Um inteiro positivo. | Yes |
-| **horário de início**| A primeira ocorrência, que pode ser no passado. O primeiro intervalo de disparo é **(startTime** , intervalo **startTime**  +  **interval** ). | DateTime | Um valor de DataTime. | Yes |
-| **endTime**| A última ocorrência, que pode ser no passado. | DateTime | Um valor de DataTime. | Yes |
-| **atraso** | O tempo para atrasar o início do processamento de dados para a janela. O gasoduto é iniciado após o tempo de execução esperado mais a quantidade de **atraso** . O **atraso** define quanto tempo o gatilho espera para além do tempo devido antes de desencadear uma nova execução. O **atraso** não altera a janela **de inícioTime** . Por exemplo, um valor de **atraso** de 00:10:00 implica um atraso de 10 minutos. | Timespan<br/>(hh:mm:ss)  | Um valor de tempo em que o padrão é 00:00:00. | No |
-| **maxConcurrency** | O número de disparos simultâneos que são disparados para janelas que estão prontas. Por exemplo, voltar a encher as horas por hora para ontem resulta em 24 janelas. Se **maxConcurrency** = 10, os eventos de gatilho são disparados apenas para as primeiras 10 janelas (00:00-01:00 - 09:00-10:00). Depois de concluídas as primeiras 10 corridas de gasodutos acionados, o gatilho é disparado para as próximas 10 janelas (10:00-11:00 - 19:00-20:00). Continuando com este exemplo de **maxConcurrency** = 10, se houver 10 janelas prontas, existem 10 percursos totais de gasoduto. Se só houver uma janela pronta, só há 1 oleoduto. | Número inteiro | Um inteiro entre 1 e 50. | Yes |
-| **retriptaPolícia: Conde** | O número de retreições antes do curso do gasoduto é marcado como "Falhado".  | Número inteiro | Um inteiro, onde o padrão é 0 (sem retracências). | No |
-| **retriptaPolícia: intervalosSegundos** | O atraso entre as tentativas de repetição especificadas em segundos. | Número inteiro | O número de segundos, onde o padrão é 30. | No |
-| **dependsOn: tipo** | O tipo de TumblingWindowTriggerReference. Necessário se uma dependência for definida. | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | No |
-| **dependsOn: tamanho** | O tamanho da janela de caindo de dependência. | Timespan<br/>(hh:mm:ss)  | Um valor de tempo positivo onde o padrão é o tamanho da janela do gatilho da criança  | No |
+| **tipo** | O tipo do gatilho. O tipo é o valor fixo "TumblingWindowTrigger". | String | "TumblingWindowTrigger" | Sim |
+| **estado de tempo de execução** | O estado atual do tempo de execução do gatilho.<br/>**Nota:** Este elemento é \<readOnly> . | String | "Iniciado", "Parado", "Deficiente" | Sim |
+| **frequência** | Uma corda que representa a unidade de frequência (minutos ou horas) em que o gatilho se repete. Se os valores da data **de início do Tempo** forem mais granulares do que o valor da **frequência,** as datas **de início são** consideradas quando os limites da janela são calculados. Por exemplo, se o valor da **frequência** for de hora em hora e o valor inicial do Tempo de **Arranque** for 2017-09-01T10:10:10Z, a primeira janela é (2017-09-01T10:10:10Z, 2017-09-011:10:10Z). | String | "minuto", "hora"  | Sim |
+| **intervalo** | Um valor inteiro positivo que indica o intervalo do valor **frequency**, que determina o número de vezes que o acionador é executado. Por exemplo, se o **intervalo** for 3 e a **frequência** for "hora", o gatilho repete-se a cada 3 horas. <br/>**Nota:** O intervalo mínimo da janela é de 5 minutos. | Número inteiro | Um inteiro positivo. | Sim |
+| **horário de início**| A primeira ocorrência, que pode ser no passado. O primeiro intervalo de disparo é **(startTime**, intervalo **startTime**  +  ). | DateTime | Um valor de DataTime. | Sim |
+| **endTime**| A última ocorrência, que pode ser no passado. | DateTime | Um valor de DataTime. | Sim |
+| **atraso** | O tempo para atrasar o início do processamento de dados para a janela. O gasoduto é iniciado após o tempo de execução esperado mais a quantidade de **atraso**. O **atraso** define quanto tempo o gatilho espera para além do tempo devido antes de desencadear uma nova execução. O **atraso** não altera a janela **de inícioTime**. Por exemplo, um valor de **atraso** de 00:10:00 implica um atraso de 10 minutos. | Timespan<br/>(hh:mm:ss)  | Um valor de tempo em que o padrão é 00:00:00. | Não |
+| **maxConcurrency** | O número de disparos simultâneos que são disparados para janelas que estão prontas. Por exemplo, voltar a encher as horas por hora para ontem resulta em 24 janelas. Se **maxConcurrency** = 10, os eventos de gatilho são disparados apenas para as primeiras 10 janelas (00:00-01:00 - 09:00-10:00). Depois de concluídas as primeiras 10 corridas de gasodutos acionados, o gatilho é disparado para as próximas 10 janelas (10:00-11:00 - 19:00-20:00). Continuando com este exemplo de **maxConcurrency** = 10, se houver 10 janelas prontas, existem 10 percursos totais de gasoduto. Se só houver uma janela pronta, só há 1 oleoduto. | Número inteiro | Um inteiro entre 1 e 50. | Sim |
+| **retriptaPolícia: Conde** | O número de retreições antes do curso do gasoduto é marcado como "Falhado".  | Número inteiro | Um inteiro, onde o padrão é 0 (sem retracências). | Não |
+| **retriptaPolícia: intervalosSegundos** | O atraso entre as tentativas de repetição especificadas em segundos. | Número inteiro | O número de segundos, onde o padrão é 30. | Não |
+| **dependsOn: tipo** | O tipo de TumblingWindowTriggerReference. Necessário se uma dependência for definida. | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | Não |
+| **dependsOn: tamanho** | O tamanho da janela de caindo de dependência. | Timespan<br/>(hh:mm:ss)  | Um valor de tempo positivo onde o padrão é o tamanho da janela do gatilho da criança  | Não |
 | **dependsOn: offset** | A compensação do gatilho da dependência. | Timespan<br/>(hh:mm:ss) |  Um valor de tempo que deve ser negativo numa auto-dependência. Se nenhum valor especificado, a janela é a mesma que o gatilho em si. | Auto-dependência: Sim<br/>Outros: Não  |
 
 > [!NOTE]
@@ -117,7 +117,7 @@ A tabela a seguir fornece uma visão geral de alto nível dos principais element
 
 Pode utilizar as variáveis do sistema **WindowStart** e **WindowEnd** do gatilho da janela caindo na definição do **seu pipeline** (isto é, para uma parte de uma consulta). Passe as variáveis do sistema como parâmetros para o seu pipeline na definição de **gatilho.** O exemplo a seguir mostra como passar estas variáveis como parâmetros:
 
-```
+```json
 {
     "name": "MyTriggerName",
     "properties": {

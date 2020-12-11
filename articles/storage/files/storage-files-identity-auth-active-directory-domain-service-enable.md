@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: contperfq1, devx-track-azurecli
-ms.openlocfilehash: 5d900f105728efc6f58c4f9f7412cea157cbfe20
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.custom: contperf-fy21q1, devx-track-azurecli
+ms.openlocfilehash: deed7c3dce2d7da1940a8a4871efac7453e2cf60
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630384"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033685"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Ativar a autenticação dos Serviços de Domínio do Diretório Ativo do Azure em Ficheiros Azure
 
-Ficheiros Azure [Azure Files](storage-files-introduction.md)   suporta a autenticação baseada na identidade sobre o Bloco de Mensagens do Servidor (SMB) através de dois tipos de Serviços de Domínio: no local Serviços de Domínio de Diretório Ativo (AD DS) e Azure Ative Directory Domain Services (Azure AD DS). Recomendamos vivamente que reveja a [secção Como funciona](./storage-files-active-directory-overview.md#how-it-works) para selecionar o serviço de domínio certo para autenticação. A configuração é diferente depende do serviço de domínio que escolher. Este artigo centra-se em ativar e configurar Azure AD DS para autenticação com ações de ficheiros Azure.
+Ficheiros Azure [](storage-files-introduction.md)   suporta a autenticação baseada na identidade sobre o Bloco de Mensagens do Servidor (SMB) através de dois tipos de Serviços de Domínio: no local Serviços de Domínio de Diretório Ativo (AD DS) e Azure Ative Directory Domain Services (Azure AD DS). Recomendamos vivamente que reveja a [secção Como funciona](./storage-files-active-directory-overview.md#how-it-works) para selecionar o serviço de domínio certo para autenticação. A configuração é diferente depende do serviço de domínio que escolher. Este artigo centra-se em ativar e configurar Azure AD DS para autenticação com ações de ficheiros Azure.
 
 Se é novo nas ações de ficheiros Azure, recomendamos que leia o nosso [guia de planeamento](storage-files-planning.md) antes de ler a seguinte série de artigos.
 
@@ -39,7 +39,7 @@ Antes de ativar a Azure AD sobre AMB para ações de ficheiros Azure, certifique
 
     Para apoiar a autenticação com credenciais AZure AD, você deve ativar os Serviços de Domínio AZure AD para o seu inquilino AZure AD. Se não for o administrador do inquilino Azure AD, contacte o administrador e siga a orientação passo a passo para Ativar os [Serviços de Domínio do Diretório Ativo Azure utilizando o portal Azure](../../active-directory-domain-services/tutorial-create-instance.md).
 
-    Normalmente leva cerca de 15 minutos para uma implementação AD DS AZure para ser concluída. Verifique se o estado de saúde do Azure AD DS mostra **running** , com sincronização de hash de palavra-passe ativada, antes de avançar para o passo seguinte.
+    Normalmente leva cerca de 15 minutos para uma implementação AD DS AZure para ser concluída. Verifique se o estado de saúde do Azure AD DS mostra **running**, com sincronização de hash de palavra-passe ativada, antes de avançar para o passo seguinte.
 
 1.  **Junte-se a um Azure VM com Azure AD DS.**
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vladvino
 ms.author: apimpm
 ms.date: 11/27/2020
-ms.openlocfilehash: fca98414a87f3b8a4f3c0969a28ee95c7ed47dc3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 72e91715398b4920c62afae5f36aa09954a577f9
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501577"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092147"
 ---
 # <a name="api-management-soft-delete-preview"></a>API Management soft-delete (pré-visualização)
 
@@ -48,7 +48,7 @@ Se a sua instância APIM não for recuperada dentro de 48 horas, será duramente
 
 ## <a name="list-deleted-apim-instances"></a>Lista de casos APIM eliminados
 
-Pode verificar se uma instância APIM de apagamento suave está disponível para restaurar (undelete) usando as operações [de Obter por Nome](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) ou Lista por [Subscrição.](/deletedservices/listbysubscription)
+Pode verificar se uma instância APIM de apagamento suave está disponível para restaurar (undelete) usando as operações [de Obter por Nome](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) ou Lista por [Subscrição.](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription)
 
 ### <a name="get-a-soft-deleted-instance-by-name"></a>Obtenha um exemplo de apagação suave pelo nome
 
@@ -76,7 +76,7 @@ Se estiver disponível para não serdelete, a Azure devolverá um registo do cas
 
 ### <a name="list-all-soft-deleted-instances-for-a-given-subscription"></a>Listar todos os casos de apagação suave para uma determinada subscrição
 
-Utilize a Lista de Gestão da API [por operação por subscrição,](/deletedservices/listbysubscription) substituindo-a `{subscriptionId}` pelo seu ID de subscrição:
+Utilize a Lista de Gestão da API [por operação por subscrição,](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) substituindo-a `{subscriptionId}` pelo seu ID de subscrição:
 
 ```rest
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/deletedservices?api-version=2020-06-01-preview

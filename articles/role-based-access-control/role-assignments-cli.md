@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/28/2020
 ms.author: rolyon
-ms.custom: contperfq1, devx-track-azurecli
-ms.openlocfilehash: 94052b847f48a9fd676496601d85a8cb58a76944
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.custom: contperf-fy21q1, devx-track-azurecli
+ms.openlocfilehash: 10060e0dc6595a4d59f3968fa324ca40c91a7a39
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184302"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033804"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Utilizar a CLI do Azure para adicionar ou remover atribuições de funções do Azure
 

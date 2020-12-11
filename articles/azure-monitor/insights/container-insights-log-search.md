@@ -3,12 +3,12 @@ title: Como consultar registos do Azure Monitor para contentores Microsoft Docs
 description: O Azure Monitor para contentores recolhe métricas e dados de registo e este artigo descreve os registos e inclui consultas de amostra.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 08c42fab84cb5180497f8da4f077b9bd82283ad4
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 9bfa63a49da33289b8c811007f210e6546579d9d
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95747684"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033566"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Como consultar registos do Azure Monitor para contentores
 
@@ -20,8 +20,8 @@ No quadro seguinte, são fornecidos pormenores sobre os registos recolhidos pelo
 
 | Dados | Origem de dados | Tipo de dados | Campos |
 |------|-------------|-----------|--------|
-| Inventário de contentores | Kubelet | `ContainerInventory` | TimeGenerated, Computador, nome do recipiente, Nome de Contentores, Imagem, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
-| Tronco de contentor | Docker | `ContainerLog` | TimeGenerated, Computador, ID de imagem, nome do recipiente, LogEntrySource, LogEntry, SourceSystem, ContainerID |
+| Inventário de contentores | Kubelet | `ContainerInventory` | TimeGenerated, Computador, Nome, ContentorHostname, Imagem, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
+| Tronco de contentor | Docker | `ContainerLog` | TimeGenerated, Computador, ID de imagem, Nome, LogEntrySource, LogEntry, SourceSystem, ContainerID |
 | Inventário do nó do contentor | Kube API | `ContainerNodeInventory`| TempoGertado, Computador, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
 | Inventário de cápsulas num aglomerado de Kubernetes | Kube API | `KubePodInventory` | TimeGenerated, Computador, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus, ContainerStatusReason, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, ClusterName, |
 | Inventário de nó de nó parte de um cluster Kubernetes | Kube API | `KubeNodeInventory` | TimeGenerated, Computador, ClusterName, ClusterId, LastTransitionTimeReady, Labels, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
@@ -47,7 +47,7 @@ Os registos de contentores que são reencaminhados para o seu espaço de trabalh
 
 Muitas vezes é útil construir consultas que começam com um ou dois exemplos e depois modificá-las para se adequar às suas necessidades. Para ajudar a construir consultas mais avançadas, pode experimentar as seguintes consultas de amostra:
 
-| Consulta | Description | 
+| Consulta | Descrição | 
 |-------|-------------|
 | ContentorInventory<br> &#124; projeto Computador, Nome, Imagem, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; mesa de renderização | Listar todas as informações do ciclo de vida de um contentor| 
 | KubeEvents_CL<br> &#124; em que não(isempty(Namespace_s))<br> &#124; tipo por Desc degenerado Tempo<br> &#124; mesa de renderização | Eventos de Kubernetes|

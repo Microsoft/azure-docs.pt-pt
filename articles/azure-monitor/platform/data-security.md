@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 5aa379f6601bc324bd08c53f251b2097141eec69
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 87cdecd29d684c712853970c8246002132d274ac
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911639"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094340"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics segurança de dados
 Este documento destina-se a fornecer informações específicas ao Log Analytics, que é uma característica do Azure Monitor, para complementar a informação no [Azure Trust Center](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -127,7 +127,7 @@ A Azure Log Analytics cumpre os seguintes requisitos:
 * [ISO 22301](https://azure.microsoft.com/blog/iso22301/)
 * [Indústria de Cartões de Pagamento (PCI Compliant) Data Security Standard (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) pelo Conselho de Normas de Segurança do PCI.
 * [Controlos da Organização de Serviços (SOC) 1 Tipo 1 e SOC 2 Tipo 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) em conformidade
-* [HIPAA e HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) para empresas que têm um Acordo de Associado de Negócios HIPAA
+* [HIPAA e HITECH](/compliance/regulatory/offering-hipaa-hitech) para empresas que têm um Acordo de Associado de Negócios HIPAA
 * Critérios de Engenharia Comuns do Windows
 * Microsoft Computação confiável
 * Como serviço Azure, os componentes que o Log Analytics utiliza aderem aos requisitos de conformidade da Azure. Pode ler mais no [Microsoft Trust Center Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx).

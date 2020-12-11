@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0b2d18165bf2c5a4f70f1cbc555db79020ce988f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: f55cfcf6d6ec369cdf871e8ba38bd81774dacd8e
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95250622"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092317"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob"></a>Criar um serviço SAS para um recipiente ou bolha
 
@@ -32,7 +32,7 @@ O seguinte exemplo de código cria um SAS para um recipiente. Se for fornecida a
 
 Um serviço SAS é assinado com a chave de acesso à conta. Utilize a classe [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) para criar a credencial que é usada para assinar o SAS. Em seguida, crie um novo objeto [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) e ligue para os [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) para obter a cadeia de ficha SAS.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetServiceSasUriForContainer":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetServiceSasUriForContainer":::
 
 ### <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
@@ -118,11 +118,11 @@ O exemplo de código a seguir cria um SAS numa bolha. Se for fornecida a denomin
 
 Um serviço SAS é assinado com a chave de acesso à conta. Utilize a classe [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) para criar a credencial que é usada para assinar o SAS. Em seguida, crie um novo objeto [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) e ligue para os [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) para obter a cadeia de ficha SAS.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetServiceSasUriForBlob":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetServiceSasUriForBlob":::
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-Para criar um serviço SAS para uma bolha, ligue para o método [CloudBlob.GetSharedAccessSsssignature.](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature)
+Para criar um serviço SAS para uma bolha, ligue para o método [CloudBlob.GetSharedAccessSsignature.](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature)
 
 ```csharp
 private static string GetBlobSasUri(CloudBlobContainer container,
@@ -176,7 +176,7 @@ private static string GetBlobSasUri(CloudBlobContainer container,
 
 # <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-Para criar um serviço SAS para uma bolha, ligue para o método [CloudBlob.GetSharedAccessSsssignature.](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature)
+Para criar um serviço SAS para uma bolha, ligue para o método [CloudBlob.GetSharedAccessSsignature.](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature)
 
 Para criar um serviço SAS para uma bolha, ligue para a função [generateBlobSASQueryParameters,](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) fornecendo as opções necessárias.
 
@@ -210,13 +210,13 @@ Numa conta de armazenamento com um espaço hierárquico habilitado, pode criar u
 
 O exemplo a seguir mostra como criar um serviço SAS para um diretório com a biblioteca de clientes v12 para .NET:
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetServiceSasUriForDirectory":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetServiceSasUriForDirectory":::
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
 [!INCLUDE [storage-blob-javascript-resources-include](../../../includes/storage-blob-javascript-resources-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Conceder acesso limitado aos recursos de armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md)
 - [Create a service SAS (Criar uma SAS de serviço)](/rest/api/storageservices/create-service-sas)

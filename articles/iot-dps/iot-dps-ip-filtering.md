@@ -7,12 +7,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: f50c84212e62fae378d9d95e8990e084c82bb99a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4067d157a13618b008e2cb1a5fee31259bfd43a9
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000373"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094357"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Utilizar os filtros de ligação IP do Azure IoT DPS
 
@@ -135,7 +135,7 @@ Atualize os atributos da regra de filtro de IP do modelo de acordo com os seus r
 
 | Atributo                | Descrição |
 | ------------------------ | ----------- |
-| **FilterName**           | Indique um nome para a regra de Filtro de IP. O nome tem de ser uma cadeia alfanumérica exclusiva, sensível a maiúsculas e minúsculas com um máximo de 128 carateres. Só são aceites os carateres alfanuméricos ASCII 7-bit mais {"-", ":", "/", "\', ".", "+", "%", "_", "#", "*", "?", "!", "(", ")", ",", "=", "@", ";", "'"}. |
+| **FilterName**           | Indique um nome para a regra de Filtro de IP. O nome tem de ser uma cadeia alfanumérica exclusiva, sensível a maiúsculas e minúsculas com um máximo de 128 carateres. Apenas os caracteres alfanuméricos ASCII de 7 bits mais  `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`   são aceites. |
 | **Ação**               | Os valores aceites como a ação da regra de filtro de IP são **Aceitar** ou  **Rejeitar** . |
 | **ipMask**               | Indique um endereço IPv4 individual ou um bloco de endereços IP em notação CIDR. Por exemplo, em notação CIDR, 192.168.100.0/22 representa os endereços IPv4 1024 de 192.168.100.0 a 192.168.103.255. |
 

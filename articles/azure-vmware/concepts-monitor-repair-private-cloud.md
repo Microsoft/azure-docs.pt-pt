@@ -2,14 +2,14 @@
 title: Conceitos - Monitorizar e reparar a Azure VMware Solution nuvens privadas
 description: Saiba como a Azure VMware Solution monitoriza e repara servidores VMware ESXi numa nuvem privada Azure VMware Solution.
 ms.topic: conceptual
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ms.date: 11/20/2020
-ms.openlocfilehash: 6c37ff6cc0715182453669f67306094af2f00cdf
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7f367a6ef9b86f235a16a698735cfb58a11f6862
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024352"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033600"
 ---
 # <a name="monitor-and-repair-azure-vmware-solution-private-clouds"></a>Monitore e repare Azure VMware Solução nuvens privadas
 
@@ -41,7 +41,7 @@ Quando a Azure VMware Solution deteta uma degradação ou falha num nó Azure VM
 
 O processo de remediação do hospedeiro começa adicionando um novo nó saudável no cluster. Em seguida, quando possível, o hospedeiro defeituoso é colocado no modo de manutenção VMware vSphere. VMware vMotion é usado para mover os VMs do hospedeiro defeituoso para outros servidores disponíveis no cluster, potencialmente permitindo a migração ao vivo zero de cargas de trabalho. Em cenários em que o hospedeiro defeituoso não pode ser colocado em modo de manutenção, o hospedeiro é removido do cluster.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aqui estão alguns tópicos sobre os quais talvez queira saber mais sobre:
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c03c2c55988df04cc45ef4a1d66d959513c1626d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75839893d0048841440f2c790df7d23ad825d962
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909327"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093473"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>Convidar utilizadores internos para a colaboração B2B
 
@@ -32,7 +32,7 @@ O envio de um convite para uma conta interna existente permite-lhe reter o ID, U
 
 Enquanto em pré-visualização pública, o método descrito neste artigo para convidar utilizadores internos para a colaboração B2B não pode ser usado nestes casos:
 
-- O utilizador interno já foi designado uma licença de Troca.
+- O utilizador interno tem uma licença de Troca atribuída.
 - O utilizador é de um domínio que é criado para federação direta no seu diretório.
 - O utilizador interno é uma conta apenas na nuvem, e a sua conta principal não está no Azure AD.
 

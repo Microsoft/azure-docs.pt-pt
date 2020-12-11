@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/24/2020
-ms.openlocfilehash: 5ad69fb6743676189de409df16c046d5361a5a91
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: ad305202daf09258bbd439e824fc07f1eed1c5af
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96127056"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033890"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,7 +28,7 @@ Quando executar a amostra para ligar à IoT Central, utiliza o Serviço de Provi
 
 O `main` método:
 
-* Chamadas `initializeAndProvisionDevice` para definir o `dtmi:com:example:Thermostat;1` ID do modelo, usar DPS para provisões e registar o dispositivo, criar uma instância **DeviceClient** e ligar-se à sua aplicação IoT Central.
+* Chamadas `initializeAndProvisionDevice` para definir o `dtmi:com:example:Thermostat;1` ID do modelo, usar DPS para provisões e registar o dispositivo, criar uma instância **DeviceClient** e ligar-se à sua aplicação IoT Central. A IoT Central utiliza o ID do modelo para identificar ou gerar o modelo do dispositivo para este dispositivo. Para saber mais, consulte [Associar um dispositivo com um modelo de dispositivo](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
 * Cria um controlador de comando para o `getMaxMinReport` comando.
 * Cria um manipulador de atualização de propriedade para a `targetTemperature` propriedade writable.
 * Inicia um fio para enviar telemetria de temperatura e atualizar a propriedade a `maxTempSinceLastReboot` cada cinco segundos.
@@ -90,7 +90,7 @@ public static void main(String[] args) throws URISyntaxException, IOException, P
 }
 ```
 
-O `initializeAndProvisionDevice` método mostra como o dispositivo utiliza DPS para registar e ligar à IoT Central. A carga útil inclui o ID do modelo:
+O `initializeAndProvisionDevice` método mostra como o dispositivo utiliza DPS para registar e ligar à IoT Central. A carga útil inclui o ID do modelo que a IoT Central utiliza para [associar o dispositivo a um modelo de dispositivo](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).:
 
 ```java
 private static void initializeAndProvisionDevice() throws ProvisioningDeviceClientException, IOException, URISyntaxException, InterruptedException {

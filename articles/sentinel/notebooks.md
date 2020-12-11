@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: d5d182276cd77493be5184503a1afc47934bf8ea
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 43d7a697b3cb013a73a0b14db8ec1758244ae3b9
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344198"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092198"
 ---
 # <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Use o Caderno Jupyter para caçar ameaças à segurança
 
@@ -23,7 +23,7 @@ A fundação do Azure Sentinel é a loja de dados; combina consulta de alto dese
 
 ![caderno exemplo](./media/notebooks/sentinel-notebooks-map.png)
 
-Integrámos a experiência Jupyter no portal Azure, facilitando-lhe a criação e execução de cadernos para analisar os seus dados. A biblioteca *Kqlmagic* fornece a cola que permite tirar consultas de Azure Sentinel e executá-las diretamente dentro de um caderno. As consultas utilizam a [língua de consulta kusto.](https://kusto.azurewebsites.net/docs/query/index.html) Vários cadernos, desenvolvidos por alguns dos analistas de segurança da Microsoft, são embalados com Azure Sentinel. Alguns destes cadernos são construídos para um cenário específico e podem ser usados como-é. Outros destinam-se a amostras para ilustrar técnicas e funcionalidades que pode copiar ou adaptar para uso nos seus próprios cadernos. Outros cadernos podem também ser importados do GitHub da Comunidade Azure Sentinel.
+Integrámos a experiência Jupyter no portal Azure, facilitando-lhe a criação e execução de cadernos para analisar os seus dados. A biblioteca *Kqlmagic* fornece a cola que permite tirar consultas de Azure Sentinel e executá-las diretamente dentro de um caderno. As consultas utilizam a [língua de consulta kusto.](https://kusto.azurewebsites.net/docs/kusto/query/index.html) Vários cadernos, desenvolvidos por alguns dos analistas de segurança da Microsoft, são embalados com Azure Sentinel. Alguns destes cadernos são construídos para um cenário específico e podem ser usados como-é. Outros destinam-se a amostras para ilustrar técnicas e funcionalidades que pode copiar ou adaptar para uso nos seus próprios cadernos. Outros cadernos podem também ser importados do GitHub da Comunidade Azure Sentinel.
 
 A experiência jupyter integrada usa [cadernos Azure](https://notebooks.azure.com/) para armazenar, partilhar e executar cadernos. Você também pode executar estes cadernos localmente se você tem um ambiente Python e Jupyter no seu computador, ou em outros ambientes JupterHub, como Azure Databricks.
 

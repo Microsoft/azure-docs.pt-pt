@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/23/2020
-ms.openlocfilehash: 2d9169e836b5819756e716c64ed9d41094f08c5e
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 9cfe8c7e7d2484649bf458524032365b692c9243
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512375"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093524"
 ---
 # <a name="network-concepts-for-azure-red-hat-openshift-aro"></a>Conceitos de rede para Azure Red Hat OpenShift (ARO)
 
@@ -76,7 +76,7 @@ As seguintes funcionalidades de networking são específicas do Azure Red Hat Op
 * O POD CIDR deve ter um tamanho mínimo /18 (a rede de cápsulas é iPs não roteable, e só é utilizada dentro do SDN OpenShift).
 * Cada nó é atribuído /23 sub-redes (512 IPs) para as suas cápsulas. Este valor não pode ser alterado.
 * Não é possível anexar uma cápsula a várias redes.
-* Não é possível configurar o IP estático da Egress. (Esta é uma funcionalidade OpenShift. Para obter informações, consulte [configurar iPs](https://docs.openshift.com/aro/4/networking/openshift_sdn/assigning-egress-ips.html)de saída de edição ).
+* Não é possível configurar o IP estático da Egress. (Esta é uma funcionalidade OpenShift. Para obter informações, consulte [configurar iPs](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/assigning-egress-ips.html)de saída de edição ).
 
 ## <a name="network-settings"></a>Definições de rede
 

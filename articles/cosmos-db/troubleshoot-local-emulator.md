@@ -6,13 +6,13 @@ ms.topic: troubleshooting
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
-ms.custom: contperfq1
-ms.openlocfilehash: 83559cc2ab1ca9597cca405333061e53b6f56aa9
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: bb07adafbc68ff1e9b7d3ee49bb7631dc4395d77
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030752"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033464"
 ---
 # <a name="troubleshoot-issues-when-using-the-azure-cosmos-db-emulator"></a>Problemas de resolução de problemas ao utilizar o Emulador Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

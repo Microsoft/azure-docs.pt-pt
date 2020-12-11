@@ -10,13 +10,13 @@ ms.author: nilsp
 author: NilsPohlmann
 ms.date: 10/21/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 2b534f82aeda438b1d2bd5d60eeb4871acffc54a
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.openlocfilehash: fe36b7789be6e885f3fbe0fa4ede044c0593f5ef
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902022"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033396"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK
 

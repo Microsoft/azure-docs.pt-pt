@@ -10,13 +10,13 @@ ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
-ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 0719f2d9200741798c798aca4b4196812f1229c9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
+ms.openlocfilehash: 636f63b3f7e43bd8f27d1df58ab82d24bd19a616
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458441"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033753"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a uma área de trabalho do Azure Machine Learning
 
@@ -55,7 +55,7 @@ Se você é proprietário de um espaço de trabalho, você pode adicionar e remo
 - [PowerShell](../role-based-access-control/role-assignments-powershell.md)
 - [CLI do Azure](../role-based-access-control/role-assignments-cli.md)
 - [API REST](../role-based-access-control/role-assignments-rest.md)
-- [Modelos de gestor de recursos Azure](../role-based-access-control/role-assignments-template.md)
+- [Modelos do Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 
 Se tiver instalado o [CLI de Aprendizagem de Máquinas Azure,](reference-azure-machine-learning-cli.md)pode utilizar comandos CLI para atribuir funções aos utilizadores:
 

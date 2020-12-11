@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: fa9723b466045ebe7b932f837e0fa7c45c898b6b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 405a7bc3b653ca7bca026d3318763a4922244e88
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353889"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093711"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Tutorial: Configurar iPass SmartConnect para fornecimento automático de utilizadores
 
@@ -82,7 +82,7 @@ Para configurar o iPass SmartConnect para fornecimento automático de utilizador
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no iPass SmartConnect com base nas atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
->  Pode também optar por ativar o sign-on único baseado em SAML para o BitaBIZ, seguindo as instruções fornecidas no [tutorial de assinatura single iPass SmartConnect Single](ipasssmartconnect-tutorial.md). O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente.
+>  Pode também optar por ativar o sign-on único baseado em SAML para o iPass SmartConnect, seguindo as instruções fornecidas no [tutorial de assinatura single iPass SmartConnect Single](ipasssmartconnect-tutorial.md). O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente.
 
 ### <a name="to-configure-automatic-user-provisioning-for-ipass-smartconnect-in-azure-ad"></a>Para configurar o fornecimento automático do utilizador para o iPass SmartConnect em AD Azure:
 

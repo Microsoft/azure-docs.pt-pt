@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 12/09/2020
 ms.author: rolyon
-ms.custom: contperfq2
-ms.openlocfilehash: 8036bd300522000902789db59f8bebae14fedf10
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 7cf4020ad38224b25ea8bb7dc7f0fdea7dd6f3b1
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007328"
+ms.locfileid: "97034008"
 ---
 # <a name="quickstart-check-access-for-a-user-to-azure-resources"></a>Quickstart: Verifique o acesso de um utilizador aos recursos da Azure
 

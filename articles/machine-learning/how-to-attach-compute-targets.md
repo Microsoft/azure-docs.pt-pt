@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 44f6d700ff25f0c2f2cb8bedc5c2d15ad2adcb83
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.openlocfilehash: c25f3965775c6518629c92ccc371855d9178e648
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320837"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033719"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Configurar metas de computação para formação e implantação de modelos
 
@@ -102,7 +102,7 @@ Utilize a Máquina Virtual Azure Data Science (DSVM) como O VM Azure de eleiçã
     > [!WARNING]
     > Não crie ligações múltiplas e simultâneas ao mesmo DSVM do seu espaço de trabalho. Cada novo acessório quebrará os acessórios existentes anteriores.
 
-1. **Configuração** : Crie uma configuração de execução para o alvo de computação DSVM. Docker e conda são usados para criar e configurar o ambiente de treino no DSVM.
+1. **Configuração**: Crie uma configuração de execução para o alvo de computação DSVM. Docker e conda são usados para criar e configurar o ambiente de treino no DSVM.
 
    ```python
    from azureml.core import ScriptRunConfig
@@ -165,7 +165,7 @@ Azure HDInsight é uma plataforma popular para análise de big data. A plataform
     > [!WARNING]
     > Não crie múltiplos anexos simultâneos ao mesmo HDInsight do seu espaço de trabalho. Cada novo acessório quebrará os acessórios existentes anteriores.
 
-1. **Configuração** : Crie uma configuração de execução para o alvo do cálculo HDI. 
+1. **Configuração**: Crie uma configuração de execução para o alvo do cálculo HDI. 
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
@@ -178,9 +178,9 @@ O Azure Batch é utilizado para executar aplicações de computação paralela e
 
 Para anexar o Azure Batch como alvo de computação, deve utilizar o Azure Machine Learning SDK e fornecer as seguintes informações:
 
--    **Nome do cálculo Azure Batch** : Um nome amigável a ser usado para o cálculo dentro do espaço de trabalho
--    **Nome da conta Azure Batch** : O nome da conta Azure Batch
--    **Grupo de Recursos** : O grupo de recursos que contém a conta Azure Batch.
+-    **Nome do cálculo Azure Batch**: Um nome amigável a ser usado para o cálculo dentro do espaço de trabalho
+-    **Nome da conta Azure Batch**: O nome da conta Azure Batch
+-    **Grupo de Recursos**: O grupo de recursos que contém a conta Azure Batch.
 
 O seguinte código demonstra como anexar o Azure Batch como alvo de computação:
 
@@ -223,9 +223,9 @@ Crie um espaço de trabalho Azure Databricks antes de o utilizar. Para criar um 
 
 Para anexar a Azure Databricks como alvo de computação, forneça as seguintes informações:
 
-* __Databricks computação nome__ : O nome que pretende atribuir a este recurso de computação.
-* __Databricks nome do espaço de trabalho__ : O nome do espaço de trabalho Azure Databricks.
-* __Databricks acesso token__ : O token de acesso usado para autenticar a Azure Databricks. Para gerar um token de acesso, consulte o documento [de Autenticação.](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html)
+* __Databricks computação nome__: O nome que pretende atribuir a este recurso de computação.
+* __Databricks nome do espaço de trabalho__: O nome do espaço de trabalho Azure Databricks.
+* __Databricks acesso token__: O token de acesso usado para autenticar a Azure Databricks. Para gerar um token de acesso, consulte o documento [de Autenticação.](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html)
 
 O código que se segue demonstra como anexar a Azure Databricks como alvo de computação com o Azure Machine Learning SDK __(O espaço de trabalho Databricks precisa de estar presente na mesma subscrição que o seu espaço de trabalho AML):__
 
@@ -279,9 +279,9 @@ Crie uma conta Azure Data Lake Analytics antes de a utilizar. Para criar este re
 
 Para anexar o Data Lake Analytics como um alvo de computação, deve utilizar o Azure Machine Learning SDK e fornecer as seguintes informações:
 
-* __Nome do cálculo__ : O nome que pretende atribuir a este recurso de cálculo.
-* __Grupo de Recursos__ : O grupo de recursos que contém a conta Data Lake Analytics.
-* __Nome da conta__ : O nome da conta Data Lake Analytics.
+* __Nome do cálculo__: O nome que pretende atribuir a este recurso de cálculo.
+* __Grupo de Recursos__: O grupo de recursos que contém a conta Data Lake Analytics.
+* __Nome da conta__: O nome da conta Data Lake Analytics.
 
 O seguinte código demonstra como anexar o Data Lake Analytics como um alvo de computação:
 

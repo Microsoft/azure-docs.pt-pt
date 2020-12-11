@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
-ms.custom: contperfq2
-ms.openlocfilehash: b72530868b2b12e5f95e79be6ad5a2d7ce170b62
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: c1f46e3aed1309e51bf1ea8607a9db8a71550ce5
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654682"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033209"
 ---
 # <a name="configure-permission-classifications"></a>Configurar as classificações de permissão
 
@@ -115,7 +115,7 @@ Pode utilizar o mais recente módulo de pré-visualização Azure AD PowerShell,
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais:
 

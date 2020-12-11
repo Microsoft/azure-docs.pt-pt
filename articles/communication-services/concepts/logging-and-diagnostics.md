@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d8afa769c90c5cf9450343cda1a65809062468fb
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: c4c9808813de80beea55e083c5bd80667ae2861f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888696"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033124"
 ---
 # <a name="communication-services-logs"></a>Registos de serviços de comunicação
 
@@ -39,6 +39,7 @@ Os Serviços de Comunicação oferecem três tipos de registos que pode ativar:
 * **Registos de utilização** - fornece dados de utilização associados a cada oferta de serviço faturado
 * **Registos operacionais de chat** - fornece informações básicas relacionadas com o serviço de chat
 * **Registos operacionais SMS** - fornece informações básicas relacionadas com o serviço SMS
+* **Registos operacionais de autenticação** - fornece informações básicas relacionadas com o serviço de Autenticação
 
 ### <a name="usage-logs-schema"></a>Esquema de registos de utilização
 
@@ -69,7 +70,7 @@ Os Serviços de Comunicação oferecem três tipos de registos que pode ativar:
 | ResultDescription | A descrição estática do texto desta operação. |
 | DurationMs | A duração da operação em milissegundos. |
 | CallerIpAddress | O endereço IP do chamador, se a operação corresponder a uma chamada de API que viria de uma entidade com um endereço IP disponível ao público. |
-| Nível | O nível de gravidade do evento. |
+| Level | O nível de gravidade do evento. |
 | URI | O URI do pedido. |
 | IDUtilizador | Identificação do utilizador do remetente de pedido. |
 | ChatThreadId | O ID do fio de chat associado ao pedido. |
@@ -91,7 +92,7 @@ Os Serviços de Comunicação oferecem três tipos de registos que pode ativar:
 | ResultDescription | A descrição estática do texto desta operação. |
 | DurationMs | A duração da operação em milissegundos. |
 | CallerIpAddress | O endereço IP do chamador, se a operação corresponder a uma chamada de API que viria de uma entidade com um endereço IP disponível ao público. |
-| Nível | O nível de gravidade do evento. |
+| Level | O nível de gravidade do evento. |
 | URI | O URI do pedido. |
 | OutgoingMessageLength | O número de caracteres na mensagem de saída. |
 | IncomingMessageLength | O número de caracteres na mensagem de entrada. |
@@ -100,3 +101,23 @@ Os Serviços de Comunicação oferecem três tipos de registos que pode ativar:
 | SdkType | O tipo SDK usado no pedido. |
 | PlatformType | O tipo de plataforma usado no pedido. |
 | Método | O método utilizado no pedido. |
+
+### <a name="authentication-operational-logs"></a>Registos operacionais de autenticação
+
+| Propriedade | Descrição |
+| -------- | ---------------|
+| TimeGenerated | A hora de tempo (UTC) de quando o log foi gerado. |
+| OperationName | A operação associada ao registo de registo. |
+| CorrelationID | A identificação para eventos correlacionados. Pode ser usado para identificar eventos correlacionados entre várias tabelas. |
+| OperationVersion | O `api-version` associado à operação, se o `operationName` for realizado com uma API. Se não houver API que corresponda a esta operação, a versão representa a versão dessa operação no caso de as propriedades associadas à alteração da operação no futuro. |
+| Categoria | A categoria de registo do evento. Categoria é a granularidade em que pode ativar ou desativar registos num determinado recurso. As propriedades que aparecem dentro da bolha de propriedades de um evento são as mesmas dentro de uma determinada categoria de registo e tipo de recurso. |
+| ResultType | O estado da operação. |
+| ResultSignature | O sub-estado da operação. Se esta operação corresponder a uma chamada de API REST, este campo é o código de estado HTTP da chamada REST correspondente. |
+| DurationMs | A duração da operação em milissegundos. |
+| CallerIpAddress | O endereço IP do chamador, se a operação corresponder a uma chamada de API que viria de uma entidade com um endereço IP disponível ao público. |
+| Level | O nível de gravidade do evento. |
+| URI | O URI do pedido. |
+| SdkType | O tipo SDK usado no pedido. |
+| PlatformType | O tipo de plataforma usado no pedido. |
+| Identidade | A identidade dos Serviços de Comunicação relacionado com a operação. |
+| Âmbitos | Os serviços de comunicação apresentam-se no token de acesso. |

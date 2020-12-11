@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 39625914f179dfc8d5511b9a3d386cc8332b7efa
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a96d49a029eb83e24c1fb86954406693aa9c33a3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456308"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093966"
 ---
 # <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Melhores práticas para carregar dados usando piscinas SQL dedicadas em Azure Synapse Analytics
 
@@ -71,6 +71,9 @@ Ligue-se à piscina SQL dedicada e crie um utilizador. O seguinte código pressu
        ,MEMBERNAME = 'loader'
    );
 ```
+<br><br>
+>[!IMPORTANT] 
+>Este é um exemplo extremo de alocar 100% de recursos da piscina SQL a uma única carga. Isto lhe dará uma concordância máxima de 1. Esteja ciente de que este deve ser usado apenas para a carga inicial onde você precisará criar grupos de carga de trabalho adicionais com as suas próprias configurações para balanace recursos através das suas cargas de trabalho. 
 
 Para executar uma carga com recursos para o grupo de carga de carga, inscreva-se como carregador e carregue a carga.
 
