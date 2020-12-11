@@ -7,13 +7,13 @@ ms.date: 11/23/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc, contperfq2
-ms.openlocfilehash: 847fc5345708dc313f706fcb0d370b0d1761aa41
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.custom: mvc, contperf-fy21q2
+ms.openlocfilehash: b5f4b6d42d67b69bd8b6be1ada6f5651d0cb8675
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763711"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029843"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é o Azure IoT Central?
 

@@ -11,13 +11,13 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: a53b193d16a2cefbde7877fd930e5fa73b0c6a36
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: 980e830716b66b63c8f2dc6e641a88af26d44871
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861277"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027069"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições de conta no Azure Ative Directory
 

@@ -1,20 +1,20 @@
 ---
-title: 'Quickstart: Construir a sua primeira aplicação web estática com aplicações web estáticas Azure usando o Azure CLI'
-description: Aprenda a construir uma instância de Aplicações Web Estáticas Azure com o Azure Static Web Apps CLI.
+title: 'Quickstart: Construir o seu primeiro site estático com as Aplicações Web Estáticas Azure usando o CLI'
+description: Aprenda a implementar um site estático para Azure Static Web Apps com o Azure CLI.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: ed49892284b53844c5c578b752a598cdbdd9b946
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ca05194c0d8e63290a9cab8d9f7903daa192069b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320334"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030353"
 ---
-# <a name="quickstart-building-your-first-static-web-app-using-the-azure-cli"></a>Quickstart: Construir a sua primeira aplicação web estática usando o Azure CLI
+# <a name="quickstart-building-your-first-static-site-using-the-azure-cli"></a>Quickstart: Construir o seu primeiro site estático usando o Azure CLI
 
 A Azure Static Web Apps publica um site para um ambiente de produção construindo aplicações a partir de um repositório GitHub. Neste arranque rápido, implementa uma aplicação web para aplicações Web Azure Static usando o Azure CLI.
 
@@ -109,7 +109,7 @@ Agora que o repositório foi criado, pode criar uma aplicação web estática a 
 
     - `<YOUR_GITHUB_ACCOUNT_NAME>`: Substitua este valor pelo seu nome de utilizador GitHub.
 
-    - `<LOCATION>`: Substitua este valor pela localização mais próxima. As opções incluem: _CentralUS_, _EastAsia,_ _EastUS2,_ _WestEurope_e _WestUS2_.
+    - `<LOCATION>`: Substitua este valor pela localização mais próxima. As opções incluem: _CentralUS_, _EastAsia,_ _EastUS2,_ _WestEurope_ e _WestUS2_.
 
     - `<YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>`: Substitua este valor pelo [token de acesso pessoal GitHub](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token) que gerou anteriormente.
 

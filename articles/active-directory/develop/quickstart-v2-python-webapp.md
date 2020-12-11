@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 1a8d851d2e70850155950786c6aa67c1d5086eb2
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 383f7f37e93b4705419ba1f93f509c86eaab192b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95993878"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030642"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Quickstart: Adicione o início de sôs com a Microsoft a uma aplicação web Python
 
@@ -50,31 +50,25 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 >
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução manualmente, siga os passos a seguir:
 >
-> 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
-> 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-> 1. Navegue para a plataforma de identidade da Microsoft para programadores [Página de registos de aplicações.](https://go.microsoft.com/fwlink/?linkid=2083908)
-> 1. Selecione **Novo registo**.
-> 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
->      - Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por `python-webapp` exemplo.
->      - Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
->      - Selecione **Registar**.
->      - Na página **geral** da aplicação, note o valor **de ID da Aplicação (cliente)** para posterior utilização.
-> 1. Selecione a **Autenticação** do menu e, em seguida, adicione as seguintes informações:
->    - Adicione a configuração da plataforma **Web.** Adicione `http://localhost:5000/getAToken` como **Redirecionar URIs**.
->    - Selecione **Guardar**.
-> 1. No menu da mão esquerda, escolha **Certificados & segredos** e clique em **Novo segredo de cliente** na secção Segredos do **Cliente:**
->
->      - Digite uma descrição chave (do segredo de aplicação de exemplo).
->      - Selecione uma duração chave de **In 1 ano**.
->      - Quando clicar em **Adicionar,** o valor da chave será apresentado.
->      - Copie o valor da chave. Precisará dele mais tarde.
-> 1. Selecione a secção **de permissões API**
->
->      - Clique no botão **Adicionar um botão de permissão** e, em seguida,
->      - Certifique-se de que o separador **APIs da Microsoft** está selecionado
->      - Na secção APIs da *Microsoft comumente utilizada,* clique no **Gráfico do Microsoft**
->      - Na secção **permissões delegadas,** certifique-se de que as permissões certas são verificadas: **User.ReadBasic.All**. Utilize a caixa de pesquisa, se necessário.
->      - Selecione o botão **adicionar permissões**
+> 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+> 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
+> 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
+> 1. Introduza um **Nome** para a sua aplicação, por `python-webapp` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
+> 1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
+> 1. Selecione **Registar**.
+> 1. Na página **geral** da aplicação, note o valor **de ID da Aplicação (cliente)** para posterior utilização.
+> 1. Em **Gestão**, **selecione Autenticação**.
+> 1. **Selecione Adicionar uma plataforma**  >  **Web**.
+> 1. Adicione `http://localhost:5000/getAToken` como **Redirecionar URIs**.
+> 1. Selecione **Configurar**.
+> 1. Em **Gestão**, selecione os **Certificados & segredos**  e da secção segredos do **Cliente,** selecione **Novo segredo do cliente**.
+> 1. Digite uma descrição chave (por exemplo, o segredo da aplicação), deixe a expiração predefinitiva e selecione **Adicionar**.
+> 1. Note o **valor** do Segredo do **Cliente** para posterior utilização.
+> 1. Em **Gestão**, selecione **permissões API**  >  **Adicione uma permissão**.
+>1.  Certifique-se de que o separador **APIs da Microsoft** está selecionado.
+> 1. A partir da secção APIs da *Microsoft comumente utilizada,* selecione **Microsoft Graph**.
+> 1. A partir da secção **de permissões delegadas,** certifique-se de que as permissões certas são verificadas: **User.ReadBasic.All**. Utilize a caixa de pesquisa, se necessário.
+> 1. Selecione o botão **'Adicionar permissões'.**
 >
 > [!div class="sxs-lookup" renderon="portal"]
 >

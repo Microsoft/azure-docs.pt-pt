@@ -1,5 +1,5 @@
 ---
-title: Problemas de inscrição em aplicações configuradas com base em SAML
+title: Problemas ao iniciar sessão em aplicações configuradas com o início de sessão único com base no SAML
 description: Orientação para os erros específicos ao assinar uma aplicação que configuraste para um único sign-on federado com base em SAML com o Azure Ative Directory
 services: active-directory
 author: kenwith
@@ -11,30 +11,30 @@ ms.topic: troubleshooting
 ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
-ms.custom: contperfq2
-ms.openlocfilehash: e75669c70c67d55c94642a0f6dbe3c9dbc3376e6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: e6d3674aaa4c89f42c2e7b87a6be6cdc8ecabf64
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651554"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028279"
 ---
-# <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemas de inscrição em aplicações configuradas com base em SAML
+# <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemas ao iniciar sessão em aplicações configuradas com o início de sessão único com base no SAML
 Para resolver os problemas de inscrição abaixo, recomendamos o seguinte para um melhor diagnóstico e automatizar as etapas de resolução:
 
-- Instale a [Extensão de Navegador My Apps Secure](./access-panel-deployment-plan.md) para ajudar o Azure Ative Directory (Azure AD) a fornecer um melhor diagnóstico e resoluções ao utilizar a experiência de teste no portal Azure.
-- Reproduza o erro utilizando a experiência de teste na página de configuração da aplicação no portal Azure. Saiba mais sobre [aplicações únicas baseadas em Debug SAML](./debug-saml-sso-issues.md)
+- Instale a [Extensão de Browser Seguro das Minhas Aplicações](./access-panel-deployment-plan.md) para ajudar o Azure Active Directory (AAD) a proporcionar melhores diagnósticos e resoluções ao utilizar a experiência de teste no portal do Azure.
+- Reproduza o erro com a experiência de teste na página de configuração da aplicação no portal do Azure. Saiba mais sobre [aplicações únicas baseadas em Debug SAML](./debug-saml-sso-issues.md)
 
 Se utilizar a experiência de [teste](./debug-saml-sso-issues.md) no portal Azure com a Extensão do Navegador Seguro das Minhas Aplicações, não precisa de seguir manualmente os passos abaixo para abrir a página de configuração única baseada em SAML.
 
-Para abrir a página de configuração única baseada em SAML:
+Para abrir a página de configuração do início de sessão único baseado em SAML:
 1.  Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadmin**.
 1.  Abra a **Extensão do Diretório Ativo Azure** selecionando **todos os serviços** no topo do menu principal de navegação à esquerda.
 1.  Digite **"Azure Ative Directory"** na caixa de pesquisa do filtro e selecione o item **Azure Ative Directory.**
-1.  Selecione **Aplicações empresariais** do menu de navegação à esquerda do Azure Ative.
-1.  Selecione **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
-    Se não vir a aplicação deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e desate a opção **'Mostrar'** para **todas as aplicações**.
-1.  Selecione a aplicação que pretende configurar para uma única sação.
+1.  Selecione **Aplicações Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+1.  Selecione **Todas as Aplicações** para ver uma lista de todas as aplicações.
+    Se não vir aqui a aplicação que quer apresentar, utilize o controlo **Filtrar** na parte superior da **Lista Todas as Aplicações** e defina a opção **Mostrar** como **Todas as Aplicações**.
+1.  Selecione a aplicação que quer configurar para o início de sessão único.
 1. Uma vez que a aplicação é carregada, selecione **Single sign-on** do menu de navegação à esquerda da aplicação.
 1. Selecione SSO baseado em SAML.
 
@@ -172,7 +172,7 @@ Verifique ambas as configurações no portal que tem na sua aplicação. Especif
 
 Compare o recurso a que está a solicitar acesso em código com as permissões configuradas no separador **Recursos Necessários** para se certificar de que apenas solicita recursos configurados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Quickstart Series em Gestão de Aplicações](add-application-portal-assign-users.md)
 - [Como depurar o único sign-on baseado em SAML para aplicações em Azure AD](./debug-saml-sso-issues.md)
 - [Requisitos do protocolo Azure AD Single Sign-on SAML](../develop/single-sign-on-saml-protocol.md)

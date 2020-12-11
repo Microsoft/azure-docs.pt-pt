@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 12/03/2020
 ms.author: justinha
-ms.custom: contperfq1
-ms.openlocfilehash: 141b59e400154ef40ebced25c69eaf162ac1787a
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 99a207810f51949b0da0e78b1cb0e0a7f8bc95e3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96619118"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027344"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>O que é o Azure Active Directory Domain Services?
 

@@ -11,20 +11,28 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 868d99a82009dc8545fc24ad1cfa1da3959da131
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bbe40a2329143b9abd4554ec715c64e5c26d4eb
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88852080"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028109"
 ---
 # <a name="page-layout-versions"></a>Versões do esquema de página
 
 Os pacotes de layout da página são periodicamente atualizados para incluir correções e melhorias nos seus elementos de página. O registo de alterações a seguir especifica as alterações introduzidas em cada versão.
 
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
-
 ## <a name="self-asserted-page-selfasserted"></a>Página autoafirmada (autoasserida)
+
+**2.1.1**
+
+- Adicionei um UXString `heading` para `intro` além de exibir na página como um título. Isto é escondido por defeito.
+- Suporte adicionado para guardar palavras-passe para iCloud Keychain.
+- Suporte adicional para a utilização da política ou do parâmetro QueryString `pageFlavor` para selecionar o layout (clássico, oceanBlue ou slateGray).
+- Adicionou isenções de responsabilidade na página autoafirmada.
+- O foco é agora colocado no primeiro campo editável quando a página é carregada.
+- O foco é agora colocado no primeiro campo de erro quando vários campos têm erros.
+- O foco é agora colocado no botão 'alterar' depois de verificado o código de verificação por e-mail.
 
 **2.1.0**
 
@@ -38,12 +46,16 @@ Os pacotes de layout da página são periodicamente atualizados para incluir cor
 
 - Os campos de nome/e-mail e palavra-passe utilizam agora o `form` elemento HTML para permitir que o Edge e o Internet Explorer (IE) guardem corretamente esta informação.
 - Adicionou um atraso de validação de entrada de utilizador configurável para uma melhor experiência do utilizador.
-- Correções de acessibilidade
+- Corrigiu um problema de acessibilidade para que as mensagens de erro sejam agora lidas pelo Narrador. 
+- O foco é agora colocado no campo da palavra-passe após a verificação do e-mail.
+- Removido `autofocus` do controlo da caixa de verificação. 
+- Suporte adicionado para um widget de exibição para verificação de números de telefone.
 - Agora pode adicionar o `data-preload="true"` atributo [nas suas tags HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) para controlar a ordem de carga para CSS e JavaScript.
   - Carregue os ficheiros CSS ligados ao mesmo tempo que o seu modelo HTML para que não 'cintilar' entre carregar os ficheiros.
   - Controle a ordem na qual as suas `script` etiquetas são recolhidas e executadas antes da carga da página.
-- O campo de e-mail é agora `type=email` e os teclados móveis fornecerão as sugestões corretas
-- Suporte para tradução do Chrome
+- O campo de e-mail é agora `type=email` e os teclados móveis fornecerão as sugestões corretas.
+- Suporte para tradução do Chrome.
+- Suporte adicional para a marca de inquilinos em páginas de fluxo de utilizador.
 
 **1.1.0**
 
@@ -58,6 +70,15 @@ Os pacotes de layout da página são periodicamente atualizados para incluir cor
 
 ## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>Página de inscrição unificada com link de reset de palavra-passe (unifiedssp)
 
+**2.1.1**
+- Adicionei um UXString `heading` para `intro` além de exibir na página como um título. Isto é escondido por defeito.
+- Suporte adicional para a utilização da política ou do parâmetro QueryString `pageFlavor` para selecionar o layout (clássico, oceanBlue ou slateGray).
+- Suporte adicionado para guardar palavras-passe para iCloud Keychain.
+- O foco é agora colocado no primeiro campo de erro quando vários campos têm erros.
+- O foco é agora colocado no primeiro campo editável quando a página é carregada.
+- Adicionou uma nova localização para o link de seleção do fornecedor de `bottomUnderFormClaimsProviderSelections` sinistros.
+- UXStrings removidos que já não são utilizados.
+
 **2.1.0**
 
 - Suporte adicional para várias ligações de inscrição.
@@ -66,12 +87,13 @@ Os pacotes de layout da página são periodicamente atualizados para incluir cor
 **1.2.0**
 
 - Os campos de nome/e-mail e palavra-passe utilizam agora o `form` elemento HTML para permitir que o Edge e o Internet Explorer (IE) guardem corretamente esta informação.
-- Correções de acessibilidade
+- Correções de acessibilidade.
 - Agora pode adicionar o `data-preload="true"` atributo [nas suas tags HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) para controlar a ordem de carga para CSS e JavaScript.
   - Carregue os ficheiros CSS ligados ao mesmo tempo que o seu modelo HTML para que não 'cintilar' entre carregar os ficheiros.
   - Controle a ordem na qual as suas `script` etiquetas são recolhidas e executadas antes da carga da página.
-- O campo de e-mail é agora `type=email` e os teclados móveis fornecerão as sugestões corretas
-- Suporte para tradução do Chrome
+- O campo de e-mail é agora `type=email` e os teclados móveis fornecerão as sugestões corretas.
+- Suporte para tradução do Chrome.
+- Suporte adicional para a marca de inquilinos em páginas de fluxo de utilizador.
 
 **1.1.0**
 
@@ -82,6 +104,12 @@ Os pacotes de layout da página são periodicamente atualizados para incluir cor
 - Versão inicial
 
 ## <a name="mfa-page-multifactor"></a>Página MFA (multifactor)
+
+**1.2.2**
+- Corrigiu um problema com o preenchimento automático do código de verificação ao utilizar o iOS.
+- Corrigi um problema com a reorientação de um token para a parte de confiante do Android Webview. 
+- Adicionei um UXString `heading` para `intro` além de exibir na página como um título. Isto é escondido por defeito.  
+- Suporte adicional para a utilização da política ou do parâmetro QueryString `pageFlavor` para selecionar o layout (clássico, oceanBlue ou slateGray).
 
 **1.2.1**
 
@@ -94,7 +122,8 @@ Os pacotes de layout da página são periodicamente atualizados para incluir cor
   - Carregue os ficheiros CSS ligados ao mesmo tempo que o seu modelo HTML para que não 'cintilar' entre carregar os ficheiros.
   - Controle a ordem na qual as suas `script` etiquetas são recolhidas e executadas antes da carga da página.
 - O campo de e-mail é agora `type=email` e os teclados móveis fornecerão as sugestões corretas
-- Suporte para tradução do Chrome
+- Suporte para tradução do Chrome.
+- Suporte adicional para a marca de inquilinos em páginas de fluxo de utilizador.
 
 **1.1.0**
 

@@ -11,13 +11,13 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: 888ed2fa24b82c0dda3361df1c63bb802e58f5fe
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: b647b5ee9dbd7a0447bbb69a47db76685daa1102
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95904108"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030200"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Usando a condição de localização numa política de acesso condicional 
 
@@ -37,7 +37,7 @@ A localização da rede é determinada pelo endereço IP público que um cliente
 
 ## <a name="named-locations"></a>Localizações com nome
 
-As localizações são designadas no **Azure Active Directory** portal Azure sob os  >  **Security**  >  **Conditional Access**  >  **locais nomeados para** acesso condicional de segurança do Diretório Ativo Azure. Estas localizações de rede nomeadas podem incluir localizações como as gamas de rede de sede de uma organização, gamas de rede VPN ou intervalos que deseja bloquear. 
+As localizações são designadas no portal Azure sob os  >    >    >  **locais nomeados para** acesso condicional de segurança do Diretório Ativo Azure. Estas localizações de rede nomeadas podem incluir localizações como as gamas de rede de sede de uma organização, gamas de rede VPN ou intervalos que deseja bloquear. 
 
 ![Localizações nomeadas no portal Azure](./media/location-condition/new-named-location.png)
 

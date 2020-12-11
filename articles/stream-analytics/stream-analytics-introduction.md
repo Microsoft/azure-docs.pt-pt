@@ -6,14 +6,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
-ms.custom: mvc, contperfq2
+ms.custom: mvc, contperf-fy21q2
 ms.date: 11/12/2020
-ms.openlocfilehash: 0022e19e23b7808cd78da988fd3fdef2d537acf5
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 1871fdda7fe37e938f52c68e97bd9f40dbd9791d
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579441"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029282"
 ---
 # <a name="welcome-to-azure-stream-analytics"></a>Bem-vindo ao Azure Stream Analytics
 

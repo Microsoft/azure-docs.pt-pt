@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: contperfq2
-ms.openlocfilehash: ddce982f43a3c730d8c25527f4354983c36e89e8
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: c9738d25fdcb1c0ccda70ec116eb369f8b50e980
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530834"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027480"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutorial - Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
 
@@ -107,7 +107,7 @@ Em seguida, pode utilizar a tabela abaixo para entender como os atributos que a 
 | mailSemame |externalId |
 | gestor |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager |
 | dispositivo móvel |phoneNumbers[type eq "mobile"].value |
-| código postal |endereços[tipo eq "work"].postalCode |
+| postalCode |endereços[tipo eq "work"].postalCode |
 | proxy-Addresss |e-mails[tipo eq "outros"]. Valor |
 | nome físico-entrega-escritório |endereços[tipo eq "outros"]. Formatado |
 | streetAddress |endereços[tipo eq "work"].streetAddress |
@@ -196,24 +196,24 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 > Para compreender como e quando o serviço de fornecimento de utilizadores Azure AD emite as operações descritas abaixo, consulte a secção [Ciclos de Provisionamento: Inicial e incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) em [Como funciona o provisionamento](how-provisioning-works.md).
 
 [Operações de Utilizador](#user-operations)
-  - [Criar Utilizador](#create-user) (Resposta[de Pedido)](#request)  /  [Response](#response)
-  - [Obter Utilizador](#get-user) (Resposta[de Pedido)](#request-1)  /  [Response](#response-1)
-  - [Obter Utilizador por consulta](#get-user-by-query) (Resposta[de Pedido)](#request-2)  /  [Response](#response-2)
-  - [Obtenha o Utilizador por consulta - Resultados zero](#get-user-by-query---zero-results) (Resposta[de Pedido)](#request-3)  /  [Response](#response-3)
-  - [Atualizar o Utilizador [propriedades multi-valorizadas]](#update-user-multi-valued-properties) [Request](#request-4)  /  [(Resposta de Pedido)](#response-4)
+  - [Criar Utilizador](#create-user) (Resposta[de Pedido)](#request)  /  [](#response)
+  - [Obter Utilizador](#get-user) (Resposta[de Pedido)](#request-1)  /  [](#response-1)
+  - [Obter Utilizador por consulta](#get-user-by-query) (Resposta[de Pedido)](#request-2)  /  [](#response-2)
+  - [Obtenha o Utilizador por consulta - Resultados zero](#get-user-by-query---zero-results) (Resposta[de Pedido)](#request-3)  /  [](#response-3)
+  - [Atualizar o Utilizador [propriedades multi-valorizadas]](#update-user-multi-valued-properties) [](#request-4)  /  [(Resposta de Pedido)](#response-4)
   - [Atualizar o Utilizador [propriedades de valor único]](#update-user-single-valued-properties) (Resposta[de](#request-5)  /  [Pedido)](#response-5) 
-  - [Utilizador desativação](#disable-user) (Resposta[de](#request-14)  /  [Response](#response-14)Pedido)
-  - [Excluir utilizador](#delete-user) (Resposta[de Pedido)](#request-6)  /  [Response](#response-6)
+  - [Utilizador desativação](#disable-user) (Resposta[de](#request-14)  /  [](#response-14)Pedido)
+  - [Excluir utilizador](#delete-user) (Resposta[de Pedido)](#request-6)  /  [](#response-6)
 
 
 [Operações de Grupo](#group-operations)
-  - [Criar Grupo](#create-group) (Resposta[de Pedido)](#request-7)  /  [Response](#response-7)
-  - [Obter Grupo](#get-group) (Resposta[de Pedido)](#request-8)  /  [Response](#response-8)
-  - [Obter Grupo por displayName](#get-group-by-displayname) [Request](#request-9)  /  [(Resposta de Pedido)](#response-9)
-  - [Grupo de Atualização [Atributos não membros]](#update-group-non-member-attributes) [Request](#request-10)  /  [(Resposta de](#response-10)Pedido)
-  - [Grupo de Atualização [Add Members]](#update-group-add-members) [Request](#request-11)  /  [(Resposta do](#response-11)Pedido)
-  - [Grupo de atualização [Remover Membros]](#update-group-remove-members) [Request](#request-12)  /  [(Resposta do](#response-12)Pedido)
-  - [Excluir Grupo](#delete-group) (Resposta[de Pedido)](#request-13)  /  [Response](#response-13)
+  - [Criar Grupo](#create-group) (Resposta[de Pedido)](#request-7)  /  [](#response-7)
+  - [Obter Grupo](#get-group) (Resposta[de Pedido)](#request-8)  /  [](#response-8)
+  - [Obter Grupo por displayName](#get-group-by-displayname) [](#request-9)  /  [(Resposta de Pedido)](#response-9)
+  - [Grupo de Atualização [Atributos não membros]](#update-group-non-member-attributes) [](#request-10)  /  [(Resposta de](#response-10)Pedido)
+  - [Grupo de Atualização [Add Members]](#update-group-add-members) [](#request-11)  /  [(Resposta do](#response-11)Pedido)
+  - [Grupo de atualização [Remover Membros]](#update-group-remove-members) [](#request-12)  /  [(Resposta do](#response-12)Pedido)
+  - [Excluir Grupo](#delete-group) (Resposta[de Pedido)](#request-13)  /  [](#response-13)
 
 ### <a name="user-operations"></a>Operações de Utilizador
 

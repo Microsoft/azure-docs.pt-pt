@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 3aa236570e518b142adb8382387a8cdea4fc08a0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 339ae9a0a799a0a03f1fcf37dadf2e1ffa724243
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453279"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028687"
 ---
 # <a name="iot-plug-and-play-device-developer-guide"></a>Guia de desenvolvimento de dispositivos IoT Plug e Play
 
@@ -34,7 +34,7 @@ Assim que a implementação do dispositivo ou do módulo estiver pronto, utilize
 
 :::zone pivot="programming-language-ansi-c"
 
-[!INCLUDE [iot-pnp-device-devguide-csharp](../../includes/iot-pnp-device-devguide-c.md)]
+[!INCLUDE [iot-pnp-device-devguide-c](../../includes/iot-pnp-device-devguide-c.md)]
 
 :::zone-end
 

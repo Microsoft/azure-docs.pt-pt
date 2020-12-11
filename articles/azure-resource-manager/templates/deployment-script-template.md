@@ -5,18 +5,18 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 12/10/2020
 ms.author: jgao
-ms.openlocfilehash: dcc968353edf0e9cf3d63408d02baf94c6cabd9f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4ec6796cd0ed91987c1ef52fb5e9494a3142e00e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95902458"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030455"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utilize scripts de implementação em modelos (Pré-visualização)
 
-Aprenda a usar scripts de implementação em modelos de recursos Azure. Com um novo tipo de recurso chamado `Microsoft.Resources/deploymentScripts` , os utilizadores podem executar scripts de implementação em implementações de modelos e rever os resultados da execução. Estes scripts podem ser usados para executar etapas personalizadas, tais como:
+Aprenda a usar scripts de implementação em modelos de recursos Azure. Com um novo tipo de recurso chamado `Microsoft.Resources/deploymentScripts` , os utilizadores podem executar scripts em implementações de modelos e rever os resultados da execução. Estes scripts podem ser usados para executar etapas personalizadas, tais como:
 
 - adicionar utilizadores a um diretório
 - executar operações de plano de dados, por exemplo, bolhas de cópia ou base de dados de sementes
@@ -29,7 +29,6 @@ Os benefícios do script de implementação:
 
 - Fácil de codificar, usar e depurar. Pode desenvolver scripts de implementação nos seus ambientes de desenvolvimento favoritos. Os scripts podem ser incorporados em modelos ou em ficheiros de script externos.
 - Pode especificar a linguagem e a plataforma do script. Atualmente, os scripts de implementação Azure PowerShell e Azure CLI no ambiente Linux são suportados.
-- Permitir especificar as identidades que são usadas para executar os scripts. Atualmente, [apenas a identidade gerida atribuída pelo utilizador Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) é suportada.
 - Permitir passar argumentos de linha de comando para o script.
 - Pode especificar as saídas do script e passá-las de volta para a implementação.
 
@@ -38,12 +37,13 @@ O recurso de script de implantação só está disponível nas regiões onde o A
 > [!IMPORTANT]
 > Uma conta de armazenamento e uma instância de contentor são necessárias para a execução do script e resolução de problemas. Tem as opções para especificar uma conta de armazenamento existente, caso contrário a conta de armazenamento juntamente com a instância do contentor são automaticamente criadas pelo serviço de scripts. Os dois recursos criados automaticamente são normalmente eliminados pelo serviço de scripts quando a execução do script de implementação entra num estado terminal. É cobrado pelos recursos até que os recursos sejam apagados. Para saber mais, consulte [os recursos do script de implementação de limpeza](#clean-up-deployment-script-resources).
 
+> [!IMPORTANT]
+> A versão API de recursos de implementação 2020-10-01 suporta [OnBehalfofTokens (OBO)](../../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). Ao utilizar o OBO, o serviço de scripts de implementação utiliza o símbolo principal de implantação para criar os recursos subjacentes para executar scripts de implementação, que incluem a instância do Azure Container, a conta de armazenamento Azure e atribuições de funções para a identidade gerida. Na versão API mais antiga, a identidade gerida é usada para criar estes recursos.
+> A lógica de relemis para o login do Azure está agora incorporada no script de invólucro. Se conceder permissões no mesmo modelo onde executa scripts de implementação.  O serviço de scripts de implementação reagem durante 10 minutos com intervalo de 10 segundos até que a atribuição de função de identidade gerida seja replicada.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Uma identidade gerida atribuída pelo utilizador com o papel do contribuinte no grupo de recursos-alvo**. Esta identidade é usada para executar scripts de implantação. Para realizar operações fora do grupo de recursos, precisa conceder permissões adicionais. Por exemplo, atribua a identidade ao nível de subscrição se quiser criar um novo grupo de recursos.
-
-  > [!NOTE]
-  > O serviço de scripts cria uma conta de armazenamento (a menos que especifique uma conta de armazenamento existente) e uma instância de contentor em segundo plano .  É necessária uma identidade gerida atribuída pelo utilizador com o papel do contribuinte ao nível da subscrição se a subscrição não tiver registado os fornecedores de recursos da conta de armazenamento Azure (Microsoft.Storage) e da instância de contentores Azure (Microsoft.ContainerInstance).
+- **(Opcional) Uma identidade gerida atribuída pelo utilizador com permissões necessárias para realizar as operações no script**. Para a versão API de script de implementação 2020-10-01 ou posterior, o principal de implantação é utilizado para criar recursos subjacentes. Se o script precisar de autenticar para a Azure e executar ações específicas do Azure, recomendamos fornecer ao script uma identidade gerida atribuída ao utilizador. A identidade gerida deve ter o acesso necessário no grupo de recursos-alvo para completar a operação no script. Também pode iniciar sessão no Azure no script de implementação. Para realizar operações fora do grupo de recursos, precisa conceder permissões adicionais. Por exemplo, atribua a identidade ao nível de subscrição se quiser criar um novo grupo de recursos. 
 
   Para criar uma identidade, consulte [Criar uma identidade gerida atribuída pelo utilizador utilizando o portal Azure,](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)ou utilizando o [Azure CLI,](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)ou [utilizando a Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Precisa da identificação de identidade quando implementar o modelo. O formato da identidade é:
 
@@ -135,7 +135,7 @@ O seguinte json é um exemplo.  O esquema de modelo mais recente pode ser encont
 
 Detalhes do valor da propriedade:
 
-- **Identidade**: O serviço de scripts de implementação utiliza uma identidade gerida atribuída pelo utilizador para executar os scripts. Atualmente, apenas a identidade gerida atribuída pelo utilizador é suportada.
+- **Identidade**: Para a versão API de imessão de imuta 2020-10-01 ou posterior, uma identidade gerida atribuída pelo utilizador é opcional, a menos que necessite de realizar quaisquer ações específicas do Azure no script.  Para a versão API 2019-10-01-pré-visualização, é necessária uma identidade gerida, uma vez que o serviço de scripts de implementação o utiliza para executar os scripts. Atualmente, apenas a identidade gerida atribuída pelo utilizador é suportada.
 - **tipo**: Especificar o tipo de script. Atualmente, os scripts Azure PowerShell e Azure CLI são suportados. Os valores são **AzurePowerShell** e **AzureCLI**.
 - **forceUpdateTag**: Alterar este valor entre as implementações do modelo força o script de implantação a ser re-executado. Se utilizar a função newGuid() ou a função utcNow() ambas as funções só podem ser utilizadas no valor predefinido para um parâmetro. Para saber mais, consulte [o roteiro run mais de uma vez](#run-script-more-than-once).
 - **configurações de contentores**: Especifique as definições para personalizar a instância do recipiente Azure.  **containerGroupName** destina-se a especificar o nome do grupo do contentor.  Se não for especificado, o nome do grupo é gerado automaticamente.
@@ -169,14 +169,11 @@ Detalhes do valor da propriedade:
 - [Amostra 2](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-subscription.json): criar um grupo de recursos ao nível de subscrição, criar um cofre chave no grupo de recursos e, em seguida, usar o script de implantação para atribuir um certificado ao cofre de chaves.
 - [Amostra 3](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json): criar uma identidade gerida atribuída pelo utilizador, atribuir a função de contribuinte à identidade ao nível do grupo de recursos, criar um cofre-chave e, em seguida, utilizar o script de implantação para atribuir um certificado ao cofre de chaves.
 
-> [!NOTE]
-> Recomenda-se criar uma identidade atribuída ao utilizador e conceder permissões antecipadamente. Poderá obter erros relacionados com a inscrição e permissão se criar a identidade e conceder permissões no mesmo modelo onde executa scripts de implementação. Leva algum tempo até que as permissões se tornem eficazes.
-
 ## <a name="use-inline-scripts"></a>Use scripts inline
 
 O modelo a seguir tem um recurso definido com o `Microsoft.Resources/deploymentScripts` tipo. A parte realçada é o roteiro em linha.
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-54" highlight="34-40":::
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-44" highlight="24-30":::
 
 > [!NOTE]
 > Como os scripts de implementação inline são incluídos em citações duplas, as cordas dentro dos scripts de implementação precisam de ser escapados usando um **&#92;** ou incluído em citações únicas. Também pode considerar a utilização da substituição de cordas tal como é mostrada na amostra JSON anterior.
@@ -188,11 +185,10 @@ Para executar o script, selecione **Experimente-o** para abrir a Cloud Shell e, 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group to be created"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$id = Read-Host -Prompt "Enter the user-assigned managed identity ID"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.json" -identity $id
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.json"
 
 Write-Host "Press [ENTER] to continue ..."
 ```
@@ -239,7 +235,7 @@ Os ficheiros de suporte são copiados para azscripts/azscriptinput no tempo de e
 
 O modelo a seguir mostra como passar valores entre dois recursos de implementaçãoScripts:
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-84" highlight="39-40,66":::
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-68" highlight="30-31,50":::
 
 No primeiro recurso, define-se uma variável chamada **$DeploymentScriptOutputs**, e utiliza-a para armazenar os valores de saída. Para aceder ao valor de saída a partir de outro recurso dentro do modelo, utilize:
 
@@ -276,7 +272,7 @@ Uma conta de armazenamento e uma instância de contentor são necessárias para 
 
     Estas combinações suportam a partilha de ficheiros.  Para obter mais informações, consulte [Criar uma partilha de ficheiros Azure](../../storage/files/storage-how-to-create-file-share.md) e tipos de contas de [armazenamento.](../../storage/common/storage-account-overview.md)
 - As regras de firewall de conta de armazenamento ainda não estão suportadas. Para obter mais informações, veja [Configurar firewalls e redes virtuais do Armazenamento do Microsoft Azure](../../storage/common/storage-network-security.md).
-- A identidade gerida atribuída pelo utilizador do script deve ter permissões para gerir a conta de armazenamento, que inclui ler, criar, eliminar ações de ficheiros.
+- O principal de implantação deve ter permissões para gerir a conta de armazenamento, que inclui ler, criar, eliminar ações de ficheiros.
 
 Para especificar uma conta de armazenamento existente, adicione o seguinte json ao elemento de propriedade `Microsoft.Resources/deploymentScripts` de:
 
@@ -319,7 +315,7 @@ O tamanho máximo permitido para variáveis ambientais é de 64KB.
 
 O serviço de scripts cria uma [conta de armazenamento](../../storage/common/storage-account-overview.md) (a menos que especifique uma conta de armazenamento existente) e uma instância de [contentor](../../container-instances/container-instances-overview.md) para execução de scripts. Se estes recursos forem automaticamente criados pelo serviço de scripts, ambos os recursos têm o **sufixo azscripts** nos nomes dos recursos.
 
-![Nomes de recursos de design de design de design de gestão de modelo de gestor de recursos de recursos de gest](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
+![Nomes de recursos de design de gestão de modelo de gestor de recursos de recursos de gest](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
 
 O script do utilizador, os resultados da execução e o ficheiro stdout são armazenados nas partilhas de ficheiros da conta de armazenamento. Há uma pasta chamada **azscripts**. Na pasta, há mais duas pastas para a entrada e os ficheiros de saída: **azscriptinput** e **azscriptout .**
 
@@ -539,6 +535,8 @@ O ciclo de vida destes recursos é controlado pelas seguintes propriedades no mo
 
 > [!NOTE]
 > Não é aconselhável utilizar a conta de armazenamento e a instância do recipiente que são geradas pelo serviço de scripts para outros fins. Os dois recursos podem ser removidos dependendo do ciclo de vida do script.
+
+Para reter a instância do recipiente e a conta de armazenamento para a resolução de problemas, pode adicionar um comando de sono no script.  Por [exemplo, Start-Sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep).
 
 ## <a name="run-script-more-than-once"></a>Executar script mais de uma vez
 

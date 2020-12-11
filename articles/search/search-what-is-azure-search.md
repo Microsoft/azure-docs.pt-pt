@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/24/2020
-ms.custom: contperfq1
-ms.openlocfilehash: c36a88317f71d08094b43d06cc7ba86985a73ca0
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 01f61eac31c388cd0bf8a857beb7a10944187c6b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511853"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027905"
 ---
 # <a name="what-is-azure-cognitive-search"></a>O que é o Azure Cognitive Search?
 
@@ -91,7 +91,7 @@ As principais vantagens incluem:
 + Integração de dados do Azure (crawlers) na camada de indexação
 + Portal do Azure para gestão central
 + Dimensionamento, fiabilidade e disponibilidade de classe mundial do Azure
-+ Processamento de IA de dados brutos para torná-lo mais pes pes pes pes pes pes pestado, incluindo texto a partir de imagens, ou encontrar padrões em conteúdo não estruturado.
++ Processamento de IA de dados brutos para torná-lo mais pes pestado, incluindo texto a partir de imagens, ou encontrar padrões em conteúdo não estruturado.
 + A análise linguística e personalizada, com analisadores de pesquisa de texto completo sólidos em 56 idiomas
 + [Principais funcionalidades das aplicações focadas na pesquisa](search-features-list.md): classificação, facetamento, sugestões, sinónimos, pesquisa geográfica e muito mais.
 

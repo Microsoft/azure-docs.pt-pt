@@ -12,15 +12,15 @@ ms.custom:
 - mqtt
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-- contperfq1
+- contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 4e06edaf6323c13b3a5af037b5b85b5b0acecc79
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: d206f40380ddb60a53ec8af2802a65af94f5820d
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505653"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027803"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunique com o seu hub IoT usando o protocolo MQTT
 
@@ -113,7 +113,7 @@ Estas amostras utilizam a biblioteca Eclipse Mosquitto para enviar mensagens par
 
 Este repositório contém:
 
-**Para janelas:**
+**Para Windows:**
 
 * TelemetriaMQTTWin32: contém código para enviar uma mensagem de telemetria para um hub Azure IoT, construído e executado numa máquina Windows.
 
@@ -321,7 +321,7 @@ Nas mensagens nuvem-dispositivo, os valores no saco de propriedade são represen
 | corda vazia | `key=` | A chave seguida por um sinal igual sem valor |
 | valor não nulo, não vazio | `key=value` | A chave seguida por um sinal igual e o valor |
 
-O exemplo a seguir mostra um saco de propriedade que contém três propriedades de aplicação: **prop1** com um valor `null` de; **prop2** , uma corda vazia (""); e **prop3** com um valor de "uma corda".
+O exemplo a seguir mostra um saco de propriedade que contém três propriedades de aplicação: **prop1** com um valor `null` de; **prop2**, uma corda vazia (""); e **prop3** com um valor de "uma corda".
 
 ```mqtt
 /?prop1&prop2=&prop3=a%20string

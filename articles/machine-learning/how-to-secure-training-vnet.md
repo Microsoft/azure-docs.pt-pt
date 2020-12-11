@@ -10,13 +10,13 @@ ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
-ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 2b0a56bac1652881e9d1733bcb52b02610e27e9e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
+ms.openlocfilehash: 131feaf6ff01659b7d126604a5d081275e64508f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314160"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029571"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Garantir um ambiente de formação Azure Machine Learning com redes virtuais
 
@@ -123,7 +123,7 @@ A configuração da regra NSG no portal Azure é mostrada na seguinte imagem:
 [![As regras nSG de saída para o Cálculo de Aprendizagem automática](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
 
 > [!NOTE]
-> Se planeia utilizar imagens padrão do Docker fornecidas pela Microsoft e permitir dependências geridas pelo utilizador, também deve utilizar as __seguintes Tags de Serviço__ :
+> Se planeia utilizar imagens padrão do Docker fornecidas pela Microsoft e permitir dependências geridas pelo utilizador, também deve utilizar as __seguintes Tags de Serviço__:
 >
 > * __MicrosoftContainerRegistry__
 > * __AzureFrontDoor.FirstParty__
@@ -286,7 +286,7 @@ Crie um cluster VM ou HDInsight utilizando o portal Azure ou o CLI Azure, e colo
 
 Permitir que o Azure Machine Learning comunique com a porta SSH no VM ou cluster, configurar uma entrada de origem para o grupo de segurança da rede. A porta SSH é normalmente a porta 22. Para permitir o tráfego a partir desta fonte, faça as seguintes ações:
 
-1. Na __Source__ lista de drop-down Source, selecione __Tag de Serviço__.
+1. Na  lista de drop-down Source, selecione __Tag de Serviço__.
 
 1. Na lista de drop-down de __marca de serviço Source,__ selecione __AzureMachineLearning__.
 
@@ -298,9 +298,9 @@ Permitir que o Azure Machine Learning comunique com a porta SSH no VM ou cluster
 
 1. Na lista de pontos de entrega das __gamas destination,__ selecione __22__.
 
-1. Ao abrigo __do Protocolo__ , selecione __Qualquer__.
+1. Ao abrigo __do Protocolo__, selecione __Qualquer__.
 
-1. Em __Ação__ , __selecione Permitir__.
+1. Em __Ação__, __selecione Permitir__.
 
 Mantenha as regras de saída padrão para o grupo de segurança da rede. Para obter mais informações, consulte as regras de segurança em [grupos de segurança.](../virtual-network/network-security-groups-overview.md#default-security-rules)
 

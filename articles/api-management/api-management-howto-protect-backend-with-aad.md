@@ -8,20 +8,20 @@ ms.service: api-management
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: apimpm
-ms.custom: contperfq1
-ms.openlocfilehash: 9892c311651df39b882c3aa38596a905d22a42ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: face4beab450e92be76b2bb90e45625e025de6ee
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618782"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027922"
 ---
 # <a name="protect-a-web-api-backend-in-azure-api-management-by-using-oauth-20-authorization-with-azure-ad"></a>Proteja um backend web API na Azure API Management utilizando a autorização OAuth 2.0 com Azure AD 
 
 Este guia mostra-lhe como configurar o seu exemplo [de Gestão API Azure](api-management-key-concepts.md) para proteger uma API, utilizando o [protocolo OAuth 2.0 com o Azure Ative Directory (Azure AD)](../active-directory/develop/active-directory-v2-protocols.md). 
 
 > [!NOTE]
-> Esta funcionalidade está disponível nos níveis **de Developer,** **Basic,** **Standard**e **Premium** da API Management.
+> Esta funcionalidade está disponível nos níveis **de Developer,** **Basic,** **Standard** e **Premium** da API Management.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -109,11 +109,11 @@ Agora que registou duas aplicações para representar a API e a Consola de Desen
 
 1. **Selecione Adicionar uma Permissão**.
 
-1. Em **Seleção de uma API,** selecione **as minhas APIs**e, em seguida, encontre e selecione a sua aplicação backend.
+1. Em **Seleção de uma API,** selecione **as minhas APIs** e, em seguida, encontre e selecione a sua aplicação backend.
 
 1. Sob **Permissões Delegadas**, selecione as permissões apropriadas para a sua aplicação de backend e, em seguida, selecione **Permissões de adicionar**.
 
-1. Opcionalmente, na página de permissões da **API,** selecione **o consentimento da administração Grant para \<your-tenant-name> ** conceder o consentimento em nome de todos os utilizadores deste diretório. 
+1. Opcionalmente, na página de permissões da **API,** selecione **o consentimento da administração Grant para \<your-tenant-name>** conceder o consentimento em nome de todos os utilizadores deste diretório. 
 
 ## <a name="enable-oauth-20-user-authorization-in-the-developer-console"></a>Ativar a autorização do utilizador OAuth 2.0 na Consola de Desenvolvimento
 
@@ -134,9 +134,9 @@ Neste exemplo, a Consola de Desenvolvimento é a aplicação cliente. Os seguint
 1. Especifique o URL do **ponto final de autorização** e o URL do ponto final **token**. Recupere estes valores da página **Endpoints** no seu inquilino AD Azure. Volte a navegar na página de **registos** da App e selecione **Pontos de Final**.
 
 
-1. Copie o ponto final de **autorização OAuth 2.0**e cole-o na caixa de texto **URL do ponto final de autorização.** Selecione **POST** sob o método de pedido de autorização.
+1. Copie o ponto final de **autorização OAuth 2.0** e cole-o na caixa de texto **URL do ponto final de autorização.** Selecione **POST** sob o método de pedido de autorização.
 
-1. Copie o **Ponto Final de Token OAuth 2.0**e cole-o na caixa de texto **DE URL do ponto final token.** 
+1. Copie o **Ponto Final de Token OAuth 2.0** e cole-o na caixa de texto **DE URL do ponto final token.** 
 
    >[!IMPORTANT]
    > Utilize pontos finais **v1** ou **v2.** No entanto, dependendo da versão que escolher, o passo abaixo será diferente. Recomendamos a utilização de pontos finais V2. 
@@ -157,7 +157,7 @@ Neste exemplo, a Consola de Desenvolvimento é a aplicação cliente. Os seguint
 
 1. Volte ao registo da sua aplicação cliente no Azure Ative Directory e selecione **Autenticação.**
 
-1. Nas **configurações da Plataforma** clique em Adicionar uma **plataforma**, e selecione o tipo como **Web**, cole o **redirect_url** em **URI de redirecionamento**e, em seguida, clique no botão **Configurar** para guardar.
+1. Nas **configurações da Plataforma** clique em Adicionar uma **plataforma**, e selecione o tipo como **Web**, cole o **redirect_url** em **URI de redirecionamento** e, em seguida, clique no botão **Configurar** para guardar.
 
 Agora que configuraste um servidor de autorização OAuth 2.0, a Consola de Desenvolvimento pode obter fichas de acesso a partir do Azure AD. 
 
@@ -169,7 +169,7 @@ O próximo passo é ativar a autorização do utilizador OAuth 2.0 para a sua AP
 
 1. Ir para **Definições**.
 
-1. Em **Segurança**, escolha **OAuth 2.0**e selecione o servidor OAuth 2.0 que configuraste anteriormente. 
+1. Em **Segurança**, escolha **OAuth 2.0** e selecione o servidor OAuth 2.0 que configuraste anteriormente. 
 
 1. Selecione **Guardar**.
 

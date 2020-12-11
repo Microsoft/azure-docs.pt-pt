@@ -1,20 +1,20 @@
 ---
 title: 'Quickstart: Construir a sua primeira aplicação web estática com aplicações web estáticas Azure usando o portal Azure'
-description: Aprenda a construir uma instância de Aplicações Web Estáticas Azure com o portal Azure.
+description: Aprenda a implementar um site estático para Azure Static Web Apps com o portal Azure.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: b009b34be69e48ae6205cd9ab88d1583ca9c6561
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aab99721b61ababe218e509ab1078198b5f4152b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91280572"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030370"
 ---
-# <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Quickstart: Construir a sua primeira aplicação web estática no portal Azure
+# <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Quickstart: Construir o seu primeiro site estático no portal Azure
 
 A Azure Static Web Apps publica um site para um ambiente de produção construindo aplicações a partir de um repositório GitHub. Neste arranque rápido, implementa uma aplicação web para aplicações Web Azure Static utilizando o portal Azure.
 
@@ -22,12 +22,12 @@ Se não tiver uma subscrição do Azure, [crie uma conta de teste gratuita](http
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Conta GitHub](https://github.com)
+- Conta do [GitHub](https://github.com)
 - [Conta Azure](https://portal.azure.com)
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
 
-## <a name="create-a-static-web-app"></a>Crie uma aplicação web estática
+## <a name="create-a-static-web-app"></a>Criar uma aplicação Web estática
 
 Agora que o repositório foi criado, pode criar uma aplicação web estática a partir do portal Azure.
 
@@ -51,7 +51,7 @@ Na secção _Basics,_ comece por configurar a sua nova app e ligá-la a um repos
 
 Depois de assinar com o GitHub, insira a informação do repositório.
 
-:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Secção básica":::
+:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Detalhes do repositório":::
 
 1. Selecione a sua _Organização_ Preferida
 1. Selecione **a minha primeira web-web-static-app** a partir do _repositório_ drop-down
@@ -94,22 +94,22 @@ Depois de assinar com o GitHub, insira a informação do repositório.
 
 1. Selecione **Rever + criar**.
 
-    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Secção básica":::
+    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Rever criar botão":::
 
     > [!NOTE]
     > Pode editar o [ficheiro workflow](github-actions-workflow.md) para alterar estes valores depois de criar a aplicação.
 
 1. Selecione **Criar**.
 
-    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Secção básica":::
+    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Botão Criar":::
 
 1. Selecione **Ir para recurso**.
 
-    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Secção básica":::
+    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Botão Ir para recurso":::
 
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar a utilizar esta aplicação, pode eliminar a instância Azure Static Web Apps através dos seguintes passos:
 

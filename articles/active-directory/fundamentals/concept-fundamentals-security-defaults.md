@@ -11,13 +11,13 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: c26cbf55c1e3883605d4c65659511af20cf02c7f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: 9c912b7122a40ae39bcbb703e1387af25fff2bc8
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996683"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029911"
 ---
 # <a name="what-are-security-defaults"></a>O que são falhas de segurança?
 
@@ -145,9 +145,9 @@ Pode utilizar o Acesso Condicional a políticas de configuração semelhantes a 
 
 Aqui estão guias passo a passo sobre como pode utilizar o Acesso Condicional a políticas equivalentes de configuração às políticas ativadas por incumprimentos de segurança:
 
-- [Exigir MFA aos administradores](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
+- [Exigir MFA para administradores](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
 - [Exigir MFA para a gestão do Azure](../conditional-access/howto-conditional-access-policy-azure-management.md)
-- [Bloquear a autenticação legada](../conditional-access/howto-conditional-access-policy-block-legacy.md)
+- [Bloquear a autenticação do legado](../conditional-access/howto-conditional-access-policy-block-legacy.md)
 - [Pedir MFA para todos os utilizadores](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
 - [Requer registo MFA Azure AD](../identity-protection/howto-identity-protection-configure-mfa-policy.md) - Requer a azure AD Identity Protection parte do Azure AD Premium P2.
 
@@ -177,4 +177,4 @@ Para desativar as falhas de segurança no seu diretório:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Políticas de Acesso Condicional comuns](../conditional-access/concept-conditional-access-policy-common.md)
+[Políticas comuns de acesso condicional](../conditional-access/concept-conditional-access-policy-common.md)

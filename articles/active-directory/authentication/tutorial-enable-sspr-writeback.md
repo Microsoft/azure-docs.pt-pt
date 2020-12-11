@@ -10,13 +10,13 @@ ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: fc5291544f1cd64caa7e4ab1dd7d541604706920
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: 444ca19732921b336cae32a9b1eb5755a08e4bd3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741172"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028058"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Permitir que a palavra-passe de autosserviço do Azure Ative Directory reponha a gravação para um ambiente no local
 
@@ -120,21 +120,21 @@ Para ativar a gravação de palavra-passe em SSPR, complete os seguintes passos:
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de administrador global.
 1. Procure e selecione **Azure Ative Directory**, selecione **Password reset**, em seguida, escolha **a integração no local**.
-1. Descreva a opção de **escrever palavras-passe no seu diretório no local?** *Yes*
-1. Definir a opção para **permitir que os utilizadores desbloqueiem contas sem redefinir a sua palavra-passe?** *Yes*
+1. Descreva a opção de **escrever palavras-passe no seu diretório no local?** 
+1. Definir a opção para **permitir que os utilizadores desbloqueiem contas sem redefinir a sua palavra-passe?** 
 
     ![Ativar a palavra-passe de autosserviço AZure para a gravação de password](media/tutorial-enable-sspr-writeback/enable-sspr-writeback.png)
 
 1. Quando estiver pronto, **selecione Guardar**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não pretender utilizar a funcionalidade de writeback SSPR que configuraste como parte deste tutorial, complete os seguintes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Procure e selecione **Azure Ative Directory**, selecione **Password reset**, em seguida, escolha **a integração no local**.
-1. Descreva a opção para **escrever palavras-passe no seu diretório no local?** *No*
-1. Definir a opção para **permitir que os utilizadores desbloqueiem contas sem redefinir a sua palavra-passe?** *No*
+1. Descreva a opção para **escrever palavras-passe no seu diretório no local?** 
+1. Definir a opção para **permitir que os utilizadores desbloqueiem contas sem redefinir a sua palavra-passe?** 
 
 Se já não pretender utilizar qualquer funcionalidade de palavra-passe, complete os seguintes passos do seu servidor AZure AD Connect:
 

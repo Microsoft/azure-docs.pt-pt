@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 73f5968f02e0f348c82d83b5b82d67748b4c3586
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b0cdfd76ed5e7ae20800b52e6074809de12a8b5f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455345"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031492"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Confluence SAML SSO pela Microsoft
 
@@ -63,7 +63,7 @@ A partir de agora, as seguintes versões de Confluência são suportadas:
 
 - Confluência: 5.0 a 5.10
 - Confluência: 6.0.1 a 6.15.9
-- Confluência: 7.0.1 a 7.7.2
+- Confluência: 7.0.1 a 7.9.3
 
 > [!NOTE]
 > Por favor, note que o nosso Plugin Confluence também funciona na versão Ubuntu 16.04
@@ -139,7 +139,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Confluence SAML SSO pela Microsoft.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Confluence SAML SSO pela Microsoft**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -231,7 +231,7 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no servidor Confluenc
 
 1. Inscreva-se no seu servidor Confluence no local como administrador.
 
-1. Hover on cog e clique na **gestão**do Utilizador .
+1. Hover on cog e clique na **gestão** do Utilizador .
 
     ![Adicionar Empregado](./media/confluencemicrosoft-tutorial/user1.png)
 

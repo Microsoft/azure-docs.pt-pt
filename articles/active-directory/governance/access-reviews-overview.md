@@ -16,13 +16,13 @@ ms.date: 10/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.custom: contperfq1
-ms.openlocfilehash: 423a879889402d5d3df70a7fadae6451c8418238
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 08399c1b2d930abfdd5832cb102a789844931d61
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95743162"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027701"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>O que são as revisões de acesso do Azure AD?
 

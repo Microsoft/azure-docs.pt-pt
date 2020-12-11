@@ -11,13 +11,13 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: 964cd77a24a7a73bf1151ba9e6ab43509e664b9f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: 209125a5cc8d86c1af07966d52681aa91ea7dc19
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743076"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027004"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configurar configurar definições de autenticação multi-factor Ad Azure
 
@@ -50,7 +50,7 @@ Estão disponíveis as seguintes definições:
 Para configurar as definições de bloqueio de conta, complete as seguintes definições:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
-1. Navegue pelo bloqueio da conta MFA de segurança de segurança **ativa Azure**  >  **Security**  >  **MFA**  >  **Account lockout** Ative .
+1. Navegue pelo bloqueio da conta MFA de segurança de segurança **ativa Azure**  >    >    >  Ative .
 1. Introduza os valores necessários para o seu ambiente e, em seguida, **selecione Guardar**.
 
     ![Screenshot das definições de bloqueio de conta no portal Azure](./media/howto-mfa-mfasettings/account-lockout-settings.png)
@@ -93,14 +93,14 @@ Estão disponíveis as seguintes opções de configuração de alerta de fraude:
 
 Para ativar e configurar alertas de fraude, complete as seguintes etapas:
 
-1. Consulte o alerta de fraude MFA de segurança **do Diretório Ativo Azure**  >  **Security**  >  **MFA**  >  **Fraud alert**.
+1. Consulte o alerta de fraude MFA de segurança **do Diretório Ativo Azure**  >    >    >  .
 1. Defina o *Permitir que os utilizadores apresentem alertas de fraude* definindo para **On**.
 1. Configure os *utilizadores que comuniquem automaticamente a fraude* ou código para denunciar fraude durante a configuração *inicial da saudação,* conforme pretendido.
 1. Quando estiver pronto, **selecione Guardar**.
 
 ### <a name="view-fraud-reports"></a>Ver relatórios de fraude
 
-Selecione Detalhes de autenticação de inscrição de **diretório ativo**  >  **Sign-ins**  >  **Azure**. O relatório de fraude faz agora parte do relatório padrão de inscrições da Azure AD e irá mostrar no **"Detalhe de Resultados"** como mFA negado, Código de Fraude introduzido.
+Selecione Detalhes de autenticação de inscrição de **diretório ativo**  >    >  **Azure**. O relatório de fraude faz agora parte do relatório padrão de inscrições da Azure AD e irá mostrar no **"Detalhe de Resultados"** como mFA negado, Código de Fraude introduzido.
  
 ## <a name="notifications"></a>Notificações
 
@@ -110,7 +110,7 @@ As notificações por e-mail podem ser configuradas quando os utilizadores repor
 
 Para configurar notificações de alerta de fraude, complete as seguintes definições:
 
-1. Consulte notificações **Azure Active Directory** de  >  **Security**  >  **autenticação multi-factor de** segurança de segurança Azure  >  **Notifications** Ative.
+1. Consulte notificações de  >    >  **autenticação multi-factor de** segurança de segurança Azure  >  Ative.
 1. Insira o endereço de e-mail para adicionar na caixa seguinte.
 1. Para remover um endereço de e-mail existente, selecione a opção **...** ao lado do endereço de e-mail pretendido e, em seguida, selecione **Delete**.
 1. Quando estiver pronto, **selecione Guardar**.
@@ -160,7 +160,7 @@ Nos Estados Unidos, se ainda não configuraste o ID do MFA Caller, as chamadas d
 
 Para configurar o seu próprio número de identificação de chamada, complete os seguintes passos:
 
-1. Navegue para as definições de chamada telefónica MFA de Segurança de Segurança **Ativa Azure**  >  **Security**  >  **MFA**  >  **Phone call settings**.
+1. Navegue para as definições de chamada telefónica MFA de Segurança de Segurança **Ativa Azure**  >    >    >  .
 1. Desfita o **número de identificação do chamador MFA** para o número que deseja que os utilizadores vejam no seu telefone. Apenas números baseados nos EUA são permitidos.
 1. Quando estiver pronto, **selecione Guardar**.
 
@@ -218,7 +218,7 @@ Os seguintes scripts de amostra podem ser usados para criar as suas próprias me
 
 Para utilizar as suas próprias mensagens personalizadas, complete os seguintes passos:
 
-1. Navegue para as definições de chamada telefónica MFA de Segurança de Segurança **Ativa Azure**  >  **Security**  >  **MFA**  >  **Phone call settings**.
+1. Navegue para as definições de chamada telefónica MFA de Segurança de Segurança **Ativa Azure**  >    >    >  .
 1. Selecione **Adicionar saudação**.
 1. Escolha o **tipo** de saudação, como *Saudação (padrão)* ou *Autenticação bem sucedida.*
 1. Selecione o **Idioma**, com base na secção anterior sobre o [comportamento personalizado do idioma da mensagem](#custom-message-language-behavior).
@@ -229,7 +229,7 @@ Para utilizar as suas próprias mensagens personalizadas, complete os seguintes 
 
 As definições para palavras-passe de aplicações, IPs fidedignos, opções de verificação e lembre-se que a autenticação multi-factor Azure pode ser encontrada nas definições de serviço. Este é mais um portal legado, e não faz parte do portal AD AZure regular.
 
-As definições de serviço podem ser acedidas a partir do portal Azure através da navegação para **Azure Ative Directory**  >  **Security**  >  **MFA**  >  **Obter**  >  **Configure**  >  **configurações adicionais de MFA baseadas na nuvem**. Uma nova janela ou separador abre com opções adicionais *de definições de serviço.*
+As definições de serviço podem ser acedidas a partir do portal Azure através da navegação para **Azure Ative Directory**  >  **Security**  >  **MFA**  >  **Obter**  >    >  **configurações adicionais de MFA baseadas na nuvem**. Uma nova janela ou separador abre com opções adicionais *de definições de serviço.*
 
 ## <a name="trusted-ips"></a>IPs Fidedignos
 
@@ -263,7 +263,7 @@ Independentemente de o IP fidedigno ser definido, a autenticação de vários fa
 
 Pode utilizar regras de acesso condicional para definir locais nomeados utilizando os seguintes passos:
 
-1. No portal Azure, procure e selecione **O Diretório Ativo Azure,** em seguida, navegue para **Security**  >  **Conditional Access**  >  **locais com** acesso condicional de segurança .
+1. No portal Azure, procure e selecione **O Diretório Ativo Azure,** em seguida, navegue para   >    >  **locais com** acesso condicional de segurança .
 1. Selecione **Nova localização**.
 1. Insira um nome para o local.
 1. Selecione **Mark como localização fidedigna.**
@@ -274,7 +274,7 @@ Pode utilizar regras de acesso condicional para definir locais nomeados utilizan
 
 Para permitir iPs fidedignos utilizando políticas de acesso condicional, complete os seguintes passos:
 
-1. No portal Azure, procure e selecione **O Diretório Ativo Azure,** em seguida, navegue para **Security**  >   **Conditional Access**  >  **locais com** acesso condicional de segurança .
+1. No portal Azure, procure e selecione **O Diretório Ativo Azure,** em seguida, navegue para   >     >  **locais com** acesso condicional de segurança .
 1. Selecione **Configurar IPs fidedignos MFA**.
 1. Na página **Definições de Serviço,** em **IPs Fidedignos,** escolha entre qualquer uma das duas opções seguintes:
 

@@ -10,13 +10,13 @@ ms.author: gopalv
 ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
-ms.custom: devx-track-python, deploy, contperfq2
-ms.openlocfilehash: 18de43cb170ccdede8f7fe13dc0c6c0c2fa4e7a3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.custom: devx-track-python, deploy, contperf-fy21q2
+ms.openlocfilehash: 4f70978e7b7c2315aff4c51d8b019933df78e7e8
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188637"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028806"
 ---
 # <a name="troubleshoot-model-deployment-locally"></a>Implementação de modelo de resolução de problemas localmente
 

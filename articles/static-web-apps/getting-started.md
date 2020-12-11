@@ -1,20 +1,20 @@
 ---
-title: 'Quickstart: Construir a sua primeira aplicação web estática com as Aplicações Web Estáticas Azure'
-description: Aprenda a construir um website Azure Static Web Apps.
+title: 'Quickstart: Construir o seu primeiro site estático com as Aplicações Web Estáticas Azure'
+description: Aprenda a implementar um site estático para Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: a78f74b4aadd26af141ed84ca99a092693f56af5
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 226e8ca6848fc2e29b73a2586f37965c0a031b19
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369567"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030472"
 ---
-# <a name="quickstart-building-your-first-static-web-app"></a>Quickstart: Construir a sua primeira aplicação web estática
+# <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>Quickstart: Construir o seu primeiro site estático com aplicações web estáticas Azure
 
 A Azure Static Web Apps publica um site para um ambiente de produção construindo aplicações a partir de um repositório GitHub. Neste arranque rápido, implementa uma aplicação web para aplicações Web Azure Static utilizando a extensão Visual Studio Code.
 
@@ -108,7 +108,7 @@ Em seguida, abra o Código do Estúdio Visual e vá ao **Arquivo > Pasta Aberta*
 
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar a utilizar esta aplicação, pode eliminar a instância Azure Static Web Apps através da extensão.
 

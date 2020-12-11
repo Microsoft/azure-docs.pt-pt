@@ -10,20 +10,20 @@ ms.subservice: team-data-science-process
 ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 44b5baa074b62a072873d8097de184a2813b54ec
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
+ms.openlocfilehash: 7cf97edcb2f2f7a23d5c899194d497deade1f507
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322024"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031866"
 ---
 # <a name="feature-engineering-in-data-science"></a>Engenharia de recursos em ciência de dados
 
 Neste artigo, aprende-se sobre engenharia de recursos e o seu papel na melhoria dos dados na aprendizagem automática. Aprenda com exemplos ilustrativos retirados de experiências [do Azure Machine Learning Studio (clássico).](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) 
 
-* **Engenharia de recursos** : O processo de criação de novas funcionalidades a partir de dados brutos para aumentar o poder preditivo do algoritmo de aprendizagem. As funcionalidades concebidas devem capturar informações adicionais que não sejam facilmente visíveis no conjunto de funcionalidades originais.
-* **Seleção de recursos** : O processo de seleção do subconjunto chave das funcionalidades para reduzir a dimensionalidade do problema de treino.
+* **Engenharia de recursos**: O processo de criação de novas funcionalidades a partir de dados brutos para aumentar o poder preditivo do algoritmo de aprendizagem. As funcionalidades concebidas devem capturar informações adicionais que não sejam facilmente visíveis no conjunto de funcionalidades originais.
+* **Seleção de recursos**: O processo de seleção do subconjunto chave das funcionalidades para reduzir a dimensionalidade do problema de treino.
 
 **Normalmente, a engenharia de recursos** é aplicada primeiro para gerar funcionalidades adicionais, e então a **seleção de recursos** é feita para eliminar características irrelevantes, redundantes ou altamente correlacionadas.
 

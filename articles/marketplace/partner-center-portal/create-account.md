@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
-ms.custom: contperfq2
-ms.openlocfilehash: 39a9b363c847b615bfbe049b4b47628e8688c607
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: d88e2b18d4e4f9df0606832356e383aaaf51cf73
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458113"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028449"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Criar uma conta de mercado comercial no Partner Center
 
@@ -67,7 +67,7 @@ O seu perfil de editor inclui o nome da empresa e o ID MPN. Se ainda não o fez,
 
     Depois de se matricular, é levado para a página de visão geral do mercado comercial. A conta de mercado comercial é apresentada no painel esquerdo.
 
-1. Para verificar se a conta de mercado comercial está listada como registada, selecione **Definições** (ícone de engrenagem) no canto superior direito > **Programas de definições de conta**  >  **Programs**.
+1. Para verificar se a conta de mercado comercial está listada como registada, selecione **Definições** (ícone de engrenagem) no canto superior direito > **Programas de definições de conta**  >  .
 
 Criou agora uma conta comercial no Partner Center. Continue a [adicionar novas editoras ao mercado comercial.](#add-new-publishers-to-the-commercial-marketplace-program)
 
@@ -103,7 +103,7 @@ Quando utiliza a sua conta Microsoft Partner Network, liga o domínio da conta d
 
     Depois de se matricular, é levado para a página de visão geral do mercado comercial. A conta de mercado comercial é apresentada no painel esquerdo.
 
-1. Para verificar se a conta de mercado comercial está listada como registada, selecione **Programas** de  >  **definições de definições de definições** de definições  >  **Programs**.
+1. Para verificar se a conta de mercado comercial está listada como registada, selecione **Programas** de  >  **definições**  >  .
 
 Criou agora uma conta comercial no Partner Center. Continue a [adicionar novas editoras ao mercado comercial.](#add-new-publishers-to-the-commercial-marketplace-program)
 
@@ -128,7 +128,7 @@ Quando se regista no programa de marketplace comercial com a mesma conta que o s
 
     Depois de se matricular, é levado para a página de visão geral do mercado comercial. A conta de mercado comercial é apresentada no painel esquerdo.
 
-1. Para verificar se a conta de mercado comercial está listada como registada, selecione **Programas** de  >  **definições de definições de definições** de definições  >  **Programs**.
+1. Para verificar se a conta de mercado comercial está listada como registada, selecione **Programas** de  >  **definições**  >  .
 
 Criou agora uma conta comercial no Partner Center. Para ajudar na adição de editores, continue a [adicionar novas editoras ao mercado comercial.](#add-new-publishers-to-the-commercial-marketplace-program)
 
@@ -142,10 +142,10 @@ O contrato de publicação e a transição de informação de perfil da empresa 
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Adicione novas editoras ao programa de marketplace comercial
 
-Uma organização pode ter vários editores associados a uma conta de mercado comercial. Um utilizador existente pode adicionar mais editores depois de **Settings** iniciar sessão no Partner Center selecionando  >  **Definições de Definições de Identificação**  >  **de Perfis de Organização** Adicionar  >  **Identifiers**  >  **editor**.
+Uma organização pode ter vários editores associados a uma conta de mercado comercial. Um utilizador existente pode adicionar mais editores depois de iniciar sessão no Partner Center selecionando  >  **Definições de Definições de Identificação**  >  **de Perfis de Organização** Adicionar  >    >  **editor**.
 
 >[!NOTE]
->Antes de adicionar uma nova editora, reveja a sua lista de editores existentes, insinando-se no Partner Center e selecionando **editores de Definições de**  >  **Publishers** Contas.
+>Antes de adicionar uma nova editora, reveja a sua lista de editores existentes, insinando-se no Partner Center e selecionando **editores de Definições de**  >  Contas.
 
 Utilizadores adicionais do mesmo inquilino do Azure Ative Directory podem usar os seguintes passos para adicionar um novo editor.
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: ab8942b473ad980da22d451116bea6a759aeb461
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 0398056c3182ec50a1ec170f64ff079633f70c68
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95995119"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030557"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Início Rápido: Chamar a Microsoft Graph API a partir de uma aplicação da Plataforma Universal do Windows (UWP)
 
@@ -40,20 +40,19 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código
 >
 > 1. Aceda ao novo [portal Azure - Painel de inscrições](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs) da App.
-> 1. Introduza um nome para a sua aplicação e clique em **Registar**.
+> 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 > 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação num só clique.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: registar e configurar manualmente a aplicação e o exemplo de código
 > [!div renderon="docs"]
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução, siga os passos a seguir:
-> 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
-> 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-> 1. Navegue para a plataforma de identidade da Microsoft para programadores [Página de registos de aplicações.](https://aka.ms/MobileAppReg)
-> 1. Selecione **Novo registo**.
-> 1. No **Registo de um pedido,** insira as informações de registo do seu pedido:
->      - Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por `UWP-App-calling-MsGraph` exemplo.
->      - Na secção **Tipos de conta suportados**, selecione **Contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, Skype, Xbox, Outlook.com)**.
+> 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+> 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
+> 1. Procure e selecione **Azure Active Directory**.
+> 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
+> 1. Introduza um **Nome** para a sua aplicação, por `UWP-App-calling-MsGraph` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
+> 1. Na secção **Tipos de conta suportados**, selecione **Contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, Skype, Xbox, Outlook.com)**.
 > 1. Selecione **Registar-se** para criar a aplicação e, em seguida, grave o **ID de Aplicação (cliente)** para utilização num passo posterior.
 > 1. Em **Gestão**, **selecione Autenticação**.
 > 1. **Selecione Adicionar uma plataforma** de  >  **aplicações móveis e desktop**.
@@ -101,7 +100,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 >    Pode encontrar o **ID da Aplicação (cliente)** no painel **de visão geral** da aplicação no portal Azure **(Azure Ative Directory**  >  **App registrations**  >  *{Your app registration}*).
 > 1. Criar e, em seguida, selecionar um novo certificado de teste auto-assinado para o pacote:
 >     1. No **Solution Explorer,** clique duas vezes no ficheiro *Package.appxmanifest.*
->     1. Selecione Certificado de Escolha **de Embalagens...**  >  **Choose Certificate...**  >  **Criar...**.
+>     1. Selecione Certificado de Escolha **de Embalagens...**  >    >  **Criar...**.
 >     1. Introduza uma palavra-passe e, em seguida, selecione **OK**.
 >     1. **Selecione selecione a partir do ficheiro...** e, em seguida, selecione o ficheiro *Native_UWP_V2_TemporaryKey.pfx* que acabou de criar e selecione **OK**.
 >     1. Feche o ficheiro *Package.appxmanifest* (selecione **OK** se solicitado para guardar o ficheiro).

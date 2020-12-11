@@ -11,13 +11,13 @@ ms.workload: identity
 ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: contperfq2
-ms.openlocfilehash: 48188adfc3648db76f2ca362f59de6986c7c1339
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 07e3ff76886a935bf0b7b5c83052e0e7cd7a0429
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174956"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027429"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o aprovisionamento
 
