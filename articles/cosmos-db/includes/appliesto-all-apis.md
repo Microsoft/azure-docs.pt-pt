@@ -6,4 +6,4 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2020
 ms.locfileid: "95995794"
 ---
-APLICA A: :::image type="icon" source="../media/applies-to/yes.png" border="false"::: SQL API :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Cassandra API :::image type="icon" source="../media/applies-to/yes.png" border="false"::: API :::image type="icon" source="../media/applies-to/yes.png" border="false"::: API API Table API :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure Cosmos DB API para MongoDB
+APLICA A: :::image type="icon" source="../media/applies-to/yes.png" border="false"::: SQL API :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Cassandra API :::image type="icon" source="../media/applies-to/yes.png" border="false"::: API Table :::image type="icon" source="../media/applies-to/yes.png" border="false"::: API :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure Cosmos DB API para MongoDB

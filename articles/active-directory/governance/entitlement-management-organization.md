@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/28/2020
+ms.date: 12/11/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1cdf983dc8fed64c7d283ac216eb803746add95
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 6299f9ad660252ae39903401672d493b1c1ad52c
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029375"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347494"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Adicione uma organização conectada na gestão de direitos AD Azure
 
@@ -29,7 +29,13 @@ Com a gestão de direitos do Azure Ative Directory (Azure AD), pode colaborar co
 
 ## <a name="what-is-a-connected-organization"></a>O que é uma organização ligada?
 
-Uma organização conectada é um diretório ou domínio AD Azure externo com o qual você tem uma relação.
+Uma organização conectada é outra organização com a qual tens uma relação.  Para que os utilizadores dessa organização possam aceder aos seus recursos, como os seus sites ou aplicações SharePoint Online, necessitará de uma representação dos utilizadores dessa organização nesse diretório.  Porque na maioria dos casos os utilizadores dessa organização ainda não estão no seu diretório AZure AD, você pode usar a gestão de direitos para trazê-los para o seu diretório AD Azure, conforme necessário.  
+
+Existem três formas de a gestão de direitos permitir especificar os utilizadores que formam uma organização conectada.  Pode ser.
+
+* utilizadores de outro diretório AD Azure,
+* utilizadores de outro diretório AD não-Azure que tenha sido configurado para federação direta, ou
+* utilizadores de outro diretório AD não-Azure, cujos endereços de e-mail todos têm o mesmo nome de domínio em comum.
 
 Por exemplo, suponha que trabalha no Woodgrove Bank e que quer colaborar com duas organizações externas. Estas duas organizações têm configurações diferentes:
 

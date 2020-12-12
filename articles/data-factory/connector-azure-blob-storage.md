@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/08/2020
-ms.openlocfilehash: c13f3e2e4e5ee6fb60f6691abe8164e9e7a03712
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 327ab63a048e08328cd5b1334b0a697a61ced6c8
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094663"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346338"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiar e transformar dados no armazenamento da Azure Blob utilizando a Azure Data Factory
 
@@ -379,7 +379,7 @@ As seguintes propriedades são suportadas para o armazenamento Azure Blob `store
 | OPÇÃO 1: caminho estático<br> | Copiar a partir do dado caminho de contentor ou pasta/ficheiro especificado no conjunto de dados. Se pretender copiar todas as bolhas de um recipiente ou pasta, especificar ainda `wildcardFileName` mais como `_` . |  |
 | OPÇÃO 2: prefixo blob<br>- prefixo | Prefixo para o nome da bolha sob o dado recipiente configurado num conjunto de dados para filtrar as bolhas de origem. Blobs cujos nomes começam `container_in_dataset/this_prefix` por ser selecionados. Utiliza o filtro do lado do serviço para o armazenamento Blob, que proporciona um melhor desempenho do que um filtro wildcard.<br><br>Quando utilizar o prefixo e optar por copiar para a pia baseada em ficheiros com hierarquia de preservação, note o sub-caminho após a preservação do último "/" no prefixo. Por exemplo, tem fonte  `container/folder/subfolder/file.txt` , e configurar prefixo como `folder/sub` , então o caminho de arquivo preservado é `subfolder/file.txt` . | Não                                                          |
 | OPÇÃO 3: wildcard<br>- wildcardFolderPath | O caminho da pasta com caracteres wildcard sob o dado recipiente configurado num conjunto de dados para filtrar pastas de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais). Utilize `^` para escapar se o nome da sua pasta tiver wildcard ou este personagem de fuga no interior. <br>Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Não                                            |
-| OPÇÃO 3: wildcard<br>- wildcardFileName | O nome do ficheiro com caracteres wildcard sob o caminho do recipiente e da pasta (ou caminho da pasta wildcard) para filtrar ficheiros de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais). Use `^` para escapar se o nome da sua pasta tiver um wildcard ou este personagem de fuga no interior. Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Sim |
+| OPÇÃO 3: wildcard<br>- wildcardFileName | O nome do ficheiro com caracteres wildcard sob o caminho do recipiente e da pasta (ou caminho da pasta wildcard) para filtrar ficheiros de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais). Use `^` para escapar se o seu nome de ficheiro tiver um wildcard ou este personagem de fuga dentro. Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Sim |
 | OPÇÃO 4: uma lista de ficheiros<br>- fileListPath | Indica copiar um determinado conjunto de ficheiros. Aponte para um ficheiro de texto que inclua uma lista de ficheiros que pretende copiar, um ficheiro por linha, que é o caminho relativo para o caminho configurado no conjunto de dados.<br/>Quando estiver a utilizar esta opção, não especifique um nome de ficheiro no conjunto de dados. Ver mais exemplos em [exemplos da lista de ficheiros.](#file-list-examples) |Não |
 | ***Definições adicionais:** _ |  | |
 | recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Note que quando _ *recursivo** é definido como **verdadeiro** e a pia é uma loja baseada em arquivos, uma pasta ou sub-dobrador vazio não é copiado ou criado na pia. <br>Os valores permitidos são **verdadeiros** (padrão) e **falsos.**<br>Esta propriedade não se aplica quando se `fileListPath` configura. |Não |

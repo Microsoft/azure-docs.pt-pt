@@ -7,17 +7,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 1f541b947c04619892291e47002ea9b0dbb6d38d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9f6692db2da3722507136a468d1dcbdc2985e73f
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340571"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347562"
 ---
 # <a name="transactional-batch-operations-in-azure-cosmos-db-using-the-net-sdk"></a>Operações de lote transacional em Azure Cosmos DB utilizando o .NET SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-O lote transacional descreve um grupo de operações pontuais que precisam de ter sucesso ou falhar juntamente com a mesma chave de partição num recipiente. No .NET SDK, a `TranscationalBatch` classe é utilizada para definir este lote de operações. Se todas as operações forem bem sucedidas na ordem que são descritas no âmbito da operação do lote transacional, a transação será comprometida. No entanto, se alguma operação falhar, toda a transação será revertida.
+O lote transacional descreve um grupo de operações pontuais que precisam de ter sucesso ou falhar juntamente com a mesma chave de partição num recipiente. No .NET SDK, a `TransactionalBatch` classe é utilizada para definir este lote de operações. Se todas as operações forem bem sucedidas na ordem que são descritas no âmbito da operação do lote transacional, a transação será comprometida. No entanto, se alguma operação falhar, toda a transação será revertida.
 
 ## <a name="whats-a-transaction-in-azure-cosmos-db"></a>O que é uma transação em Azure Cosmos DB
 
@@ -51,13 +51,13 @@ TransactionalBatch batch = container.CreateTransactionalBatch(new PartitionKey(p
   .CreateItem<ChildClass>(child);
 ```
 
-Em seguida, terá de chamar `ExecuteAsync` o:
+Em seguida, você precisa ligar para `ExecuteAsync` o lote:
 
 ```csharp
 TransactionalBatchResponse batchResponse = await batch.ExecuteAsync();
 ```
 
-Uma vez recebida a resposta, terá de examinar se é bem sucedida ou não, e extrair os resultados:
+Uma vez recebida a resposta, examine se é bem sucedida ou não e extrai os resultados:
 
 ```csharp
 using (batchResponse)
@@ -72,7 +72,7 @@ using (batchResponse)
 }
 ```
 
-Se houver uma falha, a operação falhada terá um código de estado do seu erro correspondente. Enquanto todas as outras operações terão um código de estado 424 (dependência falhada). No exemplo abaixo, a operação falha porque tenta criar um item que já existe (409 HttpStatusCode.Conflict). Os códigos de estado facilitam a identificação da causa da falha de transação.
+Se houver uma falha, a operação falhada terá um código de estado do seu erro correspondente. Todas as outras operações terão um código de estado 424 (dependência falhada). No exemplo abaixo, a operação falha porque tenta criar um item que já existe (409 HttpStatusCode.Conflict). O código de estado permite identificar a causa da falha de transação.
 
 ```csharp
 // Parent's birthday!
@@ -100,7 +100,7 @@ using (failedBatchResponse)
 
 Quando o `ExecuteAsync` método é chamado, todas as operações no `TransactionalBatch` objeto são agrupadas, serializadas numa única carga útil, e enviadas como um único pedido para o serviço DB Azure Cosmos.
 
-O serviço recebe o pedido e executa todas as operações dentro de um âmbito transacional, e devolve uma resposta usando o mesmo protocolo de serialização. Esta resposta é um sucesso, ou um fracasso, e contém todas as respostas de operação individuais internamente.
+O serviço recebe o pedido e executa todas as operações dentro de um âmbito transacional, e devolve uma resposta usando o mesmo protocolo de serialização. Esta resposta é um sucesso, ou uma falha, e fornece respostas individuais de operação por operação.
 
 O SDK expõe a resposta para verificar o resultado e, opcionalmente, extrair cada um dos resultados internos da operação.
 
@@ -108,7 +108,7 @@ O SDK expõe a resposta para verificar o resultado e, opcionalmente, extrair cad
 
 Atualmente, existem dois limites conhecidos:
 
-* O limite de tamanho do pedido de Azure Cosmos DB especifica que o tamanho da `TransactionalBatch` carga útil não pode exceder 2 MB, e o tempo máximo de execução é de 5 segundos.
+* O limite de tamanho de pedido de Azure Cosmos limita o tamanho da `TransactionalBatch` carga útil para não exceder 2 MB, e o tempo máximo de execução é de 5 segundos.
 * Existe um limite atual de 100 operações por `TransactionalBatch` para garantir que o desempenho é como esperado e dentro das AEA.
 
 ## <a name="next-steps"></a>Passos seguintes

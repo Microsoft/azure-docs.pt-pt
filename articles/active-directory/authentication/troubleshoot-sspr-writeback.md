@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a3044127aacb5910a270d40d94d3255031a71a2
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 4d6bf4df1499d919cead0a184054e5ba0db9c06e
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741308"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346605"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Resolução de problemas de autosserviço redefiniu a gravação no Azure Ative Directory
 
@@ -42,6 +42,11 @@ Para a versão *1.1.443.0* ou superior, é necessário acesso *HTTPS de saída* 
 
 * *\*.passwordreset.microsoftonline.com*
 * *\*.servicebus.windows.net*
+
+[Pontos finais Azure GOV](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#guidance-for-developers):
+
+* *\*.passwordreset.microsoftonline.us*
+* *\*.servicebus.usgovcloudapi.net*
 
 Se precisar de mais granularidade, consulte a [lista de gamas IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Esta lista é atualizada todas as quartas-feiras e entra em vigor na próxima segunda-feira.
 
@@ -101,7 +106,7 @@ Se instalar a versão mais recente do servidor Azure AD Connect não resolver o 
 
 O Azure AD Connect requer permissão de **senha de reset** AD DS para efetuar a gravação de palavra-passe. Para verificar se o Azure AD Connect tem a permissão necessária para uma conta de utilizador AD DS no local, utilize a função **de Permisse Eficaz do Windows:**
 
-1. Inicie sedumento no servidor AZure AD Connect e inicie o **Gestor de Serviço de Sincronização** selecionando o Serviço de **Start**  >  **Sincronização Inicial**.
+1. Inicie sedumento no servidor AZure AD Connect e inicie o **Gestor de Serviço de Sincronização** selecionando o Serviço de   >  **Sincronização Inicial**.
 1. No **separador Conectores,** selecione o conector **ative Directory Domain Services** e, em seguida, selecione **Propriedades**.
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Gestor de serviços de sincronização mostrando como editar propriedades" border="false":::
@@ -150,7 +155,7 @@ Uma boa prática quando se desresem problemas com a gravação de passwords é i
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>Se a origem do evento for a ADSync
 
-| Código | Nome ou mensagem | Description |
+| Código | Nome ou mensagem | Descrição |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619: "Uma restrição impede que a palavra-passe seja alterada para a atual especificada." | Este evento ocorre quando o serviço de writeback de palavra-passe tenta definir uma palavra-passe no seu diretório local que não satisfaz os requisitos de senha, histórico, complexidade ou filtragem do domínio. <br> <br> Se tiver uma idade mínima de senha e tiver alterado recentemente a palavra-passe dentro dessa janela de tempo, não poderá alterar novamente a palavra-passe até atingir a idade especificada no seu domínio. Para efeitos de teste, a idade mínima deve ser fixada para 0. <br> <br> Se tiver os requisitos de histórico de palavra-passe ativados, então deve selecionar uma palavra-passe que não tenha sido utilizada nos últimos *tempos N,* onde *N* é a definição do histórico de palavra-passe. Se selecionar uma palavra-passe que tenha sido usada nas últimas *vezes N,* verá uma falha neste caso. Para efeitos de teste, o histórico de palavras-passe deve ser definido para 0. <br> <br> Se tiver requisitos de complexidade de palavras-passe, todos eles são aplicados quando o utilizador tenta alterar ou redefinir uma palavra-passe. <br> <br> Se tiver filtros de senha ativados e um utilizador selecionar uma palavra-passe que não satisfaça os critérios de filtragem, então o reset ou a operação de alteração falha. |
 | 6329 | MMS(3040): admaexport.cpp(2837): O servidor não contém o controlo da política de palavra-passe LDAP. | Este problema ocorre se LDAP_SERVER_POLICY_HINTS_OID controlo (1.2.840.113556.1.4.2066) não estiver ativado nos DCs. Para utilizar a função de descodão da palavra-passe, tem de ativar o controlo. Para tal, os DCs devem estar no Windows Server 2008R2 ou posteriormente. |
@@ -158,7 +163,7 @@ Uma boa prática quando se desresem problemas com a gravação de passwords é i
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Se a origem do evento for passwordResetService
 
-| Código | Nome ou mensagem | Description |
+| Código | Nome ou mensagem | Descrição |
 | --- | --- | --- |
 | 31001 | PasswordResetStart | Este evento indica que o serviço no local detetou um pedido de reset de palavra-passe para uma autenticação federada, pass-through ou utilizador sincronizado com palavra-passe que se origina da nuvem. Este evento é o primeiro evento em cada operação de writeback reset de palavra-passe. |
 | 31002 | PasswordResetSuccess | Este evento indica que um utilizador selecionou uma nova palavra-passe durante uma operação de reset de palavra-passe. Determinámos que esta palavra-passe satisfaz os requisitos de senha corporativa. A palavra-passe foi escrita com sucesso para o ambiente local do Ative Directory. |

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 134148fa3ea73212d85393cc433d60f7ddeecd17
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8644040565bd46800b888a32653b6c8bbf89f096
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837129"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347443"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Iniciar sedutação na máquina virtual do Windows em Azure utilizando a autenticação do Azure Ative Directory (Preview)
 
@@ -157,6 +157,9 @@ Existem várias formas de configurar atribuições de funções para VM:
 - Utilizando a experiência do Portal AD Azure
 - Usando a experiência Azure Cloud Shell
 
+> [!NOTE]
+> As funções de Login do Administrador de Máquina Virtual e de Início de Sessão do Utilizador de Máquina Virtual utilizam dataActions e, portanto, não podem ser atribuídas no âmbito do grupo de gestão. Atualmente, estas funções só podem ser atribuídas no âmbito de subscrição.
+
 ### <a name="using-azure-ad-portal-experience"></a>Usando a experiência do Portal AD AZure
 
 Para configurar atribuições de funções para o seu Azure AD ativado o Windows Server 2019 Datacenter VMs:
@@ -177,8 +180,8 @@ Após alguns momentos, o diretor de segurança é atribuído o papel no âmbito 
 O exemplo a seguir utiliza [a atribuição de funções az](/cli/azure/role/assignment#az-role-assignment-create) para atribuir a função de Login do Administrador de Máquina Virtual ao VM para o seu utilizador Azure atual. O nome de utilizador da sua conta Azure ativa é obtido com [a conta AZ](/cli/azure/account#az-account-show), e o âmbito é definido para o VM criado em passo anterior com [a az vm show](/cli/azure/vm#az-vm-show). O âmbito também poderia ser atribuído a um grupo de recursos ou nível de subscrição, e as permissões de herança normal do Azure RBAC aplicam-se. Para obter mais informações, consulte [iniciar sessão numa máquina virtual Linux em Azure utilizando a autenticação do Azure Ative Directory](../../virtual-machines/linux/login-using-aad.md).
 
 ```   AzureCLI
-username=$(az account show --query user.name --output tsv)
-vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
+$username=$(az account show --query user.name --output tsv)
+$vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
 
 az role assignment create \
     --role "Virtual Machine Administrator Login" \

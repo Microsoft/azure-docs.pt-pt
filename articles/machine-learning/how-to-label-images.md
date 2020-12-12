@@ -8,12 +8,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 1f4d0d5c2d5442d14d68922c4d0c27b45b2b841e
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.custom: data4ml
+ms.openlocfilehash: f14e120fb7373cc80b9d6e23f155dd964b37a551
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324725"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347970"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Identifie imagens em um projeto de rotulagem 
 
@@ -121,7 +122,7 @@ Por predefinição, pode editar as caixas existentes. A ferramenta **lock/desblo
 
 Utilize a ferramenta **de manipulação das Regiões** ![ Este é o ícone da ferramenta de manipulação das regiões - quatro setas apontando para fora do centro, para cima, para a direita, para baixo e para a esquerda.](./media/how-to-label-images/regions-tool.png) ou "M" para ajustar uma caixa de delimitação existente. Arraste as bordas ou os cantos para ajustar a forma. Clique no interior para poder arrastar toda a caixa de delimitação. Se não consegue editar uma região, provavelmente alterou a ferramenta **de regiões de bloqueio/desbloqueio.**
 
-Utilize a ferramenta **de caixa baseada no modelo** ferramenta ferramenta ferramenta ![ modelo-box ](./media/how-to-label-images/template-box-tool.png) ou "T" para criar caixas de delimitação múltiplas do mesmo tamanho. Se a imagem não tiver caixas de delimitação e ativar caixas baseadas em modelos, a ferramenta produzirá caixas de 50 por 50 pixels. Se criar uma caixa de delimitação e, em seguida, ativar caixas baseadas em modelos, quaisquer novas caixas de delimitação serão do tamanho da última caixa que criou. As caixas baseadas em modelos podem ser redimensionadas após a colocação. Redimensionar uma caixa baseada em modelo só redimensiona essa caixa em particular.
+Utilize a ferramenta **de caixa baseada no modelo** ferramenta ![ modelo-box ](./media/how-to-label-images/template-box-tool.png) ou "T" para criar caixas de delimitação múltiplas do mesmo tamanho. Se a imagem não tiver caixas de delimitação e ativar caixas baseadas em modelos, a ferramenta produzirá caixas de 50 por 50 pixels. Se criar uma caixa de delimitação e, em seguida, ativar caixas baseadas em modelos, quaisquer novas caixas de delimitação serão do tamanho da última caixa que criou. As caixas baseadas em modelos podem ser redimensionadas após a colocação. Redimensionar uma caixa baseada em modelo só redimensiona essa caixa em particular.
 
 Para eliminar *todas as* caixas de delimitação na imagem atual, selecione a ferramenta Eliminar todas **as regiões** ![ Eliminar regiões ](./media/how-to-label-images/delete-regions-tool.png) .
 

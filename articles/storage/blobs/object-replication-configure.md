@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e3503a9eef5c11db35684ca61fb1ee39525a465d
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 9f2b0dccde0532646457a0841fc2798e103d8cc7
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427603"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347953"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurar a replicação do objeto para bolhas de bloco
 
@@ -52,7 +52,7 @@ O portal Azure cria automaticamente a política na conta de origem depois de a c
 Para criar uma política de replicação no portal Azure, siga estes passos:
 
 1. Navegue para a conta de armazenamento de fontes no portal Azure.
-1. No **serviço Blob** , selecione **a replicação do objeto.**
+1. No **serviço Blob**, selecione **a replicação do objeto.**
 1. Selecione **Configurar regras de replicação**.
 1. Selecione a conta de subscrição e armazenamento de destino.
 1. Na secção **de pares de contentores,** selecione um recipiente de origem a partir da conta de origem e um contentor de destino a partir da conta de destino. Pode criar até 10 pares de contentores por política de replicação.
@@ -291,7 +291,7 @@ Para configurar a replicação de objetos na conta de destino com um ficheiro JS
 Em seguida, pode descarregar um ficheiro JSON contendo a definição de política que pode fornecer a outro utilizador para configurar a conta de origem. Para descarregar este ficheiro JSON, siga estes passos:
 
 1. Navegue para as definições **de replicação do Objeto** para a conta de destino no portal Azure.
-1. Selecione o botão **Mais** ao lado da política que deseja descarregar e, em seguida, selecione **Baixar as regras** , como mostrado na imagem seguinte.
+1. Selecione o botão **Mais** ao lado da política que deseja descarregar e, em seguida, selecione **Baixar as regras**, como mostrado na imagem seguinte.
 
     :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Screenshot mostrando como baixar regras de replicação para um ficheiro JSON":::
 
@@ -314,7 +314,7 @@ $destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 $destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
 ```
 
-Para utilizar o ficheiro JSON para configurar a política de replicação na conta de origem com a PowerShell, recupere o ficheiro local e converta-o de JSON para um objeto. Em seguida, ligue para o comando [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) para configurar a política na conta de origem, como mostra o exemplo seguinte. Lembre-se de substituir valores nos suportes angulares e no caminho do ficheiro pelos seus próprios valores:
+Para utilizar o ficheiro JSON para definir a política de replicação na conta de origem com o PowerShell, recupere o ficheiro local e converta-o de JSON para um objeto. Em seguida, ligue para o comando [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) para configurar a política na conta de origem, como mostra o exemplo seguinte. Lembre-se de substituir valores nos suportes angulares e no caminho do ficheiro pelos seus próprios valores:
 
 ```powershell
 $object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json
@@ -407,7 +407,7 @@ Para remover uma política de replicação e as suas regras associadas, utilize 
 Para remover uma política de replicação no portal Azure, siga estes passos:
 
 1. Navegue para a conta de armazenamento de fontes no portal Azure.
-1. Em **Definições** , selecione **replicação de objetos**.
+1. Em **Definições**, selecione **replicação de objetos**.
 1. Clique no botão **Mais** ao lado do nome da apólice.
 1. Selecione **Eliminar Regras**.
 

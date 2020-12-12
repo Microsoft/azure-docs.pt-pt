@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
-ms.openlocfilehash: 3f37fcc6d58eb1c206aef6db15c7826cfdcda274
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 009b060cc479c520dde8c4f595b24be7dcb4c6a6
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489433"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347766"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Enviar mensagens para e receber mensagens das filas do Azure Service Bus (JavaScript)
 Neste tutorial, aprende a usar o [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) pacote num programa JavaScript para enviar mensagens e receber mensagens de uma fila de Autocarros de Serviço.
@@ -205,6 +205,6 @@ Selecione a fila nesta página **de visão geral** para navegar na página **de 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte a seguinte documentação e amostras: 
 
-- [Biblioteca de clientes de autocarros de serviço Azure para Python](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
+- [Biblioteca de clientes Azure Service Bus para JS](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
 - [Amostras.](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples) A pasta **javascript** tem amostras javaScript e a **máquina de escrever** tem amostras TypeScript. 
 - [documentação de referência azure-servicebus](/javascript/api/overview/azure/service-bus)

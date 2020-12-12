@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 0206c111be7cd6441d9de32af498e961833d214f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 398441123d5ad309d9c2d506a75b80b58a6d56d0
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980688"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346219"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação logística conectada
 
@@ -41,9 +41,9 @@ Crie a aplicação utilizando os seguintes passos:
 
     :::image type="content" source="media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png" alt-text="Modelo de logística conectado":::
 
-2. Selecione **Criar aplicação** sob **aplicação logística conectada.**
+1. Selecione **Criar aplicação** sob **aplicação logística conectada.**
 
-3. **Criar app** abre o novo formulário **de aplicação.** Introduza os seguintes detalhes:
+1. **Criar app** abre o novo formulário **de aplicação.** Introduza os seguintes detalhes:
 
 
     * **Nome da aplicação**: pode utilizar o nome sugerido por defeito ou introduzir o nome da sua aplicação amigável.
@@ -51,9 +51,9 @@ Crie a aplicação utilizando os seguintes passos:
     * **Billing Info**: O diretório, a subscrição do Azure e os detalhes da região são necessários para a disponibilização dos recursos.
     * **Criar:** Selecione criar na parte inferior da página para implementar a sua aplicação.
 
-    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png" alt-text="Modelo de logística conectado":::
+    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png" alt-text="Modelo de aplicativo de logística conectado":::
 
-    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png" alt-text="Modelo de logística conectado":::
+    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png" alt-text="Informação de faturação logística conectada":::
 
 ## <a name="walk-through-the-application"></a>Caminhe pela aplicação
 
@@ -81,13 +81,13 @@ O painel permite duas diferentes operações de gestão de dispositivos de gatew
 * Veja as rotas logísticas para envios de camiões e os detalhes da localização dos envios do oceano.
 * Veja o estado do gateway e outras informações relevantes.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png" alt-text="Modelo de logística conectado":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png" alt-text="Painel de logística conectado":::
 
 * Pode rastrear o número total de gateways, etiquetas ativas e desconhecidas.
 * Pode fazer operações de gestão de dispositivos como: atualizar firmware, desativar e ativar sensores, atualizar um limiar de sensor, atualizar intervalos de telemetria e atualizar contratos de serviços de dispositivos.
 * Ver consumo de bateria do dispositivo.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png" alt-text="Modelo de logística conectado":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png" alt-text="Estado do painel de instrumentos de logística conectado":::
 
 #### <a name="device-template"></a>Modelo de dispositivo
 
@@ -95,27 +95,27 @@ Selecione **modelos de dispositivo** para ver o modelo de capacidade do gateway.
 
 **Gateway Telemetria & Property** - Esta interface define toda a telemetria relacionada com sensores, localização e informações do dispositivo. A interface também define as capacidades de propriedade gémea do dispositivo, tais como limiares de sensor e intervalos de atualização.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png" alt-text="Modelo de logística conectado":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png" alt-text="Interface de telemetria e propriedade":::
 
 **Comandos Gateway** - Esta interface organiza todas as capacidades de comando gateway:
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png" alt-text="Modelo de logística conectado":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png" alt-text="Interface de comandos gateway":::
 
 ### <a name="rules"></a>Regras
 
 Selecione o separador **Regras** para as regras deste modelo de aplicação. Estas regras são configuradas para notificações por e-mail aos operadores para mais investigações:
 
-**Alerta de roubo de**gateway : Esta regra dispara quando há uma deteção inesperada de luz pelos sensores durante a viagem. Os operadores devem ser notificados imediatamente para investigar possíveis roubos.
+**Alerta de roubo de** gateway : Esta regra dispara quando há uma deteção inesperada de luz pelos sensores durante a viagem. Os operadores devem ser notificados imediatamente para investigar possíveis roubos.
 
 **Gateway sem resposta**: Esta regra dispara se o portal não se reportar à nuvem por um período prolongado. O gateway pode não responder devido à bateria fraca, à perda de conectividade ou a danos no dispositivo.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png" alt-text="Modelo de logística conectado":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png" alt-text="Definições de regras":::
 
 ### <a name="jobs"></a>Tarefas
 
 Selecione o **separador Jobs** para ver os trabalhos desta aplicação:
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png" alt-text="Modelo de logística conectado":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png" alt-text="Empregos a gerir":::
 
 Pode usar trabalhos para fazer operações em toda a aplicação. Os trabalhos desta aplicação utilizam comandos de dispositivos e capacidades gémeas para fazer tarefas como desativar sensores específicos em todos os gateways ou modificar o limiar do sensor dependendo do modo de envio e rota:
 
@@ -125,9 +125,9 @@ Pode usar trabalhos para fazer operações em toda a aplicação. Os trabalhos d
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se não continuar a utilizar esta aplicação, elimine o **Administration**modelo de aplicação visitando  >  **as definições de Aplicação da** Administração e selecione **Delete**.
+Se não continuar a utilizar esta aplicação, elimine o modelo de aplicação visitando  >  **as definições de Aplicação da** Administração e selecione **Delete**.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="Modelo de logística conectado":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="Limpeza de modelos":::
 
 ## <a name="next-steps"></a>Passos seguintes
 * Mais informações sobre 

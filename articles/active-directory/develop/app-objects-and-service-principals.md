@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: e4325303f5a10fa1df670495dd6d8190167182e8
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: b08f00730e15dd0c7415a28adf85b87c95d7b1ed
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861107"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347150"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos do principal de serviço e aplicação no Azure Active Directory
 
@@ -47,9 +47,9 @@ A entidade microsoft Graph [Application][MS-Graph-App-Entity] define o esquema p
 ## <a name="service-principal-object"></a>Objeto principal de serviço
 Para aceder aos recursos que são assegurados por um inquilino da Azure AD, a entidade que necessita de acesso deve ser representada por um diretor de segurança. Este requisito é válido tanto para os utilizadores (principal utilizador) como para as aplicações (principal serviço). O diretor de segurança define a política de acesso e permissões para o utilizador/aplicação no inquilino AZure AD. Isto permite funcionalidades fundamentais, como a autenticação do utilizador/aplicação durante a entrada e autorização durante o acesso ao recurso.
 
-Um diretor de serviço é a representação local, ou instância de aplicação, de um objeto de aplicação global em um único inquilino ou diretório. Um principal de serviço é um caso concreto criado a partir do objeto de aplicação e herda certas propriedades a partir desse objeto de aplicação.  Um diretor de serviço é criado em cada inquilino onde a aplicação é usada e faz referência ao objeto de aplicação globalmente único.  O objeto principal do serviço define o que a app pode realmente fazer no inquilino específico, que pode aceder à app, e quais os recursos a que a app pode aceder.
+Um diretor de serviço é a representação local, ou instância de aplicação, de um objeto de aplicação global em um único inquilino ou diretório. Um principal de serviço é um caso concreto criado a partir do objeto de aplicação e herda certas propriedades a partir desse objeto de aplicação. Um diretor de serviço é criado em cada inquilino onde a aplicação é usada e faz referência ao objeto de aplicação globalmente único.  O objeto principal do serviço define o que a app pode realmente fazer no inquilino específico, que pode aceder à app, e quais os recursos a que a app pode aceder.
 
-Quando um pedido é autorizado a aceder a recursos num inquilino (mediante registo ou [consentimento),](developer-glossary.md#consent)é criado um objeto principal de serviço. Também pode criar o principal objeto de serviço num inquilino utilizando [Azure PowerShell](howto-authenticate-service-principal-powershell.md), [Azure CLI,](/cli/azure/create-an-azure-service-principal-azure-cli) [Microsoft Graph,](/graph/api/serviceprincipal-post-serviceprincipals?tabs=http)o [portal Azure][AZURE-Portal]e outras ferramentas.  Ao utilizar o portal, é criado automaticamente um resmounte de serviço quando regista uma aplicação.
+Quando um pedido é autorizado a aceder a recursos num inquilino (mediante registo ou [consentimento),](developer-glossary.md#consent)é criado um objeto principal de serviço. Também pode criar objetos principais de serviço num inquilino utilizando [Azure PowerShell](howto-authenticate-service-principal-powershell.md), [Azure CLI,](/cli/azure/create-an-azure-service-principal-azure-cli) [Microsoft Graph,](/graph/api/serviceprincipal-post-serviceprincipals?tabs=http)o [portal Azure][AZURE-Portal]e outras ferramentas. Ao utilizar o portal, é criado automaticamente um resmounte de serviço quando regista uma aplicação.
 
 A lâmina **de aplicações da Enterprise** no portal é usada para listar e gerir os principais serviços num inquilino. Pode ver as permissões do titular do serviço, permissões consentidas pelo utilizador, que os utilizadores fizeram esse consentimento, assinar informações e muito mais.
 

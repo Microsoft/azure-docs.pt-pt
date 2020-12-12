@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: b0d030240ebe22886826b7a25bd5ca7b8f54e358
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9a0d91677770e89f3e249fc699057332cccaa323
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81000428"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347477"
 ---
 # <a name="micro-fulfillment-center-architecture"></a>Arquitetura do centro de micro-realização
 
@@ -22,11 +22,11 @@ As soluções do centro de micro-realização permitem conectar, monitorizar e g
 
 ![Azure IoT Central Store Analytics](./media/architecture/micro-fulfillment-center-architecture-frame.png)
 
-- Conjunto de sensores IoT que enviam dados de telemetria para um dispositivo de gateway
-- Dispositivos gateway enviando telemetria e insights agregados para a IoT Central
-- Exportação contínua de dados para o serviço Azure desejado para manipulação
-- Os dados podem ser estruturados no formato pretendido e enviados para um serviço de armazenamento
-- As aplicações empresariais podem consultar dados e gerar insights que alimentam as operações de retalho
+1. Conjunto de sensores IoT que enviam dados de telemetria para um dispositivo de gateway
+2. Dispositivos gateway enviando telemetria e insights agregados para a IoT Central
+3. Exportação contínua de dados para o serviço Azure desejado para manipulação
+4. Os dados podem ser estruturados no formato pretendido e enviados para um serviço de armazenamento
+5. As aplicações empresariais podem consultar dados e gerar insights que alimentam as operações de retalho
  
 Vamos dar uma olhada nos componentes chave que geralmente desempenham um papel numa solução de centro de micro-realização.
 

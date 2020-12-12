@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5b689ef15c247cea1887948ae271802294bbd0fc
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 4b72bb8bac8f9949c83d0bbc85a0995f790c437d
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763253"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347902"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Problemas na resolução de gémeos digitais Azure: Métricas
 
@@ -49,6 +49,17 @@ A Azure Digital Twins fornece várias métricas para lhe dar uma visão geral da
 
 As tabelas a seguir descrevem as métricas rastreadas por cada instância Azure Digital Twins, e como cada métrica se relaciona com o estado geral do seu caso.
 
+#### <a name="metrics-for-tracking-service-limits"></a>Métricas para rastreio de limites de serviço
+
+Pode configurar estas métricas para acompanhar quando se aproxima de um [limite de serviço publicado](reference-service-limits.md#functional-limits) para algum aspeto da sua solução. 
+
+Para configurar isto, utilize a função [de alerta](troubleshoot-alerts.md) no Azure Monitor. Pode definir limiares para estas métricas para que receba um alerta quando uma métrica atinge uma determinada percentagem do seu limite publicado.
+
+| Métrica | Nome de exibição métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
+| --- | --- | --- | --- | --- | --- |
+| TwinCount | Contagem de Gémeos (Pré-visualização) | de palavras | Total | Número total de gémeos no caso Azure Digital Twins. Utilize esta métrica para determinar se está a aproximar-se do limite de [serviço](reference-service-limits.md#functional-limits) para o número máximo de gémeos permitido por exemplo. |  Nenhum |
+| ModelCount | Contagem de modelos (Pré-visualização) | de palavras | Total | Número total de modelos na instância Azure Digital Twins. Utilize esta métrica para determinar se está a aproximar-se do limite de [serviço](reference-service-limits.md#functional-limits) para o número máximo de modelos permitidos por exemplo. | Nenhum |
+
 #### <a name="api-request-metrics"></a>Métricas de pedido da API
 
 Métricas que têm a ver com pedidos de API:
@@ -77,9 +88,9 @@ Métricas que têm a ver com a entrada de dados:
 
 | Métrica | Nome de exibição métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| IngresssEvents | Eventos ingressos | de palavras | Total | O número de eventos de telemetria a entrar em Azure Digital Twins. | Result |
-| IngressEventsFailureRate | Taxa de falha de eventos ingress | Percentagem | Média | A percentagem de eventos de telemetria de entrada para os quais o serviço devolve um código de resposta de erro interno (500). | Result |
-| IngresssEventsLatency | Ingresss Eventos Latência | Milissegundos | Média | O momento em que um evento chega até quando está pronto para ser evacuado pela Azure Digital Twins, altura em que o serviço envia um resultado de sucesso/falha. | Result |
+| IngresssEvents | Eventos ingressos | de palavras | Total | O número de eventos de telemetria a entrar em Azure Digital Twins. | Resultado |
+| IngressEventsFailureRate | Taxa de falha de eventos ingress | Percentagem | Média | A percentagem de eventos de telemetria de entrada para os quais o serviço devolve um código de resposta de erro interno (500). | Resultado |
+| IngresssEventsLatency | Ingresss Eventos Latência | Milissegundos | Média | O momento em que um evento chega até quando está pronto para ser evacuado pela Azure Digital Twins, altura em que o serviço envia um resultado de sucesso/falha. | Resultado |
 
 #### <a name="routing-metrics"></a>Métricas de encaminhamento
 
@@ -87,9 +98,9 @@ Métricas que têm a ver com o encaminhamento:
 
 | Métrica | Nome de exibição métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| Mensagens Remadas | Mensagens encaminhada | de palavras | Total | O número de mensagens encaminhada para um serviço Azure de ponto final, como Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Result |
-| EncaminhamentoFailureRate | Taxa de falha de encaminhamento | Percentagem | Média | A percentagem de eventos que resultam num erro, uma vez que são encaminhados da Azure Digital Twins para um serviço Azure de ponta, como o Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Result |
-| Encaminhamento | Latência de encaminhamento | Milissegundos | Média | O tempo decorreu entre um evento que foi encaminhado de Azure Digital Twins para quando é colocado no serviço endpoint Azure, como Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Result |
+| Mensagens Remadas | Mensagens encaminhada | de palavras | Total | O número de mensagens encaminhada para um serviço Azure de ponto final, como Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Resultado |
+| EncaminhamentoFailureRate | Taxa de falha de encaminhamento | Percentagem | Média | A percentagem de eventos que resultam num erro, uma vez que são encaminhados da Azure Digital Twins para um serviço Azure de ponta, como o Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Resultado |
+| Encaminhamento | Latência de encaminhamento | Milissegundos | Média | O tempo decorreu entre um evento que foi encaminhado de Azure Digital Twins para quando é colocado no serviço endpoint Azure, como Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Resultado |
 
 ## <a name="dimensions"></a>Dimensões
 
@@ -101,7 +112,7 @@ As dimensões ajudam a identificar mais detalhes sobre as métricas. Algumas das
 | Operação (para pedidos de API) | Microsoft.DigitalTwins/digitaltwins/delete, <br>Microsoft.DigitalTwins/digitaltwins/write, <br>Microsoft.DigitalTwins/digitaltwins/read, <br>Microsoft.DigitalTwins/eventroutes/read, <br>Microsoft.DigitalTwins/eventroutes/write, <br>Microsoft.DigitalTwins/eventroutes/delete, <br>Microsoft.DigitalTwins/modelos/read, <br>Microsoft.DigitalTwins/models/write, <br>Microsoft.DigitalTwins/models/delete, <br>Microsoft.DigitalTwins/consulta/ação |
 | Tipo de ponto final | Grelha de Eventos, <br>Centro de Eventos, <br>Service Bus |
 | Protocolo | HTTPS |
-| Result | Sucesso, <br>Falha |
+| Resultado | Sucesso, <br>Falha |
 | Código de Estado | 200, 404, 500, e assim por diante. |
 | Classe código de estado | 2xx, 4xx, 5xx, e assim por diante. |
 | Texto de estado | Erro interno do servidor, não encontrado, e assim por diante. |

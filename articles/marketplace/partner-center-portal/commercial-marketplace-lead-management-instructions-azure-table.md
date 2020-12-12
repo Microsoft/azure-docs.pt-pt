@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 08/25/2020
-ms.openlocfilehash: 70ce1807ea6080e3efc0cf3266a9940c9ddb9cd3
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 71b9c96c1855180106f7dfa9a31f0ee8b06ceb67
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489357"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347868"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Use o armazenamento da Mesa Azure para gerir os leads de marketplace comercial
 
@@ -55,7 +55,7 @@ Se o seu sistema de gestão de relacionamento com o cliente (CRM) não for supor
 
     ![Mesas azul](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
-    Pode utilizar [o Azure Storage Explorer](https://archive.codeplex.com/?p=azurestorageexplorer) ou qualquer outra ferramenta para ver os dados na sua mesa de armazenamento. Também pode exportar os dados na tabela Azure.
+    Pode utilizar [o Azure Storage Explorer](https://www.storageexplorer.com) ou qualquer outra ferramenta para ver os dados na sua mesa de armazenamento. Também pode exportar os dados na tabela Azure.
 
 ## <a name="optional-use-power-automate-to-get-lead-notifications"></a>(Opcional) Use Power Automamate para obter notificações de chumbo
 
@@ -72,7 +72,7 @@ O exemplo cria um fluxo que envia automaticamente uma notificação por e-mail q
 
    ![Meus fluxos + programado -- de branco](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
 
-1. Na **Janela de fluxo programada para Construir,** para **Repetir cada** , selecione **1** para o intervalo e **hora** para a frequência. Além disso, dê um nome ao fluxo, se quiser. Selecione **Criar**.
+1. Na **Janela de fluxo programada para Construir,** para **Repetir cada**, selecione **1** para o intervalo e **hora** para a frequência. Além disso, dê um nome ao fluxo, se quiser. Selecione **Criar**.
 
    >[!NOTE]
    >Embora este exemplo utilize um intervalo de uma hora, pode selecionar o intervalo e a frequência que é melhor para as necessidades do seu negócio.
@@ -80,7 +80,7 @@ O exemplo cria um fluxo que envia automaticamente uma notificação por e-mail q
    ![Construir um fluxo programado](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
 1. Selecione **+Novo passo**.
-1. Na janela **de ação Escolha,** procure tempo **de passagem.** Em seguida, em **Ações** , **selecione Obter tempo passado**.
+1. Na janela **de ação Escolha,** procure tempo **de passagem.** Em seguida, em **Ações**, **selecione Obter tempo passado**.
 
    ![Escolher uma ação](./media/commercial-marketplace-lead-management-instructions-azure-table/choose-an-action.png)
 
@@ -97,22 +97,22 @@ O exemplo cria um fluxo que envia automaticamente uma notificação por e-mail q
    No próximo conjunto de passos, irá ligar-se à sua mesa e definir a lógica de processamento para lidar com novas ligações.
 
 1. Selecione **+Novo passo**. Em seguida, procure **por obter entidades** na janela **de ação Escolher.**
-1. Em **Ações** , **selecione Obter entidades (Azure Table Storage)**.
-1. Na janela de armazenamento da **mesa Azure,** forneça informações para as seguintes caixas e selecione **Criar** :
+1. Em **Ações**, **selecione Obter entidades (Azure Table Storage)**.
+1. Na janela de armazenamento da **mesa Azure,** forneça informações para as seguintes caixas e selecione **Criar**:
 
-    * **Nome de ligação** : Forneça um nome significativo para a ligação que está a estabelecer entre este fluxo e a tabela.
-    * **Nome da conta de armazenamento** : Forneça o nome da conta de armazenamento para a sua mesa. Pode encontrar este nome na página de chaves de **acesso** da conta de armazenamento.
-    * **Chave de armazenamento compartilhada** : Forneça o valor chave para a sua conta de loja para a sua mesa. Pode encontrar este valor na página de **chaves de acesso** da conta de armazenamento.
+    * **Nome de ligação**: Forneça um nome significativo para a ligação que está a estabelecer entre este fluxo e a tabela.
+    * **Nome da conta de armazenamento**: Forneça o nome da conta de armazenamento para a sua mesa. Pode encontrar este nome na página de chaves de **acesso** da conta de armazenamento.
+    * **Chave de armazenamento compartilhada**: Forneça o valor chave para a sua conta de loja para a sua mesa. Pode encontrar este valor na página de **chaves de acesso** da conta de armazenamento.
 
       ![Janela de armazenamento de mesa Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
    Depois de selecionar **Criar,** aparece a janela **'Get entities'.** Aqui, selecione **Mostrar opções avançadas,** e forneça informações para as seguintes caixas:
 
-   * **Tabela** : Selecione o nome da sua tabela (a partir de [criar uma tabela).](#create-a-table-in-your-storage-account) A imagem a seguir mostra a solicitação quando `marketplaceleads` a tabela é selecionada para este exemplo.
+   * **Tabela**: Selecione o nome da sua tabela (a partir de [criar uma tabela).](#create-a-table-in-your-storage-account) A imagem a seguir mostra a solicitação quando `marketplaceleads` a tabela é selecionada para este exemplo.
 
      ![Obter janela de entidades](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-   * **Consulta de filtro** : Selecione esta caixa e cole esta função na caixa: `Timestamp gt datetime'@{body('Get_past_time')}'`
+   * **Consulta de filtro**: Selecione esta caixa e cole esta função na caixa: `Timestamp gt datetime'@{body('Get_past_time')}'`
 
      ![Obter entidades, caixa de consulta de filtro](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
@@ -146,13 +146,13 @@ O exemplo cria um fluxo que envia automaticamente uma notificação por e-mail q
     ![Janela de condição, se sim, envie um e-mail](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-send-email.png)
 
     >[!NOTE]
-    >Para utilizar um fornecedor de e-mail diferente, procure e selecione **Enviar por email** o artigo Enviar por email o artigo Enviar por email o artigo 200. As instruções mostram como configurar utilizando o Office 365 Outlook, mas as instruções são semelhantes para um fornecedor de e-mail diferente.
+    >Para utilizar um fornecedor de e-mail diferente, procure e selecione **Enviar por email** o artigo 200. As instruções mostram como configurar utilizando o Office 365 Outlook, mas as instruções são semelhantes para um fornecedor de e-mail diferente.
 
 1. Na janela Do Office 365 Outlook, forneça informações sobre as seguintes caixas:
 
-    1. **Para** : Insira um endereço de e-mail para todos os que receberão esta notificação.
-    1. **Objeto** : Fornecer um assunto para o e-mail. Um exemplo é **Novas pistas!**
-    1. **Corpo** : Adicione o texto que pretende incluir em cada e-mail (opcional) e, em seguida, cole `body('Get_entities')?['value']` em .
+    1. **Para**: Insira um endereço de e-mail para todos os que receberão esta notificação.
+    1. **Objeto**: Fornecer um assunto para o e-mail. Um exemplo é **Novas pistas!**
+    1. **Corpo**: Adicione o texto que pretende incluir em cada e-mail (opcional) e, em seguida, cole `body('Get_entities')?['value']` em .
 
     >[!NOTE]
     >Pode inserir pontos de dados estáticos ou dinâmicos adicionais para o corpo deste e-mail.

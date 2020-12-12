@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 7f5db2a2df7314c89f2ebba8e7e54ebe24126386
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 20dc6cde9cce6a9d57047940a38adb5cf004ae6a
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92098250"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347681"
 ---
 # <a name="azure-table-storage-input-bindings-for-azure-functions"></a>Encadernações de entrada de armazenamento de mesa Azure para funções Azure
 
@@ -540,7 +540,7 @@ Na biblioteca de [funções Java,](/java/api/overview/azure/functions/runtime)ut
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `Table` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para `table` . Esta propriedade é definida automaticamente quando cria a ligação no portal Azure.|
 |**direção** | n/a | Deve ser definido para `in` . Esta propriedade é definida automaticamente quando cria a ligação no portal Azure. |
@@ -560,11 +560,11 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 
 * **Leia uma linha em**
 
-  Conjunto `partitionKey` e `rowKey` . Aceda aos dados da tabela utilizando um parâmetro de `T <paramName>` método. No script C# `paramName` é o valor especificado na propriedade defunction.js`name` * em*. `T` é tipicamente um tipo que implementa `ITableEntity` ou deriva de `TableEntity` . As `filter` propriedades e propriedades não são `take` utilizadas neste cenário.
+  Conjunto `partitionKey` e `rowKey` . Aceda aos dados da tabela utilizando um parâmetro de `T <paramName>` método. No script C# `paramName` é o valor especificado na propriedade defunction.js`name` *em*. `T` é tipicamente um tipo que implementa `ITableEntity` ou deriva de `TableEntity` . As `filter` propriedades e propriedades não são `take` utilizadas neste cenário.
 
 * **Leia uma ou mais filas**
 
-  Aceda aos dados da tabela utilizando um parâmetro de `IQueryable<T> <paramName>` método. No script C# `paramName` é o valor especificado na propriedade defunction.js`name` * em*. `T` deve ser um tipo que implemente `ITableEntity` ou deriva de `TableEntity` . Pode utilizar `IQueryable` métodos para fazer qualquer filtragem necessária. Os `partitionKey` , e propriedades não são `rowKey` `filter` `take` usados neste cenário.  
+  Aceda aos dados da tabela utilizando um parâmetro de `IQueryable<T> <paramName>` método. No script C# `paramName` é o valor especificado na propriedade defunction.js`name` *em*. `T` deve ser um tipo que implemente `ITableEntity` ou deriva de `TableEntity` . Pode utilizar `IQueryable` métodos para fazer qualquer filtragem necessária. Os `partitionKey` , e propriedades não são `rowKey` `filter` `take` usados neste cenário.  
 
   > [!NOTE]
   > `IQueryable` não é suportado no [tempo de execução funções v2](functions-versions.md). Uma alternativa é [usar um parâmetro do método cloudTable paramName](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) para ler a tabela utilizando o Azure Storage SDK. Se tentar ligar-se `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
@@ -573,11 +573,11 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 
 * **Leia uma linha em**
 
-  Conjunto `partitionKey` e `rowKey` . Aceda aos dados da tabela utilizando um parâmetro de `T <paramName>` método. No script C# `paramName` é o valor especificado na propriedade defunction.js`name` * em*. `T` é tipicamente um tipo que implementa `ITableEntity` ou deriva de `TableEntity` . As `filter` propriedades e propriedades não são `take` utilizadas neste cenário.
+  Conjunto `partitionKey` e `rowKey` . Aceda aos dados da tabela utilizando um parâmetro de `T <paramName>` método. No script C# `paramName` é o valor especificado na propriedade defunction.js`name` *em*. `T` é tipicamente um tipo que implementa `ITableEntity` ou deriva de `TableEntity` . As `filter` propriedades e propriedades não são `take` utilizadas neste cenário.
 
 * **Leia uma ou mais filas**
 
-  Aceda aos dados da tabela utilizando um parâmetro de `IQueryable<T> <paramName>` método. No script C# `paramName` é o valor especificado na propriedade defunction.js`name` * em*. `T` deve ser um tipo que implemente `ITableEntity` ou deriva de `TableEntity` . Pode utilizar `IQueryable` métodos para fazer qualquer filtragem necessária. Os `partitionKey` , e propriedades não são `rowKey` `filter` `take` usados neste cenário.  
+  Aceda aos dados da tabela utilizando um parâmetro de `IQueryable<T> <paramName>` método. No script C# `paramName` é o valor especificado na propriedade defunction.js`name` *em*. `T` deve ser um tipo que implemente `ITableEntity` ou deriva de `TableEntity` . Pode utilizar `IQueryable` métodos para fazer qualquer filtragem necessária. Os `partitionKey` , e propriedades não são `rowKey` `filter` `take` usados neste cenário.  
 
   > [!NOTE]
   > `IQueryable` não é suportado no [tempo de execução funções v2](functions-versions.md). Uma alternativa é [usar um parâmetro do método cloudTable paramName](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) para ler a tabela utilizando o Azure Storage SDK. Se tentar ligar-se `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).

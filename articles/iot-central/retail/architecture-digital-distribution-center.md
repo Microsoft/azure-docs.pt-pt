@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: b73d065b43aff5f9793e642a102ff8bb2a7be036
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b2e6993cd8dc77ccb9b43a3d5aef7b25fd9d7250
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81000449"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347120"
 ---
 # <a name="architecture-of-iot-central-digital-distribution-center-application-template"></a>Arquitetura do modelo de aplicação do centro de distribuição digital IoT Central
 
@@ -26,7 +26,7 @@ Os parceiros e clientes podem usar o modelo de aplicação & seguindo orientaç�
 1. Conjunto de sensores IoT que enviam dados de telemetria para um dispositivo de gateway
 2. Dispositivos gateway enviando telemetria e insights agregados para a IoT Central
 3. Os dados são encaminhados para o serviço Azure desejado para manipulação
-4. Serviços Azure como ASA ou Azure Functions podem ser usados para reformar fluxos de dados e enviar para as contas de armazenamento desejadas 
+4. Serviços Azure como ASA ou Azure Functions podem ser usados para reformar fluxos de dados e enviar para as contas de armazenamento desejadas
 5. Os dados processados são armazenados em armazenamento quente para ações próximas em tempo real ou armazenamento a frio para melhorias adicionais de insights que se baseiam em ML ou análise de lote. 
 6. As Aplicações Lógicas podem ser usadas para potenciar vários fluxos de trabalho de negócios em aplicações de negócios de utilizadores finais
 

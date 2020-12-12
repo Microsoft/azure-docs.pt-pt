@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: b321985bf7920934193723b60abb7bfb28482e6d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 2daf445c6721b4b6c3b2a57e7ef65f52eabd8a4c
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862246"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347137"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>Tutorial: Construa uma app PHP e MySQL no Azure App Service
 
@@ -162,7 +162,7 @@ Neste passo, vai criar uma base de dados MySQL na [Base de Dados do Azure para M
 
 Na Cloud Shell, crie um servidor na Base de Dados Azure para o MySQL com o [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest&preserve-view=true#az-mysql-server-create) comando.
 
-No seguinte comando, substitua um nome de servidor exclusivo para o espaço reservado, um nome de *\<mysql-server-name>* utilizador para o , e uma *\<admin-user>* palavra-passe para o *\<admin-password>*  espaço reservado. O nome do servidor é utilizado como parte do ponto final do MySQL (`https://<mysql-server-name>.mysql.database.azure.com`), por isso, o nome tem de ser exclusivo em todos os servidores no Azure. Para obter mais informações sobre a seleção do MySQL DB SKU, consulte [Criar uma Base de Dados Azure para o servidor MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md#create-an-azure-database-for-mysql-server).
+No seguinte comando, substitua um nome de servidor exclusivo para o espaço reservado, um nome de *\<mysql-server-name>* utilizador para o , e uma *\<admin-user>* palavra-passe para o *\<admin-password>*  espaço reservado. O nome do servidor é utilizado como parte do ponto final do MySQL (`https://<mysql-server-name>.mysql.database.azure.com`), por isso, o nome tem de ser exclusivo em todos os servidores no Azure. Para obter mais informações sobre a seleção do MySQL DB SKU, consulte [criar uma base de dados Azure para o servidor MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md#create-an-azure-database-for-mysql-server).
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql-server-name> --location "West Europe" --admin-user <admin-user> --admin-password <admin-password> --sku-name B_Gen5_1
@@ -451,7 +451,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'main'.
+remote: Updating branch 'master'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -482,7 +482,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'main'.
+remote: Updating branch 'master'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -634,7 +634,7 @@ Consolide todas as alterações no Git e envie as alterações ao código para o
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure main
+git push azure master
 ```
 
 Uma vez `git push` concluída, navegue para a app Azure e teste a nova funcionalidade.
@@ -657,7 +657,7 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 Uma vez iniciado o streaming de registos, refresque a app Azure no navegador para obter algum tráfego web. Verá então os registos da consola direcionados para o terminal. Se não vir os registos da consola imediatamente, volte a consultar dentro de 30 segundos.
 
-Para parar a transmissão de registos em fluxo em qualquer altura, escreva `Ctrl`+`C`.
+Para parar a transmissão de registos em qualquer altura, escreva `Ctrl`+`C`.
 
 ::: zone-end
 

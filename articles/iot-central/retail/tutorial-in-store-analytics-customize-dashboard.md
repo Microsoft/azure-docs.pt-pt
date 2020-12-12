@@ -11,17 +11,17 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 47edaec54a2470e9b657b2f214be923439e1e8a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5165f7d6e16e0d136dbf8d4507090c78372185cb
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81000120"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97348055"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Tutorial: Personalize o painel de instrumentos do operador e gere os dispositivos no Azure IoT Central
 
 
-Neste tutorial, como construtor aprenda a personalizar o painel de instrumentos do operador na sua aplicação de análise Azure IoT Central na loja. Os operadores de aplicações podem utilizar o painel de instrumentos personalizado para executar a aplicação e gerir os dispositivos anexados.
+Neste tutorial, como construtor, aprende-se a personalizar o painel de instrumentos do operador na sua aplicação de análise Azure IoT Central na loja. Os operadores de aplicações podem utilizar o painel de instrumentos personalizado para executar a aplicação e gerir os dispositivos anexados.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -80,13 +80,13 @@ Para personalizar o azulejo de imagem que exibe uma imagem de marca no painel de
 
     ![Azure IoT Central salvar imagem da marca](./media/tutorial-in-store-analytics-customize-dashboard/brand-image-save.png)
 
-1. Opcionalmente, selecione **Configurar** na documentação intitulada **azulejos**e especifique um URL para o conteúdo de suporte. 
+1. Opcionalmente, selecione **Configurar** na documentação intitulada **azulejos** e especifique um URL para o conteúdo de suporte. 
 
 Para personalizar o azulejo de imagem que exibe um mapa das zonas sensoriais da loja:
 
 1. **Selecione Configurar** no azulejo de imagem que exibe o mapa da zona de loja padrão. 
 
-1. Selecione **Imagem**e use o diálogo para carregar uma imagem personalizada de um mapa da zona da loja. 
+1. Selecione **Imagem** e use o diálogo para carregar uma imagem personalizada de um mapa da zona da loja. 
 
 1. Selecione **a configuração de Atualização**.
 
@@ -107,13 +107,13 @@ Para remover azulejos que não pretende utilizar na sua aplicação:
 
 1. Selecione **Editar** na barra de ferramentas do painel de instrumentos. 
 
-1. Selecione **X Delete** para remover os seguintes azulejos: De volta a todas as zonas , Visite o painel de **instrumentos,** **o tempo de espera**e os três azulejos associados ao **Visit store dashboard** **Checkout 3**. O painel de instrumentos da loja Contoso não usa estes azulejos. 
+1. Selecione **X Delete** para remover os seguintes azulejos: De volta a todas as zonas , Visite o painel de **instrumentos,** **o tempo de espera** e os três azulejos associados ao  **Checkout 3**. O painel de instrumentos da loja Contoso não usa estes azulejos. 
 
     ![Azure IoT Central elimina telhas](./media/tutorial-in-store-analytics-customize-dashboard/delete-tiles.png)
 
 1. Percorra para ver os restantes azulejos do painel de instrumentos.
 
-1. Selecione **X Delete** para remover os seguintes azulejos: **Zona de check-out de aquecimento,** **zona de check-out de arrefecimento,** **definições de sensores de ocupação,** **definições do sensor do termóstato**e **condições ambientais**. 
+1. Selecione **X Delete** para remover os seguintes azulejos: **Zona de check-out de aquecimento,** **zona de check-out de arrefecimento,** **definições de sensores de ocupação,** **definições do sensor do termóstato** e **condições ambientais**. 
 
    ![Azure IoT Central apagar os azulejos restantes](./media/tutorial-in-store-analytics-customize-dashboard/delete-tiles-2.png)
 
@@ -211,7 +211,7 @@ Para adicionar um azulejo de propriedade para cada RuuviTag:
 
 1. Selecione **Combine**. 
 
-1. **Selecione Configurar** na versão de **software**recém-criada. 
+1. **Selecione Configurar** na versão de **software** recém-criada. 
 
 1. Alterar o **título** para a *versão de software Ruuvi 1*.
 

@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Azure Policy utiliza o agente de Configuração de Convidados para auditar as definições dentro de máquinas virtuais.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2fd1f17d38b0a58fbf64670849a8d5e13bb00cf8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 7d7aa14038c834747240d17441c61d000ac6bb74
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032716"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347885"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a Configuração de Convidado do Azure Policy
 
@@ -84,7 +84,7 @@ Máquinas virtuais que utilizam redes virtuais para comunicação exigirão aces
 
 ### <a name="communicate-over-private-link-in-azure"></a>Comunicar sobre ligação privada em Azure
 
-As máquinas virtuais podem utilizar [link privado](../../../private-link/private-link-overview.md) para comunicação ao serviço de Configuração do Hóspede. Aplique a etiqueta com o nome `EnablePrivateNetworkGC` e o valor para `TRUE` ativar esta função. A etiqueta pode ser aplicada antes ou depois de serem aplicadas definições de política de Configuração de Convidados na máquina.
+As máquinas virtuais podem utilizar [link privado](../../../private-link/private-link-overview.md) para comunicação ao serviço de Configuração do Hóspede. Aplique a etiqueta com o nome `EnablePrivateNeworkGC` (sem "t" na Rede) e valor `TRUE` para ativar esta funcionalidade. A etiqueta pode ser aplicada antes ou depois de serem aplicadas definições de política de Configuração de Convidados na máquina.
 
 O tráfego é encaminhado usando o [endereço IP público virtual](../../../virtual-network/what-is-ip-address-168-63-129-16.md) Azure para estabelecer um canal seguro e autenticado com recursos da plataforma Azure.
 

@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: a15ccd6d67b4819ba5dd6233a2a001015037c404
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: fc8928c9f64e323aafb29c9b1e717cc5c2ab6691
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165677"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346712"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Tutorial: Criar uma aplicação de análise na loja no Azure IoT Central
 
@@ -34,7 +34,7 @@ Desenvolve a solução de check-out e monitorização de condições em três pa
 * Personalize o painel de instrumentos para permitir aos operadores monitorizarem e gerirem dispositivos
 * Configure a exportação de dados para permitir aos gestores de lojas executar analítica e visualizar insights
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Use o Azure IoT Central **In-store analytics - modelo de check-out** para criar uma aplicação de loja de retalho
 > * Personalize as definições de aplicação
@@ -68,10 +68,10 @@ Para criar uma nova aplicação de check-out de análise na loja:
 
 1. Selecione o **modelo de aplicação de check-out in-store.** Este modelo inclui modelos de dispositivo para todos os dispositivos utilizados no tutorial, exceto para os sensores RuuviTag. O modelo também fornece um painel de instrumentos do operador para monitorizar as condições de checkout e ambiente e o estado do dispositivo. 
 
-1. Opcionalmente, escolha um nome de **aplicação**amigável. Esta aplicação baseia-se numa loja fictícia chamada Contoso. O tutorial usa o **nome de Aplicação** *Contoso checkout*. O modelo de aplicação baseia-se na empresa fictícia Northwind. Neste tutorial, você usa Contoso para aprender a personalizar a aplicação.
+1. Opcionalmente, escolha um nome de **aplicação** amigável. Esta aplicação baseia-se numa loja fictícia chamada Contoso. O tutorial usa o **nome de Aplicação** *Contoso checkout*. O modelo de aplicação baseia-se na empresa fictícia Northwind. Neste tutorial, você usa Contoso para aprender a personalizar a aplicação.
 
     > [!NOTE]
-    > Se utilizar um nome de **aplicação**amigável, ainda terá de utilizar um valor único para o **URL**da aplicação.
+    > Se utilizar um nome de **aplicação** amigável, ainda terá de utilizar um valor único para o **URL** da aplicação.
 
 1. Se tiver uma subscrição Azure, insira o seu *Diretório, subscrição Azure e Região*. Se não tiver uma subscrição, pode ativar um **teste gratuito de 7 dias** e completar as informações de contacto necessárias.  
 
@@ -236,7 +236,7 @@ Complete os passos nos dois artigos seguintes para ligar um verdadeiro gateway r
 ## <a name="add-rules-and-actions"></a>Adicionar regras e ações
 Como parte da utilização de sensores na sua aplicação Azure IoT Central para monitorizar as condições, pode criar regras para executar ações quando determinadas condições são satisfeitas. Uma regra está associada a um modelo de dispositivo e a um ou mais dispositivos, e contém condições que devem ser satisfeitas com base em telemetria ou eventos do dispositivo. Uma regra também tem uma ou mais ações associadas. As ações podem incluir o envio de notificações por e-mail ou desencadear uma ação webhook para enviar dados para outros serviços. O **modelo de aplicação de check-out in-store** inclui algumas regras predefinidas para os dispositivos da aplicação.
 
-Nesta secção, cria-se uma nova regra que verifica o nível máximo de humidade relativa com base na telemetria do sensor RuuviTag. Adicione uma ação à regra para que, se a humidade exceder o máximo, a aplicação envie e-mail. 
+Nesta secção, cria-se uma nova regra que verifica o nível máximo de humidade relativa com base na telemetria do sensor RuuviTag. Adicione uma ação à regra para que, se a humidade exceder o máximo, a aplicação envie um e-mail. 
 
 Para criar uma regra: 
 

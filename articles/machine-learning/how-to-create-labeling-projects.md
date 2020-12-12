@@ -8,12 +8,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 74e9224b30ccee274eaf52ba47a0ec05573c2e9d
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.custom: data4ml
+ms.openlocfilehash: 5abb222a6211e2f3f92c002a49987ac54edc78e2
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558730"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346661"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
 
@@ -103,7 +104,7 @@ Para fazer o upload direto dos seus dados:
 
 Os dados são enviados para a loja blob padrão ("workspaceblobstore") do seu espaço de trabalho Machine Learning.
 
-## <a name="configure-incremental-refresh"></a><a name="incremental-refresh"> </a> Configurar atualização incremental
+## <a name="configure-incremental-refresh"></a><a name="incremental-refresh"></a> Configurar atualização incremental
 
 Se pretende adicionar novas imagens ao seu conjunto de dados, utilize a atualização incremental para adicionar estas novas imagens ao seu projeto.   Quando **a atualização incremental** é ativada, o conjunto de dados é verificado periodicamente para que novas imagens sejam adicionadas a um projeto, com base na taxa de conclusão da rotulagem.   A verificação de novos dados para quando o projeto contém o máximo de 500.000 imagens.
 

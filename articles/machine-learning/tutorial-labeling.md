@@ -10,12 +10,13 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 36c5f0103908ea150cbe6eb373e25f7d741127f5
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.custom: data4ml
+ms.openlocfilehash: 5aec3d6bb2afeadda64ac19563f8334a6aef3b77
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913267"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347511"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Criar um projeto de rotulagem para classificação de imagem multi-classes 
 
@@ -58,9 +59,9 @@ Em seguida, você vai gerir o projeto de rotulagem de dados no atelier Azure Mac
 
 As lojas de dados Azure Machine Learning são usadas para armazenar informações de conexão, como o seu ID de subscrição e a autorização simbólica. Aqui utiliza uma loja de dados para ligar à conta de armazenamento que contém as imagens para este tutorial.
 
-1. No lado esquerdo do seu espaço de trabalho, selecione **Datastores** .
+1. No lado esquerdo do seu espaço de trabalho, selecione **Datastores**.
 
-1. Selecione **+ Nova loja de dados** .
+1. Selecione **+ Nova loja de dados**.
 
 1. Preencha o formulário com estas definições:
 
@@ -68,9 +69,9 @@ As lojas de dados Azure Machine Learning são usadas para armazenar informaçõe
     ---|---
     Nome da datastore | Dê um nome à loja de dados.  Aqui **usamos labeling_tutorial.**
     Tipo de datastore | Selecione o tipo de armazenamento.  Aqui utilizamos **o Azure Blob Storage,** o armazenamento preferido para imagens.
-    Método de seleção de conta | Selecione **Introduza manualmente** .
+    Método de seleção de conta | Selecione **Introduza manualmente**.
     URL | `https://azureopendatastorage.blob.core.windows.net/openimagescontainer`
-    Tipo de autenticação | Selecione **o token SAS** .
+    Tipo de autenticação | Selecione **o token SAS**.
     Chave da conta | `?sv=2019-02-02&ss=bfqt&srt=sco&sp=rl&se=2025-03-25T04:51:17Z&st=2020-03-24T20:51:17Z&spr=https&sig=7D7SdkQidGT6pURQ9R4SUzWGxZ%2BHlNPCstoSRRVg8OY%3D`
 
 1. Selecione **Criar** para criar a datastore.
@@ -92,21 +93,21 @@ Agora que tem acesso aos dados que pretende ter rotulado, crie o seu projeto de 
     Campo|Descrição 
     ---|---
     Nome do projeto | Dê um nome ao seu projeto.  Aqui usaremos **tutorial-gatos-n-dogs.**
-    Tipo de tarefa de rotulagem | Selecione **Classificação de Imagem Multi-classe** .  
+    Tipo de tarefa de rotulagem | Selecione **Classificação de Imagem Multi-classe**.  
     
     Selecione **Next** para continuar a criar o projeto.
 
 ### <a name="select-or-create-a-dataset"></a>Selecione ou crie um conjunto de dados
 
-1.   No formulário Selecionar ou criar um formulário **conjunto de dados,** selecionar a segunda escolha, **criar um conjunto de dados** e, em seguida, selecionar o link **A partir da datastore** .
+1.   No formulário Selecionar ou criar um formulário **conjunto de dados,** selecionar a segunda escolha, **criar um conjunto de dados** e, em seguida, selecionar o link **A partir da datastore**.
 
 1. Utilize a seguinte entrada para o conjunto de dados Criar a partir do formulário **datastore:**
 
-    1. No formulário **de informação básica,** adicione um nome, aqui usaremos **imagens-para-tutorial.**  Adicione uma descrição, se desejar.  Em seguida, selecione **Seguinte** .
+    1. No formulário **de informação básica,** adicione um nome, aqui usaremos **imagens-para-tutorial.**  Adicione uma descrição, se desejar.  Em seguida, selecione **Seguinte**.
     1. No formulário **de seleção datastore,** utilize o dropdown para selecionar a sua **datastore anteriormente criada,** por exemplo **tutorial_images (Azure Blob Storage)**
-    1. Em seguida, ainda no formulário **de seleção datastore,** selecione **Browse** e, em seguida, selecione **MultiClass - DogsCats** .  **Selecione Guardar** para usar **/MultiClass - DogsCats** como o caminho.
+    1. Em seguida, ainda no formulário **de seleção datastore,** selecione **Browse** e, em seguida, selecione **MultiClass - DogsCats**.  **Selecione Guardar** para usar **/MultiClass - DogsCats** como o caminho.
     1. Selecione **Next** para confirmar detalhes e, em seguida, **criar** para criar o conjunto de dados.
-    1. Selecione o círculo ao lado do nome do conjunto de dados na lista, por exemplo **imagens-para-tutorial** .
+    1. Selecione o círculo ao lado do nome do conjunto de dados na lista, por exemplo **imagens-para-tutorial**.
 
 1. Selecione **Next** para continuar a criar o projeto.
 
@@ -128,13 +129,13 @@ Selecione **Seguinte** para continuar.
 
 1. Também pode adicionar uma breve descrição da tarefa diretamente no formulário.  Tipo **Tutorial de Rotulagem - Gatos & Cães.**
 
-1. Selecione **Seguinte** .
+1. Selecione **Seguinte**.
 
 1. Na secção **de rotulagem assistida ML,** deixe a caixa de verificação desmarcada. A rotulagem assistida mL requer mais dados do que você vai usar neste tutorial.
 
 1. Selecione **Create project** (Criar projeto).
 
-Esta página não se atualiza automaticamente. Após uma pausa, refresque manualmente a página até que o estado do projeto mude para **Criado** .
+Esta página não se atualiza automaticamente. Após uma pausa, refresque manualmente a página até que o estado do projeto mude para **Criado**.
 
 ## <a name="start-labeling"></a>Comece a rotular
 
@@ -142,17 +143,17 @@ Criou agora os seus recursos Azure e configura um projeto de rotulagem de dados.
 
 ### <a name="tag-the-images"></a>Marque as imagens
 
-Nesta parte do tutorial, você mudará as funções do administrador do *projeto* para o de um *labeler* .  Qualquer pessoa que tenha acesso ao seu espaço de trabalho pode tornar-se uma etiqueta.
+Nesta parte do tutorial, você mudará as funções do administrador do *projeto* para o de um *labeler*.  Qualquer pessoa que tenha acesso ao seu espaço de trabalho pode tornar-se uma etiqueta.
 
 1. No [estúdio Machine Learning,](https://ml.azure.com)selecione **Data labeling** no lado esquerdo para encontrar o seu projeto.  
 
 1. Selecione **a ligação de etiqueta** para o projeto.
 
-1. Leia as instruções e, em seguida, selecione **Tarefas** .
+1. Leia as instruções e, em seguida, selecione **Tarefas**.
 
 1. Selecione uma imagem de miniatura no direito de exibir o número de imagens que deseja rotular de uma só vez. Tem de rotular todas estas imagens antes de poder seguir em frente. Só mude os layouts quando tiver uma nova página de dados não rotulados. A troca de layouts limpa o trabalho de marcação em curso da página.
 
-1. Selecione uma ou mais imagens e, em seguida, selecione uma etiqueta para aplicar à seleção. A etiqueta aparece abaixo da imagem.  Continue a selecionar e marcar todas as imagens na página.  Para selecionar simultaneamente todas as imagens apresentadas, **selecione Selecione todas** . Selecione pelo menos uma imagem para aplicar uma etiqueta.
+1. Selecione uma ou mais imagens e, em seguida, selecione uma etiqueta para aplicar à seleção. A etiqueta aparece abaixo da imagem.  Continue a selecionar e marcar todas as imagens na página.  Para selecionar simultaneamente todas as imagens apresentadas, **selecione Selecione todas**. Selecione pelo menos uma imagem para aplicar uma etiqueta.
 
 
     > [!TIP]
@@ -194,13 +195,13 @@ As etiquetas de imagem podem ser exportadas em [formato COCO](http://cocodataset
 
 1. Selecione o link de nome do projeto.
 
-1. Selecione **Export** e escolha **Export como Azure ML Dataset** . 
+1. Selecione **Export** e escolha **Export como Azure ML Dataset**. 
 
     O estado da exportação aparece logo abaixo do botão **Exportação.** 
 
 1. Uma vez exportadas com sucesso as etiquetas, selecione **Conjuntos de dados** do lado esquerdo para ver os resultados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]

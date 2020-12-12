@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: d19310dbd54c8bd5f9854ff86af051b68c5cd378
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 59b688803260220866fc331506429a5990c8760a
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463289"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346202"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação de centro de distribuição digital
 
@@ -35,10 +35,9 @@ Pode criar uma aplicação utilizando os seguintes passos
 1. Navegue para o site do gestor de aplicações Azure IoT Central. **Selecione Construir** a partir da barra de navegação à esquerda e, em seguida, clique no **separador 'Varejo'.**
 
     :::image type="content" source="media/tutorial-iot-central-ddc/iotc-retail-homepage.png" alt-text="Modelo de aplicação de centro de distribuição digital":::
+1. Selecione o separador **de varejo** e selecione **Criar app** sob **aplicação digital do centro de distribuição**
 
-2. Selecione o separador **de varejo** e selecione **Criar app** sob **aplicação digital do centro de distribuição**
-
-3. **Criar aplicação** abrirá novo formulário de aplicação e preencherá os detalhes solicitados como mostra abaixo.
+1. **Criar aplicação** abrirá novo formulário de aplicação e preencherá os detalhes solicitados como mostra abaixo.
    **Nome da aplicação**: pode utilizar o nome sugerido por defeito ou introduzir o nome da sua aplicação amigável.
    **URL**: pode utilizar URL padrão sugerido ou inserir o seu AMIGÁVEL URL memorável único. Em seguida, recomenda-se a definição predefinida se já tiver uma Subscrição Azure. Você pode começar com um plano de preços de teste gratuito de 7 dias e optar por converter-se a um plano de preços padrão a qualquer momento antes que o trilho gratuito expire.
    **Informações de Faturação**: Os dados do Diretório, da Subscrição Azure e da Região são necessários para a disponibilização dos recursos.
@@ -105,7 +104,7 @@ Selecione o separador de empregos para ver cinco empregos diferentes que existem
 > ![Screenshot mostrando a lista de empregos na aplicação do centro de distribuição digital](./media/tutorial-iot-central-ddc/ddc-jobs.png)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
-Se não continuar a utilizar esta aplicação, elimine o **Administration** modelo de aplicação visitando  >  **as definições de Aplicação da** Administração e clique em **Eliminar**.
+Se não continuar a utilizar esta aplicação, elimine o modelo de aplicação visitando  >  **as definições de Aplicação da** Administração e clique em **Eliminar**.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot mostrando como apagar a aplicação quando terminar com ela](./media/tutorial-iot-central-ddc/ddc-cleanup.png)

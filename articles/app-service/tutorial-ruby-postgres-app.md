@@ -5,12 +5,12 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
-ms.openlocfilehash: b3c172584c42e1ed1d7ca94b6cd51bedd4e49dae
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: f565fcef60b2cb4726b180eb67e6ac1fcaefc24b
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862297"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347851"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Construa uma app Ruby e Postgres no Azure App Service em Linux
 
@@ -291,7 +291,7 @@ git remote add azure <paste-copied-url-here>
 Envie para o Azure remoto para implementar a aplicação Ruby on Rails. É-lhe pedida a palavra-passe que indicou anteriormente como parte da criação do utilizador de implementação.
 
 ```bash
-git push azure main
+git push azure master
 ```
 
 Durante a implementação, o Serviço de Aplicações do Azure comunica o respetivo progresso com o Git.
@@ -302,7 +302,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'main'.
+remote: Updating branch 'master'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -421,7 +421,7 @@ Consolide todas as alterações no Git e envie as alterações ao código para o
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure main
+git push azure master
 ```
 
 Uma vez `git push` concluída, navegue para a app Azure e teste a nova funcionalidade.

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 5ed3e858168ce5ad9a7f089b723bb75ca8a49fca
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 26fd8bc73fad3ea313641fc4b1e0f454ee2c0813
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007522"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347783"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implantação local de Git para o Serviço de Aplicações Azure
 
@@ -80,7 +80,7 @@ Utilize o URL que retorna para implementar a sua aplicação no passo seguinte.
    git remote add azure <url>
    ```
    
-1. Empurre para o comando Azure com `git push azure main` . 
+1. Empurre para o comando Azure com `git push azure master` . 
    
 1. Na janela **Git Credential Manager,** introduza a [palavra-passe do utilizador de implementação,](#configure-a-deployment-user)não a sua palavra-passe de entrada de Azure.
    
@@ -131,7 +131,7 @@ Para ativar a implementação local do Git para a sua aplicação com Azure Pipe
    git remote add azure <url>
    ```
    
-1. Empurre para o comando Azure com `git push azure main` . 
+1. Empurre para o comando Azure com `git push azure master` . 
    
 1. Na página **Git Credential Manager,** inscreva-se com o seu nome de utilizador visualstudio.com. Para outros métodos de autenticação, consulte [a visão geral da autenticação dos Serviços Azure DevOps](/vsts/git/auth-overview?view=vsts).
    
@@ -149,8 +149,8 @@ Pode ver as seguintes mensagens de erro comuns quando utiliza o Git para publica
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|A aplicação não está a funcionar.|Inicie a aplicação no portal Azure. A implementação do Git não está disponível quando a aplicação web é interrompida.|
 |`Couldn't resolve host 'hostname'`|As informações de endereço do telecomando "azul" estão incorretas.|Utilize o `git remote -v` comando para listar todos os telecomandos, juntamente com o URL associado. Verifique se o URL do telecomando 'azul' está correto. Se necessário, remova e recrie este telecomando utilizando o URL correto.|
-|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|Não especificou um ramo `git push` durante, ou não definiu o `push.default` valor em `.gitconfig` .|Corra `git push` novamente, especificando o ramo principal: `git push azure main` .|
-|`src refspec [branchname] does not match any.`|Tentou empurrar para um ramo diferente do principal no controlo remoto do "azul".|Corra `git push` novamente, especificando o ramo principal: `git push azure main` .|
+|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|Não especificou um ramo `git push` durante, ou não definiu o `push.default` valor em `.gitconfig` .|Corra `git push` novamente, especificando o ramo principal: `git push azure master` .|
+|`src refspec [branchname] does not match any.`|Tentou empurrar para um ramo diferente do principal no controlo remoto do "azul".|Corra `git push` novamente, especificando o ramo principal: `git push azure master` .|
 |`RPC failed; result=22, HTTP code = 5xx.`|Este erro pode ocorrer se tentar empurrar um repositório de git grande sobre HTTPS.|Mude a configuração do git na máquina local para fazer o `postBuffer` maior. Por exemplo: `git config --global http.postBuffer 524288000`.|
 |`Error - Changes committed to remote repository but your web app not updated.`|Implementou uma aplicação Node.js com uma _package.jsno_ ficheiro que especifica módulos adicionais necessários.|Reveja as `npm ERR!` mensagens de erro antes deste erro para mais contexto na falha. São as causas conhecidas deste erro e as `npm ERR!` respetivas mensagens:<br /><br />**package.jsmal formados no ficheiro:**`npm ERR! Couldn't read dependencies.`<br /><br />**O módulo nativo não tem uma distribuição binária para o Windows:**<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />ou <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 

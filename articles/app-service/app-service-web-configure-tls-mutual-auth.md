@@ -3,14 +3,14 @@ title: Configurar a autenticação mútua de TLS
 description: Saiba como autenticar certificados de cliente em TLS. O Azure App Service pode disponibilizar o certificado do cliente ao código da aplicação para verificação.
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 12/11/2020
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 145b999d7bf8597c06d6e3d4a36d01b182c8ae68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ceeb3d31652c04eb9a69c1c8bb4b114e6f38d52
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213644"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347741"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurar a autenticação mútua TLS para o Serviço de Aplicações Azure
 
@@ -24,20 +24,33 @@ Pode restringir o acesso à sua aplicação Azure App Service, permitindo difere
 
 ## <a name="enable-client-certificates"></a>Ativar certificados de cliente
 
-Para configurar a sua aplicação para exigir certificados de cliente, pode **ligar** o certificado de entrada 'Exigir', selecionando Configurações Gerais de **Configuração**a partir do Portal  >  **General Settings** Azure ou precisa de definir a `clientCertEnabled` definição para a sua aplicação para `true` . Para definir a definição, executar o seguinte comando na [Cloud Shell](https://shell.azure.com).
+Para configurar a sua app para exigir certificados de cliente:
+
+1. A partir da navegação à esquerda da página de gestão da sua aplicação, selecione  >  **Configurações Gerais de** Configuração .
+
+1. Definir **o modo de certificado** do cliente para **exigir**. Clique em **Guardar** no início da página.
+
+Para fazer o mesmo com a Azure CLI, executar o seguinte comando na [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
+az webapp update --set clientCertEnabled=true --name <app-name> --resource-group <group-name>
 ```
 
 ## <a name="exclude-paths-from-requiring-authentication"></a>Excluir caminhos de exigir autenticação
 
-Quando ativar a auth mútua para a sua aplicação, todos os caminhos sob a raiz da sua app exigirão um certificado de cliente para acesso. Para permitir que certos caminhos permaneçam abertos para acesso anónimo, pode definir caminhos de exclusão como parte da configuração da sua aplicação.
+Quando ativar a auth mútua para a sua aplicação, todos os caminhos sob a raiz da sua app requerem um certificado de cliente para acesso. Para remover este requisito para determinados caminhos, defina caminhos de exclusão como parte da configuração da sua aplicação.
 
-Os caminhos de exclusão podem ser configurados selecionando Configurações Gerais **de Configuração**  >  **General Settings** e definindo um caminho de exclusão. Neste exemplo, qualquer coisa em `/public` curso para o seu pedido não solicitaria um certificado de cliente.
+1. A partir da navegação à esquerda da página de gestão da sua aplicação, selecione  >  **Configurações Gerais de** Configuração .
+
+1. Ao lado dos **caminhos de exclusão do Cliente,** clique no ícone de edição.
+
+1. Clique em **Novo caminho,** especifique um caminho e clique **em OK**.
+
+1. Clique em **Guardar** no início da página.
+
+Na imagem seguinte, qualquer coisa no caminho para a `/public` sua app não solicita um certificado de cliente.
 
 ![Percursos de Exclusão de Certificados][exclusion-paths]
-
 
 ## <a name="access-client-certificate"></a>Certificado de cliente de acesso
 

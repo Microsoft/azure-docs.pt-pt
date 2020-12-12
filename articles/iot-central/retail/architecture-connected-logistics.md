@@ -8,12 +8,12 @@ ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
 ms.custom: mqtt
-ms.openlocfilehash: 8925b98269b67bfb8a96cb057982ee4e396f17ed
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 41232ba3899d098c019674e4ca4a0a8f2f7d465f
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81686233"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97345964"
 ---
 # <a name="architecture-of-iot-central-connected-logistics-application-template"></a>Arquitetura do modelo de aplicação logística conectada ioT Central
 
@@ -27,7 +27,7 @@ Parceiros & cliente pode usar o modelo de aplicação & seguindo orientações p
 1. Conjunto de tags IoT enviando dados de telemetria para um dispositivo de gateway
 2. Dispositivos gateway enviando telemetria e insights agregados para a IoT Central
 3. Os dados são encaminhados para o serviço Azure desejado para manipulação
-4. Serviços Azure como ASA ou Azure Functions podem ser usados para reformar fluxos de dados e enviar para as contas de armazenamento desejadas 
+4. Serviços Azure como ASA ou Azure Functions podem ser usados para reformar fluxos de dados e enviar para as contas de armazenamento desejadas
 5. Vários fluxos de trabalho de negócios podem ser alimentados por aplicações empresariais de utilizadores finais
 
 ## <a name="details"></a>Detalhes
@@ -37,7 +37,7 @@ Seguindo a secção descreve cada parte da arquitetura conceptual A ingestão de
 As tags IoT fornecem capacidades físicas, ambientais e ambientais, tais como Temperatura, Humidade, Choque, Inclinação &Luz. As tags IoT normalmente ligam-se ao dispositivo de gateway através de Zigbee (802.15.4). As etiquetas são sensores menos dispendiosos; assim, podem ser descartados no final de uma típica viagem logística para evitar desafios com logística inversa.
 
 ## <a name="gateway"></a>Gateway
-Gateways também podem atuar como tags IoT com as suas capacidades de deteção ambiente. O gateway permite a conectividade em nuvem Azure IoT (MQTT) a montante utilizando canais Wi-Fi celulares.  Os modos Bluetooth, NFC e 802.15.4 Wireless Sensor Network (WSN) são utilizados para comunicação a jusante com tags IoT. Gateways fornecem fim para acabar com a conectividade segura da nuvem, o emparelhamento de tags IoT, a agregação de dados do sensor, a retenção de dados e a capacidade de configurar limiares de alarme.
+Gateways também podem atuar como tags IoT com as suas capacidades de deteção ambiente. O gateway permite a conectividade em nuvem Azure IoT (MQTT) a montante utilizando canais celulares Wi-Fi.  Os modos Bluetooth, NFC e 802.15.4 Wireless Sensor Network (WSN) são utilizados para comunicação a jusante com tags IoT. Gateways fornecem fim para acabar com a conectividade segura da nuvem, o emparelhamento de tags IoT, a agregação de dados do sensor, a retenção de dados e a capacidade de configurar limiares de alarme.
 
 ## <a name="device-management-with-iot-central"></a>Gestão de dispositivos com IoT Central 
 A Azure IoT Central é uma plataforma de desenvolvimento de soluções que simplifica a conectividade, configuração e gestão do dispositivo IoT. A plataforma reduz significativamente os encargos e custos da gestão, operações e desenvolvimentos relacionados com o ioT. Os clientes & parceiros podem construir o fim das soluções empresariais finais para alcançar um ciclo de feedback digital em logística.

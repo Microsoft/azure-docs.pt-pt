@@ -4,12 +4,12 @@ description: Este artigo descreve a visão em tempo real de registos, eventos e 
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: a97d7ed5fe513798f4265498f4efa60098ea15c6
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 3bfc9aa0f0238d99d9336abe592fa721459f4220
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920740"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346836"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Como ver registos, eventos e métricas de kubernetes em tempo real
 
@@ -35,7 +35,7 @@ Utilize o seguinte procedimento para visualizar os registos vivos para implement
 
 5. Selecione uma cápsula para iniciar a recolha dos dados ao vivo.
 
-    ![Implementação de registos ao vivo](./media/container-insights-livedata-overview/live-data-deployment.png)
+    [![Implementação de registos ao vivo](./media/container-insights-livedata-overview/live-data-deployment.png)](./media/container-insights-livedata-overview/live-data-deployment.png#lightbox)
 
 ## <a name="view-logs"></a>Ver registos
 
@@ -112,11 +112,17 @@ A funcionalidade Dados Ao Vivo (pré-visualização) inclui a funcionalidade de 
 
 ![Exemplo do filtro do painel de consola de dados ao vivo](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
 
+![Exemplo do filtro do painel de consolas Live Data para implantação](./media/container-insights-livedata-overview/live-data-deployment-search.png)
+
 ### <a name="scroll-lock-and-pause"></a>Bloqueio de deslocação e pausa
 
 Para suspender o autoscroll e controlar o comportamento do painel, permitindo-lhe deslocar manualmente através da nova leitura de dados, pode utilizar a opção **Scroll.** Para voltar a ativar o autoscroll, basta selecionar novamente a opção **'Scroll'.** Também pode interromper a recuperação de dados de registo ou evento selecionando a opção **Pausa** e quando estiver pronto para retomar, basta selecionar **Reproduzir**.
 
 ![Painel de consola de dados ao vivo pausa vista ao vivo](./media/container-insights-livedata-overview/livedata-pane-scroll-pause-example.png)
+
+![Painel de consola de dados ao vivo pausa vista ao vivo para implementação](./media/container-insights-livedata-overview/live-data-deployment-pause.png)
+
+
 
 >[!IMPORTANT]
 >Recomendamos apenas suspender ou fazer uma pausa no auto-rolo por um curto período de tempo enquanto se desresíam um problema. Estes pedidos podem afetar a disponibilidade e estrangulamento da API de Kubernetes no seu cluster.

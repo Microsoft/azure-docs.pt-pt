@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: dd73ac372a21a32eac0c742a7f0f525db2d1a4fe
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 8b3c1992a1cff18390f9d1332103e0650af418e2
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92169065"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347732"
 ---
 ## <a name="prepare-your-web-app"></a>Preparar a sua aplicação Web
 
-Para criar encadernações de segurança personalizadas ou ativar certificados de cliente para a sua aplicação de Serviço de [Aplicações,](https://azure.microsoft.com/pricing/details/app-service/) o seu plano de Serviço de Aplicações deve estar no nível **Básico,** **Standard,** **Premium**ou **Isolado.** Neste passo, vai confirmar que a aplicação Web está no escalão de preço suportado.
+Para criar encadernações personalizadas de TLS/SSL ou ativar certificados de cliente para a sua aplicação De Serviço de [Aplicações,](https://azure.microsoft.com/pricing/details/app-service/) o seu plano de Serviço de Aplicações deve estar no nível **Básico,** **Standard,** **Premium** ou **Isolado.** Neste passo, vai confirmar que a aplicação Web está no escalão de preço suportado.
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 

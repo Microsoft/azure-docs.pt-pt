@@ -4,16 +4,16 @@ description: Saiba mais sobre engenharia de software sustentável no Serviço Az
 services: container-service
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: 2457de7bdaa94a6e2269515fafe6689d44960625
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 700723041855fdae4f994480d180292fdfd12e15
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984985"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346899"
 ---
 # <a name="sustainable-software-engineering-principles-in-azure-kubernetes-service-aks"></a>Princípios de engenharia de software sustentáveis no Serviço Azure Kubernetes (AKS)
 
-Os princípios de engenharia de software sustentável são um conjunto de competências para ajudá-lo a definir, construir e executar aplicações sustentáveis. O objetivo geral é reduzir a sua pegada de carbono de todos os aspetos da sua aplicação. O [projeto Principles.Green][principles-green] tem uma visão geral dos princípios da engenharia de software sustentável.
+Os princípios de engenharia de software sustentável são um conjunto de competências para ajudá-lo a definir, construir e executar aplicações sustentáveis. O objetivo geral é reduzir a sua pegada de carbono de todos os aspetos da sua aplicação. [Os Princípios da Engenharia de Software Sustentável][principles-sse] têm uma visão geral dos princípios da engenharia de software sustentável.
 
 Uma ideia importante para entender sobre engenharia de software sustentável é que é uma mudança de prioridades e foco. Em muitos casos, o software é projetado e funcionado de uma forma que se foca no desempenho rápido e baixa latência. A engenharia de software sustentável centra-se na redução do máximo de emissões de carbono possível. Em alguns casos, a aplicação de princípios sustentáveis de engenharia de software pode dar-lhe um desempenho mais rápido ou uma menor latência, como por exemplo, reduzindo o total das viagens de rede. Noutros casos, a redução das emissões de carbono pode causar um desempenho mais lento ou um aumento da latência, como o atraso das cargas de trabalho de baixa prioridade. Antes de considerar aplicar princípios de engenharia de software sustentáveis à sua aplicação, reveja as prioridades, necessidades e trade-offs da sua aplicação.
 
@@ -32,7 +32,7 @@ Depois de rever a utilização do seu cluster, considere utilizar as funcionalid
 
 O aumento da utilização também pode reduzir o excesso de nós, o que reduz a energia consumida pelas [reservas de recursos em cada nó.][resource-reservations]
 
-Reveja também o CPU e *os pedidos* de memória e *limites* nos manifestos de Kubernetes das suas aplicações. À medida que baixa esses valores para a memória e CPU, mais memória e CPU estão disponíveis para o cluster para executar outras cargas de trabalho. À medida que corre mais cargas de trabalho com CPU e memória mais baixas, o seu cluster torna-se mais densamente alocado, o que aumenta a sua utilização. Ao reduzir o CPU e a memória para as suas aplicações, o comportamento das suas aplicações pode tornar-se degradado ou instável se definir estes valores demasiado baixos. Antes de alterar o CPU e *os pedidos* e limites de memória, considere realizar *alguns testes*de benchmarking para entender se estes valores são definidos adequadamente. Além disso, nunca reduza estes valores ao ponto de a sua aplicação ficar instável.
+Reveja também o CPU e *os pedidos* de memória e *limites* nos manifestos de Kubernetes das suas aplicações. À medida que baixa esses valores para a memória e CPU, mais memória e CPU estão disponíveis para o cluster para executar outras cargas de trabalho. À medida que corre mais cargas de trabalho com CPU e memória mais baixas, o seu cluster torna-se mais densamente alocado, o que aumenta a sua utilização. Ao reduzir o CPU e a memória para as suas aplicações, o comportamento das suas aplicações pode tornar-se degradado ou instável se definir estes valores demasiado baixos. Antes de alterar o CPU e *os pedidos* e limites de memória, considere realizar *alguns testes* de benchmarking para entender se estes valores são definidos adequadamente. Além disso, nunca reduza estes valores ao ponto de a sua aplicação ficar instável.
 
 ## <a name="reduce-network-travel"></a>Reduzir as viagens de rede
 
@@ -74,4 +74,4 @@ Saiba mais sobre as características da AKS mencionadas neste artigo:
 [node-sizing]: use-multiple-node-pools.md#specify-a-vm-size-for-a-node-pool
 [sustainability-calculator]: https://azure.microsoft.com/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/
 [system-pools]: use-system-pools.md
-[principles-green]: https://principles.green/
+[principles-sse]: https://docs.microsoft.com/learn/modules/sustainable-software-engineering-overview/

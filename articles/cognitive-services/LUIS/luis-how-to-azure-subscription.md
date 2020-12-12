@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a71c1a0df1a72e3831fa54a041539f62b38a0aca
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 19c27dc80f9af013c458663c9c7afb0033683acd
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95999914"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97348072"
 ---
 # <a name="create-luis-resources"></a>Criar recursos LUIS
 
@@ -51,16 +51,13 @@ Para alterar a propriedade de um recurso, pode tomar uma destas ações:
 * Transfira a [propriedade](../../cost-management-billing/manage/billing-subscription-transfer.md) da sua subscrição.
 * Exporte a app LUIS como um ficheiro e, em seguida, importe a app numa subscrição diferente. A exportação está disponível na página **my apps** no portal LUIS.
 
-
 ## <a name="resource-limits"></a>Limites de recursos
 
 ### <a name="authoring-key-creation-limits"></a>Autoria de limites-chave de criação
 
-Pode criar até 10 chaves de autoria por região, por subscrição.
+Pode criar até 10 chaves de autoria por região, por subscrição. As regiões editoriais são diferentes das regiões de autoria. Certifique-se de criar uma aplicação na região de autoria que corresponda à região editorial onde pretende que a sua aplicação de cliente seja localizada. Para obter informações sobre como as regiões de autoria mapeiam para as regiões editoriais, consulte [as regiões de Autoria e publicação](luis-reference-regions.md). 
 
-Para mais informações, consulte [os limites-chave](luis-limits.md#key-limits) e [as regiões de Azure.](luis-reference-regions.md)
-
-As regiões editoriais são diferentes das regiões de autoria. Certifique-se de criar uma aplicação na região de autoria que corresponda à região editorial onde pretende que a sua aplicação de cliente seja localizada.
+Para obter mais informações sobre os limites-chave, consulte [os limites-chave](luis-limits.md#key-limits).
 
 ### <a name="errors-for-key-usage-limits"></a>Erros para os limites de utilização chave
 

@@ -9,16 +9,16 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: a8a662bf94e958d9e96a454ced9c44058b178a8c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e5d360933cbeb611046aede6164ec2e2fa497664
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366847"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347800"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Emparelhamento de frases e alinhamento em documentos paralelos
 
-Durante o treino, as frases presentes em documentos paralelos são emparelhadas ou alinhadas. O Tradutor Personalizado relata o número de frases que foi capaz de emparelhar como as Frases Alinhadas em cada um dos conjuntos de dados.
+Após o upload dos documentos, as frases presentes em documentos paralelos são emparelhadas ou alinhadas. O Tradutor Personalizado relata o número de frases que foi capaz de emparelhar como as Frases Alinhadas em cada um dos conjuntos de dados.
 
 ## <a name="pairing-and-alignment-process"></a>Processo de emparelhamento e alinhamento
 
@@ -37,7 +37,7 @@ Para que uma formação tenha sucesso, a tabela abaixo mostra o número mínimo 
 | Tipo de documento   | Contagem mínima sugerida | Contagem máxima da sentença |
 |------------|--------------------------------------------|--------------------------------|
 | Formação   | 10,000                                     | Sem limite superior                 |
-| Afinação     | 500                                      | 2.500       |
+| Ajuste     | 500                                      | 2.500       |
 | Testar    | 500                                      | 2.500  |
 | Dicionário | 0                                          | Sem limite superior                 |
 

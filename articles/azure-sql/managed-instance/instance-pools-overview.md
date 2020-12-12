@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: ab77c8cf563c315768ad1c16089d8d939c085322
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: bc345509db1c2a14afb0ae781eccad8f77395c18
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782659"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347069"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>O que é uma piscina Azure SQL Managed Instance (pré-visualização)?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -78,7 +78,10 @@ Existem várias limitações de recursos em relação a conjuntos de instâncias
 - Todos os [limites de nível de instância aplicam-se](resource-limits.md#service-tier-characteristics) a instâncias criadas dentro de uma piscina.
 - Para além dos limites de nível de instância, existem também dois limites impostos *ao nível da piscina de exemplo:*
   - Tamanho total de armazenamento por piscina (8 TB).
-  - Número total de bases de dados por piscina (100).
+  - Número total de bases de dados de utilizadores por piscina. Este limite depende do valor da piscina vCores:
+    - 8 vCores pool suporta até 200 bases de dados,
+    - 16 vCores pool suporta até 400 bases de dados,
+    - 24 e maiores vCores pool suporta até 500 bases de dados.
 - O AAD Admin não pode ser definido para as instâncias implantadas dentro do pool de exemplo, pelo que a autenticação AAD não pode ser utilizada.
 
 A repartição total do armazenamento e o número de bases de dados em todas as instâncias devem ser inferiores ou iguais aos limites expostos por agrupamentos de exemplo.
@@ -86,8 +89,9 @@ A repartição total do armazenamento e o número de bases de dados em todas as 
 - As piscinas de exemplo suportam 8, 16, 24, 32, 40, 64 e 80 vCores.
 - Casos geridos dentro de piscinas suportam 2, 4, 8, 16, 24, 32, 40, 64 e 80 vCores.
 - Casos geridos dentro de piscinas suportam tamanhos de armazenamento entre 32 GB e 8 TB, exceto:
-  - 2 vCore casos suportam tamanhos entre 32 GB e 640 GB
-  - 4 vCore casos suportam tamanhos entre 32 GB e 2 TB
+  - 2 vCore casos suportam tamanhos entre 32 GB e 640 GB,
+  - 4 vCore casos suportam tamanhos entre 32 GB e 2 TB.
+- As instâncias geridas dentro de piscinas têm um limite de até 100 bases de dados de utilizadores por exemplo, exceto 2 instâncias vCore que suportam até 50 bases de dados de utilizadores por exemplo.
 
 A [propriedade de nível de serviço](resource-limits.md#service-tier-characteristics) está associada com o recurso de piscina de exemplo, por isso todas as instâncias em uma piscina devem ser o mesmo nível de serviço que o nível de serviço da piscina. Neste momento, apenas o nível de serviço De Fim Geral está disponível (ver a seguinte secção sobre limitações na pré-visualização atual).
 
@@ -137,8 +141,8 @@ vCore preço para uma piscina é cobrado independentemente de quantas instância
 
 Para o preço de cálculo (medido em vCores), estão disponíveis duas opções de preços:
 
-  1. *Licença incluída* : O preço das licenças do SQL Server está incluído. Isto é para os clientes que optam por não aplicar as licenças existentes do SQL Server com a Software Assurance.
-  2. *Azure Hybrid Benefit* : Um preço reduzido que inclui benefício híbrido Azure para o SQL Server. Os clientes podem optar por este preço utilizando as licenças existentes do SQL Server com a Software Assurance. Para obter elegibilidade e outros detalhes, consulte [a Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
+  1. *Licença incluída*: O preço das licenças do SQL Server está incluído. Isto é para os clientes que optam por não aplicar as licenças existentes do SQL Server com a Software Assurance.
+  2. *Azure Hybrid Benefit*: Um preço reduzido que inclui benefício híbrido Azure para o SQL Server. Os clientes podem optar por este preço utilizando as licenças existentes do SQL Server com a Software Assurance. Para obter elegibilidade e outros detalhes, consulte [a Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 A definição de diferentes opções de preços não é possível para instâncias individuais numa piscina. Todas as instâncias na piscina dos pais devem ser a preço incluído na licença ou a preço do Benefício Híbrido Azure. O modelo de licença para a piscina pode ser alterado após a criação da piscina.
 
