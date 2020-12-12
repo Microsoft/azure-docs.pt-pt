@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: ca782e9949f990857db408919cac342d7f712d2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c92aa3b35240831fad14919dc73609d803c610a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272621"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358219"
 ---
 # <a name="feature-interoperability-with-sql-server-fci--dnn"></a>Interoperabilidade de recurso com SQL Server FCI & DNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -86,7 +87,7 @@ Por exemplo, assuma que tem um Editor configurado como um FCI usando DNN numa to
 
 Utilize o nome completo para um caso nomeado, como o seguinte exemplo de imagem: 
 
-:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="Configure o nome DNN DNS como pseudónimo de rede utilizando o SqL Server Configuration Manager." :::
+:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="Utilize o nome completo do caso ao configurar um pseudónimo de rede para uma instância nomeada." :::
 
 ## <a name="database-mirroring"></a>Espelhamento da base de dados
 
@@ -174,7 +175,7 @@ Em seguida, crie um pseudónimo de rede `vnnname\insta1` para mapear. `dnnlsnr\i
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, consulte: 
+Para obter mais informações, veja: 
 
 - [Tecnologias de cluster windows](/windows-server/failover-clustering/failover-clustering-overview)   
 - [SQL Server falha casos de cluster](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

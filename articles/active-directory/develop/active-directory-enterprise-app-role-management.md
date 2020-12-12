@@ -10,14 +10,14 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/22/2019
+ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 376086d0fc84e04645215b26ba896cf22f3f9c57
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 46a676f90eb9b628551c50f9c3bf664056dd6ca7
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647890"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355956"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Configurar a alegação de papel emitida no token SAML para aplicações empresariais
 
@@ -211,7 +211,7 @@ Para atualizar uma função existente, execute os seguintes passos:
 
     c. Atualize o valor de uma função atualizando a descrição da função, o valor da função ou o nome de exibição de funções, conforme necessário.
 
-    d. Depois de atualizar todas as funções necessárias, selecione **''' Executar Consulta ' s.**
+    d. Depois de atualizar todas as funções necessárias, selecione **' Executar Consulta ' s.**
 
 ## <a name="delete-an-existing-role"></a>Eliminar um papel existente
 
@@ -261,7 +261,7 @@ Para eliminar uma função existente, execute os seguintes passos:
     
     A função tem de ser desativada antes de poder ser removida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais etapas, consulte a documentação da [aplicação.](../saas-apps/tutorial-list.md)
 

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 12/11/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7008cfcdeb4615b42839f92a6df71357f9acf911
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2c9c4cd643e2e4b89f9a7d8f44a6569d0dde2b37
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484996"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357386"
 ---
 # <a name="storage-account-overview"></a>Descrição geral da conta de armazenamento
 
@@ -54,7 +54,7 @@ As contas de armazenamento V1 de uso geral fornecem acesso a todos os serviços 
 - Filas
 - Tabelas
 
-Na maioria dos casos, deve utilizar contas v2 para fins gerais. Pode utilizar contas v1 para estes cenários:
+A Microsoft recomenda contas v2 de uso geral para a maioria dos cenários. Pode utilizar contas v1 para estes cenários:
 
 - As suas aplicações requerem o modelo de implementação clássico do Azure. As contas v2 de uso geral e as contas de armazenamento Blob suportam apenas o modelo de implementação do Gestor de Recursos Azure.
 
@@ -152,7 +152,7 @@ Pode conceder acesso aos dados na sua conta de armazenamento utilizando qualquer
 
 - **Diretório Ativo Azure:** Utilize credenciais do Azure Ative Directory (Azure AD) para autenticar um utilizador, grupo ou outra identidade para acesso a dados de blob e fila. Se a autenticação de uma identidade for bem sucedida, então a Azure AD devolve um símbolo para usar ao autorizar o pedido ao armazenamento de Azure Blob ou ao armazenamento da fila. Para mais informações, consulte [autenticar o acesso ao Azure Storage utilizando o Azure Ative Directory](storage-auth-aad.md).
 - **Autorização de chave partilhada:** Utilize a chave de acesso à sua conta de armazenamento para construir uma cadeia de ligação que a sua aplicação utiliza em tempo de execução para aceder ao Azure Storage. Os valores da cadeia de ligação são utilizados para construir o *cabeçalho de autorização* que é passado para o Azure Storage. Para obter mais informações, consulte as cordas de [conexão Configure Azure Storage](storage-configure-connection-string.md).
-- **Assinatura de acesso partilhado:** Utilize uma assinatura de acesso partilhado para delegar o acesso aos recursos na sua conta de armazenamento, caso não esteja a utilizar a autorização AZure AD. Uma assinatura de acesso partilhado é um símbolo que encapsula todas as informações necessárias para autorizar um pedido de Armazenamento Azure no URL. Pode especificar o recurso de armazenamento, as permissões concedidas e o intervalo sobre o qual as permissões são válidas como parte da assinatura de acesso partilhado. Para obter mais informações, consulte [utilizando assinaturas de acesso partilhado (SAS)](storage-sas-overview.md).
+- **Assinatura de acesso partilhado:** Uma assinatura de acesso partilhado (SAS) é um símbolo que permite o acesso delegado aos recursos na sua conta de armazenamento. O token SAS encapsula todas as informações necessárias para autorizar um pedido de armazenamento Azure no URL. Quando criar um SAS, pode especificar quais as permissões que o SAS concede a um recurso e o intervalo sobre o qual as permissões são válidas. Um token SAS pode ser assinado com credenciais AZure AD ou com Chave Partilhada. Para obter mais informações, consulte [Grant acesso limitado aos recursos de Armazenamento Azure usando assinaturas de acesso partilhado (SAS)](storage-sas-overview.md).
 
 > [!NOTE]
 > Autenticar utilizadores ou aplicações utilizando credenciais Azure AD proporciona uma segurança superior e facilidade de utilização sobre outros meios de autorização. Embora possa continuar a utilizar a autorização da Chave Partilhada com as suas aplicações, a utilização do Azure AD contorna a necessidade de armazenar a chave de acesso à sua conta com o seu código. Também pode continuar a utilizar assinaturas de acesso partilhado (SAS) para conceder acesso a recursos finos na sua conta de armazenamento, mas a Azure AD oferece capacidades semelhantes sem a necessidade de gerir fichas SAS ou se preocupar em revogar um SAS comprometido.
@@ -192,3 +192,5 @@ Para obter mais informações sobre a Azure Storage REST API, consulte [Azure St
 
 - [Criar uma conta de armazenamento](storage-account-create.md)
 - [Criar uma conta de armazenamento de blob de blocos](../blobs/storage-blob-create-account-block-blob.md)
+- [Upgrade para uma conta de armazenamento v2 para fins gerais](storage-account-upgrade.md)
+- [Recuperar uma conta de armazenamento eliminada](storage-account-recover.md)

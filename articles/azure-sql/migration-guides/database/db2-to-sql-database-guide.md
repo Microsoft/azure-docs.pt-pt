@@ -1,5 +1,5 @@
 ---
-title: DB2 para SQL Database - Guia de migração
+title: 'DB2 para SQL Base de Dados: Guia de migração'
 description: Siga este guia para migrar as suas bases de dados DB2 para a Base de Dados Azure SQL.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 369f17a39b9d7b2f85fffb8b72a293558d16416e
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 3e216c4aeb8d1206011ff9cca2d80900c23b2399
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325167"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356349"
 ---
 # <a name="migration-guide-db2-to-sql-database"></a>Guia de migração: DB2 para SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -86,7 +86,7 @@ Para converter o esquema, siga estes passos:
 1. Selecione **Connect to Azure SQL Database**. 
     1. Introduza os dados de ligação para ligar a sua base de dados na Base de Dados Azure SQL. 
     1. Escolha a base de dados SQL alvo a partir da entrega. 
-    1. Selecione **Connect** (Ligar). 
+    1. Selecione **Ligar**. 
 
    :::image type="content" source="media/db2-to-sql-database-guide/connect-to-sql-database.png" alt-text="Preencha detalhes para ligar ao servidor lógico em Azure":::
 
@@ -102,7 +102,7 @@ Para converter o esquema, siga estes passos:
 1. Guarde o projeto localmente para um exercício de remediação de esquemas offline. Selecione **Save Project** a partir do menu **'Ficheiro'.** 
 
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrar
 
 Depois de ter concluído a avaliação das suas bases de dados e de abordar eventuais discrepâncias, o próximo passo é executar o processo de migração.
 

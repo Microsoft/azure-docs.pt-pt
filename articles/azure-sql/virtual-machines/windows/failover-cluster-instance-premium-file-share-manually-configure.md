@@ -7,18 +7,19 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.custom: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 56509bfcd267a590946eb750bd74ce1f67aecc00
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 2fb9677f0874de1fb715082d58a0e354880e654b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556408"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358083"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Criar um FCI com uma partilha de ficheiros premium (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -69,9 +70,9 @@ Antes de completar as instruções deste artigo, já deve ter:
 1. [Adicione o agrupamento de falhas a cada máquina virtual](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 
    Para instalar o agrupamento de falhas a partir da UI, faça o seguinte em ambas as máquinas virtuais:
-   1. No **Gestor do Servidor** , selecione **Gerir** e, em seguida, selecione **Adicionar Funções e Funcionalidades**.
+   1. No **Gestor do Servidor**, selecione **Gerir** e, em seguida, selecione **Adicionar Funções e Funcionalidades**.
    1. No assistente **de adicionar funções e funcionalidades,** selecione **Seguinte** até obter **funcionalidades selecionadas**.
-   1. Em **Funcionalidades Selecionadas** , selecione **Clustering Failover**. Inclua todas as funcionalidades necessárias e as ferramentas de gestão. 
+   1. Em **Funcionalidades Selecionadas**, selecione **Clustering Failover**. Inclua todas as funcionalidades necessárias e as ferramentas de gestão. 
    1. Selecione **adicionar funcionalidades**.
    1. Selecione **Seguinte** e, em seguida, selecione **Finish** para instalar as funcionalidades.
 
@@ -88,18 +89,18 @@ Valide o cluster na UI ou utilizando o PowerShell.
 
 Para validar o cluster utilizando a UI, faça o seguinte numa das máquinas virtuais:
 
-1. Sob **o Gestor do Servidor** , selecione **Ferramentas** e, em seguida, selecione **O Gestor de Cluster Failover**.
+1. Sob **o Gestor do Servidor**, selecione **Ferramentas** e, em seguida, selecione **O Gestor de Cluster Failover**.
 1. Em **'Failover Cluster Manager',** selecione **Ação** e, em seguida, selecione **Validate Configuration**.
 1. Selecione **Seguinte**.
 1. Em **Servidores Selecionados ou num Cluster,** insira os nomes de ambas as máquinas virtuais.
 1. Nas **opções de Teste,** selecione **Executar apenas testes que seleciono**. 
 1. Selecione **Seguinte**.
-1. Em **Seleção de Testes** , selecione todos os testes, exceto para espaços **de armazenamento** e armazenamento **direto,** como mostrado aqui:
+1. Em **Seleção de Testes**, selecione todos os testes, exceto para espaços **de armazenamento** e armazenamento **direto,** como mostrado aqui:
 
    :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Selecione testes de validação de clusters":::
 
 1. Selecione **Seguinte**.
-1. Em **Confirmação** , selecione **Seguinte**.
+1. Em **Confirmação**, selecione **Seguinte**.
 
 O assistente **de validação de uma configuração** executa os testes de validação.
 

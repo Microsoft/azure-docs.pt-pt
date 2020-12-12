@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: a9289fad6f7ae1030628bedcf1a62cacc0b1e23a
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 52d6bc97245423a4add392ab05634d21bcf83a0d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564485"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358017"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparar máquinas virtuais para um FCI (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,19 +48,22 @@ A funcionalidade de cluster failover requer que as máquinas virtuais sejam colo
 
 Selecione cuidadosamente a opção de disponibilidade de VM que corresponda à configuração do cluster pretendido: 
 
- - **Discos partilhados Azure** : [Conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) configurado com o domínio de avaria e domínio de atualização definido para 1 e colocado dentro de um grupo de [colocação de proximidade](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
- - **Ações de ficheiro premium** : [Conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) ou zona [de disponibilidade](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). As ações de ficheiros premium são a única opção de armazenamento partilhado se escolher as zonas de disponibilidade como configuração de disponibilidade para os seus VMs. 
- - **Espaços de Armazenamento Direto** : [Conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
+- **Discos partilhados Azure**: a opção de disponibilidade varia se estiver a utilizar SSDs Premium ou UltraDisk:
+   - Premium SSD: [Disponibilidade definida](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) em diferentes domínios de falha/atualização para SSDs Premium colocados dentro de um [grupo de colocação de proximidade](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
+   - Ultra Disco: [Zona de disponibilidade](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) mas os VMs devem ser colocados na mesma zona de disponibilidade que reduz a disponibilidade do cluster para 99,9%. 
+- **Ações de ficheiro premium**: [Conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) ou zona [de disponibilidade](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
+- **Espaços de Armazenamento Direto**: [Conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 
->[!IMPORTANT]
->Não é possível definir ou alterar o conjunto de disponibilidade depois de ter criado uma máquina virtual.
+> [!IMPORTANT]
+> Não é possível definir ou alterar o conjunto de disponibilidade depois de ter criado uma máquina virtual.
 
 ## <a name="create-the-virtual-machines"></a>Criar as máquinas virtuais
 
 Depois de configurar a sua disponibilidade em VM, está pronto para criar as suas máquinas virtuais. Pode optar por utilizar uma imagem do Azure Marketplace que tem ou não o SQL Server já instalado na mesmo. No entanto, se escolher uma imagem para SQL Server em VMs Azure, terá de desinstalar o SQL Server a partir da máquina virtual antes de configurar a instância do cluster de failover. 
 
 ### <a name="considerations"></a>Considerações
-Num cluster de ativação pós-falha convidado da VM IaaS do Azure, recomendamos um único NIC por servidor (nó de cluster) e uma única sub-rede. O azure networking tem redundância física, o que torna NICs adicionais e sub-redes desnecessários em um cluster de hóspedes Azure IaaS VM. Embora o relatório de validação do cluster emita um aviso de que os nós apenas são acessíveis numa única rede, este aviso pode ser ignorado com segurança nos clusters de ativação pós-falha convidados da VM IaaS do Azure.
+
+Num cluster de failover de hóspedes Azure VM, recomendamos um único NIC por servidor (nó de cluster) e uma única sub-rede. O azure networking tem redundância física, o que torna NICs adicionais e sub-redes desnecessários em um cluster de hóspedes Azure IaaS VM. Embora o relatório de validação do cluster emita um aviso de que os nós apenas são acessíveis numa única rede, este aviso pode ser ignorado com segurança nos clusters de ativação pós-falha convidados da VM IaaS do Azure.
 
 Coloque ambas as máquinas virtuais:
 
@@ -110,7 +114,7 @@ Esta tabela detalha as portas que poderá ter de abrir, dependendo da configura�
    | Objetivo | Porta | Notas
    | ------ | ------ | ------
    | SQL Server | TCP 1433 | Porta normal para instâncias padrão do SQL Server. Se utilizar uma imagem da galeria, esta porta é aberta automaticamente. </br> </br> **Utilizado por:** Todas as configurações do FCI. |
-   | Sonda de estado de funcionamento | TCP 59999 | Qualquer porta TCP aberta. Configure a [sonda de saúde](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) do balanceador de carga e o cluster para utilizar esta porta. </br> </br> **Utilizado por** : FCI com equilibrador de carga. |
+   | Sonda de estado de funcionamento | TCP 59999 | Qualquer porta TCP aberta. Configure a [sonda de saúde](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) do balanceador de carga e o cluster para utilizar esta porta. </br> </br> **Utilizado por**: FCI com equilibrador de carga. |
    | Partilha de ficheiros | UDP 445 | Port que o serviço de partilha de ficheiros usa. </br> </br> **Utilizado por:** FCI com partilha de ficheiros Premium. |
 
 ## <a name="join-the-domain"></a>Associar o domínio

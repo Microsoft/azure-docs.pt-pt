@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: d219ff8469c471a37deb47e0f217292d70e8f0f9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 75073cd2f0dae9cac12175677427671101813a90
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497117"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355227"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controlo de fontes na Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -29,7 +29,7 @@ Por padrão, a experiência de interface de utilizador da Azure Data Factory (UX
 Para proporcionar uma melhor experiência de autoria, a Azure Data Factory permite-lhe configurar um repositório git com a Azure Repos ou GitHub. Git é um sistema de controlo de versão que permite um rastreio e colaboração de mudanças mais fáceis. Este artigo irá delinear como configurar e trabalhar num repositório de git, juntamente com realçar as melhores práticas e um guia de resolução de problemas.
 
 > [!NOTE]
-> A integração do Git Azure Data Factory não está disponível na Nuvem do Governo de Azure.
+> A integração do gitHub enterprise na Azure Data Factory só está disponível para a GitHub Enterprise na Azure Government Cloud.
 
 Para saber mais sobre como a Azure Data Factory se integra com o Git, veja o vídeo tutorial de 15 minutos abaixo:
 
@@ -199,7 +199,7 @@ Assim que seguir estes passos, a sua fábrica poderá ligar-se a repositórios p
 - A integração do GitHub com as ferramentas de autoria visual da Data Factory só funciona na versão geralmente disponível da Data Factory.
 
 
-- Um máximo de 1.000 entidades por tipo de recurso (como oleodutos e conjuntos de dados) pode ser recolhido a partir de uma única filial do GitHub. Se este limite for atingido, sugere-se que divida os seus recursos em fábricas separadas. Azure DevOps Git não tem esta limitação.
+- Um máximo de 1.000 entidades por tipo de recurso (como oleodutos e conjuntos de dados) pode ser recolhido a partir de uma única filial do GitHub. Se este limite for atingido, sugere-se que divida os seus recursos em fábricas separadas. O Git do Azure DevOps não tem essa limitação.
 
 ## <a name="version-control"></a>Controlo de versões
 

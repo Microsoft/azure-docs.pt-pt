@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 2bedcaa414328f9d876b212ff931acfb193f51ca
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 0d5b6b7b3cf74ab740dbaeb8d86ab8bbb98e8531
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517128"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357106"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>Tutorial: Azure Ative Directory integração única (SSO) com o Meraki Dashboard
 
@@ -25,8 +25,6 @@ Neste tutorial, você vai aprender a integrar Meraki Dashboard com Azure Ative D
 * Controlo em Azure AD que tem acesso ao Painel Meraki.
 * Permita que os seus utilizadores sejam automaticamente inscritos no Meraki Dashboard com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
-
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +38,6 @@ Para começar, precisa dos seguintes itens:
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * Meraki Dashboard suporta **IDP** iniciado SSO
-* Uma vez configurado o Meraki Dashboard, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
@@ -49,7 +46,7 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 Para configurar a integração do Meraki Dashboard no Azure AD, é necessário adicionar o Meraki Dashboard da galeria à sua lista de aplicações geridas pelo SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
@@ -60,7 +57,7 @@ Para configurar a integração do Meraki Dashboard no Azure AD, é necessário a
 
 Configure e teste Azure AD SSO com Meraki Dashboard usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no Meraki Dashboard.
 
-Para configurar e testar o Azure AD SSO com o Meraki Dashboard, complete os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com o Meraki Dashboard, execute os seguintes passos:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
@@ -73,7 +70,7 @@ Para configurar e testar o Azure AD SSO com o Meraki Dashboard, complete os segu
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Meraki Dashboard,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. No portal Azure, na página de integração da aplicação **Meraki Dashboard,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
@@ -100,7 +97,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     | `https://dashboard.meraki.com/saml/attributes/role` | user.assignedroles |
 
     > [!NOTE]
-    > Para entender como configurar papéis em Azure AD, consulte [aqui.](../develop/active-directory-enterprise-app-role-management.md)
+    > Para entender como configurar papéis em Azure AD, consulte [aqui.](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui)
 
 1. Na secção **Certificado de Assinatura SAML,** clique em Editar o botão **Editar** para abrir o diálogo **do Certificado de Assinatura SAML.**
 
@@ -130,70 +127,65 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao Painel Meraki.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Meraki Dashboard**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O link do utilizador adicionar](common/add-assign-user.png)
-
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. Se estiver à espera de qualquer valor de função na afirmação DE SAML, no **diálogo de funções Selecione,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+
+    ![função de utilizador](./media/meraki-dashboard-tutorial/user-role.png)
+
+    > [!NOTE]
+    > **Selecione uma** opção de função será desativada e a função predefinitiva é USER para utilizador selecionado.
+
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
 ## <a name="configure-meraki-dashboard-sso"></a>Configurar meraki dashboard SSO
 
 1. Numa janela diferente do navegador web, inscreva-se no painel meraki como administrador.
 
-1. Navegar **Organization**para  ->  **configurações de organização**.
+1. Navegar para  ->  **configurações de organização**.
 
-    ![Separador de definições do painel de instrumentos Meraki](./media/meraki-dashboard-tutorial/configure1.png)
+    ![Separador de definições do painel de instrumentos Meraki](./media/meraki-dashboard-tutorial/configure-1.png)
 
 1. Em Autenticação, altere **o SSO SAML** para **SAML SSO ativado**.
 
-    ![Autenticação do Painel Meraki](./media/meraki-dashboard-tutorial/configure2.png)
+    ![Autenticação do Painel Meraki](./media/meraki-dashboard-tutorial/configure-2.png)
 
 1. Clique **em Adicionar um IdP SAML**.
 
-    ![Meraki Dashboard Adicionar um IdP SAML](./media/meraki-dashboard-tutorial/configure3.png)
+    ![Meraki Dashboard Adicionar um IdP SAML](./media/meraki-dashboard-tutorial/configure-3.png)
 
 1. Cole o **Valor de Impressão Digital Thumbprint,** que copiou do portal Azure para a caixa de texto de impressão digital **X.590 cert SHA1.** Em seguida, clique em **Guardar**. Depois de poupar, a URL do consumidor aparecerá. Copie o valor do URL do consumidor e cole-o na caixa de texto **URL de resposta** na Secção de **Configuração Básica SAML** no portal Azure.
 
-    ![Configuração do painel meraki](./media/meraki-dashboard-tutorial/configure4.png)
+    ![Configuração do painel meraki](./media/meraki-dashboard-tutorial/configure-4.png)
 
 ### <a name="create-meraki-dashboard-test-user"></a>Criar utilizador de teste meraki dashboard
 
 1. Numa janela diferente do navegador web, inscreva-se no painel meraki como administrador.
 
-1. Navegue **Organization**para  ->  **administradores da**organização.
+1. Navegue para  ->  **administradores da** organização.
 
-    ![Administradores do Painel Meraki](./media/meraki-dashboard-tutorial/user1.png)
+    ![Administradores do Painel Meraki](./media/meraki-dashboard-tutorial/user-1.png)
 
 1. Na secção funções de administrador SAML, clique no botão **de função Add SAML.**
 
-    ![Meraki Dashboard Adicionar botão de função SAML](./media/meraki-dashboard-tutorial/user2.png)
+    ![Meraki Dashboard Adicionar botão de função SAML](./media/meraki-dashboard-tutorial/user-2.png)
 
 1. Introduza o Role **meraki_full_admin**, marque **o acesso da Organização** como **Full** e clique em **Criar papel.** Repita o processo para **meraki_readonly_admin**, desta vez marque **o acesso da Organização** como caixa só de **Leitura.**
  
-    ![Meraki Dashboard cria utilizador](./media/meraki-dashboard-tutorial/user3.png)
+    ![Meraki Dashboard cria utilizador](./media/meraki-dashboard-tutorial/user-3.png)
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções.
 
-Quando clicar no azulejo meraki dashboard no Painel de Acesso, deverá ser automaticamente inscrito no Painel Meraki para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+* Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no Painel Meraki para o qual configura o SSO
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo meraki dashboard nas Minhas Apps, deverá ser automaticamente inscrito no Painel Meraki para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Passos seguintes
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
-
-- [Experimente o Painel Meraki com Azure AD](https://aad.portal.azure.com/)
-
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+Uma vez configurado o Meraki Dashboard, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

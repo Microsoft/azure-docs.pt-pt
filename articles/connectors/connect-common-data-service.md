@@ -1,22 +1,25 @@
 ---
-title: Ligar ao Serviço Comum de Dados
-description: Criar e gerir registos do Serviço comum de Dados utilizando apps Azure Logic
+title: Conecte-se ao Serviço Comum de Dados (Microsoft Dataverse)
+description: Criar e gerir registos do Common DataVerse (Microsoft Dataverse) utilizando aplicações lógicas Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 12/11/2020
 tags: connectors
-ms.openlocfilehash: de85a61cbd699ec9ac2669f8abb6217254038de9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b17c3d54b7065a18e015363a0362766f844e4e10
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334587"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355125"
 ---
-# <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Criar e gerir registos no Serviço Comum de Dados utilizando aplicações lógicas Azure
+# <a name="create-and-manage-records-in-common-data-service-microsoft-dataverse-by-using-azure-logic-apps"></a>Criar e gerir registos no Common DataVerse (Microsoft Dataverse) utilizando aplicações Azure Logic
 
-Com [as Apps Azure Logic](../logic-apps/logic-apps-overview.md) e o [conector Common Data Service,](/connectors/commondataservice/)pode construir fluxos de trabalho automatizados que gerem registos na sua base de dados [Common Data Service.](/powerapps/maker/common-data-service/data-platform-intro) Estes fluxos de trabalho podem criar registos, atualizar registos e realizar outras operações. Também pode obter informações a partir da sua base de dados do Serviço de Dados Comuns e disponibilizar a saída para outras ações a utilizar na sua aplicação lógica. Por exemplo, quando um registo é atualizado na sua base de dados do Serviço de Dados Comum, pode enviar um e-mail utilizando o conector Office 365 Outlook.
+> [!NOTE]
+> Em novembro de 2020, o Common Data Service foi renomeado para Microsoft Dataverse.
+
+Com [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) e o [conector Common Data Service,](/connectors/commondataservice/)pode construir fluxos de trabalho automatizados que gerem registos no seu [Serviço Comum de Dados, agora base de dados do Microsoft Dataverse.](/powerapps/maker/common-data-service/data-platform-intro) Estes fluxos de trabalho podem criar registos, atualizar registos e realizar outras operações. Também pode obter informações a partir da sua base de dados do Serviço de Dados Comuns e disponibilizar a saída para outras ações a utilizar na sua aplicação lógica. Por exemplo, quando um registo é atualizado na sua base de dados do Serviço de Dados Comum, pode enviar um e-mail utilizando o conector Office 365 Outlook.
 
 Este artigo mostra como pode construir uma aplicação lógica que cria um registo de tarefas sempre que um novo registo de chumbo é criado.
 
@@ -151,7 +154,7 @@ Esta tabela descreve alguns tipos de campo e os tipos de dados que esses campos 
 | Campo | Tipo de dados | Descrição |
 |-------|-----------|-------------|
 | Campo de texto | Uma linha de texto | Requer uma única linha de texto ou conteúdo dinâmico que tenha o tipo de dados de texto, por exemplo, estas propriedades: <p><p>- **Descrição** <br>- **Categoria** |
-| Campo inteiro | Número Inteiro | Requer um conteúdo inteiro ou dinâmico que tenha o tipo de dados inteiro, por exemplo, estas propriedades: <p><p>- **Por cento Completo** <br>- **Duração** |
+| Campo inteiro | Número inteiro | Requer um conteúdo inteiro ou dinâmico que tenha o tipo de dados inteiro, por exemplo, estas propriedades: <p><p>- **Por cento Completo** <br>- **Duração** |
 | Campo de data | Data e Hora | Requer uma data no formato MM/DD/YYY ou conteúdo dinâmico que tenha o tipo de dados de data, por exemplo, estas propriedades: <p><p>- **Criado em** <br>- **Data de Início** <br>- **Início Real** <br>- **Fim Real** <br>- **Data de Vencimento** |
 | Campo que faz referência a outro registo de entidade | Chave primária | Requer tanto um ID de registo, como um GUID, e um tipo de procura, o que significa que os valores da lista de conteúdos dinâmicos não funcionam, por exemplo, estas propriedades: <p><p>- **Proprietário**: Deve ser um ID de utilizador válido ou um ID de registo de equipa. <br>- **Tipo proprietário**: Deve ser um tipo de procura como `systemusers` `teams` ou, respectivamente. <p><p>- **No que diz respeito a**: Deve ser um ID de registo válido, como um ID de conta ou um ID de registo de contacto. <br>- **No que diz respeito ao tipo**: Deve ser um tipo de procura, como `accounts` `contacts` ou, respectivamente. <p><p>- **Cliente**: Deve ser um ID de registo válido, como um ID de conta ou iD de registo de contacto. <br>- **Tipo de Cliente**: Deve ser o tipo de procura, como `accounts` `contacts` ou, respectivamente. |
 ||||

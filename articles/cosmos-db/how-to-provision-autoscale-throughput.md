@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 615ce7da3ec480b766ceaeb307c50f7cb759fd4a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 52904296df77d9097a6180345388e8e702e2bca0
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100121"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357635"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Provisão de produção de escala automática na base de dados ou contentor em Azure Cosmos DB - SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,11 +30,11 @@ Se estiver a utilizar uma API diferente, consulte [a API para a MongoDB,](how-to
 
 1. Navegue na sua conta DB Azure Cosmos e abra o **separador Data Explorer.**
 
-1. Selecione **Novo Recipiente.** Insira um nome para a sua base de dados, recipiente e uma chave de partição. No **Âmbito do 'Under Throughput** ' ' '' selecione a opção **de autoescala** e desagreda a [potência máxima (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) a que pretende que a base de dados ou o recipiente se dimensionem.
+1. Selecione **Novo Recipiente.** Insira um nome para a sua base de dados, recipiente e uma chave de partição. No **Âmbito do 'Under Throughput**' ' '' selecione a opção **de autoescala** e desagreda a [potência máxima (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) a que pretende que a base de dados ou o recipiente se dimensionem.
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Criação de um contentor e configuração de produção de autoescala":::
 
-1. Selecione **OK** .
+1. Selecione **OK**.
 
 Para obter uma escala automática na base de dados de produção partilhada, selecione a opção **de produção de base de dados de provisão de Provisão** ao criar uma nova base de dados. 
 
@@ -49,9 +49,9 @@ Para obter uma escala automática na base de dados de produção partilhada, sel
 
 1. Selecione **Escala e Definições** para o seu recipiente ou **Escala** para a sua base de dados.
 
-1. Em **Escala** , selecione a opção **Autoscale** e **Guarde** .
+1. Em **Escala**, selecione a opção **Autoscale** e **Guarde**.
 
-   :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Criação de um contentor e configuração de produção de autoescala":::
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Permitir a autoescalação num recipiente existente":::
 
 > [!NOTE]
 > Quando ativa automaticamente uma base de dados ou um recipiente existente, o valor inicial para max RU/s é determinado pelo sistema, com base nas definições de produção e armazenamento atuais. Após o funcionamento concluído, pode alterar o máximo RU/s, se necessário. [Saiba mais.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
@@ -128,7 +128,7 @@ Pode utilizar a [versão 4.0 ou superior](https://mvnrepository.com/artifact/com
 // Create instance of CosmosClient
 CosmosAsyncClient client = new CosmosClientBuilder()
     .setEndpoint(HOST)
-    .setKey(MASTER)
+    .setKey(PRIMARYKEY)
     .setConnectionPolicy(CONNECTIONPOLICY)
     .buildAsyncClient();
 
@@ -145,7 +145,7 @@ CosmosAsyncDatabase database = client.createDatabase(databaseName, autoscaleThro
 // Create instance of CosmosClient
 CosmosClient client = new CosmosClientBuilder()
     .setEndpoint(HOST)
-    .setKey(MASTER)
+    .setKey(PRIMARYKEY)
     .setConnectionPolicy(CONNECTIONPOLICY)
     .buildClient();
 

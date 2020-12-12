@@ -7,6 +7,7 @@ author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8f8513746271fff0ab52603e31b75304d5ebc1bf
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 5670a29e86eb201a707e5ceef28043aafe4839d9
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168987"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357981"
 ---
 # <a name="configure-azure-load-balancer-for-failover-cluster-instance-vnn"></a>Configure Azure Load Balancer para a instância de cluster de failover VNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -71,7 +72,7 @@ Utilize o [portal Azure](https://portal.azure.com) para criar o equilibrador de 
 
 1. Volte ao grupo de recursos Azure que contém as máquinas virtuais e localize o novo equilibrador de carga. Pode ser necessário refrescar a vista sobre o grupo de recursos. Selecione o equilibrador de carga.
 
-1. Selecione **piscinas backend**e, em seguida, selecione **Adicionar**.
+1. Selecione **piscinas backend** e, em seguida, selecione **Adicionar**.
 
 1. Associe o pool de backend com o conjunto de disponibilidade que contém os VMs.
 
@@ -85,7 +86,7 @@ Utilize o [portal Azure](https://portal.azure.com) para criar o equilibrador de 
 
 1. Selecione **Adicionar**.
 
-1. No painel de sonda <span id="probe"> </span> **saúde Add,** desa estale os seguintes parâmetros da sonda de saúde:
+1. No painel de sonda <span id="probe"></span> **saúde Add,** desa estale os seguintes parâmetros da sonda de saúde:
 
    - **Nome**: Um nome para a sonda de saúde.
    - **Protocolo**: TCP.
@@ -137,10 +138,10 @@ A tabela a seguir descreve os valores que precisa de atualizar:
 
 |**Valor**|**Descrição**|
 |---------|---------|
-|`Cluster Network Name`| O nome do Cluster failover do servidor do Windows para a rede. Nas Redes **de Gestores de Cluster Failover,**  >  **Networks**clique à direita na rede e selecione **Propriedades.** O valor correto está no **nome** no separador **Geral.**|
-|`SQL Server FCI/AG listener IP Address Resource Name`|O nome de recurso para o endereço IP do SQL Server FCI ou do ouvinte AG. Em **Funções de Gestor de Cluster Failover**  >  **Roles**, sob a função SQL Server FCI, em Nome **do Servidor,** clique com o botão direito no recurso de endereço IP e selecione **Propriedades**. O valor correto está no **nome** no separador **Geral.**|
+|`Cluster Network Name`| O nome do Cluster failover do servidor do Windows para a rede. Nas Redes **de Gestores de Cluster Failover,**  >  clique à direita na rede e selecione **Propriedades.** O valor correto está no **nome** no separador **Geral.**|
+|`SQL Server FCI/AG listener IP Address Resource Name`|O nome de recurso para o endereço IP do SQL Server FCI ou do ouvinte AG. Em **Funções de Gestor de Cluster Failover**  >  , sob a função SQL Server FCI, em Nome **do Servidor,** clique com o botão direito no recurso de endereço IP e selecione **Propriedades**. O valor correto está no **nome** no separador **Geral.**|
 |`ILBIP`|O endereço IP do esquilibrador interno de carga (ILB). Este endereço está configurado no portal Azure como o endereço frontal do ILB. Este é também o endereço IP do SQL Server FCI. Pode encontrá-lo no **Failover Cluster Manager** na mesma página de propriedades onde localiza o `<SQL Server FCI/AG listener IP Address Resource Name>` .|
-|`nnnnn`|A porta da sonda que configuraste na sonda de saúde do equilibrador de carga. Qualquer porta TCP nãousada é válida.|
+|`nnnnn`|A porta da sonda que configuraste na sonda de saúde do equilibrador de carga. Qualquer porta TCP não utilizada é válida.|
 |"SubnetMask"| A máscara de sub-rede para o parâmetro do cluster. Deve ser o endereço de emissão IP da TCP: `255.255.255.255` .| 
 
 
@@ -161,7 +162,7 @@ Siga estes passos:
 1. Ligue-se a um dos nós de cluster sql com recurso a RDP.
 1. Open **Failover Cluster Manager**. Selecione **Funções**. Note qual o nó que detém a função SQL Server FCI.
 1. Clique com o botão direito no papel SQL Server FCI. 
-1. Selecione **Mover**e, em seguida, selecione **O Melhor Nó Possível**.
+1. Selecione **Mover** e, em seguida, selecione **O Melhor Nó Possível**.
 
 **O Failover Cluster Manager** mostra o papel e os seus recursos ficam offline. Os recursos movem-se e voltam a estar on-line no outro nó.
 

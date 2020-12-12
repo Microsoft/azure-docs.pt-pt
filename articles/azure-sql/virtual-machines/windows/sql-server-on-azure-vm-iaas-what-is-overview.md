@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c6d03c896242d02e147e880a99eb9f1e7bb15da8
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: b4b1234b88eafedbd03b78241baaa40231a6cbd6
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326876"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356808"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>O que é o SQL Server em Azure Virtual Machines (Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -144,7 +144,7 @@ O Programa de Melhoramento da Experiência do Cliente (PMEC) está ativado por p
 ### <a name="storage"></a>Armazenamento
 * [Introdução ao Storage do Microsoft Azure](../../../storage/common/storage-introduction.md)
 
-### <a name="networking"></a>Rede
+### <a name="networking"></a>Redes
 * [Visão geral da rede virtual](../../../virtual-network/virtual-networks-overview.md)
 * [Endereços IP no Azure](../../../virtual-network/public-ip-addresses.md)
 * [Create a Fully Qualified Domain Name in the Azure portal](../../../virtual-machines/create-fqdn.md) (Criar um Nome de Domínio Completamente Qualificado no portal do Azure)

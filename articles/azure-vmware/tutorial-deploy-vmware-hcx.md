@@ -3,12 +3,12 @@ title: Tutorial - Implementar e configurar VMware HCX
 description: Aprenda a implementar e configurar uma solução VMware HCX para a sua nuvem privada Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 11/25/2020
-ms.openlocfilehash: e50454c2299ed0f7e249563eecac1935a29a9c47
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a792f8dbc646f61377cf0a88e1a6e386340f23e8
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352473"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357896"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Implementar e configurar o VMware HCX
 
@@ -85,7 +85,7 @@ Antes de colocar o aparelho virtual no seu vCenter no local, tem de descarregar 
 
 1. Abra uma janela do navegador, inscreva-se no Azure VMware Solution HCX Manager na `https://x.x.x.9` porta 443 com as credenciais de utilizador **cloudadmin \@ vsphere.local**
 
-1. Selecione **Administration**  >  **Atualizações do sistema de administração** e, em seguida, selecione **Request Download Link**.
+1. Selecione   >  **Atualizações do sistema de administração** e, em seguida, selecione **Request Download Link**.
 
 1. Selecione a opção à sua escolha para descarregar o ficheiro VMware HCX Connector OVA.
 
@@ -123,7 +123,7 @@ Para obter uma visão geral deste procedimento, consulte a [Solução Azure VMwa
 
 Depois de colocar o VMware HCX Connector OVA no local e ligar o aparelho, está pronto a ser ativado. Primeiro, precisa de obter uma chave de licença do portal Azure VMware Solution.
 
-1. No portal Azure VMware Solution, vá para **Gerir**  >  **Connectivity** conectividade, selecione o separador **HCX** e, em seguida, selecione **Adicionar**.
+1. No portal Azure VMware Solution, vá para **Gerir**  >  conectividade, selecione o separador **HCX** e, em seguida, selecione **Adicionar**.
 
 1. Utilize as credenciais **de administração** para iniciar singing no local VMware HCX Manager em `https://HCXManagerIP:9443` . 
 
@@ -163,7 +163,7 @@ Após o reinício dos serviços, verá o vCenter a mostrar-se como verde no ecr�
 
 :::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="Screenshot do painel de instrumentos com o estado do vCenter verde." lightbox="media/tutorial-vmware-hcx/activation-done.png":::  
 
-Para uma visão geral deste procedimento, consulte a [Solução Azure VMware: Ativar](https://www.youtube.com/embed/jzQZawslF8w) o vídeo HCX.
+Para uma visão geral deste procedimento, consulte a [Solução Azure VMware: Ativar](https://www.youtube.com/embed/PnVg6SZkQsY?rel=0&amp;vq=hd720) o vídeo HCX.
 
    > [!IMPORTANT]
    > Quer esteja a utilizar a VMware HCX Advanced ou a VMware HCX Enterprise, poderá ter de instalar o patch a partir do [artigo KB 81558](https://kb.vmware.com/s/article/81558)da VMware . 
@@ -192,7 +192,7 @@ Pode ligar ou emparelhar o VMware HCX Cloud Manager em Azure VMware Solution com
 
    :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Screenshot que mostra o emparelhamento do HCX Manager em Azure VMware Solution e o VMware HCX Connector.":::
 
-Para uma visão geral deste procedimento, consulte a [Solução Azure VMware: HCX Site Pairing.](https://www.youtube.com/embed/iTJtjbiwvsw)
+Para uma visão geral deste procedimento, consulte a [Solução Azure VMware: HCX Site Pairing.](https://www.youtube.com/embed/jXOmYUnbWZY?rel=0&amp;vq=hd720)
 
 ### <a name="create-network-profiles"></a>Criar perfis de rede
 
@@ -335,7 +335,7 @@ Agora é hora de configurar uma malha de serviço entre as instalações e a Azu
 
 1. Verifique a saúde da malha de serviço verificando o estado do aparelho. 
 
-1. Selecione **Interconnect**  >  **Interligar Aparelhos**.
+1. Selecione   >  **Interligar Aparelhos**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/interconnect-appliance-state.png" alt-text="Screenshot que mostra seleções para verificar o estado do aparelho." lightbox="media/tutorial-vmware-hcx/interconnect-appliance-state.png":::
 

@@ -1,14 +1,14 @@
 ---
 title: O que é o Azure Lighthouse?
 description: O Azure Lighthouse permite que os prestadores de serviços entreguem serviços geridos aos seus clientes com maior automatização e eficiência em escala.
-ms.date: 11/12/2020
+ms.date: 12/10/2020
 ms.topic: overview
-ms.openlocfilehash: a8fd796218804a79c82a5723c0e5851af359cdea
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bef6107878f36e02a896b3c38b8913ebb50169a7
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95528827"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356366"
 ---
 # <a name="what-is-azure-lighthouse"></a>O que é o Azure Lighthouse?
 
@@ -45,3 +45,4 @@ O Farol Azure inclui múltiplas formas de ajudar a agilizar o envolvimento e a g
 - Saiba mais sobre a [Gestão de recursos delegados do Azure](concepts/azure-delegated-resource-management.md).
 - Explore [experiências de gestão de inquilinos cruzados.](concepts/cross-tenant-management-experience.md)
 - Veja como usar o [Farol Azure dentro de uma empresa.](concepts/enterprise.md)
+- Ver [disponibilidade](https://azure.microsoft.com/global-infrastructure/services/?products=azure-lighthouse&regions=all) e [FedRAMP e DoD CC SRG auditar](../azure-government/compliance/azure-services-in-fedramp-auditscope.md) detalhes do âmbito de auditoria para o Farol de Azure.

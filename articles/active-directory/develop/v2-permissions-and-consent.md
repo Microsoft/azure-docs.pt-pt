@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: c113a252363d3b94131ac423f795f6efb13b1975
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 14b6d6ecc6523199102fd3ef9370fe901c4ff51d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029554"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355703"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto final da plataforma de identidades da Microsoft
 
@@ -89,7 +89,7 @@ O `profile` âmbito pode ser usado com o âmbito e `openid` quaisquer outros. D�
 O [ `offline_access` âmbito](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) dá à sua aplicação acesso a recursos em nome do utilizador por um longo período de tempo. Na página de consentimento, este âmbito aparece como a permissão "Manter o acesso aos dados a que lhe deu acesso". Quando um utilizador aprova o âmbito, a `offline_access` sua aplicação pode receber fichas de atualização a partir do ponto final da plataforma de identidade da Microsoft. As fichas de atualização são de longa duração. A sua aplicação pode obter novos tokens de acesso à medida que os mais velhos expiram.
 
 > [!NOTE]
-> Esta permissão aparece hoje em todos os ecrãs de consentimento, mesmo para fluxos que não fornecem um token de atualização (o [fluxo implícito).](v2-oauth2-implicit-grant-flow.md)  Isto é para cobrir cenários em que um cliente pode começar dentro do fluxo implícito, e depois passar para o fluxo de código onde é esperado um token de atualização.
+> Esta permissão aparece hoje em todos os ecrãs de consentimento, mesmo para fluxos que não fornecem um token de atualização (o [fluxo implícito).](v2-oauth2-implicit-grant-flow.md) Isto é para cobrir cenários em que um cliente pode começar dentro do fluxo implícito, e depois passar para o fluxo de código onde é esperado um token de atualização.
 
 Na plataforma de identidade da Microsoft (pedidos feitos para o ponto final v2.0), a sua aplicação deve solicitar explicitamente o `offline_access` âmbito, para receber fichas de atualização. Isto significa que quando resgatar um código de autorização no fluxo de código de [autorização OAuth 2.0,](active-directory-v2-protocols.md)receberá apenas um sinal de acesso a partir do `/token` ponto final. O token de acesso é válido por um curto período de tempo. O sinal de acesso geralmente expira em uma hora. Nessa altura, a sua aplicação precisa de redirecionar o utilizador de volta para o `/authorize` ponto final para obter um novo código de autorização. Durante este redirecionamento, dependendo do tipo de aplicação, o utilizador poderá ter de introduzir novamente as suas credenciais ou voltar a consentir com permissões.
 

@@ -1,14 +1,14 @@
 ---
 title: Monitorize as mudanças de delegação no seu inquilino gerente
 description: Saiba como monitorizar a atividade da delegação desde os inquilinos do cliente até ao seu inquilino gerente.
-ms.date: 09/08/2020
+ms.date: 12/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 15e96939d4115bd93260687f637143cc798a4331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d254c90881d23255dda5c38a868eb61e51b4f08
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336603"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356417"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorize as mudanças de delegação no seu inquilino gerente
 
@@ -175,9 +175,10 @@ Os utilizadores a quem foi atribuído o papel incorporado no Monitoring Reader A
 1. Navegue na página **Dos Meus clientes** e, em seguida, selecione registo de **atividade** a partir do menu de navegação à esquerda.
 1. Certifique-se de que a **Atividade do Diretório** é selecionada no filtro perto da parte superior do ecrã.
 
-Aparecerá uma lista de alterações de delegação. Pode selecionar **colunas Editar** para mostrar ou ocultar o Estado , **Categoria** **evento**, **Tempo**, **Hora, Assinatura,** **Evento iniciado por,** Grupo **de Recursos,** **Tipo de Recurso**e Valores de **Recursos.** **Subscription**
+Aparecerá uma lista de alterações de delegação. Pode selecionar **colunas Editar** para mostrar ou ocultar o Estado , **Categoria** **evento**, **Tempo**, **Hora, Assinatura,** **Evento iniciado por,** Grupo **de Recursos,** **Tipo de Recurso** e Valores de **Recursos.** 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como embarcar clientes no [Farol Azure.](../concepts/azure-delegated-resource-management.md)
 - Saiba mais sobre [o Azure Monitor](../../azure-monitor/index.yml) e o [registo de atividades Azure](../../azure-monitor/platform/platform-logs-overview.md).
+- Reveja os [registos de atividade por livro de amostras de domínio](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) para aprender a exibir registos de Atividade Azure em subscrições com a opção de filtrar por nome de domínio.

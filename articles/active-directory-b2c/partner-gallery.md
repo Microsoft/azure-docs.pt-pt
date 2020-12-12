@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bbcb3367f4a1b99ae6689a5d9fa33b7629145ead
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 4592742b99d7c3e915c31ca5a202355d32e76d68
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092577"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356128"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Parceiros isv do Azure Ative Directory B2C
 
@@ -51,6 +51,7 @@ A Microsoft associa-se aos seguintes ISVs para autenticação MFA e Password sem
 |:-------------------------|:--------------|
 | ![Screenshot de um logotipo hypr](./media/partner-gallery/hypr-logo.png) | [A Hypr](./partner-hypr.md) é um fornecedor de autenticação sem palavras-passe, que substitui palavras-passe por encriptações de chaves públicas que eliminam fraude, phishing e reutilização credencial. |
 | ![Screenshot de um logotipo do seu nome](./media/partner-gallery/itsme-logo.png) | [o seu nome](./partner-itsme.md) é uma solução de ID digital compatível com identificação eletrónica, autenticação e fidedignidade (eiDAS) para permitir que os utilizadores assinem de forma segura sem leitores de cartões, palavras-passe, autenticação de dois fatores e múltiplos códigos PIN. |
+| ![Screenshot de um logotipo nevis](./media/partner-gallery/nevis-logo.png) | [O Nevis](./partner-nevis.md) permite a autenticação sem palavras-passe e fornece uma experiência de utilizador final de primeira e totalmente marcada com a aplicação Nevis Access para autenticação forte do cliente e para cumprir os requisitos de transação PSD2. |
 | ![Screenshot de um logotipo de trusona](./media/partner-gallery/trusona-logo.png) | A integração [da Trusona](./partner-trusona.md) ajuda-o a assinar de forma segura e permite a autenticação sem palavras-passe, o MFA e a digitalização de licenças digitais. |
 | ![Imagem de um logotipo de twilio.](./media/partner-gallery/twilio-logo.png) | [A aplicação Twilio Check](./partner-twilio.md) fornece múltiplas soluções para permitir o MFA através de sms senha única (OTP), senha única baseada no tempo (TOTP), e notificações push, e para cumprir os requisitos sca para PSD2. |
 | ![Screenshot de um logotipo da dactilografiaDNA](./media/partner-gallery/typingdna-logo.png) | [Digitar O ADN](./partner-twilio.md) permite uma autenticação forte do cliente analisando o padrão de dactilografia de um utilizador. Ajuda as empresas a viabilizarem um MFA silencioso e a cumprirem os requisitos da SCA para o PSD2. |

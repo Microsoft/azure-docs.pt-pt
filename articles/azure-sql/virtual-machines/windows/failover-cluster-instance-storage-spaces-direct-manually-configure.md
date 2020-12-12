@@ -7,18 +7,19 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.custom: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 01f9ee1ad134c14150d16569fd57e658b160784c
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 6ed5e11a8492314e99b9f105d259fa910dcdb77d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556323"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357811"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Criar um FCI com espaços de armazenamento direto (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,7 +29,7 @@ Este artigo explica como criar uma instância de cluster failover (FCI) utilizan
 Para saber mais, consulte uma visão geral da [FCI com o SQL Server em VMs Azure](failover-cluster-instance-overview.md) e [as melhores práticas do cluster](hadr-cluster-best-practices.md). 
 
 
-## <a name="overview"></a>Descrição Geral 
+## <a name="overview"></a>Descrição geral 
 
 [Espaços de Armazenamento Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) suporta dois tipos de arquiteturas: convergentes e hiperconvergados. Uma infraestrutura hiperconverizada coloca o armazenamento nos mesmos servidores que acolhem a aplicação agrupada, de modo que o armazenamento está em cada nó SQL Server FCI. 
 
@@ -68,9 +69,9 @@ Antes de completar as instruções deste artigo, já deve ter:
 
    Para instalar o agrupamento de falhas a partir da UI, faça o seguinte em ambas as máquinas virtuais:
 
-   1. No **Gestor do Servidor** , selecione **Gerir** e, em seguida, selecione **Adicionar Funções e Funcionalidades**.
+   1. No **Gestor do Servidor**, selecione **Gerir** e, em seguida, selecione **Adicionar Funções e Funcionalidades**.
    1. No assistente **de adicionar funções e funcionalidades,** selecione **Seguinte** até obter **funcionalidades selecionadas**.
-   1. Em **Funcionalidades Selecionadas** , selecione **Clustering Failover**. Inclua todas as funcionalidades necessárias e as ferramentas de gestão. 
+   1. Em **Funcionalidades Selecionadas**, selecione **Clustering Failover**. Inclua todas as funcionalidades necessárias e as ferramentas de gestão. 
    1. Selecione **adicionar funcionalidades**.
    1. Selecione **Seguinte** e, em seguida, selecione **Finish** para instalar as funcionalidades.
 
@@ -90,18 +91,18 @@ Valide o cluster na UI ou utilizando o PowerShell.
 
 Para validar o cluster utilizando a UI, faça o seguinte numa das máquinas virtuais:
 
-1. Sob **o Gestor do Servidor** , selecione **Ferramentas** e, em seguida, selecione **O Gestor de Cluster Failover**.
+1. Sob **o Gestor do Servidor**, selecione **Ferramentas** e, em seguida, selecione **O Gestor de Cluster Failover**.
 1. Em **'Failover Cluster Manager',** selecione **Ação** e, em seguida, selecione **Validate Configuration**.
 1. Selecione **Seguinte**.
 1. Em **Servidores Selecionados ou num Cluster,** insira os nomes de ambas as máquinas virtuais.
 1. Nas **opções de Teste,** selecione **Executar apenas testes que seleciono**. 
 1. Selecione **Seguinte**.
-1. Em **Seleção de Testes** , selecione todos os testes, exceto **para armazenamento,** como mostrado aqui:
+1. Em **Seleção de Testes**, selecione todos os testes, exceto **para armazenamento,** como mostrado aqui:
 
    ![Selecione testes de validação de clusters](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
 
 1. Selecione **Seguinte**.
-1. Em **Confirmação** , selecione **Seguinte**.
+1. Em **Confirmação**, selecione **Seguinte**.
 
     O assistente **de validação de uma configuração** executa os testes de validação.
 

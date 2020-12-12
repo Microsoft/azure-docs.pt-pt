@@ -8,12 +8,12 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: 73d6fe0233eccea9ebf1d82beb509c56fb45f4da
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e84b80233d87ac4ae5e2281b506e225c4ab1bd9d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339517"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357607"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrar de CouchBase para Azure Cosmos DB SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -69,7 +69,7 @@ Seguem-se as principais características que funcionam de forma diferente no Azu
     }
    ```
 
-   **Azure Cosmos DB** : Consulte "ID" dentro do documento, como mostrado abaixo
+   **Azure Cosmos DB**: Consulte "ID" dentro do documento, como mostrado abaixo
 
     ```json
     {
@@ -181,7 +181,7 @@ Pode ler o documento com ou sem especificar a chave de partição. Se não espec
 * ```_repo.findByIdAndName(objDoc.getId(),objDoc.getName());```
 * ```_repo.findAllByStatus(objDoc.getStatus());```
 
-É isso, agora podes usar a tua aplicação com a Azure Cosmos DB. A amostra de código completa para o exemplo descrito neste doc está disponível no [repo CouchbaseToCosMosDB-SpringCosmos](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/SpringCosmos) GitHub.
+É isso, agora podes usar a tua aplicação com a Azure Cosmos DB. A amostra de código completa para o exemplo descrito neste doc está disponível no [repo CouchbaseToCosMosDB-SpringCosmos](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/SpringCosmos) GitHub.
 
 ## <a name="couchbase-as-a-document-repository--using-n1ql-queries"></a>Base de sofá como um repositório de documentos & usando consultas N1QL
 
@@ -222,9 +222,9 @@ Utilize o Async Java SDK com os seguintes passos:
     
    if(client==null)
     client= CosmosClient.builder()
-        .endpoint(Host)//(Host, MasterKey, dbName, collName).Builder()
+        .endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
         .connectionPolicy(cp)
-        .key(MasterKey)
+        .key(PrimaryKey)
         .consistencyLevel(ConsistencyLevel.EVENTUAL)
         .build();   
    
@@ -305,7 +305,7 @@ CosmosItem objItem= container.getItem(doc.Id, doc.Tenant);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```
 
-Em seguida, subscreva o mono, remeta o corte de subscrição mono em operação de inserção. A amostra de código completa está disponível no [repo Dossb-AsyncInSpring](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncInSpring) GitHub.
+Em seguida, subscreva o mono, remeta o corte de subscrição mono em operação de inserção. A amostra de código completa está disponível no [repo Dossb-AsyncInSpring](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/AsyncInSpring) GitHub.
 
 ## <a name="couchbase-as-a-keyvalue-pair"></a>Base de sofá como um par chave/valor
 
@@ -351,9 +351,9 @@ Este é um tipo simples de carga de trabalho em que você pode realizar lookups 
    
    if(client==null)
     client= CosmosClient.builder()
-        .endpoint(Host)//(Host, MasterKey, dbName, collName).Builder()
+        .endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
         .connectionPolicy(cp)
-        .key(MasterKey)
+        .key(PrimaryKey)
         .consistencyLevel(ConsistencyLevel.EVENTUAL)
         .build();
     
@@ -427,7 +427,7 @@ CosmosItem objItem= container.getItem(id, id);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```
 
-Em seguida, subscreva o mono, remeta o corte de subscrição mono em operação de inserção. A amostra de código completa está disponível no [repo DoCosmosDB-AsyncKeyValue](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncKeyValue) GitHub.
+Em seguida, subscreva o mono, remeta o corte de subscrição mono em operação de inserção. A amostra de código completa está disponível no [repo DoCosmosDB-AsyncKeyValue](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/AsyncKeyValue) GitHub.
 
 ## <a name="data-migration"></a>Migração de Dados
 

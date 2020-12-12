@@ -4,16 +4,16 @@ description: Este artigo fornece informações de referência para o comando de 
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: fd71f4eb56974b93637c23eddc81e5f33ce788b8
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 6390aafca4937a480e4d92ff04003a294b9c0e20
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512159"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356179"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -246,7 +246,7 @@ Transfira ficheiros e diretórios para a conta de Armazenamento Azure e descreva
 
 **--check-length** Verifique a duração de um ficheiro no destino após a transferência. Se houver um desfasamento entre a fonte e o destino, a transferência é marcada como falhada. (o valor predefinido `true` é)
 
-**---cadeia de verificação-md5** Especifica como os hashes MD5 devem ser validados estritamente ao descarregar. Disponível apenas ao descarregar. Opções disponíveis: `NoCheck` . . . . `LogOnly` `FailIfDifferent` `FailIfDifferentOrMissing` . (predefinição) `FailIfDifferent` (predefinição "FailIfDifferent")
+**---cadeia de verificação-md5** Especifica como os hashes MD5 devem ser validados estritamente ao descarregar. Disponível apenas ao descarregar. Opções disponíveis: `NoCheck` `LogOnly` . `FailIfDifferent` `FailIfDifferentOrMissing` . (predefinição) `FailIfDifferent` (predefinição "FailIfDifferent")
 
 **--cadeia de disposição de conteúdo** Definir o cabeçalho de disposição de conteúdo. Devolvido no download.
 
@@ -270,11 +270,13 @@ Transfira ficheiros e diretórios para a conta de Armazenamento Azure e descreva
 
 **--força-se-ler-apenas** Ao sobrepor um ficheiro existente no Windows ou em Azure Files, force o excesso de trabalho mesmo que o ficheiro existente tenha o seu conjunto de atributos apenas de leitura.
 
-**-de-para** cadeia Opcionalmente especifica a combinação de destino de origem. Por exemplo: `LocalBlob` `BlobLocal` . . . `LocalBlobFS` .
+**-de-para** cadeia Opcionalmente especifica a combinação de destino de origem. Por exemplo: `LocalBlob` `BlobLocal` . `LocalBlobFS`
 
 **...ajuda**  para a cópia.
 
 **--incluir-incluir-depois** da cadeia Inclua apenas os ficheiros modificados na ou após a data/hora dada. O valor deve estar no formato ISO8601. Se não for especificado o timezone, presume-se que o valor está no timezone local da máquina que executa a AzCopy. por exemplo, `2020-08-19T15:04:00Z` para uma hora UTC, ou `2020-08-19` para a meia-noite (00:00) no fuso horário local. Tal como no AzCopy 10.5, esta bandeira aplica-se apenas a ficheiros, não a pastas, pelo que as propriedades das pastas não serão copiadas quando utilizarem esta bandeira com `--preserve-smb-info` ou `--preserve-smb-permissions` .
+
+ **--incluir antes da** cadeia Inclua apenas os ficheiros modificados antes ou na data/hora dada. O valor deve estar no formato ISO8601. Se não for especificado o timezone, presume-se que o valor está no timezone local da máquina que executa a AzCopy. Por exemplo, `2020-08-19T15:04:00Z` por um tempo UTC, ou `2020-08-19` para a meia-noite (00:00) no fuso horário local. A partir do AzCopy 10.7, esta bandeira aplica-se apenas a ficheiros, não a pastas, pelo que as propriedades das pastas não serão copiadas quando utilizarem esta bandeira com `--preserve-smb-info` ou `--preserve-smb-permissions` .
 
 **--incluir-atributos (apenas** Windows) Inclui ficheiros cujos atributos correspondem à lista de atributos. Por exemplo: A; S; R
 
@@ -282,7 +284,7 @@ Transfira ficheiros e diretórios para a conta de Armazenamento Azure e descreva
 
 **-- incluir** a cadeia de padrão Inclua apenas estes ficheiros ao copiar. Esta opção suporta caracteres wildcard (*). Separar ficheiros utilizando um `;` .
 
-**--lista de versões** cadeia Especifica um ficheiro onde cada id de versão está listado numa linha separada. Certifique-se de que a fonte deve apontar para uma única bolha e todos os ids de versão especificados no ficheiro que utilizam esta bandeira devem pertencer apenas à bolha de origem. O AzCopy irá descarregar as versões especificadas na pasta de destino fornecida. Para obter mais informações, consulte [Baixar as versões anteriores de uma bolha.](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob)
+**--lista de versões** cadeia Especifica um ficheiro em que cada iD de versão está listado numa linha separada. Certifique-se de que a fonte deve apontar para uma única bolha e todos os IDs de versão especificados no ficheiro que utilizam esta bandeira devem pertencer apenas à bolha de origem. O AzCopy irá descarregar as versões especificadas na pasta de destino fornecida. Para obter mais informações, consulte [Baixar as versões anteriores de uma bolha.](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob)
 
 **--cadeia de nível de log** Define a verbosidade do registo para o ficheiro de registo, níveis disponíveis: INFO (todos os pedidos/respostas), ADVERTÊNCIA (respostas lentas), ERRO (apenas pedidos falhados) e NENHUM (sem registos de saída). (predefinição). `INFO` 
 

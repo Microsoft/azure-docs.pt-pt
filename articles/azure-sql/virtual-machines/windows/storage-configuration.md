@@ -7,17 +7,18 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: 3a4b7d68d7cd21ccb4b7eb8b97e0d331fb236e96
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d713faf7062f82110be5fa8378faca368b9bb7a2
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146727"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356728"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento das VMs do SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +47,7 @@ Ao forer um VM Azure utilizando uma imagem de galeria SQL Server, selecione alte
 
 ![Screenshot que realça o separador de definições do SQL Server e a opção de configuração Change.](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-Selecione o tipo de carga de trabalho para a qual está a implementar o seu Servidor SQL sob **a otimização do Armazenamento** . Com a opção de otimização **geral,** por padrão terá um disco de dados com 5000 IOPS máximo, e utilizará esta mesma unidade para o seu registo de dados, registo de transações e armazenamento tempDB. Selecionar o **processamento transacional** (OLTP) ou o armazenamento de dados criará um disco separado para **dados,** um disco separado para o registo de transações e utilizará sSD local para tempDB. Não existem diferenças de armazenamento entre **o processamento transacional** e o armazenamento **de dados,** mas altera a [configuração das suas listras e traça as bandeiras.](#workload-optimization-settings) A escolha do armazenamento premium define o caching para *ReadOnly* para a unidade de dados, e *nenhuma* para a unidade de registo de acordo com as [melhores práticas de desempenho do SQL Server VM](performance-guidelines-best-practices.md). 
+Selecione o tipo de carga de trabalho para a qual está a implementar o seu Servidor SQL sob **a otimização do Armazenamento**. Com a opção de otimização **geral,** por padrão terá um disco de dados com 5000 IOPS máximo, e utilizará esta mesma unidade para o seu registo de dados, registo de transações e armazenamento tempDB. Selecionar o **processamento transacional** (OLTP) ou o armazenamento de dados criará um disco separado para **dados,** um disco separado para o registo de transações e utilizará sSD local para tempDB. Não existem diferenças de armazenamento entre **o processamento transacional** e o armazenamento **de dados,** mas altera a [configuração das suas listras e traça as bandeiras.](#workload-optimization-settings) A escolha do armazenamento premium define o caching para *ReadOnly* para a unidade de dados, e *nenhuma* para a unidade de registo de acordo com as [melhores práticas de desempenho do SQL Server VM](performance-guidelines-best-practices.md). 
 
 ![Configuração de armazenamento VM do servidor SQL durante o provisionamento](./media/storage-configuration/sql-vm-storage-configuration.png)
 
@@ -54,7 +55,7 @@ A configuração do disco é completamente personalizável para que possa config
 
 Além disso, tem a capacidade de definir o cache para os discos. Os VMs Azure têm uma tecnologia de cache multi-nível chamada [Blob Cache](../../../virtual-machines/premium-storage-performance.md#disk-caching) quando usado com [Discos Premium](../../../virtual-machines/disks-types.md#premium-ssd). Blob Cache usa uma combinação da RAM máquina virtual e SSD local para cache. 
 
-O cache do disco para SSD Premium pode ser *LidoOnly* , *ReadWrite* ou *Nenhum* . 
+O cache do disco para SSD Premium pode ser *LidoOnly*, *ReadWrite* ou *Nenhum*. 
 
 - *O caching ReadOnly* é altamente benéfico para os ficheiros de dados do SQL Server que são armazenados no Armazenamento Premium. *ReadOnly* caching traz baixa latência de leitura, IOPS de alta leitura, e produção como, leituras são realizadas a partir de cache, que está dentro da memória VM e SSD local. Estas leituras são muito mais rápidas do que as leituras do disco de dados, que é do armazenamento de Azure Blob. O armazenamento premium não conta as leituras servidas de cache para o disco IOPS e produção. Portanto, o seu aplicável é capaz de alcançar um total mais elevado de IOPS e produção. 
 - *Nenhuma* configuração de cache deve ser utilizada para os discos que hospedam o ficheiro SQL Server Log, uma vez que o ficheiro de registo é escrito sequencialmente e não beneficia do cache *ReadOnly.* 
@@ -62,12 +63,12 @@ O cache do disco para SSD Premium pode ser *LidoOnly* , *ReadWrite* ou *Nenhum* 
 
 
    > [!TIP]
-   > Certifique-se de que a sua configuração de armazenamento corresponde às limitações impostas pelo tamanho VM selecionado. A escolha de parâmetros de armazenamento que excedam a tampa de desempenho do tamanho VM resultará em erro: `The desired performance might not be reached due to the maximum virtual machine disk performance cap.` . Diminua os IOPs alterando o tipo de disco ou aumentando a limitação da tampa de desempenho aumentando o tamanho do VM. 
+   > Certifique-se de que a sua configuração de armazenamento corresponde às limitações impostas pelo tamanho VM selecionado. A escolha de parâmetros de armazenamento que excedam a tampa de desempenho do tamanho de VM resultará em aviso: `The desired performance might not be reached due to the maximum virtual machine disk performance cap` . Diminua os IOPs alterando o tipo de disco ou aumentando a limitação da tampa de desempenho aumentando o tamanho do VM. Isto não vai parar de provisões. 
 
 
 Com base nas suas escolhas, a Azure executa as seguintes tarefas de configuração de armazenamento após a criação do VM:
 
-* Cria e liga SSDs premium à máquina virtual.
+* Cria e liga SSDs Premium à máquina virtual.
 * Configura os discos de dados para serem acessíveis ao SQL Server.
 * Configura os discos de dados num conjunto de armazenamento com base nos requisitos de tamanho e desempenho especificados (IOPS e produção).
 * Associa a piscina de armazenamento a uma nova unidade na máquina virtual.
@@ -94,14 +95,14 @@ Pode utilizar o seguinte modelo de arranque rápido para implementar um SQL Serv
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-Para os VMs do servidor SQL existentes, pode modificar algumas definições de armazenamento no portal Azure. Abra o [seu recurso de máquinas virtuais SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource)e selecione **visão geral** . A página sql Server Overview mostra o uso atual do armazenamento do seu VM. Todas as unidades existentes no seu VM são apresentadas neste gráfico. Para cada unidade, o espaço de armazenamento apresenta quatro secções:
+Para os VMs do servidor SQL existentes, pode modificar algumas definições de armazenamento no portal Azure. Abra o [seu recurso de máquinas virtuais SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource)e selecione **visão geral**. A página sql Server Overview mostra o uso atual do armazenamento do seu VM. Todas as unidades existentes no seu VM são apresentadas neste gráfico. Para cada unidade, o espaço de armazenamento apresenta quatro secções:
 
 * Dados SQL
 * Log SQL
 * Outros (armazenamento não-SQL)
 * Disponível
 
-Para modificar as definições de armazenamento, **selecione Configurações de** **Configurações** . 
+Para modificar as definições de armazenamento, **selecione Configurações de** **Configurações**. 
 
 ![Screenshot que realça a opção Configurar e a secção de Utilização de Armazenamento.](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
 
@@ -140,7 +141,7 @@ O Azure utiliza as seguintes definições para criar a piscina de armazenamento 
 
 O quadro a seguir descreve as três opções de tipo de carga de trabalho disponíveis e as respetivas otimizações:
 
-| Tipo de carga de trabalho | Description | Otimizações |
+| Tipo de carga de trabalho | Descrição | Otimizações |
 | --- | --- | --- |
 | **Geral** |Definição padrão que suporta a maioria das cargas de trabalho |Nenhum |
 | **Processamento transacional** |Otimiza o armazenamento para as cargas de trabalho tradicionais da base de dados OLTP |Bandeira de traço 1117<br/>Bandeira de traço 1118 |

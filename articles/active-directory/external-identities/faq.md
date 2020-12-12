@@ -12,19 +12,20 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2825d3776f7b45f6726aaec05484900511ed1477
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 90cc15dc3944efd82d025df1bb5072c57346055e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96172980"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355635"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Ative Directory B2B colaboração FAQs
 
 Estas perguntas frequentes (FAQs) sobre a colaboração business-to-business (Azure AD) do Azure Ative Directory (Azure AD) são periodicamente atualizadas para incluir novos tópicos.
 
-   > [!IMPORTANT]
-   > **A partir de 31 de março de 2021, a** Microsoft deixará de apoiar o resgate de convites através da criação de contas Ead AZure não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optar em autenticação de senha única por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
+> [!IMPORTANT]
+> - **A partir de 4 de janeiro de 2021, a** Google está [a depreciar o suporte de sing-in webView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se estiver a utilizar a federação do Google ou a inscrição de self-service com o Gmail, deverá [testar as suas aplicações nativas de linha de negócios para compatibilidade](google-federation.md#deprecation-of-webview-sign-in-support).
+> - **A partir de 31 de março de 2021, a** Microsoft deixará de apoiar o resgate de convites através da criação de contas Ead AZure não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optar em autenticação de senha única por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
 
 ### <a name="can-we-customize-our-sign-in-page-so-its-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Podemos personalizar a nossa página de inscrição para que seja mais intuitiva para os nossos utilizadores convidados de colaboração B2B?
 Sem dúvida! Consulte a nossa [publicação de blog sobre esta funcionalidade.](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/) Para obter mais informações sobre como personalizar a página de insusição da sua organização, consulte [a marca Add company para iniciar sing e as páginas do Painel de Acesso.](../fundamentals/customize-branding.md)

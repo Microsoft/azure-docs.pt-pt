@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a61eca3340985886ef782b28a59a1283c5f473ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ead05598c6ca4d096e1a68c8d640938ecd771c2
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265719"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355516"
 ---
 # <a name="identity-providers-for-external-identities"></a>Fornecedores de Identidades Externas
 
@@ -25,6 +25,9 @@ Um *fornecedor de identidade* cria, mantém e gere informações de identidade a
 No entanto, pode permitir que os utilizadores entrem em s90 com vários fornecedores de identidade.
 
 - **Google**: A federação do Google permite que utilizadores externos resgatem convites de si, insinundo-se nas suas apps com as suas próprias contas Gmail. A federação da Google também pode ser usada nos fluxos de utilizador de inscrição de autosserviço.
+   > [!IMPORTANT]
+   > **A partir de 4 de janeiro de 2021, a** Google está [a depreciar o suporte de sing-in webView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se estiver a utilizar a federação do Google ou a inscrição de self-service com o Gmail, deverá [testar as suas aplicações nativas de linha de negócios para compatibilidade](google-federation.md#deprecation-of-webview-sign-in-support).
+
    > [!NOTE]
    > Na pré-visualização de inscrição de self-service atual, se um fluxo de utilizador estiver associado a uma aplicação e enviar um convite a um utilizador para essa aplicação, o utilizador não poderá utilizar uma conta Gmail para resgatar o convite. Como uma solução alternativa, o utilizador pode passar pelo processo de inscrição de autosserviço. Ou, podem resgatar o convite acedendo a uma aplicação diferente ou usando o portal My Apps em https://myapps.microsoft.com .
 

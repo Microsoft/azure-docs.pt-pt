@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9433945ffe1181b62ee193baf1c2dd0b89ec14c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0acef468aa53e456cd6fb416fe45558aee064699
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856811"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355822"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>O que é o aprovisionamento na cloud do Azure AD Connect?
 O Azure AD Connect cloud provisioning é um novo agente da Microsoft projetado para cumprir e cumprir os seus objetivos de identidade híbrida para a sincronização de utilizadores, grupos e contactos com a Azure AD.  Pode ser usado ao lado da sincronização Azure AD Connect e proporciona os seguintes benefícios:
@@ -32,7 +32,7 @@ O Azure AD Connect cloud provisioning é um novo agente da Microsoft projetado p
 Com o fornecimento de nuvem AZure AD Connect, o fornecimento de AD a Azure AD é orquestrado em Serviços Online da Microsoft. Uma organização só precisa de implantar, no seu ambiente no local e no iaaS, um agente leve que atua como uma ponte entre a Azure AD e a AD. A configuração de provisionamento é armazenada em Azure AD e gerida como parte do serviço.
 
 ## <a name="azure-ad-connect-cloud-provisioning-video"></a>Vídeo de provisão de nuvem Azure AD Connect
-O vídeo curto seguinte fornece uma excelente sobreposição de provisões em nuvem AZure AD Connect:
+O vídeo curto seguinte fornece uma excelente visão geral do provisionamento em nuvem AZure AD Connect:
 
 > [!VIDEO https://youtube.com/embed/mOT3ID02_YQ]
 
@@ -54,7 +54,7 @@ A tabela a seguir fornece uma comparação entre o Azure AD Connect e o Azure AD
 | Suporte para objetos de contacto |● |● |
 | Suporte para objetos do dispositivo |● | |
 | Permitir a personalização básica para fluxos de atributos |● |● |
-| Atributos online Sychronize Exchange |● |● |
+| Synchronize Trocar atributos online |● |● |
 | Synconize atributos de extensão 1-15 |● |● |
 | Sincronizar atributos de AD definidos pelo cliente (extensões de diretório) |● | |
 | Suporte para Password Hash Sync |●|●|
@@ -72,6 +72,7 @@ A tabela a seguir fornece uma comparação entre o Azure AD Connect e o Azure AD
 | Suporte a serviços de domínio Azure AD|● | |
 | [Troca de writeback híbrido](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
 | Suporte para mais de 50.000 objetos por domínio AD |● | |
+| Referências de domínio transversal|● | |
 
 ## <a name="next-steps"></a>Passos seguintes 
 

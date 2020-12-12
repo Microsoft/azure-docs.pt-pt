@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 12/11/2020
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40751b7864cc62d17836ab6d57cd106f6904f64a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 788512db242bf1a1c6f18ffc0ee773bd3372aa42
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744113"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355875"
 ---
 # <a name="data-residency-and-customer-data-for-azure-ad-multi-factor-authentication"></a>Residência de dados e dados do cliente para autenticação multi-factor Azure AD
 
@@ -57,7 +57,7 @@ Para as nuvens públicas Azure, excluindo a autenticação Azure B2C, extensão 
 | Notificação autenticadora da Microsoft | Em registos de autenticação multi-factor<br />Loja de dados de relatórios de atividade de autenticação multi-factor<br />Utilizadores bloqueados se fraude reportada<br />Alterar pedidos quando o token do dispositivo Microsoft Authenticator muda |
 
 > [!NOTE]
-> A loja de dados de relatórios de autenticação multi-factor é armazenada nos Estados Unidos para todas as nuvens, independentemente da região que processa o pedido de autenticação. A Microsoft Azure Germany, Microsoft Azure Operada pela 21Vianet e Microsoft Government Cloud têm as suas próprias lojas de dados independentes separadas das lojas de dados da região da nuvem pública, no entanto estes dados são sempre armazenados nos Estados Unidos.
+> A loja de dados de relatórios de autenticação multi-factor é armazenada nos Estados Unidos para todas as nuvens, independentemente da região que processa o pedido de autenticação. A Microsoft Azure Germany, Microsoft Azure Operada pela 21Vianet e Microsoft Government Cloud têm as suas próprias lojas de dados independentes separadas das lojas de dados da região da nuvem pública, no entanto estes dados são sempre armazenados nos Estados Unidos. Estas lojas de dados contêm informações pessoalmente identificáveis (PII), como o nome principal do utilizador (UPN) e o número de telefone completo. 
 
 Para o Microsoft Azure Government, Microsoft Azure Germany, Microsoft Azure Operado por 21Vianet, autenticação Azure B2C, Extensão NPS e Adaptador AD FS 2016 ou 2019, os seguintes dados pessoais são armazenados:
 

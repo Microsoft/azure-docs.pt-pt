@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8520afdd05ecce8604ce72596bdf06053217cc2e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: aef4ff77eb02723bcd95dcc99a55094bd10acd4c
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173095"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355482"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Ative Directory B2B convite de colaboração resgate
 
@@ -25,7 +25,8 @@ Este artigo descreve as formas como os utilizadores convidados podem aceder aos 
 Quando adiciona um utilizador convidado ao seu diretório, a conta de utilizador do hóspede tem um estado de consentimento (visível no PowerShell) que está inicialmente definido para **PendenteAcceptance**. Esta configuração permanece até que o hóspede aceite o seu convite e concorde com a sua política de privacidade e termos de uso. Depois disso, o estado de consentimento muda para **Aceito**, e as páginas de consentimento deixaram de ser apresentadas ao hóspede.
 
    > [!IMPORTANT]
-   > **A partir de 31 de março de 2021, a** Microsoft deixará de apoiar o resgate de convites através da criação de contas Ead AZure não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optar em autenticação de senha única por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
+   > - **A partir de 4 de janeiro de 2021, a** Google está [a depreciar o suporte de sing-in webView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se estiver a utilizar a federação do Google ou a inscrição de self-service com o Gmail, deverá [testar as suas aplicações nativas de linha de negócios para compatibilidade](google-federation.md#deprecation-of-webview-sign-in-support).
+   > - **A partir de 31 de março de 2021, a** Microsoft deixará de apoiar o resgate de convites através da criação de contas Ead AZure não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optar em autenticação de senha única por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
 
 ## <a name="redemption-through-the-invitation-email"></a>Redenção através do e-mail de convite
 

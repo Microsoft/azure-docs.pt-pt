@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: b08f00730e15dd0c7415a28adf85b87c95d7b1ed
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: a18e3cb65b2ef70a04ca1d7e74dd9d5f42e3a933
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347150"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355771"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos do principal de serviço e aplicação no Azure Active Directory
 
@@ -66,7 +66,7 @@ O objeto da aplicação serve como o modelo a partir do qual as propriedades com
 Deve ser criado um resmedificado de serviço em cada arrendatário em que o pedido seja utilizado, permitindo-lhe estabelecer uma identidade para a inscrição e/ou acesso aos recursos que o arrendatário assegura. Uma aplicação de inquilino único tem apenas um principal de serviço (no inquilino principal), criado e com permissão para utilização durante o registo da aplicação. Uma aplicação Web/API multi-arrendatário também tem um principal serviço criado em cada inquilino onde um utilizador desse inquilino consentiu a sua utilização.
 
 > [!NOTE]
-> Quaisquer alterações que faça ao seu objeto de candidatura, também se refletem no seu objeto principal de serviço apenas no arrendatário do pedido (o inquilino onde foi registado). No caso de aplicações multi-arrendatários, as alterações ao objeto de aplicação não se refletem em objetos principais de serviço dos inquilinos do consumidor, até que o acesso seja removido através do Painel de Acesso à [Aplicação](https://myapps.microsoft.com) e concedido novamente.
+> Quaisquer alterações que faça ao seu objeto de candidatura também se refletem no seu objeto principal de serviço apenas no arrendatário do pedido (o inquilino onde foi registado). No caso de aplicações multi-arrendatários, as alterações ao objeto de aplicação não se refletem em objetos principais de serviço dos inquilinos do consumidor, até que o acesso seja removido através do Painel de Acesso à [Aplicação](https://myapps.microsoft.com) e concedido novamente.
 >
 > Note também que as aplicações nativas são registadas como multi-inquilino por padrão.
 

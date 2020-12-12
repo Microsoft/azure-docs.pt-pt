@@ -8,18 +8,19 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 12ba0900f2499965f7843672183310dfecfbab2b
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 42d7760d25f6ab591c19889eb2159711d6de1b07
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146676"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356757"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migrar disco de log para ultra disco
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,15 +45,15 @@ Para permitir a compatibilidade, siga estes passos:
 
 1. Vá à sua máquina virtual no [portal Azure](https://portal.azure.com/). 
 1. Parar/negociar a máquina virtual. 
-1. Selecione **Discos** em **Definições** e, em seguida, selecione **Definições adicionais** . 
+1. Selecione **Discos** em **Definições** e, em seguida, selecione **Definições adicionais**. 
 
    :::image type="content" source="media/storage-migrate-to-ultradisk/additional-disks-settings-azure-portal.png" alt-text="Selecione definições adicionais para Discos em Definições no portal Azure":::
 
-1. Selecione **Sim** para Ativar a **compatibilidade ultra disco** . 
+1. Selecione **Sim** para Ativar a **compatibilidade ultra disco**. 
 
-   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Selecione definições adicionais para Discos em Definições no portal Azure":::
+   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Screenshot que mostra a opção Sim.":::
 
-1. Selecione **Guardar** . 
+1. Selecione **Guardar**. 
 
 
 
@@ -83,7 +84,7 @@ Configure o SqL Server para utilizar a nova unidade de registo. Pode fazê-lo ut
 1. Verifique a conta de serviço utilizada pelo SQL Server. Pode fazê-lo utilizando o Sql Server Configuration Manager ou Services.msc.
 1. Navegue para o seu novo disco. 
 1. Crie uma pasta (ou várias pastas) para ser utilizada para o seu ficheiro de registo. 
-1. Clique com o botão direito na pasta e selecione **Propriedades** .
+1. Clique com o botão direito na pasta e selecione **Propriedades**.
 1. No separador **Segurança,** conceder acesso total ao controlo total da conta de serviço sql Server. 
 1. Selecione **OK**  para guardar as suas definições. 
 1. Repita isto para todas as pastas de nível de raiz onde planeia ter dados SQL. 
@@ -143,14 +144,14 @@ Neste momento, a base de dados surge online com o registo no novo local.
 Utilize o SSMS para mover os ficheiros existentes para um novo local:
 
 1. Ligue à sua base de dados no SQL Server Management Studio (SSMS). 
-1. Clique no botão direito na base de dados, selecione **Propriedades** e, em seguida, selecione **Ficheiros** . 
+1. Clique no botão direito na base de dados, selecione **Propriedades** e, em seguida, selecione **Ficheiros**. 
 1. Observe o caminho dos ficheiros existentes. 
 1. Selecione **OK** para fechar a caixa de diálogo. 
-1. Clique com o botão direito na base de **dados,** selecione Tasks  >  **Desconect** . 
+1. Clique com o botão direito na base de **dados,** selecione Tasks  >  **Desconect**. 
 1. Siga o assistente para desprender a base de dados. 
 1. Utilize o File Explorer para mover manualmente o ficheiro de registo para a nova localização.
 1. Anexar a base de dados no SQL Server Management Studio
-   1. Clique com o botão direito **bases de dados** no Explorador de **Objetos** e **selecione a base de dados Attach** . 
+   1. Clique com o botão direito **bases de dados** no Explorador de **Objetos** e **selecione a base de dados Attach**. 
    1. Utilizando a caixa de diálogo, adicione cada ficheiro, incluindo o ficheiro de registo na sua nova localização. 
    1. Selecione **OK** para anexar a base de dados. 
 

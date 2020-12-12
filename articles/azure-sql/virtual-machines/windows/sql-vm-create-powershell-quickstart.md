@@ -6,6 +6,7 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: deployment
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
@@ -13,12 +14,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a4c8f0c636e254c4afc2d6cd83a744939096233a
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 350df1aede076120fd14dc46da351835c894c5b4
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553629"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356842"
 ---
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>Quickstart: Criar o SQL Server numa máquina virtual do Windows com Azure PowerShell
 
@@ -197,11 +198,11 @@ Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManag
 
 1. Depois de iniciar sessão no Remote Desktop, lance o **SQL Server Management Studio 2017** a partir do menu inicial.
 
-1. Na caixa de diálogo **'Ligar ao Servidor',** mantenha as predefinições. O nome do servidor é o nome da VM. A autenticação está definida como **Autenticação do Windows**. Selecione **Connect** (Ligar).
+1. Na caixa de diálogo **'Ligar ao Servidor',** mantenha as predefinições. O nome do servidor é o nome da VM. A autenticação está definida como **Autenticação do Windows**. Selecione **Ligar**.
 
 Está agora ligado ao SQL Server localmente. Se pretender ligar-se remotamente, tem de [configurar a conectividade](ways-to-connect-to-sql.md) a partir do portal Azure ou manualmente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não precisar que o VM seja executado continuamente, pode evitar cargas desnecessárias parando-a quando não estiver a ser utilizada. O comando seguinte para a VM, mas deixa-a disponível para utilização futura.
 
