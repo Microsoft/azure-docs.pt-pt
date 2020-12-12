@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: cee5181bf3dda3f0fb609d5aa344697e989ae6c3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e09ac39037024b5c360af4bb6ada26590b142924
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098897"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359599"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>Acesso Azure Cosmos DB Cassandra API de Spark on YARN com HDInsight
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -119,7 +119,7 @@ HDInsight-Spark vem com serviços de cadernos Zeppelin e Jupyter. Ambos são amb
 
 Os seguintes cadernos Jupyter podem ser enviados para o seu cluster HDInsight Spark e fornecer amostras prontas para trabalhar com Azure Cosmos DB Cassandra API. Certifique-se de rever o primeiro portátil `1.0-ReadMe.ipynb` para rever a configuração do serviço Spark para ligar à Azure Cosmos DB Cassandra API.
 
-Baixe estes cadernos em [azure-cosmos-db-cassandra-api-spark-notebooks-jupyter](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-jupyter/blob/master/scala/) para a sua máquina.
+Baixe estes cadernos em [azure-cosmos-db-cassandra-api-spark-notebooks-jupyter](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-jupyter/blob/main/scala/) para a sua máquina.
   
 ### <a name="how-to-upload"></a>Como fazer o upload:
 Quando lançar jupyter, navegue para Scala. Crie primeiro um diretório e depois carre fique com os cadernos para o diretório. O botão de upload está no lado direito.  
@@ -135,6 +135,6 @@ Para processos automatizados em produção, os programas Spark são submetidos a
 
 * [Como construir um programa Spark Scala num IDE e submetê-lo ao cluster HDInsight Spark através da Livy para execução](../hdinsight/spark/apache-spark-create-standalone-application.md)
 
-* [Como ligar-se à Azure Cosmos DB Cassandra API de um programa Spark Scala](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/master/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
+* [Como ligar-se à Azure Cosmos DB Cassandra API de um programa Spark Scala](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/main/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
 
 * [Lista completa de amostras de código para trabalhar com a Cassandra API](cassandra-spark-generic.md)

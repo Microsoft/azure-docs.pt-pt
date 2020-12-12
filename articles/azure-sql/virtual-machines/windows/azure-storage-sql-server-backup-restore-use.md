@@ -7,17 +7,18 @@ author: MikeRayMSFT
 tags: azure-service-management
 ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b
 ms.service: virtual-machines-sql
+ms.subservice: backup
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mathoma
-ms.openlocfilehash: a1ddd0ec44c9aa8fe0e00b75ff8afd986dc1007b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b4100800385792557358d3fb6438f52650483f89
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789901"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359800"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Use o armazenamento Azure para a cópia de segurança do SQL Server e restaure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -32,13 +33,13 @@ Este tópico explica por que pode optar por utilizar o Azure Storage para cópia
 ## <a name="benefits-of-using-azure-blob-storage-for-sql-server-backups"></a>Benefícios da utilização do armazenamento Azure Blob para backups do SQL Server
 Existem vários desafios que enfrenta ao fazer backup do SQL Server. Estes desafios incluem gestão de armazenamento, risco de falha de armazenamento, acesso ao armazenamento fora do local e configuração de hardware. Muitos destes desafios são abordados utilizando o armazenamento Azure Blob para backups do SQL Server. Considere os seguintes benefícios:
 
-* **Facilidade de utilização** : Armazenar as suas cópias de segurança em blobs Azure pode ser uma opção conveniente, flexível e de fácil acesso fora do local. A criação de armazenamento fora do local para as cópias de segurança do SQL Server pode ser tão fácil como modificar os scripts/empregos existentes para utilizar a sintaxe **backup TO URL.** O armazenamento fora do local deve normalmente estar longe o suficiente do local da base de dados de produção para evitar um único desastre que possa ter impacto tanto nos locais de base de dados fora do local como na base de dados de produção. Ao optar por [geo-replicar as suas bolhas Azure,](../../../storage/common/storage-redundancy.md)tem uma camada extra de proteção em caso de desastre que possa afetar toda a região.
-* **Arquivo de reserva** : O armazenamento Azure Blob oferece uma melhor alternativa à opção de fita frequentemente usada para arquivar cópias de segurança. O armazenamento de fitas pode exigir transporte físico para uma instalação fora do local e medidas para proteger os meios de comunicação. Armazenar as suas cópias de segurança no armazenamento Azure Blob proporciona uma opção instantânea, altamente disponível e uma opção de arquivamento durável.
-* **Hardware gerido** : Não existe sobrecarga de gestão de hardware com serviços Azure. Os serviços Azure gerem o hardware e fornecem geo-replicação para redundância e proteção contra falhas de hardware.
-* **Armazenamento ilimitado** : Ao permitir uma cópia de segurança direta para as bolhas Azure, tem acesso a armazenamento praticamente ilimitado. Alternativamente, o backup até um disco de máquina virtual Azure tem limites baseados no tamanho da máquina. Existe um limite para o número de discos que pode anexar a uma máquina virtual Azure para cópias de segurança. Este limite é de 16 discos para um caso extra grande e menos para casos menores.
-* **Disponibilidade de cópia de segurança** : As cópias de segurança armazenadas em blobs Azure estão disponíveis em qualquer lugar e a qualquer momento e podem ser facilmente acedidas para restauros a uma instância do SQL Server, sem a necessidade de anexar/desmontar ou descarregar e ligar o VHD.
-* **Custo** : Pague apenas pelo serviço utilizado. Pode ser rentável como uma opção de arquivo off-site e backup. Consulte a [calculadora de preços da Azure](https://go.microsoft.com/fwlink/?LinkId=277060 "Calculadora de preços")e o [artigo Azure Pricing](https://go.microsoft.com/fwlink/?LinkId=277059 "Artigo de preços") para obter mais informações.
-* **Imagens de armazenamento** : Quando os ficheiros de base de dados são armazenados numa bolha Azure e estiver a utilizar o SQL Server 2016, pode utilizar [cópias de segurança instantâneas](/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure) para realizar cópias de segurança quase instantâneas e restauros incrivelmente rápidos.
+* **Facilidade de utilização**: Armazenar as suas cópias de segurança em blobs Azure pode ser uma opção conveniente, flexível e de fácil acesso fora do local. A criação de armazenamento fora do local para as cópias de segurança do SQL Server pode ser tão fácil como modificar os scripts/empregos existentes para utilizar a sintaxe **backup TO URL.** O armazenamento fora do local deve normalmente estar longe o suficiente do local da base de dados de produção para evitar um único desastre que possa ter impacto tanto nos locais de base de dados fora do local como na base de dados de produção. Ao optar por [geo-replicar as suas bolhas Azure,](../../../storage/common/storage-redundancy.md)tem uma camada extra de proteção em caso de desastre que possa afetar toda a região.
+* **Arquivo de reserva**: O armazenamento Azure Blob oferece uma melhor alternativa à opção de fita frequentemente usada para arquivar cópias de segurança. O armazenamento de fitas pode exigir transporte físico para uma instalação fora do local e medidas para proteger os meios de comunicação. Armazenar as suas cópias de segurança no armazenamento Azure Blob proporciona uma opção instantânea, altamente disponível e uma opção de arquivamento durável.
+* **Hardware gerido**: Não existe sobrecarga de gestão de hardware com serviços Azure. Os serviços Azure gerem o hardware e fornecem geo-replicação para redundância e proteção contra falhas de hardware.
+* **Armazenamento ilimitado**: Ao permitir uma cópia de segurança direta para as bolhas Azure, tem acesso a armazenamento praticamente ilimitado. Alternativamente, o backup até um disco de máquina virtual Azure tem limites baseados no tamanho da máquina. Existe um limite para o número de discos que pode anexar a uma máquina virtual Azure para cópias de segurança. Este limite é de 16 discos para um caso extra grande e menos para casos menores.
+* **Disponibilidade de cópia de segurança**: As cópias de segurança armazenadas em blobs Azure estão disponíveis em qualquer lugar e a qualquer momento e podem ser facilmente acedidas para restauros a uma instância do SQL Server, sem a necessidade de anexar/desmontar ou descarregar e ligar o VHD.
+* **Custo**: Pague apenas pelo serviço utilizado. Pode ser rentável como uma opção de arquivo off-site e backup. Consulte a [calculadora de preços da Azure](https://go.microsoft.com/fwlink/?LinkId=277060 "Calculadora de preços")e o [artigo Azure Pricing](https://go.microsoft.com/fwlink/?LinkId=277059 "Artigo de preços") para obter mais informações.
+* **Imagens de armazenamento**: Quando os ficheiros de base de dados são armazenados numa bolha Azure e estiver a utilizar o SQL Server 2016, pode utilizar [cópias de segurança instantâneas](/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure) para realizar cópias de segurança quase instantâneas e restauros incrivelmente rápidos.
 
 Para obter mais detalhes, consulte [a Cópia de Segurança do Servidor SQL e restaure com o armazenamento Azure Blob](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service).
 
@@ -51,14 +52,14 @@ Os seguintes componentes Azure são utilizados quando se baseia no armazenamento
 | --- | --- |
 | **Conta de armazenamento** |A conta de armazenamento é o ponto de partida para todos os serviços de armazenamento. Para aceder ao armazenamento do Azure Blob, primeiro crie uma conta de Armazenamento Azure. Para obter mais informações sobre o armazenamento da Azure Blob, consulte [como utilizar o armazenamento Azure Blob](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/). |
 | **Container** (Contentor) |Um recipiente fornece um agrupamento de um conjunto de bolhas, e pode armazenar um número ilimitado de Blobs. Para escrever uma cópia de segurança do SQL Server para o armazenamento do Azure Blob, deve ter pelo menos o recipiente de raiz criado. |
-| **Blob** |Um arquivo de qualquer tipo e tamanho. As bolhas são endereçadas utilizando o seguinte formato URL: **https://[conta de armazenamento].blob.core.windows.net/[contentor]/[blob]** . Para obter mais informações sobre as manchas de página, consulte [Understanding Block e Page Blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) |
+| **Blob** |Um arquivo de qualquer tipo e tamanho. As bolhas são endereçadas utilizando o seguinte formato URL: **https://[conta de armazenamento].blob.core.windows.net/[contentor]/[blob]**. Para obter mais informações sobre as manchas de página, consulte [Understanding Block e Page Blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) |
 
 ## <a name="sql-server-components"></a>Componentes do Servidor SQL
 Os seguintes componentes do SQL Server são utilizados quando se baseia no armazenamento do Azure Blob.
 
 | Componente | Descrição |
 | --- | --- |
-| **URL** |Um URL especifica um identificador de recursos uniforme (URI) para um ficheiro de backup único. O URL é utilizado para fornecer a localização e o nome do ficheiro de backup do SQL Server. O URL deve apontar para uma bolha real, não apenas um recipiente. Se a bolha não existir, é criada. Se for especificada uma bolha existente, o BACKUP falha, a menos que a opção > COM FORMATO seja especificada. Segue-se um exemplo do URL que especificaria no comando BACKUP: **http[s][storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]** . HTTPS é recomendado, mas não é necessário. |
+| **URL** |Um URL especifica um identificador de recursos uniforme (URI) para um ficheiro de backup único. O URL é utilizado para fornecer a localização e o nome do ficheiro de backup do SQL Server. O URL deve apontar para uma bolha real, não apenas um recipiente. Se a bolha não existir, é criada. Se for especificada uma bolha existente, o BACKUP falha, a menos que a opção > COM FORMATO seja especificada. Segue-se um exemplo do URL que especificaria no comando BACKUP: **http[s][storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]**. HTTPS é recomendado, mas não é necessário. |
 | **Credencial** |As informações necessárias para ligar e autenticar ao armazenamento da Azure Blob são armazenadas como credenciais. Para que o SQL Server escreva cópias de segurança para uma Mancha Azure ou seja restaurada a partir dele, deve ser criada uma credencial SQL Server. Para obter mais informações, consulte [a Credencial do Servidor SQL](/sql/t-sql/statements/create-credential-transact-sql). |
 
 > [!NOTE]
@@ -70,8 +71,8 @@ Os seguintes componentes do SQL Server são utilizados quando se baseia no armaz
 1. Crie uma conta Azure se ainda não tiver uma. Se estiver a avaliar o Azure, considere o [teste gratuito.](https://azure.microsoft.com/free/)
 2. Em seguida, passe por um dos seguintes tutoriais que o acompanham através da criação de uma conta de armazenamento e realização de um restauro.
    
-   * **SQL Server 2014** : [Tutorial: SQL Server 2014 Backup e Restaurar para o armazenamento do Microsoft Azure Blob](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
-   * **SQL Server 2016** : [Tutorial: Utilização do armazenamento do Microsoft Azure Blob com bases de dados SQL Server 2016](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016)
+   * **SQL Server 2014**: [Tutorial: SQL Server 2014 Backup e Restaurar para o armazenamento do Microsoft Azure Blob](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
+   * **SQL Server 2016**: [Tutorial: Utilização do armazenamento do Microsoft Azure Blob com bases de dados SQL Server 2016](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016)
 3. Reveja documentação adicional a partir de [Backup e Restauro do SQL Server com o armazenamento microsoft Azure Blob](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service).
 
 Se tiver algum problema, reveja o tópico [SQL Server Backup para URL Best Practices e Troubleshooting](/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).

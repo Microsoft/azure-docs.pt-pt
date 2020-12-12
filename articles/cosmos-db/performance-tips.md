@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet, contperf-fy21q2
-ms.openlocfilehash: 962b95307b440c3bafde019b5b2b630461718073
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 47e20e89c8eaef59b9acd6cf7e31244afd4bcf60
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029010"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359052"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Sugestões de desempenho para o Azure Cosmos DB e SDK de .NET v2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -133,7 +133,7 @@ Os pedidos de DB da Azure Cosmos são feitos sobre HTTPS/REST quando utiliza o m
 
 **Afinar consultas paralelas para coleções divididas**
 
-SQL .NET SDK 1.9.0 e posterior suporte consultas paralelas, que permitem consultar uma coleção dividida em paralelo. Para obter mais informações, consulte [amostras de código relacionadas](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) com o trabalho com os SDKs. Consultas paralelas são projetadas para proporcionar uma melhor consulta de latência e produção do que a sua contraparte em série. Consultas paralelas fornecem dois parâmetros que pode sintonizar para se adaptar às suas necessidades: 
+SQL .NET SDK 1.9.0 e posterior suporte consultas paralelas, que permitem consultar uma coleção dividida em paralelo. Para obter mais informações, consulte [amostras de código relacionadas](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs) com o trabalho com os SDKs. Consultas paralelas são projetadas para proporcionar uma melhor consulta de latência e produção do que a sua contraparte em série. Consultas paralelas fornecem dois parâmetros que pode sintonizar para se adaptar às suas necessidades: 
 - `MaxDegreeOfParallelism` controla o número máximo de divisórias que podem ser consultadas em paralelo. 
 - `MaxBufferedItemCount` controla o número de resultados pré-recáveis.
 

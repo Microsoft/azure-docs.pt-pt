@@ -8,6 +8,7 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -15,12 +16,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 57e9c82e5685171cff994aca7985f6a4211f00e7
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: bd58f18959df3aa290083f907be8ab703366a7c6
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327292"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360106"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Orientação de preços para O SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

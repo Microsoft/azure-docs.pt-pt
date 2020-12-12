@@ -1,5 +1,5 @@
 ---
-title: SQL Server para SQL Managed Instance - Guia de migração
+title: 'SQL Server para SQL Managed Instance: Guia de migração'
 description: Siga este guia para migrar as bases de dados do SQL Server para Azure SQL Managed Instance.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 5d5404537ad107a54bd32110727e5a7d0f74ebea
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ac8b0e0c2cdbd46626677f4be0f78800d839ad28
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326901"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358899"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guia de migração: SQL Server para SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -102,7 +102,7 @@ Se precisar de comparar o desempenho da sua carga de trabalho numa SqL Managed I
 Com base nas informações na fase de descoberta e avaliação, crie um alvo de tamanho adequado SQL Managed Instance. Pode fazê-lo utilizando o [portal Azure,](../../managed-instance/instance-create-quickstart.md) [o PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)ou um [Modelo Azure Resource Manager (ARM).](../../managed-instance/create-template-quickstart.md) 
 
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrar
 
 Depois de ter concluído as tarefas associadas à fase de pré-migração, está pronto para executar o esquema e a migração de dados. 
 

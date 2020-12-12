@@ -7,6 +7,7 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
+ms.subservice: migration
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -14,12 +15,12 @@ ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ae89091eb57eade39f8b7581fc5df7ad449e8590
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 789554121af1c83d9077e6153ca9db01477bde25
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553561"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360157"
 ---
 # <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Mover um SQL Server VM para outra região dentro de Azure com recuperação do site Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -64,7 +65,7 @@ Prepare tanto a fonte SQL Server VM como a região alvo para a mudança.
     - A Azure Site Recovery descobre e cria automaticamente uma rede virtual quando ativa a replicação para o VM de origem. Também pode pré-criar uma rede e atribuí-la ao VM no fluxo do utilizador para permitir a replicação. É necessário criar manualmente quaisquer outros recursos na região alvo.
 - Para criar os recursos de rede mais utilizados que são relevantes para si com base na configuração VM de origem, consulte a seguinte documentação: 
     - [Grupos de segurança de rede](../../../virtual-network/tutorial-filter-network-traffic.md) 
-    - [Equilibrador de carga](../../../load-balancer/quickstart-load-balancer-standard-internal-portal.md)
+    - [Balanceador de carga](../../../load-balancer/quickstart-load-balancer-standard-internal-portal.md)
     - [Endereço IP público](../../../virtual-network/virtual-network-public-ip-address.md)
     - Para obter quaisquer componentes de rede adicionais, consulte a [documentação de networking](../../../virtual-network/virtual-networks-overview.md).
 - Crie manualmente uma rede de não produção na região alvo se quiser testar a configuração antes de realizar a última mudança para a região alvo. Recomendamos este passo porque garante uma interferência mínima com a rede de produção. 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: df50583e650d3d44e702c0f7d1596f2a733a4445
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 244fae9f8611acd21f2ee6cd7dafa45b88606456
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556391"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359358"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Criar um FCI com discos partilhados Azure (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +33,7 @@ Para saber mais, consulte uma visão geral da [FCI com o SQL Server em VMs Azure
 Antes de completar as instruções deste artigo, já deve ter:
 
 - Uma subscrição do Azure. Começa de [graça.](https://azure.microsoft.com/free/) 
-- [Duas ou mais máquinas virtuais Windows Azure](failover-cluster-instance-prepare-vm.md). [Os conjuntos de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md) e [os grupos de colocação de proximidade](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPGs) são ambos suportados. Se utilizar um PPG, todos os nós devem existir no mesmo grupo.
+- [Duas ou mais máquinas virtuais Windows Azure](failover-cluster-instance-prepare-vm.md). [Os conjuntos de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md) e [os grupos de colocação de proximidade](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPGs) suportados para SSD Premium e zonas de disponibilidade são [suportados](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) para Discos Ultra. Se utilizar um PPG, todos os nós devem existir no mesmo grupo.
 - Uma conta que tem permissões para criar objetos tanto em máquinas virtuais Azure como no Ative Directory.
 - A versão mais recente do [PowerShell.](/powershell/azure/install-az-ps) 
 
@@ -44,7 +44,7 @@ Implemente um disco SSD Premium gerido com a função de disco partilhado ativad
 Adicione um disco compartilhado Azure fazendo o seguinte: 
 
 
-1. Guarde o seguinte script à medida *queSharedDiskConfig.jsem* : 
+1. Guarde o seguinte script à medida *queSharedDiskConfig.jsem*: 
 
    ```JSON
    { 
@@ -151,13 +151,13 @@ Valide o cluster na UI ou utilizando o PowerShell.
 
 Para validar o cluster utilizando a UI, faça o seguinte numa das máquinas virtuais:
 
-1. Sob **o Gestor do Servidor** , selecione **Ferramentas** e, em seguida, selecione **O Gestor de Cluster Failover**.
+1. Sob **o Gestor do Servidor**, selecione **Ferramentas** e, em seguida, selecione **O Gestor de Cluster Failover**.
 1. Em **'Failover Cluster Manager',** selecione **Ação** e, em seguida, selecione **Validate Configuration**.
 1. Selecione **Seguinte**.
 1. Em **Servidores Selecionados ou num Cluster,** insira os nomes de ambas as máquinas virtuais.
 1. Nas **opções de Teste,** selecione **Executar apenas testes que seleciono**. 
 1. Selecione **Seguinte**.
-1. Em **Seleção de Testes** , selecione todos os testes, *exceto* **Armazenamento**
+1. Em **Seleção de Testes**, selecione todos os testes, *exceto* **Armazenamento**
 
 ## <a name="test-cluster-failover"></a>Falha do cluster de teste
 

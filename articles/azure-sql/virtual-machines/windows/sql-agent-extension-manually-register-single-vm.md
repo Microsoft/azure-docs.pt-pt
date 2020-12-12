@@ -6,6 +6,7 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,19 +15,19 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 48c996b6c7d0024b256908565c57032fe3e18514
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: bb7331747db301be5db00d550eec211f75257e29
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545643"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360038"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Registar SQL Server VM com extensão do agente SQL IaaS
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Registar o seu SQL Server VM com a [extensão SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md) para desbloquear uma grande quantidade de benefícios de recurso para o seu SQL Server em Azure VM. 
 
-Este artigo ensina-o a registar um único SQL Server VM com a extensão sql IaaS Agent. Em alternativa, pode registar automaticamente todos [automatically](sql-agent-extension-automatic-registration-all-vms.md) os VMs do SQL Server ou [vários VMs scripts a granel](sql-agent-extension-manually-register-vms-bulk.md).
+Este artigo ensina-o a registar um único SQL Server VM com a extensão sql IaaS Agent. Em alternativa, pode registar automaticamente todos [](sql-agent-extension-automatic-registration-all-vms.md) os VMs do SQL Server ou [vários VMs scripts a granel](sql-agent-extension-manually-register-vms-bulk.md).
 
 
 ## <a name="overview"></a>Descrição geral

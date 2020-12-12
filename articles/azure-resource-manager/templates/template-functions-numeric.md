@@ -3,12 +3,12 @@ title: Funções do modelo - numérico
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure (modelo ARM) para trabalhar com números.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 1484826b2377fe2adb2ac6ae2ab3ee6243b26c2c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: f3687581d94f80cc923614a0655da1813bd5c97b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920458"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359715"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funções numéricas para modelos ARM
 
@@ -247,7 +247,7 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 `float(arg1)`
 
-Converte o valor num ponto flutuante. Utilize esta função apenas ao passar parâmetros personalizados para uma aplicação, como uma Aplicação Lógica. A `float` função não é suportada na Becip.  Consulte [tipos numéricos de suporte que não os inteiros de 32bit](https://github.com/Azure/bicep/issues/486).
+Converte o valor num ponto flutuante. Utilize esta função apenas ao passar parâmetros personalizados para uma aplicação, como uma Aplicação Lógica. A `float` função não é suportada em Bicep.  Consulte [tipos numéricos de suporte que não os inteiros de 32bit](https://github.com/Azure/bicep/issues/486).
 
 ### <a name="parameters"></a>Parâmetros
 

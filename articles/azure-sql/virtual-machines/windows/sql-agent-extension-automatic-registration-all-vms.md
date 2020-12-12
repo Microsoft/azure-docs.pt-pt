@@ -5,16 +5,17 @@ author: MashaMSFT
 ms.author: mathoma
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/07/2020
-ms.openlocfilehash: a8eb112b0895d1c7a927621e6fb9e5160038692d
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 1ef7943586123a1870ed9a2d0c21aa8b5fd38c1c
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557769"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360004"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>Inscrição automática com extensão do Agente SQL IaaS
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -23,7 +24,7 @@ Ative a função de registo automático no portal Azure para registar automatica
 
 Este artigo ensina-o a ativar a função de registo automático. Em alternativa, pode [registar um único VM,](sql-agent-extension-manually-register-single-vm.md)ou [registar os seus VMs a granel](sql-agent-extension-manually-register-vms-bulk.md) com a extensão sql IaaS Agent. 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Registar o seu SQL Server VM com a [extensão SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md) para desbloquear um conjunto completo de benefícios. 
 

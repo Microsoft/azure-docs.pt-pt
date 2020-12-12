@@ -8,17 +8,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 5714a2fd79d01f4cbc445c1ec1a726209ab6d427
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0f194101720481f71434709c467d0e3130a0f1f9
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124939"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359460"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Configure um grupo de trabalho disponibilidade 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,7 +37,7 @@ Para configurar um grupo de disponibilidade de grupo de trabalho, precisa do seg
 
 Para referência, são utilizados neste artigo os seguintes parâmetros, mas podem ser modificados conforme necessário: 
 
-| **Name** | **Parâmetro** |
+| **Nome** | **Parâmetro** |
 | :------ | :---------------------------------- |
 | **Nó1**   | AGNode1 (10.0.0.4) |
 | **Nó2**   | AGNode2 (10.0.0.5) |
@@ -53,14 +54,14 @@ Neste passo, configurar o sufixo DNS para ambos os servidores. Por exemplo, `ag.
 Para configurar o sufixo DNS, siga estes passos:
 
 1. RDP no seu primeiro nó e gestor de servidor aberto. 
-1. Selecione **O Servidor Local** e, em seguida, selecione o nome da sua máquina virtual sob o nome de **Computador** . 
-1. Selecione **Change...** em **"To rename this computer"** ... . 
+1. Selecione **O Servidor Local** e, em seguida, selecione o nome da sua máquina virtual sob o nome de **Computador**. 
+1. Selecione **Change...** em **"To rename this computer"**... . 
 1. Mude o nome do nome do grupo de trabalho para ser algo significativo, `AGWORKGROUP` como: 
 
    ![Alterar nome do grupo de trabalho](./media/availability-group-clusterless-workgroup-configure/1-change-workgroup-name.png)
 
 1. Selecione **Mais...** para abrir a caixa de diálogo **DNS Sfixix e NetBIOS Computer Name.** 
-1. Digite o nome do seu sufixo DNS sob **o sufixo de DNS primário deste computador,** tal como `ag.wgcluster.example.com` e, em seguida, selecione **OK** : 
+1. Digite o nome do seu sufixo DNS sob **o sufixo de DNS primário deste computador,** tal como `ag.wgcluster.example.com` e, em seguida, selecione **OK**: 
 
    ![A screenshot mostra a caixa de diálogo D N S sufixo e nome do computador NetBIOS onde pode introduzir o valor.](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
 
@@ -115,12 +116,12 @@ Diferenças notáveis entre o tutorial e o que deve ser feito para um cluster de
 
 Uma vez criado o cluster, atribua um endereço IP de cluster estático. Para tal, siga estes passos:
 
-1. Num dos nós, abra o **Failover Cluster Manager,** selecione o cluster, clique com o botão direito no **\<ClusterNam> Nome:** em **Cluster Core Resources** e, em seguida, selecione **Propriedades** . 
+1. Num dos nós, abra o **Failover Cluster Manager,** selecione o cluster, clique com o botão direito no **\<ClusterNam> Nome:** em **Cluster Core Resources** e, em seguida, selecione **Propriedades**. 
 
    ![Propriedades de lançamento para o nome do cluster](./media/availability-group-clusterless-workgroup-configure/5-launch-cluster-name-properties.png)
 
 1. Selecione o endereço IP em **endereços IP** e selecione **Editar.** 
-1. Selecione **Use Static** , forneça o endereço IP do cluster e, em seguida, selecione **OK** : 
+1. Selecione **Use Static**, forneça o endereço IP do cluster e, em seguida, selecione **OK**: 
 
    ![Fornecer um endereço IP estático para o cluster](./media/availability-group-clusterless-workgroup-configure/6-provide-static-ip-for-cluster.png)
 

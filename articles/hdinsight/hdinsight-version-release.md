@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 2fd7a3e512b79651fdcf6a6ac0c14822361fc263
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b8f9759d19089f74d62def41b205d862ce9a7d43
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350199"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359732"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Visão geral do Azure HDInsight 4.0
 
@@ -38,7 +38,12 @@ A Colmeia agora suporta vistas dinâmicas materializadas, ou pré-computação d
 
 ### <a name="hive-transactional-tables"></a>Tabelas transacionais do Hive
 
-HDI 4.0 inclui Apache Hive 3. A Colmeia 3 requer aatóatua, consistência, isolamento e durabilidade para as tabelas transacionais que vivem no armazém da Colmeia. As tabelas e os dados de tabela conformes ao ACID são acedidos e geridos pelo Hive. Os dados relativos às tabelas de criação, recuperação, atualização e eliminação (CRUD) devem estar no formato de ficheiro da Coluna de Linha Otimizada (ORC). As tabelas inseridas suportam todos os formatos de ficheiro.
+HDI 4.0 inclui Apache Hive 3. A Colmeia 3 requer aatóatua, consistência, isolamento e durabilidade para as tabelas transacionais que vivem no armazém da Colmeia. As tabelas e os dados de tabela conformes ao ACID são acedidos e geridos pelo Hive. Os dados relativos às tabelas de criação, recuperação, atualização e eliminação (CRUD) devem estar no formato de ficheiro da Coluna de Linha Otimizada (ORC). As tabelas inseridas suportam todos os formatos de ficheiro. 
+
+> [!Note]
+> O suporte acidal/transacional só funciona para tabelas geridas e não para tabelas externas. As tabelas externas da Colmeia são projetadas para que as partes externas possam ler e escrever dados de tabela, sem que a Hive perfoming qualquer alteração dos dados subjacentes. Para tabelas ACID, a Hive pode alterar os dados subjacentes com compactações e transações.
+
+Alguns benefícios das tabelas ACID são os seguintes:
 
 * O ACID v2 tem melhorias de desempenho no formato de armazenamento e no motor de execução.
 

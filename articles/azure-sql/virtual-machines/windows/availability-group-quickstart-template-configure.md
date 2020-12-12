@@ -7,6 +7,7 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -14,19 +15,19 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e52925acb099190305e1f0609ac389565336e24b
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d7dfe010a3f4a1559454c49545af81eb14797bf1
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556510"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359919"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Utilize modelos de arranque rápido Azure para configurar um grupo de disponibilidade para O SQL Server em Azure VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Este artigo descreve como utilizar os modelos de arranque rápido do Azure para automatizar parcialmente a implementação de uma configuração de grupo de disponibilidade Always On para máquinas virtuais SQL Server (VMs) em Azure. Neste processo são utilizados dois modelos de arranque rápido Azure: 
 
-   | Modelo | Description |
+   | Modelo | Descrição |
    | --- | --- |
    | [101-sql-vm-ag-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) | Cria o cluster de failover do Windows e junta-lhe os VMs do SQL Server. |
    | [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) | Cria o ouvinte do grupo de disponibilidade e configura o equilibrador de carga interno. Este modelo só pode ser utilizado se o cluster de failover do Windows tiver sido criado com o modelo **de configuração de 101 m2-vm-ag.** |
@@ -116,14 +117,14 @@ Só precisas de criar o equilibrador interno de carga. No passo 4, o modelo de a
 
 1. No portal Azure, abra o grupo de recursos que contém as máquinas virtuais SQL Server. 
 2. No grupo de recursos, **selecione Adicionar**.
-3. Procure o **equilibrador de carga.** Nos resultados da pesquisa, selecione **Load Balancer** , que é publicado pela **Microsoft**.
+3. Procure o **equilibrador de carga.** Nos resultados da pesquisa, selecione **Load Balancer**, que é publicado pela **Microsoft**.
 4. Na lâmina do **balançador de carga,** selecione **Criar**.
 5. Na caixa de diálogo do balançador de **carga Create,** configurar o balançador de carga da seguinte forma:
 
    | Definição | Valor |
    | --- | --- |
    | **Nome** |Introduza um nome de texto que represente o equilibrador de carga. Por exemplo, **insira sqlLB**. |
-   | **Tipo** |**Interna** : A maioria das implementações utiliza um equilibrador de carga interno, que permite que aplicações dentro da mesma rede virtual se conectem ao grupo de disponibilidade.  </br> **Externo** : Permite que as aplicações se conectem ao grupo de disponibilidade através de uma ligação pública à Internet. |
+   | **Tipo** |**Interna**: A maioria das implementações utiliza um equilibrador de carga interno, que permite que aplicações dentro da mesma rede virtual se conectem ao grupo de disponibilidade.  </br> **Externo**: Permite que as aplicações se conectem ao grupo de disponibilidade através de uma ligação pública à Internet. |
    | **Rede virtual** | Selecione a rede virtual em que se encontram as instâncias do SQL Server. |
    | **Sub-rede** | Selecione a sub-rede em que se encontram as instâncias do SQL Server. |
    | **Atribuição de endereços IP** |**Estático** |
@@ -163,7 +164,7 @@ Para configurar o balançador de carga interno e criar o ouvinte do grupo de dis
    |**Grupo de recursos** | O grupo de recursos onde existem os VMs do seu SQL Server e o grupo de disponibilidade. | 
    |**Nome do cluster de failover existente** | O nome do cluster a que os seus VMs do sql server estão unidos. |
    | **Grupo de Disponibilidade Sql existente**| O nome do grupo de disponibilidade em que os seus VMs do SqL Server fazem parte. |
-   | **Lista Vm existente** | Os nomes dos VMs do Servidor SQL que fazem parte do grupo de disponibilidade anteriormente mencionado. Separe os nomes com uma vírgula e um espaço (por exemplo: *SQLVM1, SQLVM2* ). |
+   | **Lista Vm existente** | Os nomes dos VMs do Servidor SQL que fazem parte do grupo de disponibilidade anteriormente mencionado. Separe os nomes com uma vírgula e um espaço (por exemplo: *SQLVM1, SQLVM2*). |
    | **Serviço de Escuta** | O nome DNS que pretende atribuir ao ouvinte. Por padrão, este modelo especifica o nome "aglistener", mas pode alterá-lo. O nome não deve exceder 15 caracteres. |
    | **Porto de Ouvintes** | A porta que quer que o ouvinte use. Normalmente, esta porta deve ser o padrão de 1433. Este é o número da porta que o modelo especifica. Mas se a porta predefinida tiver sido alterada, a porta de escuta deve utilizar esse valor. | 
    | **IP ouvinte** | O endereço IP que deseja que o ouvinte utilize. Este endereço será criado durante a implementação do modelo, por isso forneça um que ainda não esteja em uso.  |

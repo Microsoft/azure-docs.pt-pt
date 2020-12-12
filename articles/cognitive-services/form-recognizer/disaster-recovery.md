@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 79cf0ef059d96ac66f5918605e999d3936d589d2
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 168dcf994d00ba1cb2070665ada5a55cf86cfa4a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95486522"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359817"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Recue e recupere os seus modelos de Reconhecimento de Formulários
 
@@ -69,7 +69,7 @@ POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/cust
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
-O corpo do seu pedido precisa de ter o seguinte formato. Terá de introduzir o ID de recurso e o nome da região do seu recurso alvo. Também vai precisar do ID do modelo, do token de acesso e do valor de expiração que copiou do passo anterior.
+O corpo do seu pedido precisa de ter o seguinte formato. Terá de introduzir o ID de recurso e o nome da região do seu recurso alvo. Pode encontrar o seu ID de recurso no **separador Propriedades** do seu recurso no portal Azure, e pode encontrar o nome da região no separador **Chaves e ponto final.** Também vai precisar do ID do modelo, do token de acesso e do valor de expiração que copiou do passo anterior.
 
 ```json
 {

@@ -6,15 +6,15 @@ author: kevinvngo
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: quickstart
-ms.date: 11/16/2020
+ms.date: 12/11/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 312c57c103bf733bc72c5de1d22ab3239d5b5e96
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 86ef610af605c657868824eefe2e6e706f6963ac
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484719"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360191"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Quickstart: Carregamento a granel com Sinapse SQL
 
@@ -33,32 +33,31 @@ Pode carregar facilmente dados de carga em massa utilizando piscinas SQL dedicad
 
 - Tem de ter as [permissões necessárias para utilizar a declaração COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#permissions) e criar permissões de mesa se estiver a criar uma nova tabela para carregar.
 
-- O serviço ligado associado à Conta ADLS Gen2 **deve ter acesso à** pasta de / **folder** ficheiros para carregar. Por exemplo, se o mecanismo de autenticação do serviço ligado for identidade gerida, a identidade gerida pelo espaço de trabalho deve ter pelo menos permissão do leitor blob de armazenamento na conta de armazenamento.
+- O serviço ligado associado à Conta ADLS Gen2 **deve ter acesso à** pasta de /  ficheiros para carregar. Por exemplo, se o mecanismo de autenticação do serviço ligado for identidade gerida, a identidade gerida pelo espaço de trabalho deve ter pelo menos permissão do leitor blob de armazenamento na conta de armazenamento.
 
 - Se o VNet estiver ativado no seu espaço de trabalho, certifique-se de que o tempo de funcionamento integrado associado aos serviços ligados à Conta ADLS Gen2 para os dados de origem e localização de ficheiros de erro tem a autoria interativa ativada. A autoria interativa é necessária para a deteção de autoschema, pré-visualização do conteúdo dos ficheiros de origem e navegação nas contas de armazenamento da ADLS Gen2 dentro do assistente.
 
 ### <a name="steps"></a>Passos
 
-1. Selecione a conta de armazenamento e o ficheiro ou pasta que está a carregar no painel de localização de armazenamento Source. O assistente tentará automaticamente detetar ficheiros Parquet. Se o tipo de ficheiro Parquet não puder ser confirmado, o texto delimitado (CSV) será utilizado por predefinição.
+1. Selecione a conta de armazenamento e o ficheiro ou pasta que está a carregar no painel de localização de armazenamento Source. O assistente tentará automaticamente detetar ficheiros Parquet, bem como ficheiros de texto delimitado (CSV), incluindo mapear os campos de origem do ficheiro para os tipos de dados SQL alvo apropriados. 
 
    ![Selecionando a localização da fonte](./sql/media/bulk-load/bulk-load-source-location.png)
 
-2. Selecione as definições do formato de ficheiro, incluindo a conta de armazenamento onde pretende escrever linhas rejeitadas (ficheiro de erro). Atualmente apenas os ficheiros CSV e Parquet são suportados.
+2. Selecione as definições do formato de ficheiro, incluindo as definições de erro para quando houver linhas rejeitadas durante o processo de carga a granel. Também pode selecionar "Pré-visualizar dados" para ver como a declaração COPY irá analisar o ficheiro para o ajudar a configurar as definições do formato de ficheiro. Selecione "Preview data" sempre que alterar uma definição de formato de ficheiro para ver como a declaração COPY analisará o ficheiro com a definição atualizada:
 
-    ![Selecionando definições de formato de ficheiro](./sql/media/bulk-load/bulk-load-file-format-settings.png)
-
-3. Pode selecionar "Pré-visualizar dados" para ver como a declaração COPY irá analisar o ficheiro para o ajudar a configurar as definições do formato de ficheiro. Selecione "Preview data" sempre que alterar uma definição de formato de ficheiro para ver como a declaração COPY analisará o ficheiro com a definição atualizada: ![ Visualizar dados](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
+   ![Dados de visualização](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
 
 > [!NOTE]  
 >
 > - A pré-visualização dos dados com terminadores de campo de vários caracteres não é suporte no assistente de carga a granel. O assistente de carga em massa irá visualizar os dados numa única coluna quando for especificado um exterminador de campo de vários caracteres. 
-> - Especificar terminadores de linha de vários caracteres é suportado na declaração COPY; no entanto, isto não é suportado no assistente de carga a granel onde um erro será lançado.
+> - Ao selecionar "Infer column names", o assistente de carga em massa analisará os nomes das colunas da primeira linha especificada pelo campo "Primeira Fila". O assistente de carga em massa irá incrementar automaticamente o valor FIRSTROW na declaração COPY por 1 para ignorar esta linha do cabeçalho. 
+> - Especificar terminadores de linha de vários caracteres é suportado na declaração COPY; no entanto, isto não é suportado no assistente de carga a granel onde será lançado um erro.
 
-4. Selecione a piscina SQL dedicada que está a usar para carregar, incluindo se a carga será para uma mesa ou nova tabela existente: ![ Selecionando a localização do alvo](./sql/media/bulk-load/bulk-load-target-location.png)
+3. Selecione a piscina SQL dedicada que está a usar para carregar, incluindo se a carga será para uma mesa ou nova tabela existente: ![ Selecionando a localização do alvo](./sql/media/bulk-load/bulk-load-target-location.png)
+4. Selecione "Configure column mapping" para se certificar de que tem o mapeamento de coluna apropriado. Os nomes das colunas de notas serão automaticamente detetados se "Infer column names" estiverem ativados. Para novas tabelas, configurar o mapeamento da coluna é fundamental para atualizar os tipos de dados da coluna-alvo:
 
-5. Selecione "Configure column mapping" para se certificar de que tem o mapeamento de coluna apropriado. Os nomes das colunas de notas serão automaticamente detetados se "Infer column names" estiverem ativados. Para novas tabelas, configurar o mapeamento da coluna é fundamental para atualizar os tipos de dados da coluna-alvo: ![ Configurar o mapeamento de colunas](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
-
-6. Selecione "Open script" e um script T-SQL será gerado com a declaração COPY para carregar a partir do seu lago de dados: ![ Abrir o script SQL](./sql/media/bulk-load/bulk-load-target-final-script.png)
+   ![Configurar o mapeamento da coluna](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
+5. Selecione "Open script" e um script T-SQL será gerado com a declaração COPY para carregar a partir do seu lago de dados: ![ Abrir o script SQL](./sql/media/bulk-load/bulk-load-target-final-script.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

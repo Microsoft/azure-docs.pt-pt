@@ -7,12 +7,13 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: 9d0dd8ee1b99ddd2abf4fad154c70315a3d33c83
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.subservice: deployment
+ms.openlocfilehash: a20cb27ac91a0b01ed9cc3a5ac4c5c57f90ceda1
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556425"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359647"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Quickstart: Criar VM do servidor SQL usando um modelo ARM
 
@@ -58,24 +59,24 @@ Mais SQL Server em modelos Azure VM pode ser encontrado na galeria de [modelos q
 
 2. Selecione ou introduza os seguintes valores.
 
-    * **Assinatura** : Selecione uma subscrição Azure.
-    * **Grupo de recursos** : O grupo de recursos preparado para o seu SQL Server VM. 
-    * **Região** : Selecione uma região.  Por exemplo, **E.U.A. Central**.
-    * **Nome da máquina virtual** : Introduza um nome para máquina virtual SQL Server. 
-    * **Tamanho da máquina virtual** : Escolha o tamanho adequado para a sua máquina virtual a partir do drop-down.
-    * **Nome de rede virtual existente** : Introduza o nome da rede virtual preparada para o seu SQL Server VM. 
-    * **Grupo de Recursos Vnet existente** : Insira o grupo de recursos onde a sua rede virtual foi preparada. 
-    * Nome da **sub-rede existente** : O nome da sua sub-rede preparada. 
-    * **Oferta de imagem** : Escolha a imagem do SQL Server e do Windows Server que melhor se adapte às necessidades do seu negócio. 
-    * **SQL Sku** : Escolha a edição do SQL Server SKU que melhor se adapte às necessidades do seu negócio. 
-    * **Nome de utilizador Admin** : O nome de utilizador para o administrador da máquina virtual. 
-    * **Admin Password** : A palavra-passe utilizada pela conta de administrador VM. 
-    * **Tipo de carga de trabalho de armazenamento** : O tipo de armazenamento para a carga de trabalho que melhor combina com o seu negócio. 
-    * **Contagem de discos de dados sql** : O número de discos que o SQL Server utiliza para ficheiros de dados.  
-    * **Caminho dos dados** : O caminho para os ficheiros de dados do SQL Server. 
-    * **Contagem de discos de log sql** : O número de discos que o SQL Server utiliza para ficheiros de registo. 
-    * **Log Path** : O caminho para os ficheiros de registo do SQL Server. 
-    * **Localização** : A localização de todos os recursos, este valor deve continuar a ser o padrão de `[resourceGroup().location]` . 
+    * **Assinatura**: Selecione uma subscrição Azure.
+    * **Grupo de recursos**: O grupo de recursos preparado para o seu SQL Server VM. 
+    * **Região**: Selecione uma região.  Por exemplo, **E.U.A. Central**.
+    * **Nome da máquina virtual**: Introduza um nome para máquina virtual SQL Server. 
+    * **Tamanho da máquina virtual**: Escolha o tamanho adequado para a sua máquina virtual a partir do drop-down.
+    * **Nome de rede virtual existente**: Introduza o nome da rede virtual preparada para o seu SQL Server VM. 
+    * **Grupo de Recursos Vnet existente**: Insira o grupo de recursos onde a sua rede virtual foi preparada. 
+    * Nome da **sub-rede existente**: O nome da sua sub-rede preparada. 
+    * **Oferta de imagem**: Escolha a imagem do SQL Server e do Windows Server que melhor se adapte às necessidades do seu negócio. 
+    * **SQL Sku**: Escolha a edição do SQL Server SKU que melhor se adapte às necessidades do seu negócio. 
+    * **Nome de utilizador Admin**: O nome de utilizador para o administrador da máquina virtual. 
+    * **Admin Password**: A palavra-passe utilizada pela conta de administrador VM. 
+    * **Tipo de carga de trabalho de armazenamento**: O tipo de armazenamento para a carga de trabalho que melhor combina com o seu negócio. 
+    * **Contagem de discos de dados sql**: O número de discos que o SQL Server utiliza para ficheiros de dados.  
+    * **Caminho dos dados**: O caminho para os ficheiros de dados do SQL Server. 
+    * **Contagem de discos de log sql**: O número de discos que o SQL Server utiliza para ficheiros de registo. 
+    * **Log Path**: O caminho para os ficheiros de registo do SQL Server. 
+    * **Localização**: A localização de todos os recursos, este valor deve continuar a ser o padrão de `[resourceGroup().location]` . 
 
 3. Selecione **Rever + criar**. Depois de o SQL Server VM ter sido implementado com sucesso, recebe uma notificação.
 
@@ -92,7 +93,7 @@ read resourcegroupName &&
 az resource list --resource-group $resourcegroupName 
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos utilizando o Azure CLI ou o Azure PowerShell:
 

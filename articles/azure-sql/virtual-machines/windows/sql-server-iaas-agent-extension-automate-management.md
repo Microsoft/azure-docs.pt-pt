@@ -8,6 +8,7 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -16,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 572363f429cb828d44c9dd12ba2424930c94fefe
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: e8268630b2c108dc95ded059ce41866a14fadd0e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553544"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359256"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatizar a gestão com a extensão do Agente IAAS do SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -31,17 +32,17 @@ A extensão do Agente IAAS do SQL Server (SqlIaasExtension) funciona no SQL Serv
 
 Este artigo fornece uma visão geral da extensão. Para instalar a extensão IAAS do SQL Server ao SQL Server em VMs Azure, consulte os artigos de [instalação automática,](sql-agent-extension-automatic-registration-all-vms.md) [VMs simples](sql-agent-extension-manually-register-single-vm.md)ou [VMs a granel](sql-agent-extension-manually-register-vms-bulk.md). 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A extensão do Agente IAAS do Servidor SQL proporciona uma série de benefícios para o SQL Server em VMs Azure: 
 
-- **Benefícios da funcionalidade** : A extensão desbloqueia uma série de benefícios de funcionalidades de automatização, tais como gestão de portais, flexibilidade de licenças, backup automatizado, patching automatizado e muito mais. Consulte [os benefícios de Recurso](#feature-benefits) mais tarde neste artigo para mais detalhes. 
+- **Benefícios da funcionalidade**: A extensão desbloqueia uma série de benefícios de funcionalidades de automatização, tais como gestão de portais, flexibilidade de licenças, backup automatizado, patching automatizado e muito mais. Consulte [os benefícios de Recurso](#feature-benefits) mais tarde neste artigo para mais detalhes. 
 
-- **Conformidade** : A extensão oferece um método simplificado de cumprimento da obrigação de notificar a Microsoft de que o Benefício Híbrido Azure foi ativado conforme especificado nos termos do produto. Este processo nega a necessidade de gerir formulários de registo de licenciamento para cada recurso.  
+- **Conformidade**: A extensão oferece um método simplificado de cumprimento da obrigação de notificar a Microsoft de que o Benefício Híbrido Azure foi ativado conforme especificado nos termos do produto. Este processo nega a necessidade de gerir formulários de registo de licenciamento para cada recurso.  
 
-- **Grátis** : A extensão nos três modos de gestão é completamente gratuita. Não há custo adicional associado à extensão, ou à alteração dos modos de gestão. 
+- **Grátis**: A extensão nos três modos de gestão é completamente gratuita. Não há custo adicional associado à extensão, ou à alteração dos modos de gestão. 
 
-- **Gestão simplificada da licença** : A extensão simplifica a gestão da licença do SQL Server e permite identificar rapidamente os VMs do Servidor SQL com o Benefício Híbrido Azure habilitado através do [portal Azure](manage-sql-vm-portal.md), o Azure CLI ou PowerShell: 
+- **Gestão simplificada da licença**: A extensão simplifica a gestão da licença do SQL Server e permite identificar rapidamente os VMs do Servidor SQL com o Benefício Híbrido Azure habilitado através do [portal Azure](manage-sql-vm-portal.md), o Azure CLI ou PowerShell: 
 
    # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -171,7 +172,7 @@ Não. A Microsoft regista automaticamente VMs a partir das imagens do SQL Server
 
 **A extensão do Agente IAAS SQL está disponível para todos os clientes?** 
 
-Yes. Os clientes devem registar os seus VMs sql server com a extensão se não utilizarem uma imagem sql Server do Azure Marketplace e, em vez disso, o SqL Server auto-instalado, ou se trouxerem o seu VHD personalizado. Os VMs detidos por todos os tipos de subscrições (Direct, Enterprise Agreement e Cloud Solution Provider) podem registar-se com a extensão do Agente IAAS SQL.
+Sim. Os clientes devem registar os seus VMs sql server com a extensão se não utilizarem uma imagem sql Server do Azure Marketplace e, em vez disso, o SqL Server auto-instalado, ou se trouxerem o seu VHD personalizado. Os VMs detidos por todos os tipos de subscrições (Direct, Enterprise Agreement e Cloud Solution Provider) podem registar-se com a extensão do Agente IAAS SQL.
 
 **Qual é o modo de gestão predefinido ao registar-se com a extensão do Agente IAAS SQL?**
 
@@ -208,7 +209,7 @@ Não. A atualização do modo de gestão para o modo de gestão para o modo NoAg
 
 **Posso atualizar a extensão IAAS do SQL Server do modo leve para o modo completo?**
 
-Yes. A atualização do modo de gestão de peso para cheio é suportada através do Azure PowerShell ou do portal Azure. Isto irá desencadear um reinício do serviço SQL Server.
+Sim. A atualização do modo de gestão de peso para cheio é suportada através do Azure PowerShell ou do portal Azure. Isto irá desencadear um reinício do serviço SQL Server.
 
 **Posso reduzir a extensão IAAS do SQL Server de modo completo para modo NoAgent ou modo de gestão leve?**
 
@@ -226,15 +227,15 @@ Não. Um VM deve ter pelo menos uma instância SQL Server (Database Engine) para
 
 **Posso registar um VM com a extensão do Agente IAAS SQL se existirem várias instâncias do SQL Server?**
 
-Yes. A extensão do Agente IAAS SQL registará apenas uma instância do SQL Server (Database Engine). A extensão do Agente SQL IaaS registará a instância padrão do SQL Server no caso de múltiplas instâncias. Se não houver uma instância predefinida, apenas é suportado o registo em modo leve. Para atualizar do modo de gestão leve para o modo de gestão completa, ou a instância padrão do SQL Server deve existir ou o VM deve ter apenas uma instância chamada SQL Server.
+Sim. A extensão do Agente IAAS SQL registará apenas uma instância do SQL Server (Database Engine). A extensão do Agente SQL IaaS registará a instância padrão do SQL Server no caso de múltiplas instâncias. Se não houver uma instância predefinida, apenas é suportado o registo em modo leve. Para atualizar do modo de gestão leve para o modo de gestão completa, ou a instância padrão do SQL Server deve existir ou o VM deve ter apenas uma instância chamada SQL Server.
 
 **Posso registar uma instância de cluster de falha do SQL Server com a extensão do Agente IAAS SQL?**
 
-Yes. Sql Server falha casos de cluster num Azure VM pode ser registado com a extensão sql IaaS Agent em modo leve. No entanto, as instâncias de cluster de failover do SQL Server não podem ser atualizadas para o modo de gestão completa.
+Sim. Sql Server falha casos de cluster num Azure VM pode ser registado com a extensão sql IaaS Agent em modo leve. No entanto, as instâncias de cluster de failover do SQL Server não podem ser atualizadas para o modo de gestão completa.
 
 **Posso registar o meu VM com a extensão do Agente IAAS SQL se um grupo de disponibilidade Always On estiver configurado?**
 
-Yes. Não existem restrições ao registo de uma instância do SQL Server num VM Azure com a extensão SQL IaaS Agent se estiver a participar numa configuração do grupo de disponibilidade Always On.
+Sim. Não existem restrições ao registo de uma instância do SQL Server num VM Azure com a extensão SQL IaaS Agent se estiver a participar numa configuração do grupo de disponibilidade Always On.
 
 **Qual o custo para o registo com a extensão do Agente IAAS SQL, ou com o upgrade para o modo de gestão completa?**
 

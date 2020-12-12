@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 2e4ff4d9159947ea87f97d56f3fb9c2825698227
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 81c959467c4bb3700120917cf150773fb18e866d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095071"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359834"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas mais frequentes sobre as diferentes APIs no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -180,7 +180,7 @@ A API SQL suporta a agregação de baixa latência em qualquer escala através d
 
 A API SQL suporta controlo de concência otimista (OCC) através de tags de entidades HTTP, ou ETags. Cada recurso API SQL tem um ETag, e o ETag é definido no servidor sempre que um documento é atualizado. O cabeçalho ETag e o valor atual estão incluídos em todas as mensagens de resposta. Os ETags podem ser utilizados com o cabeçalho If-Match para permitir que o servidor decida se um recurso deve ser atualizado. O valor If-Match é o valor ETag a ser verificado. Se o valor ETag corresponder ao valor ETag do servidor, o recurso é atualizado. Se o ETag já não estiver em funcionamento, o servidor rejeita a operação com um código de resposta "FALHA DE Pré-condição HTTP 412". Em seguida, o cliente refetches o recurso para adquirir o valor ETag atual para o recurso. Além disso, os ETags podem ser utilizados com o cabeçalho Se-Nenhum-Match para determinar se é necessário um refetch de um recurso.
 
-Para utilizar a concordância otimista em .NET, utilize a classe [AccessCondition.](/dotnet/api/microsoft.azure.documents.client.accesscondition) Para obter uma amostra .NET, consulte [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) na amostra de DocumentosManagement no GitHub.
+Para utilizar a concordância otimista em .NET, utilize a classe [AccessCondition.](/dotnet/api/microsoft.azure.documents.client.accesscondition) Para obter uma amostra .NET, consulte [Program.cs](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/DocumentManagement/Program.cs) na amostra de DocumentosManagement no GitHub.
 
 ### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>Como faço transações na API SQL?
 

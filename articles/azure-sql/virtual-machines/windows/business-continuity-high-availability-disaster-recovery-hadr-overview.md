@@ -8,17 +8,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 194c6a5cead400e1bac78ba42cb7238b64bd3b7b
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: dbe5fba838e7c4ad9487a29889eab11d4e42671f
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327479"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358935"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuidade de negócios e HADR para SQL Server em Máquinas Virtuais Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -84,9 +85,20 @@ Pode ter uma solução de recuperação de desastres para as bases de dados do S
 
 Se tiver [Garantia de Software,](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3)pode implementar planos de recuperação de desastres híbridos (DR) com o SQL Server sem incorrer em custos adicionais de licenciamento para a instância passiva de recuperação de desastres.
 
-Na imagem a seguir, a configuração utiliza o SQL Server em execução numa máquina virtual Azure que utiliza 12 núcleos como réplica de recuperação de desastres para uma implementação do SQL Server no local que utiliza 12 núcleos. No passado, precisaria de licenciar 12 núcleos de SQL Server para a implementação no local e a implementação de Máquinas Virtuais Azure. O novo benefício oferece benefícios passivos de réplica para correr numa máquina virtual Azure. Agora você precisaria de licenciar apenas 12 núcleos de SQL Server em funcionamento no local, desde que os critérios de recuperação de desastres para a réplica passiva em Azure Virtual Machines sejam cumpridos.
+Por exemplo, você pode ter um primário ativo no local, e um secundário passivo gratuito para DR em Azure: 
 
-![Réplica gratuita de recuperação de desastres em Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/free-dr-replica-azure.png)
+![Passividade secundária gratuita em Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-secondary-in-azure.png)
+
+Na imagem anterior, a configuração utiliza o SQL Server em execução numa máquina virtual Azure que utiliza 12 núcleos como réplica de recuperação de desastres para uma implementação do SQL Server no local que utiliza 12 núcleos. No passado, precisaria de licenciar 12 núcleos de SQL Server para a implementação no local e a implementação de Máquinas Virtuais Azure. O novo benefício oferece benefícios passivos de réplica para correr numa máquina virtual Azure. Agora você precisaria de licenciar apenas 12 núcleos de SQL Server em funcionamento no local, desde que os critérios de recuperação de desastres para a réplica passiva em Azure Virtual Machines sejam cumpridos.
+
+Você também pode ter dois secundários passivos gratuitos quando as três réplicas estão hospedadas em Azure: 
+
+![Duas passivas livres quando tudo em Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-primary-in-azure.png)
+
+Ou pode configurar um ambiente híbrido de failover, com um primário licenciado no local, um passivo gratuito para HA, e duas passivas gratuitas para DR: 
+
+![Três passivas livres quando o ambiente é híbrido com uma réplica primária no local](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-with-primary-on-prem.png)
+
 
 Para mais informações, consulte as [condições de licenciamento](https://www.microsoft.com/licensing/product-licensing/products)do produto. 
 

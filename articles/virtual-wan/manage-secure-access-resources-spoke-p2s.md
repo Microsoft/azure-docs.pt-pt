@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 12/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: d4257e5ade1e32ec971bb77f9d5a686d30195735
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: b0937bbd72460b1d46ce0394af1933e858424966
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111540"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360327"
 ---
 # <a name="manage-secure-access-to-resources-in-spoke-vnets-for-user-vpn-clients"></a>Gerir o acesso seguro aos recursos em VNets falados para clientes VPN de utilizador
 
@@ -41,7 +41,11 @@ A configuração ponto-a-local (P2S) define os parâmetros para a ligação de c
 
 Ao selecionar o método de autenticação, tem três opções. Cada método tem requisitos específicos. Selecione um dos seguintes métodos e, em seguida, complete os passos.
 
-* **Autenticação do Diretório Ativo Azure:** Obtenha o ID de aplicação da Aplicação Empresarial Azure VPN registado no seu inquilino AZure AD, [o emitente,](https://sts.windows.net/your-Directory-ID/)e [o inquilino da AD Azure.](https://login.microsoftonline.com/your-Directory-ID)
+* **Autenticação do Diretório Ativo Azure:** Obter o seguinte:
+
+   * O ID de **aplicação** da Aplicação Empresarial Azure VPN registrado no seu inquilino AZure AD.
+   * O **Emitente.** Exemplo: `https://sts.windows.net/your-Directory-ID`.
+   * O **inquilino da AD Azure.** Exemplo: `https://login.microsoftonline.com/your-Directory-ID`.
 
 * **Autenticação baseada em raio:** Obtenha o IP do servidor Radius, o segredo do servidor Radius e as informações do certificado.
 

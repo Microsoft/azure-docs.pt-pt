@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: 6840b2188f3d7e7524c4c98d7e1b6d32440e6812
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 0374886482b43eefe6df5e107fd4da371633099d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339364"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359789"
 ---
 # <a name="frequently-asked-questions-about-the-gremlin-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre a API de Gremlin em Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -109,7 +109,7 @@ A Azure Cosmos DB Gremlin API aproveita os controladores de código aberto como 
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Como posso proteger-me contra ataques de injeção usando condutores de Gremlin?
 
-A maioria dos condutores nativos de Apache Tinkerpop Gremlin permitem a opção de fornecer um dicionário de parâmetros para a execução de consultas. Este é um exemplo de como fazê-lo em [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) e em [Gremlin-Javascript.](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js)
+A maioria dos condutores nativos de Apache Tinkerpop Gremlin permitem a opção de fornecer um dicionário de parâmetros para a execução de consultas. Este é um exemplo de como fazê-lo em [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) e em [Gremlin-Javascript.](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/main/app.js)
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Porque estou a receber o erro de compilação "Gremlin Query Compilation Error: Incapaz de encontrar qualquer método"?
 

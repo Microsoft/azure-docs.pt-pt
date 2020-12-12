@@ -2,18 +2,17 @@
 title: Configure um ouvinte de grupo de disponibilidade para SQL Server em máquinas virtuais RHEL em Azure - Máquinas virtuais Linux Microsoft Docs
 description: Saiba como configurar um ouvinte de grupo de disponibilidade no SQL Server em máquinas virtuais RHEL em Azure
 ms.service: virtual-machines-linux
-ms.subservice: ''
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: 01501b99d5d7c42af98d0397cf6ff8cbca14b07b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b7ded4e7f94e2f9dfdfdda86aec99ff87f2beda
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89485809"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359987"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar um ouvinte de grupo de disponibilidade para o SQL Server em máquinas virtuais RHEL em Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -68,7 +67,7 @@ As seguintes instruções levam-no através dos passos 1 a 4 a partir do Create 
    | **Localização** |Selecione a localização Azure em que se encontram as instâncias do SQL Server. |
 
 ### <a name="configure-the-back-end-pool"></a>Configure a piscina traseira
-Azure chama a piscina de *backend*de endereço back-end . Neste caso, o pool back-end são os endereços das três instâncias sql Server no seu grupo de disponibilidade. 
+Azure chama a piscina de *backend* de endereço back-end . Neste caso, o pool back-end são os endereços das três instâncias sql Server no seu grupo de disponibilidade. 
 
 1. No seu grupo de recursos, clique no equilibrador de carga que criou. 
 
@@ -131,12 +130,12 @@ As regras de equilíbrio de carga configuram como o balanceador de carga encamin
    | **Protocolo** |**TCP** |
    | **Porta** |*1433* |
    | **Porta de back-end** |*1433*. Este valor é ignorado porque esta regra utiliza **IP flutuante (retorno direto do servidor)**. |
-   | **Sonda** |Utilize o nome da sonda que criou para este equilibrador de carga. |
+   | **Teste** |Utilize o nome da sonda que criou para este equilibrador de carga. |
    | **Persistência da sessão** |**Nenhuma** |
    | **Tempo de 20 minutos (minutos)** |*4* |
    | **IP flutuante (retorno direto do servidor)** |**Ativado** |
 
-   :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="Adicionar piscina de backend":::
+   :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="Adicionar regra de equilíbrio de carga":::
 
 4. Clique em **OK**. 
 5. Azure configura a regra de equilíbrio de carga. Agora, o equilibrador de carga está configurado para encaminhar o tráfego para a instância do SQL Server que hospeda o ouvinte para o grupo de disponibilidade. 

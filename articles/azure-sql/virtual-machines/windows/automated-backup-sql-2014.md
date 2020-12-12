@@ -7,18 +7,19 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: bdc63fd1-db49-4e76-87d5-b5c6a890e53c
 ms.service: virtual-machines-sql
+ms.subservice: backup
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ccd998bc2f6e2771ff4dd1bedfa2213af7573102
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 41add54ce767413982ab0503f7263c58aed4d4e2
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556595"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359290"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Backup automatizado para máquinas virtuais SQL Server 2014 (Gestor de Recursos)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -57,7 +58,7 @@ Para utilizar a cópia de segurança automatizada, considere os seguintes pré-r
 
 A tabela a seguir descreve as opções que podem ser configuradas para cópia de segurança automatizada. Os passos de configuração reais variam consoante utilize o portal Azure ou os comandos Azure Windows PowerShell.
 
-| Definição | Alcance (Padrão) | Description |
+| Definição | Alcance (Padrão) | Descrição |
 | --- | --- | --- |
 | **Cópia de Segurança Automatizada** | Ativar/Desativar (Desativado) | Ativa ou desativa a Cópia de Segurança Automatizada para um Azure VM que executa o SQL Server 2014 Standard ou Enterprise. |
 | **Período de Retenção** | 1-30 dias (30 dias) | O número de dias para reter um reforço. |
@@ -112,7 +113,7 @@ $resourcegroupname = "resourcegroupname"
 
 Se a extensão do Agente IAAS do SQL Server estiver instalada, deverá vê-la listada como "SqlIaaSAgent" ou "SQLIaaSExtension". **O Estado de Provisioning** para a extensão também deve mostrar "Bem sucedido".
 
-Se não estiver instalado ou não tiver sido previsto, pode instalá-lo com o seguinte comando. Além do nome VM e do grupo de recursos, deve também especificar a região ( **$region** ) em que o seu VM está localizado. Especifique o tipo de licença para o seu SQL Server VM, escolhendo entre o pay-as-you-go ou trazer a sua própria licença através do [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). Para obter mais informações sobre o licenciamento, consulte [o modelo de licenciamento.](licensing-model-azure-hybrid-benefit-ahb-change.md) 
+Se não estiver instalado ou não tiver sido previsto, pode instalá-lo com o seguinte comando. Além do nome VM e do grupo de recursos, deve também especificar a região (**$region**) em que o seu VM está localizado. Especifique o tipo de licença para o seu SQL Server VM, escolhendo entre o pay-as-you-go ou trazer a sua própria licença através do [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). Para obter mais informações sobre o licenciamento, consulte [o modelo de licenciamento.](licensing-model-azure-hybrid-benefit-ahb-change.md) 
 
 ```powershell
 New-AzSqlVM  -Name $vmname `
@@ -186,7 +187,7 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 Pode levar vários minutos para instalar e configurar o Agente IAAS do SQL Server.
 
 > [!NOTE]
-> Existem outras definições para **New-AzVMSqlServerAutoBackupConfig** que se aplicam apenas ao SQL Server 2016 e ao Backup Automático v2. O SQL Server 2014 não suporta as seguintes definições: **BackupSystemDbs** , **BackupScheduleType** , **FullBackupFrequency** , **FullBackupStartHour** , **FullBackupWindowInHours** e **LogBackupFrequencyInMinutes**. Se tentar configurar estas definições numa máquina virtual SQL Server 2014, não há erro, mas as definições não são aplicadas. Se pretender utilizar estas definições numa máquina virtual SQL Server 2016, consulte [cópias de segurança automatizada v2 para máquinas virtuais SQL Server 2016 Azure](automated-backup.md).
+> Existem outras definições para **New-AzVMSqlServerAutoBackupConfig** que se aplicam apenas ao SQL Server 2016 e ao Backup Automático v2. O SQL Server 2014 não suporta as seguintes definições: **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**, **FullBackupStartHour**, **FullBackupWindowInHours** e **LogBackupFrequencyInMinutes**. Se tentar configurar estas definições numa máquina virtual SQL Server 2014, não há erro, mas as definições não são aplicadas. Se pretender utilizar estas definições numa máquina virtual SQL Server 2016, consulte [cópias de segurança automatizada v2 para máquinas virtuais SQL Server 2016 Azure](automated-backup.md).
 
 Para ativar a encriptação, modifique o script anterior para passar o parâmetro **EnableEncrypation** juntamente com uma palavra-passe (cadeia segura) para o parâmetro **CertificatePassword.** O seguinte script permite as definições de Backup Automatizada no exemplo anterior e adiciona encriptação.
 
@@ -261,7 +262,7 @@ Para monitorizar a cópia de segurança automatizada no SQL Server 2014, tem dua
 Em primeiro lugar, pode sondar o estado chamando [msdb.smart_admin.sp_get_backup_diagnostics](/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Ou consultar a função [msdb.smart_admin.fn_get_health_status](/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) valued.
 
 > [!NOTE]
-> O esquema de Cópia de Segurança Gerida no SQL Server 2014 é **msdb.smart_admin**. No SQL Server 2016 isto mudou para **msdb.managed_backup** , e os tópicos de referência usam este esquema mais recente. Mas para o SQL Server 2014, deve continuar a utilizar o esquema **smart_admin** para todos os objetos de backup geridos.
+> O esquema de Cópia de Segurança Gerida no SQL Server 2014 é **msdb.smart_admin**. No SQL Server 2016 isto mudou para **msdb.managed_backup**, e os tópicos de referência usam este esquema mais recente. Mas para o SQL Server 2014, deve continuar a utilizar o esquema **smart_admin** para todos os objetos de backup geridos.
 
 Outra opção é aproveitar a funcionalidade de Correio da Base de Dados incorporada para notificações.
 

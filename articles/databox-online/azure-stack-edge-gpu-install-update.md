@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 12/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 8d17528728c5519244210217b35d6cd6a3afe715
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 004c84387c51233542b1bbbf11d33cdff42259af
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449036"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359154"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Atualize o seu GPU Azure Stack Edge Pro 
 
@@ -22,9 +22,14 @@ Este artigo descreve os passos necessários para instalar a atualização no Azu
 O procedimento descrito neste artigo foi realizado usando uma versão diferente do software, mas o processo permanece o mesmo para a versão atual do software.
 
 > [!IMPORTANT]
-> - Atualização **2011** é a atualização atual. <!--and corresponds to **2.1.1377.2170** software version on your device.--> Para obter informações sobre esta atualização, aceda às [notas de lançamento](azure-stack-edge-gpu-2011-release-notes.md).
->
-> - Tenha em atenção que a instalação de uma atualização ou correção reinicia o dispositivo. Esta atualização contém as atualizações do software do dispositivo e as atualizações de Kubernetes. Dado que o Azure Stack Edge Pro é um único dispositivo de nó, qualquer I/S em andamento é interrompido e o seu dispositivo experimenta um tempo de paragem de até 30 minutos para a atualização.
+> - Atualização **2012** é a atualização atual e corresponde a:
+>   - Versão de software do dispositivo - **2.2.1438.2470**
+>   - Versão do servidor Kubernetes - **v1.17.3**
+>   - Versão IoT Edge: **0.1.0-beta10**
+>    
+>    Para obter informações sobre as novidades desta atualização, aceda às [notas de lançamento](azure-stack-edge-gpu-2012-release-notes.md).
+> - Para aplicar a atualização de 2012, o seu dispositivo deve estar em execução em 2010.
+> - Tenha em atenção que a instalação de uma atualização ou correção reinicia o dispositivo. Esta atualização contém as atualizações do software do dispositivo e as atualizações de Kubernetes. Dado que o Azure Stack Edge Pro é um único dispositivo de nó, qualquer I/S em andamento é interrompido e o seu dispositivo experimenta um tempo de inatividade de até 1,5 horas para a atualização.
 
 Para instalar atualizações no seu dispositivo, primeiro tem de configurar a localização do servidor de atualização. Depois de configurar o servidor de atualização, pode aplicar as atualizações através do portal Azure UI ou da UI web local.
 
@@ -32,7 +37,7 @@ Cada um destes passos é descrito nas seguintes secções.
 
 ## <a name="configure-update-server"></a>Servidor de atualização configurado
 
-1. Na UI web local, aceda ao servidor **De Atualização de Configuração**  >  **Update server**. 
+1. Na UI web local, aceda ao servidor **De Atualização de Configuração**  >  . 
    
     ![Configurar atualizações 1](./media/azure-stack-edge-gpu-install-update/configure-update-server-1.png)
 
@@ -161,7 +166,7 @@ Faça os seguintes passos para descarregar a atualização a partir do Catálogo
 
 2. Na caixa de pesquisa do Catálogo de Atualizações da Microsoft, insira o número de Base de Conhecimento (KB) do hotfix ou termos para a atualização que pretende descarregar. Por exemplo, insira **Azure Stack Edge Pro** e, em seguida, clique em **Procurar**.
    
-    A lista geminada de atualização aparece como **Azure Stack Edge Update 2011**.
+    A lista geminada de atualização aparece como **Azure Stack Edge Update 2012**.
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)-->
 
@@ -178,7 +183,7 @@ Antes da atualização ou instalação do hotfix, certifique-se de que:
 
 Este procedimento leva cerca de 20 minutos para ser concluído. Execute os seguintes passos para instalar a atualização ou hotfix.
 
-1. Na uI web local, **Maintenance** aceda à  >  **atualização do Software** de Manutenção . Tome nota da versão de software que está a executar. 
+1. Na uI web local, aceda à  >  **atualização do Software** de Manutenção . Tome nota da versão de software que está a executar. 
    
    ![dispositivo de atualização 2](./media/azure-stack-edge-gpu-install-update/local-ui-update-2.png)
 
@@ -196,7 +201,7 @@ Este procedimento leva cerca de 20 minutos para ser concluído. Execute os segui
 
 5. A atualização começa. Depois de o dispositivo ser atualizado com sucesso, reinicia-o. A UI local não é acessível nesta duração.
    
-6. Após o reinício, é levado para a página **Signo.** Para verificar se o software do dispositivo foi atualizado, **Maintenance** na UI web local, aceda à  >  **atualização do Software** de Manutenção . Para a versão atual, a versão de software apresentada deve ser **Azure Stack Edge 2011**.
+6. Após o reinício, é levado para a página **Signo.** Para verificar se o software do dispositivo foi atualizado, na UI web local, aceda à  >  **atualização do Software** de Manutenção . Para a versão atual, a versão de software apresentada deve ser **Azure Stack Edge 2012**.
 
    <!--![update device 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png)--> 
 
@@ -210,7 +215,7 @@ Este procedimento leva cerca de 20 minutos para ser concluído. Execute os segui
 
 9. Quando solicitado para confirmação, selecione **Sim** para prosseguir. 
 
-10. Após a instalação da atualização Kubernetes com sucesso, não **Maintenance** há alteração no software exibido na  >  **atualização do Software** de Manutenção . 
+10. Após a instalação da atualização Kubernetes com sucesso, não há alteração no software exibido na  >  **atualização do Software** de Manutenção . 
 
 
 ## <a name="next-steps"></a>Passos seguintes

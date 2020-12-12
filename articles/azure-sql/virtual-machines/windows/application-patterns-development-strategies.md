@@ -8,17 +8,18 @@ editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 41863c8d-f3a3-4584-ad86-b95094365e05
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mathoma
-ms.openlocfilehash: 50f963ad456ddcf509933b3c67436322c27a43d0
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: e877f775c6a7bc83ce6c4a559c9f74b606c952fc
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327530"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359494"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-on-azure-virtual-machines"></a>Padrões de aplicação e estratégias de desenvolvimento para O SQL Server em Máquinas Virtuais Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

@@ -7,6 +7,7 @@ author: ramakoni1
 manager: ramakoni1
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -14,12 +15,12 @@ ms.date: 06/08/2020
 ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b9223ffc564620804b36f6f0e71602b3888a9f42
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5dbd5725c666afe04d57d4432f0a4798fcb34c03
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025383"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358848"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Mudança no local da versão do servidor SQL em Azure VM
 

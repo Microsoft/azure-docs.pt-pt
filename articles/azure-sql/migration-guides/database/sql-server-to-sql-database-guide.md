@@ -1,5 +1,5 @@
 ---
-title: SQL Server para SQL Database - Guia de migração
+title: 'SQL Server para SQL Database: Guia de migração'
 description: Siga este guia para migrar as bases de dados do SQL Server para a Base de Dados Azure SQL.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: ee4abaf3c9f6aa70ba14920711c8917994254649
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: f4f54aa02fb56ba5bf5ae9fcec2dae07c7dc0a27
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326986"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358984"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>Guia de migração: SQL Server para SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -100,7 +100,7 @@ Se tiver vários servidores e bases de dados que precisam de ser avaliados e ana
 > [!IMPORTANT]
 > As avaliações em escala para várias bases de dados, especialmente as grandes, também podem ser automatizadas utilizando o [Utilitário da Linha de Comando DMA](/sql/dma/dma-commandline) e enviadas para a [Azure Migrate](/sql/dma/dma-assess-sql-data-estate-to-sqldb#view-target-readiness-assessment-results) para uma análise mais aprofundada e prontidão de destino.
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrar
 
 Depois de ter concluído as tarefas associadas à fase de pré-migração, está pronto para executar o esquema e a migração de dados. 
 

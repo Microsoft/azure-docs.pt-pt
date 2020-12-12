@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: c9e0b155a4cf34373bb6d851241dc62ddd661045
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 06e62f49b996eac09b9a0a6cb9001eb362833168
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602386"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359303"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Quickstart: Criar uma conta Azure Purview no portal Azure
 
@@ -30,6 +30,10 @@ Neste arranque rápido, cria-se uma conta Azure Purview.
 * A sua conta deve ter permissão para criar recursos na subscrição
 
 * Se tiver **a Azure Policy** a bloquear todas as aplicações da criação de conta de **Armazenamento** e espaço **de nomes EventHub,** tem de abrir exceções de política utilizando a etiqueta, que poderá ser inserida durante o processo de criação de uma conta Purview. A razão principal é que para cada Conta Desembaraço criada, precisa de criar um Grupo de Recursos gerido e dentro deste grupo de recursos, uma conta de Armazenamento e um espaço de nomes EventHub.
+
+    > [!important]
+    > Não precisa seguir este passo se não tiver a Política Azure ou uma Política Azure existente não estiver a bloquear a criação de **uma conta** de Armazenamento e espaço de **nomes EventHub.**
+
     1. Navegue até ao portal Azure e procure **política**
     1. Siga [Criar uma definição de política personalizada](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition) ou modificar a política existente para adicionar duas exceções com o operador e `not` `resourceBypass` etiqueta:
 
@@ -151,7 +155,7 @@ Se ao clicar em Adicionar vê duas escolhas que mostram ambas marcadas (desativa
 
 1. Selecione **Adicionar atribuição de função**.
 
-1. Para o tipo de função no **Papel de Curador de Dados de Purview** ou **função de administrador de fonte de dados** de purview dependendo do que o principal de serviço vai ser usado (por favor consulte [permissões de catálogo](catalog-permissions.md) para mais detalhes).
+1. Para o tipo de função no **Papel do Curador de Dados de Purview** ou **função de administrador de fonte de dados** de purview dependendo do que o principal de segurança vai ser usado (por favor consulte [permissões](catalog-permissions.md) de catálogo e [aplicações e objetos principais de serviço no Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) para mais detalhes).
 
 1. Para **atribuir acesso para** deixar o padrão, **utilizador, grupo ou principal de serviço**.
 
@@ -159,7 +163,7 @@ Se ao clicar em Adicionar vê duas escolhas que mostram ambas marcadas (desativa
 
 1. Clique em **Guardar**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não precisar desta conta Azure Purview, elimine-a com os seguintes passos:
 
@@ -167,7 +171,7 @@ Se já não precisar desta conta Azure Purview, elimine-a com os seguintes passo
 
 2. Selecione a conta Azure Purview que criou no início deste arranque rápido. Selecione **Eliminar**, insira o nome da conta e, em seguida, selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, aprendeu a criar uma conta Azure Purview.
 

@@ -7,18 +7,19 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
 ms.service: virtual-machines-sql
+ms.subservice: backup
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 78b422cd41f4cea72b74257fe70c09471e9d2d5b
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f41614d54dc4320f683f406b2882a7b388bb4c3d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556589"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358423"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Cópia de segurança automática v2 para máquinas virtuais Azure (Gestor de Recursos)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -56,7 +57,7 @@ A tabela a seguir descreve as opções que podem ser configuradas para cópia de
 
 ### <a name="basic-settings"></a>Definições Básicas
 
-| Definição | Alcance (Padrão) | Description |
+| Definição | Alcance (Padrão) | Descrição |
 | --- | --- | --- |
 | **Cópia de Segurança Automatizada** | Ativar/Desativar (Desativado) | Permite ou desativa backup automatizado para um Azure VM que executa o SQL Server 2016/2017 Developer, Standard ou Enterprise. |
 | **Período de Retenção** | 1-30 dias (30 dias) | O número de dias para reter reforços. |
@@ -66,7 +67,7 @@ A tabela a seguir descreve as opções que podem ser configuradas para cópia de
 
 ### <a name="advanced-settings"></a>Definições Avançadas
 
-| Definição | Alcance (Padrão) | Description |
+| Definição | Alcance (Padrão) | Descrição |
 | --- | --- | --- |
 | **Backups de bases de dados do sistema** | Ativar/Desativar (Desativado) | Quando ativado, esta funcionalidade também confirma as bases de dados do sistema: Master, MSDB e Model. Para as bases de dados MSDB e Model, verifique se estão em modo de recuperação total se pretender que sejam tomadas cópias de segurança de registo. Os backups de registo nunca são levados para o Mestre. E não há reforços para o TempDB. |
 | **Horário de backup** | Manual/Automatizado (Automatizado) | Por predefinição, o calendário de backup é automaticamente determinado com base no crescimento do registo. A agenda manual de cópias de segurança permite ao utilizador especificar a janela de tempo para cópias de segurança. Neste caso, as cópias de segurança só ocorrem na frequência especificada e durante a janela de tempo especificada de um determinado dia. |
@@ -158,7 +159,7 @@ $resourcegroupname = "resourcegroupname"
 
 Se a extensão do Agente IAAS do SQL Server estiver instalada, deverá vê-la listada como "SqlIaaSAgent" ou "SQLIaaSExtension". **O Estado de Provisioning** para a extensão também deve mostrar "Bem sucedido". 
 
-Se não estiver instalado ou não tiver sido previsto, pode instalá-lo com o seguinte comando. Além do nome VM e do grupo de recursos, deve também especificar a região ( **$region** ) em que o seu VM está localizado.
+Se não estiver instalado ou não tiver sido previsto, pode instalá-lo com o seguinte comando. Além do nome VM e do grupo de recursos, deve também especificar a região (**$region**) em que o seu VM está localizado.
 
 ```powershell
 $region = "EASTUS2"

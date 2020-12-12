@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: abc8cffa3d5b9dffb55beabc90cdaecb3adc647f
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 985f9e741a1491a812c1d2b20de96381f8af3fa4
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852528"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359851"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implementar a ferramenta de etiquetagem de exemplo
 
@@ -34,7 +34,7 @@ A forma mais rápida de começar a rotular dados é executar a ferramenta de rot
 
 Antes de começarmos, é importante notar que há duas maneiras de implantar a ferramenta de rotulagem da amostra para uma Instância de Contentores Azure (ACI). Ambas as opções são utilizadas para executar a ferramenta de rotulagem da amostra com ACI: 
 
-* [Usando o portal Azure](#azure-portal)
+* [Utilizar o portal do Azure](#azure-portal)
 * [Com a CLI do Azure](#azure-cli)
 
 ### <a name="azure-portal"></a>Portal do Azure
@@ -86,7 +86,7 @@ Siga estes passos para criar um novo recurso utilizando o portal Azure:
    * URL do servidor - Desemiste isto para `https://mcr.microsoft.com`
    * Nome de utilizador (Opcional) - Crie um nome de utilizador. 
    * Palavra-passe (Opcional) - Crie uma senha segura de que se lembrará.
-   * Imagem e etiqueta - Desemiste isto para `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview`
+   * Imagem e etiqueta - Desemiste isto para `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
    * Implementação Contínua - Desave-o **se** pretender receber atualizações automáticas quando a equipa de desenvolvimento esprodução de alterações na ferramenta de rotulagem da amostra.
    * Comando de arranque - Desemalte isto para `./run.sh eula=accept`
     

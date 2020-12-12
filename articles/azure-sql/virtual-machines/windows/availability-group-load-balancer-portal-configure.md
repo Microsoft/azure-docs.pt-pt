@@ -7,18 +7,19 @@ author: MashaMSFT
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4af7e10b573743602fea609264c73d58a1e6a7d1
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9fa23ca2ae655a11d7aaa4be67e08a6b3fa44394
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790003"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359392"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configure um equilibrador de carga para um sql servidor sempre em grupo de disponibilidade em Máquinas Virtuais Azure
 
@@ -59,19 +60,19 @@ Primeiro, crie o equilibrador de carga.
 
 1. No portal Azure, abra o grupo de recursos que contém as máquinas virtuais SQL Server. 
 
-2. No grupo de recursos, **selecione Adicionar** .
+2. No grupo de recursos, **selecione Adicionar**.
 
 3. Procure o **equilibrador de carga.** Escolha **o Balanceador de Carga** (publicado pela **Microsoft)** nos resultados da pesquisa.
 
-4. Na lâmina do **balançador de carga,** selecione **Criar** .
+4. Na lâmina do **balançador de carga,** selecione **Criar**.
 
 5. Na caixa de diálogo do balançador de **carga Create,** configurar o balançador de carga da seguinte forma:
 
    | Definição | Valor |
    | --- | --- |
-   | **Nome** |Um nome de texto que representa o equilibrador de carga. Por exemplo, **sqlLB** . |
-   | **Tipo** |**Interna** : A maioria das implementações utiliza um equilibrador de carga interno, que permite que aplicações dentro da mesma rede virtual se conectem ao grupo de disponibilidade.  </br> **Externo** : Permite que as aplicações se conectem ao grupo de disponibilidade através de uma ligação pública à Internet. |
-   | **SKU** |**Básico** : Opção predefinição. Só é válido se as instâncias do SQL Server estiverem no mesmo conjunto de disponibilidade. </br> **Norma** : Preferido. Válido se as instâncias do SQL Server estiverem no mesmo conjunto de disponibilidade. Necessário se as suas instâncias do SQL Server estiverem em diferentes zonas de disponibilidade. |
+   | **Nome** |Um nome de texto que representa o equilibrador de carga. Por exemplo, **sqlLB**. |
+   | **Tipo** |**Interna**: A maioria das implementações utiliza um equilibrador de carga interno, que permite que aplicações dentro da mesma rede virtual se conectem ao grupo de disponibilidade.  </br> **Externo**: Permite que as aplicações se conectem ao grupo de disponibilidade através de uma ligação pública à Internet. |
+   | **SKU** |**Básico**: Opção predefinição. Só é válido se as instâncias do SQL Server estiverem no mesmo conjunto de disponibilidade. </br> **Norma**: Preferido. Válido se as instâncias do SQL Server estiverem no mesmo conjunto de disponibilidade. Necessário se as suas instâncias do SQL Server estiverem em diferentes zonas de disponibilidade. |
    | **Rede virtual** |Selecione a rede virtual em que se encontram as instâncias do SQL Server. |
    | **Sub-rede** |Selecione a sub-rede em que se encontram as instâncias do SQL Server. |
    | **Atribuição de endereços IP** |**Estático** |
@@ -80,7 +81,7 @@ Primeiro, crie o equilibrador de carga.
    | **Grupo de recursos** |Selecione o grupo de recursos em que se encontram as instâncias do SQL Server. |
    | **Localização** |Selecione a localização Azure em que se encontram as instâncias do SQL Server. |
 
-6. Selecione **Criar** . 
+6. Selecione **Criar**. 
 
 Azure cria o equilibrador de carga. O equilibrador de carga pertence a uma rede específica, sub-rede, grupo de recursos e localização. Depois de Azure completar a tarefa, verifique as definições do balançador de carga no Azure. 
 
@@ -90,19 +91,19 @@ Azure chama a piscina de *backend* de endereço back-end . Neste caso, o pool ba
 
 1. No seu grupo de recursos, selecione o equilibrador de carga que criou. 
 
-2. Nas **Definições** , selecione **piscinas backend** .
+2. Nas **Definições**, selecione **piscinas backend**.
 
-3. Nas **piscinas backend** , selecione **Adicionar** para criar um pool de endereços back-end. 
+3. Nas **piscinas backend**, selecione **Adicionar** para criar um pool de endereços back-end. 
 
-4. Na **piscina de backend** , em **Nome,** escreva um nome para a piscina traseira.
+4. Na **piscina de backend**, em **Nome,** escreva um nome para a piscina traseira.
 
-5. Em **máquinas virtuais** , selecione **Adicionar uma máquina virtual** . 
+5. Em **máquinas virtuais**, selecione **Adicionar uma máquina virtual**. 
 
-6. Em **Escolha máquinas virtuais** , selecione Escolha um conjunto de **disponibilidade** e, em seguida, especifique o conjunto de disponibilidade a que as máquinas virtuais SQL Server pertencem.
+6. Em **Escolha máquinas virtuais**, selecione Escolha um conjunto de **disponibilidade** e, em seguida, especifique o conjunto de disponibilidade a que as máquinas virtuais SQL Server pertencem.
 
-7. Depois de ter escolhido o conjunto de disponibilidade, **selecione Escolha as máquinas virtuais,** selecione as duas máquinas virtuais que acolhem as instâncias do SQL Server no grupo de disponibilidade e, em seguida, escolha **Select** . 
+7. Depois de ter escolhido o conjunto de disponibilidade, **selecione Escolha as máquinas virtuais,** selecione as duas máquinas virtuais que acolhem as instâncias do SQL Server no grupo de disponibilidade e, em seguida, escolha **Select**. 
 
-8. Selecione **OK** para fechar as lâminas para **Escolher máquinas virtuais** e **Adicione o pool backend** . 
+8. Selecione **OK** para fechar as lâminas para **Escolher máquinas virtuais** e **Adicione o pool backend**. 
 
 O Azure atualiza as definições para o conjunto de endereços back-end. Agora o seu conjunto de disponibilidade tem um conjunto de duas instâncias SQL Server.
 
@@ -110,21 +111,21 @@ O Azure atualiza as definições para o conjunto de endereços back-end. Agora o
 
 A sonda define como o Azure verifica quais das instâncias do SQL Server detém atualmente o ouvinte do grupo de disponibilidade. O Azure sonda o serviço com base no endereço IP numa porta que define quando cria a sonda.
 
-1. Na lâmina do balançador **de** carga, selecione **sondas de saúde** . 
+1. Na lâmina do balançador **de** carga, selecione **sondas de saúde**. 
 
-2. Na lâmina **das sondas Health,** selecione **Adicionar** .
+2. Na lâmina **das sondas Health,** selecione **Adicionar**.
 
 3. Configure a sonda na lâmina da **sonda Add.** Utilize os seguintes valores para configurar a sonda:
 
    | Definição | Valor |
    | --- | --- |
-   | **Nome** |Um nome de texto representando a sonda. Por exemplo, **SQLAlwaysOnEndPointProbe** . |
+   | **Nome** |Um nome de texto representando a sonda. Por exemplo, **SQLAlwaysOnEndPointProbe**. |
    | **Protocolo** |**TCP** |
-   | **Porta** |Pode utilizar qualquer porta disponível. Por exemplo, *59999* . |
+   | **Porta** |Pode utilizar qualquer porta disponível. Por exemplo, *59999*. |
    | **Intervalo** |*5* |
    | **Limiar com funcionamento incorreto** |*2* |
 
-4.  Selecione **OK** . 
+4.  Selecione **OK**. 
 
 > [!NOTE]
 > Certifique-se de que a porta especifica está aberta na firewall de ambas as instâncias do SQL Server. Ambas as instâncias requerem uma regra de entrada para a porta TCP que utiliza. Para obter mais informações, consulte [adicionar ou editar a regra de Firewall](/previous-versions/orphan-topics/ws.11/cc753558(v=ws.11)). 
@@ -136,19 +137,19 @@ O Azure cria a sonda e depois usa-a para testar qual a instância do SQL Server 
 
 As regras de equilíbrio de carga configuram como o balanceador de carga encaminha o tráfego para as instâncias do SQL Server. Para este equilibrador de carga, ativa a devolução do servidor direto porque apenas uma das duas instâncias do SQL Server possui o recurso de ouvinte do grupo de disponibilidade de cada vez.
 
-1. Na lâmina do balançador de carga, selecione **regras** **de equilíbrio de carga** . 
+1. Na lâmina do balançador de carga, selecione **regras** **de equilíbrio de carga**. 
 
-2. Na lâmina das **regras de equilíbrio de carga,** selecione **Adicionar** .
+2. Na lâmina das **regras de equilíbrio de carga,** selecione **Adicionar**.
 
 3. Na lâmina **das regras de equilíbrio** de carga adicionar, configuure a regra de equilíbrio de carga. Utilize as seguintes definições: 
 
    | Definição | Valor |
    | --- | --- |
-   | **Nome** |Um nome de texto que representa as regras de equilíbrio de carga. Por exemplo, **SQLAlwaysOnEndPointListener** . |
+   | **Nome** |Um nome de texto que representa as regras de equilíbrio de carga. Por exemplo, **SQLAlwaysOnEndPointListener**. |
    | **Protocolo** |**TCP** |
    | **Porta** |*1433* |
-   | **Porto Backend** |*1433* . Este valor é ignorado porque esta regra utiliza **IP flutuante (retorno direto do servidor)** . |
-   | **Sonda** |Utilize o nome da sonda que criou para este equilibrador de carga. |
+   | **Porto Backend** |*1433*. Este valor é ignorado porque esta regra utiliza **IP flutuante (retorno direto do servidor)**. |
+   | **Teste** |Utilize o nome da sonda que criou para este equilibrador de carga. |
    | **Persistência da sessão** |**Nenhuma** |
    | **Tempo de 20 minutos (minutos)** |*4* |
    | **IP flutuante (retorno direto do servidor)** |**Ativado** |
@@ -157,7 +158,7 @@ As regras de equilíbrio de carga configuram como o balanceador de carga encamin
    > Pode ter de rolar para baixo da lâmina para ver todas as definições.
    > 
 
-4. Selecione **OK** . 
+4. Selecione **OK**. 
 
 5. Azure configura a regra de equilíbrio de carga. Agora, o equilibrador de carga está configurado para encaminhar o tráfego para a instância do SQL Server que hospeda o ouvinte para o grupo de disponibilidade. 
 
@@ -191,9 +192,9 @@ Se os recursos e dependências do cluster estiverem corretamente configurados, d
 
     Deve agora ver o nome do ouvinte que criou no Failover Cluster Manager. 
 
-3. Clique com o botão direito no nome do ouvinte e, em seguida, selecione **Propriedades** .
+3. Clique com o botão direito no nome do ouvinte e, em seguida, selecione **Propriedades**.
 
-4. Na caixa **de porta,** especifique o número da porta para o ouvinte do grupo de disponibilidade utilizando o $EndpointPort que usou anteriormente (1433 foi o predefinido), e, em seguida, selecione **OK** .
+4. Na caixa **de porta,** especifique o número da porta para o ouvinte do grupo de disponibilidade utilizando o $EndpointPort que usou anteriormente (1433 foi o predefinido), e, em seguida, selecione **OK**.
 
 Tem agora um grupo de disponibilidade em máquinas virtuais Azure em funcionamento no modo Gestor de Recursos. 
 
@@ -219,7 +220,7 @@ Para adicionar um endereço IP a um equilibrador de carga com o portal Azure, fa
 
 1. No portal Azure, abra o grupo de recursos que contém o equilibrador de carga e, em seguida, selecione o equilibrador de carga. 
 
-2. Em **DEFINIÇÕES** , selecione **o pool IP frontend** e, em seguida, selecione **Adicionar** . 
+2. Em **DEFINIÇÕES**, selecione **o pool IP frontend** e, em seguida, selecione **Adicionar**. 
 
 3. No **endereço IP frontend,** atribua um nome para a parte frontal. 
 
@@ -244,7 +245,7 @@ Para adicionar um endereço IP a um equilibrador de carga com o portal Azure, fa
 
 8. Selecione **OK** para salvar a sonda. 
 
-9. Criar uma regra de equilíbrio de carga. Selecione **regras de equilíbrio de** carga e, em seguida, selecione **Adicionar** .
+9. Criar uma regra de equilíbrio de carga. Selecione **regras de equilíbrio de** carga e, em seguida, selecione **Adicionar**.
 
 10. Configure a nova regra de equilíbrio de carga utilizando as seguintes definições:
 
@@ -293,7 +294,7 @@ Se um grupo de disponibilidade participar num grupo de disponibilidade distribu�
 
 1. Em cada servidor que participa no grupo de disponibilidade distribuído, crie uma regra de entrada na porta TCP do grupo de disponibilidade distribuída. Em muitos exemplos, a documentação utiliza o 5022. 
 
-1. No portal Azure, selecione no equilibrador de carga e selecione **regras de equilíbrio de carga** , e, em seguida, selecione **+Adicionar** . 
+1. No portal Azure, selecione no equilibrador de carga e selecione **regras de equilíbrio de carga**, e, em seguida, selecione **+Adicionar**. 
 
 1. Criar a regra de equilíbrio de carga com as seguintes definições:
 

@@ -7,18 +7,19 @@ author: MashaMSFT
 editor: monicar
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 147c507cde9abf2ef97098c6b41fbbd4d67f02d2
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 9337d1c2767923e6dc7c6b267e0c180b460a116e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324810"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359426"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configure um ou mais Sempre Na disponibilidade de ouvintes do grupo - Gestor de Recursos
 
@@ -195,7 +196,7 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 
 1. Lance o SQL Server Management Studio e ligue-se à réplica primária.
 
-1. Navegue para **sempreOn Grupos** de Disponibilidade Disponibilidade  >  **Availability Groups**  >  **Disponibilidade Disponibilidade Ouvintes** do Grupo . 
+1. Navegue para **sempreOn**  >  **Grupos de Disponibilidade**  >  **Ouvintes** do Grupo . 
 
 1. Deve agora ver o nome do ouvinte que criou no Failover Cluster Manager. Clique com o botão direito no nome do ouvinte e selecione **Propriedades**.
 

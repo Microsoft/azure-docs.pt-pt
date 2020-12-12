@@ -8,18 +8,19 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 601eebb1-fc2c-4f5b-9c05-0e6ffd0e5334
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8573e45270dfd1ff984eae3dc5fbf1dc5f2fc6da
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: f39380e253d3fa9e86bfea3a8c436862738ff8e3
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600868"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359936"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Sempre no grupo de disponibilidade no SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -99,7 +100,7 @@ Para mais informações, consulte [o portal Azure,](availability-group-azure-por
 
 Num cluster de ativação pós-falha convidado da VM IaaS do Azure, recomendamos um único NIC por servidor (nó de cluster) e uma única sub-rede. O azure networking tem redundância física, o que torna NICs adicionais e sub-redes desnecessários em um cluster de hóspedes Azure IaaS VM. Embora o relatório de validação do cluster emita um aviso de que os nós apenas são acessíveis numa única rede, este aviso pode ser ignorado com segurança nos clusters de ativação pós-falha convidados da VM IaaS do Azure. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Reveja as [melhores práticas hadr](hadr-cluster-best-practices.md) e, em seguida, inicie a implementação do seu grupo de disponibilidade utilizando o [portal Azure](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell,](./availability-group-az-commandline-configure.md) [Quickstart Templates](availability-group-quickstart-template-configure.md) ou [manualmente](availability-group-manually-configure-prerequisites-tutorial.md).
 

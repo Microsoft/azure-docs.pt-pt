@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7d50185169b22a136ce81bd3aebae235cf49498b
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 6dd95fc8fd0ab0099ac7404d4ca4e4b1851f650f
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436628"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359613"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Acesso seguro aos dados no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -95,7 +95,7 @@ Aqui está um padrão de design típico pelo qual tokens de recursos podem ser s
 
 A geração e gestão de token de recursos são geridas pelas bibliotecas de clientes nativos da Cosmos DB; no entanto, se utilizar REST deve construir os cabeçalhos pedido/autenticação. Para obter mais informações sobre a criação de cabeçalhos de autenticação para REST, consulte [o Controlo de Acesso nos Recursos DB da Cosmos](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) ou o código fonte para o nosso [SDK .NET](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) ou [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 
-Para um exemplo de um serviço de nível médio utilizado para gerar ou intermediar fichas de recursos, consulte a [aplicação ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
+Para um exemplo de um serviço de nível médio utilizado para gerar ou intermediar fichas de recursos, consulte a [aplicação ResourceTokenBroker](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
 ## <a name="users"></a>Utilizadores<a id="users"></a>
 

@@ -8,18 +8,19 @@ editor: ''
 tags: azure-service-management
 ms.assetid: d710c296-e490-43e7-8ca9-8932586b71da
 ms.service: virtual-machines-sql
+ms.subservice: security
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 92cd20f9e636c50416a72ec974a33c87da1ae2cb
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 54010359f226fe02336f039e3dcbb98075e9b06a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327275"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360089"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Considerações de segurança para o SQL Server em Máquinas Virtuais do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

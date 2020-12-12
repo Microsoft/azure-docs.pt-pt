@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 6c5ef4f0ee0d68e2eae755f000423db4620b834d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: a9bea0664f99a21ac734de666c802e9875ff00b5
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341387"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359330"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteger as chaves do Azure Cosmos com o Azure Key Vault 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -35,10 +35,10 @@ São necessários os seguintes passos para armazenar e ler as teclas de acesso D
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/).  
 2. Selecione **Criar um > de segurança > cofre de chaves**.  
-3. Na secção **Criar cofre de chaves** , forneça as seguintes informações:  
+3. Na secção **Criar cofre de chaves**, forneça as seguintes informações:  
    * **Nome:** Forneça um nome único para o seu Cofre de Chaves.  
    * **Assinatura:** Escolha a subscrição que vai utilizar.  
-   * Em **Grupo de Recursos** , selecione **Criar novo** e introduza um nome de grupo de recursos.  
+   * Em **Grupo de Recursos**, selecione **Criar novo** e introduza um nome de grupo de recursos.  
    * No menu pendente Localização, selecione uma localização.  
    * Deixe outras opções para os seus defeitos.  
 4. Depois de fornecer as informações acima, selecione **Criar**.  
@@ -49,7 +49,7 @@ São necessários os seguintes passos para armazenar e ler as teclas de acesso D
 
    * Selecione **Manual** para **as opções de upload**.
    * Forneça um **nome** para o seu segredo
-   * Forneça a cadeia de ligação da sua conta Cosmos DB no campo **Valor.** E, em seguida, **selecione Criar**.
+   * Forneça a cadeia de ligação da sua conta Cosmos DB no campo **Valor.** Em seguida, selecione **Criar**.
 
    :::image type="content" source="./media/access-secrets-from-keyvault/create-a-secret.png" alt-text="Criar um segredo":::
 
@@ -59,7 +59,7 @@ São necessários os seguintes passos para armazenar e ler as teclas de acesso D
 
 ## <a name="create-an-azure-web-application"></a>Criar uma aplicação web Azure
 
-1. Crie uma aplicação web Azure ou pode descarregar a aplicação a partir do [repositório GitHub.](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo) É uma aplicação MVC simples.  
+1. Crie uma aplicação web Azure ou pode descarregar a aplicação a partir do [repositório GitHub.](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/Demo/keyvaultdemo) É uma aplicação MVC simples.  
 
 2. Desaperte a aplicação descarregada e abra o ficheiro **HomeController.cs.** Atualize o ID secreto na seguinte linha:
 
@@ -82,7 +82,7 @@ Nesta secção, registe o pedido com o Azure Ative Directory e dá permissões p
 
 1. Navegue até ao portal Azure, abra o **Cofre-Chave** que criou na secção anterior.  
 
-2. Políticas **de Acesso Aberto** , selecione **+Add New** find the web app que implementou, selecione permissões e selecione **OK**.  
+2. Políticas **de Acesso Aberto**, selecione **+Add New** find the web app que implementou, selecione permissões e selecione **OK**.  
 
    :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Adicionar política de acesso":::
 

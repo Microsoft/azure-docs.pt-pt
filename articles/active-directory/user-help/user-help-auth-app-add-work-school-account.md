@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/24/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: e003c45aa1e7d75b709b7fbf99532fb1302fcbb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04c9bc429d9663f7ac36b6ba8f40abf225eb71c6
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797654"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359120"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Adicione o seu trabalho ou conta escolar à aplicação Microsoft Authenticator
 
@@ -27,30 +27,49 @@ Se a sua organização utilizar a verificação de dois fatores, pode configurar
 
 ## <a name="add-your-work-or-school-account"></a>Adicione o seu trabalho ou conta escolar
 
-1. No seu computador, aceda à página [adicional de verificação de segurança.](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1)
+Pode adicionar o seu trabalho ou conta escolar à aplicação Microsoft Authenticator, fazendo uma das seguintes:
 
-    >[!Note]
-    >Se não vir a página **de verificação de segurança adicional,** é possível que o seu administrador tenha ligado a experiência de informação de segurança (pré-visualização). Se for esse o caso, deve seguir as instruções na informação de segurança Configurar para utilizar uma secção [de aplicação autenticadora.](security-info-setup-auth-app.md) Se não for esse o caso, terá de contactar o Help Desk da sua organização para obter assistência. Para obter mais informações sobre informações de segurança, consulte [a informação de segurança (pré-visualização) visão geral](./security-info-setup-signin.md).
+- Faça o sômis com as credenciais de conta de trabalho ou escola (pré-visualização)
+- Digitalize um código QR
 
-2. Verifique a caixa ao lado **da aplicação Authenticator**e, em seguida, selecione **Configure**.
+### <a name="sign-in-with-your-credentials"></a>Inicie sessão com as suas credenciais
 
-    Aparece a página **de aplicações móveis Configure.**
+>[!Note]
+>Esta funcionalidade é utilizável apenas por utilizadores cujos administradores tenham ativado o início de sôs-in do telefone utilizando a aplicação Authenticator para os mesmos.
 
-    ![Ecrã que fornece o código QR](./media/user-help-auth-app-download-install/auth-app-barcode.png)
+Para adicionar uma conta, inscrevendo-se na sua conta de trabalho ou escola utilizando as suas credenciais:
 
-3. Abra a aplicação Microsoft Authenticator, **selecione Adicionar a conta** a partir do ícone De **personalizar e controlar** no canto superior direito e, em seguida, selecione Trabalho ou conta **escolar**.
+1. Abra a aplicação Microsoft Authenticator e selecione para o **+** botão e toque **em Adicionar trabalho ou conta escolar**. Selecione **Iniciar sessão**.
 
-    >[!Note]
-    >Se esta for a primeira vez que está a configurar a aplicação Microsoft Authenticator, poderá receber uma solicitação a perguntar se permite que a app aceda à sua câmara (iOS) ou se permite que a app tire fotografias e grave vídeos (Android). Tem de selecionar **Permitir** que a aplicação autenticadora possa aceder à sua câmara para tirar uma fotografia do código QR no passo seguinte. Se não permitir a câmara, ainda pode configurar a aplicação autenticadora, mas terá de adicionar manualmente a informação de código. Para obter informações sobre como adicionar o código manualmente, consulte [Manualmente adicione uma conta à aplicação.](user-help-auth-app-add-account-manual.md)
+1. Insira as credenciais de trabalho ou conta escolar. Se tiver um Passe de Acesso Temporário (TAP) pode usá-lo para iniciar sedutada. Neste ponto, pode potencialmente ser impedido de prosseguir por uma das seguintes condições:
 
-4. Utilize a câmara do seu dispositivo para digitalizar o código QR a partir do ecrã de **aplicações móveis Configure** no seu computador e, em seguida, escolha **Feito**.
+   - Se não tiver métodos de autenticação suficientes na sua conta para obter um token de autenticação forte, não poderá proceder à adição de uma conta.
 
-    >[!Note]
-    >Se a sua câmara não conseguir capturar o código QR, pode adicionar manualmente as informações da sua conta à aplicação Microsoft Authenticator para verificação de dois fatores. Para mais informações e como fazê-lo, consulte [Manualmente adicionar a sua conta.](user-help-auth-app-add-account-manual.md)
+   - Se receber a `You might be signing in from a location that is restricted by your admin` mensagem, está bloqueado e precisa de um administrador para o desbloquear nas [informações de Segurança](https://mysignins.microsoft.com/security-info).
 
-5. Reveja o ecrã de **Contas** da aplicação no seu dispositivo, para se certificar de que a sua conta está correta e que existe um código de verificação de seis dígitos associado. Para uma segurança adicional, o código de verificação muda a cada 30 segundos impedindo alguém de usar um código várias vezes.
+   - Se não estiver bloqueado para iniciar sing-in telefónico utilizando a aplicação Authenticator pelo seu administrador, poderá passar pelo registo do dispositivo para se configurar para iniciar senting de telefone sem palavra-passe e autenticação multi-factor Azure (MFA).
 
-    ![Tela de contas](./media/user-help-auth-app-download-install/auth-app-accounts.png)
+1. Neste momento, pode ser-lhe pedido que verifique um Código QR fornecido pela sua organização para criar uma conta de autenticação multi-factor no local na aplicação. Só é obrigado a fazê-lo se a sua organização utilizar o MFA Server no local.
+
+1. No seu dispositivo, toque na conta e verifique na visão completa de que a sua conta está correta e que existe um código de verificação de seis dígitos associado. Para uma segurança adicional, o código de verificação muda a cada 30 segundos impedindo alguém de usar um código várias vezes.
+
+## <a name="sign-in-with-a-qr-code"></a>Iniciar sins com um código QR
+
+Para adicionar uma conta digitalizando um Código QR, faça o seguinte:
+
+1. No seu computador, aceda à página **adicional de verificação de segurança.**
+
+   >[!Note]
+   >Se não vir a página **de verificação de segurança adicional,** é possível que o seu administrador tenha ligado a experiência de informação de segurança (pré-visualização). Se for esse o caso, deve seguir as instruções na informação de segurança Configurar para utilizar uma secção [de aplicação autenticadora.](security-info-setup-auth-app.md) Se não for esse o caso, terá de contactar o Help Desk da sua organização para obter assistência. Para obter mais informações sobre informações de segurança, consulte [Configurar as suas informações de Segurança a partir de um pedido de inscrição.](security-info-setup-signin.md)
+
+1. Selecione a caixa de verificação ao lado da aplicação Authenticator e, em seguida, selecione **Configure**. Aparece a página **de aplicações móveis Configure.**
+
+   ![Ecrã que fornece um código QR](./media/user-help-auth-app-add-work-school-account/auth-app-barcode.png)
+
+1. Abra a aplicação Microsoft Authenticator, selecione o ícone mais ![ Selecione o ícone mais em dispositivos iOS ou Android ](media/user-help-auth-app-add-work-school-account/plus-icon.png) e selecione **adicionar a conta**, e, em seguida, selecione Trabalho ou conta **escolar,** seguido por **Digitalizar um Código QR**.
+   Se não tiver uma conta configurada na aplicação Authenticator, verá um grande botão azul que diz **Adicionar conta**.
+
+Se não for solicitado que utilize a sua câmara para digitalizar um Código QR, nas definições do seu telefone, certifique-se de que a aplicação Authenticator tem acesso à câmara do telefone.
 
 ## <a name="next-steps"></a>Passos seguintes
 

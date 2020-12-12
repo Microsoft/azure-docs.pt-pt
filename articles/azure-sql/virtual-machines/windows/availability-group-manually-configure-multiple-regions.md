@@ -8,18 +8,19 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 335cc707cb1192d3dbf08f51e78d4e82441dd05a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 60bb5ac652a80b5ae52c91f91fa0c80440e9cc82
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094460"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359086"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Configure um SQL Server Always On availability group em diferentes regiões do Azure
 
@@ -96,7 +97,7 @@ Para criar uma réplica num centro de dados remoto, faça os seguintes passos:
 
 1. Adicione um recurso de endereço IP ao cluster.
 
-   Pode criar o recurso de endereço IP no Failover Cluster Manager. Selecione o nome do cluster e, em seguida, clique com o nome do cluster em **Recursos Core cluster** e selecione **Propriedades** : 
+   Pode criar o recurso de endereço IP no Failover Cluster Manager. Selecione o nome do cluster e, em seguida, clique com o nome do cluster em **Recursos Core cluster** e selecione **Propriedades**: 
 
    ![Screenshot que mostra o "Failover Cluster Manager" com um nome de cluster, "Nome do servidor" e "Propriedades" selecionados.](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
@@ -113,7 +114,7 @@ Para criar uma réplica num centro de dados remoto, faça os seguintes passos:
 
 1. Adicione um recurso de endereço IP à função de grupo de disponibilidade no cluster. 
 
-   Clique com o botão direito no papel de grupo de disponibilidade no Failover Cluster Manager, escolha **Adicionar Recurso** , **Mais Recursos** e selecione Endereço **IP** .
+   Clique com o botão direito no papel de grupo de disponibilidade no Failover Cluster Manager, escolha **Adicionar Recurso**, **Mais Recursos** e selecione Endereço **IP**.
 
    ![Criar endereço IP](./media/availability-group-manually-configure-multiple-regions/20-add-ip-resource.png)
 
@@ -170,16 +171,16 @@ Se não conseguir modificar as cordas de ligação, pode configurar o caching de
 Para testar a conectividade do ouvinte com a região remota, pode falhar sobre a réplica da região remota. Embora a réplica seja assíncronea, o failover é vulnerável à perda de dados potenciais. Para falhar sem perda de dados, altere o modo de disponibilidade para sincronizado e desloque o modo de failover para automático. Utilize os passos seguintes:
 
 1. No **Object Explorer,** ligue-se à instância do SQL Server que acolhe a réplica primária.
-1. Em **Grupos de Disponibilidade AlwaysOn** , **Grupos de Disponibilidade,** clique à direita no seu grupo de disponibilidade e selecione **Propriedades.**
+1. Em **Grupos de Disponibilidade AlwaysOn**, **Grupos de Disponibilidade,** clique à direita no seu grupo de disponibilidade e selecione **Propriedades.**
 1. Na página **Geral,** em **Replicas Disponibilidade,** desloque a réplica secundária no site DR para utilizar o modo de disponibilidade **Synchronous Commit** e o modo de failover **automático.**
-1. Se tiver uma réplica secundária no mesmo local que a sua réplica primária para alta disponibilidade, desista desta réplica para **Assíncronose e** **Manual** .
+1. Se tiver uma réplica secundária no mesmo local que a sua réplica primária para alta disponibilidade, desista desta réplica para **Assíncronose e** **Manual**.
 1. Selecione OK.
-1. No **Object Explorer,** clique com o botão direito do grupo de disponibilidade e selecione **Mostrar Painel** .
+1. No **Object Explorer,** clique com o botão direito do grupo de disponibilidade e selecione **Mostrar Painel**.
 1. No painel de instrumentos, verifique se a réplica no site DR está sincronizada.
-1. No **Object Explorer,** clique com o botão direito no grupo de disponibilidade e selecione **Failover...** . SQL Server Management Studios abre um assistente para falhar sobre o SQL Server.  
-1. Selecione **Seguinte** , e selecione a instância sql Server no site DR. Selecione **Next** novamente.
-1. Ligue-se à instância do SQL Server no site DR e selecione **Seguinte** .
-1. Na página **Resumo,** verifique as definições e **selecione Terminar** .
+1. No **Object Explorer,** clique com o botão direito no grupo de disponibilidade e selecione **Failover...**. SQL Server Management Studios abre um assistente para falhar sobre o SQL Server.  
+1. Selecione **Seguinte**, e selecione a instância sql Server no site DR. Selecione **Next** novamente.
+1. Ligue-se à instância do SQL Server no site DR e selecione **Seguinte**.
+1. Na página **Resumo,** verifique as definições e **selecione Terminar**.
 
 Depois de testar a conectividade, mova a réplica primária de volta para o seu centro de dados primário e volte a definir o modo de disponibilidade para as suas definições normais de funcionamento. O quadro a seguir mostra as configurações operacionais normais para a arquitetura descritas neste documento:
 

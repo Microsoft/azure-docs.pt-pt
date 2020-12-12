@@ -6,6 +6,7 @@ documentationcenter: ''
 author: MashaMSFT
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -13,12 +14,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1c1dd2ba5eb6ee61a0f8cf151649441cbc783166
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 4c25adc16d14b4a5fb72ae0103ca05b193b40499
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553538"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359171"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Estender o suporte para SQL Server 2008 e SQL Server 2008 R2 com Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,7 +41,7 @@ Os clientes que estiverem no SQL Server 2008 terão de se instalar ou atualizar 
 As imagens implementadas através do Azure Marketplace vêm com a extensão SQL IaaS pré-instalada. A extensão SQL IaaS é um requisito para licenciamento flexível e remendação automatizada. Os clientes que implementarem VMs auto-instalados terão de instalar manualmente a extensão SQL IaaS. A extensão SQL IaaS não é suportada no Windows Server 2008.
 
 > [!NOTE]
-> Embora as lâminas SQL **Server Create** and **Manage** funcionem com a imagem SQL Server 2008 R2 no portal Azure, as seguintes funcionalidades não são _suportadas_ : Backups automáticos, integração do Cofre de Chaves Azure, Serviços R e configuração de armazenamento.
+> Embora as lâminas SQL **Server Create** and **Manage** funcionem com a imagem SQL Server 2008 R2 no portal Azure, as seguintes funcionalidades não são _suportadas_: Backups automáticos, integração do Cofre de Chaves Azure, Serviços R e configuração de armazenamento.
 
 ## <a name="licensing"></a>Licensing
 As implementações do Pay-as-you-go SQL Server 2008 R2 podem converter-se em [Benefício Híbrido Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
@@ -66,9 +67,9 @@ O [Azure Database Migration Service](../../../dms/dms-overview.md) é uma opçã
 
 As soluções de recuperação de desastres para o Servidor SQL do EOS num VM Azure são as seguintes:
 
-- **Backups do SQL Server** : Utilize backup do Azure para ajudar a proteger o seu EOS SQL Server 2008 e 2008 R2 contra ransomware, eliminação acidental e corrupção com RPO de 15 minutos e recuperação pontual. Para mais detalhes, consulte [este artigo.](../../../backup/sql-support-matrix.md#scenario-support)
-- **Envio de registo** : Pode criar uma réplica de envio de registos noutra zona ou região de Azure com restauros contínuos para reduzir o RTO. Você precisa configurar manualmente o envio de registos.
-- **Recuperação do sítio azul** : Pode replicar o seu VM entre zonas e regiões através da replicação da Recuperação do Local de Azure. O SQL Server requer instantâneos consistentes com aplicações para garantir a recuperação em caso de desastre. A Azure Site Recovery oferece um RPO mínimo de 1 hora e um RTO de 2 horas (mais tempo de recuperação do SQL Server) para a recuperação de desastres do EOS SQL Server.
+- **Backups do SQL Server**: Utilize backup do Azure para ajudar a proteger o seu EOS SQL Server 2008 e 2008 R2 contra ransomware, eliminação acidental e corrupção com RPO de 15 minutos e recuperação pontual. Para mais detalhes, consulte [este artigo.](../../../backup/sql-support-matrix.md#scenario-support)
+- **Envio de registo**: Pode criar uma réplica de envio de registos noutra zona ou região de Azure com restauros contínuos para reduzir o RTO. Você precisa configurar manualmente o envio de registos.
+- **Recuperação do sítio azul**: Pode replicar o seu VM entre zonas e regiões através da replicação da Recuperação do Local de Azure. O SQL Server requer instantâneos consistentes com aplicações para garantir a recuperação em caso de desastre. A Azure Site Recovery oferece um RPO mínimo de 1 hora e um RTO de 2 horas (mais tempo de recuperação do SQL Server) para a recuperação de desastres do EOS SQL Server.
 
 ## <a name="security-patching"></a>Patching de segurança
 

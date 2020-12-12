@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/24/2019
+ms.date: 11/02/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: cba8837fc738884fc187b13083487c2ab62d25f0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 21c8e75ac81a443b1dd9d4a0f43263bbf40bee88
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020097"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359205"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Adicionar contas não Microsoft à aplicação Microsoft Authenticator
 
-Adicione as suas contas não Microsoft, como para Google, Facebook ou GitHub à aplicação Microsoft Authenticator para verificação de dois fatores. A aplicação Microsoft Authenticator funciona com qualquer aplicação que utilize verificação de dois fatores e qualquer conta que suporte os padrões de senha única (TOTP) baseados no tempo.
+Se tiver contas não Microsoft, como para Google, Facebook ou GitHub, pode adicioná-las à aplicação Microsoft Authenticator para verificação de dois fatores. A aplicação Microsoft Authenticator funciona com qualquer aplicação que utilize verificação de dois fatores e qualquer conta que suporte os padrões de senha única (TOTP) baseados no tempo.
 
 >[!Important]
 >Antes de poder adicionar a sua conta, tem de descarregar e instalar a aplicação Microsoft Authenticator. Se ainda não o fez, siga os passos no Download e instale o artigo [da aplicação.](user-help-auth-app-download-install.md)
@@ -130,7 +130,7 @@ Adicione a sua conta GitHub ligando a verificação de dois fatores e adicionand
 
 1. Na página **de autenticação de dois fatores** no seu computador, selecione **Configurar usando uma aplicação**.
 
-2. Guarde os seus códigos de recuperação para que possa voltar à sua conta se perder o acesso e, em seguida, selecione **Seguinte**. 
+2. Guarde os seus códigos de recuperação para que possa voltar à sua conta se perder o acesso e, em seguida, selecione **Seguinte**.
 
     Pode guardar os seus códigos descarregando-os para o seu dispositivo, imprimindo uma cópia impressa ou copiando-os numa ferramenta de gestor de passwords.
 

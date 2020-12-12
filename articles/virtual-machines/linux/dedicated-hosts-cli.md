@@ -6,19 +6,19 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 11/12/2020
 ms.author: cynthn
-ms.openlocfilehash: d2cf78d328017f96552bd51794ac997c394d18f1
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: ef0c8d53d885f11acdcf578db155de3d7848887e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008423"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360072"
 ---
 # <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Implementar para anfitriões dedicados usando o CLI Azure
  
 
 Este artigo guia-o através da forma de criar um [anfitrião dedicado](../dedicated-hosts.md) a Azure para hospedar as suas máquinas virtuais (VMs). 
 
-Certifique-se de que instalou a versão 2.0.70 ou posterior do Azure CLI e inscreveu-se numa conta Azure utilizando `az login` . 
+Certifique-se de que instalou a versão 2.16.0 ou mais tarde do Azure CLI e inscreveu-se numa conta Azure utilizando `az login` . 
 
 
 ## <a name="limitations"></a>Limitações

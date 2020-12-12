@@ -7,16 +7,17 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 31ad9450c775e5e4e7ae543241b48f8c372ad9ee
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 7713b7596b21e02e941a19f64d3658ab0f5f51f5
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96749269"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359018"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>Tutorial: Implementar a aplicação WordPress em AKS com Base de Dados Azure para MySQL - Servidor Flexível
 
-Neste arranque rápido, implementa uma aplicação WordPress no cluster Azure Kubernetes Service (AKS) com Azure Database for MySQL - Flexible Server (Preview) utilizando o Azure CLI. [AKS](../../aks/intro-kubernetes.md) é um serviço gerido pela Kubernetes que permite implementar e gerir rapidamente clusters. [A Azure Database for MySQL - Flexible Server (Preview)](overview.md) é um serviço de base de dados totalmente gerido projetado para fornecer mais controlo granular e flexibilidade sobre funções de gestão de bases de dados e configurações de configuração. Atualmente o servidor Flexível está em Pré-Visualização.
+Neste arranque rápido, implementa uma aplicação WordPress no cluster Azure Kubernetes Service (AKS) com Azure Database for MySQL - Flexible Server (Preview) utilizando o Azure CLI. 
+**[AKS](../../aks/intro-kubernetes.md)** é um serviço gerido pela Kubernetes que permite implementar e gerir rapidamente clusters. **[A Azure Database for MySQL - Flexible Server (Preview)](overview.md)** é um serviço de base de dados totalmente gerido projetado para fornecer mais controlo granular e flexibilidade sobre funções de gestão de bases de dados e configurações de configuração. Atualmente o servidor Flexível está em Pré-Visualização.
 
 > [!NOTE]
 > - Azure Database for MySQL Flexible Server está atualmente em pré-visualização pública
@@ -115,7 +116,7 @@ O servidor criado tem os atributos abaixo:
 - Uma vez que o comando está a utilizar o contexto local, criará o servidor no grupo de recursos ```wordpress-project``` e na ```eastus``` região.
 
 
-## <a name="build-your-wordpress-docker-image"></a>Construa a sua imagem de estivador WordPress
+### <a name="build-your-wordpress-docker-image"></a>Construa a sua imagem de estivador WordPress
 
 Descarregue a versão mais recente do [WordPress.](https://wordpress.org/download/) Crie um novo diretório ```my-wordpress-app``` para o seu projeto e use esta estrutura de pasta simples
 
@@ -173,6 +174,7 @@ define('DB_COLLATE', '');
 define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
 ```
 
+### <a name="create-a-dockerfile"></a>Criar um Dockerfile
 Crie um novo Dockerfile e copie este corte de código. Este Dockerfile na configuração do servidor web Apache com PHP e permitindo a extensão mysqli.
 
 ```docker
@@ -182,12 +184,12 @@ RUN docker-php-ext-install mysqli
 RUN docker-php-ext-enable mysqli
 ```
 
-## <a name="build-your-docker-image"></a>Construa a sua imagem docker
-Certifique-se de que está ```my-wordpress-app``` no diretório de um terminal usando o ```cd``` comando. Executar o seguinte comando para construir a sua imagem do quadro de avisos:
+### <a name="build-your-docker-image"></a>Construa a sua imagem de estivador
+Certifique-se de que está ```my-wordpress-app``` no diretório de um terminal usando o ```cd``` comando. Executar o seguinte comando para construir a imagem:
 
 ``` bash
 
-docker build --tag myblog:latest . 
+docker build --tag myblog:latest .
 
 ```
 
@@ -272,8 +274,6 @@ A saída de exemplo a seguir mostra as Implementações e Serviços criados com 
 
 ```output
 deployment "wordpress-blog" created
-service "php-svc" created
-deployment "azure-vote-front" created
 service "php-svc" created
 ```
 

@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 446731e084084ca301b350f6fec0c4065485a40f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5a2540aeb36cfcb2048ec994bbb486badc8a68d1
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026629"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358814"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Melhores práticas de configuração do cluster (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -147,6 +148,6 @@ Nas Máquinas Virtuais Azure, o MSDTC não é suportado para Windows Server 2016
 - O equilibrador de carga básico não lida com portas RPC.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de ter determinado as melhores práticas adequadas para a sua solução, inicie [a preparação do seu SQL Server VM para a FCI](failover-cluster-instance-prepare-vm.md) ou criando o seu grupo de disponibilidade utilizando o [portal Azure](availability-group-azure-portal-configure.md), o [Azure CLI / PowerShell,](./availability-group-az-commandline-configure.md)ou [os modelos de arranque rápido Azure](availability-group-quickstart-template-configure.md).

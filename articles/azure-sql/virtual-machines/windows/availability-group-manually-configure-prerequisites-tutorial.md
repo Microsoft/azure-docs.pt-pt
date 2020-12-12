@@ -8,18 +8,19 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8572a73586b01967c8aef7f6c4947b5ce96146b4
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 1a9a2f9d999a51f2b4600e8379d4a8913675b338
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324861"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360021"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Tutorial: Pré-requisitos para criar grupos de disponibilidade no SQL Server em Azure Virtual Machines
 
@@ -154,7 +155,7 @@ Configure dois conjuntos de disponibilidade de acordo com os parâmetros do quad
 
 | **Campo** | Conjunto de disponibilidade do controlador de domínio | Conjunto de disponibilidade do servidor SQL |
 | --- | --- | --- |
-| **Name** |conjunto de adavailability |sqlavailabilityset |
+| **Nome** |conjunto de adavailability |sqlavailabilityset |
 | **Grupo de recursos** |SQL-HA-RG |SQL-HA-RG |
 | **Domínios de falha** |3 |3 |
 | **Domínios de atualização** |5 |3 |
@@ -437,7 +438,7 @@ Depois de cada máquina virtual reiniciar como membro do domínio, adicione **CO
 1. Aguarde até que o VM seja reiniciado e, em seguida, volte a lançar o ficheiro RDP a partir do controlador de domínio primário para iniciar **súpton-0** utilizando a conta **CORP\DomainAdmin.**
 
    >[!TIP]
-   >Certifique-se de que faz sê-lo com a conta do administrador de domínio. Nos passos anteriores, estava a utilizar a conta de administrador incorporada. Agora que o servidor está no domínio, use a conta de domínio. Na sessão de PDR, especifique o nome de utilizador *DO DOMÍNIO* \\ *username*.
+   >Certifique-se de que faz sê-lo com a conta do administrador de domínio. Nos passos anteriores, estava a utilizar a conta de administrador incorporada. Agora que o servidor está no domínio, use a conta de domínio. Na sessão de PDR, especifique o nome de utilizador *DO DOMÍNIO* \\ .
    >
 
 2. No **Gestor do Servidor**, selecione **Ferramentas** e, em seguida, selecione **Gestão de Computadores**.

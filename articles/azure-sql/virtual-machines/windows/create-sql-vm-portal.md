@@ -7,6 +7,7 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
+ms.subservice: deployment
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
@@ -14,12 +15,12 @@ ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ca632a643215b689a9bbb825959e5c5c052d73cb
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 7914f924492264810acd929cc7d422e0cc780a89
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326069"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358797"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Como utilizar o portal Azure para a provisionar uma máquina virtual Windows com o SQL Server
 
@@ -109,7 +110,7 @@ No **separador Discos,** configuure as opções do disco.
 ![Definições de disco VM SQL](./media/create-sql-vm-portal/azure-sqlvm-disks.png)
   
   
-### <a name="networking"></a>Rede
+### <a name="networking"></a>Redes
 
 No **separador Networking,** configuure as suas opções de networking. 
 

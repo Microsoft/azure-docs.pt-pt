@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 10/18/2020
-ms.openlocfilehash: 8820fd7b0812d925af6aca923a2b205d5bc92f3e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: a06d07a7d54b6399ab5f83c41284fb2fab7217fb
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341455"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360276"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Quickstart: Utilize .NET (C#) para ligar e consultar dados na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -32,7 +32,7 @@ Para este arranque rápido você precisa:
   | **Configure Serviço Endpoint** | Público | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
   | **Configure a ligação privada** | Privado | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
 
-- Instale o [quadro .NET](https://www.microsoft.com/net/download) para a sua plataforma (Windows, Ubuntu Linux ou macOS). 
+- Instale o [quadro .NET](https://www.microsoft.com/net/download) para a sua plataforma (Windows, Ubuntu Linux ou macOS).
 - Instale [o Visual Studio](https://www.visualstudio.com/downloads/) para construir o seu projeto.
 - Instale o pacote [Npgsql](https://www.nuget.org/packages/Npgsql/) NuGet no Visual Studio.
 
@@ -40,19 +40,19 @@ Para este arranque rápido você precisa:
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para PostgreSQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
 
 1. Faça login no [portal Azure](https://portal.azure.com/).
-2. No menu esquerdo do portal do Azure, clique em **Todos os recursos** e, em seguida, procure o servidor que acabou de criar, (por exemplo, **mydemoserver** ).
+2. No menu esquerdo do portal do Azure, clique em **Todos os recursos** e, em seguida, procure o servidor que acabou de criar, (por exemplo, **mydemoserver**).
 3. Clique no nome do servidor.
 4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
  :::image type="content" source="./media/connect-csharp/1-connection-string.png" alt-text="Nome do servidor da Base de Dados do Azure para PostgreSQL":::
 
 ## <a name="step-1-connect-and-insert-data"></a>Passo 1: Ligar e inserir dados
-Utilize o seguinte código para se ligar e carregar os dados com as instruções SQL **CREATE TABLE** e **INSERT INTO**. O código utiliza a classe NpgsqlCommand com método: 
+Utilize o seguinte código para se ligar e carregar os dados com as instruções SQL **CREATE TABLE** e **INSERT INTO**. O código utiliza a classe NpgsqlCommand com método:
 - [Abrir()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) para estabelecer uma ligação à base de dados PostgreSQL.
 - [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) define a propriedade CommandText.
-- [Executar o](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) método Executar o Método De Executar o Código da Base de Dados. 
+- [Executar o](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) método Executar o Método De Executar o Código da Base de Dados.
 
 > [!IMPORTANT]
-> Substitua os parâmetros Anfitrião, DBName, Utilizador e Palavra-passe pelos valores que especificou ao criar o servidor e a base de dados. 
+> Substitua os parâmetros Anfitrião, DBName, Utilizador e Palavra-passe pelos valores que especificou ao criar o servidor e a base de dados.
 
 ```csharp
 using System;
@@ -91,7 +91,7 @@ namespace Driver
                 conn.Open();
 
                 using (var command = new NpgsqlCommand("DROP TABLE IF EXISTS inventory", conn))
-                { 
+                {
                     command.ExecuteNonQuery();
                     Console.Out.WriteLine("Finished dropping table (if existed)");
 
@@ -111,7 +111,7 @@ namespace Driver
                     command.Parameters.AddWithValue("q2", 154);
                     command.Parameters.AddWithValue("n3", "apple");
                     command.Parameters.AddWithValue("q3", 100);
-                    
+
                     int nRows = command.ExecuteNonQuery();
                     Console.Out.WriteLine(String.Format("Number of rows inserted={0}", nRows));
                 }
@@ -134,7 +134,7 @@ Utilize o código seguinte para se ligar e ler dados com uma instrução SQL **S
 - [GetInt32()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetInt32_System_Int32_) e [GetString()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetString_System_Int32_) para analisar os valores no registo.
 
 > [!IMPORTANT]
-> Substitua os parâmetros Anfitrião, DBName, Utilizador e Palavra-passe pelos valores que especificou ao criar o servidor e a base de dados. 
+> Substitua os parâmetros Anfitrião, DBName, Utilizador e Palavra-passe pelos valores que especificou ao criar o servidor e a base de dados.
 
 ```csharp
 using System;
@@ -187,6 +187,7 @@ namespace Driver
                                 )
                             );
                     }
+                    reader.Close();
                 }
             }
 
@@ -201,12 +202,12 @@ namespace Driver
 
 ## <a name="step-3-update-data"></a>Passo 3: Atualizar dados
 Utilize o código seguinte para se ligar e atualizar os dados com uma instrução SQL **UPDATE**. O código utiliza a classe NpgsqlCommand com método:
-- [Aberto()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) para estabelecer uma ligação com PostgreSQL. 
+- [Aberto()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) para estabelecer uma ligação com PostgreSQL.
 - [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), define a propriedade CommandText.
 - [Executar o](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) método Executar o Método De Executar o Código da Base de Dados.
 
 > [!IMPORTANT]
-> Substitua os parâmetros Anfitrião, DBName, Utilizador e Palavra-passe pelos valores que especificou ao criar o servidor e a base de dados. 
+> Substitua os parâmetros Anfitrião, DBName, Utilizador e Palavra-passe pelos valores que especificou ao criar o servidor e a base de dados.
 
 ```csharp
 using System;
@@ -247,7 +248,6 @@ namespace Driver
                 {
                     command.Parameters.AddWithValue("n", "banana");
                     command.Parameters.AddWithValue("q", 200);
-                    
                     int nRows = command.ExecuteNonQuery();
                     Console.Out.WriteLine(String.Format("Number of rows updated={0}", nRows));
                 }
@@ -265,12 +265,12 @@ namespace Driver
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/postgres-doc-feedback)
 
 ## <a name="step-4-delete-data"></a>Passo 4: Eliminar dados
-Utilize o código seguinte para se ligar e eliminar os dados com a instrução SQL **DELETE**. 
+Utilize o código seguinte para se ligar e eliminar os dados com a instrução SQL **DELETE**.
 
 O código utiliza a classe NpgsqlCommand com o método [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) para ligar à base de dados PostgreSQL. Em seguida, o código utiliza o método [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), define a propriedade CommandText e chama o método [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) para executar os comandos da base de dados.
 
 > [!IMPORTANT]
-> Substitua os parâmetros Anfitrião, DBName, Utilizador e Palavra-passe pelos valores que especificou ao criar o servidor e a base de dados. 
+> Substitua os parâmetros Anfitrião, DBName, Utilizador e Palavra-passe pelos valores que especificou ao criar o servidor e a base de dados.
 
 ```csharp
 using System;

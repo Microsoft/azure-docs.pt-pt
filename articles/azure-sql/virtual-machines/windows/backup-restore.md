@@ -8,17 +8,18 @@ editor: ''
 tags: azure-resource-management
 ms.assetid: 95a89072-0edf-49b5-88ed-584891c0e066
 ms.service: virtual-machines-sql
+ms.subservice: backup
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: f3723c792dfe962f2cbf16e3b167faf66c50a92e
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 4a102fc805750f7dd460c1878a730b9ca4ce1c37
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327462"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359375"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Backup e restauro para SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

@@ -1,5 +1,5 @@
 ---
-title: 'Guia de migração: DB2 para SQL Caso Gerido'
+title: 'DB2 para SQL Caso Gerido: Guia de migração'
 description: Siga este guia para migrar as suas bases de dados DB2 para Azure SQL Managed Instance.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: c31187e87f18f0ec84cd5b80ccab997d0ba381c3
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 3902661553bbb390e6e999e0f67cd043eee8df09
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324759"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359188"
 ---
 # <a name="migration-guide-db2-to-sql-managed-instance"></a>Guia de migração: DB2 para SQL Caso Gerido
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -86,7 +86,7 @@ Para converter o esquema, siga estes passos:
 1. Selecione **Connect to Azure SQL Database**. 
     1. Introduza detalhes de ligação para ligar à sua Instância Gerida Azure SQL.  
     1. Escolha a base de dados-alvo a partir do drop-down. 
-    1. Selecione **Connect** (Ligar). 
+    1. Selecione **Ligar**. 
 
    :::image type="content" source="media/db2-to-managed-instance-guide/connect-to-sql-managed-instance.png" alt-text="Preencha detalhes para ligar ao SQL Server":::
 
@@ -102,7 +102,7 @@ Para converter o esquema, siga estes passos:
 1. Guarde o projeto localmente para um exercício de remediação de esquemas offline. Selecione **Save Project** a partir do menu **'Ficheiro'.** 
 
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrar
 
 Depois de ter concluído a avaliação das suas bases de dados e de abordar eventuais discrepâncias, o próximo passo é executar o processo de migração.
 
