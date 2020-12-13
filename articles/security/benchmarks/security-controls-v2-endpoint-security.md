@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e74994847608b7fb59a1bf507691f02cf02b714a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 937d0b379c4f669e5b57e5053d5e3bffeb091e78
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408894"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368958"
 ---
 # <a name="security-control-v2-endpoint-security"></a>Controlo de Segurança V2: Segurança de ponto final
 
@@ -20,7 +20,7 @@ A Endpoint Security cobre os controlos na deteção e resposta do ponto final. I
 
 ## <a name="es-1-use-endpoint-detection-and-response-edr"></a>ES-1: Utilizar deteção e resposta de ponto final (EDR)
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | ES-1 | 8.1 | SI-2, SI-3, SC-3 |
 
@@ -34,7 +34,7 @@ O Microsoft Defender Advanced Threat Protection fornece a capacidade EDR como pa
 
 - [Serviço ATP microsoft Defender para servidores não Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -48,7 +48,7 @@ O Microsoft Defender Advanced Threat Protection fornece a capacidade EDR como pa
 
 ## <a name="es-2-use-centrally-managed-modern-anti-malware-software"></a>ES-2: Utilize software anti-malware moderno gerido centralmente
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | ES-2 | 8.1 | SI-2, SI-3, SC-3 |
 
@@ -62,7 +62,7 @@ O Microsoft Antimalware para Azure Cloud Services é o anti-malware padrão para
 
 - [Soluções de proteção de pontos finais apoiadas](../../security-center/security-center-services.md?tabs=features-windows#supported-endpoint-protection-solutions-)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -76,7 +76,7 @@ O Microsoft Antimalware para Azure Cloud Services é o anti-malware padrão para
 
 ## <a name="es-3-ensure-anti-malware-software-and-signatures-are-updated"></a>ES-3: Garantir que software e assinaturas anti-malware são atualizados
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | ES-3 | 8.2 | SI-2, SI-3 |
 
@@ -86,7 +86,7 @@ Siga as recomendações no Azure Security Center: "Compute &amp; Apps" para gara
 
 - [Como implementar o Microsoft Antimalware para serviços em nuvem azure e máquinas virtuais](../fundamentals/antimalware.md)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 

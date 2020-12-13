@@ -87,8 +87,6 @@
     - name: Monitorizar registos de diagnóstico
       href: firewall-diagnostics.md
       displayName: 'Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings'
-    - name: Registos do Azure Monitor
-      href: log-analytics-samples.md
     - name: Livro do Azure Firewall
       href: firewall-workbook.md
 - name: Referência

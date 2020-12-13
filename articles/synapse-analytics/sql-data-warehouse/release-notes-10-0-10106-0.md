@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: baf2734c2f3c4de86b75a20239ecf7440c61a632
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 0cad8fcdf58f4827f28b40550ae93e607e0c0858
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96534051"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369009"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-release-notes"></a>Piscina SQL dedicada (anteriormente SQL DW) em notas de lançamento do Azure Synapse Analytics
 
@@ -59,7 +59,7 @@ Para melhorias na ferramenta, certifique-se de que tem a versão correta instala
 | Melhorias de serviços | Detalhes |
 | --- | --- |
 |**Gestão da Carga de Trabalho – Portal Experience**|Os utilizadores podem configurar e gerir as suas definições de gestão da carga de trabalho através do portal Azure. A capacidade de configurar [grupos de carga de trabalho](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) e [classificadores de carga de trabalho](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) com importância é possível.|
-|**Vista melhorada do catálogo de mapeamentos de mesa**|A nova vista do catálogo [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) mapas **object_ids** de tabelas de utilizadores permanentes aos seus nomes de mesas físicas.|
+|**Vista melhorada do catálogo de mapeamentos de mesa**|A nova vista do catálogo [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql) mapas **object_ids** de tabelas de utilizadores permanentes aos seus nomes de mesas físicas.|
 
 ## <a name="july-2020"></a>Julho de 2020
 

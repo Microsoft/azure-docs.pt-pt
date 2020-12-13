@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: networking
 author: anavinahar
 ms.service: networking
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 0d5c9c4a0191c6d5effd8f6067cb6602ed239125
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9751bd082947e66b3fc5ea47448857558301a1e7
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329471"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97366363"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede - Gestor de Recursos Azure
 Os seguintes limites aplicam-se apenas aos recursos de rede geridos através **do Azure Resource Manager** por região por subscrição. Saiba como ver o [uso do seu recurso atual contra os limites de subscrição.](../articles/networking/check-usage-against-limits.md)
@@ -73,7 +73,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Regras por NIC (em todos os IPs de um NIC) | 300                           |
 | Configurações IP frontend              | 600                           |
 | Tamanho da piscina backend                       | 1.000 configurações IP, rede virtual única |
-| Recursos de backend por Balanceador de Carga <sup> 1<sup> | 150                   |
+| Recursos de backend por Balanceador de Carga <sup> 1<sup> | 250                   |
 | Portas de alta disponibilidade                 | 1 por frontend interno       |
 | Regras de saída por Balanceador de Carga        | 600                           |
 | Balançadores de carga por VM                   | 2 (1 Público e 1 interno)   |

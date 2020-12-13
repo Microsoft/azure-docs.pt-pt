@@ -4,12 +4,12 @@ description: Saiba como gerir e monitorizar as cópias de segurança do Microsof
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: b3b648ca27a407640b42932fe2ed7c32f5109114
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f0c41b535f9403d0a7027687cc5261cd437275
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89145574"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368601"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerir backups de agentes do Microsoft Azure Recovery Services (MARS) utilizando o serviço de backup da Azure
 
@@ -100,7 +100,7 @@ Existem duas formas de parar de proteger ficheiros e pastas de reserva:
 
 ### <a name="stop-protection-and-retain-backup-data"></a>Parar a proteção e reter dados de backup
 
-1. Abra a consola de gestão MARS, vá ao **painel de Ações**e **selecione Agendar Backup**.
+1. Abra a consola de gestão MARS, vá ao **painel de Ações** e **selecione Agendar Backup**.
 
     ![Selecione backup de horário](./media/backup-azure-manage-mars/mars-actions.png)
 1. Na página **'Selecionar 'Item's' 'Select',** selecione **Modificar um calendário de cópia de segurança para os seus ficheiros e pastas** e selecione **Seguinte**.
@@ -189,6 +189,19 @@ Gerir a política de backup para o MARS é feito através da consola MARS e não
   1. Instale o agente e re-registe-se no mesmo cofre e com a mesma frase de passe
   1. Lance o cliente MARS para prolongar a duração da retenção de acordo com os seus requisitos
 - A sua máquina recém-restaurada, protegida com o MARS, continuará a receber cópias de segurança.  
+
+## <a name="configuring-antivirus-for-the-mars-agent"></a>Configurar o antivírus para o agente MARS
+
+Recomendamos a seguinte configuração para o seu software antivírus para evitar conflitos com o funcionamento do Agente MARS.
+
+1. **Adicionar Exclusões de caminho**: Para evitar a degradação do desempenho e possíveis conflitos, exclua os seguintes caminhos da monitorização em tempo real pelo software antivírus:
+    1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent` e sub-dobradores
+    1. **Pasta de risco**: Se a pasta de risco não estiver na localização normal, adicione-a também às exclusões.  [Consulte aqui os passos](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible) para determinar a localização da pasta de risco.
+1. **Adicionar Exclusões Binárias**: Para evitar a degradação das atividades de backup e consola, exclua os processos para os seguintes binários da monitorização em tempo real pelo software antivírus:
+    1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent\bin\cbengine.exe`
+
+>[!NOTE]
+>Embora excluir estes caminhos seja suficiente para a maioria dos softwares antivírus, alguns ainda podem continuar a interferir com as operações do Agente MARS. Se estiver a ver falhas inesperadas, desinstale temporariamente o software antivírus e monitorize para ver se o problema desaparece. Se isto resolver o problema, contacte o seu fornecedor de software antivírus para obter assistência com a configuração adequada do seu produto.
 
 ## <a name="next-steps"></a>Passos seguintes
 

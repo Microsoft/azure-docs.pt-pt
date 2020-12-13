@@ -6,21 +6,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 12/11/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 35d5940fbc001d1806711afb14aa4a549bcb1826
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 8ed768d7bb47db6f102dbb48b438f9f4a2987f1e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96615812"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97366510"
 ---
 <a name="HOLTop"></a>
 
 # <a name="version-31-preview"></a>[Visualização da versão 3.1](#tab/version-3-1)
 
-[v3.1 Documentação](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet-previews)  |  de referência [v3.1 Código](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)  |  fonte da biblioteca [v3.1 Pacote (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0-beta.1)  |  [v3.1 Amostras](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
+[v3.1 Documentação](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet-previews)  |  de referência [v3.1 Código](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)  |  fonte da biblioteca [v3.1 Pacote (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0-beta.3)  |  [v3.1 Amostras](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
@@ -39,6 +39,7 @@ ms.locfileid: "96615812"
 * Assim que tiver a subscrição do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title=" Crie um recurso Text Analytics crie um recurso Text Analytics no portal "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final.  Depois de implementar, clique em **Ir para o recurso**.
     * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API de Análise de Texto. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
     * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
+* Para utilizar a função Analisar, necessitará de um recurso Text Analytics com o nível de preços padrão (S).
 
 ## <a name="setting-up"></a>Configuração
 
@@ -48,7 +49,7 @@ Utilizando o Visual Studio IDE, crie uma nova aplicação de consola .NET Core. 
 
 # <a name="version-31-preview"></a>[Visualização da versão 3.1](#tab/version-3-1)
 
-Instale a biblioteca do cliente clicando à direita na solução no Explorador de **Soluções** e selecione **Gerir pacotes NuGet**. No gestor de pacotes que abre **selecione Navegar** e procurar `Azure.AI.TextAnalytics` . Verifique a **caixa de pré-estalaelase,** selecione versão `5.1.0-beta.1` e, em seguida, **instale**. Também pode utilizar a [Consola Gestor de Pacotes.](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)
+Instale a biblioteca do cliente clicando à direita na solução no Explorador de **Soluções** e selecione **Gerir pacotes NuGet**. No gestor de pacotes que abre **selecione Navegar** e procurar `Azure.AI.TextAnalytics` . Verifique a **caixa de pré-estalaelase,** selecione versão `5.1.0-beta.3` e, em seguida, **instale**. Também pode utilizar a [Consola Gestor de Pacotes.](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
@@ -176,10 +177,10 @@ Se estiver a utilizar a versão `3.x` do serviço, pode utilizar uma instância 
 
 * [Análise de sentimento](#sentiment-analysis)
 * [Mineração de opinião](#opinion-mining)
-* [Deteção de idioma](#language-detection)
+* [Deteção linguística](#language-detection)
 * [Reconhecimento de Entidades Nomeadas](#named-entity-recognition-ner)
 * [Ligação de entidades](#entity-linking)
-* [Extração de expressões-chave](#key-phrase-extraction)
+* [Extração de frase-chave](#key-phrase-extraction)
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
@@ -804,5 +805,103 @@ Key phrases:
     cat
     veterinarian
 ```
+
+---
+
+## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Utilize a API assíncronea com a operação Análise
+
+# <a name="version-31-preview"></a>[Visualização da versão 3.1](#tab/version-3-1)
+
+> [!CAUTION]
+> Para utilizar a operação Análise, certifique-se de que o seu recurso Azure está a utilizar um nível de preços padrão.
+
+Crie uma nova função chamada `AnalyzeOperationExample()` que leva o cliente que criou anteriormente, e chama a sua `StartAnalyzeOperationBatch()` função. O objeto devolvido `AnalyzeOperation` conterá o objeto de `Operation` interface para `AnalyzeOperationResult` . Como se trata de uma Operação de Longa Duração, `await` para que o valor seja `operation.WaitForCompletionAsync()` atualizado. Uma vez terminado o `WaitForCompletionAsync()` resultado, a coleção deve ser atualizada no `operation.Value` . Se houve um erro, vai lançar um `RequestFailedException` .
+
+
+```csharp
+static async Task AnalyzeOperationExample(TextAnalyticsClient client)
+{
+    string inputText = "Microsoft was founded by Bill Gates and Paul Allen.";
+
+    var batchDocuments = new List<string> { inputText };
+
+    AnalyzeOperationOptions operationOptions = new AnalyzeOperationOptions()
+    {
+        EntitiesTaskParameters = new EntitiesTaskParameters(),
+        DisplayName = "Analyze Operation Quick Start Example"
+    };
+
+    AnalyzeOperation operation = client.StartAnalyzeOperationBatch(batchDocuments, operationOptions, "en");
+
+    await operation.WaitForCompletionAsync();
+
+    AnalyzeOperationResult resultCollection = operation.Value;
+
+    RecognizeEntitiesResultCollection entitiesResult = resultCollection.Tasks.EntityRecognitionTasks[0].Results;
+
+    Console.WriteLine("Analyze Operation Request Details");
+    Console.WriteLine($"    Status: {resultCollection.Status}");
+    Console.WriteLine($"    DisplayName: {resultCollection.DisplayName}");
+    Console.WriteLine("");
+
+    Console.WriteLine("Recognized Entities");
+
+    foreach (RecognizeEntitiesResult result in entitiesResult)
+    {
+        Console.WriteLine($"    Recognized the following {result.Entities.Count} entities:");
+
+        foreach (CategorizedEntity entity in result.Entities)
+        {
+            Console.WriteLine($"    Entity: {entity.Text}");
+            Console.WriteLine($"    Category: {entity.Category}");
+            Console.WriteLine($"    Offset: {entity.Offset}");
+            Console.WriteLine($"    ConfidenceScore: {entity.ConfidenceScore}");
+            Console.WriteLine($"    SubCategory: {entity.SubCategory}");
+        }
+        Console.WriteLine("");
+    }
+}
+```
+
+Depois de adicionar este exemplo à sua aplicação, ligue para o seu `main()` método utilizando `await` .
+
+```csharp
+await AnalyzeOperationExample(client).ConfigureAwait(false);
+```
+### <a name="output"></a>Saída
+
+```console
+Analyze Operation Request Details
+    Status: succeeded
+    DisplayName: Analyze Operation Quick Start Example
+
+Recognized Entities
+    Recognized the following 3 entities:
+    Entity: Microsoft
+    Category: Organization
+    Offset: 0
+    ConfidenceScore: 0.83
+    SubCategory: 
+    Entity: Bill Gates
+    Category: Person
+    Offset: 25
+    ConfidenceScore: 0.85
+    SubCategory: 
+    Entity: Paul Allen
+    Category: Person
+    Offset: 40
+    ConfidenceScore: 0.9
+    SubCategory: 
+```
+
+Também pode utilizar a operação De analisar para detetar pii e extração de frases-chave. Veja a [amostra de Análise](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeOperation.md) no GitHub.
+
+# <a name="version-30"></a>[Versão 3.0](#tab/version-3)
+
+Esta funcionalidade não está disponível na versão 3.0.
+
+# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
+
+Esta funcionalidade não está disponível na versão 2.1.
 
 ---

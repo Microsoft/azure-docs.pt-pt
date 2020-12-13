@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 8aedc59fc34278bf84983d78bf0e9a31fe38ee93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b1815e7598410cd709572d93082d5dee5e0b0fb
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82735594"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369247"
 ---
 # <a name="tutorial-create-an-azure-custom-role-using-azure-powershell"></a>Tutorial: Criar um papel personalizado Azure usando Azure PowerShell
 
@@ -51,7 +51,7 @@ Inscreva-se na [Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 A forma mais fácil de criar uma função personalizada é começar com uma função incorporada, editá-la e, em seguida, criar uma nova função.
 
-1. No PowerShell, utilize o comando [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) para obter a lista de operações para o fornecedor de recursos Microsoft.Support. É útil conhecer as operações disponíveis para criar as suas permissões. Também pode ver uma lista de todas as operações em [operações do fornecedor de recursos do Azure Resource Manager](resource-provider-operations.md#microsoftsupport).
+1. No PowerShell, utilize o comando [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) para obter a lista de operações para o fornecedor de recursos Microsoft.Support. É útil conhecer as operações disponíveis para criar as suas permissões. Também pode ver uma lista de todas as operações nas [operações do fornecedor de recursos Azure.](resource-provider-operations.md#microsoftsupport)
 
     ```azurepowershell
     Get-AzProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize

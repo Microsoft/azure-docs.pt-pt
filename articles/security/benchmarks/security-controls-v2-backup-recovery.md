@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1ed477c6cf069dbb402e5bda9c1f48f7bc208f18
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 089cf521a7c5428833be340001c88b870c568a8f
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698806"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368890"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Controlo de Segurança V2: Backup e Recuperação
 
@@ -20,7 +20,7 @@ A Cópia de Segurança e Recuperação abrange os controlos para garantir que as
 
 ## <a name="br-1-ensure-regular-automated-backups"></a>BR-1: Garantir backups automáticos regulares
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | BR-1 | 10.1 | CP-2, CP4, CP-6, CP-9 |
 
@@ -34,7 +34,7 @@ Para um nível de proteção mais elevado, pode permitir a opção de armazename
 
 - [Como ativar o backup do Azure](../../backup/index.yml)
 
-- [Como permitir a restauração da região transversal](../../backup/backup-azure-arm-restore-vms.md#cross-region-restore)
+- [Como ativar o restauro entre regiões](../../backup/backup-azure-arm-restore-vms.md#cross-region-restore)
 
 **Responsabilidade**: Cliente
 
@@ -50,7 +50,7 @@ Para um nível de proteção mais elevado, pode permitir a opção de armazename
 
 ## <a name="br-2-encrypt-backup-data"></a>BR-2: Encriptar dados de backup
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | BR-2 | 10.2 | CP-9 |
 
@@ -78,9 +78,9 @@ Utilize o controlo de acesso baseado em funções Azure em Azure Backup, Azure K
 
 - [Preparação de incidentes](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
-## <a name="br-3-validate-all-backups-including-customer-managed-keys"></a>BR-3: Validar todas as cópias de segurança, incluindo chaves geridas pelo cliente
+## <a name="br-3-validate-all-backups-including-customer-managed-keys"></a>BR-3: Validar todas as cópias de segurança, incluindo as chaves geridas pelo cliente
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | BR-3 | 10.3 | CP-4, CP-9 |
 
@@ -98,15 +98,15 @@ Efetue periodicamente a restauração de dados da sua cópia de segurança. Cert
 
 - [Gestão de Conformidade de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-## <a name="br-4-mitigate-risk-of-lost-keys"></a>BR-4: Mitigar o risco de chaves perdidas
+## <a name="br-4-mitigate-risk-of-lost-keys"></a>BR-4: Mitigar o risco de perda de chaves
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | BR-4 | 10.4 | CP-9 |
 
-Certifique-se de que tem medidas para prevenir e recuperar da perda de chaves. Ativar a proteção de eliminação e purga suave no Cofre da Chave Azure para proteger as chaves contra a eliminação acidental ou maliciosa.  
+Certifique-se de que tem medidas para prevenir e recuperar da perda de chaves. Ative a eliminação recuperável e a proteção contra remoção no Azure Key Vault para proteger as chaves contra a eliminação maliciosa ou acidental.  
 
-- [Como permitir a eliminação suave e a proteção de purga no Cofre de Chaves](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
+- [Como ativar a eliminação recuperável e a proteção contra remoção no Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Responsabilidade**: Cliente
 

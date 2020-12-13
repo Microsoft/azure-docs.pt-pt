@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/03/2020
+ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: d5e191107366c6932d3ba66234776ffaaf6cf98c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1fe228eb7e8bb54e8ebb9cbf31ef0035a0038718
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180630"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368771"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Amazon Web Services (AWS)
 
@@ -25,8 +25,6 @@ Neste tutorial, você vai aprender a integrar a Amazon Web Services (AWS) com o 
 * Control em Azure AD que tem acesso aos Serviços Web da Amazon (AWS).
 * Capacitar os seus utilizadores a serem automaticamente inscritos na Amazon Web Services (AWS) com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
-
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 > [!Note]
 > A Azure AD não suporta uma única integração de sign-on com a AWS SSO, é um produto diferente da AWS. Embora a AWS mencione sobre o mesmo [aqui,](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html)a Azure AD recomenda aos clientes que utilizem a integração AWS IAM, em vez disso, para que possa obter melhores controlos de segurança usando políticas de Acesso Condicional em contas individuais e também fazer uma melhor governação destas aplicações.
@@ -72,7 +70,7 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 Para configurar a integração da Amazon Web Services (AWS) no AD Azure, é necessário adicionar a Amazon Web Services (AWS) da galeria à sua lista de aplicações geridas para o SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho, conta escolar ou conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure usando uma conta de trabalho, conta escolar ou conta pessoal da Microsoft.
 1. No portal Azure, procure e selecione **O Diretório Ativo Azure**.
 1. Dentro do menu geral do Azure Ative Directory, escolha **Aplicações Empresariais**  >  **Todas as aplicações**.
 1. Selecione **Nova aplicação** para adicionar uma aplicação.
@@ -83,7 +81,7 @@ Para configurar a integração da Amazon Web Services (AWS) no AD Azure, é nece
 
 Configure e teste Azure AD SSO com Amazon Web Services (AWS) usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na Amazon Web Services (AWS).
 
-Para configurar e testar o Azure AD SSO com a Amazon Web Services (AWS), complete os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com a Amazon Web Services (AWS), execute os seguintes passos:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
@@ -97,7 +95,7 @@ Para configurar e testar o Azure AD SSO com a Amazon Web Services (AWS), complet
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações da **Amazon Web Services (AWS),** encontre a secção **Gerir** e selecione um único sinal de **sação.**
+1. No portal Azure, na página de integração de aplicações da **Amazon Web Services (AWS),** encontre a secção **Gerir** e selecione um único sinal de **sação.**
 1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
@@ -115,11 +113,14 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação AWS espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Name  | Atributo de origem  | Espaço de Nomes |
+    | Nome  | Atributo de origem  | Espaço de Nomes |
     | --------------- | --------------- | --------------- |
     | Nome de FunSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
     | Função            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes` |
     | SessãoDuração             | "fornecer um valor entre 900 segundos (15 minutos) a 43200 segundos (12 horas)" |  `https://aws.amazon.com/SAML/Attributes` |
+
+    > [!NOTE]
+    > A AWS espera funções para utilizadores atribuídos à aplicação. Por favor, crie estas funções em Azure AD para que os utilizadores possam ser atribuídos as funções apropriadas. Para entender como configurar papéis em Azure AD, consulte [aqui](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui)
 
 1. Na **configuração de um único sinal com** a página SAML, na caixa de diálogo do Certificado de Assinatura **SAML** (Passo 3), selecione **Adicionar um certificado**.
 
@@ -154,19 +155,12 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso aos Serviços Web da Amazon (AWS).
 
-1. No portal Azure, procure e selecione **O Diretório Ativo Azure**.
-1. Dentro do menu geral do Azure Ative Directory, escolha **Aplicações Empresariais**  >  **Todas as aplicações**.
-1. Na lista de candidaturas, selecione **Amazon Web Services (AWS)**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **Amazon Web Services (AWS)**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O link do utilizador adicionar](common/add-assign-user.png)
-
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
 ## <a name="configure-amazon-web-services-aws-sso"></a>Configure Amazon Web Services (AWS) SSO
@@ -231,7 +225,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     c. Selecione **Criar função**.
 
-    d. Crie o número de papéis necessários e mapeeee-os para o fornecedor de identidade.
+    d. Crie o número de papéis necessários e mapee-os para o fornecedor de identidade.
 
 11. Utilize credenciais de conta de serviço AWS para obter as funções da conta AWS no provisionamento do utilizador Azure AD. Para isso, abra a casa de consola AWS.
 

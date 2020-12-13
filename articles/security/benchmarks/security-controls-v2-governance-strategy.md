@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: af9a86613b3aa29cc01b5ef0daa1f3854940deaf
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 935a6b41152ff914889e299b6455fbb30b2f0447
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96534068"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369060"
 ---
 # <a name="security-control-v2-governance-and-strategy"></a>Controlo de Segurança V2: Governação e Estratégia
 
@@ -20,7 +20,7 @@ A governação e a estratégia fornecem orientações para assegurar uma estrat�
 
 ## <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: Definir a gestão dos ativos e a estratégia de proteção de dados
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-1 | 2, 13 | SC, AC |
 
@@ -63,7 +63,7 @@ Para obter mais informações, veja as seguintes referências:
 
 ## <a name="gs-2-define-enterprise-segmentation-strategy"></a>GS-2: Definir a estratégia de segmentação da empresa
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-2 | 4, 9, 16 | AC, CA, SC |
 
@@ -87,7 +87,7 @@ Certifique-se de que a estratégia de segmentação está implementada de forma 
 
 ## <a name="gs-3-define-security-posture-management-strategy"></a>GS-3: Definir a estratégia de gestão da postura de segurança
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-3 | 20, 3, 5 | RA, CM, SC |
 
@@ -103,7 +103,7 @@ Medindo e atenuando continuamente os riscos para os seus ativos individuais e pa
 
 ## <a name="gs-4-align-organization-roles-responsibilities-and-accountabilities"></a>GS-4: Alinhar as funções, as responsabilidades e as responsabilizações na organização
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-4 | N/D | PL, PM |
 
@@ -123,7 +123,7 @@ Certifique-se de que documenta e comunica uma estratégia clara para funções e
 
 ## <a name="gs-5-define-network-security-strategy"></a>GS-5: Definir uma estratégia de segurança de rede
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-5 | 9 | CA |
 
@@ -161,7 +161,7 @@ Para obter mais informações, veja as seguintes referências:
 
 ## <a name="gs-6-define-identity-and-privileged-access-strategy"></a>GS-6: Definir a estratégia de identidades e acessos privilegiados
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-6 | 16, 4 | AC, AU, SC |
 
@@ -197,7 +197,7 @@ Para obter mais informações, veja as seguintes referências:
 
 ## <a name="gs-7-define-logging-and-threat-response-strategy"></a>GS-7: Definir a estratégia de resposta a ameaças e registos
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-7 | 19 | IR, AU, RA, SC |
 
@@ -238,7 +238,7 @@ Para obter mais informações, veja as seguintes referências:
 
 ## <a name="gs-8-define-backup-and-recovery-strategy"></a>GS-8: Definir estratégia de backup e recuperação
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-8 | 10 | CP |
 

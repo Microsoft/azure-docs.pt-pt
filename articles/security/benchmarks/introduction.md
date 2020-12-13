@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f3b492534bedde50d2413b88fa38cd6325ed5df7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32aa64a9343a8e3c62af4322b3320b28ce805064
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328263"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369196"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Introdução de referência de segurança Azure
 
@@ -24,10 +24,10 @@ A Microsoft descobriu que usar *referências de segurança* pode ajudá-lo a pro
 O Azure Security Benchmark inclui uma coleção de recomendações de segurança de alto impacto que pode usar para ajudar a proteger os serviços que utiliza no Azure:
 
 - **Controlos de segurança**: Estas recomendações são geralmente aplicáveis em todos os seus serviços Azure e Azure. Cada recomendação identifica uma lista de partes interessadas que estão tipicamente envolvidas no planeamento, aprovação ou implementação do benchmark. 
-- **Linhas de base de**serviço : Estes aplicam os controlos aos serviços individuais da Azure para fornecer recomendações sobre a configuração de segurança desse serviço.
+- **Linhas de base de** serviço : Estes aplicam os controlos aos serviços individuais da Azure para fornecer recomendações sobre a configuração de segurança desse serviço.
 
 ## <a name="implement-the-azure-security-benchmark"></a>Implementar o Azure Security Benchmark
-- **Planeie** a sua implementação de Benchmark de Segurança Azure, revendo a [documentação](overview.md) para os controlos da empresa e linhas de base específicas do serviço para planear o seu quadro de controlo e como mapeia para orientações como o quadro cis (Controls v7.1) e NIST (SP800-53).
+- **Planeie** a sua implementação de Benchmark de Segurança Azure, revendo a [documentação](overview.md) para os controlos da empresa e linhas de base específicas do serviço para planear o seu quadro de controlo e como mapeia para orientações como o quadro cis (Controls v7.1) e NIST (SP 800-53).
 - **Monitorize** a sua conformidade com o estado de benchmark de segurança Azure (e outros conjuntos de controlo) utilizando o [painel de conformidade regulamentar](../../security-center/security-center-compliance-dashboard.md)do Azure Security Center .
 - **Estabeleça guarda-costas** para automatizar configurações seguras e impor o cumprimento do Benchmark de Segurança Azure (e outros requisitos na sua organização) com a Azure Blueprints e a Azure Policy.
  

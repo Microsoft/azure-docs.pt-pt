@@ -5,12 +5,12 @@ ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: a90bb90c90206ffe00f8b4f2d035c0ea844b5c47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a5872f94a2d267ed2a0e17815e84cec5b02c613
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611678"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368108"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Tutorial: Implementar um modelo ligado
 
@@ -32,11 +32,11 @@ Pode separar o recurso da conta de armazenamento num modelo ligado:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/linkedStorageAccount.json":::
 
-O modelo a seguir é o modelo principal.  O objeto **destacado Microsoft.Resources/implementações** mostra como chamar um modelo ligado. O modelo ligado não pode ser armazenado como um ficheiro local ou um ficheiro que só está disponível na sua rede local. Só pode fornecer um valor URI que inclua *http* ou *https*. O Gestor de Recursos deve ser capaz de aceder ao modelo. Uma opção é colocar o seu modelo ligado numa conta de armazenamento e usar o URI para esse item. O URI é passado para o modelo usando um parâmetro. Consulte a definição de parâmetro realçado.
+O modelo a seguir é o modelo principal. O objeto realçado `Microsoft.Resources/deployments` mostra como chamar um modelo ligado. O modelo ligado não pode ser armazenado como um ficheiro local ou um ficheiro que só está disponível na sua rede local. Só pode fornecer um valor URI que inclua um `HTTP` ou `HTTPS` . O Gestor de Recursos deve ser capaz de aceder ao modelo. Uma opção é colocar o seu modelo ligado numa conta de armazenamento e usar o URI para esse item. O URI é passado para o modelo usando um parâmetro. Consulte a definição de parâmetro realçado.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="27-32,40-58":::
 
-Guarde uma cópia do modelo principal para o computador local com a extensão .json, por exemplo, azuredeploy.jsligado. Não precisa de guardar uma cópia do modelo ligado.  O modelo ligado será copiado de um repositório GitHub para uma conta de armazenamento.
+Guarde uma cópia do modelo principal para o seu computador local com a extensão _.json,_ por exemplo, _azuredeploy.jsligado_. Não precisa de guardar uma cópia do modelo ligado. O modelo ligado será copiado de um repositório GitHub para uma conta de armazenamento.
 
 ## <a name="store-the-linked-template"></a>Armazenar o modelo ligado
 
@@ -45,7 +45,7 @@ O seguinte script PowerShell cria uma conta de armazenamento, cria um recipiente
 Selecione **Experimente-o** para abrir a Cloud Shell, selecione **Copy** para copiar o script PowerShell e clique com o botão direito para colar o script:
 
 > [!IMPORTANT]
-> Os nomes das contas de armazenamento devem ter entre 3 e 24 caracteres de comprimento e utilizar apenas números e letras minúsculas. O nome tem de ser exclusivo. No modelo, o nome da conta de armazenamento é o nome do projeto com "store" anexado, e o nome do projeto deve estar entre 3 e 11 caracteres. Assim, o nome do projeto deve satisfazer os requisitos de nome da conta de armazenamento e tem menos de 11 caracteres.
+> Os nomes das contas de armazenamento devem ter entre 3 e 24 caracteres de comprimento e utilizar apenas números e letras minúsculas. O nome tem de ser exclusivo. No modelo, o nome da conta de armazenamento é o nome do projeto com **a loja** anexada, e o nome do projeto deve estar entre 3 e 11 caracteres. Assim, o nome do projeto deve satisfazer os requisitos de nome da conta de armazenamento e tem menos de 11 caracteres.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
@@ -93,7 +93,7 @@ Para implementar um modelo privado numa conta de armazenamento, gere um token SA
 Se não criou o grupo de recursos, consulte [criar grupo de recursos](./deployment-tutorial-local-template.md#create-resource-group).
 
 > [!NOTE]
-> No código Azure CLI abaixo, o parâmetro da data -d seria um argumento inválido no macOS. Assim, os utilizadores do macOS, para adicionar 2 horas ao tempo atual no terminal no macOS, devem utilizar -v+2H.
+> No código CLI abaixo, o `date` parâmetro é um argumento `-d` inválido no macOS. Assim, os utilizadores do macOS, para adicionar 2 horas ao tempo atual no terminal no macOS, devem utilizar `-v+2H` .
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -176,7 +176,7 @@ Limpe os recursos que implementou eliminando o grupo de recursos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Aprendeu a implementar um modelo ligado. No próximo tutorial, aprende-se a criar um pipeline DevOp para implementar um modelo.
+Aprendeu a implementar um modelo ligado. No próximo tutorial, aprende-se a criar um oleoduto DevOps para implementar um modelo.
 
 > [!div class="nextstepaction"]
 > [Criar um pipeline](./deployment-tutorial-pipeline.md)

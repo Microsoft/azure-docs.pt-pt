@@ -14,19 +14,19 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8fa77f13b99564246c048e7b7a8129f9fc141c47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31dabcf77f0db76047919fa76d00f1c5ed3c96d6
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84984196"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369145"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-cli"></a>Criar ou atualizar funções personalizadas Azure usando O Azure CLI
 
 > [!IMPORTANT]
 > A adição de um grupo de gestão `AssignableScopes` está atualmente em pré-visualização.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Se os [papéis incorporados do Azure](built-in-roles.md) não corresponderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Este artigo descreve como listar, criar, atualizar ou eliminar funções personalizadas usando o Azure CLI.
 
@@ -146,7 +146,7 @@ Para criar um papel personalizado, utilize [a definição de função az create]
 az role definition create --role-definition {roleDefinition}
 ```
 
-O exemplo a seguir cria uma função personalizada chamada *Operador de Máquina Virtual.* Esta função personalizada atribui acesso a todas as operações de leitura de *microsoft.Compute,* *Microsoft.Storage*e *Microsoft.Network* fornecedores de recursos e atribui acesso a máquinas virtuais de arranque, reinicio e monitorização. Esta função personalizada pode ser usada em duas subscrições. Este exemplo utiliza um ficheiro JSON como entrada.
+O exemplo a seguir cria uma função personalizada chamada *Operador de Máquina Virtual.* Esta função personalizada atribui acesso a todas as operações de leitura de *microsoft.Compute,* *Microsoft.Storage* e *Microsoft.Network* fornecedores de recursos e atribui acesso a máquinas virtuais de arranque, reinicio e monitorização. Esta função personalizada pode ser usada em duas subscrições. Este exemplo utiliza um ficheiro JSON como entrada.
 
 vmoperator.jsem
 
@@ -244,4 +244,4 @@ az role definition delete --name "Virtual Machine Operator"
 
 - [Tutorial: Criar um papel personalizado Azure usando O Azure CLI](tutorial-custom-role-cli.md)
 - [Funções personalizadas do Azure](custom-roles.md)
-- [Operações do fornecedor de recursos do Azure Resource Manager](resource-provider-operations.md)
+- [Operações de fornecedor de recursos Azure](resource-provider-operations.md)

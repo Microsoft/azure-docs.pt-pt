@@ -2,36 +2,76 @@
 title: Funções personalizadas Azure - Azure RBAC
 description: Saiba como criar funções personalizadas Azure com o controlo de acesso baseado em funções Azure (Azure RBAC) para uma gestão de acesso de grãos finos dos recursos Azure.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2020
+ms.date: 12/11/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fd737a22a37d6edc47c2769a470af00537d720eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eddbd9cb695f3ff7eabd9f2549d0a868d8826eb9
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87124158"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369128"
 ---
 # <a name="azure-custom-roles"></a>Funções personalizadas do Azure
 
 > [!IMPORTANT]
 > A adição de um grupo de gestão `AssignableScopes` está atualmente em pré-visualização.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Se os [papéis incorporados do Azure](built-in-roles.md) não corresponderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Tal como as funções incorporadas, pode atribuir funções personalizadas aos utilizadores, grupos e diretores de serviços nos âmbitos do grupo de gestão, subscrição e grupo de recursos.
 
 As funções personalizadas podem ser partilhadas entre subscrições que confiam no mesmo diretório AD Azure. Há um limite de **5.000** funções personalizadas por diretório. (Para a Azure Alemanha e Azure China 21Vianet, o limite é de 2.000 papéis personalizados.) As funções personalizadas podem ser criadas utilizando o portal Azure PowerShell, Azure CLI ou a API REST.
+
+## <a name="steps-to-create-a-custom-role"></a>Passos para criar um papel personalizado
+
+Aqui estão os passos básicos para criar um papel personalizado.
+
+1. Determine as permissões necessárias.
+
+    Quando cria uma função personalizada, precisa de conhecer as operações que estão disponíveis para definir as suas permissões. Normalmente, começa-se com um papel incorporado existente e depois modifica-se para as suas necessidades. Irá adicionar as operações à `Actions` ou `NotActions` propriedades da definição de [função.](role-definitions.md) Se tiver operações de dados, irá adicioná-las às `DataActions` `NotDataActions` propriedades ou propriedades.
+
+    Para mais informações, consulte a secção seguinte [Como determinar as permissões de que necessita](#how-to-determine-the-permissions-you-need).
+
+1. Decida como quer criar o papel personalizado.
+
+    Pode criar funções personalizadas utilizando [o portal Azure](custom-roles-portal.md), [Azure PowerShell,](custom-roles-powershell.md) [Azure CLI](custom-roles-cli.md)ou a [API REST](custom-roles-rest.md).
+
+1. Crie o papel personalizado.
+
+    A maneira mais fácil é usar o portal Azure. Para obter etapas sobre como criar uma função personalizada utilizando o portal Azure, consulte [criar ou atualizar funções personalizadas Azure utilizando o portal Azure](custom-roles-portal.md).
+
+1. Teste o papel personalizado.
+
+    Uma vez que tenha o seu papel personalizado, você tem que testá-lo para verificar se funciona como você espera. Se precisar de fazer ajustes mais tarde, pode atualizar a função personalizada.
+
+## <a name="how-to-determine-the-permissions-you-need"></a>Como determinar as permissões de que precisa
+
+O Azure tem milhares de permissões que pode potencialmente incluir no seu papel personalizado. Aqui estão alguns métodos que podem ajudá-lo a determinar as permissões que pretende adicionar à sua função personalizada:
+
+- Veja os [papéis incorporados existentes.](built-in-roles.md)
+
+    Pode querer modificar um papel existente ou combinar permissões usadas em várias funções.
+
+- Enuse os serviços Azure a que pretende conceder acesso.
+
+- Determine os [fornecedores de recursos que mapeiam para os serviços Azure](../azure-resource-manager/management/azure-services-resource-providers.md).
+
+    Os serviços Azure expõem as suas funcionalidades e permissões através [de fornecedores de recursos.](../azure-resource-manager/management/overview.md) Por exemplo, o fornecedor de recursos Microsoft.Compute fornece recursos de máquinas virtuais e o fornecedor de recursos Microsoft.Billing fornece recursos de subscrição e faturação. Conhecer os fornecedores de recursos pode ajudá-lo a reduzir e determinar as permissões necessárias para o seu papel personalizado.
+
+    Quando cria uma função personalizada utilizando o portal Azure, também pode determinar os fornecedores de recursos procurando palavras-chave. Esta funcionalidade de pesquisa é descrita no [Criar ou atualizar funções personalizadas Azure utilizando o portal Azure.](custom-roles-portal.md#step-4-permissions)
+
+    ![Adicione o painel de permissões com o fornecedor de recursos](./media/custom-roles-portal/add-permissions-provider.png)
+
+- Procure as [permissões disponíveis](resource-provider-operations.md) para encontrar permissões que pretende incluir.
+
+    Quando criar uma função personalizada utilizando o portal Azure, pode procurar permissões através de palavras-chave. Por exemplo, pode procurar por *máquinas virtuais* ou permissões *de faturação.* Também pode descarregar todas as permissões como ficheiro CSV e, em seguida, pesquisar neste ficheiro. Esta funcionalidade de pesquisa é descrita no [Criar ou atualizar funções personalizadas Azure utilizando o portal Azure.](custom-roles-portal.md#step-4-permissions)
+
+    ![Adicionar lista de permissões](./media/custom-roles-portal/add-permissions-list.png)
 
 ## <a name="custom-role-example"></a>Exemplo de função personalizada
 
@@ -150,26 +190,6 @@ Também pode ter vários wildcards numa corda. Por exemplo, o seguinte fio repre
 ```
 Microsoft.CostManagement/*/query/*
 ```
-
-## <a name="steps-to-create-a-custom-role"></a>Passos para criar um papel personalizado
-
-Para criar um papel personalizado, aqui estão os passos básicos que deve seguir.
-
-1. Decida como quer criar o papel personalizado.
-
-    Pode criar funções personalizadas utilizando o portal Azure PowerShell, Azure CLI ou a API REST.
-
-1. Determine as permissões necessárias.
-
-    Quando cria uma função personalizada, precisa de conhecer as operações que estão disponíveis para definir as suas permissões. Para ver a lista de operações, consulte as operações do [fornecedor de recursos Azure Resource Manager](resource-provider-operations.md). Irá adicionar as operações à `Actions` ou `NotActions` propriedades da definição de [função.](role-definitions.md) Se tiver operações de dados, irá adicioná-las às `DataActions` `NotDataActions` propriedades ou propriedades.
-
-1. Crie o papel personalizado.
-
-    Normalmente, começa-se com um papel incorporado existente e depois modifica-se para as suas necessidades. A maneira mais fácil é usar o portal Azure. Para obter etapas sobre como criar uma função personalizada utilizando o portal Azure, consulte [criar ou atualizar funções personalizadas Azure utilizando o portal Azure](custom-roles-portal.md).
-
-1. Teste o papel personalizado.
-
-    Uma vez que tenha o seu papel personalizado, você tem que testá-lo para verificar se funciona como você espera. Se precisar de fazer ajustes mais tarde, pode atualizar a função personalizada.
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Quem pode criar, eliminar, atualizar ou ver uma função personalizada
 

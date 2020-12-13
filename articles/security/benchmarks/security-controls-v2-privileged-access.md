@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d6676187f87cecb7f876150d1582cde9051dd251
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f6c990b3ce5edaab4d2ce6600c0291272058e092
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367487"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369298"
 ---
 # <a name="security-control-v2-privileged-access"></a>Controlo de Segurança V2: Acesso Privilegiado
 
 O Acesso Privilegiado cobre controlos para proteger o acesso privilegiado ao seu inquilino e recursos Azure. Isto inclui uma gama de controlos para proteger o seu modelo administrativo, contas administrativas e estações de trabalho privilegiadas de acesso contra riscos deliberados e inadvertidos.
 
-## <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: Proteger e limitar utilizadores altamente privilegiados
+## <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: Proteger e limitar utilizadores com muitos privilégios
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-1 | 4.3, 4.8 | AC-2 |
 
@@ -32,11 +32,11 @@ Limite o número de contas de utilizador altamente privilegiadas e proteja estas
 
 Nota: Pode ter outras funções críticas que precisam de ser regidas se utilizar funções personalizadas com determinadas permissões privilegiadas atribuídas. E também pode querer aplicar controlos semelhantes à conta de administrador de ativos empresariais críticos.  
 
-Você pode ativar o acesso privilegiado just-in-time (JIT) aos recursos Azure e AD Azure usando Azure AD Gestão de Identidade Privilegiada (PIM). O JIT concede permissões temporárias para executar tarefas privilegiadas apenas quando os utilizadores precisam dela. A PIM também pode gerar alertas de segurança quando há atividade suspeita ou insegura na sua organização Azure AD.
+Pode ativar o acesso privilegiado just-in-time (JIT) nos recursos do Azure e no Azure AD com o Azure AD Privileged Identity Management (PIM). O JIT concede permissões temporárias para realizar tarefas privilegiadas apenas quando os utilizadores precisam. O PIM também pode gerar alertas de segurança em caso de atividades suspeitas ou inseguras na sua organização do Azure AD.
 
-- [Permissões de função de administrador em Azure AD](../../active-directory/roles/permissions-reference.md)
+- [Permissões das funções de administrador no Azure AD](../../active-directory/roles/permissions-reference.md)
 
-- [Use alertas de segurança de gestão de identidade privilegiada Azure](../../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md)
+- [Utilizar os alertas de segurança do Azure Privileged Identity Management](../../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md)
 
 - [Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD](../../active-directory/roles/security-planning.md)
 
@@ -52,9 +52,9 @@ Você pode ativar o acesso privilegiado just-in-time (JIT) aos recursos Azure e 
 
 - [Operações de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-## <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: Restringir o acesso administrativo a sistemas críticos de negócios
+## <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: Restringir o acesso administrativo a sistemas críticos da empresa
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-2 | 13.2, 2.10 | AC-2, SC-3, SC-7 |
 
@@ -80,9 +80,9 @@ Certifique-se de atribuir contas privilegiadas separadas que são distintas das 
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-## <a name="pa-3-review-and-reconcile-user-access-regularly"></a>PA-3: Rever e conciliar o acesso dos utilizadores regularmente
+## <a name="pa-3-review-and-reconcile-user-access-regularly"></a>PA-3: Rever e reconciliar o acesso dos utilizadores regularmente
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-3 | 4.1, 16.9, 16.10 | AC-2 |
 
@@ -93,7 +93,7 @@ Nota: Alguns serviços Azure suportam utilizadores locais e funções que não s
 
 - [Criar uma revisão de acesso das funções de recursos da Azure na Gestão de Identidade Privilegiada (PIM)](../../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md)
 
-- [Como utilizar a identidade AD do Azure e as avaliações de acesso](../../active-directory/governance/access-reviews-overview.md)
+- [Como utilizar as revisões de identidades e acessos do Azure AD](../../active-directory/governance/access-reviews-overview.md)
 
 **Responsabilidade**: Cliente
 
@@ -105,16 +105,16 @@ Nota: Alguns serviços Azure suportam utilizadores locais e funções que não s
 
 - [Gestão de Conformidade de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-## <a name="pa-4-set-up-emergency-access-in-azure-ad"></a>PA-4: Criar acesso de emergência em Azure AD
+## <a name="pa-4-set-up-emergency-access-in-azure-ad"></a>PA-4: Configurar o acesso de emergência no AAD
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-4 | 16 | AC-2, CP-2 |
 
-Para evitar que seja acidentalmente bloqueado fora da sua organização Azure AD, crie uma conta de acesso de emergência para acesso quando não puder ser utilizada uma conta administrativa normal. As contas de acesso de emergência são geralmente altamente privilegiadas, e não devem ser atribuídas a indivíduos específicos. As contas de acesso de emergência limitam-se a cenários de emergência ou "vidro quebrado", onde as contas administrativas normais não podem ser utilizadas.
-Deve certificar-se de que as credenciais (como palavra-passe, certificado ou cartão inteligente) para contas de acesso de emergência são mantidas seguras e conhecidas apenas por indivíduos autorizados a usá-las apenas em caso de emergência.
+Para evitar que seja acidentalmente bloqueado fora da sua organização Azure AD, crie uma conta de acesso de emergência para acesso quando não puder ser utilizada uma conta administrativa normal. As contas de acesso de emergência são, normalmente, altamente privilegiadas e não devem ser atribuídas a indivíduos específicos. As contas de acesso de emergência são limitadas a cenários de emergência ou de “interrupção de emergência”, em que as contas administrativas normais não podem ser utilizadas.
+Deve garantir que as credenciais (por exemplo, palavra-passe, certificado ou smart card) das contas de acesso de emergência são mantidas em segurança e só são conhecidas por indivíduos que estão autorizados a utilizá-las apenas para uma emergência.
 
-- [Gerir contas de acesso de emergência em Azure AD](../../active-directory/roles/security-emergency-access.md)
+- [Gerir contas de acesso de emergência no AAD](../../active-directory/roles/security-emergency-access.md)
 
 **Responsabilidade**: Cliente
 
@@ -130,7 +130,7 @@ Deve certificar-se de que as credenciais (como palavra-passe, certificado ou car
 
 ## <a name="pa-5-automate-entitlement-management"></a>PA-5: Gestão de direitos de automatização
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-5 | 16 | AC-2, AC-5, PM-10 |
 
@@ -149,17 +149,17 @@ Utilize funcionalidades de gestão de direitos Azure AD para automatizar fluxos 
 
 - [Gestão de Conformidade de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-## <a name="pa-6-use-privileged-access-workstations"></a>PA-6: Utilize postos de trabalho privilegiados de acesso
+## <a name="pa-6-use-privileged-access-workstations"></a>PA-6: Utilizar estações de trabalho privilegiadas
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-6 | 4.6, 11.6, 12.12 | AC-2, SC-3, SC-7 |
 
-Estações de trabalho seguras e isoladas são de importância crucial para a segurança de funções sensíveis como administradores, desenvolvedores e operadores de serviços críticos. Utilize estações de trabalho de utilizador altamente seguras e/ou Bastião Azure para tarefas administrativas. Utilize o Azure Ative Directory, Microsoft Defender Advanced Threat Protection (ATP) e/ou Microsoft Intune para implementar uma estação de trabalho segura e gerida para tarefas administrativas. As estações de trabalho seguras podem ser geridas centralmente para impor a configuração segura, incluindo a autenticação forte, linhas de base de software e hardware, e acesso lógico e de rede restrito. 
+Estações de trabalho seguras e isoladas são de importância crucial para a segurança de funções sensíveis como administradores, desenvolvedores e operadores de serviços críticos. Utilize estações de trabalho de utilizador altamente seguras e/ou Bastião Azure para tarefas administrativas. Utilize o Azure Active Directory, a Proteção Avançada Contra Ameaças do Microsoft Defender (ATP) e/ou o Microsoft Intune para implementar uma estação de trabalho de utilizador gerida e segura para tarefas administrativas. As estações de trabalho seguras podem ser geridas centralmente para impor a configuração segura, incluindo a autenticação forte, linhas de base de software e hardware, e acesso lógico e de rede restrito. 
 
 - [Compreender estações de trabalho de acesso privilegiada](../../active-directory/devices/concept-azure-managed-workstation.md)
 
-- [Implementar uma estação de trabalho de acesso privilegiada](../../active-directory/devices/howto-azure-managed-workstation.md)
+- [Implementar uma estação de trabalho de acesso privilegiado](../../active-directory/devices/howto-azure-managed-workstation.md)
 
 **Responsabilidade**: Cliente
 
@@ -171,20 +171,20 @@ Estações de trabalho seguras e isoladas são de importância crucial para a se
 
 - [Identidade e gestão chave](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
-## <a name="pa-7-follow-just-enough-administration-least-privilege-principle"></a>PA-7: Siga a administração suficiente (princípio de mínimo privilégio)
+## <a name="pa-7-follow-just-enough-administration-least-privilege-principle"></a>PA-7: Seguir a abordagem de Administração Suficiente (princípio do privilégio mínimo)
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-7 | 14.6 | AC-2, AC-3, SC-3 |
 
 O controlo de acesso baseado em funções (Azure RBAC) permite-lhe gerir o acesso a recursos Azure através de atribuições de funções. Pode atribuir estas funções aos utilizadores, aos principais do serviço de grupo e às identidades geridas. Existem funções incorporadas pré-definidas para determinados recursos, e estas funções podem ser inventariadas ou consultadas através de ferramentas como Azure CLI, Azure PowerShell e o portal Azure. Os privilégios que atribui aos recursos através do Azure RBAC devem estar sempre limitados ao que é exigido pelas funções. Privilégios limitados complementam a abordagem just in time (JIT) da Azure AD Privileged Identity Management (PIM), e esses privilégios devem ser revistos periodicamente.
-Utilize funções incorporadas para alocar a permissão e apenas crie um papel personalizado quando necessário. 
+Utilize as funções incorporadas para alocar as permissões e crie funções personalizadas apenas quando for necessário. 
 
 - [O que é o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md)
 
 - [Como configurar o Azure RBAC](../../role-based-access-control/role-assignments-portal.md)
 
-- [Como utilizar a identidade AD do Azure e as avaliações de acesso](../../active-directory/governance/access-reviews-overview.md)
+- [Como utilizar as revisões de identidades e acessos do Azure AD](../../active-directory/governance/access-reviews-overview.md)
 
 **Responsabilidade**: Cliente
 
@@ -200,7 +200,7 @@ Utilize funções incorporadas para alocar a permissão e apenas crie um papel p
 
 ## <a name="pa-8-choose-approval-process-for-microsoft-support"></a>PA-8: Escolha o processo de aprovação para suporte da Microsoft 
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-8 | 16 | AC-2, AC-3, AC-4 |
 

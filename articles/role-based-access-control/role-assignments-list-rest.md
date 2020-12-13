@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 634e1111c9374a1749e7dbb0666740ce2833a688
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b717d84c8fedf4a87c0b81752b14914ece185250
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84790981"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369213"
 ---
 # <a name="list-azure-role-assignments-using-the-rest-api"></a>ListE Azure atribui funções utilizando a API REST
 
@@ -49,12 +49,12 @@ No Azure RBAC, para listar o acesso, lista as atribuições de funções. Para l
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Grupo de recursos |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Recurso |
 
-    No exemplo anterior, o microsoft.web é um fornecedor de recursos que se refere a uma instância do Serviço de Aplicações. Da mesma forma, pode utilizar quaisquer outros fornecedores de recursos e especificar o âmbito. Para obter mais informações, consulte [os fornecedores e tipos de recursos da Azure Resource](../azure-resource-manager/management/resource-providers-and-types.md) e as operações de [fornecedores de recursos do Azure Resource Manager.](resource-provider-operations.md)  
+    No exemplo anterior, o microsoft.web é um fornecedor de recursos que se refere a uma instância do Serviço de Aplicações. Da mesma forma, pode utilizar quaisquer outros fornecedores de recursos e especificar o âmbito. Para obter mais informações, consulte [os fornecedores e tipos de recursos Azure](../azure-resource-manager/management/resource-providers-and-types.md) e as operações de [fornecedores de recursos Azure suportados.](resource-provider-operations.md)  
      
 1. Substitua *{filter}* pela condição que pretende aplicar para filtrar a lista de atribuição de funções.
 
     > [!div class="mx-tableFixed"]
-    > | Filtrar | Descrição |
+    > | Filtro | Descrição |
     > | --- | --- |
     > | `$filter=atScope()` | Lista atribuições de funções apenas para o âmbito especificado, não incluindo as atribuições de funções em subscópios. |
     > | `$filter=assignedTo('{objectId}')` | Lista atribuições de funções para um utilizador especificado ou principal de serviço.<br/>Se o utilizador for membro de um grupo que tem uma atribuição de funções, essa atribuição de funções também está listada. Este filtro é transitório para grupos, o que significa que se o utilizador é membro de um grupo e esse grupo é membro de outro grupo que tem uma atribuição de papel, essa atribuição de funções também está listada.<br/>Este filtro só aceita um ID de objeto para um utilizador ou um principal de serviço. Não se pode passar uma identificação de objeto para um grupo. |

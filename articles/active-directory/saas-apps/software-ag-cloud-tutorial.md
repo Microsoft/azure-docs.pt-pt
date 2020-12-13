@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/20/2020
+ms.date: 12/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 4acc4c0cec530b8f83648042cd7a417992257543
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 144263835e129c3571dcc5c2f8e8bde03dca9a0e
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602075"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369349"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-software-ag-cloud"></a>Tutorial: Azure Ative Directory integração única (SSO) com Software AG Cloud
 
@@ -145,15 +145,12 @@ Nesta secção, um utilizador chamado Britta Simon é criado em Software AG Clou
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
+Nesta secção, testa a configuração de inscrição única AZure AD com a seguinte opção. 
 
-* Assumindo que o Microsoft Azure está configurado como fornecedor na Cloud Software AG, navegue `www.softwareag.cloud` e clique no botão de Login e introduza o nome ambiente. No ecrã seguinte, clique no link "Iniciar sessão <IDP NAME> com" e introduza as credenciais. Uma vez autenticado, você será iniciado e levado para a página inicial da Cloud Do Software AG.
+Assumindo que o Microsoft Azure está configurado como fornecedor na Cloud Software AG, navegue `www.softwareag.cloud` e clique no botão de Login e introduza o nome ambiente. No ecrã seguinte, clique no link "Iniciar sessão <IDP NAME> com" e introduza as credenciais. Uma vez autenticado, você será iniciado e levado para a página inicial da Cloud Do Software AG.
 
-* Vá diretamente ao URL de inscrição na nuvem de software AG e inicie o fluxo de login a partir daí.
+## <a name="next-steps"></a>Passos seguintes
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo de Nuvem AG de Software nas Minhas Apps, este irá redirecionar para o SOFTWARE AG Cloud Sign-on URL. Para mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Uma vez configurado software AG Cloud, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 
-## <a name="next-steps"></a>Próximos passos
-
-Uma vez configurado software AG Cloud, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

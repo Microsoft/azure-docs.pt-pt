@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 610ab649d64351b0897ef7358cdaf9280fe3ba55
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: c18ee43eefe9c6cf9cba7f4e8f6c3fd3f55bba5a
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684925"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368703"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -33,7 +33,7 @@ Existem algumas limitações paaS que são introduzidas em SQL Managed Instance 
 - [A disponibilidade](#availability) inclui as diferenças em [Grupos de Disponibilidade Sempre e](#always-on-availability-groups) [cópias de segurança.](#backup)
 - [A](#security) segurança inclui as diferenças na [auditoria,](#auditing) [certificados,](#certificates) [credenciais,](#credential) [fornecedores criptográficos,](#cryptographic-providers) [logins e utilizadores,](#logins-and-users)e a [chave de serviço e de serviço principal.](#service-key-and-service-master-key)
 - [A configuração](#configuration) inclui as diferenças na [extensão do conjunto tampão,](#buffer-pool-extension) [colagem,](#collation) [níveis de compatibilidade,](#compatibility-levels) [espelhamento da base de dados,](#database-mirroring) [opções de base de dados,](#database-options) [Agente do Servidor SQL](#sql-server-agent)e [opções de tabela](#tables).
-- [As funcionalidades](#functionalities) incluem [INSERÇÃO A GRANEL/OPENROWSET,](#bulk-insert--openrowset) [CLR,](#clr) [DBCC,](#dbcc) [transações distribuídas, eventos alargados, bibliotecas](#distributed-transactions) [externas,](#external-libraries) [filestream e FileTable,](#filestream-and-filetable)Pesquisa [extended events](#extended-events) [Semântica de texto completo,](#full-text-semantic-search) [servidores ligados,](#linked-servers) [PolyBase,](#polybase) [Replicação,](#replication) [RESTAURAR,](#restore-statement)Corretor de [Serviços, procedimentos, funções e gatilhos.](#stored-procedures-functions-and-triggers) [Service Broker](#service-broker)
+- [As funcionalidades](#functionalities) incluem [INSERÇÃO A GRANEL/OPENROWSET,](#bulk-insert--openrowset) [CLR,](#clr) [DBCC,](#dbcc) [transações distribuídas, eventos alargados, bibliotecas](#distributed-transactions) [externas,](#external-libraries) [filestream e FileTable,](#filestream-and-filetable)Pesquisa [](#extended-events) [Semântica de texto completo,](#full-text-semantic-search) [servidores ligados,](#linked-servers) [PolyBase,](#polybase) [Replicação,](#replication) [RESTAURAR,](#restore-statement)Corretor de [Serviços, procedimentos, funções e gatilhos.](#stored-procedures-functions-and-triggers) [](#service-broker)
 - [Configurações de](#Environment) ambiente, tais como VNets e configurações de sub-redes.
 
 A maioria destas características são restrições arquitetónicas e representam características de serviço.
@@ -52,7 +52,7 @@ Problemas temporários conhecidos que são descobertos em SQL Managed Instance e
 - [GRUPO DE DISPONIBILIDADE DE DROP](/sql/t-sql/statements/drop-availability-group-transact-sql)
 - A cláusula [SET HADR](/sql/t-sql/statements/alter-database-transact-sql-set-hadr) da declaração [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql)
 
-### <a name="backup"></a>Cópia de segurança
+### <a name="backup"></a>Backup
 
 SQL Managed Instance tem backups automáticos, para que os utilizadores possam criar `COPY_ONLY` cópias de dados completas. As cópias de segurança diferenciais, de registos e de ficheiros não são suportadas.
 
@@ -396,9 +396,9 @@ Para obter mais informações, consulte [FILESTREAM](/sql/relational-databases/b
 
 Servidores ligados em SQL Managed Instance suportam um número limitado de alvos:
 
-- Os alvos suportados são sql Gestd Instance, SQL Database, Azure Synapse SQL e SQL Server. 
+- Os alvos suportados são SQL Managed Instance, SQL Database, Azure Synapse SQL [serverless](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) e piscinas dedicadas e sql server instances. 
 - Os servidores ligados não suportam transações writable distribuídas (MS DTC).
-- Os alvos que não são suportados são ficheiros, Serviços de Análise e outros RDBMS. Tente utilizar a importação de CSV nativa do Azure Blob Storage utilizando `BULK INSERT` ou como alternativa para a importação de `OPENROWSET` ficheiros.
+- Os alvos que não são suportados são ficheiros, Serviços de Análise e outros RDBMS. Tente utilizar a importação de CSV nativa do Azure Blob Storage utilizando `BULK INSERT` ou como alternativa para a importação de `OPENROWSET` ficheiros, ou carregue ficheiros usando uma [piscina SQL sem servidor em Azure Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/).
 
 Operações: 
 
@@ -406,11 +406,12 @@ Operações:
 - `sp_dropserver` é suportado para deixar cair um servidor ligado. Ver [sp_dropserver.](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql)
 - A `OPENROWSET` função pode ser usada para executar consultas apenas em instâncias do SQL Server. Podem ser geridos, no local ou em máquinas virtuais. Ver [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - A `OPENDATASOURCE` função pode ser usada para executar consultas apenas em instâncias do SQL Server. Podem ser geridos, no local ou em máquinas virtuais. Apenas os `SQLNCLI` `SQLNCLI11` valores e `SQLOLEDB` valores são suportados como fornecedor. Um exemplo é `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Ver [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
-- Os servidores ligados não podem ser utilizados para ler ficheiros (Excel, CSV) a partir das partilhas de rede. Tente utilizar [o BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) ou o [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) que lê ficheiros CSV do Azure Blob Storage. Acompanhe este pedido no [item de feedback de instância gerida do SQL](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
+- Os servidores ligados não podem ser utilizados para ler ficheiros (Excel, CSV) a partir das partilhas de rede. Tente utilizar [o BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file), [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) que lê ficheiros CSV do Azure Blob Storage, ou um servidor ligado que faz referência a [uma piscina SQL sem servidor no Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/). Acompanhe este pedido no [item de feedback de instância gerida do SQL](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
 
 ### <a name="polybase"></a>PolyBase
 
-O único tipo suportado de fonte externa é RDBMS, para Azure SQL Database e outroS Azure SQL Managed Instance. Para obter informações sobre a PolyBase, consulte [a PolyBase](/sql/relational-databases/polybase/polybase-guide).
+Os únicos tipos disponíveis de fonte externa são RDBMS (em pré-visualização pública) para a base de dados Azure SQL, Azure SQL gerido instância, e piscina Azure Synapse. Você pode usar [uma tabela externa que referencia uma piscina SQL sem servidor em Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) como uma solução para tabelas externas da Polybase que lê diretamente a partir do armazenamento Azure. Em Azure SQL, pode utilizar servidores ligados a [uma piscina SQL sem servidor em Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) ou SQL Server para ler dados de armazenamento do Azure.
+Para obter informações sobre a PolyBase, consulte [a PolyBase](/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Replicação
 
@@ -547,7 +548,7 @@ Os seguintes esquemas MSDB em SQL Managed Instance devem ser propriedade das res
 
 SQL Gestd Instance coloca informações verbosas em registos de erro. Existem muitos eventos internos do sistema que são registados no registo de erros. Utilize um procedimento personalizado para ler registos de erros que filtram algumas entradas irrelevantes. Para obter mais informações, consulte [a extensão de exemplo gerida do SQL – sp_readmierrorlog](/archive/blogs/sqlcat/azure-sql-db-managed-instance-sp_readmierrorlog) ou [SQL Para](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) o Azure Data Studio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre a SQL Managed Instance, consulte [o que é a SqL Managed Instance?](sql-managed-instance-paas-overview.md)
 - Para obter uma lista de funcionalidades e comparação, consulte [a comparação de funcionalidades Azure SQL Managed Instance](../database/features-comparison.md).

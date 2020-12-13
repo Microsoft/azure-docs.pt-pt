@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d66b4c8e9f41f661cfc399f72a9ad97405a860fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: feb647cc42c878778b4326c9ee76a32809751314
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84790851"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369315"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>Utilizar a API REST para adicionar ou remover atribuições de funções do Azure
 
@@ -65,7 +65,7 @@ No Azure RBAC, para conceder acesso, adiciona-se uma atribuição de papéis. Pa
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Grupo de recursos |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Recurso |
 
-    No exemplo anterior, o microsoft.web é um fornecedor de recursos que se refere a uma instância do Serviço de Aplicações. Da mesma forma, pode utilizar quaisquer outros fornecedores de recursos e especificar o âmbito. Para obter mais informações, consulte [os fornecedores e tipos de recursos da Azure Resource](../azure-resource-manager/management/resource-providers-and-types.md) e as operações de [fornecedores de recursos do Azure Resource Manager.](resource-provider-operations.md)  
+    No exemplo anterior, o microsoft.web é um fornecedor de recursos que se refere a uma instância do Serviço de Aplicações. Da mesma forma, pode utilizar quaisquer outros fornecedores de recursos e especificar o âmbito. Para obter mais informações, consulte [os fornecedores e tipos de recursos Azure](../azure-resource-manager/management/resource-providers-and-types.md) e as operações de [fornecedores de recursos Azure suportados.](resource-provider-operations.md)  
 
 1. Substitua *{roleAssignmentId}* pelo identificador GUID da atribuição de funções.
 

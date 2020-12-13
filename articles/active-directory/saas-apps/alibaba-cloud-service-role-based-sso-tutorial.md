@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: 256685e035659cd0fac7fa5577d99f43f4761ea2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ef057b64fa04387d0ebec5a6e5c38f0e06c55a7d
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180623"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368975"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com o Alibaba Cloud Service (SSO baseado em funções)
 
@@ -72,7 +72,7 @@ Para configurar e testar o Azure AD SSO com o Alibaba Cloud Service (SSO baseado
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **do Alibaba Cloud Service (SSO baseado em funções),** encontre a secção **Gerir** e selecione um **único sinal**.
+1. No portal Azure, na página de integração de aplicações **do Alibaba Cloud Service (SSO baseado em funções),** encontre a secção **Gerir** e selecione um único sinal de **sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
@@ -94,7 +94,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!Note]
     > Se os valores de URL **de identificação** e **resposta** não forem preenchidos automaticamente, preencha os valores manualmente de acordo com o seu requisito.
 
-1. O Alibaba Cloud Service (SSO baseado em funções) requer que os papéis sejam configurados em Azure AD. A alegação de papel é pré-configurada para que não tenha que configurá-la, mas ainda precisa criá-las em AD Azure usando este [artigo](../develop/active-directory-enterprise-app-role-management.md).
+1. O Alibaba Cloud Service (SSO baseado em funções) requer que os papéis sejam configurados em Azure AD. A alegação de papel é pré-configurada para que não tenha que configurá-la, mas ainda precisa criá-las em AD Azure usando este [artigo](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui).
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregue** para descarregar o certificado e guarde-o no seu computador.
 
@@ -167,7 +167,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
     >[!NOTE]
     >Após a concessão das permissões, inicie sessão no Graph Explorer novamente.
 
-    d. Na página Graph Explorer, selecione **GET** da primeira lista de drop-down e **beta** da segunda lista de drop-down. Em seguida, insira `https://graph.microsoft.com/beta/servicePrincipals` no campo ao lado das listas de drop-down e clique em **''' Executar Consulta**.
+    d. Na página Graph Explorer, selecione **GET** da primeira lista de drop-down e **beta** da segunda lista de drop-down. Em seguida, insira `https://graph.microsoft.com/beta/servicePrincipals` no campo ao lado das listas de drop-down e clique em ' Executar **Consulta**.
 
     ![Gráfico config3](./media/alibaba-cloud-service-role-based-sso-tutorial/graph03.png)
 

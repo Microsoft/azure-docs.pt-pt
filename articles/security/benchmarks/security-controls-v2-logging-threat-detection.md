@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 99e7a8fcb34c963cfab366f1913508a7ff3f4a51
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: c5a855ffe06a17d8ec1bfe249dbe7bc41d1166af
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408707"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369077"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Controlo de Segurança V2: Registo e deteção de ameaças
 
@@ -20,7 +20,7 @@ A deteção de registos e deteção de ameaças abrange os controlos de deteçã
 
 ## <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Permitir a deteção de ameaças para recursos Azure
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | LT-1 | 6.7 | AU-3, AU-6, AU-12, SI-4 |
 
@@ -38,7 +38,7 @@ Além disso, use o Azure Sentinel para construir regras de análise, que caçam 
 
 - [Inteligência de ameaça cibernética com Azure Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -52,16 +52,16 @@ Além disso, use o Azure Sentinel para construir regras de análise, que caçam 
 
 - [Informações sobre ameaças](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-## <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Permitir a deteção de ameaças para a gestão da identidade e do acesso do Azure
+## <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Ative a deteção de ameaças para a gestão de identidades e acessos do Azure
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | LT-2 | 6.8 | AU-3, AU-6, AU-12, SI-4 |
 
 O Azure AD fornece os seguintes registos de utilizador que podem ser visualizados em relatórios AZure AD ou integrados com Azure Monitor, Azure Sentinel ou outras ferramentas siem/monitorização para casos de monitorização e utilização de análises mais sofisticados: 
--   Ins- O relatório de inscrições fornece informações sobre o uso de aplicações geridas e atividades de inscrição do utilizador.
+-   Inícios de sessão – o relatório de inícios de sessão faculta informações sobre a utilização de aplicações geridas e das atividades de início de sessão dos utilizadores.
 
--   Registos de auditoria - Capacidade de rastreio através de registos para todas as alterações efetuadas por várias funcionalidades no Azure AD. Exemplos de registos de auditoria incluem alterações feitas a quaisquer recursos dentro do AD Azure, como adicionar ou remover utilizadores, apps, grupos, papéis e políticas.
+-   Registos de auditoria - Capacidade de rastreio através de registos para todas as alterações efetuadas por várias funcionalidades no Azure AD. Os exemplos de registos de auditoria incluem as alterações feitas a quaisquer recursos no Azure AD, como adicionar ou remover utilizadores, aplicações, grupos, funções e políticas.
 
 -   Inícios de sessão de risco – Um início de sessão de risco é um indicador de uma tentativa de início de sessão que pode ter sido efetuada por alguém que não é o proprietário legítimo de uma conta de utilizador.
 
@@ -71,11 +71,11 @@ O Azure Security Center também pode alertar para certas atividades suspeitas, c
 
 - [Relatórios de atividades de auditoria em Azure AD](../../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [Ativar a proteção de identidade Azure](../../active-directory/identity-protection/overview-identity-protection.md)
+- [Ativar o Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Proteção contra ameaças no Centro de Segurança do Azure](../../security-center/azure-defender.md)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -89,9 +89,9 @@ O Azure Security Center também pode alertar para certas atividades suspeitas, c
 
 - [Informações sobre ameaças](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-## <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Permitir o registo de atividades da rede Azure
+## <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Ativar o registo para atividades de rede do Azure
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | LT-3 | 9.3, 12.2, 12.5, 12.8 | AU-3, AU-6, AU-12, SI-4 |
 
@@ -109,7 +109,7 @@ Ativar e recolher registos de recursos do grupo de segurança da rede (NSG), reg
 
 - [Recolha informações sobre a sua infraestrutura DNS com a solução DNS Analytics](../../azure-monitor/insights/dns-analytics.md)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -123,9 +123,9 @@ Ativar e recolher registos de recursos do grupo de segurança da rede (NSG), reg
 
 - [Informações sobre ameaças](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-## <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: Permitir a exploração de madeira para recursos Azure
+## <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: Ativar o registo dos recursos do Azure
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | LT-4 | 6.2, 6.3, 8.8 | AU-3, AU-12 |
 
@@ -137,7 +137,7 @@ Pode utilizar o Azure Security Center e a Azure Policy para permitir registos de
 
 - [Compreender a recolha de dados do Centro de Segurança Azure](../../security-center/security-center-enable-data-collection.md)
 
-**Responsabilidade** : Compartilhado
+**Responsabilidade**: Partilhada
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -149,9 +149,9 @@ Segurança de infraestrutura e pontos finais
 
 - [Informações sobre ameaças](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-## <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: Centralizar a gestão e análise de registos de segurança
+## <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: Centralizar a análise e gestão do registo de segurança
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | LT-5 | 6.5, 6.6 | AU-3, SI-4 |
 
@@ -167,7 +167,7 @@ Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que s
 
 - [Como embarcar Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -177,9 +177,9 @@ Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que s
 
 - [Segurança de infraestrutura e pontos finais](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-## <a name="lt-6-configure-log-storage-retention"></a>LT-6: Retenção de armazenamento de madeira configurada
+## <a name="lt-6-configure-log-storage-retention"></a>LT-6: Configurar a retenção de armazenamento dos registos
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | LT-6 | 6.4 | AU-3, AU-11 |
 
@@ -193,7 +193,7 @@ No Azure Monitor, pode definir o período de retenção do espaço de trabalho d
 
 - [Alertas e recomendações do Centro de Segurança Azure](../../security-center/continuous-export.md)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -207,7 +207,7 @@ No Azure Monitor, pode definir o período de retenção do espaço de trabalho d
 
 ## <a name="lt-7-use-approved-time-synchronization-sources"></a>LT-7: Utilizar fontes de sincronização de tempo aprovadas
 
-| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | LT-7 | 6.1 | AU-8 |
 
@@ -221,7 +221,7 @@ Todos os registos gerados por recursos dentro do Azure fornecem carimbos de temp
 
 - [Como desativar a UDP de entrada para serviços Azure](https://support.microsoft.com/help/4558520/how-to-disable-inbound-udp-for-azure-services)
 
-**Responsabilidade** : Compartilhado
+**Responsabilidade**: Partilhada
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 

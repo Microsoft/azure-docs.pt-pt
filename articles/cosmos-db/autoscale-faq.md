@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/10/2020
-ms.openlocfilehash: 58e7d54750da86b8a700a4f2195bc4cfa012ae4b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 12/11/2020
+ms.openlocfilehash: a740ad62dacc9a29cab1cc144f1789e125ec2e89
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092692"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368584"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Perguntas frequentes sobre a produção de autoescala abastada na Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,7 +43,7 @@ Nas contas da região de escrita única, a taxa de autoescala por 100 RU/s é de
 Em contas com várias regiões de escrita, a taxa de autoescala por 100 RU/s é a mesma que a taxa para a produção de várias regiões de escrita padrão (manual). Na sua conta, verá o medidor de múltiplas regiões de escrita existente. Uma vez que as tarifas são as mesmas, se utilizar a autoescala, verá a mesma quantidade que com a produção padrão.
 
 ### <a name="does-autoscale-work-with-reserved-capacity"></a>Funciona em autoescalação com capacidade reservada?
-Sim. Ao adquirir capacidade reservada para contas com múltiplas regiões de escrita, o desconto de reserva para recursos de autoescala é aplicado ao uso do seu contador com um rácio de 1,5 * o [rácio da região específica.](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region) 
+Sim. Ao adquirir capacidade reservada para contas com regiões de escrita única, o desconto de reserva para recursos de autoescala é aplicado ao uso do seu contador com um rácio de 1,5 * o [rácio da região específica.](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region) 
 
 A capacidade reservada da região multi-escrita funciona da mesma forma para a produção de escala automática e padrão (manual) a nível. Ver capacidade reservada da [Azure Cosmos DB](cosmos-db-reserved-capacity.md)
 
@@ -109,9 +109,9 @@ Quando envia um pedido para aumentar o max RU/s, `Tmax` dependendo do máximo RU
 #### <a name="lowering-the-max-rus"></a>Baixando o máximo RU/s
 Quando baixar o máximo RU/s, o valor mínimo a que pode fixá-lo é: `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)` , arredondado para os 1000 RU/s mais próximos. 
 
-Exemplo #1: Suponha que tem um recipiente de autoescalação com RU/s máximo de 20.000 RU/s (balanças entre 2000 - 20.000 RU/s) e 50 GB de armazenamento. O valor mínimo mais baixo a que se pode definir max RU/s é: MAX(4000, 20.000 / 10, **50 * 100** ) = 5000 RU/s (balanças entre 500 - 5000 RU/s).
+Exemplo #1: Suponha que tem um recipiente de autoescalação com RU/s máximo de 20.000 RU/s (balanças entre 2000 - 20.000 RU/s) e 50 GB de armazenamento. O valor mínimo mais baixo a que se pode definir max RU/s é: MAX(4000, 20.000 / 10, **50 * 100**) = 5000 RU/s (balanças entre 500 - 5000 RU/s).
 
-Exemplo #2: Suponha que tem um recipiente de autoescalação com RU/s máximo de 100.000 RU/s e 100 GB de armazenamento. Agora, você escala max RU/s até 150.000 RU/s (escalas entre 15.000 - 150.000 RU/s). O valor mínimo mais baixo que pode agora definir max RU/s é: MAX (4000, **150.000 / 10** , 100 * 100) = 15.000 RU/s (balanças entre 1500 - 15.000 RU/s). 
+Exemplo #2: Suponha que tem um recipiente de autoescalação com RU/s máximo de 100.000 RU/s e 100 GB de armazenamento. Agora, você escala max RU/s até 150.000 RU/s (escalas entre 15.000 - 150.000 RU/s). O valor mínimo mais baixo que pode agora definir max RU/s é: MAX (4000, **150.000 / 10**, 100 * 100) = 15.000 RU/s (balanças entre 1500 - 15.000 RU/s). 
 
 Para uma base de dados de produção partilhada, quando baixar o máximo RU/s, o valor mínimo a que pode defini-lo é: `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))` , arredondado para os 1000 RU/s mais próximos.  
 

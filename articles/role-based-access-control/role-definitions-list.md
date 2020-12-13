@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5421efc96b957f5ae96515bbcf17c8a773397c9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9dad8ffc9971894a2777e8bda9bcf6d78eee00a9
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368252"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369281"
 ---
 # <a name="list-azure-role-definitions"></a>Lista Azure definições de função
 
@@ -33,11 +33,11 @@ Para ver a lista de funções de administrador para o Diretório Ativo Azure, co
 
 Siga estes passos para listar todas as funções no portal Azure.
 
-1. No portal Azure, clique em **Todos os serviços** e, em seguida, selecione qualquer âmbito. Por exemplo, pode selecionar **grupos de Gestão,** **Assinaturas, Grupos** **de Recursos**ou um recurso.
+1. No portal Azure, clique em **Todos os serviços** e, em seguida, selecione qualquer âmbito. Por exemplo, pode selecionar **grupos de Gestão,** **Assinaturas, Grupos** **de Recursos** ou um recurso.
 
 1. Clique no recurso específico.
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
 1. Clique no **separador Funções** para ver uma lista de todas as funções incorporadas e personalizadas.
 
@@ -351,7 +351,7 @@ Para listar definições de funções, utilize as [Definições de Função - Li
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Grupo de recursos |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Recurso |
 
-    No exemplo anterior, o microsoft.web é um fornecedor de recursos que se refere a uma instância do Serviço de Aplicações. Da mesma forma, pode utilizar quaisquer outros fornecedores de recursos e especificar o âmbito. Para obter mais informações, consulte [os fornecedores e tipos de recursos da Azure Resource](../azure-resource-manager/management/resource-providers-and-types.md) e as operações de [fornecedores de recursos do Azure Resource Manager.](resource-provider-operations.md)  
+    No exemplo anterior, o microsoft.web é um fornecedor de recursos que se refere a uma instância do Serviço de Aplicações. Da mesma forma, pode utilizar quaisquer outros fornecedores de recursos e especificar o âmbito. Para obter mais informações, consulte [os fornecedores e tipos de recursos Azure](../azure-resource-manager/management/resource-providers-and-types.md) e as operações de [fornecedores de recursos Azure suportados.](resource-provider-operations.md)  
      
 1. Substitua *{filter}* pela condição que pretende aplicar para filtrar a lista de definição de funções.
 

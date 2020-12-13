@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, devx-track-csharp
-ms.openlocfilehash: 133be436853ee8c2b04df2f943368513108b226b
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: c0c3a452c93b88483ac7027405665c26ceab8183
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444312"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368516"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Compreenda o tempo de execução Azure IoT Edge e a sua arquitetura
 
@@ -81,7 +81,7 @@ O hub IoT Edge não é uma versão completa do IoT Hub a funcionar localmente. O
 
 Para reduzir a largura de banda que a sua solução IoT Edge utiliza, o hub IoT Edge otimiza quantas ligações reais são feitas à nuvem. O hub IoT Edge retira ligações lógicas de módulos ou dispositivos a jusante e combina-as para uma única ligação física à nuvem. Os detalhes deste processo são transparentes para o resto da solução. Os clientes acham que têm a sua própria ligação com a nuvem, mesmo estando a ser enviados pela mesma ligação. O hub IoT Edge pode usar o protocolo AMQP ou O protocolo MQTT para comunicar a montante com a nuvem, independentemente dos protocolos utilizados pelos dispositivos a jusante. No entanto, o hub IoT Edge suporta atualmente apenas combinar ligações lógicas numa única ligação física, utilizando amQP como protocolo a montante e suas capacidades de multiplexing. AMQP é o protocolo a montante padrão.
 
-![IoT Edge hub é uma porta de entrada entre dispositivos físicos e IoT Hub](./media/iot-edge-runtime/Gateway.png)
+![IoT Edge hub é uma porta de entrada entre dispositivos físicos e IoT Hub](./media/iot-edge-runtime/gateway-communication.png)
 
 O hub IoT Edge pode determinar se está ligado ao IoT Hub. Se a ligação for perdida, o hub IoT Edge guarda mensagens ou duas atualizações localmente. Uma vez restabelecida uma ligação, sincroniza todos os dados. A localização utilizada para esta cache temporária é determinada por uma propriedade do módulo twin do hub IoT Edge. O tamanho da cache não está tapado e crescerá enquanto o dispositivo tiver capacidade de armazenamento. Para obter mais informações, consulte [as capacidades offline](offline-capabilities.md).
 
@@ -102,7 +102,7 @@ Para enviar dados para o hub IoT Edge, um módulo chama o método SendEventAsync
    await client.SendEventAsync("output1", message);
    ```
 
-Para receber uma mensagem, registe uma chamada que processa as mensagens que chegam numa entrada específica. O pseudocódigo seguinte regista a mensagem de função O Processor a utilizar para processar todas as mensagens recebidas no **input1** :
+Para receber uma mensagem, registe uma chamada que processa as mensagens que chegam numa entrada específica. O pseudocódigo seguinte regista a mensagem de função O Processor a utilizar para processar todas as mensagens recebidas no **input1**:
 
    ```csharp
    await client.SetInputMessageHandlerAsync("input1", messageProcessor, userContext);
@@ -112,7 +112,7 @@ Para obter mais informações sobre a classe MóduloClient e seus métodos de co
 
 O desenvolvedor de soluções é responsável por especificar as regras que determinam como o hub IoT Edge transmite mensagens entre módulos. As regras de encaminhamento são definidas na nuvem e empurradas para o hub IoT Edge no seu módulo twin. A mesma sintaxe para as rotas IoT Hub é usada para definir rotas entre módulos em Azure IoT Edge. Para obter mais informações, consulte [Saiba como implementar módulos e estabelecer rotas no IoT Edge.](module-composition.md)
 
-![As rotas entre os módulos passam pelo hub IoT Edge](./media/iot-edge-runtime/module-endpoints-with-routes.png)
+![As rotas entre os módulos passam pelo hub IoT Edge](./media/iot-edge-runtime/module-endpoints-routing.png)
 ::: moniker-end
 
 <!-- <1.2> -->
@@ -134,7 +134,7 @@ O hub IoT Edge suporta dois mecanismos de corretagem:
 
 O primeiro mecanismo de corretagem aproveita as mesmas funcionalidades de encaminhamento que o IoT Hub para especificar como as mensagens são passadas entre dispositivos ou módulos. Os primeiros dispositivos ou módulos especificam as entradas nas quais aceitam mensagens e as saídas às quais escrevem mensagens. Em seguida, um desenvolvedor de soluções pode encaminhar mensagens entre uma fonte, por exemplo, saídas, e um destino, por exemplo, entradas, com filtros potenciais.
 
-![As rotas entre os módulos passam pelo hub IoT Edge](./media/iot-edge-runtime/module-endpoints-with-routes.png)
+![As rotas entre os módulos passam pelo hub IoT Edge](./media/iot-edge-runtime/module-endpoints-routing.png)
 
 O encaminhamento pode ser utilizado por dispositivos ou módulos construídos com os SDKs do dispositivo Azure IoT, quer através do AMQP, quer através do protocolo MQTT. Todos os primitivos IoT Hub de mensagens, por exemplo, telemetria, métodos diretos, C2D, gémeos, são suportados, mas a comunicação sobre tópicos definidos pelo utilizador não é suportada.
 

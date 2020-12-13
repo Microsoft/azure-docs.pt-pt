@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: f591a9781cb81ec735d22f4f687f8d413923dc93
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9d351bc945c08c82e96791059b00dc94eb94b918
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349134"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368745"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço DB da Azure Cosmos
 
@@ -70,7 +70,7 @@ Para estimar o rendimento mínimo exigido de uma base de dados de produção par
 * RU/s mais elevado a provisionado na base de dados / 100
 * 400 + MAX (Contagem de contentores - 25,0) * 100 RU/s
 
-Exemplo: Suponha que tenha uma base de dados a provisionada com 400 RU/s, 15 GB de armazenamento e 10 contentores. O RU/s mínimo é `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 RU/s. Se houvesse 30 contentores na base de dados, o RU/s mínimo seria `400 + MAX(30 - 5, 0) * 100 RU/s` = 900 RU/s. 
+Exemplo: Suponha que tenha uma base de dados a provisionada com 400 RU/s, 15 GB de armazenamento e 10 contentores. O RU/s mínimo é `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 RU/s. Se houvesse 30 contentores na base de dados, o RU/s mínimo seria `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 RU/s. 
 
 **Nota:** se o seu contentor ou base de dados contiver mais de 1 TB de dados, a sua conta poderá ser elegível para o nosso [programa de "alto armazenamento/baixa produção".](set-throughput.md#high-storage-low-throughput-program)
 

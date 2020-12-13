@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bb9d9e7c60344a2a4c538c6d3bf59e337e4569c
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 75f797c40a276323cea9983c5340d2d854160c83
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836330"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368482"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação pass-through do Azure Ative Directory: Perguntas frequentes
 
@@ -137,10 +137,6 @@ Para a maioria dos clientes, dois ou três Agentes de Autenticação no total s�
 
 >[!NOTE]
 >Existe um limite de sistema de 40 Agentes de Autenticação por inquilino.
-
-## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Posso instalar o primeiro Agente de Autenticação Pass-through num servidor diferente daquele que executa o Azure AD Connect?
-
-Não, este cenário _não_ é apoiado.
 
 ## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>Por que preciso de uma conta de Administrador Global só em nuvem para ativar a autenticação pass-through?
 

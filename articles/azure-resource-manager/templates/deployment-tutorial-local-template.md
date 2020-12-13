@@ -1,22 +1,22 @@
 ---
 title: Tutorial - Implementar um modelo local de gestor de recursos Azure
-description: Saiba como implementar um modelo de Gestor de Recursos Azure a partir do seu computador local
+description: Saiba como implementar um modelo de Gestor de Recursos Azure (modelo ARM) a partir do computador local
 ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: fe13376ced428713703f2bd5cf33941129dec1d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 640d314711e34119dac5e1c5bf9fa245685b6f38
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611627"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368141"
 ---
-# <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Tutorial: Implementar um modelo local de gestor de recursos Azure
+# <a name="tutorial-deploy-a-local-arm-template"></a>Tutorial: Implementar um modelo arm local
 
-Saiba como implementar um modelo de Gestor de Recursos Azure a partir da sua máquina local. Leva cerca de **8 minutos** para ser completado.
+Saiba como implementar um modelo de Gestor de Recursos Azure (modelo ARM) a partir da sua máquina local. Leva cerca de **8 minutos** para ser completado.
 
-Este tutorial é o primeiro de uma série. À medida que progride através da série, modulará o modelo criando um modelo ligado, armazena o modelo ligado numa conta de armazenamento e protege o modelo ligado usando o token SAS, e aprende a criar um pipeline DevOp para implementar modelos. Esta série foca-se na implementação do modelo.  Se quiser aprender o desenvolvimento do modelo, consulte os [tutoriais de principiante.](./template-tutorial-create-first-template.md)
+Este tutorial é o primeiro de uma série. À medida que progride através da série, modulará o modelo criando um modelo ligado, armazena o modelo ligado numa conta de armazenamento e protege o modelo ligado usando o token SAS, e aprende a criar um pipeline DevOps para implementar modelos. Esta série foca-se na implementação do modelo. Se quiser aprender o desenvolvimento do modelo, consulte os [tutoriais de principiante.](./template-tutorial-create-first-template.md)
 
 ## <a name="get-tools"></a>Obter ferramentas
 
@@ -26,15 +26,16 @@ Comecemos por ter a certeza de que tem as ferramentas necessárias para implemen
 
 Você precisa de Azure PowerShell ou Azure CLI para implementar o modelo. Para as instruções de instalação, consulte:
 
-- [Instalar o Azure PowerShell](/powershell/azure/install-az-ps)
+- [Instalar Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows)
 - [Instale o Azure CLI no Linux](/cli/azure/install-azure-cli-linux)
+- [Instalar a CLI do Azure no macOS](/cli/azure/install-azure-cli-macos)
 
 Depois de instalar o Azure PowerShell ou o Azure CLI, certifique-se de que faz sê-lo pela primeira vez. Para obter ajuda, consulte [Iniciar s-se-in - PowerShell](/powershell/azure/install-az-ps#sign-in) ou [Iniciar sação - Azure CLI](/cli/azure/get-started-with-azure-cli#sign-in).
 
 ### <a name="editor-optional"></a>Editor (Opcional)
 
-Os modelos são ficheiros JSON. Para rever/editar modelos, precisa de um bom editor JSON. Recomendamos o Código do Estúdio Visual com a extensão de Ferramentas do Gestor de Recursos. Se precisar de instalar estas ferramentas, consulte [Quickstart: Crie modelos de Gestor de Recursos Azure com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
+Os modelos são ficheiros JSON. Para rever/editar modelos, precisa de um bom editor JSON. Recomendamos o Código do Estúdio Visual com a extensão de Ferramentas do Gestor de Recursos. Se precisar de instalar estas ferramentas, consulte [Quickstart: Crie modelos ARM com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="review-template"></a>Modelo de revisão
 
@@ -43,9 +44,9 @@ O modelo implementa uma conta de armazenamento, plano de serviço de aplicaçõe
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
 > [!IMPORTANT]
-> Os nomes das contas de armazenamento devem ter entre 3 e 24 caracteres de comprimento e utilizar apenas números e letras minúsculas. O nome tem de ser exclusivo. No modelo, o nome da conta de armazenamento é o nome do projeto com "store" anexado, e o nome do projeto deve estar entre 3 e 11 caracteres. Assim, o nome do projeto deve satisfazer os requisitos de nome da conta de armazenamento e tem menos de 11 caracteres.
+> Os nomes das contas de armazenamento devem ter entre 3 e 24 caracteres de comprimento e utilizar apenas números e letras minúsculas. O nome tem de ser exclusivo. No modelo, o nome da conta de armazenamento é o nome do projeto com **a loja** anexada, e o nome do projeto deve estar entre 3 e 11 caracteres. Assim, o nome do projeto deve satisfazer os requisitos de nome da conta de armazenamento e tem menos de 11 caracteres.
 
-Guarde uma cópia do modelo para o computador local com a extensão .json, por exemplo, azuredeploy.jsligado. Você implementa este modelo mais tarde no tutorial.
+Guarde uma cópia do modelo para o seu computador local com a extensão _.json,_ por exemplo, _azuredeploy.jsligado_. Você implementa este modelo mais tarde no tutorial.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -65,7 +66,7 @@ az login
 
 ---
 
-Se tiver várias subscrições do Azure, selecione a subscrição que pretende utilizar:
+Se tiver várias subscrições do Azure, selecione a subscrição que pretende utilizar. Substitua `[SubscriptionID/SubscriptionName]` e os suportes quadrados `[]` por informações de subscrição:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -83,7 +84,7 @@ az account set --subscription [SubscriptionID/SubscriptionName]
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Quando implementa um modelo, especifica um grupo de recursos que conterá os recursos. Antes de executar o comando de implantação, crie o grupo de recursos com Azure CLI ou Azure PowerShell. Selecione os separadores na seguinte secção de código para escolher entre Azure PowerShell e Azure CLI. Os exemplos do CLI neste artigo são escritos para a concha bash.
+Quando implementa um modelo, especifica um grupo de recursos que conterá os recursos. Antes de executar o comando de implementação, crie o grupo de recursos com a CLI do Azure ou o Azure PowerShell. Selecione os separadores na seguinte secção de código para escolher entre Azure PowerShell e Azure CLI. Os exemplos do CLI neste artigo são escritos para a concha bash.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -129,7 +130,7 @@ New-AzResourceGroupDeployment `
   -verbose
 ```
 
-Para saber mais sobre a implementação do modelo utilizando o Azure PowerShell, consulte [implementar recursos com modelos de Gestor de Recursos e Azure PowerShell](./deploy-powershell.md).
+Para saber mais sobre a implementação do modelo utilizando o Azure PowerShell, consulte [implementar recursos com modelos ARM e Azure PowerShell](./deploy-powershell.md).
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -148,7 +149,7 @@ az deployment group create \
   --verbose
 ```
 
-Para saber mais sobre a implementação do modelo utilizando o Azure CLI, consulte [implementar recursos com modelos de Gestor de Recursos e Azure CLI](./deploy-cli.md).
+Para saber mais sobre a implementação do modelo utilizando o Azure CLI, consulte [recursos de implantação com modelos ARM e Azure CLI](./deploy-cli.md).
 
 ---
 

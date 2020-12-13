@@ -4,12 +4,12 @@ description: Aprenda a construir, testar e implementar continuamente modelos de 
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d7688a4e4838cb591bcd3ac0045a5ed22180c063
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 1b9e60ec1b3f7626a3cb67a673bf12d14d7d259b
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906357"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368210"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Tutorial: Integração contínua de modelos ARM com Pipelines Azure
 
@@ -19,7 +19,7 @@ A Azure DevOps fornece serviços de desenvolvimento para apoiar equipas para pla
 
 > [!NOTE]
 > Escolha um nome de projeto. Quando passar pelo tutorial, substitua qualquer um dos **AzureRmPipeline** pelo nome do seu projeto.
-> Este nome do projeto é usado para gerar nomes de recursos.  Um dos recursos é uma conta de armazenamento. Os nomes das contas de armazenamento devem ter entre 3 e 24 caracteres de comprimento e utilizar apenas números e letras minúsculas. O nome tem de ser exclusivo. No modelo, o nome da conta de armazenamento é o nome do projeto com "store" anexado, e o nome do projeto deve estar entre 3 e 11 caracteres. Assim, o nome do projeto deve satisfazer os requisitos de nome da conta de armazenamento e tem menos de 11 caracteres.
+> Este nome do projeto é usado para gerar nomes de recursos.  Um dos recursos é uma conta de armazenamento. Os nomes das contas de armazenamento devem ter entre 3 e 24 caracteres de comprimento e utilizar apenas números e letras minúsculas. O nome tem de ser exclusivo. No modelo, o nome da conta de armazenamento é o nome do projeto com **a loja** anexada, e o nome do projeto deve estar entre 3 e 11 caracteres. Assim, o nome do projeto deve satisfazer os requisitos de nome da conta de armazenamento e tem menos de 11 caracteres.
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -38,7 +38,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 Para concluir este artigo, precisa de:
 
 * **Uma conta GitHub,** onde a utiliza para criar um repositório para os seus modelos. Caso não tenha uma, pode [criá-la gratuitamente](https://github.com). Para obter mais informações sobre a utilização de repositórios GitHub, consulte [os repositórios Build GitHub](/azure/devops/pipelines/repos/github).
-* **Instale git**. Esta instrução tutorial usa *Git Bash* ou *Git Shell.* Para obter instruções, consulte [instalar o Git]( https://www.atlassian.com/git/tutorials/install-git).
+* **Instale git**. Esta instrução tutorial usa *Git Bash* ou *Git Shell.* Para obter instruções, consulte [instalar o Git](https://www.atlassian.com/git/tutorials/install-git).
 * **Uma organização da Azure DevOps.** Caso não tenha uma, pode criá-la gratuitamente. Ver [Criar uma organização ou coleção de projetos.](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
 * (opcional) **Código de estúdio visual com extensão de Ferramentas do Gestor de Recursos**. Consulte [Quickstart: Crie modelos ARM com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
 
@@ -57,13 +57,13 @@ Se não tiver uma conta GitHub, consulte [Pré-requisitos.](#prerequisites)
 
 1. Selecione **Novo,** um botão verde.
 1. Em **nome do Repositório,** insira um nome de repositório.  Por exemplo, **AzureRmPipeline-repo**. Lembre-se de substituir qualquer um de **AzureRmPipeline** pelo nome do seu projeto. Pode selecionar **público** ou **privado** para passar por este tutorial. E, em seguida, **selecione Criar repositório**.
-1. Escreva a URL. O URL do repositório é o seguinte formato - **`https://github.com/[YourAccountName]/[YourRepositoryName]`** .
+1. Escreva a URL. O URL do repositório é o seguinte formato - `https://github.com/[YourAccountName]/[YourRepositoryName]` .
 
-Este repositório é referido como um *repositório remoto.* Cada um dos desenvolvedores do mesmo projeto pode clonar o seu próprio *repositório local,* e fundir as alterações ao repositório remoto.
+Este repositório é referido como um *repositório remoto.* Cada um dos desenvolvedores do mesmo projeto pode clonar o seu próprio *repositório local*, e fundir as alterações ao repositório remoto.
 
 ### <a name="clone-the-remote-repository"></a>Clone o repositório remoto
 
-1. Abra Git Shell ou Git Bash.  Veja [Pré-requisitos](#prerequisites).
+1. Abra Git Shell ou Git Bash. Veja [Pré-requisitos](#prerequisites).
 1. Verifique se a sua pasta atual é **GitHub**.
 1. Execute o seguinte comando:
 
@@ -75,26 +75,26 @@ Este repositório é referido como um *repositório remoto.* Cada um dos desenvo
     pwd
     ```
 
-    Substitua **[YourAccountName]** pelo seu nome de conta GitHub e substitua **[YourGitHubRepositoryName]** pelo seu nome de repositório que criou no procedimento anterior.
+    `[YourAccountName]`Substitua-o pelo nome da sua conta GitHub e substitua-o `[YourGitHubRepositoryName]` pelo seu nome de repositório que criou no procedimento anterior.
 
-A pasta **CreateWebApp** é a pasta onde o modelo é armazenado. O comando **da pwd** mostra o caminho da pasta. O caminho é onde se guarda o modelo para o seguinte procedimento.
+A pasta _CreateWebApp_ é a pasta onde o modelo é armazenado. O `pwd` comando mostra o caminho da pasta. O caminho é onde se guarda o modelo para o seguinte procedimento.
 
 ### <a name="download-a-quickstart-template"></a>Descarregue um modelo Quickstart
 
-Em vez de criar os modelos, pode descarregar os modelos e guardá-los para a pasta **CreateWebApp.**
+Em vez de criar os modelos, pode descarregar os modelos e guardá-los para a pasta _CreateWebApp._
 
 * O modelo principal: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
 * O modelo ligado: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
 
-Tanto o nome da pasta como os nomes dos ficheiros são utilizados como estão na calha.  Se alterar estes nomes, tem de atualizar os nomes utilizados no oleoduto.
+Tanto o nome da pasta como os nomes dos ficheiros são utilizados como estão na calha. Se alterar estes nomes, tem de atualizar os nomes utilizados no oleoduto.
 
 ### <a name="push-the-template-to-the-remote-repository"></a>Empurre o modelo para o repositório remoto
 
-O azuredeploy.jsfoi adicionado ao repositório local. Em seguida, faça o upload do modelo para o repositório remoto.
+O _azuredeploy.js_ foi adicionado ao repositório local. Em seguida, faça o upload do modelo para o repositório remoto.
 
 1. Abra *Git Shell* ou Git *Bash,* se não for aberto.
-1. Altere o diretório para a pasta CreateWebApp no seu repositório local.
-1. Verifique se a **azuredeploy.jsno** ficheiro está na pasta.
+1. Altere o diretório para a pasta _CreateWebApp_ no seu repositório local.
+1. Verifique se a _azuredeploy.jsno_ ficheiro está na pasta.
 1. Execute o seguinte comando:
 
     ```bash
@@ -104,16 +104,17 @@ O azuredeploy.jsfoi adicionado ao repositório local. Em seguida, faça o upload
     ```
 
     Pode receber um aviso sobre a LF. Pode ignorar o aviso. **mestre** é o ramo mestre.  Normalmente cria-se um ramo para cada atualização. Para simplificar o tutorial, usa-se o ramo principal diretamente.
-1. Navegue pelo seu repositório GitHub a partir de um browser.  A URL **`https://github.com/[YourAccountName]/[YourGitHubRepository]`** é. Verá a pasta **CreateWebApp** e os três ficheiros dentro da pasta.
-1. Selecione **linkedStorageAccount.js** para abrir o modelo.
-1. Selecione o botão **Raw.** A URL começa com **raw.githubusercontent.com.**
-1. Faça uma cópia do URL.  Você precisa fornecer este valor quando configurar o oleoduto mais tarde no tutorial.
+
+1. Navegue pelo seu repositório GitHub a partir de um browser. A URL `https://github.com/[YourAccountName]/[YourGitHubRepository]` é. Verá a pasta _CreateWebApp_ e os três ficheiros dentro da pasta.
+1. Selecione _linkedStorageAccount.js_ para abrir o modelo.
+1. Selecione o botão **Raw.** A URL começa `https://raw.githubusercontent.com` com.
+1. Faça uma cópia do URL. Você precisa fornecer este valor quando configurar o oleoduto mais tarde no tutorial.
 
 Até agora, criou um repositório GitHub e carregou os modelos para o repositório.
 
 ## <a name="create-a-devops-project"></a>Criar um projeto DevOps
 
-Uma organização de DevOps é necessária antes de poder avançar para o procedimento seguinte.  Se não tiver, consulte [pré-requisitos.](#prerequisites)
+Uma organização de DevOps é necessária antes de poder avançar para o procedimento seguinte. Se não tiver, consulte [pré-requisitos.](#prerequisites)
 
 1. Inscreva-se na [Azure DevOps](https://dev.azure.com).
 1. Selecione uma organização DevOps a partir da esquerda.
@@ -148,7 +149,7 @@ Crie uma ligação de serviço que seja usada para implantar projetos para a Azu
 
 Até agora, completou as seguintes tarefas.  Se saltar as secções anteriores porque está familiarizado com GitHub e DevOps, tem de completar as tarefas antes de continuar.
 
-* Crie um repositório GitHub e guarde os modelos para a pasta **CreateWebApp** no repositório.
+* Crie um repositório GitHub e guarde os modelos para a pasta _CreateWebApp_ no repositório.
 * Crie um projeto DevOps e crie uma ligação de serviço Azure Resource Manager.
 
 Para criar um oleoduto com um passo para implementar um modelo:
@@ -159,24 +160,24 @@ Para criar um oleoduto com um passo para implementar um modelo:
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines apenas seleciona repositórios](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-only-select-repositories.png)
 
-1. No **separador Select,** selecione o seu repositório.  O nome padrão é **[YourAccountName]/[YourGitHubRepositoryName]**.
-1. A partir do **separador Configurar,** selecione **Starter pipeline**. Mostra o arquivo **de gasodutos azure.yml** com dois passos de script.
-1. Apague os dois passos do script do ficheiro yml.
+1. No **separador Select,** selecione o seu repositório. O nome predefinido é `[YourAccountName]/[YourGitHubRepositoryName]` .
+1. A partir do **separador Configurar,** selecione **Starter pipeline**. Mostra o arquivo _de gasodutos azure.yml_ com dois passos de script.
+1. Apague os dois passos do script do ficheiro _.yml._
 1. Mova o cursor para a linha após **os passos:**.
 1. Selecione o assistente de **exibição** à direita do ecrã para abrir o painel **de tarefas.**
 1. Selecione **a implementação do modelo ARM**.
 1. Introduza os seguintes valores:
 
-    * **deploymentScope**: Select **Resource Group**.. Para saber mais sobre os âmbitos, consulte os [âmbitos de implementação](deploy-rest.md#deployment-scope).
+    * **deploymentScope**: Select **Resource Group**. Para saber mais sobre os âmbitos, consulte os [âmbitos de implementação](deploy-rest.md#deployment-scope).
     * **Ligação Azure Resource Manager**: Selecione o nome de ligação de serviço que criou anteriormente.
     * **Assinatura**: Especifique o ID de subscrição-alvo.
     * **Ação**: Selecione a ação **do Grupo de Recursos de Criar ou Atualizar** faz 2 ações - 1. criar um grupo de recursos se for fornecido um novo nome de grupo de recursos; 2. implementar o modelo especificado.
     * **Grupo de recursos**: Introduza um novo nome de grupo de recursos. Por exemplo, **AzureRmPipeline-rg**.
     * **Localização**: Selecione uma localização para o grupo de recursos, por exemplo, **Central US**.
     * **Localização do modelo**: Selecione **artefacto ligado,** o que significa que a tarefa procura o ficheiro do modelo diretamente do repositório ligado.
-    * **Modelo**: **Introduza CreateWebApp/azuredeploy.jsem**. Se alterar o nome da pasta e o nome do ficheiro, tem de alterar este valor.
+    * **Modelo**: _Introduza CreateWebApp/azuredeploy.jsem_. Se alterar o nome da pasta e o nome do ficheiro, tem de alterar este valor.
     * **Parâmetros do modelo**: Deixe este campo em branco. Especificará os valores dos parâmetros nos parâmetros do **modelo de substituição**.
-    * **Parâmetros do modelo de substituição**: **Enter-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]**. Substitua o nome do projeto e o url do modelo ligado. O URL de modelo ligado é o que você escreveu no final do [repositório Criar um GitHub](#create-a-github-repository). Começa **https://raw.githubusercontent.com** com.
+    * **Sobrepõe os parâmetros do modelo**: Introduza `-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]` . Substitua o nome do projeto e o URL do modelo ligado. O URL de modelo ligado é o que você escreveu no final do [repositório Criar um GitHub](#create-a-github-repository). Começa `https://raw.githubusercontent.com` com.
     * **Modo de implantação**: Selecione **Incremental**.
     * **Nome de implementação**: Enter **DeployPipelineTemplate**. Selecione **Avançado** antes de ver **o nome de Implementação**.
 
@@ -186,9 +187,9 @@ Para criar um oleoduto com um passo para implementar um modelo:
 
     Para obter mais informações sobre a tarefa, consulte [a tarefa de implementação do Grupo de Recursos Azure](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)e [a tarefa de implementação do modelo do Azure Resource Manager](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md)
 
-    O ficheiro yml deve ser semelhante:
+    O _ficheiro .yml_ deve ser semelhante a:
 
-    ![O Screenshot mostra a página 'Rever' com o novo pipline intitulado Rever o seu pipeline YAML.](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
+    ![A screenshot mostra a página 'Rever' com o novo pipeline intitulado Rever o seu pipeline YAML.](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
 
 1. Selecione **Guardar e executar**.
 1. A partir do **painel Save and run,** selecione **Save and run** again. Uma cópia do ficheiro YAML é guardada no repositório ligado. Pode ver o ficheiro YAML navegando no seu repositório.
@@ -199,7 +200,7 @@ Para criar um oleoduto com um passo para implementar um modelo:
 ## <a name="verify-the-deployment"></a>Verificar a implementação
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Abra o grupo de recursos. O nome é o que especificou no ficheiro YAML do pipeline.  Verá uma conta de armazenamento criada.  O nome da conta de armazenamento começa com **a loja.**
+1. Abra o grupo de recursos. O nome é o que especificou no ficheiro YAML do pipeline. Verá uma conta de armazenamento criada. O nome da conta de armazenamento começa com **a loja.**
 1. Selecione o nome da conta de armazenamento para abri-la.
 1. Selecione **Propriedades**. Note que a **replicação** é **armazenamento localmente redundante (LRS)**.
 
@@ -207,7 +208,7 @@ Para criar um oleoduto com um passo para implementar um modelo:
 
 Quando atualiza o modelo e empurra as alterações para o repositório remoto, o pipeline atualiza automaticamente os recursos, a conta de armazenamento neste caso.
 
-1. Abra **linkedStorageAccount.jsdo** seu repositório local no Código do Estúdio Visual ou em qualquer editor de texto.
+1. Abra _linkedStorageAccount.jsdo_ seu repositório local no Código do Estúdio Visual ou em qualquer editor de texto.
 1. Atualizar o **padrãoValue** do **armazenamentoAccountType** para **Standard_GRS**. Veja a captura de ecrã abaixo:
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines update yaml](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-update-yml.png)
@@ -222,11 +223,11 @@ Quando atualiza o modelo e empurra as alterações para o repositório remoto, o
     git push origin master
     ```
 
-    O primeiro comando (puxar) sincroniza o repositório local com o repositório remoto. O ficheiro YAML do gasoduto só foi adicionado ao repositório remoto. Executar o comando de puxar descarrega uma cópia do ficheiro YAML para a filial local.
+    O primeiro comando `pull` sincroniza o repositório local com o repositório remoto. O ficheiro YAML do gasoduto só foi adicionado ao repositório remoto. Executar o `pull` comando descarrega uma cópia do ficheiro YAML para a filial local.
 
-    O quarto comando (push) envia o linkedStorageAccount.jsrevisto no ficheiro para o repositório remoto. Com o ramo principal do repositório remoto atualizado, o gasoduto é disparado novamente.
+    O quarto comando ( `push` ) envia olinkedStorageAccount.jsrevisto _no_ ficheiro para o repositório remoto. Com o ramo principal do repositório remoto atualizado, o gasoduto é disparado novamente.
 
-Para verificar as alterações, pode verificar a propriedade replicação da conta de armazenamento.  Ver [Verificar a implantação](#verify-the-deployment).
+Para verificar as alterações, pode verificar a propriedade replicação da conta de armazenamento. Ver [Verificar a implantação](#verify-the-deployment).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

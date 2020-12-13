@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2471aaad4ef10b611ab4ad812c5b1566cc7c4a07
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3bc97a932e622838315f717cc7b036a559787805
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412685"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369162"
 ---
 # <a name="overview-of-the-azure-security-benchmark-v2"></a>Visão geral do Azure Security Benchmark (V2)
 
@@ -25,10 +25,10 @@ Este benchmark faz parte de um conjunto de orientações holísticas de seguran�
 - **Azure Well-Architected Framework** – Orientação para [garantir as suas cargas de trabalho](/assessments/?mode=pre-assessment&session=local) no Azure.
 - **Microsoft Security Best Practices** – [recomendações](/security/compass/microsoft-security-compass-introduction) com exemplos sobre o Azure.
 
- O Azure Security Benchmark foca-se em áreas de controlo centradas na nuvem. Estes controlos são consistentes com referências de segurança bem conhecidas, como as descritas pelo Center for Internet Security (CIS) Controls Version 7.1 e National Institute of Standards and Technology (NIST) SP800-53.
+ O Azure Security Benchmark foca-se em áreas de controlo centradas na nuvem. Estes controlos são consistentes com referências de segurança bem conhecidas, como as descritas pelo Center for Internet Security (CIS) Controls Version 7.1 e National Institute of Standards and Technology (NIST) SP 800-53.
 Os seguintes controlos estão incluídos no Benchmark de Segurança Azure:
 
-| Domínios de controlo ASB | Description 
+| Domínios de controlo ASB | Descrição 
 |--|--|
 | [Segurança &nbsp; da rede &nbsp; (NS)](security-controls-v2-network-security.md) | A Segurança da Rede cobre controlos para proteger e proteger redes Azure, incluindo a segurança de redes virtuais, o estabelecimento de ligações privadas, a prevenção e mitigação de ataques externos e a segurança de DNS. |
 | [Gestão de Identidade &nbsp; &nbsp; (IM)](security-controls-v2-identity-management.md) | A Gestão de Identidade abrange controlos para estabelecer uma identidade segura e controlos de acesso utilizando o Azure Ative Directory, incluindo a utilização de autenticações únicas, autenticações fortes, identidades geridas (e princípios de serviço) para aplicações, acesso condicional e monitorização de anomalias de conta. |
@@ -46,11 +46,11 @@ Os seguintes controlos estão incluídos no Benchmark de Segurança Azure:
 
 Cada recomendação inclui as seguintes informações:
 
-- **Azure ID** : O ID de benchmark de segurança Azure que corresponde à recomendação.
+- **Azure ID**: O ID de benchmark de segurança Azure que corresponde à recomendação.
 - **Controlos do CIS v7.1 ID:** Os controlos do CIS v7.1 que correspondem a esta recomendação.
-- **NIST SP800-53 r4 ID** : O controlo NIST SP800-53 r4 (moderado) que corresponde a esta recomendação.
-- **Pormenores** : A lógica da recomendação e as ligações à orientação sobre como implementá-la. Se a recomendação for apoiada pelo Azure Security Center, essa informação também será listada.
-- **Responsabilidade** : Quer o cliente, o prestador de serviços, ou ambos são responsáveis pela implementação desta recomendação. As responsabilidades de segurança são partilhadas na nuvem pública. Alguns controlos de segurança só estão disponíveis para o prestador de serviços na nuvem e, por isso, o fornecedor é responsável por endereçá-los. Estas são observações gerais – para alguns serviços individuais, a responsabilidade será diferente da listada no Azure Security Benchmark. Estas diferenças são descritas nas recomendações de base para o serviço individual.
+- **NIST SP 800-53 r4 ID**: O controlo NIST SP 800-53 r4 (moderado) que corresponde a esta recomendação.
+- **Pormenores**: A lógica da recomendação e as ligações à orientação sobre como implementá-la. Se a recomendação for apoiada pelo Azure Security Center, essa informação também será listada.
+- **Responsabilidade**: Quer o cliente, o prestador de serviços, ou ambos são responsáveis pela implementação desta recomendação. As responsabilidades de segurança são partilhadas na nuvem pública. Alguns controlos de segurança só estão disponíveis para o prestador de serviços na nuvem e, por isso, o fornecedor é responsável por endereçá-los. Estas são observações gerais – para alguns serviços individuais, a responsabilidade será diferente da listada no Azure Security Benchmark. Estas diferenças são descritas nas recomendações de base para o serviço individual.
 - **Partes interessadas** em Segurança do Cliente : [As funções de segurança](/azure/cloud-adoption-framework/organize/cloud-security#security-functions) na organização do cliente que podem ser responsáveis, responsáveis ou consultados para o respetivo controlo. Pode ser diferente de organização para organização dependendo da estrutura da organização de segurança da sua empresa, e os papéis e responsabilidades que estabeleceu relacionados com a segurança da Azure.
 
 > [!NOTE]

@@ -6,16 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 12/11/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: 3de8954bcbe648fcb7f5cb0f50d9694de92baeb4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 69a7e63a5dcd892c1085367bd9747ffae9a835bf
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978620"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97366397"
 ---
 <a name="HOLTop"></a>
 
@@ -42,6 +42,7 @@ ms.locfileid: "94978620"
 * Assim que tiver a subscrição do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title=" Crie um recurso Text Analytics crie um recurso Text Analytics no portal "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
     * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API de Análise de Texto. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
     * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
+* Para utilizar a função Analisar, necessitará de um recurso Text Analytics com o nível de preços padrão (S).
 
 ## <a name="setting-up"></a>Configuração
 
@@ -67,7 +68,7 @@ npm init
 Instale os `@azure/ai-text-analytics` pacotes NPM:
 
 ```console
-npm install --save @azure/ai-text-analytics@5.1.0-beta.1
+npm install --save @azure/ai-text-analytics@5.1.0-beta.3
 ```
 
 > [!TIP]
@@ -824,6 +825,71 @@ Execute o seu código `node index.js` na janela da consola.
     { id: '3', keyPhrases: [ 'fútbol' ] }
 ]
 ```
+
+---
+
+## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Utilize a API assíncronea com a operação Análise
+
+# <a name="version-31-preview"></a>[Visualização da versão 3.1](#tab/version-3-1)
+
+> [!CAUTION]
+> Para utilizar as operações de Análise, deve utilizar um recurso Text Analytics com o nível de preços padrão (S).  
+
+Criar uma nova função chamada `analyze_example()` , que chama a `beginAnalyze()` função. O resultado será uma operação de longa duração que será sondada para obter resultados.
+
+```javascript
+const documents = [
+  "Microsoft was founded by Bill Gates and Paul Allen.",
+];
+
+async function analyze_example(client) {
+  console.log("== Analyze Sample ==");
+
+  const tasks = {
+    entityRecognitionTasks: [{ modelVersion: "latest" }]
+  };
+  const poller = await client.beginAnalyze(documents, tasks);
+  const resultPages = await poller.pollUntilDone();
+
+  for await (const page of resultPages) {
+    const entitiesResults = page.entitiesRecognitionResults![0];
+    for (const doc of entitiesResults) {
+      console.log(`- Document ${doc.id}`);
+      if (!doc.error) {
+        console.log("\tEntities:");
+        for (const entity of doc.entities) {
+          console.log(`\t- Entity ${entity.text} of type ${entity.category}`);
+        }
+      } else {
+        console.error("  Error:", doc.error);
+      }
+    }
+  }
+}
+
+analyze_example(textAnalyticsClient);
+```
+
+### <a name="output"></a>Saída
+
+```console
+== Analyze Sample ==
+- Document 0
+        Entities:
+        - Entity Microsoft of type Organization
+        - Entity Bill Gates of type Person
+        - Entity Paul Allen of type Person
+```
+
+Também pode utilizar a operação De analisar para detetar pii e extração de frases-chave. Consulte as amostras de Análise para [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/javascript/beginAnalyze.js) e [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/typescript/src/beginAnalyze.ts) no GitHub.
+
+# <a name="version-30"></a>[Versão 3.0](#tab/version-3)
+
+Esta funcionalidade não está disponível na versão 3.0.
+
+# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
+
+Esta funcionalidade não está disponível na versão 2.1.
 
 ---
 

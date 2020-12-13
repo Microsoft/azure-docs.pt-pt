@@ -3,12 +3,12 @@ title: Entrega de eventos, identidade de serviço gerida e ligação privada
 description: Este artigo descreve como permitir a identidade de serviço gerida para um tópico de grelha de eventos Azure. Use-o para encaminhar eventos para destinos apoiados.
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: d16310ac61121af0cc9d76664bfeeeb14e1bc243
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: edb3e5ac8257a29ecd3835e1dfd4c116c3cc7164
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491720"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368618"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de eventos com identidade gerida
 Este artigo descreve como permitir uma [identidade de serviço gerida](../active-directory/managed-identities-azure-resources/overview.md) para tópicos ou domínios da grelha de eventos Azure. Use-o para encaminhar eventos para destinos apoiados, como filas e tópicos de Service Bus, centros de eventos e contas de armazenamento.
@@ -49,7 +49,7 @@ O procedimento que se segue mostra como ativar a identidade gerida pelo sistema 
 2. Procure **tópicos de grelha de eventos** na barra de pesquisa no topo.
 3. Selecione o **tópico** para o qual deseja ativar a identidade gerida. 
 4. Mude para o **separador Identidade.** 
-5. Ligue **on** o interruptor para ativar a identidade. 
+5. Ligue  o interruptor para ativar a identidade. 
 1. **Selecione Guarde** na barra de ferramentas para guardar a definição. 
 
     :::image type="content" source="./media/managed-service-identity/identity-existing-topic.png" alt-text="Página de identidade para um tópico"::: 
@@ -74,7 +74,7 @@ Atualmente, a grelha de eventos Azure suporta tópicos ou domínios configurados
 | Destino | Função do Azure | 
 | ----------- | --------- | 
 | Filas e tópicos de autocarro de serviço | [Remetente de dados de ônibus de serviço Azure](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
-| Hubs de Eventos do Azure | [Ender de dados do Azure Event Hubs](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
+| Azure Event Hubs | [Ender de dados do Azure Event Hubs](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
 | Armazenamento de Blobs do Azure | [Contribuinte de Dados do Armazenamento de Blobs](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
 | Armazenamento de Filas do Azure |[Remetente de mensagem de dados de fila de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
 
@@ -285,7 +285,7 @@ az eventgrid event-subscription create
 ## <a name="private-endpoints"></a>Pontos finais privados
 Atualmente, não é possível entregar eventos usando [pontos finais privados.](../private-link/private-endpoint-overview.md) Ou seja, não há suporte se tiver requisitos rigorosos de isolamento de rede onde o tráfego de eventos entregues não deve sair do espaço IP privado. 
 
-No entanto, se os seus requisitos exigirem uma forma segura de enviar eventos usando um canal encriptado e uma identidade conhecida do remetente (neste caso, Grade de Evento) utilizando espaço IP público, poderá entregar eventos a Centros de Eventos, Service Bus ou serviço de Armazenamento Azure utilizando um tópico de grelha de eventos Azure ou um domínio com identidade gerida pelo sistema configurado como mostrado neste artigo. Em seguida, pode utilizar um link privado configurado em Funções Azure ou o seu webhook implantado na sua rede virtual para puxar eventos. Consulte a amostra: [Ligue-se a pontos finais privados com funções Azure](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/).
+No entanto, se os seus requisitos exigirem uma forma segura de enviar eventos usando um canal encriptado e uma identidade conhecida do remetente (neste caso, Grade de Evento) usando espaço IP público, poderá entregar eventos a Event Hubs, Service Bus ou Azure Storage service usando um tópico de grelha de eventos Azure ou um domínio com identidade gerida pelo sistema configurado como mostrado neste artigo. Em seguida, pode utilizar um link privado configurado em Funções Azure ou o seu webhook implantado na sua rede virtual para puxar eventos. Consulte a amostra: [Ligue-se a pontos finais privados com funções Azure](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/).
 
 Note que nesta configuração, o tráfego passa pelo IP/internet público de Event Grid para Event Hubs, Service Bus ou Azure Storage, mas o canal pode ser encriptado e uma identidade gerida de Event Grid é usada. Se configurar as suas Funções Azure ou webhook implantados na sua rede virtual para utilizar um Event Hubs, Service Bus ou Azure Storage via link privado, essa secção do tráfego permanecerá, evidentemente, dentro do Azure.
 

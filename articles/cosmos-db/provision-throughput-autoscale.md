@@ -5,14 +5,14 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 12/11/2020
 ms.custom: seo-nov-2020
-ms.openlocfilehash: aaedca5acf7861db05f0ec724e05449316379829
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: ba0dd347c4ee2cb41b34c2fc34f1848a7295dc3a
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337547"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368669"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Criar contentores e bases de dados da Azure Cosmos com produção de escala automática
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -59,7 +59,7 @@ O ponto de entrada para a potência máxima de autoescala `Tmax` começa em 4000
 
 ## <a name="enable-autoscale-on-existing-resources"></a>Permitir a autoescala dos recursos existentes
 
-Utilize o [portal Azure](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) para permitir a autoescalação numa base de dados ou num recipiente existente. Pode alternar entre a potência de autoescala e a produção normalizada (manual) a qualquer momento. Consulte esta [documentação](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) para obter mais informações. Atualmente, para todos os APIs, só é possível utilizar o portal Azure para permitir uma autoescalação dos recursos existentes.
+Utilize o [portal Azure](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container), [modelo de Gestor de Recursos Azure](how-to-provision-autoscale-throughput.md#azure-resource-manager), [CLI](how-to-provision-autoscale-throughput.md#azure-cli) ou [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell) para permitir a autoescalação numa base de dados ou num recipiente existente. Pode alternar entre a potência de autoescala e a produção normalizada (manual) a qualquer momento. Consulte esta [documentação](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) para obter mais informações.
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a> Limites de produção e armazenamento para autoescalação
 
@@ -76,7 +76,7 @@ Para obter mais detalhes, consulte esta [documentação](how-to-choose-offer.md)
 |---------|---------|---------|
 | **Produção provisão (RU/s)** | A provisionado manualmente. | Escalado automaticamente e instantaneamente com base nos padrões de utilização da carga de trabalho. |
 | **Limitação das taxas de pedidos/operações (429)**  | Pode acontecer, se o consumo exceder a capacidade a provisionada. | Não acontecerá se consumir RU/s dentro da gama de produção de escala automática que definiu.    |
-| **Planeamento da capacidade** |  Tens de fazer planeamento de capacidades e providenciar o rendimento exato de que precisas. |    O sistema cuida automaticamente do planeamento de capacidades e da gestão da capacidade. |
+| **Planeamento de capacidade** |  Tens de fazer planeamento de capacidades e providenciar o rendimento exato de que precisas. |    O sistema cuida automaticamente do planeamento de capacidades e da gestão da capacidade. |
 | **Preços** | Paga-se os RU/s manualmente a provisionados por hora, utilizando a [taxa standard (manual) RU/s por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). | Paga-se por hora o maior RU/s que o sistema aumentou até dentro de uma hora. <br/><br/> Para contas de uma única região de escrita, você paga os RU/s utilizados por hora, utilizando a [taxa de RU/s de escala automática por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>Para contas com várias regiões de escrita, não há qualquer custo extra para a autoescala. Você paga a produção usada por hora usando a mesma [taxa de escrita de várias regiões RU/s por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). |
 | **Mais adequado para tipos de carga de trabalho** |  Cargas de trabalho previsíveis e estáveis|   Cargas de trabalho imprevisíveis e variáveis  |
 

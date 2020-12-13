@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c9da2acac0957d7fe06d0249775fbed73b5f458d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59379dd9c3a41729466de269b52dfd3fb206eea9
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287343"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368720"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Ligar ao cliente de Ambiente de Trabalho do Windows
 
@@ -69,3 +69,5 @@ Há duas formas de subscrever um Espaço de Trabalho. O cliente pode tentar desc
 ## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como utilizar o cliente Windows Desktop, confira [Consulte o cliente do Windows Desktop.](/windows-server/remote/remote-desktop-services/clients/windowsdesktop/)
+
+Se é um administrador que está interessado em aprender informações mais aprofundadas sobre como utilizar o Windows Desktop, consulte [o cliente do Windows Desktop para os administradores.](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-admin)

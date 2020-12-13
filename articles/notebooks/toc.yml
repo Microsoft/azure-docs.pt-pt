@@ -8,43 +8,11 @@
   items:
     - name: Iniciar sessão e definir um ID de utilizador
       href: quickstart-sign-in-azure-notebooks.md
-    - name: Criar e partilhar um bloco de notas
-      href: quickstart-create-share-jupyter-notebook.md
-    - name: Clonar um bloco de notas
-      href: quickstart-clone-jupyter-notebook.md
-    - name: Migrar um bloco de notas Jupyter local
-      href: quickstart-migrate-local-jupyter-notebook.md
-    - name: Utilizar um ambiente personalizado
-      href: quickstart-create-jupyter-notebook-project-environment.md
     - name: Exportar o seu projeto
       href: quickstart-export-jupyter-notebook-project.md
-- name: Tutoriais
-  items:
-    - name: Criar e executar um bloco de notas
-      href: tutorial-create-run-jupyter-notebook.md
-- name: Amostras
-  items:
-    - name: Blocos de notas de exemplo
-      href: azure-notebooks-samples.md
 - name: Conceitos
   items:
     - name: Contas
       href: azure-notebooks-user-account.md
     - name: Perfis
       href: azure-notebooks-user-profile.md
-- name: Guias de procedimentos
-  items:
-    - name: Criar e clonar projetos
-      href: create-clone-jupyter-notebooks.md
-    - name: Gerir e configurar projetos
-      href: configure-manage-azure-notebooks-projects.md
-    - name: Instalar pacotes num bloco de notas
-      href: install-packages-jupyter-notebook.md
-    - name: Apresentar diapositivos
-      href: present-jupyter-notebooks-slideshow.md
-    - name: Trabalhar com ficheiros de dados
-      href: work-with-project-data-files.md
-    - name: Aceder a recursos de dados
-      href: access-data-resources-jupyter-notebooks.md
-    - name: Utilizar as Máquinas Virtuais de Ciência de Dados
-      href: use-data-science-virtual-machine.md

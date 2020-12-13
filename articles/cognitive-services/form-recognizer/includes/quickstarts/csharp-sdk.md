@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/06/2020
 ms.author: pafarley
-ms.openlocfilehash: d7577668d87ecaf2d769136d64990f95fc212fe6
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 48a895875edab56e062320321d82b43da15234d0
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356533"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97366383"
 ---
 > [!IMPORTANT]
 > O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade.
@@ -168,8 +168,8 @@ Repita os passos acima para um novo método que aututenda um cliente de formaç�
 
 Também terá de adicionar referências aos URLs para os seus dados de treino e teste. Adicione isto à raiz da sua aula **de Programa.**
 
-* Para recuperar o URL SAS para os seus dados de treino de modelo personalizados, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e **selecione Obter assinatura de acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-* Em seguida, use os passos acima para obter o URL SAS de um documento individual no armazenamento de bolhas.
+* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+* Em seguida, repita os passos acima para obter o URL SAS de um documento individual no recipiente de armazenamento de bolhas. Guarde-o para um local temporário também.
 * Por último, guarde o URL da(s) imagem(s) da amostra incluída abaixo (também disponível no [GitHub).](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) 
 
 #### <a name="version-30"></a>[versão 3.0](#tab/ga)

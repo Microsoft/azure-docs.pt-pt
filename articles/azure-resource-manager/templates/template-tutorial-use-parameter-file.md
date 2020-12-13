@@ -6,12 +6,12 @@ ms.date: 09/10/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8dc625237c03cf38f9fe2eb0446c55dcf96f5f3a
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: b6257161017afc9dab692c43fcc64e5d961a90ba
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106772"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368431"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Tutorial: Use ficheiros de parâmetros para implementar o seu modelo ARM
 
@@ -51,7 +51,7 @@ Mais uma vez, crie um novo ficheiro com o seguinte conteúdo. Guarde o ficheiro 
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json":::
 
-Este ficheiro é o seu arquivo de parâmetros para o ambiente de produção. Note que utiliza **Standard_GRS** para a conta de armazenamento, nomeia recursos com um prefixo **contoso,** e define a etiqueta _Ambiente_ para **a Produção.** Num ambiente de produção real, você também gostaria de usar um serviço de aplicações com um SKU diferente de gratuito, mas continuaremos a usar esse SKU para este tutorial.
+Este ficheiro é o seu arquivo de parâmetros para o ambiente de produção. Note que utiliza **Standard_GRS** para a conta de armazenamento, nomeia recursos com um prefixo **contoso,** e define a `Environment` etiqueta para a **Produção**. Num ambiente de produção real, você também gostaria de usar um serviço de aplicações com um SKU diferente de gratuito, mas continuaremos a usar esse SKU para este tutorial.
 
 ## <a name="deploy-template"></a>Implementar o modelo
 

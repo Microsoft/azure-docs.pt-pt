@@ -6,18 +6,16 @@ documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2020
+ms.date: 12/11/2020
 ms.author: rolyon
-ms.openlocfilehash: 9ab6561b1dc0e8b977fc69d259c5f26366f355ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ecda0edcd34999e8cbb6c7ab9039953d17c119e5
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92481334"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369231"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Criar ou atualizar funções personalizadas do Azure com o portal do Azure
 
@@ -31,14 +29,12 @@ Para criar funções personalizadas, é necessário:
 
 ## <a name="step-1-determine-the-permissions-you-need"></a>Passo 1: Determinar as permissões de que precisa
 
-O Azure tem milhares de permissões que pode potencialmente incluir no seu papel personalizado. Aqui estão quatro formas de determinar as permissões que pretende adicionar à sua função personalizada:
+O Azure tem milhares de permissões que pode potencialmente incluir no seu papel personalizado. Aqui estão alguns métodos que podem ajudá-lo a determinar as permissões que pretende adicionar à sua função personalizada:
 
-| Método | Descrição |
-| --- | --- |
-| Olhe para os papéis existentes | Pode olhar para os papéis existentes para ver que permissões estão a ser usadas. Para obter mais informações, veja [Funções incorporadas do Azure](built-in-roles.md). |
-| Procure permissões por palavra-chave | Quando criar uma função personalizada utilizando o portal Azure, pode procurar permissões através de palavras-chave. Por exemplo, pode procurar por *máquinas virtuais* ou permissões *de faturação.* Esta funcionalidade de pesquisa é descrita mais tarde no [Passo 4: Permissões](#step-4-permissions). |
-| Baixar todas as permissões | Quando criar uma função personalizada utilizando o portal Azure, pode descarregar todas as permissões como ficheiro CSV e, em seguida, pesquisar este ficheiro. No painel **de permissões Add,** clique no botão **Descarregar todas as permissões** para descarregar todas as permissões. Para obter mais informações sobre o painel de permissões Add, consulte [o passo 4: Permissões](#step-4-permissions). |
-| Ver as permissões nos documentos | Pode ver as permissões disponíveis nas [operações do fornecedor de recursos do Azure Resource Manager.](resource-provider-operations.md) |
+- Veja os [papéis incorporados existentes.](built-in-roles.md)
+- Enuse os serviços Azure a que pretende conceder acesso.
+- Determine os [fornecedores de recursos que mapeiam para os serviços Azure](../azure-resource-manager/management/azure-services-resource-providers.md). Um método de pesquisa é descrito mais tarde no [passo 4: Permissões](#step-4-permissions).
+- Procure as [permissões disponíveis](resource-provider-operations.md) para encontrar permissões que pretende incluir. Um método de pesquisa é descrito mais tarde no [passo 4: Permissões](#step-4-permissions).
 
 ## <a name="step-2-choose-how-to-start"></a>Passo 2: Escolha como começar
 
@@ -339,4 +335,4 @@ Siga estes passos para ver os seus papéis personalizados.
 
 - [Tutorial: Criar um papel personalizado Azure usando Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Funções personalizadas do Azure](custom-roles.md)
-- [Operações do fornecedor de recursos do Azure Resource Manager](resource-provider-operations.md)
+- [Operações de fornecedor de recursos Azure](resource-provider-operations.md)
