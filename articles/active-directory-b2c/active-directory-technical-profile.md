@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 49d8e83c158cd14357a74b9dde4af1daba26dc36
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: c8f4c91070d87e9e6e3cdbb5534b988063eaba14
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109118"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387181"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico do Azure Ative Directory numa política personalizada do Azure Ative Directory B2C
 
@@ -64,13 +64,13 @@ Para ler, atualizar ou eliminar uma conta de utilizador existente, a alegação 
 
 Para criar uma nova conta de utilizador, a reivindicação de entrada é uma chave que identifica exclusivamente uma conta local ou federada. Por exemplo, conta local: **signInNames.emailAddress,** ou **signInNames.userName**. Para uma conta federada: a **alternativaSecurityId**.
 
-O elemento [InputClaimsTransformations](technicalprofiles.md#inputclaimstransformations) pode conter uma coleção de elementos de transformação de pedidos de entrada que são usados para modificar a alegação de entrada ou gerar um novo.
+O elemento [InputClaimsTransformations](technicalprofiles.md#input-claims-transformations) pode conter uma coleção de elementos de transformação de pedidos de entrada que são usados para modificar a alegação de entrada ou gerar um novo.
 
 ## <a name="outputclaims"></a>Resultados
 
 O elemento **OutputClaims** contém uma lista de reclamações devolvidas pelo perfil técnico Azure AD. Poderá ser necessário mapear o nome da reclamação definida na sua política para o nome definido no Diretório Ativo Azure. Também pode incluir reclamações que não são devolvidas pelo Diretório Ativo Azure, desde que desemconfiem do `DefaultValue` atributo.
 
-O elemento [OutputClaimsTransformations](technicalprofiles.md#outputclaimstransformations) pode conter uma coleção de elementos de **saídaClaimsTransformation** que são utilizados para modificar as alegações de saída ou gerar novos.
+O elemento [OutputClaimsTransformations](technicalprofiles.md#output-claims-transformations) pode conter uma coleção de elementos de **saídaClaimsTransformation** que são utilizados para modificar as alegações de saída ou gerar novos.
 
 Por exemplo, o perfil técnico **AAD-UserWriteUsingLogonEmail** cria uma conta local e devolve as seguintes reclamações:
 
@@ -265,7 +265,7 @@ As seguintes definições podem ser utilizadas para configurar a mensagem de err
 | UserMessageIfClaimsPrincipalDoesNotExist | Não | Se for levantado um erro (ver descrição do atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique a mensagem para mostrar ao utilizador se o objeto do utilizador não existir. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o seguinte artigo, por exemplo, utilizando o perfil técnico Azure AD:
 

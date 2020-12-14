@@ -7,45 +7,63 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/12/2020
-ms.openlocfilehash: ace887396bacf264f0ffbd186ef1349e96496786
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.date: 12/14/2020
+ms.openlocfilehash: ad572905d9864083466049fd602e24d9f3632ea3
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97371178"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387433"
 ---
-# <a name="create-a-basic-query-in-azure-cognitive-search"></a>Criar uma consulta básica na Pesquisa Cognitiva Azure
+# <a name="create-a-query-in-azure-cognitive-search"></a>Criar uma consulta na Pesquisa Cognitiva Azure
 
-Este artigo explica a consulta de construção passo a passo. Os exemplos estão em REST para que possa copiar cordas no **Search Explorer** no portal, ou criar consultas interativamente, utilizando o código do Carteiro ou do Estúdio Visual. Pode utilizar qualquer nível ou versão da Pesquisa Cognitiva para os exemplos deste artigo.
+Conheça as ferramentas e APIs para a construção de uma consulta, quais os métodos usados para criar uma consulta, e como a estrutura de índice e o conteúdo podem impactar os resultados da consulta. Para uma introdução ao aspeto de um pedido de consulta, comece com [tipos e composições de consulta.](search-query-overview.md)
 
-## <a name="choose-a-tool-or-api"></a>Escolha uma ferramenta ou API
+## <a name="choose-tools-and-apis"></a>Escolha ferramentas e APIs
 
-Escolha entre as seguintes ferramentas e APIs para criar consultas para testes ou cargas de trabalho de produção.
+Pode utilizar qualquer uma das seguintes ferramentas e APIs para criar consultas para testes ou cargas de trabalho de produção.
 
 | Metodologia | Descrição |
 |-------------|-------------|
-| Portal| [O Explorador de Pesquisa (portal)](search-explorer.md) fornece uma barra de pesquisa e opções para seleções de versão index e api. Os resultados são devolvidos como documentos JSON. Recomendado para investigação, teste e validação antecipadas. <br/>[Saiba mais.](search-explorer.md) |
-| Ferramentas de teste web| [O Código do Estúdio Visual ou Carteiro ou Visual](search-get-started-rest.md) são escolhas fortes para formular chamadas [de Documentos de Busca](/rest/api/searchservice/search-documents) REST. A API REST suporta todas as operações programáticas em Azure Cognitive Search, para que possa emitir pedidos interativamente para entender como funciona antes de investir em código.  |
-| Azure SDK | [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) pode ser usado para consultar um índice de pesquisa em C#.  [Saiba mais.](search-howto-dotnet-sdk.md) <br/><br/>[SearchClient (Python)](/dotnet/api/azure.search.documents.searchclient) pode ser usado para consultar um índice de pesquisa em Python. [Saiba mais.](search-get-started-python.md) <br/><br/> [SearchClient (JavaScript)](/dotnet/api/azure.search.documents.searchclient) pode ser usado para consultar um índice de pesquisa em JavaScript. [Saiba mais.](search-get-started-javascript.md)  |
+| Portal| [O Explorador de Pesquisa (portal)](search-explorer.md) é uma interface de consulta no portal Azure que pode ser usada para executar consultas contra índices no serviço de pesquisa subjacente. O portal faz chamadas de API REST nos bastidores. Pode selecionar qualquer índice e qualquer versão API do REST suportada, incluindo versões de pré-visualização. Uma cadeia de consulta pode estar em sintaxe simples e completa, e pode incluir expressões de filtro, facetas, declarações selecionadas e de pesquisafield e searchMode. No portal, quando abre um índice, pode trabalhar com o Search Explorer ao lado da definição de Índice JSON em separadores lado a lado para facilitar o acesso aos atributos de campo. Pode verificar quais os campos pes pescáveis, tributáveis, filtrados e facetable enquanto testa consultas. Recomendado para investigação, teste e validação antecipadas. <br/>[Saiba mais.](search-explorer.md) |
+| Ferramentas de teste web| [O Código do Carteiro ou do Estúdio Visual](search-get-started-rest.md) são escolhas fortes para formular um pedido de [Documentos de Pesquisa](/rest/api/searchservice/search-documents) em REST. A API REST suporta todas as operações programáticas em Azure Cognitive Search, e quando utiliza uma ferramenta como o Postman ou o Visual Studio Code, pode emitir pedidos interativamente para entender como funciona antes de investir em código. Uma ferramenta de teste web é uma boa escolha se não tiver direitos de colaborador ou administrativo no portal Azure. Desde que tenha um URL de pesquisa e uma chave API de consulta, pode usar as ferramentas para executar consultas contra um índice existente. |
+| Azure SDK | Quando estiver pronto para escrever código, pode utilizar as bibliotecas de clientes Azure.Search.Docnos SDKs Azure para .NET, Python, JavaScript ou Java. Cada SDK está na sua própria programação de lançamento, mas pode criar e consultar índices em todos eles. <br/><br/>[SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) pode ser usado para consultar um índice de pesquisa em C#.  [Saiba mais.](search-howto-dotnet-sdk.md)<br/><br/>[SearchClient (Python)](/dotnet/api/azure.search.documents.searchclient) pode ser usado para consultar um índice de pesquisa em Python. [Saiba mais.](search-get-started-python.md) <br/><br/> [SearchClient (JavaScript)](/dotnet/api/azure.search.documents.searchclient) pode ser usado para consultar um índice de pesquisa em JavaScript. [Saiba mais.](search-get-started-javascript.md) |
 
 ## <a name="set-up-a-search-client"></a>Criar um cliente de pesquisa
 
-Um cliente de pesquisa autentica-se no serviço de pesquisa, envia pedidos e trata de respostas. As consultas são sempre direcionadas para a recolha de documentos de um único índice. Não é possível aderir a índices ou criar estruturas de dados personalizadas ou temporárias como alvo de consulta.
+Um cliente de pesquisa autentica-se no serviço de pesquisa, envia pedidos e trata de respostas. Independentemente da ferramenta ou API que utilize, um cliente de pesquisa deve ter o seguinte:
+
+| Propriedades | Descrição |
+|------------|-------------|
+| Ponto final | Um serviço de pesquisa é o endereço URL neste formato: `https://[service-name].search.windows.net` . |
+| Chave de acesso API (administração ou consulta) | Autentica o pedido para o serviço de pesquisa. |
+| Nome do índice | As consultas são sempre direcionadas para a recolha de documentos de um único índice. Não é possível aderir a índices ou criar estruturas de dados personalizadas ou temporárias como alvo de consulta. |
+| Versão API | As chamadas REST requerem explicitamente `api-version` o pedido. Em contrapartida, as bibliotecas de clientes do Azure SDK são versadas contra uma versão específica da API REST. Para os SDKs, o `api-version` está implícito. |
 
 ### <a name="in-the-portal"></a>No portal
 
-O Search Explorer e outras ferramentas do portal têm uma ligação ao cliente incorporada ao serviço, com índices de acesso direto e outros objetos a partir de páginas do portal. O acesso a ferramentas, assistentes e objetos assume que tem direitos administrativos no serviço. Com o Search Explorer, pode concentrar-se especificando a cadeia de pesquisa e outros parâmetros. 
+O Search Explorer e outras ferramentas do portal têm uma ligação ao cliente incorporada ao serviço, com índices de acesso direto e outros objetos a partir de páginas do portal. O acesso a ferramentas, assistentes e objetos requerem adesão na função Contribuinte ou acima no serviço. 
 
 ### <a name="using-rest"></a>Utilizar REST
 
-Para chamadas REST, pode utilizar [o Carteiro ou ferramentas semelhantes](search-get-started-rest.md) às do cliente para especificar um pedido [de Documentos de Busca.](/rest/api/searchservice/search-documents) Cada pedido é autónomo, pelo que deve fornecer o ponto final (URL ao serviço) e uma chave API de administração ou consulta para acesso. Dependendo do pedido, o URL também pode incluir o nome do índice, a recolha de documentos e outras propriedades. Algumas propriedades, tais como o Tipo de Conteúdo e a tecla API são transmitidas no cabeçalho de pedido. Outros parâmetros podem ser transmitidos no URL ou no corpo do pedido. Todas as chamadas REST requerem uma chave API para autenticação e uma versão api.
+Para chamadas REST, pode utilizar [o Carteiro ou ferramentas semelhantes](search-get-started-rest.md) às do cliente para especificar um pedido [de Documentos de Busca.](/rest/api/searchservice/search-documents) Cada pedido é autónomo, por isso deve fornecer o ponto final, nome de índice e versão API em cada pedido. Outras propriedades, Tipo de Conteúdo e chave API, são transmitidas no cabeçalho de pedido. 
+
+Pode utilizar POST ou GET para consultar um índice. POST, com parâmetros especificados no corpo de pedido, é mais fácil de trabalhar com. Se utilizar o POST, certifique-se de incluir `docs/search` no URL:
+
+```http
+POST https://myservice.search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "count": true,
+    "queryType": "simple",
+    "search": "*"
+}
+```
 
 ### <a name="using-azure-sdks"></a>Usando Azure SDKs
 
-Os Azure SDKs fornecem clientes de pesquisa que podem persistir, permitindo a reutilização de ligação. Para operações de consulta, você instantaneamente um SearchClient e fornecerá valores para as seguintes propriedades: Ponto final, chave, índice. Em seguida, pode ligar para o método 'Procurar' para fornecer o fio de consulta. 
+Se estiver a usar um Azure SDK, criará o cliente em código. Todos os SDKs fornecem clientes de pesquisa que podem persistir, permitindo a reutilização de ligação. Para operações de consulta, você instantaneamente a **`SearchClient`** e dará valores para as seguintes propriedades: Endpoint, Chave, Índice. Em seguida, pode chamar o **`Search method`** para passar na cadeia de consulta. 
 
-| Linguagem | Cliente | Exemplo |
+| Idioma | Cliente | Exemplo |
 |----------|--------|---------|
 | C# e .NET | [PesquisaDesseient](/dotnet/api/azure.search.documents.searchclient) | [Envie a sua primeira consulta de pesquisa em C #](/dotnet/api/overview/azure/search.documents-readme#send-your-first-search-query) |
 | Python      | [PesquisaDesseient](/python/api/azure-search-documents/azure.search.documents.searchclient) | [Envie a sua primeira consulta de pesquisa em Python](/python/api/overview/azure/search-documents-readme#send-your-first-search-request) |
@@ -54,11 +72,11 @@ Os Azure SDKs fornecem clientes de pesquisa que podem persistir, permitindo a re
 
 ## <a name="choose-a-parser-simple--full"></a>Escolha um parser: simples / cheio
 
-A Azure Cognitive Search dá-lhe uma escolha entre dois parsers de consulta para lidar com consultas típicas e especializadas. Os pedidos que utilizam o simples parser são normalmente consultas de pesquisa de texto completas, formuladas utilizando a [simples sintaxe de consulta,](query-simple-syntax.md)selecionada como padrão para a sua velocidade e eficácia em consultas de texto de forma livre. Esta sintaxe suporta uma série de operadores de pesquisa comuns, incluindo os operadores E, OU, NÃO, frase, sufixo e precedência.
+Se a sua consulta for a pesquisa completa por texto, será utilizado um analisador para processar o conteúdo do parâmetro de pesquisa. A Azure Cognitive Search oferece dois parsers de consulta. O simples parser compreende a [simples sintaxe de consulta.](query-simple-syntax.md) Este parser foi selecionado como o padrão para a sua velocidade e eficácia em consultas de texto de forma livre. A sintaxe suporta operadores de pesquisa comuns (E, OU, NÃO) para pesquisas de termos e frases, e `*` prefixo (como em "sea*" para Seattle e Beira-Mar). Uma recomendação geral é experimentar primeiro o simples parser e, em seguida, passar para o parser completo se os requisitos de aplicação exigirem consultas mais poderosas.
 
-A [sintaxe de consulta lucene completa,](query-Lucene-syntax.md#bkmk_syntax)ativada quando adiciona `queryType=full` ao pedido, expõe a linguagem de consulta amplamente adotada e expressiva desenvolvida como parte do [Apache Lucene.](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) A sintaxe completa estende a sintaxe simples. Qualquer consulta que escreva para a simples sintaxe passa por baixo do parser lucene completo. 
+A [sintaxe de consulta lucene completa,](query-Lucene-syntax.md#bkmk_syntax)ativada quando adiciona `queryType=full` ao pedido, baseia-se no [Apache Lucene Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-Os exemplos a seguir ilustram o ponto: mesma consulta, mas com **`queryType`** configurações diferentes, que produzem resultados diferentes. Na primeira consulta, o `^3` seguinte é tratado como parte do termo de `historic` pesquisa. O resultado mais bem classificado para esta consulta é o "Marquês Plaza & Suites", que tem *oceano* na sua descrição.
+A sintaxe completa é uma extensão da sintaxe simples, com mais operadores para que possa construir consultas avançadas como pesquisa duvidosa, pesquisa de wildcard, pesquisa de proximidade e expressões regulares. Os exemplos a seguir ilustram o ponto: mesma consulta, mas com **`queryType`** configurações diferentes, que produzem resultados diferentes. Na primeira consulta simples, o `^3` seguinte é tratado como parte do termo de `historic` pesquisa. O resultado mais bem classificado para esta consulta é o "Marquês Plaza & Suites", que tem *oceano* na sua descrição.
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -84,20 +102,40 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 }
 ```
 
-## <a name="enable-query-behaviors-in-an-index"></a>Ativar comportamentos de consulta num índice
+## <a name="choose-query-methods"></a>Escolha métodos de consulta
 
-O design de índice e o design de consulta estão fortemente acopdos na Pesquisa Cognitiva Azure. O *esquema de índice,* com atributos em cada campo, determina o tipo de consulta que pode construir.
+A pesquisa é fundamentalmente um exercício orientado pelo utilizador, onde termos ou frases são recolhidos a partir de uma caixa de pesquisa, ou a partir de eventos de clique numa página. A tabela a seguir resume os mecanismos através dos quais pode recolher a entrada do utilizador, juntamente com a experiência de pesquisa esperada.
 
-Os atributos de índice num campo definem as operações permitidas - se um campo é *pesmável* no índice, *recuperável* em resultados, *ordenado,* *filtrado*, e assim por diante. Nas consultas de exemplo, `"$orderby": "Rating desc"` só funciona porque o campo de Classificação é marcado como *classificado* no esquema de índice.
+| Entrada | Experiência |
+|-------|---------|
+| [Método de pesquisa](/rest/api/searchservice/search-documents) | Um utilizador escreve termos ou frases numa caixa de pesquisa, com ou sem operadores, e clica em Procurar para enviar o pedido. A pesquisa pode ser usada com filtros no mesmo pedido, mas não com auto-precon possível ou sugestões. |
+| [Método autocompleto](/rest/api/searchservice/autocomplete) | Um utilizador escreve alguns caracteres e as consultas são iniciadas após a dactilografada cada nova personagem. A resposta é uma cadeia completa do índice. Se a cadeia fornecida for válida, o utilizador clica em Procurar enviar essa consulta para o serviço. |
+| [Método de sugestões](/rest/api/searchservice/suggestions) | Tal como acontece com o autocomplete, um utilizador escreve alguns caracteres e são geradas consultas incrementais. A resposta é uma lista de documentos correspondentes, tipicamente representados por alguns campos únicos ou descritivos. Se alguma das seleções for válida, o utilizador clica numa e o documento de correspondência é devolvido. |
+| [Navegação por facetas](/rest/api/searchservice/search-documents#query-parameters) | Uma página mostra links de navegação clicáveis ou migalhas de pão que estreitam o âmbito da pesquisa. Uma estrutura de navegação facetada é composta dinamicamente com base numa consulta inicial. Por exemplo, `search=*` para povoar uma árvore de navegação facetada composta por todas as categorias possíveis. Uma estrutura de navegação facetada é criada a partir de uma resposta de consulta, mas também é um mecanismo para expressar a próxima consulta. n Referência API REST, `facets` é documentado como um parâmetro de consulta de uma operação de Documentos de Busca, mas pode ser usado sem o `search` parâmetro.|
+| [Método de filtragem](/rest/api/searchservice/search-documents#query-parameters) | Os filtros são utilizados com facetas para reduzir os resultados. Também pode implementar um filtro atrás da página, por exemplo, para inicializar a página com campos específicos da linguagem. Na referência REST API, `$filter` é documentado como um parâmetro de consulta de uma operação de Documentos de Busca, mas pode ser usado sem o `search` parâmetro.|
+
+## <a name="know-your-field-attributes"></a>Conheça os seus atributos de campo
+
+Se tiver revisto previamente os [fundamentos de um pedido de consulta,](search-query-overview.md)talvez se lembre que os parâmetros do pedido de consulta dependem da forma como os campos são atribuídos num índice. Por exemplo, para ser utilizado numa consulta, filtro ou ordem de classificação, um campo deve ser *pesculável,* *filtrado* e *ordenado*. Da mesma forma, apenas os campos marcados como *recuperáveis* podem aparecer em resultados. À medida que começa a especificar os `search` `filter` parâmetros , e `orderby` parâmetros no seu pedido, certifique-se de verificar atributos à medida que vai para evitar resultados inesperados.
+
+No portal screenshot abaixo do índice de amostra de [hotéis,](search-get-started-portal.md)apenas os dois últimos campos "LastRenovationDate" e "Rating" podem ser usados numa `"$orderby"` única cláusula.
 
 ![Definição de índice para a amostra do hotel](./media/search-query-overview/hotel-sample-index-definition.png "Definição de índice para a amostra do hotel")
 
-A imagem acima é uma lista parcial de atributos de índice para o [índice de amostra de hotéis.](search-get-started-portal.md) Pode criar e visualizar todo o esquema de índice no portal. Para obter mais informações sobre atributos de índice, consulte [Create Index (REST API)](/rest/api/searchservice/create-index).
+Para obter uma descrição dos atributos de campo, consulte [Criar Índice (REST API)](/rest/api/searchservice/create-index).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="know-your-tokens"></a>Conheça os seus tokens
 
-Agora que entende como o pedido é construído, experimente exemplos usando a sintaxe simples e completa.
+Durante a indexação, o motor de consulta utiliza um analisador para realizar análises de texto em cordas, maximizando o potencial de correspondência no tempo de consulta. No mínimo, as cordas são inferiores, mas também podem sofrer de lematização e parar a remoção de palavras. Cordas maiores ou palavras compostas são tipicamente divididas por espaços brancos, hífenes ou traços, e indexadas como símbolos separados. 
 
-+ [Exemplos de consultas simples](search-query-simple-examples.md)
-+ [Exemplos de consulta de sintaxe lucene para a construção de consultas avançadas](search-query-lucene-examples.md)
-+ [Como funciona a pesquisa em texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)
+O ponto a retirar aqui é que o que você pensa que o seu índice contém, e o que realmente está nele, pode ser diferente. Se as consultas não devolverem os resultados esperados, pode inspecionar os tokens criados pelo analisador através do [Texto de Análise (REST API)](/rest/api/searchservice/test-analyzer). Para obter mais informações sobre a tokenização e o impacto nas consultas, consulte [a pesquisa parcial e padrões com caracteres especiais.](search-query-partial-matching.md)
+
+## <a name="next-steps"></a>Próximos passos
+
+Agora que tem uma melhor compreensão de como um pedido de consulta é construído, experimente os seguintes quickstarts para experiência prática.
+
++ [Explorador de pesquisa](search-explorer.md)
++ [Como consultar em REST](search-get-started-rest.md)
++ [Como consultar em .NET](search-get-started-dotnet.md)
++ [Como consultar em Python](search-get-started-python.md)
++ [Como consultar em JavaScript](search-get-started-javascript.md)

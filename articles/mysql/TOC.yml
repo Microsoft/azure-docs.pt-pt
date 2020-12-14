@@ -12,6 +12,10 @@
           href: concepts-certificate-rotation.md
 - name: Documentação partilhada
   items:
+    - name: Implementação de base de dados
+      items:
+        - name: GitHub Actions
+          href: quickstart-mysql-github-actions.md
     - name: Migração
       items:
         - name: Migrar dados com mysqldump ou phpmyadmin
@@ -88,8 +92,6 @@
               href: connect-cpp.md
             - name: Ir
               href: connect-go.md
-            - name: GitHub Actions
-              href: quickstart-mysql-github-actions.md
     - name: Tutoriais
       items:
         - name: Estruturar uma base de dados
@@ -426,7 +428,7 @@
   items:
     - name: Documentação sobre o Servidor Flexível
       href: flexible-server/index.yml
-    - name: Descrição Geral
+    - name: Descrição geral
       items:
         - name: O que é o Servidor Flexível?
           href: flexible-server/overview.md

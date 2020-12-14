@@ -3,12 +3,12 @@ title: Ativar a extensão VM utilizando a Azure PowerShell
 description: Este artigo descreve como implementar extensões de máquinas virtuais para O Arco Azure habilitados a funcionar em ambientes de nuvem híbrida usando Azure PowerShell.
 ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 40f3d6ab98411d5b8e42f4f79817c66f56fdaaef
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 6b38c425042c260a29682db11212a1f6324abd38
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029035"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387415"
 ---
 # <a name="enable-azure-vm-extensions-using-azure-powershell"></a>Ativar extensões Azure VM usando Azure PowerShell
 
@@ -28,14 +28,14 @@ Quando a instalação estiver concluída, a seguinte mensagem é devolvida:
 
 ## <a name="enable-extension"></a>Permitir extensão
 
-Para ativar uma extensão VM no seu servidor ativado pelo Arco, utilize [a extensão new-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/new-azconnectedmachineextension) com os parâmetros , `-Name` , , , - `-ResourceGroupName` `-MachineName` `-Location` `-Publisher` `ExtensionType` e. `-Settings`
+Para ativar uma extensão VM no seu servidor ativado pelo Arco, utilize [a extensão new-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/new-azconnectedmachineextension) com os parâmetros , `-Name` `-ResourceGroupName` - `-MachineName` `-Location` `-Publisher` `ExtensionType` e. `-Settings`
 
 O exemplo a seguir permite a extensão VM do Log Analytics num servidor Linux ativado pelo Arco:
 
 ```powershell
 PS C:\> $Setting = @{ "workspaceId" = "workspaceId" }
 PS C:\> $protectedSetting = @{ "workspaceKey" = "workspaceKey" }
-PS C:\> New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "eastus" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -TypeHandlerVersion "1.10" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType OmsAgentforLinux"
+PS C:\> New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "eastus" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -TypeHandlerVersion "1.10" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType "OmsAgentforLinux"
 ```
 
 O exemplo a seguir permite a extensão de script personalizado num servidor ativado pelo Arco:
@@ -100,7 +100,7 @@ Por exemplo, para remover a extensão VM do Log Analytics para o Linux, executar
 Remove-AzConnectedMachineExtension -MachineName myMachineName -ResourceGroupName myResourceGroup -Name OmsAgentforLinux
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Pode implementar, gerir e remover extensões VM utilizando o [Azure CLI](manage-vm-extensions-cli.md), a partir do [portal Azure](manage-vm-extensions-portal.md), ou [modelos Azure Resource Manager](manage-vm-extensions-template.md).
 

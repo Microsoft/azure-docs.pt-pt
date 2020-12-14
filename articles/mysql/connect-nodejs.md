@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 5/26/2020
-ms.openlocfilehash: d1291b645e987f33bd2035580587650b843f1771
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 12/11/2020
+ms.openlocfilehash: b055201bba5147e72fc7ee80e1e9f24320f124a5
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535661"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387654"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Utilize Node.js para ligar e consultar dados na Base de Dados Azure para o MySQL
 
@@ -50,10 +50,16 @@ Dependendo da sua plataforma, siga as instruções na secção apropriada para i
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
-1. Execute os seguintes comandos para instalar **Node.js** e **npm** , o gestor de pacotes para Node.js.
+1. Execute os seguintes comandos para instalar **Node.js** e **npm**, o gestor de pacotes para Node.js.
 
    ```bash
-   sudo apt-get install -y nodejs npm
+    # Using Ubuntu
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+    
+    # Using Debian, as root
+    curl -sL https://deb.nodesource.com/setup_14.x | bash -
+    apt-get install -y nodejs
    ```
 
 2. Executar os seguintes comandos para criar uma pasta de projeto `mysqlnodejs` e instalar o pacote mysql nessa pasta.
@@ -68,12 +74,8 @@ Dependendo da sua plataforma, siga as instruções na secção apropriada para i
 
 ### <a name="macos"></a>macOS
 
-1. Introduza os seguintes comandos para instalar a **cerveja,** um gestor de pacotes fácil de usar para macOS e **Node.js**.
+1. Visite a [ páginaNode.js de descarregamentos](https://nodejs.org/en/download/)e, em seguida, selecione o seu instalador de macOS.
 
-   ```bash
-   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-   brew install node
-   ```
 2. Executar os seguintes comandos para criar uma pasta de projeto `mysqlnodejs` e instalar o pacote mysql nessa pasta.
 
    ```bash
@@ -321,7 +323,7 @@ function deleteData(){
 };
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar todos os recursos utilizados durante este arranque rápido, elimine o grupo de recursos utilizando o seguinte comando:
 
@@ -331,7 +333,7 @@ az group delete \
     --yes
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Migrar a base de dados com Exportar e Importar](./concepts-migrate-import-export.md)

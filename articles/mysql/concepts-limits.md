@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: 38c006bd1cda1494b284f742459aaf539ed4a2d1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b4f828c675df9625d6d4889dbc31bbc4b9f887ed
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539712"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97386719"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações na Base de Dados Azure para o MySQL
 As secções seguintes descrevem capacidade, suporte ao motor de armazenamento, suporte ao privilégio, suporte à declaração de manipulação de dados e limites funcionais no serviço de base de dados. Consulte também [as limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicáveis ao motor de base de dados MySQL.
@@ -55,6 +55,7 @@ Os seguintes não são suportados:
 - DEFINER: Requer super privilégios para criar e é restrito. Se importar dados utilizando uma cópia de segurança, remova os `CREATE DEFINER` comandos manualmente ou utilizando o `--skip-definer` comando quando efetuar uma mesqldump.
 - Bases de dados do sistema: A base de [dados do sistema Mysql](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) é apenas de leitura e utilizada para suportar várias funcionalidades do PaaS. Não é possível esquirá alterações na base de dados do `mysql` sistema.
 - `SELECT ... INTO OUTFILE`: Não suportado no serviço.
+- `LOAD_FILE(file_name)`: Não suportado no serviço.
 
 ### <a name="supported"></a>Suportado
 - `LOAD DATA INFILE` é suportado, mas o `[LOCAL]` parâmetro deve ser especificado e direcionado para um caminho UNC (armazenamento azul montado através de SMB).
@@ -81,6 +82,6 @@ Os seguintes não são suportados:
 ## <a name="current-known-issues"></a>Questões conhecidas atuais
 - A instância do servidor MySQL exibe a versão errada do servidor após a ligação ser estabelecida. Para obter a versão correta do motor de instância do servidor, utilize o `select version();` comando.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [O que está disponível em cada nível de serviço](concepts-pricing-tiers.md)
 - [Versões de base de dados do MySQL suportadas](concepts-supported-versions.md)

@@ -7,19 +7,19 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: ce23119e568347fff2ad270cfea7f8b563cae529
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 1f08bfd6b7c0439dd08a3091b5ea927781af9b84
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904997"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387586"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registar e digitalizar um inquilino power BI (pré-visualização)
 
 Este artigo mostra como usar o portal Azure Purview para registar e digitalizar um inquilino do Power BI.
 
 > [!Note]
-> Se a instância de Purview e o inquilino do Power BI estiverem no mesmo inquilino Azure, só pode utilizar a autenticação de identidade gerida (MSI) para configurar uma digitalização de um inquilino do Power BI. Se a instância de Purview e o inquilino do Power BI estiverem em inquilinos Azure diferentes, você deve autenticar com autenticação delegada, e você deve usar PowerShell para configurar suas digitalizações. Consulte [o PowerShell para registar e digitalizar o Power BI](powershell-register-scan-power-bi.md).
+> Se a instância de Purview e o inquilino do Power BI estiverem no mesmo inquilino Azure, só pode utilizar a autenticação de identidade gerida (MSI) para configurar uma digitalização de um inquilino do Power BI. 
 
 ## <a name="create-a-security-group-for-permissions"></a>Criar um grupo de segurança para permissões
 
@@ -63,7 +63,7 @@ Para configurar a autenticação, crie um grupo de segurança e adicione-lhe a i
     > Quando permite que o grupo de segurança que criou (que tem o seu catálogo de dados gerido identidade como membro) utilize apis de administração de power bi apenas de leitura, também lhe permite aceder aos metadados (por exemplo, dashboard e reportar nomes, proprietários, descrições, etc.) para todos os seus artefactos Power BI neste inquilino. Uma vez que os metadados foram puxados para o Azure Purview, as permissões do Purview, não permissões power BI, determinam quem pode ver esses metadados.
 
     > [!Note]
-    > Pode remover o grupo de segurança das definições do seu programador, mas os metadados anteriormente extraídos não serão removidos da conta ''' '' '' Pode eliminá-lo separadamente, se desejar.
+    > Pode remover o grupo de segurança das definições do seu programador, mas os metadados anteriormente extraídos não serão removidos da conta ' '' '' Pode eliminá-lo separadamente, se desejar.
 
 ## <a name="register-your-power-bi-and-set-up-a-scan"></a>Registe o seu Power BI e crie uma varredura
 
@@ -109,7 +109,7 @@ Primeiro, adicione uma bandeira de recurso especial ao seu URL de Purview
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Guardar e executar a imagem do ecrã do Power BI":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender a usar cmdlets PowerShell para registar e digitalizar um inquilino power bi, consulte:
   

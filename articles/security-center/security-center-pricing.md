@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2020
+ms.date: 12/13/2020
 ms.author: memildin
-ms.openlocfilehash: d92047a5b24f04ee7e0d08454867ec9e1a52a8b1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: d3492685efbf70b69e5bafba919d38a4f06fb666
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754385"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387475"
 ---
 # <a name="pricing-of-azure-security-center"></a>Preços do Centro de Segurança Azure
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, no local e noutras clouds. Proporciona visibilidade e controlo sobre cargas de trabalho em nuvem híbrida, defesas ativas que reduzem a sua exposição a ameaças e deteção inteligente para ajudá-lo a manter o ritmo com riscos cibernéticos em rápida evolução.
@@ -52,7 +52,7 @@ Para ativar o Azure Defender:
 1. A partir do menu principal do Security Center, **selecione definições de preços &**.
 1. Selecione a subscrição que pretende atualizar.
 1. Selecione **Azure Defender** para atualizar.
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
 Abaixo está a página de preços para uma subscrição de exemplo. Você vai notar que cada plano em Azure Defender tem um preço separado e pode ser definido individualmente para dentro ou fora.
 
@@ -68,12 +68,24 @@ Abaixo está a página de preços para uma subscrição de exemplo. Você vai no
 
 ## <a name="faq---pricing-and-billing"></a>FAQ - Preços e faturação 
 
-### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-azure-security-center"></a>Como posso rastrear quem na minha organização permitiu mudanças no Azure Defender no Azure Security Center
+- [Como posso rastrear quem na minha organização permitiu mudanças no Azure Defender no Centro de Segurança Azure?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
+- [Quais são os planos oferecidos pelo Centro de Segurança?](#what-are-the-plans-offered-by-security-center)
+- [Como devo proceder para ativar o Azure Defender para a minha subscrição?](#how-do-i-enable-azure-defender-for-my-subscription)
+- [Posso ativar o Azure Defender para os servidores num subconjunto de servidores na minha subscrição?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
+- [A minha subscrição tem o Azure Defender para servidores ativados, pago por servidores não funcionando?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
+- [Serei cobrado por máquinas sem o agente Log Analytics instalado?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
+- [Se um agente do Log Analytics reportar a vários espaços de trabalho, serei cobrado duas vezes?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
+- [Se um agente do Log Analytics reportar a vários espaços de trabalho, a ingestão gratuita de dados de 500-MB está disponível em todos eles?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
+- [A ingestão gratuita de dados de 500-MB é calculada para todo um espaço de trabalho ou estritamente por máquina?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+
+### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center"></a>Como posso rastrear quem na minha organização permitiu mudanças no Azure Defender no Centro de Segurança?
 As Subscrições Azure podem ter vários administradores com permissões para alterar as definições de preços. Para saber que utilizador fez uma alteração, utilize o Registo de Atividades Azure.
 
-Se a informação do utilizador não estiver listada no **Evento iniciado por** coluna, explore o evento para obter os detalhes relevantes.
+:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Registo de atividades Azure mostrando um evento de mudança de preços":::
 
-:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Azure Event Log mostrando um evento de mudança de preços":::
+Se a informação do utilizador não estiver listada no **Evento iniciado por** coluna, explore o JSON do evento para obter os detalhes relevantes.
+
+:::image type="content" source="media/security-center-pricing/tracking-pricing-changes-in-activity-log.png" alt-text="Azure Activity log JSON explorer":::
 
 
 ### <a name="what-are-the-plans-offered-by-security-center"></a>Quais são os planos oferecidos pelo Centro de Segurança? 
@@ -107,16 +119,20 @@ Não. Quando ativar [o Azure Defender para servidores](defender-for-servers-intr
 > Isto também se aplica aos outros tipos de recursos protegidos pelo Security Center. 
 
 ### <a name="will-i-be-charged-for-machines-without-the-log-analytics-agent-installed"></a>Serei cobrado por máquinas sem o agente Log Analytics instalado?
-Yes. Quando ativa [o Azure Defender para servidores](defender-for-servers-introduction.md) numa subscrição, as máquinas nessa subscrição obtêm uma série de proteções mesmo que não tenha instalado o agente Log Analytics.
+Sim. Quando ativa [o Azure Defender para servidores](defender-for-servers-introduction.md) numa subscrição, as máquinas nessa subscrição obtêm uma série de proteções mesmo que não tenha instalado o agente Log Analytics.
 
 ### <a name="if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice"></a>Se um agente do Log Analytics reportar a vários espaços de trabalho, serei cobrado duas vezes? 
-Yes. Se configurar o seu agente Log Analytics para enviar dados para dois ou mais espaços de trabalho do Log Analytics (multi-homing), será cobrado por cada espaço de trabalho que tenha uma solução 'Security' ou 'AntiMalware' instaladas. 
+Sim. Se configurar o seu agente Log Analytics para enviar dados para dois ou mais espaços de trabalho do Log Analytics (multi-homing), será cobrado por cada espaço de trabalho que tenha uma solução 'Security' ou 'AntiMalware' instaladas. 
 
 ### <a name="if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them"></a>Se um agente do Log Analytics reportar a vários espaços de trabalho, a ingestão gratuita de dados de 500-MB está disponível em todos eles?
-Yes. Se configurar o seu agente Log Analytics para enviar dados para dois ou mais espaços de trabalho do Log Analytics (multi-homing), obterá ingestão gratuita de dados de 500 MB. É calculado por nó, por espaço de trabalho reportado, por dia, e disponível para cada espaço de trabalho que tenha uma solução 'Security' ou 'AntiMalware' instaladas. Será cobrado por quaisquer dados ingeridos ao longo dos 500 MB.
+Sim. Se configurar o seu agente Log Analytics para enviar dados para dois ou mais espaços de trabalho do Log Analytics (multi-homing), obterá ingestão gratuita de dados de 500 MB. É calculado por nó, por espaço de trabalho reportado, por dia, e disponível para cada espaço de trabalho que tenha uma solução 'Security' ou 'AntiMalware' instaladas. Será cobrado por quaisquer dados ingeridos ao longo dos 500 MB.
 
+### <a name="is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine"></a>A ingestão gratuita de dados de 500-MB é calculada para todo um espaço de trabalho ou estritamente por máquina?
+Você receberá 500-MB de ingestão gratuita de dados por dia, para cada máquina ligada ao espaço de trabalho. Especificamente para tipos de dados de segurança recolhidos diretamente pelo Azure Security Center.
 
-## <a name="next-steps"></a>Passos seguintes
+Estes dados são uma taxa diária média em todos os nós. Assim, mesmo que algumas máquinas enviem 100-MB e outras enviem 800-MB, se o total não exceder o limite de livre **[número de máquinas] x 500-MB,** não será cobrado extra.
+
+## <a name="next-steps"></a>Próximos passos
 Este artigo explicava as opções de preços do Centro de Segurança. Para obter material relacionado, consulte:
 
 - [Como otimizar os seus custos de carga de trabalho Azure](https://azure.microsoft.com/blog/how-to-optimize-your-azure-workload-costs/)

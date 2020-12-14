@@ -155,6 +155,25 @@
           href: identity-provider-wechat.md
         - name: Weibo
           href: identity-provider-weibo.md
+    - name: Personalização da Experiência do Utilizador
+      items:
+        - name: Configurar a entrada do utilizador
+          href: configure-user-input.md
+        - name: Personalizar a IU com a imagem corporativa da empresa
+          href: company-branding.md
+        - name: Personalizar a IU com o modelo HTML
+          href: customize-ui-with-html.md
+        - name: JavaScript e esquemas de página
+          href: javascript-and-page-layout.md
+        - name: Personalizar idioma
+          href: language-customization.md
+        - name: Complexidade da palavra-passe
+          href: password-complexity.md
+        - name: Desativar a verificação do e-mail
+          href: disable-email-verification.md
+        - name: Ativar MFA
+          href: multi-factor-authentication.md
+          displayName: multi-factor auth
     - name: Fluxo de utilizador
       items:
         - name: Criar um fluxo
@@ -167,21 +186,6 @@
               href: user-flow-self-service-password-reset.md
         - name: Adicionar Acesso Condicional
           href: conditional-access-user-flow.md
-        - name: Personalização da Experiência do Utilizador
-          items:
-            - name: Personalizar a IU
-              href: customize-ui-overview.md
-            - name: JavaScript e esquemas de página
-              href: user-flow-javascript-overview.md
-            - name: Personalizar idioma
-              href: user-flow-language-customization.md
-            - name: Complexidade da palavra-passe
-              href: user-flow-password-complexity.md
-            - name: Desativar a verificação do e-mail
-              href: user-flow-disable-email-verification.md
-            - name: Ativar MFA
-              href: custom-policy-multi-factor-authentication.md
-              displayName: multi-factor auth
         - name: Gestão de tokens e sessões
           items:
             - name: Configurar tokens
@@ -219,29 +223,13 @@
             - name: Inscrição e início de sessão no telemóvel
               href: phone-authentication.md
               displayName: 'otp, passwordless, phone number'
-        - name: Personalização da Experiência do Utilizador
+        - name: Verificação personalizada do e-mail
           items:
-            - name: Configurar a entrada do utilizador
-              href: custom-policy-configure-user-input.md
-              displayName: 'ui, ux'
-            - name: Personalizar a IU
-              href: custom-policy-ui-customization.md
-              displayName: 'ux, input, cors, html, css'
-            - name: Personalizar idioma
-              href: custom-policy-localization.md
-            - name: Verificação personalizada do e-mail
-              items:
-                - name: Mailjet
-                  href: custom-email-mailjet.md
-                - name: SendGrid
-                  href: custom-email-sendgrid.md
-              displayName: verification
-            - name: Desativar a verificação do e-mail
-              href: custom-policy-disable-email-verification.md
-            - name: Ativar JavaScript
-              href: javascript-samples.md
-            - name: Complexidade da palavra-passe
-              href: custom-policy-password-complexity.md
+            - name: Mailjet
+              href: custom-email-mailjet.md
+            - name: SendGrid
+              href: custom-email-sendgrid.md
+          displayName: verification
         - name: Gestão de tokens e sessões
           items:
             - name: Personalizar tokens

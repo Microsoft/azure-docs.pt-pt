@@ -42,13 +42,13 @@
               href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: Criar controlador de dados
       items:
-        - name: Criar controlador de dados (Azure Data Studio)
+        - name: Azure Data Studio
           href: create-data-controller-azure-data-studio.md
-        - name: Criar recurso de controlador de dados (portal)
+        - name: Portal do Azure
           href: create-data-controller-resource-in-azure-portal.md
-        - name: Criar um controlador de dados (CLI de Dados do Azure)
+        - name: CLI de Dados do Azure (azdata)
           href: create-data-controller-using-azdata.md
-        - name: Criar controlador de dados através do Kubernetes
+        - name: Ferramentas do Kubernetes
           href: create-data-controller-using-kubernetes-native-tools.md
     - name: Experiências comuns em serviços de dados preparados para Azure Arc
       items:
@@ -80,6 +80,8 @@
           href: view-arc-data-services-inventory-in-azure-portal.md
         - name: Obter nome de utilizador e palavra-passe do controlador de dados
           href: retrieve-the-username-password-for-data-controller.md
+        - name: Atualizar as credenciais de principal de serviço
+          href: update-service-principal-credentials.md
     - name: Resolução de problemas
       items:
         - name: Guia

@@ -1095,9 +1095,9 @@
         - name: Utilizar o assistente de classificação para conjuntos de SQL dedicados
           href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
           displayname: machine learning
-        - name: Preparar um modelo "code-free" com o Azure AutoML
+        - name: Preparar um modelo sem código com o ML automatizado
           href: ./machine-learning/tutorial-automl.md
-        - name: Preparar um modelo em Python com o Azure AutoML
+        - name: Preparar um modelo em Python com o ML automatizado
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
           displayname: machine learning
         - name: Criar um modelo com o MLlib do Apache Spark

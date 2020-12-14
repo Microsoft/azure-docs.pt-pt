@@ -256,9 +256,11 @@
       items:
         - name: Tipos de consulta e composição
           href: search-query-overview.md
-        - name: Criar uma consulta simples
+        - name: Criar uma consulta básica
+          href: search-query-create.md
+        - name: Utilizar sintaxe simples (exemplos)
           href: search-query-simple-examples.md
-        - name: Utilizar sintaxe Lucene completo
+        - name: Utilizar Lucene completo (exemplos)
           href: search-query-lucene-examples.md
         - name: Termos parciais e carateres especiais
           href: search-query-partial-matching.md
@@ -536,6 +538,8 @@
           href: 'https://wolterskluwereap.azurewebsites.net/'
         - name: Demonstração com ficheiros JFK
           href: 'https://www.microsoft.com/en-us/ai/ai-lab-jfk-files'
+        - name: Demonstração de Empregos em Nova Iorque
+          href: 'https://azjobsdemo.azurewebsites.net/'
     - name: Formação
       items:
         - name: Introdução (Microsoft Learn)

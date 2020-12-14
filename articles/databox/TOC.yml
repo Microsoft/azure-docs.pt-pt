@@ -90,6 +90,8 @@
               href: data-box-local-web-ui-admin.md
             - name: Utilizar o envio gerido automaticamente
               href: data-box-portal-customer-managed-shipping.md
+            - name: Traga os seus próprios certificados
+              href: data-box-bring-your-own-certificates.md
             - name: Ativar chave gerida pelo cliente
               href: data-box-customer-managed-encryption-key-portal.md
             - name: Utilizar o Sistema de Proteção de Dados do Cliente

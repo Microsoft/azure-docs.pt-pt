@@ -1,19 +1,19 @@
 ---
-title: Adicionar o JVM arg - Azure Monitor Application Insights Java
-description: Adicionar o arg JVM para Azure Monitor Application Insights Java
+title: Adicionar o JVM arg - Azure Monitor Application Insights for Java
+description: Como adicionar o arg JVM que permite insights de aplicação do monitor Azure para Java
 ms.topic: conceptual
 ms.date: 04/16/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 63f2f226887b2db0aaeced6ffe41a1ad5a5432b9
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.openlocfilehash: c73e3bd82cc87518fb2077e87e9ce943e040bf4b
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/14/2020
-ms.locfileid: "97371905"
+ms.locfileid: "97387382"
 ---
-# <a name="adding-the-jvm-arg-for-azure-monitor-application-insights-java"></a>Adicionar o arg JVM para Azure Monitor Application Insights Java
+# <a name="adding-the-jvm-arg---azure-monitor-application-insights-for-java"></a>Adicionar o JVM arg - Azure Monitor Application Insights for Java
 
 
 

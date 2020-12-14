@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2020
-ms.openlocfilehash: 9cac0a0026a7007e227607e04e03a77e4df99ecd
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 9ce0ab34aac1a3dda823c9270f4eacebfb99166f
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368126"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387671"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Consulta em Pesquisa Cognitiva Azure
 
-A Azure Cognitive Search oferece uma linguagem de consulta expansiva para suportar uma ampla gama de cenários, desde a pesquisa de formas gratuitas, até padrões de consulta altamente especificados. Este artigo resume os tipos de consultas que pode criar.
+A Azure Cognitive Search oferece uma rica linguagem de consulta para suportar uma ampla gama de cenários, desde a pesquisa gratuita de texto, até padrões de consulta altamente especificados. Este artigo resume os tipos de consultas que pode criar.
 
 Na Pesquisa Cognitiva, uma consulta é uma especificação completa de uma operação de ida e **`search`** volta, com parâmetros que tanto informam a execução de consultas como moldam a resposta voltando. Parâmetros e parsers determinam o tipo de pedido de consulta. O exemplo de consulta a seguir utiliza os [Documentos de Pesquisa (REST API),](/rest/api/searchservice/search-documents)direcionando o [índice de demonstração dos hotéis.](search-get-started-portal.md)
 
@@ -38,7 +38,7 @@ Parâmetros utilizados durante a execução de consultas:
 
 + **`queryType`** define o parser, que é o [parser de consulta simples padrão](search-query-simple-examples.md) (ideal para pesquisa completa de texto), ou o [parser de consulta lucene completo](search-query-lucene-examples.md) usado para construções de consultas avançadas como expressões regulares, pesquisa de proximidade, pesquisa de nádpos e wildcard, para citar alguns.
 
-+ **`search`** fornece os critérios de correspondência, geralmente termos ou frases inteiros, com ou sem operadores. Qualquer campo que seja atribuído como *pespável* no esquema de índice é um candidato a este parâmetro. 
++ **`search`** fornece os critérios de correspondência, geralmente termos ou frases inteiros, com ou sem operadores. Qualquer campo que seja atribuído como *pespável* no esquema de índice é um candidato a este parâmetro.
 
 + **`searchFields`** limita a execução de consultas a campos pesmáveis específicos.
 
@@ -108,12 +108,10 @@ Um formulário de consulta avançado depende do parser e operadores de Lucene co
 | [pesquisa regular de expressão](query-lucene-syntax.md#bkmk_regex) | **`search`** parâmetro, **`queryType=full`** | Fósforos baseados no conteúdo de uma expressão regular. <br/>[Exemplo de expressão regular](search-query-lucene-examples.md#example-6-regex) |
 |  [pesquisa de wildcard ou prefixo](query-lucene-syntax.md#bkmk_wildcard) | **`search`** parâmetro com * *_`~`_* **`?`** ou, **`queryType=full`**| Corresponde com base num prefixo e num único `~` carácter (). `?` <br/>[Exemplo de pesquisa wildcard](search-query-lucene-examples.md#example-7-wildcard-search) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Use o portal, ou outra ferramenta, como o Postman ou o Visual Studio Code, ou um dos SDKs para explorar as consultas em maior profundidade. Os seguintes links vão começar.
+Para uma análise mais atenta da implementação da consulta, reveja os exemplos de cada sintaxe. Se você é novo na pesquisa completa de texto, uma olhada mais atenta ao que o motor de consulta faz pode ser uma escolha igualmente boa.
 
-+ [Explorador de pesquisa](search-explorer.md)
-+ [Como consultar em REST](search-get-started-rest.md)
-+ [Como consultar em .NET](search-get-started-dotnet.md)
-+ [Como consultar em Python](search-get-started-python.md)
-+ [Como consultar em JavaScript](search-get-started-javascript.md)
++ [Exemplos de consultas simples](search-query-simple-examples.md)
++ [Exemplos de consulta de sintaxe lucene para a construção de consultas avançadas](search-query-lucene-examples.md)
++ [Como funciona a pesquisa em texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)

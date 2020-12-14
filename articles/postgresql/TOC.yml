@@ -12,6 +12,10 @@
           href: concepts-certificate-rotation.md
 - name: Documentação partilhada
   items:
+    - name: Implementação de base de dados
+      items:
+        - name: GitHub Actions
+          href: how-to-deploy-github-action.md
     - name: Migração
       items:
         - name: Migrar dados com pg_dump and pg_restore
@@ -202,6 +206,8 @@
               displayName: 'query store, performance, optimize, recommendations'
         - name: Desenvolvimento de aplicações
           items:
+            - name: Melhores práticas
+              href: application-best-practices.md
             - name: Bibliotecas de ligação
               href: concepts-connection-libraries.md
               displayName: 'libraries, drivers'
@@ -416,10 +422,16 @@
               href: flexible-server/connect-python.md
     - name: Tutoriais
       items:
-        - name: Criar uma aplicação Web numa rede virtual
-          href: flexible-server/tutorial-webapp-server-vnet.md
-        - name: Implementar uma aplicação Django
-          href: flexible-server/tutorial-django-app-service-postgres.md
+        - name: Criar com o AKS
+          items:
+            - name: Implementar a Aplicação Python no Kubernetes
+              href: flexible-server/tutorial-django-aks-database.md
+        - name: Criar com o Serviço de Aplicações
+          items:
+            - name: Criar uma aplicação Web numa rede virtual
+              href: flexible-server/tutorial-webapp-server-vnet.md
+            - name: Implementar uma aplicação Django no Serviço de Aplicações
+              href: flexible-server/tutorial-django-app-service-postgres.md
     - name: Conceitos
       items:
         - name: Servidores
@@ -466,6 +478,8 @@
               href: flexible-server/how-to-manage-server-portal.md
             - name: CLI do Azure
               href: flexible-server/how-to-manage-server-cli.md
+            - name: Guia para ligação e consultas
+              href: flexible-server/how-to-connect-query-guide.md
         - name: Manutenção agendada
           items:
             - name: Portal do Azure

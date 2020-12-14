@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/25/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e5aca04a649dfa5228d12737b21ef2ee2b14013b
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 891991fa938ad3dcfacae6d02e40efd6d6e9689e
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750460"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97386855"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico RESTful numa política personalizada do Azure Ative Directory B2C
 
@@ -115,14 +115,14 @@ O perfil técnico também devolve reclamações, que não são devolvidas pelo f
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ServiceUrl | Sim | O URL do ponto final da API REST. |
-| AutenticaçãoType | Sim | O tipo de autenticação que está a ser realizada pelo provedor de reclamações RESTful. Valores possíveis: `None` , , , ou `Basic` `Bearer`  `ClientCertificate` `ApiKeyHeader` . <br /><ul><li>O `None` valor indica que a API REST é anónima. </li><li>O `Basic` valor indica que a API REST está protegida com autenticação básica HTTP. Apenas os utilizadores verificados, incluindo o Azure AD B2C, podem aceder à sua API. </li><li>O `ClientCertificate` valor (recomendado) indica que a API REST restringe o acesso através da autenticação do certificado do cliente. Apenas os serviços que possuam os certificados adequados, por exemplo Azure AD B2C, podem aceder à sua API. </li><li>O `Bearer` valor indica que a API REST restringe o acesso utilizando o token do cliente OAuth2 Bearer. </li><li>O `ApiKeyHeader` valor indica que a API REST está protegida com o cabeçalho HTTP da tecla API, tal como a *tecla x-funções*. </li></ul> |
+| AutenticaçãoType | Sim | O tipo de autenticação que está a ser realizada pelo provedor de reclamações RESTful. Valores possíveis: `None` `Basic` , ou `Bearer`  `ClientCertificate` `ApiKeyHeader` . <br /><ul><li>O `None` valor indica que a API REST é anónima. </li><li>O `Basic` valor indica que a API REST está protegida com autenticação básica HTTP. Apenas os utilizadores verificados, incluindo o Azure AD B2C, podem aceder à sua API. </li><li>O `ClientCertificate` valor (recomendado) indica que a API REST restringe o acesso através da autenticação do certificado do cliente. Apenas os serviços que possuam os certificados adequados, por exemplo Azure AD B2C, podem aceder à sua API. </li><li>O `Bearer` valor indica que a API REST restringe o acesso utilizando o token do cliente OAuth2 Bearer. </li><li>O `ApiKeyHeader` valor indica que a API REST está protegida com o cabeçalho HTTP da tecla API, tal como a *tecla x-funções*. </li></ul> |
 | AllowInsecureAuthInProduction| Não| Indica se o `AuthenticationType` pode ser definido em ambiente de `none` produção ( da `DeploymentMode` [TrustFrameworkPolicy](trustframeworkpolicy.md) está definido para `Production` , ou não especificado). Valores possíveis: verdadeiros ou falsos (padrão). |
 | SendClaimsIn | Não | Especifica como os pedidos de entrada são enviados ao provedor de reclamações RESTful. Valores possíveis: `Body` (padrão), `Form` `Header` ou `Url` `QueryString` . O `Body` valor é a reclamação de entrada que é enviada no organismo de pedido em formato JSON. O `Form` valor é a alegação de entrada que é enviada no organismo de pedido num formato de valor chave separado "&". O `Header` valor é a reclamação de entrada que é enviada no cabeçalho do pedido. O `Url` valor é a alegação de entrada que é enviada no URL, por exemplo, https://{claim1}.exemplo.com/{claim2}/{claim3}?{ claim4}={claim5}. O `QueryString` valor é a reclamação de entrada que é enviada na cadeia de consulta de pedido. Os verbos HTTP invocados por cada um são os seguintes:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`Url`: GET</li><li>`QueryString`: GET</li></ul> |
 | SinistrosFormat | Não | Não atualmente usado, pode ser ignorado. |
 | ReclamaçãoUsedForRequestPayload| Não | Nome de uma alegação de cadeia que contém a carga útil a enviar para a API REST. |
 | DebugMode | Não | Executa o perfil técnico no modo depuragem. Valores possíveis: `true` , ou `false` (predefinição). No modo de depuragem, a API REST pode devolver mais informações. Consulte a secção [de mensagem de erro de retorno.](#returning-validation-error-message) |
 | IncluirClaimResolvingInClaimsHandling  | Não | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false` (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
-| ResolveJsonPathsInJsonTokens  | Não | Indica se o perfil técnico resolve os caminhos do JSON. Valores possíveis: `true` , ou `false` (predefinição). Utilize estes metadados para ler dados a partir de um elemento JSON aninhado. Em um [OutputClaim](technicalprofiles.md#outputclaims), desapedaça `PartnerClaimType` o elemento de caminho JSON que pretende obter. Por exemplo: `firstName.localized` ou `data.0.to.0.email` . .|
+| ResolveJsonPathsInJsonTokens  | Não | Indica se o perfil técnico resolve os caminhos do JSON. Valores possíveis: `true` , ou `false` (predefinição). Utilize estes metadados para ler dados a partir de um elemento JSON aninhado. Em um [OutputClaim](technicalprofiles.md#output-claims), desapedaça `PartnerClaimType` o elemento de caminho JSON que pretende obter. Por exemplo: `firstName.localized` ou `data.0.to.0.email` . .|
 | UseClaimAsBearerToken| Não| O nome da reivindicação que contém o símbolo do portador.|
 
 ## <a name="error-handling"></a>Processamento de erros
@@ -282,7 +282,7 @@ public class ResponseContent
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte os seguintes artigos para exemplos de utilização de um perfil técnico RESTful:
 

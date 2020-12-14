@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Documentação do Azure Stack Edge - Transferência online
-summary: Utilize os dispositivos do Azure Stack Edge para fazer transferências de dados através da rede de elevado desempenho. Utilize dispositivos Azure Stack Edge Pro equipados com hardware de aceleração da computação para filtrar, analisar e transformar os seus dados antes de movê-los para o Azure.
+title: Documentação do Azure Stack Edge
+summary: Utilize os dispositivos do Azure Stack Edge para fornecer capacidades do Azure, tais como computação, armazenamento, rede e machine learning acelerado por hardware, a qualquer localização edge.
 metadata:
-  title: Documentação do Azure Stack Edge - Transferência online
+  title: Documentação do Azure Stack Edge
   description: Documentação do Azure Stack Edge para transferência de dados através da rede de elevado desempenho para o Azure.
   services: databox
   ms.service: databox
@@ -12,12 +12,12 @@ metadata:
   author: alkohli
   ms.author: alkohli
   ms.date: 10/27/2020
-  ms.openlocfilehash: 2ee9153bc500c7d5184e32712e0707d1c0f2507e
-  ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+  ms.openlocfilehash: e0b1c488635314a8583f216d966a75095ac5e279
+  ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/03/2020
-  ms.locfileid: "96574195"
+  ms.lasthandoff: 12/12/2020
+  ms.locfileid: "97356094"
 landingContent:
 - title: Acerca do Azure Stack Edge
   linkLists:
@@ -29,7 +29,7 @@ landingContent:
       url: azure-stack-edge-overview.md
     - text: O que é o Azure Stack Edge R?
       url: azure-stack-edge-j-series-overview.md
-    - text: O que é o Azure Stack Edge Mini?
+    - text: O que é o Azure Stack Edge Mini R?
       url: azure-stack-edge-k-series-overview.md
   - linkListType: architecture
     links:
@@ -39,8 +39,8 @@ landingContent:
       url: ../storage/common/storage-solution-large-dataset-low-network.md#offline-transfer-or-network-transfer
   - linkListType: whats-new
     links:
-    - text: Notas de versão de 2011
-      url: azure-stack-edge-gpu-2011-release-notes.md
+    - text: Notas de versão de 2012
+      url: azure-stack-edge-gpu-2012-release-notes.md
 - title: Requisitos e limites
   linkLists:
   - linkListType: concept

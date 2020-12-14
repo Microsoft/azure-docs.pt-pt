@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a criar e configurar cofres dos Serviços de 
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: ef3d464c051f15d656a4a60937bb05ac496ee52d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 3ba9f47da4a4c9719c313ba196ca121f8cde54ad
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548431"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387739"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Criar e configurar um cofre dos Serviços de Recuperação
 
@@ -77,8 +77,9 @@ Um cofre criado com redundância GRS inclui a opção de configurar a funcionali
 
  ![Banner de configuração de backup](./media/backup-azure-arm-restore-vms/banner.png)
 
-1. A partir do portal, vá para o cofre dos Serviços de Recuperação > Definições > Propriedades.
-2. Selecione **Enable Cross Region Restore neste cofre** para ativar a funcionalidade.
+1. A partir do portal, aceda ao cofre dos Serviços de Recuperação > **Propriedades** (em **Definições).**
+1. Na **configuração de cópia de segurança**, selecione **Update**.
+1. Selecione **Enable Cross Region Restore neste cofre** para ativar a funcionalidade.
 
    ![Permitir a restauração da Região Cruzada](./media/backup-azure-arm-restore-vms/backup-configuration.png)
 
@@ -160,7 +161,7 @@ Se precisar de manter os dados protegidos atuais no cofre GRS e continuar a prot
   - Poderá restaurar o VM, se necessário, do cofre grs.
   - A primeira cópia de segurança no cofre LRS do VM no novo recurso será uma réplica inicial.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Saiba mais](backup-azure-recovery-services-vault-overview.md) Cofres dos Serviços de Recuperação.
 [Saiba mais](backup-azure-delete-vault.md) Apagar cofres dos Serviços de Recuperação.

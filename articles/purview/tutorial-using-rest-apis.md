@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/03/2020
-ms.openlocfilehash: 185cb24d5edd08438c56603b602448226ce31f0b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 06f738ea88093ea8de45efebea983fd7fa13216e
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360254"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387824"
 ---
 # <a name="tutorial-use-the-rest-apis"></a>Tutorial: Use as APIs REST
 
@@ -113,7 +113,7 @@ Encontrar e guardar os seguintes valores:
   * Na secção **Gerir** no painel esquerdo, selecione **Propriedades,** encontre o **ID** do Inquilino e, em seguida, selecione o ícone **copy para clipboard** para guardar o seu valor.
 * Ponto final do Atlas:
   * A partir da página de [contas Azure Purview](https://aka.ms/purviewportal) no portal Azure, encontre e selecione a sua conta Azure Purview na lista.
-  * Selecione **Overview**, encontre **o Atlas Endpoint** e, em seguida, selecione o ícone **Copy para clipboard** para guardar o seu valor. Retire a *parte https://* da cadeia quando a utilizar mais tarde.
+  * Selecione **Propriedades**, encontre **o Atlas Endpoint** e, em seguida, selecione o ícone **copy para clipboard** para guardar o seu valor. Retire a *parte https://* da cadeia quando a utilizar mais tarde.
 * Nome da conta:
   * Extraia o nome do seu catálogo da cadeia de ponta do Atlas. Por exemplo, se o seu ponto final do Atlas `https://ThisIsMyCatalog.catalog.purview.azure.com` for, o nome da sua conta é `ThisIsMyCatalog` .
 
@@ -244,7 +244,7 @@ namespace PurviewCatalogSdkTest
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Gerir origens de dados](manage-data-sources.md)
