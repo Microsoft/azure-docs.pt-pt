@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/21/2020
+ms.date: 12/12/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a02c30423ab3c6de87eac7d34b5f0004e54a8d5d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 28d47b61bce7e154da6c6adb4b74e2b5cf1f3f3d
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957814"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371854"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Qual o software SAP suportado para implementações do Azure
 Este artigo descreve como pode descobrir o que o software SAP é suportado para implementações Azure e quais são as libertações necessárias do sistema operativo ou as versões DBMS.
@@ -82,6 +82,12 @@ O sistema operativo, as versões Da Oracle DBMS e a funcionalidade Oracle suport
 - Os sistemas SAP não-Unicode são suportados apenas com servidores de aplicações em execução com o SISTEMA convidado do Windows. O sistema operativo de hóspedes do DBMS pode ser Oracle Linux ou Windows. A razão desta restrição é aparente ao verificar a Matriz de Disponibilidade de Produto SAP (PAM). Para a Oracle Linux, a SAP nunca lançou núcleos SAP não-Unicode
 
 Conhecendo as versões DBMS suportadas com a infraestrutura Azure direcionada, é necessário verificar a Matriz de Disponibilidade de Produto SAP sobre se as versões de OS e DBMS necessárias são suportadas com as suas versões de produto SAP que pretendia executar. 
+
+## <a name="oracle-linux"></a>Oracle Linux
+A pergunta mais proeminente em torno da Oracle Linux é se o SAP suporta o núcleo do Chapéu Vermelho que também faz parte integrante do Oracle Linux. Para mais detalhes, leia [a nota de suporte da SAP #1565179](https://launchpad.support.sap.com/#/notes/1565179).
+
+## <a name="other-database-than-sap-hana"></a>Outra base de dados que não a SAP HANA
+O suporte de bases de dados não HANA para a carga de trabalho SAP está documentado na [nota de suporte da SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533).
 
 
 ## <a name="sap-hana-support"></a>Suporte SAP HANA

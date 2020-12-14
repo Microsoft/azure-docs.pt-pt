@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: cognitive-services
 manager: nitinme
 ms.custom: seodec18
@@ -8,14 +8,16 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 10/30/2020
 ms.topic: include
-ms.openlocfilehash: e592c11062e81d48014a90895a0e42b460d4b77c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e006f804b8ab6411f4949424147acf567dc2ed24
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128239"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97371321"
 ---
 ## <a name="sign-in-to-luis-portal"></a>Iniciar sessão no portal LUIS
+
+[!INCLUDE [Note about portal deprecation](luis-portal-note.md)]
 
 Um novo utilizador da LUIS precisa de seguir este procedimento:
 

@@ -1,19 +1,19 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: active-directory
 author: curtand
 ms.service: active-directory
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 12/11/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 47d994a572d2fb0a76e1b6a713b61b70cccbd659
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9be85a7da67fa659e29d802d1f77fa09008f4428
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509122"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97371322"
 ---
 Aqui estão as restrições de utilização e outros limites de serviço do serviço do Azure Active Directory (Azure AD).
 
@@ -23,7 +23,7 @@ Aqui estão as restrições de utilização e outros limites de serviço do serv
 | Domínios | Pode adicionar um máximo de 900 nomes de domínio gerido. Se configurar todos os seus domínios para federação com diretório ativo no local, não pode adicionar mais de 450 nomes de domínio em cada inquilino. |
 |Recursos |<ul><li>Um máximo de 50.000 recursos Azure AD pode ser criado em um único inquilino pelos utilizadores da edição livre do Azure Ative Diretório por padrão. Se tiver pelo menos um domínio verificado, a quota de serviço Azure AD padrão para a sua organização é alargada a 300.000 recursos Azure AD. A quota de serviço AZure AD para organizações criadas por autosserviço permanece em 50.000 recursos Azure AD mesmo depois de ter realizado uma aquisição interna de administração e a organização é convertida para um inquilino gerido com pelo menos um domínio verificado. Este limite de serviço não está relacionado com o limite de 500.000 recursos na página de preços da Azure AD. Para ir além da quota padrão, tem de contactar o Microsoft Support.</li><li>Um utilizador não administrativo não pode criar mais de 250 recursos Azure AD. Tanto os recursos ativos como os recursos eliminados que estão disponíveis para restaurar a contagem para esta quota. Apenas os recursos Azure AD eliminados que foram eliminados há menos de 30 dias estão disponíveis para restaurar. Recursos AD Azure eliminados que já não estão disponíveis para restaurar a contagem para esta quota no valor de um quarto durante 30 dias. Se tiver programadores que sejam suscetíveis de exceder repetidamente esta quota no decurso das suas funções regulares, pode [criar e atribuir uma função personalizada](../articles/active-directory/roles/quickstart-app-registration-limits.md) com permissão para criar um número ilimitado de registos de aplicações.</li></ul> |
 | Extensões de esquema |<ul><li>As extensões de tipo de cadeia podem ter até 256 carateres. </li><li>As extensões de tipo binário estão limitadas a 256 bytes.</li><li>Apenas 100 valores de extensão, em *todos os* tipos e *aplicações,* podem ser escritos a qualquer recurso AD Azure único.</li><li>Apenas as entidades User, Group, TenantDetail, Device, Application e ServicePrincipal podem ser expandidas com os atributos de valor único do tipo de cadeia ou de tipo de binário.</li><li>As extensões de esquema estão disponíveis apenas na pré-visualização da versão 1.21 da Graph API. A aplicação tem de ter acesso de escrita para registar uma extensão.</li></ul> |
-| Aplicações |No máximo, cem utilizadores podem ser proprietários de uma única aplicação. |
+| Aplicações | <ul><li>No máximo, cem utilizadores podem ser proprietários de uma única aplicação.</li><li>A aplicação SSO baseada em palavras-passe tem um limite de 48 utilizadores, o que significa que existe um limite de 48 chaves para pares de nome de utilizador/palavra-passe por aplicação. Se pretender adicionar utilizadores adicionais, consulte as instruções de resolução de problemas no [único sinal baseado em resolução de palavras-passe baseadas em Azure AD](../articles/active-directory/manage-apps/troubleshoot-password-based-sso.md#i-cant-add-another-user-to-my-password-based-sso-app).</li></ul> |
 |Manifesto de Candidatura |Um máximo de 1200 inscrições pode ser adicionado no Manifesto de Aplicação. |
 | Grupos |<ul><li>Um utilizador não administrador pode criar um máximo de 250 grupos numa organização AD AZure. Qualquer administrador AD AZure que possa gerir grupos na organização também pode criar um número ilimitado de grupos (até ao limite do objeto AZure AD). Se atribuir uma função para remover o limite para um utilizador, atribua-os a uma função incorporada menos privilegiada, como administrador de utilizador ou administrador de grupos.</li><li>Uma organização AZure AD pode ter um máximo de 5000 grupos dinâmicos.<li>No máximo, cem utilizadores podem ser proprietários de um único grupo.</li><li>Qualquer número de recursos AD Azure pode ser membro de um único grupo.</li><li>Um utilizador pode ser membro de qualquer número de grupos.</li><li>Por predefinição, o número de membros de um grupo que pode sincronizar do seu Ative Directory para Azure Ative Directory utilizando o Azure AD Connect está limitado a 50.000 membros. Se precisar de sincronizar uma associação de grupo que ultrapasse este limite, tem de embarcar no [ponto final Azure AD Connect Sync V2 API](../articles/active-directory/hybrid/how-to-connect-sync-endpoint-api-v2.md).</li><li>Grupos Aninhados em Azure AD não são apoiados em todos os cenários</li></ul><br/> Neste momento são os seguintes cenários apoiados com grupos aninhados.<ul><li> Um grupo pode ser adicionado como membro de outro grupo e você pode alcançar a nidificação em grupo.</li><li> Reclamações de membros do grupo (quando uma aplicação é configurada para receber pedidos de membros do grupo no token, grupos aninhados em que o utilizador inscrito é membro estão incluídos)</li><li>Acesso condicional (quando uma política de acesso condicional tem um âmbito de grupo)</li><li>Restringir o acesso ao reset da palavra-passe de autosserviço</li><li>Restringir quais os utilizadores que podem fazer Azure AD Join e registo do dispositivo</li></ul><br/>Os seguintes cenários NÃO apoiaram grupos aninhados:<ul><li> A atribuição de funções de aplicativo (atribuir grupos a uma app é suportada, mas os grupos aninhados dentro do grupo diretamente designado não terão acesso), tanto para acesso como para provisionamento</li><li>Licenciamento baseado em grupo (atribuindo uma licença automaticamente a todos os membros de um grupo)</li><li>Microsoft 365 Grupos.</li></ul> |
 | Proxy da aplicação | <ul><li>Um máximo de 500 transações por segundo por aplicação app Proxy</li><li>Um máximo de 750 transações por segundo para a organização AD AZure</li></ul><br/>Uma transação é definida como um único pedido de http e resposta para um recurso único. Quando estrangulado, os clientes receberão uma resposta de 429 (demasiados pedidos). |

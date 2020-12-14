@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2020
+ms.date: 12/13/2020
 ms.author: memildin
-ms.openlocfilehash: 9bdda9b78e103f02d91c81cb3dc28c957d313436
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 8734c43ecb92faf37f1d95b1a24d1c99db3e86d5
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95321451"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371922"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Mudanças importantes para o Centro de Segurança Azure
 
@@ -31,9 +31,13 @@ Se procura as últimas notas de lançamento, vai encontrá-las no [What's new in
 
 ## <a name="planned-changes"></a>Alterações planeadas
 
-Não há alterações importantes que exijam aviso prévio neste momento. 
+### <a name="not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments"></a>Recursos "não aplicáveis" a serem reportados como "conformes" nas avaliações da Política Azure
+
+**Data estimada para a alteração:** janeiro de 2021
+
+Atualmente, os recursos que são avaliados para uma recomendação e que se considera **não aplicáveis** aparecem na Política Azure como "incompatíveis". Nenhuma ação do utilizador pode alterar o seu estado para "Compliant". A partir desta mudança planeada, serão reportados como "conformes" para uma maior clareza.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para todas as alterações recentes ao produto, veja [o que há de novo no Azure Security Center?](release-notes.md)

@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a815295c4f2ab78cbd3aff82949d7c28197afd82
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a0dd00709dbe8a1b0e037fe22750adea7e071162
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791924"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97372007"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Introdução ao Azure Defender para Kubernetes
 
@@ -20,7 +20,7 @@ O Azure Kubernetes Service (AKS) é o serviço gerido pela Microsoft para desenv
 
 O Azure Security Center e a AKS formam a melhor oferta de segurança de Kubernetes nativa da nuvem e, em conjunto, fornecem endurecimento ambiental, proteção da carga de trabalho e proteção do tempo de execução, conforme descrito abaixo.
 
-Para deteção de ameaças para os seus clusters Kubernetes, ative **o Azure Defender para Kubernetes** .
+Para deteção de ameaças para os seus clusters Kubernetes, ative **o Azure Defender para Kubernetes**.
 
 A deteção de ameaças ao nível do anfitrião para os seus nós Linux AKS está disponível se ativar [o Azure Defender para servidores](defender-for-servers-introduction.md).
 
@@ -31,7 +31,7 @@ A deteção de ameaças ao nível do anfitrião para os seus nós Linux AKS est�
 |Estado de libertação:|Geralmente disponível (GA)|
 |Preços:|**Azure Defender for Kubernetes** é faturado como mostrado [na página de preços](security-center-pricing.md)|
 |Funções e permissões necessárias:|**O administrador de segurança** pode dispensar alertas.<br>**O leitor de segurança** pode ver as descobertas.|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) China Gov<br>![Não](./media/icons/no-icon.png) US Gov, Outro Gov|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-kubernetes"></a>Quais são os benefícios do Azure Defender para kubernetes?

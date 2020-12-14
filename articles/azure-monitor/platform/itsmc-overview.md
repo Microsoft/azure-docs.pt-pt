@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 917eb52a7255527b55aacd488f33125ad853e894
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 6c9e2ae420e56c5ef99ff79cdcb49592bc7e049e
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932273"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371990"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Ligue o Azure às ferramentas ITSM utilizando o Conector de Gestão de Serviços de TI
 
@@ -42,9 +42,12 @@ Para obter informações sobre os termos legais e a política de privacidade, co
 Pode começar a utilizar o ITSMC completando os seguintes passos:
 
 1.  [Adicione ITSMC.](#add-it-service-management-connector)
-2.  [Criar uma ligação ITSM.](#create-an-itsm-connection)
-3.  [Use a ligação.](#use-itsmc)
-
+2. [Ligar os produtos/serviços do ITSM ao Conector de Gestão de Serviços de TI](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-connections)
+3.  [Criar uma ligação ITSM.](#create-an-itsm-connection)
+4.  [Use a ligação.](#use-itsmc)
+   
+   >[!NOTE]
+> Deve seguir os passos por esta ordem, caso contrário terá um erro.
 
 ##  <a name="add-it-service-management-connector"></a>Adicionar conector de gestão de serviços de TI
 
