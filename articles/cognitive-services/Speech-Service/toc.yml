@@ -498,12 +498,14 @@
           href: 'https://speech.microsoft.com'
         - name: Criar uma aplicação de Comandos Personalizados com o Speech Studio
           href: ./quickstart-custom-commands-application.md
-- name: Implementar
+- name: Implementação
   items:
     - name: Ativar registo
       href: how-to-use-logging.md
     - name: Controlar a utilização da memória
       href: how-to-track-speech-sdk-memory-usage.md
+    - name: Ativar um ponto final privado
+      href: speech-services-private-link.md
     - name: Configurar o OpenSSL para Linux
       displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
       href: how-to-configure-openssl-linux.md
