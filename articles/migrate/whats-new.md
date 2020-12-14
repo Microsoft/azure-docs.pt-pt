@@ -7,18 +7,19 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 4d87602ccd0ff576c0580f9cc20b475335ee577f
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 7ff9d9c6624016d4b1ea94072d52de1c42d73913
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109186"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400476"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novidades em Azure Migrate
 
 [O Azure Migrate](migrate-services-overview.md) ajuda-o a descobrir, avaliar e migrar para o local servidores, apps e dados para a nuvem do Microsoft Azure. Este artigo resume novos lançamentos e funcionalidades em Azure Migrate.
 ## <a name="update-december-2020"></a>Atualização (dezembro de 2020)
 - A Azure Migrate instala agora automaticamente o agente Azure VM nos VMware VMs enquanto os migra para Azure utilizando o método sem agente da migração de VMware.
+- A migração de VMware VMs para máquinas virtuais Azure com discos encriptados utilizando encriptação do lado do servidor (SSE) com teclas geridas pelo cliente (CMK), utilizando a migração do servidor Azure Migrate Server (replicação sem agente) está agora disponível através do portal Azure.
 
 ## <a name="update-september-2020"></a>Atualização (setembro 2020)
 - A migração de servidores para Zonas de Disponibilidade é agora suportada.

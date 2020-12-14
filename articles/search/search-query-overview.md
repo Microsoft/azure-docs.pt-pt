@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/11/2020
-ms.openlocfilehash: 9ce0ab34aac1a3dda823c9270f4eacebfb99166f
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.date: 12/14/2020
+ms.openlocfilehash: 7277ad060c57b44d633054c4fc4d29d151bd7192
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387671"
+ms.locfileid: "97400816"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Consulta em Pesquisa Cognitiva Azure
 
-A Azure Cognitive Search oferece uma rica linguagem de consulta para suportar uma ampla gama de cenários, desde a pesquisa gratuita de texto, até padrões de consulta altamente especificados. Este artigo resume os tipos de consultas que pode criar.
+A Azure Cognitive Search oferece uma rica linguagem de consulta para suportar uma ampla gama de cenários, desde a pesquisa gratuita de texto, até padrões de consulta altamente especificados. Este artigo descreve pedidos de consulta e que tipos de consultas pode criar.
 
-Na Pesquisa Cognitiva, uma consulta é uma especificação completa de uma operação de ida e **`search`** volta, com parâmetros que tanto informam a execução de consultas como moldam a resposta voltando. Parâmetros e parsers determinam o tipo de pedido de consulta. O exemplo de consulta a seguir utiliza os [Documentos de Pesquisa (REST API),](/rest/api/searchservice/search-documents)direcionando o [índice de demonstração dos hotéis.](search-get-started-portal.md)
+Na Pesquisa Cognitiva, uma consulta é uma especificação completa de uma operação de ida e **`search`** volta, com parâmetros que tanto informam a execução de consultas como moldam a resposta voltando. Parâmetros e parsers determinam o tipo de pedido de consulta. O exemplo de consulta a seguir é uma consulta de texto gratuita com um operador booleano, utilizando os [Documentos de Pesquisa (REST API),](/rest/api/searchservice/search-documents)direcionando a recolha de documentos [de índice de amostras de hotéis.](search-get-started-portal.md)
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -34,7 +34,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 }
 ```
 
-Parâmetros utilizados durante a execução de consultas:
+Os parâmetros utilizados durante a execução de consultas incluem:
 
 + **`queryType`** define o parser, que é o [parser de consulta simples padrão](search-query-simple-examples.md) (ideal para pesquisa completa de texto), ou o [parser de consulta lucene completo](search-query-lucene-examples.md) usado para construções de consultas avançadas como expressões regulares, pesquisa de proximidade, pesquisa de nádpos e wildcard, para citar alguns.
 
@@ -66,7 +66,7 @@ Se a sua aplicação de pesquisa incluir uma caixa de pesquisa que recolhe entra
 
 Na Pesquisa Cognitiva, a pesquisa completa de texto é construída no motor de consulta Apache Lucene. As cadeias de consulta em toda a pesquisa por texto são submetidas a análises lexicais para tornar as sondagens mais eficientes. A análise inclui o invólucro inferior de todos os termos, removendo palavras de paragem como "o", e reduzindo termos a formas de raiz primitivas. O analisador padrão é Standard Lucene.
 
-Quando os termos correspondentes são encontrados, o motor de consulta reconstitui um documento de pesquisa contendo a correspondência, classifica os documentos por ordem de relevância, e devolve o top 50 (por defeito) na resposta.
+Quando os termos correspondentes são encontrados, o motor de consulta reconstitui um documento de pesquisa contendo a correspondência utilizando a chave de documento ou ID para montar valores de campo, classifica os documentos por ordem de relevância, e devolve o top 50 (por defeito) na resposta ou um número diferente se especificado **`top`** .
 
 Se estiver a implementar uma pesquisa completa de texto, compreender como o seu conteúdo é tokenized irá ajudá-lo a depurar quaisquer anomalias de consulta. Consultas sobre cordas hifenizadas ou caracteres especiais poderiam necessitar de usar um analisador diferente do padrão Lucene para garantir que o índice contém as fichas certas. Pode anular o padrão com [analisadores de linguagem](index-add-language-analyzers.md#language-analyzer-list) ou [analisadores especializados](index-add-custom-analyzers.md#AnalyzerTable) que modificam a análise lexical. Um exemplo é [a palavra-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) que trata todo o conteúdo de um campo como um único símbolo. Isto é útil para dados como códigos postais, IDs e alguns nomes de produtos. Para obter mais informações, consulte [a pesquisa parcial e padrões com caracteres especiais.](search-query-partial-matching.md)
 
@@ -78,7 +78,7 @@ Se antecipar o uso pesado dos operadores booleanos, que é mais provável em ín
 
 ## <a name="filter-search"></a>Pesquisa de filtros
 
-Os filtros são amplamente utilizados em apps que incluem a Pesquisa Cognitiva. Nas páginas de aplicações, os filtros são frequentemente visualizados como facetas nas estruturas de navegação de ligação para filtragem dirigida pelo utilizador. Os filtros também são usados internamente para expor fatias de conteúdo indexado. Por exemplo, pode filtrar uma língua se um índice contiver campos em inglês e francês. 
+Os filtros são amplamente utilizados em apps que incluem a Pesquisa Cognitiva. Nas páginas de aplicações, os filtros são frequentemente visualizados como facetas nas estruturas de navegação de ligação para filtragem dirigida pelo utilizador. Os filtros também são usados internamente para expor fatias de conteúdo indexado. Por exemplo, pode inicializar uma página de pesquisa usando um filtro numa categoria de produto, ou um idioma se um índice contiver campos em inglês e francês.
 
 Também pode precisar de filtros para invocar um formulário de consulta especializado, conforme descrito na tabela seguinte. Pode utilizar um filtro com uma pesquisa não especificada **`search=*`** () ou com uma cadeia de consulta que inclua termos, frases, operadores e padrões.
 
@@ -108,7 +108,7 @@ Um formulário de consulta avançado depende do parser e operadores de Lucene co
 | [pesquisa regular de expressão](query-lucene-syntax.md#bkmk_regex) | **`search`** parâmetro, **`queryType=full`** | Fósforos baseados no conteúdo de uma expressão regular. <br/>[Exemplo de expressão regular](search-query-lucene-examples.md#example-6-regex) |
 |  [pesquisa de wildcard ou prefixo](query-lucene-syntax.md#bkmk_wildcard) | **`search`** parâmetro com * *_`~`_* **`?`** ou, **`queryType=full`**| Corresponde com base num prefixo e num único `~` carácter (). `?` <br/>[Exemplo de pesquisa wildcard](search-query-lucene-examples.md#example-7-wildcard-search) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma análise mais atenta da implementação da consulta, reveja os exemplos de cada sintaxe. Se você é novo na pesquisa completa de texto, uma olhada mais atenta ao que o motor de consulta faz pode ser uma escolha igualmente boa.
 

@@ -3,12 +3,12 @@ title: Live Video Analytics em notas de lançamento IoT Edge - Azure
 description: Este tópico fornece notas de lançamento de Live Video Analytics sobre lançamentos, melhorias, correções de bugs e problemas conhecidos.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 18da50fe763ef7c5fc3c06ac00052679c488cae7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 2800d41340e45867ea4126733cdb5968cf8b91c5
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015639"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400850"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Vídeo ao vivo analítico em notas de lançamento do IoT Edge
 
@@ -23,9 +23,23 @@ Este artigo fornece-lhe informações sobre:
 
 <hr width=100%>
 
+## <a name="december-14-2020"></a>14 de dezembro de 2020
+Este lançamento é o lançamento da atualização de visualização pública do Live Video Analytics no IoT Edge. A etiqueta de lançamento é
+
+```
+     mcr.microsoft.com/media/live-video-analytics:2.0.0
+```
+### <a name="module-updates"></a>Atualizações de módulos
+* Suporte adicional para a utilização de mais de um processador de extensão HTTP e processador de extensão gRPC por topologia de gráfico.
+* Suporte adicional para gestão de espaço em disco para nós de pia.
+* `MediaGraphGrpcExtension` o nó suporta agora [a extensãoConfiguration](grpc-extension-protocol.md) property para usar vários modelos de IA dentro de um único servidor gRPC.
+* Suporte adicional à recolha de métricas de módulos de Vídeo Ao Vivo no [formato Prometheus](https://prometheus.io/docs/practices/naming/) 
+* O processador frame Rate Filter é **precotado.**  
+    * A gestão da taxa de fotogramas está agora disponível dentro dos nós do processador de extensão de gráfico.
+
 ## <a name="september-22-2020"></a>22 de setembro de 2020
 
-Esta etiqueta de lançamento para a atualização de setembro de 2020 do módulo é:
+Esta etiqueta de lançamento é para a atualização de setembro de 2020 do módulo é:
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.4
@@ -48,7 +62,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.4
 
 ## <a name="august-19-2020"></a>19 de agosto de 2020
 
-Esta etiqueta de lançamento para a atualização de agosto de 2020 do módulo é:
+Esta etiqueta de lançamento é para a atualização de agosto de 2020 do módulo é:
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.3
@@ -67,13 +81,13 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 
 ### <a name="bug-fixes"></a>Correções de erros 
 
-* Remova o uso de uma extensão azul prevadida no script configurado
+* Remova o uso de uma extensão Azure depretada no script configurado
 
 <hr width=100%>
 
 ## <a name="july-13-2020"></a>13 de julho de 2020
 
-Esta etiqueta de lançamento para a atualização de julho de 2020 do módulo é:
+Esta etiqueta de lançamento é para a atualização de julho de 2020 do módulo é:
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.2

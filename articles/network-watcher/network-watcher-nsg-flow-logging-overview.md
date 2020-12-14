@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 03ef75f43d8c8c854c3803ceb30f31b292d566c3
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 79f442c5ab7db92e69f5396f3f9205212bdf4d4d
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033430"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399252"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao registo de fluxos para grupos de segurança de rede
 
@@ -371,9 +371,11 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Ativar em VNETs/Subnetas críticas**: Os registos de fluxo devem ser ativados em todos os VNETs/subnets críticos da sua subscrição como uma auditoria e as melhores práticas de segurança. 
 
-**Ativar o registo de fluxo NSG em todos os NSGs ligados a um recurso**: A exploração de fluxo em Azure está configurada no recurso NSG. Um fluxo só será associado a uma regra NSG. Em cenários em que vários NSGs são utilizados, recomendamos que os registos de fluxo NSG em todos os NSGs apliquem a sub-rede ou interface de rede de um recurso para garantir que todo o tráfego seja registado. Para mais informações, consulte [como o tráfego é avaliado](../virtual-network/network-security-group-how-it-works.md) em Grupos de Segurança de Rede.
+**Ativar o registo de fluxo NSG em todos os NSGs ligados a um recurso**: A exploração de fluxo em Azure está configurada no recurso NSG. Um fluxo só será associado a uma regra NSG. Em cenários em que vários NSGs são utilizados, recomendamos que se habilita que os registos de fluxo NSG em todos os NSGs aplicados na sub-rede ou interface de rede do recurso para garantir que todo o tráfego seja registado. Para mais informações, consulte [como o tráfego é avaliado](../virtual-network/network-security-group-how-it-works.md) em Grupos de Segurança de Rede. 
 
-**Ter NSG tanto no NÍVEL NIC como no Nível de Sub-rede**: No caso de o NSG estar configurado no NIC, bem como no nível de sub-rede, deve então ser ativado o registo de fluxo em ambos os NSGs. 
+Poucos cenários comuns:
+1. **Múltiplos NSG num NIC**: No caso de vários NSGs estarem ligados a um NIC, a exploração de fluxo deve ser ativada em todos eles
+1. **Ter NSG tanto no NÍVEL NIC como no Nível de Sub-rede**: No caso de o NSG estar configurado no NIC, bem como no nível de sub-rede, deve então ser ativado o registo de fluxo em ambos os NSGs. 
 
 **Fornecimento de armazenamento**: O armazenamento deve ser a provisionado em sintonia com o volume esperado do Registo de Fluxo.
 

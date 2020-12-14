@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/12/2020
-ms.openlocfilehash: 51d36211c7ffa0507a186c9a1e1f2b52d478fe4e
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: ff9495e37a499b5502d8f8ced79b69608fa9552a
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369106"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401751"
 ---
 # <a name="use-the-simple-search-syntax-in-azure-cognitive-search"></a>Use a sintaxe de pesquisa "simples" na Pesquisa Cognitiva Azure
 
@@ -60,9 +60,7 @@ Para consultas interativas, não é preciso especificar nada: simples é o padr�
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 {
-    "count": true,
-    "queryType": "simple",
-    "search": "*"
+    "queryType": "simple"
 }
 ```
 
@@ -337,5 +335,5 @@ Referência de sintaxe adicional, arquitetura de consulta e exemplos podem ser e
 + [Exemplos de consulta de sintaxe lucene para a construção de consultas avançadas](search-query-lucene-examples.md)
 + [Como funciona a pesquisa em texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Sintaxe de consulta simples](query-simple-syntax.md)
-+ [Sintaxe de consulta lucene completa](query-lucene-syntax.md)
++ [Sintaxe de consulta Lucene completo](query-lucene-syntax.md)
 + [Sintaxe de filtro](search-query-odata-filter.md)

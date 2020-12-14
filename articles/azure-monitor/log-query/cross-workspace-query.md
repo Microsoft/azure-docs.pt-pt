@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: 8eb163c95fb1426ebae8956d50f6d8f6aec6fd7f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1a6b328bc076ffa619921a8698549e95e6f15c60
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013654"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400765"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Realize consulta de log no Azure Monitor que se estende por espaços de trabalho e apps
 
@@ -22,7 +22,7 @@ Existem dois métodos para consultar dados que são armazenados em múltiplos es
 2. Implicitamente usando [consultas de contexto de recursos.](../platform/design-logs-deployment.md#access-mode) Quando consultar no contexto de um recurso específico, grupo de recursos ou uma subscrição, os dados relevantes serão recolhidos de todos os espaços de trabalho que contenham dados para estes recursos. Os dados do Application Insights que são armazenados em apps, não serão recolhidos.
 
 > [!IMPORTANT]
-> Se estiver a utilizar uma telemetria [de recursos de aplicações baseada no espaço de trabalho,](../app/create-workspace-resource.md) é armazenada num espaço de trabalho do Log Analytics com todos os outros dados de registo. Utilize a expressão log() para escrever uma consulta que inclua aplicação em vários espaços de trabalho. Para várias aplicações no mesmo espaço de trabalho, você não precisa de uma consulta de espaço de trabalho transversal.
+> Se estiver a utilizar uma telemetria [de recursos de aplicações baseada no espaço de trabalho,](../app/create-workspace-resource.md) é armazenada num espaço de trabalho do Log Analytics com todos os outros dados de registo. Utilize a expressão espaço de trabalho para escrever uma consulta que inclua aplicação em vários espaços de trabalho. Para várias aplicações no mesmo espaço de trabalho, você não precisa de uma consulta de espaço de trabalho transversal.
 
 
 ## <a name="cross-resource-query-limits"></a>Limites de consulta de recursos cruzados 

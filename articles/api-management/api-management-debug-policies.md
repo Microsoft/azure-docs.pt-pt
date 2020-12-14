@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 4eb32243df219d721d7baae80984c45d0fc4cf25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8ed834c9ab093ae063e386978bca4d73fa46543
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345127"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400731"
 ---
 # <a name="debug-azure-api-management-policies-in-visual-studio-code"></a>Debug Azure API Políticas de Gestão em Código de Estúdio Visual
 
@@ -30,9 +30,11 @@ Este artigo descreve como depurar políticas de gestão da API utilizando a [Ext
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Crie uma instância de desenvolvimento de gestão de API seguindo este [tutorial](get-started-create-service-instance.md) primeiro.
+* Crie uma instância de desenvolvimento de gestão de API seguindo este [arranque rápido](get-started-create-service-instance.md) primeiro.
 
-Instale o [Código do Estúdio Visual](https://code.visualstudio.com/) e a versão mais recente da Extensão de Gestão API da [Azure para código de estúdio visual.](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement) 
+* Instale o [Código do Estúdio Visual](https://code.visualstudio.com/) e a versão mais recente da Extensão de Gestão API da [Azure para código de estúdio visual.](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement) 
+
+* Importe uma API para o seu caso de Gestão de API. Por exemplo, ver [Tutorial: Utilize a Extensão de Gestão da API para código de estúdio visual para importar e gerir APIs](visual-studio-code-tutorial.md).
 
 ## <a name="restrictions-and-limitations"></a>Restrições e limitações
 

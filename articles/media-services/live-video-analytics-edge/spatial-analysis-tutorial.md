@@ -3,12 +3,12 @@ title: Analise vídeo ao vivo com visão computacional para análise espacial - 
 description: Este tutorial mostra-lhe como usar o Live Video Analytics juntamente com a funcionalidade de análise espacial de IA da Azure Cognitive Services para analisar um feed de vídeo ao vivo a partir de uma câmara IP (simulada).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 0dc89eaddf5cabc3063744dfe2c9f0236c70438c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5cebedec11b91f5b0b94df25a860da3d517bb997
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015690"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400539"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analise vídeo ao vivo com visão de computador para análise espacial (pré-visualização)
 
@@ -51,7 +51,7 @@ Seguem-se os pré-requisitos para a ligação do módulo de análise espacial ao
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/spatial-analysis-tutorial/overview.png" alt-text="Visão geral da análise espacial":::
  
-Este diagrama mostra como os sinais fluem neste tutorial. Um [módulo de borda](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula uma câmara IP que hospeda um servidor Real-Time de Protocolo de Streaming (RTSP). Um nó [de origem RTSP](media-graph-concept.md#rtsp-source) puxa o feed de vídeo deste servidor e envia quadros de vídeo para o nó do [processador do processador da taxa de fotogramas.](media-graph-concept.md#frame-rate-filter-processor) Este processador limita a taxa de fotogramas do fluxo de vídeo que atinge o nó do processador MediaGraphGraphCognitiveServicesVisionExtension.
+Este diagrama mostra como os sinais fluem neste tutorial. Um [módulo de borda](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula uma câmara IP que hospeda um servidor Real-Time de Protocolo de Streaming (RTSP). Um nó [de origem RTSP](media-graph-concept.md#rtsp-source) puxa o feed de vídeo deste servidor e envia quadros de vídeo para o nó do `MediaGraphCognitiveServicesVisionExtension` processador.
 
 O nó de mediaGraphCognitiveServicesVisionExtension desempenha o papel de um representante. Converte os quadros de vídeo para o tipo de imagem especificado. Em seguida, transmite a imagem sobre **memória partilhada** para outro módulo de borda que executa operações de IA atrás de um ponto final gRPC. Neste exemplo, este módulo de borda é o módulo de análise espacial. O nó do processador MediaGraphGraphCognitiveServicesVisionExtension faz duas coisas:
 
@@ -71,7 +71,7 @@ Existem três parâmetros primários para todos os contentores dos Serviços Cog
 Uma chave é usada para iniciar o recipiente de análise espacial, e está disponível na página do portal Azure `Keys and Endpoint` do recurso correspondente do Serviço Cognitivo. Navegue para a página e encontre as chaves e o ponto final URI.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/spatial-analysis-tutorial/keys-endpoint.png" alt-text="Visão geral da análise espacial":::
+> :::image type="content" source="./media/spatial-analysis-tutorial/keys-endpoint.png" alt-text="Endpoint URI":::
 
 ## <a name="set-up-azure-stack-edge"></a>Configurar Azure Stack Edge
 
@@ -169,17 +169,17 @@ Siga estes passos para gerar o manifesto a partir do ficheiro do modelo e, em se
 1. Ao lado do painel AZURE IOT HUB, selecione o ícone Mais ações para definir a cadeia de ligação IoT Hub. Pode copiar o string a partir da src/cloud-to-device-console-app/appsettings.jsno ficheiro.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/connection-string.png" alt-text="Visão geral da análise espacial":::
+    > :::image type="content" source="./media/spatial-analysis-tutorial/connection-string.png" alt-text="Análise Espacial: cadeia de ligação":::
 1. Clique com o botão direito `src/edge/deployment.spatialAnalysis.template.json` e selecione Generate IoT Edge Deployment Manifest.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-template-json.png" alt-text="Visão geral da análise espacial":::
+    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-template-json.png" alt-text="Análise Espacial: implantação amd64 json":::
     
     Esta ação deve criar um ficheiro manifesto denominado deployment.amd64.jsna pasta src/edge/config.
 1. Clique no botão `src/edge/config/deployment.spatialAnalysis.amd64.json` direito, selecione Criar Implementação para Dispositivo Único e, em seguida, selecione o nome do seu dispositivo de borda.
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-amd64-json.png" alt-text="Visão geral da análise espacial":::   
+    > :::image type="content" source="./media/spatial-analysis-tutorial/deployment-amd64-json.png" alt-text="Análise espacial: json modelo de implantação":::   
 1. Quando lhe for solicitado que selecione um dispositivo IoT Hub, escolha o nome Azure Stack Edge no menu suspenso.
 1. Após cerca de 30 segundos, no canto inferior esquerdo da janela, refresque o Azure IoT Hub. O dispositivo de borda mostra agora os seguintes módulos implantados:
     
@@ -204,17 +204,17 @@ Para ver estes eventos, siga estes passos:
 1. Clique no direito e selecione **Definições de extensão**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Visão geral da análise espacial":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Definições de extensão":::
 1. Procure e ative "Mostrar Mensagem Verbose".
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Visão geral da análise espacial":::
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Mostrar mensagem verbose":::
 1. Abra o painel Explorer e procure o Azure IoT Hub no canto inferior esquerdo.
 1. Expandir o nó dispositivos.
 1. Clique com o botão direito no seu Azure Stack Edge e selecione Start Monitoring Built-in Event Endpoint.
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/spatial-analysis-tutorial/start-monitoring.png" alt-text="Visão geral da análise espacial":::
+    > :::image type="content" source="./media/spatial-analysis-tutorial/start-monitoring.png" alt-text="Análise Espacial: iniciar a monitorização":::
      
 ## <a name="run-the-program"></a>Execute o programa
 

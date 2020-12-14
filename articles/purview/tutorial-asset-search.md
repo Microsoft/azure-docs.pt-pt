@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Navegue na página inicial do Azure Purview e procure um ativo'
 description: Este tutorial descreve como usar funcionalidades na página inicial do Azure Purview e pesquisar no catálogo.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 58a899d234488e8075764db9f722ff21e1d0a6f7
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 46c2ee284c33cc8ffb7b0bd3bc536905cf4e2052
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555884"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399881"
 ---
 # <a name="tutorial-navigate-the-azure-purview-preview-home-page-and-search-for-an-asset"></a>Tutorial: Navegue na página inicial do Azure Purview (pré-visualização) e procure um ativo
 
@@ -59,7 +59,7 @@ Antes de começar, aqui está uma rápida atualização sobre alguma terminologi
   
 * **Schema**: Também conhecido como coluna ou atributo, um esquema representa a estrutura de um ativo ou de um conjunto de recursos.
 
-* **Conjunto de recursos**: Um único objeto no catálogo que representa muitos objetos físicos no armazenamento. Estes objetos geralmente partilham um esquema comum, e na maioria dos casos, uma convenção de nomeação ou estrutura de pasta. Por exemplo, o formato de data é *yyyy/mm/dd*. Para obter mais informações, consulte [os conjuntos de recursos de Compreensão.](concept-resource-sets.md)
+* **Conjunto de recursos**: Um único objeto no catálogo que representa muitos objetos físicos no armazenamento. Estes objetos geralmente partilham um esquema comum, e na maioria dos casos, uma convenção de nomeação ou estrutura de pasta. Por exemplo, o formato de data é *yy/mm/dd*. Para obter mais informações, consulte [os conjuntos de recursos de Compreensão.](concept-resource-sets.md)
 
 * **Tipo de ativo**: Agrupamento de ativos e conjuntos de recursos sob um nome lógico, que normalmente mapeia para o nome da plataforma de dados.
 

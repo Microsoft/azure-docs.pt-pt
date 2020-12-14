@@ -3,12 +3,12 @@ title: Prontidão de produção e boas práticas - Azure
 description: Este artigo fornece orientações sobre como configurar e implementar o módulo Live Video Analytics em ambientes de produção.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 215427e3524861a842349b197668d92167960e5c
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 56982d84b7ffac718072683076657d56a2691d6c
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906340"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400561"
 ---
 # <a name="production-readiness-and-best-practices"></a>Prontidão de produção e boas práticas
 
@@ -109,7 +109,11 @@ Se olhar para os gráficos de mídia de amostra para o arranque rápido e tutori
 
 ### <a name="naming-video-assets-or-files"></a>Nomenclatura dos ficheiros ou recursos de vídeo
 
-Os gráficos de mídia permitem a criação de ativos na nuvem ou ficheiros mp4 no limite. Os ativos dos meios de comunicação podem ser gerados através de [uma gravação contínua](continuous-video-recording-tutorial.md) de vídeo ou através de uma gravação de vídeo baseada em [eventos](event-based-video-recording-tutorial.md). Embora estes ativos e ficheiros possam ser nomeados como deseja, a estrutura de nomeação recomendada para um ativo de mídia contínua baseado em gravação de vídeo é " &lt; anytext &gt; -${System.GraphTopologyName}-${System.GraphInstanceName}". Como exemplo, pode definir o activoNamePattern na pia do ativo da seguinte forma:
+Os gráficos de mídia permitem a criação de ativos na nuvem ou ficheiros mp4 no limite. Os ativos dos meios de comunicação podem ser gerados através de [uma gravação contínua](continuous-video-recording-tutorial.md) de vídeo ou através de uma gravação de vídeo baseada em [eventos](event-based-video-recording-tutorial.md). Embora estes ativos e ficheiros possam ser nomeados como deseja, a estrutura de nomeação recomendada para um ativo de mídia contínua baseado em gravação de vídeo é " &lt; anytext &gt; -${System.GraphTopologyName}-${System.GraphInstanceName}".   
+
+O padrão de substituição é definido pelo sinal de $ seguido por aparelhos: **${variableName}**.  
+
+Como exemplo, pode definir o activoNamePattern na pia do ativo da seguinte forma:
 
 ```
 "assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}
@@ -130,15 +134,29 @@ Se estiver a executar várias instâncias do mesmo gráfico, pode usar o nome de
 Para os videoclips de mp4 gerados por vídeo baseados em eventos na borda, o padrão de nomeação recomendado deve incluir DateTime e, para várias instâncias do mesmo gráfico, recomendar a utilização das variáveis do sistema GraphTopologyName e GraphInstanceName. Como exemplo, pode definir filePathPattern na pia de ficheiro da seguinte forma: 
 
 ```
-"filePathPattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}-${System.DateTime}"
+"fileNamePattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}-${System.DateTime}"
 ```
 
 Ou 
 
 ```
-"filePathPattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}--${System.GraphTopologyName}-${System.GraphInstanceName} ${System.DateTime}"
+"fileNamePattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}--${System.GraphTopologyName}-${System.GraphInstanceName} ${System.DateTime}"
 ```
+>[!NOTE]
+> No exemplo acima, o **ficheiro variávelSSinkOutputName** é um nome variável de amostra que se define na topologia do gráfico. Isto **não** é uma variável do sistema. 
 
+#### <a name="system-variables"></a>Variáveis do sistema
+Algumas variáveis definidas pelo sistema que pode utilizar são:
+
+|Variável do sistema|Descrição|Exemplo|
+|-----------|-----------|-----------|
+|Sistema.DataTime|Hora da data UTC no formato compatível com ficheiros ISO8601 (representação básica YYYYMMDDThhmmss).|20200222T173200z|
+|System.PreciseDateTime|Hora da data UTC no formato compatível com ficheiros ISO8601 com milissegundos (representação básica YYYYMMDDThhmms.sss).|20200222T173200.123Z|
+|Nome System.GraphTopology|O utilizador forneceu o nome da topologia do gráfico de execução.|IngestAndRecord|
+|Nome system.graphInstance|O utilizador forneceu o nome da instância do gráfico de execução.|câmera001|
+
+>[!TIP]
+> System.PreciseDateTime não pode ser usado ao nomear ativos por causa do "". no nome
 ### <a name="keeping-your-vm-clean"></a>Mantendo o seu VM limpo
 
 O Linux VM que está a utilizar como dispositivo de borda pode tornar-se sem resposta se não for gerido periodicamente. É essencial manter as caches limpas, eliminar embalagens desnecessárias e remover também os recipientes não usados do VM. Para isso, aqui está um conjunto de comandos recomendados, pode utilizar no seu VM de borda.
@@ -153,7 +171,7 @@ O Linux VM que está a utilizar como dispositivo de borda pode tornar-se sem res
 
     A opção de remoção automática remove pacotes que foram automaticamente instalados porque algum outro pacote os exigia mas, com os outros pacotes removidos, já não são necessários
 1. `sudo docker image ls` – Fornece uma lista de imagens do Docker no seu sistema de bordas
-1. `sudo docker system prune `
+1. `sudo docker system prune`
 
     Docker tem uma abordagem conservadora para limpar objetos não usados (muitas vezes referidos como "recolha de lixo"), como imagens, contentores, volumes e redes: estes objetos geralmente não são removidos a menos que você explicitamente peça Docker para fazê-lo. Isto pode fazer com que o Docker use espaço extra em disco. Para cada tipo de objeto, Docker fornece um comando de ameixa. Além disso, pode utilizar ameixas secas do sistema de estivadores para limpar vários tipos de objetos ao mesmo tempo. Para obter mais informações, consulte [os objetos estivadores não reutilizados.](https://docs.docker.com/config/pruning/)
 1. `sudo docker rmi REPOSITORY:TAG`

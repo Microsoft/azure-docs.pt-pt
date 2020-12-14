@@ -3,16 +3,18 @@ title: Protocolo de extensão HTTP - Azure
 description: Neste artigo, você aprenderá sobre a utilização do protocolo de extensão HTTP para enviar mensagens entre o módulo Live Video Analytics e o seu módulo de IA ou CV.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: f1e1fb0e8fe63b3a83c59a4ec48abdac7f22096a
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 52c98231780a2776f4ff67992f29b247eccb8bc2
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016659"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399150"
 ---
 # <a name="http-extension-protocol"></a>Protocolo de extensão HTTP
 
-Neste artigo, você aprenderá sobre a utilização do protocolo de extensão HTTP para enviar mensagens entre o módulo Live Video Analytics e o seu módulo de IA ou CV.
+O Live Video Analytics on IoT Edge permite-lhe alargar as capacidades de processamento de gráficos de mídia através de um [nó de extensão de gráfico](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media-graph-extension-concept?branch=release-lva-dec-update). Se utilizar o processador de extensão HTTP como nó de extensão, então a comunicação entre o módulo Live Video Analytics e o seu módulo de IA ou CV é mais http HTTP
+
+Neste artigo, você aprenderá sobre a utilização do protocolo de extensão HTTP para enviar mensagens entre o módulo Live Video Analytics e o seu módulo de IA ou CV. 
 
 O contrato HTTP é definido entre os dois componentes seguintes:
 
@@ -85,19 +87,16 @@ Date: Fri, 17 Apr 2020 04:44:01 GMT
 }
 ```
 
-Recomenda-se vivamente que as respostas sejam devolvidas utilizando documentos JSON válidos seguindo o esquema pré-estabelecido definido abaixo. Isto garantirá melhor a interoperabilidade com outros componentes e possíveis capacidades futuras adicionadas ao módulo Live Video Analytics.
+Recomenda-se vivamente que as respostas sejam devolvidas utilizando documentos JSON válidos seguindo o esquema pré-estabelecido definido de acordo com o modelo de [objeto de esquema de metadados de inferência](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update). Isto garantirá melhor a interoperabilidade com outros componentes e possíveis capacidades futuras adicionadas ao módulo Live Video Analytics.
 
 Se o seu módulo devolver uma resposta em que o tipo de conteúdo não é "aplicação/json", o Live Video Analytics codificará a mensagem como um conteúdo base 64 e serializará-a como uma carga útil opaca do JSON.
 
-Se o seu módulo devolver uma resposta com o tipo de conteúdo como "aplicação/json" mas o esquema JSON não seguir o esquema de metadados de inferência descrito abaixo, a carga útil da mensagem será reencaminhada através do pipeline, mas a interoperabilidade será reduzida.
+Se o seu módulo devolver uma resposta com o tipo de conteúdo como "aplicação/json" mas o esquema JSON não seguir o esquema de metadados de inferência descrito abaixo, a carga útil da mensagem será reencaminhada através do pipeline, mas a interoperabilidade será reduzida. Consulte [aqui](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update) para obter informações detalhadas e atualizadas sobre o esquema de metadados de inferência.
 
 > [!NOTE]
 > Se o seu módulo não produzir qualquer resultado, deverá devolver HTTP 204 Status Code (Sem Conteúdo) com um corpo de resposta vazio. O Live Video Analytics compreenderá isto como um resultado vazio e não irá encaminhar o evento para todo o oleoduto.
 
-## <a name="data-contracts---class-hierarchy"></a>Contratos de dados - hierarquia de classes
-
-![hierarquia de classe](./media/http-extension-protocol/class-hierarchy.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Contrato de dados gRPC](./grpc-extension-protocol.md)
+[Protocolo de extensão gRPC](./grpc-extension-protocol.md)

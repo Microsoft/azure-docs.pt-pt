@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: f0c19130312db4e6ef500a0750f40359931d48d2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 49b7bae1a0cc224b92f292b891fae210f2cffa4e
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099118"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400612"
 ---
 # <a name="what-is-azure-digital-twins"></a>O que é o Azure Digital Twins?
 
@@ -64,7 +64,7 @@ Também pode conduzir a Azure Digital Twins a partir de outras fontes de dados, 
 
 ### <a name="output-to-tsi-storage-and-analytics"></a>Saída para TSI, armazenamento e análise
 
-Os dados do seu modelo Azure Digital Twins podem ser encaminhados para os serviços Azure a jusante para análise ou armazenamento adicional. Isto é fornecido através de **rotas de eventos** , que usam [Event Hub,](../event-hubs/event-hubs-about.md) [Event Grid](../event-grid/overview.md)ou [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) para conduzir os fluxos de dados pretendidos.
+Os dados do seu modelo Azure Digital Twins podem ser encaminhados para os serviços Azure a jusante para análise ou armazenamento adicional. Isto é fornecido através de **rotas de eventos**, que usam [Event Hub,](../event-hubs/event-hubs-about.md) [Event Grid](../event-grid/overview.md)ou [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) para conduzir os fluxos de dados pretendidos.
 
 Algumas coisas que você pode fazer com as rotas do evento incluem:
 * Armazenar dados da Azure Digital Twins no [Lago de Dados Azure](../storage/blobs/data-lake-storage-introduction.md)
@@ -88,7 +88,7 @@ Uma solução completa utilizando as Gémeas Digitais Azure pode conter as segui
 
 O diagrama que se segue mostra onde a Azure Digital Twins se encontra no contexto de uma solução Azure IoT maior.
 
-:::image type="content" source="media/overview/solution-context.png" alt-text="Screenshot da aplicação de amostra de explorador de Azure Digital Twins, mostrando um gráfico de nóles representando gémeos digitais" border="false" lightbox="media/overview/solution-context.png":::
+:::image type="content" source="media/overview/solution-context.png" alt-text="Diagrama mostrando fontes de entrada, serviços de saída e comunicação bidirecional com aplicações de clientes e recursos de computação externa." border="false" lightbox="media/overview/solution-context.png":::
 
 ## <a name="service-limits"></a>Limites do serviço
 
@@ -96,9 +96,6 @@ Para obter uma lista dos limites dos Gémeos Digitais Azure, consulte [*Referên
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se já trabalhou com o primeiro lançamento de pré-visualização da Azure Digital Twins (outubro de 2018), saiba o que mudou:
-* [*Visão geral: Diferenças desde o primeiro lançamento*](overview-differences.md)
+Se já trabalhou com o primeiro lançamento de pré-visualização de Azure Digital Twins (outubro de 2018), saiba o que mudou: [*Visão geral: Diferenças desde*](overview-differences.md)o primeiro lançamento .
 
-Ou, vá em frente e mergulhe em trabalhar com a Azure Digital Twins com o primeiro tutorial:
-
-[*Tutorial: Código de uma aplicação de cliente*](tutorial-code.md)
+Ou, vá em frente e mergulhe em trabalhar com a Azure Digital Twins com o quickstart: [*Quickstart: Explore um cenário de amostra*](quickstart-adt-explorer.md).

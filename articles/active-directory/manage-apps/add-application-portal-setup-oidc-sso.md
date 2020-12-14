@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: c0253dc3c9dc029cd964fb32b148be1405e7fbad
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 2ff35a8d86534a99b8957a9272f9a1eb59fc27ab
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780183"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399983"
 ---
 # <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Configurar um único sign-on (SSO) baseado no OIDC para uma aplicação no seu inquilino Azure Ative (Azure AD)
 
@@ -49,7 +49,7 @@ Para configurar um único sinal de inscrição para uma aplicação:
     :::image type="content" source="media/add-application-portal-setup-oidc-sso/sign-up-oidc-sso.png" alt-text="A screenshot mostra a única opção de inscrição e o botão de inscrição." lightbox="media/add-application-portal-setup-oidc-sso/sign-up-oidc-sso.png":::
 
 
-2. Selecione **Iniciar sê-lo** e será levado a página de iniciar s-on dos desenvolvedores de aplicações. Inscreva-se usando credenciais de inscrição do Azure Ative Directory. 
+2. Selecione **Iniciar sê-lo** e será levado para a página de inscrição dos desenvolvedores de aplicações. Inscreva-se usando credenciais de inscrição do Azure Ative Directory. 
 
    > [!IMPORTANT]
     > Se já tem uma subscrição da aplicação, então a validação dos dados do utilizador e informações de inquilino/diretório ocorrerão. Se a aplicação não conseguir verificar o utilizador, irá redirecioná-lo para se inscrever para o serviço de aplicação ou para a página de erro.

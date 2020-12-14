@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: ece6dfb5277e7ca363548c8d90021835a96a61ba
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: d01136ea4377bd7d35a2e11b4bcf654bcf677fbe
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937360"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401564"
 ---
 # <a name="virtual-network-service-tags"></a>Tags de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -43,7 +43,7 @@ As colunas indicam se a etiqueta:
 Por padrão, as etiquetas de serviço refletem as gamas para toda a nuvem. Algumas tags de serviço também permitem um maior controlo granular, limitando as gamas IP correspondentes a uma região especificada. Por exemplo, a etiqueta de serviço **Armazenamento** representa Azure Storage para toda a nuvem, mas **Storage.WestUS** reduz a gama para apenas o endereço IP de armazenamento que varia da região westus. O quadro seguinte indica se cada etiqueta de serviço suporta este âmbito regional.  
 
 | Etiqueta | Objetivo | Pode usar entrada ou saída? | Pode ser regional? | Pode usar com Azure Firewall? |
-| --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| --- | -------- |:---:|:---:|:---:|
 | **Grupo de Ação** | Grupo de Ação. | Entrada | Não | Não |
 | **ApiManagement** | Tráfego de gestão para implementações dedicadas à Azure API Management. <br/><br/>*Nota:* Esta etiqueta representa o ponto final do serviço Azure API Management para o plano de controlo por região. Isto permite que os clientes realizem operações de gestão nas APIs, Operações, Políticas, NomeadosValues configurados no serviço de Gestão da API.  | Entrada | Sim | Sim |
 | **AplicaçõesInsightsAilabilidade** | Disponibilidade de Insights de Aplicação. | Entrada | Não | Não |

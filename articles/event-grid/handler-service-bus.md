@@ -3,12 +3,12 @@ title: Filas de autocarros de serviço e tópicos como manipuladores de eventos 
 description: Descreve como pode usar filas e tópicos de Service Bus como manipuladores de eventos para eventos Azure Event Grid.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 2b18009f8fb31f1a5f057c7395781f63f182847f
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 12b72420e3475b46a4cd61ce5032b478af740dde
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "96024219"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399864"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Filas de autocarros de serviço e tópicos como manipuladores de eventos para eventos Azure Event Grid
 Um manipulador de eventos é o local onde o evento é enviado. O manipulador toma mais algumas medidas para processar o evento. Vários serviços da Azure são automaticamente configurados para lidar com eventos e **a Azure Service Bus** é um deles. 
@@ -40,7 +40,7 @@ No portal Azure, ao criar uma subscrição de eventos, selecione **Service Bus T
 
 ### <a name="using-cli-to-add-a-service-bus-topic-handler"></a>Utilizar o CLI para adicionar um manipulador de tópicos de ônibus de serviço
 
-Para o Azure CLI, o seguinte exemplo subscreve e liga um tópico de grelha de eventos a uma fila de autocarros de serviço:
+Para o Azure CLI, o seguinte exemplo subscreve e liga um tópico de grelha de eventos a um tópico de Service Bus:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \

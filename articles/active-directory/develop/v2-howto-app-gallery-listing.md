@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/02/2020
+ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 396d6f69673f8758d8d1302f8d10b8a92e5f50b4
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 37d9c24d58e0dd9fb10db607ef1b96de0a44eb78
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530760"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399371"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publique a sua app na galeria de aplicações AZure AD
 
@@ -95,8 +95,8 @@ A tabela seguinte compara os principais padrões: Open Authentication 2.0 (OAuth
 | Sign-out único baseado na Web| √| √ |
 | Sign-on único baseado em dispositivos móveis| √| √* |
 | Sign-out único baseado em dispositivos móveis| √| √* |
-| Políticas de acesso condicional para aplicações móveis| √| X |
-| Experiência de MFA sem emenda para aplicações móveis| √| X |
+| Políticas de acesso condicional para aplicações móveis| √| √* |
+| Experiência de MFA sem emenda para aplicações móveis| √| √* |
 | Provisão SCIM| √| √ |
 | Aceder ao Gráfico da Microsoft| √| X |
 
@@ -178,7 +178,7 @@ Para saber mais sobre os padrões e benefícios do SCIM para os seus clientes, c
 Para saber mais sobre a implementação do Azure AD SCIM, consulte [a construção de um ponto final SCIM e configuure o fornecimento do utilizador com a Ad AZure](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).
 
 ### <a name="implement-scim"></a>Implementar SCIM
-A Azure AD fornece código de [referência](https://aka.ms/scimoverview) para ajudá-lo a construir um ponto final SCIM. Há também muitas bibliotecas /referências de terceiros que você pode encontrar no github.  
+A Azure AD fornece código de [referência](https://aka.ms/scimoverview) para ajudá-lo a construir um ponto final SCIM. Há também muitas bibliotecas /referências de terceiros que você pode encontrar no GitHub.  
 
 ## <a name="step-4---create-your-azure-tenant-and-test-your-app"></a>Passo 4 - Crie o seu inquilino Azure e teste a sua app
 

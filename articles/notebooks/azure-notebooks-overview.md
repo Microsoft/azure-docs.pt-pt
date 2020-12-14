@@ -1,22 +1,22 @@
 ---
 title: Visão geral da pré-visualização dos cadernos Azure
-description: Executar os cadernos Jupyter na nuvem utilizando o serviço gratuito de pré-visualização de cadernos Azure, onde não é necessária configuração ou configuração.
+description: Executar Os Cadernos Jupyter na nuvem utilizando o serviço gratuito de pré-visualização de cadernos Azure, onde não é necessária configuração ou configuração.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: ef0a033c5125b3a359d281be30dd0ec2a2aa1747
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 7e622bdef785085384395bb0c8ac3efba2b2053a
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109492"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400280"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Visão geral da pré-visualização dos cadernos Azure
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-O Azure Notebooks é um serviço alojado gratuito que serve para desenvolver e executar blocos de notas Jupyter na cloud sem instalação. [Jupyter](https://jupyter.org/) (anteriormente IPython) é um projeto de código aberto que permite combinar facilmente texto markdown, código executável, dados persistentes, gráficos e visualizações em uma única tela sharable, chamada *caderno* (imagem cortesia de jupyter.org):
+AZure Notebooks é um serviço gratuito para desenvolver e executar Cadernos Jupyter na nuvem sem instalação. [Jupyter](https://jupyter.org/) (anteriormente IPython) é um projeto de código aberto que permite combinar facilmente texto markdown, código executável, dados persistentes, gráficos e visualizações em uma única tela sharable, chamada *caderno* (imagem cortesia de jupyter.org):
 
-[![Exemplos de cadernos Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Exemplos de Cadernos Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Devido a esta poderosa combinação de código, gráficos e texto explicativo, Jupyter tornou-se popular para muitos usos, incluindo instrução de ciência de dados, limpeza e transformação de dados, simulação numérica, modelação estatística e desenvolvimento de modelos de aprendizagem automática.
 

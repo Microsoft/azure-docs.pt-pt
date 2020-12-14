@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 2f5c16fce68213b291b970c11921a17b39527270
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 1e16c984e48c11961dba0c977d3bdbddbd6bdf36
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032122"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400324"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Tutorial: Implementar Azure Spring Cloud em rede virtual Azure (injeção VNet)
 
@@ -157,19 +157,22 @@ Esses recursos de rede estão ligados à sua rede virtual criada acima.
 
 A pequena gama de sub-redes guarda endereços IP, mas traz limitações ao número máximo de Instâncias de Aplicação que a Nuvem de primavera Azure pode conter. 
 
-| CIDR | Total IPs | IPs disponíveis | Ocorrências máximas de aplicações                                        |
-| ---- | --------- | ------------- | ------------------------------------------------------------ |
-| /28  | 16        | 8             | <p> App com 1 núcleo: 96 <br/> App com 2 núcleos: 48<br/>  App com 3 núcleos: 32 <br/> App com 4 núcleos: 24 </p> |
-| /27  | 32        | 24            | <p> App com 1 núcleo: 228<br/> App com 2 núcleos: 144<br/>  App com 3 núcleos: 96 <br/>  App com 4 núcleos: 72</p> |
-| /26  | 64        | 56            | <p> App com 1 núcleo: 500<br/> App com 2 núcleos: 336<br/>  App com 3 núcleos: 224<br/>  App com 4 núcleos: 168</p> |
-| /25  | 128       | 120           | <p> App com 1 núcleo: 500<br> App com 2 núcleos: 500<br>  App com 3 núcleos: 480<br>  App com 4 núcleos: 360</p> |
-| /24  | 256       | 248           | <p> App com 1 núcleo: 500<br/> App com 2 núcleos: 500<br/>  App com 3 núcleos: 500<br/>  App com 4 núcleos: 500</p> |
+| CIDR de sub-rede de aplicações | Total IPs | IPs disponíveis | Ocorrências máximas de aplicações                                        |
+| --------------- | --------- | ------------- | ------------------------------------------------------------ |
+| /28             | 16        | 8             | <p> App com 1 núcleo: 96 <br/> App com 2 núcleos: 48<br/>  App com 3 núcleos: 32 <br/> App com 4 núcleos: 24 </p> |
+| /27             | 32        | 24            | <p> App com 1 núcleo: 228<br/> App com 2 núcleos: 144<br/>  App com 3 núcleos: 96 <br/>  App com 4 núcleos: 72</p> |
+| /26             | 64        | 56            | <p> App com 1 núcleo: 500<br/> App com 2 núcleos: 336<br/>  App com 3 núcleos: 224<br/>  App com 4 núcleos: 168</p> |
+| /25             | 128       | 120           | <p> App com 1 núcleo: 500<br> App com 2 núcleos: 500<br>  App com 3 núcleos: 480<br>  App com 4 núcleos: 360</p> |
+| /24             | 256       | 248           | <p> App com 1 núcleo: 500<br/> App com 2 núcleos: 500<br/>  App com 3 núcleos: 500<br/>  App com 4 núcleos: 500</p> |
 
+Para sub-redes, 5 endereços IP são reservados pela Azure, e pelo menos 4 endereços são necessários pela Azure Spring Cloud. São necessários pelo menos 9 endereços IP, pelo que /29 e /30 não estão operacionais.
+
+Para a sub-rede de tempo de execução do serviço, o tamanho min é de um /28 e este não tem qualquer influência no número de instâncias da aplicação.
 ## <a name="next-steps"></a>Passos seguintes
 
 [Implementar aplicação para Azure Spring Cloud no seu VNet](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Resolução de problemas Azure Spring Cloud em VNET](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/05-troubleshooting-azure-spring-cloud-in-vnet.md)
 - [Responsabilidades do cliente para correr Azure Spring Cloud em VNET](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/06-customer-responsibilities-for-running-azure-spring-cloud-in-vnet.md)

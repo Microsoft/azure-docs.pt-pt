@@ -3,12 +3,12 @@ title: Conceito de gráfico de mídia - Azure
 description: Um gráfico mediático permite definir de onde os meios de comunicação devem ser capturados, como deve ser processado e onde os resultados devem ser entregues. Este artigo apresenta uma descrição detalhada do conceito de gráfico mediático.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 5efb62440b52d6219373d15ba3d19ddac1a2a834
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 6f23e7db8cecb46106a63fdecdb6ba04dbd99682
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007845"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401105"
 ---
 # <a name="media-graph"></a>Grafo do suporte de dados
 
@@ -87,6 +87,8 @@ O nó do processador de deteção de movimentos permite-lhe detetar movimento em
 #### <a name="frame-rate-filter-processor"></a>Processador de filtro de taxa de fotogramas  
 
 O nó do processador do filtro de taxa de fotogramas permite-lhe recolher os quadros da transmissão de vídeo recebida a uma taxa especificada. Isto permite-lhe reduzir o número de fotogramas enviados para componentes de fluxo (como o nó do processador de extensão HTTP) para posterior processamento.
+>[!WARNING]
+> Este processador está **precotado** na mais recente versão do Live Video Analytics no módulo IoT Edge. A gestão da Taxa de Fotogramas é agora suportada nos próprios processadores de extensão de gráficos.
 
 #### <a name="http-extension-processor"></a>Processador de extensão HTTP
 
@@ -108,8 +110,9 @@ Um nó de afundanço de ativos permite-lhe escrever dados de meios (vídeo e/ou 
 
 #### <a name="file-sink"></a>Pia de arquivo  
 
-O nó da pia do ficheiro permite-lhe escrever dados de mídia (vídeo e/ou áudio) para uma localização no sistema de ficheiros local do dispositivo IoT Edge. Só pode haver um nó de lavatório de ficheiros num gráfico de mídia, e deve ser a jusante de um nó do processador do portão de sinal. Isto limita a duração dos ficheiros de saída aos valores especificados nas propriedades do nó do processador do portão de sinal.
-
+O nó da pia do ficheiro permite-lhe escrever dados de mídia (vídeo e/ou áudio) para uma localização no sistema de ficheiros local do dispositivo IoT Edge. Só pode haver um nó de lavatório de ficheiros num gráfico de mídia, e deve ser a jusante de um nó do processador do portão de sinal. Isto limita a duração dos ficheiros de saída aos valores especificados nas propriedades do nó do processador do portão de sinal. Para garantir que o seu dispositivo de borda não se esgota no espaço do disco, também pode definir o tamanho máximo que o módulo Live Video Analytics no módulo IoT Edge pode usar para armazenar dados.  
+> [!NOTE]
+Se o Sumidouro de Ficheiros ficar cheio, o módulo Live Video Analytics no IoT Edge começará a eliminar os dados mais antigos e a substituí-lo pelo novo.
 #### <a name="iot-hub-message-sink"></a>Pia de mensagem IoT Hub  
 
 Um nó de pia de mensagem IoT Hub permite-lhe publicar eventos no hub IoT Edge. O hub IoT Edge pode então encaminhar os dados para outros módulos ou aplicações no dispositivo de borda, ou para ioT Hub na nuvem (por rotas especificadas no manifesto de implantação). O nó da pia de mensagem IoT Hub pode aceitar eventos de processadores a montante, como um nó do processador de deteção de movimentos, ou de um serviço de inferência externa através de um nó de processador de extensão HTTP.

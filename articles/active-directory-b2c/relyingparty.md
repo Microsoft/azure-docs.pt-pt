@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/11/2020
+ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 321669457c479f7f59ccbb9b7950457b7f9a1af5
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 8b33c7f76cc2ac7a2012dc9d8c854a1dde46c3ea
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108317"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399133"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -77,8 +77,35 @@ O elemento **opcional RelyingParty** contém os seguintes elementos:
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | PredefiniçãoJourney | 1:1 | A viagem de utilizador predefinido para a aplicação RP. |
+| Pontos Finais | 0:1 | Uma lista de pontos finais. Para obter mais informações, consulte [o ponto final do UserInfo](userinfo-endpoint.md). |
 | UserJourneyBehaviors | 0:1 | O âmbito dos comportamentos de viagem do utilizador. |
 | Ficha Técnica | 1:1 | Um perfil técnico que é suportado pela aplicação RP. O perfil técnico fornece um contrato para a aplicação RP para contactar a Azure AD B2C. |
+
+## <a name="endpoints"></a>Pontos Finais
+
+O elemento **Endpoints** contém o seguinte elemento:
+
+| Elemento | Ocorrências | Descrição |
+| ------- | ----------- | ----------- |
+| Ponto final | 1:1 | Uma referência a um ponto final.|
+
+O elemento **Ponto final** contém os seguintes atributos:
+
+| Atributo | Obrigatório | Descrição |
+| --------- | -------- | ----------- |
+| Id | Sim | Um identificador único do ponto final.|
+| UserJourneyReferenceId | Sim | Um identificador da viagem de utilizador na apólice. Para mais informações, consulte [as viagens de utilizador](userjourneys.md)  | 
+
+O exemplo a seguir mostra uma parte dependente com [o ponto final do UserInfo:](userinfo-endpoint.md)
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <Endpoints>
+    <Endpoint Id="UserInfo" UserJourneyReferenceId="UserInfoJourney" />
+  </Endpoints>
+  ...
+```
 
 ## <a name="defaultuserjourney"></a>PredefiniçãoJourney
 

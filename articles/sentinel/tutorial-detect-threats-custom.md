@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: b685f716688cfbe732fa7d3566e1af97cc81272a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 390d2c8488fd2b35c775eabe43677b9349b547a1
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94652115"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401649"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Tutorial: Criar regras de análise personalizadas para detetar ameaças
 
@@ -143,9 +143,15 @@ Pode criar regras de análise personalizadas para ajudá-lo a procurar os tipos 
 > [!NOTE]
 > Os alertas gerados no Azure Sentinel estão disponíveis através da [Microsoft Graph Security](/graph/security-concept-overview). Para obter mais informações, consulte a documentação de [alertas de segurança do gráfico da Microsoft](/graph/api/resources/security-api-overview).
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
-### <a name="a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>Uma regra programada não executou, ou aparece com AUTO DISABLED adicionado ao nome
+### <a name="issue-no-events-appear-in-query-results"></a>Problema: Não aparecem eventos nos resultados da consulta
+
+Se **o agrupamento de eventos** estiver definido para desencadear um alerta para cada **evento**, em certos cenários, ao visualizar os resultados da consulta posteriormente (como quando voltar a alertar de um incidente), é possível que não apareçam resultados de consulta. Isto porque a ligação do evento ao alerta é realizada pelo hashing da informação do evento em particular, e pela inclusão do haxixe na consulta. Se os resultados da consulta tiverem mudado desde que o alerta foi gerado, o haxixe deixará de ser válido e não serão apresentados resultados. 
+
+Para ver os eventos, retire manualmente a linha com o haxixe da consulta da regra e execute a consulta.
+
+### <a name="issue-a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>Problema: Uma regra programada não executou ou aparece com AUTO DISABLED adicionado ao nome
 
 É uma ocorrência rara que uma regra de consulta programada não funciona, mas pode acontecer. O Azure Sentinel classifica as falhas na frente como transitórias ou permanentes, com base no tipo específico da falha e nas circunstâncias que o levaram.
 
@@ -180,7 +186,7 @@ Pode determinar facilmente a presença de quaisquer regras de desativadas autom�
 
 Os gestores da SOC devem verificar regularmente a lista de regras para a presença de regras de desativação automática.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a detetar ameaças usando Azure Sentinel.
 

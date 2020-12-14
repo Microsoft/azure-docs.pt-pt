@@ -7,12 +7,12 @@ author: vladvino
 ms.author: apimpm
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.openlocfilehash: 19080679291b88b693c95bd71f8ddc0e59286356
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fdf7e842959e09a8ec35017031f745cb16d13c6d
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90057424"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400408"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-visual-studio-code"></a>Quickstart: Criar uma nova instância de serviço de gestão API da Azure usando o Código do Estúdio Visual
 
@@ -55,11 +55,11 @@ Será criado um novo caso de Gestão da API (e grupo de recursos-mãe) com o nom
 >
 > Enquanto o *SKU de Consumo* demora menos de um minuto a providenciar, outros SKUs normalmente demoram 30-40 minutos a criar.
 
-Neste momento, está pronto para importar e publicar a sua primeira API. Pode fazê-lo e também executar operações comuns de Gestão de API dentro da extensão do Código do Estúdio Visual. Consulte a [extensão de gestão](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview) da API para obter mais documentação do Código do Estúdio Visual.
+Neste momento, está pronto para importar e publicar a sua primeira API. Pode fazê-lo e também executar operações comuns de Gestão de API dentro da extensão do Código do Estúdio Visual. Veja [o tutorial](visual-studio-code-tutorial.md) para mais informações.
 
 ![Recém-criado exemplo de Gestão de API no painel de extensão da API Management do código VS](./media/vscode-create-service-instance/vscode-apim-instance.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, remova a instância de Gestão da API clicando à direita e selecionando **Open in Portal** para eliminar o serviço de [Gestão API](get-started-create-service-instance.md#clean-up-resources) e o seu grupo de recursos.
 
@@ -70,4 +70,4 @@ Em alternativa, pode selecionar **eliminar a Gestão da API** apenas para elimin
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Importar e publicar a sua primeira API](import-and-publish.md)
+> [Importar e gerir APIs utilizando a Extensão de Gestão da API](visual-studio-code-tutorial.md)

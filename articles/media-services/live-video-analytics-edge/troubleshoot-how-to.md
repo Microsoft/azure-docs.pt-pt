@@ -4,13 +4,13 @@ description: Este artigo cobre etapas de resolução de problemas para Live Vide
 author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
-ms.date: 05/24/2020
-ms.openlocfilehash: c297a189f3b13ca8e72daf4eef009bc28fac32bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/04/2020
+ms.openlocfilehash: 31cf89cb66dfbc404d65f8fc09b96c03e1be2f8f
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823203"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401320"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Resolução de problemas Vídeo Analytics em IoT Edge
 
@@ -31,27 +31,32 @@ Como parte da sua implementação live video analytics, você configura recursos
 
 ### <a name="pre-deployment-issues"></a>Questões de pré-implantação
 
-Se a infraestrutura de borda estiver bem, pode procurar problemas com o ficheiro manifesto de implantação. Para implementar o módulo Live Video Analytics no módulo IoT Edge no dispositivo IoT Edge ao lado de quaisquer outros módulos IoT, utilize um manifesto de implantação que contenha o hub IoT Edge, o agente IoT Edge e outros módulos e suas propriedades. Se o código JSON não estiver bem formado, poderá receber o seguinte erro: 
+Se a infraestrutura de borda estiver bem, pode procurar problemas com o ficheiro manifesto de implantação. Para implementar o módulo Live Video Analytics no módulo IoT Edge no dispositivo IoT Edge ao lado de quaisquer outros módulos IoT, utilize um manifesto de implantação que contenha o hub IoT Edge, o agente IoT Edge e outros módulos e suas propriedades. Pode utilizar o seguinte comando para implantar o ficheiro manifesto:
 
 ```
 az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device --content <path-to-deployment_manifest.json>
 ```
-
-Não analisou json do ficheiro: ' <deployment manifest.json> para o argumento 'conteúdo', com exceção: "Dados extra: linha 101 coluna 1 (char 5325)"
+Se o código JSON não estiver bem formado, poderá receber o seguinte erro:   
+&nbsp;&nbsp;&nbsp;**Não analisou json do ficheiro: ' <deployment manifest.json> para o argumento 'conteúdo', com exceção: "Dados extra: linha 101 coluna 1 (char 5325)"**
 
 Se encontrar este erro, recomendamos que verifique se o JSON está em falta ou outros problemas com a estrutura do ficheiro. Para validar a estrutura do ficheiro, pode utilizar um cliente como o [Notepad++ com plug-in do Visualizador JSON](https://riptutorial.com/notepadplusplus/example/18201/json-viewer) ou uma ferramenta online como o [JSON Formatter & Validador](https://jsonformatter.curiousconcept.com/).
 
 ### <a name="during-deployment-diagnose-with-media-graph-direct-methods"></a>Durante a implementação: Diagnosticar com métodos diretos de gráfico de mídia 
 
-Depois de o módulo Live Video Analytics no IoT Edge ser implantado corretamente no dispositivo IoT Edge, pode criar e executar o gráfico de mídia invocando [métodos diretos](direct-methods.md). Pode utilizar o portal Azure para executar um diagnóstico do gráfico mediático através de métodos diretos:
+Depois de o módulo Live Video Analytics no IoT Edge ser implantado corretamente no dispositivo IoT Edge, pode criar e executar o gráfico de mídia invocando [métodos diretos](direct-methods.md).  
+>[!NOTE]
+>  As chamadas de método direto devem ser feitas apenas para o **`lvaEdge`** módulo.
+
+Pode utilizar o portal Azure para executar um diagnóstico do gráfico de mídia utilizando métodos diretos:
 
 1. No portal Azure, vá ao hub IoT que está ligado ao seu dispositivo IoT Edge.
 
-1. Procure a **gestão automática do dispositivo**e, em seguida, selecione **IoT Edge**.  
+1. Procure a **gestão automática do dispositivo** e, em seguida, selecione **IoT Edge**.  
 
 1. Na lista de dispositivos Edge, selecione o dispositivo que pretende diagnosticar.  
          
     ![Screenshot do portal Azure mostrando uma lista de dispositivos Edge](./media/troubleshoot-how-to/lva-sample-device.png)
+
 
 1. Verifique se o código de resposta é *200-OK*. Outros códigos de resposta para o [tempo de execução IoT Edge](../../iot-edge/iot-edge-runtime.md) incluem:
     * 400 - A configuração de implantação é mal formada ou inválida.
@@ -60,7 +65,9 @@ Depois de o módulo Live Video Analytics no IoT Edge ser implantado corretamente
     * 406 - O dispositivo IoT Edge está offline ou não está a enviar relatórios de estado.
     * 500 - Ocorreu um erro no tempo de execução do IoT Edge.
 
-1. Se tiver um código 501, verifique se o nome do método direto está correto. Se o nome do método e a carga útil do pedido estiverem corretos, deverá obter resultados juntamente com o código de sucesso =200. Se a carga útil do pedido for imprecisa, obterá um estado =400 e uma carga útil de resposta que indique código de erro e mensagem que deve ajudar a diagnosticar o problema com a sua chamada de método direto.
+### <a name="post-deployment-direct-method-error-code"></a>Implantação de posts: Código de erro do método direto
+1. Se obter um `501 code` estado, verifique se o nome do método direto está correto. Se o nome do método e a carga útil do pedido estiverem corretos, deverá obter resultados juntamente com o código de sucesso =200. 
+1. Se a carga útil do pedido for imprecisa, obterá um estado `400 code` e uma carga útil de resposta que indique código de erro e mensagem que deve ajudar a diagnosticar o problema com a sua chamada de método direto.
     * Verificar as propriedades reportadas e desejadas pode ajudá-lo a entender se as propriedades do módulo sincronizaram com a implementação. Se não o fizerem, pode reiniciar o seu dispositivo IoT Edge. 
     * Utilize o guia [de métodos diretos](direct-methods.md) para chamar alguns métodos, especialmente os simples, como o GraphTopologyList. O guia também especifica as cargas de pedido e resposta esperadas e códigos de erro. Depois de os métodos diretos simples serem bem sucedidos, pode ter a certeza de que o módulo IoT Edge live video analytics está funcionalmente OK.
         
@@ -86,158 +93,19 @@ O Live Video Analytics é implantado como um módulo IoT Edge no dispositivo IoT
 * [O Live Video Analytics ou qualquer outro módulo IoT Edge personalizado não envia uma mensagem para o centro de borda com erro 404](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-fails-to-send-a-message-to-edgehub-with-404-error).
 * [O módulo IoT Edge é implantado com sucesso e desaparece do dispositivo](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-deploys-successfully-then-disappears-from-device).
 
-### <a name="edge-setup-script-issues"></a>Problemas de script de configuração de borda
-
-Como parte da nossa documentação, fornecemos um [script de configuração](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) para implementar recursos de borda e nuvem e começar com Live Video Analytics Edge. Esta secção apresenta alguns erros de script que poderá encontrar, juntamente com soluções para depurá-los.
-
-Problema: O script executa, em parte criando poucos recursos, mas falha com a seguinte mensagem:
-
-```
-registering device...
-
-Unable to load extension 'eventgrid: unrecognized kwargs: ['min_profile']'. Use --debug for more information.
-The command failed with an unexpected error. Here is the traceback:
-
-No module named 'azure.mgmt.iothub.iot_hub_client'
-Traceback (most recent call last):
-File "/opt/az/lib/python3.6/site-packages/knack/cli.py", line 215, in invoke
-  cmd_result = self.invocation.execute(args)
-File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 631, in execute
-  raise ex
-File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 695, in _run_jobs_serially
-  results.append(self._run_job(expanded_arg, cmd_copy))
-File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 688, in _run_job
-  six.reraise(*sys.exc_info())
-File "/opt/az/lib/python3.6/site-packages/six.py", line 693, in reraise
-  raise value
-File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 665, in _run_job
-  result = cmd_copy(params)
-File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 324, in __call__
-  return self.handler(*args, **kwargs)
-File "/opt/az/lib/python3.6/site-packages/azure/cli/core/__init__.py", line 574, in default_command_handler
-  return op(**command_args)
-File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/operations/hub.py", line 75, in iot_device_list
-  result = iot_query(cmd, query, hub_name, top, resource_group_name, login=login)
-File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/operations/hub.py", line 45, in iot_query
-  target = get_iot_hub_connection_string(cmd, hub_name, resource_group_name, login=login)
-File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/common/_azure.py", line 112, in get_iot_hub_connection_string
-  client = iot_hub_service_factory(cmd.cli_ctx)
-File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/_factory.py", line 28, in iot_hub_service_factory
-  from azure.mgmt.iothub.iot_hub_client import IotHubClient
-ModuleNotFoundError: No module named 'azure.mgmt.iothub.iot_hub_client'
-```
-    
-Para resolver este problema:
-
-1. Execute o seguinte comando:
-
-    ```
-    az --version
-    ```
-1. Certifique-se de que tem as seguintes extensões instaladas. A partir da publicação deste artigo, as extensões e as suas versões são:
-
-    | Extensão | Versão |
-    |---|---|
-    |azure-cli   |      2.5.1*|
-    |comando-módulos-nspkg         |   2.0.3|
-    |núcleo  |    2.5.1*|
-    |nspkg    | 3.0.4|
-    |telemetria| 1.0.4|
-    |storage-preview          |     0.2.10|
-    |azure-cli-iot-ext          |    0.8.9|
-    |eventgrid| 0.4.9|
-    |azure-iot                       | 0.9.2|
-1. Se tiver uma extensão instalada cuja versão seja mais cedo do que o número de desbloqueio aqui indicado, atualize a extensão utilizando o seguinte comando:
-
-    ```
-    az extension update --name <Extension name>
-    ```
-
-    Por exemplo, pode `az extension update --name azure-iot` correr.
-
-### <a name="sample-app-issues"></a>Problemas de aplicação de amostra
-
-Como parte do nosso lançamento, fornecemos um código de amostra .NET para ajudar a obter a nossa comunidade de desenvolvedores. Esta secção apresenta alguns erros que poderá encontrar quando executar o código de amostra, juntamente com soluções para depurá-los.
-
-Problema: Program.cs falha com o seguinte erro na invocação do método direto:
-
-```
-Unhandled exception. Microsoft.Azure.Devices.Common.Exceptions.UnauthorizedException: {"Message":"{\"errorCode\":401002,\"trackingId\":\"b1da85801b2e4faf951a2291a2c467c3-G:32-TimeStamp:04/06/2020 17:15:11\",\"message\":\"Unauthorized\",\"timestampUtc\":\"2020-04-06T17:15:11.6990676Z\"}","ExceptionMessage":""}
-    
-        at Microsoft.Azure.Devices.HttpClientHelper.ExecuteAsync(HttpClient httpClient, HttpMethod httpMethod, Uri requestUri, Func`3 modifyRequestMessageAsync, Func`2 isMappedToException, Func`3 processResponseMessageAsync, IDictionary`2 errorMappingOverrides, CancellationToken cancellationToken)
-    
-        at Microsoft.Azure.Devices.HttpClientHelper.ExecuteAsync(HttpMethod httpMethod, Uri requestUri, Func`3 modifyRequestMessageAsync, Func`3 processResponseMessageAsync, IDictionary`2 errorMappingOverrides, CancellationToken cancellationToken)
-        
-        at Microsoft.Azure.Devices.HttpClientHelper.PostAsync[T,T2](Uri requestUri, T entity, TimeSpan operationTimeout, IDictionary`2 errorMappingOverrides, IDictionary`2 customHeaders, CancellationToken cancellationToken)…
-```
-
-1. Certifique-se de que tem [ferramentas Azure IoT instaladas](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) no seu ambiente visual Studio Code e que configura a ligação ao seu hub IoT. Para tal, selecione Ctrl+Shift+P e, em seguida, escolha **o método Select IoT Hub**.
-
-1. Verifique se pode invocar um método direto no módulo IoT Edge via Visual Studio Code. Por exemplo, ligue para o GraphTopologyList com a seguinte carga útil &nbsp; { @apiVersion " : "1.0"}. Deverá receber a seguinte resposta: 
-
-    ```
-    {
-      "status": 200,
-      "payload": {
-        "values": [
-          {…
-    …}
-          ]
-        }
-    }
-    ```
-
-    ![Screenshot da resposta no Código do Estúdio Visual.](./media/troubleshoot-how-to/visual-studio-code1.png)
-1. Se a solução anterior falhar, tente o seguinte:
-
-    a. Vá ao pedido de comando no seu dispositivo IoT Edge e execute o seguinte comando:
-    
-      ```
-      sudo systemctl restart iotedge
-      ```
-
-      Este comando reinicia o dispositivo IoT Edge e todos os módulos. Aguarde alguns minutos e, em seguida, antes de tentar usar o método direto novamente, confirme que os módulos estão funcionando com o seguinte comando:
-
-      ```
-      sudo iotedge list
-      ```
-
-    b. Se a abordagem anterior também falhar, tente reiniciar a sua máquina virtual ou computador.
-
-    c. Se todas as abordagens falharem, executar o seguinte comando para obter um ficheiro com fecho com todos os [registos relevantes](../../iot-edge/troubleshoot.md#gather-debug-information-with-support-bundle-command), e anexá-lo a um [bilhete de apoio](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-    ```
-    sudo iotedge support-bundle --since 2h
-    ```
-
-1. Se obter um código de resposta de erro *400,* certifique-se de que a carga útil de invocação do seu método está bem formada, de acordo com o guia [de métodos Diretos.](direct-methods.md)
-1. Se obter um código de estado *200,* indica que o seu hub está a funcionar bem e que a implementação do módulo está correta e responsiva. 
-
-1. Verifique se a configuração da aplicação está correta. A configuração da sua aplicação consiste nos seguintes campos no *appsettings.jsficheiro.* Verifique duas vezes se o dispositivoId e o móduloId estão corretos. Uma maneira fácil de verificar é indo para a secção de extensão Azure IoT Hub em Visual Studio Code. Os valores do *appsettings.jsno* ficheiro e a secção IoT Hub deve coincidir.
-    
-    ```
-    {
-        "IoThubConnectionString" : 
-        "deviceId" : 
-        "moduleId" : 
-    }
-    ```
-
-1. Na *appsettings.jsno* ficheiro, certifique-se de que forneceu a cadeia de ligação IoT Hub e *não* a cadeia de ligação do dispositivo IoT Hub, porque os [formatos de cadeia de ligação são diferentes](https://devblogs.microsoft.com/iotdev/understand-different-connection-strings-in-azure-iot-hub/).
-
 ### <a name="live-video-analytics-working-with-external-modules"></a>Vídeo ao vivo Analytics trabalhando com módulos externos
 
-O Live Video Analytics através do processador de extensão HTTP pode estender o gráfico de mídia para enviar e receber dados de outros módulos IoT Edge em HTTP utilizando REST. Como [exemplo específico,](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension)o gráfico de mídia pode enviar quadros de vídeo como imagens para um módulo de inferência externa, como o Yolo v3 e receber resultados de análise baseados em JSON. Em tal topologia, o destino para os eventos é principalmente o hub IoT. Em situações em que não se vê os eventos de inferência no centro, verifique o seguinte:
+O Live Video Analytics através dos processadores de extensão de gráficos de mídia pode estender o gráfico de mídia para enviar e receber dados de outros módulos IoT Edge utilizando protocolos HTTP ou gRPC. Como [exemplo específico,](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension)este gráfico de mídia pode enviar quadros de vídeo como imagens para um módulo de inferência externa, como o Yolo v3 e receber resultados de análise baseados em JSON usando o protocolo HTTP . Em tal topologia, o destino para os eventos é principalmente o hub IoT. Em situações em que não se vê os eventos de inferência no centro, verifique o seguinte:
 
 * Verifique se o centro que o gráfico de mídia está a publicar e o centro que está a examinar são os mesmos. À medida que crias várias implementações, podes acabar com vários hubs e verificar erroneamente o centro errado para eventos.
-* No Código do Estúdio Visual, verifique se o módulo externo está implantado e em funcionamento. Na imagem de exemplo aqui, o rtspsim e o cv são módulos IoT Edge que correm fora do módulo LvaEdge.
+* No portal Azure, verifique se o módulo externo está implantado e em funcionamento. Na imagem de exemplo aqui, o rtspsim, o yolov3, o tinyyolov3 e o logAnalyticsAgent são módulos IoT Edge que correm externamente para o módulo LvaEdge.
 
-    ![Screenshot que mostra o estado de funcionamento dos módulos no Azure IoT Hub.](./media/troubleshoot-how-to/iot-hub.png)
+    [![Screenshot que mostra o estado de funcionamento dos módulos no Azure IoT Hub. ](./media/troubleshoot-how-to/iot-hub-azure.png)](./media/troubleshoot-how-to/iot-hub-azure.png#lightbox)
 
-* Verifique se está a enviar eventos para o ponto final correto da URL. O contentor externo de IA expõe um URL e uma porta através da qual recebe e devolve os dados dos pedidos do POST. Este URL é especificado como uma `endpoint: url` propriedade para o processador de extensão HTTP. Como visto no [URL de topologia,](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json)o ponto final é definido para o parâmetro URL inferencing. Certifique-se de que o valor predefinido para o parâmetro ou o valor de entrada é exato. Pode testar para ver se está a funcionar utilizando o URL do Cliente (cURL).  
+* Verifique se está a enviar eventos para o ponto final correto da URL. O contentor externo de IA expõe um URL e uma porta através da qual recebe e devolve os dados dos pedidos do POST. Este URL é especificado como uma `endpoint: url` propriedade para o processador de extensão HTTP. Como visto no [URL de topologia,](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/2.0/topology.json)o ponto final é definido para o parâmetro URL inferencing. Certifique-se de que o valor predefinido para o parâmetro ou o valor de entrada é exato. Pode testar para ver se está a funcionar utilizando o URL do Cliente (cURL).  
 
-    Como exemplo, aqui está um contentor Yolo v3 que está funcionando em máquina local com um endereço IP de 172.17.0.3. Utilize o Docker para encontrar o endereço IP.
-
+    Como exemplo, aqui está um contentor Yolo v3 que está funcionando em máquina local com um endereço IP de 172.17.0.3.  
+    
     ```
     curl -X POST http://172.17.0.3/score -H "Content-Type: image/jpeg" --data-binary @<fullpath to jpg>
     ```
@@ -247,12 +115,12 @@ O Live Video Analytics através do processador de extensão HTTP pode estender o
     ```
     {"inferences": [{"type": "entity", "entity": {"tag": {"value": "car", "confidence": 0.8668569922447205}, "box": {"l": 0.3853073438008626, "t": 0.6063712999658677, "w": 0.04174524943033854, "h": 0.02989496027381675}}}]}
     ```
+    > [!TIP]
+    > Utilize **[o comando do Docker](https://docs.docker.com/engine/reference/commandline/inspect/)** para encontrar o endereço IP da máquina.
+    
+* Se estiver a executar uma ou mais instâncias de um gráfico que utiliza o processador de extensão de gráficos de mídia, deve utilizar o `samplingOptions` campo para gerir os quadros por segundo (fps) da taxa do feed de vídeo. 
 
-* Se estiver a executar uma ou mais instâncias de um gráfico que utilize o processador de extensão HTTP, deve ter um filtro de taxa de fotogramas antes de cada processador de extensão HTTP para gerir os quadros por segundo (fps) da taxa do feed de vídeo. 
-
-   Em determinadas situações, em que o CPU ou a memória da máquina de borda é altamente utilizado, pode perder certos eventos de inferência. Para resolver este problema, deite um valor baixo para a propriedade máximafps no filtro de taxa de fotograma. Pode defini-lo para 0,5 ("maximumFps": 0.5 ) em cada instância do gráfico e, em seguida, reexecur o caso para verificar se há eventos de inferência no centro.
-
-   Em alternativa, pode obter uma máquina de borda mais potente com CPU e memória mais elevadas.
+   * Em determinadas situações, em que o CPU ou a memória da máquina de borda é altamente utilizado, pode perder certos eventos de inferência. Para resolver esta questão, deite um valor baixo para o `maximumSamplesPerSecond` imóvel no `samplingOptions` campo. Pode defini-lo para 0,5 ("maximumSamplesPerSecond": "0,5") em cada instância do gráfico e, em seguida, re-executar o caso para verificar se há eventos de inferência no centro.
     
 ### <a name="multiple-direct-methods-in-parallel--timeout-failure"></a>Múltiplos métodos diretos em paralelo – falha no tempo limite 
 
@@ -269,7 +137,36 @@ Quando os passos de resolução de problemas auto-guiados não resolverem o seu 
 > [!WARNING]
 > Os registos podem conter informações pessoalmente identificáveis (PII) como o seu endereço IP. Todas as cópias locais dos registos serão apagadas assim que completarmos a sua análise e fecharmos o bilhete de apoio.  
 
-Para recolher os registos relevantes que devem ser adicionados ao bilhete, siga as instruções nas secções seguintes. Pode fazer o upload dos ficheiros de registo no painel **de detalhes** do pedido de suporte.
+Para recolher os registos relevantes que devem ser adicionados ao bilhete, siga as instruções abaixo em ordem e carrece os ficheiros de registo no painel **de detalhes** do pedido de suporte.  
+1. [Configure o módulo Live Video Analytics para recolher registos verbose](#configure-live-video-analytics-module-to-collect-verbose-logs)
+1. [Ligue os registos de Debug](#live-video-analytics-debug-logs)
+1. Reproduza o problema
+1. Ligue-se à máquina virtual a partir da página **IoT Hub** no portal
+    1. Feche todos os ficheiros na pasta *de depurar.*
+
+       > [!NOTE]
+       > Estes ficheiros de registo não são destinados ao autodiagnóstico. Destinam-se à equipa de engenharia do Azure para analisar os seus problemas.
+
+       * No comando seguinte, certifique-se de que substitui **$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE** pela localização dos registos de depurg no dispositivo Edge que instalou anteriormente no **passo 2**.  
+
+           ```
+           sudo apt install zip unzip  
+           zip -r debugLogs.zip $DEBUG_LOG_LOCATION_ON_EDGE_DEVICE 
+           ```
+
+    1. Prenda o ficheiro *debugLogs.zip* ao bilhete de apoio.
+1. Executar o [comando do pacote de suporte,](#use-the-support-bundle-command)recolher os registos e anexar ao bilhete de suporte.
+
+### <a name="configure-live-video-analytics-module-to-collect-verbose-logs"></a>Configure módulo de análise de vídeo ao vivo para recolher registos verbose
+Configure o seu módulo Live Video Analytics para recolher registos Verbose definindo os `logLevel` e `logCategories` os seguintes seguintes:
+```
+"logLevel": "Verbose",
+"logCategories": "Application,Events,MediaPipeline",
+```
+
+Pode fazer isto em qualquer um dos dois:
+* No **portal Azure,** atualizando as propriedades De Identidade De Módulo Twin do módulo de vídeo ao   [ ![ vivo, módulo de identidade twin properies. ](media/troubleshoot-how-to/module-twin.png)](media/troubleshoot-how-to/module-twin.png#lightbox)    
+* Ou no seu ficheiro **manifesto de implantação,** pode adicionar estas entradas no nó de propriedades do módulo Live Video Analytics
 
 ### <a name="use-the-support-bundle-command"></a>Use o comando do pacote de suporte
 
@@ -277,10 +174,10 @@ Quando precisa de recolher registos de um dispositivo IoT Edge, a maneira mais f
 
 - Troncos de módulos
 - Gestor de segurança IoT Edge e troncos de motor de contentores
-- Iotedge verificar saída JSON
+- IoT Edge verifique a saída JSON
 - Informação útil do depurg
 
-1. Executar o `support-bundle` comando *--since* com a bandeira para especificar quanto tempo pretende que os seus registos cubram. Por exemplo, 2h receberá registos nas últimas duas horas. Pode alterar o valor desta bandeira para incluir registos para diferentes períodos.
+1. Executar o `support-bundle` comando  com a bandeira para especificar quanto tempo pretende que os seus registos cubram. Por exemplo, 2h receberá registos nas últimas duas horas. Pode alterar o valor desta bandeira para incluir registos para diferentes períodos.
 
     ```
     sudo iotedge support-bundle --since 2h
@@ -328,25 +225,90 @@ Para configurar o vídeo ao vivo analítico no módulo IoT Edge para gerar regis
     
     d. Selecione **Guardar**.
 
-1. Reproduza o problema.
-1. Ligue-se à máquina virtual a partir da página **IoT Hub** no portal.
-1. Feche todos os ficheiros na pasta *de depurar.*
-
-   > [!NOTE]
-   > Estes ficheiros de registo não são destinados ao autodiagnóstico. Destinam-se à equipa de engenharia do Azure para analisar os seus problemas.
-
-   a. No comando seguinte, certifique-se de que substitui **$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE** pela localização dos registos de depurg no dispositivo Edge que configura anteriormente.  
-
-   ```
-   sudo apt install zip unzip  
-   zip -r debugLogs.zip $DEBUG_LOG_LOCATION_ON_EDGE_DEVICE 
-   ```
-
-   b. Prenda o ficheiro *debugLogs.zip* ao bilhete de apoio.
 
 1. Pode parar a recolha de registos definindo o valor em **Módulo Identity Twin** para *nulo*. Volte para a página **Módulo Identidade Gémea** e atualize o seguinte parâmetro como:
 
     `"DebugLogsDirectory": ""`
+
+### <a name="best-practices-around-logging"></a>Melhores práticas em torno da exploração madeireira
+
+[A monitorização e a exploração madeireira](monitoring-logging.md) devem ajudar a compreender a taxonomia e como gerar registos que ajudem a depurar problemas com a LVA. 
+
+Como a implementação do servidor gRPC difere entre os idiomas, não existe uma forma padrão de adicionar o início de sessão no servidor.  
+
+Como exemplo, se construir um servidor gRPC utilizando o núcleo .NET, o serviço gRPC adiciona registos na categoria **Grpc.** Para permitir registos detalhados do gRPC, configurar os prefixos Grpc para o nível Debug no seu appsettings.jsficheiro adicionando os seguintes itens à subseção LogLevel em Registo: 
+
+```
+{ 
+  "Logging": { 
+    "LogLevel": { 
+      "Default": "Debug", 
+      "System": "Information", 
+      "Microsoft": "Information", 
+      "Grpc": "Debug" 
+       } 
+  } 
+} 
+``` 
+
+Também pode configurar isto no ficheiro Startup.cs com configuração: 
+
+```
+public static IHostBuilder CreateHostBuilder(string[] args) => 
+    Host.CreateDefaultBuilder(args) 
+        .ConfigureLogging(logging => 
+        { 
+
+           logging.AddFilter("Grpc", LogLevel.Debug); 
+        }) 
+        .ConfigureWebHostDefaults(webBuilder => 
+        { 
+            webBuilder.UseStartup<Startup>(); 
+        }); 
+
+``` 
+
+[O registo e diagnóstico em gRPC em .NET](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true) fornece algumas orientações para a recolha de alguns registos de diagnóstico de um servidor gRPC. 
+
+### <a name="a-failed-grpc-connection"></a>Uma ligação gRPC falhada 
+
+Se um gráfico estiver ativo e em streaming a partir de uma câmara, a ligação será mantida pelo Live Video Analytics. 
+
+### <a name="monitoring-and-balancing-the-load-of-cpu-and-gpu-resources-when-these-resources-become-bottlenecks"></a>Monitorização e equilíbrio da carga de recursos da CPU e da GPU quando estes recursos se tornam estrangulamentos
+
+O Live Video Analytics não monitoriza nem fornece qualquer monitorização de recursos de hardware. Os desenvolvedores terão de usar as soluções de monitorização dos fabricantes de hardware. No entanto, se utilizar recipientes Kubernetes, pode monitorizar o dispositivo utilizando o [painel kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
+
+gRPC em documentos principais .NET também compartilham algumas informações valiosas sobre [as melhores práticas de desempenho](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1&preserve-view=true) e o equilíbrio de [carga.](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1#load-balancing&preserve-view=true)  
+
+### <a name="troubleshooting-an-inference-server-when-it-does-not-receive-any-frames-and-you-are-receiving-an-unknown-protocol-error"></a>Resolução de problemas num servidor de inferência quando não recebe nenhum quadro e está a receber, um erro de protocolo "desconhecido" 
+
+Há várias coisas que pode fazer para obter mais informações sobre o problema.  
+
+* Inclua a categoria de registo **ediaPipeline** nas propriedades desejadas do módulo Live Video Analytics e certifique-se de que o nível de registo está definido para `Information` .  
+* Para testar a conectividade da rede, pode executar o seguinte comando a partir do dispositivo de borda. 
+
+   ```
+   sudo docker exec lvaEdge /bin/bash -c “apt update; apt install -y telnet; telnet <inference-host> <inference-port>” 
+   ```
+
+   Se o comando der uma pequena sequência de texto confuso, então a telnet foi capaz de abrir uma ligação ao seu servidor de inferência e abrir um canal binário gRPC. Se não vir isto, a Telnet reportará um erro de rede. 
+* No seu servidor de inferência pode ativar a sessão de registos adicionais na biblioteca gRPC. Isto pode dar informações adicionais sobre o próprio canal gRPC. Ao fazê-lo varia de acordo com a linguagem, aqui estão as instruções para [C#](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true). 
+
+### <a name="picking-more-images-from-buffer-of-grpc-without-sending-back-result-for-first-buffer"></a>Recolher mais imagens do tampão do gRPC sem enviar de volta o resultado para o primeiro tampão
+
+Como parte do contrato de transferência de dados gRPC, todas as mensagens que o Live Video Analytics envia para o servidor de inferencing gRPC devem ser reconhecidas. Não reconhecer a receção de uma moldura de imagem quebra o contrato de dados e pode resultar em situações não desejadas.  
+
+Para utilizar o seu servidor gRPC com Live Video Analytics, a memória partilhada pode ser usada para melhor desempenho. Isto requer que utilize as capacidades de memória partilhadas do Linux expostas pela linguagem/ambiente de programação. 
+
+1. Abra o cabo de memória partilhada Linux.
+1. Ao receber uma moldura, aceda ao endereço offset dentro da memória partilhada.
+1. Reconheça a conclusão do processamento do quadro para que a sua memória possa ser recuperada pela Live Video Analytics.
+
+   > [!NOTE]
+   > Se atrasar a receção da moldura ao Live Video Analytics por muito tempo, pode resultar em que a memória partilhada fique cheia e cause quedas de dados.
+1. Guarde cada quadro numa estrutura de dados à sua escolha (lista, matriz e assim por diante) no servidor de inferenculação.
+1. Em seguida, pode executar a sua lógica de processamento quando tiver o número desejado de molduras de imagem.
+1. Volte a devolver o resultado de inferencing ao Live Video Analytics quando estiver pronto.
 
 ## <a name="next-steps"></a>Passos seguintes
 

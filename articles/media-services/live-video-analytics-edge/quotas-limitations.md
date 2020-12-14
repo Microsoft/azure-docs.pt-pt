@@ -3,12 +3,12 @@ title: Análise de vídeo ao vivo em quotas e limitações IoT Edge - Azure
 description: Este artigo descreve live video analytics em quotas e limitações IoT Edge.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: df1978de4ee1bbbe15d0df3b02a70fb51491e9d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68c7b91bb1051348b5a8e52f841d443894f0a632
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90529235"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400529"
 ---
 # <a name="quotas-and-limitations"></a>Quotas e limitações
 
@@ -16,17 +16,17 @@ Este artigo enumera as quotas e limitações do live video analytics no módulo 
 
 ## <a name="maximum-period-of-disconnected-use"></a>Período máximo de utilização desligada
 
-O módulo de borda pode sustentar a perda temporária da conectividade da rede. Se o módulo permanecer desligado por mais de 36 horas, irá desativar quaisquer instâncias de gráfico que estavam em execução, e novas chamadas de métodos diretos serão bloqueadas.
+O módulo de borda pode sustentar a perda temporária da conectividade da internet. Se o módulo permanecer desligado por mais de 36 horas, irá desativar quaisquer instâncias de gráfico que estivessem em funcionamento. Todas as chamadas diretas serão bloqueadas.
 
-Para retomar o módulo de borda para um estado operacional, terá de restaurar a conectividade da rede, e o módulo precisa de ser capaz de comunicar com sucesso com a conta do Azure Media Service.
+Para retomar o módulo de borda para um estado operacional, terá de restaurar a conectividade da Internet para que o módulo seja capaz de comunicar com sucesso com a conta do Azure Media Service.
 
 ## <a name="maximum-number-of-graph-instances"></a>Número máximo de instâncias de gráficos
 
-Pode ter no máximo 1000 instâncias de gráfico por módulo (criadas via GraphInstanceSet).
+No máximo 1000 instâncias de gráfico por módulo (criadas via GraphInstanceSet) são suportadas.
 
 ## <a name="maximum-number-of-graph-topologies"></a>Número máximo de topologias de gráficos
 
-Pode ter no máximo 50 topologias de gráficos por módulo (criadas via GraphTopologySet).
+No máximo, são suportadas 50 topologias por módulo (criadas via GraphTopologySet).
 
 ## <a name="limitations-on-graph-topologies-at-preview"></a>Limitações nas topologias de gráficos na pré-visualização
 
@@ -34,17 +34,8 @@ Com o lançamento da pré-visualização, existem limitações em diferentes nó
 
 * Fonte RTSP
    * Apenas uma fonte de RTSP é permitida por topologia de gráfico.
-* Processador de filtro de taxa de fotogramas
-   * Deve ser imediatamente a jusante a partir de fonte RTSP ou processador de deteção de movimentos.
-   * Não é possível ser utilizado a jusante de um processador de extensão HTTP ou gRPC.
-   * Não pode estar a montante de um processador de deteção de movimentos.
-* Processador de extensão HTTP
-   * Pode haver no máximo um desses processadores por topologia de gráficos.
-* processador de extensão gRPC
-   * Pode haver no máximo um desses processadores por topologia de gráficos.
 * Processador de deteção de movimentos
    * Deve ser imediatamente a jusante da fonte RTSP.
-   * Pode haver no máximo um desses processadores por topologia de gráficos.
    * Não é possível ser utilizado a jusante de um processador de extensão HTTP ou gRPC.
 * Processador do portão de sinal
    * Deve ser imediatamente a jusante da fonte RTSP.
@@ -52,11 +43,9 @@ Com o lançamento da pré-visualização, existem limitações em diferentes nó
    * Deve ser imediatamente a jusante da fonte RTSP ou do processador do portão de sinal.
 * Pia de arquivo
    * Deve ser imediatamente a jusante do processador do portão de sinalização.
-   * Não pode ser imediatamente a jusante de um processador de extensão HTTP ou gRPC, ou de deteção de movimentos
+   * Não pode ser imediatamente a jusante de um processador de extensão HTTP ou gRPC ou processador de deteção de movimentos
 * Pia IoT Hub
    * Não pode ser imediatamente a jusante de uma fonte de hub IoT.
-
-Se forem utilizados nós de processador de deteção de movimentos e de taxa de filtro, devem estar na mesma cadeia de nós que conduz ao nó de origem RTSP.
 
 ## <a name="limitations-on-media-service-operations-at-preview"></a>Limitações nas operações do Serviço de Mídia na pré-visualização
 

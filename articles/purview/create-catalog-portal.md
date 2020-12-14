@@ -1,18 +1,18 @@
 ---
 title: 'Quickstart: Criar uma conta Azure Purview no portal Azure (pré-visualização)'
 description: Este Quickstart descreve como criar uma conta Azure Purview e configurar permissões para começar a usá-la.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: 06e62f49b996eac09b9a0a6cb9001eb362833168
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 3119152e4a7d0dc799dfe273722101c95c11c0c9
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359303"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400391"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Quickstart: Criar uma conta Azure Purview no portal Azure
 
@@ -25,7 +25,7 @@ Neste arranque rápido, cria-se uma conta Azure Purview.
 
 * Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
-* Seu próprio [inquilino do Azure Ative Directory.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* O seu próprio [inquilino do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
 
 * A sua conta deve ter permissão para criar recursos na subscrição
 

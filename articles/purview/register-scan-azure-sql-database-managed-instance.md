@@ -1,18 +1,18 @@
 ---
 title: Registar e digitalizar Azure SQL Database Managed Instance
 description: Este tutorial descreve como digitalizar Azure SQL Database Managed Instance
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 09fcaf0fb0c358c1e94d5cd7064c225d7f185ee0
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 6eb17537fd64b192f64c36b38bab57e11d751328
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920313"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400782"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Registe e digitalize uma caixa de dados de base de dados Azure SQL
 

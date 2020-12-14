@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: 8f735ecd4f8b79b4f5bd0c95d0bfb9f280d93833
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 39e058487effea432369b74a9e638f30722ef089
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387348"
+ms.locfileid: "97401717"
 ---
 # <a name="common-errors"></a>Erros comuns
 
@@ -73,8 +73,30 @@ O erro acima pode ocorrer durante a execução do CREATE VIEW com declarações 
 > [!Tip] 
 > Utilize sed ou perl para modificar um ficheiro de despejo ou script SQL para substituir a declaração DEFINER=
 
-## <a name="next-steps"></a>Passos Seguintes
-Se não encontrou a resposta que procurava, considere seguir:
+## <a name="common-connection-errors-for-server-admin-login"></a>Erros de ligação comuns para o login de administração do servidor
+
+Quando é criada uma Base de Dados Azure para o servidor MySQL, um login de administração de servidor é fornecido pelo utilizador final durante a criação do servidor. O login de administração do servidor permite criar novas bases de dados, adicionar novos utilizadores e conceder permissões. Se o login de administração do servidor for eliminado, as suas permissões forem revogadas ou a sua palavra-passe ser alterada, poderá começar a ver erros de ligação na sua aplicação enquanto ligações. Seguem-se alguns dos erros comuns
+
+#### <a name="error-1045-28000-access-denied-for-user-usernameip-address-using-password-yes"></a>ERRO 1045 (28000): Acesso negado para o utilizador 'username'@'IP address' (usando a palavra-passe: SIM)
+
+O erro acima ocorre se:
+
+* O nome de utilizador não existe
+* O nome de utilizador foi eliminado
+* a sua palavra-passe é alterada ou reposta
+
+A resolução para o erro é 
+
+**Resolução:** 
+* Valide se o "nome de utilizador" existir como utilizador válido no servidor ou se for acidentalmente eliminado. Pode executar a seguinte consulta iniciando sessão na Base de Dados Azure para o utilizador MySQL:
+  ```sql
+  select user from mysql.user;
+  ```
+* Se não conseguir iniciar sessão no MySQL para executar a consulta acima, recomendamos que [reinicie a palavra-passe de administração utilizando o portal Azure](howto-create-manage-server-portal.md). A opção de palavra-passe de reset a partir do portal Azure ajudará a recriar o utilizador, redefinir a palavra-passe e restaurar as permissões de administração, que lhe permitirão iniciar sessão usando o administrador do servidor e realizar novas operações.
+
+## <a name="next-steps"></a>Passos seguintes
+Se não encontrou a resposta que procura, considere a seguinte:
+
 - Publique a sua pergunta no [Microsoft Q&Uma página de perguntas](/answers/topics/azure-database-mysql.html) ou Stack [Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
 - Envie um e-mail para a Base de Dados Azure para mySQL Team [ @Ask Azure DB para MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com). Este endereço de e-mail não é um pseudónimo de suporte técnico.
 - Contacte o Suporte Azure, [preencha um bilhete a partir do portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) Para corrigir um problema na sua conta, crie um [pedido de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.

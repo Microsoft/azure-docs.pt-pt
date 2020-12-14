@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Criar e importar termos glossários em Azure Purview (pré-visualização)'
 description: Este tutorial descreve como criar termos glossários, adicionar termos glossários a um ativo, e importar termos glossários.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 3a81d9480dfb07703d5f1ccfb495d069f140dd71
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 4dc8dd84c22d094c87c82f5a920015f886780df2
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555839"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399813"
 ---
 # <a name="tutorial-create-and-import-glossary-terms-in-azure-purview-preview"></a>Tutorial: Criar e importar termos glossários em Azure Purview (pré-visualização)
 
@@ -39,7 +39,7 @@ Neste tutorial, ficará a saber como:
 
 Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-## <a name="create-glossary-terms"></a>Criar termos glossários
+## <a name="create-glossary-terms"></a>Criar termos do glossário
 
 Pode criar termos de negócio ou técnicos no glossário. Também pode anotar os seus bens aplicando-lhes termos.
 
@@ -115,7 +115,7 @@ Neste procedimento, importa termos glossários através de um ficheiro .csv:
 
 Nesta secção, você aprende a criar um modelo de termo personalizado com atributos personalizados e dados de importação usando um ficheiro csv modelo.
 
-Existem vários modelos de termo do Sistema existentes, que pode ver selecionando **o Sistema** de  >  **Modelos de Prazo de Gestão** Glossária  >  **System**.
+Existem vários modelos de termo do Sistema existentes, que pode ver selecionando **o Sistema** de  >  **Modelos de Prazo de Gestão** Glossária  >  .
 
 :::image type="content" source="./media/tutorial-import-create-glossary-terms/system-term-templates.png" alt-text="modelos de prazo do sistema.":::
 

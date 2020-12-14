@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 11c3de703a4b37318b7b99f60d74190fe8ec8610
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 47c837e7a2ee859c7805d6b2e11058bcc02e6c22
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077375"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400578"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Descrição geral dos limites de recursos do Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -65,7 +65,7 @@ Sql Managed Instance tem dois níveis de serviço: [Final geral](../database/ser
 > [!Important]
 > Business Critical o nível de serviço fornece uma cópia adicional incorporada da SQL Managed Instance (réplica secundária) que pode ser usada para carga de trabalho apenas de leitura. Se conseguir separar consultas de leitura-escrita e consultas de leitura/analítica/reporte, está a receber o dobro dos vCores e da memória pelo mesmo preço. A réplica secundária pode ficar alguns segundos atrás da instância primária, por isso é projetada para descarregar cargas de trabalho de reporte/analítico que não precisam do estado exato dos dados atuais. Na tabela abaixo, **as consultas apenas de leitura** são as consultas que são executadas em réplicas secundárias.
 
-| **Destaque** | **Fins Gerais** | **Crítico para a Empresa** |
+| **Funcionalidade** | **Fins Gerais** | **Crítico para a Empresa** |
 | --- | --- | --- |
 | Número de vCores\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64, 80 <br/>\*O mesmo número de vCores é dedicado a consultas apenas de leitura. |
 | Memória máxima | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 20.4 GB - 408 GB (5.1GB/vCore)<br/>Adicione mais vCores para obter mais memória. | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 20.4 GB - 408 GB (5.1GB/vCore) para consultas de leitura-escrita<br/>+ mais 20,4 GB - 408 GB (5.1GB/vCore) para consultas só de leitura.<br/>Adicione mais vCores para obter mais memória. |
@@ -108,7 +108,7 @@ No nível de serviço De Finalidade Geral todos os ficheiros de base de dados re
 
 Se notar uma elevada latência de IO em algum ficheiro de base de dados ou se vir que o IOPS/produção está a atingir o limite, poderá melhorar o desempenho [aumentando o tamanho do ficheiro](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
 
-Existe também um limite de nível de instância na produção de registo máximo (que é de 22 MB/s), pelo que poderá não conseguir alcançar o ficheiro máximo em todo o ficheiro de registo porque está a atingir o limite de produção de caso.
+Existe também um limite de nível de instância na produção de registo máximo (ver acima para valores como 22 MB/s), para que não possa alcançar o ficheiro máximo em todo o ficheiro de registo porque está a atingir o limite de produção de caso.
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
@@ -132,8 +132,8 @@ A SQL Managed Instance suporta atualmente a implementação apenas nos seguintes
 
 Os tipos de subscrição suportados podem conter um número limitado de recursos por região. A SQL Managed Instance tem dois limites por defeito por região de Azure (que podem ser aumentados a pedido através da criação de um pedido especial de [apoio no portal Azure,](../database/quota-increase-request.md) dependendo de um tipo de subscrição:
 
-- **Limite da sub-rede** : O número máximo de sub-redes em que os casos de SQL Managed Instance são implantados numa única região.
-- **vCore limite de unidade** : O número máximo de unidades vCore que podem ser implantadas em todas as instâncias numa única região. Um GP vCore usa uma unidade vCore e uma BC vCore leva 4 unidades vCore. O número total de casos não é limitado enquanto estiver dentro do limite da unidade vCore.
+- **Limite da sub-rede**: O número máximo de sub-redes em que os casos de SQL Managed Instance são implantados numa única região.
+- **vCore limite de unidade**: O número máximo de unidades vCore que podem ser implantadas em todas as instâncias numa única região. Um GP vCore usa uma unidade vCore e uma BC vCore leva 4 unidades vCore. O número total de casos não é limitado enquanto estiver dentro do limite da unidade vCore.
 
 > [!Note]
 > Estes limites são definições padrão e não limitações técnicas. Os limites podem ser aumentados a pedido através da criação de um pedido especial de [apoio no portal Azure,](../database/quota-increase-request.md) caso necessite de mais casos na região atual. Como alternativa, pode criar novos casos de SQL Managed Instance em outra região do Azure sem enviar pedidos de apoio.
@@ -142,7 +142,7 @@ O quadro que se segue mostra os **limites regionais predefinidos** para os tipos
 
 |Tipo de subscrição| Número máximo de sub-redes sql de instância gerida | Número máximo de unidades vCore* |
 | :---| :--- | :--- |
-|Pay as you go|3|320|
+|Pay-as-you-go|3|320|
 |CSP |8 (15 em algumas regiões**)|960 (1440 em algumas regiões**)|
 |Pay-as-you-go Dev/Test|3|320|
 |Enterprise Dev/Test|3|320|
@@ -150,7 +150,7 @@ O quadro que se segue mostra os **limites regionais predefinidos** para os tipos
 |Visual Studio Enterprise|2 |64|
 |Plataformas Visual Studio Professional e MSDN|2|32|
 
-\* Nas implementações de planeamento, tenha em consideração que o nível de serviço Business Critical (BC) requer quatro (4) vezes mais capacidade vCore do que o nível de serviço De Finalidade Geral (GP). Por exemplo: 1 GP vCore = 1 vCore unit e 1 BC vCore = 4 unidades vCore. Para simplificar a sua análise de consumo em função dos limites predefinidos, resumir as unidades vCore em todas as sub-redes da região onde o SQL Managed Instance é implantado e comparar os resultados com os limites de unidade de instância para o seu tipo de subscrição. **O número máximo de unidades vCore** é aplicável a cada subscrição de uma região. Não existe limite por sub-redes individuais, exceto que a soma de todos os vCores implantados em várias sub-redes deve ser inferior ou igual ao **número máximo de unidades vCore** .
+\* Nas implementações de planeamento, tenha em consideração que o nível de serviço Business Critical (BC) requer quatro (4) vezes mais capacidade vCore do que o nível de serviço De Finalidade Geral (GP). Por exemplo: 1 GP vCore = 1 vCore unit e 1 BC vCore = 4 unidades vCore. Para simplificar a sua análise de consumo em função dos limites predefinidos, resumir as unidades vCore em todas as sub-redes da região onde o SQL Managed Instance é implantado e comparar os resultados com os limites de unidade de instância para o seu tipo de subscrição. **O número máximo de unidades vCore** é aplicável a cada subscrição de uma região. Não existe limite por sub-redes individuais, exceto que a soma de todos os vCores implantados em várias sub-redes deve ser inferior ou igual ao **número máximo de unidades vCore**.
 
 \*\* Os limites de sub-rede e vCore de maiores dimensões estão disponíveis nas seguintes regiões: Austrália Oriental, Leste dos EUA, Leste dos EUA 2, Norte da Europa, South Central US, Sudeste Asiático, Reino Unido Sul, Europa Ocidental, Eua Ocidental 2.
 

@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 406233fd93ca76a683cf9f9a9e857de9099705ef
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: df26cfc3b220f40a7e73ff1c750d2b2ae37e7625
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368550"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401462"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Utilize a sintaxe de pesquisa lucene "completa" (consultas avançadas em Pesquisa Cognitiva Azure)
 
@@ -66,9 +66,7 @@ Adicione **`queryType=full`** para invocar a sintaxe de consulta completa, sobre
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 {
-    "count": true,
-    "queryType": "full",
-    "search": "*"
+    "queryType": "full"
 }
 ```
 
@@ -285,5 +283,5 @@ Referência de sintaxe adicional, arquitetura de consulta e exemplos podem ser e
 + [Exemplos de consulta de sintaxe lucene para a construção de consultas avançadas](search-query-lucene-examples.md)
 + [Como funciona a pesquisa em texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Sintaxe de consulta simples](query-simple-syntax.md)
-+ [Sintaxe de consulta lucene completa](query-lucene-syntax.md)
++ [Sintaxe de consulta Lucene completo](query-lucene-syntax.md)
 + [Sintaxe de filtro](search-query-odata-filter.md)

@@ -1,18 +1,18 @@
 ---
 title: Melhores práticas de implementação
 description: Este artigo fornece as melhores práticas para a implementação do Azure Purview. O Azure Purview permite que qualquer utilizador registe, descubra, compreenda e consuma fontes de dados.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: cae4904d0b3dacc608c7b41b638dc507b3cda6b5
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1b2841f69ebe91dac748a4b2e24dc0c33756b1da
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554176"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400697"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Azure Purview implementa as melhores práticas
 

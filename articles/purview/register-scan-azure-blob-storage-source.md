@@ -1,20 +1,20 @@
 ---
 title: Como digitalizar a bolha de armazenamento Azure
 description: Saiba como digitalizar o armazenamento de blob Azure no seu catálogo de dados Azure Purview.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 6d2e2316525465c1ef9f58e7b83b8d0e99d46bd4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1bcd8390a298d7fc46f9c04633f610eb4492d33d
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555019"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400714"
 ---
-# <a name="register-and-scan-azure-blob-storage"></a>Registar e digitalizar o armazenamento da bolha de Azure
+# <a name="register-and-scan-azure-blob-storage"></a>Registar e analisar o Armazenamento de Blobs do Azure
 
 Este artigo descreve como registar uma conta de Armazenamento Azure Blob em Purview e configurar uma digitalização.
 
