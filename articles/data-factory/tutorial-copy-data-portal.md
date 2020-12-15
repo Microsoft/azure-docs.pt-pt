@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 11/11/2020
+ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: ef9ac29735289d5c7a60ff0fca3b9e9f360f6e08
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 34eb34a86948a2b4c043d5d9b58b50958855e449
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005134"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508719"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Copie os dados do armazenamento do Azure Blob para uma base de dados na Base de Dados Azure SQL utilizando a Azure Data Factory
 
@@ -26,7 +26,7 @@ ms.locfileid: "96005134"
 Neste tutorial, vai criar uma fábrica de dados com a interface de utilizador (IU) do Azure Data Factory. O oleoduto desta fábrica de dados copia dados do armazenamento da Azure Blob para uma base de dados na Base de Dados Azure SQL. O padrão de configuração neste tutorial aplica-se à cópia a partir de um arquivo de dados baseado em ficheiros para um arquivo de dados relacional. Para obter uma lista dos arquivos de dados suportados como origens e sinks, consulte a tabela de [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
 
 > [!NOTE]
-> - Se não estiver familiarizado com o Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).
+> Se não estiver familiarizado com o Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).
 
 Neste tutorial, vai executar os seguintes passos:
 
@@ -81,25 +81,27 @@ Agora, prepare o Armazenamento de blobs e a Base de Dados SQL para o tutorial, a
 Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para criar um pipeline na fábrica de dados.
 
 1. Abra **o Microsoft Edge** ou o Google **Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-2. No menu esquerdo, **selecione Criar uma** Fábrica de  >  Dados **de Integração de**  >  **Data Factory** Recursos.
-3. Na página **Nova fábrica de dados**, em **Nome**, introduza **ADFTutorialDataFactory**.
+2. No menu esquerdo, **selecione Criar uma** Fábrica de  >  Dados **de Integração de**  >  Recursos.
+3. Na página **'Criar Fábrica de** Dados', no separador **Basics,** selecione a **Assinatura** Azure na qual pretende criar a fábrica de dados.
+4. Em **Grupo de Recursos**, efetue um destes passos:
+
+    a. Selecione um grupo de recursos existente da lista de drop-down.
+
+    b. **Selecione Criar novo** e insira o nome de um novo grupo de recursos.
+    
+    Para saber mais sobre grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md). 
+5. Sob **Região,** selecione uma localização para a fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (por exemplo, o Armazenamento do Azure e a Base de Dados SQL) e as computações (por exemplo, o Azure HDInsight) que a fábrica de dados utiliza podem estar noutras regiões.
+6. Under **Name**, **insira ADFTutorialDataFactory**.
 
    O nome da fábrica de dados Azure deve ser *globalmente único.* Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. (por exemplo, o seu nomeADFTutorialDataFactory). Para obter as regras de nomenclatura dos artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
 
      ![Nova fábrica de dados](./media/doc-common-process/name-not-available-error.png)
-4. Selecione a **subscrição** do Azure na qual pretende criar a fábrica de dados.
-5. Em **Grupo de Recursos**, efetue um destes passos:
 
-    a. Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente.
-
-    b. Selecione **Criar novo** e introduza o nome de um grupo de recursos. 
-         
-    Para saber mais sobre grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md). 
-6. Em **Versão**, selecione **V2**.
-7. Em **Localização**, selecione uma localização para a fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (por exemplo, o Armazenamento do Azure e a Base de Dados SQL) e as computações (por exemplo, o Azure HDInsight) que a fábrica de dados utiliza podem estar noutras regiões.
-8. Selecione **Criar**.
-9. Depois de concluída a criação, vê o aviso no Centro de Notificações. Selecione **Ir para o recurso** para navegar para a página de fábrica de dados.
-10. Selecione **Criar e Monitorizar** para iniciar a IU do Data Factory num separador à parte.
+7. Em **Versão**, selecione **V2**.
+8. Selecione o **separador de configuração Git** na parte superior e selecione a caixa de verificação **de Configure Git posteriormente.**
+9. Selecione **Rever + criar** e selecione **Criar** depois de passar a validação.
+10. Depois de concluída a criação, vê o aviso no Centro de Notificações. Selecione **Ir para o recurso** para navegar para a página de fábrica de dados.
+11. Selecione **Author & Monitor** para lançar a UI da Fábrica de Dados Azure num separador.
 
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline
@@ -115,7 +117,7 @@ Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar s
 
    ![Criar pipeline](./media/doc-common-process/get-started-page.png)
 
-1. 1. No painel geral de **propriedades**, especifique **copyPipeline** para **nome**. Em seguida, desabar o painel clicando no ícone Propriedades no canto superior direito.
+1. No painel geral de **propriedades**, especifique **copyPipeline** para **nome**. Em seguida, desabar o painel clicando no ícone Propriedades no canto superior direito.
 
 1. Na caixa de **ferramentas Atividades,** expanda a categoria **Move and Transform** e arraste e deixe cair a atividade de **Dados** de Cópia da caixa de ferramentas para a superfície do designer de gasodutos. Especifique **CopyFromBlobToSql** em **Nome**.
 

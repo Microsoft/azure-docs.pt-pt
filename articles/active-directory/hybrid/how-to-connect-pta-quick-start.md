@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bdfb1ca21860f1dc338f85a82caf643f9f7be6d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 31bdfc7e3eca2a2678b75b80973a1680448737d1
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973206"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507681"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Autenticação pass-through do Azure Ative Directory: Quickstart
 
@@ -72,7 +72,7 @@ Certifique-se de que existem os seguintes pré-requisitos.
      | **8080** (opcional) | Os Agentes de Autenticação reportam o seu estado a cada dez minutos sobre a porta 8080, se a porta 443 não estiver disponível. Este estado é apresentado no portal AD Azure. A porta 8080 _não_ é utilizada para os pedidos de s presenciar. |
      
      Se o seu firewall aplicar as regras de acordo com os utilizadores originários, abra estas portas para tráfego a partir de serviços Windows que funcionam como um serviço de rede.
-   - Se a sua firewall ou proxy permitir a whitelisting do DNS, adicione ligações a **\* .msappproxy.net** e **\* .servicebus.windows.net**. Caso contrário, permita o acesso aos intervalos IP do [datacenter Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente.
+   - Se a sua firewall ou proxy permitir que adicione entradas DNS a uma lista de admissões, adicione ligações a **\* .msappproxy.net** e **\* .servicebus.windows.net**. Caso contrário, permita o acesso aos intervalos IP do [datacenter Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente.
    - Os seus Agentes de Autenticação precisam de acesso a **login.windows.net** e **login.microsoftonline.com** para inscrição inicial. Abra a firewall para os URLs também.
     - Para validação de certificados, desbloqueie os seguintes URLs: **crl3.digicert.com:80,** **crl4.digicert.com:80,** **ocsp.digicert.com:80,** **www \. d-trust.net:80**, **root-c3-ca2-2009.ocsp.d-trust.net:80,** **crl.microsoft.com:80,** **oneocsp.microsoft.com:80** e **ocsp.msocsp.com:80**. Uma vez que estes URLs são utilizados para validação de certificados com outros produtos da Microsoft, pode já ter estes URLs desbloqueados.
 
@@ -88,7 +88,7 @@ Ativar a autenticação pass-through [Azure AD Connect](whatis-hybrid-identity.m
 >[!IMPORTANT]
 >Pode ativar a autenticação pass-through no servidor primário ou de paragem do Azure AD Connect. É altamente recomendável que o ative a partir do servidor primário. Se estiver a configurar um servidor de paragem Azure AD Connect no futuro, **deve** continuar a escolher a Autenticação Pass-through como opção de inscrição; a escolha de outra opção irá **desativar** a autenticação pass-through no arrendatário e anular a definição no servidor primário.
 
-Se estiver a instalar o Azure AD Connect pela primeira vez, escolha o [caminho de instalação personalizado](how-to-connect-install-custom.md). Na página de início de **Pass-through Authentication** **sôm.** **Sign On method** Após a conclusão com sucesso, um Agente de Autenticação Pass-through é instalado no mesmo servidor que o Azure AD Connect. Além disso, a função de Autenticação Pass-through está ativada no seu inquilino.
+Se estiver a instalar o Azure AD Connect pela primeira vez, escolha o [caminho de instalação personalizado](how-to-connect-install-custom.md). Na página de início de  **sôm.**  Após a conclusão com sucesso, um Agente de Autenticação Pass-through é instalado no mesmo servidor que o Azure AD Connect. Além disso, a função de Autenticação Pass-through está ativada no seu inquilino.
 
 ![Azure AD Connect: Iniciar sação do utilizador](./media/how-to-connect-pta-quick-start/sso3.png)
 

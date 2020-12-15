@@ -5,12 +5,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 774f9e485c58712ea8648a148c92b6f9ef6a58c0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d24645ada2ef4ac12101aa747aacc1bbf90f123e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452611"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509262"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Quickstart: Use filas de autocarros da Azure Service com a Java para enviar e receber mensagens
 
@@ -18,7 +18,7 @@ ms.locfileid: "96452611"
 Neste tutorial, você aprende a criar aplicações Java para enviar mensagens e receber mensagens de uma fila de ônibus de serviço Azure. 
 
 > [!WARNING]
->  Este quickstart utiliza os antigos pacotes de serviços azure. Para obter um arranque rápido que utilize o mais recente pacote de serviços de mensagens azure, consulte [Enviar e receber mensagens usando o azure-messaging-servicebus](service-bus-java-how-to-use-queues.md). 
+>  Este quickstart usa os `azure-servicebus` pacotes antigos. Para obter um arranque rápido que utilize o pacote mais `azure-messaging-servicebus` recente, consulte [Enviar e receber mensagens `azure-messaging-servicebus` utilizando ](service-bus-java-how-to-use-queues.md). 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -136,7 +136,7 @@ O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas
     void registerReceiver(QueueClient queueClient) throws Exception {
         // register the RegisterMessageHandler callback
         queueClient.registerMessageHandler(new IMessageHandler() {
-        // callback invoked when the message handler loop has obtained a message
+            // callback invoked when the message handler loop has obtained a message
             public CompletableFuture<Void> onMessageAsync(IMessage message) {
             // receives message is passed to callback
                 if (message.getLabel() != null &&
@@ -183,8 +183,7 @@ No caso de a aplicação falhar após o processamento da mensagem, mas antes de 
 > Você pode gerir os recursos de Service Bus com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nomes de Service Bus e administram as entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Você pode encontrar amostras de Java no GitHub no [repositório azure-service-bus](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
-
+Pode encontrar amostras de Java no GitHub no [ `azure-service-bus` repositório.](https://github.com/Azure/azure-service-bus/tree/master/samples/Java)
 
 [Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started
 [Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation

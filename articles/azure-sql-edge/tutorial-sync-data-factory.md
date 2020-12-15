@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 672c9f0d5403ae27a26d58617dca44f0f1121411
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b83201ae864d1f1eb9124af5268360bb1748f6c8
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904161"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507613"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Tutorial: Sincronizar dados do SQL Edge para o armazenamento do Azure Blob utilizando a Azure Data Factory
 
 Neste tutorial, você usará Azure Data Factory para sincronizar gradualmente os dados para o armazenamento de Azure Blob a partir de uma tabela em um caso de Azure SQL Edge.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Se ainda não criou uma base de dados ou tabela na sua implementação Azure SQL Edge, utilize um destes métodos para criar um:
 
@@ -59,8 +59,11 @@ Executar estes comandos na instância SQL Edge:
     CREATE PROCEDURE usp_write_watermark @timestamp datetime, @TableName varchar(50)  
     AS  
     BEGIN
+    
     UPDATE [dbo].[watermarktable]
-    SET [WatermarkValue] = @timestamp WHERE [TableName] = @TableName
+    SET [WatermarkValue] = @timestamp
+    WHERE [TableName] = @TableName
+
     END
     Go
 ```
@@ -87,7 +90,7 @@ Crie uma fábrica de dados seguindo as instruções [deste tutorial.](../data-fa
 
 4. Mude para o **separador Definições** e selecione **Novo** para **conjunto de dados de origem**. Irá agora criar um conjunto de dados para representar dados na tabela de marca de água. Esta tabela contém o limite de tamanho antigo que foi utilizado na operação de cópia anterior.
 
-5. Na janela **New Dataset,** selecione **O Servidor SQL Azure**e, em seguida, selecione **Continue**.  
+5. Na janela **New Dataset,** selecione **O Servidor SQL Azure** e, em seguida, selecione **Continue**.  
 
 6. Na janela **De propriedades definidas** para o conjunto de dados, em **Nome,** **introduza o WatermarkDataset**.
 
@@ -129,7 +132,7 @@ Crie uma fábrica de dados seguindo as instruções [deste tutorial.](../data-fa
 
 14. Mude para o editor de gasoduto selecionando o separador de gasoduto na parte superior ou selecionando o nome do gasoduto na vista da árvore à esquerda. Na janela de propriedades para a atividade Do Lookup, confirme que o **SourceDataset** está selecionado na lista **de conjuntos de dados Source.**
 
-15. Selecione **Consulta** em **consulta de utilização**. Atualize o nome da tabela na seguinte consulta e, em seguida, insira a consulta. Está selecionando apenas o valor máximo `timestamp` da tabela. Certifique-se de selecionar **apenas**a primeira fila .
+15. Selecione **Consulta** em **consulta de utilização**. Atualize o nome da tabela na seguinte consulta e, em seguida, insira a consulta. Está selecionando apenas o valor máximo `timestamp` da tabela. Certifique-se de selecionar **apenas** a primeira fila .
 
     ```sql
     select MAX(timestamp) as NewWatermarkvalue from [TableName]
@@ -137,7 +140,7 @@ Crie uma fábrica de dados seguindo as instruções [deste tutorial.](../data-fa
 
     ![selecione consulta](media/tutorial-sync-data-factory/select-query-data-factory.png)
 
-16. No painel **de Atividades,** expanda **a move & Transforme** e arraste a atividade copy do painel de **Atividades** para a superfície do designer. **Copy** Desa ajuste o nome da atividade para **IncrementalCopy**.
+16. No painel **de Atividades,** expanda **a move & Transforme** e arraste a atividade copy do painel de **Atividades** para a superfície do designer.  Desa ajuste o nome da atividade para **IncrementalCopy**.
 
 17. Ligue ambas as atividades Lookup à atividade Copy ao arrastar o botão verde associado às atividades Lookup para a atividade Copy. Solte o botão do rato quando vir a cor da borda da atividade Copy mudar para azul.
 
@@ -157,7 +160,7 @@ Crie uma fábrica de dados seguindo as instruções [deste tutorial.](../data-fa
 
 20. No **separador Sink,** selecione **Novo** no **Conjunto de Dados de Sink**.
 
-21. Neste tutorial, a loja de dados da pia é uma loja de dados de armazenamento Azure Blob. Selecione **o armazenamento de Azure Blob**e, em seguida, selecione **Continue** na janela Novo Conjunto **de Dados.**
+21. Neste tutorial, a loja de dados da pia é uma loja de dados de armazenamento Azure Blob. Selecione **o armazenamento de Azure Blob** e, em seguida, selecione **Continue** na janela Novo Conjunto **de Dados.**
 
 22. Na janela **'Selecionar Formato',** selecione o formato dos seus dados e, em seguida, selecione **Continue**.
 
@@ -179,7 +182,7 @@ Crie uma fábrica de dados seguindo as instruções [deste tutorial.](../data-fa
 
     1. Na **trajetória do Ficheiro**, *introduza asdedatassync/incrementalcopia,* onde *asdedatasync* é o nome do recipiente blob e *incrementalcopia* é o nome da pasta. Crie o recipiente se não existir, ou use o nome de um existente. A Azure Data Factory cria automaticamente a pasta de saída *incrementalcopia* se não existir. Também pode utilizar o botão **Procurar** do **Caminho do ficheiro** para navegar para uma pasta num contentor de blobs.
 
-    2. Para a parte **do Ficheiro** do **caminho 'Ficheiro',** selecione **Adicionar conteúdo dinâmico [Alt+P]** e, em seguida, introduza ** @CONCAT ('Incremental-', pipeline(). RunId, '.txt')** na janela que se abre. Selecione **Concluir**. O nome do ficheiro é gerado dinamicamente pela expressão. Cada execução de pipeline tem um ID exclusivo. A atividade Copy utiliza o ID de execução para gerar o nome do ficheiro.
+    2. Para a parte **do Ficheiro** do **caminho 'Ficheiro',** selecione **Adicionar conteúdo dinâmico [Alt+P]** e, em seguida, introduza **@CONCAT ('Incremental-', pipeline(). RunId, '.txt')** na janela que se abre. Selecione **Concluir**. O nome do ficheiro é gerado dinamicamente pela expressão. Cada execução de pipeline tem um ID exclusivo. A atividade Copy utiliza o ID de execução para gerar o nome do ficheiro.
 
 28. Mude para o editor de gasoduto selecionando o separador de gasoduto na parte superior ou selecionando o nome do gasoduto na vista da árvore à esquerda.
 
@@ -187,7 +190,7 @@ Crie uma fábrica de dados seguindo as instruções [deste tutorial.](../data-fa
 
 30. Selecione **Atividade de Procedimento Armazenado** no designer de gasodutos e altere o seu nome para **SPtoUpdateWatermarkActivity**.
 
-31. Mude para o separador **conta SQL** e selecione ***QLDBEdgeLinkedService** sob **o serviço Linked**.
+31. Mude para o separador **conta SQL** e selecione **_QLDBEdgeLinkedService_* sob **o serviço Linked**.
 
 32. Mude para o **separador Procedimento Armazenado** e complete estes passos:
 

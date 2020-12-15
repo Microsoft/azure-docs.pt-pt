@@ -12,12 +12,12 @@ ms.date: 12/10/2020
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 698864a4dc1081cb8cad9036ff1cfc737a17473c
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 53f5346030e3c5a247d1ad2a73b23882e83ed41a
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111480"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508123"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Adicione atributos do utilizador e personalize a entrada do utilizador no Azure Ative Directory B2C
 
@@ -129,7 +129,7 @@ Para fornecer uma lista definida de valores para o atributo da cidade:
 ::: zone pivot="b2c-custom-policy"
 
 > [!NOTE]
-> Esta amostra usa a reivindicação incorporada "cidade". Em vez disso, pode escolher um dos [atributos incorporados Azure AD B2C suportados](user-profile-attributes.md) ou um atributo personalizado. Para utilizar um atributo personalizado, [ative atributos personalizados na sua política](custom-policy-custom-attributes.md). Para utilizar um atributo incorporado ou personalizado diferente, substitua a 'cidade' pelo atributo à sua escolha, por exemplo, o *atributo incorporado, o JobTit* ou um atributo personalizado como *extension_loyaltyId*.  
+> Esta amostra usa a reivindicação incorporada "cidade". Em vez disso, pode escolher um dos [atributos incorporados Azure AD B2C suportados](user-profile-attributes.md) ou um atributo personalizado. Para utilizar um atributo personalizado, [ative os atributos personalizados](user-flow-custom-attributes.md). Para utilizar um atributo incorporado ou personalizado diferente, substitua a 'cidade' pelo atributo à sua escolha, por exemplo, o *atributo incorporado, o JobTit* ou um atributo personalizado como *extension_loyaltyId*.  
 
 Pode recolher dados iniciais dos seus utilizadores utilizando a viagem de utilizador de inscrição ou de inscrição. As reclamações adicionais podem ser recolhidas mais tarde utilizando uma viagem de utilizador de edição de perfil. Sempre que a Azure AD B2C recolhe informações diretamente do utilizador interativamente, o Quadro de Experiência de Identidade utiliza o seu [perfil técnico autoafirmado.](self-asserted-technical-profile.md) Nesta amostra, você:
 
@@ -342,6 +342,6 @@ O token enviado de volta para o seu pedido inclui a `city` reclamação.
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o elemento [ClaimsSchema](claimsschema.md) na referência IEF.
-- Saiba como [usar atributos personalizados numa política de edição de perfis personalizados.](custom-policy-custom-attributes.md)
+- Saiba como [utilizar atributos personalizados em Azure AD B2C](user-flow-custom-attributes.md).
 
 ::: zone-end

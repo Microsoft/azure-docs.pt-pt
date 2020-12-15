@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6c9e5b6466d3da675975dbf2c532602561e820c9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 417306e09a9424b302bb226aea5dd2c1debe96f5
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495077"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508429"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas Spark dos oleodutos Azure Data Factory
 
@@ -65,7 +65,7 @@ Para criar uma fábrica de dados, siga estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. Selecione **Novos**  >  Dados + Fábrica de Dados **Analíticos.**  >  **Data Factory**
+1. Selecione **Novos**  >  Dados + Fábrica de Dados **Analíticos.**  >  
 
 1. Na nova lâmina da **fábrica de dados,** em **Nome,** insira **a SparkDF**.
 
@@ -118,13 +118,13 @@ Neste passo, cria um serviço ligado ao HDInsight para ligar o seu cluster HDIns
 
 1. Copie e cole o fragmento seguinte na janela Rascunho-1. No editor da JSON, tome os seguintes passos:
 
-    a. Especifique o URI para o cluster HDInsight Spark. Por exemplo: `https://<sparkclustername>.azurehdinsight.net/`.
+    1. Especifique o URI para o cluster HDInsight Spark. Por exemplo: `https://<sparkclustername>.azurehdinsight.net/`.
 
-    b. Especifique o nome do utilizador que tem acesso ao cluster Spark.
+    1. Especifique o nome do utilizador que tem acesso ao cluster Spark.
 
-    c. Especifique a palavra-passe do utilizador.
+    1. Especifique a palavra-passe do utilizador.
 
-    d. Especifique o serviço ligado ao armazenamento que está associado ao cluster HDInsight Spark. Neste exemplo, é AzureStorageLinkedService.
+    1. Especifique o serviço ligado ao armazenamento que está associado ao cluster HDInsight Spark. Neste exemplo, é AzureStorageLinkedService.
 
     ```json
     {
@@ -213,20 +213,21 @@ Neste passo, cria-se um oleoduto com uma atividade HDInsightSpark. Atualmente, o
         }
     }
     ```
+
     Tenha em atenção os seguintes pontos:
 
-    a. A propriedade **tipo** está definida para **HDInsightSpark.**
+    1. A propriedade **tipo** está definida para **HDInsightSpark.**
 
-    b. A propriedade **rootPath** está definida para **adfspark \\ pyFiles** onde adfspark é o recipiente blob e pyFiles é pasta de arquivo nesse recipiente. Neste exemplo, o armazenamento de bolhas é o que está associado ao cluster Spark. Pode fazer o upload do ficheiro para uma conta de armazenamento diferente. Se o fizer, crie um serviço ligado ao Armazenamento para ligar essa conta de armazenamento à fábrica de dados. Em seguida, especifique o nome do serviço ligado como um valor para a propriedade **sparkJobLinkedService.** Para mais informações sobre esta propriedade e outros imóveis suportados pela atividade Spark, consulte [as propriedades da atividade spark.](#spark-activity-properties)
+    1. A propriedade **rootPath** está definida para **adfspark \\ pyFiles** onde adfspark é o recipiente blob e pyFiles é pasta de arquivo nesse recipiente. Neste exemplo, o armazenamento de bolhas é o que está associado ao cluster Spark. Pode fazer o upload do ficheiro para uma conta de armazenamento diferente. Se o fizer, crie um serviço ligado ao Armazenamento para ligar essa conta de armazenamento à fábrica de dados. Em seguida, especifique o nome do serviço ligado como um valor para a propriedade **sparkJobLinkedService.** Para mais informações sobre esta propriedade e outros imóveis suportados pela atividade Spark, consulte [as propriedades da atividade spark.](#spark-activity-properties)
 
-    c. A **propriedade in entryFilePath** está definida para **test.py**, que é o ficheiro Python.
+    1. A **propriedade in entryFilePath** está definida para **test.py**, que é o ficheiro Python.
 
-    d. A propriedade **getDebugInfo** está definida para **Always**, o que significa que os ficheiros de registo são sempre gerados (sucesso ou falha).
+    1. A propriedade **getDebugInfo** está definida para **Always**, o que significa que os ficheiros de registo são sempre gerados (sucesso ou falha).
 
-    > [!IMPORTANT]
-    > Recomendamos que não coloque esta propriedade num ambiente de produção a `Always` menos que esteja a resolver um problema.
+       > [!IMPORTANT]
+       > Recomendamos que não se ajuste a esta propriedade `Always` num ambiente de produção, a menos que esteja a resolver problemas.
 
-    e. A secção **de saídas** tem um conjunto de dados de saída. Tem de especificar um conjunto de dados de saída mesmo que o programa Spark não produza qualquer saída. O conjunto de dados de saída impulsiona o calendário do gasoduto (de hora em hora, diariamente).
+    1. A secção **de saídas** tem um conjunto de dados de saída. Tem de especificar um conjunto de dados de saída mesmo que o programa Spark não produza qualquer saída. O conjunto de dados de saída impulsiona o calendário do gasoduto (de hora em hora, diariamente).
 
     Para obter mais informações sobre os imóveis suportados pela atividade Spark, consulte a secção [Propriedades de atividade spark](#spark-activity-properties).
 

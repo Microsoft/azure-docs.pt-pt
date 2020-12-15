@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 11/09/2020
-ms.openlocfilehash: 6dba148f0cde81905bc66f7750ff5e04edc948aa
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: d1a7f47b1cdccb02952bd7d9d333855f5eec27d5
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566400"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508531"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Carregue gradualmente os dados da Base de Dados Azure SQL para o armazenamento de Azure Blob utilizando o portal Azure
 
@@ -143,8 +143,8 @@ AS
 
 BEGIN
 
-    UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime
+UPDATE watermarktable
+SET [WatermarkValue] = @LastModifiedtime
 WHERE [TableName] = @TableName
 
 END
@@ -153,17 +153,17 @@ END
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-2. No menu esquerdo, **selecione Criar uma** Fábrica de  >  Dados de **Integração de** Recursos  >  **Data Factory** :
+2. No menu esquerdo, **selecione Criar uma** Fábrica de  >  Dados de **Integração de** Recursos  >  :
 
    ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-3. Na página **Nova fábrica de dados** , introduza **ADFIncCopyTutorialDF** no **nome**.
+3. Na página **Nova fábrica de dados**, introduza **ADFIncCopyTutorialDF** no **nome**.
 
    O nome da Fábrica de Dados Azure deve ser **globalmente único.** Se vir um ponto de exclamação vermelho com o seguinte erro, altere o nome da fábrica de dados (por exemplo, oseunomeADFIncCopyTutorialDF) e tente criá-la novamente. Veja o artigo [Data Factory – Naming Rules](naming-rules.md) (Data Factory – Regras de Nomenclatura) para obter as regras de nomenclatura dos artefactos do Data Factory.
 
     *O nome da fábrica de dados "ADFIncCopyTutorialDF" não está disponível*
 4. Selecione a sua subscrição do **Azure** na qual pretende criar a fábrica de dados.
-5. No **Grupo de Recursos** , siga um destes passos:
+5. No **Grupo de Recursos**, siga um destes passos:
 
       - Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente.
       - Selecione **Criar novo** e introduza o nome de um grupo de recursos.   
@@ -172,7 +172,7 @@ END
 6. Selecione **V2** para a **versão**.
 7. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. As lojas de dados (Azure Storage, Azure SQL Database, Azure SQL Managed Instance, e assim por diante) e computas (HDInsight, etc.) utilizadas pela fábrica de dados podem estar noutras regiões.
 8. Clique em **Criar**.      
-9. Depois de concluída a criação, vai ver a página **Data Factory** , conforme mostrado na imagem.
+9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
 
    ![Home page da fábrica de dados](./media/doc-common-process/data-factory-home-page.png)
 10. Clique no mosaico **Criar e Monitorizar** para iniciar a interface de utilizador (IU) do Azure Data Factory num separador à parte.
@@ -183,9 +183,9 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
 1. Na página **introdução** da IU do Data Factory , clique no mosaico **Criar pipeline**.
 
    ![Página de introdução da IU do Data Factory](./media/doc-common-process/get-started-page.png)    
-3. No painel geral em **Propriedades** , especifique **incrementalCopyPipeline** para **nome**. Em seguida, desabar o painel clicando no ícone Propriedades no canto superior direito.
+3. No painel geral em **Propriedades**, especifique **incrementalCopyPipeline** para **nome**. Em seguida, desabar o painel clicando no ícone Propriedades no canto superior direito.
 
-4. Vamos adicionar a primeira atividade Lookup para obter o valor de limite de tamanho antigo. Na caixa de ferramentas **Atividades** , expanda **Geral** e arraste e largue a atividade **Lookup** na superfície de desenho do pipeline. Altere o nome da atividade para **LookupOldWaterMarkActivity**.
+4. Vamos adicionar a primeira atividade Lookup para obter o valor de limite de tamanho antigo. Na caixa de ferramentas **Atividades**, expanda **Geral** e arraste e largue a atividade **Lookup** na superfície de desenho do pipeline. Altere o nome da atividade para **LookupOldWaterMarkActivity**.
 
    ![Primeira atividade Lookup - nome](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
 5. Mude para o separador **Definições** e clique em **+ Novo** em **Conjunto de Dados de Origem**. Neste passo, vai criar um conjunto de dados para representar os dados em **watermarktable**. Esta tabela contém o limite de tamanho antigo que foi utilizado na operação de cópia anterior.
@@ -194,12 +194,12 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
 
 7. Na janela **De propriedades definidas** para o conjunto de dados, introduza **o WatermarkDataset** para **nome**.
 
-8. Para **Serviço Ligado** , selecione **New** , e, em seguida, faça os seguintes passos:
+8. Para **Serviço Ligado**, selecione **New**, e, em seguida, faça os seguintes passos:
 
     1. Introduza **AzureSqlDatabaseLinkedService** em **Nome**.
     2. Selecione o seu servidor para **o nome do Servidor**.
     3. Selecione o **nome da base de dados** na lista de dropdown.
-    4. Introduza **User name** a sua  &  **palavra-passe** com o nome de utilizador .
+    4. Introduza a sua  &  **palavra-passe** com o nome de utilizador .
     5. Para testar a ligação à base de dados SQL, clique na **ligação de teste**.
     6. Clique em **Concluir**.
     7. Confirme que **o AzureSqlDatabaseLinkedService** está selecionado para **o serviço Linked**.
@@ -209,17 +209,17 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
 9. No separador **'Ligação',** selecione **[dbo].[ watermarktable]** para **a tabela**. Se quiser pré-visualizar os dados na tabela, clique em **Pré-visualizar dados**.
 
     ![Conjunto de dados de limite de tamanho - definições de ligação](./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png)
-10. Clique no separador do pipeline, na parte superior, ou clique no nome do pipeline na vista de árvore, do lado esquerdo, para mudar para o editor do pipeline. Na janela de propriedades da atividade **Lookup** , confirme que **WatermarkDataset** está selecionado no campo **Conjunto de Dados de Origem**.
+10. Clique no separador do pipeline, na parte superior, ou clique no nome do pipeline na vista de árvore, do lado esquerdo, para mudar para o editor do pipeline. Na janela de propriedades da atividade **Lookup**, confirme que **WatermarkDataset** está selecionado no campo **Conjunto de Dados de Origem**.
 
-11. Na caixa de ferramentas **Atividades** , expanda **Geral** e arraste e largue outra atividade **Lookup** na superfície de desenho do pipeline e defina o nome como **LookupNewWaterMarkActivity** no separador **Geral** da janela de propriedades. Esta atividade Lookup obtém o valor de limite de tamanho antigo da tabela com a origem de dados que vai ser copiada para o destino.
+11. Na caixa de ferramentas **Atividades**, expanda **Geral** e arraste e largue outra atividade **Lookup** na superfície de desenho do pipeline e defina o nome como **LookupNewWaterMarkActivity** no separador **Geral** da janela de propriedades. Esta atividade Lookup obtém o valor de limite de tamanho antigo da tabela com a origem de dados que vai ser copiada para o destino.
 
-12. Na janela de propriedades da segunda atividade **Lookup** , mude para o separador **Definições** e clique em **Novo**. Crie um conjunto de dados que aponte para a tabela de origem que contém o valor de limite de tamanho novo (valor máximo de LastModifyTime).
+12. Na janela de propriedades da segunda atividade **Lookup**, mude para o separador **Definições** e clique em **Novo**. Crie um conjunto de dados que aponte para a tabela de origem que contém o valor de limite de tamanho novo (valor máximo de LastModifyTime).
 
 13. Na janela **New Dataset,** selecione **Azure SQL Database** e clique em **Continuar**.
 14. Na janela **'Definir propriedades',** insira **o Conjunto de Dados de** **Origem** para nome . Selecione **AzureSqlDatabaseLinkedService** em **Serviço ligado**.
 15. Selecione **[dbo].[ data_source_table]** para a Mesa. Vai especificar uma consulta neste conjunto de dados mais adiante no tutorial. A consulta tem precedência sobre a tabela a que especificar neste passo.
 16. Selecione **Concluir**.
-17. Clique no separador do pipeline, na parte superior, ou clique no nome do pipeline na vista de árvore, do lado esquerdo, para mudar para o editor do pipeline. Na janela de propriedades da atividade **Lookup** , confirme que **SourceDataset** está selecionado no campo **Conjunto de Dados de Origem**.
+17. Clique no separador do pipeline, na parte superior, ou clique no nome do pipeline na vista de árvore, do lado esquerdo, para mudar para o editor do pipeline. Na janela de propriedades da atividade **Lookup**, confirme que **SourceDataset** está selecionado no campo **Conjunto de Dados de Origem**.
 18. Selecione **Consulta** no campo **Utilizar Consulta** e introduza a consulta seguinte; só está a selecionar o valor máximo de **LastModifytime** de **data_ source_table**. Por favor, certifique-se de que também verificou **apenas a primeira fila**.
 
     ```sql
@@ -234,7 +234,7 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
     ![Ligar atividades Lookup à atividade Copy](./media/tutorial-incremental-copy-portal/connection-lookups-to-copy.png)
 21. Selecione a **atividade Copy** e confirme que vê as propriedades da atividade na janela **Propriedades**.
 
-22. Mude para o separador **Origem** , na janela **Propriedades** , e siga os passos abaixo:
+22. Mude para o separador **Origem**, na janela **Propriedades**, e siga os passos abaixo:
 
     1. Selecione **SourceDataset** no campo **Conjunto de Dados de Origem**.
     2. Selecione **Consulta** no campo **Utilizar Consulta**.
@@ -249,7 +249,7 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
 
 24. Neste tutorial, o arquivo de dados de sink é do tipo Armazenamento de Blobs do Azure. Por isso, selecione **Azure Blob Storage** e clique em **Continuar** na janela **Novo Conjunto de Dados.**
 25. Na janela **'Selecionar Formato',** selecione o tipo de formato dos seus dados e clique em **Continuar**.
-25. Na janela **'Definir propriedades',** insira **o SinkDataset** para **o nome**. Para **Serviço Ligado** , selecione + **Novo**. Neste passo, vai criar uma ligação (serviço ligado) para o **Armazenamento de Blobs do Azure**.
+25. Na janela **'Definir propriedades',** insira **o SinkDataset** para **o nome**. Para **Serviço Ligado**, selecione + **Novo**. Neste passo, vai criar uma ligação (serviço ligado) para o **Armazenamento de Blobs do Azure**.
 26. Na janela **New Linked Service (Azure Blob Storage),** faça os seguintes passos:
 
     1. Introduza **AzureStorageLinkedService** em **Nome**.
@@ -258,11 +258,11 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
 
 27. Na janela **set Properties,** confirme que o **AzureStorageLinkedService** está selecionado para **o serviço Linked**. Em seguida, **selecione Terminar**.
 28. Vá ao separador **'Ligação** do SinkDataset' e faça os seguintes passos:
-    1. Para o campo **de percurso de arquivo,** **introduza adftutorial/incrementalcopia**. **adftutorial** é o nome do contentor de blobs e **incrementalcopy** é o nome da pasta. Este fragmento parte do princípio de que tem um contentor de blobs denominado adftutorial no armazenamento de blobs. Crie o contentor se ainda não existir ou defina-o como o nome de um contentor existente. O Azure Data Factory cria automaticamente a pasta de saída **incrementalcopy** , se não existir. Também pode utilizar o botão **Procurar** do **Caminho do ficheiro** para navegar para uma pasta num contentor de blobs.
+    1. Para o campo **de percurso de arquivo,** **introduza adftutorial/incrementalcopia**. **adftutorial** é o nome do contentor de blobs e **incrementalcopy** é o nome da pasta. Este fragmento parte do princípio de que tem um contentor de blobs denominado adftutorial no armazenamento de blobs. Crie o contentor se ainda não existir ou defina-o como o nome de um contentor existente. O Azure Data Factory cria automaticamente a pasta de saída **incrementalcopy**, se não existir. Também pode utilizar o botão **Procurar** do **Caminho do ficheiro** para navegar para uma pasta num contentor de blobs.
     2. Para a parte **do Ficheiro** do campo de percurso do **Ficheiro,** selecione **Adicionar conteúdo dinâmico [Alt+P]** e, em seguida, introduza `@CONCAT('Incremental-', pipeline().RunId, '.txt')` na janela aberta. Em seguida, **selecione Terminar**. O nome do ficheiro é gerado dinamicamente através da expressão. Cada execução de pipeline tem um ID exclusivo. A atividade Copy utiliza o ID de execução para gerar o nome do ficheiro.
 
 28. Mude para o editor de **gasoduto** clicando no separador do gasoduto na parte superior ou clicando no nome do gasoduto na vista da árvore à esquerda.
-29. Na caixa de ferramentas **Atividades** , expanda **Geral** e arraste e largue a atividade **Stored Procedure** da caixa de ferramentas **Atividades** na superfície de desenho do pipeline. **Ligue** a saída verde (Êxito) da atividade **Copy** à atividade **Stored Procedure**.
+29. Na caixa de ferramentas **Atividades**, expanda **Geral** e arraste e largue a atividade **Stored Procedure** da caixa de ferramentas **Atividades** na superfície de desenho do pipeline. **Ligue** a saída verde (Êxito) da atividade **Copy** à atividade **Stored Procedure**.
 
 24. Selecione **Atividade de Procedimento Armazenado** no estruturador do pipeline e altere o nome para **StoredProceduretoWriteWatermarkActivity**.
 
@@ -279,7 +279,7 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
         | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
         ![Atividade de procedimento armazenado - definições do procedimento armazenado](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
-27. Para validar as definições do pipeline, clique em **Validar** , na barra de ferramentas. Confirme que não há erros de validação. Para fechar a janela **Relatório de Validação do Pipeline** , clique em >>.   
+27. Para validar as definições do pipeline, clique em **Validar**, na barra de ferramentas. Confirme que não há erros de validação. Para fechar a janela **Relatório de Validação do Pipeline**, clique em >>.   
 
 28. Selecione o botão **Publicar Tudo** para publicar entidades (serviços ligados, conjuntos de dados e pipelines) no serviço Azure Data Factory. Aguarde até ver uma mensagem a indicar que a publicação foi bem-sucedida.
 
@@ -287,11 +287,11 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
 ## <a name="trigger-a-pipeline-run"></a>Acionar uma execução de pipeline
 1. Clique em **Adicionar Gatilho** na barra de ferramentas e clique em **Trigger Now**.
 
-2. Na janela **Executar Pipeline** , selecione **Concluir**.
+2. Na janela **Executar Pipeline**, selecione **Concluir**.
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorizar a execução do pipeline.
 
-1. Mude para o separador **Monitorizar** , no lado esquerdo. Vê-se o estado do gasoduto acionado por um gatilho manual. Pode utilizar links sob a coluna **PIPELINE NAME** para visualizar detalhes de execução e para refazer o pipeline.
+1. Mude para o separador **Monitorizar**, no lado esquerdo. Vê-se o estado do gasoduto acionado por um gatilho manual. Pode utilizar links sob a coluna **PIPELINE NAME** para visualizar detalhes de execução e para refazer o pipeline.
 
 2. Para ver as atividades ligadas à execução do gasoduto, selecione a ligação sob a coluna **PIPELINE NAME.** Para mais detalhes sobre a atividade, selecione o link **Details** (ícone de óculos) sob a coluna **ACTIVITY NAME.** Selecione **Todos os gasodutos correm** na parte superior para voltar à vista Pipeline Runs. Para atualizar a vista, selecione **Atualizar**.
 
@@ -356,7 +356,7 @@ PersonID | Name | LastModifytime
 
 ## <a name="monitor-the-second-pipeline-run"></a>Monitorizar a segunda execução do pipeline
 
-1. Mude para o separador **Monitorizar** , no lado esquerdo. Vê-se o estado do gasoduto acionado por um gatilho manual. Pode utilizar links sob a coluna **PIPELINE NAME** para visualizar detalhes da atividade e para refazer o pipeline.
+1. Mude para o separador **Monitorizar**, no lado esquerdo. Vê-se o estado do gasoduto acionado por um gatilho manual. Pode utilizar links sob a coluna **PIPELINE NAME** para visualizar detalhes da atividade e para refazer o pipeline.
 
 2. Para ver as atividades ligadas à execução do gasoduto, selecione a ligação sob a coluna **PIPELINE NAME.** Para mais detalhes sobre a atividade, selecione o link **Details** (ícone de óculos) sob a coluna **ACTIVITY NAME.** Selecione **Todos os gasodutos correm** na parte superior para voltar à vista Pipeline Runs. Para atualizar a vista, selecione **Atualizar**.
 

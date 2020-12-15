@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8644040565bd46800b888a32653b6c8bbf89f096
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 3c42495ceab7108d20b0f0dedbf0cf94f5f9352d
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347443"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509313"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Iniciar sedutação na máquina virtual do Windows em Azure utilizando a autenticação do Azure Ative Directory (Preview)
 
@@ -158,7 +158,7 @@ Existem várias formas de configurar atribuições de funções para VM:
 - Usando a experiência Azure Cloud Shell
 
 > [!NOTE]
-> As funções de Login do Administrador de Máquina Virtual e de Início de Sessão do Utilizador de Máquina Virtual utilizam dataActions e, portanto, não podem ser atribuídas no âmbito do grupo de gestão. Atualmente, estas funções só podem ser atribuídas no âmbito de subscrição.
+> As funções de Login do Administrador de Máquina Virtual e de Início de Sessão do Utilizador de Máquina Virtual utilizam dataActions e, portanto, não podem ser atribuídas no âmbito do grupo de gestão. Atualmente, estas funções só podem ser atribuídas no âmbito de subscrição, grupo de recursos ou recursos.
 
 ### <a name="using-azure-ad-portal-experience"></a>Usando a experiência do Portal AD AZure
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/19/2020
+ms.date: 12/14/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: b8bdb216cbe8d359f35c758ae89f4267ab223483
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 78e9d7355b8c96295456f8aa9cb80b1d3bdd2fab
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928754"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509551"
 ---
 # <a name="known-issues-application-provisioning"></a>Questões conhecidas: Provisionamento de pedidos
 Questões conhecidas a ter em conta ao trabalhar com o provisionamento de aplicações. Pode fornecer feedback sobre o serviço de fornecimento de aplicações no UserVoice, ver [Azure AD Application Provision UserVoice](https://aka.ms/appprovisioningfeaturerequest). Assistimos atentamente ao UserVoice para que possamos melhorar o serviço. 
@@ -68,7 +68,8 @@ Extensões de diretório, appRoleAssignments, userType e accountExpires não sã
 
 - O fornecimento de senhas não é suportado. 
 - O provisionamento de grupos aninhados não é apoiado. 
-- O fornecimento aos inquilinos B2C não é suportado devido ao tamanho dos inquilinos. 
+- O fornecimento aos inquilinos B2C não é suportado devido ao tamanho dos inquilinos.
+- Nem todas as aplicações de provisionamento estão disponíveis em todas as nuvens. Por exemplo, o Atlassian ainda não está disponível na Nuvem do Governo. Estamos a trabalhar com programadores de aplicações para embarcar nas suas aplicações para todas as nuvens.
 
 **O fornecimento automático não está disponível na minha aplicação baseada no OIDC**
 

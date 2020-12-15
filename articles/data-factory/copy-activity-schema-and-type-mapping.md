@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 96667dcdd43eb801542a4be8fa4f21ff8d1317b7
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 2b54ee29b1b03bab5af8410a3fae06438180299d
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637263"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507528"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Schema e mapeamento do tipo de dados na atividade da cópia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -170,7 +170,7 @@ Por exemplo, se tiver um documento mongoDB com o seguinte conteúdo:
 }
 ```
 
-E pretende copiá-lo num ficheiro de texto no seguinte formato com linha de cabeçalho, achatando os dados dentro da matriz *(order_pd e order_price)* e cruzando a junção com a informação raiz comum *(número, data e cidade)* :
+E pretende copiá-lo num ficheiro de texto no seguinte formato com linha de cabeçalho, achatando os dados dentro da matriz *(order_pd e order_price)* e cruzando a junção com a informação raiz comum *(número, data e cidade)*:
 
 | número de encomendas | ordemDate | order_pd | order_price | city    |
 | ----------- | --------- | -------- | ----------- | ------- |
@@ -356,7 +356,7 @@ As seguintes propriedades são suportadas na atividade de cópia para conversão
 
 ### <a name="alternative-column-mapping-legacy-model"></a>Mapeamento de colunas alternativa (modelo legado)
 
-Pode especificar a atividade de cópia -> `translator`  ->  `columnMappings` para mapear entre dados em forma de tabular. Neste caso, a secção "estrutura" é necessária tanto para os conjuntos de dados de entrada como para a saída. O mapeamento da coluna suporta **o mapeamento de todas ou subconjuntos de colunas na "estrutura" do conjunto de dados de origem para todas as colunas da "estrutura" do conjunto de dados do lavatório** . Seguem-se as condições de erro que resultam numa exceção:
+Pode especificar a atividade de cópia -> `translator`  ->  `columnMappings` para mapear entre dados em forma de tabular. Neste caso, a secção "estrutura" é necessária tanto para os conjuntos de dados de entrada como para a saída. O mapeamento da coluna suporta **o mapeamento de todas ou subconjuntos de colunas na "estrutura" do conjunto de dados de origem para todas as colunas da "estrutura" do conjunto de dados do lavatório**. Seguem-se as condições de erro que resultam numa exceção:
 
 - O resultado da consulta da loja de dados de origem não tem um nome de coluna especificado na secção "estrutura" do conjunto de dados de entrada.
 - A loja de dados de sumidouro (se com esquema pré-definido) não tiver um nome de coluna especificado na secção "estrutura" do conjunto de dados de saída.
@@ -455,7 +455,7 @@ Pode especificar a atividade de cópia -> `translator`  ->  `schemaMapping` para
 | Propriedade            | Descrição                                                  | Obrigatório |
 | :------------------ | :----------------------------------------------------------- | :------- |
 | tipo                | A propriedade tipo do tradutor de atividade de cópia deve ser definida para: **TabularTranslator** | Sim      |
-| schemaMapping       | Uma coleção de pares de valores-chave, que representa a relação de mapeamento **do lado da fonte para o lado da pia.**<br/>- **Chave:** representa a fonte. Para **a fonte tabular,** especifique o nome da coluna tal como definido na estrutura do conjunto de dados; para **a fonte hierárquica** , especifique a expressão do caminho JSON para cada campo extrair e mapear.<br>- **Valor:** representa a pia. Para **a pia tabular,** especifique o nome da coluna tal como definido na estrutura do conjunto de dados; para **a pia hierárquica** , especifique a expressão do caminho JSON para cada campo extrair e mapear. <br>No caso dos dados hierárquicos, para campos sob objeto raiz, o caminho JSON começa com raiz $; para campos dentro da matriz escolhida por `collectionReference` propriedade, o caminho JSON começa a partir do elemento matriz. | Sim      |
+| schemaMapping       | Uma coleção de pares de valores-chave, que representa a relação de mapeamento **do lado da fonte para o lado da pia.**<br/>- **Chave:** representa a fonte. Para **a fonte tabular,** especifique o nome da coluna tal como definido na estrutura do conjunto de dados; para **a fonte hierárquica**, especifique a expressão do caminho JSON para cada campo extrair e mapear.<br>- **Valor:** representa a pia. Para **a pia tabular,** especifique o nome da coluna tal como definido na estrutura do conjunto de dados; para **a pia hierárquica**, especifique a expressão do caminho JSON para cada campo extrair e mapear. <br>No caso dos dados hierárquicos, para campos sob objeto raiz, o caminho JSON começa com raiz $; para campos dentro da matriz escolhida por `collectionReference` propriedade, o caminho JSON começa a partir do elemento matriz. | Sim      |
 | coleçãoReferência | Se pretender iteração e extrair dados dos objetos dentro de **um campo** de matriz com o mesmo padrão e converter para por linha por objeto, especifique o caminho JSON dessa matriz para fazer a aplicação cruzada. Esta propriedade só é suportada quando os dados hierárquicos são fonte. | Não       |
 
 **Exemplo: cópia de MongoDB para o Oráculo:**
@@ -487,7 +487,7 @@ Por exemplo, se tiver documento MongoDB com o seguinte conteúdo:
 }
 ```
 
-e pretende copiá-lo numa tabela Azure SQL no seguinte formato, achatando os dados dentro da matriz *(order_pd e order_price)* e cruzando a junção com a informação raiz comum *(número, data e cidade)* :
+e pretende copiá-lo numa tabela Azure SQL no seguinte formato, achatando os dados dentro da matriz *(order_pd e order_price)* e cruzando a junção com a informação raiz comum *(número, data e cidade)*:
 
 | número de encomendas | ordemDate | order_pd | order_price | city    |
 | ----------- | --------- | -------- | ----------- | ------- |

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 481b801d481f32ef84279be2d8bd6089670a01b1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c65ef2eb25f330f645048cdc73371d98d8c2ce91
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496524"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508477"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Crie oleodutos preditivos utilizando o Azure Machine Learning Studio (clássico) e a Azure Data Factory
 
@@ -35,7 +35,6 @@ ms.locfileid: "96496524"
 ## <a name="introduction"></a>Introdução
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte os dados de [transformação utilizando machine learning na Data Factory.](../transform-data-using-machine-learning.md)
-
 
 ### <a name="azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (clássico)
 [O Azure Machine Learning Studio (clássico)](https://azure.microsoft.com/documentation/services/machine-learning/) permite-lhe construir, testar e implementar soluções de análise preditiva. De um ponto de vista de alto nível, é feito em três etapas:
@@ -80,13 +79,13 @@ Neste cenário, o serviço Web Studio (clássico) faz previsões usando dados de
 > [!IMPORTANT]
 > Se o serviço web tiver múltiplas entradas, utilize a propriedade **webServiceInputs** em vez de utilizar **o webServiceInput**. Consulte o [serviço Web requer várias entradas](#web-service-requires-multiple-inputs) para um exemplo de utilização da propriedade webServiceInputs.
 >
-> Os conjuntos de dados **webServiceInput** que são referenciados pelas propriedades / **webServiceInputs** e **webServiceOutputs** (em **typeProperties)** também devem ser **incluídos** nas entradas e **saídas** de Atividade .
+> Os conjuntos de dados que são referenciados pelas propriedades / **webServiceInputs** e **webServiceOutputs** (em **typeProperties)** também devem ser **incluídos** nas entradas e **saídas** de Atividade .
 >
 > Na sua experiência studio (clássica), as portas de entrada e saída de serviço web e os parâmetros globais têm nomes padrão ("input1", "input2") que pode personalizar. Os nomes que utiliza para webServiceInputs, webServiceOutputs e configurações globais de Parameters devem corresponder exatamente aos nomes das experiências. Pode ver a carga útil do pedido de amostra na página de Ajuda à Execução do Lote para o seu ponto final do Estúdio (clássico) para verificar o mapeamento esperado.
 >
 >
 
-```JSON
+```json
 {
   "name": "PredictivePipeline",
   "properties": {
@@ -127,6 +126,7 @@ Neste cenário, o serviço Web Studio (clássico) faz previsões usando dados de
   }
 }
 ```
+
 > [!NOTE]
 > Apenas as entradas e saídas da atividade AzureMLBatchExecution podem ser passadas como parâmetros para o serviço Web. Por exemplo, no snippet JSON acima, DecisionTreeInputBlob é uma entrada para a atividade AzureMLBatchExecution, que é passada como uma entrada para o serviço Web através do parâmetro webServiceInput.
 >
@@ -139,115 +139,119 @@ Recomendamos que passe pelo [seu primeiro oleoduto com][adf-build-1st-pipeline] 
 
 1. Crie um **serviço ligado** para o seu **Azure Storage**. Se os ficheiros de entrada e saída estiverem em diferentes contas de armazenamento, precisa de dois serviços ligados. Aqui está um exemplo JSON:
 
-    ```JSON
-    {
-      "name": "StorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=[acctName];AccountKey=[acctKey]"
-        }
-      }
-    }
-    ```
+   ```json
+   {
+     "name": "StorageLinkedService",
+     "properties": {
+       "type": "AzureStorage",
+       "typeProperties": {
+         "connectionString": "DefaultEndpointsProtocol=https;AccountName= [acctName];AccountKey=[acctKey]"
+       }
+     }
+   }
+   ```
+
 2. Criar o conjunto de **dados** da **Azure** Data Factory . Ao contrário de outros conjuntos de dados da Data Factory, estes conjuntos de dados devem conter tanto **valores de pastaPa** e **nome de ficheiro.** Pode utilizar a partição para fazer com que cada execução do lote (cada fatia de dados) processe ou produza ficheiros de entrada e saída únicos. Pode ser necessário incluir alguma atividade a montante para transformar a entrada no formato de ficheiro CSV e colocá-la na conta de armazenamento de cada fatia. Nesse caso, não incluiria as definições **deData externo** e **externo** mostradas no exemplo seguinte, e o seu DecisionTreeInputBlob seria o conjunto de dados de saída de uma Atividade diferente.
 
-    ```JSON
-    {
-      "name": "DecisionTreeInputBlob",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-          "folderPath": "azuremltesting/input",
-          "fileName": "in.csv",
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ","
-          }
-        },
-        "external": true,
-        "availability": {
-          "frequency": "Day",
-          "interval": 1
-        },
-        "policy": {
-          "externalData": {
-            "retryInterval": "00:01:00",
-            "retryTimeout": "00:10:00",
-            "maximumRetry": 3
-          }
-        }
-      }
-    }
-    ```
+   ```json
+   {
+     "name": "DecisionTreeInputBlob",
+     "properties": {
+       "type": "AzureBlob",
+       "linkedServiceName": "StorageLinkedService",
+       "typeProperties": {
+         "folderPath": "azuremltesting/input",
+         "fileName": "in.csv",
+         "format": {
+           "type": "TextFormat",
+           "columnDelimiter": ","
+         }
+       },
+       "external": true,
+       "availability": {
+         "frequency": "Day",
+         "interval": 1
+       },
+       "policy": {
+         "externalData": {
+           "retryInterval": "00:01:00",
+           "retryTimeout": "00:10:00",
+           "maximumRetry": 3
+         }
+       }
+     }
+   }
+   ```
 
-    O seu ficheiro csv de entrada deve ter a linha do cabeçalho da coluna. Se estiver a utilizar a **Atividade de Cópia** para criar/mover o csv para o armazenamento do blob, deve definir a propriedade da pia **blobWriterAddHeader** para **ser verdadeira**. Por exemplo:
+   O seu ficheiro csv de entrada deve ter a linha do cabeçalho da coluna. Se estiver a utilizar a **Atividade de Cópia** para criar/mover o csv para o armazenamento do blob, deve definir a propriedade da pia **blobWriterAddHeader** para **ser verdadeira**. Por exemplo:
 
-    ```JSON
-    sink:
-    {
-        "type": "BlobSink",
-        "blobWriterAddHeader": true
-    }
-    ```
+   ```json
+   sink:
+   {
+     "type": "BlobSink",
+     "blobWriterAddHeader": true
+     }
+   ```
 
-    Se o ficheiro csv não tiver a linha do cabeçalho, poderá ver o seguinte erro: **Erro na Atividade: Cadeia de leitura de erro. Token inesperado: StartObject. Caminho '', linha 1, posição 1**.
+   Se o ficheiro csv não tiver a linha do cabeçalho, poderá ver o seguinte erro: **Erro na Atividade: Cadeia de leitura de erro. Token inesperado: StartObject. Caminho '', linha 1, posição 1**.
+
 3. Criar o **conjunto de** **dados** Azure Data Factory de saída . Este exemplo usa a partição para criar um caminho de saída único para cada execução de fatias. Sem a divisão, a atividade substituiria o ficheiro.
 
-    ```JSON
-    {
-      "name": "DecisionTreeResultBlob",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-          "folderPath": "azuremltesting/scored/{folderpart}/",
-          "fileName": "{filepart}result.csv",
-          "partitionedBy": [
-            {
-              "name": "folderpart",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "yyyyMMdd"
-              }
-            },
-            {
-              "name": "filepart",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "HHmmss"
-              }
-            }
-          ],
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ","
-          }
-        },
-        "availability": {
-          "frequency": "Day",
-          "interval": 15
-        }
-      }
-    }
-    ```
+   ```json
+   {
+     "name": "DecisionTreeResultBlob",
+     "properties": {
+       "type": "AzureBlob",
+       "linkedServiceName": "StorageLinkedService",
+       "typeProperties": {
+         "folderPath": "azuremltesting/scored/{folderpart}/",
+         "fileName": "{filepart}result.csv",
+         "partitionedBy": [
+           {
+             "name": "folderpart",
+             "value": {
+               "type": "DateTime",
+               "date": "SliceStart",
+               "format": "yyyyMMdd"
+             }
+           },
+           {
+             "name": "filepart",
+             "value": {
+               "type": "DateTime",
+               "date": "SliceStart",
+               "format": "HHmmss"
+             }
+           }
+         ],
+         "format": {
+           "type": "TextFormat",
+           "columnDelimiter": ","
+         }
+       },
+       "availability": {
+         "frequency": "Day",
+         "interval": 15
+       }
+     }
+   }
+   ```
+
 4. Criar um serviço de tipo **ligado:** **AzureMLLinkedService,** fornecendo a chave API e url de execução de lote de modelo.
 
-    ```JSON
-    {
-      "name": "MyAzureMLLinkedService",
-      "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-          "mlEndpoint": "https://[batch execution endpoint]/jobs",
-          "apiKey": "[apikey]"
-        }
-      }
-    }
-    ```
+   ```json
+   {
+     "name": "MyAzureMLLinkedService",
+     "properties": {
+       "type": "AzureML",
+       "typeProperties": {
+         "mlEndpoint": "https://[batch execution endpoint]/jobs",
+         "apiKey": "[apikey]"
+       }
+     }
+   }
+   ```
+
 5. Finalmente, autore um oleoduto contendo uma **Atividade AzureMLBatchExecution.** No tempo de funcionação, o gasoduto executa os seguintes passos:
 
    1. Obtém a localização do ficheiro de entrada a partir dos seus conjuntos de dados de entrada.
@@ -259,45 +263,45 @@ Recomendamos que passe pelo [seu primeiro oleoduto com][adf-build-1st-pipeline] 
       >
       >
 
-      ```JSON
+      ```json
       {
         "name": "PredictivePipeline",
         "properties": {
-            "description": "use AzureML model",
-            "activities": [
-            {
-                "name": "MLActivity",
-                "type": "AzureMLBatchExecution",
-                "description": "prediction analysis on batch input",
-                "inputs": [
+          "description": "use AzureML model",
+          "activities": [
+              {
+              "name": "MLActivity",
+              "type": "AzureMLBatchExecution",
+              "description": "prediction analysis on batch input",
+              "inputs": [
                 {
-                    "name": "DecisionTreeInputBlob"
+                  "name": "DecisionTreeInputBlob"
                 }
                 ],
-                "outputs": [
+              "outputs": [
                 {
-                    "name": "DecisionTreeResultBlob"
+                  "name": "DecisionTreeResultBlob"
                 }
                 ],
-                "linkedServiceName": "MyAzureMLLinkedService",
-                "typeProperties":
+              "linkedServiceName": "MyAzureMLLinkedService",
+              "typeProperties":
                 {
-                    "webServiceInput": "DecisionTreeInputBlob",
-                    "webServiceOutputs": {
-                        "output1": "DecisionTreeResultBlob"
-                    }
+                "webServiceInput": "DecisionTreeInputBlob",
+                "webServiceOutputs": {
+                  "output1": "DecisionTreeResultBlob"
+                }
                 },
-                "policy": {
-                    "concurrency": 3,
-                    "executionPriorityOrder": "NewestFirst",
-                    "retry": 1,
-                    "timeout": "02:00:00"
-                }
+              "policy": {
+                "concurrency": 3,
+                "executionPriorityOrder": "NewestFirst",
+                "retry": 1,
+                "timeout": "02:00:00"
+              }
             }
-            ],
-            "start": "2016-02-13T00:00:00Z",
-            "end": "2016-02-14T00:00:00Z"
-        }
+          ],
+          "start": "2016-02-13T00:00:00Z",
+          "end": "2016-02-14T00:00:00Z"
+          }
       }
       ```
 
@@ -320,7 +324,7 @@ Ao utilizar os módulos de leitor e escritor, é uma boa prática utilizar um pa
 
 Vamos olhar para um cenário para usar parâmetros de serviço Web. Tem um serviço web de Estúdio (clássico) implantado que utiliza um módulo de leitor para ler dados de uma das fontes de dados suportadas pelo Studio (clássico) (por exemplo: Azure SQL Database). Após a execução do lote, os resultados são escritos utilizando um módulo Writer (Base de Dados Azure SQL).  Não são definidas entradas e saídas de serviço web nas experiências. Neste caso, recomendamos que configuure os parâmetros de serviço web relevantes para os módulos de leitor e escritor. Esta configuração permite configurar os módulos leitor/escritor ao utilizar a atividade AzureMLBatchExecution. Especifica os parâmetros do serviço Web na secção **global de Parâmetros** na atividade JSON da seguinte forma.
 
-```JSON
+```json
 "typeProperties": {
     "globalParameters": {
         "Param 1": "Value 1",
@@ -331,7 +335,7 @@ Vamos olhar para um cenário para usar parâmetros de serviço Web. Tem um servi
 
 Também pode utilizar [funções de fábrica de dados](data-factory-functions-variables.md) em valores de passagem para os parâmetros do serviço Web, como mostrado no exemplo seguinte:
 
-```JSON
+```json
 "typeProperties": {
     "globalParameters": {
        "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"

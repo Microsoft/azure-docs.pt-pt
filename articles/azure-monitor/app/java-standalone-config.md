@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: b5c1ab7db818daa91497728299d2247f612fe21b
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 73e3d8834fcb41f863fe2e3d686b812bb6174e70
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387756"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507664"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opções de configuração - Azure Monitor Application Insights for Java
 
@@ -184,9 +184,9 @@ Para mais informações, consulte a documentação do [processador de telemetria
 
 Log4j, Logback e java.util.logging são instrumentados automaticamente, e o registo realizado através destas estruturas de registo é recolhido automaticamente.
 
-Por predefinição, a exploração madeireira só é recolhida quando essa exploração é realizada ao `INFO` nível ou acima.
+A exploração madeireira só é capturada se cumprir primeiro o limiar configurado dos quadros de registo, e em segundo lugar também cumpre o limiar configurado de Insights de Aplicação.
 
-Se quiser alterar este nível de recolha:
+O limiar de Insights de Aplicação predefinido é `INFO` . Se quiser alterar este nível:
 
 ```json
 {

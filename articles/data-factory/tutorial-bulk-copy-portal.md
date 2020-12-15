@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: 8594250d72754e6b7d2a6d8c27d3d5bcd0e9c8e4
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 16b924f486215d972477e93c4e199e7076a0a531
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920868"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508888"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copie várias tabelas a granel utilizando a Azure Data Factory no portal Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "96920868"
 Este tutorial demonstra **a cópia de uma série de tabelas da Base de Dados Azure SQL para a Azure Synapse Analytics**. Também pode aplicar o mesmo padrão noutros cenários de cópia. Por exemplo, copiar tabelas de SQL Server/Oracle para Azure SQL Database/Azure Synapse Analytics /Azure Blob, copiando diferentes caminhos de blob para tabelas de base de dados Azure SQL.
 
 > [!NOTE]
-> - Se não estiver familiarizado com o Azure Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).
+> Se não estiver familiarizado com o Azure Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).
 
 A um nível elevado, este tutorial envolve os seguintes passos:
 
@@ -76,7 +76,7 @@ Para verificar e ligar esta definição, aceda ao seu servidor > Security > Fire
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
 1. Aceda ao [portal do Azure](https://portal.azure.com). 
-1. À esquerda do menu do portal Azure, **selecione Criar uma** Fábrica de  >  Dados **de Integração de**  >  **Data Factory** Recursos. 
+1. À esquerda do menu do portal Azure, **selecione Criar uma** Fábrica de  >  Dados **de Integração de**  >  Recursos. 
 
    ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Na nova página de **fábrica de dados,** insira **a ADFTutorialBulkCopyDF** para **obter o nome**. 
@@ -99,9 +99,7 @@ Para verificar e ligar esta definição, aceda ao seu servidor > Security > Fire
 1. Depois de concluída a criação, selecione **Ir para o recurso** para navegar para a página data **Factory.** 
    
 1. Clique no mosaico **Criar e Monitorizar** para iniciar a aplicação IU do Data Factory num separador à parte.
-1. Na página **Let's get start,** mude para o **separador Autor** no painel esquerdo, como mostra a seguinte imagem:
 
-     ![Página Introdução](./media/doc-common-process/get-started-page-author-button.png)
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
 Os serviços ligados são criados para ligar os seus arquivos de dados e computações a uma fábrica de dados. O serviço ligado tem as informações de ligação que o serviço Data Factory utiliza para se ligar ao arquivo de dados no runtime. 
@@ -177,7 +175,9 @@ Neste tutorial, as tabelas SQL de origem e destino não estão hard-coded nas de
 
 ### <a name="create-a-dataset-for-source-sql-database"></a>Criar um conjunto de dados para a Base de Dados SQL de origem
 
-1. Clique **+ (mais)** no painel esquerdo e, em seguida, clique em **Dataset**. 
+1. **Selecione O** separador autor do painel esquerdo.
+
+1. Selecione o **+** (mais) no painel esquerdo e, em seguida, **selecione Dataset**. 
 
     ![Menu Novo conjunto de dados](./media/tutorial-bulk-copy-portal/new-dataset-menu.png)
 1. Na janela **New Dataset,** selecione **Azure SQL Database** e, em seguida, clique em **Continuar**. 
@@ -277,7 +277,7 @@ O oleoduto  **IterateAndCopySQLTables** tem uma lista de tabelas como parâmetro
     1. Selecione a caixa de verificação para **ativar a paragem**.
     1. Selecione **AzureStorageLinkedService** em **Nome do Serviço Ligado da Conta de Armazenamento**.
 
-1. Para validar as definições do pipeline, clique em **Validar**, na barra de ferramentas do mesmo. Certifique-se de que não há nenhum erro de validação. Para fechar o **Relatório de Validação do Pipeline**, clique em **>>**.
+1. Para validar as definições do pipeline, clique em **Validar**, na barra de ferramentas do mesmo. Certifique-se de que não há nenhum erro de validação. Para fechar o **Relatório de Validação** do Gasoduto, clique nos suportes de ângulo duplo **>>** .
 
 ### <a name="create-the-pipeline-gettablelistandtriggercopydata"></a>Criar o pipeline GetTableListAndTriggerCopyData
 
@@ -285,6 +285,8 @@ Este gasoduto faz duas ações:
 
 * Procura a tabela do sistema da Base de Dados SQL do Azure para obter a lista de tabelas a copiar.
 * Aciona o pipeline "IterateAndCopySQLTables" para executar a cópia de dados real.
+
+Aqui estão os passos para criar o oleoduto:
 
 1. No painel do lado esquerdo, clique em **+ (mais)** e clique em **Pipeline**.
 1. No painel geral de **propriedades,** altere o nome do pipeline para **GetTableListAndTriggerCopyData**. 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: acc19d9a04909dcf0e79c93e0c8a3fb8225ee1b4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1b92d1b5853d6b794ebdcf0e2052b8f15081d608
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546914"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507579"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Conheça os fundamentos do Discurso CLI
 
@@ -87,7 +87,7 @@ Neste comando, especifica tanto a origem (linguagem a **traduzir),** como o alvo
 
 ### <a name="configuration-files-in-the-datastore"></a>Ficheiros de configuração na loja de dados
 
-O comportamento do CLI do discurso pode depender de definições em ficheiros de configuração, aos quais pode consultar-se dentro das chamadas CLI do Discurso usando um símbolo @.
+O comportamento do CLI da fala pode depender de definições em ficheiros de configuração, aos quais pode consultar-se nas chamadas CLI do Discurso usando um \@ símbolo.
 O CLI da fala salva uma nova configuração num novo `./spx/data` subdiretório que cria no diretório de trabalho atual.
 Ao procurar um valor de configuração, o Speech CLI olha para o seu diretório de trabalho atual, depois na loja de dados `./spx/data` em , e depois em outras datastores, incluindo uma loja de dados apenas de leitura final no `spx` binário.
 Anteriormente, utilizou a datastore para guardar os seus `@key` `@region` valores, pelo que não precisava de os especificar com cada chamada de linha de comando.

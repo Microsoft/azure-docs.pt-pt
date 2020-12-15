@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 031ee9a6d945d923279fd3025c32212c3ead98ed
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: c1d448fe9da72654ac1600009e66c88c5e7b93b4
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95406604"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509432"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Construa um daemon multi-inquilino que usa a plataforma de identidade da Microsoft
 
@@ -65,7 +65,7 @@ Ou [descarregue a amostra num ficheiro zip.](https://github.com/Azure-Samples/ms
 
 Esta amostra tem um projeto. Para registar o pedido com o seu inquilino AZure AD, você pode:
 
-- Siga os passos no [Registo da amostra com o seu inquilino Azure Ative Directory](#register-your-application) e [Configure a amostra para utilizar o seu inquilino Azure AD](#choose-the-azure-ad-tenant).
+- Siga os passos no [Registo da amostra com o seu inquilino Azure Ative Directory](#register-the-client-app-dotnet-web-daemon-v2) e [Configure a amostra para utilizar o seu inquilino Azure AD](#choose-the-azure-ad-tenant).
 - Utilize scripts PowerShell que:
   - *Crie automaticamente* as aplicações AD AD do Azure e objetos relacionados (palavras-passe, permissões, dependências) para si.
   - Modifique os ficheiros de configuração dos projetos do Estúdio Visual.
@@ -93,40 +93,34 @@ Se não quiser utilizar a automatização, utilize os passos nas seguintes secç
 
 ### <a name="choose-the-azure-ad-tenant"></a>Escolha o inquilino AZure AD
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta de trabalho ou escola ou uma conta pessoal da Microsoft.
-1. Se a sua conta estiver em mais de um inquilino AD Azure, selecione o seu perfil no menu no topo da página e, em seguida, selecione **o diretório** da Switch .
-1. Mude a sua sessão de portal para o pretendido inquilino AZure AD.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
+
 
 ### <a name="register-the-client-app-dotnet-web-daemon-v2"></a>Registar a aplicação do cliente (dotnet-web-daemon-v2)
 
-1. Aceda à página de [registos](https://go.microsoft.com/fwlink/?linkid=2083908) da App na plataforma de identidade da Microsoft para programadores.
-1. Selecione **Novo registo**.
-1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
-   - Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação. Por exemplo, **insira dotnet-web-daemon-v2**.
-   - Na secção **tipos de conta suportada,** selecione **Contas em qualquer diretório organizacional**.
-   - Na secção **URI de redirecionamento (opcional),** selecione **Web** na caixa de combinação e introduza os seguintes URIs de redirecionamento:
-       - **https://localhost:44316/**
-       - **https://localhost:44316/Account/GrantPermissions**
+1. Procure e selecione **Azure Active Directory**.
+1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
+1. Introduza um **Nome** para a sua aplicação, por `dotnet-web-daemon-v2` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
+1. Na secção **tipos de conta suportada,** selecione **Contas em qualquer diretório organizacional**.
+1. Na secção **URI de redirecionamento (opcional),** selecione **Web** na caixa de combinação e introduza `https://localhost:44316/` e como `https://localhost:44316/Account/GrantPermissions` URIs de redirecionamento.
 
-     Se existirem mais de dois URIs de redirecionamento, terá de adicioná-los mais **tarde,** depois de a aplicação ser criada com sucesso.
+    Se existirem mais de dois URIs de redirecionamento, terá de adicioná-los mais **tarde,** depois de a aplicação ser criada com sucesso.
 1. Selecione **Registar** para criar a aplicação.
-1. Na **página** geral da aplicação, encontre o valor de **ID da Aplicação (cliente)** e grave-o para mais tarde. Vai precisar dele para configurar o ficheiro de configuração do Estúdio Visual para este projeto.
-1. Na lista de páginas da aplicação, selecione **Autenticação**. Em seguida:
-   - Na secção **definições Avançadas,** defina **o URL de logout** para **https://localhost:44316/Account/EndSession** .
-   - Na secção de concessão implícita **de definições avançadas,**  >  **Implicit grant** selecione **tokens de acesso** e **fichas de identificação**. Esta amostra requer que o [fluxo de subvenção implícito](v2-oauth2-implicit-grant-flow.md) seja habilitado a assinar no utilizador e a chamar uma API.
+1. Na **página** geral da aplicação, encontre o valor de **ID da Aplicação (cliente)** e grave-o para utilização posterior. Vai precisar dele para configurar o ficheiro de configuração do Estúdio Visual para este projeto.
+1. Em **Gestão**, **selecione Autenticação**.
+1. Desatado **URL de logout** para `https://localhost:44316/Account/EndSession` .
+1. Na secção **de concessão implícita,** selecione **Tokens de acesso** e **fichas de identificação**. Esta amostra requer que o [fluxo de subvenção implícito](v2-oauth2-implicit-grant-flow.md) seja habilitado a assinar no utilizador e a chamar uma API.
 1. Selecione **Guardar**.
-1. A partir da página **certificados & segredos,** na secção segredos do **Cliente,** selecione **Novo segredo do cliente.** Em seguida:
-
-   1. Introduza uma descrição chave (por exemplo, **app secret),**
-   1. Selecione uma duração chave de qualquer **um em 1 ano**, Em **2 anos**, ou nunca **expira**.
-   1. Selecione o botão **Adicionar.**
-   1. Quando o valor da chave aparecer, copie-o e guarde-o num local seguro. Mais tarde, vai precisar desta chave para configurar o projeto no Visual Studio. Não voltará a ser exibido ou recuperável por qualquer outro meio.
-1. Na lista de páginas para a aplicação, selecione **permissões API**. Em seguida:
-   1. Selecione o botão **Adicionar uma permissão**.
-   1. Certifique-se de que o separador **APIs da Microsoft** está selecionado.
-   1. Na secção **APIs** da Microsoft, selecione **Microsoft Graph**.
-   1. Na secção **permissões de aplicação,** certifique-se de que as permissões certas são selecionadas: **User.Read.All**.
-   1. Selecione o botão **'Adicionar permissões'.**
+1. Em **Gerir**, selecione **Certificados e segredos**.
+1. Na secção **de segredos** do Cliente, selecione **Novo segredo de cliente.** 
+1. Introduza uma descrição chave (por exemplo, **app secret).**
+1. Selecione uma duração chave de qualquer **um em 1 ano**, Em **2 anos**, ou nunca **expira**.
+1. Selecione **Adicionar**. Grave o valor da chave num local seguro. Mais tarde, vai precisar desta chave para configurar o projeto no Visual Studio.
+1. Em **Gestão**, selecione **permissões API**  >  **Adicione uma permissão**.
+1. Na secção **APIs** da Microsoft, selecione **Microsoft Graph**.
+1. Na secção **permissões de aplicação,** certifique-se de que as permissões certas são selecionadas: **User.Read.All**.
+1. **Selecione Permissões de adicionar**.
 
 ## <a name="configure-the-sample-to-use-your-azure-ad-tenant"></a>Configure a amostra para usar o seu inquilino AZure AD
 
@@ -236,9 +230,9 @@ O Visual Studio publicará o projeto e abrirá automaticamente um navegador para
 1. Na página **autenticação** para a sua aplicação, atualize os campos URL do **Logoto** com o endereço do seu serviço. Por exemplo, usar `https://dotnet-web-daemon-v2-contoso.azurewebsites.net` .
 1. A partir do menu **Branding,** atualize o **URL da página inicial** para o endereço do seu serviço. Por exemplo, usar `https://dotnet-web-daemon-v2-contoso.azurewebsites.net` .
 1. Guarde a configuração.
-1. Adicione o mesmo URL na lista **Authentication** de valores do menu  >  **URIs de redirecionamento de** autenticação. Se tiver urLs de redirecionamento múltiplo, certifique-se de que há uma nova entrada que utiliza o URI do serviço de aplicações para cada URL de redirecionamento.
+1. Adicione o mesmo URL na lista de valores do menu  >  **URIs de redirecionamento de** autenticação. Se tiver urLs de redirecionamento múltiplo, certifique-se de que há uma nova entrada que utiliza o URI do serviço de aplicações para cada URL de redirecionamento.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando já não for necessário, elimine o objeto da aplicação que criou no Passo de Inscrição da [sua aplicação.](#register-your-application)  Para remover o pedido, siga as instruções em [Remover uma aplicação da autoria de si ou da sua organização.](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization)
 
 ## <a name="get-help"></a>Obter ajuda
@@ -253,7 +247,7 @@ Se encontrar um bug no MSAL.NET, por favor levante a questão sobre [MSAL.NET Pr
 
 Para fornecer uma recomendação, aceda à [página Voz](https://feedback.azure.com/forums/169401-azure-active-directory)do Utilizador .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a construção de aplicações daemon que usam a plataforma de identidade da Microsoft para aceder a APIs web protegidas:
 

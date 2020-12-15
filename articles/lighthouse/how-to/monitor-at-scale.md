@@ -1,14 +1,14 @@
 ---
 title: Monitorar recursos delegados à escala
 description: Aprenda a utilizar eficazmente os Registos do Monitor Azure de forma escalável através dos inquilinos do cliente que está a gerir.
-ms.date: 10/26/2020
+ms.date: 12/14/2020
 ms.topic: how-to
-ms.openlocfilehash: 96ca05faf2b3da8f214c14ae57eb186c7b71e1b3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6c1cbde696ccf9131797a05db33553b8505216a4
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461529"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509279"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorar recursos delegados à escala
 
@@ -40,7 +40,25 @@ Quando tiver determinado quais as políticas a implementar, pode [implantá-las 
 
 ## <a name="analyze-the-gathered-data"></a>Analisar os dados recolhidos
 
-Depois de implementar as suas políticas, os dados serão registados nos espaços de trabalho do Log Analytics que criou em cada cliente inquilino. Para obter informações em todos os clientes geridos, pode utilizar ferramentas como [os Livros de Trabalho do Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) para recolher e analisar informações de várias fontes de dados. 
+Depois de implementar as suas políticas, os dados serão registados nos espaços de trabalho do Log Analytics que criou em cada cliente inquilino. Para obter informações em todos os clientes geridos, pode utilizar ferramentas como [os Livros de Trabalho do Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) para recolher e analisar informações de várias fontes de dados.
+
+## <a name="view-alerts-across-customers"></a>Ver alertas entre os clientes
+
+Pode ver [alertas](../../azure-monitor/platform/alerts-overview.md) para as subscrições delegadas nos inquilinos do cliente que gere.
+
+Para atualizar os alertas automaticamente em vários clientes, utilize uma consulta [de Gráfico de Recursos Azure](../../governance/resource-graph/overview.md) para filtrar alertas. Pode fixar a consulta no seu painel de instrumentos e selecionar todos os clientes e subscrições apropriados.
+
+A seguinte consulta de exemplo apresentará alertas de severidade 0 e 1, refrescantes a cada 60 minutos.
+
+```kusto
+alertsmanagementresources
+| where type == "microsoft.alertsmanagement/alerts"
+| where properties.essentials.severity =~ "Sev0" or properties.essentials.severity =~ "Sev1"
+| where properties.essentials.monitorCondition == "Fired"
+| where properties.essentials.startDateTime > ago(60m)
+| project StartTime=properties.essentials.startDateTime,name,Description=properties.essentials.description, Severity=properties.essentials.severity, subscriptionId
+| sort by tostring(StartTime)
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

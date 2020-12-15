@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c8f4c91070d87e9e6e3cdbb5534b988063eaba14
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 3f92bfe98a45117264c957481a75493de652abc9
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387181"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508106"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico do Azure Ative Directory numa política personalizada do Azure Ative Directory B2C
 
@@ -251,8 +251,8 @@ O seguinte perfil técnico elimina uma conta de utilizador social utilizando **o
 | Operação | Sim | A operação a ser realizada. Valores possíveis: `Read` `Write` , , ou `DeleteClaims` `DeleteClaimsPrincipal` . |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | Não | Mente um erro se o objeto do utilizador não existir no diretório. Valores possíveis: `true` ou `false` . |
 | RaiseErrorIfClaimsPrincipalAlreadyExists | Não | Levante um erro se o objeto do utilizador já existir. Valores possíveis: `true` ou `false` .|
-| AplicaçãoObjectid | Não | O identificador de objeto de aplicação para atributos de extensão. Valor: ObjectId de uma aplicação. Para obter mais informações, consulte [Utilizar atributos personalizados numa política de edição de perfis personalizados.](custom-policy-custom-attributes.md) |
-| ClientId | Não | O identificador de cliente para aceder ao inquilino como um terceiro. Para obter mais informações, consulte [Utilizar atributos personalizados numa política de edição de perfil personalizado](custom-policy-custom-attributes.md) |
+| AplicaçãoObjectid | Não | O identificador de objeto de aplicação para atributos de extensão. Valor: ObjectId de uma aplicação. Para obter mais informações, consulte [Utilizar atributos personalizados.](user-flow-custom-attributes.md?pivots=b2c-custom-policy) |
+| ClientId | Não | O identificador de cliente para aceder ao inquilino como um terceiro. Para obter mais informações, consulte [Utilizar atributos personalizados numa política de edição de perfil personalizado](user-flow-custom-attributes.md?pivots=b2c-custom-policy) |
 | IncluirClaimResolvingInClaimsHandling  | Não | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false` (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
 
 ### <a name="ui-elements"></a>Elementos da IU
@@ -265,7 +265,7 @@ As seguintes definições podem ser utilizadas para configurar a mensagem de err
 | UserMessageIfClaimsPrincipalDoesNotExist | Não | Se for levantado um erro (ver descrição do atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique a mensagem para mostrar ao utilizador se o objeto do utilizador não existir. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o seguinte artigo, por exemplo, utilizando o perfil técnico Azure AD:
 

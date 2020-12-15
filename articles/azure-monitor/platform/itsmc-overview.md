@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 6c9e2ae420e56c5ef99ff79cdcb49592bc7e049e
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.openlocfilehash: 3d4e5ad0b24b7163072d7e3110a523dad9608923
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97371990"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507376"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Ligue o Azure às ferramentas ITSM utilizando o Conector de Gestão de Serviços de TI
 
@@ -152,12 +152,12 @@ Utilize o seguinte procedimento para criar artigos de trabalho:
 
 9. Se selecionar **Criar itens de trabalho individuais para cada Item de Configuração,** cada item de configuração terá o seu próprio item de trabalho. Haverá um item de trabalho por item de configuração. Será atualizado de acordo com os alertas que serão criados.
 
-   * Num caso que selecione no item de trabalho "Incidente" ou "Alerta": Se limpar os itens de trabalho individuais para cada caixa de **verificação de ponto de configuração,** cada alerta criará um novo item de trabalho. Pode haver mais de um alerta por item de configuração.
+    * Num caso que selecione no item de trabalho "Incidente" ou "Alerta": Se limpar os itens de trabalho individuais para cada caixa de **verificação de ponto de configuração,** cada alerta criará um novo item de trabalho. Pode haver mais de um alerta por item de configuração.
 
-   ![Screenshot que mostra a janela do bilhete ITSM.](media/itsmc-overview/itsm-action-configuration.png)
-   
-   * Num caso que selecione no ponto de trabalho "Evento": Se selecionar **Criar itens de trabalho individuais para cada Entrada** de Registo na seleção de botões de rádio, cada alerta criará um novo item de trabalho. Se selecionar **Criar itens de trabalho individuais para cada Item de Configuração** na seleção dos botões de rádio, cada item de configuração terá o seu próprio item de trabalho.
-   ![Screenshot que mostra a janela do bilhete ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
+       ![Screenshot que mostra a janela itsm Incident.](media/itsmc-overview/itsm-action-configuration.png)
+
+    * Num caso que selecione no ponto de trabalho "Evento": Se selecionar **Criar itens de trabalho individuais para cada Entrada** de Registo na seleção de botões de rádio, cada alerta criará um novo item de trabalho. Se selecionar **Criar itens de trabalho individuais para cada Item de Configuração** na seleção dos botões de rádio, cada item de configuração terá o seu próprio item de trabalho.
+   ![Screenshot que mostra a janela do Evento ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. Selecione **OK**.
 
@@ -169,26 +169,6 @@ Quando criar ou editar uma regra de alerta Azure, utilize um grupo de ação, qu
 >
 >
 >- O campo de descrição curta na definição de regra de alerta é limitado a 40 caracteres quando o envia utilizando a ação ITSM.
-
-
-## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizar e analisar o incidente e alterar os dados do pedido
-
-Dependendo da configuração quando configurar uma ligação, o ITSMC pode sincronizar até 120 dias de incidente e alterar dados de pedido. O esquema de registo de registo destes dados é fornecido na [secção seguinte](#additional-information) deste artigo.
-
-Pode visualizar o incidente e alterar os dados do pedido utilizando o painel ITSMC:
-
-![Screenshot que mostra o painel ITSMC.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
-
-O painel também fornece informações sobre o estado do conector, que pode usar como ponto de partida para analisar problemas com as ligações.
-
-Também pode visualizar os incidentes sincronizados com os computadores afetados no Mapa de Serviço.
-
-O Mapa de Serviços descobre automaticamente os componentes da aplicação nos sistemas Windows e Linux e mapeia a comunicação entre os serviços. Permite-lhe visualizar os seus servidores como pensa neles: como sistemas interligados que fornecem serviços críticos. O Mapa de Serviços mostra ligações entre servidores, processos e portas em qualquer arquitetura ligada à TCP. Para além da instalação de um agente, não é necessária qualquer configuração. Para obter mais informações, consulte [o Mapa de Serviços.](../insights/service-map.md)
-
-Se estiver a utilizar o Mapa de Serviços, pode ver os itens de balcão de atendimento criados em soluções ITSM, como mostrado aqui:
-
-![Screenshot que mostra o ecrã Log Analytics.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
-
 
 ## <a name="additional-information"></a>Informações adicionais
 
@@ -299,32 +279,12 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Impact_s| Impacto|
 | RequestedDate_t  | Solicitado por data |
 | ClosedDate_t | Data fechada |
-| PlannedStartDate_t  |     Data de início prevista |
-| PlannedEndDate_t  |   Data de fim prevista |
+| PlannedStartDate_t  | Data de início prevista |
+| PlannedEndDate_t  | Data de fim prevista |
 | WorkStartDate_t  | Data de início real |
 | WorkEndDate_t | Data de fim real|
 | Description_s | Descrição |
 | Computador  | Item de configuração |
-
-
-## <a name="troubleshoot-itsm-connections"></a>Resolução de problemas ligações ITSM
-- Se uma ligação falhar a partir da UI da fonte ligada e receber um **Erro na mensagem de ligação de poupança,** tome os seguintes passos:
-   - Para as ligações ServiceNow, Cherwell e Provance:  
-     - Certifique-se de que inseriu corretamente o nome de utilizador, palavra-passe, identificação do cliente e segredo do cliente para cada uma das ligações.  
-     - Certifique-se de que tem privilégios suficientes no produto ITSM correspondente para esogir a ligação.  
-   - Para ligações ao Gestor de Serviços:  
-     - Certifique-se de que a aplicação web está implantada com sucesso e que a ligação híbrida é criada. Para verificar se a ligação está estabelecida com sucesso com o computador Do Gestor de Serviços no local, aceda ao URL da aplicação web, conforme descrito na documentação para eprodução da [ligação híbrida](./itsmc-connections.md#configure-the-hybrid-connection).  
-
-- Se os dados do ServiceNow não estiverem a ser sincronizados com o Log Analytics, certifique-se de que a instância Do ServiceNow não está a dormir. Os casos de dev do ServiceNow às vezes dormem quando estão inativos por muito tempo. Se não é isso que está a acontecer, reporte o problema.
-- Se o Log Analytics alertar o fogo mas os itens de trabalho não forem criados no produto ITSM, se os itens de configuração não forem criados/ligados a itens de trabalho, ou para outras informações, consulte estes recursos:
-   -  ITSMC: A solução mostra um resumo de ligações, itens de trabalho, computadores e muito mais. Selecione o azulejo que tem a etiqueta **de Estado do Conector.** Ao fazê-lo, leva-o a **registar a pesquisa** com a consulta relevante. Veja os registos com um `LogType_S` de `ERROR` mais informações.
-   - **Registar Página de Pesquisa:** Ver os erros e informações relacionadas diretamente utilizando a consulta `*ServiceDeskLog_CL*` .
-
-## <a name="troubleshoot-service-manager-web-app-deployment"></a>Implementação de aplicativos web do Gestor de Serviço de Resolução de Problemas
--   Se tiver problemas com a implementação de aplicações web, certifique-se de que tem permissões para criar/implementar recursos na subscrição.
--   Se obtém uma **referência de Objeto não definida como uma instância de um** erro de objeto quando executar o [script](itsmc-service-manager-script.md), certifique-se de que introduziu valores válidos na secção configuração do **utilizador.**
--   Se não criar o espaço de nome de retransmissão de ônibus de serviço, certifique-se de que o fornecedor de recursos necessário está registado na subscrição. Se não estiver registado, crie manualmente o espaço de nome do retransmissor de autocarro de serviço a partir do portal Azure. Também pode criá-lo quando [criar a ligação híbrida](./itsmc-connections.md#configure-the-hybrid-connection) no portal Azure.
-
 
 ## <a name="contact-us"></a>Contacte-nos
 

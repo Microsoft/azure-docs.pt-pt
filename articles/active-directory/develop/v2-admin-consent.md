@@ -12,12 +12,12 @@ ms.date: 12/3/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: cb629b80958ed2897f76eb099f738c33b48c3696
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7de97fd775853f64803ab62ac397e754d065e4df
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119611"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509330"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Consentimento de administração na plataforma de identidade da Microsoft
 
@@ -31,7 +31,7 @@ Quando assinar o utilizador na sua aplicação, pode identificar a organização
 
 ## <a name="request-the-permissions-from-a-directory-admin"></a>Solicite as permissões a um administrador de diretório
 
-Quando estiver pronto para solicitar permissões do administrador da sua organização, pode redirecionar o utilizador para o *ponto final de consentimento da*plataforma de identidade da Microsoft.
+Quando estiver pronto para solicitar permissões do administrador da sua organização, pode redirecionar o utilizador para o *ponto final de consentimento da* plataforma de identidade da Microsoft.
 
 ```HTTP
 // Line breaks are for legibility only.
@@ -44,14 +44,13 @@ https://graph.microsoft.com/calendars.read
 https://graph.microsoft.com/mail.send
 ```
 
-
-| Parâmetro     | Condição     | Descrição                                                                               |
-|--------------:|--------------:|:-----------------------------------------------------------------------------------------:|
+| Parâmetro | Condição | Descrição |
+| ---: | ---: | :---: |
 | `tenant` | Obrigatório | O inquilino do diretório que quer pedir autorização. Pode ser fornecido em formato guiado ou de nome amigável ou genericamente referenciado com `organizations` o que se vê no exemplo. Não utilize 'comum', uma vez que as contas pessoais não podem fornecer consentimento administrativo, exceto no contexto de um inquilino. Para garantir a melhor compatibilidade com contas pessoais que gerem os inquilinos, utilize o ID do inquilino sempre que possível. |
 | `client_id` | Necessário | O **ID da Aplicação (cliente)** que o [portal Azure – Experiência de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuído à sua app. |
 | `redirect_uri` | Necessário |O URI de redirecionamento onde deseja que a resposta seja enviada para que a sua aplicação seja tratada. Deve corresponder exatamente a um dos URIs redirecionados que registou no portal de registo de aplicações. |
 | `state` | Recomendado | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de conteúdos que quiser. Utilize o estado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou a visualização em que se encontravam. |
-|`scope`        | Necessário      | Define o conjunto de permissões solicitadas pela aplicação. Isto pode ser estático (usando /.predefinido) ou âmbitos dinâmicos.  Isto pode incluir os âmbitos OIDC `openid` (, `profile` , . `email` . |
+|`scope` | Necessário | Define o conjunto de permissões solicitadas pela aplicação. Isto pode ser estático (usando /.predefinido) ou âmbitos dinâmicos. Isto pode incluir os âmbitos OIDC `openid` (, `profile` , . `email` . |
 
 
 Neste momento, a Azure AD exige que um administrador de inquilino assine para completar o pedido. Pede-se ao administrador que aprove todas as permissões que solicitou no `scope` parâmetro.  Se tiver usado um valor estático `/.default` () funcionará como o ponto final de consentimento de administração v1.0 e solicitará o consentimento para todos os âmbitos encontrados nas permissões necessárias para a aplicação.
@@ -64,12 +63,12 @@ Se o administrador aprovar as permissões para a sua aplicação, a resposta bem
 http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-a743-29f2956fd429&state=12345&scope=https%3a%2f%2fgraph.microsoft.com%2fCalendars.Read+https%3a%2f%2fgraph.microsoft.com%2fMail.Send
 ```
 
-| Parâmetro         | Descrição                                                                                       |
-|------------------:|:-------------------------------------------------------------------------------------------------:|
+| Parâmetro | Descrição |
+| ---: | :---: |
 | `tenant`| O inquilino do diretório que concedeu ao seu pedido as permissões que solicitou, em formato GUID.|
-| `state`           | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de conteúdos que quiser. O Estado é utilizado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou a visualização em que se encontravam.|
-| `scope`          | O conjunto de permissões a que foi dado acesso, para o pedido.|
-| `admin_consent`   | Será definido para `True` .|
+| `state` | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de conteúdos que quiser. O Estado é utilizado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou a visualização em que se encontravam.|
+| `scope` | O conjunto de permissões a que foi dado acesso, para o pedido.|
+| `admin_consent` | Será definido para `True` .|
 
 ### <a name="error-response"></a>Resposta de erro
 
@@ -77,13 +76,13 @@ http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-
 
 Adicionando aos parâmetros vistos numa resposta bem sucedida, os parâmetros de erro são vistos como abaixo.
 
-| Parâmetro          | Descrição                                                                                      |
+| Parâmetro | Descrição |
 |-------------------:|:-------------------------------------------------------------------------------------------------:|
-| `error`            | Uma cadeia de código de erro que pode ser usada para classificar tipos de erros que ocorrem e pode ser usado para reagir a erros.|
-| `error_description`| Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa principal de um erro.|
+| `error` | Uma cadeia de código de erro que pode ser usada para classificar tipos de erros que ocorrem e pode ser usado para reagir a erros.|
+| `error_description` | Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa principal de um erro.|
 | `tenant`| O inquilino do diretório que concedeu ao seu pedido as permissões que solicitou, em formato GUID.|
-| `state`           | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de conteúdos que quiser. O Estado é utilizado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou a visualização em que se encontravam.|
-| `admin_consent`   | Será programado `True` para indicar que esta resposta ocorreu num fluxo de consentimento administrativo.|
+| `state` | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de conteúdos que quiser. O Estado é utilizado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou a visualização em que se encontravam.|
+| `admin_consent` | Será programado `True` para indicar que esta resposta ocorreu num fluxo de consentimento administrativo.|
 
 ## <a name="next-steps"></a>Passos seguintes
 - Veja [como converter uma app para ser multi-inquilino](howto-convert-app-to-be-multi-tenant.md)

@@ -9,23 +9,23 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 12/14/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 12d74e2f21678fdbb02719c29a31c0fcdc4fa132
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: f73186612fe79af88e84956bb4d0f0b374f4c986
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030150"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507800"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Vidas de token configuradas na plataforma de identidade da Microsoft (pré-visualização)
 
 > [!IMPORTANT]
-> Depois de 30 de janeiro de 2021, os inquilinos deixarão de poder configurar a atualização e a duração da sessão e o Azure Ative Directory deixará de honrar a configuração de atualização e sessão em políticas após essa data.
+> Depois de maio de 2020, os inquilinos deixarão de poder configurar a renovação e a duração da sessão.  O Azure Ative Directory deixará de honrar a configuração de atualização e ficha de sessão existente em políticas após 30 de janeiro de 2021. Ainda pode configurar o acesso a vidas simbólicas após a depreciação.
 >
-> Se precisar de continuar a definir o período de tempo antes de um utilizador ser convidado a iniciar novamente o súmis, configurar a frequência de inscrição no Acesso Condicional. Para saber mais sobre o Acesso Condicional, visite a página de preços da [AD Azure.](https://azure.microsoft.com/en-us/pricing/details/active-directory/)
+> Se precisar de continuar a definir o período de tempo antes de um utilizador ser convidado a iniciar novamente o súmis, configurar a frequência de inscrição no Acesso Condicional. Para saber mais sobre Acesso Condicional, visite a gestão da sessão de [autenticação configurada com Acesso Condicional.](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
 >
 > Para os inquilinos que não queiram utilizar o Acesso Condicional após a data da reforma, podem esperar que a Azure AD honre a configuração padrão delineada na secção seguinte.
 

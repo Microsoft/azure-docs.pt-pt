@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: b911181abea06894873e64da51afbb8799f1066a
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 42bfa52721160a469db2aa0507dadfa85ff41389
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927843"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508276"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Resolução de problemas do serviço Azure Dedicado HSM
 
@@ -29,7 +29,7 @@ O serviço Azure Dedicado HSM tem duas facetas distintas. Em primeiro lugar, o r
 
 ## <a name="hsm-registration"></a>Registo HSM
 
-O HSM dedicado não está livremente disponível para uso, uma vez que está a fornecer recursos de hardware na nuvem e, portanto, é um recurso precioso que precisa de ser protegido. Por isso, utilizamos um processo de whitelisting via e-mail HSMrequest@microsoft.com utilizando. 
+O HSM dedicado não está livremente disponível para uso, uma vez que está a fornecer recursos de hardware na nuvem e, portanto, é um recurso precioso que precisa de ser protegido. Por isso, utilizamos um processo de admissão através de e-mail utilizando HSMrequest@microsoft.com . 
 
 ### <a name="getting-access-to-dedicated-hsm"></a>Ter acesso ao HSM dedicado
 
@@ -69,7 +69,7 @@ As implementações podem falhar se exceder 2 HSMs por selo e 4 HSMs por região
 Quando um determinado carimbo ou região está a ficar cheio, ou seja, quase todos os HSMs livres são a provisionados, isso pode levar a falhas de implantação. Cada carimbo tem 11 HSMs disponíveis para os clientes, o que significa 22 por região. Há também 3 peças sobressalentes e 1 dispositivo de teste em cada carimbo. Se acredita que pode ter atingido um limite, envie um e-mail HSMrequest@microsoft.com para obter informações sobre o nível de preenchimento de selos específicos.
 
 ###  <a name="how-do-i-see-hsms-when-provisioned"></a>Como vejo os HSMs quando a provisionados?
-Devido ao HSM dedicado ser um serviço whitelist, é considerado um "Tipo Escondido" no portal Azure. Para ver os recursos do HSM, deve verificar a caixa de verificação "Mostrar tipos ocultos", como mostrado abaixo. O recurso NIC segue sempre o HSM e é um bom local para descobrir o endereço IP do HSM antes de utilizar o SSH para se ligar.
+Devido ao HSM dedicado ser um serviço de lista suspensa, é considerado um "Tipo Escondido" no portal Azure. Para ver os recursos do HSM, deve verificar a caixa de verificação "Mostrar tipos ocultos", como mostrado abaixo. O recurso NIC segue sempre o HSM e é um bom local para descobrir o endereço IP do HSM antes de utilizar o SSH para se ligar.
 
 ![Screenshot que destaca o show de tipos escondidos verificar](./media/troubleshoot/hsm-provisioned.png)
 

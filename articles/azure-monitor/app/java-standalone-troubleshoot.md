@@ -4,12 +4,12 @@ description: Saiba como resolver problemas com o agente Java para Azure Monitor 
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1ccfd583b58d129268af2a94e3072200e58308cd
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 14644f76b7de53b2b6ee3f04131daaf59267a5ff
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347835"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507647"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guia de resolução de problemas: Azure Monitor Application Insights for Java
 
@@ -34,6 +34,14 @@ Estas alterações incluem:
 -  O nome do ficheiro de configuração mudou de `ApplicationInsights.json` `applicationinsights.json` .
 -  O `instrumentationSettings` nó já não está presente. Todo o conteúdo `instrumentationSettings` é movido para o nível de raiz. 
 -  Os nós de configuração são `sampling` `jmxMetrics` `instrumentation` `heartbeat` movidos para fora do nível de `preview` raiz.
+
+## <a name="some-logging-is-not-auto-collected"></a>Alguns registos não são recolhidos automaticamente
+
+A exploração madeireira só é capturada se cumprir primeiro o limiar configurado dos quadros de registo, e em segundo lugar também cumpre o limiar configurado de Insights de Aplicação.
+
+A melhor maneira de saber se uma determinada declaração de registo satisfaz o limiar configurado dos quadros de registo é confirmar que está a aparecer no seu registo normal de aplicações (por exemplo, ficheiro ou consola).
+
+Consulte a [configuração de registo de registos recolhidos automaticamente](./java-standalone-config.md#auto-collected-logging) para obter mais detalhes.
 
 ## <a name="import-ssl-certificates"></a>Certificados SSL de importação
 

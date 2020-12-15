@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6b522f234343cc6a50d76607d1629c46cd180b7d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df6a4053eb70c02e27599bbd9086dfa32b0bcc65
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95894019"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508837"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação da síntese de fala (SSML)
 
@@ -200,6 +200,7 @@ Atualmente, os ajustes de estilo de fala são suportados para estas vozes neurai
 * `en-US-GuyNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
+* `zh-CN-YunyeNeural`
 * `zh-CN-YunxiNeural` (Pré-visualização)
 * `zh-CN-XiaohanNeural` (Pré-visualização)
 * `zh-CN-XiaomoNeural` (Pré-visualização)
@@ -271,7 +272,14 @@ Utilize esta tabela para determinar quais os estilos de fala suportados por cada
 |                         | `style="gentle"`          | Expressa um tom suave, educado e agradável, com menor tom e energia vocal         |   
 |                         | `style="lyrical"`         | Expressa emoções de forma melódica e sentimental         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | Expressa um tom amigável e útil para o apoio ao cliente  | 
-| `zh-CN-YunxiNeural`    | `style="cheerful"`        | Expressa um tom animado e entusiasta, com maior tom e energia vocal                         |
+| `zh-CN-YunyeNeural`     | `style="calm"`            | Expressa uma atitude fria, recolhida e composta ao falar. Tom, tom, prosódia é muito mais uniforme comparado com outros tipos de fala.    | 
+|                         | `style="cheerful"`        | Expressa um tom animado e entusiasta, com maior tom e energia vocal                         |
+|                         | `style="sad"`             | Expressa um tom triste, com tom mais alto, menos intensidade e menor energia vocal. Indicadores comuns desta emoção seriam choros ou choros durante a fala.            |
+|                         | `style="angry"`           | Expressa um tom irritado e irritado, com tom mais baixo, maior intensidade e maior energia vocal. O orador está em estado de irado, desagradado e ofendido.       |
+|                         | `style="fearful"`         | Expressa um tom assustado e nervoso, com tom mais alto, energia vocal mais alta e taxa mais rápida. O orador está num estado de tensão e inquietação.                          |
+|                         | `style="disgruntled"`     | Expressa um tom desdenhoso e queixoso. O discurso desta emoção mostra descontentamento e desprezo.              |
+|                         | `style="serious"`         | Expressa um tom rigoroso e comandado. O orador soa frequentemente mais duro e muito menos relaxado com cadência firme.          |
+| `zh-CN-YunxiNeural`     | `style="cheerful"`        | Expressa um tom animado e entusiasta, com maior tom e energia vocal                         |
 |                         | `style="sad"`             | Expressa um tom triste, com tom mais alto, menos intensidade e menor energia vocal. Indicadores comuns desta emoção seriam choros ou choros durante a fala.            |
 |                         | `style="angry"`           | Expressa um tom irritado e irritado, com tom mais baixo, maior intensidade e maior energia vocal. O orador está em estado de irado, desagradado e ofendido.       |
 |                         | `style="fearful"`         | Expressa um tom assustado e nervoso, com tom mais alto, energia vocal mais alta e taxa mais rápida. O orador está num estado de tensão e inquietação.                          |
@@ -437,9 +445,9 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 `p` e `s` os elementos são usados para denotar parágrafos e frases, respectivamente. Na ausência destes elementos, o serviço de texto-a-fala determina automaticamente a estrutura do documento SSML.
 
-O `p` elemento pode conter texto e os seguintes elementos: , , , `audio` , , , , , , e `break` `phoneme` `prosody` `say-as` `sub` `mstts:express-as` `s` .
+O `p` elemento pode conter texto e os seguintes elementos: , `audio` e `break` `phoneme` `prosody` `say-as` `sub` `mstts:express-as` `s` .
 
-O `s` elemento pode conter texto e os seguintes elementos: , , `audio` , , , , , e `break` `phoneme` `prosody` `say-as` `mstts:express-as` `sub` .
+O `s` elemento pode conter texto e os seguintes elementos: , `audio` e `break` `phoneme` `prosody` `say-as` `mstts:express-as` `sub` .
 
 **Syntax**
 
@@ -616,7 +624,7 @@ Ao utilizar este léxico personalizado, "BTW" será lido como "By the way". "Ben
 
 Na amostra acima, estamos a usar o Alfabeto Fonético Internacional, também conhecido como o conjunto de telefones IPA. Sugerimos que os desenvolvedores utilizem o IPA, porque é o padrão internacional. Para alguns caracteres IPA, eles têm a versão 'pré-comcomposta' e 'decomposta' quando estão representados com o Unicode. O léxico personalizado só suporta os unicódigos decompostos.
 
-Tendo em conta que o IPA não é fácil de lembrar, o serviço de Discurso define um conjunto fonético para sete línguas ( `en-US` , , , , , , e `fr-FR` `de-DE` `es-ES` `ja-JP` `zh-CN` `zh-TW` .
+Tendo em conta que o IPA não é fácil de lembrar, o serviço de Discurso define um conjunto fonético para sete línguas ( `en-US` `fr-FR` , e `de-DE` `es-ES` `ja-JP` `zh-CN` `zh-TW` .
 
 Pode utilizar o `sapi` vale como vale para o atributo com `alphabet` léxicos personalizados, como demonstrado abaixo:
 
@@ -643,7 +651,7 @@ Para obter mais informações sobre o alfabeto fonético detalhado do serviço d
 
 ## <a name="adjust-prosody"></a>Ajustar a prosódia
 
-O `prosody` elemento é utilizado para especificar alterações ao tom, contorno, intervalo, duração e volume para a saída texto-a-voz. O `prosody` elemento pode conter texto e os seguintes elementos: , , , `audio` , , , , , , e `break` `p` `phoneme` `prosody` `say-as` `sub` `s` .
+O `prosody` elemento é utilizado para especificar alterações ao tom, contorno, intervalo, duração e volume para a saída texto-a-voz. O `prosody` elemento pode conter texto e os seguintes elementos: , `audio` e `break` `p` `phoneme` `prosody` `say-as` `sub` `s` .
 
 Como os valores prosódicos de atributos podem variar em relação a uma ampla gama, o reconhecimento da fala interpreta os valores atribuídos como uma sugestão do que devem ser os valores prosódicos reais da voz selecionada. O serviço de texto-a-fala limita ou substitui valores que não são suportados. Exemplos de valores não suportados são um pitch de 1 MHz ou um volume de 120.
 
@@ -781,7 +789,7 @@ O motor da síntese do discurso fala o seguinte exemplo: "O seu primeiro pedido 
 
 ## <a name="add-recorded-audio"></a>Adicionar áudio gravado
 
-`audio` é um elemento opcional que permite inserir áudio MP3 num documento SSML. O corpo do elemento áudio pode conter texto simples ou marcação SSML que é falada se o ficheiro de áudio não estiver disponível ou não for retocável. Além disso, o `audio` elemento pode conter texto e os seguintes elementos: , , , `audio` , , , , , , e `break` `p` `s` `phoneme` `prosody` `say-as` `sub` .
+`audio` é um elemento opcional que permite inserir áudio MP3 num documento SSML. O corpo do elemento áudio pode conter texto simples ou marcação SSML que é falada se o ficheiro de áudio não estiver disponível ou não for retocável. Além disso, o `audio` elemento pode conter texto e os seguintes elementos: , `audio` e `break` `p` `s` `phoneme` `prosody` `say-as` `sub` .
 
 Qualquer áudio incluído no documento SSML deve satisfazer estes requisitos:
 

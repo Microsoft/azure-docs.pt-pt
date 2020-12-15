@@ -3,12 +3,12 @@ title: Conceder um acesso de aplicação a outros recursos da Azure
 description: Este artigo explica como conceder à sua aplicação de Tecido de Serviço ativada por identidade gerida acesso a outros recursos Azure que suportam a autenticação baseada no Diretório Azure Ative.
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: a1d963c49f9522000028b00c138b2e5731a9ccca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7560294fbf6d122396b6a5a8ffd3ee93bc89048
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333635"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507460"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources"></a>Concessão de um acesso de identidade gerido por uma aplicação de Service Fabric aos recursos da Azure
 

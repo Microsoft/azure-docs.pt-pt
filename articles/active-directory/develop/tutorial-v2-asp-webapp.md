@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 0dad7add63102d462a2111f1ecf12ae43dae123c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4dca1fa0e823b482044d35f98412187af2fa72ed
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996190"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507766"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutorial: Adicione o sôs-in à Microsoft a uma aplicação web ASP.NET
 
@@ -185,7 +185,7 @@ Os parâmetros que fornece nas *Opções OpenIDConnectAuthentication* servem com
 
 Para criar um novo controlador para expor métodos de inscrição e de assinatura, siga estes passos:
 
-1.  Clique com o botão direito **Add** na pasta **controladores** e selecione  >  **Add Controller**.
+1.  Clique com o botão direito na pasta **controladores** e selecione  >  **Add Controller**.
 2.  Selecione **Controlador MVC (versão .NET) – Vazio**.
 3.  Selecione **Adicionar**.
 4.  Nomeie-o **HomeController** e, em seguida, **selecione Adicionar**.
@@ -373,15 +373,16 @@ Para registar a sua aplicação e adicionar as informações de registo da aplic
    1. no Solution Explorer, selecione o projeto e veja a janela Propriedades (se não vir uma janela do Properties, prima F4).
    1. Alterar SSL Habilitado a `True` .
    1. Clique com o botão direito no projeto no Estúdio Visual, selecione **Propriedades** e, em seguida, selecione o separador **Web.** Na secção **Servidores,** altere a definição **de Url de projeto** para o URL **SSL**.
-   1. Copie o URL SSL. Irá adicionar este URL à lista de URLs de redirecionamento na lista de URLs de redirecionamento do portal de redireccionamento no passo seguinte.<br/><br/>![Propriedades do projeto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta de trabalho ou escola, ou utilizando uma conta pessoal da Microsoft.
-1. Se a sua conta lhe der acesso a mais do que um inquilino, selecione a sua conta no canto superior direito e desembite a sua sessão de portal para o inquilino AD AZure que deseja.
-1. Aceda à plataforma de identidade da Microsoft para programadores [Página de registos de aplicações.](https://go.microsoft.com/fwlink/?linkid=2083908)
-1. Selecione **Novo registo**.
-1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
-   1. Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da app, como **o ASPNET-Tutorial**.
-   1. Adicione o URL SSL copiado do Visual Studio no passo 1 (por exemplo, `https://localhost:44368/` ) em URL de **resposta,** e selecione **Register**.
-1. Selecione o menu **autenticação,** selecione **fichas de identificação** em **"Implicit Grant"** e, em seguida, selecione **Guardar**.
+   1. Copie o URL SSL. Irá adicionar este URL à lista de URIs redirecionados na lista de URIs de redirecionamento do portal de redireccionamento no passo seguinte.<br/><br/>![Propriedades do projeto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
+1. Procure e selecione **Azure Active Directory**.
+1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
+1. Introduza um **Nome** para a sua aplicação, por `ASPNET-Tutorial` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
+1. Adicione o URL SSL que copiou do Visual Studio no passo 1 (por exemplo, `https://localhost:44368/` ) em **Redirect URI**.
+1. Selecione **Registar**.
+1. Em **Gestão**, **selecione Autenticação**.
+1. Na secção **Concessão Implícita,** selecione **fichas de identificação** e, em seguida, selecione **Save**.
 1. Adicione o seguinte no ficheiro web.config, localizado na pasta raiz na `configuration\appSettings` secção:
 
     ```xml

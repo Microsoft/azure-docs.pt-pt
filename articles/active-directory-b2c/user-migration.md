@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 60dff717fbd86fa83821575ac90c9dac36dbc4d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d680da7a5f09a55bec5d791642b80fd76c6088e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85383976"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509619"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrar utilizadores para Azure AD B2C
 
@@ -90,7 +90,7 @@ Nem todas as informações do fornecedor de identidade legado devem ser migradas
 
 Antes de iniciar o processo de migração, aproveite para limpar o seu diretório.
 
-- Identifique o conjunto de atributos do utilizador a armazenar em Azure AD B2C e migrar apenas o que precisar. Se necessário, pode criar [atributos personalizados](custom-policy-custom-attributes.md) para armazenar mais dados sobre um utilizador.
+- Identifique o conjunto de atributos do utilizador a armazenar em Azure AD B2C e migrar apenas o que precisar. Se necessário, pode criar [atributos personalizados](user-flow-custom-attributes.md) para armazenar mais dados sobre um utilizador.
 - Se estiver a migrar de um ambiente com múltiplas fontes de autenticação (por exemplo, cada aplicação tem o seu próprio diretório de utilizadores), migra para uma conta unificada em Azure AD B2C.
 - Se várias aplicações tiverem nomes de utilizador diferentes, pode armazenar todas elas numa conta de utilizador Azure AD B2C utilizando a recolha de identidades. No que diz respeito à palavra-passe, deixe o utilizador escolher um e desafiná-lo no diretório. Por exemplo, com a migração sem emenda, apenas a palavra-passe escolhida deve ser armazenada na conta Azure AD B2C.
 - Remova as contas de utilizador não utilizadas antes da migração, ou não migrar contas velhas.

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d205cff71b962afb9ead8271ee0c220fa1e2242f
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 5fb7c0df653048adcffceda4d8a384be823b5c3a
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518775"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507698"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Tutorial: Ligue para a API do Gráfico microsoft a partir de uma aplicação para desktop do Windows
 
@@ -104,18 +104,17 @@ Pode registar rapidamente a sua candidatura fazendo o seguinte:
 ### <a name="option-2-advanced-mode"></a>Opção 2: Modo avançado
 
 Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução, faça o seguinte:
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-1. Navegue para a plataforma de identidade da Microsoft para programadores [Página de registos de aplicações.](https://go.microsoft.com/fwlink/?linkid=2083908)
-1. Selecione **Novo registo**.
-   - Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por `Win-App-calling-MsGraph` exemplo.
-   - Na secção **Tipos de conta suportados**, selecione **Contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, Skype, Xbox, Outlook.com)**.
-   - Selecione **Registar** para criar a aplicação.
-1. Na lista de páginas da aplicação, selecione **Autenticação**.
-   1. Na secção **URIs de redirecionamento,** na lista de URIs de redirecionamento:
-   1. Na coluna **TYPE** selecione **cliente público/nativo (ambiente de trabalho móvel &)**.
-   1. Na coluna **REDIRECT URI,** insira `https://login.microsoftonline.com/common/oauth2/nativeclient`
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
+1. Procure e selecione **Azure Active Directory**.
+1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
+1. Introduza um **Nome** para a sua aplicação, por `Win-App-calling-MsGraph` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
+1. Na secção **de tipos de conta suportada,** selecione Contas em qualquer **diretório organizacional (qualquer diretório AD AZure - Multitenant) e contas pessoais da Microsoft (por exemplo, Skype, Xbox)**.
 1. Selecione **Registar**.
+1. Em **Gestão**, **selecione Autenticação**  >  **Adicione uma plataforma**.
+1. Selecione **aplicações móveis e desktop**.
+1. Na secção **Redirecionar URIs,** selecione **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+1. Selecione **Configurar**.
 1. Vá ao Visual Studio, abra o ficheiro *App.xaml.cs* e, em seguida, substitua `Enter_the_Application_Id_here` no código snippet abaixo pelo ID da aplicação que acabou de registar e copiar.
 
     ```csharp

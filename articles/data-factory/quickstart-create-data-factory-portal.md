@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 11/09/2020
+ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 9d3c3dc3b9a83973e41bf5d7dd204316508c2cb4
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 76a490ed28f940620db7835c4cec145740f48503
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96013399"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509024"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Início Rápido: criar uma fábrica de dados através da interface de utilizador do Azure Data Factory 
 
@@ -45,42 +45,42 @@ Ver este vídeo ajuda-o a compreender a IU do Data Factory:
 1. Selecione **Integração** e, em seguida, selecione **Data Factory**. 
    
    ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
-1. Na página **Nova fábrica de dados**, introduza **ADFTutorialDataFactory** em **Nome**. 
+1. Na página **'Criar Fábrica de** Dados', no separador **Basics,** selecione a **subscrição** Azure na qual pretende criar a fábrica de dados.
+1. Em **Grupo de Recursos**, efetue um destes passos:
+
+    a. Selecione um grupo de recursos existente da lista de drop-down.
+
+    b. **Selecione Criar novo** e insira o nome de um novo grupo de recursos.
+    
+    Para saber mais sobre grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md). 
+
+1. Para **a Região**, selecione a localização para a fábrica de dados.
+
+   A lista mostra apenas as localizações suportadas pelo Data Factory e onde serão armazenados os seus metadados do Azure Data Factory. As lojas de dados associadas (como a Azure Storage e a Azure SQL Database) e os cálculos (como o Azure HDInsight) que a Data Factory utiliza podem funcionar noutras regiões.
  
+1. Para **citar ,** insira a **ADFTutorialDataFactory**.
    O nome da fábrica de dados Azure deve ser *globalmente único.* Se vir o seguinte erro, altere o nome da fábrica de dados (por exemplo, **&lt; o seu nome &gt; ADFTutorialDataFactory)** e tente criar novamente. Para regras de nomenclatura de artefactos do Data Factory, veja o artigo [Data Factory – Regras de Nomenclatura](naming-rules.md).
   
    ![Erro quando um nome não está disponível](./media/doc-common-process/name-not-available-error.png)
-1. Em **Subscrição**, selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. 
-1. Em **Grupo de Recursos**, siga um destes passos:
-     
-   - Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista. 
-   - Selecione **Criar novo** e introduza o nome de um grupo de recursos.   
-         
-   Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
+
 1. Em **Versão**, selecione **V2**.
-1. Em **Localização**, selecione a localização para a fábrica de dados.
 
-   A lista mostra apenas as localizações suportadas pelo Data Factory e onde serão armazenados os seus metadados do Azure Data Factory. As lojas de dados associadas (como a Azure Storage e a Azure SQL Database) e os cálculos (como o Azure HDInsight) que a Data Factory utiliza podem funcionar noutras regiões.
+1. Selecione **Seguinte: Configuração git** e, em seguida, selecione **Configure Git mais tarde** caixa de verificação.
 
-1. Selecione **Seguinte: Configuração git** e, em seguida, selecione **Configure Git mais tarde**.
+1. Selecione **Rever + criar** e selecione **Criar** depois de passar a validação. Depois de concluída a criação, selecione **Ir para o recurso** para navegar para a página data **Factory.** 
 
-1. Selecione **Criar**. Depois de concluída a criação, selecione **Ir para o recurso** para navegar para a página data **Factory.** 
-
-1. Selecione o mosaico **Criar e Monitorizar** para iniciar a aplicação de interface de utilizador (IU) do Azure Data Factory num separador à parte.
+1. Selecione o **azulejo do Monitor & autor** para iniciar a aplicação de interface de utilizador (UI) da Azure Data Factory num separado separado do navegador.
    
    ![Home page da fábrica de dados, com o mosaico "Criar e Monitorizar"](./media/doc-common-process/data-factory-home-page.png)
    
    > [!NOTE]
    > Se vir que o navegador está preso em "Autorizar", limpe os **cookies de terceiros do Bloco e** a caixa de verificação de dados do site. Ou mantenha-a selecionada, crie uma exceção para **login.microsoftonline.com**, e depois tente abrir novamente a app.
    
-1. Na página **Introdução**, mude para o separador **Criar**, no painel esquerdo. 
-
-    ![Página “Vamos começar”](./media/doc-common-process/get-started-page-author-button.png)
 
 ## <a name="create-a-linked-service"></a>Criar um serviço ligado
 Neste procedimento, cria um serviço ligado para ligar a sua conta de Armazenamento Azure à fábrica de dados. O serviço ligado tem as informações de ligação utilizadas pelo serviço Data Factory em runtime para se ligar ao mesmo.
 
-1. Abra A guia de [gestão](./author-management-hub.md) a partir do painel esquerdo.
+1. Na página UI da Azure Data Factory, abra o [**separador Gerir**](./author-management-hub.md) a partir do painel esquerdo.
 
 1. Na página de serviços Linked, selecione **+Novo** para criar um novo serviço ligado.
 
@@ -109,10 +109,13 @@ O conjunto de dados de entrada representa a origem de dados na pasta de entrada.
 O conjunto de dados de saída representa os dados que são copiados para o destino. Na definição do conjunto de dados de saída, vai especificar o contentor de blobs (**adftutorial**), a pasta (**output**) e o ficheiro para o qual os dados vão ser copiados. Cada execução de um pipeline tem um ID exclusivo associado. Pode aceder a este ID com a variável do sistema **RunId**. O nome do ficheiro de saída é avaliado dinamicamente com base no ID da execução do pipeline.   
 
 Nas definições de serviço ligadas, especificou a conta de Armazenamento Azure que contém os dados de origem. Nas definições do conjunto de dados de origem, vai especificar onde é que os dados de origem residem exatamente (contentor de blobs, pasta e ficheiro). Nas definições do conjunto de dados de sink, vai especificar para onde é que os dados vão ser copiados (contentor de blobs, pasta e ficheiro). 
- 
+
+1. **Selecione O** separador autor do painel esquerdo.
+
 1. Selecione o **+** botão (mais) e, em seguida, **selecione Dataset**.
 
    ![Menu para criar um conjunto de dados](./media/quickstart-create-data-factory-portal/new-dataset-menu.png)
+
 1. Na página **New Dataset,** selecione **Azure Blob Storage** e, em seguida, selecione **Continue**. 
 
 1. Na página **'Selecionar Formato',** escolha o tipo de formato dos seus dados e, em seguida, selecione **Continue**. Neste caso, selecione **Binary** quando copiar ficheiros como-está sem analisar o conteúdo.
@@ -163,7 +166,7 @@ Neste procedimento, vai criar e validar um pipeline com uma atividade de cópia 
 
 1. Mude para o separador **Sink** nas definições da atividade de cópia e selecione **OutputDataset** em **Conjunto de Dados de Sink**.
 
-1. Clique em **Validar** na barra de ferramentas do pipeline acima da tela, para validar as definições do pipeline. Confirme que o pipeline foi confirmado com êxito. Para fechar a saída de validação, selecione o **>>** botão (seta direita). 
+1. Clique em **Validar** na barra de ferramentas do pipeline acima da tela, para validar as definições do pipeline. Confirme que o pipeline foi confirmado com êxito. Para fechar a saída de validação, selecione o botão de validação no canto superior direito. 
 
    ![Validar um oleoduto](./media/quickstart-create-data-factory-portal/pipeline-validate.png)
 
@@ -185,7 +188,7 @@ Neste procedimento, vai implementar entidades (serviços ligados, conjuntos de d
 
     ![Publicar tudo](./media/quickstart-create-data-factory-portal/publish-all.png)
 
-1. Para ativar o gasoduto manualmente, **selecione Adicionar Gatilho** na barra de ferramentas do gasoduto e, em seguida, selecione Trigger **Now**. Na página **de execução pipeline,** selecione **Terminar**.
+1. Para ativar o gasoduto manualmente, **selecione Adicionar Gatilho** na barra de ferramentas do gasoduto e, em seguida, selecione Trigger **Now**. Na página **de execução pipeline,** selecione **OK**.
 
 ## <a name="monitor-the-pipeline"></a>Monitorizar o pipeline
 

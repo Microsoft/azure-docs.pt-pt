@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 11/25/2020
 ms.subservice: alerts
-ms.openlocfilehash: 5a57e8b7f3bf2c3e820a3befee0ee69c48a2afa9
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: ef8a07f0360338aeb659942967169b0605b08e51
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029881"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507222"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Resolver problemas relacionados com os alertas de métricas do Azure Monitor 
 
@@ -44,7 +44,7 @@ Se acredita que um alerta métrico deveria ter disparado, mas não disparou e n�
 
 Se acredita que o seu alerta métrico não devia ter disparado, mas disparou, os seguintes passos podem ajudar a resolver o problema.
 
-1. Reveja a [lista de alertas disparados](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) para localizar o alerta disparado e clique para ver os seus detalhes. Reveja as informações fornecidas no âmbito do **Metric Value** porquê deste **Threshold value** **alerta disparar?**
+1. Reveja a [lista de alertas disparados](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) para localizar o alerta disparado e clique para ver os seus detalhes. Reveja as informações fornecidas no âmbito do porquê deste  **alerta disparar?**
 
     > [!NOTE] 
     > Se estiver a utilizar um tipo de condição Dynamic Thresholds e achar que os limiares utilizados não estavam corretos, por favor forneça feedback utilizando o ícone de franzir a testa. Este feedback terá impacto na pesquisa algorítmica de aprendizagem automática e ajudará a melhorar as deteções futuras.
@@ -122,17 +122,17 @@ Para evitar que a implementação falhe ao tentar validar as definições da mé
     "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
         "allOf": [
             {
-                    "name" : "condition1",
-                        "metricName": "myCustomMetric",
+                "name" : "condition1",
+                "metricName": "myCustomMetric",
                 "metricNamespace": "myCustomMetricNamespace",
-                        "dimensions":[],
-                        "operator": "GreaterThan",
-                        "threshold" : 10,
-                        "timeAggregation": "Average",
-                    "skipMetricValidation": true
-        }
-              ]
-        }
+                "dimensions":[],
+                "operator": "GreaterThan",
+                "threshold" : 10,
+                "timeAggregation": "Average",
+                "skipMetricValidation": true
+            }
+        ]
+    }
 ```
 
 ## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exportar o modelo do Gestor de Recursos Azure de uma regra de alerta métrico através do portal Azure

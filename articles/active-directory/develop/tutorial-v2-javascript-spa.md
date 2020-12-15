@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: ded54628a307f3cf4441e804f7f1025a0e943b51
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 4eb3c2905f3c1ccfa63da1bb4a8c81decdbc2f2b
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979951"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507732"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA)
 
@@ -265,16 +265,17 @@ Tem agora um servidor simples para servir o seu SPA. A estrutura de pastas prete
 
 Antes de prosseguir com a autenticação, registe o seu pedido no **Diretório Ativo Azure**.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-1. Se a sua conta lhe der acesso a mais do que um inquilino, selecione a conta no canto superior direito e, em seguida, desemocione a sua sessão de portal para o inquilino AD AZure que pretende utilizar.
-1. Aceda à plataforma de identidade da Microsoft para programadores [Página de registos de aplicações.](https://go.microsoft.com/fwlink/?linkid=2083908)
-1. Quando a página **Registar uma aplicação** for apresentada, introduza um nome para a sua aplicação.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
+1. Procure e selecione **Azure Active Directory**.
+1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
+1. Insira um **Nome** para a sua inscrição. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
 1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
 1. Na secção **URI de redirecionamento,** selecione a plataforma **Web** a partir da lista de drop-down e, em seguida, desaver o valor para o URL de aplicação que é baseado no seu servidor web.
 1. Selecione **Registar**.
 1. Na página **geral** da aplicação, note o valor **de ID da Aplicação (cliente)** para posterior utilização.
-1. Este arranque rápido requer que o [fluxo de subvenção implícito](v2-oauth2-implicit-grant-flow.md) seja ativado. No painel esquerdo da aplicação registada, selecione **Autenticação**.
-1. Nas **definições Avançadas**, sob **concessão implícita,** selecione as caixas de verificação **de fichas de identificação** e **de acesso.** São necessárias fichas de ID e fichas de acesso porque esta aplicação deve assinar nos utilizadores e chamar uma API.
+1. Em **Gestão**, **selecione Autenticação**.
+1. Na secção **de concessão implícita,** selecione **fichas de identificação** e **fichas de acesso**. São necessárias fichas de ID e fichas de acesso porque esta aplicação deve assinar nos utilizadores e chamar uma API.
 1. Selecione **Guardar**.
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Desa redirecione um URL de redirecionamento para Node.js

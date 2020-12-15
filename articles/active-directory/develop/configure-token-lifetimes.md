@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/23/2020
+ms.date: 12/14/2020
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 2815041f32ebd7c2dae235229d1ca19aad253f7d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: e663cdd3846e804d1dcf96076c07b9a3db84272c
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503626"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507749"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>Configure políticas de vida útil simbólicas (pré-visualização)
 Muitos cenários são possíveis no Azure AD quando você pode criar e gerir vidas simbólicas para apps, diretores de serviços e sua organização geral.  
 
 > [!IMPORTANT]
-> Depois de 30 de janeiro de 2021, os inquilinos deixarão de poder configurar a atualização e a duração da sessão e a Azure AD deixará de honrar a configuração de atualização e sessão existente nas políticas após essa data. Ainda pode configurar o acesso a vidas simbólicas após a depreciação.  Para saber mais, leia [as vidas de símbolos configurais na plataforma de identidade da Microsoft.](active-directory-configurable-token-lifetimes.md)
+> Depois de maio de 2020, os inquilinos deixarão de poder configurar a renovação e a duração da sessão.  O Azure Ative Directory deixará de honrar a configuração de atualização e ficha de sessão existente em políticas após 30 de janeiro de 2021. Ainda pode configurar o acesso a vidas simbólicas após a depreciação.  Para saber mais, leia [as vidas de símbolos configurais na plataforma de identidade da Microsoft.](active-directory-configurable-token-lifetimes.md)
 > Implementamos capacidades de [gestão de sessão de autenticação](../conditional-access/howto-conditional-access-session-lifetime.md)   no Acesso Condicionado AZURE AD. Pode utilizar esta nova funcionalidade para configurar as vidas de token de atualização, definindo o sinal na frequência.
 
 
@@ -88,7 +88,7 @@ Neste exemplo, cria-se uma política que permite que os seus utilizadores assine
         Get-AzureADPolicy -id | set-azureadpolicy -Definition @($((Get-AzureADPolicy -id ).Replace(" ","")))
         ```
 
-    1. Para ver a sua nova política, e para obter o **ObjectId**da apólice, executar o seguinte comando:
+    1. Para ver a sua nova política, e para obter o **ObjectId** da apólice, executar o seguinte comando:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
@@ -153,7 +153,7 @@ Neste exemplo, cria-se uma política que exige que os utilizadores autentem com 
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-1. Atribua a apólice à sua API web. Também precisa de obter o **ObjectId** da sua aplicação. Utilize o [cmdlet Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) para encontrar o **ObjectId**da sua aplicação, ou utilize o [portal Azure](https://portal.azure.com/).
+1. Atribua a apólice à sua API web. Também precisa de obter o **ObjectId** da sua aplicação. Utilize o [cmdlet Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) para encontrar o **ObjectId** da sua aplicação, ou utilize o [portal Azure](https://portal.azure.com/).
 
     Obtenha o **ObjectId** da sua aplicação e atribua a política:
 

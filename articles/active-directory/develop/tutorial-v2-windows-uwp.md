@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 774c17af88e45e25cf1e8edc0df60ab55fe53e0e
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: dce2cd0d77ff0a98d4d68e1c99edb472e61ce8a5
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95974340"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509466"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Tutorial: Ligue para a Microsoft Graph API a partir de uma aplicação Universal Windows Platform (UWP)
 
@@ -347,21 +347,23 @@ private async Task DisplayMessageAsync(string message)
 Agora tem de registar a sua candidatura:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Selecione as inscrições da **App Azure Ative**  >  **Directory**.
-1. Selecione **Novo registo**. Introduza um nome significativo da aplicação que será apresentado aos utilizadores da aplicação, por exemplo, *UWP-App-call-MSGraph*.
-1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox)**. Em seguida, **selecione Registar-se** para continuar.
+1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
+1. Procure e selecione **Azure Active Directory**.
+1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
+1. Introduza um **Nome** para a sua aplicação, por `UWP-App-calling-MSGraph` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
+1. Nos **tipos de contas suportadas**, selecione Contas em qualquer **diretório organizacional (qualquer diretório AD AZure - Multitenant) e contas pessoais da Microsoft (por exemplo, Skype, Xbox)**. 
+1. Selecione **Registar**.
 1. Na página geral, encontre o valor **de ID da Aplicação (cliente)** e copie-o. Volte ao Visual Studio, abra *MainPage.xaml.cs,* e substitua o valor `ClientId` deste valor.
 
 Configure a autenticação para a sua aplicação:
 
-1. De volta ao [portal Azure](https://portal.azure.com), em **Manage**, selecione **Autenticação**.
-1. Na secção **de redirecionamento de**  |  **URIs sugeridas para clientes públicos (mobile, desktop)** verifique https://login.microsoftonline.com/common/oauth2/nativeclient .
-1. Selecione **Guardar**.
+1. De volta ao [portal Azure](https://portal.azure.com), em **Manage**, selecione **Autenticação** Adicione uma  >  **plataforma** e, em seguida, selecione **aplicações móveis e desktop**.
+1. Na secção **URIs de redirecionamento,** verifique **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+1. Selecione **Configurar**.
 
 Configure permissões API para a sua aplicação:
 
-1. Em **Gestão**, selecione **permissões API**.
-1. **Selecione Adicionar uma permissão** e, em seguida, certifique-se de que selecionou **APIs da Microsoft**.
+1. Em **Gestão**, selecione **permissões API**  >  **Adicione uma permissão**.
 1. Selecione **Microsoft Graph**.
 1. Selecione **permissões delegadas**, procure por *User.Read*, e verifique se **o Utilizador.Read** está selecionado.
 1. Se escolho alguma alteração, **selecione Adicionar permissões** para as guardar.

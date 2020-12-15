@@ -11,12 +11,12 @@ ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 62f2869bfe1110dd5bf8459c9f6f6b21701dc934
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 95f41283b78c39ed2cf3b4abb75275902d8cf7bd
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97425963"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509585"
 ---
 # <a name="userinfo-endpoint"></a>Ponto final UserInfo
 
@@ -103,7 +103,7 @@ A informação do utilizador UserJourney especifica:
 
 1. A secção de saídaClaims dentro do perfil técnico do UserInfoIssuer especifica os atributos que pretende devolver. O perfil técnico do UserInfoIssuer é chamado no final da viagem do utilizador. 
 1. O perfil técnico de Autorimese deAuthorização do Utilizador valida a assinatura, nome do emitente e público simbólico, e extrai a reclamação do token de entrada. Altere os seguintes metadados para refletir o seu ambiente:
-    1. **emitente** - Este valor deve ser idêntico ao `iss` pedido no âmbito da reclamação simbólica de acesso. Os tokens emitidos pela Azure AD B2C utilizam um emitente no formato `https://yourtenant.b2clogin.com/your-tenant-id/v2.0/` . Saiba mais sobre [a personalização simbólica.](configure-tokens-custom-policy.md)
+    1. **emitente** - Este valor deve ser idêntico ao `iss` pedido no âmbito da reclamação simbólica de acesso. Os tokens emitidos pela Azure AD B2C utilizam um emitente no formato `https://yourtenant.b2clogin.com/your-tenant-id/v2.0/` . Saiba mais sobre [a personalização simbólica.](configure-tokens.md)
     1. **IdTokenAudience** - Deve ser idêntico à `aud` reclamação dentro da reclamação simbólica de acesso. Em Azure AD B2C a `aud` reclamação é a identificação da sua aplicação de partido em gestão. Este valor é uma coleção e suporta múltiplos valores usando um limagem de vírgula.
 
 No seguinte token de acesso, o `iss` valor da reclamação é `https://contoso.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/` . O `aud` valor da reclamação `22222222-2222-2222-2222-222222222222` é.

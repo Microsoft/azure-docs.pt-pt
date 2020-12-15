@@ -3,12 +3,12 @@ title: Preparação de implantação de cluster autónomo
 description: Documentação relacionada com a preparação do ambiente e a criação da configuração do cluster, a considerar antes da implantação de um cluster destinado a lidar com uma carga de trabalho de produção.
 ms.topic: conceptual
 ms.date: 9/11/2018
-ms.openlocfilehash: 9e5ad37d803b2042fd57b0a325570e69d7b73038
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 277c7e047815b3b4171f7cced203ecbe5b68b155
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842959"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509177"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planeie e prepare a sua implantação de cluster autónomo de tecido de serviço
 
@@ -103,7 +103,7 @@ Quando um administrador de cluster configura um cluster autónomo do Tecido de S
 5. Se as máquinas de cluster não estiverem acessíveis à Internet, desa um ponto na configuração do cluster:
    * Desativar a telemetria: Sob *propriedades* *definidas "enableTelemetry": falso*
    * Desativar a versão automática do Tecido descarregando & notificações de que a versão atual do cluster está a aproximar-se do fim do suporte: Em *propriedades* *definidas "fabricClusterAutoupgradeEnabled": falso*
-   * Em alternativa, se o acesso à internet da rede for limitado a domínios listados em branco, os domínios abaixo são necessários para a atualização automática: go.microsoft.com download.microsoft.com
+   * Em alternativa, se o acesso à internet da rede for limitado a domínios permitidos, os domínios abaixo são necessários para a atualização automática: go.microsoft.com download.microsoft.com
 
 6. Definir exclusões antivírus de tecido de serviço adequadas:
 

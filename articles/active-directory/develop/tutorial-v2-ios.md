@@ -13,12 +13,12 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5260ca049f971cce07659f12b54ce30304dd826d
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: f04a8aa96b51ac9330e4302c3afcc48f7d305b39
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107639"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507715"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Tutorial: Inscreva-se nos utilizadores e ligue para o Microsoft Graph a partir de uma aplicação para iOS ou macOS
 
@@ -71,16 +71,17 @@ Se quiser descarregar uma versão completa da app que constrói neste tutorial, 
 
 ## <a name="register-your-application"></a>Registar a aplicação
 
-1. Aceda ao [Portal do Azure](https://aka.ms/MobileAppReg)
-2. Abra a lâmina de registos da App e selecione **+Novo registo.**
-3. Introduza um **Nome** para a sua aplicação e, em seguida, sem definir um URI de redirecionamento.
-4. Selecione **Contas em qualquer diretório organizacional (qualquer diretório AD AZure - Multitenant) e contas pessoais da Microsoft (por exemplo, Skype, Xbox)** sob **tipos de conta suportados**
-5. Selecione **Registar-se**
-6. Na secção **Gerir** o painel que aparece, selecione **Autenticação**.
-
-7. Selecione **Experimente a nova experiência** perto do topo do ecrã para abrir a nova experiência de registo de aplicações e, em seguida, selecione **+Novo registo**+ Adicione uma  >  **plataforma**  >  **iOS/macOS**.
-    - Insira o Bundle ID do seu projeto. Se descarregou o código, este é `com.microsoft.identitysample.MSALiOS` . Se estiver a criar o seu próprio projeto, selecione o seu projeto no Xcode e abra o separador **Geral.** O identificador do pacote aparece na secção **identidade.**
-8. Selecione `Configure` e guarde a **Configuração MSAL** que aparece na página **de configuração MSAL** para que possa introduzi-la quando configurar a sua aplicação mais tarde. Selecione **Concluído**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
+1. Procure e selecione **Azure Active Directory**.
+1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
+1. Insira um **Nome** para a sua inscrição. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
+1. Selecione **Contas em qualquer diretório organizacional (qualquer diretório AD AZure - Multitenant) e contas pessoais da Microsoft (por exemplo, Skype, Xbox)** sob **tipos de conta suportados**.
+1. Selecione **Registar**.
+1. Em **Gestão**, selecione **Autenticação**  >  **Adicione uma plataforma**  >  **iOS/macOS**.
+1. Insira o Bundle ID do seu projeto. Se descarregou o código, este é `com.microsoft.identitysample.MSALiOS` . Se estiver a criar o seu próprio projeto, selecione o seu projeto no Xcode e abra o separador **Geral.** O identificador do pacote aparece na secção **identidade.**
+1. Selecione **Configurar** e guarde a **Configuração MSAL** que aparece na página **de configuração MSAL** para que possa introduzi-la quando configurar a sua aplicação mais tarde. 
+1. Selecione **Concluído**.
 
 ## <a name="add-msal"></a>Adicionar MSAL
 
