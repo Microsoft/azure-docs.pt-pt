@@ -2,13 +2,13 @@
 title: Novidades com o agente de servidores Azure Arc
 description: Este artigo tem notas de lançamento para o agente de servidores ativado pelo Azure Arc. Para muitas das questões resumidas, existem ligações a detalhes adicionais.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 5322a92bfc67d9f80c2271a3ef9b5626455e9ad7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.date: 12/14/2020
+ms.openlocfilehash: 3a01113d0d6416fb050f5c66191d5c420b7ac137
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445290"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505652"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Novidades com o agente de servidores Azure Arc
 
@@ -17,6 +17,16 @@ O agente Azure Arc ativado por máquina conectada recebe melhorias numa base con
 - Os últimos lançamentos
 - Problemas conhecidos
 - Correções de erros
+
+## <a name="december-2020"></a>Dezembro de 2020
+
+### <a name="new-feature"></a>Nova funcionalidade
+
+Suporte adicionado para Windows Server 2008 R2
+
+### <a name="fixed"></a>Fixo
+
+Problema resolvido impedindo que a extensão de script personalizado do Linux seja instalada com sucesso.
 
 ## <a name="november-2020"></a>Novembro de 2020
 
@@ -41,7 +51,7 @@ Versão: 1.0 (Disponibilidade Geral)
 
 - O suporte para agentes de pré-visualização (todas as versões com mais de 1.0) será removido numa futura atualização de serviço.
 - Suporte removido para o ponto final do recuo `.azure-automation.net` . Se tiver um representante, tem de permitir o ponto `*.his.arc.azure.com` final.
-- Se o agente 'Máquina Conectada' for instalado numa máquina virtual hospedada em Azure, as extensões VM não podem ser instaladas ou modificadas a partir do recurso dos servidores ativados pelo Arco. Isto é para evitar que as operações de extensão conflituosas sejam executadas a partir do recurso **Microsoft.Compute** e **Microsoft.HybridCompute** da máquina virtual. Utilize o recurso **Microsoft.Compute** para a máquina para todas as operações de extensão.
+- Se o agente 'Máquina Conectada' for instalado numa máquina virtual hospedada em Azure, as extensões VM não podem ser instaladas ou modificadas a partir do recurso de servidores ativados pelo Arco. Isto é para evitar que as operações de extensão conflituosas sejam executadas a partir do recurso **Microsoft.Compute** e **Microsoft.HybridCompute** da máquina virtual. Utilize o recurso **Microsoft.Compute** para a máquina para todas as operações de extensão.
 - O nome do processo de Configuração de Hóspedes mudou, de *gcd* para *gcad* no Linux, e *gcservice* para *gcarcservice* no Windows.
 
 ### <a name="new-feature"></a>Nova funcionalidade
@@ -71,7 +81,7 @@ Versão: 0.11
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
-Se estiver a utilizar uma versão mais antiga do agente Linux e o configurar para utilizar um servidor proxy, tem de reconfigurar a definição do servidor proxy após a atualização. Para fazer isto, `sudo azcmagent_proxy add http://proxyserver.local:83` corra.
+Se estiver a utilizar uma versão mais antiga do agente Linux e estiver configurado para utilizar um servidor proxy, tem de reconfigurar a definição do servidor proxy após a atualização. Para fazer isto, `sudo azcmagent_proxy add http://proxyserver.local:83` corra.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -14,13 +14,13 @@ ms.workload: iaas-sql-server
 ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: bb7331747db301be5db00d550eec211f75257e29
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
+ms.openlocfilehash: e7a8f54abbadb63c870c4d92843699c67f59752c
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360038"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505635"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Registar SQL Server VM com extensão do agente SQL IaaS
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,7 +30,7 @@ Registar o seu SQL Server VM com a [extensão SQL IaaS Agent](sql-server-iaas-ag
 Este artigo ensina-o a registar um único SQL Server VM com a extensão sql IaaS Agent. Em alternativa, pode registar automaticamente todos [](sql-agent-extension-automatic-registration-all-vms.md) os VMs do SQL Server ou [vários VMs scripts a granel](sql-agent-extension-manually-register-vms-bulk.md).
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Registar-se com a [extensão sql Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md) cria o _recurso_ **de máquina virtual SQL** dentro da sua subscrição, que é um recurso _separado_ do recurso da máquina virtual. Desregralar o seu SQL Server VM da extensão removerá o _recurso_ **da máquina virtual SQL,** mas não deixará cair a máquina virtual real.
 

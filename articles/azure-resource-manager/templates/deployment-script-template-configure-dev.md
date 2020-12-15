@@ -5,16 +5,16 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: 232a1ae5d125a2ea1d5723e85073fb3dd02420cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a7f21410bb97db0a7974870efb812c9954ac241
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87294475"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503561"
 ---
-# <a name="configure-development-environment-for-deployment-scripts-in-templates-preview"></a>Configure o ambiente de desenvolvimento para scripts de implantação em modelos (Pré-visualização)
+# <a name="configure-development-environment-for-deployment-scripts-in-templates"></a>Configurar ambiente de desenvolvimento para scripts de implantação em modelos
 
 Aprenda a criar um ambiente de desenvolvimento para desenvolver e testar scripts de implementação com uma imagem de script de implementação. Pode criar a instância do [recipiente Azure](../../container-instances/container-instances-overview.md) ou utilizar [o Docker.](https://docs.docker.com/get-docker/) Ambos estão cobertos neste artigo.
 
@@ -197,7 +197,7 @@ Também pode fazer o upload do ficheiro utilizando o portal Azure e o Azure CLI.
 
     ![instância de ligação de script de implantação](./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png)
 
-1. Selecione **Connect**e, em seguida, selecione **Connect**. Se não conseguir ligar-se à instância do recipiente, reinicie o grupo de contentores e tente novamente.
+1. Selecione **Connect** e, em seguida, selecione **Connect**. Se não conseguir ligar-se à instância do recipiente, reinicie o grupo de contentores e tente novamente.
 1. No painel de consola, executar os seguintes comandos:
 
     ```
@@ -237,7 +237,7 @@ Também é necessário configurar a partilha de ficheiros para montar o diretór
     docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
     ```
 
-    Substitua ** &lt; a carta do anfitrião>** e o nome do ** &lt; diretório de anfitriões>** por uma pasta existente na unidade partilhada.  Mapeia a pasta para a pasta **/dados** no recipiente. Por exemplo, para mapear D:\docker:
+    Substitua **&lt; a carta do anfitrião>** e o nome do **&lt; diretório de anfitriões>** por uma pasta existente na unidade partilhada.  Mapeia a pasta para a pasta **/dados** no recipiente. Por exemplo, para mapear D:\docker:
 
     ```command
     docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3

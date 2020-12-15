@@ -5,18 +5,21 @@ ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 08/11/2020
-ms.openlocfilehash: a13713f01a6bdb0ffcd787ef9c1d2f9a0336f63c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ae3ef2e1f35be432558769c512845543867ef27a
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369561"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505414"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>Integre o suporte do Apache Kafka Connect nos hubs de eventos Azure (Preview) com Debezium para captura de dados de mudança
 
 **Change Data Capture (CDC)** é uma técnica usada para rastrear alterações ao nível da linha nas tabelas de bases de dados em resposta à criação, atualização e eliminação de operações. [Debezium](https://debezium.io/) é uma plataforma distribuída que se baseia em cima das funcionalidades de Captura de Dados de Mudança disponíveis em diferentes bases de dados (por exemplo, [descodagem lógica em PostgreSQL).](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html) Fornece um conjunto de [conectores Kafka Connect](https://debezium.io/documentation/reference/1.2/connectors/index.html) que tocam em alterações ao nível da linha na tabela de bases de dados e convertem-nos em fluxos de eventos que são depois enviados para [Apache Kafka](https://kafka.apache.org/).
 
 Este tutorial explica-lhe como configurar um sistema baseado na captura de dados de mudança em Azure usando [Azure Event Hubs](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (para Kafka), [Azure DB para PostgreSQL](../postgresql/overview.md) e Debezium. Utilizará o [conector Debezium PostgreSQL](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) para transmitir modificações de base de dados de postgresQL a tópicos kafka em Azure Event Hubs
+
+> [!NOTE]
+> Este artigo contém referências ao termo *whitelist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 Neste tutorial, siga os seguintes passos:
 

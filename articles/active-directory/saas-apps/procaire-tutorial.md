@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 031a4993d9858dd4285abb35b20fca89dd2c9f18
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 70c310903461a4639a1eec1db9441d8f53e9e125
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181735"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505397"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-procaire"></a>Tutorial: Azure Ative Directory integração única (SSO) com Procaire
 
@@ -75,11 +75,6 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 1. Na secção **De Configuração Básica SAML,** o utilizador não tem de realizar qualquer passo, uma vez que a aplicação já está pré-integrada com o Azure.
-
-1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
-
-    Na caixa de texto **URL de entrada de inscrição,** digite o URL:  `https://praisidio.app/auth/login`
-
 
 1. Clique em **Guardar**.
 

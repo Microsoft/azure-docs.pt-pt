@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.author: lle
 ms.reviewer: craigg
-ms.openlocfilehash: 99c03ae4430d1a4caf575bdb9900200af0217bf1
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 51cb1a1a8151748fc9c6cd4c81da967424b52868
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109776"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505159"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Resolução de problemas Azure Data Factory questões de segurança e controlo de acessos
 
@@ -23,114 +23,113 @@ Este artigo explora métodos comuns de resolução de problemas para segurança 
 
 ## <a name="common-errors-and-messages"></a>Erros e mensagens comuns
 
-
-### <a name="connectivity-issue-of-copy-activity-in-cloud-data-store"></a>Emissão de conectividade da atividade de cópia na Cloud Data Store
+### <a name="connectivity-issue-in-the-copy-activity-of-the-cloud-datastore"></a>Problema de conectividade na atividade de cópia da loja de dados em nuvem
 
 #### <a name="symptoms"></a>Sintomas
 
-Vários tipos de mensagens de erro podem ser devolvidas quando ocorreu um problema de conectividade para a loja de dados de origem/pia.
+Várias mensagens de erro podem ser devolvidas quando ocorrem problemas de conectividade na loja de dados de origem ou afunda.
 
 #### <a name="cause"></a>Causa 
 
-O problema é causado principalmente por seguintes fatores:
+O problema é geralmente causado por um dos seguintes fatores:
 
-1. Definição de procuração no nó de IR auto-hospedado (se estiver a utilizar o IR auto-hospedado)
+* A definição de procuração no nó de execução de integração auto-hospedada (IR), se estiver a utilizar um IR auto-hospedado.
 
-1. Definição de firewall no nó do IR auto-hospedado (se estiver a utilizar o IR auto-hospedado)
+* A definição de firewall no nó ir auto-hospedado, se estiver a usar um IR auto-hospedado.
 
-1. Definição de firewall na Cloud Data Store
+* A definição de firewall na loja de dados em nuvem.
 
 #### <a name="resolution"></a>Resolução
 
-1. Verifique primeiro os seguintes pontos para se certificar de que o problema é causado por problemas de conectividade:
+* Para garantir que se trata de um problema de conectividade, verifique os seguintes pontos:
 
-   - O erro é lançado a partir dos conectores de origem/pia.
+   - O erro é atirado da fonte ou dos conectores da pia.
+   - A falha está no início da atividade de cópia.
+   - A falha é consistente para o Azure IR ou para o IR auto-hospedado com um nó, porque pode ser uma falha aleatória num IR auto-hospedado de múltiplos nós se apenas alguns dos nós tiverem o problema.
 
-   - A atividade falha no início da cópia
+* Se estiver a utilizar um **IR auto-hospedado,** verifique as definições de procuração, firewall e rede, porque a ligação à mesma datastore pode ter sucesso se estiver a utilizar um Azure IR. Para resolver este cenário, consulte:
 
-   - É uma falha consistente para o IR Azure ou ir auto-hospedado com um nó, pois poderia ser uma falha aleatória para o IR auto-hospedado de múltiplos nós se apenas uma parte dos nós tiver o problema.
-
-1. Verifique as definições de procuração, firewall e rede se estiver a utilizar **o IR auto-hospedado,** uma vez que a corrida para a mesma loja de dados pode ter sucesso no Azure IR. Consulte os seguintes links para resolução de problemas:
-
-   [Portos e Firewalls](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#ports-and-firewalls) 
-    auto-hospedados [Conector ADLS](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store)
+   * [Portas e firewalls auto-hospedados](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#ports-and-firewalls)
+   * [Conector de armazenamento do lago de dados Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store)
   
-1. Se estiver a utilizar **o Azure IR,** tente desativar a definição de firewall da loja de dados. Desta forma, a questão para seguir duas circunstâncias pode ser corrigida:
+* Se estiver a utilizar um **Azure IR,** tente desativar a definição de firewall da datastore. Esta abordagem pode resolver as questões nas duas situações seguintes:
   
-   * [Os endereços IP Azure NÃO](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses) estão na lista de permitir.
+   * [Os endereços IP Azure](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses) NÃO estão na lista de autorizações.
+   * O *Allow trust microsoft services to access this storage account* feature is des desligado para [Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#supported-capabilities) e [Azure Data Lake Storage Gen 2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#supported-capabilities).
+   * O *acesso ao acesso a Azure não* está habilitado para a Azure Data Lake Storage Gen1.
 
-   * *Permitir que serviços fidedignos da Microsoft acedam a esta* funcionalidade de conta de armazenamento é descolorido para [Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#supported-capabilities) e [ADLS Gen 2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#supported-capabilities).
-
-   * *Permitir o acesso aos serviços Azure* não está ativado para a ADLS Gen1.
-
-1. Se os métodos acima não estiverem funcionando, contacte a Microsoft para obter ajuda.
+Se nenhum dos métodos anteriores funcionar, contacte a Microsoft para obter ajuda.
 
 
 ### <a name="invalid-or-empty-authentication-key-issue-after-public-network-access-is-disabled"></a>Problema chave de autenticação inválida ou vazia após o acesso à rede pública ser desativado
 
 #### <a name="symptoms"></a>Sintomas
 
-Depois de desativar o acesso à rede pública para a Data Factory, porque o tempo de execução de integração auto-alojado lança o seguinte erro: "A chave de autenticação é inválida ou vazia."
+Depois de desativar o acesso à rede pública para a Data Factory, o tempo de execução de integração auto-alojado lança o seguinte erro: "A tecla de autenticação é inválida ou vazia."
 
 #### <a name="cause"></a>Causa
 
-O problema é provavelmente causado por problemas de resolução de DNS, uma vez que a desativação da conectividade pública e o estabelecimento de um ponto final privado não ajudam a reconectar-se.
+O problema é provavelmente causado por um problema de resolução do Sistema de Nome de Domínio (DNS), porque desativar a conectividade pública e estabelecer um ponto final privado impede a reconexão.
 
-Pode seguir as etapas abaixo para verificar se a FQDN da Fábrica de Dados está resolvida para o endereço IP público:
+Para verificar se o nome de domínio totalmente qualificado (FQDN) da Data Factory é resolvido para o endereço IP público, faça o seguinte:
 
-1. Confirme que criou o Azure VM no mesmo VNET que o ponto final privado da Data Factory.
+1. Confirme que criou a máquina virtual Azure (VM) na mesma rede virtual que o ponto final privado da Data Factory.
 
-2. Executar PsPing e Ping de Azure VM para Data Factory FQDN:
-
-   `ping <dataFactoryName>.<region>.datafactory.azure.net`
+2. Executar PsPing e Ping do Azure VM para a Data Factory FQDN:
 
    `psping.exe <dataFactoryName>.<region>.datafactory.azure.net:443`
+   `ping <dataFactoryName>.<region>.datafactory.azure.net`
 
    > [!Note]
-   > É necessária uma porta para o comando PsPing, enquanto a porta 443 não é obrigatória.
+   > Tem de especificar uma porta para o comando PsPing. A porta 443 é mostrada aqui, mas não é necessária.
 
-3. Verifique se ambos os comandos foram resolvidos a um IP público ADF baseado na região especificada (formato xxx.xxx.xxx.xxx.0).
+3. Verifique se ambos os comandos se resolvem para um IP público da Azure Data Factory que se baseia numa região especificada. O IP deve estar no seguinte formato: `xxx.xxx.xxx.0`
 
 #### <a name="resolution"></a>Resolução
 
-- Pode consultar o artigo no [Azure Private Link for Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-private-link#dns-changes-for-private-endpoints). A instrução é para configurar a zona/servidor dNS privado para resolver o FQDN da Data Factory para o endereço IP privado.
+Para resolver a questão, faça o seguinte:
+- Consulte o Azure Private Link para o artigo [da Azure Data Factory.](https://docs.microsoft.com/azure/data-factory/data-factory-private-link#dns-changes-for-private-endpoints) A instrução é para configurar a zona ou servidor privado de DNS para resolver o FQDN da Data Factory para um endereço IP privado.
 
-- Se não estiver disposto a configurar a zona/servidor privado de DNS atualmente, por favor, tome abaixo os passos como solução temporária. No entanto, o DNS personalizado ainda é recomendado como solução a longo prazo.
+- Recomendamos a utilização de um DNS personalizado como solução a longo prazo. No entanto, se não quiser configurar a zona ou servidor privado de DNS, experimente a seguinte solução temporária:
 
-  1. Altere o ficheiro anfitrião em janelas e mapeeia IP privado (ADF Private endpoint) para ADF FQDN.
+  1. Altere o ficheiro anfitrião no Windows e mapeeeia o IP privado (o ponto final privado da Azure Data Factory) para o Azure Data Factory FQDN.
   
-     Navegue até ao caminho "C:\Windows\System32\drivers\etc" em Azure VM e abra o ficheiro **de anfitrião** com bloco de notas. Adicione a linha de mapeamento de IP privado à FQDN no final do ficheiro e guarde a alteração.
+     No Azure VM, vá a `C:\Windows\System32\drivers\etc` , e depois abra o ficheiro de *anfitrião* no Bloco de Notas. Adicione a linha que mapeia o IP privado ao FQDN no final do ficheiro e guarde a alteração.
      
-     ![Adicione mapeamento ao anfitrião](media/self-hosted-integration-runtime-troubleshoot-guide/add-mapping-to-host.png)
+     ![Screenshot de mapear o IP privado para o anfitrião.](media/self-hosted-integration-runtime-troubleshoot-guide/add-mapping-to-host.png)
 
-  1. Volte a fazer os mesmos comandos em etapas de verificação acima para verificar a resposta, que deve conter o IP privado.
+  1. Volte a fazer os mesmos comandos que nas etapas de verificação anteriores para verificar a resposta, que deve conter o IP privado.
 
-  1. Re-registar o tempo de integração auto-hospedado e o problema deve ser resolvido.
- 
+  1. Re-registar o tempo de integração auto-hospedado, e a questão deve ser resolvida.
 
 ### <a name="unable-to-register-ir-authentication-key-on-self-hosted-vms-due-to-private-link"></a>Não é possível registar a chave de autenticação iv em VMs auto-hospedados devido a ligação privada
 
 #### <a name="symptoms"></a>Sintomas
 
-Não é possível registar a chave de autenticação IV em VM auto-hospedado devido a ligação privada ativada.
+Não é possível registar a chave de autenticação IV no VM auto-hospedado porque o link privado está ativado. Recebe a seguinte mensagem de erro:
 
-As informações de erro mostram o seguinte:
-
-`
-Failed to get service token from ADF service with key *************** and time cost is: 0.1250079 seconds, the error code is: InvalidGatewayKey, activityId is: XXXXXXX and detailed error message is Client IP address is not valid private ip Cause Data factory couldn’t access the public network thereby not able to reach out to the cloud to make the successful connection.
-`
+"Falhando na obter o token de serviço do serviço ADF com a chave ** e o custo de tempo é: 0.12500079 segundos, o código de erro é: InvalidGatewayKey, activityId é: XXXXXX E a mensagem de erro detalhada é o endereço IP do cliente não é válido por ip fábrica de dados não poderia aceder à rede pública, assim, não conseguir chegar à nuvem para fazer a ligação com sucesso."
 
 #### <a name="cause"></a>Causa
 
-O problema pode ser causado pelo VM em que está a tentar instalar o IR auto-hospedado. Para se ligar à nuvem, deve garantir que o acesso à rede pública está ativado.
+O problema pode ser causado pelo VM em que está a tentar instalar o IR auto-hospedado. Para se ligar à nuvem, certifique-se de que o acesso à rede pública está ativado.
 
 #### <a name="resolution"></a>Resolução
 
- **Solução 1:** Pode seguir os passos abaixo para resolver o problema:
+**Solução 1**
+ 
+Para resolver a questão, faça o seguinte:
 
 1. Vá às [Fábricas - Página de atualização.](https://docs.microsoft.com/rest/api/datafactory/Factories/Update)
 
 1. No canto superior direito, selecione o botão **Tente-o.**
+1. Nos **Parâmetros,** complete as informações necessárias. 
+1. Sob **o Corpo,** cole a seguinte propriedade:
+
+    ```
+    { "tags": { "publicNetworkAccess":"Enabled" } }
+    ```
+1. Selecione **Executar** para executar a função. 
 
 1. Nos **Parâmetros,** complete as informações necessárias. 
 
@@ -140,19 +139,18 @@ O problema pode ser causado pelo VM em que está a tentar instalar o IR auto-hos
     ``` 
 
 1. Selecione **Executar** para executar a função. 
-
 1. Confirme o **Código de Resposta: 200** é apresentado. A propriedade que colou deve ser exibida na definição JSON também.
 
 1. Adicione novamente a tecla de autenticação IV no tempo de execução da integração.
 
 
-**Solução 2:** Pode consultar abaixo o artigo para obter uma solução:
+**Solução 2**
 
-https://docs.microsoft.com/azure/data-factory/data-factory-private-link
+Para resolver o problema, vá ao [Azure Private Link for Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-private-link).
 
 Tente permitir o acesso à rede pública na interface do utilizador, como mostra a seguinte imagem:
 
-![Permitir o acesso à rede pública](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
+![Screenshot do controlo "Ativado" para "Permitir o acesso à rede pública" no painel de networking.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

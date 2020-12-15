@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: jeedes
-ms.openlocfilehash: fcaaea387cab24772b9e6f31f4e7d93ff643b983
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 59c01d5d8589b61ff0aaacb81d12fed8fba4f842
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515598"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505516"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-paylocity"></a>Tutorial: Azure Ative Directory integração única (SSO) com Paylocity
 
@@ -132,7 +132,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso à Paylocity.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Paylocity**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -148,7 +148,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-paylocity-sso"></a>Configurar paylocity SSO
 
-Para configurar um único sign-on no lado **paylocity,** você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a equipe de [suporte paylocity](mailto:service@paylocity.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Para configurar um único sinal no lado **paylocity,**
+
+1. Descarregue o **Metadados XML da Federação.**
+1. Na Paylocity, navegue para **HR &**  >    >  **Configuração SSO** de Acesso ao Utilizador de Pagamento .
+1. Selecione **Adicionar Integração SSO** em **integrações SSO**. Uma gaveta nova abre.
+1. Selecione **o Microsoft Azure** como o Fornecedor SSO do dropdown.
+1. Selecione **Status** de dropdown.
+1. Arraste e deixe cair o ficheiro de metadados na área de entrega. A paylocity tenta analisar os emissores, os URLs de redireccionamento e de ligação e os certificados de segurança.
+1. **Selecione Guardar** para confirmar as alterações. A integração deve ser exibida no âmbito **das Integrações SSO**.
 
 ### <a name="create-paylocity-test-user"></a>Criar utilizador de teste paylocity
 

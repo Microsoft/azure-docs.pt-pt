@@ -4,23 +4,21 @@ description: Saiba como utilizar scripts de implementação em modelos de Gestor
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: carmonm
-editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/25/2020
+ms.date: 12/14/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: cc19222cf1e610c6c65d7c721a54f9949bed70ae
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 13d2fbdc2337995a2aa8056cdd93e2c348e550f6
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931440"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504377"
 ---
-# <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: Utilize scripts de implantação para criar um certificado auto-assinado (Pré-visualização)
+# <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Tutorial: Use scripts de implementação para criar um certificado auto-assinado
 
 Saiba como utilizar scripts de implementação em modelos de Gestor de Recursos Azure (modelos ARM). Os scripts de implementação podem ser usados para executar passos personalizados que não podem ser feitos por modelos ARM. Por exemplo, criar um certificado auto-assinado.  Neste tutorial, você cria um modelo para implantar um cofre de chave Azure, e em seguida, usar um `Microsoft.Resources/deploymentScripts` recurso no mesmo modelo para criar um certificado e, em seguida, adicionar o certificado ao cofre de chaves. Para saber mais sobre o script de implementação, consulte [use scripts de implementação em modelos ARM](./deployment-script-template.md).
 
@@ -178,7 +176,7 @@ O roteiro de implantação adiciona um certificado ao cofre da chave. Configure 
     ```json
     {
       "type": "Microsoft.Resources/deploymentScripts",
-      "apiVersion": "2019-10-01-preview",
+      "apiVersion": "2020-10-01",
       "name": "createAddCertificate",
       "location": "[resourceGroup().location]",
       "dependsOn": [

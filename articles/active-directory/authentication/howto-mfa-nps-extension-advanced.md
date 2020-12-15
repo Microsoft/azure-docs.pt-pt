@@ -11,16 +11,19 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdadc02c8bb1c3f9450ff34ac935547343989cf6
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 6d436414393d77c83acc835110f17e55e491dce1
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742974"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503494"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opções de configuração avançada para a extensão NPS para Multi-Factor Authentication
 
-A extensão do Network Policy Server (NPS) estende as suas funcionalidades de autenticação multi-factor Azure AD baseadas na nuvem na sua infraestrutura de instalações. Este artigo assume que já tem a extensão instalada, e agora quer saber como personalizar a extensão para as suas necessidades. 
+A extensão do Network Policy Server (NPS) estende as suas funcionalidades de autenticação multi-factor Azure AD baseadas na nuvem na sua infraestrutura de instalações. Este artigo assume que já tem a extensão instalada, e agora quer saber como personalizar a extensão para as suas necessidades.
+
+> [!NOTE]
+> Este artigo contém referências ao termo *whitelist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 ## <a name="alternate-login-id"></a>ID de login alternativo
 
@@ -30,7 +33,7 @@ Dentro da extensão NPS, pode designar um atributo Ative Directory a ser usado n
 
 Para configurar iDs de login alternativos, vá `HKLM\SOFTWARE\Microsoft\AzureMfa` e edite os seguintes valores de registo:
 
-| Nome | Tipo | Valor predefinido | Description |
+| Nome | Tipo | Valor predefinido | Descrição |
 | ---- | ---- | ------------- | ----------- |
 | LDAP_ALTERNATE_LOGINID_ATTRIBUTE | string | Vazio | Designe o nome do atributo Ative Directory que pretende utilizar em vez da UPN. Este atributo é utilizado como o atributo AlternateLoginId. Se este valor de registo for definido para um [atributo de Diretório Ativo válido](/windows/win32/adschema/attributes-all) (por exemplo, nome de correio ou visualização), então o valor do atributo é utilizado no lugar da UPN do utilizador para autenticação. Se este valor de registo estiver vazio ou não estiver configurado, então o AlternateLoginId é desativado e o UPN do utilizador é utilizado para a autenticação. |
 | LDAP_FORCE_GLOBAL_CATALOG | boolean | Falso | Utilize esta bandeira para forçar a utilização do Catálogo Global para pesquisas LDAP ao procurar AlternateLoginId. Configure um controlador de domínio como catálogo global, adicione o atributo AlternateLoginId ao Catálogo Global e, em seguida, ative esta bandeira. <br><br> Se LDAP_LOOKUP_FORESTS estiver configurado (não vazio), **esta bandeira é aplicada como verdadeira,** independentemente do valor da definição do registo. Neste caso, a extensão NPS requer que o Catálogo Global seja configurado com o atributo AlternateLoginId para cada floresta. |
@@ -44,7 +47,7 @@ Se precisar monitorizar a disponibilidade do servidor, como se os equilibradores
 
 Para configurar uma lista permitida por IP, vá `HKLM\SOFTWARE\Microsoft\AzureMfa` e configuure o seguinte valor de registo:
 
-| Nome | Tipo | Valor predefinido | Description |
+| Nome | Tipo | Valor predefinido | Descrição |
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | string | Vazio | Forneça uma lista separada de endereços IP separados do ponto de separo. Inclua os endereços IP das máquinas de origem dos pedidos de serviço, como o servidor NAS/VPN. As gamas e sub-redes IP não são suportadas. <br><br> Por exemplo, *10.0.0.1;10.0.0.2;10.0.0.3*.
 

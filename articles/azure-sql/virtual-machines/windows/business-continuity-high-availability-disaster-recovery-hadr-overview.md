@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: dbe5fba838e7c4ad9487a29889eab11d4e42671f
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 1a0d1018991be9d78623b0826aeab3d13958e996
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358935"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504139"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuidade de negócios e HADR para SQL Server em Máquinas Virtuais Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,7 +30,7 @@ A maioria das soluções HADR do Servidor SQL são suportadas em máquinas virtu
 
 Este artigo compara e contrasta as soluções de continuidade de negócio disponíveis para o SQL Server em VMs Azure. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Cabe-lhe a si assegurar que o seu sistema de base de dados tem as capacidades HADR que o acordo de nível de serviço (SLA) requer. O facto de o Azure fornecer mecanismos de elevada disponibilidade, como a cura de serviços para serviços na nuvem e a deteção de recuperação de falhas para máquinas virtuais, não garante, por si só, que possa cumprir o SLA. Embora estes mecanismos ajudem a proteger a alta disponibilidade da máquina virtual, eles não protegem a disponibilidade do SQL Server que funciona dentro do VM. 
 
@@ -85,20 +85,13 @@ Pode ter uma solução de recuperação de desastres para as bases de dados do S
 
 Se tiver [Garantia de Software,](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3)pode implementar planos de recuperação de desastres híbridos (DR) com o SQL Server sem incorrer em custos adicionais de licenciamento para a instância passiva de recuperação de desastres.
 
-Por exemplo, você pode ter um primário ativo no local, e um secundário passivo gratuito para DR em Azure: 
-
-![Passividade secundária gratuita em Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-secondary-in-azure.png)
-
-Na imagem anterior, a configuração utiliza o SQL Server em execução numa máquina virtual Azure que utiliza 12 núcleos como réplica de recuperação de desastres para uma implementação do SQL Server no local que utiliza 12 núcleos. No passado, precisaria de licenciar 12 núcleos de SQL Server para a implementação no local e a implementação de Máquinas Virtuais Azure. O novo benefício oferece benefícios passivos de réplica para correr numa máquina virtual Azure. Agora você precisaria de licenciar apenas 12 núcleos de SQL Server em funcionamento no local, desde que os critérios de recuperação de desastres para a réplica passiva em Azure Virtual Machines sejam cumpridos.
-
-Você também pode ter dois secundários passivos gratuitos quando as três réplicas estão hospedadas em Azure: 
+Por exemplo, pode ter dois secundários passivos gratuitos quando as três réplicas estão hospedadas em Azure: 
 
 ![Duas passivas livres quando tudo em Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-primary-in-azure.png)
 
-Ou pode configurar um ambiente híbrido de failover, com um primário licenciado no local, um passivo gratuito para HA, e duas passivas gratuitas para DR: 
+Ou pode configurar um ambiente híbrido de failover, com um primário licenciado no local, um passivo gratuito para HA, um passivo gratuito para DR no local, e um passivo gratuito para DR em Azure:
 
 ![Três passivas livres quando o ambiente é híbrido com uma réplica primária no local](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-with-primary-on-prem.png)
-
 
 Para mais informações, consulte as [condições de licenciamento](https://www.microsoft.com/licensing/product-licensing/products)do produto. 
 

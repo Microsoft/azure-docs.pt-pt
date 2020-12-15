@@ -12,18 +12,18 @@ ms.date: 11/17/2020
 ms.author: aahi
 keywords: mineração de texto, análise de sentimento, análise de texto
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 0f5e6a2327f5d952f92009b0c9e408ab8188d6d7
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 2d8ebe87cdf1d11ae4d9c9050ba1ac924089aa33
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558781"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505618"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
 A API text Analytics é um serviço baseado na nuvem que fornece funcionalidades de processamento de linguagem natural (NLP) para a mineração de texto e análise de texto, incluindo: análise de sentimentos, mineração de opinião, extração de frases-chave, deteção de linguagem e reconhecimento de entidades nomeadas.
 
-A API faz parte da [Azure Cognitive Services,](../index.yml)uma coleção de machine learning e algoritmos de IA na nuvem para os seus projetos de desenvolvimento. Pode utilizar estas funcionalidades com a [API REST,](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)ou com a biblioteca do [cliente.](quickstarts/text-analytics-sdk.md)
+A API faz parte da [Azure Cognitive Services,](../index.yml)uma coleção de machine learning e algoritmos de IA na nuvem para os seus projetos de desenvolvimento. Pode utilizar estas funcionalidades com a [API REST,](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)ou com a biblioteca do [cliente.](quickstarts/client-libraries-rest-api.md)
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
 
@@ -109,7 +109,7 @@ A API de Análise de Texto utiliza a codificação Unicode para representação 
 
 + [Crie um recurso Azure](../cognitive-services-apis-create-account.md) para text Analytics para obter uma chave e ponto final para as suas aplicações.
 
-+ Use o [quickstart](quickstarts/text-analytics-sdk.md) para começar a enviar chamadas API. Saiba como submeter texto, escolher uma análise e ver os resultados com pouco código.
++ Use o [quickstart](quickstarts/client-libraries-rest-api.md) para começar a enviar chamadas API. Saiba como submeter texto, escolher uma análise e ver os resultados com pouco código.
 
 + Veja [as novidades na API text Analytics](whats-new.md) para obter informações sobre novas versões e funcionalidades.
 

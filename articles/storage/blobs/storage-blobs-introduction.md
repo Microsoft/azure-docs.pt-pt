@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/24/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1e289d094bba8d4336b83a7970e281247e9f4131
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8e3f0435d9856d2b602a4f2b6f604aee05e040ba
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007307"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505210"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introdução ao Armazenamento de blobs do Azure
 
@@ -57,7 +57,7 @@ O Azure Storage suporta três tipos de bolhas:
 
 - **As bolhas de bloco armazenam** texto e dados binários. Os blobs de blocos são constituídos por blocos de dados que podem ser geridos individualmente. As bolhas de bloco armazenam até cerca de 4,75 TiB de dados. Blobs de bloco maiores estão disponíveis na pré-visualização, até cerca de 190.7 TiB
 - **As bolhas de apêndice** são compostas por blocos como bolhas de bloco, mas são otimizadas para operações de apêndice. Os blobs de acréscimo são ideais para cenários como o registo de dados a partir de máquinas virtuais.
-- **As bolhas de página** armazenam ficheiros de acesso aleatório até 8 TB de tamanho. As bolhas de página armazenam ficheiros de disco rígido virtual (VHD) e servem como discos para máquinas virtuais Azure. Para obter mais informações sobre as bolhas de página, consulte [a visão geral das bolhas da página de Azure](storage-blob-pageblob-overview.md)
+- **As bolhas de página** armazenam ficheiros de acesso aleatório até 8 TiB de tamanho. As bolhas de página armazenam ficheiros de disco rígido virtual (VHD) e servem como discos para máquinas virtuais Azure. Para obter mais informações sobre as bolhas de página, consulte [a visão geral das bolhas da página de Azure](storage-blob-pageblob-overview.md)
 
 Para obter mais informações sobre os diferentes tipos de bolhas, consulte [Understanding Block Blobs, Append Blobs e Page Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 

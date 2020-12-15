@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad03942a2200c57475cf8a81d0fb08d475ec6964
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 57d74272d77183baa2284265aee298967f641250
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973223"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504887"
 ---
 # <a name="risky-ip-report-public-preview"></a>Relatório IP arriscado (pré-visualização pública)
 Os clientes AD FS podem expor pontos finais de autenticação de palavra-passe na internet para fornecer serviços de autenticação para os utilizadores finais acederem a aplicações SaaS como a Microsoft 365. Neste caso, é possível que um ator indevido tente inícios de sessão no seu sistema do AD FS para adivinhar a palavra-passe de um utilizador final e obter acesso aos recursos das aplicações. O AD FS proporciona a funcionalidade de bloqueio de conta de extranet para evitar estes tipos de ataques a partir do AD FS no Windows Server 2012 R2. Se tiver uma versão inferior, recomendamos vivamente que atualize o sistema do AD FS para o Windows Server 2016. <br />
@@ -36,7 +36,10 @@ Além disso, é possível que um único endereço IP tente vários inícios de s
 > [!NOTE]
 > Para utilizar este relatório, tem de se certificar de que a auditoria do AD FS está ativada. Para obter mais informações, consulte [Ativar Auditoria do AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
 > Para aceder à pré-visualização, precisa da permissão do Administrador Global ou do [Leitor de Segurança](../../role-based-access-control/built-in-roles.md#security-reader).  
-> 
+>
+
+> [!NOTE]
+> Este artigo contém referências ao termo *whitelist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 ## <a name="what-is-in-the-report"></a>O que está no relatório?
 O sinal falhado nos endereços IP do cliente da atividade é agregado através de servidores Proxy de aplicação web. Cada item no relatório de IP em Risco mostra informações agregadas sobre as atividades de início de sessão do AD FS falhadas que excedam o limiar designado. Fornece as seguintes informações: ![ Screenshot que mostra um relatório IP arriscado com cabeçalhos de coluna realçados.](./media/how-to-connect-health-adfs/report4a.png)

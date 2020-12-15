@@ -1,20 +1,20 @@
 ---
 title: Gestão de extensão VM com servidores ativados Azure Arc
 description: Os servidores ativados do Azure Arc podem gerir a implementação de extensões de máquinas virtuais que fornecem tarefas de configuração e automatização pós-implantação com VMs não-Azure.
-ms.date: 11/06/2020
+ms.date: 12/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7682f6c8631bbaf2310d501d7cee6aecb2311226
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 55e21f9c6bcd2dfe5f995093034773f2a87d9b03
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358036"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504513"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestão de extensão de máquina virtual com servidores ativados do Azure Arc
 
-As extensões de máquinas virtuais (VM) são pequenas aplicações que fornecem tarefas de configuração e automatização pós-implantação em VMs Azure. Por exemplo, se uma máquina virtual exigir a instalação de software, a proteção antivírus ou a execução de um script, poderá ser utilizada uma extensão de VM.
+As extensões de máquinas virtuais (VM) são pequenas aplicações que fornecem tarefas de configuração e automatização pós-implantação em VMs Azure. Por exemplo, se uma máquina virtual necessitar de instalação de software, proteção antivírus ou para executar um script nele, pode ser utilizada uma extensão VM.
 
-Os servidores ativados pelo Azure Arc permitem-lhe implantar extensões VM Azure para Windows e Linux VMs não-Azure, simplificando a gestão da sua máquina híbrida no local, borda e outros ambientes de nuvem através do seu ciclo de vida. As extensões VM podem ser geridas utilizando os seguintes métodos nas suas máquinas híbridas ou servidores geridos por servidores ativados pelo Arc:
+Os servidores ativados Azure Arc permitem-lhe implementar extensões Azure VM para Windows e VMs não-Azure, simplificando a gestão da sua máquina híbrida através do seu ciclo de vida. As extensões VM podem ser geridas utilizando os seguintes métodos nas suas máquinas híbridas ou servidores geridos por servidores ativados pelo Arc:
 
 - O [portal Azure](manage-vm-extensions-portal.md)
 - O [Azure CLI](manage-vm-extensions-cli.md)
@@ -27,7 +27,7 @@ O suporte de extensão VM ativado pelo Azure Arc fornece os seguintes benefício
 
 - Utilize [a Configuração do Estado da Automação Azure](../../automation/automation-dsc-overview.md) para armazenar centralmente as configurações e manter o estado desejado das máquinas híbridas conectadas ativadas através da extensão DSC VM.
 
-- Recolher dados de registo para análise com [Logs in Azure Monitor](../../azure-monitor/platform/data-platform-logs.md) ativado através da extensão VM do agente Log Analytics. Isto é útil para realizar análises complexas através de dados de várias fontes.
+- Recolher dados de registo para análise com [Logs in Azure Monitor](../../azure-monitor/platform/data-platform-logs.md) ativado através da extensão VM do agente Log Analytics. Isto é útil para fazer análises complexas através de dados de diferentes tipos de fontes.
 
 - Com [o Azure Monitor para VMs,](../../azure-monitor/insights/vminsights-overview.md)analisa o desempenho dos seus VMs Windows e Linux, e monitoriza os seus processos e dependências de outros recursos e processos externos. Isto é conseguido através da ativação das extensões VM do agente Log Analytics e do agente de dependência.
 
@@ -49,12 +49,12 @@ Nesta versão, apoiamos as seguintes extensões VM nas máquinas Windows e Linux
 |DSC |Windows |Microsoft.PowerShell|[Extensão DSC do Windows PowerShell](../../virtual-machines/extensions/dsc-windows.md)|
 |Agente do Log Analytics |Windows |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extensão para Windows](../../virtual-machines/extensions/oms-windows.md)|
 |Agente de dependência da Microsoft | Windows |Microsoft.Compute | [Extensão de máquina virtual de agente de dependência para Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
-|Key Vault | Windows | Microsoft.Compute | [Extensão da máquina virtual key Vault para Windows](../../virtual-machines/extensions/key-vault-windows.md) |
+|Cofre de Chaves | Windows | Microsoft.Compute | [Extensão da máquina virtual key Vault para Windows](../../virtual-machines/extensions/key-vault-windows.md) |
 |PersonalScript|Linux |Microsoft.Azure.Extension |[Extensão de script personalizado Linux Versão 2](../../virtual-machines/extensions/custom-script-linux.md) |
 |DSC |Linux |Microsoft.OSTCExtensions |[Extensão DSC powerShell para Linux](../../virtual-machines/extensions/dsc-linux.md) |
 |Agente do Log Analytics |Linux |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extensão para Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Agente de dependência da Microsoft | Linux |Microsoft.Compute | [Extensão da máquina virtual do agente de dependência para Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
-|Key Vault | Linux | Microsoft.Compute | [Extensão da máquina virtual key Vault para Linux](../../virtual-machines/extensions/key-vault-linux.md) |
+|Cofre de Chaves | Linux | Microsoft.Compute | [Extensão da máquina virtual key Vault para Linux](../../virtual-machines/extensions/key-vault-linux.md) |
 
 Para saber mais sobre o pacote do agente Azure Connected Machine e detalhes sobre o componente do agente de extensão, consulte [a visão geral do Agente](agent-overview.md#agent-component-details).
 
@@ -67,9 +67,11 @@ Esta funcionalidade depende dos seguintes fornecedores de recursos Azure na sua 
 
 Se ainda não estiverem registados, siga os passos dos [fornecedores de recursos Register Azure](agent-overview.md#register-azure-resource-providers).
 
+Certifique-se de rever a documentação de cada extensão VM referenciada na tabela anterior para entender se tem alguma rede ou requisitos do sistema. Isto pode ajudá-lo a evitar experimentar quaisquer problemas de conectividade com um serviço Azure ou funcionalidade que dependa dessa extensão VM.
+
 ### <a name="log-analytics-vm-extension"></a>Extensão VM do Log Analytics
 
-A extensão VM do agente Log Analytics para Linux requer que o Python 2.x seja instalado na máquina-alvo.
+A extensão VM do agente Log Analytics para Linux requer que o Python 2.x seja instalado na máquina-alvo. 
 
 ### <a name="azure-key-vault-vm-extension-preview"></a>Extensão VM do cofre da chave Azure (pré-visualização)
 
@@ -89,7 +91,7 @@ Antes de implementar a extensão, tem de completar o seguinte:
 
 1. [Criar um cofre e um certificado](../../key-vault/certificates/quick-create-portal.md) (auto-assinado ou importador).
 
-2. Conceder ao Arco Azure o acesso do servidor ao segredo do certificado. Se estiver a utilizar a [pré-visualização do RBAC,](../../key-vault/general/rbac-guide.md)procure o nome do recurso Azure Arc e atribua-lhe a **função Key Vault Secrets User (pré-visualização).** Se estiver a utilizar a política de [acesso ao Cofre de Chaves,](../../key-vault/general/assign-access-policy-portal.md)atribua permissões secretas ao sistema de recursos Azure Arc atribuído. **Get**
+2. Conceder ao Arco Azure o acesso do servidor ao segredo do certificado. Se estiver a utilizar a [pré-visualização do RBAC,](../../key-vault/general/rbac-guide.md)procure o nome do recurso Azure Arc e atribua-lhe a **função Key Vault Secrets User (pré-visualização).** Se estiver a utilizar a política de [acesso ao Cofre de Chaves,](../../key-vault/general/assign-access-policy-portal.md)atribua permissões secretas ao sistema de recursos Azure Arc atribuído. 
 
 ### <a name="connected-machine-agent"></a>Agente de máquina conectado
 

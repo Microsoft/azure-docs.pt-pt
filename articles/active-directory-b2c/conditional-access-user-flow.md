@@ -5,17 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 09/01/2020
+ms.date: 12/14/2020
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c120f343ec539783f04fe35e96891c5372c5d39
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: 466b9e389beb94ff527cbce014ca39f85de8d5bd
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109084"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503629"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Adicionar Acesso Condicional aos fluxos de utilizadores no Azure Ative Directory B2C
 
@@ -34,6 +35,22 @@ O Acesso Condicional é suportado nas versões mais recentes dos fluxos dos util
 - **Acesso Condicional**: Esta definição deve estar sempre **acesa**. Normalmente, você só desligaria esta **definição** durante a resolução de problemas ou migração, ou para implementações antigas.
 
 Saiba mais sobre [a Proteção de Identidade e Acesso Condicional](conditional-access-identity-protection-overview.md) em Azure AD B2C, ou veja como [coneccioná-lo](conditional-access-identity-protection-setup.md).
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+- O Azure AD B2C Premium 2 é necessário para criar políticas de inscrição arriscadas. Os inquilinos Premium P1 podem criar políticas de localização, app ou grupo.
+- Para efeitos de teste, pode [registar a aplicação web](tutorial-register-applications.md) de teste , que é uma `https://jwt.ms` aplicação web detida pela Microsoft que exibe o conteúdo descodificado de um símbolo (o conteúdo do token nunca sai do seu navegador). 
+- Para simular um insusição de risco, descarregue o Navegador TOR e tente entrar no ponto final do fluxo do utilizador.
+- Utilizando as seguintes definições, [crie uma política de acesso condicional:](conditional-access-identity-protection-setup.md)
+   
+  - Para **Utilizadores e grupos**, selecione o utilizador de teste (não selecione **Todos os utilizadores** ou pode bloquear-se a iniciar sessão).
+  - Para **aplicações ou ações cloud**, escolha **apps Selecione** e, em seguida, escolha a sua aplicação de partido em gestão.
+  - Para as condições, selecione **o risco de inscrição** e os níveis de risco **elevados,** **médios** e **baixos.**
+  - Para **Grant,** escolha **o acesso ao Bloco.**
+
+      ![Deteções de riscos](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
+
+::: zone pivot="b2c-user-flow"
 
 ## <a name="add-conditional-access-to-a-new-user-flow"></a>Adicionar Acesso Condicional a um novo fluxo de utilizador
 
@@ -89,19 +106,6 @@ Saiba mais sobre [a Proteção de Identidade e Acesso Condicional](conditional-a
 
 Para testar o Acesso Condicional no fluxo do utilizador, [crie uma política de acesso condicional](conditional-access-identity-protection-setup.md) e permita o Acesso Condicional no fluxo do seu utilizador, conforme descrito acima. 
 
-### <a name="prerequisites"></a>Pré-requisitos
-
-- O Azure AD B2C Premium 2 é necessário para criar políticas de inscrição arriscadas. Os inquilinos Premium P1 podem criar políticas de localização, app ou grupo.
-- Para efeitos de teste, pode [registar a aplicação web](tutorial-register-applications.md) de teste , que é uma `https://jwt.ms` aplicação web detida pela Microsoft que exibe o conteúdo descodificado de um símbolo (o conteúdo do token nunca sai do seu navegador). 
-- Para simular um insusição de risco, descarregue o Navegador TOR e tente entrar no ponto final do fluxo do utilizador.
-- Utilizando as seguintes definições, [crie uma política de acesso condicional:](conditional-access-identity-protection-setup.md)
-   
-   - Para **Utilizadores e grupos**, selecione o utilizador de teste (não selecione **Todos os utilizadores** ou pode bloquear-se a iniciar sessão).
-   - Para **aplicações ou ações cloud**, escolha **apps Selecione** e, em seguida, escolha a sua aplicação de partido em gestão.
-   - Para as condições, selecione **o risco de inscrição** e os níveis de risco **elevados,** **médios** e **baixos.**
-   - Para **Grant,** escolha **o acesso ao Bloco.**
-
-      ![Deteções de riscos](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
 
 ### <a name="run-the-user-flow"></a>Executar o fluxo do utilizador
 
@@ -116,6 +120,16 @@ Para testar o Acesso Condicional no fluxo do utilizador, [crie uma política de 
 1. Insira as informações solicitadas na página de inscrição e, em seguida, tente entrar. O símbolo é devolvido `https://jwt.ms` e deve ser exibido para si. No jwt.ms ficha descodificada, deve ver que o sinal foi bloqueado:
 
    ![Teste um sinal bloqueado](media/conditional-access-identity-protection-setup/test-blocked-sign-in.png)
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+## <a name="add-conditional-access-to-your-policy"></a>Adicionar Acesso Condicional à sua política
+
+Pode encontrar um exemplo de uma política de acesso condicional no [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).
+
+::: zone-end
 
 ## <a name="next-steps"></a>Passos seguintes
 

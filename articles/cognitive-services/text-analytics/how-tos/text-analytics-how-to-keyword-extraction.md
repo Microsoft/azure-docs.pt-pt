@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 68da6a134f2410ca81ae16b8e00c40d0a9c8f22c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 39823792a438e533134f38c04e72f2c314c57678
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965022"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505193"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemplo: Como extrair frases-chave usando a Análise de Texto
 
@@ -88,7 +88,7 @@ Para obter informações sobre a definição de pedido, consulte [Como ligar par
 
 ## <a name="step-2-post-the-request"></a>Passo 2: publicar o pedido
 
-A análise é realizada aquando da receção do pedido. Para obter informações sobre o tamanho e o número de pedidos que pode enviar por minuto ou por segundo, consulte a secção [limite de dados](../overview.md#data-limits) na visão geral .
+A análise é realizada aquando da receção do pedido. Para obter informações sobre o tamanho e o número de pedidos que pode enviar por minuto ou por segundo, consulte a secção [limite de dados](../overview.md#data-limits) na visão geral.
 
 Lembre-se de que o serviço não tem estado. Não são armazenados dados na sua conta. Os resultados são devolvidos imediatamente na resposta.
 
@@ -169,7 +169,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para a extração de frases
 + O pedido POST refere-se a um ponto final `/keyphrases` com recurso a uma [chave de acesso personalizada e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para a sua subscrição.
 + A saída de resposta, que consiste em palavras-chave e frases para cada ID do documento, pode ser transmitida a qualquer aplicação que aceite o JSON, incluindo o Microsoft Office Excel e o Power BI, para citar alguns.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
  [Visão geral do Text Analytics](../overview.md) Perguntas [frequentes (FAQ)](../text-analytics-resource-faq.md)</br>
  [Página de produto da Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759712)
@@ -177,5 +177,5 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para a extração de frases
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição geral da Análise de Texto](../overview.md)
-* [Utilização da biblioteca de clientes Text Analytics](../quickstarts/text-analytics-sdk.md)
+* [Utilização da biblioteca de clientes Text Analytics](../quickstarts/client-libraries-rest-api.md)
 * [Novidades](../whats-new.md)

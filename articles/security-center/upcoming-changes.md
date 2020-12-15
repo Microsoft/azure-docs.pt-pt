@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2020
 ms.author: memildin
-ms.openlocfilehash: 63ae35da973525a8331eeeb463eb09e36e8b6e26
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: fcdcda8aaa6d48b24c346d87a402f6966ab11cf5
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97398937"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505499"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Mudanças importantes para o Centro de Segurança Azure
 
@@ -40,6 +40,7 @@ Se procura as últimas notas de lançamento, vai encontrá-las no [What's new in
 
 Atualmente, os recursos que são avaliados para uma recomendação e que se considera **não aplicáveis** aparecem na Política Azure como "incompatíveis". Nenhuma ação do utilizador pode alterar o seu estado para "Compliant". A partir desta mudança planeada, serão reportados como "conformes" para uma maior clareza.
 
+O único impacto será visto na Política Azure, onde o número de recursos em conformidade aumentará. Não haverá impacto na sua pontuação segura no Centro de Segurança Azure.
 
 ### <a name="35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>35 recomendações de pré-visualização adicionadas para aumentar a cobertura do Benchmark de Segurança Azure
 

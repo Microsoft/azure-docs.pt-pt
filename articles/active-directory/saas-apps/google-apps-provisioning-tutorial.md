@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 2ce5ac43af57b82f912b10eeacf285a688888e9d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4851dfb4a96ab2ca19ba6ea67139772f9c091a69
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180885"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504581"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configurar suíte G para fornecimento automático de utilizadores
 
@@ -31,6 +31,9 @@ Este tutorial descreve os passos necessários para realizar tanto na Suíte G co
 > * Suporte adicional para utilizador e atributos adicionais do utilizador da Suite G.
 > * Os nomes-alvo da Suíte G atualizado correspondem ao que está definido [aqui](https://developers.google.com/admin-sdk/directory).
 > * Mapeamentos de atributos predefinidos atualizados.
+
+> [!NOTE]
+> Este artigo contém referências ao termo *whitelist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 ## <a name="capabilities-supported"></a>Capacidades suportadas
 > [!div class="checklist"]

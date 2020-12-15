@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 6732fe364ba67bb2c4ea8fb2543c576166f8a110
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: d4a712a20c1c172fe5a2792636a8d6e9573358b7
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91829309"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97486828"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examine e edite os ficheiros de amostra
 
@@ -15,18 +15,18 @@ Como parte dos pré-requisitos, descarregou o código de amostra para uma pasta.
     O modelo de implantação refere-se ao manifesto de implantação do dispositivo de borda. Inclui alguns valores de espaço reservado. O ficheiro *.env* inclui os valores para essas variáveis.
 1. Aceda à pasta *src/cloud-to-device-app.* Aqui vê a sua *appsettings.jsno* ficheiro e alguns outros ficheiros:
 
-    * ***c2d-console-app.csproj*** - O ficheiro do projeto para Visual Studio Code.
-    * ***operations.jsem*** - Uma lista das operações que quer que o programa seja executado.
-    * ***Program.cs*** - O código do programa de amostra. Este código:
+    * ***c2d-console-app.csproj** _ - O ficheiro do projeto para Visual Studio Code.
+    _ ***operations.jsem** _ - Uma lista das operações que pretende que o programa seja executado.
+    _ ***Program.cs** _ - O código do programa de amostra. Este código:
 
-        * Carrega as definições da aplicação.
+        _ Carrega as definições da aplicação.
         * Invoca métodos diretos que o live video analytics no módulo IoT Edge expõe. Pode utilizar o módulo para analisar streams de vídeo ao vivo invocando os seus [métodos diretos.](../../../direct-methods.md)
         * Pausas para que possa examinar a saída do programa na janela **TERMINAL** e examinar os eventos que foram gerados pelo módulo na janela **OUTPUT.**
         * Invoca métodos diretos para limpar recursos.
 1. Editar o *operations.jsno* ficheiro:
     * Altere a ligação para a topologia do gráfico:
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json"`
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/2.0/topology.json"`
 
     * Em `GraphInstanceSet` , editar o nome da topologia do gráfico para corresponder ao valor no link anterior:
 
@@ -80,7 +80,7 @@ Como parte dos pré-requisitos, descarregou o código de amostra para uma pasta.
 1. Procure e ative "Mostrar Mensagem Verbose".
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Definições de extensão":::
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Mostrar mensagem verbose":::
 1. Clique com o botão direito no dispositivo Live Video Analytics e selecione **Start Monitoring Built-in Event Endpoint**. Precisa deste passo para monitorizar os eventos do IoT Hub na janela **OUTPUT** do Código do Estúdio Visual. 
 
    ![Iniciar a monitorização](../../../media/quickstarts/start-monitoring-iothub-events.png) 

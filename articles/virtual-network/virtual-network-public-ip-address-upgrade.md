@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 9ea29c47349fd7ccee469188f8929a864cf7bbef
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 6cabc340c0be347165a3e506703a6277f7eb1cea
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905796"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503938"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Atualizar endereços IP públicos
 
@@ -32,9 +32,6 @@ Os seguintes cenários são revistos neste artigo:
 * Como migrar um Azure Classic Reserved IP para um Azure Resource Manager Basic SKU public IP
 
 ## <a name="upgrade-public-ip-address-from-basic-to-standard-sku"></a>Atualizar o endereço IP público de Básico para Standard SKU
-
->[!NOTE]
->A capacidade de atualizar os IPs públicos de Base para Standard não está disponível em todas as regiões.  Consulte [**as Limitações**](#limitations) para mais detalhes.
 
 Para atualizar um IP público, não deve ser associado a qualquer recurso (consulte [esta página](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) para obter mais informações sobre como dissociar os IPs públicos).
 
@@ -147,15 +144,6 @@ Um novo grupo de recursos em Azure Resource Manager é criado usando o nome do I
 ---
 
 ## <a name="limitations"></a>Limitações
-
-* Esta capacidade não está atualmente disponível nas seguintes regiões:<br>
-US Gov - Virginia<br>
-US DoD - Leste<br>
-US DoD Centro<br>
-Leste da China<br>
-China Leste 2<br>
-Norte da China<br>
-China Norte 2
 
 * Para atualizar um IP público básico, não pode ser associado a qualquer recurso Azure.  Por favor, [reveja esta página](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) para mais informações sobre como desassociar os IPs públicos.  Da mesma forma, para migrar um IP Reservado, não pode ser associado a qualquer Serviço cloud.  Por favor, [reveja esta página](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) para obter mais informações sobre como desassociar os IPs reservados.  
 * Os IPs públicos atualizados de Basic para Standard SKU continuarão a não ter [zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) e, portanto, não podem ser associados a um recurso Azure que seja redundante ou zonal.  Note que isto se aplica apenas às regiões que oferecem zonas de disponibilidade.

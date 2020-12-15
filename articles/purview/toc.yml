@@ -104,8 +104,6 @@ items:
                 href: register-scan-on-premises-sql-server.md
               - name: Inquilino do Power BI - Portal
                 href: register-scan-power-bi-tenant.md
-              - name: Inquilino do Power BI - PowerShell
-                href: powershell-register-scan-power-bi.md
       - name: Glossário comercial
         items:
           - name: 'Criar, importar e exportar termos do glossário'

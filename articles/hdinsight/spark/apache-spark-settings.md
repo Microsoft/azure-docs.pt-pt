@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 231ab5cc93d98d7356d47472b7e160ddd3ade790
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c2e2daf6d8c9afa6ffef03b088ec9a7dc144cf47
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545944"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504938"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurar as definições do Apache Spark
 
@@ -60,7 +60,7 @@ Verifique as definições atuais de configuração do cluster HDInsight antes de
 
 O Apache Ambari Web UI aparece, com um dashboard de métricas de utilização de recursos de cluster chave.  O Dashboard Ambari mostra-lhe a configuração Apache Spark e outros serviços instalados. O Dashboard inclui um separador **Config History,** onde vê informações para serviços instalados, incluindo o Spark.
 
-Para ver os valores de configuração para Apache Spark, selecione **Config History** , em seguida, selecione **Spark2** .  Selecione o **separador Configs** e, em seguida, selecione o `Spark` link `Spark2` (ou, dependendo da sua versão) na lista de serviços.  Vê uma lista de valores de configuração para o seu cluster:
+Para ver os valores de configuração para Apache Spark, selecione **Config History**, em seguida, selecione **Spark2**.  Selecione o **separador Configs** e, em seguida, selecione o `Spark` link `Spark2` (ou, dependendo da sua versão) na lista de serviços.  Vê uma lista de valores de configuração para o seu cluster:
 
 ![Configurações de faíscas](./media/apache-spark-settings/spark-configurations.png)
 
@@ -121,7 +121,7 @@ O YARN controla a soma máxima de memória utilizada pelos recipientes em cada n
 
 ![Gestão da memória de faíscas de YARN](./media/apache-spark-settings/hdi-yarn-spark-memory.png)
 
-## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Alterar parâmetros para uma aplicação em execução no caderno Jupyter
+## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Alterar parâmetros para uma aplicação em execução no Caderno Jupyter
 
 Os clusters de faíscas em HDInsight incluem uma série de componentes por padrão. Cada um destes componentes inclui valores de configuração predefinidos, que podem ser ultrapassados conforme necessário.
 
@@ -133,12 +133,12 @@ Os clusters de faíscas em HDInsight incluem uma série de componentes por padr�
 |Cadernos Jupyter e Apache Zeppelin|UI baseado em navegador interativo para interagir com o seu cluster Spark.|
 |Controlador ODBC|Conecta clusters Spark em HDInsight a ferramentas de inteligência empresarial (BI), como o Microsoft Power BI e o Tableau.|
 
-Para aplicações em execução no portátil Jupyter, utilize o `%%configure` comando para escorrê-lo a partir do próprio caderno. Estas alterações de configuração serão aplicadas aos trabalhos spark executados a partir da sua instância de caderno. Faça tais alterações no início da aplicação, antes de executar a sua primeira célula de código. A configuração alterada é aplicada na sessão Livy quando é criada.
+Para aplicações em execução no Bloco de Notas do Jupyter, utilize o `%%configure` comando para escorrê-lo a partir do próprio caderno. Estas alterações de configuração serão aplicadas aos trabalhos spark executados a partir da sua instância de caderno. Faça tais alterações no início da aplicação, antes de executar a sua primeira célula de código. A configuração alterada é aplicada na sessão Livy quando é criada.
 
 > [!NOTE]  
 > Para alterar a configuração numa fase posterior da aplicação, utilize o `-f` parâmetro (força). No entanto, todos os progressos no pedido serão perdidos.
 
-O código abaixo mostra como alterar a configuração de uma aplicação em execução num bloco de notas Jupyter.
+O código abaixo mostra como alterar a configuração de uma aplicação em execução num Bloco de Notas de Jupyter.
 
 ```
 %%configure

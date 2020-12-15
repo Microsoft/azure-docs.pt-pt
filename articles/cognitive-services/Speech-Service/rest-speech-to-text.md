@@ -8,35 +8,66 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 12/10/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dff7ff0afd6c236645731dc7edd936b0b808716b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c746666d58e21c2705a2ef1d6a17d0d1196f7590
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483925"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504479"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de voz em texto
 
-Como alternativa ao [SDK](speech-sdk.md)de discurso, o serviço Discurso permite converter discurso-texto usando uma API REST. Cada ponto final acessível está associado a uma região. A sua aplicação requer uma chave de subscrição para o ponto final que pretende utilizar. A API rest é muito limitada, e só deve ser usada em casos em que o [SDK de discurso](speech-sdk.md) não pode.
+Falar-a-texto tem duas APIs de DESCANSO diferentes. Cada API serve o seu propósito especial e utiliza diferentes conjuntos de pontos finais.
 
-Antes de utilizar a API REST de discurso-a-texto, considere o seguinte:
+As APIs de repouso de discurso para texto são:
+- [O API REST de voz em texto v3.0](#speech-to-text-rest-api-v30) é utilizado para [a transcrição do lote](batch-transcription.md) e discurso [personalizado](custom-speech-overview.md). v3.0 é um [sucessor de v2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+- [A API REST de voz para texto para áudio curto](#speech-to-text-rest-api-for-short-audio) é usada para a transcrição onLine como alternativa ao [SDK](speech-sdk.md)do discurso . Os pedidos que utilizem esta API só podem transmitir até 60 segundos de áudio por pedido. 
 
-* Os pedidos que utilizam a API REST e transmitem áudio diretamente só podem conter até 60 segundos de áudio.
-* A API rest de expressão em texto apenas devolve os resultados finais. Os resultados parciais não são fornecidos.
+## <a name="speech-to-text-rest-api-v30"></a>A API DE REPOUSO de expressão em texto v3.0
 
-Se o envio de áudio mais longo for um requisito para a sua aplicação, considere utilizar o [SDK de fala](speech-sdk.md) ou uma API REST baseada em ficheiros, como [a transcrição do lote](batch-transcription.md).
+O API REST de voz em texto v3.0 é utilizado para [a transcrição do lote](batch-transcription.md) e discurso [personalizado](custom-speech-overview.md). Se necessitar de comunicar com a transcrição OnLine via REST, utilize [a API REST de voz para texto para áudio curto](#speech-to-text-rest-api-for-short-audio).
+
+Utilizar REST API v3.0 para:
+- Copie modelos para outras subscrições caso pretenda que os colegas tenham acesso a um modelo que construiu, ou nos casos em que pretende implementar um modelo para mais de uma região
+- Transcreva dados de um recipiente (transcrição a granel) bem como fornecer URLs de ficheiro sonoro múltiplos
+- Faça upload de dados a partir de contas de armazenamento Azure através da utilização de um SAS Uri
+- Obtenha registos por ponto final se os registos tiverem sido solicitados para esse ponto final
+- Solicite o manifesto dos modelos que cria, com o propósito de instalar contentores no local
+
+REST A API v3.0 inclui características como:
+- **Notificações-Webhooks**— Todos os processos de execução do serviço suportam agora notificações webhook. REST A API v3.0 fornece as chamadas para que possa registar os seus webhooks onde as notificações são enviadas
+- **Atualizar modelos atrás de pontos finais** 
+- **Adaptação de modelo com vários conjuntos** de dados — Adapte um modelo usando múltiplas combinações de dados de dados acústicos, linguísticos e de pronúncia
+- **Traga o seu próprio armazenamento**— Use as suas próprias contas de armazenamento para registos, ficheiros de transcrição e outros dados
+
+Veja exemplos sobre a utilização de REST API v3.0 com a transcrição do Lote é [este artigo.](batch-transcription.md)
+
+Se estiver a utilizar a API REST v2.0 do Speech-to-text, veja como pode migrar para v3.0 [neste guia](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+
+Consulte [aqui](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)a referência completa do API REST v3.0 do Discurso-a-Texto .
+
+## <a name="speech-to-text-rest-api-for-short-audio"></a>API DE REPOUSO de voz para texto para áudio curto
+
+Como alternativa ao [SDK](speech-sdk.md)de discurso, o serviço Discurso permite converter Discurso-texto usando uma API REST. Cada ponto final acessível está associado a uma região. A sua aplicação requer uma chave de subscrição para o ponto final que pretende utilizar. O REST API para áudio curto é muito limitado, e só deve ser usado em casos em que o [SDK do discurso](speech-sdk.md) não pode.
+
+Antes de utilizar a API REST discurso-a-texto para áudio curto, considere o seguinte:
+
+* Os pedidos que utilizam a API REST para áudio curto e áudio de transmissão diretamente só podem conter até 60 segundos de áudio.
+* A API REST discurso-a-texto para áudio curto apenas devolve os resultados finais. Os resultados parciais não são fornecidos.
+
+Se o envio de áudio mais longo for um requisito para a sua aplicação, considere utilizar o [SPI de voz](speech-sdk.md) [para texto v3.0](#speech-to-text-rest-api-v30).
 
 > [!TIP]
 > Consulte a [documentação](../../azure-government/compare-azure-government-global-azure.md) do governo Azure para os pontos finais da nuvem governamental (FairFax).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
-## <a name="regions-and-endpoints"></a>Regiões e pontos finais
+### <a name="regions-and-endpoints"></a>Regiões e pontos finais
 
-O ponto final para a API REST tem este formato:
+O ponto final para a API REST para áudio curto tem este formato:
 
 ```
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
@@ -49,7 +80,7 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 > [!NOTE]
 > O parâmetro da linguagem deve ser anexado ao URL para evitar receber um erro HTTP de 4xx. Por exemplo, a língua definida para o inglês americano usando o ponto final dos EUA é: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US` .
 
-## <a name="query-parameters"></a>Parâmetros de consulta
+### <a name="query-parameters"></a>Parâmetros de consulta
 
 Estes parâmetros podem ser incluídos na sequência de consulta do pedido REST.
 
@@ -60,7 +91,7 @@ Estes parâmetros podem ser incluídos na sequência de consulta do pedido REST.
 | `profanity` | Especifica como lidar com a profanação nos resultados do reconhecimento. Os `masked` valores aceites são , que substitui a profanação por asteriscos, que `removed` removem toda a profanação do resultado, ou `raw` , que inclui a profanação no resultado. A predefinição é `masked`. | Opcional |
 | `cid` | Ao utilizar o [portal Discurso Personalizado](./custom-speech-overview.md) para criar modelos personalizados, pode utilizar modelos personalizados através do seu **ID Endpoint** encontrado na página **De implementação.** Utilize o **ID endpoint** como argumento para o parâmetro de `cid` cadeia de consulta. | Opcional |
 
-## <a name="request-headers"></a>Cabeçalhos do pedido
+### <a name="request-headers"></a>Cabeçalhos do pedido
 
 Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de discurso a texto.
 
@@ -74,7 +105,7 @@ Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de discur
 | `Expect` | Se utilizar uma transferência em pedaços, envie `Expect: 100-continue` . O serviço Discurso reconhece o pedido inicial e aguarda dados adicionais.| Necessário se enviar dados áudio em pedaços. |
 | `Accept` | Se for fornecido, deve `application/json` ser. O serviço Discurso fornece resultados em JSON. Alguns quadros de pedido fornecem um valor padrão incompatível. É uma boa prática incluir `Accept` sempre. | Opcional, mas recomendado. |
 
-## <a name="audio-formats"></a>Formatos áudio
+### <a name="audio-formats"></a>Formatos áudio
 
 O áudio é enviado no corpo do `POST` pedido HTTP. Deve estar num dos formatos desta tabela:
 
@@ -84,9 +115,9 @@ O áudio é enviado no corpo do `POST` pedido HTTP. Deve estar num dos formatos 
 | OGG    | OPUS  | 256 km/h | 16 kHz, mono |
 
 >[!NOTE]
->Os formatos acima são suportados através da REST API e webSocket no serviço Speech. O [Speech SDK](speech-sdk.md) suporta atualmente o formato WAV com o codec PCM, bem como [outros formatos](how-to-use-codec-compressed-audio-input-streams.md).
+>Os formatos acima são suportados através da REST API para áudio curto e WebSocket no serviço Speech. O [Speech SDK](speech-sdk.md) suporta atualmente o formato WAV com o codec PCM, bem como [outros formatos](how-to-use-codec-compressed-audio-input-streams.md).
 
-## <a name="pronunciation-assessment-parameters"></a>Parâmetros de avaliação da pronúncia
+### <a name="pronunciation-assessment-parameters"></a>Parâmetros de avaliação da pronúncia
 
 Esta tabela lista os parâmetros necessários e opcionais para a avaliação da pronúncia.
 
@@ -123,7 +154,7 @@ Recomendamos vivamente o streaming (em pedaços) ao publicar os dados áudio, o 
 >[!NOTE]
 >A funcionalidade de avaliação da pronúncia só está atualmente disponível em `westus` `eastasia` regiões e `centralindia` regiões. E esta funcionalidade está atualmente disponível apenas em `en-US` idioma.
 
-## <a name="sample-request"></a>Pedido de amostra
+### <a name="sample-request"></a>Pedido de amostra
 
 A amostra abaixo inclui o nome de hospedeiro e cabeçalhos necessários. É importante notar que o serviço também espera dados áudio, que não estão incluídos nesta amostra. Como mencionado anteriormente, recomenda-se, no entanto, que não seja necessário o chunking.
 
@@ -143,7 +174,7 @@ Para ativar a avaliação da pronúncia, pode adicionar abaixo o cabeçalho. Con
 Pronunciation-Assessment: eyJSZWZlcm...
 ```
 
-## <a name="http-status-codes"></a>Códigos de estado HTTP
+### <a name="http-status-codes"></a>Códigos de estado HTTP
 
 O código de estado HTTP para cada resposta indica sucesso ou erros comuns.
 
@@ -155,9 +186,9 @@ O código de estado HTTP para cada resposta indica sucesso ou erros comuns.
 | `401` | Não autorizado | A chave de subscrição ou o token de autorização são inválidos na região especificada, ou ponto final inválido. |
 | `403` | Proibido | Chave de assinatura em falta ou sinal de autorização. |
 
-## <a name="chunked-transfer"></a>Transferência em pedaços
+### <a name="chunked-transfer"></a>Transferência em pedaços
 
-A transferência em `Transfer-Encoding: chunked` pedaços pode ajudar a reduzir a latência do reconhecimento. Permite que o serviço Desematado comece a processar o ficheiro áudio enquanto este é transmitido. A API REST não fornece resultados parciais ou provisórios.
+A transferência em `Transfer-Encoding: chunked` pedaços pode ajudar a reduzir a latência do reconhecimento. Permite que o serviço Desematado comece a processar o ficheiro áudio enquanto este é transmitido. A API REST para áudio curto não fornece resultados parciais ou intercalares.
 
 Esta amostra de código mostra como enviar áudio em pedaços. Apenas o primeiro pedaço deve conter o cabeçalho do ficheiro áudio. `request` é um `HttpWebRequest` objeto ligado ao ponto final apropriado REST. `audioFile` é o caminho para um ficheiro áudio no disco.
 
@@ -191,7 +222,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 }
 ```
 
-## <a name="response-parameters"></a>Parâmetros de resposta
+### <a name="response-parameters"></a>Parâmetros de resposta
 
 Os resultados são fornecidos como JSON. O `simple` formato inclui estes campos de alto nível.
 
@@ -233,7 +264,7 @@ O objeto da `NBest` lista pode incluir:
 | `PronScore` | Pontuação geral indicando a qualidade da pronúncia do discurso dado. Isto é agregado de `AccuracyScore` , `FluencyScore` e com `CompletenessScore` peso. |
 | `ErrorType` | Este valor indica se uma palavra é omitida, inserida ou mal pronunciada, em comparação com `ReferenceText` . Os valores possíveis são `None` (ou seja, nenhum erro nesta palavra), `Omission` `Insertion` e `Mispronunciation` . |
 
-## <a name="sample-responses"></a>Respostas da amostra
+### <a name="sample-responses"></a>Respostas da amostra
 
 Uma resposta típica para `simple` o reconhecimento:
 
@@ -309,3 +340,4 @@ Uma resposta típica para o reconhecimento com avaliação da pronúncia:
 - [Criar uma conta do Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
 - [Personalizar modelos acústicos](./how-to-custom-speech-train-model.md)
 - [Personalizar modelos de idioma](./how-to-custom-speech-train-model.md)
+- [Familiarize-se com a transcrição do Lote](batch-transcription.md)

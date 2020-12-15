@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 3d3c452dd883316520e0c28f01c241af74d597c8
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 7b035af85e250d97fb05625bf386bec8dc94a74c
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602789"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505261"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API de Sms Analytics REST
 
@@ -104,16 +104,16 @@ O `/analyze` ponto final permite-lhe escolher qual das funcionalidades de Análi
 
 | Elemento | Valores válidos | Necessário? | Utilização |
 |---------|--------------|-----------|-------|
-|`displayName` | Cadeia | Opcional | Usado como nome de exibição para o identificador único para o trabalho.|
+|`displayName` | String | Opcional | Usado como nome de exibição para o identificador único para o trabalho.|
 |`analysisInput` | Inclui o `documents` campo abaixo | Necessário | Contém a informação para os documentos que pretende enviar. |
 |`documents` | Inclui os `id` campos e `text` campos abaixo | Necessário | Contém informações para cada documento enviado e o texto em bruto do documento. |
-|`id` | Cadeia | Necessário | Os IDs que fornece são usados para estruturar a saída. |
+|`id` | String | Necessário | Os IDs que fornece são usados para estruturar a saída. |
 |`text` | Texto cru não estruturado, até 125.000 caracteres. | Necessário | Deve estar na língua inglesa, que é a única língua atualmente apoiada. |
 |`tasks` | Inclui as seguintes funcionalidades de Análise de Texto: `entityRecognitionTasks` , `keyPhraseExtractionTasks` ou `entityRecognitionPiiTasks` . | Necessário | Um ou mais dos recursos de Text Analytics que pretende utilizar. Note que `entityRecognitionPiiTasks` tem um parâmetro opcional que pode ser definido para ou `domain` `pii` `phi` . Se não for especificado, o sistema falha em `pii` . |
 |`parameters` | Inclui os `model-version` campos e `stringIndexType` campos abaixo | Necessário | Este campo está incluído nas tarefas de recurso acima escolhidas. Contêm informações sobre a versão modelo que pretende utilizar e o tipo de índice. |
-|`model-version` | Cadeia | Necessário | Especifique qual a versão do modelo que está a ser chamado de que pretende utilizar.  |
-|`stringIndexType` | Cadeia | Necessário | Especifique o descodificador de texto que corresponda ao seu ambiente de programação.  Os tipos suportados são `textElement_v8` (predefinido), `unicodeCodePoint` `utf16CodeUnit` . . Consulte o [artigo Text offset](../concepts/text-offsets.md#offsets-in-api-version-31-preview) para obter mais informações.  |
-|`domain` | Cadeia | Opcional | Só se aplica como parâmetro da `entityRecognitionPiiTasks` tarefa e pode ser definido para ou `pii` `phi` . Não é especificado `pii` se não especificado.  |
+|`model-version` | String | Necessário | Especifique qual a versão do modelo que está a ser chamado de que pretende utilizar.  |
+|`stringIndexType` | String | Necessário | Especifique o descodificador de texto que corresponda ao seu ambiente de programação.  Os tipos suportados são `textElement_v8` (predefinido), `unicodeCodePoint` `utf16CodeUnit` . . Consulte o [artigo Text offset](../concepts/text-offsets.md#offsets-in-api-version-31-preview) para obter mais informações.  |
+|`domain` | String | Opcional | Só se aplica como parâmetro da `entityRecognitionPiiTasks` tarefa e pode ser definido para ou `pii` `phi` . Não é especificado `pii` se não especificado.  |
 
 ```json
 {
@@ -346,5 +346,5 @@ Consulte o seguinte artigo para obter mais informações para o Texto Analytics 
 * [Descrição geral da Análise de Texto](../overview.md)
 * [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)</br>
 * [Página de produto da Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759712)
-* [Utilização da biblioteca de clientes Text Analytics](../quickstarts/text-analytics-sdk.md)
+* [Utilização da biblioteca de clientes Text Analytics](../quickstarts/client-libraries-rest-api.md)
 * [Novidades](../whats-new.md)

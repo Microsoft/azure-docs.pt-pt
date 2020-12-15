@@ -11,25 +11,25 @@ ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 157bef31b375db54f294284ca0a5d97cd7035b17
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: c304c2aad3ba40d7b3a044f0e3222e31bb013648
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558968"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503986"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
 A API text Analytics é atualizada numa base contínua. Para se manter atualizado com os recentes desenvolvimentos, este artigo fornece-lhe informações sobre novos lançamentos e funcionalidades.
 
-## <a name="december-2020"></a>dezembro de 2020
+## <a name="december-2020"></a>Dezembro de 2020
 
 * [Detalhes de preços atualizados](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) para a API text Analytics
 
 ## <a name="november-2020"></a>Novembro de 2020
 
 * Um [novo ponto final](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Analyze) com API API de Análise de Texto v3.1-preview.3 para a nova [API de análise](how-tos/text-analytics-how-to-call-api.md?tabs=analyze)assíncrono, que suporta o processamento de lotes para NER, PII e operações de extração de frases-chave.
-* Um [novo ponto final](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) com API API API de Análise de Texto v3.1-preview.3 para o novo Text Analytics assíncrono para a [saúde](how-tos/text-analytics-for-health.md) hospedado API com suporte para processamento de lotes.
+* Um [novo ponto final](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) com API de Análise de Texto v3.1-preview.3 para o novo Text Analytics assíncrono para a [saúde](how-tos/text-analytics-for-health.md) hospedado API com suporte para processamento de lotes.
 * Ambas as novas funcionalidades acima enumeradas só estão disponíveis nas seguintes regiões: `West US 2` `East US 2` , , e `Central US` `North Europe` `West Europe` regiões.
 * O português (Brasil) `pt-BR` é agora apoiado na Análise de [Sentimento](how-tos/text-analytics-how-to-sentiment-analysis.md) v3.x, começando pela versão `2020-04-01` modelo. Acrescenta ao apoio existente `pt-PT` ao português.
 * Bibliotecas de clientes atualizadas, que incluem análise assíncronea, e Análise de Texto para operações de saúde. Pode encontrar exemplos no GitHub:
@@ -61,7 +61,7 @@ A API text Analytics é atualizada numa base contínua. Para se manter atualizad
     * v3.0-pré-visualização.1
     
 > [!div class="nextstepaction"]
-> [Saiba mais sobre text Analytics API v3.1-Preview.2](quickstarts/text-analytics-sdk.md)
+> [Saiba mais sobre text Analytics API v3.1-Preview.2](quickstarts/client-libraries-rest-api.md)
 
 ### <a name="text-analytics-for-health-container-updates"></a>Análise de texto para atualizações de recipientes de saúde
 
@@ -178,13 +178,13 @@ Os nomes das seguintes propriedades na resposta JSON foram alterados, se aplicá
 ### <a name="sdk-support-for-text-analytics-api-v3-public-preview"></a>Suporte SDK para API API v3 Visualização pública de texto
 
 Como parte da versão unificada do [Azure SDK,](https://techcommunity.microsoft.com/t5/azure-sdk/january-2020-unified-azure-sdk-release/ba-p/1097290)a API v3 SDK text Analytics está agora disponível como pré-visualização pública para as seguintes linguagens de programação:
-   * [C#](./quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp&tabs=version-3)
-   * [Python](./quickstarts/text-analytics-sdk.md?pivots=programming-language-python&tabs=version-3)
-   * [JavaScript (Node.js)](./quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript&tabs=version-3)
-   * [Java](./quickstarts/text-analytics-sdk.md?pivots=programming-language-java&tabs=version-3)
+   * [C#](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-csharp&tabs=version-3)
+   * [Python](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-python&tabs=version-3)
+   * [JavaScript (Node.js)](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-javascript&tabs=version-3)
+   * [Java](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-java&tabs=version-3)
    
 > [!div class="nextstepaction"]
-> [Saiba mais sobre Text Analytics API v3 SDK](./quickstarts/text-analytics-sdk.md?tabs=version-3)
+> [Saiba mais sobre Text Analytics API v3 SDK](./quickstarts/client-libraries-rest-api.md?tabs=version-3)
 
 ### <a name="named-entity-recognition-v3-public-preview"></a>Nome de Reconhecimento de Entidade v3 visualização pública
 
@@ -232,7 +232,7 @@ A ligação de entidade suporta inglês e espanhol. O suporte linguístico NER v
     * Rotulagem automática para diferentes sentimentos em texto.
     * Análise de sentimento e saída no nível de documento e frase. 
 
-Apoia o inglês ( ( ( ( japonês ), chinês simplificado ( , chinês tradicional ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( `en` `ja` ) e alemão , e `zh-Hans` está `zh-Hant` `fr` `it` `es` `nl` `pt` `de` disponível nas seguintes regiões: `Australia East` , , , , , , , , , , , `Central Canada` , , , , , `Central US` , , , , , , , , `East Asia` e `East US` `East US 2` `North Europe` `Southeast Asia` `South Central US` `UK South` `West Europe` `West US 2` . 
+Apoia o inglês ( `en` japonês `ja` ), chinês simplificado ( `zh-Hans` , chinês tradicional ( ) e alemão , `zh-Hant` e está `fr` `it` `es` `nl` `pt` `de` disponível nas seguintes regiões: `Australia East` , `Central Canada` `Central US` e `East Asia` `East US` `East US 2` `North Europe` `Southeast Asia` `South Central US` `UK South` `West Europe` `West US 2` . 
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre a Análise de Sentimento v3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features)

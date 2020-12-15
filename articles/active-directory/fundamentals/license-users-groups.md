@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/06/2018
+ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50e0fe1cf3bb628c40e774423e45ea88d6ab78a5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b6900647acf7182529f34c8cc065dbb039de38be
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359718"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504411"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Atribuir ou remover licenças no portal Azure Ative Directory
 
@@ -37,7 +37,7 @@ Existem vários planos de licença disponíveis para o serviço Azure AD, inclui
 
 Para obter informações específicas sobre cada plano de licença e os detalhes de licenciamento associados, veja [que licença preciso?](https://azure.microsoft.com/pricing/details/active-directory/) Para se inscrever nos planos de licença premium Azure AD veja [aqui.](./active-directory-get-started-premium.md)
 
-Nem todos os serviços da Microsoft estão disponíveis em todos os locais. Antes de uma licença poder ser atribuída a um grupo, deve especificar a **localização de utilização** para todos os membros. Pode definir este valor na área de ** &gt; &gt; &gt; Definições de Perfil dos Utilizadores do Diretório Ativo Azure** em Azure AD. Qualquer utilizador cuja localização de utilização não seja especificada herda a localização da organização Azure AD.
+Nem todos os serviços da Microsoft estão disponíveis em todos os locais. Antes de uma licença poder ser atribuída a um grupo, deve especificar a **localização de utilização** para todos os membros. Pode definir este valor na área de **&gt; &gt; &gt; Definições de Perfil dos Utilizadores do Diretório Ativo Azure** em Azure AD. Qualquer utilizador cuja localização de utilização não seja especificada herda a localização da organização Azure AD.
 
 ## <a name="view-license-plans-and-plan-details"></a>Ver planos de licença e detalhes do plano
 
@@ -47,13 +47,20 @@ Pode consultar os seus planos de serviço disponíveis, incluindo as licenças i
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) utilizando uma conta de administrador de licença na sua organização Azure AD.
 
-1. Selecione **Azure Ative Directory**e, em seguida, selecione **Licenças**.
+1. Selecione **Azure Ative Directory** e, em seguida, selecione **Licenças**.
 
-    ![Página de licenças, com número de serviços adquiridos e licenças atribuídas](media/license-users-groups/license-details-blade.png)
+    :::image type="content" source="media/license-users-groups/license-details-blade.png" alt-text="Página de licenças, com número de serviços adquiridos e licenças atribuídas":::
 
-1. Selecione o link **Adquirido** para ver a página **Produtos** e para ver os **números atribuídos,** **disponíveis**e **expirando em breve** para os seus planos de licença.
+1. Selecione **Todos os produtos** para ver a página Todos os Produtos e para ver os números **Total,** **Atribuídos,** **Disponíveis** e **Expirando em breve** para os seus planos de licença.
 
-    ![página de serviços, com planos de licença de serviço e informações de licença associadas](media/license-users-groups/license-products-blade-with-products.png)
+    :::image type="content" source="media/license-users-groups/license-products-blade-with-products.png" alt-text="página de serviços - com planos de licença de serviço - informações de licença associadas":::
+
+    > [!NOTE]
+    > Os números são definidos como: 
+    > - Total: Número total de licenças adquiridas
+    > - Atribuído: Número de licenças atribuídas aos utilizadores
+    > - Disponível: Número de licenças disponíveis para atribuição, incluindo a expiração em breve
+    > - Expiração em breve: Número de licenças expirando em breve
 
 1. Selecione um nome de plano para ver os seus utilizadores e grupos licenciados.
 
@@ -82,7 +89,7 @@ Certifique-se de que qualquer pessoa que precise de usar um serviço AD Azure li
     As atualizações da página **da licença atribuir** para mostrar que um utilizador é selecionado e que as atribuições estão configuradas.
 
     > [!NOTE]
-    > Nem todos os serviços da Microsoft estão disponíveis em todos os locais. Antes de uma licença poder ser atribuída a um utilizador, tem de especificar a **localização de Utilização**. Pode definir este valor na área de ** &gt; &gt; &gt; Definições de Perfil dos Utilizadores do Diretório Ativo Azure** em Azure AD. Qualquer utilizador cuja localização de utilização não seja especificada herda a localização da organização Azure AD.
+    > Nem todos os serviços da Microsoft estão disponíveis em todos os locais. Antes de uma licença poder ser atribuída a um utilizador, tem de especificar a **localização de Utilização**. Pode definir este valor na área de **&gt; &gt; &gt; Definições de Perfil dos Utilizadores do Diretório Ativo Azure** em Azure AD. Qualquer utilizador cuja localização de utilização não seja especificada herda a localização da organização Azure AD.
 
 1. Selecione **Atribuir**.
 
@@ -100,7 +107,7 @@ Certifique-se de que qualquer pessoa que precise de usar um serviço AD Azure li
 
     ![Página de produtos, com opção de atribuição realçada](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
-1. Na página **'Atribuir',** selecione **Utilizadores e grupos**e, em seguida, procure e selecione o grupo que está a atribuir a licença.
+1. Na página **'Atribuir',** selecione **Utilizadores e grupos** e, em seguida, procure e selecione o grupo que está a atribuir a licença.
 
     ![Atribuir página de licença, com pesquisa destacada e Selecionar opções 2](media/license-users-groups/assign-group-license-blade-with-highlight.png)
 

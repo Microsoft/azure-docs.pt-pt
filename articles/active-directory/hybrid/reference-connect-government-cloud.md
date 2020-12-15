@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbb4298d0d9a9d7589c4a2055b4d55a0b852f951
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: e163ea34948906060996ee952f45ec0cdb467557
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518214"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504360"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Considerações de identidade híbridas para a nuvem do Governo do Azure
 
@@ -24,6 +24,9 @@ Este artigo descreve considerações para integrar um ambiente híbrido com a nu
 
 > [!NOTE]
 > Para integrar um ambiente de Diretório Ativo do Microsoft (seja no local ou hospedado num IaaS que faça parte da mesma nuvem) com a nuvem do Governo Azure, precisa de atualizar para o mais recente lançamento do [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+
+> [!NOTE]
+> Este artigo contém referências ao termo *whitelist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 Para obter uma lista completa dos pontos finais do Departamento de Defesa do Governo dos Estados Unidos, consulte a [documentação](/office365/enterprise/office-365-u-s-government-dod-endpoints).
 

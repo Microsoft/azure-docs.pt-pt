@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: azure, kinect,sdk, download update, mais recente, disponível, instalar
-ms.openlocfilehash: 48a3df3962796cf561057e8ec85b754c974200f4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 2fd14781c42192c713d826729f8fab6c698d6321
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358510"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505482"
 ---
 # <a name="azure-kinect-sensor-sdk-download"></a>Download SDK do sensor Azure Kinect
 
@@ -26,14 +26,14 @@ Esta página tem os links de descarregamento para cada versão do Sensor Kinect 
 - O [gravador Azure Kinect](azure-kinect-recorder.md).
 - A [ferramenta de firmware Azure Kinect](azure-kinect-firmware-tool.md).
 
-## <a name="windows-download-link"></a>Link de descarregamento do Windows
+## <a name="windows-installation-instructions"></a>Instruções de instalação do Windows
 
-[Instalador da](https://download.microsoft.com/download/3/d/6/3d6d9e99-a251-4cf3-8c6a-8e108e960b4b/Azure%20Kinect%20SDK%201.4.1.exe)  |  Microsoft [Código fonte GitHub](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1093)
+Pode encontrar detalhes de instalação para as versões mais recentes e anteriores do Sensor Azure Kinect SDK e Firmware [aqui.](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md)
+
+Pode encontrar o código fonte [aqui.](https://github.com/microsoft/Azure-Kinect-Sensor-SDK)
 
 > [!NOTE]
 > Ao instalar o SDK, lembre-se do caminho a que se instala. Por exemplo, "C:\Program Files\Azure Kinect SDK 1.2". Encontrará as ferramentas referenciadas em artigos neste caminho.
-
-Pode encontrar versões anteriores do Sensor Azure Kinect SDK e Firmware no [GitHub.](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md)
 
 ## <a name="linux-installation-instructions"></a>Instruções de instalação do Linux
 

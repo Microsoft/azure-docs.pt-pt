@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/08/2020
-ms.openlocfilehash: f41a43e76993a03554d32fc7f3ce3149848989a9
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.date: 12/14/2020
+ms.openlocfilehash: 427bdec2b5e5ab14d566375d5ad8f9da9dc3e81b
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686985"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505601"
 ---
 # <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-preview"></a>Configure monitorização no Azure Monitor para a saúde dos hóspedes VMs (pré-visualização)
 O Azure Monitor para a saúde dos hóspedes em VMs permite-lhe visualizar a saúde de uma máquina virtual, tal como definida por um conjunto de medições de desempenho que são amostradas a intervalos regulares. Este artigo descreve como pode modificar a monitorização predefinida utilizando o portal Azure. Descreve também conceitos fundamentais de monitores necessários para [configurar a monitorização utilizando uma regra de recolha de dados.](vminsights-health-configure-dcr.md)
@@ -30,9 +30,15 @@ Tanto os monitores unitários como os monitores agregados têm uma definição d
 | Desativado | O monitor é desativado independentemente da configuração do seu progenitor. |
 | O mesmo que os pais | O monitor será ativado ou desativado dependendo da configuração do seu progenitor. |
 
-Quando um monitor é desativada, todos os critérios são mostrados como não disponíveis como mostrado no exemplo seguinte.
+Quando um monitor é desativado, todos os critérios são mostrados como não disponíveis como mostrado no exemplo seguinte.
 
 ![Monitor desativado](media/vminsights-health-configure/disabled-monitor.png)
+
+
+> [!NOTE]
+> Se um monitor parental estiver desativado, qualquer monitor infantil também é desativado. Se ativar explicitamente o monitor da criança, o progenitor também estará ativado, mas o seu estado de configuração permanecerá o mesmo. Neste caso, receberá a seguinte mensagem no monitor dos pais.
+>
+> *Há uma discrepância, uma vez que o estado configurado do monitor é "incapacitado", mas o Estado de Saúde não reflete isso. Isto porque, quer as alterações configuradas estejam a ser propagadas, ou qualquer um dos seus monitores infantis foi explicitamente ativado.*
 
 ## <a name="enable-or-disable-virtual-machine"></a>Ativar ou desativar a máquina virtual
 Pode desativar a monitorização de um VM para parar temporariamente todos os monitores. Pode desativar a monitorização de um VM, por exemplo, quando estiver a fazer manutenção.

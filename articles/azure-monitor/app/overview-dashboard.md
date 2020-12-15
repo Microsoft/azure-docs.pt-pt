@@ -3,12 +3,12 @@ title: Azure Application Insights Overview Dashboard [ Dashboard ] Microsoft Doc
 description: Monitorize as aplicações com insights de aplicação Azure e funcionalidade do Painel de Controlo Geral.
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 714488d88b269f252dfd6677f847db315969a270
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b0708fa70d3a3ecb406f1d974bb1f2b47e55b40
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970607"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504105"
 ---
 # <a name="application-insights-overview-dashboard"></a>Painel de visão geral de insights de aplicação
 
@@ -53,7 +53,7 @@ Para navegar de volta para a experiência geral basta selecionar:
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Se selecionar configurações de **azulejos configurados** e definir um intervalo de tempo personalizado superior a 31 dias, o seu dashboard não apresentará mais de 31 dias de dados, mesmo com a retenção de dados predefinida de 90 dias. Atualmente, não há solução para este comportamento.
+Existe atualmente um limite de 30 dias de dados para os dados apresentados num dashboard. Se selecionar um filtro de tempo para além de 30 dias, ou se selecionar definições de **azulejos configurados** e definir um intervalo de tempo personalizado superior a 30 dias, o seu dashboard não apresentará mais de 30 dias de dados, mesmo com a retenção de dados predefinida de 90 dias. Atualmente, não há solução para este comportamento.
 
 ## <a name="next-steps"></a>Passos seguintes
 

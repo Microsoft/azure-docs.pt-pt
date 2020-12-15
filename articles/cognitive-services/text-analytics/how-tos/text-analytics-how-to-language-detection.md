@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: a3ef198c79683786a7d6fb36a46cd0c989071c9e
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 0ff6bcd2e50b64993966f2780c6c8118aea2694f
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346898"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505176"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Exemplo: Detetar linguagem com análise de texto
 
@@ -300,8 +300,8 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para deteção de linguagem
 + O pedido do POST é para um `/languages` ponto final usando uma chave de acesso personalizada [e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para a sua subscrição.
 + A saída de resposta consiste em identificadores de linguagem para cada documento ID. A saída pode ser transmitida para qualquer app que aceite o JSON. As aplicações de exemplo incluem Excel e Power BI, para citar alguns.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Descrição geral da Análise de Texto](../overview.md)
-* [Utilização da biblioteca de clientes Text Analytics](../quickstarts/text-analytics-sdk.md)
+* [Utilização da biblioteca de clientes Text Analytics](../quickstarts/client-libraries-rest-api.md)
 * [Novidades](../whats-new.md)

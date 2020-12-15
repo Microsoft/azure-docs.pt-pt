@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 2349939d4997ddc57d0c0c56a21eeec0357bf0ec
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
-ms.translationtype: MT
+ms.openlocfilehash: 8319de85cdd8b3527fc6bfb13dd9ed1e8f6fc0fa
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828885"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97486864"
 ---
 Siga estes passos para executar o código de amostra:
 
@@ -16,7 +16,57 @@ Siga estes passos para executar o código de amostra:
 1. Procure e ative "Mostrar Mensagem Verbose".
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Definições de extensão"
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Mostrar mensagem verbose":::
+1. No Código do Estúdio Visual, aceda a *src/cloud-to-device-console-app/operations.jsem*.
+1. No nó **GraphTopologySet,** certifique-se de que vê o seguinte valor:
+
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/2.0/topology.json"`
+1. Nos nódos **GraphInstanceSet** e **GraphTopologyDelete,**  certifique-se de que o valor da `topologyName` propriedade corresponde ao valor da propriedade na `name` topologia do gráfico:
+
+    `"topologyName" : "MotionDetection"`
+    
+1. Inicie uma sessão de depurar selecionando a tecla F5. A janela **TERMINAL** apresentará algumas mensagens.
+1. A *operations.jsno* ficheiro começa com chamadas de e `GraphTopologyList` `GraphInstanceList` . Se limpou os recursos depois de ter terminado os quickstarts anteriores, então este processo irá devolver listas vazias e, em seguida, fazer uma pausa. Para continuar, selecione a tecla 'Entrar'.
+
+    ```
+    --------------------------------------------------------------------------
+    Executing operation GraphTopologyList
+    -----------------------  Request: GraphTopologyList  --------------------------------------------------
+    {
+        "@apiVersion": "1.0"
+    }
+    ---------------  Response: GraphTopologyList - Status: 200  ---------------
+    {
+        "value": []
+    }
+    --------------------------------------------------------------------------
+    Executing operation WaitForInput
+    Press Enter to continue
+    ```
+    
+    A janela **TERMINAL** mostra o próximo conjunto de chamadas de métodos diretos:
+     * Uma chamada para `GraphTopologySet` que usa o anterior `topologyUrl`
+     * Uma chamada para `GraphInstanceSet` o seguinte corpo:
+         
+    ```
+    {
+      "@apiVersion": "1.0",
+      "name": "Sample-Graph",
+      "properties": {
+        "topologyName": "MotionDetection",
+        "description": "Sample graph description",
+        "parameters": [
+          {
+            "name": "rtspUrl",
+            "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+          },
+          {
+            "name": "rtspUserName",
+            "value": "testuser"
+          },
+          {
+            "name": "rtspPassword",
+            "value": "testpassword"
           }
         ]
       }

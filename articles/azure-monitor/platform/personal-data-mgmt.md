@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 64c461c5d3e1bb34f480e5173621f8753eadbbd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bb1e667758a1430e34d222b9a5c537381c07624
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318322"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505278"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Orientações para dados pessoais armazenados no Log Analytics e no Application Insights
 
@@ -49,7 +49,7 @@ O Log Analytics é uma loja flexível, que ao prescrever um esquema aos seus dad
   Lembre-se de procurar não só nomes de utilizadores legíveis pelo homem, mas também GUIDs que podem ser diretamente rastreados até um determinado utilizador!
 * *IDs do dispositivo*: Tal como os IDs do utilizador, os IDs do dispositivo são por vezes considerados "privados". Utilize a mesma abordagem listada acima para identificação de iDs de utilizador para identificar tabelas onde isso possa ser uma preocupação. 
 * *Dados personalizados*: O Log Analytics permite a recolha numa variedade de métodos: registos personalizados e campos personalizados, [a API do Recolhão de Dados HTTP](./data-collector-api.md) e dados personalizados recolhidos como parte dos registos de eventos do sistema. Todos estes são suscetíveis a conter dados privados, e devem ser examinados para verificar se esses dados existem.
-* *Dados capturados*por solução : Como o mecanismo de solução é um mecanismo de solução aberto, recomendamos a revisão de todas as tabelas geradas por soluções para garantir o cumprimento.
+* *Dados capturados* por solução : Como o mecanismo de solução é um mecanismo de solução aberto, recomendamos a revisão de todas as tabelas geradas por soluções para garantir o cumprimento.
 
 ### <a name="application-data"></a>Dados da aplicação
 
@@ -81,7 +81,7 @@ Como mencionado na [estratégia de tratamento de dados pessoais](#strategy-for-p
 Para pedidos de visualização e exportação de dados, deve ser utilizada a [API de consulta de informação de log analytics](https://dev.loganalytics.io/) ou a [consulta de Insights de Aplicação API.](https://dev.applicationinsights.io/quickstart) A lógica de converter a forma dos dados para um adequado para entregar aos seus utilizadores cabe-lhe a si implementar. [As Funções Azure](https://azure.microsoft.com/services/functions/) são um ótimo lugar para acolher tal lógica.
 
 > [!IMPORTANT]
->  Embora a grande maioria das operações de purga possa completar muito mais rapidamente do que o SLA, **o SLA formal para a conclusão das operações de purga é fixado em 30 dias** devido ao seu forte impacto na plataforma de dados utilizada. Este é um processo automatizado; não há como solicitar que uma operação seja tratada mais rapidamente.
+>  Embora a grande maioria das operações de purga possa completar muito mais rapidamente do que o SLA, **o SLA formal para a conclusão das operações de purga é fixado em 30 dias** devido ao seu forte impacto na plataforma de dados utilizada. Este SLA satisfaz os requisitos do RGPD. É um processo automatizado, por isso não há como pedir que uma operação seja tratada mais rapidamente. 
 
 ### <a name="delete"></a>Eliminar
 
@@ -89,6 +89,9 @@ Para pedidos de visualização e exportação de dados, deve ser utilizada a [AP
 > As eliminações no Log Analytics são destrutivas e não reversíveis! Por favor, tenha muito cuidado na execução deles.
 
 Disponibilizamos como parte de uma privacidade que lida com um caminho *de expurgação* da API. Este caminho deve ser utilizado com moderação devido ao risco associado a fazê-lo, ao impacto potencial do desempenho e ao potencial de distorcer agregações, medições e outros aspetos dos seus dados do Log Analytics. Consulte a [secção de tratamento de dados pessoais](#strategy-for-personal-data-handling) para obter abordagens alternativas para lidar com dados privados.
+
+> [!NOTE]
+> Uma vez realizada a operação de purga, os dados não podem ser acedidos enquanto o estado *de operação* de [purga](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/getpurgestatus) estiver pendente . 
 
 A purga é uma operação altamente privilegiada que nenhuma app ou utilizador em Azure (incluindo mesmo o proprietário do recurso) terá permissões para executar sem que seja expressamente concedido um papel no Azure Resource Manager. Esta função é _Data Purger_ e deve ser delegada cautelosamente devido ao potencial de perda de dados. 
 

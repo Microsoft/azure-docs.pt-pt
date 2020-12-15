@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/06/2020
 ms.author: b-juche
-ms.openlocfilehash: c6194469837997108964feda82d406c9108641b9
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: a07898692c8af70fab0d2634ed1513f0f3666a4d
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369244"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505465"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>Resolver problemas dos conjuntos de capacidade
 
@@ -33,7 +33,7 @@ Este artigo descreve resoluções para problemas que você pode ter ao gerir pis
 | Problemas eliminando um pool de capacidade  |  Certifique-se de que remove todos os volumes e instantâneos do Azure NetApp Files na subscrição onde está a tentar eliminar o pool de capacidade. <br> Se já removeu todos os volumes e instantâneos e ainda não consegue apagar o pool de capacidade, poderão ainda existir referências aos recursos sem aparecer no portal. Neste caso, preencha um bilhete de apoio e especifique que executou os passos acima recomendados. |
 | A criação ou modificação de volume falha com `Requested throughput not available` erro | A produção disponível para um volume é determinada pelo tamanho da sua capacidade e pelo nível de serviço. Se não tiver produção suficiente, deverá aumentar o tamanho da piscina ou ajustar a potência de volume existente. | 
 
-## <a name="issues-moving-a-capacity-pool"></a>Problemas em mover um pool de capacidade 
+## <a name="issues-when-changing-the-capacity-pool-of-a-volume"></a>Problemas ao alterar o pool de capacidade de um volume 
 
 > [!IMPORTANT] 
 > O [Dynamically alterar o nível de serviço de um registo de](dynamic-change-volume-service-level.md) pré-visualização pública de volume está suspenso até novo aviso.

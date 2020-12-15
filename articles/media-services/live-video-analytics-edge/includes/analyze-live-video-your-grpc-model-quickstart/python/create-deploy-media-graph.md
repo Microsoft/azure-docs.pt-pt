@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 6741d48490cb186b986317f584a4c7b2a11b865c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 2debfa64849e4b576c98fd37b42e382772029bf4
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91829151"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97486722"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examine e edite os ficheiros de amostra
 
@@ -25,7 +25,7 @@ Como parte dos pré-requisitos, descarregou o código de amostra para uma pasta.
 1. Editar o *operations.jsno* ficheiro:
  
     * Altere a ligação para a topologia do gráfico:
-    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json"`
+    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/2.0/topology.json"`
     * Em GraphInstanceSet, edite o nome da topologia do gráfico para corresponder ao valor no link anterior:
     * `"topologyName"` : `"InferencingWithGrpcExtension"`
     * Sob a GraphTopologyDelete, edite o nome:
@@ -118,7 +118,7 @@ Como parte dos pré-requisitos, descarregou o código de amostra para uma pasta.
 1. Procure e ative "Mostrar Mensagem Verbose".
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Definições de extensão":::
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Mostrar mensagem verbose":::
 1. Clique com o botão direito no dispositivo Live Video Analytics e selecione **Start Monitoring Built-in Event Endpoint**. Precisa deste passo para monitorizar os eventos do IoT Hub na janela **OUTPUT** do Código do Estúdio Visual.
 
    ![Iniciar a monitorização](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)

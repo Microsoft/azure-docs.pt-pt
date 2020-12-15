@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 5ea5e352084e379632b88194fd13011879041fd3
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: e9368b5c6c90fe7ce65fc066e0b19523e07ece51
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899444"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504343"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Quickstart: Extrair informações de texto e layout usando a API do Reconhecimento de Formulários REST com Python
 
@@ -90,7 +90,7 @@ Para começar a analisar o layout, você chama a **[API de Layout de Análise](h
     # Endpoint URL
     endpoint = r"<Endpoint>"
     apim_key = "<Subscription Key>"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.1/Layout/analyze"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.2/Layout/analyze"
     source = r"<path to your form>"
     
     headers = {
@@ -130,7 +130,7 @@ https://cognitiveservice/formrecognizer/v2.0/layout/operations/54f0b076-4e38-43e
 ``` 
 # <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)  
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.1/layout/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.2/layout/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```  
 
 ---
@@ -406,7 +406,7 @@ Consulte a seguinte imagem de fatura e a respetiva saída JSON. A saída foi enc
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, você usou o Formulário Reconhecedor REST API com Python para extrair o layout de texto de uma fatura. Em seguida, consulte a documentação de referência para explorar mais aprofundadamente a API do Reconhecimento de Formulários.
 

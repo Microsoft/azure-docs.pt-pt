@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: 804d739efa5ac96c0b2d7228573f031f324e590e
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 5b064365a6f0bd8a544f57d67cd6e4beb98bb404
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558985"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505244"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como utilizar o reconhecimento de entidade nomeada em análise de texto
 
@@ -309,5 +309,5 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para entidade que liga usan
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição geral da Análise de Texto](../overview.md)
-* [Utilização da biblioteca de clientes Text Analytics](../quickstarts/text-analytics-sdk.md)
+* [Utilização da biblioteca de clientes Text Analytics](../quickstarts/client-libraries-rest-api.md)
 * [Novidades](../whats-new.md)

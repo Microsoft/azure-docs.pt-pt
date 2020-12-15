@@ -16,18 +16,21 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40d77f4ebb897884f03377e6d9f1243a6d436766
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: eadb20bc570545356508d82c05e1746424a14b71
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500211"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504394"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Ative Directory Sem Emenda Single Sign-On: Quickstart
 
 ## <a name="deploy-seamless-single-sign-on"></a>Implementar Sign-On única sem emenda
 
 Azure Ative Directory (Azure AD) Seamless Single Sign-On (Seamless SSO) assina automaticamente nos utilizadores quando estão nos seus desktops corporativos que estão ligados à sua rede corporativa. O Seamless SSO proporciona aos seus utilizadores um fácil acesso às suas aplicações baseadas na nuvem sem precisar de componentes adicionais no local.
+
+> [!NOTE]
+> Este artigo contém referências ao termo *whitelist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 Para implementar o SSO sem emenda, siga estes passos.
 
@@ -62,7 +65,7 @@ Ativar o SSO sem emenda através [do Azure AD Connect](whatis-hybrid-identity.md
 >[!NOTE]
 > Também pode [ativar o Seamless SSO utilizando o PowerShell](tshoot-connect-sso.md#manual-reset-of-the-feature) se o Azure AD Connect não cumprir os seus requisitos. Utilize esta opção se tiver mais do que um domínio por floresta de Diretório Ativo, e pretender ser mais direcionado sobre o domínio para o qual pretende ativar o SSO sem emenda.
 
-Se estiver a fazer uma nova instalação do Azure AD Connect, escolha o [caminho de instalação personalizado.](how-to-connect-install-custom.md) Na página de início de **Enable single sign on** **sôm.**
+Se estiver a fazer uma nova instalação do Azure AD Connect, escolha o [caminho de instalação personalizado.](how-to-connect-install-custom.md) Na página de início de  **sôm.**
 
 >[!NOTE]
 > A opção só estará disponível para seleção se o método Sign On for **a Sincronização de Hash password** ou a **autenticação pass-through.**
@@ -124,7 +127,7 @@ Existem duas formas de modificar as definições da zona intranet dos utilizador
 
 1. Abra a ferramenta Editor de Gestão de Políticas de Grupo.
 2. Edite a política de grupo que é aplicada a alguns ou a todos os seus utilizadores. Este exemplo utiliza **a Política de Domínio Padrão.**
-3. Navegue para as políticas **de configuração do utilizador**  >  **Policies**  >  **Modelos administrativos Windows**  >  **Componentes** Internet  >  **Explorer Internet** Control  >  **Panel**  >  **Security Page**. Em seguida, selecione **Site para a Lista de Atribuição de Zonas**.
+3. Navegue para as políticas **de configuração do utilizador**  >    >  **Modelos administrativos Windows**  >  **Componentes** Internet  >  **Explorer Internet** Control  >  **Panel**  >  **Security Page**. Em seguida, selecione **Site para a Lista de Atribuição de Zonas**.
     ![Screenshot que mostra a "Página de Segurança" com "Lista de Atribuição de Zonas" selecionada.](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Ativar a política e, em seguida, introduzir os seguintes valores na caixa de diálogo:
    - **Nome de valor**: A URL AD Azure onde os bilhetes Kerberos são reencaminhados.
@@ -144,7 +147,7 @@ Existem duas formas de modificar as definições da zona intranet dos utilizador
 
     ![Screenshot que mostra a janela "Mostrar Conteúdo" com uma atribuição de zona selecionada.](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Navegue para as políticas **de configuração do utilizador**  >  **Policies**  >  **Modelos administrativos Windows**  >  **Componentes** Do Internet  >  **Explorer Internet** Control  >  **Panel**  >  **Security**  >  **Zone**. Em seguida, **selecione Permitir atualizações para a barra de estado através do script**.
+6. Navegue para as políticas **de configuração do utilizador**  >    >  **Modelos administrativos Windows**  >  **Componentes** Do Internet  >  **Explorer Internet** Control  >  **Panel**  >  **Security**  >  **Zone**. Em seguida, **selecione Permitir atualizações para a barra de estado através do script**.
 
     ![Screenshot que mostra a página "Intranet Zone" com "Permitir atualizações para a barra de estado via script" selecionada.](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -156,7 +159,7 @@ Existem duas formas de modificar as definições da zona intranet dos utilizador
 
 1. Abra a ferramenta Editor de Gestão de Políticas de Grupo.
 2. Edite a política de grupo que é aplicada a alguns ou a todos os seus utilizadores. Este exemplo utiliza **a Política de Domínio Padrão.**
-3. Navegue para as preferências **de configuração do**  >  **Preferences**  >  **utilizador, as definições**  >  **do Windows registam**  >  **novo** item  >  **de registo**.
+3. Navegue para as preferências **de configuração do**  >    >  **utilizador, as definições**  >  **do Windows registam**  >  **novo** item  >  **de registo**.
 
     ![Screenshot que mostra "Registry" selecionado e "Registry Item" selecionado.](./media/how-to-connect-sso-quick-start/sso15.png)
 
