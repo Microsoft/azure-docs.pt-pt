@@ -11,21 +11,64 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: c6cc033e4814553020957310224a8ed4cdacbc8e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2db93ec6806d4b9cc8c8ac17cfb2c15458bf4dc9
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483959"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401156"
 ---
 # <a name="speech-service-release-notes"></a>Notas de lançamento do Serviço de Fala
+
+## <a name="text-to-speech-2020-december-release"></a>Lançamento de texto-a-discurso 2020-dezembro
+
+**Novas vozes neurais em GA e pré-visualização**
+
+Lançou 51 novas vozes para um total de 129 vozes neurais em 54 línguas/locais:
+
+- **46 novas vozes em locais da AG**: Shakir em `ar-EG` árabe (Egito), Hamed em `ar-SA` árabe (Arábia Saudita), Borislav em `bg-BG` búlgaro (Bulgária), Joana em `ca-ES` catalão (Espanha), Antonin em `cs-CZ` Checo (República Checa), Jeppe em `da-DK` Dinamarquês (Dinamarca), Jonas em `de-AT` Alemão (Áustria).), jan em `de-CH` alemão (Suíça), Nestoras em `el-GR` grego (Grécia), Liam em `en-CA` inglês (Canadá), Connor em `en-IE` inglês (Irlanda), Madhur em `en-IN` Hindi (Índia), Mohan em `en-IN` Telugu (Índia), Prabhat em `en-IN` inglês (Índia), ValluVar em `en-IN` Tamil (Índia), Enric em `es-ES` catalão (Espanha), Kert na `et-EE` Estónia (Estónia), Harri em `fi-FI` finlandês (Finlândia), Selma em `fi-FI` finlandês (Finlândia), Fabrice em `fr-CH` francês (Suíça), Colm em `ga-IE` Irlandês (Irlanda), Avri em `he-IL` hebraico (Israel), Srecko em `hr-HR` Croata (Croácia), Tamas em Húngaro `hu-HU` (Hungria), Gadis na `id-ID` Indonésia (Indonésia), Leonas na `lt-LT` Lituânia (Lituânia), Nils em `lv-LV` Letão (Letónia), Osman na `ms-MY` Malásia (Malásia), Joseph em `mt-MT` Maltês (Malta) , Finlandês em `nb-NO` Norueguês, Bokmål (Noruega), Pernille em `nb-NO` norueguês, Bokmål (Noruega), Fenna em `nl-NL` holandês (Holanda), Maarten em `nl-NL` Holanda (Holanda), Agnieszka em `pl-PL` polaco (Polónia), Marek `pl-PL` em Polaco (Polónia), Duarte `pt-BR` em Português (Brasil), Raquel em `pt-PT` Português (Potugal), Emil na `ro-RO` Roménia (Roménia), Dmitry em `ru-RU` Russo (Rússia), Svetlana em `ru-RU` russo (Rússia), Lukas na `sk-SK` Eslováquia( Eslováquia), Rok na `sl-SI` Eslovénia (Eslovénia), Mattias em `sv-SE` sueco (Suécia), Sofie em `sv-SE` sueco (Suécia), Niwat em `th-TH` tailandês (Tailândia), Ahmet em `tr-TR` turco (Turquia), NamMinh em `vi-VN` vietnamita (Vietname), HsiaoChen em `zh-TW` Taiwan Mandarim (Taiwan), YunJhe em `zh-TW` Taiwan Mandarim (Taiwan), HiuMaan em `zh-HK` cantonês chinês (Hong Kong), WanLung em `zh-HK` Língua Chinesa (Hong Kong).
+
+- **5 novas vozes em locais de pré-visualização**: Kert in `et-EE` Estónia (Estónia), Colm in `ga-IE` Irish (Irlanda), Nils in `lv-LV` Letã (Letónia), Leonas in `lt-LT` Lituano (Lituânia), Joseph in `mt-MT` Maltese (Malta).
+
+Com esta libertação, apoiamos agora um total de 129 vozes neurais em 54 línguas/locais. Além disso, mais de 70 vozes padrão estão disponíveis em 49 línguas/locais. Visite o [suporte linguístico](language-support.md#text-to-speech) para a lista completa.
+
+**Atualizações para criação de conteúdo sonoro**
+- UI de seleção de voz melhorada com categorias de voz e descrições de voz detalhadas. 
+- Afinação de entoação ativada para todas as vozes neurais em diferentes línguas.
+- Automatismo do uI localizaiton com base no idioma do navegador.
+- Controlos `StyleDegree` ativados para todas as `zh-CN` vozes neurais.
+Visite a [ferramenta de Criação de Conteúdos Áudio](https://speech.microsoft.com/audiocontentcreation) para conferir mais do que as novas funcionalidades. 
+
+**Atualizações para vozes zh-CN**
+- Atualizou todas as `zh-CN` vozes neurais para apoiar o inglês.
+- Permitiu que todas as `zh-CN` vozes neurais suportassem o ajuste da entoação. A ferramenta SSML ou Audio Content Creation pode ser usada para se ajustar para a melhor entoação.
+- Atualizado todas as `zh-CN` vozes neurais multi-estilo para suportar `StyleDegree` o controlo. A intensidade da emoção (macia ou forte) é ajustável.
+- Atualizado `zh-CN-YunyeNeural` para suportar vários estilos que podem executar diferentes emoções.
+
+## <a name="text-to-speech-2020-november-release"></a>Lançamento de texto-a-discurso 2020-novembro
+
+**Novos locais e vozes na pré-visualização**
+- **Cinco novas vozes e línguas** são introduzidas no portfólio Neural TTS. São eles: Grace in Maltese (Malta), Ona na Lituânia (Lituânia), Anu na Estónia (Estónia), Orla em Irlandês (Irlanda) e Everita na Letónia (Letónia).
+- **Cinco novas `zh-CN` vozes com múltiplos estilos e papéis de apoio**: Xiaohan, Xiaomo, Xiaorui, Xiaoxuan e Yunxi.
+
+> Estas vozes estão disponíveis em pré-visualização pública em três regiões de Azure: EastUS, SouthEastAsia e WestEurope.
+
+**Recipiente neural TTS GA**
+- Com o Recipiente Neural TTS, os desenvolvedores podem executar síntese de fala com as vozes digitais mais naturais no seu próprio ambiente para requisitos específicos de segurança e governação de dados. Verifique [como instalar os Recipientes de Fala](speech-container-howto.md). 
+
+**Novas funcionalidades**
+- **Voz Personalizada**: utilizadores enabed para copiar um modelo de voz de uma região para outra; suspensão de ponto final apoiado e retoma. Vá para o [portal](https://speech.microsoft.com/customvoice) aqui.
+- [Suporte de etiqueta de silêncio SSML.](speech-synthesis-markup.md#add-silence) 
+- Melhorias gerais da qualidade da voz TTS: Melhoramento da precisão da pronúncia ao nível da palavra em nb-NO. Redução de 53% de erro de pronúncia.
+
+> Leia mais [neste blog tecnológico.](https://techcommunity.microsoft.com/t5/azure-ai/neural-text-to-speech-previews-five-new-languages-with/ba-p/1907604)
 
 ## <a name="text-to-speech-2020-october-release"></a>Lançamento de texto-a-discurso 2020-outubro
 
 **Novas funcionalidades**
 - Jenny apoia um novo `newscast` estilo. Veja [como utilizar os estilos de fala em SSML](speech-synthesis-markup.md#adjust-speaking-styles).
 - **Vozes neurais atualizadas para o vocoder HiFiNet, com maior fidelidade áudio e velocidade de síntese mais rápida.** Isto beneficia os clientes cujo cenário se baseia em áudio hi-fi ou interações longas, incluindo dubbing de vídeo, livros de áudio ou materiais de educação online. [Leia mais sobre a história e ouça as amostras de voz no nosso blog da comunidade tecnológica](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
-- **[Estúdio de](https://speech.microsoft.com/customvoice)Criação de Conteúdo sonoro personalizado  &  [Audio Content Creation Studio](https://speech.microsoft.com/audiocontentcreation) localizado em 17 locais.** Os utilizadores podem facilmente mudar a UI para um idioma local para uma experiência mais amigável.   
+- **[Estúdio de](https://speech.microsoft.com/customvoice)Criação de Conteúdo sonoro personalizado  &  [](https://speech.microsoft.com/audiocontentcreation) localizado em 17 locais.** Os utilizadores podem facilmente mudar a UI para um idioma local para uma experiência mais amigável.   
 - **Criação de Conteúdo Sonoro**: Controlo de grau de estilo adicionado para XiaoxiaoNeural; Aperfeiçoou a funcionalidade de break personalizada para incluir intervalos incrementais de 50ms. 
 
 **Melhorias gerais da qualidade da voz TTS**
@@ -153,7 +196,7 @@ Leia o [anúncio completo das atualizações do TTS para Ignite 2020](https://te
 ## <a name="new-speech-to-text-locales-2020-august-release"></a>Novas localidades de discurso a texto: Lançamento 2020-agosto
 Discurso-a-texto divulgou 26 novos locais em agosto: 2 línguas europeias `cs-CZ` e `hu-HU` , 5 locais ingleses e 19 locais espanhóis que cobrem a maioria dos países da América do Sul. Abaixo está uma lista dos novos locais. Consulte aqui a lista completa de [línguas.](./language-support.md)
 
-| Região  | Linguagem                          |
+| Região  | Idioma                          |
 |---------|-----------------------------------|
 | `cs-CZ` | Checo (República Checa)            | 
 | `en-HK` | Inglês (Hong Kong)               | 
@@ -248,7 +291,7 @@ Mantenha-se saudável!
 
 * Melhor precisão da pronúncia ao nível da palavra em cinco línguas.
 
-    | Linguagem | Redução do erro de pronúncia |
+    | Idioma | Redução do erro de pronúncia |
     |---|---|
     | `en-GB` | 51% |
     | `ko-KR` | 17% |
@@ -261,12 +304,12 @@ Mantenha-se saudável!
 * Leitura cambial
     * Corrigiu a questão com a leitura da moeda para `es-ES` e `es-MX`
      
-    | Linguagem | Entrada | Leitura após melhoria |
+    | Idioma | Entrada | Leitura após melhoria |
     |---|---|---|
     | `es-MX` | $1,58 | un peso cincuenta y ocho centavos |
     | `es-ES` | $1,58 | un dólar cincuenta y ocho centavos |
 
-    * Apoio à moeda negativa (como "-325€" ) nos locais seguintes: `en-US` , , , . . `en-GB` `fr-FR` `it-IT` `en-AU` `en-CA` .
+    * Apoio à moeda negativa (como "-325€" ) nos locais seguintes: `en-US` `en-GB` , . . `fr-FR` `it-IT` `en-AU` `en-CA` .
 
 * Melhor leitura de endereço em `pt-PT` .
 * Problemas `en-AU` fixos de pronúncia natasha e Libby `en-UK` sobre a palavra "para" e "quatro".  
