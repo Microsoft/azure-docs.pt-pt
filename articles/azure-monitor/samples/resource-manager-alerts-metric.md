@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 4340bd0ffc4a060b1eb8884efa8078aaf18e1e28
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: c05f9a326fcbe75a3348e58987d57e106094cf56
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893986"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510571"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Amostras de modelo de gestor de recursos para regras de alerta métrico no Azure Monitor
 
@@ -343,7 +343,7 @@ Guarde o json abaixo como simpledynamicmetricalert.jspara o propósito desta pas
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
@@ -480,7 +480,7 @@ Guarde o json abaixo como simpledynamicmetricalert.jspara o propósito desta pas
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "value": ""
         },
         "timeAggregation": {
@@ -712,10 +712,10 @@ Nesta amostra, a regra de alerta monitoriza as combinações de valor de dimens�
 2. **ApiName** - Uma série de tempo diferente é monitorizada apenas para os valores da dimensão **GetBlob** e **PutBlob.**
 
 Por exemplo, algumas das séries de tempo potenciais que são monitorizadas por esta regra de alerta são:
-- Métrica = *Transações* , ResponseType = *Sucesso,* ApiName = *GetBlob*
-- Métrica = *Transações* , ResponseType = *Sucesso,* ApiName = *PutBlob*
-- Métrica = *Transações* , ResponseType = *Tempo de servidor,* ApiName = *GetBlob*
-- Métrica = *Transações* , ResponseType = *Tempo de servidor,* ApiName = *PutBlob*
+- Métrica = *Transações*, ResponseType = *Sucesso,* ApiName = *GetBlob*
+- Métrica = *Transações*, ResponseType = *Sucesso,* ApiName = *PutBlob*
+- Métrica = *Transações*, ResponseType = *Tempo de servidor,* ApiName = *GetBlob*
+- Métrica = *Transações*, ResponseType = *Tempo de servidor,* ApiName = *PutBlob*
 
 ### <a name="template-file"></a>Arquivo de modelo
 
@@ -875,7 +875,7 @@ Por exemplo, algumas das séries de tempo potenciais que são monitorizadas por 
                             "values": ["*"]
                         },
                         {
-                "name":"ApiName",
+                            "name":"ApiName",
                             "operator": "Include",
                             "values": ["GetBlob", "PutBlob"]    
                         }
@@ -903,10 +903,10 @@ Nesta amostra, a regra de alerta monitoriza as combinações de valor de dimens�
 2. **ApiName** - Uma série de tempo diferente é monitorizada apenas para os valores da dimensão **GetBlob** e **PutBlob.**
 
 Por exemplo, algumas das séries de tempo potenciais que são monitorizadas por esta regra de alerta são:
-- Métrica = *Transações* , ResponseType = *Sucesso,* ApiName = *GetBlob*
-- Métrica = *Transações* , ResponseType = *Sucesso,* ApiName = *PutBlob*
-- Métrica = *Transações* , ResponseType = *Tempo de servidor,* ApiName = *GetBlob*
-- Métrica = *Transações* , ResponseType = *Tempo de servidor,* ApiName = *PutBlob*
+- Métrica = *Transações*, ResponseType = *Sucesso,* ApiName = *GetBlob*
+- Métrica = *Transações*, ResponseType = *Sucesso,* ApiName = *PutBlob*
+- Métrica = *Transações*, ResponseType = *Tempo de servidor,* ApiName = *GetBlob*
+- Métrica = *Transações*, ResponseType = *Tempo de servidor,* ApiName = *PutBlob*
 
 >[!NOTE]
 > Atualmente, não são suportados múltiplos critérios para regras de alerta métricos que utilizam limiares dinâmicos.

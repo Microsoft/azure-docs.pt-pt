@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 3a188189b39311734a25a2fc98ea78a62bbe0cff
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 621bbac6bc9ff3cb147110942060c8268fd86989
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108846"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511183"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com JIRA SAML SSO pela Microsoft
 
@@ -40,7 +40,7 @@ Para configurar a integração AZure AD com o JIRA SAML SSO pela Microsoft, prec
 - JIRA Core e Software 6.4 a 8.14.0 ou JIRA Service Desk 3.0 a 4.11.1 devem ser instalados e configurados na versão do Windows 64-bit
 - O servidor JIRA está com ATIVAR HTTPS
 - Note que as versões suportadas para O Plugin JIRA são mencionadas na secção seguinte.
-- O servidor JIRA é acessível na internet particularmente à página de Login AZure para autenticação e deve ser capaz de receber o token da Azure AD
+- O servidor JIRA é acessível na Internet particularmente à página de login AD Azure para autenticação e deve poder receber o token da Azure AD
 - Credenciais de administração são criadas no JIRA
 - WebSudo está desativado no JIRA
 - Utilizador de teste criado na aplicação do servidor JIRA

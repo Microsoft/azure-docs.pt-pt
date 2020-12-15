@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 10/7/2020
 ms.subservice: alerts
-ms.openlocfilehash: e5f78c8b58cc3100d746957094ddfd9bab2b29fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51ae97567e9c3720c7e36a81bfa7bff44935aac6
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91813224"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511625"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 
@@ -270,7 +270,7 @@ az login
 
 az deployment group create \
     --name AlertDeployment \
-    --resource-group ResourceGroupofTargetResource \
+    --resource-group ResourceGroupOfTargetResource \
     --template-file simplestaticmetricalert.json \
     --parameters @simplestaticmetricalert.parameters.json
 ```
@@ -377,7 +377,7 @@ Guarde o json abaixo como simpledynamicmetricalert.jspara o propósito desta pas
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
@@ -518,7 +518,7 @@ Guarde o json abaixo à medida que simpledynamicmetricalert.parameters.jse modif
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "value": ""
         },
         "timeAggregation": {
@@ -570,7 +570,6 @@ Por favor, note os seguintes constrangimentos ao utilizar dimensões numa regra 
 - Não pode usar \* " " como um valor de dimensão.
 - Quando as métricas configuradas em critérios diferentes suportam a mesma dimensão, então um valor de dimensão configurado deve ser explicitamente definido da mesma forma para todas essas métricas (nos critérios relevantes).
     - No exemplo abaixo, porque tanto as **métricas de Transações** como **de SucessoE2EAtenência** têm uma dimensão **ApiName,** e o *critério1* especifica o valor *"GetBlob"* para a dimensão **ApiName,** então o *critério2* também deve definir um valor *"GetBlob"* para a dimensão **ApiName.**
-
 
 Guarde o json abaixo como advancedstaticmetricalert.jspara o propósito desta passagem.
 
@@ -976,7 +975,7 @@ Guarde e modifique o json abaixo como multidimensionalstaticmetricalert.paramete
                             "values": ["*"]
                         },
                         {
-                "name":"ApiName",
+                            "name":"ApiName",
                             "operator": "Include",
                             "values": ["GetBlob", "PutBlob"]    
                         }

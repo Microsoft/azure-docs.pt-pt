@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2020
 ms.author: memildin
-ms.openlocfilehash: fcdcda8aaa6d48b24c346d87a402f6966ab11cf5
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 052758079d8d413f7b0fead2a5abf3b47b9a691e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505499"
+ms.locfileid: "97511336"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Mudanças importantes para o Centro de Segurança Azure
 
@@ -32,7 +32,7 @@ Se procura as últimas notas de lançamento, vai encontrá-las no [What's new in
 ## <a name="planned-changes"></a>Alterações planeadas
 
 - [Recursos "não aplicáveis" a serem reportados como "conformes" nas avaliações da Política Azure](#not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments)
-- [35 recomendações de pré-visualização adicionadas para aumentar a cobertura do Benchmark de Segurança Azure](#35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
+- [35 recomendações de pré-visualização adicionadas para aumentar a cobertura do Benchmark de Segurança Azure](#35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark)
 
 ### <a name="not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments"></a>Recursos "não aplicáveis" a serem reportados como "conformes" nas avaliações da Política Azure
 
@@ -42,13 +42,13 @@ Atualmente, os recursos que são avaliados para uma recomendação e que se cons
 
 O único impacto será visto na Política Azure, onde o número de recursos em conformidade aumentará. Não haverá impacto na sua pontuação segura no Centro de Segurança Azure.
 
-### <a name="35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>35 recomendações de pré-visualização adicionadas para aumentar a cobertura do Benchmark de Segurança Azure
+### <a name="35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark"></a>35 recomendações de pré-visualização adicionadas para aumentar a cobertura do Benchmark de Segurança Azure
 
 **Data estimada para a alteração:** dezembro de 2020
 
 A azure Security Benchmark é o conjunto de diretrizes específicas da Microsoft para a segurança e conformidade das melhores práticas com base em quadros comuns de conformidade. [Saiba mais sobre a Referência de Segurança do Azure](../security/benchmarks/introduction.md).
 
-As seguintes 35 recomendações de pré-visualização foram adicionadas ao Centro de Segurança para aumentar a cobertura deste benchmark.
+As seguintes 35 recomendações de pré-visualização serão adicionadas ao Centro de Segurança para aumentar a cobertura deste benchmark.
 
 As recomendações de pré-visualização não tornam um recurso insalubre, e não estão incluídas nos cálculos da sua pontuação segura. Remedia-os sempre que possível, para que quando o período de pré-visualização terminar contribuam para a sua pontuação. Saiba mais sobre como responder a estas recomendações em [recomendações remedias no Azure Security Center](security-center-remediate-recommendations.md).
 

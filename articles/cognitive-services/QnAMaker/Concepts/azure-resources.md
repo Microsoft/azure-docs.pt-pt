@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: cd64c19e7e9af05becd7a6978ceb4d0306112170
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e2c71e028225c22ab0355ff4cda77dacadf94095
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351900"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97512050"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos Azure para O Criador QNA
 
@@ -104,11 +104,11 @@ A tabela a seguir dá-lhe algumas diretrizes de alto nível.
 
 |QPS-alvo | Serviço de Aplicações | Azure Cognitive Search |
 | -------------------- | ----------- | ------------ |
-| 3             | S1, 1 Instância   | S1, 1 Instância    |
-| 50         | S3, 10 Instâncias       | S1, 12 Instâncias         |
-| 80         | S3, 10 Instâncias      |  S3, 12 Instâncias  |
-| 100         | P3V2, 10 Instâncias  | S3, 12 Instâncias, 3 Partições   |
-| 200 a 250         | P3V2, 20 Instâncias | S3, 12 Instâncias, 3 Partições    |
+| 3             | S1, 1 Réplica   | S1, 1 Réplica    |
+| 50         | S3, 10 Réplicas       | S1, 12 Réplicas         |
+| 80         | S3, 10 Réplicas      |  S3, 12 Réplicas  |
+| 100         | P3V2, 10 Réplicas  | S3, 12 Réplicas, 3 Divisórias   |
+| 200 a 250         | P3V2, 20 Réplicas | S3, 12 Réplicas, 3 Divisórias    |
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
 

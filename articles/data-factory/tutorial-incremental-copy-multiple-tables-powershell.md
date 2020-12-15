@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 54dea3ba7bbc3339b7b044b476c321fd95138ac2
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 61a4119947b1412d3e874458e06748fd40a381b4
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566423"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510265"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Carregue gradualmente dados de várias tabelas no SQL Server para Azure SQL Database usando PowerShell
 
@@ -76,7 +76,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 1. Abra [o SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)e ligue-se à sua base de dados SQL Server.
 
-2. No **Server Explorer (SSMS)** ou no **painel Connections (Azure Data Studio)** , clique à direita na base de dados e escolha **Nova Consulta**.
+2. No **Server Explorer (SSMS)** ou no **painel Connections (Azure Data Studio)**, clique à direita na base de dados e escolha **Nova Consulta**.
 
 3. Execute o seguinte comando SQL na base de dados para criar tabelas com o nome `customer_table` e `project_table`:
 
@@ -115,7 +115,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 1. Abra [o SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)e ligue-se à sua base de dados SQL Server.
 
-2. No **Server Explorer (SSMS)** ou no **painel Connections (Azure Data Studio)** , clique à direita na base de dados e escolha **Nova Consulta**.
+2. No **Server Explorer (SSMS)** ou no **painel Connections (Azure Data Studio)**, clique à direita na base de dados e escolha **Nova Consulta**.
 
 3. Execute o seguinte comando SQL na base de dados para criar tabelas com o nome `customer_table` e `project_table`:  
 
@@ -167,8 +167,8 @@ AS
 
 BEGIN
 
-    UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime 
+UPDATE watermarktable
+SET [WatermarkValue] = @LastModifiedtime 
 WHERE [TableName] = @TableName
 
 END
@@ -283,7 +283,7 @@ Tenha em atenção os seguintes pontos:
 
 * Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser membro das funções contribuidor ou proprietário ou administrador da subscrição do Azure.
 
-* Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory** : [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). As lojas de dados (Azure Storage, SQL Database, SQL Managed Instance, e assim por diante) e computas (Azure HDInsight, etc.) utilizadas pela fábrica de dados podem estar noutras regiões.
+* Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). As lojas de dados (Azure Storage, SQL Database, SQL Managed Instance, e assim por diante) e computas (Azure HDInsight, etc.) utilizadas pela fábrica de dados podem estar noutras regiões.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
@@ -365,7 +365,7 @@ Neste passo, ligue a sua base de dados SQL Server à fábrica de dados.
 
     Segue-se o resultado do exemplo:
 
-    ```json
+    ```console
     LinkedServiceName : SqlServerLinkedService
     ResourceGroupName : <ResourceGroupName>
     DataFactoryName   : <DataFactoryName>
@@ -398,7 +398,7 @@ Neste passo, ligue a sua base de dados SQL Server à fábrica de dados.
 
     Segue-se o resultado do exemplo:
 
-    ```json
+    ```console
     LinkedServiceName : AzureSQLDatabaseLinkedService
     ResourceGroupName : <ResourceGroupName>
     DataFactoryName   : <DataFactoryName>
@@ -773,7 +773,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A **atividade Fo
 
    Segue-se o resultado do exemplo: 
 
-   ```json
+   ```console
     PipelineName      : IncrementalCopyPipeline
     ResourceGroupName : <ResourceGroupName>
     DataFactoryName   : <DataFactoryName>
@@ -814,7 +814,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A **atividade Fo
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Clique em **Todos os serviços** , pesquise com a palavra-chave *Fábricas de dados* e selecione **Fábricas de dados**. 
+2. Clique em **Todos os serviços**, pesquise com a palavra-chave *Fábricas de dados* e selecione **Fábricas de dados**. 
 
 3. Pesquise pela sua fábrica de dados na lista de fábricas de dados e selecione-a para abrir a página **Fábrica de dados**. 
 
@@ -911,7 +911,7 @@ VALUES
 
 3. Selecione **Atualizar** para atualizar a lista até a execução do pipeline ter êxito. 
 
-4. Opcionalmente, selecione a ligação **Ver Execuções de Atividades** , em **Ações** , para ver todas a execuções de atividades associadas a esta execução de pipeline. 
+4. Opcionalmente, selecione a ligação **Ver Execuções de Atividades**, em **Ações**, para ver todas a execuções de atividades associadas a esta execução de pipeline. 
 
 ## <a name="review-the-final-results"></a>Rever os resultados finais
 

@@ -3,12 +3,12 @@ title: Detete movimento, grave vídeo para a Azure Media Services
 description: Este quickstart mostra como usar o Live Video Analytics no IoT Edge de forma a detetar movimentos num stream de vídeo ao vivo e gravar videoclips para a Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 861351e16120c3f46612ba35518135fbfaf4c81b
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 8872c9aefa0ed748cbed93d0f7376586859be9df
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776481"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511897"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Quickstart: Detect motion, gravar vídeo para media services
 
@@ -44,11 +44,11 @@ Pode utilizar o módulo para analisar streams de vídeo ao vivo invocando métod
 1. Clique no direito e selecione **Definições de extensão**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Gravação de vídeo baseada em eventos para Ativos com base em eventos de movimento":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Definições de extensão":::
 1. Procure e ative "Mostrar Mensagem Verbose".
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Gravação de vídeo baseada em eventos para Ativos com base em eventos de movimento":::
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Mostrar mensagem verbose":::
 
 ### <a name="invoke-graphtopologylist"></a>Invocar a Lista de Graftopologia
 Este passo enumera todas as [topologias de gráficos](media-graph-concept.md#media-graph-topologies-and-instances) do módulo.
@@ -59,7 +59,7 @@ Este passo enumera todas as [topologias de gráficos](media-graph-concept.md#med
     
 ```
 {
-    "@apiVersion" : "1.0"
+    "@apiVersion" : "2.0"
 }
 ```
 
@@ -84,7 +84,7 @@ Utilizando os mesmos passos que os descritos para invocar a GraphTopologyList, p
 
 ```
 {
-    "@apiVersion": "1.0",
+    "@apiVersion": "2.0",
     "name": "EVRtoAssetsOnMotionDetection",
     "properties": {
       "description": "Event-based video recording to Assets based on motion events",
@@ -331,7 +331,7 @@ Agora invoque o GraphTopologyGet com a seguinte carga útil
 ```
 
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "EVRtoAssetsOnMotionDetection"
 }
 ```
@@ -474,7 +474,7 @@ Agora invoque o método direto GraphInstanceSet com a seguinte carga útil:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2",
     "properties" : {
         "topologyName" : "EVRtoAssetsOnMotionDetection",
@@ -556,7 +556,7 @@ Agora ative a instância do gráfico - que inicia o fluxo de vídeo ao vivo atra
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -580,7 +580,7 @@ Agora invoque o método direto GraphInstanceGet com a seguinte carga útil:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -759,7 +759,7 @@ Invocar o método direto GraphInstanceDeactivado com a seguinte carga útil:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -787,7 +787,7 @@ Invocar o método direto GraphInstanceDelete com a seguinte carga útil
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -811,7 +811,7 @@ Invocar o método direto GraphTopologyDelete com a seguinte carga útil:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "EVRtoAssetsOnMotionDetection"
 }
 ```

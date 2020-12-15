@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 01/30/2020
-ms.openlocfilehash: 33c63ffc4220da6d98c462039897067e4ba69491
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 12/14/2020
+ms.openlocfilehash: 9ee7440b10bc348d3ba87a4779208791a7b0e9ac
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793165"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97512033"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Azure SQL Database e Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,7 +54,7 @@ A tabela seguinte descreve as principais diferenças entre os níveis de serviç
 | **Log write produção** | SQL Database | [1.875 MB/s por vCore (máx. 30 MB/s)](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/s | [6 MB/s por vCore (máx. 96 MB/s)](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
 | | Instância Gerida do SQL | [3 MB/s por vCore (máx. 22 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) | N/D | [4 MB/s por vcore (máx. 48 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) |
 |**Disponibilidade**|Todos| 99,99% |  [99,95% com uma réplica secundária, 99,99% com mais réplicas](service-tier-hyperscale-frequently-asked-questions-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995% com zona redundante base de dados única](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
-|**Cópias de segurança**|Todos|RA-GRS, 7-35 dias (7 dias por defeito)| RA-GRS, 7 dias, recuperação constante do tempo no tempo (PITR) | RA-GRS, 7-35 dias (7 dias por defeito) |
+|**Cópias de segurança**|Todos|RA-GRS, 7-35 dias (7 dias por defeito). A retenção máxima para nível básico é de 7 dias. | RA-GRS, 7 dias, recuperação constante do tempo no tempo (PITR) | RA-GRS, 7-35 dias (7 dias por defeito) |
 |**OLTP dentro da memória** | | N/D | N/D | Disponível |
 |**Réplicas só de leitura**| | 0 embutido <br> 0 - 4 utilizando [a geo-replicação](active-geo-replication-overview.md) | 0 - 4 embutidos | 1 incorporado, incluído no preço <br> 0 - 4 utilizando [a geo-replicação](active-geo-replication-overview.md) |
 |**Preços/faturação** | SQL Database | [vCore, armazenamento reservado e armazenamento de reserva](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. | [vCore para cada réplica e armazenamento usado](https://azure.microsoft.com/pricing/details/sql-database/single/) são carregados. <br/>IOPS ainda não cobrado. | [vCore, armazenamento reservado e armazenamento de reserva](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. |
@@ -93,8 +93,8 @@ Para monitorizar o tamanho total atual dos seus ficheiros MDF e LDF, utilize [sp
 
 O armazenamento para cópias de segurança de bases de dados é atribuído para suportar as capacidades de restauro pontual (PITR) e [de retenção a longo prazo (LTR)](long-term-retention-overview.md) da Base de Dados SQL e da SQL Managed Instance. Este armazenamento é atribuído separadamente para cada base de dados e faturado como dois encargos por base de dados separados.
 
-- **PITR** : As cópias de segurança individuais da base de dados são copiadas para [o armazenamento geo-redundante de acesso à leitura (RA-GRS)](../../storage/common/geo-redundant-design.md) automaticamente. O tamanho do armazenamento aumenta dinamicamente à medida que novas cópias de segurança são criadas. O armazenamento é utilizado por cópias de segurança completas semanais, cópias de segurança diferenciais diárias e cópias de segurança de registo de transações, que são copiadas a cada 5 minutos. O consumo de armazenamento depende da taxa de alteração da base de dados e do período de retenção para cópias de segurança. Pode configurar um período de retenção separado para cada base de dados entre 7 e 35 dias. Um valor mínimo de armazenamento igual a 100 por cento (1x) do tamanho da base de dados é fornecido sem custos adicionais. Para a maioria das bases de dados, este valor é suficiente para armazenar 7 dias de backups.
-- **LTR** : Você também tem a opção de configurar a retenção a longo prazo de backups completos por até 10 anos (esta funcionalidade está em [pré-visualização pública limitada para SQL Managed Instance](long-term-retention-overview.md#sql-managed-instance-support). Se configurar uma política LTR, estas cópias de segurança são armazenadas automaticamente no armazenamento RA-GRS, mas pode controlar a frequência com que as cópias de segurança são copiadas. Para satisfazer diferentes requisitos de conformidade, pode selecionar diferentes períodos de retenção para backups semanais, mensais e/ou anualmente. A configuração que escolher determina a quantidade de armazenamento que será utilizado para cópias de segurança LTR. Para estimar o custo do armazenamento LTR, pode utilizar a calculadora de preços LTR. Para obter mais informações, consulte [a base de dados SQL a longo prazo.](long-term-retention-overview.md)
+- **PITR**: As cópias de segurança individuais da base de dados são copiadas para [o armazenamento geo-redundante de acesso à leitura (RA-GRS)](../../storage/common/geo-redundant-design.md) automaticamente. O tamanho do armazenamento aumenta dinamicamente à medida que novas cópias de segurança são criadas. O armazenamento é utilizado por cópias de segurança completas semanais, cópias de segurança diferenciais diárias e cópias de segurança de registo de transações, que são copiadas a cada 5 minutos. O consumo de armazenamento depende da taxa de alteração da base de dados e do período de retenção para cópias de segurança. Pode configurar um período de retenção separado para cada base de dados entre 7 e 35 dias. Um valor mínimo de armazenamento igual a 100 por cento (1x) do tamanho da base de dados é fornecido sem custos adicionais. Para a maioria das bases de dados, este valor é suficiente para armazenar 7 dias de backups.
+- **LTR**: Você também tem a opção de configurar a retenção a longo prazo de backups completos por até 10 anos (esta funcionalidade está em [pré-visualização pública limitada para SQL Managed Instance](long-term-retention-overview.md#sql-managed-instance-support). Se configurar uma política LTR, estas cópias de segurança são armazenadas automaticamente no armazenamento RA-GRS, mas pode controlar a frequência com que as cópias de segurança são copiadas. Para satisfazer diferentes requisitos de conformidade, pode selecionar diferentes períodos de retenção para backups semanais, mensais e/ou anualmente. A configuração que escolher determina a quantidade de armazenamento que será utilizado para cópias de segurança LTR. Para estimar o custo do armazenamento LTR, pode utilizar a calculadora de preços LTR. Para obter mais informações, consulte [a base de dados SQL a longo prazo.](long-term-retention-overview.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

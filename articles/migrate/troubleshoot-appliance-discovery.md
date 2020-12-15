@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 26bb61e0c5a473a56c57391b53009419453956fd
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 90abe6bf680f6a186b970631dcd0a42d6d36bf94
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753421"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511591"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Resolução de problemas do aparelho Esmigósia Azure Migrar e descoberta
 
@@ -31,7 +31,7 @@ Se receber o erro "O ficheiro manifesto fornecido é inválido: Entrada manifest
 2. Se a implementação ainda falhar, e estiver a utilizar o cliente VMware vSphere para implementar o ficheiro OVF, tente implantá-lo através do cliente web vSphere. Se a implementação ainda falhar, tente utilizar um navegador web diferente.
 3. Se estiver a utilizar o cliente web vSphere e a tentar implantá-lo no vCenter Server 6.5 ou 6.7, tente implantar o OVA diretamente no anfitrião ESXi:
    - Ligue-se diretamente ao anfitrião ESXi (em vez do vCenter Server) com o cliente web (https://<*anfitrião endereço IP*>/ui).
-   - No **Inventário Doméstico**,  >  **Inventory** selecione o modelo de OVF de **File**  >  **implementação de ficheiros**. Navegue pelo OVA e complete a colocação.
+   - No **Inventário Doméstico**,  >  selecione o modelo de OVF de   >  **implementação de ficheiros**. Navegue pelo OVA e complete a colocação.
 4. Se a implantação ainda falhar, contacte o suporte da Azure Migrate.
 
 ## <a name="cant-connect-to-the-internet"></a>Não se liga à internet
@@ -41,6 +41,13 @@ Isto pode acontecer se a máquina do aparelho estiver por detrás de um represen
 - Confirme que introduz as credenciais de autorização, se o proxy assim o exigir.
 - Se estiver a usar um representante de firewall baseado em URL para controlar a conectividade de saída, adicione [estes URLs](migrate-appliance.md#url-access) a uma lista de indicações.
 - Se estiver a utilizar um representante de interceção para ligar à internet, importe o certificado de procuração para o VM do aparelho utilizando [estes passos](./migrate-appliance.md).
+
+
+## <a name="clicking-on-login-button-opens-a-new-tab-with-no-device-code"></a>Clicar no botão 'Login' abre um novo separador sem código de dispositivo
+
+Se depois de clicar em 'Login' no gestor de configuração do aparelho, um novo separador abre sem código, volte ao separador do gestor de configuração do aparelho e poderá encontrar o código do dispositivo em fonte em negrito sob o botão 'Login', tal como mostrado na imagem abaixo. Copie o código e cole-o no separador de início de sessão para autenticar com o Azure.
+
+![Código do dispositivo](./media/troubleshoot-appliance-discovery/code.png)
 
 ## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>Não pode assinar no Azure a partir da aplicação web do aparelho
 

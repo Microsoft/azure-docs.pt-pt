@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 5f19b55a955b8e3e1500cf14fa221b46808ac857
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 8827171788bd83a202b3607537204c71c34f29e0
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698296"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511846"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Criar um equilibrador de carga público para carregar VMs de equilíbrio utilizando o portal Azure
 
@@ -41,11 +41,15 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 >[!NOTE]
 >Recomenda-se o balanceador de carga SKU standard para cargas de trabalho de produção.  Para obter mais informações sobre skus, consulte **[SKUs do Balancer de Carga Azure](skus.md)**.
 
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram.png" alt-text="Recursos padrão do balanceador de carga criados para o arranque rápido." border="false":::
+
+*Figura: Recursos criados em arranque rápido.*
+
 Nesta secção, cria-se um equilibrador de carga que equilibra as máquinas virtuais. 
 
 Quando cria um equilibrador de carga público, cria um novo endereço IP público configurado como frontend (denominado **LoadBalancerFrontend** por padrão) para o equilibrador de carga.
 
-1. No lado superior esquerdo do ecrã, selecione **Criar um**  >  equilibrador de carga de **rede de** recursos  >  **Load Balancer**.
+1. No lado superior esquerdo do ecrã, selecione **Criar um**  >  equilibrador de carga de **rede de** recursos  >  .
 
 2. No separador Básicos da página **'Criar balançador** de carga', insira ou selecione as **seguintes** informações: 
 
@@ -53,7 +57,7 @@ Quando cria um equilibrador de carga público, cria um novo endereço IP públic
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | **Selecione Criar novo** e introduza **CreatePubLBQS-rg** na caixa de texto.|
-    | Name                   | Insira **o myLoadBalancer**                                   |
+    | Nome                   | Insira **o myLoadBalancer**                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **Standard** |
@@ -140,7 +144,7 @@ Nesta secção, irá criar uma regra do balançador de carga:
     | Sonda de estado de funcionamento | Selecione **myHealthProbe**. |
     | Tempo de 20 minutos (minutos) | Mova o deslizador para **15** minutos. |
     | Reset TCP | Selecione **Ativado**. |
-    | Tradução de endereços de rede de saída (SNAT) | Selecione **(Recomendado) Utilize regras de saída para fornecer aos membros do pool backend acesso à internet.** |
+    | Tradução de endereços de rede de saída (SNAT) | Selecione **(Recomendado) Utilize regras de saída para fornecer acesso aos membros do pool de backend à internet.** |
 
 4. Deixe o resto dos predefinidos e, em seguida, selecione **OK**.
 
@@ -186,7 +190,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Nome da sub-rede | Insira **myBackendSubnet** |
     | Intervalo de endereços da sub-rede | Insira **10.1.0.0/24** |
 
-7. Selecione **Save** (Guardar).
+7. Selecione **Guardar**.
 
 8. Selecione o separador **Segurança.**
 
@@ -209,7 +213,7 @@ Nesta secção, você vai criar três VMs (**myVM1,** **myVM2** e **myVM3**) em 
 
 Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi criado anteriormente.
 
-1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual  >  **compute de** recurso  >  **Virtual machine**. 
+1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual  >  **compute de** recurso  >  . 
    
 2. Na **Criação de uma máquina virtual,** escreva ou selecione os valores no **separador Básicos:**
 
@@ -269,7 +273,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 
     | Definição | VM 2| VM 3|
     | ------- | ----- |---|
-    | Name |  **myVM2** |**myVM3**|
+    | Nome |  **myVM2** |**myVM3**|
     | Zona de disponibilidade | **2** |**3**|
     | Grupo de segurança de rede | Selecione o **myNSG** existente| Selecione o **myNSG** existente|
 
@@ -315,18 +319,22 @@ Para obter mais informações sobre as ligações de saída, consulte [as ligaç
 
 7. Selecione **Adicionar**.
 
-8. Selecione **Save** (Guardar).
+8. Selecione **Guardar**.
 
 # <a name="basic-sku"></a>[**SKU Básico**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >Recomenda-se o balanceador de carga SKU standard para cargas de trabalho de produção.  Para obter mais informações sobre skus, consulte **[SKUs do Balancer de Carga Azure](skus.md)**.
 
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram-basic.png" alt-text="Recursos básicos do balanceador de carga criados em arranque rápido." border="false":::
+
+*Figura: Recursos criados em arranque rápido.*
+
 Nesta secção, cria-se um equilibrador de carga que equilibra as máquinas virtuais. 
 
 Quando cria um equilibrador de carga público, cria um novo endereço IP público configurado como frontend (denominado **LoadBalancerFrontend** por padrão) para o equilibrador de carga.
 
-1. No lado superior esquerdo do ecrã, selecione **Criar um**  >  equilibrador de carga de **rede de** recursos  >  **Load Balancer**.
+1. No lado superior esquerdo do ecrã, selecione **Criar um**  >  equilibrador de carga de **rede de** recursos  >  .
 
 2. No separador Básicos da página **'Criar balançador** de carga', insira ou selecione as **seguintes** informações: 
 
@@ -334,7 +342,7 @@ Quando cria um equilibrador de carga público, cria um novo endereço IP públic
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | **Selecione Criar novo** e **escreva CreatePubLBQS-rg** na caixa de texto.|
-    | Name                   | Insira **o myLoadBalancer**                                   |
+    | Nome                   | Insira **o myLoadBalancer**                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **Basic** |
@@ -392,7 +400,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Nome da sub-rede | Insira **myBackendSubnet** |
     | Intervalo de endereços da sub-rede | Insira **10.1.0.0/24** |
 
-7. Selecione **Save** (Guardar).
+7. Selecione **Guardar**.
 
 8. Selecione o separador **Segurança.**
 
@@ -496,7 +504,7 @@ Os três VMs serão adicionados a um conjunto de disponibilidade chamado **myAva
 
 Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi criado anteriormente.
 
-1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual  >  **compute de** recurso  >  **Virtual machine**. 
+1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual  >  **compute de** recurso  >  . 
    
 2. Na **Criação de uma máquina virtual,** escreva ou selecione os valores no **separador Básicos:**
 
@@ -550,7 +558,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 
     | Definição | VM 2| VM 3|
     | ------- | ----- |---|
-    | Name |  **myVM2** |**myVM3**|
+    | Nome |  **myVM2** |**myVM3**|
     | Conjunto de disponibilidade| Selecione **mySIlabilitySet** | Selecione **mySIlabilitySet**|
     | Grupo de segurança de rede | Selecione o **myNSG** existente| Selecione o **myNSG** existente|
 
@@ -570,19 +578,19 @@ Os VMs criados nos passos anteriores devem ser adicionados ao pool de backend do
 
 6. Selecione **Adicionar**.
 
-7. Selecione **Save** (Guardar).
+7. Selecione **Guardar**.
 
 ---
 
 ## <a name="install-iis"></a>Instalar o IIS
 
-1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos**, e, em seguida, da lista de recursos, selecione **myVM1** que está localizado no grupo de recursos **CreateStdLBQS-rg.**
+1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos**, e, em seguida, da lista de recursos, selecione **myVM1** que está localizado no grupo de recursos **CreatePubLBQS-rg.**
 
 2. Na página **'Vista Geral',** selecione **Connect** e, em seguida, **Bastion**.
 
 4. Introduza o nome de utilizador e a palavra-passe introduzidos durante a criação de VM.
 
-5. Selecione **Connect** (Ligar).
+5. Selecione **Ligar**.
 
 6. No ambiente de trabalho do servidor, navegue para o **Windows Administrative Tools** Windows  >  **PowerShell**.
 

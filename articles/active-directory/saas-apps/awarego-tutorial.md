@@ -11,138 +11,139 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: f213ae3aeb482cd9c7cbb708fdc2457d9e55b1a3
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 6599abd6282d0d1eb7cb81002c34ddd5158dab6b
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907776"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511064"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-awarego"></a>Tutorial: Azure Ative Directory integração única (SSO) com AwareGo
+# <a name="tutorial-azure-active-directory-single-sign-on-integration-with-awarego"></a>Tutorial: Azure Ative Directy integração única com AwareGo
 
 Neste tutorial, você vai aprender a integrar AwareGo com Azure Ative Directory (Azure AD). Quando integra o AwareGo com a AD Azure, pode:
 
 * Controle em Azure AD que tem acesso ao AwareGo.
-* Capacitar os seus utilizadores a serem automaticamente inscritos no AwareGo com as suas contas AD Azure.
-* Gerencie as suas contas numa localização central - o portal Azure.
+* Permita que os seus utilizadores sejam automaticamente inscritos no AwareGo com as suas contas AD Azure.
+* Gerencie as suas contas numa localização central, o portal Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, precisa dos seguintes itens:
 
 * Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* Subscrição ativada por AwareGo (SSO).
+* Uma assinatura ativada por Um único sinal de acesso awareGo (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
-
-* AwareGo suporta **SSO** iniciado sp
+Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste. O AwareGo suporta um SSO iniciado por um prestador de serviços (SP).
 
 
 ## <a name="adding-awarego-from-the-gallery"></a>Adicionar AwareGo da galeria
 
-Para configurar a integração do AwareGo no AD Azure, é necessário adicionar o AwareGo da galeria à sua lista de aplicações geridas pelo SaaS.
+Para configurar a integração do AwareGo no AD Azure, é necessário adicionar o AwareGo da galeria à sua lista de aplicações geridas como um serviço (SaaS).
 
-1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
-1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
-1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. Inscreva-se no portal Azure utilizando uma conta de trabalho, uma conta escolar ou uma conta pessoal da Microsoft.
+1. No painel esquerdo, selecione o serviço **Azure Ative Directory.**
+1. Selecione **Aplicações empresariais**  >  **todas as aplicações**.
+1. Para adicionar uma nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **da galeria,** **escreva AwareGo** na caixa de pesquisa.
-1. Selecione **AwareGo** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. No painel de resultados, selecione **AwareGo** e, em seguida, adicione a aplicação. Em poucos segundos, a aplicação é adicionada ao seu inquilino.
 
 
 ## <a name="configure-and-test-azure-ad-sso-for-awarego"></a>Configure e teste Azure AD SSO para AwareGo
 
-Configure e teste Azure AD SSO com AwareGo usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no AwareGo.
+Configure e teste Azure AD SSO com AwareGo utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no AwareGo.
 
-Para configurar e testar a Azure AD SSO com AwareGo, execute os seguintes passos:
+Para configurar e testar a Azure AD SSO com AwareGo, faça o seguinte:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-    1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
-    1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
-1. **[Configure o AwareGo SSO](#configure-awarego-sso)** - para configurar as definições de inscrição única no lado da aplicação.
-    1. **[Create AwareGo test user](#create-awarego-test-user)** - para ter uma contraparte de B.Simon in AwareGo que está ligada à representação AD AD do utilizador.
-1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** para permitir que os seus utilizadores utilizem esta funcionalidade.  
+
+    a. **[Crie um utilizador de teste AD Azure](#create-an-azure-ad-test-user)** para testar o único sinal de Azure AD com o utilizador B.Simon.  
+    b. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** para permitir ao utilizador B.Simon utilizar um único sinal de Azure.  
+
+1. **[Configure o AwareGo SSO](#configure-awarego-sso)** para configurar as definições de inscrição única no lado da aplicação.
+
+    a. **[Crie um utilizador de teste AwareGo](#create-an-awarego-test-user)** para ter uma contraparte de B.Simon in AwareGo que está ligada à representação AD Azure do utilizador.  
+    b. **[Teste SSO](#test-sso)** para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estes passos para ativar o Azure AD SSO no portal Azure.
+Para ativar o Azure AD SSO no portal Azure, faça o seguinte:
 
-1. No portal Azure, na página de integração da aplicação **AwareGo,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. No portal Azure, na página de integração da aplicação **AwareGo,** em **Gestão**, selecione **um único sinal de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. Para editar as definições, no Conjunto Sign-On com painel **SAML,** selecione o botão **Editar.**
 
-   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
+   ![Screenshot do botão Editar para Configuração SAML Básica.](common/edit-urls.png)
 
-1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
+1. No painel de edição, em **Configuração BÁSICA SAML,** faça o seguinte:
 
-    a. Na caixa de texto **URL,** digite um dos seguintes URLs:
+    a. Na **placa de sinalização na** caixa URL, insira qualquer um dos seguintes URLs:
 
-    | Assine no URL |
-    |-------------|
-    | `https://lms.awarego.com/auth/signin/` |
-    | `https://my.awarego.com/auth/signin/` |
+    * `https://lms.awarego.com/auth/signin/` 
+    * `https://my.awarego.com/auth/signin/`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.awarego.com`
+    b. Na caixa **identifier (Entity ID),** introduza um URL no seguinte formato: `https://<SUBDOMAIN>.awarego.com`
 
-    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.awarego.com/auth/sso/callback`
+    c. Na caixa **URL de resposta,** introduza um URL no seguinte formato: `https://<SUBDOMAIN>.awarego.com/auth/sso/callback`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte [a equipa de suporte do Cliente AwareGo](mailto:support@awarego.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Os valores anteriores não são reais. Atualize-os com o identificador real e responda urLs. Para obter os valores, contacte a [equipa de apoio ao cliente AwareGo.](mailto:support@awarego.com) Também pode consultar os exemplos na secção **Configuração BÁSICA SAML** no portal Azure.
 
-1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
+1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** ao lado **do Certificado (Base64),** selecione **Descarregamento** para descarregar o certificado e guardá-lo para o seu computador.
 
-    ![O link de descarregamento de certificado](common/certificatebase64.png)
+    ![Screenshot do link "Download" do certificado no painel de certificado de assinatura SAML.](common/certificatebase64.png)
 
-1. Na secção **Configurar AwareGo,** copie os URL(s) apropriados com base no seu requisito.
+1. Na secção **Configurar AwareGo,** copie um ou mais URLs, dependendo dos seus requisitos.
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+    ![Screenshot do painel "Configurar AwareGo" para copiar URLs de configuração.](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
-Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
+Nesta secção, cria-se um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. No painel esquerdo do portal Azure, selecione **O Diretório Ativo Azure** e, em seguida, selecione **Utilizadores**  >  **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
-1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
-   1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+1. No painel de propriedades do **Utilizador,** faça o seguinte:
+
+   a. Na caixa **Nome,** insira **B.Simon**.  
+   b. Na caixa **do nome do utilizador,** introduza o nome de utilizador no seguinte formato: `<username>@<companydomain>.<extension>` (por exemplo, B.Simon@contoso.com ).  
+   c. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, note o valor que é apresentado na caixa **palavra-passe** para posterior utilização.  
+   d. Selecione **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao AwareGo.
+Nesta secção, permite ao utilizador B.Simon utilizar o Azure SSO, concedendo acesso ao AwareGo.
 
-1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
-1. Na lista de candidaturas, selecione **AwareGo**.
-1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
-1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
+1. No portal Azure, selecione **Aplicações empresariais**  >  **Todas as aplicações**.
+1. Na lista **de Aplicações,** selecione **AwareGo**.
+1. Na página geral da aplicação, na secção **Gerir,** selecione **Utilizadores e grupos**.
+1. **Selecione Adicionar utilizador** e, em seguida, no painel de atribuição de **adicionar,** selecione **Utilizadores e grupos**.
+1. No painel **de Utilizadores e grupos,** na lista **de Utilizadores,** selecione **B.Simon** e, em seguida, selecione o botão **Select.**
+1. Se estiver à espera de atribuir uma função aos utilizadores, pode selecioná-la na lista de abandono de **funções.** Se não tiver sido criada qualquer função para esta aplicação, a função *De Acesso Predefinido* é selecionada.
+1. No painel **'Adicionar Atribuição',** selecione o botão **Atribuir.**
 
 ## <a name="configure-awarego-sso"></a>Configurar AwareGo SSO
 
-Para configurar um único sinal no lado **AwareGo,** é necessário enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte awareGo](mailto:support@awarego.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Para configurar um único sinal no lado **AwareGo,** envie o certificado **certificado (Base64)** que descarregou anteriormente e os URLs que copiou anteriormente do portal Azure para a equipa de [suporte awareGo](mailto:support@awarego.com). A equipa de apoio cria esta definição para estabelecer corretamente a ligação SSO SAML de ambos os lados.
 
-### <a name="create-awarego-test-user"></a>Criar utilizador de teste AwareGo
+### <a name="create-an-awarego-test-user"></a>Criar um utilizador de teste AwareGo
 
-Nesta secção, cria-se um utilizador chamado Britta Simon in AwareGo. Trabalhe com a [equipa de suporte AwareGo](mailto:support@awarego.com) para adicionar os utilizadores na plataforma AwareGo. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon in AwareGo. Trabalhe com a [equipa de suporte AwareGo](mailto:support@awarego.com) para adicionar os utilizadores na plataforma AwareGo. Tem de criar e ativar os utilizadores antes de poder utilizar uma única sessão de sessão.
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
+Nesta secção, pode testar a sua configuração de inscrição única AD AD, fazendo qualquer uma das seguintes: 
 
-* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o URL de inscrição do AwareGo, onde pode iniciar o fluxo de login. 
+* No portal Azure, selecione **Testar esta aplicação**. Isto redireciona-o para a página de início de sposição Do AwareGo, onde pode iniciar o fluxo de entrada. 
 
-* Vá diretamente ao URL de inscrição do AwareGo e inicie o fluxo de login a partir daí.
+* Vá diretamente à página de entrada do AwareGo e inicie o fluxo de entrada a partir daí.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo AwareGo nas Minhas Apps, este será redirecionado para O URL de inscrição do AwareGo. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Vá ao Microsoft My Apps. Quando seleciona o azulejo **AwareGo** nas Minhas Apps, é redirecionado para a página de sinse-in AwareGo. Para obter mais informações, consulte [iniciar sômis e inicie aplicações a partir do portal My Apps.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma vez configurado AwareGo, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Depois de configurar o AwareGo, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Controlo de Aplicações de Acesso Condicional. Para obter mais informações, consulte [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security.](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)
 
 

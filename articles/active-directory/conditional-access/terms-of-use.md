@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 12/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1b07534c702e509b2b664fbee585aa2cff69f6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b1829c69510568b0f9a8cec7fb7d2d57be8515d3
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837605"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509993"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Termos de utilização do Diretório Ativo Azure
 
-Os termos de utilização da AD AZure fornecem um método simples que as organizações podem usar para apresentar informações aos utilizadores finais. Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores. Este artigo descreve como começar com termos de uso.
+Os termos de utilização da AD AZure fornecem um método simples que as organizações podem usar para apresentar informações aos utilizadores finais. Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores. Este artigo descreve como começar com termos de uso (ToU).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -104,14 +104,14 @@ Uma vez finalizado o documento de utilização, utilize o seguinte procedimento 
    | Alice | 1 jan | Fev 1 | Mar 1 | Abr 1 |
    | Bob | 15 jan | Fev 1 | Mar 1 | Abr 1 |
 
-1. Utilize a **Duração antes da reaceuda requer (dias)** a definição para especificar o número de dias antes de o utilizador voltar a aceitar os termos de utilização. Isto permite que os utilizadores sigam o seu próprio horário. Por exemplo, se definir a duração para **30** dias, eis como podem ocorrer expirações para dois utilizadores:
+1. Utilize a **Duração antes de reademptar requer (dias)** a definição para especificar o número de dias antes de o utilizador voltar a aceitar os termos de utilização. Isto permite que os utilizadores sigam o seu próprio horário. Por exemplo, se definir a duração para **30** dias, eis como podem ocorrer expirações para dois utilizadores:
 
    | Utilizador | Primeira data de aceitação | Primeira data de expiração | Segunda data de expiração | Terceira data de expiração |
    | --- | --- | --- | --- | --- |
    | Alice | 1 jan | 31 de janeiro | Mar 2 | Abr 1 |
    | Bob | 15 jan | Fev 14 | Mar 16 | Abr 15 |
 
-   É possível utilizar os **consentimentos** e duração de **Expiração antes de a rea aceitação requer (dias)** configurações em conjunto, mas normalmente usa uma ou outra.
+   É possível utilizar os **consentimentos** e duração de **Expiração antes de reaccepte requer (dias)** configurações em conjunto, mas normalmente usa uma ou outra.
 
 1. Em **Acesso Condicional,** use a lista de **modelos de política de acesso condicional para** selecionar o modelo para impor os termos de utilização.
 
@@ -119,8 +119,8 @@ Uma vez finalizado o documento de utilização, utilize o seguinte procedimento 
 
    | Modelo | Descrição |
    | --- | --- |
-   | **Acesso a aplicativos em nuvem para todos os hóspedes** | Será criada uma política de Acesso Condicional para todos os hóspedes e aplicações na nuvem. Esta política tem impacto no portal Azure. Uma vez criado, poderá ser obrigado a iniciar seduca e a iniciar seduca. |
-   | **Acesso a aplicativos na nuvem para todos os utilizadores** | Será criada uma política de Acesso Condicional para todos os utilizadores e todas as aplicações na nuvem. Esta política tem impacto no portal Azure. Uma vez criado, terá de se inscrever e iniciar seduca. |
+   | **Acesso a aplicativos em nuvem para todos os hóspedes** | Será criada uma política de Acesso Condicional para todos os hóspedes e aplicações na nuvem. Esta política tem impacto no portal Azure. Uma vez criado, poderá ser obrigado a assinar e iniciar seduca. |
+   | **Acesso a aplicativos na nuvem para todos os utilizadores** | Será criada uma política de Acesso Condicional para todos os utilizadores e todas as aplicações na nuvem. Esta política tem impacto no portal Azure. Uma vez criado, terá de assinar e iniciar seduca. |
    | **Política personalizada** | Selecione os utilizadores, grupos e aplicações a que estes termos de utilização serão aplicados. |
    | **Criar política de acesso condicional mais tarde** | Estes termos de utilização aparecerão na lista de controlo de subvenções ao criar uma política de acesso condicional. |
 
@@ -219,15 +219,55 @@ Pode editar alguns detalhes dos termos de uso, mas não pode modificar um docume
 1. Inicie sessão no Azure e navegue para **Termos de utilização** em [https://aka.ms/catou](https://aka.ms/catou).
 1. Selecione os termos de utilização que pretende editar.
 1. Clique **em Editar termos**.
-1. Nos termos de utilização do painel de utilização, altere o nome, o nome de exibição ou exija que os utilizadores expandam os valores.
+1. Nos termos de utilização da Edição, pode alterar o seguinte:
+     - **Nome** – este é o nome interno da TOU que não é partilhado com os utilizadores finais
+     - **Nome do ecrã** – este é o nome que os utilizadores finais podem ver ao visualizar a ToU
+     - **Exigir que os utilizadores expandam os termos de utilização** – Configurar isto para **On** forçará o uso final a expandir os termos do documento de utilização antes de o aceitar.
+     - (Pré-visualização) Pode atualizar um documento **de utilização existente**
+     - Pode adicionar uma língua a uma ToU existente
 
    Se houver outras configurações que gostaria de alterar, como o documento PDF, exigir que os utilizadores consintam em cada dispositivo, expirem consentimentos, duração antes de reacetar ou política de Acesso Condicional, deve criar um novo termos de utilização.
 
-   ![Editar termos de uso painel mostrando nome e expandir opções](./media/terms-of-use/edit-tou.png)
+    ![Editar mostrando diferentes opções linguísticas ](./media/terms-of-use/edit-terms-use.png)
 
-1. Clique em **Guardar** para guardar as alterações.
+1. Uma vez feito, clique em **Guardar** para guardar as suas alterações.
 
-   Uma vez que guarde as suas alterações, os utilizadores não terão de reacetar estas edições.
+## <a name="update-the-version-or-pdf-of-an-existing-terms-of-use"></a>Atualizar a versão ou pdf de um termos de utilização existentes
+
+1.  Inscreva-se no Azure e navegue para [Termos de Utilização](https://aka.ms/catou)
+2.  Selecione os termos de utilização que pretende editar.
+3.  Clique **em Editar termos**.
+4.  Para o idioma que pretende atualizar uma nova versão, clique em **Update** under the action column
+ 
+     ![Editar termos de uso painel mostrando nome e expandir opções](./media/terms-of-use/edit-terms-use.png)
+
+5.  No painel à direita, carrece o pdf para a nova versão
+6.  Existe também uma opção de alternância **aqui, exija um novo aceinhão** se pretender que os seus utilizadores aceitem esta nova versão da próxima vez que iniciarem sação. Se exigir que os seus utilizadores voltem a aceitar, da próxima vez que tentarem aceder ao recurso definido na sua política de acesso condicional, serão solicitados a aceitar esta nova versão. Se não necessitar que os seus utilizadores reacetirem, o seu consentimento anterior permanecerá atual e apenas novos utilizadores que não tenham consentido antes ou cujo consentimento expire verão a nova versão.
+
+    ![Editar termos de utilização re-aceitar opção realçada](./media/terms-of-use/re-accept.png)
+
+7.  Depois de ter carregado o seu novo pdf e decidido a reapreciar, clique em Adicionar na parte inferior do painel.
+8.  Verá agora a versão mais recente sob a coluna Documento.
+
+## <a name="view-previous-versions-of-a-terms-of-use"></a>Ver versões anteriores de um termos de utilização
+
+1.  Inicie sessão no Azure e navegue para **Termos de utilização** em https://aka.ms/catou.
+2.  Selecione os termos de utilização para os quais deseja visualizar um histórico de versão.
+3.  Clique em **Idiomas e histórico de versão**
+4.  Clique em **Ver ver as versões anteriores.**
+
+    ![detalhes do documento, incluindo versões linguísticas](./media/terms-of-use/document-details.png)
+
+5.  Pode clicar no nome do documento para descarregar essa versão
+
+## <a name="see-who-has-accepted-each-version"></a>Veja quem aceitou cada versão
+
+1.  Inicie sessão no Azure e navegue para **Termos de utilização** em https://aka.ms/catou.
+2.  Para ver quem aceitou atualmente o ToU clique no número sob a coluna **Aceite** para o ToU que deseja.
+3.  Por padrão, a página seguinte irá mostrar-lhe o estado atual de cada aceitação de utilizadores para a ToU
+4.  Se quiser ver os eventos de consentimento anteriores, pode selecionar **All** from the **Current State** drop-down. Agora pode ver cada utilizadores em detalhes sobre cada versão e o que aconteceu.
+5.  Em alternativa, pode selecionar uma versão específica da **versão**  drop down para ver quem aceitou essa versão específica.
+
 
 ## <a name="add-a-terms-of-use-language"></a>Adicionar um termos de linguagem de uso
 
@@ -235,14 +275,14 @@ O procedimento a seguir descreve como adicionar um idioma de utilização.
 
 1. Inicie sessão no Azure e navegue para **Termos de utilização** em [https://aka.ms/catou](https://aka.ms/catou).
 1. Selecione os termos de utilização que pretende editar.
-1. No painel de detalhes, clique no separador **Idiomas.**
-
-   ![Termos de utilização selecionados e mostrando o separador idiomas no painel de detalhes](./media/terms-of-use/languages-tou.png)
-
-1. Clique **em Adicionar idioma**.
+1. Clique **em Termos de Edição**
+1. Clique em **Adicionar idioma** na parte inferior da página.
 1. Nos termos de utilização do painel de linguagem de utilização, faça o upload do PDF localizado e selecione o idioma.
 
-   ![Adicione termos de uso do painel de linguagem com opções para carregar PDFs localizados](./media/terms-of-use/language-add-tou.png)
+   ![Termos de utilização selecionados e mostrando o separador idiomas no painel de detalhes](./media/terms-of-use/select-language.png)
+
+1. Clique **em Adicionar idioma**.
+1. Clique em **Guardar**
 
 1. Clique **em Adicionar** para adicionar o idioma.
 
@@ -253,12 +293,12 @@ O **Requerer que os utilizadores consintam em todas as** definições do disposi
 Aqui está uma lista das plataformas e software suportados.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Outro |
+> |  | iOS | Android | Windows 10 | Outros |
 > | --- | --- | --- | --- | --- |
-> | **Aplicação nativa** | Yes | Yes | Yes |  |
-> | **Microsoft Edge** | Yes | Yes | Yes |  |
-> | **Internet Explorer** | Yes | Yes | Yes |  |
-> | **Cromado (com extensão)** | Yes | Yes | Yes |  |
+> | **Aplicação nativa** | Sim | Sim | Sim |  |
+> | **Microsoft Edge** | Sim | Sim | Sim |  |
+> | **Internet Explorer** | Sim | Sim | Sim |  |
+> | **Cromado (com extensão)** | Sim | Sim | Sim |  |
 
 Os termos de utilização por dispositivo têm os seguintes constrangimentos:
 
@@ -318,7 +358,7 @@ As políticas de acesso condicional têm efeito imediato. Quando isso acontecer,
 > - uma política de acesso condicional é ativada em termos de utilização
 > - ou se for criado um segundo documento de termos de utilização
 
-## <a name="b2b-guests-preview"></a>Hóspedes B2B (Pré-visualização)
+## <a name="b2b-guests"></a>Hóspedes B2B
 
 A maioria das organizações tem um processo em curso para que os seus colaboradores consintam nos termos de uso e declarações de privacidade da sua organização. Mas como pode impor os mesmos consentimentos para os hóspedes do Azure AD (B2B) quando são adicionados via SharePoint ou Teams? Utilizando o Acesso Condicional e os termos de utilização, pode impor uma política diretamente para os utilizadores convidados B2B. Durante o fluxo de resgate de convites, o utilizador é apresentado com os termos de utilização. Este suporte está atualmente em pré-visualização.
 
@@ -326,7 +366,7 @@ Os termos de utilização só serão apresentados quando o utilizador tiver uma 
 
 ![Painel de utilizadores e grupos - Inclua separador com todas as opções de utilizadores convidados verificada](./media/terms-of-use/b2b-guests.png)
 
-## <a name="support-for-cloud-apps-preview"></a>Suporte para aplicações na nuvem (Pré-visualização)
+## <a name="support-for-cloud-apps"></a>Suporte para aplicativos na nuvem
 
 Os termos de utilização podem ser utilizados para diferentes aplicações em nuvem, como a Azure Information Protection e a Microsoft Intune. Este suporte está atualmente em pré-visualização.
 
@@ -387,7 +427,7 @@ R: Pode [rever os termos de uso previamente aceites,](#how-users-can-review-thei
 R: Se tiver configurado os termos de utilização do AZure AD e os [termos e condições intune,](/intune/terms-and-conditions-create)o utilizador será obrigado a aceitar ambos. Para mais informações, consulte a [solução Escolha dos Termos certos para o post de blog da sua organização.](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409)
 
 **P: Que pontos finais utiliza os termos do serviço de utilização para autenticação?**<br />
-R: Os termos de utilização utilizam os seguintes pontos finais para a autenticação: https://tokenprovider.termsofuse.identitygovernance.azure.com e https://account.activedirectory.windowsazure.com . Se a sua organização tiver uma lista de sinais de admissão de URLs para inscrição, terá de adicionar estes pontos finais à sua lista de indicações, juntamente com os pontos finais AZURE AD para iniciar sação.
+R: Os termos de utilização utilizam os seguintes pontos finais para a autenticação: https://tokenprovider.termsofuse.identitygovernance.azure.com e https://account.activedirectory.windowsazure.com . Se a sua organização tiver uma lista de sinais de admissão de URLs para inscrição, terá de adicionar estes pontos finais à sua lista de indicações, juntamente com os pontos finais AZURE AD para a sua inscrição.
 
 ## <a name="next-steps"></a>Passos seguintes
 

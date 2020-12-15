@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6ca0513f95bc490087f3c84eeecc4ea623f64604
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 421fb7b0c91171756f55ad25c918955870054e3e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517092"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511285"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicações seguras no Azure
 Neste artigo apresentamos atividades de segurança e controlos a ter em conta quando desenvolve aplicações para a nuvem. Questões e conceitos de segurança a ter em conta durante as fases de implementação e verificação do Ciclo de Vida para o Desenvolvimento da Segurança da Microsoft [(SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) são cobertos. O objetivo é ajudá-lo a definir atividades e serviços Azure que você pode usar para desenvolver uma aplicação mais segura.
@@ -48,21 +48,21 @@ Trate todas as entradas como falsas para proteger a sua aplicação das vulnerab
 
 Validar a entrada no início do fluxo de dados para garantir que apenas os dados devidamente formados entram no fluxo de trabalho. Não pretende que os dados por formação permaneçam na sua base de dados ou desencadeiem uma avaria num componente a jusante.
 
-A blacklisting e a whitelisting são duas abordagens gerais para a validação da sintaxe de entrada:
+A lista de bloqueios e a lista de admissão são duas abordagens gerais para a validação da sintaxe de entrada:
 
-  - A lista negra tenta verificar se uma determinada entrada do utilizador não contém conteúdo "conhecido por mal-intencionado".
+  - A lista de bloqueios tenta verificar se uma determinada entrada do utilizador não contém conteúdo "conhecido por malicioso".
 
-  - A whitelisting tenta verificar se uma determinada entrada do utilizador corresponde a um conjunto de entradas "bem conhecidas". A whitelisting baseada em caracteres é uma forma de whitelisting onde uma aplicação verifica que a entrada do utilizador contém apenas caracteres "bem conhecidos" ou que a entrada corresponde a um formato conhecido.
+  - Permite que a lista tente verificar se uma determinada entrada do utilizador corresponde a um conjunto de entradas "bem conhecidas". A lista de licenciamento baseada em caracteres é uma forma de permitir a listagem quando uma aplicação verifica que a entrada do utilizador contém apenas caracteres "bem conhecidos" ou que a entrada corresponde a um formato conhecido.
     Por exemplo, isto pode envolver verificar se um nome de utilizador contém apenas caracteres alfanuméricos ou que contém exatamente dois números.
 
-A whitelisting é a abordagem preferida para a construção de software seguro.
-A blacklisting é propensa a erros porque é impossível pensar numa lista completa de entradas potencialmente más.
+Permitir a lista é a abordagem preferida para a construção de software seguro.
+A lista de bloqueios é propensa a erros porque é impossível pensar numa lista completa de entradas potencialmente más.
 
 Faça este trabalho no servidor, não no lado do cliente (ou no servidor e no lado do cliente).
 
 ### <a name="verify-your-applications-outputs"></a>Verifique as saídas da sua aplicação
 
-Qualquer saída que apresente visualmente ou dentro de um documento deve ser sempre codificada e escapada. [A fuga](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), também conhecida como *codificação de saídas* , é usada para ajudar a garantir que dados não falsos não são um veículo para um ataque de injeção. A fuga, combinada com a validação de dados, fornece defesas em camadas para aumentar a segurança do sistema como um todo.
+Qualquer saída que apresente visualmente ou dentro de um documento deve ser sempre codificada e escapada. [A fuga](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), também conhecida como *codificação de saídas*, é usada para ajudar a garantir que dados não falsos não são um veículo para um ataque de injeção. A fuga, combinada com a validação de dados, fornece defesas em camadas para aumentar a segurança do sistema como um todo.
 
 A fuga garante que tudo é exibido como *saída.* Escapar também permite ao intérprete saber que os dados não se destinam a ser executados, o que impede que os ataques funcionem. Esta é outra técnica comum de ataque chamada *scripting cross-site* (XSS).
 

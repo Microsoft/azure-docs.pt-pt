@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 20397339c1675686f2a670dc60899bfd4bd4c3ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0a0b44b3de088539a070f1182248c4e6db7303f
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86050233"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510282"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Criar um integration runtime autoalojado
 
@@ -28,7 +28,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
 
    Segue-se o resultado do exemplo:
 
-   ```json
+   ```console
     Name              : <Integration Runtime name>
     Type              : SelfHosted
     ResourceGroupName : <ResourceGroupName>
@@ -45,7 +45,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
 
    Segue-se o resultado do exemplo:
 
-   ```json  
+   ```console  
    State                     : NeedRegistration
    Version                   : 
    CreateTime                : 9/24/2019 6:00:00 AM
@@ -89,7 +89,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
 
 2. [Transfira](https://www.microsoft.com/download/details.aspx?id=39717) o integration runtime autoalojado num computador windows local. Execute a instalação.
 
-3. Na página **Bem-vindo à Configuração do Microsoft Integration Runtime **, selecione**Seguinte**.
+3. Na página **Bem-vindo à Configuração do Microsoft Integration Runtime**, selecione **Seguinte**.
 
 4. Na página **Contrato de Licença do Utilizador Final**, aceite os termos e o contrato de licença e selecione **Seguinte**.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: sandeo
-ms.openlocfilehash: 4c11e8c9cbd767bb95e094535a8a6cd7c8fe84fc
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b4fc6b9facc79db109c5ce5be09576b16a2abdc7
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340888"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510894"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Pré-visualização: Inicie sessão numa máquina virtual Linux em Azure utilizando a autenticação do Azure Ative Directory
 
@@ -119,7 +119,7 @@ A política de controlo de acesso baseado em funções (Azure RBAC) determina qu
 - **Início de Sessão do Utilizador de Máquinas Virtuais**: Os utilizadores com esta função atribuída podem iniciar sessão numa máquina virtual Azure com privilégios regulares do utilizador.
 
 > [!NOTE]
-> Para permitir que um utilizador faça login no VM em vez de SSH, tem de atribuir o *Login do Administrador de Máquina Virtual* ou a função de Login do Utilizador de Máquina *Virtual.* Um utilizador Azure com as funções *Proprietário* ou *Contribuinte* atribuídos a um VM não tem automaticamente privilégios de iniciar sessão no VM sobre SSH.
+> Para permitir que um utilizador faça login no VM em vez de SSH, tem de atribuir o *Login do Administrador de Máquina Virtual* ou a função de Login do Utilizador de Máquina *Virtual.* As funções de Login do Administrador de Máquina Virtual e de Início de Sessão do Utilizador de Máquina Virtual utilizam dataActions e, portanto, não podem ser atribuídas no âmbito do grupo de gestão. Atualmente, estas funções só podem ser atribuídas no âmbito de subscrição, grupo de recursos ou recursos. Um utilizador Azure com as funções *Proprietário* ou *Contribuinte* atribuídos a um VM não tem automaticamente privilégios de iniciar sessão no VM sobre SSH. 
 
 O exemplo a seguir utiliza [a atribuição de funções az](/cli/azure/role/assignment#az-role-assignment-create) para atribuir a função *de Login do Administrador de Máquina Virtual* ao VM para o seu utilizador Azure atual. O nome de utilizador da sua conta Azure ativa é obtido com [a conta AZ](/cli/azure/account#az-account-show), e o *âmbito* é definido para o VM criado em passo anterior com [a az vm show](/cli/azure/vm#az-vm-show). O âmbito também poderia ser atribuído a um grupo de recursos ou nível de subscrição, e as permissões de herança normal do Azure RBAC aplicam-se. Para mais informações, consulte [a Azure RBAC](../../role-based-access-control/overview.md)
 
@@ -138,7 +138,12 @@ az role assignment create \
 
 Para obter mais informações sobre como utilizar o Azure RBAC para gerir o acesso aos seus recursos de subscrição Azure, consulte utilizando o [Azure CLI,](../../role-based-access-control/role-assignments-cli.md) [portal Azure](../../role-based-access-control/role-assignments-portal.md)ou [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-Também pode configurar a Azure AD para exigir a autenticação de vários fatores para um utilizador específico iniciar sedutação na máquina virtual Linux. Para obter mais informações, consulte [Começar com a autenticação multi-factor Azure AD na nuvem.](../../active-directory/authentication/howto-mfa-getstarted.md)
+## <a name="using-conditional-access"></a>Usando acesso condicional
+
+Pode impor políticas de Acesso Condicional, tais como autenticação de vários fatores ou verificação de risco de entrada no utilizador antes de autorizar o acesso a VMs Linux em Azure que estão ativados com o sinal AD Azure. Para aplicar a política de Acesso Condicional, tem de selecionar a aplicação "Azure Linux VM Sign-In" a partir da opção de atribuição de aplicações na nuvem ou ações e, em seguida, utilizar o risco de acesso como condição e/ou exigir a autenticação de vários fatores como controlo de acesso a subvenções. 
+
+> [!WARNING]
+> Por utilizador Ativado/Aplicado Azure AD Multi-Factor Authentication não é suportado para o sismo VM.
 
 ## <a name="log-in-to-the-linux-virtual-machine"></a>Faça login na máquina virtual Linux
 
@@ -195,6 +200,8 @@ Using keyboard-interactive authentication.
 Access denied:  to sign-in you be assigned a role with action 'Microsoft.Compute/virtualMachines/login/action', for example 'Virtual Machine User Login'
 Access denied
 ```
+> [!NOTE]
+> Se estiver a ter problemas com atribuições de funções Azure, consulte [o Troubleshoot Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit).
 
 ### <a name="continued-ssh-sign-in-prompts"></a>Continuação das solicitações de inscrição do SSH
 

@@ -3,19 +3,19 @@ title: Adicione proprietários e utilizadores em Azure DevTest Labs Microsoft Do
 description: Adicione proprietários e utilizadores em Azure DevTest Labs usando o portal Azure ou PowerShell
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6d6af68cd663e88af90d690375a4d45c538aad1d
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 2ca6a1ffa66ab294e34a1b4866953a393aba4d6d
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330194"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511982"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adicionar proprietários e utilizadores em Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
 > 
 > 
 
-O acesso em Azure DevTest Labs é controlado pelo [controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md). Utilizando o Azure RBAC, pode segregar os deveres dentro da sua equipa em *funções* em que concede apenas a quantidade de acesso necessário aos utilizadores para desempenharem os seus trabalhos. Três destas funções da Azure são *Proprietário,* *Utilizador de DevTest Labs*e *Colaborador.* Neste artigo, você aprende que ações podem ser realizadas em cada uma das três principais funções de Azure. A partir daí, aprende-se a adicionar utilizadores a um laboratório - tanto através do portal como através de um script PowerShell, e como adicionar utilizadores ao nível da subscrição.
+O acesso em Azure DevTest Labs é controlado pelo [controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md). Utilizando o Azure RBAC, pode segregar os deveres dentro da sua equipa em *funções* em que concede apenas a quantidade de acesso necessário aos utilizadores para desempenharem os seus trabalhos. Três destas funções da Azure são *Proprietário,* *Utilizador de DevTest Labs* e *Colaborador.* Neste artigo, você aprende que ações podem ser realizadas em cada uma das três principais funções de Azure. A partir daí, aprende-se a adicionar utilizadores a um laboratório - tanto através do portal como através de um script PowerShell, e como adicionar utilizadores ao nível da subscrição.
 
 ## <a name="actions-that-can-be-performed-in-each-role"></a>Ações que podem ser realizadas em cada papel
 Existem três funções principais que pode atribuir a um utilizador:
@@ -34,7 +34,7 @@ A tabela a seguir ilustra as ações que podem ser executadas pelos utilizadores
 | **Tarefas de base VM** | | | |
 | Adicione e remova imagens personalizadas |Não |Sim |Sim |
 | Adicione, atualize e elimine fórmulas |Sim |Sim |Sim |
-| Whitelist Azure Marketplace imagens |Não |Sim |Sim |
+| Ativar imagens do Marketplace |Não |Sim |Sim |
 | **Tarefas VM** | | | |
 | Criar VMs |Sim |Sim |Sim |
 | Iniciar, parar e apagar VMs |Apenas VMs criados pelo utilizador |Sim |Sim |
@@ -54,7 +54,7 @@ Proprietários e utilizadores podem ser adicionados ao nível do laboratório at
 Os seguintes passos guiam-no através do processo de adição de um proprietário ou utilizador a um laboratório em Azure DevTest Labs:
 
 1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selecione **Todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
+2. Selecione **Todos os serviços** e, em seguida, selecione **DevTest Labs** da lista.
 3. Da lista de laboratórios, selecione o laboratório desejado.
 4. Na lâmina do laboratório, selecione **Configuração e políticas**. 
 5. Na página **de Configuração e políticas,** selecione **Access control (IAM)** a partir do menu à esquerda. 
@@ -111,7 +111,7 @@ Pode adicionar mais proprietários a um laboratório através da lâmina do labo
 Para adicionar um proprietário a uma subscrição da Azure, siga estes passos:
 
 1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selecione **Todos os Serviços**e, em seguida, selecione **Subscrições** da lista.
+2. Selecione **Todos os Serviços** e, em seguida, selecione **Subscrições** da lista.
 3. Selecione a subscrição desejada.
 4. Selecione o ícone **de acesso.** 
    

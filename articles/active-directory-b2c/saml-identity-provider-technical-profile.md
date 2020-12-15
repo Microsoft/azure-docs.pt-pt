@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 572d6964384c711a7d2b98b0fa27852a7d28951f
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 3f8ba563345f5aa4f35bcf07546abdad05c3b6ed
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936714"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509789"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico do fornecedor de identidade SAML numa política personalizada do Azure Ative Directory B2C
 
@@ -168,7 +168,7 @@ O elemento **OutputClaimsTransformations** pode conter uma coleção de elemento
 | Incluir Conferências DeAuthnContextClassReferences | Não | Especifica uma ou mais referências URI identificando classes de contexto de autenticação. Por exemplo, para permitir que um utilizador faça seduca apenas com nome de utilizador e senha, descreva o valor para `urn:oasis:names:tc:SAML:2.0:ac:classes:Password` . Para permitir o acesso através do nome de utilizador e da palavra-passe através de uma sessão protegida (SSL/TLS), especifique `PasswordProtectedTransport` . Veja a documentação do seu fornecedor de identidade para obter orientações sobre os URIs **AuthnContextClassRef** que são suportados. Especifique vários URIs como uma lista delimitada por vírgula. |
 | IncluirKeyInfo | Não | Indica se o pedido de autenticação SAML contém a chave pública do certificado quando a ligação está definida para `HTTP-POST` . Valores possíveis: `true` ou `false` . |
 | IncluirClaimResolvingInClaimsHandling  | Não | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false` (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
-|SingleLogoutEnabled| Não| Indica se durante a entrada no perfil técnico tenta-se assinar dos fornecedores de identidade federados. Para mais informações, consulte [a sessão de Sessão Azure AD B2C](session-overview.md#sign-out).  Valores possíveis: `true` (padrão), ou `false` .|
+|SingleLogoutEnabled| Não| Indica se durante a entrada no perfil técnico tenta-se assinar dos fornecedores de identidade federados. Para mais informações, consulte [a sessão de Sessão Azure AD B2C](session-behavior.md#sign-out).  Valores possíveis: `true` (padrão), ou `false` .|
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 

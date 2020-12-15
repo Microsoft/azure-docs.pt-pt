@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: 7fe788677a084575d41f2f28154b74b28ea9d3d8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5254d83c18ddc9f2a5518ed4f711d4cd73ab6de7
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955740"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510945"
 ---
 # <a name="powershell-dsc-extension"></a>Extensão DSC powershell
 
@@ -74,7 +74,7 @@ O JSON seguinte mostra o esquema para a parte de definições da extensão DSC n
         "advancedOptions": {
             "forcePullAndApply": false,
             "downloadMappings": {
-                "specificDependencyKey": "https://myCustomDependencyLocation"
+             "specificDependencyKey": "https://myCustomDependencyLocation"
             }
         } 
     },
@@ -100,7 +100,7 @@ O JSON seguinte mostra o esquema para a parte de definições da extensão DSC n
 
 | Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2018-10-01 | data |
+| apiVersion | 2018-10-01 | date |
 | publicador | Microsoft.Powershell.DSC | string |
 | tipo | DSC | string |
 | typeHandlerVersion | 2.77 | int |

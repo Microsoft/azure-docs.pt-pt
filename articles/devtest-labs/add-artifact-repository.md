@@ -3,12 +3,12 @@ title: Adicione um repositório de artefactos ao seu laboratório em Azure DevTe
 description: Aprenda a especificar o seu próprio repositório de artefactos para o seu laboratório em Azure DevTest Labs para armazenar ferramentas indisponíveis no repositório de artefactos públicos.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7553f6b1afa416a5428577a8313bdadb669e32c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dd7d89020bf077e29b177f6871f43b52467b0d8
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88270993"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97512016"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Adicione um repositório de artefactos ao seu laboratório em Laboratórios DevTest
 A DevTest Labs permite especificar um artefacto a ser adicionado a um VM no momento da criação do VM ou após a criação do VM. Este artefacto pode ser uma ferramenta ou uma aplicação que pretende instalar no VM. Os artefactos são definidos num ficheiro JSON carregado de um repositório GitHub ou Azure DevOps Git.
@@ -31,7 +31,7 @@ Para adicionar um repositório ao seu laboratório, primeiro, obtenha informaç�
 5. No menu **de definições pessoais** à esquerda, selecione **Definições de Programação**.
 6. Selecione **Fichas de acesso pessoal** no menu esquerdo.
 7. **Selecione Gerer novo símbolo**.
-8. Na página **de token de acesso pessoal Novo,** sob **descrição de Token,** insira uma descrição. Aceite os itens predefinidos nos **âmbitos Select**e, em seguida, selecione **Gerar Token**.
+8. Na página **de token de acesso pessoal Novo,** sob **descrição de Token,** insira uma descrição. Aceite os itens predefinidos nos **âmbitos Select** e, em seguida, selecione **Gerar Token**.
 9. Salve o símbolo gerado. Usas o símbolo mais tarde.
 10. Feche o GitHub.   
 
@@ -49,14 +49,14 @@ Para adicionar um repositório ao seu laboratório, primeiro, obtenha informaç�
    3. Na lista **de Expiração (UTC),** selecione **90 dias,** ou um período de validade definido personalizado.
    4. Selecione a opção **acesso completo** para Âmbitos.
    5. Selecione **Criar**.
-9. O novo símbolo aparece na lista de **Tokens de Acesso Pessoal.** Selecione **Copy Token**e, em seguida, guarde o valor simbólico para utilização posterior.
+9. O novo símbolo aparece na lista de **Tokens de Acesso Pessoal.** Selecione **Copy Token** e, em seguida, guarde o valor simbólico para utilização posterior.
 10. Continue até ao laboratório Ligar o seu laboratório à secção de repositório.
 
 ## <a name="use-azure-portal"></a>Utilizar o portal do Azure
 Esta secção fornece passos para adicionar um repositório de artefactos a um laboratório no portal Azure.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **Mais Serviços**e, em seguida, selecione **DevTest Labs** da lista de serviços.
+2. Selecione **Mais Serviços** e, em seguida, selecione **DevTest Labs** da lista de serviços.
 3. Da lista de laboratórios, selecione o seu laboratório.
 4. Selecione **Configuração e políticas** no menu à esquerda.
 5. Selecione **Repositórios** na secção **de recursos externos** no menu esquerdo.
@@ -188,7 +188,7 @@ Esta secção fornece-lhe uma amostra do script PowerShell que pode ser usado pa
 ### <a name="full-script"></a>Script completo
 Aqui está o roteiro completo, incluindo algumas mensagens verbosas e comentários:
 
-**New-DevTestLabArtifactRepository.ps1: **
+**New-DevTestLabArtifactRepository.ps1:**
 
 ```powershell
 

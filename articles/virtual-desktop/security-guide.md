@@ -3,15 +3,15 @@ title: Windows Virtual Desktop security best practices - Azure
 description: As melhores práticas para manter o ambiente de ambiente de trabalho virtual do Windows seguro.
 author: heidilohr
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d3033af32229be238831740c11a1112513259a43
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8cf5504e44239fed6a4a4b82d0064d49f5c5a99f
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023161"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511540"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
@@ -29,16 +29,16 @@ Aqui estão as necessidades de segurança pelas quais é responsável na sua imp
 
 | Necessidade de segurança | O cliente é responsável por isto? |
 |---------------|:-------------------------:|
-|Identidade|Yes|
-|Dispositivos de utilizador (mobile e PC)|Yes|
-|Segurança de aplicativos|Yes|
-|Sessão anfitrião OS|Yes|
-|Configuração de implementação|Yes|
-|Controlos de rede|Yes|
-|Plano de controlo de virtualização|No|
-|Anfitriões físicos|No|
-|Rede física|No|
-|Datacenter físico|No|
+|Identidade|Sim|
+|Dispositivos de utilizador (mobile e PC)|Sim|
+|Segurança de aplicativos|Sim|
+|Sessão anfitrião OS|Sim|
+|Configuração de implementação|Sim|
+|Controlos de rede|Sim|
+|Plano de controlo de virtualização|Não|
+|Anfitriões físicos|Não|
+|Rede física|Não|
+|Datacenter físico|Não|
 
 As necessidades de segurança que o cliente não é responsável são tratadas pela Microsoft.
 
@@ -80,7 +80,7 @@ Ativar [o Acesso Condicional](../active-directory/conditional-access/overview.md
 
 Ativar a recolha de registos de auditoria permite-lhe visualizar a atividade de utilizador e administração relacionada com o Windows Virtual Desktop. Alguns exemplos de registos de auditoria chave são:
 
--   [Registo de Atividades do Azure](../azure-monitor/platform/activity-log.md)
+-   [Registo de atividades Azure](../azure-monitor/platform/activity-log.md)
 -   [Registo de atividade do diretório ativo Azure](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Anfitriões de sessão](../azure-monitor/platform/agent-windows.md)
@@ -98,6 +98,25 @@ Monitorize a utilização e disponibilidade do seu serviço virtual de ambiente 
 ## <a name="session-host-security-best-practices"></a>Sessão anfitrião de boas práticas de segurança
 
 Os anfitriões de sessão são máquinas virtuais que funcionam dentro de uma subscrição do Azure e de uma rede virtual. A segurança geral da sua implementação virtual do Windows Desktop depende dos controlos de segurança que colocou nos anfitriões da sessão. Esta secção descreve as melhores práticas para manter os anfitriões da sessão seguros.
+
+### <a name="enable-screen-capture-protection-preview"></a>Ativar a proteção contra a captura de ecrã (pré-visualização)
+
+A funcionalidade de proteção para captura de ecrã impede que informações sensíveis sejam capturadas nos pontos finais do cliente. Quando ativar esta funcionalidade, o conteúdo remoto será automaticamente bloqueado ou escondido em imagens e partilhas de ecrã. Também será ocultado de software malicioso que poderá estar continuamente a capturar o conteúdo do seu ecrã.
+
+Esta política é aplicada ao nível do hospedeiro configurando uma chave de registo. Para ativar esta política, abra o PowerShell e desabroque a tecla de registo **fEnableScreenCaptureProtection** executando este cmdlet:
+
+```powershell
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableScreenCaptureProtection /t REG_DWORD /d 1
+```
+
+Para testar esta nova funcionalidade:
+
+- Certifique-se de que as suas piscinas de anfitrião estão aprovisionadas no ambiente de validação.
+- Certifique-se de que descarregou e instalou o cliente do Windows Desktop, versão 1.2.1526 ou posterior.
+
+>[!NOTE]
+>Durante a pré-visualização, apenas as ligações completas do ambiente de trabalho a partir dos pontos finais do Windows 10 suportam esta funcionalidade.
+
 
 ### <a name="enable-endpoint-protection"></a>Permitir a proteção do ponto final
 
@@ -151,6 +170,6 @@ Ao restringir as capacidades do sistema operativo, pode reforçar a segurança d
 
 - Evite que o software indesejado esteja a funcionar em anfitriões de sessão. Pode ativar o App Locker para obter segurança adicional nos anfitriões da sessão, garantindo que apenas as aplicações que permite podem ser executadas no anfitrião.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a ativar a autenticação de vários fatores, consulte [Configurar a autenticação de vários fatores.](set-up-mfa.md)

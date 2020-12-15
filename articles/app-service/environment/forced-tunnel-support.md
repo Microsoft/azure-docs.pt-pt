@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: c8a4b6998d1471a79dd789ed6528e22b07f2015c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 95a4d00a27a0da363561f469b4c5e9e2ad16463c
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540980"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510503"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurar o Ambiente de Serviço de Aplicações com túnel forçado
 
@@ -95,7 +95,7 @@ Para criar um túnel de todo o tráfego de saída do ASE, exceto o que vai para 
 
 3. Obtenha os endereços que serão utilizados para todo o tráfego de saída do Ambiente de Serviço de Aplicações para a Internet. Se estiver a encaminhar o tráfego no local, estes endereços são os NATs ou os IPs de gateway. Se pretender encaminhar o tráfego de saída do Ambiente de Serviço de Aplicações através de uma NVA, o endereço de saída é o IP público da NVA.
 
-4. _Para definir os endereços de saída num Ambiente de Serviço de Aplicações existente:_ Vá a resources.azure.com e vá a Subscription/ \<subscription id> /resourceGroups/ \<ase resource group> /providers/Microsoft.Web/hostingEnvironments/ \<ase name> . Depois, poderá ver o JSON que descreve o Ambiente de Serviço de Aplicações. Certifique-se de que diz **leitura/escrita** na parte superior. Selecione **Editar** . Desloque-se para baixo até à parte inferior. Altere o valor de **userWhitelistedIpRanges** de **nulo** para algo semelhante ao seguinte. Utilize os endereços que pretende definir como o intervalo de endereços de saída. 
+4. _Para definir os endereços de saída num Ambiente de Serviço de Aplicações existente:_ Vá a resources.azure.com e vá a Subscription/ \<subscription id> /resourceGroups/ \<ase resource group> /providers/Microsoft.Web/hostingEnvironments/ \<ase name> . Depois, poderá ver o JSON que descreve o Ambiente de Serviço de Aplicações. Certifique-se de que diz **leitura/escrita** na parte superior. Selecione **Editar**. Desloque-se para baixo até à parte inferior. Altere o valor de **userWhitelistedIpRanges** de **nulo** para algo semelhante ao seguinte. Utilize os endereços que pretende definir como o intervalo de endereços de saída. 
 
     ```json
     "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"]
@@ -103,7 +103,7 @@ Para criar um túnel de todo o tráfego de saída do ASE, exceto o que vai para 
 
    Selecione **PUT** na parte superior. Esta opção aciona uma operação de dimensionamento no seu Ambiente de Serviço de Aplicações e ajusta a firewall.
 
-_Para criar o ASE com os endereços de saída_ : siga as indicações em [Criar um Ambiente de Serviço de Aplicações com um modelo][template] e obtenha o modelo apropriado.  Edite a secção "resources" no ficheiro azuredeploy.json, mas não no bloco "properties" e inclua uma linha para **userWhitelistedIpRanges** com os seus valores.
+_Para criar o ASE com os endereços de saída_: siga as indicações em [Criar um Ambiente de Serviço de Aplicações com um modelo][template] e obtenha o modelo apropriado.  Edite a secção "resources" no ficheiro azuredeploy.json, mas não no bloco "properties" e inclua uma linha para **userWhitelistedIpRanges** com os seus valores.
 
 ```json
 "resources": [
@@ -131,7 +131,7 @@ _Para criar o ASE com os endereços de saída_ : siga as indicações em [Criar 
 
 Estas alterações enviam o tráfego para o Armazenamento do Azure diretamente a partir do ASE e permitem o acesso ao SQL do Azure a partir de endereços adicionais que não sejam o VIP do ASE.
 
-   ![Túnel forçado com lista de permissões de SQL][3]
+   ![Túnel forçado com sql allowlist][3]
 
 ## <a name="preventing-issues"></a>Evitar problemas ##
 

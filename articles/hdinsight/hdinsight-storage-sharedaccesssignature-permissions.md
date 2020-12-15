@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/28/2020
-ms.openlocfilehash: eb8201ea888b98250d452e0b0e1c48f30cbb1efc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 141db7feee987b7fffc578e19c60bd94ad56d239
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022739"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511642"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Use Azure Blob armazenamento Assinaturas de acesso compartilhados para restringir o acesso a dados em HDInsight
 
@@ -86,7 +86,7 @@ Salve o token SAS que é produzido no final de cada método. O token será semel
 ?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
 ```
 
-### <a name="using-powershell"></a>Utilizar o PowerShell
+### <a name="using-powershell"></a>Com o PowerShell
 
 `RESOURCEGROUP` `STORAGEACCOUNT` Substitua, e pelos `STORAGECONTAINER` valores adequados para o seu recipiente de armazenamento existente. Altere o diretório para `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` ou reveja o `-File` parâmetro para conter o caminho absoluto para `Set-AzStorageblobcontent` . Introduza o seguinte comando PowerShell:
 
@@ -188,7 +188,7 @@ A utilização de variáveis nesta secção baseia-se num ambiente Windows. Ser�
     az storage container policy list --container-name %AZURE_STORAGE_CONTAINER% --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
 
     # Generate a shared access signature for the container
-    az storage container generate-sas --name myPolicyCLI --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
+    az storage container generate-sas --name %AZURE_STORAGE_CONTAINER% --policy-name myPolicyCLI --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
 
     # Reversal
     # az storage container policy delete --container-name %AZURE_STORAGE_CONTAINER% --name myPolicyCLI --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
@@ -228,7 +228,7 @@ Utilize uma Assinatura de Acesso Partilhado para limitar o acesso ao contentor. 
 
 ### <a name="create-a-cluster-that-uses-the-sas"></a>Criar um cluster que usa o SAS
 
-`CLUSTERNAME`Substitua, , , , , , e pelos `RESOURCEGROUP` `DEFAULTSTORAGEACCOUNT` `STORAGECONTAINER` `STORAGEACCOUNT` `TOKEN` valores apropriados. Insira os comandos PowerShell:
+`CLUSTERNAME`Substitua, `RESOURCEGROUP` e pelos `DEFAULTSTORAGEACCOUNT` `STORAGECONTAINER` `STORAGEACCOUNT` `TOKEN` valores apropriados. Insira os comandos PowerShell:
 
 ```powershell
 $clusterName = 'CLUSTERNAME'
@@ -353,7 +353,7 @@ Se tiver um cluster existente, pode adicionar o SAS à configuração do **núcl
 
 1. Abra a UI web Ambari para o seu cluster. O endereço desta página é `https://YOURCLUSTERNAME.azurehdinsight.net` . Quando solicitado, autente para o cluster utilizando o nome de administração (administrador) e a palavra-passe que utilizou ao criar o cluster.
 
-1. Navegue para **o núcleo** avançado de  >  **hdfs Configs.**  >  **Advanced**  >  **Custom core-site**
+1. Navegue para **o núcleo** avançado de  >  **hdfs Configs.**  >    >  
 
 1. Expandir a secção **de núcleo personalizado,** deslocar até ao fim e, em seguida, selecionar **Adicionar propriedade...**. Utilize os seguintes valores para **Chave** e **Valor:**
 

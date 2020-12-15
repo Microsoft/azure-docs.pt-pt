@@ -3,12 +3,12 @@ title: Melhores práticas
 description: Aprenda as melhores práticas e dicas úteis para desenvolver as suas soluções Azure Batch.
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6aaed76ad398b5278850dd66ce1da6d5bd33807f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 1eaa34e02a4c505691662e9fc29334cb823a3185
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95254668"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511217"
 ---
 # <a name="azure-batch-best-practices"></a>As melhores práticas do Azure Batch
 
@@ -141,6 +141,10 @@ Um [nó computativo](nodes-and-pools.md#nodes) é uma máquina virtual Azure (VM
 
 Tal como acontece com outras tarefas, a [tarefa de arranque](jobs-and-tasks.md#start-task) do nó deve ser idempotente, uma vez que será repetida sempre que o nó de botas. Uma tarefa idempotente é simplesmente uma tarefa que produz um resultado consistente quando executado várias vezes.
 
+### <a name="isolated-nodes"></a>Nódoas isoladas
+
+Considere a utilização de tamanhos VM isolados para cargas de trabalho com requisitos de conformidade ou regulamentação. Os tamanhos isolados suportados no modo de configuração da máquina virtual `Standard_E64i_v3` `Standard_E80ids_v4` incluem, e `Standard_F72s_v2` `Standard_G5` `Standard_GS5` `Standard_M128ms` . Para obter mais informações sobre tamanhos de VM isolados, consulte [o isolamento da máquina virtual em Azure.](https://docs.microsoft.com/azure/virtual-machines/isolation)
+
 ### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>Gerir serviços de longa duração através da interface de serviços do sistema operativo
 
 Às vezes, é necessário correr outro agente ao lado do agente Batch no nó. Por exemplo, pode querer recolher dados do nó e denunciá-lo. Recomendamos que estes agentes sejam implantados como serviços de OS, como um serviço Windows ou um `systemd` serviço Linux.
@@ -225,7 +229,7 @@ O lote tenta ativamente limpar o diretório de trabalho em que as tarefas são e
 
 A limpeza automatizada do diretório de trabalho será bloqueada se executar um serviço no Windows a partir do diretório de trabalho startTask, devido à pasta ainda em uso. Isto resultará num desempenho degradado. Para corrigir isto, mude o diretório desse serviço para um diretório separado que não seja gerido pelo Batch.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma conta Azure Batch utilizando o portal Azure](batch-account-create-portal.md).
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.

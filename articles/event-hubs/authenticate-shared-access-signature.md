@@ -4,12 +4,12 @@ description: Este artigo mostra-lhe como autenticar o acesso aos recursos do Eve
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e5d52b82ad6bbcb8dc7c028d3eba25a584590840
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 26c921213168e1028f311eabaa417efdb76f5c97
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332438"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510095"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticar o acesso aos recursos do Event Hubs utilizando assinaturas de acesso partilhado (SAS)
 A assinatura de acesso partilhado (SAS) dá-lhe controlo granular sobre o tipo de acesso que concede aos clientes que têm a assinatura de acesso partilhado. Aqui estão alguns dos controlos que pode definir num SAS: 
@@ -212,7 +212,7 @@ Por exemplo, para definir as regras de autorização que se resumem apenas ao en
 >
 > Quando o cliente envia dados para um centro de eventos, ele marca o seu pedido com o token. Para evitar que um intruso ouça e roube o token, a comunicação entre o cliente e o centro de eventos deve ocorrer por um canal encriptado.
 > 
-> Se um símbolo for roubado por um agressor, o agressor pode fazer-se passar pelo cliente cujo símbolo foi roubado. A blacklist de uma editora, torna esse cliente inutilizável até receber um novo símbolo que usa uma editora diferente.
+> Se um símbolo for roubado por um agressor, o agressor pode fazer-se passar pelo cliente cujo símbolo foi roubado. Bloquear uma editora torna esse cliente inutilizável até receber um novo símbolo que usa uma editora diferente.
 
 
 ## <a name="authenticating-event-hubs-consumers-with-sas"></a>Autenticação de centros de eventos com SAS 
