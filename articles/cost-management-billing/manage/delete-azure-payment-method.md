@@ -39,10 +39,10 @@ Para eliminar um método de pagamento de um Contrato de Cliente Microsoft, siga 
 1. Na lista do menu à esquerda, em **Faturação**, selecione **Perfis de faturação**.  
     :::image type="content" source="./media/delete-azure-payment-method/billing-profiles.png" alt-text="Captura de ecrã de exemplo a mostrar os Perfis de faturação no portal do Azure" lightbox="./media/delete-azure-payment-method/billing-profiles.png" :::
 1. Na lista de perfis de faturação, selecione o perfil onde o método de pagamento é utilizado.  
-    :::image type="content" source="./media/delete-azure-payment-method/select-billing-profile.png" alt-text="Captura de ecrã de exemplo a mostrar os Perfis de faturação no portal do Azure" :::
+    :::image type="content" source="./media/delete-azure-payment-method/select-billing-profile.png" alt-text="Imagem de exemplo a mostrar a lista de perfis de faturação" :::
 1. Na lista de menu à esquerda, em **Definições**, selecione **Métodos de pagamento**.
 1. Na página de métodos de pagamento do seu perfil de faturação, é mostrada uma tabela de métodos de pagamento na secção **Os seus cartões de crédito**. Procure o cartão de crédito que pretende eliminar, selecione as reticências ( **…** ) e, em seguida, selecione **Eliminar**.  
-    :::image type="content" source="./media/delete-azure-payment-method/delete-credit-card.png" alt-text="Captura de ecrã de exemplo a mostrar os Perfis de faturação no portal do Azure" :::
+    :::image type="content" source="./media/delete-azure-payment-method/delete-credit-card.png" alt-text="Exemplo a mostrar onde eliminar um cartão de crédito" :::
 1. A página Eliminar um método de pagamento é apresentada. O Azure verifica se o método de pagamento está a ser utilizado.
     - Quando o método de pagamento não está em utilização, é ativada a opção **Eliminar**. Selecione-a para eliminar as informações de cartão de crédito.
     - Se o método de pagamento estiver a ser utilizado, terá de ser substituído ou desanexado. Continue a ler as seguintes secções. As mesmas explicam como **desanexar** o método de pagamento a ser utilizado pela sua subscrição.
@@ -51,7 +51,7 @@ Para eliminar um método de pagamento de um Contrato de Cliente Microsoft, siga 
 
 Se o seu método de pagamento estiver a ser utilizado por um perfil de faturação MCA, verá uma mensagem semelhante ao exemplo seguinte.
 
-:::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-microsoft-customer-agreement.png" alt-text="Captura de ecrã de exemplo a mostrar os Perfis de faturação no portal do Azure" :::
+:::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-microsoft-customer-agreement.png" alt-text="Imagem de exemplo a mostrar um método de pagamento em utilização por um Contrato de Cliente Microsoft" :::
 
 Para desanexar um método de pagamento, é necessário cumprir uma lista de condições. Se alguma das condições não se cumprir, aparecem instruções a explicar como cumprir a mesma. Também é apresentada uma ligação que o direciona para a localização em que pode resolver essa condição.
 
@@ -65,7 +65,7 @@ Quando todas as condições forem satisfeitas, pode desanexar o método de pagam
 1. Na área Eliminar um método de pagamento, selecione a ligação **Desanexar o método de pagamento atual**.
 1. Se todas as condições forem cumpridas, selecione **Desanexar**. Caso contrário, avance para o passo seguinte.
 1. Se a opção Desanexar estiver indisponível, uma lista de condições será mostrada. Execute as ações listadas. Selecione a ligação mostrada na área Desanexar o método de pagamento predefinido. Eis um exemplo de uma ação corretiva que explica o que tem de fazer.  
-    :::image type="content" source="./media/delete-azure-payment-method/azure-subscriptions.png" alt-text="Captura de ecrã de exemplo a mostrar os Perfis de faturação no portal do Azure" :::
+    :::image type="content" source="./media/delete-azure-payment-method/azure-subscriptions.png" alt-text="Exemplo a mostrar uma ação corretiva necessária para desanexar um método de pagamento de MCA" :::
 1. Ao selecionar a ligação de ação corretiva, será redirecionado para a página do Azure na qual tem de realizar uma ação. Realize a ação de correção necessária.
 1. Se necessário, conclua todas as outras ações corretivas.
 1. Regresse a **Gestão de Custos + Faturação** > **Perfis de faturação** > **Métodos de pagamento**. Selecione **Desanexar**. No final da página Desanexar o método de pagamento predefinido, selecione **Desanexar**.
@@ -86,10 +86,10 @@ Se o seu método de pagamento estiver a ser utilizado por uma subscrição MOSP,
 1. Na lista de menu à esquerda, em **Faturação**, selecione **Métodos de pagamento**.
 1. Na área Métodos de pagamento, selecione a _linha_ em que se encontra o seu método de pagamento. Não selecione a ligação de método de pagamento. Poderá não haver indicação visual de que selecionou o método de pagamento.
 1. Selecione **Eliminar**.  
-    :::image type="content" source="./media/delete-azure-payment-method/delete-mosp-payment-method.png" alt-text="Captura de ecrã de exemplo a mostrar os Perfis de faturação no portal do Azure" :::
+    :::image type="content" source="./media/delete-azure-payment-method/delete-mosp-payment-method.png" alt-text="Exemplo a mostrar uma ação corretiva necessária para desanexar um método de pagamento de MOSP" :::
 1. Na área Eliminar um método de pagamento, selecione **Eliminar** se todas as condições forem cumpridas. Se a opção Eliminar estiver indisponível, continue para o próximo passo.
 1. É apresentada uma lista de condições. Execute as ações listadas. Selecione a ligação mostrada na área Eliminar um método de pagamento.  
-    :::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-mosp.png" alt-text="Captura de ecrã de exemplo a mostrar os Perfis de faturação no portal do Azure" :::
+    :::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-mosp.png" alt-text="Imagem de exemplo a mostrar um método de pagamento em utilização por uma subscrição MOSP" :::
 1. Ao selecionar a ligação de ação corretiva, será redirecionado para a página do Azure na qual tem de realizar uma ação. Realize a ação de correção necessária.
 1. Se necessário, conclua todas as outras ações corretivas.
 1. Regresse a **Gestão de Custos + Faturação** > **Perfis de faturação** > **Métodos de pagamento** e elimine o método de pagamento.
