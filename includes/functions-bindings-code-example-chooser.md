@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 09/24/2020
 ms.author: glenga
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 541b72fdd97c48388d5f954d5ee13399d24bf22a
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 1ff9606d10ac62e0bab15f970a964bfd0b08bee8
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92116664"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97506338"
 ---
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -20,9 +20,10 @@ ms.locfileid: "92116664"
 | Azure Cosmos DB |[Acionador](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=csharp#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=csharp#example) | [Ligação](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=C%23) |
 | Event Grid |[Acionador](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=csharp#example) | [Ligação](https://www.serverlesslibrary.net/?technology=Event%20Grid&language=C%23) |
 | Hubs de Eventos |[Acionador](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=csharp#example) | |
-| IoT Hub |[Acionador](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=csharp#example) | |
+| Hub IoT |[Acionador](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=csharp#example) | |
 | HTTP |[Acionador](../articles/azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#example) | [Ligação](https://www.serverlesslibrary.net/?language=C%23&filtertext=http) |
 | Armazenamento de filas | [Acionador](../articles/azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-queue-output.md?tabs=csharp#example) | [Ligação](https://www.serverlesslibrary.net/?technology=Storage%20Queue&language=C%23) |
+| RabbitMQ |[Acionador](../articles/azure-functions/functions-bindings-rabbitmq-trigger.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-rabbitmq-output.md?tabs=csharp#example) |
 | SendGrid | [Saída](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=csharp#example) | |
 | Service Bus |[Acionador](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=csharp#example) | [Ligação](https://www.serverlesslibrary.net/?technology=Service%20Bus%20Queue&language=C%23) |
 | SignalR| [Acionador](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=csharp#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=csharp#example)<br/>[Saída](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=csharp) | |
@@ -38,9 +39,10 @@ ms.locfileid: "92116664"
 | Azure Cosmos DB |[Acionador](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=java#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=java#example) | [Ligação](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=Java) |
 | Event Grid |[Acionador](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=java#example) | [Ligação](https://www.serverlesslibrary.net/?technology=Event%20Grid&language=Java) |
 | Hubs de Eventos |[Acionador](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=java#example) | |
-| IoT Hub |[Acionador](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=java#example) | |
+| Hub IoT |[Acionador](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=java#example) | |
 | HTTP |[Acionador](../articles/azure-functions/functions-bindings-http-webhook-trigger.md?tabs=java#example) | [Ligação](https://www.serverlesslibrary.net/?language=Java&filtertext=http) |
 | Armazenamento de filas | [Acionador](../articles/azure-functions/functions-bindings-storage-queue-trigger.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-queue-output.md?tabs=java#example) | [Ligação](https://www.serverlesslibrary.net/?technology=Storage%20Queue&language=Java) |
+| RabbitMQ |[Acionador](../articles/azure-functions/functions-bindings-rabbitmq-trigger.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-rabbitmq-output.md?tabs=java#example) |
 | SendGrid | [Saída](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=java#example) | |
 | Service Bus |[Acionador](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=java#example) | [Ligação](https://www.serverlesslibrary.net/?technology=Service%20Bus%20Queue&language=Java) |
 | SignalR| [Acionador](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=java#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=java#example)<br/>[Saída](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=java) | |
@@ -56,9 +58,10 @@ ms.locfileid: "92116664"
 | Azure Cosmos DB |[Acionador](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=javascript#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=javascript#example) | [Ligação](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=JavaScript) |
 | Event Grid |[Acionador](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=javascript#example) | [Ligação](https://www.serverlesslibrary.net/?technology=Event%20Grid&language=JavaScript) |
 | Hubs de Eventos |[Acionador](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=javascript#example) | |
-| IoT Hub |[Acionador](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=javascript#example) | |
+| Hub IoT |[Acionador](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=javascript#example) | |
 | HTTP |[Acionador](../articles/azure-functions/functions-bindings-http-webhook-trigger.md?tabs=javascript#example) | [Ligação](https://www.serverlesslibrary.net/?language=JavaScript&filtertext=http) |
 | Armazenamento de filas | [Acionador](../articles/azure-functions/functions-bindings-storage-queue-trigger.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-queue-output.md?tabs=javascript#example) | [Ligação](https://www.serverlesslibrary.net/?technology=Storage%20Queue&language=JavaScript) |
+| RabbitMQ |[Acionador](../articles/azure-functions/functions-bindings-rabbitmq-trigger.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-rabbitmq-output.md?tabs=javascript#example) |
 | SendGrid | [Saída](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=javascript#example) | |
 | Service Bus |[Acionador](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=javascript#example) | [Ligação](https://www.serverlesslibrary.net/?technology=Service%20Bus%20Queue&language=JavaScript) |
 | SignalR| [Acionador](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=javascript#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=javascript#example)<br/>[Saída](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=javascript) | |
@@ -74,9 +77,10 @@ ms.locfileid: "92116664"
 | Azure Cosmos DB |[Acionador](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=powershell#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=powershell#example) | [Ligação](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=PowerShell) |
 | Event Grid |[Acionador](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=powershell#example) | [Ligação](https://www.serverlesslibrary.net/?technology=Event%20Grid&language=PowerShell) |
 | Hubs de Eventos |[Acionador](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=powershell#example) | |
-| IoT Hub |[Acionador](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=powershell#example) | |
+| Hub IoT |[Acionador](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=powershell#example) | |
 | HTTP |[Acionador](../articles/azure-functions/functions-bindings-http-webhook-trigger.md?tabs=powershell#example) | [Ligação](https://www.serverlesslibrary.net/?language=PowerShell&filtertext=http) |
 | Armazenamento de filas | [Acionador](../articles/azure-functions/functions-bindings-storage-queue-trigger.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-queue-output.md?tabs=powershell#example) | [Ligação](https://www.serverlesslibrary.net/?technology=Storage%20Queue&language=PowerShell) |
+| RabbitMQ |[Acionador](../articles/azure-functions/functions-bindings-rabbitmq-trigger.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-rabbitmq-output.md?tabs=powershell#example) |
 | SendGrid | [Saída](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=powershell#example) | |
 | Service Bus |[Acionador](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=powershell#example) | [Ligação](https://www.serverlesslibrary.net/?technology=Service%20Bus%20Queue&language=PowerShell) |
 | SignalR| [Acionador](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=powershell#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=powershell#example)<br/>[Saída](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=powershell) | |
@@ -92,9 +96,10 @@ ms.locfileid: "92116664"
 | Azure Cosmos DB |[Acionador](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=python#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=python#example) | [Ligação](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=Python) |
 | Event Grid |[Acionador](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=python#example) | [Ligação](https://www.serverlesslibrary.net/?technology=Event%20Grid&language=Python) |
 | Hubs de Eventos |[Acionador](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=python#example) | |
-| IoT Hub |[Acionador](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=python#example) | |
+| Hub IoT |[Acionador](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=python#example) | |
 | HTTP |[Acionador](../articles/azure-functions/functions-bindings-http-webhook-trigger.md?tabs=python#example) | [Ligação](https://www.serverlesslibrary.net/?language=Python&filtertext=http) |
 | Armazenamento de filas | [Acionador](../articles/azure-functions/functions-bindings-storage-queue-trigger.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-storage-queue-output.md?tabs=python#example) | [Ligação](https://www.serverlesslibrary.net/?technology=Storage%20Queue&language=Python) |
+| RabbitMQ |[Acionador](../articles/azure-functions/functions-bindings-rabbitmq-trigger.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-rabbitmq-output.md?tabs=python#example) |
 | SendGrid | [Saída](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=python#example) | |
 | Service Bus |[Acionador](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=python#example) | [Ligação](https://www.serverlesslibrary.net/?technology=Service%20Bus%20Queue&language=Python) |
 | SignalR| [Acionador](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=python#example)<br/>[Entrada](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=python#example)<br/>[Saída](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=python) | |

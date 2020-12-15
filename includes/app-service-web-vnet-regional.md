@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 86d4eb68866e35300738a15cbd3549485c3cbafb
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 57b2955f8cec059cd20d353eba31dc39ad992d50
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97096427"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97506290"
 ---
 A utilização da Integração VNet regional permite que a sua aplicação aceda:
 
@@ -99,8 +99,8 @@ As rotas do Border Gateway Protocol (BGP) também afetam o tráfego da sua aplic
 Depois de a sua aplicação se integrar com o seu VNet, utiliza o mesmo servidor DNS com o qual o seu VNet está configurado. Por padrão, a sua aplicação não funcionará com as Zonas Privadas Azure DNS. Para trabalhar com as Zonas Privadas Azure DNS, tem de adicionar as seguintes definições de aplicações:
 
 
-1. WEBSITE_DNS_SERVER com o valor 168.63.129.16 1. WEBSITE_DNS_SERVER com o valor 168.63.129.16
-1. WEBSITE_VNET_ROUTE_ALL com o valor 11. WEBSITE_VNET_ROUTE_ALL com o valor 1
+1. WEBSITE_DNS_SERVER com o valor 168.63.129.16
+1. WEBSITE_VNET_ROUTE_ALL com o valor 1
 
 
 Estas definições enviarão todas as suas chamadas de saída da sua app para o seu VNet, além de permitir que a sua aplicação utilize zonas privadas Azure DNS.   Estas definições enviarão todas as chamadas de saída da sua aplicação para o seu VNet. Além disso, permitirá que a app utilize o Azure DNS consultando a Zona Privada de DNS ao nível do trabalhador. Esta funcionalidade deve ser utilizada quando uma aplicação em execução estiver a aceder a uma Zona Privada de DNS.
