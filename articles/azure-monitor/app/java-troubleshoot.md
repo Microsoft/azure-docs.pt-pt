@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: dbc9e48987f527c9579decc3db84091a432a17e5
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 6b578cd03daa6e996a69c03afd327097d6123045
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601021"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607903"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Resolução de problemas e Q e A para Insights de Aplicações para Java SDK
 
@@ -63,7 +63,6 @@ Criou com sucesso a sua aplicação para enviar telemetria a partir do servidor.
 Em alternativa, se o seu cliente for uma aplicação num [telefone ou noutro dispositivo,][platforms]pode enviar telemetria a partir daí.
 
 Utilize a mesma chave de instrumentação para configurar a telemetria do seu cliente e do servidor. Os dados aparecerão no mesmo recurso Application Insights, e poderá correlacionar eventos a partir de cliente e servidor.
-
 
 ## <a name="disabling-telemetry"></a>Telemetria incapacitante
 **Como posso desativar a coleção de telemetria?**
@@ -184,8 +183,7 @@ O Application Insights utiliza `org.apache.http` . Isto é relocalizado dentro d
 >[!NOTE]
 >Se ativar a marcação de nível DEBUG para todos os espaços de nome na aplicação, será honrada por todos os módulos de execução, incluindo `org.apache.http` renomeado como `com.microsoft.applicationinsights.core.dependencies.http` . O Application Insights não poderá aplicar a filtragem destas chamadas porque a chamada de registo está a ser feita pela biblioteca Apache. A exploração madeireira de nível DEBUG produz uma quantidade considerável de dados de registo e não é recomendada para casos de produção ao vivo.
 
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 **Criei insights de aplicação para a minha aplicação de servidor Java. O que mais posso fazer?**
 
 * [Monitorize a disponibilidade das suas páginas web][availability]

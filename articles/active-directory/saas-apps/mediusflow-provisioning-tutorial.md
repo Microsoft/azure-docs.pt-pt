@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4d3ee6df90424788c6f9b6bb4e2055023a5d56a6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 881309c040f6c1bdff758d17ab7f51e935437192
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182075"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607886"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Tutorial: Configure MediusFlow para o provisionamento automático do utilizador
 
@@ -172,11 +172,11 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 11. Reveja os atributos do grupo que são sincronizados de AD AD a MediusFlow na secção **De mapeamento de atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar com os grupos no MediusFlow para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-      |Atributo|Tipo|
-      |---|---|
-      |displayName|String|
-      |externalID|String|
-      |membros|Referência|
+    | Atributo | Tipo |
+    |--|--|
+    | displayName | String |
+    | externalID | String |
+    | membros | Referência |
 
 12. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

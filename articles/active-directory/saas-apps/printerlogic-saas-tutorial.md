@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: jeedes
-ms.openlocfilehash: cb946bc889d37b37f3330b07b18dd3ef3423af28
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 683f765b898d485f74652386025ac7e3556f8477
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515309"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607937"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-printerlogic-saas"></a>Tutorial: Azure Ative Directory integração única (SSO) com PrinterLogic SaaS
 
@@ -39,11 +39,8 @@ Para começar, precisa dos seguintes itens:
 
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
-
-
 * PrinterLogic SaaS suporta SSO iniciado **SP e IDP**
 * PrinterLogic SaaS suporta **provisão de** utilizadores just in time
-
 
 ## <a name="adding-printerlogic-saas-from-the-gallery"></a>Adicionar PrinterLogic SaaS da galeria
 
@@ -55,7 +52,6 @@ Para configurar a integração do PrinterLogic SaaS no AD Azure, é necessário 
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **de galeria,** **digite PrinterLogic SaaS** na caixa de pesquisa.
 1. Selecione **PrinterLogic SaaS** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-printerlogic-saas"></a>Configurar e testar a Azure AD um único sinal de inscrição para o PrinterLogic SaaS
 
@@ -101,7 +97,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     | Nome | Atributo de origem |
     | ---------| ------------ |
-    | Função     | user.assignedroles |
+    | Função | user.assignedroles |
 
     > [!NOTE]
     > Clique [aqui](../develop/active-directory-enterprise-app-role-management.md) para saber como configurar o papel em Azure AD
@@ -130,7 +126,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a PrinterLogic SaaS.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **PrinterLogic SaaS**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -160,9 +156,9 @@ Quando clicar no azulejo Da ImpressoraLogic SaaS no Painel de Acesso, deverá se
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
