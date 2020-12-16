@@ -1,5 +1,5 @@
 ---
-title: Restaurar uma piscina SQL dedicada existente
+title: Restaurar uma piscina SQL dedicada existente (anteriormente SQL DW)
 description: Como guiar para restaurar uma piscina SQL dedicada existente em Azure Synapse Analytics.
 services: synapse-analytics
 author: anumjs
@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d3c84f7d951db715d26042f524f385826197e076
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2ce552a13592c9d26ef70575f98b0b76ecc454ff
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450014"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591997"
 ---
 # <a name="restore-an-existing-dedicated-sql-pool-formerly-sql-dw"></a>Restaurar uma piscina SQL dedicada existente (anteriormente SQL DW)
 
