@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   ms.date: 01/28/2020
-  ms.openlocfilehash: c59610b96367f467926d330b7615025e8a051377
-  ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+  ms.openlocfilehash: 1f7eac5adc9099f4c00b5a12528a74a50965675c
+  ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/11/2020
-  ms.locfileid: "97108659"
+  ms.lasthandoff: 12/15/2020
+  ms.locfileid: "97508004"
 landingContent:
 - title: Azure AD B2C
   linkLists:
@@ -56,7 +56,7 @@ landingContent:
     - text: 'Adicionar identidades sociais e de trabalho: OIDC/OAuth2/SAML'
       url: tutorial-add-identity-providers.md
     - text: Ativar o início de sessão único (SSO)
-      url: session-overview.md
+      url: session-behavior.md
     - text: Personalizar a sua IU/Experiência de Utilizador
       url: customize-ui-with-html.md
     - text: Migração de utilizadores e aplicações

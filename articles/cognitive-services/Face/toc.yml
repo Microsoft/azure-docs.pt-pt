@@ -5,6 +5,8 @@
   items:
     - name: O que é o serviço Face?
       href: Overview.md
+    - name: Novidades
+      href: releasenotes.md
 - name: Guias de Início Rápido
   items:
     - name: Utilizar a biblioteca de cliente ou a API REST
@@ -73,7 +75,7 @@
           href: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
         - name: Node.js
           href: /javascript/api/@azure/cognitiveservices-face
-        - name: Ir
+        - name: Go
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face'
 - name: Recursos
   items:
@@ -97,5 +99,3 @@
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Encriptação
       href: face-encryption-of-data-at-rest.md
-    - name: Notas de versão
-      href: ReleaseNotes.md

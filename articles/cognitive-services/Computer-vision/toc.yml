@@ -48,7 +48,7 @@
         - name: Notas sobre transparência
           items:
             - name: Introdução à Análise Espacial
-              href: /legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+              href: intro-to-spatial-analysis-public-preview.md
             - name: Características e limitações
               href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
         - name: Integração e utilização responsável
