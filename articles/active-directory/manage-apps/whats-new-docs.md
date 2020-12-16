@@ -1,7 +1,7 @@
 ---
 title: Novidades na gestão de aplicações do Azure Ative Directory
 description: Documentação nova e atualizada para a gestão de aplicações do Azure Ative Directory.
-ms.date: 12/03/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,16 +9,30 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 38602482f1a25f212829342fe691d7bb75666d31
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: bad312b777c57a48c3205de588325d477b5773af
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571016"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563403"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestão de aplicações do Azure Ative Directory: Quais as novidades
 
 Bem-vindos às novidades da documentação de gestão de aplicações do Azure Ative Directory. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber quais as novidades com o serviço de gestão de aplicações, veja [as novidades do Azure Ative Directory](../fundamentals/whats-new.md).
+
+## <a name="december-2020"></a>Dezembro de 2020
+
+### <a name="updated-articles"></a>Artigos atualizados
+
+- [Quickstart: Configurar um único sign-on (SSO) baseado no OIDC para uma aplicação no seu inquilino Azure Ative (Azure AD)](add-application-portal-setup-oidc-sso.md)
+- [Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure](application-proxy-add-on-premises-application.md)
+- [Compreenda o sign-on único baseado no OIDC](configure-oidc-single-sign-on.md)
+- [Mover a autenticação da aplicação do AD FS para o AAD](migrate-adfs-apps-to-azure.md)
+- [Trabalhar com servidores proxy existentes no local](application-proxy-configure-connectors-with-proxy-servers.md)
+- [Gestão de aplicações do Azure Ative Directory: Quais as novidades](whats-new-docs.md)
+- [Utilize o relatório de atividade da aplicação AD FS (pré-visualização) para migrar aplicações para Azure AD](migrate-adfs-application-activity.md)
+- [Publicar o Ambiente de Trabalho Remoto com o Proxy de Aplicações do Azure AD](application-proxy-integrate-with-remote-desktop-services.md)
+
 
 ## <a name="november-2020"></a>Novembro de 2020
 
@@ -53,7 +67,7 @@ Bem-vindos às novidades da documentação de gestão de aplicações do Azure A
 ### <a name="new-articles"></a>Artigos novos
 - [Quickstart: Configurar um único sign-on (SSO) baseado no OIDC para uma aplicação no seu inquilino Azure Ative (Azure AD)](add-application-portal-setup-oidc-sso.md)
 - [Quickstart: Atribua os utilizadores a uma app que está a usar o AZure AD como fornecedor de identidade](add-application-portal-assign-users.md)
-- [Novidades no Docs?](whats-new-docs.md)
+- [O que há de novo nos médicos?](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>Artigos atualizados

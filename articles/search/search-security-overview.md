@@ -1,7 +1,7 @@
 ---
 title: Descrição geral da segurança
 titleSuffix: Azure Cognitive Search
-description: A Azure Cognitive Search está em conformidade com SOC 2, HIPAA, e outras certificações. Ligação e encriptação de dados, autenticação e acesso à identidade através de identificadores de segurança do utilizador e do grupo em expressões de filtro.
+description: Conheça as funcionalidades de segurança na Azure Cognitive Search para proteger pontos finais, conteúdos e operações.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.custom: references_regions
-ms.openlocfilehash: 118ee6ffb189b7a5558477912bd6b27ea739afde
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: ffb5a78c13413a46565a9c57c87dc8273742fd24
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516158"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563454"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Segurança em Azure Cognitive Search - visão geral
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: 919688a05081c6f0b717fa4a524da769f2a281fd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 8f21f5fa8ee9035fe594cecff37a63b1ef2115cc
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351627"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563471"
 ---
 # <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps-preview"></a>Implementar sites de Nuxt.js renderizados por servidores na pré-visualização de aplicações web estáticas do Azure
 
@@ -109,7 +109,7 @@ A Azure Static Web Apps implementa a sua aplicação a partir de um repositório
 1. Empurre as suas alterações para o GitHub.
 
     ```bash
-    git push origin master
+    git push origin main
     ```
 
 ## <a name="deploy-your-static-website"></a>Implemente o seu site estático
@@ -139,7 +139,7 @@ A nova conta Static Web Apps precisa de acesso ao repositório com a sua aplica�
 1. Clique **no iniciar sômência com o botão GitHub**
 1. Selecione a **Organização** sob a qual criou o repo para o seu projeto Nuxt.js, que pode ser o seu nome de utilizador GitHub.
 1. Encontre e selecione o nome do repositório que criou anteriormente.
-1. Escolha **o mestre** como ramo da queda do *Ramo.*
+1. Escolha **principal** como ramo da queda do *Ramo.*
 
    :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Ligar o GitHub":::
 
@@ -151,7 +151,7 @@ A azure Static Web Apps é construído para realizar automaticamente tarefas com
 
       :::image type="content" source="media/deploy-nuxtjs/build-tab.png" alt-text="Construir separador":::
 
-1. Digitar na caixa de *texto de localização do artefacto* da App. **dist**
+1. Digitar na caixa de *texto de localização do artefacto* da App. 
 
 ### <a name="review-and-create"></a>Rever e criar
 
@@ -172,7 +172,7 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nuxtjs-starter/actions
 
 Quando criou a aplicação, a Azure Static Web Apps criou um ficheiro de fluxo de trabalho GitHub Actions no seu repositório. Tens de levar este ficheiro para o teu repositório local para que o teu histórico seja sincronizado.
 
-Volte ao terminal e executar o seguinte comando `git pull origin master` .
+Volte ao terminal e executar o seguinte comando `git pull origin main` .
 
 ## <a name="configure-dynamic-routes"></a>Configure rotas dinâmicas
 

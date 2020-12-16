@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: a427c77ec23bb933f96d8aec54ca33169aee84d4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 671ca73cfa898be532521599d1211d2a8081eb4b
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576031"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563267"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Azure Synapse Analytics frequentemente fez perguntas
 
@@ -37,7 +37,7 @@ Funções DE Sinapse RBAC:
 * Utilizador credencial de sinapse (pré-visualização)
 
 Para garantir o seu espaço de trabalho synapse, atribua as Funções RBAC a estes âmbitos RBAC:
-* Áreas de Trabalho
+* Áreas de trabalho
 * Piscinas de faíscas
 * Tempos de integração
 * Serviços ligados
@@ -59,7 +59,7 @@ R: Como ponto de partida, a Azure Synapse trabalha com a análise de custos inco
 
 R: Os espaços de trabalho da Sinapse suportam pastas definidas pelo utilizador.
 
-### <a name="q-can-i-link-more-than-one-power-bi-workspaces-to-a-single-azure-synapse-workspace"></a>P: Posso ligar mais do que um espaço de trabalho Power BI a um único espaço de trabalho Azure Synapse?
+### <a name="q-can-i-link-more-than-one-power-bi-workspace-to-a-single-azure-synapse-workspace"></a>P: Posso ligar mais do que um espaço de trabalho power BI a um único espaço de trabalho Azure Synapse?
     
 R: Atualmente, só é possível ligar um espaço de trabalho power BI a um espaço de trabalho Azure Synapse. 
 
@@ -69,7 +69,7 @@ R: Synapse Link for Apache Spark is GA. Synapse Link para piscina SQL sem servid
 
 ### <a name="q-does-azure-synapse-workspace-support-cicd"></a>P: A azure Synapse workspace Suporta CI/CD? 
 
-A: Sim! Todos os artefactos do Pipeline, cadernos, scripts SQL e definições de trabalho spark vão residir em GIT. Todas as definições de piscina serão armazenadas em GIT como Modelos ARM. Os objetos de piscina SQL dedicados (esquemas, mesas, vistas, etc.) serão geridos com projetos de base de dados com suporte ci/CD.
+A: Sim! Todos os artefactos do Pipeline, cadernos, scripts SQL e definições de trabalho spark vão residir em Git. Todas as definições de piscina serão armazenadas em Git como Modelos ARM. Os objetos de piscina SQL dedicados (esquemas, mesas, vistas, etc.) serão geridos com projetos de base de dados com suporte ci/CD.
 
 ## <a name="pipelines"></a>Pipelines
 
@@ -91,11 +91,11 @@ R: Neste momento, deve recriar manualmente os seus oleodutos Azure Data Factory 
 
 R: Apache Spark for Synapse IS Apache Spark com suporte adicional para integrações com outros serviços (AAD, AzureML, etc.) e bibliotecas adicionais (mssparktuils, Hummingbird) e configurações de desempenho pré-afinadas.
 
-Qualquer carga de trabalho que esteja atualmente a funcionar no Apache Spark funcionará na MSFT Spark sem alterações. 
+Qualquer carga de trabalho que esteja atualmente a funcionar no Apache Spark será executada no Apache Spark para a Azure Synapse sem alterações. 
 
 ### <a name="q-what-versions-of-spark-are-available"></a>P: Que versões de Spark estão disponíveis?
 
-R: Azure Synapse Apache Spark suporta totalmente a Faísca 2.4. Para obter uma lista completa de componentes principais e versão atualmente suportada consulte [o suporte da versão Apache Spark ](./spark/apache-spark-version-support.md).
+R: Azure Synapse Apache Spark suporta totalmente a Faísca 2.4. Para obter uma lista completa de componentes principais e versão atualmente suportada consulte [o suporte da versão Apache Spark](./spark/apache-spark-version-support.md).
 
 ### <a name="q-is-there-an-equivalent-of-dbutils-in-azure-synapse-spark"></a>P: Existe um equivalente de DButils em Azure Synapse Spark?
 
@@ -121,13 +121,13 @@ A forma mais fácil de realizar esta tarefa é cozinhar os dados com a Spark e, 
  
 Para satisfazer este cenário, você deve dar a cada desenvolvedor uma piscina Spark sem servidor que está definida para usar um pequeno número de recursos Spark. Uma vez que as piscinas Spark sem servidor não custam nada, até que sejam usadas ativamente minimiza o custo quando existem vários desenvolvedores. As piscinas partilham metadados (mesas spark) para que possam trabalhar facilmente uns com os outros.
 
-### <a name="q-how-do-i-include-manage-and-install-libraries"></a>P: Como incluo, gero e instalo bibliotecas 
+### <a name="q-how-do-i-include-manage-and-install-libraries"></a>P: Como incluo, gero e instalo bibliotecas?
 
 R: Pode instalar pacotes externos através de um ficheiro requirements.txt enquanto cria a piscina Spark, a partir do espaço de trabalho da sinapse, ou a partir do portal Azure. Ver [Gerir bibliotecas para Apache Spark em Azure Synapse Analytics](./spark/apache-spark-azure-portal-add-libraries.md).
 
 ## <a name="dedicated-sql-pools"></a>Piscinas SQL dedicadas
 
-### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-pools"></a>P: Quais são as diferenças funcionais entre piscinas SQL dedicadas e piscinas sem servidor
+### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-pools"></a>P: Quais são as diferenças funcionais entre piscinas SQL dedicadas e piscinas sem servidor?
 
 R: Pode encontrar uma lista completa de diferenças nas [diferenças de características T-SQL no Synapse SQL](./sql/overview-features.md).
 
@@ -140,7 +140,7 @@ R: Não há "movimento" ou "migração". Pode optar por ativar novas funcionalid
 R: Por padrão, todas as novas piscinas SQL dedicadas serão implantadas num espaço de trabalho; no entanto, se precisar ainda pode criar uma piscina SQL dedicada (anteriormente SQL DW) num fator de forma autónoma. 
 
 
-### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-sql-pool"></a>Q: Quais são as diferenças funcionais entre piscinas SQL dedicadas e piscina SQL sem servidor 
+### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-sql-pools"></a>P: Quais são as diferenças funcionais entre piscinas SQL dedicadas e piscinas SQL sem servidor?
 
 R: Pode encontrar uma lista completa de diferenças nas [diferenças de características T-SQL no Synapse SQL](./sql/overview-features.md).
 

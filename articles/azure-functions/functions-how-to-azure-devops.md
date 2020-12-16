@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 9312094d1d86ea25ebd573e5d14b6d5bd0619cfc
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a3f423a144738fdaa4462606de6ad4a4e34d6775
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108240"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563420"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Entrega contínua utilizando Azure DevOps
 
@@ -26,7 +26,7 @@ Tem duas opções para definir o seu oleoduto:
 
 Para criar um pipeline baseado em YAML, primeiro construa a sua app e, em seguida, implemente a aplicação.
 
-### <a name="build-your-app"></a>Criar a sua aplicação
+### <a name="build-your-app"></a>Compilar a sua aplicação
 
 A forma como constrói a sua aplicação em Azure Pipelines depende da linguagem de programação da sua aplicação. Cada idioma tem passos de construção específicos que criam um artefacto de implantação. Um artefacto de implantação é usado para implementar a sua aplicação de função em Azure.
 
@@ -216,7 +216,7 @@ steps:
 
 Os modelos em Azure DevOps são grupos pré-finidos de tarefas que constroem ou implementam uma aplicação.
 
-### <a name="build-your-app"></a>Criar a sua aplicação
+### <a name="build-your-app"></a>Compilar a sua aplicação
 
 A forma como constrói a sua aplicação em Azure Pipelines depende da linguagem de programação da sua aplicação. Cada idioma tem passos de construção específicos que criam um artefacto de implantação. Um artefacto de implementação é usado para atualizar a sua aplicação de função em Azure.
 
@@ -258,7 +258,7 @@ Para criar um gasoduto de construção em Azure, utilize o `az functionapp devop
 
     - Você deve ter permissões para criar um token de acesso pessoal GitHub (PAT) que tenha permissões suficientes. Para mais informações, consulte [os requisitos de permissão do GitHub PAT.](/azure/devops/pipelines/repos/github#repository-permissions-for-personal-access-token-pat-authentication)
 
-    - Você deve ter permissões para se comprometer com o ramo principal no seu repositório GitHub para que possa cometer o ficheiro YAML autogerido.
+    - Tem de ter permissões para se comprometer com o ramo principal no seu repositório GitHub para que possa cometer o ficheiro YAML autogerido.
 
 - Se o seu código estiver em Azure Repos:
 
