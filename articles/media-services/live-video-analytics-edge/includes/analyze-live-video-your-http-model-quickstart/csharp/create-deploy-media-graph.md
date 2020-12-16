@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: d4a712a20c1c172fe5a2792636a8d6e9573358b7
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 304f62def117d1b1a803b2f604151c5e52dbe7be
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97486828"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97532159"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examine e edite os ficheiros de amostra
 
@@ -95,7 +95,7 @@ Como parte dos pré-requisitos, descarregou o código de amostra para uma pasta.
    Executing operation GraphTopologyList
    -----------------------  Request: GraphTopologyList  --------------------------------------------------
    {
-   "@apiVersion": "1.0"
+   "@apiVersion": "2.0"
    }
    ---------------  Response: GraphTopologyList - Status: 200  ---------------
    {
@@ -113,7 +113,7 @@ Como parte dos pré-requisitos, descarregou o código de amostra para uma pasta.
 
          ```
          {
-           "@apiVersion": "1.0",
+           "@apiVersion": "2.0",
            "name": "Sample-Graph-1",
            "properties": {
              "topologyName": "InferencingWithHttpExtension",

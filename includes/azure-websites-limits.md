@@ -4,19 +4,19 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 800dc50f82fa47228f1a88a143c5b515168812a6
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 6265a7cde8e276570409238cadfd5ebc777b4527
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755451"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97531953"
 ---
-| Recurso | Gratuito | Partilhado | Básica | Standard | Premium (v3) | Isolado </th> |
+| Recurso | Gratuito | Partilhado | Básica | Standard | Premium (v1-v3) | Isolado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Aplicativos web, móveis ou API](https://azure.microsoft.com/services/app-service/) por [plano de Serviço de Aplicações Azure](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup>|
 | [Plano de Serviço de Aplicações](../articles/app-service/overview-hosting-plans.md) |10 por região |10 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos|
 | Tipo de instância computacional |Partilhado |Partilhado |Dedicado<sup>3</sup> |Dedicado<sup>3</sup> |Dedicado<sup>3</sup></p> |Dedicado<sup>3</sup>|
-| [Escala (instâncias](../articles/app-service/manage-scale-up.md) máximas) |1 compartilhado |1 compartilhado |3<sup>dedicados 3</sup> |10<sup>dedicados 3</sup> |30<sup>dedicados 3</sup>|100<sup>dedicados 4</sup>|
+| [Escala (instâncias](../articles/app-service/manage-scale-up.md) máximas) |1 compartilhado |1 compartilhado |3<sup>dedicados 3</sup> |10<sup>dedicados 3</sup> | 20 dedicados à v1 e v2; 30 dedicados à V3. <sup>3</sup>|100<sup>dedicados 4</sup>|
 | Armazenamento<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup> <br/><br/> Para mais de 250 GB, apresente um pedido de apoio. |1 TB<sup>5</sup> <br/><br/> A quota de armazenamento disponível é de 999 GB. |
 | Tempo de CPU (5 minutos)<sup>6</sup> |3 minutos |3 minutos |Ilimitado, pagar a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pagar a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pagar a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pagar a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a>|
 | Hora do CPU (dia)<sup>6</sup> |60 minutos |240 minutos |Ilimitado, pagar a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pagar a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pagar a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pagar a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |
@@ -30,7 +30,7 @@ ms.locfileid: "92755451"
 | Domínios personalizados por app</a> |0 (apenas azurewebsites.net subdomínio)|500 |500 |500 |500 |500 |
 | Suporte [SSL](../articles/app-service/configure-ssl-certificate.md) de domínio personalizado |Não suportado, certificado wildcard para \* .azurewebsites.net disponível por padrão|Não suportado, certificado wildcard para \* .azurewebsites.net disponível por padrão|Conexões SNI SSL ilimitadas |Conexões SNI SSL ilimitadas e 1 IP SSL incluídas |Conexões SNI SSL ilimitadas e 1 IP SSL incluídas | Conexões SNI SSL ilimitadas e 1 IP SSL incluídas|
 | Ligações híbridas | | | 5 por plano | 25 por plano | 200 por app | 200 por app |
-| [Integração de Rede Virtual](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
+| [Integração da Rede Virtual](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
 | Equilibrador de carga integrado | |X |X |X |X |X<sup>10</sup> |
 | [Restrições de acesso](../articles/app-service/networking-features.md#access-restrictions) | 512 regras por app | 512 regras por app | 512 regras por app | 512 regras por app | 512 regras por app | 512 regras por app |
 | [Sempre ligado](../articles/app-service/configure-common.md) | | |X |X |X |X |

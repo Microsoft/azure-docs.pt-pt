@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 8319de85cdd8b3527fc6bfb13dd9ed1e8f6fc0fa
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
-ms.translationtype: HT
+ms.openlocfilehash: 766dd13f58268c044435a22fb30c1de816d4d151
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97486864"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97531893"
 ---
 Siga estes passos para executar o código de amostra:
 
@@ -33,7 +33,7 @@ Siga estes passos para executar o código de amostra:
     Executing operation GraphTopologyList
     -----------------------  Request: GraphTopologyList  --------------------------------------------------
     {
-        "@apiVersion": "1.0"
+        "@apiVersion": "2.0"
     }
     ---------------  Response: GraphTopologyList - Status: 200  ---------------
     {
@@ -50,7 +50,7 @@ Siga estes passos para executar o código de amostra:
          
     ```
     {
-      "@apiVersion": "1.0",
+      "@apiVersion": "2.0",
       "name": "Sample-Graph",
       "properties": {
         "topologyName": "MotionDetection",

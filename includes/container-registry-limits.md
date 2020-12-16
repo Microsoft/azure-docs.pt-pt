@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 3f68ca0fc577e6cf3f896ede0418f11f59756701
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4d8f8783e9f6eece4de8dc1c35740fa7aaf03f8
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86512623"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97531991"
 ---
 | Recurso | Básica | Standard | Premium |
 |---|---|---|---|
@@ -22,8 +22,8 @@ ms.locfileid: "86512623"
 | Tamanho máximo da camada de imagem (GiB) | 200 | 200 | 200 |
 | Leituras por minuto<sup>2, 3</sup> | 1,000 | 3.000 | 10,000 |
 | WriteOps por minuto<sup>2, 4</sup> | 100 | 500 | 2.000 |
-| Baixar largura de banda MBps<sup>2</sup> | 30 | 60 | 100 |
-| Carregar largura de banda MBps<sup>2</sup> | 10 | 20 | 50 |
+| Baixar largura de banda Mbps<sup>2</sup> | 30 | 60 | 100 |
+| Carregar largura de banda Mbps<sup>2</sup> | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 500 |
 | Georreplicação | N/D | N/D | [Suportado][geo-replication] |
 | Confiança de conteúdo | N/D | N/D | [Suportado][content-trust] |
@@ -39,7 +39,7 @@ ms.locfileid: "86512623"
 
 <sup>1</sup> Armazenamento incluído na diária para cada nível. Para armazenamento adicional, é-lhe cobrada uma taxa diária adicional por GiB, até ao limite de armazenamento. Para obter informações sobre tarifas, consulte [os preços do registo do contentor Azure][pricing].
 
-<sup>2</sup>*ReadOps,* *WriteOps*e *Bandwidth* são estimativas mínimas. O Registo de Contentores Azure esforça-se para melhorar o desempenho conforme o uso requer.
+<sup>2</sup>*ReadOps,* *WriteOps* e *Bandwidth* são estimativas mínimas. O Registo de Contentores Azure esforça-se para melhorar o desempenho conforme o uso requer.
 
 <sup>3</sup> Um [puxão de estivar](https://docs.docker.com/registry/spec/api/#pulling-an-image) traduz-se em múltiplas operações de leitura com base no número de camadas na imagem, mais a recuperação do manifesto.
 
