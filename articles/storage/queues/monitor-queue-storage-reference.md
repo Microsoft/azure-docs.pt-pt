@@ -1,20 +1,20 @@
 ---
-title: Referência de dados de monitorização de armazenamento da fila Azure / Microsoft Docs
-description: Referência de registo e métricas para monitorização de dados do armazenamento da Fila Azure.
+title: Referência de dados de monitorização de armazenamento de fila Azure
+description: Referência de registo e métricas para monitorização de dados do Azure Queue Storage.
 author: normesta
 services: azure-monitor
-ms.service: azure-monitor
-ms.topic: reference
-ms.date: 10/02/2020
 ms.author: normesta
+ms.date: 10/02/2020
+ms.topic: reference
+ms.service: azure-monitor
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: a3a07f828bb8ef20da630e909e46f03e8556eb98
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: ba8a82ed1113bfb3e71560ca9a6c713602df21f2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780370"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590652"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Referência de dados de monitorização de armazenamento de fila Azure
 
@@ -26,27 +26,27 @@ As tabelas a seguir listam as métricas da plataforma recolhidas para o Azure St
 
 ### <a name="capacity-metrics"></a>Métricas de capacidade
 
-Os valores das métricas de capacidade são atualizados diariamente (até 24 Horas) . O grão de tempo define o intervalo de tempo para o qual são apresentados os valores das métricas. O grão de tempo suportado para todas as métricas de capacidade é de uma hora (PT1H).
+Os valores das métricas de capacidade são atualizados diariamente (até 24 horas). O grão de tempo define o intervalo de tempo para o qual são apresentados os valores das métricas. O grão de tempo suportado para todas as métricas de capacidade é de uma hora (PT1H).
 
 O Azure Storage fornece as seguintes métricas de capacidade no Monitor Azure.
 
-#### <a name="account-level"></a>Nível de conta
+#### <a name="account-level-capacity-metrics"></a>Métricas de capacidade de nível de conta
 
-[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
+[!INCLUDE [Account-level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
 
-#### <a name="queue-storage"></a>Armazenamento de filas
+#### <a name="queue-storage-metrics"></a>Métricas de armazenamento de fila
 
 Esta tabela mostra [métricas de armazenamento de fila.](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices)
 
 | Métrica | Descrição |
 | ------------------- | ----------------- |
-| Capacidade de Fila | A quantidade de armazenamento de fila utilizada pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
-| Contagem de filas   | O número de filas na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
-| QueueMessageCount | O número aproximado de mensagens de fila no serviço de fila da conta de armazenamento. <br/><br/>Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| **Capacidade de Fila** | A quantidade de Armazenamento de Fila utilizado pela conta de armazenamento. <br><br> Unidade: `Bytes` <br> Tipo de agregação: `Average` <br> Exemplo de valor: `1024` |
+| **Contagem de filas** | O número de filas na conta de armazenamento. <br><br> Unidade: `Count` <br> Tipo de agregação: `Average` <br> Exemplo de valor: `1024` |
+| **QueueMessageCount** | O número aproximado de mensagens de fila na conta de armazenamento. <br><br> Unidade: `Count` <br> Tipo de agregação: `Average` <br> Exemplo de valor: `1024` |
 
 ### <a name="transaction-metrics"></a>Métricas de transação
 
-As métricas de transação são emitidas em cada pedido para uma conta de armazenamento de Azure Storage para Azure Monitor. No caso de não haver atividade na sua conta de armazenamento, não haverá dados sobre métricas de transação no período. Todas as métricas de transação estão disponíveis tanto a nível de serviço de armazenamento de conta como de fila. O grão de tempo define o intervalo de tempo que os valores métricos são apresentados. Os grãos de tempo suportados para todas as métricas de transação são PT1H e PT1M.
+As métricas de transação são emitidas em cada pedido para uma conta de armazenamento de Azure Storage para Azure Monitor. No caso de não haver atividade na sua conta de armazenamento, não haverá dados sobre métricas de transação no período. Todas as métricas de transação estão disponíveis tanto a nível de serviço de conta como de armazenamento de fila. O grão de tempo define o intervalo de tempo que os valores métricos são apresentados. Os grãos de tempo suportados para todas as métricas de transação são PT1H e PT1M.
 
 [!INCLUDE [Transaction metrics](../../../includes/azure-storage-account-transaction-metrics.md)]
 
@@ -79,5 +79,5 @@ A tabela que se segue lista as propriedades dos registos de recursos de armazena
 
 ## <a name="see-also"></a>Ver também
 
-- Consulte [o armazenamento da fila Azure](monitor-queue-storage.md) monitor para uma descrição da monitorização do armazenamento do Azure.
+- Consulte [o armazenamento da fila Azure](monitor-queue-storage.md) monitor para uma descrição da monitorização do armazenamento da fila Azure.
 - Consulte [os recursos de Monitor Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.

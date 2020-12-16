@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6b05e8fbd2f688b4dd5611302c8df1b1deb16ab3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b9e036df91eecadc701664a19905a92c142b7585
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099798"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591908"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Quickstart: Construa uma app Cassandra com Node.js SDK e Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -107,7 +107,7 @@ Este passo é opcional. Se estiver interessado em saber de que forma o código c
 
    ```javascript
    function createTable(next) {
-    var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
+       var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
         client.execute(query, next);
         console.log("created table");
    },
@@ -149,7 +149,7 @@ Este passo é opcional. Se estiver interessado em saber de que forma o código c
             });
         },
     ```  
-    
+
 * Consulte para obter uma chave-valor.
 
     ```javascript
@@ -170,7 +170,7 @@ Este passo é opcional. Se estiver interessado em saber de que forma o código c
 
 Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação. A cadeia de ligação permite que a aplicação comunique com a base de dados alojada.
 
-1. Na sua conta DB Azure Cosmos no [portal Azure,](https://portal.azure.com/)selecione **Connection String** . 
+1. Na sua conta DB Azure Cosmos no [portal Azure,](https://portal.azure.com/)selecione **Connection String**. 
 
 1. Utilize o :::image type="icon" source="./media/create-cassandra-nodejs/copy.png"::: botão no lado direito do ecrã para copiar o valor superior, o PONTO DE CONTACTO.
 
@@ -189,7 +189,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
     A linha 2 deve ter agora um aspeto semelhante a 
 
     `config.username = 'cosmos-db-quickstart';`
-    
+
 1. Copie o valor da PALAVRA-PASSE no portal e cole-o em `<FillMEIN>` na linha 3.
 
     A linha 3 deve ter agora um aspeto semelhante a
@@ -197,27 +197,27 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
     `config.password = '2Ggkr662ifxz2Mg==';`
 
 1. Guarde o ficheiro `config.js`.
-    
+
 ## <a name="use-the-x509-certificate"></a>Utilizar o certificado X509
 
 1. Descarregue o certificado Baltimore CyberTrust Root localmente a partir de [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt) . Mude o nome do ficheiro através da extensão de ficheiro `.cer`.
 
-   O certificado tem o número de série `02:00:00:b9` e a identificação digital SHA1 `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
+   O certificado tem o número de série `02:00:00:b9` e a identificação digital SHA1 `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
 2. Abra `uprofile.js` e mude o `path\to\cert` para apontar para o novo certificado.
 
 3. Guarde `uprofile.js`.
 
 > [!NOTE]
-> Se sentir um erro relacionado com o certificado nos passos posteriores e estiver a funcionar numa máquina Windows, certifique-se de que seguiu o processo de conversão correta de um ficheiro .crt no formato Microsoft .cer abaixo.
+> Se experimentar um erro relacionado com o certificado nos passos posteriores e estiver a funcionar numa máquina Windows, certifique-se de que seguiu o processo para converter corretamente um ficheiro .crt no formato microsoft .cer abaixo.
 > 
 > Clique duas vezes no ficheiro .crt para o abrir no visor do certificado. 
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="Ver e copiar o PONTO DE CONTACTO, o NOME DE UTILIZADOR e a PALAVRA-PASSE do portal do Azure, página da cadeia de ligação":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="Screenshot que mostra a janela do certificado.":::
 >
 > Prima em seguida no assistente de certificado. Selecione Base-64 codificado X.509 (. CER), em seguida, Seguinte.
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Ver e copiar o PONTO DE CONTACTO, o NOME DE UTILIZADOR e a PALAVRA-PASSE do portal do Azure, página da cadeia de ligação":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Screenshot que mostra o Base-64 codificado X.509 (. Opção CER).":::
 >
 > Selecione Procurar (para localizar um destino) e digite um nome de arquivo.
 > Selecione Seguinte então Terminado.
@@ -238,19 +238,19 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 4. Verifique os resultados como esperado na linha de comandos.
 
-    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="Ver e copiar o PONTO DE CONTACTO, o NOME DE UTILIZADOR e a PALAVRA-PASSE do portal do Azure, página da cadeia de ligação":::
+    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="Ver e verificar a saída":::
 
     Prima CTRL+C para parar a execução do programa e feche a janela da consola. 
 
 5. No portal do Azure, abra o **Data Explorer** para consultar, modificar e trabalhar com estes dados novos. 
 
-    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="Ver e copiar o PONTO DE CONTACTO, o NOME DE UTILIZADOR e a PALAVRA-PASSE do portal do Azure, página da cadeia de ligação"::: 
+    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="Ver os dados no Data Explorer"::: 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

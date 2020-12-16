@@ -9,13 +9,13 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: banders
-ms.custom: contperfq2
-ms.openlocfilehash: 05b93fd02ec229306d4e3e150b1e8baab072b597
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 776c207387ee55b998615131baf77e6c13655b49
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672002"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033943"
 ---
 # <a name="change-contact-information-for-an-azure-billing-account"></a>Alterar as informações de contacto de uma conta de faturação do Azure
 

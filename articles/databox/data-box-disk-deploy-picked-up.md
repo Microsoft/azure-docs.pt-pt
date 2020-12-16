@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/20/2020
+ms.date: 12/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: f1d667f55a8be1b701fda6240895dd8f96315cff
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: d529c5900d851368d60099091bb5745660036dea
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94986322"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029894"
 ---
 ::: zone target="docs"
 

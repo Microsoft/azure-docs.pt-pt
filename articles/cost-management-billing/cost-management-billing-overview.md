@@ -8,13 +8,13 @@ ms.date: 10/26/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
-ms.custom: contentperfq2
-ms.openlocfilehash: 1dca2fa938c26ba45f162fae962aec0bfaf6cef7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 34034a99641d75e44783cb5b87af8948b4db1628
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353039"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029945"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>O que é o Azure Cost Management + Faturação?
 

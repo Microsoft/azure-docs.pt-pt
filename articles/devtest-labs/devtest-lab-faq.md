@@ -3,12 +3,12 @@ title: Azure DevTest Labs FAQ Microsoft Docs
 description: Este artigo fornece respostas a algumas das perguntas frequentes (FAQ) sobre Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 1cbea3628d6c8c1b43766140d201ce46964a60b5
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 9fcdc160754822d5c6f22b7349d0e72f0cf22633
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328390"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590278"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ de Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre a Azure DevTest Labs.
@@ -76,8 +76,8 @@ O acesso à segurança é determinado pelo controlo de acesso baseado em funçõ
 
 No âmbito da DevTest Labs, existem dois tipos de funções que definem permissões do utilizador:
 
-- **Dono de**laboratório: Um dono de laboratório tem acesso a todos os recursos do laboratório. Um dono de laboratório pode modificar políticas, ler e escrever para quaisquer VMs, alterar a rede virtual, e assim por diante.
-- **Utilizador do**laboratório : Um utilizador de laboratório pode ver todos os recursos do laboratório, tais como VMs, políticas e redes virtuais. No entanto, um utilizador de laboratório não pode modificar políticas ou quaisquer VMs que foram criados por outros utilizadores.
+- **Dono de** laboratório: Um dono de laboratório tem acesso a todos os recursos do laboratório. Um dono de laboratório pode modificar políticas, ler e escrever para quaisquer VMs, alterar a rede virtual, e assim por diante.
+- **Utilizador do** laboratório : Um utilizador de laboratório pode ver todos os recursos do laboratório, tais como VMs, políticas e redes virtuais. No entanto, um utilizador de laboratório não pode modificar políticas ou quaisquer VMs que foram criados por outros utilizadores.
 
 Também pode criar papéis personalizados em DevTest Labs. Para aprender a criar papéis personalizados em DevTest Labs, consulte [permissões do utilizador Grant para políticas específicas de laboratório.](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
 
@@ -200,7 +200,7 @@ Para copiar os seus VMs existentes para a DevTest Labs:
 Sim, pode anexar vários discos aos seus VMs.
 
 ### <a name="are-gen-2-images-supported-by-devtest-labs"></a>As imagens da Gen 2 são apoiadas pela DevTest Labs?
-Sim. O serviço DevTest Labs suporta [imagens da Gen 2.](../virtual-machines/generation-2.md) No entanto, se ambas as versões Gen 1 e Gen 2 estiverem disponíveis para uma imagem, a DevTest Labs mostra apenas a versão Gen 1 da imagem ao criar um VM. Vê-se a imagem se só houver versão da Gen 2 disponível. 
+Yes. O serviço DevTest Labs suporta [imagens da Gen 2.](../virtual-machines/generation-2.md) No entanto, se ambas as versões Gen 1 e Gen 2 estiverem disponíveis para uma imagem, a DevTest Labs mostra apenas a versão Gen 1 da imagem ao criar um VM. Vê-se a imagem se só houver versão da Gen 2 disponível. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Se eu quiser usar uma imagem do Windows OS para os meus testes, tenho de comprar uma subscrição da MSDN?
 Para utilizar imagens DE OS do cliente Do Windows (Windows 7 ou versão posterior) para o seu desenvolvimento ou teste em Azure, tome um dos seguintes passos:
@@ -357,7 +357,7 @@ Ao utilizar iPs públicos partilhados, as máquinas virtuais em um laboratório 
 
 ### <a name="how-do-i-ensure-that-development-and-test-virtual-machines-are-unable-to-reach-the-public-internet-are-there-any-recommended-patterns-to-set-up-network-configuration"></a>Como posso garantir que as máquinas virtuais de desenvolvimento e de teste não conseguem chegar à internet pública? Existem padrões recomendados para configurar a configuração da rede?
 
-Sim. Há dois aspetos a ter em conta : tráfego de entrada e saída.
+Yes. Há dois aspetos a ter em conta : tráfego de entrada e saída.
 
 - **Tráfego de entrada** – Se a máquina virtual não tiver um endereço IP público, então não pode ser alcançada pela internet. Uma abordagem comum consiste em assegurar que seja definida uma política de nível de subscrição, de modo a que nenhum utilizador possa criar um endereço IP público.
 - **Tráfego de saída** – Se pretender evitar que máquinas virtuais acedam diretamente à internet pública e forcem o tráfego através de uma firewall corporativa, então pode encaminhar o tráfego para o local através de via expressa ou VPN, utilizando o encaminhamento forçado.
@@ -367,7 +367,7 @@ Sim. Há dois aspetos a ter em conta : tráfego de entrada e saída.
 
 Também pode utilizar grupos de segurança de rede para máquinas virtuais ou sub-redes. Este passo adiciona uma camada adicional de proteção para permitir/bloquear o tráfego.
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 ### <a name="why-isnt-my-existing-virtual-network-saving-properly"></a>Porque é que a minha rede virtual existente não está a poupar corretamente?
 Uma possibilidade é que o nome da sua rede virtual contenha períodos. Em caso afirmativo, tente remover os períodos ou substitui-los por hífens. Então, tente novamente salvar a rede virtual.

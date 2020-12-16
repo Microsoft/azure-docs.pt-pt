@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: jeedes
-ms.openlocfilehash: 246eba24f42baacf264c1c6d39ea63a51c62c51f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7e71058e1899cf83e712025b534e51a1be1f6bdb
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457440"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591791"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutorial: Integração do Azure Ative Directory com a Amazon Web Services (AWS) (Tutorial Legado)
 
@@ -119,17 +119,17 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
 6. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos:
 
-    | Name  | Atributo de origem  | Espaço de Nomes |
+    | Nome  | Atributo de origem  | Espaço de Nomes |
     | --------------- | --------------- | --------------- |
     | Nome de FunSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
-    | Função            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes`|
-    | SessãoDuração             | "fornecer um valor entre 900 segundos (15 minutos) a 43200 segundos (12 horas)" |  `https://aws.amazon.com/SAML/Attributes` |
+    | Função | user.assignedroles | `https://aws.amazon.com/SAML/Attributes`|
+    | SessãoDuração | "fornecer um valor entre 900 segundos (15 minutos) a 43200 segundos (12 horas)" |  `https://aws.amazon.com/SAML/Attributes` |
 
-    a. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
+    1. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
-    ![A Screenshot mostra as reclamações do Utilizador com adicionar nova reclamação e guardar chamado.](common/new-save-attribute.png)
+        ![A Screenshot mostra as reclamações do Utilizador com adicionar nova reclamação e guardar chamado.](common/new-save-attribute.png)
 
-    ![Screenshot mostra Gerir as alegações do utilizador onde pode introduzir os valores descritos neste passo.](common/new-attribute-details.png)
+        ![Screenshot mostra Gerir as alegações do utilizador onde pode introduzir os valores descritos neste passo.](common/new-attribute-details.png)
 
     b. Na caixa de texto **'Nome',** digite o nome do atributo indicado para esta linha.
 
@@ -159,7 +159,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     ![Configurar identidade Sign-On única][12]
 
-1. Clique em **Fornecedores de Identidade**e, em seguida, clique em **Criar Fornecedor.**
+1. Clique em **Fornecedores de Identidade** e, em seguida, clique em **Criar Fornecedor.**
 
     ![Configure fornecedor único de Sign-On][13]
 
@@ -179,7 +179,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     ![Configurar Sign-On único verificar][15]
 
-1. Clique em **Funções**e, em seguida, clique em **Criar função**.
+1. Clique em **Funções** e, em seguida, clique em **Criar função**.
 
     ![Configurar papéis de Sign-On único][16]
 
@@ -195,7 +195,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
     b. Em **Escolha uma secção de Fornecedor SAML 2.0**, selecione o fornecedor **SAML** que criou anteriormente (por exemplo: *WAAD*)
 
     c. Selecione **Permitir o acesso a consolas programáticas e AWS Management.**
-  
+
     d. Clique **em seguida: Permissões**.
 
 1. **Procurar acesso ao administrador** na barra de pesquisa e selecionar a caixa de verificação **AdministratorAccess** e, em seguida, clicar em **Seguinte: Tags**.
@@ -222,7 +222,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     c. Clique **em Criar Função**.
 
-    d. Crie o número de funções necessárias e mapeeee-as para o Fornecedor de Identidade.
+    d. Crie o número de funções necessárias e mapee-as para o Fornecedor de Identidade.
 
     > [!NOTE]
     > Da mesma forma, criar outras funções como accountname-finance-admin, accountname-read-only-user, accountname-devops-user, accountname-tpm-user com diferentes políticas a serem anexadas. Mais tarde, estas políticas de função podem ser alteradas de acordo com os requisitos por conta AWS, mas é sempre melhor manter as mesmas políticas para cada papel nas contas AWS.
@@ -253,39 +253,35 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
 1. Abra [o Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) noutra janela.
 
-    a. Inscreva-se no site do Microsoft Graph Explorer utilizando as credenciais de administração global para o seu inquilino.
+    1. Inscreva-se no site do Microsoft Graph Explorer utilizando as credenciais de administração global para o seu inquilino.
 
-    b. Precisa de permissões suficientes para criar os papéis. Clique em **modificar permissões** para obter as permissões necessárias.
+    1. Precisa de permissões suficientes para criar os papéis. Clique em **modificar permissões** para obter as permissões necessárias.
 
-    ![Caixa de diálogo microsoft graph explorer1](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
+        ![Caixa de diálogo microsoft graph explorer1](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
 
-    c. Selecione as permissões seguintes da lista (se ainda não as tiver) e clique em "Modificar permissões" 
+    1. Selecione as permissões seguintes da lista (se ainda não as tiver) e clique em "Modificar permissões" 
 
-    ![Caixa de diálogo microsoft graph explorer2](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
+        ![Caixa de diálogo microsoft graph explorer2](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
 
-    d. Isto irá pedir-lhe para iniciar sessão de novo e aceitar o consentimento. Depois de aceitar o consentimento, inicia sessão no Microsoft Graph Explorer novamente.
+    1. Isto irá pedir-lhe para iniciar sessão de novo e aceitar o consentimento. Depois de aceitar o consentimento, inicia sessão no Microsoft Graph Explorer novamente.
 
-    e. Altere a versão dropdown para **beta**. Para ir buscar todos os diretores de serviço ao seu inquilino, utilize a seguinte consulta:
+    1. Altere a versão dropdown para **beta**. Para ir buscar todos os diretores de serviço ao seu inquilino, utilize a seguinte consulta: `https://graph.microsoft.com/beta/servicePrincipals` . Se estiver a utilizar vários diretórios, pode utilizar o seguinte padrão, que tem o seu domínio principal: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals` .
 
-    `https://graph.microsoft.com/beta/servicePrincipals`
+        ![Caixa de diálogo microsoft Graph Explorer3](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
-    Se estiver a usar vários diretórios, então pode usar o seguinte padrão, que tem o seu domínio principal nele  `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    1. Da lista de diretores de serviços recolhidos, obtenha o que precisa para modificar. Também pode utilizar o Ctrl+F para pesquisar a aplicação a partir de todos os ServicePrincipals listados. Pode utilizar a seguinte consulta utilizando o **ID do Objeto Principal** de Serviço que copiou da página Azure AD Properties para chegar ao respetivo Principal de Serviço.
 
-    ![Caixa de diálogo microsoft Graph Explorer3](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
-  
-    f. Da lista de diretores de serviços recolhidos, obtenha o que precisa para modificar. Também pode utilizar o Ctrl+F para pesquisar a aplicação a partir de todos os ServicePrincipals listados. Pode utilizar a seguinte consulta utilizando o **ID do Objeto Principal** de Serviço que copiou da página Azure AD Properties para chegar ao respetivo Principal de Serviço.
+        `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
+        ![Caixa de diálogo microsoft graph explorer4](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
-    ![Caixa de diálogo microsoft graph explorer4](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
+    1. Extrair a propriedade appRoles do objeto principal do serviço.
 
-    exemplo, Extrair a propriedade appRoles do objeto principal do serviço.
+        ![Caixa de diálogo microsoft graph explorer5](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
-    ![Caixa de diálogo microsoft graph explorer5](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
+    1. Agora precisa de gerar novas funções para a sua aplicação. 
 
-    h. Agora precisa de gerar novas funções para a sua aplicação. 
-
-    i. Abaixo JSON é um exemplo de objeto appRoles. Crie um objeto semelhante para adicionar as funções que pretende para a sua aplicação.
+    1. Abaixo JSON é um exemplo de objeto appRoles. Crie um objeto semelhante para adicionar as funções que pretende para a sua aplicação.
 
     ```
     {
@@ -329,9 +325,9 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
     > [!Note]
     > Só é possível adicionar novas funções após o **msiam_access** para a operação do patch. Além disso, pode adicionar o número de papéis que quiser por sua necessidade da Organização. A Azure AD enviará o **valor** destas funções como valor de reclamação na resposta SAML.
 
-    j. Volte para o Microsoft Graph Explorer e altere o método de **GET** para **PATCH**. Remeje o objeto principal de serviço para ter funções desejadas atualizando a propriedade appRoles semelhante à acima mostrada no exemplo. Clique **em 'Executar' para** executar a operação de correção. Uma mensagem de sucesso confirma a criação do papel para a sua aplicação Amazon Web Services.
+    1. Volte para o Microsoft Graph Explorer e altere o método de **GET** para **PATCH**. Remeje o objeto principal de serviço para ter funções desejadas atualizando a propriedade appRoles semelhante à acima mostrada no exemplo. Clique **em 'Executar' para** executar a operação de correção. Uma mensagem de sucesso confirma a criação do papel para a sua aplicação Amazon Web Services.
 
-    ![Caixa de diálogo microsoft Graph Explorer6](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
+        ![Caixa de diálogo microsoft Graph Explorer6](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
 1. Depois de o Diretor de Serviço ser corrigido com mais funções, pode atribuir Utilizadores/Grupos às respetivas funções. Isto pode ser feito indo ao portal e navegando para a aplicação Amazon Web Services. Clique no separador **Utilizadores e Grupos** na parte superior.
 

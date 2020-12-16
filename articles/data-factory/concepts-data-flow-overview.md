@@ -7,17 +7,17 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 09/02/2020
-ms.openlocfilehash: 32f1602c91d17ef2ad3283d4bc03d00d432641aa
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 12/10/2020
+ms.openlocfilehash: f78cbaedea90a241efddd0eff9cb7503201528c5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027606"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590411"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapeamento de fluxos de dados na Azure Data Factory
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 ## <a name="what-are-mapping-data-flows"></a>O que são fluxos de dados de mapeamento?
 
@@ -27,9 +27,9 @@ Os fluxos de dados de mapeamento proporcionam uma experiência inteiramente visu
 
 ## <a name="getting-started"></a>Introdução
 
-Os fluxos de dados são criados a partir do painel de recursos de fábrica, como oleodutos e conjuntos de dados. Para criar um fluxo de dados, selecione o sinal de mais ao lado **dos Recursos de Fábrica** e, em seguida, selecione Data **Flow** . 
+Os fluxos de dados são criados a partir do painel de recursos de fábrica, como oleodutos e conjuntos de dados. Para criar um fluxo de dados, selecione o sinal de mais ao lado **dos Recursos de Fábrica** e, em seguida, selecione Data **Flow**. 
 
-![Novo fluxo de dados](media/data-flow/new-data-flow.png "novo fluxo de dados")
+![Novo fluxo de dados](media/data-flow/new-data-flow.png)
 
 Esta ação leva-o à tela do fluxo de dados, onde pode criar a sua lógica de transformação. **Selecione Adicionar fonte** para começar a configurar a sua transformação de origem. Para obter mais informações, consulte [a transformação de Fonte.](data-flow-source.md)
 
@@ -37,17 +37,17 @@ Esta ação leva-o à tela do fluxo de dados, onde pode criar a sua lógica de t
 
 O fluxo de dados de mapeamento tem uma tela de autoria única projetada para tornar a lógica de transformação de construção fácil. A tela de fluxo de dados é separada em três partes: a barra superior, o gráfico e o painel de configuração. 
 
-![A screenshot mostra a tela de fluxo de dados com barra superior, gráfico e painel de configuração rotulado.](media/data-flow/canvas1.png "Telas")
+![A screenshot mostra a tela de fluxo de dados com barra superior, gráfico e painel de configuração rotulado.](media/data-flow/canvas-1.png "Telas")
 
 ### <a name="graph"></a>Graph
 
-O gráfico mostra o fluxo de transformação. Mostra a linhagem de dados de origem à medida que flui para um ou mais sumidouros. Para adicionar uma nova fonte, **selecione Adicionar fonte** . Para adicionar uma nova transformação, selecione o sinal de mais no canto inferior direito de uma transformação existente. Saiba mais sobre como [gerir o gráfico de fluxo de dados.](concepts-data-flow-manage-graph.md)
+O gráfico mostra o fluxo de transformação. Mostra a linhagem de dados de origem à medida que flui para um ou mais sumidouros. Para adicionar uma nova fonte, **selecione Adicionar fonte**. Para adicionar uma nova transformação, selecione o sinal de mais no canto inferior direito de uma transformação existente. Saiba mais sobre como [gerir o gráfico de fluxo de dados.](concepts-data-flow-manage-graph.md)
 
-![A screenshot mostra a parte do gráfico da tela com uma caixa de texto de pesquisa.](media/data-flow/canvas2.png "Telas")
+![A screenshot mostra a parte do gráfico da tela com uma caixa de texto de pesquisa.](media/data-flow/canvas-2.png)
 
 ### <a name="configuration-panel"></a>Painel de configuração
 
-O painel de configuração mostra as definições específicas da transformação atualmente selecionada. Se nenhuma transformação for selecionada, mostra o fluxo de dados. Na configuração geral do fluxo de dados, pode editar o nome e a descrição no separador **Geral** ou adicionar parâmetros através do **separador Parâmetros.** Para obter mais informações, consulte [os parâmetros de fluxo de dados de mapeamento.](parameters-data-flow.md)
+O painel de configuração mostra as definições específicas da transformação atualmente selecionada. Se nenhuma transformação for selecionada, mostra o fluxo de dados. Na configuração geral do fluxo de dados, pode adicionar parâmetros através do **separador Parâmetros.** Para obter mais informações, consulte [os parâmetros de fluxo de dados de mapeamento.](parameters-data-flow.md)
 
 Cada transformação contém pelo menos quatro separadores de configuração.
 
@@ -99,63 +99,63 @@ A equipa da Azure Data Factory criou um [guia de afinação de desempenho](conce
 
 ## <a name="available-regions"></a>Regiões disponíveis
 
-Os fluxos de dados de mapeamento estão disponíveis nas seguintes regiões:
+Os fluxos de dados de mapeamento estão disponíveis nas seguintes regiões em ADF:
 
-| Região do Azure | Fluxos de dados em ADF | Fluxos de dados no Estúdio Synapse |
-| ------------ | ----------------- | ---------------------------- |
-|  Austrália Central | | |  
-| Austrália Central 2 | | |
-| Leste da Austrália | ✓ |  ✓ |
-| Sudeste da Austrália   | ✓ | ✓ |
-| Sul do Brasil  | ✓ |  |
-| Canadá Central | ✓ |  |
-| Índia Central | ✓ |   ✓ |
-| E.U.A. Central    | ✓ |   ✓ |
-| Leste da China |      | ✓ |
-| China Leste 2  |   |    |
-| China Não-Regional | | |
-| Norte da China |     | |
-| China Norte 2 | |  |
-| Ásia Leste | ✓ | |
-| E.U.A. Leste   | ✓ | ✓ |
-| E.U.A. Leste 2 | ✓ | ✓ |
-| França Central | ✓ | ✓ |
-| Sul de França  | | |
-| Alemanha Central (Soberano) | | |
-| Alemanha Não Regional (Soberano) | | |
-| Alemanha Norte (Público) | | |
-| Nordeste da Alemanha (Soberano) | | |
-| Alemanha Centro Ocidental (Público) |  | ✓ |
-| Leste do Japão | ✓ |  |
-| Oeste do Japão |  | |
-| Coreia do Sul Central | ✓ |  |
-| Sul da Coreia do Sul | | |
-| E.U.A. Centro-Norte  | ✓ | ✓ |
-| Europa do Norte  | ✓ |    |
-| Leste da Noruega | | |
-| Oeste da Noruega | | |
-| Norte da África do Sul    | ✓ | |
-| Oeste da África do Sul |  |    |
-| E.U.A. Centro-Sul  | | ✓ |
-| Sul da Índia | | |
-| Sudeste Asiático    | ✓ | ✓ |
-| Suíça Norte |   |  |
-| Suíça Oeste | | |
-| Centro dos Emirados Árabes Unidos | | |
-| Uae Norte |  |    |
-| Sul do Reino Unido  | ✓ |   | ✓ |
-| Oeste do Reino Unido |     | ✓ |
-| US DoD Centro | |  |
-| US DoD - Leste | |  |
-| US Gov - Arizona |      |  |
-| Gov dos EUA não-regional | |  |
-| US Gov - Texas | |  |
-| US Gov - Virginia |     |  |
-| E.U.A. Centro-Oeste |     | ✓ |
-| Europa Ocidental   | ✓ |   ✓ |
-| Oeste da Índia | | |
-| E.U.A. Oeste   | ✓ |   |
-| E.U.A. Oeste 2 | ✓ |   ✓ | 
+| Região do Azure | Fluxos de dados em ADF |
+| ------------ | ----------------- |
+|  Austrália Central | |
+| Austrália Central 2 | |
+| Leste da Austrália | ✓ |
+| Sudeste da Austrália   | ✓ |
+| Sul do Brasil  | ✓ |
+| Canadá Central | ✓ |
+| Índia Central | ✓ |
+| E.U.A. Central    | ✓ |
+| Leste da China |      |
+| China Leste 2  |   |
+| China Não-Regional | |
+| Norte da China |     |
+| China Norte 2 | |
+| Ásia Leste | ✓ |
+| E.U.A. Leste   | ✓ |
+| E.U.A. Leste 2 | ✓ |
+| França Central | ✓ |
+| Sul de França  | |
+| Alemanha Central (Soberano) | |
+| Alemanha Não Regional (Soberano) | |
+| Alemanha Norte (Público) | |
+| Nordeste da Alemanha (Soberano) | |
+| Alemanha Centro Ocidental (Público) |  |
+| Leste do Japão | ✓ |
+| Oeste do Japão |  |
+| Coreia do Sul Central | ✓ |
+| Sul da Coreia do Sul | |
+| E.U.A. Centro-Norte  | ✓ |
+| Europa do Norte  | ✓ |
+| Leste da Noruega | |
+| Oeste da Noruega | |
+| Norte da África do Sul    | ✓ |
+| Oeste da África do Sul |  |
+| E.U.A. Centro-Sul  | |
+| Sul da Índia | |
+| Sudeste Asiático    | ✓ |
+| Suíça Norte |   |
+| Suíça Oeste | |
+| Centro dos Emirados Árabes Unidos | |
+| Uae Norte |  |
+| Sul do Reino Unido  | ✓ |
+| Oeste do Reino Unido |     |
+| US DoD Centro | |
+| US DoD - Leste | |
+| US Gov - Arizona |      |
+| Gov dos EUA não-regional | |
+| US Gov - Texas | |
+| US Gov - Virginia |     |
+| E.U.A. Centro-Oeste |     |
+| Europa Ocidental   | ✓ |
+| Oeste da Índia | |
+| E.U.A. Oeste   | ✓ |
+| E.U.A. Oeste 2 | ✓ |
 
 ## <a name="next-steps"></a>Passos seguintes
 

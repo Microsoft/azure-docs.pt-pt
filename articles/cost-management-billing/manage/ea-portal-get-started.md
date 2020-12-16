@@ -9,13 +9,13 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: 0f4f4d934361f1e59eceaaccca680f0cf155bb04
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 88bb4c24489b973aa4230ba6f2b34756f83c7dda
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348964"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030693"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introdução ao portal Azure Enterprise
 

@@ -8,13 +8,13 @@ ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: dc725839d018c281dc784f5f83b256e62d70884d
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: f5555662c6cb5f44be3959ec3d22d1cf1953674d
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635420"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030098"
 ---
 # <a name="azure-enterprise-transfers"></a>Transferências do Azure Enterprise
 

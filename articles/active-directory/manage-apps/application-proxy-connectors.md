@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be5ce5b3eebb2f784469680cf7614df6ca750b55
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 8086bd2a193ac52e76bf8da245063163ab2ea2f9
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658269"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591060"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Compreenda os conectores Proxy de aplicação AD Azure
 
@@ -37,7 +37,7 @@ Precisa de um servidor que execute o Windows Server 2012 R2 ou mais tarde no qua
 O servidor do windows necessita de ter o TLS 1.2 ativado antes de instalar o conector Application Proxy. Para ativar o TLS 1.2 no servidor:
 
 1. Definir as seguintes chaves de registo:
-    
+
     ```
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
@@ -180,13 +180,13 @@ e contadores de desempenho do Windows.
 
 Os conectores têm registos **de administração** e **sessão.** O registo **de administração** inclui eventos-chave e os seus erros. O registo **session** inclui todas as transações e os seus dados de processamento.
 
-Para ver os registos, abra o **Espectador de Eventos** e vá a **Aplicações e Serviços Regista** o  >  **Microsoft**  >  **Conector AadApplicationProxy**  >  **Connector**. Para tornar visível o registo **de Sessão** no menu **Ver,** selecione **Mostrar Registos Analíticos e Debug**. O registo **de Sessão** é normalmente utilizado para a resolução de problemas e é desativado por padrão. Capacite-o a começar a recolher eventos e desativá-lo quando já não for necessário.
+Para ver os registos, abra o **Espectador de Eventos** e vá a **Aplicações e Serviços Regista** o  >    >  **Conector AadApplicationProxy**  >  . Para tornar visível o registo **de Sessão** no menu **Ver,** selecione **Mostrar Registos Analíticos e Debug**. O registo **de Sessão** é normalmente utilizado para a resolução de problemas e é desativado por padrão. Capacite-o a começar a recolher eventos e desativá-lo quando já não for necessário.
 
 Pode examinar o estado do serviço na janela dos Serviços. O conector é composto por dois Serviços Windows: o conector real e o atualizador. Ambos devem correr a toda a hora.
 
  ![Exemplo: Janela de serviços mostrando serviços Azure AD local](./media/application-proxy-connectors/aad-connector-services.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Publicar aplicações em redes e locais separados utilizando grupos de conector](application-proxy-connector-groups.md)
 - [Trabalhar com servidores proxy existentes no local](application-proxy-configure-connectors-with-proxy-servers.md)

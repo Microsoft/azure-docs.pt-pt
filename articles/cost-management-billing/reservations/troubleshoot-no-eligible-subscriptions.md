@@ -7,13 +7,13 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
-ms.date: 11/16/2020
-ms.openlocfilehash: 1b36577c3c0940687f98394f8ea4faae83f371be
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.date: 12/15/2020
+ms.openlocfilehash: ad85bd278b5dff1532f218acc0b8e88515d96070
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887200"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561210"
 ---
 # <a name="troubleshoot-no-eligible-subscriptions"></a>Resolver o erro Nenhuma subscrição elegível
 
@@ -94,8 +94,8 @@ O proprietário da encomenda de reserva atual ou o proprietário da reserva pode
 1. Introduza o endereço de e-mail do utilizador que quer adicionar como proprietário.
 1. Selecione o utilizador e, em seguida, selecione **Guardar**.
 
-Para obter mais informações, veja [Adicionar ou alterar os utilizadores que podem gerir uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+Para obter mais informações, veja [Adicionar ou alterar os utilizadores que podem gerir uma reserva](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Se precisar de pedir a um proprietário de reserva que lhe conceda acesso, reveja [Adicionar ou alterar os utilizadores que podem gerir uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+- Se precisar de pedir a um proprietário de reserva que lhe conceda acesso, reveja [Adicionar ou alterar os utilizadores que podem gerir uma reserva](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).

@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 84e156074d6db837556ba4ed9febdb43bcdf3318
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: cc95913b0ab815449a1cd56c0c9127410a64b600
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902328"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591904"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -41,7 +41,7 @@ Abaixo está uma amostra geral do ciclo de vida CI/CD numa fábrica de dados Azu
 
 1.  Um desenvolvedor [cria um ramo de recurso](source-control.md#creating-feature-branches) para fazer uma mudança. Depuram o seu oleoduto com as suas mudanças mais recentes. Para obter mais informações sobre como depurar um gasoduto, consulte [o desenvolvimento iterativo e a depuração com a Azure Data Factory.](iterative-development-debugging.md)
 
-1.  Depois de um desenvolvedor estar satisfeito com as suas alterações, eles criam um pedido de puxar do seu ramo de recurso para o ramo principal ou colaboração para obter as suas alterações revistas pelos pares.
+1.  Depois de um desenvolvedor estar satisfeito com as suas alterações, eles criam um pedido de puxar da sua filial de recurso para o ramo principal ou de colaboração para obter as suas alterações revistas pelos pares.
 
 1.  Após a aprovação de um pedido de puxão e as alterações são fundidas no ramo principal, as alterações são publicadas na fábrica de desenvolvimento.
 
@@ -235,7 +235,7 @@ Seguem-se algumas diretrizes a seguir quando criar o ficheiro de parâmetros per
       * `-` significa não manter o valor padrão para o parâmetro.
       * `|` é um caso especial para segredos do Azure Key Vault para cordas de ligação ou chaves.
    * `<name>` é o nome do parâmetro. Se estiver em branco, tem o nome da propriedade. Se o valor começar com um `-` personagem, o nome é encurtado. Por exemplo, `AzureStorage1_properties_typeProperties_connectionString` seria encurtado para `AzureStorage1_connectionString` .
-   * `<stype>` é o tipo de parâmetro. Se `<stype>` estiver em branco, o tipo predefinido é `string` . Valores apoiados: `string` , , , , e `securestring` `int` `bool` `object` `secureobject` `array` .
+   * `<stype>` é o tipo de parâmetro. Se `<stype>` estiver em branco, o tipo predefinido é `string` . Valores apoiados: `string` `securestring` , , e `int` `bool` `object` `secureobject` `array` .
 * Especificar uma matriz no ficheiro de definição indica que a propriedade correspondente no modelo é uma matriz. A Data Factory itera através de todos os objetos da matriz utilizando a definição especificada no objeto de execução de integração da matriz. O segundo objeto, uma corda, torna-se o nome da propriedade, que é usada como o nome para o parâmetro para cada iteração.
 * Uma definição não pode ser específica para uma instância de recursos. Qualquer definição aplica-se a todos os recursos desse tipo.
 * Por padrão, todas as cordas seguras, como os segredos do Cofre de Chaves, e cordas seguras, como cordas de ligação, chaves e fichas, são parametrizadas.
@@ -668,7 +668,7 @@ Se estiver a utilizar a integração do Git com a sua fábrica de dados e tiver 
     - As entidades da fábrica de dados dependem umas das outras. Por exemplo, os gatilhos dependem de oleodutos e os gasodutos dependem de conjuntos de dados e outros oleodutos. A publicação seletiva de um subconjunto de recursos pode levar a comportamentos e erros inesperados.
     - Em raras ocasiões, quando precisar de publicação seletiva, considere usar um hotfix. Para mais informações, consulte [o ambiente de produção da Hotfix.](#hotfix-production-environment)
 
-- A equipa da Azure Data Factory não recomenda a atribuição de controlos Azure RBAC a entidades individuais (oleodutos, conjuntos de dados, etc. ) numa fábrica de dados. Por exemplo, se um programador tiver acesso a um pipeline ou um conjunto de dados, deverá conseguir aceder a todos os pipelines ou conjuntos de dados na fábrica de dados. Se sente que precisa implementar muitas funções do Azure dentro de uma fábrica de dados, veja a implementação de uma segunda fábrica de dados.
+- A equipa da Azure Data Factory não recomenda a atribuição de controlos Azure RBAC a entidades individuais (oleodutos, conjuntos de dados, etc.) numa fábrica de dados. Por exemplo, se um programador tiver acesso a um pipeline ou um conjunto de dados, deverá conseguir aceder a todos os pipelines ou conjuntos de dados na fábrica de dados. Se sente que precisa implementar muitas funções do Azure dentro de uma fábrica de dados, veja a implementação de uma segunda fábrica de dados.
 
 -   Não pode publicar de agências privadas.
 

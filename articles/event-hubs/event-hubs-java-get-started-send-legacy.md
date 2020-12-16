@@ -4,12 +4,12 @@ description: Este artigo fornece uma caminhada para criar uma aplicação Java q
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1b973f8c132d9faec4fd6c9185345c0926cc35e1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e77ff762de11a9c8a723b162993db11efe715b66
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88942522"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591553"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Use Java para enviar eventos ou receber eventos de Azure Event Hubs (azure-eventhubs)
 
@@ -74,8 +74,8 @@ public class SimpleSend {
 
     public static void main(String[] args)
             throws EventHubException, ExecutionException, InterruptedException, IOException {
-            
-            
+
+
     }
  }
 ```
@@ -177,12 +177,12 @@ O código deste tutorial baseia-se no [código EventProcessorSample no GitHub,](
 Para utilizar o EventProcessorHost, tem de ter uma conta [Azure Storage][Conta de Armazenamento Azure]:
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com)e selecione **Criar um recurso** no lado esquerdo do ecrã.
-2. Selecione **Armazenamento**e, em seguida, selecione **a conta de Armazenamento**. Na janela da **conta de armazenamento Criar,** escreva um nome para a conta de armazenamento. Complete o resto dos campos, selecione a região desejada e, em seguida, **selecione Criar**.
-   
+2. Selecione **Armazenamento** e, em seguida, selecione **a conta de Armazenamento**. Na janela da **conta de armazenamento Criar,** escreva um nome para a conta de armazenamento. Complete o resto dos campos, selecione a região desejada e, em seguida, **selecione Criar**.
+
     ![Criar uma conta de armazenamento no portal Azure](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-azure-storage-account.png)
 
 3. Selecione a conta de armazenamento recém-criada e, em seguida, selecione **As Teclas de acesso**:
-   
+
     ![Obtenha as suas chaves de acesso no portal Azure](./media/event-hubs-dotnet-framework-getstarted-receive-eph/select-azure-storage-access-keys.png)
 
     Copie o valor da chave1 para um local temporário. Vai utilizá-lo mais tarde no tutorial.
@@ -207,11 +207,11 @@ A biblioteca de clientes Java para Centros de Eventos está disponível para uso
 Para diferentes tipos de ambientes de construção, pode obter explicitamente os mais recentes ficheiros JAR lançados a partir do [Repositório Central de Maven.](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22)
 
 1. Para o exemplo que se segue, comece por criar um novo projeto Maven para uma consola/aplicação shell no seu ambiente de desenvolvimento Java favorito. A aula `ErrorNotificationHandler` chama-se.     
-   
+
     ```java
     import java.util.function.Consumer;
     import com.microsoft.azure.eventprocessorhost.ExceptionReceivedEventArgs;
-   
+
     public class ErrorNotificationHandler implements Consumer<ExceptionReceivedEventArgs>
     {
         @Override
@@ -222,7 +222,7 @@ Para diferentes tipos de ambientes de construção, pode obter explicitamente os
     }
     ```
 2. Utilize o seguinte código para criar uma nova classe designada `EventProcessorSample`. Substitua os espaços reservados pelos valores utilizados quando criou o centro de eventos e a conta de armazenamento:
-   
+
    ```java
    package com.microsoft.azure.eventhubs.samples.eventprocessorsample;
 
@@ -250,13 +250,13 @@ Para diferentes tipos de ambientes de construção, pode obter explicitamente os
            String storageConnectionString = "----AzureStorageConnectionString----";
            String storageContainerName = "----StorageContainerName----";
            String hostNamePrefix = "----HostNamePrefix----";
-        
+
            ConnectionStringBuilder eventHubConnectionString = new ConnectionStringBuilder()
                 .setNamespaceName(namespaceName)
                 .setEventHubName(eventHubName)
                 .setSasKeyName(sasKeyName)
                 .setSasKey(sasKey);
-        
+
            EventProcessorHost host = new EventProcessorHost(
                 EventProcessorHost.createHostName(hostNamePrefix),
                 eventHubName,
@@ -264,7 +264,7 @@ Para diferentes tipos de ambientes de construção, pode obter explicitamente os
                 eventHubConnectionString.toString(),
                 storageConnectionString,
                 storageContainerName);
-        
+
            System.out.println("Registering host named " + host.getHostName());
            EventProcessorOptions options = new EventProcessorOptions();
            options.setExceptionNotification(new ErrorNotificationHandler());
@@ -284,7 +284,7 @@ Para diferentes tipos de ambientes de construção, pode obter explicitamente os
            .thenAccept((unused) ->
            {
                System.out.println("Press enter to stop.");
-               try 
+                 try 
                {
                    System.in.read();
                }
@@ -294,8 +294,8 @@ Para diferentes tipos de ambientes de construção, pode obter explicitamente os
                }
            })
            .thenCompose((unused) ->
-           {
-               return host.unregisterEventProcessor();
+            {
+                return host.unregisterEventProcessor();
            })
            .exceptionally((e) ->
            {
@@ -307,13 +307,13 @@ Para diferentes tipos de ambientes de construção, pode obter explicitamente os
                return null;
            })
            .get(); // Wait for everything to finish before exiting main!
-        
+
            System.out.println("End of sample");
        }
    }
    ```
 3. Criar mais uma classe chamada `EventProcessor` , utilizando o seguinte código:
-   
+
     ```java
     public static class EventProcessor implements IEventProcessor
     {
@@ -332,7 +332,7 @@ Para diferentes tipos de ambientes de construção, pode obter explicitamente os
         {
             System.out.println("SAMPLE: Partition " + context.getPartitionId() + " is closing for reason " + reason.toString());
         }
-        
+
         // onError is called when an error occurs in EventProcessorHost code that is tied to this partition, such as a receiver failure.
         @Override
         public void onError(PartitionContext context, Throwable error)
@@ -353,7 +353,7 @@ Para diferentes tipos de ambientes de construção, pode obter explicitamente os
                     System.out.println("SAMPLE (" + context.getPartitionId() + "," + data.getSystemProperties().getOffset() + "," +
                             data.getSystemProperties().getSequenceNumber() + "): " + new String(data.getBytes(), "UTF8"));
                     eventCount++;
-                    
+
                     // Checkpointing persists the current position in the event stream for this partition and means that the next
                     // time any host opens an event processor on this event hub+consumer group+partition combination, it will start
                     // receiving at the event after this one. 
@@ -361,7 +361,7 @@ Para diferentes tipos de ambientes de construção, pode obter explicitamente os
                     if ((checkpointBatchingCount % 5) == 0)
                     {
                         System.out.println("SAMPLE: Partition " + context.getPartitionId() + " checkpointing at " +
-                            data.getSystemProperties().getOffset() + "," + data.getSystemProperties().getSequenceNumber());
+                               data.getSystemProperties().getOffset() + "," + data.getSystemProperties().getSequenceNumber());
                         // Checkpoints are created asynchronously. It is important to wait for the result of checkpointing
                         // before exiting onEvents or before creating the next checkpoint, to detect errors and to ensure proper ordering.
                         context.checkpoint(data).get();
@@ -426,4 +426,3 @@ Leia os seguintes artigos:
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Funcionalidades e terminologia nos Hubs de Eventos do Azure](event-hubs-features.md)
 - [FAQ dos Hubs de Eventos](event-hubs-faq.md)
-

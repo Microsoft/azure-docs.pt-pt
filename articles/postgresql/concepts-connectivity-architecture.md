@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 680908fdb2b7badcc1bbf713805b638213590877
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: dd125860aab8e64d316a91ec8876a3678c646d52
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508089"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591474"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitetura de conectividade na Base de Dados Azure para PostgreSQL
 Este artigo explica a Base de Dados Azure para a arquitetura de conectividade PostgreSQL, bem como como o tráfego é direcionado para a sua base de dados Azure para postgresQL caso de dados de clientes dentro e fora de Azure.
@@ -30,7 +30,7 @@ O serviço gateway está hospedado em grupo de nódoas apátridas sentadas atrá
 
 Como parte da manutenção contínua do serviço, vamos atualizar periodicamente hardware compute hospedando os gateways para garantir que fornecemos a experiência mais segura e performante. Quando o hardware gateway é renovado, um novo anel dos nós computacional é construído primeiro. Este novo anel serve o tráfego de toda a recém-criada Base de Dados Azure para servidores PostgreSQL e terá um endereço IP diferente dos anéis de gateway mais antigos da mesma região para diferenciar o tráfego. Uma vez que o novo anel esteja totalmente funcional, o hardware gateway mais antigo que serve os servidores existentes está planeado para o desmantelamento. Antes de desativar um hardware gateway, os clientes que executam os seus servidores e se conectam a anéis de gateway mais antigos serão notificados por e-mail e no portal Azure, com três meses de antecedência antes do desmantelamento. O desmantelamento de gateways pode afetar a conectividade dos seus servidores se 
 
-* Você codifica os endereços IP gateway na cadeia de ligação da sua aplicação. Não é **recomendado.** 
+* Você codifica os endereços IP gateway na cadeia de ligação da sua aplicação. Não é **recomendado.** Deverá utilizar o nome de domínio totalmente qualificado (FQDN) do seu servidor no formato <servername> .postgres.database.azure.com, na cadeia de ligação para a sua aplicação. 
 * Não atualize os novos endereços IP gateway na firewall do lado do cliente para permitir que o tráfego de saída possa chegar aos nossos novos anéis de gateway.
 
 A tabela que se segue lista os endereços IP gateway da Base de Dados Azure para gateway PostgreSQL para todas as regiões de dados. As informações mais atualizadas dos endereços IP gateway para cada região são mantidas no quadro abaixo. Na tabela abaixo, as colunas representam o seguinte:

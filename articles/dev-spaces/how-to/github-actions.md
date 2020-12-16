@@ -7,12 +7,12 @@ description: Rever e testar alterações a partir de um pedido de pull diretamen
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, GitHub Actions, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
 manager: gwallace
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 9bed61861c80f141270e50b644b32ae42fbe8e77
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 447c41055ededfc55e44bebd92de89b3d23de3c7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995574"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591570"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>GitHub Actions & Serviço Azure Kubernetes (pré-visualização)
 
@@ -103,7 +103,7 @@ Navegue para o seu repositório forcado e clique em *Definições*. Clique em *S
 > [!NOTE]
 > Todos estes segredos são usados pela ação do GitHub e são configurados em [.github/workflows/bikes.yml][github-action-yaml].
 
-Opcionalmente, se pretender atualizar o espaço principal após a fusão do seu PR, adicione o *segredo GATEWAY_HOST,* que assume a forma *<MASTER_SPACE>.gateway.<HOST_SUFFIX>,* que neste exemplo é *dev.gateway.fedcab0987.eus.azds.io*. Assim que fundires as tuas mudanças no ramo principal no teu garfo, outra ação será executada para reconstruir e executar toda a tua aplicação no espaço master dev. Neste exemplo, o espaço principal é *dev.* Esta ação está configurada em [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+Opcionalmente, se pretender atualizar o espaço principal após a fusão do seu PR, adicione o *segredo GATEWAY_HOST,* que assume a forma *<MASTER_SPACE>.gateway.<HOST_SUFFIX>,* que neste exemplo é *dev.gateway.fedcab0987.eus.azds.io*. Assim que fundir as suas mudanças no ramo principal no seu garfo, outra ação será executada para reconstruir e executar toda a sua aplicação no espaço master dev. Neste exemplo, o espaço principal é *dev.* Esta ação está configurada em [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
 Além disso, se quiser que as alterações no seu Pr decorram num espaço de neto, atualize os *segredos MASTER_SPACE* e *HOST.* Por exemplo, se a sua aplicação estiver em execução em *dev* com um espaço infantil *dev/azureuser1,* para que o PR seja executado num espaço infantil *de dev/azureuser1*:
 

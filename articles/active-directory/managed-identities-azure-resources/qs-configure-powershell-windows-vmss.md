@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2019
+ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d193637122cb388ea2c5012638526719d245f524
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bd7ec1f6cdfc8ecfe32de04f5d06b42f9492b88c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997388"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590907"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Configurar identidades geridas para recursos Azure em conjuntos de escala de máquinas virtuais usando PowerShell
 
@@ -29,6 +29,7 @@ ms.locfileid: "95997388"
 Identidades geridas para recursos Azure fornecem aos serviços Azure uma identidade gerida automaticamente no Azure Ative Directory. Pode utilizar esta identidade para autenticar qualquer serviço que suporte a autenticação AZure AD, sem ter credenciais no seu código. 
 
 Neste artigo, utilizando o PowerShell, aprende-se a executar as identidades geridas para operações de recursos Azure num conjunto de escala de máquina virtual:
+
 - Ativar e desativar a identidade gerida atribuída pelo sistema num conjunto de escala de máquina virtual
 - Adicione e remova uma identidade gerida atribuída pelo utilizador num conjunto de escala de máquina virtual
 

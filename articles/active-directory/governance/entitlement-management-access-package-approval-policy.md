@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e36b2d4576b43544bec89efd326363344b35be9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48b5260e883d85899953240f6ee4f83127681c9e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997087"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591310"
 ---
 # <a name="change-approval-and-requestor-information-preview-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar definições de aprovação e informações solicitadoras (pré-visualização) para um pacote de acesso na gestão de direitos AD da Azure
 
@@ -132,13 +132,15 @@ Por exemplo, se listasses Alice e Bob como os Primeiros Approvers, listasse Caro
 
 1. Sob o Primeiro Aprovante, Segundo Aprovador, ou ambos, clique em **Mostrar definições de pedidos avançados**.
 
-    ![Pacote de acesso - Política - Mostrar definições de pedidos avançados](./media/entitlement-management-access-package-approval-policy/alternate-approvers-click-advanced-request.png)
+    :::image type="content" source="media/entitlement-management-access-package-approval-policy/alternate-approvers-click-advanced-request.png" alt-text="Pacote de acesso - Política - Mostrar definições de pedidos avançados":::
 
-1. Definir **Se não forem tomadas medidas, avançar para os aprovadores alternativos?** **Yes**
+1. Definir **Se não forem tomadas medidas, avançar para os aprovadores alternativos?** 
 
 1. Clique **em Adicionar aprovadores alternativos** e selecione os aprovadores alternativos da lista.
 
     ![Pacote de acesso - Política - Adicionar Aprovadores Alternativos](./media/entitlement-management-access-package-approval-policy/alternate-approvers-add.png)
+
+    Se selecionar o Manager como aprovador para o Primeiro Aprovação, terá uma opção adicional, **gestor de segundo nível como aprovador alternativo,** disponível para escolher no campo de aprovação alternativa. Se selecionar esta opção, tem de adicionar um aprovador de recuo para encaminhar o pedido para o caso de o sistema não encontrar o gestor de segundo nível.
 
 1. No **Forward para os aprovadores alternativos após quantos dias** de caixa, colocar no número de dias os aprovadores têm de aprovar ou negar um pedido. Se nenhum aprovador tiver aprovado ou negado o pedido antes da duração do pedido, o pedido expira (prazo) e o utilizador terá de apresentar outro pedido para o pacote de acesso. 
 
@@ -173,7 +175,7 @@ Para garantir que os utilizadores estão a ter acesso aos pacotes de acesso cert
 
     ![Pacote de acesso - Política-Configurar texto localizado](./media/entitlement-management-access-package-approval-policy/add-localization-question.png)
 
-1. Selecione o **formato Resposta** no qual gostaria que os solicitadores respondessem. Os formatos de resposta incluem: *texto curto,* *escolha múltipla*e texto *longo*.
+1. Selecione o **formato Resposta** no qual gostaria que os solicitadores respondessem. Os formatos de resposta incluem: *texto curto,* *escolha múltipla* e texto *longo*.
  
     ![Pacote de acesso - Política- Selecione a vista e edite o formato de resposta de escolha múltipla](./media/entitlement-management-access-package-approval-policy/answer-format-view-edit.png)
  

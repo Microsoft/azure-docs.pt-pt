@@ -9,13 +9,13 @@ ms.subservice: billing
 ms.topic: tutorial
 ms.date: 10/26/2020
 ms.author: banders
-ms.custom: contentperfq2
-ms.openlocfilehash: c4a9a981017becd0d9343d9c287a4fe9341d7c43
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: ef04c964f0037fcf36fe376084df75ffa0034957
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006154"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027565"
 ---
 # <a name="tutorial-review-your-individual-azure-subscription-bill"></a>Tutorial: Rever a fatura da subscrição do Azure individual
 

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: contentperfq2
-ms.openlocfilehash: 923b03f0c7bbf8d6948a80742530db6cb9b06c25
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 97ae2ba26818bbc306da71af814d9b4f95858b6a
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675900"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032580"
 ---
 # <a name="understand-cost-management-data"></a>Compreender os dados do Cost Management
 
@@ -26,7 +26,7 @@ Se tiver uma subscrição nova, não pode utilizar as funcionalidades do Cost Ma
 
 ## <a name="supported-microsoft-azure-offers"></a>Ofertas suportadas do Microsoft Azure
 
-As seguintes informações mostram as [ofertas atualmente suportadas pelo Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) no Azure Cost Management. Uma oferta do Azure é o tipo de subscrição do Azure que possui. Os dados estão disponíveis no Cost Management a partir da data **Dados disponíveis a partir de** . Se uma subscrição alterar as ofertas, os custos anteriores à data de alteração da oferta deixam de estar disponíveis.
+As seguintes informações mostram as [ofertas atualmente suportadas pelo Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) no Azure Cost Management. Uma oferta do Azure é o tipo de subscrição do Azure que possui. Os dados estão disponíveis no Cost Management a partir da data **Dados disponíveis a partir de**. Se uma subscrição alterar as ofertas, os custos anteriores à data de alteração da oferta deixam de estar disponíveis.
 
 | **Categoria**  | **Nome da oferta** | **ID de quota** | **Número de oferta** | **Dados disponíveis a partir de** |
 | --- | --- | --- | --- | --- |
@@ -83,7 +83,7 @@ Para obter mais informações sobre a disponibilidade dos serviços de avaliaç�
 
 ### <a name="determine-your-offer-type"></a>Determinar o tipo de oferta
 
-Se não vir os dados de uma subscrição e quiser determinar se a sua subscrição se enquadra nas ofertas suportadas, poderá validar o suporte da sua subscrição. Para validar o suporte de uma subscrição do Azure, inicie sessão no portal do Azure. Em seguida, selecione **Todos os Serviços** no menu à esquerda. Na lista de serviços, selecione **Subscrições** . No menu da lista de subscrições, selecione a subscrição pretende verificar. A sua subscrição é mostrada no separador Descrição geral e pode ver a **Oferta** e o **ID de Oferta** . A imagem seguinte mostra um exemplo.
+Se não vir os dados de uma subscrição e quiser determinar se a sua subscrição se enquadra nas ofertas suportadas, poderá validar o suporte da sua subscrição. Para validar o suporte de uma subscrição do Azure, inicie sessão no portal do Azure. Em seguida, selecione **Todos os Serviços** no menu à esquerda. Na lista de serviços, selecione **Subscrições**. No menu da lista de subscrições, selecione a subscrição pretende verificar. A sua subscrição é mostrada no separador Descrição geral e pode ver a **Oferta** e o **ID de Oferta**. A imagem seguinte mostra um exemplo.
 
 ![Exemplo do separador Descrição geral da Subscrição que mostra a Oferta e o ID de Oferta](./media/understand-cost-mgt-data/offer-and-offer-id.png)
 

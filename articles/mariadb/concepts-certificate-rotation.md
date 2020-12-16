@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 29a693ac8ff0b170abf59c9671d4b411b456b540
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 02c0ecfc24b65afd46d75464b5411cfd5cf61857
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346983"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591536"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Compreender as alterações na alteração do CA raiz para a Base de Dados Azure para MariaDB
 
@@ -114,7 +114,7 @@ Para o conector que utiliza o Tempo de Execução da Integração Azure, os cert
 Para o conector que utiliza o Tempo de Execução de Integração Auto-hospedado, onde inclui explicitamente o caminho para o ficheiro cert SSL na sua cadeia de ligação, terá de descarregar o [novo certificado](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) e atualizar o fio de ligação para o utilizar.
 
 ### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7. Preciso de planear um tempo de inatividade de manutenção do servidor de bases de dados para esta mudança?
-Não. Uma vez que a mudança aqui está apenas do lado do cliente para ligar ao servidor de base de dados, não há tempo de inatividade de manutenção necessário para o servidor de base de dados para esta alteração.
+N.º Uma vez que a mudança aqui está apenas do lado do cliente para ligar ao servidor de base de dados, não há tempo de inatividade de manutenção necessário para o servidor de base de dados para esta alteração.
 
 ### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8. E se eu não conseguir um tempo de paragem programado para esta mudança antes de 15 de fevereiro de 2021 (02/15/2021)?
 Uma vez que os clientes utilizados para a ligação ao servidor precisam de estar a atualizar as informações do certificado tal como descrito na secção de correção [aqui,](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity)não precisamos de um tempo de inatividade para o servidor neste caso.
@@ -129,8 +129,12 @@ Estes certificados utilizados pela Base de Dados Azure para MariaDB são forneci
 Uma vez que esta atualização é uma alteração do lado do cliente, se o cliente usou para ler dados a partir do servidor de réplica, também terá de aplicar as alterações para esses clientes.
 
 ###    <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. Se estou a usar a replicação do Data-in, preciso de realizar alguma ação?
+
 Se estiver a utilizar a [replicação de dados](concepts-data-in-replication.md) para ligar à Base de Dados Azure para o MySQL, há duas coisas a considerar:
-*   Se a replicação de dados for de uma máquina virtual (on-prem ou azure virtual machine) para Azure Database for MySQL, é necessário verificar se o SSL está a ser utilizado para criar a réplica. Executar **SHOW SLAVE STATUS** e verificar a seguinte definição.  
+
+> [!NOTE]
+>  Este artigo contém referências ao termo escravo, um termo que a Microsoft já não usa. Quando o termo for removido do software, vamos removê-lo deste artigo.
+*   Se a replicação de dados for de uma máquina virtual (on-prem ou azure virtual machine) para Azure Database for MySQL, é necessário verificar se o SSL está a ser utilizado para criar a réplica. Executar **SHOW SLAVE STATUS** e verificar a seguinte definição. 
 
     ```azurecli-interactive
     Master_SSL_Allowed            : Yes
@@ -149,7 +153,7 @@ Se estiver a utilizar a [replicação de dados](concepts-data-in-replication.md)
 Para verificar se está a utilizar a ligação SSL para ligar ao servidor, consulte a [verificação SSL](howto-configure-ssl.md#verify-the-ssl-connection).
 
 ### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. É necessária alguma ação se já tiver o DigiCertGlobalRootG2 no meu ficheiro de certificado?
-Não. Não é necessária qualquer ação se o seu ficheiro de certificado já tiver o **DigiCertGlobalRootG2**.
+N.º Não é necessária qualquer ação se o seu ficheiro de certificado já tiver o **DigiCertGlobalRootG2**.
 
 ###    <a name="15-what-if-i-have-further-questions"></a>15. E se eu tiver mais perguntas?
 Se tiver dúvidas, obtenha respostas de especialistas comunitários no [Microsoft Q&A](mailto:AzureDatabaseformariadb@service.microsoft.com). Se tiver um plano de apoio e precisar de ajuda técnica, [contacte-nos](mailto:AzureDatabaseformariadb@service.microsoft.com).

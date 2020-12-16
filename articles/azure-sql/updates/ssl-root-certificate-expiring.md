@@ -7,12 +7,12 @@ ms.service: sql-db-mi
 ms.subservice: service
 ms.topic: conceptual
 ms.date: 09/13/2020
-ms.openlocfilehash: b0a10744d2b48fa620b48b731144222199f711c7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 96367b143711c4ec5f3f8d609f048c72c6fded16
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792536"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590856"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-sql-database--sql-managed-instance"></a>Compreender as alterações na alteração root CA para Azure SQL Database & SQL Managed Instance
 
@@ -61,7 +61,7 @@ Não são necessárias ações relativas a esta alteração se não estiver a ut
 Se não atualizar o certificado de raiz antes de 30 de novembro de 2020, as suas aplicações que se ligam via SSL/TLS e que faz a verificação do certificado raiz não poderão comunicar à Base de Dados Azure SQL & SQL Gestd Instance e aplicação experimentarão problemas de conectividade na sua Base de Dados Azure SQL & SQL Managed Instance.
 
 ### <a name="do-i-need-to-plan-a-maintenance-downtime-for-this-changebr"></a>Preciso de planear uma paragem de manutenção para esta mudança?<BR>
-Não. Uma vez que a mudança aqui é apenas do lado do cliente para ligar ao servidor, não há tempo de inatividade de manutenção aqui para esta mudança.
+N.º Uma vez que a mudança aqui é apenas do lado do cliente para ligar ao servidor, não há tempo de inatividade de manutenção aqui para esta mudança.
 
 ### <a name="what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020"></a>E se eu não conseguir um tempo de paragem programado para esta mudança antes de 26 de outubro de 2020?
 Uma vez que os clientes utilizados para a ligação ao servidor precisam de estar a atualizar as informações do certificado tal como descrito na secção de correção [aqui,](./ssl-root-certificate-expiring.md#what-do-i-need-to-do-to-maintain-connectivity)não precisamos de um tempo de inatividade para o servidor neste caso.
@@ -72,7 +72,7 @@ Para os servidores criados depois de 26 de outubro de 2020, pode utilizar o cert
 ### <a name="how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>Com que frequência a Microsoft atualiza os seus certificados ou qual é a política de caducidade?
 Estes certificados utilizados pela Azure SQL Database & SQL Managed Instance são fornecidos pelas Autoridades de Certificados Fidedignos (CA). Assim, o suporte destes certificados na Base de Dados Azure SQL & SQL Managed Instance está ligado ao suporte destes certificados pela CA. No entanto, como neste caso, podem existir bugs imprevistos nestes certificados predefinidos, que precisam de ser corrigidos o mais cedo possível.
 
-### <a name="if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-all-the-read-replicas"></a>Se estou a usar réplicas de leitura, preciso de realizar esta atualização apenas no servidor principal ou em todas as réplicas lidas?
+### <a name="if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-primary-server-or-all-the-read-replicas"></a>Se estiver a usar réplicas de leitura, preciso de realizar esta atualização apenas no servidor primário ou em todas as réplicas lidas?
 Uma vez que esta atualização é uma alteração do lado do cliente, se o cliente usou para ler dados a partir do servidor de réplica, também teremos de aplicar as alterações para esses clientes. 
 
 ### <a name="do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>Temos uma consulta do lado do servidor para verificar se o SSL está a ser utilizado?

@@ -6,15 +6,15 @@ services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 11/27/2019
+ms.date: 12/15/2020
 ms.author: prmitiki
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 769522238939fe8ee786ae51a1b3b6051604451e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acc32f4916f5f7f8fe22eebdd1e72db297cac94c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89071674"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590210"
 ---
 # <a name="convert-a-legacy-exchange-peering-to-an-azure-resource-by-using-powershell"></a>Converter um legado Exchange olhando para um recurso Azure usando PowerShell
 
@@ -22,7 +22,7 @@ Este artigo descreve como converter um legado existente Exchange olhando para um
 
 Se preferir, pode completar este guia utilizando o [portal](howto-legacy-exchange-portal.md)Azure .
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 * Reveja os [pré-requisitos](prerequisites.md) e o [Persimento do Persimento cambial](walkthrough-exchange-all.md) antes de iniciar a configuração.
 
 ### <a name="work-with-azure-powershell"></a>Trabalhar com a Azure PowerShell

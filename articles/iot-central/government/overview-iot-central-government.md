@@ -3,22 +3,20 @@ title: Criar soluções de administração pública com o Azure IoT Central
 description: Aprenda a construir soluções inteligentes da cidade usando modelos de aplicação Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 5f92750217dd0bcf5d7a5074a6187d994f19722a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 72b0e3c3cee0ed9131fe6ee1f50cee10ec03a7b7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126571"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590822"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Criar soluções de administração pública com o Azure IoT Central
 
-
-
-Começa com a construção de soluções inteligentes da cidade utilizando modelos de aplicação Azure IoT Central. Comece agora com **a monitorização da qualidade da água,** **monitorização do consumo de água**e **gestão de resíduos conectados.**
+Começa com a construção de soluções inteligentes da cidade utilizando modelos de aplicação Azure IoT Central. Comece agora com **a monitorização da qualidade da água,** **monitorização do consumo de água** e **gestão de resíduos conectados.**
 
 ## <a name="what-is-water-quality-monitoring-application-template"></a>O que é o modelo de aplicação de monitorização da qualidade da água?   
 
@@ -41,7 +39,6 @@ Começa com o tutorial da [aplicação de monitorização da qualidade da água.
 ## <a name="what-is-water-consumption-monitoring-application-template"></a>O que é o modelo de aplicação de monitorização do consumo de água? 
 
 O rastreio tradicional do consumo de água depende dos operadores de água que lêem manualmente os contadores de consumo de água nos locais dos contadores. Cada vez mais cidades estão a substituir os contadores tradicionais por contadores inteligentes avançados que permitem monitorizar remotamente o consumo e controlar remotamente as válvulas para controlar o fluxo de água. A monitorização do consumo de água aliada à mensagem de feedback digital ao cidadão pode aumentar a consciencialização e reduzir o consumo de água. 
-
 
 A aplicação Water Consumption Monitoring é um modelo de aplicação IoT Central para ajudá-lo a iniciar o desenvolvimento da sua solução IoT para permitir que utilitários de água e cidades monitorizem e controlem remotamente o fluxo de água para reduzir o consumo. 
 

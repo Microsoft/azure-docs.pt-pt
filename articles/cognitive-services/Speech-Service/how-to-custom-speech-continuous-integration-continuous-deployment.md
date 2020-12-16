@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: f82ea154d5949f4d229ac76e7a7ce2a89d15ac13
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7e27c3dd6e70d9a532c326d8187d82e14bf7ddda
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025672"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591621"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD para Voz Personalizada
 
@@ -84,11 +84,11 @@ O [repo do modelo DevOps](https://github.com/Azure-Samples/Speech-Service-DevOps
 
 - Copie o repositório do modelo para a sua conta GitHub e, em seguida, crie recursos Azure e um [principal de serviço](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) para os fluxos de trabalho CI/CD das ações do GitHub.
 - Caminhe pelo "[dev loop interior](https://mitchdenny.com/the-inner-loop/)." Atualizar dados de treino e teste de um ramo de recurso, testar as alterações com um modelo de desenvolvimento temporário, e levantar um pedido de pull para propor e rever as alterações.
-- Quando os dados de formação são atualizados num pedido de puxar para *dominar,* treine modelos com o fluxo de trabalho CI das Ações GitHub.
+- Quando os dados de formação são atualizados num pedido de puxar para *os modelos principais,* treine os modelos com o fluxo de trabalho CI das Ações GitHub.
 - Realize testes de precisão automatizados para estabelecer a Taxa de Erro de [Texto](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (WER) de um modelo. Guarde os resultados dos testes em Azure Blob.
 - Execute o fluxo de trabalho do CD para criar um ponto final quando o WER melhorar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre DevOps com Discurso:
 

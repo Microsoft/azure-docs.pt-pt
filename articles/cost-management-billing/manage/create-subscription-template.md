@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 8cc27f5870d5289867b9e1e1760425a2015c35dc
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 21791b096d66b73c522c50f38cae7fd8a1b9fb70
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886571"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507562"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-an-azure-resource-manager-template"></a>Criar programaticamente subscrições do Azure com um modelo do Azure Resource Manager
 
@@ -221,126 +221,126 @@ PUT https://management.azure.com/providers/Microsoft.Resources/deployments/sampl
 {
   "properties":
     {
-        "location": "westus",
-        "properties": {
-            "template": {
-                "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                "contentVersion": "1.0.0.0",
-                "parameters": {},
-                "variables": {
-                    "uniqueAliasName": "sampleAlias"
+      "location": "westus",
+      "properties": {
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {},
+          "variables": {
+            "uniqueAliasName": "sampleAlias"
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Resources/deployments",
+              "apiVersion": "2019-10-01",
+              "name": "sampleTemplate",
+              "location": "westus",
+              "properties": {
+                "expressionEvaluationOptions": {
+                  "scope": "inner"
                 },
-                "resources": [
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                  "contentVersion": "1.0.0.0",
+                  "variables": {
+                    "uniqueAliasName": "sampleAlias"
+                  },
+                  "resources": [
                     {
-                        "type": "Microsoft.Resources/deployments",
-                        "apiVersion": "2019-10-01",
-                        "name": "sampleTemplate",
-                        "location": "westus",
-                        "properties": {
-                            "expressionEvaluationOptions": {
-                                "scope": "inner"
-                            },
-                            "mode": "Incremental",
-                            "template": {
-                                  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                                "contentVersion": "1.0.0.0",
-                                "variables": {
-                                    "uniqueAliasName": "sampleAlias"
-                                },
-                                "resources": [
-                                    {
-                                        "name": "[variables('uniqueAliasName')]",
-                                        "type": "Microsoft.Subscription/aliases",
-                                        "apiVersion": "2020-09-01",
-                                        "properties": {
-                                            "workLoad": "Production",
-                                            "displayName": "Dev Team subscription",
-                                            "billingScope": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"
-                                        },
-                                        "dependsOn": [],
-                                        "tags": {}
-                                    }
-                                ],
-                                "outputs": {
-                                    "subscriptionId": {
-                                        "type": "string",
-                                        "value": "[replace(reference(variables('uniqueAliasName')).subscriptionId, 'invalidrandom/', '')]"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "name": "sampleOuterResource",
-                        "type": "Microsoft.Resources/deployments",
-                        "apiVersion": "2019-10-01",
-                        "location": "westus",
-                        "properties": {
-                            "expressionEvaluationOptions": {
-                                "scope": "inner"
-                            },
-                            "mode": "Incremental",
-                            "parameters": {
-                                "subscriptionId": {
-                                    "value": "[reference('sampleTemplate').outputs.subscriptionId.value]"
-                                }
-                            },
-                            "template": {
-                                "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                            "contentVersion": "1.0.0.0",
-                                "parameters": {
-                                    "subscriptionId": {
-                                        "type": "string"
-                                    }
-                                },
-                                "variables": {},
-                                "resources": [
-                                    {
-                                        "name": "sampleInnerResource",
-                                        "type": "Microsoft.Resources/deployments",
-                                        "subscriptionId": "[parameters('subscriptionId')]",
-                                        "apiVersion": "2019-10-01",
-                                        "location": "westus",
-                                        "properties": {
-                                            "expressionEvaluationOptions": {
-                                                "scope": "inner"
-                                            },
-                                            "mode": "Incremental",
-                                            "parameters": {},
-                                            "template": {
-                                                "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                                                "contentVersion": "1.0.0.0",
-                                                "parameters": {},
-                                                "variables": {},
-                                                "resources": [
-                                                    {
-                                                        "type": "Microsoft.Resources/resourceGroups",
-                                                        "apiVersion": "2020-05-01",
-                                                        "location": "[deployment().location]",
-                                                        "name": "sampleRG",
-                                                        "properties": {},
-                                                        "tags": {}
-                                                    }
-                                                ],
-                                                "outputs": {}
-                                            }
-                                        }
-                                    }
-                                ],
-                                "outputs": {}
-                            }
-                        }
+                      "name": "[variables('uniqueAliasName')]",
+                      "type": "Microsoft.Subscription/aliases",
+                      "apiVersion": "2020-09-01",
+                      "properties": {
+                        "workLoad": "Production",
+                        "displayName": "Dev Team subscription",
+                        "billingScope": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"
+                      },
+                      "dependsOn": [],
+                      "tags": {}
                     }
-                ],
-                "outputs": {
-                    "messageFromLinkedTemplate": {
-                        "type": "string",
-                        "value": "[reference('sampleTemplate').outputs.subscriptionId.value]"
+                  ],
+                  "outputs": {
+                    "subscriptionId": {
+                      "type": "string",
+                      "value": "[replace(reference(variables('uniqueAliasName')).subscriptionId, 'invalidrandom/', '')]"
                     }
+                  }
                 }
+              }
             },
-            "mode": "Incremental"
-        }
+            {
+              "name": "sampleOuterResource",
+              "type": "Microsoft.Resources/deployments",
+              "apiVersion": "2019-10-01",
+              "location": "westus",
+              "properties": {
+                "expressionEvaluationOptions": {
+                  "scope": "inner"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                  "subscriptionId": {
+                    "value": "[reference('sampleTemplate').outputs.subscriptionId.value]"
+                  }
+                },
+                "template": {
+                  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+              "contentVersion": "1.0.0.0",
+                  "parameters": {
+                    "subscriptionId": {
+                      "type": "string"
+                    }
+                  },
+                  "variables": {},
+                  "resources": [
+                    {
+                      "name": "sampleInnerResource",
+                      "type": "Microsoft.Resources/deployments",
+                      "subscriptionId": "[parameters('subscriptionId')]",
+                      "apiVersion": "2019-10-01",
+                      "location": "westus",
+                      "properties": {
+                        "expressionEvaluationOptions": {
+                          "scope": "inner"
+                        },
+                        "mode": "Incremental",
+                        "parameters": {},
+                        "template": {
+                          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                          "contentVersion": "1.0.0.0",
+                          "parameters": {},
+                          "variables": {},
+                          "resources": [
+                            {
+                              "type": "Microsoft.Resources/resourceGroups",
+                              "apiVersion": "2020-05-01",
+                              "location": "[deployment().location]",
+                              "name": "sampleRG",
+                              "properties": {},
+                              "tags": {}
+                            }
+                          ],
+                          "outputs": {}
+                        }
+                      }
+                    }
+                  ],
+                  "outputs": {}
+                }
+              }
+            }
+          ],
+          "outputs": {
+            "messageFromLinkedTemplate": {
+              "type": "string",
+              "value": "[reference('sampleTemplate').outputs.subscriptionId.value]"
+            }
+          }
+        },
+        "mode": "Incremental"
+      }
     }
 }
 ```

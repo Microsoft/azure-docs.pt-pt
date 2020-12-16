@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.custom: contperfq1
-ms.openlocfilehash: bb8a52a2258143e1c68ca46ac31a8c986b1bcfe7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: e25b2aeee46617bd62a72d204e1a4bdbc31d08ea
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457143"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030829"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Azure EA Portal
 

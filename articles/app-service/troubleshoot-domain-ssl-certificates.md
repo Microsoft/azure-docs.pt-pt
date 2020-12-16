@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 1cefb5a7b554b9a477f6a51eab3b22b0e8f55378
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8d6f59f64aed2870494fa8697014e670e373337
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88958444"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590363"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Domínio de resolução de problemas e problemas de certificadoS TLS/SSL no Serviço de Aplicações Azure
 
@@ -89,8 +89,8 @@ Este problema pode ocorrer por qualquer uma das seguintes razões:
     **Solução**: Se o certificado for marcado como fraude e não for resolvido após 24 horas, siga estes passos:
 
     1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-    2. Aceda aos **Certificados de Serviço de Aplicações**e selecione o certificado.
-    3. Selecione **a configuração do certificado**passo  >  **2: Verificar**  >  **verificação de domínio**. Este passo envia um aviso de e-mail ao fornecedor de certificados Azure para resolver o problema.
+    2. Aceda aos **Certificados de Serviço de Aplicações** e selecione o certificado.
+    3. Selecione **a configuração do certificado** passo  >  **2: Verificar**  >  **verificação de domínio**. Este passo envia um aviso de e-mail ao fornecedor de certificados Azure para resolver o problema.
 
 ## <a name="custom-domain-problems"></a>Problemas de domínio personalizados
 
@@ -104,7 +104,7 @@ Quando navega no site utilizando o nome de domínio personalizado, recebe a segu
 
 #### <a name="cause-and-solution"></a>Causa e solução
 
-**Causa 1** 
+**Motivo 1** 
 
 O domínio personalizado que configuraste está a faltar um registo CNAME ou A. 
 
@@ -114,13 +114,13 @@ O domínio personalizado que configuraste está a faltar um registo CNAME ou A.
 - Se não tiver de utilizar o domínio raiz para a sua aplicação, recomendamos que utilize um registo CNAME em vez de um registo A.
 - Não utilize um registo CNAME e um registo A para o mesmo domínio. Esta questão pode causar um conflito e impedir que o domínio seja resolvido. 
 
-**Causa 2** 
+**Motivo 2** 
 
 O navegador de Internet ainda pode estar a caching o antigo endereço IP para o seu domínio. 
 
 **Solução para a Causa 2**
 
-Limpe o navegador. Para dispositivos Windows, pode executar o comando `ipconfig /flushdns` . Utilize [WhatsmyDNS.net](https://www.whatsmydns.net/) para verificar se o seu domínio aponta para o endereço IP da aplicação. 
+Limpe o navegador. Para dispositivos Windows, pode executar o comando `ipconfig /flushdns` . Utilize [WhatsmyDNS.net](https://www.whatsmydns.net/) para verificar se o seu domínio aponta para o endereço IP da aplicação.
 
 ### <a name="you-cant-add-a-subdomain"></a>Não se pode adicionar um subdomínio 
 
@@ -185,13 +185,13 @@ O certificado do Serviço de Aplicações foi renovado, mas a aplicação que ut
 
 #### <a name="cause"></a>Causa 
 O Serviço de Aplicações sincroniza automaticamente o seu certificado dentro de 48 horas. Quando gira ou atualiza um certificado, por vezes o pedido ainda está a recuperar o certificado antigo e não o certificado recém-actualizado. A razão é que o trabalho de sincronizar o recurso do certificado ainda não foi executado. Clique em Sync. A operação de sincronização atualiza automaticamente as ligações do nome anfitrião para o certificado no Serviço de Aplicações sem causar qualquer tempo de inatividade nas suas apps.
- 
+
 #### <a name="solution"></a>Solução
 
 Pode forçar uma sincronização do certificado:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Certificados de Serviço de Aplicações**e, em seguida, selecione o certificado.
-2. Selecione **Rekey e Sync**e, em seguida, selecione **Sync**. A sincronização leva algum tempo para terminar. 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Certificados de Serviço de Aplicações** e, em seguida, selecione o certificado.
+2. Selecione **Rekey e Sync** e, em seguida, selecione **Sync**. A sincronização leva algum tempo para terminar. 
 3. Quando a sincronização estiver concluída, vê a seguinte notificação: "Atualizou com sucesso todos os recursos com o certificado mais recente."
 
 ### <a name="domain-verification-is-not-working"></a>A verificação de domínio não está a funcionar 
@@ -201,17 +201,17 @@ O certificado de Serviço de Aplicações requer verificação de domínio antes
 
 #### <a name="solution"></a>Solução
 Verifique manualmente o seu domínio adicionando um registo TXT:
- 
-1.  Vá ao fornecedor do Serviço de Nome de Domínio (DNS) que acolhe o seu nome de domínio.
-2.  Adicione um registo TXT para o seu domínio que utiliza o valor do token de domínio que é mostrado no portal Azure. 
+
+1. Vá ao fornecedor do Serviço de Nome de Domínio (DNS) que acolhe o seu nome de domínio.
+1. Adicione um registo TXT para o seu domínio que utiliza o valor do token de domínio que é mostrado no portal Azure. 
 
 Aguarde alguns minutos para que a propagação do DNS possa ser executada e, em seguida, selecione o botão **Refresh** para ativar a verificação. 
 
 Como alternativa, pode utilizar o método de página web HTML para verificar manualmente o seu domínio. Este método permite à autoridade de certificado confirmar a propriedade de domínio do domínio para o qual o certificado é emitido.
 
-1.  Crie um ficheiro HTML chamado {token de verificação de domínio}.html. O conteúdo deste ficheiro deve ser o valor da verificação de domínio.
-3.  Faça upload deste ficheiro na raiz do servidor web que está hospedando o seu domínio.
-4.  Selecione **Refresh** para verificar o estado do certificado. Pode levar alguns minutos para a verificação terminar.
+1. Crie um ficheiro HTML nomeado {token de verificação de domínio}.html. O conteúdo deste ficheiro deve ser o valor da verificação de domínio.
+1. Faça upload deste ficheiro na raiz do servidor web que está hospedando o seu domínio.
+1. Selecione **Refresh** para verificar o estado do certificado. Pode levar alguns minutos para a verificação terminar.
 
 Por exemplo, se estiver a comprar um certificado padrão para azure.com com o token de verificação de domínio 1234abcd, um pedido web feito https://azure.com/1234abcd.html deve devolver 1234abcd. 
 
@@ -306,7 +306,7 @@ Quando compra um domínio, não é cobrado por um período de cinco dias, durant
 
 **Posso utilizar o domínio em outra aplicação do Azure App Service na minha subscrição?**
 
-Sim. Ao aceder aos Domínios Personalizados e à lâmina TLS no portal Azure, vê os domínios que adquiriu. Pode configurar a sua aplicação para utilizar qualquer um desses domínios.
+Yes. Ao aceder aos Domínios Personalizados e à lâmina TLS no portal Azure, vê os domínios que adquiriu. Pode configurar a sua aplicação para utilizar qualquer um desses domínios.
 
 **Posso transferir um domínio de uma subscrição para outra subscrição?**
 

@@ -1,5 +1,5 @@
 ---
-title: Soft Delete será ativado em todos os Cofres de Chaves Azure / Microsoft Docs
+title: Ativar a eliminação suave em todos os Cofres de Chaves Azure / Microsoft Docs
 description: Utilize este documento para adotar uma eliminação suave para todos os cofres-chave.
 services: key-vault
 author: ShaneBala-keyvault
@@ -7,19 +7,19 @@ manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 12/15/2020
 ms.author: sudbalas
-ms.openlocfilehash: 0e811cc219002c034afb968be760ce2c249b08f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e512cccdbfdc56500fa7c69372ca38f59d3195c2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825253"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590091"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>A eliminação suave será ativada em todos os cofres-chave
 
 > [!WARNING]
-> **Breaking Change**: A capacidade de excluir o soft-delete será depreciada até ao final do ano e a proteção para eliminação suave será automaticamente ligada para todos os cofres-chave.  Os utilizadores e administradores do Azure Key Vault devem permitir a eliminação suave dos cofres das chaves imediatamente.
+> **Breaking Change**: A capacidade de excluir o soft-delete será depreciada em breve. Os utilizadores e administradores do Azure Key Vault devem permitir a eliminação suave dos cofres das chaves imediatamente.
 >
 > Para o HSM gerido, a eliminação suave é ativada por padrão e não pode ser desativada.
 
@@ -29,9 +29,18 @@ Quando um segredo é eliminado de um cofre sem proteção de eliminação suave,
 
 Para obter detalhes completos sobre a funcionalidade de eliminação suave, consulte [a visão geral do Azure Key Vault.](soft-delete-overview.md)
 
-## <a name="how-do-i-respond-to-breaking-changes"></a>Como respondo a mudanças de rutura
+## <a name="can-my-application-work-with-soft-delete-enabled"></a>A minha aplicação pode funcionar com exclusão suave ativada?
 
-Um objeto de cofre chave não pode ser criado com o mesmo nome que um objeto de cofre chave no estado de apagação suave.  Por exemplo, se eliminar uma chave nomeada `test key` no cofre A, não será capaz de criar uma nova chave chamada `test key` no cofre de chaves A até que o objeto apagado seja `test key` purgado.
+> [!Important] 
+> **Por favor, reveja cuidadosamente as seguintes informações antes de ligar a apagar suavemente para os seus cofres-chave**
+
+Os nomes do Cofre chave são globalmente únicos. Os nomes dos segredos guardados num cofre também são únicos. Não poderá reutilizar o nome de um cofre ou de um objeto de cofre chave que existe no estado suave apagado. 
+
+**Exemplo #1** Se a sua aplicação criar programáticamente um cofre de chaves chamado 'Cofre A' e mais tarde eliminar 'Cofre A'. O cofre será movido para o estado suave apagado. A sua aplicação não será capaz de recriar outro cofre-chave chamado 'Cofre A' até que o cofre da chave seja purgado do estado suave apagado. 
+
+**Exemplo #2** Se a sua aplicação criar uma chave nomeada `test key` no cofre chave A e, mais tarde, eliminar a chave do cofre A, a sua aplicação não será capaz de criar uma nova chave chamada no cofre chave A até que o objeto seja `test key` `test key` purgado do estado suave eliminado. 
+
+Isto pode resultar em erros de conflito se tentar eliminar um objeto de cofre e recriá-lo com o mesmo nome sem o purgar primeiro do estado apagado. Isto pode causar a falha das suas aplicações ou automação. Consulte a sua equipa dev antes de fazer as alterações de aplicação e administração necessárias abaixo. 
 
 ### <a name="application-changes"></a>Alterações de aplicação
 
@@ -59,13 +68,14 @@ Se a sua organização estiver sujeita a requisitos legais de conformidade e nã
 2. Procure "Política Azure".
 3. Selecione "Definições".
 4. Na categoria, selecione "Key Vault" no filtro.
-5. Selecione a política "Key Vault Objects Should Be Recoverable".
+5. Selecione a política "Key Vault deve ter a política de eliminação suave ativada".
 6. Clique em "Atribuir".
 7. Desaça o âmbito da sua subscrição.
-8. Selecione "Review + Create".
-9. Dentro pode levar até 24 horas para uma varredura completa do seu ambiente para completar.
-10. Na Lâmina de Política Azure, clique em "Conformidade".
-11. Selecione a política que aplicou.
+8. Certifique-se de que o efeito da apólice está definido para "Auditoria".
+9. Selecione "Review + Create".
+10. Dentro pode levar até 24 horas para uma varredura completa do seu ambiente para completar.
+11. Na Lâmina de Política Azure, clique em "Conformidade".
+12. Selecione a política que aplicou.
 
 Deverá agora ser capaz de filtrar e ver qual dos seus cofres-chave tem uma eliminação suave ativada (recursos em conformidade) e quais as abóbadas-chave que não têm uma eliminação suave ativada (recursos não conformes).
 
@@ -106,15 +116,11 @@ Siga os passos acima na secção intitulada "Procedimento para auditar os cofres
 
 ### <a name="what-action-do-i-need-to-take"></a>Que ação preciso de tomar?
 
-Certifique-se de que não tem de fazer alterações na sua lógica de aplicação. Assim que tiver confirmado isso, ligue-se a todos os cofres das chaves. Isto garantirá que não será afetado por uma mudança de rutura quando a eliminação suave for ligada para todos os cofres chave no final do ano.
+Certifique-se de que não tem de fazer alterações na sua lógica de aplicação. Assim que tiver confirmado isso, ligue-se a todos os cofres das chaves.
 
 ### <a name="by-when-do-i-need-to-take-action"></a>Quando é que preciso de agir?
 
-A eliminação suave será ligada para todos os cofres chave até ao final do ano. Para se certificar de que as suas aplicações não são afetadas, ligue o mais rapidamente possível nos cofres das chaves.
-
-## <a name="what-will-happen-if-i-dont-take-any-action"></a>O que vai acontecer se eu não tomar nenhuma ação?
-
-Se não tomar nenhuma ação, a eliminação suave será automaticamente ligada para todos os seus cofres chave no final do ano. Isto pode resultar em erros de conflito se tentar eliminar um objeto de cofre e recriá-lo com o mesmo nome sem o purgar primeiro do estado apagado. Isto pode causar a falha das suas aplicações ou automação.
+Para se certificar de que as suas aplicações não são afetadas, ligue o mais rapidamente possível nos cofres das chaves.
 
 ## <a name="next-steps"></a>Passos seguintes
 

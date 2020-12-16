@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8f11f104e8d3d0a4f3a004ebe9f149cb4132d910
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f8ebbdf70836f3f2613183268f03dc43da1f0671
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501491"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590565"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>Criar um espaço de trabalho com proteção de exfiltração de dados ativada
 Este artigo descreve como criar um espaço de trabalho com proteção de exfiltração de dados habilitado e como gerir os inquilinos aprovados da AZure AD para este espaço de trabalho.
@@ -33,7 +33,7 @@ Siga os passos listados no [Quickstart: Crie um espaço de trabalho synapse](../
 1. Selecione "Sim" para a opção "Permitir o tráfego de dados de saída apenas para alvos aprovados".
 1. Escolha os inquilinos AD Azure aprovados para este espaço de trabalho.
 1. Reveja a configuração e crie o espaço de trabalho.
-:::image type="content" source="./media/how-to-create-a-workspace-with-data-exfiltration-protection/workspace-creation-data-exfiltration-protection.png" alt-text="Criar um espaço de trabalho com proteção de exfiltração de dados":::
+:::image type="content" source="./media/how-to-create-a-workspace-with-data-exfiltration-protection/workspace-creation-data-exfiltration-protection.png" alt-text="Screenshot que mostra um espaço de trabalho Create Synapse com 'Enable manage virtual network' selecionado.":::
 
 ## <a name="manage-approved-azure-active-directory-tenants-for-the-workspace"></a>Gerir inquilinos aprovados do Azure Ative Directory para o espaço de trabalho
 1. Do portal Azure do espaço de trabalho, navegue até "Inquilinos aprovados da AD Azure". A lista de inquilinos aprovados da AD AD para o espaço de trabalho será listada aqui. O inquilino do espaço de trabalho está incluído por defeito e não está listado.

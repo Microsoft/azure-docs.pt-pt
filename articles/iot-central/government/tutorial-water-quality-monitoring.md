@@ -3,17 +3,17 @@ title: 'Tutorial: Criar uma app de monitorização da qualidade da água com a A
 description: 'Tutorial: Saiba como criar uma aplicação de monitorização da qualidade da água utilizando modelos de aplicação Azure IoT Central.'
 author: miriambrus
 ms.author: miriamb
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 07f0e66888eaa909dfce14924e9186bcb9b876b4
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 6e8f9b8b33d391c4e13c6076a8589d336455d8c0
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014497"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590227"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Tutorial: Criar uma aplicação de monitorização da qualidade da água no Azure IoT Central
 
@@ -241,11 +241,11 @@ Como construtor, pode alterar várias definições para personalizar a experiên
 
 ### <a name="update-the-application-image"></a>Atualizar a imagem da aplicação
 
-1. Selecione **Administration**  >  **as definições de Aplicação de** Administração .
+1. Selecione   >  **as definições de Aplicação de** Administração .
 
 1. Utilize o botão **de imagem Select** para escolher uma imagem para carregar como imagem de aplicação.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar a utilizar a sua aplicação, elimine a aplicação com os seguintes passos:
 
@@ -254,7 +254,7 @@ Se não continuar a utilizar a sua aplicação, elimine a aplicação com os seg
 
     ![Elimine a sua aplicação](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-application-settings-delete-app1.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Mais informações sobre 
 

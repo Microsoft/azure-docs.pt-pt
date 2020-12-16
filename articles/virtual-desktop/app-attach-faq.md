@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 73fb9bf436c043e903977fafbb5a502e2edc5488
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 78c21e9515965f1c15315967f6a19a0df2838dc2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518690"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591200"
 ---
 # <a name="msix-app-attach-faq"></a>App MSIX anexa FAQ
 
@@ -27,7 +27,7 @@ O MSIX é um formato de embalagem para apps, enquanto o anexo de aplicações MS
 
 O anexo de aplicações MSIX não utiliza FSLogix. No entanto, o anexado de aplicações MSIX e o FSLogix são projetados para trabalhar em conjunto para proporcionar uma experiência de utilizador perfeita.
 
-## <a name="can-i-use-msix-app-attach-outside-of-windows-virtual-desktop"></a>Posso utilizar o anexo de aplicações MSIX fora do Windows Virtual Desktop?
+## <a name="can-i-use-the-msix-app-attach-outside-of-windows-virtual-desktop"></a>Posso utilizar a aplicação MSIX anexada fora do Windows Virtual Desktop?
 
 As APIs que a aplicação MSIX anexa estão disponíveis para o Windows 10 Enterprise. Estes APIs podem ser utilizados fora do Windows Virtual Desktop. No entanto, não existe nenhum plano de gestão para a aplicação MSIX anexada fora do Windows Virtual Desktop.
 
@@ -53,7 +53,7 @@ Para que duas versões das mesmas aplicações MSIX sejam executadas simultaneam
 
 ## <a name="should-i-disable-auto-update-when-using-msix-app-attach"></a>Devo desativar a atualização automática quando utilizar o anexo de aplicações MSIX?
 
-Sim. O anexo de aplicações MSIX não suporta a atualização automática para aplicações MSIX.
+Yes. O anexo de aplicações MSIX não suporta a atualização automática para aplicações MSIX.
 
 ## <a name="how-do-permissions-work-with-msix-app-attach"></a>Como funcionam as permissões com o anexo de aplicações MSIX?
 
@@ -65,7 +65,7 @@ Todos os VMs que fazem parte de um conjunto de anfitriões que utiliza o anexo d
 
 ## <a name="can-i-restage-the-same-msix-application"></a>Posso reesitar a mesma aplicação MSIX?
 
-Sim. Pode reencerar aplicações que já reencenou, e isso não deve causar erros.
+Yes. Pode reencerar aplicações que já reencenou, e isso não deve causar erros.
 
 ## <a name="does-msix-app-attach-support-self-signed-certificates"></a>A aplicação MSIX anexa certificados auto-assinados de suporte?
 

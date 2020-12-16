@@ -9,13 +9,13 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: banders
-ms.custom: contentperfq2
-ms.openlocfilehash: 9311a22575c328e0412398f6b63af84c35ac3c32
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 028f5898c995463df502b314682b6cf054ff288f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94652914"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028857"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Pagamento das suas subscrições do Azure por fatura
 

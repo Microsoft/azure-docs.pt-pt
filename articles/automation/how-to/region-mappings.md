@@ -1,16 +1,16 @@
 ---
 title: Regiões suportadas para a área de trabalho do Log Analytics ligada
 description: Este artigo descreve os mapeamentos da região suportada entre uma conta de Automação e um espaço de trabalho Log Analytics, uma vez que se relaciona com certas características da Azure Automation.
-ms.date: 12/01/2020
+ms.date: 12/15/2020
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 25ddf562f92ca96a505432a58f137657a2bbc4bd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 95537bd54ecb476055608c89ac68a46d410288b6
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446963"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590890"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiões suportadas para a área de trabalho do Log Analytics ligada
 
@@ -44,12 +44,16 @@ A tabela a seguir mostra os mapeamentos suportados:
 |ChinaEast2<sup>3</sup>|ChinaEast2|
 |JapãoEast|JapãoEast|
 |**Europa**||
+|NorthEurope|NorthEurope|
+|FranceCentral|FranceCentral|
 |UKSouth|UKSouth|
 |Europa Ocidental|Europa Ocidental|
 |SuíçaNorth|SuíçaNorth|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
 |USGovArizona<sup>3</sup>|USGovArizona|
+
+
 
 <sup>1</sup> O mapeamento de EastUS para os espaços de trabalho do Log Analytics para as contas de Automação não é um mapeamento de região-a-região exato, mas é o mapeamento correto.
 

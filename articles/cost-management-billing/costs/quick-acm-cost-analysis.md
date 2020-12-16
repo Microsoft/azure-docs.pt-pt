@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: contentperfq2
-ms.openlocfilehash: a7f3c0ea9517f0ce99912f004ac4de07cc981551
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 1926a5a2ee81b6be4abee5e4064a4a23354da1a1
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122671"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033583"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início Rápido: Explorar e analisar os custos com a análise de custos
 

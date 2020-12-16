@@ -10,13 +10,13 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 11/11/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: ab71a7fa3d3f92ecf3e1f73835e41fa7170130e6
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: d37225f988cc906bdd92467afcf3f286220eebda
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636610"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027871"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de faturação de uma subscrição do Azure para outra conta
 

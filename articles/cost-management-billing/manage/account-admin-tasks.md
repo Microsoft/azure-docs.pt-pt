@@ -9,13 +9,13 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: banders
-ms.custom: contentperfq2
-ms.openlocfilehash: c9f344ec6eae40db2c76f3712df6f1f9d8cead37
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: bd46e7b2f0713da67842def47dfeadc837027d8f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668859"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027973"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Tarefas de Administrador de Conta no portal do Azure
 
@@ -30,18 +30,18 @@ Tem de ser o Administrador de Conta para realizar qualquer uma destas tarefas.
 
 1. Inicie sessão no portal do Azure como Administrador de Conta.
 
-1. Procure **Cost Management + Faturação** .
+1. Procure **Cost Management + Faturação**.
 
     ![Captura de ecrã que mostra a pesquisa para Cost Management + Faturação ](./media/account-admin-tasks/search-bar.png)
 
-1. Na lista **As minhas subscrições** , selecione a subscrição à qual quer adicionar o cartão de crédito.
+1. Na lista **As minhas subscrições**, selecione a subscrição à qual quer adicionar o cartão de crédito.
 
    ![Captura de ecrã que mostra a página Cost Management + Faturação em que pode selecionar uma subscrição.](./media/account-admin-tasks/cost-management-billing-overview-x.png)
 
    > [!NOTE]
    > Se não vir algumas das suas subscrições aqui, tal poderá dever-se ao facto de ter alterado o diretório das subscrições em determinado momento. No caso destas subscrições, tem de alterar o diretório para o diretório original (o diretório no qual inicialmente se inscreveu). Em seguida, repita o passo 2.
 
-1. Selecione **Métodos de pagamento** .
+1. Selecione **Métodos de pagamento**.
 
     ![Captura de ecrã que mostra a página Métodos de pagamento em que pode adicionar um método de pagamento.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
 
@@ -63,7 +63,7 @@ Pode alterar o método de pagamento ativo adicionando um novo cartão de crédit
 
     ![Captura de ecrã que mostra a caixa de verificação para tornar o cartão no método de pagamento ativo.](./media/account-admin-tasks/subscription-make-active-payment-method-x.png)
 
-1. Selecione **Seguinte** .
+1. Selecione **Seguinte**.
 
 Para alterar o método de pagamento ativo para um cartão de crédito que já esteja guardado:
 
@@ -81,7 +81,7 @@ Para editar os detalhes do cartão de crédito, como a data de validade ou o end
 
 ![Captura de ecrã que mostra o cartão de crédito selecionado](./media/account-admin-tasks/subscription-edit-payment-method-x.png)
 
-Atualize os detalhes do cartão de crédito e clique em **Guardar** .
+Atualize os detalhes do cartão de crédito e clique em **Guardar**.
 
 ### <a name="remove-a-credit-card-from-the-account"></a>Remover o cartão de crédito da conta
 
@@ -104,7 +104,7 @@ Se for elegível para pagar por fatura (cheque/transferência bancária), pode m
     ![Captura de ecrã que mostra a página Métodos de pagamento com Pagar por fatura selecionado.](./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png)
 
 1. Introduza o endereço para o método de pagamento por fatura.
-1. Clique em **Seguinte** .
+1. Clique em **Seguinte**.
 
 Se quiser ser aprovado para pagar por fatura, veja [como pagar por fatura](pay-by-invoice.md).
 
@@ -119,11 +119,11 @@ O limite de gastos no Azure impede que gaste mais do que o montante do seu créd
 O limite de gastos não está disponível para as subscrições com planos de alocação ou planos com preços pay as you go.
 
 1. Inicie sessão no portal do Azure como Administrador de Conta.
-1. Procure **Cost Management + Faturação** .
+1. Procure **Cost Management + Faturação**.
 
     ![Captura de ecrã que mostra a pesquisa para Cost Management + Faturação ](./media/account-admin-tasks/search-bar.png)
 
-1. Na lista **As minhas subscrições** , selecione a sua subscrição do Visual Studio Enterprise.
+1. Na lista **As minhas subscrições**, selecione a sua subscrição do Visual Studio Enterprise.
 
    ![Captura de ecrã que mostra a área As minhas subscrições em que pode selecionar a sua subscrição do Visual Studio Enterprise.](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
 
@@ -140,25 +140,25 @@ O limite de gastos não está disponível para as subscrições com planos de al
 
 1. Clique em **Selecionar método de pagamento** para escolher um método de pagamento para a sua subscrição. Este passará a ser o método de pagamento ativo para a sua subscrição.
 
-1. Clique em **Concluir** .
+1. Clique em **Concluir**.
 
 ## <a name="add-credits-to-azure-in-open-subscription"></a>Adicionar créditos à subscrição Azure no Licenciamento Open
 
 Se tiver uma subscrição Azure no Licenciamento Open, pode adicionar créditos à sua subscrição no portal do Azure, resgatando uma chave de produto ou comprando créditos com um cartão de crédito.
 
 1. Inicie sessão no portal do Azure como Administrador de Conta.
-1. Procure **Cost Management + Faturação** .
+1. Procure **Cost Management + Faturação**.
 
     ![Captura de ecrã que mostra a pesquisa para Cost Management + Faturação ](./media/account-admin-tasks/search-bar.png)
 
-1. Na lista **As minhas subscrições** , selecione a sua subscrição Azure no Licenciamento Open.
+1. Na lista **As minhas subscrições**, selecione a sua subscrição Azure no Licenciamento Open.
 
     ![Captura de ecrã que mostra a área As minhas subscrições em que pode selecionar a sua subscrição do Azure no Open.](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
    > [!NOTE]
    > Se não vir a sua subscrição aqui, tal poderá dever-se ao facto de ter alterado o diretório em determinado momento. Tem de alterar o diretório da subscrição para o diretório original (o diretório no qual inicialmente se inscreveu). Em seguida, repita o passo 2.
 
-1. Selecione **Histórico de crédito** .
+1. Selecione **Histórico de crédito**.
 
     ![Captura de ecrã que mostra o histórico de crédito](./media/account-admin-tasks/aio-credit-history-blade.png)
 
