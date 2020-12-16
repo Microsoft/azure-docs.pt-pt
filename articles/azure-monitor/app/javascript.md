@@ -4,12 +4,12 @@ description: Obtenha a visualização da página e as contagens de sessão, dado
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: f5f81fe5d3f7f7d24e5e6618ba3956b80451570c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 0588a3eac4ced6cec1e7aea431c6555bbe8bff0a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921876"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559884"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 
@@ -170,7 +170,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Configuração
 A maioria dos campos de configuração são nomeados de modo a que possam ser infringidos a falsos. Todos os campos são opcionais, `instrumentationKey` exceto.
 
-| Nome | Predefinição | Descrição |
+| Name | Predefinição | Descrição |
 |------|---------|-------------|
 | instrumentaçãoKey | nulo | **Obrigatório**<br>Chave de instrumentação que obteve do portal Azure. |
 | accountId | nulo | Um ID de conta opcional, se a sua aplicação agru tiver em conta os utilizadores. Sem espaços, vírgulas, semi-acolchoados, iguais ou barras verticais |
@@ -178,7 +178,7 @@ A maioria dos campos de configuração são nomeados de modo a que possam ser in
 | sessionExpirationMs | 86400000 | Uma sessão é registada se tiver continuado por este tempo em milissegundos. O padrão é de 24 horas |
 | maxBatchSizeInBytes | 10000 | Tamanho máximo do lote de telemetria. Se um lote exceder este limite, é imediatamente enviado e um novo lote é iniciado |
 | maxBatchInterval | 15 000 | Quanto tempo para a telemetria de lote antes de enviar (milissegundos) |
-| desativarExcepçãoTracking | false | Se for verdade, as exceções não são autocolhidas. A predefinição é falso. |
+| desativarExcepçãoTracking | false | Se for verdade, as exceções não são automaticamente recolhidas. A predefinição é falso. |
 | desativar atelemetria | false | Se for verdade, a telemetria não é recolhida ou enviada. A predefinição é falso. |
 | enableDebug | false | Se forem verdadeiros, os dados de depuragem **internos** são lançados como uma exceção **em vez** de serem registados, independentemente das definições de registo SDK. A predefinição é falso. <br>**_Nota:_* _ Ativar esta regulação resultará numa telemetria abandonada sempre que ocorrer um erro interno. Isto pode ser útil para identificar rapidamente problemas com a sua configuração ou utilização do SDK. Se não quiser perder a telemetria durante a depuragem, considere utilizar `consoleLoggingLevel` ou em vez de `telemetryLoggingLevel` `enableDebug` . |
 | loggingLevelConsole | 0 | Registos _ *internos** Erros de Insights de Aplicação para consolar. <br>0: desligado, <br>1: Apenas erros críticos, <br>2: Tudo (erros & avisos) |

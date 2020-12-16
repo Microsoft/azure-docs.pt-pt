@@ -9,16 +9,16 @@ zone_pivot_groups: programming-languages-set-face
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/17/2020
+ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: pesquisa facial por imagem, pesquisa de reconhecimento facial, reconhecimento facial, app de reconhecimento facial
-ms.openlocfilehash: 7a8b7ff3897108d8f8ba38d11a956c23a2e5aa79
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 688845134aaaeea708fd56d4dd6b10a517869677
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763667"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562927"
 ---
 # <a name="quickstart-use-the-face-client-library"></a>Quickstart: Use a biblioteca do cliente Face
 

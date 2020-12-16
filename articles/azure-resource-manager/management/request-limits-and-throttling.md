@@ -2,14 +2,14 @@
 title: Limites e limitação de pedidos
 description: Descreve como usar o estrangulamento com os pedidos do Azure Resource Manager quando os limites de subscrição foram atingidos.
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4d387749261747eb9ea1ea26629ade4fe8729856
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 181ed1a3059d86f78e40a9949448af77a551efbc
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80239368"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563131"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitação dos pedidos do Resource Manager
 
@@ -65,6 +65,13 @@ Para verificar as instâncias da máquina virtual dentro de um conjunto de escal
 ### <a name="azure-resource-graph-throttling"></a>Aceleração do gráfico de recursos Azure
 
 [O Azure Resource Graph](../../governance/resource-graph/overview.md) limita o número de pedidos às suas operações. Os passos deste artigo para determinar os pedidos restantes e como responder quando o limite é atingido também se aplicam ao Gráfico de Recursos. No entanto, o Gráfico de Recursos define o seu próprio limite e taxa de reset. Para obter mais informações, consulte [os cabeçalhos de estrangulamento do Gráfico de Recurso](../../governance/resource-graph/concepts/guidance-for-throttled-requests.md#understand-throttling-headers).
+
+### <a name="other-resource-providers"></a>Outros fornecedores de recursos
+
+Para obter informações sobre o estrangulamento em outros fornecedores de recursos, consulte:
+
+* [Diretrizes de limitação do Azure Key Vault](../../key-vault/general/overview-throttling.md)
+* [Resolução de problemas do AKS](../../aks/troubleshooting.md#im-receiving-429---too-many-requests-errors)
 
 ## <a name="error-code"></a>Código de erro
 

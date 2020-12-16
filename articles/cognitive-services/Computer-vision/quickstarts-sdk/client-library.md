@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/31/2020
+ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom:
 - devx-track-python
@@ -17,12 +17,12 @@ ms.custom:
 - cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-computer-vision
 keywords: visão computacional, serviço de visão computacional
-ms.openlocfilehash: 20378eff09abed0eb4d7587211f576de6313ea1d
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 50976de4a60e5330740bcbf387d74c505316c0cf
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533352"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560819"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>Quickstart: Use a biblioteca de clientes Da Visão de Computador
 

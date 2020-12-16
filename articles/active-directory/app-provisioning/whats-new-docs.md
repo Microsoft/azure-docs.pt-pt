@@ -1,7 +1,7 @@
 ---
 title: Novidades no provisionamento de aplicações do Azure Ative Directory
 description: Documentação nova e atualizada para o provisionamento do Azure Ative Directory.
-ms.date: 12/03/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -9,16 +9,24 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: fd9be81e8c23686695f8cdb49d873d5a663d69c4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 053d342c8fbdd506ac5d4ba0916a1ae9361e7189
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571764"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562213"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Provisionamento de aplicações do Azure Ative Directory: Quais as novidades
 
 Bem-vindos às novidades da aplicação Azure Ative Directory que prevê documentação. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber quais as novidades com o serviço de fornecimento, veja [as novidades do Azure Ative Directory](../fundamentals/whats-new.md).
+
+## <a name="december-2020"></a>Dezembro de 2020
+
+### <a name="updated-articles"></a>Artigos atualizados
+- [Questões conhecidas: Provisionamento de pedidos](known-issues.md)
+- [O que é o fornecimento automatizado de utilizadores de aplicações SaaS em Azure AD?](user-provisioning.md)
+- [Tutorial - Personalize o fornecimento de produtos de fornecimento de utilizadores para aplicações SaaS no Azure Ative Directory](customize-application-attributes.md)
+
 
 ## <a name="november-2020"></a>Novembro de 2020
 
@@ -52,7 +60,7 @@ Bem-vindos às novidades da aplicação Azure Ative Directory que prevê documen
 
 ### <a name="new-articles"></a>Artigos novos
 
-- [Novidades no Docs?](whats-new-docs.md)
+- [O que há de novo nos médicos?](whats-new-docs.md)
 
 ### <a name="updated-articles"></a>Artigos atualizados
 - [Provisionamento de pedidos em estado de quarentena](application-provisioning-quarantine-status.md)

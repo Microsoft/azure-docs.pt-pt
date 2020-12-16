@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8d982d06bd100313d643033294b6d14e6383d5df
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7a2b2344bbb110cd4b35cc1f6428f61e48552b01
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424708"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563012"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configure DNS para resolução de nomes para acesso private Cloud vCenter a partir de estações de trabalho no local
 
@@ -23,7 +23,7 @@ Para aceder ao servidor vCenter numa CloudSimple Private Cloud a partir de esta�
 
 1. Inscreva-se no [portal CloudSimple](access-cloudsimple-portal.md).
 
-2. Navegue **Resources**para  >  **Recursos Nuvens Privadas** e selecione a Nuvem Privada a que pretende ligar.
+2. Navegue para  >  **Recursos Nuvens Privadas** e selecione a Nuvem Privada a que pretende ligar.
 
 3. Na página **Sumária** da Nuvem Privada em **Informações Básicas,** copie o endereço IP do servidor DNS private Cloud.
 
@@ -44,6 +44,9 @@ Pode configurar uma zona como zona de canto e apontar para os servidores DNS na 
 O ficheiro específico e os parâmetros para configurar podem variar em função da configuração individual do DNS.
 
 Por exemplo, para a configuração padrão do servidor BIND, edite /etc/nomeado.conf no seu servidor DNS e adicione as seguintes informações de zona.
+
+> [!NOTE]
+>Este artigo contém referências ao termo escravo, um termo que a Microsoft já não usa. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 ```
 zone "az.cloudsimple.io"

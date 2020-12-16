@@ -4,15 +4,15 @@ description: Saiba como configurar políticas de controlo de acesso IP para supo
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 12/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ec4ec5b3ea522200562d05d1891f46e69c9e5ca8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b4e01375388f12b828d9adcb1e2ed8851061a0bf
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092165"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560734"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configure firewall IP em Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -21,7 +21,7 @@ Para proteger os dados armazenados na sua conta, a Azure Cosmos DB suporta um mo
 
 ## <a name="ip-access-control"></a><a id="ip-access-control-overview"></a>Controlo de acessos IP
 
-Por padrão, a sua conta Azure Cosmos está acessível a partir da internet, desde que o pedido seja acompanhado de um token de autorização válido. Para configurar o controlo de acesso baseado em políticas IP, o utilizador deve fornecer o conjunto de endereços IP ou intervalos de endereços IP no formulário CIDR (Classless Inter-Domain Encaminhamento) para ser incluído como a lista permitida de IPs do cliente para aceder a uma determinada conta Azure Cosmos. Uma vez aplicada esta configuração, quaisquer pedidos originários de máquinas fora desta lista permitida recebem 403 resposta (Proibida). Ao utilizar firewall IP, é aconselhável permitir que o portal Azure aceda à sua conta. O acesso é necessário para permitir a utilização do explorador de dados, bem como para recuperar métricas para a sua conta que aparecem no portal Azure. Ao utilizar o explorador de dados, além de permitir que o portal Azure aceda à sua conta, também precisa de atualizar as definições de firewall para adicionar o seu endereço IP atual às regras de firewall. Note que as alterações na firewall podem levar até 15 min para se propagar.
+Por padrão, a sua conta Azure Cosmos está acessível a partir da internet, desde que o pedido seja acompanhado de um token de autorização válido. Para configurar o controlo de acesso baseado em políticas IP, o utilizador deve fornecer o conjunto de endereços IP ou intervalos de endereços IP no formulário CIDR (Classless Inter-Domain Encaminhamento) para ser incluído como a lista permitida de IPs do cliente para aceder a uma determinada conta Azure Cosmos. Uma vez aplicada esta configuração, quaisquer pedidos originários de máquinas fora desta lista permitida recebem 403 resposta (Proibida). Ao utilizar firewall IP, é aconselhável permitir que o portal Azure aceda à sua conta. O acesso é necessário para permitir a utilização do explorador de dados, bem como para recuperar métricas para a sua conta que aparecem no portal Azure. Ao utilizar o explorador de dados, além de permitir que o portal Azure aceda à sua conta, também precisa de atualizar as definições de firewall para adicionar o seu endereço IP atual às regras de firewall. Note que as alterações na firewall podem demorar até 15 minutos a propagar-se e a firewall pode apresentar um comportamento inconsistente durante este período.
 
 Pode combinar firewall baseada em IP com o controlo de acesso sub-rede e VNET. Ao combiná-los, pode limitar o acesso a qualquer fonte que tenha um IP público e/ou a partir de uma sub-rede específica dentro do VNET. Para saber mais sobre a utilização de controlo de acesso baseado em sub-redes e VNET consulte [os recursos DB do Access Azure Cosmos a partir de redes virtuais.](./how-to-configure-vnet-service-endpoint.md)
 
@@ -35,7 +35,7 @@ Pode proteger os dados armazenados na sua conta DB Azure Cosmos utilizando firew
 
 ## <a name="configure-an-ip-firewall-by-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Configure uma firewall IP utilizando o portal Azure
 
-Para definir a política de controlo de acesso IP no portal Azure, vá à página de conta DB do Azure Cosmos e selecione **Firewall e redes virtuais** no menu de navegação. Altere o **acesso do Valor** para as redes **Selecionadas** e, em seguida, selecione **Guardar** .
+Para definir a política de controlo de acesso IP no portal Azure, vá à página de conta DB do Azure Cosmos e selecione **Firewall e redes virtuais** no menu de navegação. Altere o **acesso do Valor** para as redes **Selecionadas** e, em seguida, selecione **Guardar**.
 
 :::image type="content" source="./media/how-to-configure-firewall/azure-portal-firewall.png" alt-text="Screenshot mostrando como abrir a página firewall no portal Azure":::
 
@@ -57,13 +57,13 @@ Quando ativa uma política de controlo de acesso IP programáticamente, precisa 
 
 Pode ativar pedidos para aceder ao portal Azure selecionando a opção **Do portal Azure,** como mostra a seguinte imagem:
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-azure-portal.png" alt-text="Screenshot mostrando como abrir a página firewall no portal Azure":::
+:::image type="content" source="./media/how-to-configure-firewall/enable-azure-portal.png" alt-text="Screenshot mostrando como ativar o acesso ao portal Azure":::
 
 ### <a name="allow-requests-from-global-azure-datacenters-or-other-sources-within-azure"></a>Permitir pedidos de datacenters globais do Azure ou de outras origens no Azure
 
 Se aceder à sua conta DB Azure Cosmos a partir de serviços que não fornecem um IP estático (por exemplo, Azure Stream Analytics e Azure Functions), ainda pode utilizar a firewall IP para limitar o acesso. Pode ativar o acesso a partir de outras fontes dentro do Azure selecionando as ligações Aceitar a partir da opção **Azure datacenters,** como mostra a seguinte imagem:
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Screenshot mostrando como abrir a página firewall no portal Azure":::
+:::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Screenshot mostrando como aceitar ligações de datacenters Azure":::
 
 Quando ativa esta opção, o endereço IP `0.0.0.0` é adicionado à lista de endereços IP permitidos. O `0.0.0.0` endereço IP restringe os pedidos à sua conta DB Azure Cosmos a partir da gama IP do datacenter Azure. Esta definição não permite o acesso de nenhum outro intervalo de IP à conta do Azure Cosmos DB.
 
@@ -76,9 +76,9 @@ Para simplificar o desenvolvimento, o portal Azure ajuda-o a identificar e adici
 
 O portal deteta automaticamente o endereço IP do cliente. Pode ser o endereço IP do cliente da sua máquina, ou o endereço IP do seu portal de rede. Certifique-se de remover este endereço IP antes de levar as suas cargas de trabalho para a produção.
 
-Para adicionar o seu IP atual à lista de IPs, **selecione Adicione o meu IP atual** . Em seguida, selecione **Guardar** .
+Para adicionar o seu IP atual à lista de IPs, **selecione Adicione o meu IP atual**. Em seguida, selecione **Guardar**.
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-current-ip.png" alt-text="Screenshot mostrando como abrir a página firewall no portal Azure":::
+:::image type="content" source="./media/how-to-configure-firewall/enable-current-ip.png" alt-text="Screenshot mostrando como configurar as definições de firewall para o IP atual":::
 
 ### <a name="requests-from-cloud-services"></a>Pedidos de serviços na nuvem
 
@@ -86,7 +86,7 @@ Em Azure, os serviços na nuvem são uma forma comum de hospedar lógica de serv
 
 Pode recuperar endereços IP para os seus serviços em nuvem no portal Azure, como mostra a seguinte imagem:
 
-:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses.png" alt-text="Screenshot mostrando como abrir a página firewall no portal Azure":::
+:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses.png" alt-text="Screenshot mostrando o endereço IP público para um serviço de nuvem exibido no portal Azure":::
 
 Quando escala o seu serviço na nuvem adicionando instâncias de função, essas novas instâncias terão automaticamente acesso à conta DB do Azure Cosmos porque fazem parte do mesmo serviço na nuvem.
 
@@ -96,7 +96,7 @@ Também pode utilizar [máquinas virtuais](https://azure.microsoft.com/services/
 
 Pode recuperar endereços IP para máquinas virtuais no portal Azure, como mostra a seguinte imagem:
 
-:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses-dns.png" alt-text="Screenshot mostrando como abrir a página firewall no portal Azure":::
+:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses-dns.png" alt-text="Screenshot mostrando um endereço IP público para uma máquina virtual exibida no portal Azure":::
 
 Quando adicionas casos de máquina virtual ao grupo, eles automaticamente recebem acesso à tua conta DB Azure Cosmos.
 
@@ -226,7 +226,7 @@ Ative o registo de diagnóstico na sua conta DB Azure Cosmos. Estes registos mos
 
 ### <a name="requests-from-a-subnet-with-a-service-endpoint-for-azure-cosmos-db-enabled"></a>Pedidos de uma sub-rede com um ponto final de serviço para Azure Cosmos DB habilitado
 
-Pedidos de uma sub-rede numa rede virtual que tem um ponto final de serviço para a Azure Cosmos DB habilitado envia a rede virtual e a identidade da sub-rede para as contas DB da Azure Cosmos. Estes pedidos não têm o IP público da fonte, por isso os filtros IP rejeitam-nos. Para permitir o acesso a partir de sub-redes específicas em redes virtuais, adicione uma lista de controlo de acesso como delineada em [Como configurar a rede virtual e o acesso subterrâneo à sua conta DB Azure Cosmos](how-to-configure-vnet-service-endpoint.md). Pode levar até 15 minutos para que as regras de firewall se apliquem.
+Pedidos de uma sub-rede numa rede virtual que tem um ponto final de serviço para a Azure Cosmos DB habilitado envia a rede virtual e a identidade da sub-rede para as contas DB da Azure Cosmos. Estes pedidos não têm o IP público da fonte, por isso os filtros IP rejeitam-nos. Para permitir o acesso a partir de sub-redes específicas em redes virtuais, adicione uma lista de controlo de acesso como delineada em [Como configurar a rede virtual e o acesso subterrâneo à sua conta DB Azure Cosmos](how-to-configure-vnet-service-endpoint.md). Pode levar até 15 minutos para que as regras de firewall se apliquem e a firewall pode apresentar um comportamento inconsistente durante este período.
 
 ### <a name="private-ip-addresses-in-list-of-allowed-addresses"></a>Endereços IP privados na lista de endereços permitidos
 

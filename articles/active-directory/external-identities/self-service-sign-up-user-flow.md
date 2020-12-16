@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb1d5eb756c7bc316a6d8e1de30a95eb1ac5194
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f76f4a3e5fc87420c242c693e3c48a91244641e0
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287054"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560038"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Adicione um fluxo de utilizador de inscrição de autosserviço a uma aplicação (Preview)
 > [!NOTE]
@@ -27,7 +27,7 @@ Pode criar fluxos de utilizadores para apps que são construídas pela sua organ
 > [!NOTE]
 > Pode associar fluxos de utilizadores a aplicações construídas pela sua organização. Os fluxos de utilizadores não podem ser utilizados para aplicações da Microsoft, como o SharePoint ou o Teams.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 ### <a name="add-social-identity-providers-optional"></a>Adicionar fornecedores de identidade social (opcional)
 
@@ -49,11 +49,11 @@ Antes de poder adicionar um fluxo de utilizador de inscrição autosserviço às
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador do Azure Active Directory.
 2. Ao abrigo **dos serviços Azure,** selecione **Azure Ative Directory**.
-3. Selecione **as definições do Utilizador**e, em seguida, em **utilizadores externos**, selecione **Gerir as definições de colaboração externa**.
+3. Selecione **as definições do Utilizador** e, em seguida, em **utilizadores externos**, selecione **Gerir as definições de colaboração externa**.
 4. Descreva o **autosserviço do hóspede ativado através de fluxos de utilizador (Pré-visualização)** para alternar para **Sim**.
 
    ![Ativar o autosserviço do hóspede](media/self-service-sign-up-user-flow/enable-self-service-sign-up.png)
-
+5. Selecione **Guardar**.
 ## <a name="create-the-user-flow-for-self-service-sign-up"></a>Crie o fluxo do utilizador para o autosserviço de inscrição
 
 Em seguida, irá criar o fluxo de utilizador para inscrição de autosserviço e adicioná-lo a uma aplicação.
@@ -67,7 +67,7 @@ Em seguida, irá criar o fluxo de utilizador para inscrição de autosserviço e
 
 5. Na página **Criar,** insira um **Nome** para o fluxo do utilizador. Note que o nome é automaticamente pré-fixado com **B2X_1_**.
 6. Na lista **de fornecedores de identidade,** selecione um ou mais fornecedores de identidade que os seus utilizadores externos podem utilizar para iniciar sessão na sua aplicação. **O Azure Ative Directory Inscrição** é selecionado por padrão. (Ver [Antes de começar](#before-you-begin) mais cedo neste artigo para aprender a adicionar fornecedores de identidade.)
-7. Nos **atributos do Utilizador,** escolha os atributos que pretende recolher do utilizador. Para obter atributos adicionais, **selecione Mostrar mais**. Por exemplo, selecione **Mostrar mais**, e depois escolha atributos e reclamações para **País/Região,** **Nome de Exibição**e **Código Postal**. Selecione **OK**.
+7. Nos **atributos do Utilizador,** escolha os atributos que pretende recolher do utilizador. Para obter atributos adicionais, **selecione Mostrar mais**. Por exemplo, selecione **Mostrar mais**, e depois escolha atributos e reclamações para **País/Região,** **Nome de Exibição** e **Código Postal**. Selecione **OK**.
 
    ![Criar uma nova página de fluxo de utilizador](media/self-service-sign-up-user-flow/create-user-flow.png)
 
@@ -82,7 +82,7 @@ Pode escolher a ordem na qual os atributos são apresentados na página de inscr
 2. Selecione **identidades externas**, selecione **fluxos de utilizador (pré-visualização)**.
 3. Selecione o fluxo de utilizador de inscrição automática da lista.
 4. Em **Personalizar, selecione** **layouts de página**.
-5. Os atributos que escolheu para recolher estão listados. Para alterar a ordem de visualização, selecione um atributo e, em seguida, **selecione Mova-se**para cima , **Mova-se para cima**, ou **mova-se para a parte inferior**. **Move down**
+5. Os atributos que escolheu para recolher estão listados. Para alterar a ordem de visualização, selecione um atributo e, em seguida, **selecione Mova-se** para cima , **Mova-se para cima**, ou **mova-se para a parte inferior**. 
 6. Selecione **Guardar**.
 
 ## <a name="add-applications-to-the-self-service-sign-up-user-flow"></a>Adicione aplicações ao fluxo de utilizador de inscrição de autosserviço

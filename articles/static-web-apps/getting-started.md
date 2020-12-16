@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 226e8ca6848fc2e29b73a2586f37965c0a031b19
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: eb2356451c349f894c9ca74b1359f6a02d0e002a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030472"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562519"
 ---
 # <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>Quickstart: Construir o seu primeiro site estático com aplicações web estáticas Azure
 
@@ -52,7 +52,7 @@ Em seguida, abra o Código do Estúdio Visual e vá ao **Arquivo > Pasta Aberta*
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Criar Aplicação Web Estática":::
 
-1. Selecione o ramo **principal** e prima **Enter**.
+1. Selecione o ramo **main** e prima **Enter**.
 
     :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Nome do ramo":::
 

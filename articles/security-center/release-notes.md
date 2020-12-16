@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2020
+ms.date: 12/15/2020
 ms.author: memildin
-ms.openlocfilehash: 3272212a857f24916acce7da5a4ee31561ec0c5a
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 484a8c7c230863f230719ddaf4e98a6248512bcc
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922933"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560258"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -39,6 +39,7 @@ As atualizações em dezembro incluem:
 - [Azure Defender para suporte SQL para Azure Synapse Analytics piscina 2 SQL dedicada está geralmente disponível](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
 - [Os Administradores Globais podem agora conceder-se permissões ao nível do inquilino](#global-administrators-can-now-grant-themselves-tenant-level-permissions)
 - [Dois novos planos do Azure Defender: Azure Defender para DNS e Azure Defender para Gestor de Recursos (na pré-visualização)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
+- [Nova página de alertas de segurança no portal Azure (pré-visualização)](#new-security-alerts-page-in-the-azure-portal-preview)
 
 ### <a name="azure-defender-for-sql-servers-on-machines-is-generally-available"></a>O Azure Defender para servidores SQL em máquinas está geralmente disponível
 
@@ -95,6 +96,24 @@ Estas novas proteções aumentam consideravelmente a sua resiliência contra ata
     - [Responder a alertas do Azure Defender para DNS](defender-for-dns-usage.md)
     - [Lista de alertas fornecidos pelo Azure Defender para DNS](alerts-reference.md#alerts-dns)
 
+
+### <a name="new-security-alerts-page-in-the-azure-portal-preview"></a>Nova página de alertas de segurança no portal Azure (pré-visualização)
+
+A página de alertas de segurança do Azure Security Center foi redesenhada para fornecer:
+
+- **Melhor experiência de triagem para alertas** - ajudando a reduzir a fadiga dos alertas e focando-se nas ameaças mais relevantes mais fácil, a lista inclui filtros personalizáveis e opções de agrupamento
+- **Mais informações na lista de alertas** - como táticas MITRE ATT&ACK
+- **Botão para criar alertas de amostra** - para avaliar as capacidades do Azure Defender e testar a configuração dos seus alertas (para integração do SIEM, notificações de email e automatizações de fluxos de trabalho), pode criar alertas de amostras de todos os planos do Azure Defender
+- **Alinhamento com a experiência de incidente de Azure Sentinel** - para clientes que usam ambos os produtos, alternar entre eles é agora uma experiência mais simples e é fácil aprender um com o outro
+- **Melhor desempenho** para grandes listas de alertas
+- **Navegação de teclado** através da lista de alerta
+- **Alertas do Azure Resource Graph** - pode consultar alertas no Azure Resource Graph, a API semelhante a Kusto para todos os seus recursos. Isto também é útil se estiver a construir os seus próprios painéis de alerta. [Saiba mais sobre o Azure Resource Graph](../governance/resource-graph/index.yml).
+
+Para aceder à nova experiência, utilize o link 'experimente agora' a partir do banner no topo da página de alertas de segurança.
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner com ligação à nova experiência de alertas de pré-visualização":::
+
+Para criar alertas de amostra a partir da experiência de novos alertas, consulte [os alertas do Azure Defender](security-center-alert-validation.md#generate-sample-azure-defender-alerts)da amostra.
 
 ## <a name="november-2020"></a>Novembro de 2020
 

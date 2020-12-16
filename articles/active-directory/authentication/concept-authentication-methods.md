@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 12/14/2020
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: e239d9da4a083b50460ef746f9c538aa3081a577
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 24b29cfb1f58a61193f67ba924e583d4264dfc51
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027327"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562128"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Que métodos de autenticação e verificação estão disponíveis no Azure Active Directory?
 
@@ -26,9 +26,11 @@ Como parte da experiência de inscrição para contas no Azure Ative Directory (
 
 Métodos de autenticação sem palavras-passe, tais como o Windows Hello, as teclas de segurança FIDO2 e a aplicação Microsoft Authenticator fornecem os eventos de entrada mais seguros.
 
-A autenticação multi-factor Azure AD adiciona segurança adicional apenas usando uma palavra-passe quando um utilizador se inscreve. O utilizador pode ser solicitado para formas adicionais de autenticação, tais como responder a uma notificação push, introduzir um código a partir de um sinal de software ou hardware, ou responder a uma SMS ou chamada telefónica.
+A Azure AD Multi-Factor Authentication (MFA) adiciona segurança adicional apenas usando uma palavra-passe quando um utilizador assina. O utilizador pode ser solicitado para formas adicionais de autenticação, tais como responder a uma notificação push, introduzir um código a partir de um sinal de software ou hardware, ou responder a uma SMS ou chamada telefónica.
 
-Para simplificar a experiência de embarque do utilizador e registar-se tanto para o MFA como para o SSPR, recomendamos que [permita o registo combinado de informações de segurança.](howto-registration-mfa-sspr-combined.md) Para a resiliência, recomendamos que exija que os utilizadores registem vários métodos de autenticação. Quando um método não está disponível para um utilizador durante a sing-in ou SSPR, pode optar por autenticar com outro método. Para obter mais informações, consulte [Criar uma estratégia resiliente de gestão de controlo de acessos em Azure AD.](concept-resilient-controls.md)
+Para simplificar a experiência de embarque do utilizador e registar-se tanto para o MFA como para o autosserviço de senha reset (SSPR), recomendamos que [você permita o registo combinado de informações de segurança](howto-registration-mfa-sspr-combined.md). Para a resiliência, recomendamos que exija que os utilizadores registem vários métodos de autenticação. Quando um método não está disponível para um utilizador durante a sing-in ou SSPR, pode optar por autenticar com outro método. Para obter mais informações, consulte [Criar uma estratégia resiliente de gestão de controlo de acessos em Azure AD.](concept-resilient-controls.md)
+
+Aqui está um [vídeo](https://www.youtube.com/watch?v=LB2yj4HSptc&feature=youtu.be) que criamos para ajudá-lo a escolher o melhor método de autenticação para manter a sua organização segura.
 
 ## <a name="authentication-method-strength-and-security"></a>Força e segurança do método de autenticação
 
@@ -47,7 +49,10 @@ O quadro que se segue descreve as considerações de segurança para os métodos
 | Voz                          | Médio   | Médio    | Médio       |
 | Palavra-passe                       | Baixo      | Alto      | Alto         |
 
-Para obter mais informações sobre segurança, consulte [vulnerabilidades de autenticação e vetores de ataque.](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124)
+Para obter as últimas informações sobre segurança, confira as nossas publicações de blog:
+
+- [É hora de desligar nos transportes telefónicos para a autenticação](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)
+- [Vulnerabilidades de autenticação e vetores de ataque](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124)
 
 > [!TIP]
 > Para flexibilidade e usabilidade, recomendamos que utilize a aplicação Microsoft Authenticator. Este método de autenticação proporciona a melhor experiência do utilizador e vários modos, tais como notificações push sem palavras-passe, notificações push MFA e códigos OATH.

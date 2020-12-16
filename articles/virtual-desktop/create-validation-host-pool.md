@@ -3,15 +3,15 @@ title: Atualizações do serviço de piscina do anfitrião virtual do Windows De
 description: Como criar um pool de anfitriões de validação para monitorizar as atualizações do serviço antes de lançar atualizações para a produção.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 03/13/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b8eb8378480b8784939e3ab63327e73e3705c74a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ead4c0aa7d8d71642fd8a4635edbabcafee5b6c2
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526515"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563250"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Criar uma piscina de anfitriões para validar atualizações de serviço
 
@@ -66,6 +66,20 @@ Os resultados do cmdlet devem ser semelhantes a esta saída:
     LoadBalancerType    : BreadthFirst
     ValidationEnvironment : True
 ```
+
+## <a name="enable-your-validation-environment-with-the-azure-portal"></a>Ativar o seu ambiente de validação com o portal Azure
+
+Também pode utilizar o portal Azure para ativar o seu ambiente de validação.
+
+Para utilizar o portal Azure para configurar a sua piscina de anfitriões de validação:
+
+1. Inicie sessão no portal do Azure em <https://portal.azure.com>.
+2. Procure e selecione **Windows Virtual Desktop**.
+3. Na página de Ambiente de Trabalho Virtual do Windows, **selecione host pools**.
+4. Selecione o nome da piscina de anfitrião que pretende editar.
+5. Selecione **Propriedades**.
+6. No campo de ambiente de validação, selecione **Sim** para ativar o ambiente de validação.
+7. Selecione **Guardar**. Isto aplicará as novas definições.
 
 ## <a name="update-schedule"></a>Agenda de atualização
 

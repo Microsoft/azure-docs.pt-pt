@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/23/2020
 ms.author: aahi
-ms.openlocfilehash: dce8893cac156ce2941652e32409357cb8ec3b1a
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: d79c52c05d09eedab2dd964acb544c9cdb405380
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96015320"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562604"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Use o recipiente de visão de computador com Kubernetes e Helm
 
@@ -166,6 +166,9 @@ spec:
 ```
 
 Na pasta dos *mesmos modelos,* copie e cole as seguintes funções de ajudante em `helpers.tpl` . `helpers.tpl` define funções úteis para ajudar a gerar o modelo Helm.
+
+> [!NOTE]
+> Este artigo contém referências ao termo escravo, um termo que a Microsoft já não usa. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 ```yaml
 {{- define "rabbitmq.hostname" -}}

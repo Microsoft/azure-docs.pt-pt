@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 1ef317ee3917172d0de204adafe5d5bf21a2a9ac
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 98b8cca95b8815b32fb5de6567adcf4f150551eb
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014514"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561975"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Visão Computacional
 

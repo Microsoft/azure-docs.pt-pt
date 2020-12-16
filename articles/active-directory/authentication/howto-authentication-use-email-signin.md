@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: ff6ae6ea6812397e737deb4b97bf1cd15e022c03
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 0ca5f6a853852acbb4ef97adfce2364592bae270
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743178"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559845"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Iniciar sessão no Azure Ative Directory usando o e-mail como iD de login alternativo (pré-visualização)
 
@@ -36,6 +36,9 @@ Este artigo mostra-lhe como ativar e usar o e-mail como um ID de login alternati
 
 > [!NOTE]
 > Esta funcionalidade destina-se apenas aos utilizadores Azure AD autenticados na nuvem.
+
+> [!NOTE]
+> Atualmente, esta funcionalidade não é suportada no Azure AD que aderiu aos dispositivos windows 10 para inquilinos com autenticação em nuvem. Esta funcionalidade não é aplicável aos dispositivos híbridos Azure AD.
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Visão geral das abordagens de inscrição da AD AZure
 

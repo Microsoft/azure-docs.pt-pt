@@ -1,26 +1,26 @@
 ---
 title: 'Azure ExpressRoute: Reset circuit peering'
-description: Aprenda a desativar e a ativar os seus olhos de um circuito Azure ExpressRoute utilizando a Azure PowerShell. Quando configura os seus olhos, eles são ativados por padrão.
+description: Saiba como ativar e desativar os seus olhos para um circuito Azure ExpressRoute utilizando a Azure PowerShell.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 01/13/2018
+ms.date: 12/15/2020
 ms.author: duau
-ms.openlocfilehash: f3b34966aa46ca8d663f83ab2aceafa4b0dda2eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bde96ae5f4a9aff6f4a16a4f1544d9b39e5cb66
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395745"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559578"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Reset ExpressRoute
 
-Este artigo descreve como desativar e permitir os espreitamentos de um circuito ExpressRoute utilizando o PowerShell. Quando desativar um espreitamento, a sessão de BGP tanto na ligação primária como na ligação secundária do seu circuito ExpressRoute será desligada. Perderá a conectividade através deste olhar para a Microsoft. Quando ativar um espreitamento, a sessão de BGP tanto na ligação primária como na ligação secundária do seu circuito ExpressRoute será apresentada. Você vai recuperar a conectividade através deste olhar para a Microsoft. Pode ativar e desativar o Microsoft Peering e o Azure Private Peering num circuito ExpressRoute de forma independente. Quando configura pela primeira vez os seus pares no seu circuito ExpressRoute, os seus pares são ativados por defeito.
+Este artigo descreve como ativar e desativar os seus olhos de um circuito ExpressRoute utilizando o PowerShell. Os espreiteiros são ativados por padrão quando os cria. Quando desativar um espreitamento, a sessão de BGP tanto na ligação primária como na ligação secundária do seu circuito ExpressRoute será encerrada. Perderá a conectividade por este olhar para a Microsoft. Quando ativar um espreitamento, será estabelecida a sessão de BGP tanto na ligação primária como secundária do seu circuito ExpressRoute. A conectividade com a Microsoft será restaurada para este espreitamento. Pode ativar e desativar o espreitamento do Microsoft Peering e do Azure Private Peering de forma independente no circuito ExpressRoute.
 
-Existem alguns cenários em que poderá achar útil repor os seus seus olhos ExpressRoute.
-* Teste o seu design de recuperação de desastres e implementação. Por exemplo, tem dois circuitos ExpressRoute. Pode desativar os olhos de um circuito e forçar o tráfego da rede a falhar no outro circuito.
-* Ativar a Deteção bidirecional de encaminhamento (BFD) no Azure Private Peering ou microsoft Peering do seu circuito ExpressRoute. O BFD é ativado por padrão no Azure Private Peering se o seu circuito ExpressRoute for criado após 1 de agosto de 2018 e no Microsoft Peering se o seu circuito ExpressRoute for criado após janeiro de 2020. Se o seu circuito foi criado antes disso, o BFD não estava habilitado. Pode ativar o BFD desativando o espreitamento e reenando-o. 
+Existem dois cenários em que poderá achar útil repor os seus olhos ExpressRoute.
+* Se quiser testar o seu design e implementação de recuperação de desastres. Por exemplo, tem dois circuitos ExpressRoute. Pode desativar os olhos num circuito e forçar o tráfego da rede a falhar no outro circuito.
+* Ativar a Deteção bidirecional de encaminhamento (BFD) em Azure Private Peering ou Microsoft Peering do seu circuito ExpressRoute. O BFD é ativado por padrão no Azure Private Peering se criou o seu circuito ExpressRoute após 1 de agosto de 2018 e para o Microsoft Peering depois de 10 de janeiro de 2020. Se o seu circuito foi criado antes da data listada, precisará de reiniciar o espreitamento para ativar o BFD. 
 
 ### <a name="working-with-azure-powershell"></a>Trabalhar com a Azure PowerShell
 
@@ -142,6 +142,6 @@ Existem alguns cenários em que poderá achar útil repor os seus seus olhos Exp
    O olhar deve estar num estado que definiu. 
 
 ## <a name="next-steps"></a>Passos seguintes
-Se precisar de ajuda para resolver um problema expressRoute, confira os seguintes artigos:
+Se precisar de ajuda para resolver problemas com o ExpressRoute, consulte os seguintes artigos:
 * [Verificar a conectividade do ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 * [Resolver problemas de desempenho da rede](expressroute-troubleshooting-network-performance.md)

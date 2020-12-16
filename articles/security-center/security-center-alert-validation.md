@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 12/15/2020
 ms.author: memildin
-ms.openlocfilehash: 999888b12f10c07f7d42f14289e88030f9542a36
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 598c13b0434a364e73471b53c82663b94fb42f4e
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340823"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560106"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Validação de alerta no Centro de Segurança Azure
 Este documento ajuda-o a aprender como verificar se o sistema está corretamente configurado para os alertas do Centro de Segurança do Azure.
@@ -27,11 +27,46 @@ Este documento ajuda-o a aprender como verificar se o sistema está corretamente
 Os alertas são as notificações que o Centro de Segurança gera quando deteta ameaças nos seus recursos. Prioriza e enumera os alertas juntamente com as informações necessárias para investigar rapidamente o problema. O Centro de Segurança também fornece recomendações sobre como pode remediar um ataque.
 Para mais informações, consulte [alertas de segurança no Centro de Segurança](security-center-alerts-overview.md) e [Gestão e respondendo a alertas de segurança](security-center-managing-and-responding-alerts.md)
 
-## <a name="validate-alerts-on-windows-vms"></a>Validar alertas em VMs do Windows <a name="validate-windows"></a>
+
+## <a name="generate-sample-azure-defender-alerts"></a>Gerem alertas de Azure Defender de amostra
+
+Se estiver a utilizar a nova experiência de alertas de pré-visualização, tal como descrito no [Manage e responder aos alertas de segurança no Azure Security Center,](security-center-managing-and-responding-alerts.md)pode criar alertas de amostra em alguns cliques da página de alertas de segurança no portal Azure.
+
+Utilize alertas de amostra para:
+
+- avaliar o valor e as capacidades do Azure Defender
+- validar quaisquer configurações que tenha feito para os seus alertas de segurança (tais como integrações SIEM, automatização de fluxos de trabalho e notificações de e-mail)
+
+> [!NOTE]
+> Este procedimento requer a nova experiência de alerta (pré-visualização) disponível a partir do banner no topo da página de alertas de **Segurança.**
+>
+> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner com ligação à nova experiência de alertas de pré-visualização":::
+
+Para criar alertas de amostragem:
+
+1. A partir da barra de ferramentas na página de alertas, **selecione Criar alertas de amostras**. 
+1. Selecione uma subscrição.
+1. Selecione o plano/s do Azure Defender relevante para o qual deseja ver alertas. 
+1. Selecione **Criar alertas de amostras**.
+
+    :::image type="content" source="media/security-center-alert-validation/create-sample-alerts-procedures.png" alt-text="Medidas para criar alertas de amostra no Centro de Segurança Azure":::
+    
+    Uma notificação aparece informando-o de que os alertas da amostra estão a ser criados:
+
+    :::image type="content" source="media/security-center-alert-validation/notification-sample-alerts-creation.png" alt-text="Notificação de que os alertas da amostra estão a ser gerados.":::
+
+    Após alguns minutos, os alertas aparecem na página de alertas de segurança. Também aparecerão em qualquer outro lugar que tenha configurado para receber os seus alertas de segurança do Azure Security Center (SIEMs conectados, notificações de e-mail, e assim por diante).
+
+    :::image type="content" source="media/security-center-alert-validation/sample-alerts.png" alt-text="Alertas de amostra na lista de alertas de segurança":::
+
+    > [!TIP]
+    > Os alertas são para recursos simulados.
+
+## <a name="simulate-alerts-on-your-azure-vms-windows"></a>Simular alertas nos seus VMs Azure (Windows) <a name="validate-windows"></a>
 
 Depois de instalado o agente do Centro de Segurança no seu computador, siga estes passos a partir do computador onde pretende ser o recurso atacado do alerta:
 
-1. Copie um executável (por exemplo **calc.exe) **para o ambiente de trabalho do computador, ou outro diretório da sua conveniência, e rebatize-o como **ASC_AlertTest_662jfi039N.exe**.
+1. Copie um executável (por exemplo **calc.exe)** para o ambiente de trabalho do computador, ou outro diretório da sua conveniência, e rebatize-o como **ASC_AlertTest_662jfi039N.exe**.
 1. Abra o pedido de comando e execute este ficheiro com um argumento (apenas um nome de argumento falso), tais como: ```ASC_AlertTest_662jfi039N.exe -foo```
 1. Aguarde 5 a 10 minutos e abra os Alertas do Centro de Segurança. Deve aparecer um alerta.
 
@@ -40,7 +75,7 @@ Depois de instalado o agente do Centro de Segurança no seu computador, siga est
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
-## <a name="validate-alerts-on-linux-vms"></a>Validar alertas em VMs Linux <a name="validate-linux"></a>
+## <a name="simulate-alerts-on-your-azure-vms-linux"></a>Simular alertas nos seus VMs Azure (Linux) <a name="validate-linux"></a>
 
 Depois de instalado o agente do Centro de Segurança no seu computador, siga estes passos a partir do computador onde pretende ser o recurso atacado do alerta:
 1. Copie um executável para um local conveniente e rebatize-o para **./asc_alerttest_662jfi039n,** por exemplo:
@@ -54,7 +89,7 @@ Depois de instalado o agente do Centro de Segurança no seu computador, siga est
 1. Aguarde 5 a 10 minutos e abra os Alertas do Centro de Segurança. Deve aparecer um alerta.
 
 
-## <a name="validate-alerts-on-kubernetes"></a>Validar alertas sobre Kubernetes <a name="validate-kubernetes"></a>
+## <a name="simulate-alerts-on-kubernetes"></a>Simular alertas em Kubernetes <a name="validate-kubernetes"></a>
 
 Se integrou o Serviço Azure Kubernetes com o Security Center, pode testar que os seus alertas estão a funcionar com o seguinte comando kubectl:
 

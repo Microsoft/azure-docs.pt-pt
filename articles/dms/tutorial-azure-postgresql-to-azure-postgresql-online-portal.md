@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 05e523c368cfa8407d66ff57fc481a756664b1ea
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 772fc9f21f36a1487e2e3a1acbe644f9fd12e0f4
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961673"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563199"
 ---
 # <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Tutorial: Migrar/Atualizar Azure DB para PostgreSQL - Servidor Único a Azure DB para PostgreSQL - Servidor Único online usando DMS através do portal Azure
 
 Pode utilizar o Azure Database Migration Service para migrar as bases de dados de uma [Base de Dados Azure para postgresQL - Instância de servidor único](../postgresql/overview.md#azure-database-for-postgresql---single-server) para a mesma versão ou versão diferente da Base de Dados Azure para pós-SQL - Instância de servidor único ou base de dados Azure para PostgreSQL - Servidor Flexível com tempo de inatividade mínimo. Neste tutorial, migra a base de dados de **amostras de DVD Rental** de uma Base de Dados Azure para PostgreSQL v10 para Azure Database for PostgreSQL - Single Server utilizando a atividade de migração on-line no Azure Database Migration Service.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
 > * Migrar o esquema da amostra utilizando o utilitário pg_dump.
@@ -113,8 +113,8 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
     ```
     SELECT Q.table_name
-        ,CONCAT('ALTER TABLE ', table_schema, '.', table_name, STRING_AGG(DISTINCT CONCAT(' DROP CONSTRAINT ', foreignkey), ','), ';') as DropQuery
-            ,CONCAT('ALTER TABLE ', table_schema, '.', table_name, STRING_AGG(DISTINCT CONCAT(' ADD CONSTRAINT ', foreignkey, ' FOREIGN KEY (', column_name, ')', ' REFERENCES ', foreign_table_schema, '.', foreign_table_name, '(', foreign_column_name, ')' ), ','), ';') as AddQuery
+        ,CONCAT('ALTER TABLE ','"', table_schema,'"', '.','"', table_name ,'"', STRING_AGG(DISTINCT CONCAT(' DROP CONSTRAINT ','"', foreignkey,'"'), ','), ';') as DropQuery
+            ,CONCAT('ALTER TABLE ','"', table_schema,'"', '.','"', table_name,'"', STRING_AGG(DISTINCT CONCAT(' ADD CONSTRAINT ','"', foreignkey,'"', ' FOREIGN KEY (','"', column_name,'"', ')', ' REFERENCES ','"', foreign_table_schema,'"', '.','"', foreign_table_name,'"', '(','"', foreign_column_name,'"', ')',' ON UPDATE ',update_rule,' ON DELETE ',delete_rule), ','), ';') as AddQuery
     FROM
         (SELECT
         S.table_schema,
@@ -123,7 +123,9 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
         STRING_AGG(DISTINCT S.column_name, ',') AS column_name,
         S.foreign_table_schema,
         S.foreign_table_name,
-        STRING_AGG(DISTINCT S.foreign_column_name, ',') AS foreign_column_name
+        STRING_AGG(DISTINCT S.foreign_column_name, ',') AS foreign_column_name,
+        S.update_rule,
+        S.delete_rule
     FROM
         (SELECT DISTINCT
         tc.table_schema,
@@ -132,13 +134,16 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
         kcu.column_name,
         ccu.table_schema AS foreign_table_schema,
         ccu.table_name AS foreign_table_name,
-        ccu.column_name AS foreign_column_name
+        ccu.column_name AS foreign_column_name,
+        rc.update_rule AS update_rule,
+        rc.delete_rule AS delete_rule
         FROM information_schema.table_constraints AS tc
         JOIN information_schema.key_column_usage AS kcu ON tc.constraint_name = kcu.constraint_name AND tc.table_schema = kcu.table_schema
         JOIN information_schema.constraint_column_usage AS ccu ON ccu.constraint_name = tc.constraint_name AND ccu.table_schema = tc.table_schema
+        JOIN information_schema.referential_constraints as rc ON rc.constraint_name = tc.constraint_name AND rc.constraint_schema = tc.table_schema
     WHERE constraint_type = 'FOREIGN KEY'
         ) S
-        GROUP BY S.table_schema, S.foreignkey, S.table_name, S.foreign_table_schema, S.foreign_table_name
+        GROUP BY S.table_schema, S.foreignkey, S.table_name, S.foreign_table_schema, S.foreign_table_name,S.update_rule,S.delete_rule
         ) Q
         GROUP BY Q.table_schema, Q.table_name;
     ```

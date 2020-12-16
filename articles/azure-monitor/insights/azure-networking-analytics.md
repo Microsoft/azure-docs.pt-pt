@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 9e2210cdbcc2916723c8c2e2ed1ef514d427c9d6
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c304354f378708c43c25ef8b92b7b80b37ac03af
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032189"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563114"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluções de monitorização da rede Azure no Azure Monitor
 
@@ -107,19 +107,31 @@ O separador "ver métricas detalhadas" abrirá o livro pré-povoado resumindo os
 ## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Migrar da solução de análise Azure Gateway para os livros de trabalho do Azure Monitor
 
 > [!NOTE]
-> A solução de análise Azure Application Gateway está desatualizada e a forma recomendada de consumir análises é através de livros expostos através de insights da Rede monitor Azure para o recurso Gateway de aplicação.
+> O livro de trabalho Azure Monitor Network Insights é a solução recomendada para aceder à análise métrica e de registo para os seus recursos de Gateway de Aplicação.
 
-* Se a definição de diagnóstico já estiver ativada para armazenar registos num espaço de trabalho do Log Analytics, o livro de insights da Rede Azure Monitor pode consumir dados a partir do mesmo local. Não é necessária uma nova configuração.
+1. Certifique-se de que [as definições de diagnóstico estão ativadas](#enable-azure-application-gateway-diagnostics-in-the-portal) para armazenar registos num espaço de trabalho do Log Analytics. Se já estiver configurado, o livro de trabalho da Azure Monitor Network Insights será capaz de consumir dados a partir do mesmo local e não são necessárias alterações adicionais.
 
-* Todos os dados anteriores já estão disponíveis no livro a partir das definições de diagnóstico pontual. Não é necessária transferência de dados.
+> [!NOTE]
+> Todos os dados anteriores já estão disponíveis no livro a partir das definições de diagnóstico pontual foram inicialmente ativados. Não é necessária transferência de dados.
 
-* Não é necessário um toggle ativo para mudar para livros de trabalho. Tanto a solução de análise como o manual de insight da Rede podem funcionar em paralelo.
+2. Aceda ao [livro de insights predefinido](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) para o seu recurso Application Gateway. Todos os insights existentes suportados pela solução de análise Application Gateway já estarão presentes no livro. Pode estender isto adicionando [visualizações personalizadas](../platform/workbooks-overview.md#visualizations) com base em dados de registo de & métricas.
 
-* Não existem custos adicionais associados aos livros de trabalho do Azure Monitor. Log Analytics workspace continuará a ser cobrado de acordo com o uso.
-
-* Para limpar a solução de análise Azure Gateway a partir do seu espaço de trabalho, pode eliminar a solução da página de recursos da solução.
+3. Depois de poder ver todas as suas informações métricas e de registo, para limpar a solução de análise Azure Gateway a partir do seu espaço de trabalho, pode eliminar a solução da página de recursos da solução.
 
 [![Screenshot da opção de eliminação para solução de análise Azure Application Gateway.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
+
+### <a name="new-capabilities-with-azure-monitor-network-insights-workbook"></a>Novas capacidades com o livro de insights da rede Azure Monitor
+
+> [!NOTE]
+> Não existem custos adicionais associados ao livro de trabalho da Azure Monitor Insights. Log Analytics workspace continuará a ser cobrado de acordo com o uso.
+
+O livro de Web Insights permite-lhe tirar partido das mais recentes capacidades do Azure Monitor e do Log Analytics, incluindo:
+
+* Consola centralizada para monitorização e resolução de problemas com dados [métricos](../insights/network-insights-overview.md#resource-health-and-metrics) e de registo.
+
+* Tela flexível para apoiar a criação de [visualizações personalizadas](../platform/workbooks-overview.md#visualizations)e ricas.
+
+* Capacidade de consumir e [partilhar modelos de livros](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) com uma comunidade mais ampla.
 
 Para obter mais informações sobre as capacidades da nova solução de livro, consulte [a visão geral dos livros de trabalho](../platform/workbooks-overview.md)
 

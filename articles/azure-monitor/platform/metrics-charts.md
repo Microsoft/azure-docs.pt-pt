@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 1150cdb64c5fe7d1b2241cdc0ad1a6eb0a36f47f
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: be3d3f11e90c17bd8c4792418500da651039e480
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168567"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562808"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Advanced features of Azure Metrics Explorer (Funcionalidades avançadas do Explorador de Métricas do Azure)
 
@@ -59,7 +59,7 @@ Por exemplo, suponha que o gráfico esteja a mostrar a métrica **do Tempo de Re
 - Se a granularidade do tempo estiver definida para 30 minutos, o gráfico é desenhado a partir de 48 pontos de dados agregados (por exemplo, o gráfico de linha liga 48 pontos na área do enredo do gráfico). Ou seja, 24 horas x 2 pontos de dados por hora. Cada ponto de dados representa a *média* de todos os tempos de resposta capturados para pedidos de servidor que ocorreram durante cada um dos períodos de tempo de 30 minutos relevantes.
 - Se mudar a granularidade de tempo para 15 minutos, obtém 96 pontos de dados agregados.  Ou seja, 24 horas x 4 pontos de dados por hora.
 
-Existem cinco tipos básicos de agregação de estatísticas disponíveis no explorador de métricas: **Soma,** **Conde,** **Min,** **Max**e **Média.** A **agregação** da Soma é por vezes referida como **agregação total.** Para muitas métricas, o Metrics Explorer esconderá as agregações que são totalmente irrelevantes e não podem ser usadas.
+Existem cinco tipos básicos de agregação de estatísticas disponíveis no explorador de métricas: **Soma,** **Conde,** **Min,** **Max** e **Média.** A **agregação** da Soma é por vezes referida como **agregação total.** Para muitas métricas, o Metrics Explorer esconderá as agregações que são totalmente irrelevantes e não podem ser usadas.
 
 - **Soma** – a soma de todos os valores capturados ao longo do intervalo de agregação
 - **Count** – o número de medições capturadas durante o intervalo de agregação. Note que **o Conde** será igual a **Sum** no caso em que a métrica é sempre capturada com o valor de 1. Isto é comum quando a métrica acompanha a contagem de eventos distintos, e cada medição representa um evento (ou seja, o código dispara um registo métrico cada vez que um novo pedido entra)
@@ -77,15 +77,15 @@ Pode aplicar filtros nos gráficos que mostram métricas com dimensões. Por exe
 
 2. Selecione qual a dimensão (propriedade) que pretende filtrar
 
-   ![Screenshot que mostra as dimensões (propriedades) que pode filtrar.](./media/metrics-charts/00006.png)
+   ![Screenshot que mostra as dimensões (propriedades) que pode filtrar.](./media/metrics-charts/028.png)
 
 3. Selecione quais os valores de dimensão que pretende incluir ao traçar o gráfico (este exemplo mostra a filtragem das transações de armazenamento bem sucedidas):
 
-   ![Screenshot que mostra a filtragem das transações de armazenamento bem sucedidas.](./media/metrics-charts/00007.png)
+   ![Screenshot que mostra a filtragem das transações de armazenamento bem sucedidas.](./media/metrics-charts/029.png)
 
 4. Depois de selecionar os valores do filtro, clique para longe do Seletor de Filtro para o fechar. Agora o gráfico mostra quantas transações de armazenamento falharam:
 
-   ![Screenshot que mostra quantas transações de armazenamento falharam](./media/metrics-charts/00008.png)
+   ![Screenshot que mostra quantas transações de armazenamento falharam](./media/metrics-charts/030.png)
 
 5. Pode repetir os passos 1-4 para aplicar vários filtros nas mesmas tabelas.
 
@@ -104,11 +104,11 @@ Pode dividir uma métrica por dimensão para visualizar como diferentes segmento
 
 2. Escolha uma dimensão na qual pretende segmentar o seu gráfico:
 
-   ![Screenshot que mostra a dimensão selecionada na qual segmenta a sua tabela.](./media/metrics-charts/00010.png)
+   ![Screenshot que mostra a dimensão selecionada na qual segmenta a sua tabela.](./media/metrics-charts/031.png)
 
    Agora o gráfico mostra agora várias linhas, uma para cada segmento de dimensão:
 
-   ![Screenshot que mostra várias linhas, uma para cada segmento de dimensão.](./media/metrics-charts/00012.png)
+   ![Screenshot que mostra várias linhas, uma para cada segmento de dimensão.](./media/metrics-charts/032.png)
 
 3. Clique para longe do **Seletor de Agrupamento** para fechá-lo.
 
@@ -123,9 +123,13 @@ Por exemplo, quando o volume de pedidos bem sucedidos desce de 99,99% para 99,5%
 
 Outro exemplo é uma flutuação na memória disponível, onde o valor tecnicamente nunca chegará a 0. Fixar o intervalo a um valor mais elevado pode facilitar a posição das gotas na memória disponível. 
 
-Para controlar a gama de eixos y, use o "..." menu de gráfico, e **selecione editar gráfico** para aceder a definições de gráficos avançados. Modifique os valores na secção Y-Axis Range ou use o botão **Auto** para reverter para os predefinidos.
+Para controlar a gama de eixos y, use o "..." menu de gráficos e selecione **definições de Gráfico** para aceder a definições avançadas do gráfico.
 
-![Screenshot que realça a opção editar gráfico.](./media/metrics-charts/00014-manually-set-granularity.png)
+![Screenshot que realça a opção de definições de gráfico.](./media/metrics-charts/033.png)
+
+ Modifique os valores na secção Y-Axis Range ou use o botão **Auto** para reverter para os predefinidos.
+ 
+ ![Screenshot que destaca a secção de alcance do eixo Y.](./media/metrics-charts/034.png)
 
 > [!WARNING]
 > Bloquear os limites do eixo y para as tabelas que acompanham várias contagens ou somas ao longo de um período de tempo (e assim utilizar a contagem, a soma, o mínimo ou as agregações máximas) geralmente requer especificar uma granularidade de tempo fixo em vez de depender dos predefinidos automáticos. Isto é necessário porque os valores nos gráficos mudam quando a granularidade é automaticamente modificada pelo utilizador redimensionando a janela do navegador ou passando de uma resolução de ecrã para outra. A alteração resultante da granularidade temporal afeta o aspeto do gráfico, invalidando a seleção atual da gama y-axis.
@@ -136,9 +140,9 @@ Depois de configurar os gráficos, as linhas de gráfico são automaticamente at
 
 Para alterar a cor de uma linha de gráfico, clique na barra colorida na legenda que corresponde à tabela. O diálogo do apanhador de cores abrir-se-á. Utilize o apanhador de cores para configurar a cor da linha.
 
-Depois de configuradas as cores do gráfico, elas permanecerão assim quando fixar a tabela num dashboard. A seguinte secção mostra como fixar um gráfico.
+![Screenshot que mostra como mudar de cor](./media/metrics-charts/035.png)
 
-![Screenshot que mostra como fixar um gráfico.](./media/metrics-charts/018.png)
+Depois de configuradas as cores do gráfico, elas permanecerão assim quando fixar a tabela num dashboard. A seguinte secção mostra como fixar um gráfico.
 
 ## <a name="pin-charts-to-dashboards"></a>Gráficos de pinos para painéis
 
@@ -146,9 +150,9 @@ Depois de configurar as tabelas, pode querer adicioná-lo aos dashboards para qu
 
 Para fixar um gráfico configurado num painel de instrumentos:
 
-Depois de configurar a sua tabela, clique no menu **'Ações de gráfico'** no canto superior direito da tabela e clique em Pin para painel de **instrumentos**.
+Depois de configurar a sua tabela, clique em Pin para painel de **instrumentos** no canto superior direito da tabela.
 
-![imagem da métrica](./media/metrics-charts/00013.png)
+![Screenshot que mostra como pin to chart](./media/metrics-charts/036.png)
 
 ## <a name="create-alert-rules"></a>Criar regras de alertas
 
@@ -156,11 +160,11 @@ Pode utilizar os critérios definidos para visualizar as suas métricas como bas
 
 ### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>Para criar uma nova regra de alerta, clique na **regra de Alerta Novo**
 
-![Novo botão de regra de alerta realçado no vermelho](./media/metrics-charts/015.png)
+![Novo botão de regra de alerta realçado no vermelho](./media/metrics-charts/042.png)
 
 Você será levado para o painel de criação de regras de alerta com as dimensões métricas subjacentes do seu gráfico pré-povoado para facilitar a geração de regras de alerta personalizados.
 
-![Criar regra de alerta](./media/metrics-charts/016.png)
+![Criar regra de alerta](./media/metrics-charts/041.png)
 
 Confira este [artigo](alerts-metric.md) para saber mais sobre a configuração de alertas métricos.
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 03f2109a32cd8a8c2643f3c2aa74900f4edd1cee
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 3f71cef19d25a7f987af4147ae0a889280e49bd1
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852851"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563165"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novidades no Reconhecedor de Formato?
 
@@ -23,6 +23,8 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 ## <a name="november-2020"></a>Novembro de 2020
 
 ### <a name="new-features"></a>Novas funcionalidades
+
+**Form Recogniser v2.1 pré-visualização pública 2 já está disponível.** V2.1-preview.2 foi lançado, incluindo as seguintes características: 
 
 - **Novo modelo de fatura pré-construído** - O novo modelo de Fatura pré-construído permite que os clientes levem faturas em diversos formatos e devolvam dados estruturados para automatizar o processamento da fatura. Combina as nossas poderosas capacidades de Reconhecimento de Caracteres Óticos (OCR) com a compreensão da fatura de modelos de aprendizagem profunda para extrair informações-chave das faturas em inglês. Extrai o texto, tabelas e informações como cliente, fornecedor, identificação de fatura, data de vencimento da fatura, total, valor devido, valor do imposto, envio para, fatura para, e muito mais.
 
@@ -37,7 +39,7 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
  
   > [Saiba mais sobre a extração de Layout](concept-layout.md)
 
-- **Atualização da biblioteca** do cliente - A versão mais recente das [bibliotecas clientes](quickstarts/client-library.md) para .NET, Python, Java e JavaScript suportam o Formulário Reconhecedor 2.1 API.
+- **Atualização da biblioteca** de clientes - As versões mais recentes das bibliotecas de [clientes](quickstarts/client-library.md) para .NET, Python, Java e JavaScript suportam o Formulário Reconhecedor 2.1 API.
 - **Nova linguagem suportada: Japonês** - As seguintes novas línguas são agora apoiadas: para `AnalyzeLayout` e : `AnalyzeCustomForm` japonês ( `ja` ). [Suporte de idiomas](language-support.md)
 - **Indicação de estilo de linha de texto (manuscrito/outro) (apenas línguas latinas)** - O Reconhecedor de Formulários agora produz um `appearance` objeto classificando se cada linha de texto é ou não estilo manuscrito, juntamente com uma pontuação de confiança. Esta funcionalidade é suportada apenas para línguas latinas.
 - **Melhorias de qualidade** - Melhorias de extração, incluindo melhorias na extração de um dígito.
@@ -58,7 +60,7 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 
 
 - **Rest A referência API está disponível** - Ver a [referência v2.1-preview.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
-- **Novas línguas apoiadas Para além** do inglês, as [seguintes línguas](language-support.md) são agora apoiadas: para `Layout` e : inglês `Train Custom Model` `en` (simplificado) ( ( holandês ( ( ( ( francês ( ( ( ( ( ( ( ), alemão ( `zh-Hans` ( ( ( ( ( ( ( ( ( ( ( ( ) português `nl` ( ) e espanhol ( `fr` `de` `it` `pt` ). `es`
+- **Novas línguas apoiadas Para além** do inglês, as [seguintes línguas](language-support.md) são agora apoiadas: para `Layout` e : inglês `Train Custom Model` `en` (simplificado) ( ( `zh-Hans` holandês ( francês `nl` ( ), alemão `fr` `de` `it` `pt` `es` ( ) português ( ) e espanhol ( ).
 - **Deteção de marca de verificação / Seleção** – O Reconhecimento de Formulários suporta a deteção e extração de marcas de seleção, tais como caixas de verificação e botões de rádio. As marcas de seleção são extraídas `Layout` e agora também pode rotular e treinar em Comboio com `Train Custom Model`  -  _Etiquetas_ para extrair pares de valores chave para marcas de seleção. 
 - **Model Compose** - permite que vários modelos sejam compostos e chamados com um único modelo ID. Quando um documento é submetido a ser analisado com um ID de modelo composto, uma etapa de classificação é executada pela primeira vez para encaminhá-lo para o modelo personalizado correto. O Modelo Compose está disponível para `Train Custom Model`  -  _Comboio com etiquetas._
 - **Nome do modelo** - adicione um nome amigável aos seus modelos personalizados para facilitar a gestão e o rastreio.

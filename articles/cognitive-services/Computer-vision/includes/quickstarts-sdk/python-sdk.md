@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: include
-ms.date: 12/05/2019
+ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 91bc9def06b7b9844e32dbc0d2654d03c5b72389
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: ea71cd4e235923c48c7c5b5269eb8f58d4c349d1
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96912321"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560802"
 ---
 <a name="HOLTop"></a>
 

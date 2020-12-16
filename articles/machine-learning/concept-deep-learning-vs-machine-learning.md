@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 09/22/2020
-ms.custom: contperf-fy21q1
-ms.openlocfilehash: 0379fd186c499e19d949d9494b0eb5dec4f2bb50
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.date: 12/15/2020
+ms.custom: contperf-fy21q1,contperfq1
+ms.openlocfilehash: f7c4529c68f79c6ad19f22054fd0b7d2ba5116db
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032546"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562842"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Aprendizagem profunda vs. aprendizagem automática em Azure Machine Learning
 
@@ -57,6 +57,16 @@ A tabela a seguir compara mais detalhadamente as duas técnicas:
 |  **Tempo de execução** | Leva relativamente pouco tempo para treinar, variando de alguns segundos a algumas horas. | Normalmente demora muito tempo a treinar porque um algoritmo de aprendizagem profunda envolve muitas camadas. |
 |  **Saída** | A saída é geralmente um valor numérico, como uma pontuação ou uma classificação. | A saída pode ter vários formatos, como um texto, uma partitura ou um som. |
 
+## <a name="transfer-learning"></a>Aprendizagem de Transferência
+
+A formação de modelos de aprendizagem profunda requer frequentemente grandes quantidades de dados de formação, recursos computacionais de alta qualidade (GPU, TPU) e um tempo de treino mais longo. Em cenários em que não tenha nenhum destes disponíveis, pode encurtar o processo de treino usando uma técnica conhecida como aprendizagem de transferência.
+
+A aprendizagem de transferência é uma técnica que aplica conhecimentos adquiridos desde a resolução de um problema para um problema diferente, mas relacionado.
+
+Devido à estrutura das redes neurais, o primeiro conjunto de camadas geralmente contém características de nível inferior, enquanto o conjunto final de camadas contém uma característica de nível superior que está mais próxima do domínio em questão. Ao repor as camadas finais para uso num novo domínio ou problema, pode reduzir significativamente a quantidade de tempo, dados e recursos de cálculo necessários para treinar o novo modelo. Por exemplo, se já tiver um modelo que reconheça carros, pode reutilizar esse modelo usando a aprendizagem de transferência para reconhecer também camiões, motociclos e outros tipos de veículos.
+
+Aprenda a aplicar a aprendizagem de transferência para a classificação de imagem utilizando uma estrutura de código aberto em Azure Machine Learning : [Classifique as imagens utilizando um modelo Pytorch](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
+
 ## <a name="deep-learning-use-cases"></a>Casos de uso de aprendizagem profunda
 
 Devido à estrutura artificial da rede neural, a aprendizagem profunda prima pela identificação de padrões em dados não estruturados como imagens, som, vídeo e texto. Por esta razão, a aprendizagem profunda está a transformar rapidamente muitas indústrias, incluindo os cuidados de saúde, a energia, as finanças e os transportes. Estas indústrias estão agora a repensar os processos comerciais tradicionais. 
@@ -72,8 +82,6 @@ O reconhecimento de entidades nomeadas é um método de aprendizagem profunda qu
 A aprendizagem profunda tem sido aplicada em muitos casos de deteção de objetos. A deteção de objetos compreende duas partes: classificação de imagem e, em seguida, localização de imagem. A _classificação da imagem_ identifica os objetos da imagem, como carros ou pessoas. A _localização_ da imagem fornece a localização específica destes objetos. 
 
 A deteção de objetos já é usada em indústrias como jogos, retalho, turismo e carros automobilísticos.
-
-Saiba como utilizar um modelo de classificação de imagem a partir de uma estrutura de código aberto em Azure Machine Learning: [Classifique as imagens utilizando um modelo Pytorch](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>Geração de legendas de imagem
 
@@ -107,7 +115,7 @@ A rede neural de feedforward é o tipo mais simples de rede neural artificial. N
 
 As redes neuronais recorrentes são uma rede neural artificial amplamente utilizada. Estas redes poupam a saída de uma camada e alimentam-na de volta à camada de entrada para ajudar a prever o resultado da camada. As redes neuronais recorrentes têm grandes capacidades de aprendizagem. São amplamente utilizados para tarefas complexas, como previsão de séries de tempo, aprendizagem de caligrafia e reconhecimento da linguagem.
 
-### <a name="convolutional-neural-networks"></a>Redes neuronais convolucionais
+### <a name="convolutional-neural-network"></a>Rede neuronal convolucional
 
 Uma rede neural convolucional é uma rede neural artificial particularmente eficaz, e apresenta uma arquitetura única. As camadas são organizadas em três dimensões: largura, altura e profundidade. Os neurónios numa camada ligam-se não a todos os neurónios da camada seguinte, mas apenas a uma pequena região dos neurónios da camada. A saída final é reduzida a um único vetor de pontuações de probabilidade, organizadas ao longo da dimensão de profundidade. 
 

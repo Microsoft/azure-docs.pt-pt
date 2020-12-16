@@ -3,12 +3,12 @@ title: Descrição geral das Tarefas do ACR
 description: Uma introdução ao ACR Tasks, um conjunto de funcionalidades no Registo de Contentores Azure que proporciona uma construção, gestão e remendos de imagem de contentores seguros e automatizados na nuvem.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: 14758e363e74450a10f1a2cbfc889f3e24782771
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: b6df415bd55979ef00f6921321dbc254ef7a7e59
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027671"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562859"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizar a imagem do contentor constrói e manutenção com tarefas ACR
 
@@ -58,8 +58,8 @@ A ACR Tasks suporta os seguintes gatilhos quando define um git repo como o conte
 
 | Acionador | Ativado por predefinição |
 | ------- | ------------------ |
-| Consolidação | Yes |
-| Pedido Pull | No |
+| Consolidação | Sim |
+| Pedido Pull | Não |
 
 Para configurar um gatilho de atualização de código fonte, é necessário fornecer à tarefa um token de acesso pessoal (PAT) para definir o webhook no repo do GitHub ou do Azure DevOps.
 
@@ -70,7 +70,7 @@ Aprenda a desencadear as construções do código fonte comprometendo-se no segu
 
 ## <a name="automate-os-and-framework-patching"></a>Automatizar o SISTEMA e a correção de quadros
 
-O poder das Tarefas ACR para melhorar verdadeiramente o fluxo de trabalho de construção de contentores provém da sua capacidade de detetar uma atualização para uma *imagem base* . Uma característica da maioria das imagens do contentor, uma imagem base é uma imagem dos pais na qual uma ou mais imagens de aplicação são baseadas. As imagens base normalmente contêm o sistema operativo, e às vezes as estruturas de aplicação. 
+O poder das Tarefas ACR para melhorar verdadeiramente o fluxo de trabalho de construção de contentores provém da sua capacidade de detetar uma atualização para uma *imagem base*. Uma característica da maioria das imagens do contentor, uma imagem base é uma imagem dos pais na qual uma ou mais imagens de aplicação são baseadas. As imagens base normalmente contêm o sistema operativo, e às vezes as estruturas de aplicação. 
 
 Pode configurar uma tarefa ACR para rastrear uma dependência de uma imagem base quando constrói uma imagem de aplicação. Quando a imagem base atualizada é empurrada para o seu registo, ou uma imagem base é atualizada num repo público, como em Docker Hub, as Tarefas ACR podem automaticamente construir quaisquer imagens de aplicação com base nele.
 Com esta deteção e reconstrução automática, a ACR Tasks poupa-lhe o tempo e esforço normalmente necessários para rastrear e atualizar manualmente cada imagem de aplicação que faz referência à sua imagem base atualizada.
@@ -105,7 +105,7 @@ A tabela que se segue mostra exemplos de locais de contexto suportados para tare
 | Localização de contexto | Descrição | Exemplo |
 | ---------------- | ----------- | ------- |
 | Sistema de ficheiros local | Ficheiros dentro de um diretório no sistema de ficheiros local. | `/home/user/projects/myapp` |
-| Ramo mestre GitHub | Ficheiros dentro do ramo principal (ou outro predefinido) de um repositório gitHub público ou privado.  | `https://github.com/gituser/myapp-repo.git` |
+| Ramo principal do GitHub | Ficheiros dentro do ramo principal (ou outro predefinido) de um repositório gitHub público ou privado.  | `https://github.com/gituser/myapp-repo.git` |
 | Filial do GitHub | Ramo específico de um repo GitHub público ou privado.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | Sub-dobrador GitHub | Ficheiros dentro de uma sub-página num repo GitHub público ou privado. O exemplo mostra a combinação de uma especificação de ramo e sub-dobragem. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | GitHub compromete-se | Compromisso específico num repo GitHub público ou privado. O exemplo mostra a combinação de um haxixe comprometido (SHA) e especificação de sub-dobra. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |

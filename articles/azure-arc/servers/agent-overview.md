@@ -1,14 +1,14 @@
 ---
 title: Visão geral do agente Windows da máquina conectada
 description: Este artigo fornece uma visão detalhada do agente de servidores ativado Azure Arc disponível, que suporta a monitorização de máquinas virtuais hospedadas em ambientes híbridos.
-ms.date: 12/01/2020
+ms.date: 12/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 277e6616ce1bf90ada83516cb71f9cb55de1b7b0
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 531041b7d7439dd2a48fa9e06eb82796f470e9ed
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516804"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563029"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores ativado pelo Azure Arc
 
@@ -80,9 +80,9 @@ Para garantir a segurança dos dados em trânsito para Azure, encorajamo-lo a co
 
 ### <a name="networking-configuration"></a>Configuração da rede
 
-O agente de máquinas conectadas para Linux e Windows comunica de saída de forma segura ao Arco Azure sobre a porta TCP 443. Se a máquina ligar através de uma firewall ou servidor proxy para comunicar através da Internet, rever os requisitos abaixo para entender os requisitos de configuração da rede.
+O agente de máquinas conectadas para Linux e Windows comunica de saída de forma segura ao Arco Azure sobre a porta TCP 443. Se a máquina ligar através de uma firewall ou servidor proxy para comunicar através da Internet, reveja o seguinte para entender os requisitos de configuração da rede.
 
-Se a conectividade de saída for restringida pela sua firewall ou servidor proxy, certifique-se de que os URLs listados abaixo não estão bloqueados. Se permitir apenas os intervalos IP ou os nomes de domínio necessários para que o agente comunique com o serviço, também deve permitir o acesso às seguintes Tags de Serviço e URLs.
+Se a conectividade de saída for restringida pela sua firewall ou servidor proxy, certifique-se de que os URLs listados abaixo não estão bloqueados. Quando apenas permite os intervalos IP ou nomes de domínio necessários para que o agente comunique com o serviço, tem de permitir o acesso às seguintes Tags de Serviço e URLs.
 
 Etiquetas de serviço:
 
@@ -181,8 +181,9 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
     |Nome do serviço |Nome a apresentar |Nome do processo |Descrição |
     |-------------|-------------|-------------|------------|
-    |osds |Serviço de Metadados de Caso Híbrido Azure |himds.exe |Este serviço implementa o serviço de metadados Azure Instance (IMDS) para gerir a ligação ao Azure e a identidade Azure da máquina conectada.|
-    |DscService |Serviço de Configuração de Hóspedes |dsc_service.exe |A base de código de configuração do estado desejada (DSC v2) utilizada dentro do Azure para implementar a Política de In-Guest.|
+    |osds |Serviço de Metadados de Caso Híbrido Azure |osds |Este serviço implementa o serviço de metadados Azure Instance (IMDS) para gerir a ligação ao Azure e a identidade Azure da máquina conectada.|
+    |GCArcService |Serviço de Arco de Configuração de Hóspedes |gc_service |Monitoriza a configuração estatal desejada da máquina.|
+    |Serviço de Extensão |Serviço de extensão de configuração do hóspede | gc_service |Instala as extensões necessárias para a máquina.|
 
 * As seguintes variáveis ambientais são criadas durante a instalação do agente.
 
@@ -232,8 +233,9 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
     |Nome do serviço |Nome a apresentar |Nome do processo |Descrição |
     |-------------|-------------|-------------|------------|
-    |himdsd.service |Serviço de Metadados de Caso Híbrido Azure |/opt/azcmagent/bin/himds |Este serviço implementa o serviço de metadados Azure Instance (IMDS) para gerir a ligação ao Azure e a identidade Azure da máquina conectada.|
-    |dscd.service |Serviço de Configuração de Hóspedes |/opt/DSC/dsc_linux_service |Esta é a base de código de configuração do estado desejada (DSC v2) utilizada dentro do Azure para implementar a Política de In-Guest.|
+    |himdsd.service |Serviço de agente de máquinas conectado Azure |osds |Este serviço implementa o serviço de metadados Azure Instance (IMDS) para gerir a ligação ao Azure e a identidade Azure da máquina conectada.|
+    |gcad.servce |Serviço GC Arc |gc_linux_service |Monitoriza a configuração estatal desejada da máquina. |
+    |extd.service |Serviço de Extensão |gc_linux_service | Instala as extensões necessárias para a máquina.|
 
 * Existem vários ficheiros de registo disponíveis para resolução de problemas. São descritos na tabela seguinte.
 

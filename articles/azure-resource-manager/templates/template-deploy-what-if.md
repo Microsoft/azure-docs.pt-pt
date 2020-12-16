@@ -1,27 +1,24 @@
 ---
-title: Implantação do modelo e se (Pré-visualização)
+title: Implantação do modelo o que-se
 description: Determine quais as alterações que irão acontecer aos seus recursos antes de implementar um modelo de Gestor de Recursos Azure.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 12/15/2020
 ms.author: tomfitz
-ms.openlocfilehash: 27efe1e03b8a0d373d566106a53a41007731973e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1ce7f8f718b364dc4b47593cf9ea37e8baf1e72
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87810076"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563097"
 ---
-# <a name="arm-template-deployment-what-if-operation-preview"></a>Implantação do modelo ARM e se operação (Pré-visualização)
+# <a name="arm-template-deployment-what-if-operation"></a>Operação what-if da implementação de modelos do Resource Manager
 
-Antes de implementar um modelo de Gestor de Recursos Azure (modelo ARM), pode visualizar as alterações que irão ocorrer. O Azure Resource Manager fornece o e-se a operação para que você veja como os recursos vão mudar se implementar o modelo. A operação "e se" não altera os recursos existentes. Em vez disso, prevê as alterações se o modelo especificado for implantado.
-
-> [!NOTE]
-> A operação "e se" está atualmente em pré-visualização. Como um lançamento de pré-visualização, os resultados podem por vezes mostrar que um recurso vai mudar quando realmente não acontecerá nenhuma alteração. Estamos a trabalhar para reduzir estes problemas, mas precisamos da sua ajuda. Por favor, informe estas questões em [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
+Antes de implementar um modelo de Gestor de Recursos Azure (modelo ARM), pode visualizar as alterações que irão ocorrer. O Azure Resource Manager fornece o e-se a operação para que você veja como os recursos vão mudar se implementar o modelo. A operação what-if não faz alterações aos recursos existentes. Em vez disso, prevê as alterações se o modelo especificado for implementado.
 
 Pode utilizar a operação "e se" com as operações Azure PowerShell, Azure CLI ou REST API. E se for suportado para implantações de grupo de recursos, subscrição, grupo de gestão e nível de inquilino.
 
-## <a name="install-azure-powershell-module"></a>Instalar módulo Azure PowerShell
+## <a name="install-azure-powershell-module"></a>Instalar o módulo do Azure PowerShell
 
 Para utilizar o que se em PowerShell, tem de ter a versão **4.2 ou posterior do módulo Az**.
 
@@ -37,34 +34,9 @@ Install-Module -Name Az -Force
 
 Para obter mais informações sobre a instalação de módulos, consulte [instalar a Azure PowerShell](/powershell/azure/install-az-ps).
 
-### <a name="uninstall-alpha-version"></a>Desinstalar a versão alfa
-
-Se já instalou uma versão alfa do módulo "e se", desinstale esse módulo. A versão alfa apenas estava disponível para utilizadores que se inscreveram para uma pré-visualização antecipada. Se não instalou a pré-visualização, pode saltar esta secção.
-
-1. Execute o PowerShell como administrador
-1. Verifique as versões instaladas do módulo Az.Resources.
-
-   ```powershell
-   Get-InstalledModule -Name Az.Resources -AllVersions | select Name,Version
-   ```
-
-1. Se tiver uma versão instalada com um número de versão no formato **2.x.x-alpha,** desinstale esta versão.
-
-   ```powershell
-   Uninstall-Module Az.Resources -RequiredVersion 2.0.1-alpha5 -AllowPrerelease
-   ```
-
-1. Desagregar o repositório que usou para instalar a pré-visualização.
-
-   ```powershell
-   Unregister-PSRepository -Name WhatIfRepository
-   ```
-
-Estás pronto para usar o "e se".
-
 ## <a name="install-azure-cli-module"></a>Instalar módulo CLI Azure
 
-Para utilizar o "e se" em Azure CLI, tem de ter Azure CLI 2.5.0 ou mais tarde. Se necessário, [instale a versão mais recente do Azure CLI](/cli/azure/install-azure-cli).
+Para utilizar what-if na CLI do Azure, tem de ter a CLI do Azure 2.5.0 ou mais recente. Se for necessário, [instale a versão mais recente da CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="see-results"></a>Ver resultados
 
@@ -129,8 +101,8 @@ Para pré-visualizar alterações antes de implementar um modelo, use:
 
 * [grupo de implantação az e se](/cli/azure/deployment/group#az-deployment-group-what-if) para implantações de grupos de recursos
 * [az implantação sub-e-se](/cli/azure/deployment/sub#az-deployment-sub-what-if) para implementações de nível de subscrição
-* [az implantação mg e se](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-what-if) para implantações de grupos de gestão
-* [az inquilino de implantação o que se](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-what-if) para implantações de inquilinos
+* [az implantação mg e se](/cli/azure/deployment/mg#az-deployment-mg-what-if) para implantações de grupos de gestão
+* [az inquilino de implantação o que se](/cli/azure/deployment/tenant#az-deployment-tenant-what-if) para implantações de inquilinos
 
 Pode utilizar o `--confirm-with-what-if` interruptor (ou a sua forma `-c` curta) para visualizar as alterações e ser solicitado para continuar com a implementação. Adicione este interruptor a:
 
@@ -154,7 +126,7 @@ Para REST API, utilize:
 * [Implementações - E se estiver em gestão de âmbito do grupo](/rest/api/resources/deployments/whatifatmanagementgroupscope) para implantações de grupos de gestão
 * [Implantações - E se no âmbito do arrendatário](/rest/api/resources/deployments/whatifattenantscope) para implantações de inquilinos.
 
-## <a name="change-types"></a>Tipos de alteração
+## <a name="change-types"></a>Tipos de alterações
 
 A operação "e se" enumera seis tipos diferentes de alterações:
 
@@ -162,15 +134,15 @@ A operação "e se" enumera seis tipos diferentes de alterações:
 
 - **Excluir**: Este tipo de alteração só se aplica quando se utiliza [o modo completo](deployment-modes.md) de implantação. O recurso existe, mas não está definido no modelo. Com o modo completo, o recurso será eliminado. Apenas os recursos que [suportam a eliminação completa do modo](complete-mode-deletion.md) estão incluídos neste tipo de alteração.
 
-- **Ignorar:** O recurso existe, mas não está definido no modelo. O recurso não será implantado ou modificado.
+- **Ignorar:** O recurso existe, mas não está definido no modelo. O recurso não será implementado ou modificado.
 
-- **NoChange**: O recurso existe e é definido no modelo. O recurso será redistribuído, mas as propriedades do recurso não mudarão. Este tipo de alteração é devolvido quando [o ResultadoFormat](#result-format) está definido para `FullResourcePayloads` , que é o valor padrão.
+- **NoChange**: O recurso existe e é definido no modelo. O recurso será novamente implementado, mas as propriedades do recurso não mudam. Este tipo de alteração é devolvido quando [o ResultadoFormat](#result-format) está definido para `FullResourcePayloads` , que é o valor padrão.
 
-- **Modificar:** O recurso existe e é definido no modelo. O recurso será redistribuído e as propriedades do recurso serão alteradas. Este tipo de alteração é devolvido quando [o ResultadoFormat](#result-format) está definido para `FullResourcePayloads` , que é o valor padrão.
+- **Modificar:** O recurso existe e é definido no modelo. O recurso será novamente implementado e as propriedades do recurso mudam. Este tipo de alteração é devolvido quando [o ResultadoFormat](#result-format) está definido para `FullResourcePayloads` , que é o valor padrão.
 
-- **Implementar**: O recurso existe e é definido no modelo. O recurso será redistribuído. As propriedades do recurso podem ou não mudar. A operação devolve este tipo de alteração quando não tem informações suficientes para determinar se alguma propriedade irá mudar. Só se vê esta condição quando [o ResultadoFormat](#result-format) está definido para `ResourceIdOnly` .
+- **Implementar**: O recurso existe e é definido no modelo. O recurso será novamente implementado. As propriedades do recurso podem ou não ser alteradas. A operação devolve este tipo de alteração quando não tiver informações suficientes para determinar se há propriedades que vão mudar. Só se vê esta condição quando [o ResultadoFormat](#result-format) está definido para `ResourceIdOnly` .
 
-## <a name="result-format"></a>Formato de resultados
+## <a name="result-format"></a>Formato dos resultados
 
 Controla o nível de detalhe que é devolvido sobre as mudanças previstas. Tem duas opções:
 
@@ -282,7 +254,7 @@ az deployment group what-if \
 
 ---
 
-A saída do "e se" parece semelhante a:
+O resultado de what-if é semelhante a:
 
 ![Implementação do modelo do gestor de recursos, se a saída de operação](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
@@ -354,7 +326,7 @@ results=$(az deployment group what-if --resource-group ExampleGroup --template-u
 
 O e-se funcionamento suporta o [modo de implantação](deployment-modes.md). Quando definido para o modo completo, os recursos que não estão no modelo são eliminados. O exemplo a seguir implementa um [modelo que não tem recursos definidos](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) em modo completo.
 
-Para visualizar alterações antes de implementar um modelo, utilize o parâmetro de comutador de confirmação com o comando de implementação. Se as alterações forem como esperava, reconheça que deseja que a implementação esteja concluída.
+Para pré-visualizar as alterações antes de implementar um modelo, utilize o parâmetro confirm switch com o comando de implementação. Se as alterações forem as esperadas, confirme que pretende concluir a implementação.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -415,15 +387,15 @@ Vê as alterações esperadas e pode confirmar que pretende que a implementaçã
 
 Pode utilizar a operação "e se" através dos Azure SDKs.
 
-* Para Python, use [o e se.](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations?view=azure-python#what-if-resource-group-name--deployment-name--properties--location-none--custom-headers-none--raw-false--polling-true----operation-config-)
+* Para Python, use [o e se.](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations#what-if-resource-group-name--deployment-name--properties--location-none--custom-headers-none--raw-false--polling-true----operation-config-)
 
-* Para Java, utilize [a classe DeploymentWhatIf](/java/api/com.microsoft.azure.management.resources.deploymentwhatif?view=azure-java-stable).
+* Para Java, utilize [a classe DeploymentWhatIf](/java/api/com.microsoft.azure.management.resources.deploymentwhatif).
 
-* Para .NET, utilize [a classe DeploymentWhatIf](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif?view=azure-dotnet).
+* Para .NET, utilize [a classe DeploymentWhatIf](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Se notar resultados incorretos a partir da pré-visualização do "e se", por favor reporte as questões em [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
+- Se notar resultados incorretos da operação "e se", por favor reporte as questões em [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 - Para implementar modelos com Azure PowerShell, consulte [implementar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).
 - Para implementar modelos com Azure CLI, consulte [recursos de implantação com modelos ARM e Azure CLI](deploy-cli.md).
 - Para implementar modelos com REST, consulte [implementar recursos com modelos ARM e API do Gestor de Recursos](deploy-rest.md)REST .

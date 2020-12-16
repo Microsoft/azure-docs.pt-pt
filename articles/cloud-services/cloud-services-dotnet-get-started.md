@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: 404fc887cf40ee5d88b2824e8d2324d103226973
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a875c036c79419357f1134c32f62fdb060fec7c6
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164368"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562298"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 
@@ -76,7 +76,7 @@ Quando um utilizador carrega uma imagem, o front-end em execução numa função
 
     Por predefinição, o Visual Studio restaura automaticamente o conteúdo do pacote NuGet, que não estava incluído no ficheiro *.zip*. Se os pacotes não forem restaurados, instale-os manualmente. Para tal, vá para a caixa de diálogo **Gerir Pacotes NuGet da Solução** e clique no botão **Restaurar** na parte superior direita.
 5. No **Explorador de Soluções**, certifique-se de que **ContosoAdsCloudService** é selecionado como o projeto de arranque.
-6. Se estiver a utilizar o Visual Studio 2015 ou superior, altere a cadeia de ligação do SQL Server no ficheiro *Web.config* da aplicação do projeto ContosoAdsWeb e no ficheiro*ServiceConfiguration.Local.cscfg* do projeto ContosoAdsCloudService. Em cada caso, altere “(localdb)\v11.0” para “(localdb)\MSSQLLocalDB”.
+6. Se estiver a utilizar o Visual Studio 2015 ou superior, altere a cadeia de ligação do SQL Server no ficheiro *Web.config* da aplicação do projeto ContosoAdsWeb e no ficheiro *ServiceConfiguration.Local.cscfg* do projeto ContosoAdsCloudService. Em cada caso, altere “(localdb)\v11.0” para “(localdb)\MSSQLLocalDB”.
 7. Prima CTRL+F5 para executar a aplicação.
 
     Quando executa localmente um projeto do serviço em nuvem, o Visual Studio invoca automaticamente o *emulador de computação* do Azure e o *emulador de armazenamento* do Azure. O emulador de computação utiliza os recursos do computador para simular os ambientes da função da Web e da função de trabalho. O emulador de armazenamento utiliza uma base de dados [SQL Server Express LocalDB](/sql/database-engine/configure-windows/sql-server-2016-express-localdb) para simular o armazenamento na nuvem do Azure.
@@ -744,7 +744,7 @@ Este código lê a base de dados para obter o URL da imagem, converte a imagem n
 No caso de algo não funcionar enquanto está a seguir as instruções deste tutorial, apresentamos a seguir alguns erros comuns e como resolvê-los.
 
 ### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException
-O objeto `RoleEnvironment` é fornecido pelo Azure quando executa uma aplicação no Azure ou quando é executada localmente utilizando o emulador de computação do Azure.  Se ocorrer este erro quando a aplicação estiver a ser executada localmente, certifique-se de que definiu o projeto ContosoAdsCloudService como o projeto de arranque. Isto configura o projeto para ser executado utilizando o emulador de computação do Azure.
+O `RoleEnvironment` objeto é fornecido pela Azure quando executa uma aplicação em Azure ou quando funciona localmente usando o Emulador Azure Compute.  Se ocorrer este erro quando a aplicação estiver a ser executada localmente, certifique-se de que definiu o projeto ContosoAdsCloudService como o projeto de arranque. Isto configura o projeto para executar usando o Emulador Azure Compute.
 
 Uma das coisas para as quais a aplicação utiliza o RoleEnvironment do Azure é para obter os valores da cadeia de ligação que estão armazenados nos ficheiros *.cscfg*. Assim, outra causa desta exceção é uma cadeia de ligação em falta. Certifique-se de que criou a definição StorageConnectionString para ambas as configurações Nuvem e Local no projeto ContosoAdsWeb e de que criou ambas as cadeias de ligação para ambas as configurações que criou no projeto ContosoAdsWorker. Se fizer uma pesquisa **Localizar Tudo** para StorageConnectionString na solução toda, deve vê-la 9 vezes nos 6 ficheiros.
 
@@ -754,7 +754,7 @@ Experimente alterar o número da porta utilizado pelo projeto Web. Clique com o 
 Para obter outra alternativa para resolver o problema, consulte a secção seguinte.
 
 ### <a name="other-errors-when-running-locally"></a>Outros erros ao executar localmente
-Por predefinição, os novos projetos do serviço em nuvem utilizam o emulador de computação do Azure expresso para simular o ambiente do Azure. Esta é uma versão simples do emulador de computação completo e, em algumas condições, o emulador completo funcionará enquanto a versão expresso não.  
+Por predefinição, novos projetos de serviço em nuvem utilizam o expresso Azure Compute Emulator para simular o ambiente Azure. Esta é uma versão simples do emulador de computação completo e, em algumas condições, o emulador completo funcionará enquanto a versão expresso não.  
 
 Para alterar o projeto para utilizar o emulador completo, clique com o botão direito do rato no projeto ContosoAdsCloudService e, em seguida, clique em **Propriedades**. Na janela **Propriedades**, clique no separador **Web** e, em seguida, no botão de opção **Utilizar Emulador Completo**.
 

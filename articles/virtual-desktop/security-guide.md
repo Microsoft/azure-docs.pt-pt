@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8cf5504e44239fed6a4a4b82d0064d49f5c5a99f
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: a106455ea9d7b7a64fecd7c4255c294d0bd62db8
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511540"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562621"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
@@ -101,7 +101,7 @@ Os anfitriões de sessão são máquinas virtuais que funcionam dentro de uma su
 
 ### <a name="enable-screen-capture-protection-preview"></a>Ativar a proteção contra a captura de ecrã (pré-visualização)
 
-A funcionalidade de proteção para captura de ecrã impede que informações sensíveis sejam capturadas nos pontos finais do cliente. Quando ativar esta funcionalidade, o conteúdo remoto será automaticamente bloqueado ou escondido em imagens e partilhas de ecrã. Também será ocultado de software malicioso que poderá estar continuamente a capturar o conteúdo do seu ecrã.
+A funcionalidade de proteção para captura de ecrã impede que informações sensíveis sejam capturadas nos pontos finais do cliente. Quando ativar esta funcionalidade, o conteúdo remoto será automaticamente bloqueado ou escondido em imagens e partilhas de ecrã. Também será ocultado de software malicioso que poderá estar continuamente a capturar o conteúdo do seu ecrã. Recomendamos que desative a reorientação da área de transferência para evitar a cópia de conteúdo remoto para pontos finais durante a utilização desta função.
 
 Esta política é aplicada ao nível do hospedeiro configurando uma chave de registo. Para ativar esta política, abra o PowerShell e desabroque a tecla de registo **fEnableScreenCaptureProtection** executando este cmdlet:
 

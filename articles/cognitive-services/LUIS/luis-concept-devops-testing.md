@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: 3017d0dec5acd3494600c42bef410ed346fead1a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f002bfdd5aeb784b5b10b549389e663216fa0361
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025947"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561227"
 ---
 # <a name="testing-for-luis-devops"></a>Teste para LUIS DevOps
 
@@ -123,7 +123,7 @@ Podes usar a [NLU. Pacote DevOps](https://github.com/microsoft/NLU.DevOps) para 
 Também pode usar o NLU. Pacote DevOps para fazer testes de lote na linha de comando.
 
 * Usa a NLU. DevOps [comando de teste](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Test.md) para submeter testes de um ficheiro de teste para um ponto final e para capturar os resultados reais da previsão em um ficheiro, tal como nos testes de unidade.
-* Usa a NLU. DevOps [comparam comando](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) no [modo de teste](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) de desempenho para medir o desempenho da sua app Também pode comparar o desempenho da sua aplicação com um benchmark de desempenho de base, por exemplo, os resultados do mais recente compromisso com o master ou o lançamento atual. No modo de teste de desempenho, o `compare` comando gera resultados de teste nUnit e [de teste](./luis-glossary.md#batch-test) de lote no formato JSON.
+* Usa a NLU. DevOps [comparam comando](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) no [modo de teste](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) de desempenho para medir o desempenho da sua app Também pode comparar o desempenho da sua aplicação com um benchmark de desempenho de base, por exemplo, os resultados do mais recente compromisso com o lançamento principal ou atual. No modo de teste de desempenho, o `compare` comando gera resultados de teste nUnit e [de teste](./luis-glossary.md#batch-test) de lote no formato JSON.
 
 ## <a name="luis-non-deterministic-training-and-the-effect-on-testing"></a>Luis formação não determinística e o efeito nos testes
 
@@ -133,7 +133,7 @@ O resultado desta formação não determinística é que você pode obter uma re
 
 Se pretender desativar a formação não determinística para as versões de aplicações LUIS que está a construir para efeitos de teste, utilize as [definições de versão API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) com a `UseAllTrainingData` definição definida para `true` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a implementação de fluxos de trabalho ci/CD](luis-concept-devops-automation.md)
 * Saiba como [implementar DevOps para LUIS com GitHub](luis-how-to-devops-with-github.md)

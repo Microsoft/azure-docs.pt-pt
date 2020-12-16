@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperf-fy20q4, tracking-python
-ms.openlocfilehash: 8dc8446ecbc203622ce7c2163136c1c26aac1cc7
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 3f128b7ee7fa8f690c2097a5d27e274ec1eb2a8a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032733"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559544"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Use o estúdio Azure Machine Learning numa rede virtual Azure
 
@@ -71,7 +71,7 @@ O estúdio suporta dados de leitura dos seguintes tipos de datastore numa rede v
 
 ### <a name="configure-datastores-to-use-workspace-managed-identity"></a>Configure as lojas de dados para utilizar a identidade gerida pelo espaço de trabalho
 
-Depois de adicionar uma conta de armazenamento Azure à sua rede virtual com um [ponto final](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) de serviço ou ponto [final privado,](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)tem de configurar a sua loja de dados para utilizar a autenticação de identidade [gerida.](../active-directory/managed-identities-azure-resources/overview.md) Ao fazê-lo, permite ao estúdio aceder aos dados na sua conta de armazenamento.
+Depois de adicionar uma conta de armazenamento Azure à sua rede virtual com um [ponto final](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) de serviço ou um ponto [final privado,](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)tem de configurar a sua loja de dados para utilizar a autenticação de identidade [gerida.](../active-directory/managed-identities-azure-resources/overview.md) Ao fazê-lo, permite ao estúdio aceder aos dados na sua conta de armazenamento.
 
 A Azure Machine Learning utiliza [datastores](concept-data.md#datastores) para se conectar às contas de armazenamento. Utilize os seguintes passos para configurar uma loja de dados para utilizar a identidade gerida:
 
@@ -89,7 +89,9 @@ Estes passos adicionam a identidade gerida pelo espaço de trabalho como __leito
 
 ### <a name="enable-managed-identity-authentication-for-default-storage-accounts"></a>Ativar a autenticação de identidade gerida para contas de armazenamento padrão
 
-Cada espaço de trabalho Azure Machine Learning vem com duas contas de armazenamento predefinidas, que são definidas quando cria o seu espaço de trabalho. O estúdio utiliza as contas de armazenamento padrão para armazenar experiências e artefactos de modelo, que são críticos para certas funcionalidades no estúdio.
+Cada espaço de trabalho Azure Machine Learning tem duas contas de armazenamento predefinida, uma conta de armazenamento de blob padrão e uma conta de loja de ficheiros predefinida, que são definidas quando cria o seu espaço de trabalho. Também pode definir novos predefinidos na página de gestão de **Datastore.**
+
+![Screenshot mostrando onde as datas-tores predefinidos podem ser encontradas](./media/how-to-enable-studio-virtual-network/default-datastores.png)
 
 A tabela a seguir descreve por que razão deve ativar a autenticação de identidade gerida para as suas contas de armazenamento padrão do espaço de trabalho.
 
@@ -98,8 +100,12 @@ A tabela a seguir descreve por que razão deve ativar a autenticação de identi
 |Armazenamento de bolhas padrão do espaço de trabalho| Armazena os ativos de modelo do designer. Tem de ativar a autenticação de identidade gerida nesta conta de armazenamento para implementar modelos no designer. <br> <br> Pode visualizar e executar um pipeline de design se utilizar uma loja de dados não padrão que foi configurada para usar a identidade gerida. No entanto, se tentar implementar um modelo treinado sem identidade gerida ativada na datastore padrão, a implementação falhará independentemente de quaisquer outras datas-tores em uso.|
 |Loja de ficheiros padrão do espaço de trabalho| Armazena ativos de experiência AutoML. Tem de ativar a autenticação de identidade gerida nesta conta de armazenamento para submeter experiências AutoML. |
 
-
-![Screenshot mostrando onde as datas-tores predefinidos podem ser encontradas](./media/how-to-enable-studio-virtual-network/default-datastores.png)
+> [!WARNING]
+> Há um problema conhecido em que a loja de ficheiros predefinida não cria automaticamente a `azureml-filestore` pasta, que é necessária para submeter experiências AutoML. Isto ocorre quando os utilizadores trazem uma loja de ficheiros existente para definir como a loja de ficheiros padrão durante a criação do espaço de trabalho.
+> 
+> Para evitar este problema, tem duas opções: 1) Utilize a loja de ficheiros predefinitivamente criada para a criação de espaço de trabalho. 2) Para trazer a sua própria loja de ficheiros, certifique-se de que a loja de ficheiros está fora do VNet durante a criação do espaço de trabalho. Após a criação do espaço de trabalho, adicione a conta de armazenamento à rede virtual.
+>
+> Para resolver este problema, remova a conta de loja de ficheiros da rede virtual e, em seguida, adicione-a de volta à rede virtual.
 
 
 ### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Grant workspace gerido identidade O acesso __do leitor__ ao link privado de armazenamento

@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 keywords: mineração de texto, análise de sentimento, análise de texto
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 2d8ebe87cdf1d11ae4d9c9050ba1ac924089aa33
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 6cef9dc65a72134e0aa70db5f89f4934263c48b4
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505618"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563233"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
@@ -64,7 +64,7 @@ O `/analyze` ponto final permite-lhe utilizar as funcionalidades selecionadas da
 
 O fluxo de trabalho é simples: submete dados para análise e processa as saídas no seu código. Os analisadores são consumidos tal como estão, sem configuração ou personalização adicionais.
 
-1. [Crie um recurso Azure](../cognitive-services-apis-create-account.md) para Análise de Texto. Em seguida, [obtenha a chave](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) gerada para que você autuça os seus pedidos.
+1. [Crie um recurso Azure](how-tos/text-analytics-how-to-call-api.md) para Análise de Texto. Em seguida, [obtenha a chave](how-tos/text-analytics-how-to-call-api.md) gerada para que você autuça os seus pedidos.
 
 2. [Formule um pedido](how-tos/text-analytics-how-to-call-api.md#json-schema) que contém os dados como texto não estruturado e não processado, em JSON.
 

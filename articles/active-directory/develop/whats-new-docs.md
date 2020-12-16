@@ -5,22 +5,43 @@ description: Documentação nova e atualizada para a plataforma de identidade da
 services: active-directory
 author: mmacy
 manager: CelesteDG
-ms.date: 12/01/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 108cd5f74b7b560534baf8f55f7d07ebb6557e7f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4813a71a0bdd14e747aa4cfe51ab5a4191df62a4
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457157"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563046"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Docs da plataforma de identidade da Microsoft: Quais as novidades
 
 Bem-vindos às novidades na documentação da plataforma de identidade da Microsoft. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses.
+
+## <a name="december-2020"></a>Dezembro de 2020
+
+### <a name="new-articles"></a>Artigos novos
+
+- [Quickstart: ASP.NET web web do Core que assina nos utilizadores e chama o Microsoft Graph em seu nome](quickstart-v2-aspnet-core-webapp-calls-graph.md)
+- [Lidar com erros e exceções no MSAL.NET](msal-error-handling-dotnet.md)
+- [Lidar com erros e exceções no MSAL para iOS/macOS](msal-error-handling-ios.md)
+- [Lidar com erros e exceções no MSAL para Java](msal-error-handling-java.md)
+- [Lidar com erros e exceções no MSAL.js](msal-error-handling-js.md)
+- [Lidar com erros e exceções no MSAL para Python](msal-error-handling-python.md)
+- [Cenários de troca de símbolos de plataforma de identidade da Microsoft com SAML e OIDC/OAuth](scenario-token-exchange-saml-oauth.md)
+
+### <a name="updated-articles"></a>Artigos atualizados
+
+- [Tutorial: Construa um daemon multi-inquilino que usa a plataforma de identidade da Microsoft](tutorial-v2-aspnet-daemon-web-app.md)
+- [Aplicação web que assina nos utilizadores: Registo de aplicações](scenario-web-app-sign-user-app-registration.md)
+- [Plataforma de identidade da Microsoft e fluxo de subvenção implícito](v2-oauth2-implicit-grant-flow.md)
+- [Fichas de acesso à plataforma de identidade da Microsoft](access-tokens.md)
+- [Uma API web que chama APIs web: Adquira um símbolo para a app](scenario-web-api-call-api-acquire-token.md)
+
 
 ## <a name="november-2020"></a>Novembro de 2020
 

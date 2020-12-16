@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: cf5c88df4e2ac6b95e99a3a78b1bf1e45bf534ed
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 1f5c0c7a877964eeb480fa958c7e76eb5706122f
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95535559"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561278"
 ---
 # <a name="devops-practices-for-luis"></a>Práticas de DevOps para LUIS
 
@@ -98,7 +98,7 @@ Qualquer que seja a estratégia de ramificação que adote, um princípio fundam
 
 Apoiar o trabalho independente em sucursais com um projeto LUIS:
 
-- **O ramo principal tem a sua própria app LUIS.** Esta aplicação representa o estado atual da sua solução para o seu projeto e a sua versão ativa atual deve sempre mapear para a `.lu` fonte que está no ramo principal. Todas as atualizações para a `.lu` fonte desta aplicação devem ser revistas e testadas para que esta aplicação possa ser implementada para construir ambientes como a Produção a qualquer momento. Quando as atualizações ao `.lu` mercado forem fundidas em mestre a partir de um ramo de funcionalidades, deverá criar uma nova versão na aplicação LUIS e [aumentar o número da versão](#versioning).
+- **O ramo principal tem a sua própria app LUIS.** Esta aplicação representa o estado atual da sua solução para o seu projeto e a sua versão ativa atual deve sempre mapear para a `.lu` fonte que está no ramo principal. Todas as atualizações para a `.lu` fonte desta aplicação devem ser revistas e testadas para que esta aplicação possa ser implementada para construir ambientes como a Produção a qualquer momento. Quando as atualizações ao `.lu` mercado são fundidas em principal a partir de um ramo de funcionalidades, deverá criar uma nova versão na aplicação LUIS e [aumentar o número da versão](#versioning).
 
 - **Cada ramo de recurso deve utilizar a sua própria instância de uma aplicação LUIS**. Os desenvolvedores trabalham com esta aplicação numa sucursal de funcionalidades sem risco de afetar os desenvolvedores que estão a trabalhar em outros balcões. Esta aplicação 'dev branch' é uma cópia de trabalho que deve ser eliminada quando o ramo de funcionalidades é eliminado.
 
@@ -108,13 +108,13 @@ Apoiar o trabalho independente em sucursais com um projeto LUIS:
 
 Os desenvolvedores podem trabalhar em atualizações numa aplicação LUIS independentemente de outras agências por:
 
-1. Criar um ramo de recurso a partir do ramo principal (dependendo da estratégia do seu ramo, geralmente dominar ou desenvolver).
+1. Criar um ramo de recurso a partir do ramo principal (dependendo da estratégia do seu ramo, geralmente principal ou desenvolver).
 
 1. [Criar uma nova aplicação LUIS no portal LUIS](./luis-how-to-start-new-app.md) (a " app *dev branch*") apenas para apoiar o trabalho no ramo de funcionalidades.
 
    * Se a fonte para a `.lu` sua solução já existe no seu ramo, porque foi guardada após o trabalho feito noutra sucursal no início do projeto, crie a sua app dev branch LUIS importando o `.lu` ficheiro.
 
-   * Se está a começar a trabalhar num novo projeto, ainda não terá a fonte para a `.lu` sua app master LUIS no repo. Irá criar o `.lu` ficheiro exportando a sua aplicação de filial dev a partir do portal quando tiver concluído o seu trabalho de filial de funcionalidade, e submetê-lo como parte do seu PR.
+   * Se está a começar a trabalhar num novo projeto, ainda não terá a `.lu` fonte da sua principal app LUIS no repo. Irá criar o `.lu` ficheiro exportando a sua aplicação de filial dev a partir do portal quando tiver concluído o seu trabalho de filial de funcionalidade, e submetê-lo como parte do seu PR.
 
 1. Trabalhe na versão ativa da sua aplicação de filial dev para implementar as alterações necessárias. Recomendamos que trabalhe apenas numa única versão da sua aplicação de filial dev para todo o trabalho da filial de funcionalidades. Se criar mais de uma versão na sua aplicação de filial dev, tenha cuidado para rastrear qual a versão que contém as alterações que pretende fazer quando levantar o seu PR.
 
@@ -124,7 +124,7 @@ Os desenvolvedores podem trabalhar em atualizações numa aplicação LUIS indep
 
 1. Faça o check-in das suas atualizações e convide a revisão dos seus comentários. Se estiver a usar o GitHub, vai levantar um [pedido de retirada.](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests)
 
-1. Quando as alterações forem aprovadas, misture as atualizações no ramo principal. Neste momento, irá criar uma nova [versão](./luis-how-to-manage-versions.md) da app *master* LUIS, utilizando a atualizada `.lu` em master. Consulte [a versão](#versioning) para obter considerações sobre a definição do nome da versão.
+1. Quando as alterações forem aprovadas, misture as atualizações no ramo principal. Neste momento, irá criar uma nova [versão](./luis-how-to-manage-versions.md) da *app principal* da LUIS, utilizando a atualizada `.lu` em geral. Consulte [a versão](#versioning) para obter considerações sobre a definição do nome da versão.
 
 1. Quando o ramo de funcionalidades é eliminado, é uma boa ideia apagar a aplicação de dev branch LUIS que criou para o trabalho da filial de funcionalidades.
 
@@ -150,7 +150,7 @@ Pode suportar vários desenvolvedores que trabalham no mesmo ramo de funcionalid
 
 ### <a name="incorporating-changes-from-one-branch-to-another-with-rebase-or-merge"></a>Incorporação de alterações de um ramo para outro com rebase ou fusão
 
-Alguns outros desenvolvedores da sua equipa que trabalham noutro ramo podem ter feito atualizações à `.lu` fonte e fundi-los ao ramo principal depois de ter criado o seu ramo de recurso. Pode querer incorporar as suas alterações na sua versão de trabalho antes de continuar a fazer alterações no seu ramo de funcionalidades. Pode fazê-lo [rebaseou ou fundiu-se para dominar](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) da mesma forma que qualquer outro ativo de código. Uma vez que a aplicação LUIS em formato LUDown é legível pelo homem, suporta a fusão utilizando ferramentas de fusão padrão.
+Alguns outros desenvolvedores da sua equipa que trabalham noutro ramo podem ter feito atualizações à `.lu` fonte e fundi-los para a sucursal principal depois de ter criado o seu ramo de funcionalidades. Pode querer incorporar as suas alterações na sua versão de trabalho antes de continuar a fazer alterações no seu ramo de funcionalidades. Pode fazê-lo [rebaseou ou fundiu-se ao principal](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) da mesma forma que qualquer outro ativo de código. Uma vez que a aplicação LUIS em formato LUDown é legível pelo homem, suporta a fusão utilizando ferramentas de fusão padrão.
 
 Siga estas dicas se estiver a rebasar a sua aplicação LUIS num ramo de funcionalidades:
 
@@ -162,7 +162,7 @@ Siga estas dicas se estiver a rebasar a sua aplicação LUIS num ramo de funcion
 
 ### <a name="merge-prs"></a>Fundir PRs
 
-Depois de o seu Pr ser aprovado, pode fundir as suas alterações no seu ramo principal. Não se aplicam considerações especiais à fonte LUDown para uma aplicação LUIS: é legível pelo homem e por isso suporta a fusão utilizando ferramentas de fusão padrão. Quaisquer conflitos de fusão podem ser resolvidos da mesma forma que com outros ficheiros de origem.
+Após a aprovação do seu Pr, pode fundir as suas alterações no seu ramo principal. Não se aplicam considerações especiais à fonte LUDown para uma aplicação LUIS: é legível pelo homem e por isso suporta a fusão utilizando ferramentas de fusão padrão. Quaisquer conflitos de fusão podem ser resolvidos da mesma forma que com outros ficheiros de origem.
 
 Depois de o seu RP ter sido fundido, é recomendado para a limpeza:
 
@@ -173,7 +173,7 @@ Depois de o seu RP ter sido fundido, é recomendado para a limpeza:
 Da mesma forma que com os ativos do código de aplicação, deve escrever testes unitários para acompanhar as atualizações da aplicação LUIS. Deve utilizar fluxos de trabalho de integração contínua para testar:
 
 - Atualizações num PR antes da fusão do PR
-- A aplicação master branch LUIS depois de um PR ter sido aprovado e as alterações foram fundidas em mestre.
+- A aplicação principal do ramo LUIS após a aprovação de um PR e as alterações foram fundidas em principal.
 
 Para obter mais informações sobre os testes para LUIS DevOps, consulte [Testes de DevOps para LUIS](luis-concept-devops-testing.md). Para obter mais detalhes sobre a implementação de fluxos de trabalho, consulte [os fluxos de trabalho da Automação para LUIS DevOps](luis-concept-devops-automation.md).
 
@@ -185,9 +185,9 @@ Uma aplicação LUIS em formato LUDown é legível para o homem, que suporta a c
 
 Uma aplicação consiste em vários componentes que podem incluir coisas como um bot em execução no [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QnA Maker,](https://www.qnamaker.ai/) [Azure Speech service](../speech-service/overview.md), e muito mais. Para atingir o objetivo de aplicações pouco acopladas, utilize o controlo de [versão](/azure/devops/learn/git/what-is-version-control) para que cada componente de uma aplicação seja versão independente, permitindo que os desenvolvedores detetem alterações ou atualizações de rutura apenas olhando para o número da versão. É mais fácil ver a sua app LUIS independentemente de outros componentes se a mantiver no seu próprio repo.
 
-A aplicação LUIS para o ramo principal deve ter um esquema de versão aplicada. Quando fundir atualizações para `.lu` uma app LUIS em master, irá então importar essa fonte atualizada para uma nova versão na app LUIS para o ramo principal.
+A aplicação LUIS para o ramo principal deve ter um esquema de versão aplicada. Quando fundir atualizações para `.lu` uma aplicação LUIS em principal, irá então importar essa fonte atualizada para uma nova versão na app LUIS para o ramo principal.
 
-Recomenda-se que utilize um esquema de versão numérica para a versão da aplicação master LUIS, por exemplo:
+Recomenda-se que utilize um esquema de versão numérica para a versão principal da aplicação LUIS, por exemplo:
 
 `major.minor[.build[.revision]]`
 
@@ -199,7 +199,7 @@ A versão principal/menor pode ser usada para indicar o âmbito das alterações
 * Versão menor: Uma pequena alteração compatível com retro-compatível, como após uma nova formação significativa
 * Construir: Nenhuma alteração de funcionalidade, apenas uma construção diferente.
 
-Depois de ter determinado o número de versão para a última revisão da sua app master LUIS, precisa de construir e testar a nova versão da aplicação, e publicá-la num ponto final onde pode ser usada em diferentes ambientes de construção, como Quality Assurance ou Production. É altamente recomendado que automatize todos estes passos num fluxo de trabalho de integração contínua (CI).
+Depois de ter determinado o número de versão para a última revisão da sua principal app LUIS, precisa de construir e testar a nova versão da aplicação, e publicá-la num ponto final onde pode ser usada em diferentes ambientes de construção, como Quality Assurance ou Production. É altamente recomendado que automatize todos estes passos num fluxo de trabalho de integração contínua (CI).
 
 Veja:
 - [Fluxos de trabalho de automatização](luis-concept-devops-automation.md) para detalhes sobre como implementar um fluxo de trabalho de CI para testar e lançar uma aplicação LUIS.
@@ -207,9 +207,9 @@ Veja:
 
 ### <a name="versioning-the-feature-branch-luis-app"></a>Versão da app LUIS 'feature branch'
 
-Quando estiver a trabalhar com uma aplicação LUIS 'dev branch' que criou para apoiar o trabalho numa sucursal de recursos, estará a exportar a sua app quando o seu trabalho estiver concluído e incluirá a atualização `'lu` no seu RP. A sucursal no seu repo, e a app 'dev branch' LUIS devem ser eliminadas após a fusão do PR em mestre. Uma vez que esta aplicação existe apenas para suportar o trabalho no ramo de funcionalidades, não existe um esquema específico de versão que necessite de aplicar dentro desta app.
+Quando estiver a trabalhar com uma aplicação LUIS 'dev branch' que criou para apoiar o trabalho numa sucursal de recursos, estará a exportar a sua app quando o seu trabalho estiver concluído e incluirá a atualização `'lu` no seu RP. A sucursal no seu repo, e a app 'dev branch' LUIS devem ser eliminadas após a fusão do PR em principal. Uma vez que esta aplicação existe apenas para suportar o trabalho no ramo de funcionalidades, não existe um esquema específico de versão que necessite de aplicar dentro desta app.
 
-Quando as suas alterações no seu PR são fundidas em mestre, é quando a versão deve ser aplicada, de modo que todas as atualizações para master são versadas de forma independente.
+Quando as alterações no seu PR são fundidas em principal, é quando a versão deve ser aplicada, de modo que todas as atualizações para o principal são versadas de forma independente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

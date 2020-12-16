@@ -10,22 +10,78 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/20/2020
+ms.date: 12/15/2020
 ms.author: yohaddad
-ms.openlocfilehash: 9cc86167b9d92289aa2edb605d8037a1bf6a9dcb
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: adaea28d105b72152e1af28cc9d79da19c548c2c
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338729"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561414"
 ---
 # <a name="azure-guest-os"></a>Hóspede Azure OS
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao Azure Guest OS. Pes faça uma pesquisa neste artigo para determinar se uma determinada atualização se aplica ao so-os convidado que está a utilizar. As atualizações são sempre transmitidas para a [família][family-explain] em particular em que foram introduzidas.
 
+## <a name="december-2020-guest-os"></a>Os hóspedes de dezembro de 2020
+>[!NOTE] 
+
+>O Sistema de Atendimento convidado de dezembro está a ser lançado para os VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no So do Hóspede de dezembro. Esta lista está sujeita a alterações. 
+
+| Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+|  Rel 20-12 |  [4592440]  |  Última atualização cumulativa | 6.26 | Dez 8, 2020 |
+|  Rel 20-12 |  [4580325]  |  Atualização flash | 3.92, 4.85, 5.50, 6.26 | 13 out, 2020 |
+|  Rel 20-12 |  [4586768]  |  Atualizações Cumulativas do IE | 2.105, 3.92, 4.85 | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4593226]  |  Última atualização cumulativa | 5.50 | Dez 8, 2020 |
+|  Rel 20-12 |  [4052623]  |  Defender | 5.50, 6.26 | Dez 13, 2020 |
+|  Rel 20-12 |  [4578952]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 2.105 | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4578955]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 2.105 | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4578953]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 4.85 | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4578956]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 4.85 | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4578950]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 3.92 | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4578954]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 3.92 | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4578966]  |  .Net Framework 3.5 e 4.7.2 Atualização Cumulativa | 6.26 | 13 out, 2020 |
+|  Rel 20-12 |  [4592471]  |  Rollup mensal | 2.105 | Dez 8, 2020 |
+|  Rel 20-12 |  [4592468]  |  Rollup mensal | 3.92 | Dez 8, 2020 |
+|  Rel 20-12 |  [4592484]  |  Rollup mensal | 4.85 | Dez 8, 2020 |
+|  Rel 20-12 |  [4566426]  |  Atualização de Stack de Manutenção | 3.92 | 14 de julho de 2020 |
+|  Rel 20-12 |  [4566425]  |  Atualização de Stack de Manutenção | 4.85 | 14 de julho de 2020 |
+|  Rel 20-12 OOB |  [4578013]  |  Atualização de segurança autónoma | 4.85 | 19 de agosto de 2020 |
+|  Rel 20-12 |  [4576750]  |  Atualização de Stack de Manutenção | 5.50 | 8 de set, 2020 |
+|  Rel 20-12 |  [4592510]  |  Atualização de Stack de Manutenção | 2.105 | Dez 8, 2020 |
+|  Rel 20-12 |  [4587735]  |  Atualização de Stack de Manutenção | 6.26 | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4494175]  |  Microcódigo | 5.50 | 1 de setembro de 2020 |
+|  Rel 20-12 |  [4494174]  |  Microcódigo | 6.26 | 3 de set, 2020 |
+
+[4592440]: https://support.microsoft.com/kb/4592440
+[4580325]: https://support.microsoft.com/kb/4580325
+[4586768]: https://support.microsoft.com/kb/4586768
+[4593226]: https://support.microsoft.com/kb/4593226
+[4052623]: https://support.microsoft.com/kb/4052623
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4592471]: https://support.microsoft.com/kb/4592471
+[4592468]: https://support.microsoft.com/kb/4592468
+[4592484]: https://support.microsoft.com/kb/4592484
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4592510]: https://support.microsoft.com/kb/4592510
+[4587735]: https://support.microsoft.com/kb/4587735
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
+
 ## <a name="november-2020-guest-os"></a>Os convidados de novembro de 2020
 >[!NOTE] 
 
->O Os Hóspedes de novembro está a ser lançado para os VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no Os Convidados de outubro. Esta lista está sujeita a alterações. 
+>O Os Hóspedes de novembro está a ser lançado para os VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no Os Convidados de novembro. Esta lista está sujeita a alterações. 
 
 | Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |

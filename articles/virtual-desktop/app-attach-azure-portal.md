@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ffae02a11f2857e72cf7c5d2bbc84d8ab6174e17
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: d8ed429003a9da7ae93fb93f4218cd66767dcd7b
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97426019"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562281"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configurar app MSIX anexar com o portal Azure
 
@@ -31,6 +31,7 @@ Aqui está o que precisa para configurar o anexo da app MSIX:
 
 - Uma implementação de ambiente de trabalho virtual do Windows em funcionamento. Para aprender a implementar o Windows Virtual Desktop (clássico), consulte [Criar um inquilino no Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Para aprender a implementar o Windows Virtual Desktop com integração do Azure Resource Manager, consulte [Criar uma piscina de anfitriões com o portal Azure](./create-host-pools-azure-marketplace.md).
 - Uma piscina de anfitriões virtual do Windows Desktop com pelo menos um anfitrião de sessão ativa.
+- Esta piscina de anfitriões deve estar no ambiente de validação. 
 - A ferramenta de embalagem MSIX.
 - Uma aplicação embalada pela MSIX expandiu-se para uma imagem MSIX que é enviada para uma partilha de ficheiros.
 - Uma partilha de ficheiros na sua implementação virtual do Windows Desktop onde o pacote MSIX será armazenado.

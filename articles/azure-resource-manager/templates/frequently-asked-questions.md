@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 5a23cf031b5d7cf40e2077f2e5287e10de563207
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 757dfa119649e21c6e1787671afa61ee18184300
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903008"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561907"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Perguntas frequentes sobre modelos ARM
 
@@ -100,7 +100,7 @@ Este artigo responde frequentemente a perguntas sobre modelos de Gestor de Recur
 
 * **Você vai oferecer uma ferramenta para converter os meus modelos JSON para a nova linguagem de modelo?**
 
-  Sim.
+  Yes.
 
 ## <a name="template-specs"></a>Especificações de Modelo
 
@@ -154,7 +154,7 @@ Este artigo responde frequentemente a perguntas sobre modelos de Gestor de Recur
 
 * **Quando uso o "e se", vejo mudanças de propriedades que não estão no meu modelo. Espera-se este "barulho"?**
 
-  E se está na pré-estreia. Estamos a trabalhar para reduzir o barulho. Ajuda-nos a melhorar, apresentando problemas no nosso gitHub repo aqui: https://aka.ms/WhatIfIssues
+  Estamos a trabalhar para reduzir o barulho. Ajuda-nos a melhorar, apresentando problemas no nosso gitHub repo aqui: https://aka.ms/WhatIfIssues
 
 ## <a name="template-visualizer"></a>Visualizador de modelo
 
@@ -182,7 +182,7 @@ Este artigo responde frequentemente a perguntas sobre modelos de Gestor de Recur
 
 * **Posso integrar modelos ARM em Pipelines Azure?**
 
-  Sim. Para obter uma explicação de como utilizar modelos e oleodutos, consulte [Tutorial: Integração contínua de modelos ARM com Pipelines Azure](deployment-tutorial-pipeline.md) e [Integrar modelos ARM com Pipelines Azure](add-template-to-azure-pipelines.md).
+  Yes. Para obter uma explicação de como utilizar modelos e oleodutos, consulte [Tutorial: Integração contínua de modelos ARM com Pipelines Azure](deployment-tutorial-pipeline.md) e [Integrar modelos ARM com Pipelines Azure](add-template-to-azure-pipelines.md).
 
 * **Posso usar as ações do GitHub para implementar um modelo?**
 
