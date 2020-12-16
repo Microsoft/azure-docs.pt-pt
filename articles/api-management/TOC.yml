@@ -42,6 +42,8 @@
       href: api-management-get-started-publish-versions.md
     - name: 9 - Personalizar o portal do programador
       href: api-management-howto-developer-portal-customize.md
+    - name: 10 - Gerir APIs no Visual Studio Code
+      href: visual-studio-code-tutorial.md
 - name: Amostras
   items:
     - name: Políticas
@@ -216,7 +218,7 @@
           href: api-management-sample-flexible-throttling.md
         - name: Utilizar serviços externos
           href: api-management-sample-send-request.md
-        - name: Utilizar propriedades para gerir segredos
+        - name: Gerir segredos com valores nomeados
           href: api-management-howto-properties.md
         - name: Políticas de restrição de acesso
           href: api-management-access-restriction-policies.md

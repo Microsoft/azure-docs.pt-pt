@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Documentação das Funções do Azure
-summary: As Funções do Azure são um serviço de computação sem servidor lhe que lhe permite executar código acionado por eventos sem ter de aprovisionar ou gerir explicitamente uma infraestrutura.
+summary: As Funções do Azure são um serviço de computação sem servidor lhe que lhe permite executar código acionado por eventos sem ter de aprovisionar ou gerir explicitamente uma infraestrutura. As suas capacidades de "computação a pedido" permitem a integração simplificada e a funcionalidade de suporte pontual. Também pode utilizar este serviço para fornecer APIs Web, responder a alterações de base de dados, processar fluxos de dados de IoT e gerir filas de mensagens.
 metadata:
   title: Documentação das Funções do Azure
-  description: As Funções do Azure são um serviço de computação sem servidor lhe que lhe permite executar código acionado por eventos sem ter de aprovisionar ou gerir explicitamente uma infraestrutura.
+  description: As Funções do Azure são um serviço de computação sem servidor lhe que lhe permite executar código acionado por eventos sem ter de aprovisionar ou gerir explicitamente uma infraestrutura. As suas capacidades de "computação a pedido" permitem a integração simplificada e a funcionalidade de suporte pontual. Também pode utilizar este serviço para fornecer APIs Web, responder a alterações de base de dados, processar fluxos de dados de IoT e gerir filas de mensagens.
   ms.service: azure-functions
   ms.topic: landing-page
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: c2271970fb9a8b500e78687547030d39c5f241e3
-  ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+  ms.openlocfilehash: e6c3cb1a9d536ed898c48c45f57434dc4bf66970
+  ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/07/2020
-  ms.locfileid: "96751713"
+  ms.lasthandoff: 12/15/2020
+  ms.locfileid: "97505295"
 landingContent:
 - title: Acerca das Funções do Azure
   linkLists:

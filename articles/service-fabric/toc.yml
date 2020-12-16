@@ -663,6 +663,8 @@
                   href: service-fabric-cluster-creation-via-portal.md
                 - name: Implementar um Cluster do Azure Service Fabric entre as Zonas de Disponibilidade
                   href: service-fabric-cross-availability-zones.md
+                - name: Implementar um cluster do Azure Service Fabric com tipos de nó sem estado
+                  href: service-fabric-stateless-node-types.md
                 - name: Configurar a autenticação do Azure Active Directory
                   href: service-fabric-cluster-creation-setup-aad.md
                 - name: Criar um modelo de cluster personalizado
